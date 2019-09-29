@@ -1,0 +1,53 @@
+// Accepts a grid definition in the human-readable format. Converts it to the internal format,
+// appends it to a list of grids and returns the resulting list.
+//
+// Note that this function only returns a new list, it does not modify the source list.
+//
+// add-grid($grid-definition, $append-to-list)
+// - $grid-definition : <definition>  See documentation for syntax:
+//                                    https://github.com/Team-Sass/Singularity/wiki/Creating-Grids
+// - $append-to-list  : [list]        A list to append to.
+//                                    Defaults to $grids if none is specified.
+@function add-grid($grid-definition, $custom-map: false) {
+  $Parsed:      parse-add($grid-definition); // Parses grid definition to grid/breakpoint
+  $Grid:        nth($Parsed, 1); // E. g. `(<grid>)`.
+  $Breakpoint:  nth($Parsed, 2); // Either `(<breakpoint>)` or false.
+  $Mobile-First: sgs-get('mobile first');
+  $Grid-Map: ();
+
+  // Determine if a custom map or the default maps should be used.
+  @if $custom-map {
+    $Grid-Map: $custom-map;
+  }
+  @else {
+    @if sgs-has('grids') {
+      $Grid-Map: sgs-get('grids');
+    }
+  }
+  $Grid-Key-Length: length(map-keys($Grid-Map));
+
+  // Check whether the definition will be the first one in the list
+  // and whether it has no breakpoint specified.
+  @if $Breakpoint == null {
+    // Returns the first item of the list, e. g. `(<grid>)`
+    $Grid-Map: map-merge($Grid-Map, (-1px: $Grid));
+  }
+  // IF the list is initiated with a list of grid columns need to start off
+  // a comma seprated list.
+  @else {
+    @if not (map-has-key($Grid-Map, -1px)) {
+      $Grid-Map: map-merge($Grid-Map, map-get($Singularity-Settings, 'grids'));
+    }
+    $Grid-Map: map-merge($Grid-Map, ($Breakpoint: $Grid));
+  }
+
+  $Grid-Map: sort-map($Grid-Map, not $Mobile-First);
+
+  @return $Grid-Map;
+}
+
+
+@mixin add-grid($grid-definition) {
+  $Add-Grid: add-grid($grid-definition);
+  $HOLDER: sgs-set('grids', $Add-Grid);
+}

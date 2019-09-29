@@ -1,0 +1,1592 @@
+String.prototype.safeCSSId = function() {
+  return encodeURIComponent(
+    this.toLowerCase()
+    ).replace(/%[0-9A-F]{2}/gi,'-');
+}
+
+$(document).ready(function() {
+  $('body').append('<div class="archmage-preload"></div>');
+});
+
+// Power Settings
+CONFIG.powerSources = {
+  'class': 'Class',
+  'race': 'Race',
+  'item': 'Item',
+  'other': 'Other'
+};
+
+CONFIG.powerTypes = {
+  'power': 'Power',
+  'feature': 'Feature',
+  'talent': 'Talent',
+  'maneuver': 'Maneuver',
+  'spell': 'Spell',
+  'other': 'Other'
+};
+
+CONFIG.powerUsages = {
+  'at-will': 'At Will',
+  'once-per-battle': 'Once Per Battle',
+  'recharge': 'Recharge',
+  'daily': 'Daily',
+  'other': 'Other'
+};
+
+CONFIG.actionTypes = {
+  'standard': 'Standard',
+  'move': 'Move',
+  'quick': 'Quick',
+  'free': 'Free',
+  'interrupt': 'Interrupt'
+};
+
+class DiceArchmage {
+
+  /**
+   * A standardized helper function for managing core 5e "d20 rolls"
+   *
+   * Holding SHIFT, ALT, or CTRL when the attack is rolled will "fast-forward".
+   * This chooses the default options of a normal attack with no bonus,
+   * Advantage, or Disadvantage respectively
+   *
+   * @param {Event} event The triggering event which initiated the roll
+   * @param {Array} parts The dice roll component parts, excluding the initial
+   *    d20
+   * @param {Object} data Actor or item data against which to parse the roll
+   * @param {String} template       The HTML template used to render the roll
+   *    dialog
+   * @param {String} title          The dice roll UI window title
+   * @param {String} alias          The alias with which to post to chat
+   * @param {Function} flavor       A callable function for determining the chat
+   *    message flavor given parts and data
+   * @param {Boolean} advantage     Allow rolling with advantage (and therefore
+   *    also with disadvantage)
+   * @param {Boolean} situational   Allow for an arbitrary situational bonus
+   *    field
+   * @param {Boolean} highlight     Highlight critical successes and failures
+   * @param {Boolean} fastForward   Allow fast-forward advantage selection
+   * @param {Function} onClose      Callback for actions to take when the dialog
+   *    form is closed
+   * @param {Object} dialogOptions  Modal dialog options
+   *
+   * @return {undefined}
+   */
+  static d20Roll({
+    event,
+    parts,
+    data,
+    template,
+    title,
+    alias,
+    flavor,
+    advantage = true,
+    situational = true,
+    highlight = true,
+    fastForward = true,
+    onClose,
+    dialogOptions
+  }) {
+
+    // Inner roll function
+    let rollMode = 'roll';
+    let roll = () => {
+      let flav = (flavor instanceof Function) ? flavor(parts, data) : title;
+      if (adv === 1) {
+        parts[0] = ['2d20kh'];
+        flav = `${title} (Advantage)`;
+      }
+      else if (adv === -1) {
+        parts[0] = ['2d20kl'];
+        flav = `${title} (Disadvantage)`;
+      }
+
+      // Don't include situational bonus unless it is defined
+      if (!data.bonus && parts.indexOf('@bonus') !== -1) {
+        parts.pop();
+      }
+
+      // Execute the roll and send it to chat
+      let roll = new Roll(parts.join('+'), data).roll();
+      roll.toMessage({
+        alias: alias,
+        flavor: flav,
+        rollMode: rollMode,
+        highlightSuccess: roll.parts[0].total === 20,
+        highlightFailure: roll.parts[0].total === 1
+      });
+    };
+
+    // Modify the roll and handle fast-forwarding
+    let adv = 0;
+    parts = ['1d20'].concat(parts);
+    if (event.shiftKey) {
+      return roll();
+    }
+    else if (event.altKey) {
+      adv = 1;
+      return roll();
+    }
+    else if (event.ctrlKey || event.metaKey) {
+      adv = -1;
+      return roll();
+    }
+    else {
+      parts = parts.concat(['@bonus']);
+    }
+
+    // Render modal dialog
+    template = template ||
+      'public/systems/archmage/templates/chat/roll-dialog.html';
+    let dialogData = {
+      formula: parts.join(' + '),
+      data: data,
+      rollModes: CONFIG.rollModes
+    };
+    renderTemplate(template, dialogData).then(dlg => {
+      new Dialog({
+        title: title,
+        content: dlg,
+        buttons: {
+          advantage: {
+            label: 'Advantage',
+            callback: () => adv = 1
+          },
+          normal: {
+            label: 'Normal',
+          },
+          disadvantage: {
+            label: 'Disadvantage',
+            callback: () => adv = -1
+          }
+        },
+        default: 'normal',
+        close: html => {
+          if (onClose) {
+            onClose(html, parts, data);
+          }
+          rollMode = html.find('[name="rollMode"]').val();
+          data['bonus'] = html.find('[name="bonus"]').val();
+          roll();
+        }
+      }, dialogOptions).render(true);
+    });
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * A standardized helper function for managing core 5e "d20 rolls"
+   *
+   * Holding SHIFT, ALT, or CTRL when the attack is rolled will "fast-forward".
+   * This chooses the default options of a normal attack with no bonus,
+   * Critical, or no bonus respectively
+   *
+   * @param {Event} event The triggering event which initiated the roll
+   * @param {Array} parts The dice roll component parts, excluding the initial
+   *    d20
+   * @param {Object} data Actor or item data against which to parse the roll
+   * @param {String} template The HTML template used to render the roll dialog
+   * @param {String} title The dice roll UI window title
+   * @param {String} alias The alias with which to post to chat
+   * @param {Function} flavor A callable function for determining the chat
+   *    message flavor given parts and data
+   * @param {Boolean} critical Allow critical hits to be chosen
+   * @param {Boolean} situational Allow for an arbitrary situational bonus field
+   * @param {Boolean} fastForward Allow fast-forward advantage selection
+   * @param {Function} onClose Callback for actions to take when the dialog form
+   *    is closed
+   * @param {Object} dialogOptions Modal dialog options
+   *
+   * @return {undefined}
+   */
+  static damageRoll({
+    event,
+    parts,
+    data,
+    template,
+    title,
+    alias,
+    flavor,
+    critical = true,
+    situational = true,
+    fastForward = true,
+    onClose,
+    dialogOptions
+  }) {
+
+    // Inner roll function
+    let rollMode = 'roll';
+    let roll = () => {
+      let roll = new Roll(parts.join('+'), data);
+      let flav = (flavor instanceof Function) ? flavor(parts, data) : title;
+      if (crit) {
+        roll.alter(0, 2);
+        flav = `${title} (Critical)`;
+      }
+
+      // Execute the roll and send it to chat
+      roll.toMessage({
+        alias: alias,
+        flavor: flav,
+        rollMode: rollMode
+      });
+
+      // Return the Roll object
+      return roll;
+    };
+
+    // Modify the roll and handle fast-forwarding
+    let crit = 0;
+    if (event.shiftKey || event.ctrlKey || event.metaKey) {
+      return roll();
+    }
+    else if (event.altKey) {
+      crit = 1;
+      return roll();
+    }
+    else {
+      parts = parts.concat(['@bonus']);
+    }
+
+    // Construct dialog data
+    template = template ||
+      'public/systems/archmage/templates/chat/roll-dialog.html';
+    let dialogData = {
+      formula: parts.join(' + '),
+      data: data,
+      rollModes: CONFIG.rollModes
+    };
+
+    // Render modal dialog
+    return new Promise(resolve => {
+      renderTemplate(template, dialogData).then(dlg => {
+        new Dialog({
+          title: title,
+          content: dlg,
+          buttons: {
+            critical: {
+              condition: critical,
+              label: 'Critical Hit',
+              callback: () => crit = 1
+            },
+            normal: {
+              label: critical ? 'Normal' : 'Roll',
+            },
+          },
+          default: 'normal',
+          close: html => {
+            if (onClose) {
+              onClose(html, parts, data);
+            }
+            rollMode = html.find('[name="rollMode"]').val();
+            data['bonus'] = html.find('[name="bonus"]').val();
+            data['background'] = html.find('[name="background"]').val();
+            resolve(roll());
+          }
+        }, dialogOptions).render(true);
+      });
+    });
+  }
+}
+
+/**
+ * Extend the basic ActorSheet with some very simple modifications
+ */
+class ActorArchmageSheet extends ActorSheet {
+
+  /**
+   * Extend and override the default options used by the 5e Actor Sheet
+   */
+  static get defaultOptions() {
+    const options = super.defaultOptions;
+    options.classes = options.classes.concat(['archmage', 'actor-sheet']);
+    options.template = 'public/systems/archmage/templates/actor-sheet.html';
+    options.width = 800;
+    options.height = 960;
+    return options;
+  }
+
+  /* -------------------------------------------- */
+
+  // get actorType() {
+  //   return this.actor.data.type;
+  // }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Add some extra data when rendering the sheet to reduce the amount of logic
+   * required within the template.
+   *
+   * @return {Object} sheetData
+   */
+  getData() {
+    const sheetData = super.getData();
+
+    this._prepareCharacterItems(sheetData.actor);
+
+    // console.log(sheetData.actor);
+
+    // Return data to the sheet
+    return sheetData;
+  }
+
+  /**
+   * Organize and classify Items for Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterItems(actorData) {
+
+    // Powers
+    const powers = [];
+
+    // // Classes
+    // const classes = [];
+
+    // // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of actorData.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+      // Feats
+      if (i.type === 'power') {
+        // Add labels.
+        i.data.powerSource.label = CONFIG.powerSources[i.data.powerSource.value];
+        i.data.powerType.label = CONFIG.powerTypes[i.data.powerType.value];
+        i.data.powerUsage.label = CONFIG.powerUsages[i.data.powerUsage.value];
+        if (i.data.action) {
+          i.data.actionTypes.label = CONFIG.actionTypes[i.data.action.value];
+        }
+        powers.push(i);
+      }
+    }
+
+    // Assign and return
+    // actorData.inventory = inventory;
+    // actorData.spellbook = spellbook;
+    actorData.powers = powers;
+    // actorData.classes = classes;
+
+    // Inventory encumbrance
+    // let enc = {
+    //   max: actorData.data.abilities.str.value * 15,
+    //   value: Math.round(totalWeight * 10) / 10,
+    // };
+    // enc.pct = Math.min(enc.value * 100 / enc.max, 99);
+    // actorData.data.attributes.encumbrance = enc;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Activate event listeners using the prepared sheet HTML
+   * @param {HTML} html The prepared HTML object ready to be rendered into
+   * the DOM.
+   *
+   * @return {undefined}
+   */
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Activate tabs
+    html.find('.tabs').each((_, el) => {
+      let tabs = $(el);
+      let initial = this.actor.data.flags['_sheetTab-' + tabs.attr('data-tab-container')];
+      new Tabs(tabs, initial, clicked => {
+        this.actor.data.flags['_sheetTab-' + clicked.parent().attr('data-tab-container')] = clicked.attr('data-tab');
+      });
+    });
+
+    // Configure Special Flags
+    html.find('.configure-flags').click(this._onConfigureFlags.bind(this));
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.options.editable) {
+      return;
+    }
+
+    // // Activate MCE
+    // let editor = html.find('.editor-content');
+    // createEditor({
+    //   target: editor[0],
+    //   height: this.position.height - 260,
+    //   setup: ed => {
+    //     this._mce = ed;
+    //   },
+    //   // eslint-disable-next-line camelcase
+    //   save_onsavecallback: ed => {
+    //     let target = editor.attr('data-edit');
+    //     this.actor.update({[target]: ed.getContent()}, true);
+    //   }
+    // }).then(ed => {
+    //   this.mce = ed[0];
+    //   // this.mce.focus();
+    // });
+
+    // Ability Checks
+    html.find('.ability-name').click(ev => {
+      let abl = ev.currentTarget.parentElement.getAttribute('data-ability');
+      this.actor.rollAbility(abl);
+    });
+
+    // Weapon Attacks
+    html.find('.weapon.rollable').click(ev => {
+      let weapon = $(ev.currentTarget).data();
+      let rollAttack = new Roll(`d20 + ${weapon.atk}`);
+      let rollDamage = new Roll(weapon.dmg);
+
+      // Roll the dice.
+      rollAttack.roll();
+      rollDamage.roll();
+
+      // Crits.
+      let attackContent = this._getInlineRoll(rollAttack, true);
+      let damageContent = this._getInlineRoll(rollDamage);
+      let crit = '';
+      let miss = weapon.miss;
+
+      if (attackContent.type === 'crit') {
+        let critDamage = new Roll(weapon.dmg).roll();
+        crit = `<div><strong>Crit:</strong> ${this._getInlineRoll(critDamage).content}</div>`;
+      }
+      else if (attackContent.type === 'fail') {
+        miss = '—';
+      }
+
+      let content = `<div class="archmage chat-card"><div class="card-header"><h3 class="ability-usage ability-usage--at-will">${weapon.label}</h3></div><strong>Attack:</strong> ${attackContent.content} vs. AC</div><div><strong>Hit:</strong> ${attackContent.type !== 'fail' ? damageContent.content : '—'}</div>${crit}<div><strong>Miss:</strong> ${miss}</div>`;
+
+      ChatMessage.create({
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker({actor: this.actor}),
+        content: content
+      })
+    });
+
+    /* -------------------------------------------- */
+    /*  Rollable Items                              */
+    /* -------------------------------------------- */
+
+    // html.find('.item .rollable').click(ev => {
+    //   let itemId = Number($(ev.currentTarget).parents('.item').attr('data-item-id'));
+    //   let Item = CONFIG.Item.entityClass;
+    //   let item = new Item(this.actor.items.find(i => i.id === itemId), this.actor);
+    //   item.roll();
+    // });
+
+    // Item summaries
+    html.find('.item .item-name h4').click(event => this._onItemSummary(event));
+
+    // Item Rolling
+    html.find('.item .item-image').click(event => this._onItemRoll(event));
+    html.find('.item--action h4').click(event => this._onItemRoll(event));
+
+    /* -------------------------------------------- */
+    /*  Inventory
+    /* -------------------------------------------- */
+
+    // Create New Item
+    html.find('.item-create').click(ev => {
+      let type = ev.currentTarget.getAttribute('data-item-type');
+      this.actor.createOwnedItem({
+        name: 'New ' + type.capitalize(),
+        type: type
+      }, true, {
+        renderSheet: true
+      });
+    });
+
+    // Update Inventory Item
+    html.find('.item-edit').click(ev => {
+      let itemId = Number($(ev.currentTarget).parents('.item').attr('data-item-id'));
+      let Item = CONFIG.Item.entityClass;
+      const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
+      item.sheet.render(true);
+    });
+
+    // Delete Inventory Item
+    html.find('.item-delete').click(ev => {
+      let li = $(ev.currentTarget).parents('.item');
+      let itemId = Number(li.attr('data-item-id'));
+      this.actor.deleteOwnedItem(itemId, true);
+      li.slideUp(200, () => this.render(false));
+    });
+
+    /* -------------------------------------------- */
+    /*  Miscellaneous
+    /* -------------------------------------------- */
+
+    /* Item Dragging */
+    let handler = ev => this._onDragItemStart(ev);
+    html.find('.item').each((i, li) => {
+      li.setAttribute('draggable', true);
+      li.addEventListener('dragstart', handler, false);
+    });
+  }
+
+  _getInlineRoll(roll, checkCrit = false) {
+    let parts = '';
+    let modifierClass = 'normal';
+    for (let i = 0; i < roll.parts.length; i++) {
+      let part = roll.parts[i];
+      if (part.rolls) {
+        parts += '[' + part.rolls.map(function(r) {
+          if (checkCrit) {
+            if (r.discarded) {
+              return `<span class="dc-discarded">${r.roll}</span>`;
+            }
+            else if (r.roll === part.faces) {
+              modifierClass = 'crit';
+              return `<span class="dc-crit">${r.roll}</span>`
+            }
+            else if (r.roll === 1) {
+              modifierClass = 'fail';
+              return `<span class="dc-fail">${r.roll}</span>`
+            }
+            else {
+              return r.roll;
+            }
+          }
+          return !r.discarded ? r.roll : `<span class="dc-discarded">${r.roll}</span>`;
+        }).join(', ') + ']';
+      }
+      else {
+        parts += ' ' + part;
+      }
+    }
+    // Return result if successfull, or the original characters otherwise.
+    if (roll.total) {
+      return {
+        content: `<div class="dc-inline-roll"><div class="dc-inline-roll__result"><span class="dc-${modifierClass}">${roll.total}</span></div><div class="dc-inline-roll__parts"><div class="dc-formula">${roll.formula}</div><div class="dc-parts">${parts}</div></div></div>`,
+        type: modifierClass,
+      };
+    }
+    else {
+      return {
+        content: '',
+        type: 'normal',
+      };
+    }
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Handle click events for the Traits tab button to configure special Character Flags
+   */
+  _onConfigureFlags(event) {
+    event.preventDefault();
+    new ActorSheetFlags(this.actor).render(true);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+   * @private
+   */
+  _onItemRoll(event) {
+    event.preventDefault();
+    let itemId = Number($(event.currentTarget).parents(".item").attr("data-item-id")),
+        item = this.actor.getOwnedItem(itemId);
+    item.roll();
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Handle rolling of an item from the Actor sheet, obtaining the Item instance and dispatching to it's roll method
+   * @private
+   */
+  _onItemSummary(event) {
+    event.preventDefault();
+    let li = $(event.currentTarget).parents(".item"),
+        item = this.actor.getOwnedItem(Number(li.attr("data-item-id"))),
+        chatData = item.getChatData({secrets: this.actor.owner});
+
+    // Toggle summary
+    if ( li.hasClass('item--power')) {
+      if ( li.hasClass("expanded") ) {
+        let summary = li.children(".item-summary");
+        summary.slideUp(200, () => summary.remove());
+      } else {
+        let div = $(`<div class="item-summary"></div>`);
+        let descrip = $(`<div class="item-description">${chatData.description.value}</div>`);
+        let tags = $(`<div class="item-tags"></div>`);
+        let props = $(`<div class="item-properties"></div>`);
+        chatData.tags.forEach(t => tags.append(`<span class="tag tag--${t.label.safeCSSId()}">${t.value}</span>`));
+        chatData.properties.forEach(p => props.append(`<span class="tag tag--property tag--${p.label.safeCSSId()}"><strong>${p.label}:</strong> ${p.value}</span>`));
+        if (chatData.effect.value !== undefined && chatData.effect.value !== '') {
+          props.append(`<div class="tag tag--${chatData.effect.label.safeCSSId()}"><strong>${chatData.effect.label}:</strong><div class="description">${chatData.effect.value}</div></div>`)
+        }
+        if (chatData.special.value !== undefined && chatData.special.value !== '') {
+          props.append(`<div class="tag tag--${chatData.special.label.safeCSSId()}"><strong>${chatData.special.label}:</strong><div class="description">${chatData.special.value}</div></div>`)
+        }
+        chatData.feats.forEach(f => props.append(`<div class="tag tag--feat tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`))
+        div.append(tags);
+        div.append(props);
+        div.append(descrip);
+        li.append(div.hide());
+        div.slideDown(200);
+      }
+      li.toggleClass("expanded");
+    }
+  }
+}
+
+Actors.unregisterSheet('core', ActorSheet);
+Actors.registerSheet('archmage', ActorArchmageSheet, {
+  types: [],
+  makeDefault: true
+});
+
+class ActorArchmageNPCSheet extends ActorArchmageSheet {
+  static get defaultOptions() {
+    const options = super.defaultOptions;
+    mergeObject(options, {
+      classes: options.classes.concat(['archmage', 'actor', 'npc-sheet']),
+      width: 640,
+      height: 720
+    });
+    return options;
+  }
+
+  get template() {
+    const path = 'public/systems/archmage/templates/actors/';
+    if ( !game.user.isGM && this.actor.limited ) return path + "limited-npc-sheet.html";
+    return path + "actor-npc-sheet.html";
+  }
+
+  getData() {
+    const sheetData = super.getData();
+
+    this._prepareCharacterItems(sheetData.actor);
+
+    return sheetData;
+  }
+
+  /**
+   * Organize and classify Items for Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterItems(actorData) {
+
+    const actions = [];
+    const traits = [];
+    const nastierSpecials = [];
+
+    // // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of actorData.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+      // Feats
+      if (i.type === 'action') {
+        let action = i;
+        let properties = [
+          'hit',
+          'hit1',
+          'hit2',
+          'hit3',
+          'hit4',
+          'hit5',
+          'miss'
+        ];
+
+        // Parse for simple markdown (italics and bold).
+        for (var prop in i.data) {
+          if (Object.prototype.hasOwnProperty.call(i.data, prop)) {
+              if (properties.includes(prop)) {
+                action.data[prop].formatted = parseMarkdown(i.data[prop].value);
+              }
+          }
+        }
+
+        actions.push(action);
+      }
+      else if (i.type === 'trait') {
+        traits.push(i);
+      }
+      else if (i.type === 'nastierSpecial') {
+        nastierSpecials.push(i);
+      }
+    }
+
+    // Assign and return
+    actorData.actions = actions;
+    actorData.traits = traits;
+    actorData.nastierSpecials = nastierSpecials;
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+    if ( !this.options.editable ) return;
+  }
+}
+
+Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
+  types: ["npc"],
+  makeDefault: true
+});
+
+
+/* -------------------------------------------- */
+
+
+/**
+ * Override and extend the basic :class:`ItemSheet` implementation
+ */
+class ItemArchmageSheet extends ItemSheet {
+
+  /**
+   * Extend and override the default options used by the 5e Actor Sheet
+   */
+  static get defaultOptions() {
+    const options = super.defaultOptions;
+    options.classes = options.classes.concat(['archmage', 'item', 'item-sheet']);
+    options.template = 'public/systems/archmage/templates/item-power-sheet.html';
+    options.height = 400;
+    return options;
+  }
+
+  constructor(item, options) {
+    super(item, options);
+    this.mce = null;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Use a type-specific template for each different item type
+   */
+  get template() {
+    let type = this.item.type;
+    // Special cases.
+    if (type === 'nastierSpecial') {
+      type = 'nastier-special';
+    }
+    // Get template.
+    return `public/systems/archmage/templates/items/item-${type}-sheet.html`;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Prepare item sheet data
+   * Start with the base item data and extending with additional properties for
+   * rendering.
+   *
+   * @return {undefined}
+   */
+  getData() {
+    const data = super.getData();
+
+    // Power-specific data
+    if (this.item.type === 'power') {
+      data['powerSources'] = CONFIG.powerSources;
+      data['powerTypes'] = CONFIG.powerTypes;
+      data['powerUsages'] = CONFIG.powerUsages;
+      data['actionTypes'] = CONFIG.actionTypes;
+    }
+    return data;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Activate listeners for interactive item sheet events.
+   *
+   * @param {HTML} html The prepared HTML object ready to be rendered into
+   *
+   * @return {undefined}
+   */
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Activate tabs
+    new Tabs(html.find('.tabs'));
+  }
+}
+
+Items.unregisterSheet("core", ItemSheet);
+Items.registerSheet("archmage", ItemArchmageSheet, {makeDefault: true});
+
+// Override CONFIG
+CONFIG.Item.sheetClass = ItemArchmageSheet;
+
+/* -------------------------------------------- */
+
+/**
+ * Extend the base Actor class to implement additional logic specialized for D&D5e.
+ */
+class ActorArchmage extends Actor {
+
+  /**
+   * Augment the basic actor data with additional dynamic data.
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  prepareData(actorData) {
+    actorData = super.prepareData(actorData);
+    const data = actorData.data;
+    const flags = actorData.flags;
+
+    // Prepare Character data
+    if (actorData.type === 'character') {
+      this._prepareCharacterData(data);
+    }
+    else if (actorData.type === 'npc') {
+      this._prepareNPCData(data);
+    }
+
+    // Ability modifiers and saves
+    for (let abl of Object.values(data.abilities)) {
+      abl.mod = Math.floor((abl.value - 10) / 2);
+      abl.lvl = Math.floor((abl.value - 10) / 2) + data.attributes.level.value;
+    }
+
+    /**
+     * Determine the median value.
+     * @param {Array} values array of values to tset.
+     *
+     * @return {Int} The median value
+     */
+    function median(values) {
+      values.sort(function (a, b) {
+        return a - b;
+      });
+
+      if (values.length === 0) {
+        return 0;
+      }
+
+      var half = Math.floor(values.length / 2);
+
+      if (values.length % 2) {
+        return values[half];
+      }
+      else {
+        return (values[half - 1] + values[half]) / 2.0;
+      }
+    }
+
+    if (actorData.type === 'character') {
+      data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value;
+      data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value;
+      data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value;
+    }
+
+    // Skill modifiers
+    // for (let skl of Object.values(data.skills)) {
+    //   skl.value = parseFloat(skl.value || 0);
+    //   skl.mod = data.abilities[skl.ability].mod + Math.floor(skl.value * data.attributes.prof.value);
+    // }
+
+    // Attributes
+    var improvedInit = 0;
+    if (flags.archmage) {
+      improvedInit = flags.archmage.improvedIniative ? 4 : 0;
+    }
+    data.attributes.init.mod = data.abilities.dex.mod + (data.attributes.init.value || 0) + improvedInit + data.attributes.level.value;
+    // data.attributes.ac.min = 10 + data.abilities.dex.mod;
+
+    // Set a copy of level in details in order to mimic 5e's data structure.
+    data.details.level = data.attributes.level;
+
+    // Add level ability mods.
+    // Replace the ability attributes in the calculator with custom formulas.
+    let levelMultiplier = 1;
+    if (data.attributes.level.value >= 5) {
+      levelMultiplier = 2;
+    }
+    if (data.attributes.level.value >= 8) {
+      levelMultiplier = 3;
+    }
+
+    if (levelMultiplier > 1) {
+      for (let prop in data.abilities) {
+        data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
+      }
+    }
+
+    // Set an attribute for weapon damage.
+    if (data.attributes.weapon === undefined) {
+      data.attributes.weapon = {
+        melee: {
+          dice: 'd8',
+          value: 'd8'
+        },
+        ranged: {
+          dice: 'd6',
+          value: 'd6'
+        }
+      };
+    }
+    // Handle some possibly unitialized variables. These can be tweaked through the sheet settings.
+    data.attributes.weapon.melee.miss = data.attributes.weapon.melee.miss === undefined ? true : data.attributes.weapon.melee.miss;
+    data.attributes.weapon.ranged.miss = data.attributes.weapon.ranged.miss === undefined ? false : data.attributes.weapon.ranged.miss;
+    data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
+    data.attributes.weapon.ranged.abil = data.attributes.weapon.ranged.abil === undefined ? 'dex' : data.attributes.weapon.ranged.abil;
+    // Set calculated values.
+    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities.str.mod;
+    data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
+    data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg;
+    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities.dex.mod;
+    data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
+    data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg;
+
+    // Return the prepared Actor data
+    return actorData;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Prepare Character type specific data
+   * @param data
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterData(data) {
+
+    // Level, experience, and proficiency
+    data.attributes.level.value = parseInt(data.attributes.level.value);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Prepare NPC type specific data
+   * @param data
+   *
+   * @return {undefined}
+   */
+  _prepareNPCData(data) {
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Roll a generic ability test or saving throw.
+   * Prompt the user for input on which variety of roll they want to do.
+   * @param abilityId {String}    The ability id (e.g. "str")
+   *
+   * @return {undefined}
+   */
+  rollAbility(abilityId) {
+    this.rollAbilityTest(abilityId);
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Roll an Ability Test
+   * Prompt the user for input regarding Advantage/Disadvantage and any
+   * Situational Bonus
+   * @param abilityId {String}    The ability ID (e.g. "str")
+   *
+   * @return {undefined}
+   */
+  rollAbilityTest(abilityId) {
+    let abl = this.data.data.abilities[abilityId];
+    let parts = ['@mod'];
+    let flavor = `${abl.label} Ability Test`;
+
+    // Call the roll helper utility
+    DiceArchmage.d20Roll({
+      event: event,
+      parts: parts,
+      data: {
+        mod: abl.mod + this.data.data.attributes.level.value
+      },
+      title: flavor,
+      alias: this.actor,
+    });
+  }
+}
+
+// Assign the actor class to the CONFIG
+CONFIG.Actor.entityClass = ActorArchmage;
+
+/* -------------------------------------------- */
+
+/**
+ * Override and extend the basic :class:`Item` implementation
+ */
+class ItemArchmage extends Item {
+
+  /**
+   * Roll the item to Chat, creating a chat card which contains follow up attack or damage roll options
+   * @return {Promise}
+   */
+  async roll() {
+
+    // Basic template rendering data
+    const template = `public/systems/archmage/templates/chat/${this.data.type}-card.html`
+    const token = this.actor.token;
+    const templateData = {
+      actor: this.actor,
+      tokenId: token ? `${token.scene._id}.${token.id}` : null,
+      item: this.data,
+      data: this.getChatData()
+    };
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user._id,
+      speaker: {
+        actor: this.actor._id,
+        token: this.actor.token,
+        alias: this.actor.name
+      }
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    if ( ["gmroll", "blindroll"].includes(rollMode) ) chatData["whisper"] = ChatMessage.getWhisperIDs("GM");
+    if ( rollMode === "blindroll" ) chatData["blind"] = true;
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+
+    // Create the chat message
+    return ChatMessage.create(chatData, {displaySheet: false});
+  }
+
+  /* -------------------------------------------- */
+  /*  Chat Card Data
+  /* -------------------------------------------- */
+
+  getChatData(htmlOptions) {
+    const data = this[`_${this.data.type}ChatData`]();
+    data.description.value = data.description.value !== undefined ? enrichHTML(data.description.value, htmlOptions) : '';
+    return data;
+  }
+
+  _powerChatData() {
+    const data = duplicate(this.data.data);
+    const tags = [
+      {
+        label: data.actionType.label,
+        value: CONFIG.actionTypes[data.actionType.value]
+      },
+      {
+        label: data.powerUsage.label,
+        value: CONFIG.powerUsages[data.powerUsage.value]
+      },
+      {
+        label: data.powerSource.label,
+        value: CONFIG.powerSources[data.powerSource.value]
+      },
+      {
+        label: data.powerType.label,
+        value: CONFIG.powerTypes[data.powerType.value]
+      }
+    ];
+    const properties = [
+      {
+        label: data.range.label,
+        value: data.range.value
+      },
+      {
+        label: data.trigger.label,
+        value: data.trigger.value
+      },
+      {
+        label: data.target.label,
+        value: data.target.value
+      },
+      {
+        label: data.attack.label,
+        value: data.attack.value
+      },
+      {
+        label: data.hit.label,
+        value: data.hit.value
+      },
+      {
+        label: data.miss.label,
+        value: data.miss.value
+      }
+    ];
+    const feats = [
+      {
+        label: data.feats.adventurer.description.label,
+        description: data.feats.adventurer.description.value,
+        isActive: data.feats.adventurer.isActive.value
+      },
+      {
+        label: data.feats.champion.description.label,
+        description: data.feats.champion.description.value,
+        isActive: data.feats.champion.isActive.value
+      },
+      {
+        label: data.feats.epic.description.label,
+        description: data.feats.epic.description.value,
+        isActive: data.feats.epic.isActive.value
+      }
+    ];
+    data.tags = tags.filter(t => t.value !== null && t.value !== undefined && t.value != '');
+    data.properties = properties.filter(p => p.value !== null && p.value !== undefined && p.value != '');
+    data.feats = feats.filter(f => f.description !== null && f.description !== undefined && f.description !== '');
+    data.effect = {
+      label: data.effect.label,
+      value: data.effect.value
+    };
+    data.special = {
+      label: data.special.label,
+      value: data.special.value
+    };
+    return data;
+  }
+
+  _actionChatData() {
+    const data = duplicate(this.data.data);
+    return data;
+  }
+
+  static chatListeners(html) {
+
+    // Chat card actions
+    html.on('click', '.card-buttons button', ev => {
+      ev.preventDefault();
+
+      // Extract card data
+      const button = $(ev.currentTarget),
+            messageId = button.parents('.message').attr("data-message-id"),
+            senderId = game.messages.get(messageId).user._id,
+            card = button.parents('.chat-card');
+
+      // Confirm roll permission
+      if ( !game.user.isGM && ( game.user._id !== senderId )) return;
+
+      // Get the Actor from a synthetic Token
+      let actor;
+      const tokenKey = card.attr("data-token-id");
+      if ( tokenKey ) {
+        const [sceneId, tokenId] = tokenKey.split(".");
+        let token;
+        if ( sceneId === canvas.scene._id ) token = canvas.tokens.get(tokenId);
+        else {
+          const scene = game.scenes.get(sceneId);
+          if ( !scene ) return;
+          let tokenData = scene.data.tokens.find(t => t.id === Number(tokenId));
+          if ( tokenData ) token = new Token(tokenData);
+        }
+        if ( !token ) return;
+        actor = Actor.fromToken(token);
+      } else actor = game.actors.get(card.attr('data-actor-id'));
+
+      // Get the Item
+      if ( !actor ) return;
+      const itemId = Number(card.attr("data-item-id"));
+      let itemData = actor.items.find(i => i.id === itemId);
+      if ( !itemData ) return;
+      const item = new CONFIG.Item.entityClass(itemData, {actor: actor});
+
+      // Get the Action
+      const action = button.attr("data-action");
+
+      // Weapon attack
+      if ( action === "weaponAttack" ) item.rollWeaponAttack(ev);
+      else if ( action === "weaponDamage" ) item.rollWeaponDamage(ev);
+      else if ( action === "weaponDamage2" ) item.rollWeaponDamage(ev, true);
+
+      // Spell actions
+      else if ( action === "spellAttack" ) item.rollSpellAttack(ev);
+      else if ( action === "spellDamage" ) item.rollSpellDamage(ev);
+
+      // Feat actions
+      else if ( action === "featAttack" ) item.rollFeatAttack(ev);
+      else if ( action === "featDamage" ) item.rollFeatDamage(ev);
+
+      // Consumable usage
+      else if ( action === "consume" ) item.rollConsumable(ev);
+
+      // Tool usage
+      else if ( action === "toolCheck" ) item.rollToolCheck(ev);
+    });
+  }
+}
+
+// Assign ItemArchmage class to CONFIG
+CONFIG.Item.entityClass = ItemArchmage;
+
+
+class ActorSheetFlags extends BaseEntitySheet {
+  static get defaultOptions() {
+    const options = super.defaultOptions;
+    return mergeObject(options, {
+      id: "actor-flags",
+      template: "public/systems/archmage/templates/actors/actor-flags.html",
+      width: 500,
+      closeOnSubmit: true
+    });
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Configure the title of the special traits selection window to include the Actor name
+   * @type {String}
+   */
+  get title() {
+    return `${game.i18n.localize('Archmage.FlagsTitle')}: ${this.object.name}`;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Prepare data used to render the special Actor traits selection UI
+   * @return {Object}
+   */
+  getData() {
+    const data = super.getData();
+    data.flags = this._getFlags();
+    return data;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Prepare an object of flags data which groups flags by section
+   * Add some additional data for rendering
+   * @return {Object}
+   */
+  _getFlags() {
+    const flags = {};
+    for ( let [k, v] of Object.entries(CONFIG.Actor.characterFlags) ) {
+      if ( !flags.hasOwnProperty(v.section) ) flags[v.section] = {};
+      let flag = duplicate(v);
+      flag.type = v.type.name;
+      flag.isCheckbox = v.type === Boolean;
+      flag.isSelect = v.hasOwnProperty('choices');
+      flag.value = this.entity.getFlag("archmage", k);
+      flags[v.section][k] = flag;
+    }
+    return flags;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Update the Actor using the configured flags
+   * Remove/unset any flags which are no longer configured
+   */
+  _updateObject(event, formData) {
+    const actor = this.object;
+    const flags = duplicate(actor.data.flags.archmage || {});
+
+    // Iterate over the flags which may be configured
+    for ( let [k, v] of Object.entries(CONFIG.Actor.characterFlags) ) {
+      if ( [undefined, null, "", false].includes(formData[k]) ) delete flags[k];
+      else if ( (v.type === Number) && (formData[k] === 0) ) delete flags[k];
+      else flags[k] = formData[k];
+    }
+
+    // Set the new flags in bulk
+    actor.update({'flags.archmage': flags});
+  }
+}
+
+/* -------------------------------------------- */
+CONFIG.Actor.characterFlags = {
+  "initiativeAdv": {
+    name: "Quick to Fight",
+    hint: "Human racial feat to roll 2d20 for initiative and keep the higher roll.",
+    section: "Feats",
+    type: Boolean
+  },
+  "improvedIniative": {
+    name: "Improved Initiative",
+    hint: "General feat to increase initiative by +4.",
+    section: "Feats",
+    type: Boolean
+  }
+};
+
+Hooks.once("init", () => {
+  /**
+   * Register Initiative formula setting
+   */
+  function _setArchmageInitiative(tiebreaker) {
+    CONFIG.initiative.tiebreaker = tiebreaker;
+    CONFIG.initiative.decimals = tiebreaker ? 2 : 0;
+    if ( ui.combat && ui.combat._rendered ) ui.combat.render();
+  }
+  game.settings.register("archmage", "initiativeDexTiebreaker", {
+    name: "SETTINGS.ArchmageInitTBN",
+    hint: "SETTINGS.ArchmageInitTBL",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+    onChange: enable => _setArchmageInitiative(enable)
+  });
+  _setArchmageInitiative(game.settings.get("archmage", "initiativeDexTiebreaker"));
+
+  /**
+   * Override the default Initiative formula to customize special behaviors of the D&D5e system.
+   * Apply advantage, proficiency, or bonuses where appropriate
+   * Apply the dexterity score as a decimal tiebreaker if requested
+   * See Combat._getInitiativeFormula for more detail.
+   * @private
+   */
+  Combat.prototype._getInitiativeFormula = function(combatant) {
+    const actor = combatant.actor;
+    if ( !actor ) return "1d20";
+    const init = actor.data.data.attributes.init;
+    // Init mod includes dex + level + misc bonuses.
+    const parts = ["1d20", init.mod];
+    if ( actor.getFlag("archmage", "initiativeAdv") ) parts[0] = "2d20kh";
+    if ( CONFIG.initiative.tiebreaker ) parts.push(actor.data.data.abilities.dex.value / 100);
+    return parts.filter(p => p !== null).join(" + ");
+  }
+});
+
+
+/* ---------------------------------------------- */
+// Particles
+
+/**
+ * A special full-screen weather effect which uses one Emitters to render cinders
+ * @type {SpecialEffect}
+ */
+class CinderWeatherEffect extends SpecialEffect {
+  static get label() {
+    return 'Cinder';
+  }
+
+  /* -------------------------------------------- */
+
+  getParticleEmitters() {
+    return [this._getCinderEmitter(this.parent)];
+  }
+
+  /* -------------------------------------------- */
+
+  _getCinderEmitter(parent) {
+    const d = canvas.dimensions;
+    const p = (d.width / d.size) * (d.height / d.size) * this.options.density.value;
+    const config = mergeObject(this.constructor.CINDER_CONFIG, {
+      spawnRect: {
+        x: 0,
+        y: -0.10 * d.height,
+        w: d.width,
+        h: d.height
+      },
+      maxParticles: p,
+      frequency: 1 / p
+    }, {inplace: false});
+    return new PIXI.particles.Emitter(parent, ['ui/particles/snow.png'], config);
+  }
+}
+
+// Configure the Rain particle
+CinderWeatherEffect.CINDER_CONFIG = mergeObject(SpecialEffect.DEFAULT_CONFIG, {
+  'alpha': {
+    'start': 0.94,
+    'end': 0.77
+  },
+  'scale': {
+    'start': 0.12,
+    'end': 0.05,
+    'minimumScaleMultiplier': 1.13
+  },
+  'color': {
+    'list': [
+      {
+        'value': '#c20000',
+        'time': 0
+      },
+      {
+        'value': '#ffff12',
+        'time': 0.3
+      },
+      {
+        'value': '#ffffff',
+        'time': 0.6
+      },
+      {
+        'value': '#000000',
+        'time': 1
+      },
+    ],
+    'isStepped': false
+  },
+  'speed': {
+    'start': 40,
+    'end': 0,
+    'minimumSpeedMultiplier': 0
+  },
+  'acceleration': {
+    'x': 0,
+    'y': 0
+  },
+  'maxSpeed': 0,
+  'startRotation': {
+    'min': 0,
+    'max': 360
+  },
+  'noRotation': false,
+  'rotationSpeed': {
+    'min': 61,
+    'max': 0
+  },
+  'lifetime': {
+    'min': 3,
+    'max': 5
+  },
+  'blendMode': 'normal',
+  'frequency': 0.001,
+  'emitterLifetime': -1,
+  'maxParticles': 500,
+  'pos': {
+    'x': 0,
+    'y': 0
+  },
+  'addAtBack': false
+}, {inplace: false});
+CONFIG.weatherEffects.cinder = CinderWeatherEffect;
+
+Hooks.once("ready", () => {
+  // async function archCharUpdate() {
+  //   var archmageType;
+  //   let namesArray = [
+  //     'Dumathoin',
+  //     'Hussanma',
+  //     'Respen',
+  //     'Seidhr',
+  //     'Vaghn'
+  //   ];
+  //   // Update active entities.
+  //   for (let a of game.actors.entities) {
+  //     if (!a.data.type) {
+  //       if (namesArray.includes(a.name)) {
+  //         archmageType = 'character';
+  //       }
+  //       else {
+  //         archmageType = 'npc';
+  //       }
+  //       console.log(`Updating ${a.name} to ${archmageType}`);
+  //       await a.update({"type": archmageType});
+  //     }
+  //     else {
+  //       // Some new schema types aren't automatically converted.
+  //       if (a.data.type === 'npc') {
+  //         let update = false;
+  //         if (!a.data.data.details.resistance || !a.data.data.details.resistance.label) {
+  //           await a.update({'data.details.resistance.type': 'String'});
+  //           await a.update({'data.details.resistance.label': 'Resistance'});
+  //           update = true;
+  //         }
+
+  //         if (!a.data.data.details.vulnerability || !a.data.data.details.vulnerability.label) {
+  //           update = true;
+  //           await a.update({'data.details.vulnerability.type': 'String'});
+  //           await a.update({'data.details.vulnerability.label': 'Vulnerability'});
+  //         }
+
+  //         if (update) {
+  //           console.log(`Updating NPC labels for ${a.name}`);
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   // Update compendium entities.
+  //   for (let c of game.packs) {
+  //     if (c.metadata.entity && c.metadata.entity == 'Actor') {
+  //       let entities = await c.getContent();
+  //       for (let a of entities) {
+  //         if (!a.data.type) {
+  //           if (namesArray.includes(a.name)) {
+  //             archmageType = 'character';
+  //           }
+  //           else {
+  //             archmageType = 'npc';
+  //           }
+  //           a.data.type = archmageType;
+
+  //           console.log(`Updating [compendium] ${a.name} to ${archmageType}`);
+  //           await c.updateEntity(a.data);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // Uncomment this to update all characters.
+  // archCharUpdate();
+});
+
+Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
+  // Add whitelist support for the calculator.
+  whitelist.archmage = {
+    flags: {
+      adv: true
+    },
+    abilities: [
+      'str',
+      'dex',
+      'con',
+      'int',
+      'wis',
+      'cha'
+    ],
+    attributes: [
+      'init',
+      'level'
+    ],
+    custom: {
+      abilities: {},
+      attributes: {
+        levelHalf: {
+          label: 'level_half',
+          name: '1/2 Level',
+          formula: actor.data.data.attributes.level !== undefined ? Math.floor(actor.data.data.attributes.level.value / 2) : 0
+        },
+        levelDouble: {
+          label: 'level_double',
+          name: '2x Level',
+          formula: actor.data.data.attributes.level !== undefined ? actor.data.data.attributes.level.value * 2 : 0
+        },
+        melee: {
+          label: 'melee',
+          name: 'W [Melee]',
+          formula: '@attr.weapon.melee.value'
+        },
+        ranged: {
+          label: 'ranged',
+          name: 'W [Ranged]',
+          formula: '@attr.weapon.ranged.value'
+        }
+      },
+      custom: {}
+    }
+  };
+
+  // Replace the ability attributes in the calculator with custom formulas.
+  let levelMultiplier = 1;
+  if (actor.data.data.attributes.level.value >= 5) {
+    levelMultiplier = 2;
+  }
+  if (actor.data.data.attributes.level.value >= 8) {
+    levelMultiplier = 3;
+  }
+
+  if (levelMultiplier > 1) {
+    for (let prop of whitelist.archmage.abilities) {
+      whitelist.archmage.custom.custom[prop] = {
+        label: prop,
+        name: `${levelMultiplier}${prop}`,
+        formula: `@abil.${prop}.dmg`
+      };
+    }
+  }
+});

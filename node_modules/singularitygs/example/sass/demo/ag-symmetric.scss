@@ -1,0 +1,44 @@
+@import "singularitygs";
+
+$grids: 10;
+$gutters: .2;
+$output: "float";
+
+strong {
+  display: block;
+}
+div {
+  text-align: center;
+  background: rgba(#266FBD, .2);
+}
+
+.ag1 {
+  @include grid-span(2);
+}
+.ag2 {
+  @include grid-span(6);
+}
+.ag3 {
+  @include grid-span(2, last);
+}
+.ag4 {
+  @include grid-span(3, $grid: 6);
+}
+.ag5 {
+  @include grid-span(3, last, $grid: 6);
+}
+.ag6 {
+  @include grid-span(2, $grid: 6);
+}
+.ag7 {
+  @include grid-span(4, last, $grid: 6);
+}
+.ag8 {
+  @include grid-span(2, $grid: 4);
+}
+.ag9 {
+  @include grid-span(2, last, $grid: 4);
+}
+.ag10 {
+  clear: both;
+}

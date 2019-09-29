@@ -1,0 +1,38 @@
+$c-gray: #444;
+$c-gray--lightest: #ccc;
+$c-gray--lighter: #aaa;
+$c-gray--light: #999;
+$c-gray--med: #666;
+$c-gray--dark: #333;
+$c-gray--darker: #111;
+
+$c-white: #fff;
+$c-black: #000;
+
+$c-copper: #782e22;
+$c-blaze: #ff6400;
+$c-red: #ff0000;
+$c-malibu: #afebff;
+$c-green: #bcdeb2;
+
+$c-tab-shadow: #a78f77;
+
+$ct-black--75: rgba($c-black, .75);
+$ct-black--45: rgba($c-black, .45);
+$ct-black--25: rgba($c-black, .25);
+$ct-black--05: rgba($c-black, .05);
+$ct-black--03: rgba($c-black, .03);
+$ct-black--01: rgba($c-black, .01);
+
+$ct-white--45: rgba($c-white, .45);
+
+$ct-green--25: rgba($c-green, .25);
+
+$c-feat-blue: #68d7f194;
+$c-feat-transparent: #ffffff00;
+
+$c-power-will: linear-gradient(45deg, #003c15, #5ee25e);
+$c-power-battle: linear-gradient(45deg, #3c0000, #dc0000);
+$c-power-daily: linear-gradient(45deg, #01003c, #ababab);
+$c-power-recharge: linear-gradient(45deg, #01003c, #71a2ec);
+$c-power-other: linear-gradient(45deg, #25003c, #dc9ff1a6);

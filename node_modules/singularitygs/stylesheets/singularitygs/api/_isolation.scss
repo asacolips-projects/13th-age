@@ -1,0 +1,135 @@
+@function output-isolation($Span-Map) {
+  // Set up Left/Right maps
+  $Return: ();
+
+  $Span: map-get($Span-Map, 'span');
+  $Location: map-get($Span-Map, 'location');
+
+  $Grid: map-get($Span-Map, 'grid');
+  $Gutter: map-get($Span-Map, 'gutter');
+  $Style: map-get($Span-Map, 'style');
+
+  $Start-Row: map-get($Span-Map, 'start row');
+  $End-Row: map-get($Span-Map, 'end row');
+
+  $Fixed-Gutter: map-get($Span-Map, 'fixed gutter');
+  $Split-Gutter: map-get($Span-Map, 'split gutter');
+  $Gutter-Property: map-get($Span-Map, 'gutter property');
+
+  $Direction: map-get($Span-Map, 'direction');
+  $Options: map-get($Span-Map, 'options');
+
+  $Width: column-span($Span, $Location, $Grid, $Gutter, $Style);
+  $Margin-Span: column-span(($Location - 1), 1, $Grid, $Gutter, $Style);
+  $Gutter-Span: gutter-span($Gutter, $Grid);
+
+  // Backwards Compatibility for Options
+  @if type-of($Options) != 'map' and $Options != null {
+    $Options: ('clear': unquote(nth($Options, 1)));
+  }
+
+  $Dir: $Direction;
+  $Opp: opposite-direction($Dir);
+
+  $Return: map-merge($Return, ('width': $Width));
+
+  @if ($End-Row) {
+    $Return: map-merge($Return, ('float': $Opp));
+    $Return: map-merge($Return, ('margin-#{$Dir}': 0));
+
+    @if $Split-Gutter and not $Fixed-Gutter {
+      $Return: map-merge($Return, ('#{$Gutter-Property}-#{$Opp}': $Gutter-Span / 2));
+    }
+    @else {
+      $Return: map-merge($Return, ('margin-#{$Opp}': 0));
+    }
+  }
+  @else {
+    $Return: map-merge($Return, ('float': $Dir));
+    $Return: map-merge($Return, ('margin-#{$Opp}': -100%));
+
+    @if $Start-Row {
+      @if $Split-Gutter and not $Fixed-Gutter {
+        $Return: map-merge($Return, ('margin-#{$Dir}': $Gutter-Span / 2));
+      }
+      @else if not $Fixed-Gutter {
+        $Return: map-merge($Return, ('margin-#{$Dir}': 0));
+      }
+    }
+    @else {
+      @if $Split-Gutter and not $Fixed-Gutter {
+        $Return: map-merge($Return, ('margin-#{$Dir}': $Margin-Span + $Gutter-Span + $Gutter-Span / 2));
+      }
+      @else if not $Fixed-Gutter {
+        $Return: map-merge($Return, ('margin-#{$Dir}': $Margin-Span + $Gutter-Span));
+      }
+      @else {
+        $Return: map-merge($Return, ('margin-#{$Dir}': $Margin-Span));
+      }
+    }
+  }
+  // If options are set, we merge them in!
+  @if ($Options) {
+    $Return: map-merge($Return, $Options);
+  }
+
+  // If CLear isn't already available, set it!
+  @if not map-has-key($Return, 'clear') {
+    $Return: map-merge($Return, ('clear': none));
+  }
+
+  // Left Fixed Gutters
+  @if $Fixed-Gutter {
+    @if index($Style, 'split') {
+      $Return: map-merge($Return, ('#{$Gutter-Property}-#{$Dir}': $Gutter-Span / 2));
+      $Return: map-merge($Return, ('#{$Gutter-Property}-#{$Opp}': $Gutter-Span / 2));
+    }
+    @else {
+      @if not $End-Row {
+        $Return: map-merge($Return, ('#{$Gutter-Property}-#{$Opp}': $Gutter-Span));
+      }
+      @else {
+        $Return: map-merge($Return, ('#{$Gutter-Property}-#{$Opp}': 0));
+      }
+    }
+  }
+
+  @return $Return;
+}
+
+//////////////////////////////
+// Happy Syntax for Isolation
+//
+// Makes working with Isolation easier, as it moves Clear to a 1st class citizen of the mixin, and automatically builds the verbose grid-span mixin call
+//////////////////////////////
+@mixin isolation-span($Span, $Location, $clear: false, $grid: false, $gutter: false, $gutter-style: false, $from: false) {
+  $Options: ();
+  @if $clear {
+    $Options: map-merge($Options, ('clear': unquote($clear)));
+  }
+  @if $from {
+    $Options: map-merge($Options, ('from': $from));
+  }
+
+  $Options: if(length($Options) > 0, $Options, null);
+  @include grid-span($Span, $Location, $grid, $gutter, 'isolation', $gutter-style, $Options);
+}
+
+//////////////////////////////
+// Happy Syntax of Asymmetric Grids
+//
+// Makes working with asymmetric grids easier!
+//////////////////////////////
+@mixin asymmetric-span($Location, $Span: false, $grid: false, $gutter: false, $gutter-style: false, $from: false, $output-style: false) {
+
+  $Span: if($Span != false, $Span, 1);
+  $output-style: if($output-style != false, $output-style, sgs-get('asymmetric output'));
+
+  $Options: ();
+  @if $from {
+    $Options: map-merge($Options, ('from': $from));
+  }
+  $Options: if(length($Options) > 0, $Options, null);
+
+  @include grid-span($Span, $Location, $grid, $gutter, $output-style, $gutter-style, $Options);
+}

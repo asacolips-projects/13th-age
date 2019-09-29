@@ -1,0 +1,23 @@
+{
+  "name": "singularity",
+  "version": "1.8.0",
+  "main": "stylesheets/_singularitygs.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "Gemfile",
+    "Gemfile.lock",
+    "*.gemspec",
+    "lib",
+    "example",
+    "tests",
+    "Rakefile",
+    "templates",
+    "working",
+    "CONTRIBUTING.md"
+  ],
+  "dependencies": {
+    "breakpoint-sass": ">=2.4.0"
+  }
+}

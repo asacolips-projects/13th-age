@@ -1,0 +1,42 @@
+<div class="archmage chat-card item-card" data-actor-id="{{actor._id}}" data-item-id="{{item.id}}" {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+  <header class="card-header flexrow">
+      <h3 class="ability-usage ability-usage--{{data.powerUsage.value}}">{{item.name}}</h3>
+  </header>
+
+  <div class="card-content">
+      <div class="card-row">
+          {{#if data.range.value}}
+              <em>{{data.range.value}}</em>
+          {{/if}}
+          {{#if data.attack.value }}
+              <div class="card-prop"><strong>Attack:</strong> {{data.attack.value}}</div>
+          {{/if}}
+          {{#if data.hit.value }}
+              <div class="card-prop"><strong>Hit:</strong> {{data.hit.value}}</div>
+          {{/if}}
+          {{#if data.hit1.value }}
+              <div class="card-prop"><strong>{{data.hit1.name}}:</strong> {{data.hit1.value}}</div>
+          {{/if}}
+          {{#if data.hit2.value }}
+              <div class="card-prop"><strong>{{data.hit2.name}}:</strong> {{data.hit2.value}}</div>
+          {{/if}}
+          {{#if data.hit3.value }}
+              <div class="card-prop"><strong>{{data.hit3.name}}:</strong> {{data.hit3.value}}</div>
+          {{/if}}
+          {{#if data.miss.value }}
+              <div class="card-prop"><strong>Miss:</strong> {{data.miss.value}}</div>
+          {{/if}}
+          {{#if data.description.value}}
+              <div class="card-row">
+                  {{{data.description.value}}}
+              </div>
+          {{/if}}
+      </div>
+  </div>
+
+  <footer class="card-footer">
+      {{#each data.tags}}
+      <span>{{this.value}}</span>
+      {{/each}}
+  </footer>
+</div>

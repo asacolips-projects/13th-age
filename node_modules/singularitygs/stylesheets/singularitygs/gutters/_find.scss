@@ -1,0 +1,21 @@
+//////////////////////////////
+// Find gutter
+//
+// Finds the gutter that you are on.
+// From Singularity
+// Must be using Breakpoint to work properly
+//////////////////////////////
+@function find-gutter($user-gutters: null) {
+
+  // We supply a default if the user hasn't set any gutters and hasn't passed in a custom column set
+  // The default supplied is based on original Susy options
+  $Gutters: sgs-get('gutters');
+
+  $Found: find-object($Gutters, $user-gutters);
+
+  @if length($Found) == 1 {
+    $Found: nth($Found, 1);
+  }
+
+  @return $Found;
+}

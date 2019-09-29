@@ -1,0 +1,49 @@
+<form class="archmage item-sheet action-sheet {{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="44" width="44"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+
+    <div class="tab active" data-tab="description">
+        <div class="form-group">
+            <label>{{data.attack.label}}</label>
+            <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="Ex: +10 vs AC (2 attacks)"/>
+        </div>
+
+        <div class="form-group">
+            <label>Default {{data.hit.label}}</label>
+            <input type="text" name="data.hit.value" value="{{data.hit.value}}" data-dtype="{{data.hit.type}}" placeholder="Ex: 10 damage, 5 ongoing psychic damage"/>
+        </div>
+
+        <div class="form-group">
+            <label>Special Hit (1)</label>
+            <div class="form-inputs">
+                <input type="text" name="data.hit1.name" value="{{data.hit1.name}}" data-dtype="String" placeholder="Ex: Natural even hit"/>
+                <input type="text" name="data.hit1.value" value="{{data.hit1.value}}" data-dtype="{{data.hit1.type}}" placeholder="Ex: The target is also grabbed."/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Special Hit (2)</label>
+            <div class="form-inputs">
+                <input type="text" name="data.hit2.name" value="{{data.hit2.name}}" data-dtype="String" placeholder="Ex: Natural 18+"/>
+                <input type="text" name="data.hit2.value" value="{{data.hit2.value}}" data-dtype="{{data.hit2.type}}" placeholder="Ex: Make a *screeching wail* attack as a free action."/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Special Hit (3)</label>
+            <div class="form-inputs">
+                <input type="text" name="data.hitt3.name" value="{{data.hitt3.name}}" data-dtype="String" placeholder="Ex: Natural odd miss"/>
+                <input type="text" name="data.hitt3.value" value="{{data.hitt3.value}}" data-dtype="{{data.hitt3.type}}" placeholder="Ex: Deal 8 miss damage"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{data.miss.label}}</label>
+            <input type="text" name="data.miss.value" value="{{data.miss.value}}" data-dtype="{{data.miss.type}}" placeholder="Ex: 4 damage"/>
+        </div>
+
+        {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+    </div>
+</form>

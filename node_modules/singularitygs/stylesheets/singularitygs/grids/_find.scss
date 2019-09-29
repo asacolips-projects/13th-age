@@ -1,0 +1,21 @@
+//////////////////////////////
+// Find Grid
+//
+// Finds the grid that you are on.
+// From Singularity
+// Must be using Breakpoint to work properly
+//////////////////////////////
+@function find-grid($user-columns: null) {
+
+  // We supply a default if the user hasn't set any grids and hasn't passed in a custom column set
+  // The default supplied is based on original Susy options
+  $Grids: sgs-get('grids');
+
+  $Found: find-object($Grids, $user-columns);
+
+  @if length($Found) == 1 {
+    $Found: nth($Found, 1);
+  }
+
+  @return $Found;
+}

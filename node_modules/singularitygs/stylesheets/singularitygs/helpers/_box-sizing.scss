@@ -1,0 +1,26 @@
+//////////////////////////////
+// Box Sizing Mixin
+//////////////////////////////
+$box-sizing-extend: false !default;
+
+@mixin box-sizing($value, $extend: $box-sizing-extend) {
+  @if $extend {
+    @extend %singularity-#{$value};
+  }
+  @else {
+    -moz-box-sizing: $value;
+    box-sizing: $value;
+  }
+}
+
+%singularity-content-box {
+  @include box-sizing(content-box, false);
+}
+
+%singularity-border-box {
+  @include box-sizing(border-box, false);
+}
+
+%singularity-padding-box {
+  @include box-sizing(padding-box, false);
+}

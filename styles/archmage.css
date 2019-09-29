@@ -1,0 +1,108 @@
+.worldbuilding.sheet .window-content {
+    padding: 5px;
+}
+
+/* Sheet Header */
+.worldbuilding.sheet .sheet-header {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex: 0 0 100px;
+    margin-bottom: 10px;
+}
+
+.worldbuilding.sheet .profile-img {
+    flex: 0 0 100px;
+    margin-right: 10px;
+}
+.worldbuilding.item-sheet .profile-img {
+    flex: 0 0 64px;
+}
+
+.worldbuilding.sheet .header-fields {
+    flex: 1;
+    height: 100px;
+}
+.worldbuilding.item-sheet .header-fields {
+    height: 64px;
+}
+
+.worldbuilding.sheet .charname {
+    height: 60px;
+    padding: 5px 0;
+    margin: 0;
+    border-bottom: 0;
+}
+.worldbuilding.sheet .charname input {
+    width: 96%;
+    margin: 0;
+}
+
+.worldbuilding.sheet .resource {
+    height: 40px;
+    width: 50%;
+    padding: 3px 10px;
+    float: left;
+}
+.worldbuilding.sheet .resource input {
+    width: 100px;
+    height: 28px;
+}
+
+/* Navigation Tabs */
+.worldbuilding.sheet .tabs {
+    flex: 0 0 40px;
+    border-top: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
+}
+
+.worldbuilding.sheet .tabs .item {
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.worldbuilding.sheet .tabs .item.active {
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+/* Content Tabs */
+.worldbuilding.sheet .tab {
+    flex: 1;
+}
+
+
+/* Items */
+.worldbuilding.sheet .items-list {
+    list-style: none;
+    margin: 7px 0;
+    padding: 0;
+    height: 360px;
+    overflow-y: scroll;
+}
+.worldbuilding.sheet .items-list .item {
+    height: 28px;
+    border-bottom: 1px solid #BBB;
+    line-height: 28px;
+}
+.worldbuilding.sheet .items-list .item img {
+    float: left;
+    margin-right: 5px;
+}
+.worldbuilding.sheet .items-list .item-name {
+    width: 75%;
+    float: left;
+}
+.worldbuilding.sheet .items-list .item-controls {
+    width: 20%;
+    float: right;
+    text-align: right;
+}
+
+
+/* Submit */
+.worldbuilding.sheet button[type="submit"] {
+    flex: 0 0 32px;
+}
