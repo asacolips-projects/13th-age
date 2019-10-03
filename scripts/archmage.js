@@ -4,10 +4,6 @@ String.prototype.safeCSSId = function() {
     ).replace(/%[0-9A-F]{2}/gi,'-');
 }
 
-$(document).ready(function() {
-  $('body').append('<div class="archmage-preload"></div>');
-});
-
 // Power Settings
 CONFIG.powerSources = {
   'class': 'Class',
@@ -435,8 +431,8 @@ class ActorArchmageSheet extends ActorSheet {
     // Weapon Attacks
     html.find('.weapon.rollable').click(ev => {
       let weapon = $(ev.currentTarget).data();
-      let rollAttack = new Roll(`d20 + ${weapon.atk}`);
-      let rollDamage = new Roll(weapon.dmg);
+      let rollAttack = new Roll(`d20 + ${weapon.atk} + @attributes.escalation.value`, this.actor.data.data);
+      let rollDamage = new Roll(weapon.dmg, this.actor.data.data);
 
       // Roll the dice.
       rollAttack.roll();
@@ -940,6 +936,11 @@ class ActorArchmage extends Actor {
     data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
     data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg;
 
+    // Get the escalation die value.
+    data.attributes.escalation = {
+      value: game.settings.get('archmage', 'currentEscalation')
+    };
+
     // Return the prepared Actor data
     return actorData;
   }
@@ -1319,16 +1320,24 @@ Hooks.once("init", () => {
     CONFIG.initiative.decimals = tiebreaker ? 2 : 0;
     if ( ui.combat && ui.combat._rendered ) ui.combat.render();
   }
-  game.settings.register("archmage", "initiativeDexTiebreaker", {
-    name: "SETTINGS.ArchmageInitTBN",
-    hint: "SETTINGS.ArchmageInitTBL",
-    scope: "world",
+  game.settings.register('archmage', 'initiativeDexTiebreaker', {
+    name: 'Initiative Dex Tiebreaker',
+    hint: 'Whether or not to break iniative ties with dexterity scores.',
+    scope: 'world',
     config: true,
     default: true,
     type: Boolean,
     onChange: enable => _setArchmageInitiative(enable)
   });
-  _setArchmageInitiative(game.settings.get("archmage", "initiativeDexTiebreaker"));
+  _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
+  game.settings.register('archmage', 'currentEscalation', {
+    name: 'Current Escalation Die Value',
+    hint: 'Automatically updated each combat round.',
+    scope: 'world',
+    config: false,
+    default: 0,
+    type: Number,
+  });
 
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
@@ -1455,74 +1464,90 @@ CinderWeatherEffect.CINDER_CONFIG = mergeObject(SpecialEffect.DEFAULT_CONFIG, {
 CONFIG.weatherEffects.cinder = CinderWeatherEffect;
 
 Hooks.once("ready", () => {
-  // async function archCharUpdate() {
-  //   var archmageType;
-  //   let namesArray = [
-  //     'Dumathoin',
-  //     'Hussanma',
-  //     'Respen',
-  //     'Seidhr',
-  //     'Vaghn'
-  //   ];
-  //   // Update active entities.
-  //   for (let a of game.actors.entities) {
-  //     if (!a.data.type) {
-  //       if (namesArray.includes(a.name)) {
-  //         archmageType = 'character';
-  //       }
-  //       else {
-  //         archmageType = 'npc';
-  //       }
-  //       console.log(`Updating ${a.name} to ${archmageType}`);
-  //       await a.update({"type": archmageType});
-  //     }
-  //     else {
-  //       // Some new schema types aren't automatically converted.
-  //       if (a.data.type === 'npc') {
-  //         let update = false;
-  //         if (!a.data.data.details.resistance || !a.data.data.details.resistance.label) {
-  //           await a.update({'data.details.resistance.type': 'String'});
-  //           await a.update({'data.details.resistance.label': 'Resistance'});
-  //           update = true;
-  //         }
+  let escalation = game.settings.get('archmage', 'currentEscalation');
+  let hide = game.combats.entities.length < 1 ? ' hide' : '';
+  $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
+  $('body').append('<div class="archmage-preload"></div>');
+});
 
-  //         if (!a.data.data.details.vulnerability || !a.data.data.details.vulnerability.label) {
-  //           update = true;
-  //           await a.update({'data.details.vulnerability.type': 'String'});
-  //           await a.update({'data.details.vulnerability.label': 'Vulnerability'});
-  //         }
+/**
+ * Class that defines utility methods for the Archmage system.
+ */
+class ArchmageUtility {
 
-  //         if (update) {
-  //           console.log(`Updating NPC labels for ${a.name}`);
-  //         }
-  //       }
-  //     }
-  //   }
+  /**
+   * Get Escalation Die value.
+   *
+   * @param {object} combat
+   *   (Optional) Combat to check the escalation for.
+   *
+   * @return {int} The escalation die value.
+   */
+  static getEscalation(combat = null) {
+    // Get the current combat if one wasn't provided.
+    if (!combat) {
+      if (game.combats !== undefined && game.combats.entities !== undefined) {
+        for (let c of game.combats.entities) {
+          if (c.current !== undefined) {
+            if (c.current.round !== null) {
+              combat = c;
+              break;
+            }
+          }
+        }
+      }
+    }
 
-  //   // Update compendium entities.
-  //   for (let c of game.packs) {
-  //     if (c.metadata.entity && c.metadata.entity == 'Actor') {
-  //       let entities = await c.getContent();
-  //       for (let a of entities) {
-  //         if (!a.data.type) {
-  //           if (namesArray.includes(a.name)) {
-  //             archmageType = 'character';
-  //           }
-  //           else {
-  //             archmageType = 'npc';
-  //           }
-  //           a.data.type = archmageType;
+    // Get the escalation value.
+    if (combat !== null) {
+      let round = combat.current.round;
+      if (round < 1) {
+        return 0;
+      }
+      else if (round > 6) {
+        return 6;
+      }
+      else {
+        return round - 1;
+      }
+    }
 
-  //           console.log(`Updating [compendium] ${a.name} to ${archmageType}`);
-  //           await c.updateEntity(a.data);
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+    // Otherwise, return 0.
+    return 0;
+  }
+}
 
-  // Uncomment this to update all characters.
-  // archCharUpdate();
+// Update escalation die values.
+Hooks.on('updateCombat', (async(combat, update) => {
+  if (combat.current.round !== combat.previous.round) {
+    let escalation = ArchmageUtility.getEscalation(combat);
+    var updated = false;
+    game.settings.set('archmage', 'currentEscalation', escalation);
+
+    // Update the current combtants.
+    for (let combatant of combat.data.combatants) {
+      if (combatant.actor !== undefined) {
+        await combatant.actor.update({'data.attributes.escalation.value': escalation});
+        updated = true;
+      }
+    }
+
+    if (updated) {
+      console.log('Updated escalation die value on combatants.');
+    }
+
+    // Update the escalation die tracker.
+    let $escalationDiv = $('.archmage-escalation');
+    $escalationDiv.attr('data-value', escalation);
+    $escalationDiv.removeClass('hide');
+    $escalationDiv.text(escalation);
+  }
+}));
+
+// Clear escalation die values.
+Hooks.on('deleteCombat', (combat) => {
+  game.settings.set('archmage', 'currentEscalation', 0);
+  $('.archmage-escalation').addClass('hide');
 });
 
 Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
@@ -1551,10 +1576,10 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
           name: '1/2 Level',
           formula: actor.data.data.attributes.level !== undefined ? Math.floor(actor.data.data.attributes.level.value / 2) : 0
         },
-        levelDouble: {
-          label: 'level_double',
-          name: '2x Level',
-          formula: actor.data.data.attributes.level !== undefined ? actor.data.data.attributes.level.value * 2 : 0
+        escalation: {
+          label: 'escalation',
+          name: 'Esc. Die',
+          formula: '@attr.escalation.value'
         },
         melee: {
           label: 'melee',

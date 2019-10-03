@@ -1819,6 +1819,43 @@
   }
 }
 
+// Escalation die.
+.archmage-escalation {
+  width: 36px;
+  height: 36px;
+  box-sizing: content-box;
+  font-size: 24px;
+  line-height: 1.7;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 10px #000;
+  margin: 0 0 8px;
+  color: $c-white;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 24px;
+  left: 240px;
+  pointer-events: none;
+  font-family: $font-stack-secondary;
+
+  &.hide {
+    display: none;
+  }
+
+  &::after {
+    content: 'Escalation Die';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    font-size: 12px;
+    line-height: 1;
+    width: 80px;
+    font-family: $font-stack-base;
+    transform: translateX(-50%);
+  }
+}
+
 #chat-form {
   position: relative;
 

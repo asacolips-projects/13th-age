@@ -2,7 +2,7 @@
   "name": "archmage",
   "title": "13th Age",
   "description": "Build campaigns in the 13th Age RPG using the Foundry VTT environment.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Matt Smith",
   "scripts": [
     "scripts/parse-md.js",
