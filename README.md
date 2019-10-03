@@ -36,12 +36,12 @@ If you're using the **Inline Rolls** setting of the [Dice Calculator](https://gi
 ## Ability Modifiers (x2 Champion, x3 Epic)
 | Formula | Value |
 | :-- | :-- |
-| @abil.str..dmg | Strength modifier |
-| @abil.dex..dmg | Dexterity modifier |
-| @abil.con..dmg | Constitution modifier |
-| @abil.int..dmg | Intelligence modifier |
-| @abil.wis..dmg | Wisdom modifier |
-| @abil.cha..dmg | Charisma modifier |
+| @abil.str.dmg | Strength modifier |
+| @abil.dex.dmg | Dexterity modifier |
+| @abil.con.dmg | Constitution modifier |
+| @abil.int.dmg | Intelligence modifier |
+| @abil.wis.dmg | Wisdom modifier |
+| @abil.cha.dmg | Charisma modifier |
 
 ## Attributes
 | Formula | Value |
