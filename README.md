@@ -21,7 +21,9 @@ Build campaigns in the 13th Age RPG using the Foundry VTT environment.
 
 # Inline Rolls
 
-If you're using the **Inline Rolls** setting of the [Dice Calculator](https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator) module, you can use any of the following attributes in your roll formulas:
+If you're using the **Inline Rolls** setting of the [Dice Calculator](https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator) module, you can use any of the following attributes in your roll formulas. For example:
+
+`[[d20 + @abil.str.mod + @attr.level.value + @attr.escalation.value]]`
 
 ## Ability Modifiers
 | Formula | Value |
