@@ -1624,12 +1624,12 @@
   padding: 8px; }
 
 .archmage-escalation {
-  width: 36px;
-  height: 36px;
+  width: 84px;
+  height: 84px;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  font-size: 24px;
-  line-height: 1.7;
+  font-size: 60px;
+  line-height: 1.2;
   background: rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0 0 10px #000;
   box-shadow: 0 0 10px #000;
@@ -1639,8 +1639,8 @@
   border: 1px solid #000;
   border-radius: 5px;
   position: fixed;
-  bottom: 24px;
-  left: 240px;
+  bottom: 7px;
+  left: 230px;
   pointer-events: none;
   font-family: "warnock-pro", "sans-serif"; }
   .archmage-escalation.hide {
@@ -1648,7 +1648,7 @@
   .archmage-escalation::after {
     content: 'Escalation Die';
     position: absolute;
-    top: 40px;
+    bottom: 2px;
     left: 50%;
     font-size: 12px;
     line-height: 1;
