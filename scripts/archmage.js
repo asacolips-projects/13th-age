@@ -904,7 +904,7 @@ class ActorArchmage extends Actor {
       levelMultiplier = 3;
     }
 
-    if (levelMultiplier > 1) {
+    if (levelMultiplier > 0) {
       for (let prop in data.abilities) {
         data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
       }
@@ -915,11 +915,13 @@ class ActorArchmage extends Actor {
       data.attributes.weapon = {
         melee: {
           dice: 'd8',
-          value: 'd8'
+          value: 'd8',
+          abil: 'str'
         },
         ranged: {
           dice: 'd6',
-          value: 'd6'
+          value: 'd6',
+          abil: 'dex'
         }
       };
     }
@@ -929,10 +931,10 @@ class ActorArchmage extends Actor {
     data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
     data.attributes.weapon.ranged.abil = data.attributes.weapon.ranged.abil === undefined ? 'dex' : data.attributes.weapon.ranged.abil;
     // Set calculated values.
-    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities.str.mod;
+    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod;
     data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
     data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg;
-    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities.dex.mod;
+    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod;
     data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
     data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg;
 

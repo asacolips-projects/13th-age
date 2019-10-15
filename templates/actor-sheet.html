@@ -94,7 +94,7 @@
                     data-miss="{{#if data.attributes.weapon.melee.miss}}{{data.attributes.level.value}}{{else}}0{{/if}}"
                     data-label="Melee Weapon Attack">
                     <div class="weapon__atk">+{{data.attributes.weapon.melee.attack}} vs. AC</div>
-                    <div class="weapon__dmg">{{data.attributes.weapon.melee.value}} + {{data.abilities.str.dmg}}</div>
+                    <div class="weapon__dmg">{{data.attributes.weapon.melee.value}} + {{data.attributes.weapon.melee.dmg}}</div>
                     <div class="weapon__miss">{{#if data.attributes.weapon.melee.miss}}{{data.attributes.level.value}}{{/if}}</div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     data-miss="{{#if data.attributes.weapon.ranged.miss}}{{data.attributes.level.value}}{{else}}—{{/if}}"
                     data-label="Ranged Weapon Attack">
                     <div class="weapon__atk">+{{data.attributes.weapon.ranged.attack}} vs. AC</div>
-                    <div class="weapon__dmg">{{data.attributes.weapon.ranged.value}} + {{data.abilities.dex.dmg}}</div>
+                    <div class="weapon__dmg">{{data.attributes.weapon.ranged.value}} + {{data.attributes.weapon.ranged.dmg}}</div>
                     <div class="weapon__miss">{{#if data.attributes.weapon.ranged.miss}}{{data.attributes.level.value}}{{else}}—{{/if}}</div>
                 </div>
             </div>
@@ -284,7 +284,7 @@
 
             <div class="settings-group">
                 <label for="data.attributes.weapon.melee.abil" class="attribute-name">Melee Ability</label>
-                <select class="attribute-input" name="data.attributes.weapon.melee.name" data-type="String">
+                <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
                     {{#select data.attributes.weapon.melee.abil}}
                     <option value="str">Str</option>
                     <option value="dex">Dex</option>
