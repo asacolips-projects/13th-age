@@ -1726,3 +1726,95 @@
 
 .dc-fail {
   color: #ff5252; }
+
+.archmage-prepopulate .window-content > .dialog-content {
+  height: 100%;
+  -webkit-box-flex: 100%;
+  -ms-flex: 100%;
+  flex: 100%;
+  overflow-y: auto; }
+
+.archmage-prepopulate .window-content > .dialog-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding: 10px 0 3px; }
+
+.archmage-import-power {
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 0 24px !important;
+  flex: 0 0 24px !important;
+  width: auto;
+  display: block;
+  height: 32px;
+  line-height: 1;
+  position: relative;
+  margin: 4px;
+  line-height: 24px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #999;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #FFF inset;
+  box-shadow: 0 0 2px #FFF inset; }
+  .item-sheet .sheet-header > .archmage-import-power {
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 24px !important;
+    flex: 0 0 24px !important; }
+
+.import-powers-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.import-powers-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 2px 4px; }
+  .import-powers-item + .import-powers-item {
+    border-top: 1px solid #999; }
+
+.import-powers-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  color: #fff;
+  cursor: pointer; }
+  .import-powers-item:hover, .import-powers-item:focus {
+    color: #fff; }
+  .import-powers-item > div {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .import-powers-item > .title {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .import-powers-item > .usage {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 120px;
+    flex: 0 0 120px; }
+  .import-powers-item > .type {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px; }
+  .import-powers-item > .level {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 24px;
+    flex: 0 0 24px; }
