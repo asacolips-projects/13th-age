@@ -12,6 +12,17 @@
   font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
   font-size: 18px; }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  /* added line */ }
+
 .flexrow {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1818,3 +1829,17 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px; }
+
+.item-properties table,
+.card-prop table {
+  border: 0; }
+
+.item-properties th,
+.item-properties td,
+.card-prop th,
+.card-prop td {
+  padding: 4px; }
+
+.item-properties tr:nth-child(even),
+.card-prop tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.05); }

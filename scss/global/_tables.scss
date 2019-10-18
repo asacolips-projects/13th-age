@@ -1,0 +1,17 @@
+.item-properties,
+.card-prop {
+  table {
+    border: 0;
+  }
+
+  th,
+  td {
+    padding: 4px;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background: $ct-black--05;
+    }
+  }
+}
