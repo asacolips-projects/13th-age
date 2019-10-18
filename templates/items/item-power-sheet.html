@@ -73,6 +73,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label>{{data.powerLevel.label}}</label>
+                    <input type="text" name="data.powerLevel.value" value="{{data.powerLevel.value}}" data-dtype="{{data.powerLevel.type}}" placeholder="1"/>
+                </div>
+
+                <div class="form-group">
                     <label>{{data.range.label}}</label>
                     <input type="text" name="data.range.value" value="{{data.range.value}}" data-dtype="{{data.range.type}}" placeholder="Melee or Ranged"/>
                 </div>
@@ -103,8 +108,23 @@
                 </div>
 
                 <div class="form-group">
+                    <label>{{data.missEven.label}}</label>
+                    <input type="text" name="data.missEven.value" value="{{data.missEven.value}}" data-dtype="{{data.missEven.type}}" placeholder=""/>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.missOdd.label}}</label>
+                    <input type="text" name="data.missOdd.value" value="{{data.missOdd.value}}" data-dtype="{{data.missOdd.type}}" placeholder=""/>
+                </div>
+
+                <div class="form-group">
                     <label>{{data.recharge.label}}</label>
                     <input type="text" name="data.recharge.value" value="{{data.recharge.value}}" data-dtype="{{data.recharge.type}}" placeholder="Numbers only, such as '16'"/>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.cost.label}}</label>
+                    <input type="text" name="data.cost.value" value="{{data.cost.value}}" data-dtype="{{data.cost.type}}" placeholder="2 command points"/>
                 </div>
 
                 <div class="form-group">
@@ -120,6 +140,62 @@
                 <div class="form-group">
                     <label>{{data.effect.label}}</label>
                     {{editor content=data.effect.value target="data.effect.value" button=true owner=owner editable=editable}}
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.castBroadEffect.label}}</label>
+                    <textarea class="attribute-value" name="data.castBroadEffect.value" rows="5" title=""
+                    data-dtype="{{data.castBroadEffect.type}}">{{#if data.castBroadEffect.value}}{{data.castBroadEffect.value}}{{/if}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.castPower.label}}</label>
+                    <textarea class="attribute-value" name="data.castPower.value" rows="5" title=""
+                    data-dtype="{{data.castPower.type}}">{{#if data.castPower.value}}{{data.castPower.value}}{{/if}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.sustainedEffect.label}}</label>
+                    <textarea class="attribute-value" name="data.sustainedEffect.value" rows="5" title=""
+                    data-dtype="{{data.sustainedEffect.type}}">{{#if data.sustainedEffect.value}}{{data.sustainedEffect.value}}{{/if}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.finalVerse.label}}</label>
+                    <textarea class="attribute-value" name="data.finalVerse.value" rows="5" title=""
+                    data-dtype="{{data.finalVerse.type}}">{{#if data.finalVerse.value}}{{data.finalVerse.value}}{{/if}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.spellChain.label}}</label>
+                    <textarea class="attribute-value" name="data.spellChain.value" rows="5" title=""
+                    data-dtype="{{data.spellChain.type}}">{{#if data.spellChain.value}}{{data.spellChain.value}}{{/if}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.breathWeapon.label}}</label>
+                    <textarea class="attribute-value" name="data.breathWeapon.value" rows="5" title=""
+                    data-dtype="{{data.breathWeapon.type}}">{{#if data.breathWeapon.value}}{{data.breathWeapon.value}}{{/if}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.spellLevel3.label}}</label>
+                    <input type="text" name="data.spellLevel3.value" value="{{data.spellLevel3.value}}" data-dtype="{{data.spellLevel3.type}}" placeholder="3d6 damage"/>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.spellLevel5.label}}</label>
+                    <input type="text" name="data.spellLevel5.value" value="{{data.spellLevel5.value}}" data-dtype="{{data.spellLevel5.type}}" placeholder="5d6 damage"/>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.spellLevel7.label}}</label>
+                    <input type="text" name="data.spellLevel7.value" value="{{data.spellLevel7.value}}" data-dtype="{{data.spellLevel7.type}}" placeholder="7d6 damage"/>
+                </div>
+
+                <div class="form-group">
+                    <label>{{data.spellLevel9.label}}</label>
+                    <input type="text" name="data.spellLevel9.value" value="{{data.spellLevel9.value}}" data-dtype="{{data.spellLevel9.type}}" placeholder="9d6 damage"/>
                 </div>
 
                 <details class="form-details" open="true">

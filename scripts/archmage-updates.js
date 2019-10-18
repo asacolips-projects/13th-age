@@ -1,6 +1,84 @@
-Hooks.once("ready", () => {
-  async function archCharUpdate() {
+class ArchmageUpdateHandler {
+  // Call hooks in the constructor.
+  constructor() {
+    Hooks.once('init', this.init.bind(this));
+    Hooks.once('ready', this.runUpdates.bind(this));
+  }
+
+  // Register a hidden setting that we can use to track the version. In this
+  // case, the version starts at 1000 and increases by 1 on each update. The
+  // first number of the version should match the current major version of the
+  // system/module to make it more clear which version the update is for.
+  init() {
+    game.settings.register('archmage', 'schemaVersion', {
+      name: 'Current schema version for system updates.',
+      hint: 'This schema version is separate from the system version and can be used to run sequential updates.',
+      scope: 'world',
+      config: false,
+      default: 1000,
+      type: Number,
+    });
+  }
+
+  /**
+   * Update runner.
+   *
+   * This method is called once in the ready hook and it gets the current
+   * schema version and attempts to run the next one, if it exists.
+   */
+  async runUpdates() {
+    // Retrieve the schema version.
+    this.schema = game.settings.get('archmage', 'schemaVersion');
+    var runUpdates = true;
+    var currentUpdate;
+
+    // Re-run for as many updates there are currently.
+    while (runUpdates) {
+      // Increase the version to fire updates for the next update.
+      this.schema++;
+      currentUpdate = `update${this.schema}`;
+
+      // If the method exists, we need to run it.
+      if (typeof this[currentUpdate] === 'function') {
+        // Run the update and wait for its result.
+        // eslint-disable-next-line no-console
+        console.log(`Performing archmage update ${currentUpdate}`);
+        let result = await this[currentUpdate]();
+
+        // If the result was anything other than false, bump update the schema
+        // version setting with the number we just ran the update for.
+        if (result !== false) {
+          // eslint-disable-next-line no-console
+          console.log(`Completed archmage update ${currentUpdate}`);
+          game.settings.set('archmage', 'schemaVersion', this.schema);
+        }
+        // Otherwise, note the failure and break from the loop.
+        else {
+          // eslint-disable-next-line no-console
+          console.log(`Unable to complete update ${currentUpdate}`);
+          runUpdates = false;
+        }
+      }
+      // Otherwise, break from the loop.
+      else {
+        runUpdates = false;
+      }
+    }
+  }
+
+  /**
+   * Update untyped characters.
+   *
+   * In this example, we're looping through untyped characters and compendium
+   * entries and making sure they have a type.
+   */
+  async update1001() {
+    // This is just an example of how to update actor data that was resolved
+    // in a previous version of the system, so let's exit early.
+    return true;
+
     var archmageType;
+    // Example array of actors to convert into characters.
     let namesArray = [
       'Dumathoin',
       'Hussanma',
@@ -65,6 +143,37 @@ Hooks.once("ready", () => {
     }
   }
 
-  // Uncomment this to update all characters.
-  // archCharUpdate();
-});
+  /**
+   * Update items on actors to have missing object keys.
+   *
+   * New keys have been added to actor items as of 1.0.6, so this update hook
+   * ensures that all active actors have updated items.
+   */
+  async update1002() {
+    // Define merge options.
+    let insertKeys, insertValues, overwrite, inplace;
+    var mergeOptions = {insertKeys=true, insertValues=false, overwrite=false, inplace=false}={};
+    // Update active entities.
+    for (let a of game.actors.entities) {
+      if (a.data.type == 'character') {
+        // Update each item with the new model.
+        let items = [];
+        items = duplicate(a.data.items);
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].type == 'power') {
+            // Duplicate the item and update it with the template structure.
+            let item = items[i].data;
+            let powerTemplate = duplicate(game.system.template.item.power);
+            items[i].data = mergeObject(powerTemplate, item, mergeOptions);
+          }
+        }
+        // Update the actor entity.
+        console.log(`Updated items for ${a.name}`)
+        await a.update({items: items});
+      }
+    }
+  }
+}
+
+// Instantiate the class and run updates.
+new ArchmageUpdateHandler();

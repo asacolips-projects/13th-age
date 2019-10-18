@@ -169,8 +169,8 @@
             <ul class="traits-list inventory-list directory-list">
 
                 {{#each actor.traits as |item i|}}
-                <li class="item flexrow" data-item-id="{{item.id}}">
-                    <div class="item-name rollable--DISABLED">
+                <li class="item flexrow item--trait" data-item-id="{{item.id}}">
+                    <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
                         <h4>{{item.name}}</h4>
                     </div>
@@ -208,8 +208,8 @@
             <ul class="nastier-specials-list inventory-list directory-list">
 
                 {{#each actor.nastierSpecials as |item i|}}
-                <li class="item flexrow" data-item-id="{{item.id}}">
-                    <div class="item-name rollable--DISABLED">
+                <li class="item flexrow item--nastier-special" data-item-id="{{item.id}}">
+                    <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
                         <h4>{{item.name}}</h4>
                     </div>

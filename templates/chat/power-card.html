@@ -9,37 +9,20 @@
             {{#if data.range.value}}
                 <em>{{data.range.value}}</em>
             {{/if}}
-            {{#if data.trigger.value }}
-                <div class="card-prop"><strong>Trigger:</strong> {{data.trigger.value}}</div>
-            {{/if}}
-            {{#if data.target.value}}
-                <div class="card-prop"><strong>Target:</strong> {{data.target.value}}</div>
-            {{/if}}
-            {{#if data.attack.value }}
-                <div class="card-prop"><strong>Attack:</strong> {{data.attack.value}}</div>
-            {{/if}}
-            {{#if data.hit.value }}
-                <div class="card-prop"><strong>Hit:</strong> {{data.hit.value}}</div>
-            {{/if}}
-            {{#if data.miss.value }}
-                <div class="card-prop"><strong>Miss:</strong> {{data.miss.value}}</div>
-            {{/if}}
+            {{#each data.properties}}
+            <div class="card-prop"><strong>{{this.label}}:</strong> {{this.value}}</div>
+            {{/each}}
+            {{#each data.effects}}
+            <div class="card-row">
+                <div class="card-prop"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
+            </div>
+            {{/each}}
             {{#if data.description.value}}
                 <div class="card-row">
                     {{{data.description.value}}}
                 </div>
             {{/if}}
         </div>
-        {{#if data.effect.value}}
-            <div class="card-row">
-                <div class="card-prop"><strong>Effect:</strong>{{{data.effect.value}}}</div>
-            </div>
-        {{/if}}
-        {{#if data.special.value}}
-            <div class="card-row">
-                <div class="card-prop"><strong>Special:</strong>{{{data.special.value}}}</div>
-            </div>
-        {{/if}}
     </div>
 
     <footer class="card-footer">

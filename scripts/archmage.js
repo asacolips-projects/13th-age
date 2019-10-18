@@ -478,6 +478,8 @@ class ActorArchmageSheet extends ActorSheet {
     // Item Rolling
     html.find('.item .item-image').click(event => this._onItemRoll(event));
     html.find('.item--action h4').click(event => this._onItemRoll(event));
+    html.find('.item--trait h4').click(event => this._onItemRoll(event));
+    html.find('.item--nastier-special h4').click(event => this._onItemRoll(event));
 
     /* -------------------------------------------- */
     /*  Inventory
@@ -493,6 +495,187 @@ class ActorArchmageSheet extends ActorSheet {
         renderSheet: true
       });
     });
+
+    html.find('.powers .item-create').on('contextmenu', ev => {
+      var itemType = ev.currentTarget.getAttribute('data-item-type');
+
+      let prepop = new ArchmagePrepopulate();
+      let powerClass = this.actor.data.data.details.class.value.toLowerCase();
+      let powerLevel = this.actor.data.data.details.level;
+
+      prepop.getPowersList(powerClass, powerLevel).then((res) => {
+        var options = {
+          width: 720,
+          height: 640,
+          classes: ['archmage-prepopulate']
+        };
+
+        for (let i = 0; i < res.powers.length; i++) {
+          if (res.powers[i].usage !== null) {
+            res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
+          }
+          else {
+            res.powers[i].usageClass = 'other';
+          }
+        }
+
+        var templateData = {
+          powers: res.powers,
+          class: powerClass,
+          itemType: 'power' // @TODO: Make this not hardcoded.
+        }
+
+        let template = 'public/systems/archmage/templates/prepopulate/powers--list.html';
+        renderTemplate(template, templateData).then(content => {
+          let d = new Dialog({
+            title: "Import Power",
+            content: content,
+            buttons: {
+              cancel: {
+                icon: '<i class="fas fa-times"></i>',
+                label: "Cancel",
+                callback: () => null
+              },
+              submit: {
+                icon: '<i class="fas fa-check"></i>',
+                label: "Submit",
+                callback: dlg => _onImportPower(dlg, this.actor)
+              }
+            }
+          }, options);
+          d.render(true);
+        });
+      });
+    });
+
+    function _getPowerClasses(inputString) {
+      // Get the appropriate usage.
+      let usage = 'other';
+      let recharge = 0;
+      let usageString = inputString !== null ? inputString.toLowerCase() : '';
+      if (usageString.includes('will')) {
+        usage = 'at-will';
+      }
+      else if (usageString.includes('recharge')) {
+        usage = 'recharge';
+        if (usageString.includes('16')) {
+          recharge = 16;
+        }
+        else if (usageString.includes('11')) {
+          recharge = 11;
+        }
+        else if (usageString.includes('6')) {
+          recharge = 6;
+        }
+      }
+      else if (usageString.includes('battle')) {
+        usage = 'once-per-battle';
+      }
+      else if (usageString.includes('daily')) {
+        usage = 'daily';
+      }
+
+      return [usage, recharge];
+    }
+
+    /**
+     * Helper function to process relative links.
+     *
+     * This helper function processes relative links and replaces them as
+     * external links to www.toolkit13.com.
+     *
+     * @param {String} inputString
+     * @return {String}
+     */
+    function _replaceLinks(inputString) {
+      var outputString = inputString;
+      if (inputString !== undefined && inputString !== null) {
+        if (inputString.includes('"/srd')) {
+          outputString = inputString.replace(/\/srd/g, 'http://www.toolkit13.com/srd');
+        }
+      }
+      return outputString;
+    }
+
+    function _onImportPower(dlg, actor) {
+      let $selected = $(dlg[0]).find('input[type="checkbox"]:checked');
+
+      if ($selected.length <= 0) {
+        return;
+      }
+
+      let prepop = new ArchmagePrepopulate();
+      for (let input of $selected) {
+        let $powerInput = $(input);
+        var type = $powerInput.data('item-type');
+        prepop.getPowerById($powerInput.data('uuid')).then((res) => {
+          if (res.powers.length > 0) {
+            let power = res.powers[0];
+            let attack = {
+              label: "Attack",
+              type: "String",
+              value: power.attack
+            };
+            // Get the appropriate usage.
+            let usageArray = _getPowerClasses(power.usage);
+            let usage = usageArray[0];
+            let recharge = usageArray[1];
+            // Get the appropriate action.
+            let action = 'standard';
+            let actionString = power.action !== null ? power.action.toLowerCase() : '';
+            if (actionString.includes('move')) {
+              action = 'move';
+            }
+            else if (actionString.includes('quick')) {
+              action = 'quick';
+            }
+            else if (actionString.includes('interrupt')) {
+              action = 'interrupt';
+            }
+            else if (actionString.includes('free')) {
+              action = 'free';
+            }
+            actor.createOwnedItem({
+              name: power.title,
+              data: {
+                'powerUsage.value': usage,
+                'actionType.value': action,
+                'powerLevel.value': power.level,
+                'range.value': power.type,
+                'trigger.value': power.trigger,
+                'target.value': power.target,
+                'attack.value': power.attack,
+                'hit.value': power.hit,
+                'miss.value': power.miss,
+                'missEven.value': power.missEven,
+                'missOdd.value': power.missOdd,
+                'cost.value': power.cost,
+                'castBroadEffect.value': power.castBroadEffect,
+                'castPower.value': power.castPower,
+                'sustainedEffect.value': power.sustainedEffect,
+                'finalVerse.value': power.finalVerse,
+                'effect.value': _replaceLinks(power.effect),
+                'special.value': _replaceLinks(power.special),
+                'spellLevel3.value': power.spellLevel3,
+                'spellLevel5.value': power.spellLevel5,
+                'spellLevel7.value': power.spellLevel7,
+                'spellLevel9.value': power.spellLevel9,
+                'spellChain.value': power.spellChain,
+                'breathWeapon.value': power.breathWeapon,
+                'recharge.value': recharge,
+                'feats.adventurer.description.value': power.featAdventurer,
+                'feats.champion.description.value': power.featChampion,
+                'feats.epic.description.value': power.featEpic,
+              },
+              type: type
+            }, true, {
+              renderSheet: false
+            });
+            return;
+          }
+        });
+      }
+    }
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -515,11 +698,41 @@ class ActorArchmageSheet extends ActorSheet {
     /* -------------------------------------------- */
 
     /* Item Dragging */
-    let handler = ev => this._onDragItemStart(ev);
+    let dragHandler = ev => this._onDragItemStart(ev);
+    let dragOverHandler = ev => this._onDragOver(ev);
+    let dropHandler = ev => this._onDrop(ev);
     html.find('.item').each((i, li) => {
       li.setAttribute('draggable', true);
-      li.addEventListener('dragstart', handler, false);
+      li.addEventListener('dragstart', dragHandler, false);
+      li.addEventListener('ondragover', dragOverHandler, false);
+      li.addEventListener('ondrop', dropHandler, false);
     });
+  }
+
+  _onDragItemStart(ev) {
+    // Get the source item's array index.
+    let $self = $(ev.target);
+    ev.dataTransfer.dropEffect = 'move';
+    ev.dataTransfer.setData('itemIndex', $self.data('index'));
+  }
+
+  _onDrop(ev) {
+    ev.preventDefault();
+    // Retrieve the target item.
+    let $self = $(ev.target);
+    let $dropTarget = $self;
+    if ($self.hasClass('item--power') === false) {
+      $dropTarget = $self.closest('.item--power');
+    }
+    // Retrieve the source and target array indexes.
+    let source = ev.dataTransfer.getData('itemIndex');
+    let target = $dropTarget.data('index');
+    // Get the items on the actor.
+    let items = duplicate(this.actor.items);
+    // Remove the soruce and insert it after the target.
+    let sourceItem = items.splice(source, 1);
+    items.splice(target, 0, sourceItem[0]);
+    this.actor.update({items: items});
   }
 
   _getInlineRoll(roll, checkCrit = false) {
@@ -612,17 +825,17 @@ class ActorArchmageSheet extends ActorSheet {
         let descrip = $(`<div class="item-description">${chatData.description.value}</div>`);
         let tags = $(`<div class="item-tags"></div>`);
         let props = $(`<div class="item-properties"></div>`);
+        let effects = $(`<div class="item-effects"></div>`);
         chatData.tags.forEach(t => tags.append(`<span class="tag tag--${t.label.safeCSSId()}">${t.value}</span>`));
+        if (chatData.range.value !== null) {
+          props.append(`<div class="tag tag--property tag--${chatData.range.value.safeCSSId()}"><em>${chatData.range.value}</em></div>`)
+        }
         chatData.properties.forEach(p => props.append(`<span class="tag tag--property tag--${p.label.safeCSSId()}"><strong>${p.label}:</strong> ${p.value}</span>`));
-        if (chatData.effect.value !== undefined && chatData.effect.value !== '') {
-          props.append(`<div class="tag tag--${chatData.effect.label.safeCSSId()}"><strong>${chatData.effect.label}:</strong><div class="description">${chatData.effect.value}</div></div>`)
-        }
-        if (chatData.special.value !== undefined && chatData.special.value !== '') {
-          props.append(`<div class="tag tag--${chatData.special.label.safeCSSId()}"><strong>${chatData.special.label}:</strong><div class="description">${chatData.special.value}</div></div>`)
-        }
+        chatData.effects.forEach(e => props.append(`<div class="tag tag--property tag--${e.label.safeCSSId()}"><strong>${e.label}:</strong> ${e.value}</div>`));
         chatData.feats.forEach(f => props.append(`<div class="tag tag--feat tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`))
         div.append(tags);
         div.append(props);
+        div.append(effects);
         div.append(descrip);
         li.append(div.hide());
         div.slideDown(200);
@@ -788,6 +1001,33 @@ class ItemArchmageSheet extends ItemSheet {
       data['powerUsages'] = CONFIG.powerUsages;
       data['actionTypes'] = CONFIG.actionTypes;
     }
+
+    let powerClass = 'monster';
+
+    if (this.actor.type === 'character') {
+      // Pass general character data.
+      powerClass = this.actor.data.data.details.class.value.toLowerCase();
+    }
+
+    let powerLevel = this.actor.data.data.details.level.value;
+    let powerLevelString = '';
+
+    for (let i = 1; i <= powerLevel; i++) {
+      if (powerLevelString.length < 1) {
+        powerLevelString = '' + i;
+      }
+      else {
+        powerLevelString = `${powerLevelString}+${i}`;
+      }
+
+      if (i >= 10) {
+        break;
+      }
+    }
+
+    data['powerClass'] = powerClass;
+    data['powerLevel'] = powerLevelString;
+
     return data;
   }
 
@@ -805,6 +1045,52 @@ class ItemArchmageSheet extends ItemSheet {
 
     // Activate tabs
     new Tabs(html.find('.tabs'));
+
+    $('.archmage-import-power').on('click', (event) => {
+      let prepop = new ArchmagePrepopulate();
+      let powerClass = $(event.target).data('class');
+      let powerLevel = $(event.target).data('level');
+      prepop.getPowersList(powerClass, powerLevel).then((res) => {
+        var options = {
+          width: 520,
+          height: 640
+        };
+
+        let template = 'public/systems/archmage/templates/prepopulate/powers--list.html';
+        renderTemplate(template, {
+          powers: res.powers,
+          class: powerClass
+        }).then(content => {
+          let d = new Dialog({
+            title: "Import Power",
+            content: content,
+            buttons: {
+              cancel: {
+                icon: '<i class="fas fa-times"></i>',
+                label: "Cancel",
+                callback: () => null
+              },
+              submit: {
+                icon: '<i class="fas fa-check"></i>',
+                label: "Submit",
+                callback: () => null
+              }
+            }
+          }, options);
+          d.render(true);
+        });
+      });
+    });
+
+    $('body').on('click', '.import-powers-link', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      let $self = $(event.currentTarget);
+      let prepop = new ArchmagePrepopulate();
+      prepop.getPowerById($self.data('uuid')).then((res) => {
+        console.log(res.powers[0]);
+      });
+    });
   }
 }
 
@@ -1030,7 +1316,7 @@ class ItemArchmage extends Item {
   async roll() {
 
     // Basic template rendering data
-    const template = `public/systems/archmage/templates/chat/${this.data.type}-card.html`
+    const template = `public/systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = this.actor.token;
     const templateData = {
       actor: this.actor,
@@ -1089,12 +1375,20 @@ class ItemArchmage extends Item {
       {
         label: data.powerType.label,
         value: CONFIG.powerTypes[data.powerType.value]
+      },
+      {
+        label: data.powerLevel !== undefined ? data.powerLevel.label : 'Level',
+        value: data.powerLevel !== undefined ? 'Level ' + data.powerLevel.value : 'Level ' + this.actor.data.data.details.level.value
       }
     ];
     const properties = [
+      // {
+      //   label: data.range.label,
+      //   value: data.range.value
+      // },
       {
-        label: data.range.label,
-        value: data.range.value
+        label: data.recharge.label,
+        value: data.recharge.value
       },
       {
         label: data.trigger.label,
@@ -1115,6 +1409,18 @@ class ItemArchmage extends Item {
       {
         label: data.miss.label,
         value: data.miss.value
+      },
+      {
+        label: data.missEven.label,
+        value: data.missEven.value
+      },
+      {
+        label: data.missOdd.label,
+        value: data.missOdd.value
+      },
+      {
+        label: data.cost.label,
+        value: data.cost.value
       }
     ];
     const feats = [
@@ -1134,9 +1440,60 @@ class ItemArchmage extends Item {
         isActive: data.feats.epic.isActive.value
       }
     ];
+    const effects = [
+      {
+        label: data.effect.label,
+        value: data.effect.value
+      },
+      {
+        label: data.castBroadEffect.label,
+        value: data.castBroadEffect.value
+      },
+      {
+        label: data.castPower.label,
+        value: data.castPower.value
+      },
+      {
+        label: data.sustainedEffect.label,
+        value: data.sustainedEffect.value
+      },
+      {
+        label: data.finalVerse.label,
+        value: data.finalVerse.value
+      },
+      {
+        label: data.spellLevel3.label,
+        value: data.spellLevel3.value
+      },
+      {
+        label: data.spellLevel5.label,
+        value: data.spellLevel5.value
+      },
+      {
+        label: data.spellLevel7.label,
+        value: data.spellLevel7.value
+      },
+      {
+        label: data.spellLevel9.label,
+        value: data.spellLevel9.value
+      },
+      {
+        label: data.spellChain.label,
+        value: data.spellChain.value
+      },
+      {
+        label: data.breathWeapon.label,
+        value: data.breathWeapon.value
+      },
+      {
+        label: data.special.label,
+        value: data.special.value
+      }
+    ];
     data.tags = tags.filter(t => t.value !== null && t.value !== undefined && t.value != '');
     data.properties = properties.filter(p => p.value !== null && p.value !== undefined && p.value != '');
     data.feats = feats.filter(f => f.description !== null && f.description !== undefined && f.description !== '');
+    data.effects = effects.filter(e => e.value !== null && e.value !== undefined && e.value != '');
     data.effect = {
       label: data.effect.label,
       value: data.effect.value
@@ -1149,6 +1506,16 @@ class ItemArchmage extends Item {
   }
 
   _actionChatData() {
+    const data = duplicate(this.data.data);
+    return data;
+  }
+
+  _traitChatData() {
+    const data = duplicate(this.data.data);
+    return data;
+  }
+
+  _nastierSpecialChatData() {
     const data = duplicate(this.data.data);
     return data;
   }
