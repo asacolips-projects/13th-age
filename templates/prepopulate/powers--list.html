@@ -1,0 +1,15 @@
+<div class="archmage sheet prepopulate-sheet">
+  <ul class="import-powers-list">
+    {{#each powers as |power index|}}
+    <li class="import-powers-item ability-usage ability-usage--{{power.usageClass}}">
+      <div class="title">
+        <input type="checkbox" name="power-{{power.uuid}}" data-uuid="{{power.uuid}}" data-item-type="power"/>
+        <label for="power-{{power.uuid}}">{{power.title}}</label>
+      </div>
+      <div class="usage">{{power.usage}}</div>
+      <div class="type">{{power.powerType}}</div>
+      <div class="level">{{power.level}}</div>
+    </li>
+    {{/each}}
+  </ul>
+</div>
