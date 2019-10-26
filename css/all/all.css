@@ -1207,7 +1207,7 @@
     .inventory-list .item .item-quantity,
     .inventory-list .item .item-weight {
       border-right: 1px solid #333;
-      color: #666;
+      color: #fff;
       -webkit-box-flex: 0;
       -ms-flex: 0 0 32px;
       flex: 0 0 32px;

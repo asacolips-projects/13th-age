@@ -320,9 +320,7 @@ class ActorArchmageSheet extends ActorSheet {
   getData() {
     const sheetData = super.getData();
 
-    this._prepareCharacterItems(sheetData.actor);
-
-    // console.log(sheetData.actor);
+    this._prepareCharacterItems(sheetData);
 
     // Return data to the sheet
     return sheetData;
@@ -335,7 +333,8 @@ class ActorArchmageSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(actorData) {
+  _prepareCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
 
     // Powers
     const powers = [];
@@ -345,7 +344,8 @@ class ActorArchmageSheet extends ActorSheet {
 
     // // Iterate through items, allocating to containers
     // let totalWeight = 0;
-    for (let i of actorData.items) {
+    for ( let i of sheetData.items ) {
+      let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // Feats
       if (i.type === 'power') {
@@ -361,18 +361,7 @@ class ActorArchmageSheet extends ActorSheet {
     }
 
     // Assign and return
-    // actorData.inventory = inventory;
-    // actorData.spellbook = spellbook;
     actorData.powers = powers;
-    // actorData.classes = classes;
-
-    // Inventory encumbrance
-    // let enc = {
-    //   max: actorData.data.abilities.str.value * 15,
-    //   value: Math.round(totalWeight * 10) / 10,
-    // };
-    // enc.pct = Math.min(enc.value * 100 / enc.max, 99);
-    // actorData.data.attributes.encumbrance = enc;
   }
 
   /* -------------------------------------------- */
@@ -681,7 +670,8 @@ class ActorArchmageSheet extends ActorSheet {
     html.find('.item-edit').click(ev => {
       let itemId = Number($(ev.currentTarget).parents('.item').attr('data-item-id'));
       let Item = CONFIG.Item.entityClass;
-      const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
+      // const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
+      const item = this.actor.getOwnedItem(itemId);
       item.sheet.render(true);
     });
 
@@ -698,41 +688,35 @@ class ActorArchmageSheet extends ActorSheet {
     /* -------------------------------------------- */
 
     /* Item Dragging */
+    // Core handlers from foundry.js
     let dragHandler = ev => this._onDragItemStart(ev);
-    let dragOverHandler = ev => this._onDragOver(ev);
-    let dropHandler = ev => this._onDrop(ev);
+    // Custom handlers.
+    // let dragHandlerArchmage = ev => this._onDragItemStartArchmage(ev);
+    // let dragOverHandlerArchmage = ev => this._onDragOverArchmage(ev);
+    // let dropHandlerArchmage = ev => this._onDropArchmage(ev);
     html.find('.item').each((i, li) => {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);
-      li.addEventListener('ondragover', dragOverHandler, false);
-      li.addEventListener('ondrop', dropHandler, false);
+      // li.addEventListener('dragstart', dragHandlerArchmage, false);
+      // li.addEventListener('ondragover', dragOverHandlerArchmage, false);
+      // li.addEventListener('ondrop', dropHandlerArchmage, false);
     });
   }
 
-  _onDragItemStart(ev) {
+  _onDragItemStartArchmage(ev) {
+    // @TODO: Remove this if obsolete.
     // Get the source item's array index.
-    let $self = $(ev.target);
-    ev.dataTransfer.dropEffect = 'move';
-    ev.dataTransfer.setData('itemIndex', $self.data('index'));
+    // let $self = $(ev.target);
+    // ev.dataTransfer.dropEffect = 'move';
+    // ev.dataTransfer.setData('itemIndex', $self.data('index'));
   }
 
-  _onDrop(ev) {
-    ev.preventDefault();
-    // Retrieve the target item.
-    let $self = $(ev.target);
-    let $dropTarget = $self;
-    if ($self.hasClass('item--power') === false) {
-      $dropTarget = $self.closest('.item--power');
-    }
-    // Retrieve the source and target array indexes.
-    let source = ev.dataTransfer.getData('itemIndex');
-    let target = $dropTarget.data('index');
-    // Get the items on the actor.
-    let items = duplicate(this.actor.items);
-    // Remove the soruce and insert it after the target.
-    let sourceItem = items.splice(source, 1);
-    items.splice(target, 0, sourceItem[0]);
-    this.actor.update({items: items});
+  _onDragOverArchmage(ev) {
+    // @TODO: Add class on hover.
+  }
+
+  _onDropArchmage(ev) {
+    // @TODO: Remove class on drop.
   }
 
   _getInlineRoll(roll, checkCrit = false) {
@@ -1832,9 +1816,9 @@ CinderWeatherEffect.CINDER_CONFIG = mergeObject(SpecialEffect.DEFAULT_CONFIG, {
 }, {inplace: false});
 CONFIG.weatherEffects.cinder = CinderWeatherEffect;
 
-Hooks.once("ready", () => {
+Hooks.once('ready', () => {
   let escalation = game.settings.get('archmage', 'currentEscalation');
-  let hide = game.combats.entities.length < 1 ? ' hide' : '';
+  let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
 });
