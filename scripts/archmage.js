@@ -133,7 +133,7 @@ class DiceArchmage {
 
     // Render modal dialog
     template = template ||
-      'public/systems/archmage/templates/chat/roll-dialog.html';
+      'systems/archmage/templates/chat/roll-dialog.html';
     let dialogData = {
       formula: parts.join(' + '),
       data: data,
@@ -247,7 +247,7 @@ class DiceArchmage {
 
     // Construct dialog data
     template = template ||
-      'public/systems/archmage/templates/chat/roll-dialog.html';
+      'systems/archmage/templates/chat/roll-dialog.html';
     let dialogData = {
       formula: parts.join(' + '),
       data: data,
@@ -297,7 +297,7 @@ class ActorArchmageSheet extends ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.classes = options.classes.concat(['archmage', 'actor-sheet']);
-    options.template = 'public/systems/archmage/templates/actor-sheet.html';
+    options.template = 'systems/archmage/templates/actor-sheet.html';
     options.width = 800;
     options.height = 960;
     return options;
@@ -514,7 +514,7 @@ class ActorArchmageSheet extends ActorSheet {
           itemType: 'power' // @TODO: Make this not hardcoded.
         }
 
-        let template = 'public/systems/archmage/templates/prepopulate/powers--list.html';
+        let template = 'systems/archmage/templates/prepopulate/powers--list.html';
         renderTemplate(template, templateData).then(content => {
           let d = new Dialog({
             title: "Import Power",
@@ -847,7 +847,7 @@ class ActorArchmageNPCSheet extends ActorArchmageSheet {
   }
 
   get template() {
-    const path = 'public/systems/archmage/templates/actors/';
+    const path = 'systems/archmage/templates/actors/';
     if ( !game.user.isGM && this.actor.limited ) return path + "limited-npc-sheet.html";
     return path + "actor-npc-sheet.html";
   }
@@ -941,7 +941,7 @@ class ItemArchmageSheet extends ItemSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.classes = options.classes.concat(['archmage', 'item', 'item-sheet']);
-    options.template = 'public/systems/archmage/templates/item-power-sheet.html';
+    options.template = 'systems/archmage/templates/item-power-sheet.html';
     options.height = 400;
     return options;
   }
@@ -963,7 +963,7 @@ class ItemArchmageSheet extends ItemSheet {
       type = 'nastier-special';
     }
     // Get template.
-    return `public/systems/archmage/templates/items/item-${type}-sheet.html`;
+    return `systems/archmage/templates/items/item-${type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -1040,7 +1040,7 @@ class ItemArchmageSheet extends ItemSheet {
           height: 640
         };
 
-        let template = 'public/systems/archmage/templates/prepopulate/powers--list.html';
+        let template = 'systems/archmage/templates/prepopulate/powers--list.html';
         renderTemplate(template, {
           powers: res.powers,
           class: powerClass
@@ -1300,7 +1300,7 @@ class ItemArchmage extends Item {
   async roll() {
 
     // Basic template rendering data
-    const template = `public/systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
+    const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = this.actor.token;
     const templateData = {
       actor: this.actor,
@@ -1577,7 +1577,7 @@ class ActorSheetFlags extends BaseEntitySheet {
     const options = super.defaultOptions;
     return mergeObject(options, {
       id: "actor-flags",
-      template: "public/systems/archmage/templates/actors/actor-flags.html",
+      template: "systems/archmage/templates/actors/actor-flags.html",
       width: 500,
       closeOnSubmit: true
     });
