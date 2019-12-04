@@ -1,7 +1,9 @@
 # Install
 
 1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this manifest link: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
+2. Click the **Install System** button, and paste in this manifest link:
+    * Foundry 0.4.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
+    * Foundry 0.3.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/1.1.6/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/1.1.6/system.json)
 3. Create a Game World using the 13th Age system.
 4. (Optional) to enable inline dice rolls in powers using `[[d20]]` syntax, install the [Dice Calculator](https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator) module. The manifest URL that can be used on the module installer page is [https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator/raw/master/module.json](https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator/raw/master/module.json), and once you've installed the module, you'll need to enable it and enable the optional setting for inline dice rolls.
 
