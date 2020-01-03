@@ -1097,8 +1097,11 @@ class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  prepareData(actorData) {
-    actorData = super.prepareData(actorData);
+  prepareData() {
+    super.prepareData();
+
+    // Get the Actor's data object
+    const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
 
