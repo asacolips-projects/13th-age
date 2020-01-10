@@ -141,7 +141,7 @@
                 </li>
 
                 {{#each actor.powers as |item i|}}
-                <li class="item flexrow item--power" data-item-id="{{item.id}}" data-index="{{i}}">
+                <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                     <div class="item-name flexrow rollable">
                         <div class="item-image" style="background-image: url({{item.img}})"></div>
                         <div class="ability-usage {{#if item.data.powerUsage.value }}ability-usage--{{item.data.powerUsage.value}}{{else}}ability-usage--blank{{/if}}">

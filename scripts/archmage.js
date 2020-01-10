@@ -476,12 +476,12 @@ class ActorArchmageSheet extends ActorSheet {
 
     // Create New Item
     html.find('.item-create').click(ev => {
+      let header = event.currentTarget;
       let type = ev.currentTarget.getAttribute('data-item-type');
       this.actor.createOwnedItem({
         name: 'New ' + type.capitalize(),
-        type: type
-      }, true, {
-        renderSheet: true
+        type: type,
+        data: duplicate(header.dataset)
       });
     });
 
@@ -657,8 +657,6 @@ class ActorArchmageSheet extends ActorSheet {
                 'feats.epic.description.value': power.featEpic,
               },
               type: type
-            }, true, {
-              renderSheet: false
             });
             return;
           }
@@ -668,7 +666,7 @@ class ActorArchmageSheet extends ActorSheet {
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
-      let itemId = Number($(ev.currentTarget).parents('.item').attr('data-item-id'));
+      let itemId = $(ev.currentTarget).parents('.item').attr('data-item-id');
       let Item = CONFIG.Item.entityClass;
       // const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
       const item = this.actor.getOwnedItem(itemId);
@@ -678,8 +676,8 @@ class ActorArchmageSheet extends ActorSheet {
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       let li = $(ev.currentTarget).parents('.item');
-      let itemId = Number(li.attr('data-item-id'));
-      this.actor.deleteOwnedItem(itemId, true);
+      let itemId = li.attr('data-item-id');
+      this.actor.deleteOwnedItem(itemId);
       li.slideUp(200, () => this.render(false));
     });
 
@@ -782,7 +780,7 @@ class ActorArchmageSheet extends ActorSheet {
    */
   _onItemRoll(event) {
     event.preventDefault();
-    let itemId = Number($(event.currentTarget).parents(".item").attr("data-item-id")),
+    let itemId = $(event.currentTarget).parents(".item").attr("data-item-id"),
         item = this.actor.getOwnedItem(itemId);
     item.roll();
   }
@@ -795,9 +793,9 @@ class ActorArchmageSheet extends ActorSheet {
    */
   _onItemSummary(event) {
     event.preventDefault();
-    let li = $(event.currentTarget).parents(".item"),
-        item = this.actor.getOwnedItem(Number(li.attr("data-item-id"))),
-        chatData = item.getChatData({secrets: this.actor.owner});
+    let li = $(event.currentTarget).parents(".item");
+    let item = this.actor.getOwnedItem(li.attr("data-item-id"));
+    let chatData = item.getChatData({secrets: this.actor.owner});
 
     // Toggle summary
     if ( li.hasClass('item--power')) {
@@ -876,7 +874,7 @@ class ActorArchmageNPCSheet extends ActorArchmageSheet {
     // // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of actorData.items) {
-      i.img = i.img || DEFAULT_TOKEN;
+      // i.img = i.img || DEFAULT_TOKEN;
       // Feats
       if (i.type === 'action') {
         let action = i;
@@ -1072,7 +1070,7 @@ class ItemArchmageSheet extends ItemSheet {
       let $self = $(event.currentTarget);
       let prepop = new ArchmagePrepopulate();
       prepop.getPowerById($self.data('uuid')).then((res) => {
-        console.log(res.powers[0]);
+        // console.log(res.powers[0]);
       });
     });
   }
@@ -1541,7 +1539,7 @@ class ItemArchmage extends Item {
 
       // Get the Item
       if ( !actor ) return;
-      const itemId = Number(card.attr("data-item-id"));
+      const itemId = card.attr("data-item-id");
       let itemData = actor.items.find(i => i.id === itemId);
       if ( !itemData ) return;
       const item = new CONFIG.Item.entityClass(itemData, {actor: actor});
