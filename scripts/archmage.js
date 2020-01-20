@@ -1873,6 +1873,10 @@ class ArchmageUtility {
 
 // Update escalation die values.
 Hooks.on('updateCombat', (async(combat, update) => {
+  // Handle non-gm users.
+  if (combat.current === undefined) {
+    combat = game.combat;
+  }
   if (combat.current.round !== combat.previous.round) {
     let escalation = ArchmageUtility.getEscalation(combat);
     var updated = false;
