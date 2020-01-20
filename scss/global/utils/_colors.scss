@@ -15,6 +15,9 @@ $c-red: #ff0000;
 $c-malibu: #afebff;
 $c-green: #bcdeb2;
 
+$c-crit: #00ff30;
+$c-fail: #ff5252;
+
 $c-tab-shadow: #a78f77;
 
 $ct-black--75: rgba($c-black, .75);
@@ -24,7 +27,12 @@ $ct-black--05: rgba($c-black, .05);
 $ct-black--03: rgba($c-black, .03);
 $ct-black--01: rgba($c-black, .01);
 
+$ct-white--75: rgba($c-white, .75);
 $ct-white--45: rgba($c-white, .45);
+$ct-white--25: rgba($c-white, .25);
+$ct-white--05: rgba($c-white, .05);
+$ct-white--03: rgba($c-white, .03);
+$ct-white--01: rgba($c-white, .01);
 
 $ct-green--25: rgba($c-green, .25);
 
