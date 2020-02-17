@@ -322,6 +322,9 @@
   }
 },
 "item": {
+  "types": [
+    "basic"
+  ],
   "data": {
     "description": {
       "type": "String",
@@ -563,6 +566,12 @@
       "type": "String",
       "label": "Description"
     }
-  }
+  },
+  "basic": {
+    "templates": [
+    "itemDescription",
+    "physicalItem"
+    ]
+    }
 }
 }
