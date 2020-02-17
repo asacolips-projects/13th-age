@@ -568,10 +568,14 @@
     }
   },
   "basic": {
-    "templates": [
-    "itemDescription",
-    "physicalItem"
-    ]
+    "name": {
+      "type": "String",
+      "label": "Name"
+    },
+    "description": {
+      "type": "String",
+      "label": "Description"
     }
+  }
 }
 }
