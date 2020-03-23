@@ -119,7 +119,7 @@
         <nav class="sheet-tabs tabs" data-tab-container="primary">
             <a class="item active" data-tab="powers">Powers</a>
             <a class="item" data-tab="biography">Biography</a>
-            <a class="item" data-tab="items">Items</a>
+            <a class="item" data-tab="items">Equipment</a>
         </nav>
 
          <!-- FEATS -->
@@ -185,7 +185,7 @@
                     </div>
                 </li>
 
-                {{#each actor.items as |item i|}}
+                {{#each actor.equipment as |item i|}}
                 <li class="item flexrow item" data-item-id="{{item._id}}" data-index="{{i}}">
                     <div class="item-name flexrow rollable">
                         <div class=item-name>{{item.name}}</div>

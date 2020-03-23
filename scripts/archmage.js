@@ -340,6 +340,7 @@ class ActorArchmageSheet extends ActorSheet {
 
     // Powers
     const powers = [];
+    const equipment = [];
 
     // // Classes
     // const classes = [];
@@ -360,10 +361,15 @@ class ActorArchmageSheet extends ActorSheet {
         }
         powers.push(i);
       }
+
+      if (i.type === 'tool' || i.type === 'loot' || i.type === 'equipment') {
+        equipment.push(i);
+      }
     }
 
     // Assign and return
     actorData.powers = powers;
+    actorData.equipment = equipment;
   }
 
   /* -------------------------------------------- */
@@ -986,32 +992,34 @@ class ItemArchmageSheet extends ItemSheet {
       data['actionTypes'] = CONFIG.actionTypes;
     }
 
-    let powerClass = 'monster';
+    if (this.actor) {
+      let powerClass = 'monster';
 
-    if (this.actor.type === 'character') {
-      // Pass general character data.
-      powerClass = this.actor.data.data.details.class.value.toLowerCase();
+      if (this.actor.type === 'character') {
+        // Pass general character data.
+        powerClass = this.actor.data.data.details.class.value.toLowerCase();
+      }
+  
+      let powerLevel = this.actor.data.data.details.level.value;
+      let powerLevelString = '';
+  
+      for (let i = 1; i <= powerLevel; i++) {
+        if (powerLevelString.length < 1) {
+          powerLevelString = '' + i;
+        }
+        else {
+          powerLevelString = `${powerLevelString}+${i}`;
+        }
+  
+        if (i >= 10) {
+          break;
+        }
+      }
+  
+      data['powerClass'] = powerClass;
+      data['powerLevel'] = powerLevelString;  
     }
-
-    let powerLevel = this.actor.data.data.details.level.value;
-    let powerLevelString = '';
-
-    for (let i = 1; i <= powerLevel; i++) {
-      if (powerLevelString.length < 1) {
-        powerLevelString = '' + i;
-      }
-      else {
-        powerLevelString = `${powerLevelString}+${i}`;
-      }
-
-      if (i >= 10) {
-        break;
-      }
-    }
-
-    data['powerClass'] = powerClass;
-    data['powerLevel'] = powerLevelString;
-
+    
     return data;
   }
 
