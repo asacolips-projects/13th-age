@@ -1,568 +1,560 @@
 {
-"actor": {
-  "data": {
-    "abilities": {
-      "str": {
-        "type": "Number",
-        "label": "Strength",
-        "value": 10,
-        "min": 3,
-        "mod": 0
-      },
-      "dex": {
-        "type": "Number",
-        "label": "Dexterity",
-        "value": 10,
-        "min": 3,
-        "mod": 0
-      },
-      "con": {
-        "type": "Number",
-        "label": "Constitution",
-        "value": 10,
-        "min": 3,
-        "mod": 0
-      },
-      "int": {
-        "type": "Number",
-        "label": "Intelligence",
-        "value": 10,
-        "min": 3,
-        "mod": 0
-      },
-      "wis": {
-        "type": "Number",
-        "label": "Wisdom",
-        "value": 10,
-        "min": 3,
-        "mod": 0
-      },
-      "cha": {
-        "type": "Number",
-        "label": "Charisma",
-        "value": 10,
-        "min": 3,
-        "mod": 0
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "standard": {
+        "abilities": {
+          "str": {
+            "type": "Number",
+            "label": "Strength",
+            "value": 10,
+            "min": 3,
+            "mod": 0
+          },
+          "dex": {
+            "type": "Number",
+            "label": "Dexterity",
+            "value": 10,
+            "min": 3,
+            "mod": 0
+          },
+          "con": {
+            "type": "Number",
+            "label": "Constitution",
+            "value": 10,
+            "min": 3,
+            "mod": 0
+          },
+          "int": {
+            "type": "Number",
+            "label": "Intelligence",
+            "value": 10,
+            "min": 3,
+            "mod": 0
+          },
+          "wis": {
+            "type": "Number",
+            "label": "Wisdom",
+            "value": 10,
+            "min": 3,
+            "mod": 0
+          },
+          "cha": {
+            "type": "Number",
+            "label": "Charisma",
+            "value": 10,
+            "min": 3,
+            "mod": 0
+          }
+        },
+        "attributes": {
+          "ac": {
+            "type": "Number",
+            "label": "Armor Class",
+            "value": 10,
+            "base": 10,
+            "min": 0
+          },
+          "pd": {
+            "type": "Number",
+            "label": "Physical Defense",
+            "value": 10,
+            "base": 10,
+            "min": 0
+          },
+          "md": {
+            "type": "Number",
+            "label": "Mental Defense",
+            "value": 10,
+            "base": 10,
+            "min": 0
+          },
+          "hp": {
+            "type": "Number",
+            "label": "Hit Points",
+            "value": 10,
+            "min": 0,
+            "max": 10,
+            "temp": 0,
+            "tempmax": 0
+          },
+          "recoveries": {
+            "type": "Number",
+            "label": "Recoveries",
+            "value": 8,
+            "max": 8
+          },
+          "init": {
+            "type": "Number",
+            "label": "Initiative Modifier",
+            "value": 0
+          },
+          "level": {
+            "type": "Number",
+            "label": "Level",
+            "value": 1,
+            "min": 0,
+            "max": 10
+          }
+        },
+        "details": {
+          "alignment": {
+            "type": "String",
+            "label": "Alignment"
+          },
+          "biography": {
+            "type": "String",
+            "label": "Biography"
+          },
+          "class": {
+            "type": "String",
+            "label": "Class"
+          },
+          "race": {
+            "type": "String",
+            "label": "Race"
+          }
+        },
+        "backgrounds": {
+          "bg1": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 1
+            }
+          },
+          "bg2": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 1
+            }
+          },
+          "bg3": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 1
+            }
+          },
+          "bg4": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg5": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          }
+        },
+        "icons": {
+          "i1": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "relationship": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 1
+            }
+          },
+          "i2": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "relationship": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 1
+            }
+          },
+          "i3": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "relationship": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 1
+            }
+          },
+          "i4": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "relationship": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "i5": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "relationship": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          }
+        }
       }
     },
-    "attributes": {
-      "ac": {
-        "type": "Number",
-        "label": "Armor Class",
-        "value": 10,
-        "base": 10,
-        "min": 0
+    "character": {
+      "templates": ["standard"],
+      "attributes": {
+        "weapon": {
+          "melee": {
+            "type": "String",
+            "label": "Melee weapon dice",
+            "dice": "d8",
+            "value": "d8"
+          },
+          "ranged": {
+            "type": "String",
+            "label": "Ranged weapon dice",
+            "dice": "d8",
+            "value": "d8"
+          }
+        }
+      }
+    },
+    "npc": {
+      "templates": ["standard"],
+      "details": {
+        "role": {
+          "type": "String",
+          "label": "Role"
+        },
+        "size": {
+          "type": "String",
+          "label": "Size"
+        },
+        "type": {
+          "type": "String",
+          "label": "Type"
+        },
+        "resistance": {
+          "type": "String",
+          "label": "Resistance"
+        },
+        "vulnerability": {
+          "type": "String",
+          "label": "Vulnerability"
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": ["power", "trait", "action", "nastierSpecial"],
+    "templates": {
+      "standard": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "String",
+          "label": "Description"
+        }
+      }
+    },
+    "power": {
+      "templates": ["standard"],
+      "powerSource": {
+        "type": "String",
+        "label": "Power Source",
+        "value": ""
       },
-      "pd": {
-        "type": "Number",
-        "label": "Physical Defense",
-        "value": 10,
-        "base": 10,
-        "min": 0
+      "powerType": {
+        "type": "String",
+        "label": "Power Type",
+        "value": ""
       },
-      "md": {
-        "type": "Number",
-        "label": "Mental Defense",
-        "value": 10,
-        "base": 10,
-        "min": 0
+      "powerUsage": {
+        "type": "String",
+        "label": "Power Usage",
+        "value": ""
       },
-      "hp": {
-        "type": "Number",
-        "label": "Hit Points",
-        "value": 10,
-        "min": 0,
-        "max": 10,
-        "temp": 0,
-        "tempmax": 0
-      },
-      "recoveries": {
-        "type": "Number",
-        "label": "Recoveries",
-        "value": 8,
-        "max": 8
-      },
-      "init": {
-        "type": "Number",
-        "label": "Initiative Modifier",
-        "value": 0
-      },
-      "level": {
+      "powerLevel": {
         "type": "Number",
         "label": "Level",
-        "value": 1,
-        "min": 0,
-        "max": 10
+        "value": ""
+      },
+      "actionType": {
+        "type": "String",
+        "label": "Action",
+        "value": ""
+      },
+      "range": {
+        "type": "String",
+        "label": "Range",
+        "value": ""
+      },
+      "trigger": {
+        "type": "String",
+        "label": "Trigger",
+        "value": ""
+      },
+      "target": {
+        "type": "String",
+        "label": "Target",
+        "value": ""
+      },
+      "attack": {
+        "type": "String",
+        "label": "Attack",
+        "value": ""
+      },
+      "hit": {
+        "type": "String",
+        "label": "Hit",
+        "value": ""
+      },
+      "miss": {
+        "type": "String",
+        "label": "Miss",
+        "value": ""
+      },
+      "missEven": {
+        "type": "String",
+        "label": "Even Miss",
+        "value": ""
+      },
+      "missOdd": {
+        "type": "String",
+        "label": "Odd Miss",
+        "value": ""
+      },
+      "cost": {
+        "type": "String",
+        "label": "Cost",
+        "value": ""
+      },
+      "castBroadEffect": {
+        "type": "String",
+        "label": "Cast for Broad Effect",
+        "value": ""
+      },
+      "castPower": {
+        "type": "String",
+        "label": "Cast for Power",
+        "value": ""
+      },
+      "sustainedEffect": {
+        "type": "String",
+        "label": "Opening and Sustained Effect",
+        "value": ""
+      },
+      "finalVerse": {
+        "type": "String",
+        "label": "Final Verse",
+        "value": ""
+      },
+      "special": {
+        "type": "String",
+        "label": "Special",
+        "value": ""
+      },
+      "effect": {
+        "type": "String",
+        "label": "Effect",
+        "value": ""
+      },
+      "spellLevel3": {
+        "type": "String",
+        "label": "3rd Level Spell",
+        "value": ""
+      },
+      "spellLevel5": {
+        "type": "String",
+        "label": "5th Level Spell",
+        "value": ""
+      },
+      "spellLevel7": {
+        "type": "String",
+        "label": "7th Level Spell",
+        "value": ""
+      },
+      "spellLevel9": {
+        "type": "String",
+        "label": "9th Level Spell",
+        "value": ""
+      },
+      "spellChain": {
+        "type": "String",
+        "label": "Chain Spell",
+        "value": ""
+      },
+      "breathWeapon": {
+        "type": "String",
+        "label": "Breath Weapon",
+        "value": ""
+      },
+      "recharge": {
+        "type": "Number",
+        "label": "Recharge",
+        "value": 0
+      },
+      "quantity": {
+        "type": "Number",
+        "label": "Uses",
+        "value": 1
+      },
+      "feats": {
+        "adventurer": {
+          "description": {
+            "type": "String",
+            "label": "Adventurer Feat"
+          },
+          "isActive": {
+            "type": "Boolean",
+            "label": "Active"
+          }
+        },
+        "champion": {
+          "description": {
+            "type": "String",
+            "label": "Champion Feat"
+          },
+          "isActive": {
+            "type": "Boolean",
+            "label": "Active"
+          }
+        },
+        "epic": {
+          "description": {
+            "type": "String",
+            "label": "Epic Feat"
+          },
+          "isActive": {
+            "type": "Boolean",
+            "label": "Active"
+          }
+        }
       }
     },
-    "details": {
-      "alignment": {
+    "trait": {
+      "templates": ["standard"]
+    },
+    "action": {
+      "templates": ["standard"],
+      "attack": {
         "type": "String",
-        "label": "Alignment"
+        "label": "Attack Roll"
       },
-      "biography": {
+      "hit": {
         "type": "String",
-        "label": "Biography"
+        "label": "Hit"
       },
-      "class": {
+      "hit1": {
         "type": "String",
-        "label": "Class"
+        "label": "Hit"
       },
-      "race": {
+      "hit2": {
         "type": "String",
-        "label": "Race"
+        "label": "Hit"
+      },
+      "hit3": {
+        "type": "String",
+        "label": "Hit"
+      },
+      "hit4": {
+        "type": "String",
+        "label": "Hit"
+      },
+      "hit5": {
+        "type": "String",
+        "label": "Hit"
+      },
+      "miss": {
+        "type": "String",
+        "label": "Miss"
       }
     },
-    "backgrounds": {
-      "bg1": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 1
-        }
-      },
-      "bg2": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 1
-        }
-      },
-      "bg3": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 1
-        }
-      },
-      "bg4": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 0
-        }
-      },
-      "bg5": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 0
-        }
-      }
-    },
-    "icons": {
-      "i1": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "relationship": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 1
-        }
-      },
-      "i2": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "relationship": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 1
-        }
-      },
-      "i3": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "relationship": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 1
-        }
-      },
-      "i4": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "relationship": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 0
-        }
-      },
-      "i5": {
-        "name": {
-          "type": "String",
-          "value": ""
-        },
-        "relationship": {
-          "type": "String",
-          "value": ""
-        },
-        "bonus": {
-          "type": "Number",
-          "value": 0
-        },
-        "isActive": {
-          "type": "Boolean",
-          "value": 0
-        }
-      }
-    }
-  },
-  "character": {
-    "attributes": {
-      "weapon": {
-        "melee": {
-          "type": "String",
-          "label": "Melee weapon dice",
-          "dice": "d8",
-          "value": "d8"
-        },
-        "ranged": {
-          "type": "String",
-          "label": "Ranged weapon dice",
-          "dice": "d8",
-          "value": "d8"
-        }
-      }
-    }
-  },
-  "npc": {
-    "details": {
-      "role": {
-        "type": "String",
-        "label": "Role"
-      },
-      "size": {
-        "type": "String",
-        "label": "Size"
-      },
-      "type": {
-        "type": "String",
-        "label": "Type"
-      },
-      "resistance": {
-        "type": "String",
-        "label": "Resistance"
-      },
-      "vulnerability": {
-        "type": "String",
-        "label": "Vulnerability"
-      }
+    "nastierSpecial": {
+      "templates": ["standard"]
     }
   }
-},
-"item": {
-  "data": {
-    "description": {
-      "type": "String",
-      "label": "Description"
-    }
-  },
-  "power": {
-    "powerSource": {
-      "type": "String",
-      "label": "Power Source",
-      "value": ""
-    },
-    "powerType": {
-      "type": "String",
-      "label": "Power Type",
-      "value": ""
-    },
-    "powerUsage": {
-      "type": "String",
-      "label": "Power Usage",
-      "value": ""
-    },
-    "powerLevel": {
-      "type": "Number",
-      "label": "Level",
-      "value": ""
-    },
-    "actionType": {
-      "type": "String",
-      "label": "Action",
-      "value": ""
-    },
-    "range": {
-      "type": "String",
-      "label": "Range",
-      "value": ""
-    },
-    "trigger": {
-      "type": "String",
-      "label": "Trigger",
-      "value": ""
-    },
-    "target": {
-      "type": "String",
-      "label": "Target",
-      "value": ""
-    },
-    "attack": {
-      "type": "String",
-      "label": "Attack",
-      "value": ""
-    },
-    "hit": {
-      "type": "String",
-      "label": "Hit",
-      "value": ""
-    },
-    "miss": {
-      "type": "String",
-      "label": "Miss",
-      "value": ""
-    },
-    "missEven": {
-      "type": "String",
-      "label": "Even Miss",
-      "value": ""
-    },
-    "missOdd": {
-      "type": "String",
-      "label": "Odd Miss",
-      "value": ""
-    },
-    "cost": {
-      "type": "String",
-      "label": "Cost",
-      "value": ""
-    },
-    "castBroadEffect": {
-      "type": "String",
-      "label": "Cast for Broad Effect",
-      "value": ""
-    },
-    "castPower": {
-      "type": "String",
-      "label": "Cast for Power",
-      "value": ""
-    },
-    "sustainedEffect": {
-      "type": "String",
-      "label": "Opening and Sustained Effect",
-      "value": ""
-    },
-    "finalVerse": {
-      "type": "String",
-      "label": "Final Verse",
-      "value": ""
-    },
-    "special": {
-      "type": "String",
-      "label": "Special",
-      "value": ""
-    },
-    "effect": {
-      "type": "String",
-      "label": "Effect",
-      "value": ""
-    },
-    "spellLevel3": {
-      "type": "String",
-      "label": "3rd Level Spell",
-      "value": ""
-    },
-    "spellLevel5": {
-      "type": "String",
-      "label": "5th Level Spell",
-      "value": ""
-    },
-    "spellLevel7": {
-      "type": "String",
-      "label": "7th Level Spell",
-      "value": ""
-    },
-    "spellLevel9": {
-      "type": "String",
-      "label": "9th Level Spell",
-      "value": ""
-    },
-    "spellChain": {
-      "type": "String",
-      "label": "Chain Spell",
-      "value": ""
-    },
-    "breathWeapon": {
-      "type": "String",
-      "label": "Breath Weapon",
-      "value": ""
-    },
-    "recharge": {
-      "type": "Number",
-      "label": "Recharge",
-      "value": 0
-    },
-    "quantity": {
-      "type": "Number",
-      "label": "Uses",
-      "value": 1
-    },
-    "feats": {
-      "adventurer": {
-        "description": {
-          "type": "String",
-          "label": "Adventurer Feat"
-        },
-        "isActive": {
-          "type": "Boolean",
-          "label": "Active"
-        }
-      },
-      "champion": {
-        "description": {
-          "type": "String",
-          "label": "Champion Feat"
-        },
-        "isActive": {
-          "type": "Boolean",
-          "label": "Active"
-        }
-      },
-      "epic": {
-        "description": {
-          "type": "String",
-          "label": "Epic Feat"
-        },
-        "isActive": {
-          "type": "Boolean",
-          "label": "Active"
-        }
-      }
-    }
-  },
-  "trait": {
-    "name": {
-      "type": "String",
-      "label": "Name"
-    },
-    "description": {
-      "type": "String",
-      "label": "Description"
-    }
-  },
-  "action": {
-    "name": {
-      "type": "String",
-      "label": "Name"
-    },
-    "description": {
-      "type": "String",
-      "label": "Description"
-    },
-    "attack": {
-      "type": "String",
-      "label": "Attack Roll"
-    },
-    "hit": {
-      "type": "String",
-      "label": "Hit"
-    },
-    "hit1": {
-      "type": "String",
-      "label": "Hit"
-    },
-    "hit2": {
-      "type": "String",
-      "label": "Hit"
-    },
-    "hit3": {
-      "type": "String",
-      "label": "Hit"
-    },
-    "hit4": {
-      "type": "String",
-      "label": "Hit"
-    },
-    "hit5": {
-      "type": "String",
-      "label": "Hit"
-    },
-    "miss": {
-      "type": "String",
-      "label": "Miss"
-    }
-  },
-  "nastierSpecial": {
-    "name": {
-      "type": "String",
-      "label": "Name"
-    },
-    "description": {
-      "type": "String",
-      "label": "Description"
-    }
-  }
-}
 }

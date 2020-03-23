@@ -13,15 +13,12 @@
   font-size: 18px; }
 
 .visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
   white-space: nowrap;
-  /* added line */ }
+  width: 1px; }
 
 .flexrow {
   display: -webkit-box;
@@ -532,8 +529,8 @@
         right: 2px; }
     .archmage.actor-sheet .primary-attributes .attribute .attribute-display,
     .archmage.actor-sheet .primary-attributes .attribute .attribute-value {
-      text-align: center;
-      font-family: "warnock-pro", "sans-serif"; }
+      font-family: "warnock-pro", "sans-serif";
+      text-align: center; }
     .archmage.actor-sheet .primary-attributes .attribute .attribute-value {
       color: #444;
       display: -webkit-box;
@@ -567,9 +564,6 @@
         -ms-flex-align: center;
         align-items: center;
         border-top: 1px solid #ccc;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -577,7 +571,10 @@
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
-        height: auto; }
+        height: auto;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span {
           border-right: 1px solid rgba(0, 0, 0, 0.25);
           -webkit-box-flex: 65%;
@@ -1182,14 +1179,14 @@
         -ms-flex: auto;
         flex: auto; }
       .inventory-list .item .item-name h4 {
+        font-size: 14px;
         margin: 0;
         overflow: hidden;
         padding-right: 5px;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: 100px;
-        font-size: 14px; }
+        width: 100px; }
       .inventory-list .item .item-name .prepared {
         color: #666;
         font-size: 10px;
@@ -1489,7 +1486,7 @@
     box-shadow: 0 0 8px #ff0000;
     outline: 0; }
 
-.archmage.sheet .action-sheet .form-inputs input[type="text"] {
+.archmage.sheet .action-sheet .form-inputs input[type='text'] {
   height: auto; }
 
 .archmage.actor-sheet.npc-sheet .charlevel .initiative {
@@ -1526,13 +1523,13 @@
 .archmage.actor-sheet.npc-sheet .sheet-sidebar .primary-attributes {
   border-bottom: 0; }
   .archmage.actor-sheet.npc-sheet .sheet-sidebar .primary-attributes .attribute {
+    border: 0;
+    border-bottom: 1px solid #333;
     -webkit-box-flex: 100%;
     -ms-flex: 100%;
     flex: 100%;
-    width: 100%;
     height: auto;
-    border: none;
-    border-bottom: 1px solid #333; }
+    width: 100%; }
   .archmage.actor-sheet.npc-sheet .sheet-sidebar .primary-attributes .attribute--defenses .attribute-value {
     height: auto; }
   .archmage.actor-sheet.npc-sheet .sheet-sidebar .primary-attributes .attribute--defenses .attribute-display {
@@ -1579,8 +1576,8 @@
 .archmage.actor-sheet.npc-sheet .traits-header .item-controls,
 .archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name,
 .archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls {
-  color: #fff;
   background: rgba(0, 0, 0, 0.75);
+  color: #fff;
   padding: 4px 8px; }
 
 .archmage.actor-sheet.npc-sheet .actions-header .item-name,
@@ -1604,10 +1601,10 @@
 .archmage.actor-sheet.npc-sheet .traits-list .item-description p,
 .archmage.actor-sheet.npc-sheet .nastier-specials-list .item-name p,
 .archmage.actor-sheet.npc-sheet .nastier-specials-list .item-description p {
-  padding-left: 10px;
-  text-indent: -10px;
   line-height: 1.3;
-  margin: 10px 0; }
+  margin: 10px 0;
+  padding-left: 10px;
+  text-indent: -10px; }
 
 .archmage.actor-sheet.npc-sheet .actions-list .item,
 .archmage.actor-sheet.npc-sheet .traits-list .item,
@@ -1620,11 +1617,11 @@
   .archmage.actor-sheet.npc-sheet .actions-list .item .item-name h4,
   .archmage.actor-sheet.npc-sheet .traits-list .item .item-name h4,
   .archmage.actor-sheet.npc-sheet .nastier-specials-list .item .item-name h4 {
-    white-space: normal;
+    font-size: 18px;
+    line-height: 1.2;
     -o-text-overflow: initial;
     text-overflow: initial;
-    line-height: 1.2;
-    font-size: 18px; }
+    white-space: normal; }
 
 .archmage.actor-sheet.npc-sheet .actions .item-description .description {
   background: rgba(188, 222, 178, 0.25);
@@ -1635,55 +1632,55 @@
   padding: 8px; }
 
 .archmage-escalation {
-  width: 84px;
-  height: 84px;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  font-size: 60px;
-  line-height: 1.2;
   background: rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 0 10px #000;
-  box-shadow: 0 0 10px #000;
-  margin: 0 0 8px;
-  color: #fff;
-  text-align: center;
   border: 1px solid #000;
   border-radius: 5px;
-  position: fixed;
-  bottom: 7px;
-  left: 230px;
+  bottom: 67px;
+  -webkit-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  color: #fff;
+  font-family: "warnock-pro", "sans-serif";
+  font-size: 60px;
+  height: 84px;
+  left: 221px;
+  line-height: 1.2;
+  margin: 0 0 8px;
   pointer-events: none;
-  font-family: "warnock-pro", "sans-serif"; }
+  position: fixed;
+  text-align: center;
+  width: 84px; }
   .archmage-escalation.hide {
     display: none; }
   .archmage-escalation::after {
-    content: 'Escalation Die';
-    position: absolute;
     bottom: 2px;
-    left: 50%;
-    font-size: 12px;
-    line-height: 1;
-    width: 80px;
+    content: 'Escalation Die';
     font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+    font-size: 12px;
+    left: 50%;
+    line-height: 1;
+    position: absolute;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
-    transform: translateX(-50%); }
+    transform: translateX(-50%);
+    width: 80px; }
 
 #chat-form {
   position: relative; }
   #chat-form::before {
-    display: block;
-    content: '';
-    position: absolute;
+    background-image: url("../assets/src/13a-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
     bottom: 4px;
-    right: 10px;
-    width: 100px;
+    content: '';
+    display: block;
     height: 100px;
     opacity: .1;
-    background-image: url("../assets/src/13a-logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    pointer-events: none; }
+    pointer-events: none;
+    position: absolute;
+    right: 10px;
+    width: 100px; }
 
 .dc-inline-roll {
   display: inline-block;
@@ -1691,46 +1688,46 @@
 
 .dc-inline-roll__result,
 .dc-inline-roll__parts {
-  display: inline-block;
   background: rgba(0, 0, 0, 0.75);
+  border-radius: 2px;
   color: #fff;
-  padding: 0 4px;
-  border-radius: 2px; }
+  display: inline-block;
+  padding: 0 4px; }
+  .dc-inline-roll__result:hover .dc-inline-roll__parts,
+  .dc-inline-roll__parts:hover .dc-inline-roll__parts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
 
 .archmage .dc-inline-roll__result {
   line-height: 1;
-  padding: 3px 4px 0 4px; }
+  padding: 3px 4px 0; }
 
 .dc-inline-roll__parts {
+  background: rgba(0, 0, 0, 0.75);
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  left: 0;
+  padding: 4px 8px;
   position: absolute;
   top: 100%;
-  left: 0;
   white-space: nowrap;
-  background: rgba(50, 50, 50, 0.75);
-  padding: 4px 8px;
   z-index: 999; }
 
-.dc-inline-roll:hover .dc-inline-roll__parts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
 .dc-formula {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 4px 0;
-  line-height: 1; }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  line-height: 1;
+  padding: 4px 0; }
 
 .dc-parts {
-  padding: 8px 0 4px;
-  line-height: 1; }
+  line-height: 1;
+  padding: 8px 0 4px; }
 
 .dc-discarded {
-  opacity: 0.3; }
+  opacity: .3; }
 
 .dc-crit {
   color: #00ff30; }
@@ -1739,10 +1736,10 @@
   color: #ff5252; }
 
 .archmage-prepopulate .window-content > .dialog-content {
-  height: 100%;
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
   flex: 100%;
+  height: 100%;
   overflow-y: auto; }
 
 .archmage-prepopulate .window-content > .dialog-buttons {
@@ -1758,26 +1755,26 @@
   padding: 10px 0 3px; }
 
 .archmage-import-power {
+  background: rgba(0, 0, 0, 0.01);
+  border: 1px solid #999;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #fff inset;
+  box-shadow: 0 0 2px #fff inset;
+  display: block;
   -webkit-box-flex: 0 !important;
   -ms-flex: 0 0 24px !important;
   flex: 0 0 24px !important;
-  width: auto;
-  display: block;
   height: 32px;
-  line-height: 1;
-  position: relative;
-  margin: 4px;
   line-height: 24px;
+  margin: 4px;
+  position: relative;
   text-align: center;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid #999;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 0 2px #FFF inset;
-  box-shadow: 0 0 2px #FFF inset; }
-  .item-sheet .sheet-header > .archmage-import-power {
-    -webkit-box-flex: 0 !important;
-    -ms-flex: 0 0 24px !important;
-    flex: 0 0 24px !important; }
+  width: auto; }
+
+.item-sheet .sheet-header > .archmage-import-power {
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 0 24px !important;
+  flex: 0 0 24px !important; }
 
 .import-powers-list {
   list-style-type: none;
@@ -1785,13 +1782,11 @@
   padding: 0; }
 
 .import-powers-item {
-  list-style-type: none;
-  margin: 0;
-  padding: 2px 4px; }
-  .import-powers-item + .import-powers-item {
-    border-top: 1px solid #999; }
-
-.import-powers-item {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1799,14 +1794,12 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  color: #fff;
-  cursor: pointer; }
+  list-style-type: none;
+  margin: 0;
+  padding: 2px 4px; }
   .import-powers-item:hover, .import-powers-item:focus {
     color: #fff; }
   .import-powers-item > div {
@@ -1829,6 +1822,8 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px; }
+  .import-powers-item + .import-powers-item {
+    border-top: 1px solid #999; }
 
 .item-properties table,
 .card-prop table {
