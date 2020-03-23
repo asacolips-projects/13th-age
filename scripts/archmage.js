@@ -1,7 +1,9 @@
-String.prototype.safeCSSId = function() {
+// CONFIG.debug.hooks = true;
+
+String.prototype.safeCSSId = function () {
   return encodeURIComponent(
     this.toLowerCase()
-    ).replace(/%[0-9A-F]{2}/gi,'-');
+  ).replace(/%[0-9A-F]{2}/gi, '-');
 }
 
 // Power Settings
@@ -344,7 +346,7 @@ class ActorArchmageSheet extends ActorSheet {
 
     // // Iterate through items, allocating to containers
     // let totalWeight = 0;
-    for ( let i of sheetData.items ) {
+    for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // Feats
@@ -445,7 +447,7 @@ class ActorArchmageSheet extends ActorSheet {
 
       ChatMessage.create({
         user: game.user._id,
-        speaker: ChatMessage.getSpeaker({actor: this.actor}),
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         content: content
       })
     });
@@ -723,7 +725,7 @@ class ActorArchmageSheet extends ActorSheet {
     for (let i = 0; i < roll.parts.length; i++) {
       let part = roll.parts[i];
       if (part.rolls) {
-        parts += '[' + part.rolls.map(function(r) {
+        parts += '[' + part.rolls.map(function (r) {
           if (checkCrit) {
             if (r.discarded) {
               return `<span class="dc-discarded">${r.roll}</span>`;
@@ -781,7 +783,7 @@ class ActorArchmageSheet extends ActorSheet {
   _onItemRoll(event) {
     event.preventDefault();
     let itemId = $(event.currentTarget).parents(".item").attr("data-item-id"),
-        item = this.actor.getOwnedItem(itemId);
+      item = this.actor.getOwnedItem(itemId);
     item.roll();
   }
 
@@ -795,11 +797,11 @@ class ActorArchmageSheet extends ActorSheet {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
     let item = this.actor.getOwnedItem(li.attr("data-item-id"));
-    let chatData = item.getChatData({secrets: this.actor.owner});
+    let chatData = item.getChatData({ secrets: this.actor.owner });
 
     // Toggle summary
-    if ( li.hasClass('item--power')) {
-      if ( li.hasClass("expanded") ) {
+    if (li.hasClass('item--power')) {
+      if (li.hasClass("expanded")) {
         let summary = li.children(".item-summary");
         summary.slideUp(200, () => summary.remove());
       } else {
@@ -846,7 +848,7 @@ class ActorArchmageNPCSheet extends ActorArchmageSheet {
 
   get template() {
     const path = 'systems/archmage/templates/actors/';
-    if ( !game.user.isGM && this.actor.limited ) return path + "limited-npc-sheet.html";
+    if (!game.user.isGM && this.actor.limited) return path + "limited-npc-sheet.html";
     return path + "actor-npc-sheet.html";
   }
 
@@ -891,9 +893,9 @@ class ActorArchmageNPCSheet extends ActorArchmageSheet {
         // Parse for simple markdown (italics and bold).
         for (var prop in i.data) {
           if (Object.prototype.hasOwnProperty.call(i.data, prop)) {
-              if (properties.includes(prop)) {
-                action.data[prop].formatted = parseMarkdown(i.data[prop].value);
-              }
+            if (properties.includes(prop)) {
+              action.data[prop].formatted = parseMarkdown(i.data[prop].value);
+            }
           }
         }
 
@@ -915,7 +917,7 @@ class ActorArchmageNPCSheet extends ActorArchmageSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
-    if ( !this.options.editable ) return;
+    if (!this.options.editable) return;
   }
 }
 
@@ -1077,7 +1079,7 @@ class ItemArchmageSheet extends ItemSheet {
 }
 
 Items.unregisterSheet("core", ItemSheet);
-Items.registerSheet("archmage", ItemArchmageSheet, {makeDefault: true});
+Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
 
 // Override CONFIG
 CONFIG.Item.sheetClass = ItemArchmageSheet;
@@ -1322,14 +1324,14 @@ class ItemArchmage extends Item {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if ( ["gmroll", "blindroll"].includes(rollMode) ) chatData["whisper"] = ChatMessage.getWhisperIDs("GM");
-    if ( rollMode === "blindroll" ) chatData["blind"] = true;
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperIDs("GM");
+    if (rollMode === "blindroll") chatData["blind"] = true;
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Create the chat message
-    return ChatMessage.create(chatData, {displaySheet: false});
+    return ChatMessage.create(chatData, { displaySheet: false });
   }
 
   /* -------------------------------------------- */
@@ -1513,58 +1515,58 @@ class ItemArchmage extends Item {
 
       // Extract card data
       const button = $(ev.currentTarget),
-            messageId = button.parents('.message').attr("data-message-id"),
-            senderId = game.messages.get(messageId).user._id,
-            card = button.parents('.chat-card');
+        messageId = button.parents('.message').attr("data-message-id"),
+        senderId = game.messages.get(messageId).user._id,
+        card = button.parents('.chat-card');
 
       // Confirm roll permission
-      if ( !game.user.isGM && ( game.user._id !== senderId )) return;
+      if (!game.user.isGM && (game.user._id !== senderId)) return;
 
       // Get the Actor from a synthetic Token
       let actor;
       const tokenKey = card.attr("data-token-id");
-      if ( tokenKey ) {
+      if (tokenKey) {
         const [sceneId, tokenId] = tokenKey.split(".");
         let token;
-        if ( sceneId === canvas.scene._id ) token = canvas.tokens.get(tokenId);
+        if (sceneId === canvas.scene._id) token = canvas.tokens.get(tokenId);
         else {
           const scene = game.scenes.get(sceneId);
-          if ( !scene ) return;
+          if (!scene) return;
           let tokenData = scene.data.tokens.find(t => t.id === Number(tokenId));
-          if ( tokenData ) token = new Token(tokenData);
+          if (tokenData) token = new Token(tokenData);
         }
-        if ( !token ) return;
+        if (!token) return;
         actor = Actor.fromToken(token);
       } else actor = game.actors.get(card.attr('data-actor-id'));
 
       // Get the Item
-      if ( !actor ) return;
+      if (!actor) return;
       const itemId = card.attr("data-item-id");
       let itemData = actor.items.find(i => i.id === itemId);
-      if ( !itemData ) return;
-      const item = new CONFIG.Item.entityClass(itemData, {actor: actor});
+      if (!itemData) return;
+      const item = new CONFIG.Item.entityClass(itemData, { actor: actor });
 
       // Get the Action
       const action = button.attr("data-action");
 
       // Weapon attack
-      if ( action === "weaponAttack" ) item.rollWeaponAttack(ev);
-      else if ( action === "weaponDamage" ) item.rollWeaponDamage(ev);
-      else if ( action === "weaponDamage2" ) item.rollWeaponDamage(ev, true);
+      if (action === "weaponAttack") item.rollWeaponAttack(ev);
+      else if (action === "weaponDamage") item.rollWeaponDamage(ev);
+      else if (action === "weaponDamage2") item.rollWeaponDamage(ev, true);
 
       // Spell actions
-      else if ( action === "spellAttack" ) item.rollSpellAttack(ev);
-      else if ( action === "spellDamage" ) item.rollSpellDamage(ev);
+      else if (action === "spellAttack") item.rollSpellAttack(ev);
+      else if (action === "spellDamage") item.rollSpellDamage(ev);
 
       // Feat actions
-      else if ( action === "featAttack" ) item.rollFeatAttack(ev);
-      else if ( action === "featDamage" ) item.rollFeatDamage(ev);
+      else if (action === "featAttack") item.rollFeatAttack(ev);
+      else if (action === "featDamage") item.rollFeatDamage(ev);
 
       // Consumable usage
-      else if ( action === "consume" ) item.rollConsumable(ev);
+      else if (action === "consume") item.rollConsumable(ev);
 
       // Tool usage
-      else if ( action === "toolCheck" ) item.rollToolCheck(ev);
+      else if (action === "toolCheck") item.rollToolCheck(ev);
     });
   }
 }
@@ -1615,8 +1617,8 @@ class ActorSheetFlags extends BaseEntitySheet {
    */
   _getFlags() {
     const flags = {};
-    for ( let [k, v] of Object.entries(CONFIG.Actor.characterFlags) ) {
-      if ( !flags.hasOwnProperty(v.section) ) flags[v.section] = {};
+    for (let [k, v] of Object.entries(CONFIG.Actor.characterFlags)) {
+      if (!flags.hasOwnProperty(v.section)) flags[v.section] = {};
       let flag = duplicate(v);
       flag.type = v.type.name;
       flag.isCheckbox = v.type === Boolean;
@@ -1638,14 +1640,14 @@ class ActorSheetFlags extends BaseEntitySheet {
     const flags = duplicate(actor.data.flags.archmage || {});
 
     // Iterate over the flags which may be configured
-    for ( let [k, v] of Object.entries(CONFIG.Actor.characterFlags) ) {
-      if ( [undefined, null, "", false].includes(formData[k]) ) delete flags[k];
-      else if ( (v.type === Number) && (formData[k] === 0) ) delete flags[k];
+    for (let [k, v] of Object.entries(CONFIG.Actor.characterFlags)) {
+      if ([undefined, null, "", false].includes(formData[k])) delete flags[k];
+      else if ((v.type === Number) && (formData[k] === 0)) delete flags[k];
       else flags[k] = formData[k];
     }
 
     // Set the new flags in bulk
-    actor.update({'flags.archmage': flags});
+    actor.update({ 'flags.archmage': flags });
   }
 }
 
@@ -1672,7 +1674,7 @@ Hooks.once("init", () => {
   function _setArchmageInitiative(tiebreaker) {
     CONFIG.initiative.tiebreaker = tiebreaker;
     CONFIG.initiative.decimals = tiebreaker ? 2 : 0;
-    if ( ui.combat && ui.combat._rendered ) ui.combat.render();
+    if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
   game.settings.register('archmage', 'initiativeDexTiebreaker', {
     name: 'Initiative Dex Tiebreaker',
@@ -1700,14 +1702,14 @@ Hooks.once("init", () => {
    * See Combat._getInitiativeFormula for more detail.
    * @private
    */
-  Combat.prototype._getInitiativeFormula = function(combatant) {
+  Combat.prototype._getInitiativeFormula = function (combatant) {
     const actor = combatant.actor;
-    if ( !actor ) return "1d20";
+    if (!actor) return "1d20";
     const init = actor.data.data.attributes.init;
     // Init mod includes dex + level + misc bonuses.
     const parts = ["1d20", init.mod];
-    if ( actor.getFlag("archmage", "initiativeAdv") ) parts[0] = "2d20kh";
-    if ( CONFIG.initiative.tiebreaker ) parts.push(actor.data.data.abilities.dex.value / 100);
+    if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
+    if (CONFIG.initiative.tiebreaker) parts.push(actor.data.data.abilities.dex.value / 100);
     return parts.filter(p => p !== null).join(" + ");
   }
 });
@@ -1745,7 +1747,7 @@ class CinderWeatherEffect extends SpecialEffect {
       },
       maxParticles: p,
       frequency: 1 / p
-    }, {inplace: false});
+    }, { inplace: false });
     return new PIXI.particles.Emitter(parent, ['ui/particles/snow.png'], config);
   }
 }
@@ -1814,7 +1816,7 @@ CinderWeatherEffect.CINDER_CONFIG = mergeObject(SpecialEffect.DEFAULT_CONFIG, {
     'y': 0
   },
   'addAtBack': false
-}, {inplace: false});
+}, { inplace: false });
 CONFIG.weatherEffects.cinder = CinderWeatherEffect;
 
 Hooks.once('ready', () => {
@@ -1840,21 +1842,17 @@ class ArchmageUtility {
   static getEscalation(combat = null) {
     // Get the current combat if one wasn't provided.
     if (!combat) {
-      if (game.combats !== undefined && game.combats.entities !== undefined) {
-        for (let c of game.combats.entities) {
-          if (c.current !== undefined) {
-            if (c.current.round !== null) {
-              combat = c;
-              break;
-            }
-          }
-        }
-      }
+      combat = game.combat;
     }
 
     // Get the escalation value.
     if (combat !== null) {
+      // Get the current round.
       let round = combat.current.round;
+      if (round == null) {
+        round = combat.data.round;
+      }
+      // Format it for min/max values.
       if (round < 1) {
         return 0;
       }
@@ -1872,7 +1870,7 @@ class ArchmageUtility {
 }
 
 // Update escalation die values.
-Hooks.on('updateCombat', (async(combat, update) => {
+Hooks.on('updateCombat', (async (combat, update) => {
   // Handle non-gm users.
   if (combat.current === undefined) {
     combat = game.combat;
@@ -1885,7 +1883,7 @@ Hooks.on('updateCombat', (async(combat, update) => {
     // Update the current combtants.
     for (let combatant of combat.data.combatants) {
       if (combatant.actor !== undefined) {
-        await combatant.actor.update({'data.attributes.escalation.value': escalation});
+        await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
         updated = true;
       }
     }
@@ -1898,6 +1896,45 @@ Hooks.on('updateCombat', (async(combat, update) => {
     let $escalationDiv = $('.archmage-escalation');
     $escalationDiv.attr('data-value', escalation);
     $escalationDiv.removeClass('hide');
+    $escalationDiv.text(escalation);
+  }
+}));
+
+// Update escalation die values on scene change.
+Hooks.on('renderCombatTracker', (async () => {
+  // Handle non-gm users.
+  combat = game.combat;
+
+  // Restore the escalation die.
+  if (combat !== null) {
+    let escalation = ArchmageUtility.getEscalation(combat);
+    var updated = false;
+    game.settings.set('archmage', 'currentEscalation', escalation);
+
+    // Update the current combtants.
+    for (let combatant of combat.data.combatants) {
+      if (combatant.actor !== undefined) {
+        await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+        updated = true;
+      }
+    }
+
+    if (updated) {
+      console.log('Updated escalation die value on combatants.');
+    }
+
+    // Update the escalation die tracker.
+    let $escalationDiv = $('.archmage-escalation');
+    $escalationDiv.attr('data-value', escalation);
+    $escalationDiv.removeClass('hide');
+    $escalationDiv.text(escalation);
+  }
+  // Hide the escalation die.
+  else {
+    let escalation = 0;
+    let $escalationDiv = $('.archmage-escalation');
+    $escalationDiv.attr('data-value', escalation);
+    $escalationDiv.addClass('hide');
     $escalationDiv.text(escalation);
   }
 }));
