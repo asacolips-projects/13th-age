@@ -13,11 +13,92 @@
 
     <nav class="sheet-tabs tabs" data-tab-container="primary">
         <a class="item active" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
     </nav>
 
     <div class="tab active" data-tab="description">
         {{editor content=data.description.value target="data.description.value" button=true}}
     </div>
 
-    
+    <div class="tab" data-tab="details">
+        <div class="settings-group form-group">
+            <label>Attack Bonuses</label>
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">Melee Attack Bonus</strong>
+            <input class="attribute-input" name="data.attributes.attack.melee.bonus" type="text" value="{{data.attributes.attack.melee.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">Ranged Attack Bonus</strong>
+            <input class="attribute-input" name="data.attributes.attack.ranged.bonus" type="text" value="{{data.attributes.attack.ranged.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">Divine Spell / Divine Attack Bonus</strong>
+            <input class="attribute-input" name="data.attributes.attack.divine.bonus" type="text" value="{{data.attributes.attack.divine.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">Arcane Spell / Arcane Attack Bonus</strong>
+            <input class="attribute-input" name="data.attributes.attack.arcane.bonus" type="text" value="{{data.attributes.attack.arcane.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+        <div class="settings-group form-group" style="padding-top: 10px;">
+            <label>Defense Bonuses</label>
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">AC Bonus</strong>
+            <input class="attribute-input" name="data.attributes.ac.bonus" type="text" value="{{data.attributes.ac.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">PD Bonus</strong>
+            <input class="attribute-input" name="data.attributes.pd.bonus" type="text" value="{{data.attributes.pd.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+        <div class="settings-group">
+            <strong class="attribute-name">MD Bonus</strong>
+            <input class="attribute-input" name="data.attributes.md.bonus" type="text" value="{{data.attributes.md.bonus}}"
+                data-dtype="Number" placeholder="1" />
+        </div>
+
+
+        <div class="settings-group form-group" style="padding-top: 10px;">
+            <label>Chakra Slot</label>
+        </div>
+
+        <div class="settings-group">
+            <select class="attribute-input" name="data.chackra" data-type="String">
+                {{#select data.chackra}}
+                <option value="none">None</option>
+                <option value="armor">Armor, robe, shirt, tunic</option>
+                <option value="arrow">Arrow, crossbow bolt, slingstone</option>
+                <option value="belt">Belt, swordbelt, kilt, girdle</option>
+                <option value="book">Book, scroll, manual, grimoire</option>
+                <option value="boots">Boots, scandals, slippers, shoes</option>
+                <option value="cloak">Cloak, mantle, cape</option>
+                <option value="glove">Glove, gauntlet, mitt</option>
+                <option value="helmet">Helmet, circlet, crown, cap</option>
+                <option value="necklace">Necklace, pendant</option>
+                <option value="ring">Ring</option>
+                <option value="shield">Shield</option>
+                <option value="staff">Staff (implement)</option>
+                <option value="symbol">Symbol, holy relic, sacred sickle (implement)</option>
+                <option value="wand">Wand (implement)</option>
+                <option value="melee">Weapon, melee</option>
+                <option value="ranged">Weapon, ranged</option>
+                <option value="wondrous">Wondrous item</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
 </form>

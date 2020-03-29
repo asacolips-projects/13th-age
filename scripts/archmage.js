@@ -428,7 +428,7 @@ class ActorArchmageSheet extends ActorSheet {
     // Weapon Attacks
     html.find('.weapon.rollable').click(ev => {
       let weapon = $(ev.currentTarget).data();
-      let rollAttack = new Roll(`d20 + ${weapon.atk} + @attributes.escalation.value`, this.actor.data.data);
+      let rollAttack = new Roll(`d20 + ${weapon.atk} + @attributes.standardBonuses.value`, this.actor.data.data);
       let rollDamage = new Roll(weapon.dmg, this.actor.data.data);
 
       // Roll the dice.
@@ -1152,10 +1152,57 @@ class ActorArchmage extends Actor {
       }
     }
 
+    var meleeAttackBonus = 0;
+    var rangedAttackBonus = 0;
+    var divineAttackBonus = 0;
+    var arcaneAttackBonus = 0;
+    
+    var acBonus = 0;
+    var mdBonus = 0;
+    var pdBonus = 0;
+
+    function getBonusOr0(type) {
+      if (type && type.bonus) {
+        return type.bonus;
+      }
+      return 0;
+    }
+
+    if (this.items) {
+      this.items.forEach(function (item) {
+        if (item.type === 'equipment') {
+          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
+          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
+          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
+          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
+
+          acBonus += getBonusOr0(item.data.data.attributes.ac);
+          mdBonus += getBonusOr0(item.data.data.attributes.md);
+          pdBonus += getBonusOr0(item.data.data.attributes.pd);
+        }
+      });
+    }
+
     if (actorData.type === 'character') {
-      data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value;
-      data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value;
-      data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value;
+
+      data.attributes.attack = {
+        melee: {
+          bonus: meleeAttackBonus
+        },
+        ranged: {
+          bonus: rangedAttackBonus
+        },
+        divine: {
+          bonus: divineAttackBonus
+        },
+        arcane: {
+          bonus: arcaneAttackBonus
+        }
+      };
+
+      data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value + acBonus;
+      data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
+      data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value + mdBonus;
     }
 
     // Skill modifiers
@@ -1212,10 +1259,11 @@ class ActorArchmage extends Actor {
     data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
     data.attributes.weapon.ranged.abil = data.attributes.weapon.ranged.abil === undefined ? 'dex' : data.attributes.weapon.ranged.abil;
     // Set calculated values.
-    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod;
+    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod + data.attributes.attack.melee.bonus;
     data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
     data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg;
-    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod;
+
+    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod + data.attributes.attack.ranged.bonus;
     data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
     data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg;
 
@@ -1223,6 +1271,12 @@ class ActorArchmage extends Actor {
     data.attributes.escalation = {
       value: game.settings.get('archmage', 'currentEscalation')
     };
+
+    if (actorData.type === 'character') {
+      data.attributes.standardBonuses = {
+        value: data.attributes.level.value + data.attributes.escalation.value
+      };
+    }
 
     // Return the prepared Actor data
     return actorData;
@@ -1969,7 +2023,8 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
     ],
     attributes: [
       'init',
-      'level'
+      'level',
+      'standardBonuses'
     ],
     custom: {
       abilities: {},
@@ -1993,6 +2048,11 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
           label: 'ranged',
           name: 'W [Ranged]',
           formula: '@attr.weapon.ranged.value'
+        },
+        standardBonus: {
+          label: 'standard_bonuses',
+          name: 'Standard Bonuses',
+          formula: '@attr.standardBonuses.value'
         }
       },
       custom: {}
