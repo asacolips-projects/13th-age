@@ -1730,10 +1730,62 @@
   opacity: .3; }
 
 .dc-crit {
-  color: #00ff30; }
+  color: #7bff94; }
 
 .dc-fail {
-  color: #ff5252; }
+  color: #ff8484; }
+
+.chat-card .inline-roll,
+.message .inline-roll {
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  border-color: #000;
+  border-radius: 4px;
+  display: inline-block;
+  line-height: 0;
+  padding: 1px 4px;
+  -webkit-transition: -webkit-transform ease-in-out 0.25s;
+  transition: -webkit-transform ease-in-out 0.25s;
+  -o-transition: transform ease-in-out 0.25s;
+  transition: transform ease-in-out 0.25s;
+  transition: transform ease-in-out 0.25s, -webkit-transform ease-in-out 0.25s; }
+  .chat-card .inline-roll:hover,
+  .message .inline-roll:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    z-index: 90; }
+  .chat-card .inline-roll .fas,
+  .message .inline-roll .fas {
+    color: #fff;
+    font-size: 10px;
+    line-height: 12px; }
+
+.chat-card .dc-discarded,
+.message .dc-discarded {
+  opacity: .3; }
+
+.chat-card .dc-crit,
+.message .dc-crit {
+  color: #7bff94;
+  background: rgba(2, 66, 22, 0.75); }
+  .chat-card .dc-crit:hover,
+  .message .dc-crit:hover {
+    text-shadow: 0 0 8px #000; }
+  .chat-card .dc-crit .fas,
+  .message .dc-crit .fas {
+    color: #7bff94; }
+
+.chat-card .dc-fail,
+.message .dc-fail {
+  color: #ff8484;
+  background: rgba(70, 0, 0, 0.75); }
+  .chat-card .dc-fail:hover,
+  .message .dc-fail:hover {
+    text-shadow: 0 0 8px #000; }
+  .chat-card .dc-fail .fas,
+  .message .dc-fail .fas {
+    color: #ff8484; }
 
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;
