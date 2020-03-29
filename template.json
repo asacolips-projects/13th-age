@@ -557,28 +557,13 @@
       "templates": ["standard"]
     },
     "tool": {
-      "name": {
-        "type": "String",
-        "label": "Name"
-      },
-      "description": {
-        "type": "String",
-        "label": "Description"
-      }
+      "templates": ["standard"]
     },
     "loot": {
-      "templates": [
-        "itemDescription",
-        "physicalItem"
-      ]
+      "templates": ["standard"]
     },
     "equipment": {
-      "templates": [
-        "itemDescription",
-        "physicalItem",
-        "activatedEffect",
-        "action"
-      ],
+      "templates": ["standard"],
       "properties": {}
     }
   }
