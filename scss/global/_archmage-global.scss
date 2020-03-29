@@ -1921,3 +1921,60 @@
 .dc-fail {
   color: $c-fail;
 }
+
+// Foundry Core inlne overrides
+
+.chat-card,
+.message {
+  .inline-roll {
+    background: $ct-black--75;
+    color: $c-white;
+    border-color: $c-black;
+    border-radius: 4px;
+    display: inline-block;
+    line-height: 0;
+    padding: 1px 4px;
+    transition: transform ease-in-out 0.25s;
+
+    &:hover {
+      transform: scale(1.2);
+      z-index: 90;
+    }
+
+    .fas {
+      color: $c-white;
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+
+  .dc-discarded {
+    opacity: .3;
+  }
+
+  .dc-crit {
+    color: $c-crit;
+    background: rgba(2, 66, 22, 0.75);
+
+    &:hover {
+      text-shadow: 0 0 8px $c-black;
+    }
+
+    .fas {
+      color: $c-crit;
+    }
+  }
+
+  .dc-fail {
+    color: $c-fail;
+    background: rgba(70, 0, 0, 0.75);
+
+    &:hover {
+      text-shadow: 0 0 8px $c-black;
+    }
+
+    .fas {
+      color: $c-fail;
+    }
+  }
+}

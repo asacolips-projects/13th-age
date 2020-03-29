@@ -428,34 +428,25 @@ class ActorArchmageSheet extends ActorSheet {
     // Weapon Attacks
     html.find('.weapon.rollable').click(ev => {
       let weapon = $(ev.currentTarget).data();
-      let rollAttack = new Roll(`d20 + ${weapon.atk} + @attributes.escalation.value`, this.actor.data.data);
-      let rollDamage = new Roll(weapon.dmg, this.actor.data.data);
+      var templateData = {
+        actor: this.actor,
+        item: { name: weapon.label },
+        data: {
+          powerUsage: { value: 'at-will' },
+          attack: { value: `[[d20 + ${weapon.atk} + @attributes.escalation.value]]` },
+          hit: { value: `[[${weapon.dmg}]]` },
+          miss: { value: `${weapon.miss}` }
+        }
+      };
 
-      // Roll the dice.
-      rollAttack.roll();
-      rollDamage.roll();
-
-      // Crits.
-      let attackContent = this._getInlineRoll(rollAttack, true);
-      let damageContent = this._getInlineRoll(rollDamage);
-      let crit = '';
-      let miss = weapon.miss;
-
-      if (attackContent.type === 'crit') {
-        let critDamage = new Roll(weapon.dmg).roll();
-        crit = `<div><strong>Crit:</strong> ${this._getInlineRoll(critDamage).content}</div>`;
-      }
-      else if (attackContent.type === 'fail') {
-        miss = '—';
-      }
-
-      let content = `<div class="archmage chat-card"><div class="card-header"><h3 class="ability-usage ability-usage--at-will">${weapon.label}</h3></div><strong>Attack:</strong> ${attackContent.content} vs. AC</div><div><strong>Hit:</strong> ${attackContent.type !== 'fail' ? damageContent.content : '—'}</div>${crit}<div><strong>Miss:</strong> ${miss}</div>`;
-
-      ChatMessage.create({
-        user: game.user._id,
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        content: content
-      })
+      let template = 'systems/archmage/templates/chat/action-card.html';
+      renderTemplate(template, templateData).then(content => {
+        ChatMessage.create({
+          user: game.user._id,
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          content: content
+        });
+      });
     });
 
     /* -------------------------------------------- */
@@ -725,51 +716,6 @@ class ActorArchmageSheet extends ActorSheet {
     // @TODO: Remove class on drop.
   }
 
-  _getInlineRoll(roll, checkCrit = false) {
-    let parts = '';
-    let modifierClass = 'normal';
-    for (let i = 0; i < roll.parts.length; i++) {
-      let part = roll.parts[i];
-      if (part.rolls) {
-        parts += '[' + part.rolls.map(function (r) {
-          if (checkCrit) {
-            if (r.discarded) {
-              return `<span class="dc-discarded">${r.roll}</span>`;
-            }
-            else if (r.roll === part.faces) {
-              modifierClass = 'crit';
-              return `<span class="dc-crit">${r.roll}</span>`
-            }
-            else if (r.roll === 1) {
-              modifierClass = 'fail';
-              return `<span class="dc-fail">${r.roll}</span>`
-            }
-            else {
-              return r.roll;
-            }
-          }
-          return !r.discarded ? r.roll : `<span class="dc-discarded">${r.roll}</span>`;
-        }).join(', ') + ']';
-      }
-      else {
-        parts += ' ' + part;
-      }
-    }
-    // Return result if successfull, or the original characters otherwise.
-    if (roll.total) {
-      return {
-        content: `<div class="dc-inline-roll"><div class="dc-inline-roll__result"><span class="dc-${modifierClass}">${roll.total}</span></div><div class="dc-inline-roll__parts"><div class="dc-formula">${roll.formula}</div><div class="dc-parts">${parts}</div></div></div>`,
-        type: modifierClass,
-      };
-    }
-    else {
-      return {
-        content: '',
-        type: 'normal',
-      };
-    }
-  }
-
   /* -------------------------------------------- */
 
   /**
@@ -834,6 +780,107 @@ class ActorArchmageSheet extends ActorSheet {
     }
   }
 }
+
+/**
+ * Parse inline rolls.
+ */
+Hooks.on('preCreateChatMessage', (message_class, data) => {
+  let $content = $(`<div class="wrapper">${data.content}</div>`);
+  let $rolls = $content.find('.inline-result');
+  let updated_content = null;
+
+  // Iterate through inline rolls, add a class to crits/fails.
+  for (let i = 0; i < $rolls.length; i++) {
+    let $roll = $($rolls[i]);
+
+    let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
+    let result = ArchmageUtility.inlineRollCritTest(roll_data);
+
+    if (result.includes('crit')) {
+      $roll.addClass('dc-crit');
+    }
+    else if (result.includes('fail')) {
+      $roll.addClass('dc-fail');
+    }
+
+    // Update the array of roll HTML elements.
+    $rolls[i] = $roll[0];
+  }
+
+  // Now that we know which rolls were crits, update the content string.
+  $content.find('.inline-result').replaceWith($rolls);
+  updated_content = $content.html();
+  if (updated_content != null) {
+    data.content = updated_content;
+  }
+
+  // Next, let's see if any of the crits were on attack lines.
+  $content = $(`<div class="wrapper">${data.content}</div>`);
+  let $rows = $content.find('.card-prop');
+
+  if ($rows.length > 0) {
+    // Assume no crit or fail.
+    let has_crit = false;
+    let has_fail = false;
+    // Iterate through each of the card properties/rows.
+    $rows.each(function (index) {
+      // Determine if this line is for an attack and if it's a crit/fail.
+      let $row_self = $(this);
+      let row_text = $row_self.html();
+      if (row_text.includes('Attack:')) {
+        if (row_text.includes('dc-crit')) {
+          has_crit = true;
+        }
+        if (row_text.includes('dc-fail')) {
+          has_fail = true;
+        }
+      }
+
+      // If so, determine if the current row (next iteration, usually) is a hit.
+      if (has_crit || has_fail) {
+        if (row_text.includes('Hit:')) {
+          // If the hit row includes inline results, we need to reroll them.
+          let $roll = $row_self.find('.inline-result');
+          if ($roll.length > 0) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function (roll_index) {
+              let $roll_self = $(this);
+              // Retrieve the roll formula.
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              // If there's a crit, double the formula and reroll. If there's a
+              // fail with no crit, 0 it out.
+              if (has_crit) {
+                roll_data.formula = `(${roll_data.formula}) * 2`;
+                $roll_self.addClass('dc-crit');
+              }
+              else {
+                roll_data.formula = `0`;
+                $roll_self.addClass('dc-fail');
+              }
+              // Reroll and recalculate.
+              roll_data = roll_data.reroll();
+              // Update inline roll's markup.
+              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+              $roll_self.attr('title', roll_data.formula);
+              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+            });
+          }
+          // Update the row with the new roll(s) markup.
+          $row_self.find('.inline-result').replaceWith($roll);
+        }
+      }
+    });
+
+    // If there was a crit, update the content again with the new damage rolls.
+    if (has_crit || has_fail) {
+      $content.find('.card-prop').replaceWith($rows);
+      updated_content = $content.html();
+      if (updated_content != null) {
+        data.content = updated_content;
+      }
+    }
+  }
+});
 
 Actors.unregisterSheet('core', ActorSheet);
 Actors.registerSheet('archmage', ActorArchmageSheet, {
@@ -1152,10 +1199,57 @@ class ActorArchmage extends Actor {
       }
     }
 
+    var meleeAttackBonus = 0;
+    var rangedAttackBonus = 0;
+    var divineAttackBonus = 0;
+    var arcaneAttackBonus = 0;
+    
+    var acBonus = 0;
+    var mdBonus = 0;
+    var pdBonus = 0;
+
+    function getBonusOr0(type) {
+      if (type && type.bonus) {
+        return type.bonus;
+      }
+      return 0;
+    }
+
+    if (this.items) {
+      this.items.forEach(function (item) {
+        if (item.type === 'equipment') {
+          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
+          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
+          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
+          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
+
+          acBonus += getBonusOr0(item.data.data.attributes.ac);
+          mdBonus += getBonusOr0(item.data.data.attributes.md);
+          pdBonus += getBonusOr0(item.data.data.attributes.pd);
+        }
+      });
+    }
+
     if (actorData.type === 'character') {
-      data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value;
-      data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value;
-      data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value;
+
+      data.attributes.attack = {
+        melee: {
+          bonus: meleeAttackBonus
+        },
+        ranged: {
+          bonus: rangedAttackBonus
+        },
+        divine: {
+          bonus: divineAttackBonus
+        },
+        arcane: {
+          bonus: arcaneAttackBonus
+        }
+      };
+
+      data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value + acBonus;
+      data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
+      data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value + mdBonus;
     }
 
     // Skill modifiers
@@ -1212,10 +1306,11 @@ class ActorArchmage extends Actor {
     data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
     data.attributes.weapon.ranged.abil = data.attributes.weapon.ranged.abil === undefined ? 'dex' : data.attributes.weapon.ranged.abil;
     // Set calculated values.
-    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod;
+    data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod + data.attributes.attack.melee.bonus;
     data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
     data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg;
-    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod;
+
+    data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod + data.attributes.attack.ranged.bonus;
     data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
     data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg;
 
@@ -1223,6 +1318,12 @@ class ActorArchmage extends Actor {
     data.attributes.escalation = {
       value: game.settings.get('archmage', 'currentEscalation')
     };
+
+    if (actorData.type === 'character') {
+      data.attributes.standardBonuses = {
+        value: data.attributes.level.value + data.attributes.escalation.value
+      };
+    }
 
     // Return the prepared Actor data
     return actorData;
@@ -1720,6 +1821,18 @@ Hooks.once("init", () => {
     if (CONFIG.initiative.tiebreaker) parts.push(actor.data.data.abilities.dex.value / 100);
     return parts.filter(p => p !== null).join(" + ");
   }
+
+  /**
+   * Override the default getRollData() method to add abbreviations for the
+   * abilities and attributes properties.
+   */
+  const original = Actor.prototype.getRollData;
+  Actor.prototype.getRollData = function () {
+    const data = original.call(this);
+    data.attr = data.attributes;
+    data.abil = data.abilities;
+    return data;
+  };
 });
 
 
@@ -1875,6 +1988,39 @@ class ArchmageUtility {
     // Otherwise, return 0.
     return 0;
   }
+
+  /**
+   * Determine if roll includes a d20 crit.
+   *
+   * @param {object} roll
+   *
+   * @return {string} 'crit', 'fail', or 'normal'.
+   */
+  static inlineRollCritTest(roll) {
+    for (let i = 0; i < roll.parts.length; i++) {
+      var part = roll.parts[i];
+      if (part.rolls) {
+        let result = part.rolls.map((r) => {
+          if (part.faces === 20) {
+            if (r.roll === part.faces) {
+              return 'crit';
+            }
+            else if (r.roll === 1) {
+              return 'fail';
+            }
+            else {
+              return 'normal';
+            }
+          }
+          else {
+            return 'normal';
+          }
+        });
+
+        return result;
+      }
+    }
+  }
 }
 
 // Update escalation die values.
@@ -1969,7 +2115,8 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
     ],
     attributes: [
       'init',
-      'level'
+      'level',
+      'standardBonuses'
     ],
     custom: {
       abilities: {},
@@ -1993,6 +2140,11 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
           label: 'ranged',
           name: 'W [Ranged]',
           formula: '@attr.weapon.ranged.value'
+        },
+        standardBonus: {
+          label: 'standard_bonuses',
+          name: 'Standard Bonuses',
+          formula: '@attr.standardBonuses.value'
         }
       },
       custom: {}
