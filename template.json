@@ -327,7 +327,7 @@
     }
   },
   "Item": {
-    "types": ["power", "trait", "action", "nastierSpecial"],
+    "types": ["power", "trait", "action", "nastierSpecial", "tool", "loot", "equipment"],
     "templates": {
       "standard": {
         "name": {
@@ -555,6 +555,16 @@
     },
     "nastierSpecial": {
       "templates": ["standard"]
+    },
+    "tool": {
+      "templates": ["standard"]
+    },
+    "loot": {
+      "templates": ["standard"]
+    },
+    "equipment": {
+      "templates": ["standard"],
+      "properties": {}
     }
   }
 }
