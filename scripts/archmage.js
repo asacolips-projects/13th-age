@@ -1969,19 +1969,22 @@ Hooks.on('updateCombat', (async (combat, update) => {
   }
   if (combat.current.round !== combat.previous.round) {
     let escalation = ArchmageUtility.getEscalation(combat);
-    var updated = false;
     game.settings.set('archmage', 'currentEscalation', escalation);
 
-    // Update the current combtants.
-    for (let combatant of combat.data.combatants) {
-      if (combatant.actor !== undefined) {
-        await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+    if(game.user.isGM) {
+      var updated = false;
+
+      // Update the current combtants.
+      for (let combatant of combat.data.combatants) {
+        if (combatant.actor !== undefined) {
+          await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+        }
         updated = true;
       }
-    }
 
-    if (updated) {
-      console.log('Updated escalation die value on combatants.');
+      if (updated) {
+        console.log('Updated escalation die value on combatants.');
+      }
     }
 
     // Update the escalation die tracker.
@@ -2000,19 +2003,22 @@ Hooks.on('renderCombatTracker', (async () => {
   // Restore the escalation die.
   if (combat !== null) {
     let escalation = ArchmageUtility.getEscalation(combat);
-    var updated = false;
     game.settings.set('archmage', 'currentEscalation', escalation);
 
-    // Update the current combtants.
-    for (let combatant of combat.data.combatants) {
-      if (combatant.actor !== undefined) {
-        await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+    if(game.user.isGM) {
+      var updated = false;
+
+      // Update the current combtants.
+      for (let combatant of combat.data.combatants) {
+        if (combatant.actor !== undefined) {
+          await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+        }
         updated = true;
       }
-    }
 
-    if (updated) {
-      console.log('Updated escalation die value on combatants.');
+      if (updated) {
+        console.log('Updated escalation die value on combatants.');
+      }
     }
 
     // Update the escalation die tracker.
