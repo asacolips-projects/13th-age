@@ -1387,7 +1387,7 @@ class ItemArchmage extends Item {
 
   getChatData(htmlOptions) {
     const data = this[`_${this.data.type}ChatData`]();
-    data.description.value = data.description.value !== undefined ? enrichHTML(data.description.value, htmlOptions) : '';
+    data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
     return data;
   }
 
