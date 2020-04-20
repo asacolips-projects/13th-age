@@ -5,7 +5,7 @@
   "version": "1.3.3",
   "author": "Matt Smith",
   "minimumCoreVersion": "0.5.2",
-  "requiredCoreVersion": "0.5.5",
+  "compatibleCoreVersion": "0.5.5",
   "scripts": [
     "scripts/parse-md.js",
     "scripts/archmage-prepopulate.js",
