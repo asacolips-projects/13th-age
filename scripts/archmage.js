@@ -1,6 +1,6 @@
 // CONFIG.debug.hooks = true;
 
-String.prototype.safeCSSId = function () {
+String.prototype.safeCSSId = function() {
   return encodeURIComponent(
     this.toLowerCase()
   ).replace(/%[0-9A-F]{2}/gi, '-');
@@ -823,7 +823,7 @@ Hooks.on('preCreateChatMessage', (message_class, data) => {
     let has_crit = false;
     let has_fail = false;
     // Iterate through each of the card properties/rows.
-    $rows.each(function (index) {
+    $rows.each(function(index) {
       // Determine if this line is for an attack and if it's a crit/fail.
       let $row_self = $(this);
       let row_text = $row_self.html();
@@ -843,7 +843,7 @@ Hooks.on('preCreateChatMessage', (message_class, data) => {
           let $roll = $row_self.find('.inline-result');
           if ($roll.length > 0) {
             // Iterate through the inline rolls on the hit row.
-            $roll.each(function (roll_index) {
+            $roll.each(function(roll_index) {
               let $roll_self = $(this);
               // Retrieve the roll formula.
               let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
@@ -1181,7 +1181,7 @@ class ActorArchmage extends Actor {
      * @return {Int} The median value
      */
     function median(values) {
-      values.sort(function (a, b) {
+      values.sort(function(a, b) {
         return a - b;
       });
 
@@ -1452,7 +1452,7 @@ class ItemArchmage extends Item {
 
   getChatData(htmlOptions) {
     const data = this[`_${this.data.type}ChatData`]();
-    data.description.value = data.description.value !== undefined ? enrichHTML(data.description.value, htmlOptions) : '';
+    data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
     return data;
   }
 
@@ -1814,7 +1814,7 @@ Hooks.once("init", () => {
    * See Combat._getInitiativeFormula for more detail.
    * @private
    */
-  Combat.prototype._getInitiativeFormula = function (combatant) {
+  Combat.prototype._getInitiativeFormula = function(combatant) {
     const actor = combatant.actor;
     if (!actor) return "1d20";
     const init = actor.data.data.attributes.init;
@@ -1830,7 +1830,7 @@ Hooks.once("init", () => {
    * abilities and attributes properties.
    */
   const original = Actor.prototype.getRollData;
-  Actor.prototype.getRollData = function () {
+  Actor.prototype.getRollData = function() {
     const data = original.call(this);
     data.attr = data.attributes;
     data.abil = data.abilities;
@@ -2037,19 +2037,22 @@ Hooks.on('updateCombat', (async (combat, update) => {
   }
   if (combat.current.round !== combat.previous.round) {
     let escalation = ArchmageUtility.getEscalation(combat);
-    var updated = false;
-    game.settings.set('archmage', 'currentEscalation', escalation);
 
-    // Update the current combtants.
-    for (let combatant of combat.data.combatants) {
-      if (combatant.actor !== undefined) {
-        await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+    if (game.user.isGM) {
+      game.settings.set('archmage', 'currentEscalation', escalation);
+      var updated = false;
+
+      // Update the current combtants.
+      for (let combatant of combat.data.combatants) {
+        if (combatant.actor !== undefined) {
+          await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+        }
         updated = true;
       }
-    }
 
-    if (updated) {
-      console.log('Updated escalation die value on combatants.');
+      if (updated) {
+        console.log('Updated escalation die value on combatants.');
+      }
     }
 
     // Update the escalation die tracker.
@@ -2068,19 +2071,22 @@ Hooks.on('renderCombatTracker', (async () => {
   // Restore the escalation die.
   if (combat !== null) {
     let escalation = ArchmageUtility.getEscalation(combat);
-    var updated = false;
-    game.settings.set('archmage', 'currentEscalation', escalation);
 
-    // Update the current combtants.
-    for (let combatant of combat.data.combatants) {
-      if (combatant.actor !== undefined) {
-        await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+    if (game.user.isGM) {
+      game.settings.set('archmage', 'currentEscalation', escalation);
+      var updated = false;
+
+      // Update the current combtants.
+      for (let combatant of combat.data.combatants) {
+        if (combatant.actor !== undefined) {
+          await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
+        }
         updated = true;
       }
-    }
 
-    if (updated) {
-      console.log('Updated escalation die value on combatants.');
+      if (updated) {
+        console.log('Updated escalation die value on combatants.');
+      }
     }
 
     // Update the escalation die tracker.
