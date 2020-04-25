@@ -778,7 +778,7 @@ class ActorArchmageSheet extends ActorSheet {
 /**
  * Parse inline rolls.
  */
-Hooks.on('preCreateChatMessage', (message_class, data) => {
+Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let $content = $(`<div class="wrapper">${data.content}</div>`);
   let $rolls = $content.find('.inline-result');
   let updated_content = null;
@@ -789,6 +789,8 @@ Hooks.on('preCreateChatMessage', (message_class, data) => {
 
     let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
     let result = ArchmageUtility.inlineRollCritTest(roll_data);
+
+    console.log(result);
 
     if (result.includes('crit')) {
       $roll.addClass('dc-crit');
@@ -828,6 +830,11 @@ Hooks.on('preCreateChatMessage', (message_class, data) => {
         if (row_text.includes('dc-fail')) {
           has_fail = true;
         }
+      }
+
+      if (row_text.includes('Hit:')) {
+        let $roll_self = $row_self.find('.inline-result').data('roll');
+        console.log(Roll.fromJSON(unescape($roll_self)));
       }
 
       // If so, determine if the current row (next iteration, usually) is a hit.
@@ -1260,7 +1267,7 @@ class ActorArchmage extends Actor {
 
     // Get the escalation die value.
     data.attributes.escalation = {
-      value: game.settings.get('archmage', 'currentEscalation')
+      value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : game.settings.get('archmage', 'currentEscalation'),
     };
 
     // Return the prepared Actor data
@@ -1959,6 +1966,36 @@ class ArchmageUtility {
       }
     }
   }
+
+  /**
+   * Determines if the player owns a combatant or not.
+   */
+  static userOwnsCombatant(combatant) {
+    let combatantPlayers = combatant.players.map(c => {
+      return c.data._id;
+    });
+    if (combatantPlayers.includes(game.user._id)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  /**
+   * Get actors by name.
+   *
+   * @param {str|array} name
+   *   Actor name or array of actor names to query.
+   */
+  static getActorsByName(name) {
+    if (Array.isArray(name)) {
+      return game.actors.entities.filter(a => name.includes(a.data.name));
+    }
+    else {
+      return game.actors.entities.filter(a => a.data.name == name);
+    }
+  }
 }
 
 // Update escalation die values.
@@ -1972,19 +2009,22 @@ Hooks.on('updateCombat', (async (combat, update) => {
 
     if (game.user.isGM) {
       game.settings.set('archmage', 'currentEscalation', escalation);
-      var updated = false;
+    }
 
-      // Update the current combtants.
-      for (let combatant of combat.data.combatants) {
+    var updated = false;
+
+    // Update the current combtants.
+    for (let combatant of combat.data.combatants) {
+      if (ArchmageUtility.userOwnsCombatant(combatant) || game.user.isGM) {
         if (combatant.actor !== undefined) {
           await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
         }
-        updated = true;
       }
+      updated = true;
+    }
 
-      if (updated) {
-        console.log('Updated escalation die value on combatants.');
-      }
+    if (updated) {
+      console.log('Updated escalation die value on owned combatants.');
     }
 
     // Update the escalation die tracker.
@@ -2007,18 +2047,20 @@ Hooks.on('renderCombatTracker', (async () => {
     if (game.user.isGM) {
       game.settings.set('archmage', 'currentEscalation', escalation);
       var updated = false;
+    }
 
-      // Update the current combtants.
-      for (let combatant of combat.data.combatants) {
+    // Update the current combtants.
+    for (let combatant of combat.data.combatants) {
+      if (ArchmageUtility.userOwnsCombatant(combatant) || game.user.isGM) {
         if (combatant.actor !== undefined) {
           await combatant.actor.update({ 'data.attributes.escalation.value': escalation });
         }
-        updated = true;
       }
+      updated = true;
+    }
 
-      if (updated) {
-        console.log('Updated escalation die value on combatants.');
-      }
+    if (updated) {
+      console.log('Updated escalation die value on owned combatants.');
     }
 
     // Update the escalation die tracker.
