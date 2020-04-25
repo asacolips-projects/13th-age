@@ -790,8 +790,6 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
     let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
     let result = ArchmageUtility.inlineRollCritTest(roll_data);
 
-    console.log(result);
-
     if (result.includes('crit')) {
       $roll.addClass('dc-crit');
     }
@@ -830,11 +828,6 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
         if (row_text.includes('dc-fail')) {
           has_fail = true;
         }
-      }
-
-      if (row_text.includes('Hit:')) {
-        let $roll_self = $row_self.find('.inline-result').data('roll');
-        console.log(Roll.fromJSON(unescape($roll_self)));
       }
 
       // If so, determine if the current row (next iteration, usually) is a hit.
