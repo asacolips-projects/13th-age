@@ -449,6 +449,16 @@ class ActorArchmageSheet extends ActorSheet {
       });
     });
 
+    // Recoveries.
+    html.find('.recovery-roll.rollable').click(ev => {
+      let totalRecoveries = this.actor.data.data.attributes.recoveries.value;
+      let recovery = $(ev.currentTarget).data();
+      let roll = new Roll(Number(totalRecoveries) > 0 ? recovery.roll : `floor((${recovery.roll})/2)`);
+      roll.roll();
+      roll.toMessage({ flavor: '<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll</h3></header></div>' });
+      this.actor.update({ 'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0) });
+    });
+
     /* -------------------------------------------- */
     /*  Rollable Items                              */
     /* -------------------------------------------- */
@@ -1046,10 +1056,10 @@ class ItemArchmageSheet extends ItemSheet {
         // Pass general character data.
         powerClass = this.actor.data.data.details.class.value.toLowerCase();
       }
-  
+
       let powerLevel = this.actor.data.data.details.level.value;
       let powerLevelString = '';
-  
+
       for (let i = 1; i <= powerLevel; i++) {
         if (powerLevelString.length < 1) {
           powerLevelString = '' + i;
@@ -1057,16 +1067,16 @@ class ItemArchmageSheet extends ItemSheet {
         else {
           powerLevelString = `${powerLevelString}+${i}`;
         }
-  
+
         if (i >= 10) {
           break;
         }
       }
-  
+
       data['powerClass'] = powerClass;
-      data['powerLevel'] = powerLevelString;  
+      data['powerLevel'] = powerLevelString;
     }
-    
+
     return data;
   }
 
@@ -1203,7 +1213,7 @@ class ActorArchmage extends Actor {
     var rangedAttackBonus = 0;
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
-    
+
     var acBonus = 0;
     var mdBonus = 0;
     var pdBonus = 0;
@@ -1216,7 +1226,7 @@ class ActorArchmage extends Actor {
     }
 
     if (this.items) {
-      this.items.forEach(function (item) {
+      this.items.forEach(function(item) {
         if (item.type === 'equipment') {
           meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
           rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
@@ -1239,7 +1249,7 @@ class ActorArchmage extends Actor {
     // data.attributes.ac.min = 10 + data.abilities.dex.mod;
 
     // Set a copy of level in details in order to mimic 5e's data structure.
-      data.details.level = data.attributes.level;
+    data.details.level = data.attributes.level;
 
     if (actorData.type === 'character') {
 

@@ -71,6 +71,9 @@
                     <input name="data.attributes.recoveries.max" type="text" value="{{data.attributes.recoveries.max}}"
                         data-dtype="{{data.attributes.recoveries.type}}" placeholder="8" />
                 </div>
+                <div class="attribute-footer">
+                  <a class="recovery-roll rollable" data-roll="{{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.mod}}"><i class="fas fa-dice-d20"></i> {{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.mod}}</a>
+                </div>
             </div>
 
             <div class="attribute">
@@ -294,6 +297,12 @@
                 <strong class="attribute-name">Initiative</strong>
                 <input class="attribute-input" name="data.attributes.init.value" type="text" value="{{data.attributes.init.value}}"
                     data-dtype="{{data.attributes.init.type}}" placeholder="0" />
+            </div>
+
+            <div class="settings-group">
+                <strong class="attribute-name">Recovery Dice</strong>
+                <input class="attribute-input" name="data.attributes.recoveries.dice" type="text" value="{{data.attributes.recoveries.dice}}"
+                    data-dtype="String" placeholder="d8" />
             </div>
 
             <div class="settings-group">

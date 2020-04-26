@@ -82,7 +82,8 @@
             "type": "Number",
             "label": "Recoveries",
             "value": 8,
-            "max": 8
+            "max": 8,
+            "dice": "d8"
           },
           "init": {
             "type": "Number",
