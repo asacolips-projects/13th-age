@@ -451,11 +451,20 @@ class ActorArchmageSheet extends ActorSheet {
 
     // Recoveries.
     html.find('.recovery-roll.rollable').click(ev => {
-      let totalRecoveries = this.actor.data.data.attributes.recoveries.value;
+      let actorData = this.actor.data.data;
+      let totalRecoveries = actorData.attributes.recoveries.value;
       let recovery = $(ev.currentTarget).data();
-      let roll = new Roll(Number(totalRecoveries) > 0 ? recovery.roll : `floor((${recovery.roll})/2)`);
+      let formula = recovery.roll;
+
+      // Handle average results.
+      if (this.actor.getFlag('archmage', 'averageRecoveries')) {
+        formula = actorData.attributes.level.value * (Number(actorData.attributes.recoveries.dice.replace('d', '')) / 2) + actorData.abilities.con.mod;
+      }
+      // Perform the roll.
+      let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
       roll.roll();
-      roll.toMessage({ flavor: '<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll</h3></header></div>' });
+      // Send to chat and reduce the number of recoveries.
+      roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
       this.actor.update({ 'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0) });
     });
 
@@ -1726,6 +1735,7 @@ class ActorSheetFlags extends BaseEntitySheet {
    */
   getData() {
     const data = super.getData();
+    data.actor = this.object;
     data.flags = this._getFlags();
     return data;
   }
@@ -1757,19 +1767,31 @@ class ActorSheetFlags extends BaseEntitySheet {
    * Update the Actor using the configured flags
    * Remove/unset any flags which are no longer configured
    */
-  _updateObject(event, formData) {
+  async _updateObject(event, formData) {
     const actor = this.object;
-    const flags = duplicate(actor.data.flags.archmage || {});
+    const updateData = {
+      flags: {
+        archmage: expandObject(formData)
+      }
+    };
+
+    let unset = false;
+    const flags = updateData.flags.archmage;
 
     // Iterate over the flags which may be configured
-    for (let [k, v] of Object.entries(CONFIG.Actor.characterFlags)) {
-      if ([undefined, null, "", false].includes(formData[k])) delete flags[k];
-      else if ((v.type === Number) && (formData[k] === 0)) delete flags[k];
-      else flags[k] = formData[k];
+    for (let [k, v] of Object.entries(flags)) {
+      if ([undefined, null, "", false, 0].includes(v)) {
+        delete flags[k];
+        console.log(`${k}, ${v}`)
+        if (hasProperty(actor.data.flags, `archmage.${k}`)) {
+          unset = true;
+          flags[`-=${k}`] = null;
+        }
+      }
     }
 
-    // Set the new flags in bulk
-    actor.update({ 'flags.archmage': flags });
+    // Apply the changes
+    await actor.update(updateData, { diff: false });
   }
 }
 
@@ -1785,6 +1807,12 @@ CONFIG.Actor.characterFlags = {
     name: "Improved Initiative",
     hint: "General feat to increase initiative by +4.",
     section: "Feats",
+    type: Boolean
+  },
+  "averageRecoveries": {
+    name: "Average Recovery Rolls",
+    hint: "Average results for recovery rolls instead of rolling them.",
+    section: "Dice",
     type: Boolean
   }
 };
