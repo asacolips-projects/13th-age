@@ -565,7 +565,18 @@
     },
     "equipment": {
       "templates": ["standard"],
-      "properties": {}
+      "properties": {},
+      "attributes": {
+        "attack": {
+          "melee": {"bonus": 0},
+          "ranged": {"bonus": 0},
+          "divine": {"bonus": 0},
+          "arcane": {"bonus": 0}
+        },
+        "ac": {"bonus": 0},
+        "md": {"bonus": 0},
+        "pd": {"bonus": 0}
+      }
     }
   }
 }

@@ -297,12 +297,16 @@ class ActorArchmageSheet extends ActorSheet {
    * Extend and override the default options used by the 5e Actor Sheet
    */
   static get defaultOptions() {
-    const options = super.defaultOptions;
-    options.classes = options.classes.concat(['archmage', 'actor-sheet']);
-    options.template = 'systems/archmage/templates/actor-sheet.html';
-    options.width = 800;
-    options.height = 960;
-    return options;
+    return mergeObject(super.defaultOptions, {
+      classes: super.defaultOptions.classes.concat(['archmage', 'actor-sheet']),
+      template: 'systems/archmage/templates/actor-sheet.html',
+      width: 800,
+      height: 960,
+      tabs: [
+        { navSelector: ".tabs-primary", contentSelector: ".tabs-primary-content", initial: "powers" },
+        { navSelector: ".tabs-sidebar", contentSelector: ".tabs-sidebar-content", initial: "abilities" }
+      ]
+    });
   }
 
   /* -------------------------------------------- */
@@ -385,13 +389,13 @@ class ActorArchmageSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Activate tabs
-    html.find('.tabs').each((_, el) => {
-      let tabs = $(el);
-      let initial = this.actor.data.flags['_sheetTab-' + tabs.attr('data-tab-container')];
-      new Tabs(tabs, initial, clicked => {
-        this.actor.data.flags['_sheetTab-' + clicked.parent().attr('data-tab-container')] = clicked.attr('data-tab');
-      });
-    });
+    // html.find('.tabs').each((_, el) => {
+    //   let tabs = $(el);
+    //   let initial = this.actor.data.flags['_sheetTab-' + tabs.attr('data-tab-container')];
+    //   new Tabs(tabs, initial, clicked => {
+    //     this.actor.data.flags['_sheetTab-' + clicked.parent().attr('data-tab-container')] = clicked.attr('data-tab');
+    //   });
+    // });
 
     // Configure Special Flags
     html.find('.configure-flags').click(this._onConfigureFlags.bind(this));
@@ -1011,11 +1015,12 @@ class ItemArchmageSheet extends ItemSheet {
    * Extend and override the default options used by the 5e Actor Sheet
    */
   static get defaultOptions() {
-    const options = super.defaultOptions;
-    options.classes = options.classes.concat(['archmage', 'item', 'item-sheet']);
-    options.template = 'systems/archmage/templates/item-power-sheet.html';
-    options.height = 400;
-    return options;
+    return mergeObject(super.defaultOptions, {
+      classes: super.defaultOptions.classes.concat(['archmage', 'item', 'item-sheet']),
+      template: 'systems/archmage/templates/item-power-sheet.html',
+      height: 400,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-tabs-content", initial: "details" }]
+    });
   }
 
   constructor(item, options) {
@@ -1101,8 +1106,8 @@ class ItemArchmageSheet extends ItemSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Activate tabs
-    new Tabs(html.find('.tabs'));
+    // // Activate tabs
+    // new Tabs(html.find('.tabs'));
 
     $('.archmage-import-power').on('click', (event) => {
       let prepop = new ArchmagePrepopulate();
