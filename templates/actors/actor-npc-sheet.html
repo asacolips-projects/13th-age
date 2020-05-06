@@ -26,79 +26,83 @@
     <section class="sheet-sidebar">
         <img class="sheet-profile" src="{{actor.img}}" title="{{actor.name}}" height="220" width="220" data-edit="img" />
 
-        <nav class="sheet-tabs tabs" data-group="sidebar">
-            <a class="item active" data-tab="attributes">Attributes</a>
+        <nav class="sheet-tabs tabs tabs-sidebar" data-group="sidebar">
+            <a class="item" data-tab="attributes">Attributes</a>
             <a class="item" data-tab="misc">Misc.</a>
         </nav>
 
-        <!-- ATTRIBUTES -->
-        <div class="tab attributes" data-group="sidebar" data-tab="attributes">
+        <div class="tabs-sidebar-content">
 
-            <div class="primary-attributes">
-            <div class="attribute attribute--health">
-                <h4 class="attribute-name">Health</h4>
-                <div class="attribute-value">
-                    <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" data-dtype="{{data.attributes.hp.type}}"
-                        placeholder="10" />
-                    <span class="flex0"> / </span>
-                    <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" data-dtype="{{data.attributes.hp.type}}"
-                        placeholder="10" />
-                </div>
-                <footer class="attribute-footer attribute-footer--temp-hp">
-                    <span class="attribute-subname">Temp HP</span>
-                    <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="0" value="{{data.attributes.hp.temp}}"
-                        data-dtype="{{data.attributes.hp.type}}" />
-                </footer>
-            </div>
+          <!-- ATTRIBUTES -->
+          <div class="tab attributes" data-group="sidebar" data-tab="attributes">
 
-            <div class="attribute attribute--defenses">
-                <h4 class="attribute-name">Defenses</h4>
-                <div class="attribute-value attribute-value--parent">
-                    <div class="attribute-sub">
-                        <strong class="attribute-name">AC</strong>
-                        <input class="attribute-display" name="data.attributes.ac.value" type="text" value="{{data.attributes.ac.value}}" data-dtype="{{data.attributes.ac.type}}"
-                            placeholder="10" />
-                    </div>
-                    <div class="attribute-sub">
-                        <strong class="attribute-name">PD</strong>
-                        <input class="attribute-display" name="data.attributes.pd.value" type="text" value="{{data.attributes.pd.value}}"
-                            data-dtype="{{data.attributes.pd.type}}" placeholder="10" />
-                    </div>
-                    <div class="attribute-sub">
-                        <strong class="attribute-name">MD</strong>
-                        <input class="attribute-display" name="data.attributes.md.value" type="text" value="{{data.attributes.md.value}}"
-                            data-dtype="{{data.attributes.md.type}}" placeholder="10" />
-                    </div>
-                </div>
-            </div>
+              <div class="primary-attributes">
+              <div class="attribute attribute--health">
+                  <h4 class="attribute-name">Health</h4>
+                  <div class="attribute-value">
+                      <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" data-dtype="{{data.attributes.hp.type}}"
+                          placeholder="10" />
+                      <span class="flex0"> / </span>
+                      <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" data-dtype="{{data.attributes.hp.type}}"
+                          placeholder="10" />
+                  </div>
+                  <footer class="attribute-footer attribute-footer--temp-hp">
+                      <span class="attribute-subname">Temp HP</span>
+                      <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="0" value="{{data.attributes.hp.temp}}"
+                          data-dtype="{{data.attributes.hp.type}}" />
+                  </footer>
+              </div>
 
-            <div class="attribute attribute--resistance">
-                <span class="attribute-name">{{data.details.resistance.label}}</span>
-                <textarea class="attribute-value resistance" name="data.details.resistance.value" rows="5" title="For example: Fire 16+, Cold 18+"
-                    data-dtype="{{data.details.resistance.type}}">{{#if data.details.resistance.value}}{{data.details.resistance.value}}{{/if}}</textarea>
-            </div>
+              <div class="attribute attribute--defenses">
+                  <h4 class="attribute-name">Defenses</h4>
+                  <div class="attribute-value attribute-value--parent">
+                      <div class="attribute-sub">
+                          <strong class="attribute-name">AC</strong>
+                          <input class="attribute-display" name="data.attributes.ac.value" type="text" value="{{data.attributes.ac.value}}" data-dtype="{{data.attributes.ac.type}}"
+                              placeholder="10" />
+                      </div>
+                      <div class="attribute-sub">
+                          <strong class="attribute-name">PD</strong>
+                          <input class="attribute-display" name="data.attributes.pd.value" type="text" value="{{data.attributes.pd.value}}"
+                              data-dtype="{{data.attributes.pd.type}}" placeholder="10" />
+                      </div>
+                      <div class="attribute-sub">
+                          <strong class="attribute-name">MD</strong>
+                          <input class="attribute-display" name="data.attributes.md.value" type="text" value="{{data.attributes.md.value}}"
+                              data-dtype="{{data.attributes.md.type}}" placeholder="10" />
+                      </div>
+                  </div>
+              </div>
 
-            <div class="attribute attribute--vulnerability">
-                <span class="attribute-name">{{data.details.vulnerability.label}}</span>
-                <textarea class="attribute-value vulnerability" name="data.details.vulnerability.value" rows="5" title="For example: Fire, Cold"
-                    data-dtype="{{data.details.vulnerability.type}}">{{#if data.details.vulnerability.value}}{{data.details.vulnerability.value}}{{/if}}</textarea>
-            </div>
-        </div>
+              <div class="attribute attribute--resistance">
+                  <span class="attribute-name">{{data.details.resistance.label}}</span>
+                  <textarea class="attribute-value resistance" name="data.details.resistance.value" rows="5" title="For example: Fire 16+, Cold 18+"
+                      data-dtype="{{data.details.resistance.type}}">{{#if data.details.resistance.value}}{{data.details.resistance.value}}{{/if}}</textarea>
+              </div>
 
-        </div>
+              <div class="attribute attribute--vulnerability">
+                  <span class="attribute-name">{{data.details.vulnerability.label}}</span>
+                  <textarea class="attribute-value vulnerability" name="data.details.vulnerability.value" rows="5" title="For example: Fire, Cold"
+                      data-dtype="{{data.details.vulnerability.type}}">{{#if data.details.vulnerability.value}}{{data.details.vulnerability.value}}{{/if}}</textarea>
+              </div>
+          </div>
 
-        <!-- SETTINGS -->
-        <div class="tab misc" data-group="sidebar" data-tab="misc">
-            <div class="settings-group form-group configure-flags">
-                <label>Special Traits</label>
-                <i class="fas fa-cog"></i>
-            </div>
+          </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Initiative</strong>
-                <input name="data.attributes.init.value" type="text" value="{{data.attributes.init.value}}"
-                    data-dtype="{{data.attributes.init.type}}" placeholder="0" />
-            </div>
+          <!-- SETTINGS -->
+          <div class="tab misc" data-group="sidebar" data-tab="misc">
+              <div class="settings-group form-group configure-flags">
+                  <label>Special Traits</label>
+                  <i class="fas fa-cog"></i>
+              </div>
+
+              <div class="settings-group">
+                  <strong class="attribute-name">Initiative</strong>
+                  <input name="data.attributes.init.value" type="text" value="{{data.attributes.init.value}}"
+                      data-dtype="{{data.attributes.init.type}}" placeholder="0" />
+              </div>
+          </div>
+
         </div>
     </section>
 
