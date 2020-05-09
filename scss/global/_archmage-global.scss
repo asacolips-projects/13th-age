@@ -31,6 +31,77 @@
   }
 }
 
+/* ---------------------------------------- */
+/* Controls Reference                       */
+/* ---------------------------------------- */
+#archmage-help {
+  .window-content {
+    max-height: 75vh;
+  }
+
+  h3 {
+    border-bottom: 1px solid #111;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  ol.hotkey-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ol.hotkey-list > li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 5px 0;
+  }
+
+  ol.hotkey-list > li > * {
+    flex: 1;
+  }
+
+  ol.hotkey-list > li > .flex0 {
+    display: block;
+    flex: 0;
+  }
+
+  ol.hotkey-list > li > .flex1 {
+    flex: 1;
+  }
+
+  ol.hotkey-list > li > .flex2 {
+    flex: 2;
+  }
+
+  ol.hotkey-list > li > .flex3 {
+    flex: 3;
+  }
+
+  ol.hotkey-list h4 {
+    margin: 0;
+    flex: 2;
+    line-height: 24px;
+  }
+
+  ol.hotkey-list .keys {
+    flex: 3;
+  }
+
+  .key {
+    display: inline-block;
+    margin: 0 1px;
+    padding: 2px 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 1px 1px #444;
+    text-align: center;
+    min-width: 24px;
+  }
+}
+
 #chat-log {
   .message {
     font-family: $font-stack-secondary;

@@ -6,6 +6,8 @@ String.prototype.safeCSSId = function() {
   ).replace(/%[0-9A-F]{2}/gi, '-');
 }
 
+// CONFIG.debug.hooks = true;
+
 // Power Settings
 CONFIG.powerSources = {
   'class': 'Class',
@@ -1333,11 +1335,11 @@ class ActorArchmage extends Actor {
       // Set calculated values.
       data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod + data.attributes.attack.melee.bonus;
       data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
-      data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg;
+      data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg + data.attributes.attack.melee.bonus;
 
       data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod + data.attributes.attack.ranged.bonus;
       data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
-      data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg;
+      data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg + data.attributes.attack.ranged.bonus;
 
     }
 
@@ -1849,6 +1851,15 @@ Hooks.once("init", () => {
     default: 0,
     type: Number,
   });
+  // Macro shorthand
+  game.settings.register("archmage", "macroShorthand", {
+    name: "Shortened Macro Syntax",
+    hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
 
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
@@ -1875,6 +1886,59 @@ Hooks.once("init", () => {
   const original = Actor.prototype.getRollData;
   Actor.prototype.getRollData = function() {
     const data = original.call(this);
+    const shorthand = game.settings.get("archmage", "macroShorthand");
+
+    // Re-map all attributes onto the base roll data
+    if (!!shorthand) {
+      let newData = mergeObject(data.attributes, data.abilities);
+      delete data.init;
+      for (let [k, v] of Object.entries(newData)) {
+        switch (k) {
+          case 'escalation':
+            data.ed = v.value;
+            break;
+
+          case 'init':
+            data.init = v.mod;
+            break;
+
+          case 'level':
+            data.lvl = v.value;
+            break;
+
+          case 'weapon':
+            data.wpn = {
+              m: v.melee,
+              r: v.ranged
+            };
+
+            data.wpn.m.die = data.wpn.m.dice;
+            data.wpn.r.die = data.wpn.r.dice;
+
+            data.wpn.m.dice = data.wpn.m.value;
+            data.wpn.r.dice = data.wpn.r.value;
+            data.wpn.m.atk = data.wpn.m.attack;
+            data.wpn.r.atk = data.wpn.r.attack;
+
+            delete data.wpn.m.dice;
+            delete data.wpn.r.dice;
+            delete data.wpn.m.value;
+            delete data.wpn.r.value;
+            delete data.wpn.m.attack;
+            delete data.wpn.r.attack;
+            break;
+
+          case 'standardBonuses':
+            data.std = v.value;
+
+          default:
+            if (!(k in data)) data[k] = v;
+            break;
+        }
+      }
+    }
+
+    // Old syntax shorthand.
     data.attr = data.attributes;
     data.abil = data.abilities;
     return data;
@@ -1993,6 +2057,16 @@ Hooks.once('ready', () => {
   $('body').append('<div class="archmage-preload"></div>');
 });
 
+Hooks.on("renderSettings", (app, html) => {
+  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> 13th Age Inline Rolls</button>`);
+  html.find('button[data-action="controls"]').after(button);
+
+  button.on('click', ev => {
+    ev.preventDefault();
+    new ArchmageReference().render(true);
+  });
+});
+
 /**
  * Class that defines utility methods for the Archmage system.
  */
@@ -2099,6 +2173,21 @@ class ArchmageUtility {
     else {
       return game.actors.entities.filter(a => a.data.name == name);
     }
+  }
+}
+
+/**
+ * Keyboard Controls Reference Sheet
+ * @type {Application}
+ */
+class ArchmageReference extends Application {
+  static get defaultOptions() {
+    const options = super.defaultOptions;
+    options.title = "13th Age Inline Rolls Reference"
+    options.id = "archmage-help";
+    options.template = "systems/archmage/templates/sidebar/apps/archmage-help.html";
+    options.width = 600;
+    return options;
   }
 }
 

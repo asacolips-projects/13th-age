@@ -1,0 +1,89 @@
+<div>
+    <p class="notes">The following stats can all be used in inline or regular dice rolls.</p>
+    <p class="notes">Example attack: <span class="key">[[d20+@str.mod+@lvl+@ed]] vs. AC</span></p>
+    <p class="notes">Example damage: <span class="key">[[@wpn.m.dice+@str.dmg]] slashing damage</span></p>
+
+    <h3>Abilities Modifiers</h3>
+    <ol class="hotkey-list">
+      <li>
+        {{!-- <h4>Ability modifiers</h4> --}}
+        <div class="keys">
+          <span class="key">@str.mod</span>
+          <span class="key">@dex.mod</span>
+          <span class="key">@con.mod</span>
+          <span class="key">@int.mod</span>
+          <span class="key">@wis.mod</span>
+          <span class="key">@cha.mod</span>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Ability Modifiers (x1 Adventurer, x2 Champion, x3 Epic)</h3>
+    <ol class="hotkey-list">
+      <li>
+        {{!-- <h4>Ability modifiers (x2 Champion, x3 Epic)</h4> --}}
+        <div class="keys">
+          <span class="key">@str.dmg</span>
+          <span class="key">@dex.dmg</span>
+          <span class="key">@con.dmg</span>
+          <span class="key">@int.dmg</span>
+          <span class="key">@wis.dmg</span>
+          <span class="key">@cha.dmg</span>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Common Attributes</h3>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Escalation Die</h4>
+        <div class="keys"><span class="key">@ed</span></div>
+      </li>
+      <li>
+        <h4>Level</h4>
+        <div class="keys"><span class="key">@lvl</span></div>
+      </li>
+      <li>
+        <h4>Level + Escalation Die</h4>
+        <div class="keys"><span class="key">@std</span></div>
+      </li>
+      <li>
+        <h4>Initiative</h4>
+        <div class="keys"><span class="key">@init</span></div>
+      </li>
+    </ol>
+
+    <h3>Weapons</h3>
+    <p>Weapons are broken down into melee (@wpn.m) and ranged (@wpn.r).</p>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Weapon Damage Die (single)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.die</span>
+          <span class="key">@wpn.r.die</span>
+        </div>
+      </li>
+      <li>
+        <h4>Weapon Damage Dice (per level)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.dice</span>
+          <span class="key">@wpn.r.dice</span>
+        </div>
+      </li>
+      <li>
+        <h4>Weapon Damage (str/dex x tier)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.dmg</span>
+          <span class="key">@wpn.r.dmg</span>
+        </div>
+      </li>
+      <li>
+        <h4>Weapon Attack Bonus (w/ item bonus)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.atk</span>
+          <span class="key">@wpn.r.atk</span>
+        </div>
+      </li>
+    </ol>
+
+</div>
