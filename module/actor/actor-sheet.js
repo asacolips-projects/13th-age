@@ -100,6 +100,7 @@ export class ActorArchmageSheet extends ActorSheet {
    */
   activateListeners(html) {
     super.activateListeners(html);
+    let that = this;
 
     // Activate tabs
     // html.find('.tabs').each((_, el) => {
@@ -197,6 +198,33 @@ export class ActorArchmageSheet extends ActorSheet {
           flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage ability-usage--recharge">Icon Roll</h3></header><div class="card-content"><div class="card-row"><div class="card-prop"><strong>${icon.name.value}:</strong> +${icon.bonus.value} ${icon.relationship.value}</div></div></div></div>`
         });
       }
+    });
+
+    html.find('.item-quantity.rollable').click(ev => {
+      event.preventDefault();
+      const li = event.currentTarget.closest(".item");
+      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      let quantity = item.data.data.quantity;
+      quantity.value = quantity.value + 1;
+      let that = this;
+      item.update({ "data.quantity": quantity }).then(item => {
+        html.find('input[name="data.attributes.hp.max"]').trigger('change');
+        that.render();
+      });
+    });
+
+    html.find('.item-quantity.rollable').contextmenu(ev => {
+      event.preventDefault();
+      const li = event.currentTarget.closest(".item");
+      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      let quantity = item.data.data.quantity;
+      quantity.value = quantity.value - 1;
+      quantity.value = quantity.value < 0 ? 0 : quantity.value;
+      let that = this;
+      item.update({ "data.quantity": quantity }).then(item => {
+        html.find('input[name="data.attributes.hp.max"]').trigger('change');
+        that.render();
+      });
     });
 
     /* -------------------------------------------- */
@@ -521,7 +549,11 @@ export class ActorArchmageSheet extends ActorSheet {
         }
         chatData.properties.forEach(p => props.append(`<span class="tag tag--property tag--${p.label.safeCSSId()}"><strong>${p.label}:</strong> ${p.value}</span>`));
         chatData.effects.forEach(e => props.append(`<div class="tag tag--property tag--${e.label.safeCSSId()}"><strong>${e.label}:</strong> ${e.value}</div>`));
-        chatData.feats.forEach(f => props.append(`<div class="tag tag--feat tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`))
+        chatData.feats.forEach(f => {
+          if (f.isActive) {
+            props.append(`<div class="tag tag--feat tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`);
+          }
+        });
         div.append(tags);
         div.append(props);
         div.append(effects);

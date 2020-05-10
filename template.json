@@ -186,6 +186,48 @@
               "type": "Boolean",
               "value": 0
             }
+          },
+          "bg6": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg7": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg8": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
           }
         },
         "icons": {
