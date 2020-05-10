@@ -183,7 +183,10 @@ export class ActorArchmageSheet extends ActorSheet {
       roll.roll();
       // Send to chat and reduce the number of recoveries.
       roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
-      this.actor.update({ 'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0) });
+      this.actor.update({
+        'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0),
+        'data.attributes.hp.value': Math.min(this.actor.data.data.attributes.hp.max, this.actor.data.data.attributes.hp.value + roll.total)
+      });
     });
 
     html.find('.icon__item.rollable').click(ev => {
