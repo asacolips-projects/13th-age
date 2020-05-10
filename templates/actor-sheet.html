@@ -71,6 +71,9 @@
                     <input name="data.attributes.recoveries.max" type="text" value="{{data.attributes.recoveries.max}}"
                         data-dtype="{{data.attributes.recoveries.type}}" placeholder="8" />
                 </div>
+                <div class="attribute-footer">
+                  <a class="recovery-roll rollable" data-roll="{{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.mod}}"><i class="fas fa-dice-d20"></i> {{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.mod}}</a>
+                </div>
             </div>
 
             <div class="attribute">
@@ -116,234 +119,282 @@
             </div>
         </div>
 
-        <nav class="sheet-tabs tabs" data-tab-container="primary">
-            <a class="item active" data-tab="powers">Powers</a>
+        <nav class="sheet-tabs tabs tabs-primary" data-group="primary">
+            <a class="item" data-tab="powers">Powers</a>
             <a class="item" data-tab="biography">Biography</a>
+            <a class="item" data-tab="items">Equipment</a>
         </nav>
 
-         <!-- FEATS -->
-        <div class="tab powers" data-group="primary" data-tab="powers">
-            <ol class="feats-list powers-list inventory-list directory-list">
-                <li class="item flexrow inventory-header">
-                    <div class="item-name flexrow">
-                        <span class="item-name">Ability Name</span>
-                        <span class="item-recharge">Rchg.</span>
-                        <span class="item-action">Act.</span>
-                        <span class="item-quantity">Uses</span>
-                    </div>
+        <div class="tabs-primary-content">
+          <!-- FEATS -->
+          <div class="tab powers" data-group="primary" data-tab="powers">
+              <ol class="feats-list powers-list inventory-list directory-list">
+                  <li class="item flexrow inventory-header">
+                      <div class="item-name flexrow">
+                          <span class="item-image"></span>
+                          <span class="item-name">Ability Name</span>
+                          <span class="item-recharge">Rchg.</span>
+                          <span class="item-action">Act.</span>
+                          <span class="item-quantity">Uses</span>
+                      </div>
 
-                    {{#if owner}}
-                    <div class="item-controls">
-                        <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
-                            <i class="fas fa-plus"></i> Add</a>
-                    </div>
-                    {{/if}}
-                </li>
+                      {{#if owner}}
+                      <div class="item-controls flexrow">
+                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                              <i class="fas fa-plus"></i> Add</a>
+                          <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
+                              <i class="fas fa-arrow-down"></i> Import</a>
+                      </div>
+                      {{/if}}
+                  </li>
 
-                {{#each actor.powers as |item i|}}
-                <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
-                    <div class="item-name flexrow rollable">
-                        <div class="item-image" style="background-image: url({{item.img}})"></div>
-                        <div class="ability-usage {{#if item.data.powerUsage.value }}ability-usage--{{item.data.powerUsage.value}}{{else}}ability-usage--blank{{/if}}">
-                            <h4>{{#if item.data.powerLevel.value}}[{{item.data.powerLevel.value}}] {{/if}}{{item.name}}</h4>
-                            <span class="item-recharge">{{#if item.data.recharge.value}}{{item.data.recharge.value}}+{{/if}}</span>
-                            <span class="item-action item-action--{{item.data.actionType.value}}">
-                                <span class="visually-hidden">{{item.data.actionType.value}}</span>
-                                <span class="item-action__letter"></span>
-                                <span class="item-action__icon"></span>
-                            </span>
-                            {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                            {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
-                            <span class="item-quantity">{{item.data.quantity.value}}</span>
+                  {{#each actor.powers as |item i|}}
+                  <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
+                      <div class="item-name flexrow rollable">
+                          <div class="item-image" style="background-image: url({{item.img}})"></div>
+                          <div class="ability-usage {{#if item.data.powerUsage.value }}ability-usage--{{item.data.powerUsage.value}}{{else}}ability-usage--blank{{/if}}">
+                              <h4>{{#if item.data.powerLevel.value}}[{{item.data.powerLevel.value}}] {{/if}}{{item.name}}</h4>
+                              <span class="item-recharge">{{#if item.data.recharge.value}}{{item.data.recharge.value}}+{{/if}}</span>
+                              <span class="item-action item-action--{{item.data.actionType.value}}">
+                                  <span class="visually-hidden">{{item.data.actionType.value}}</span>
+                                  <span class="item-action__letter"></span>
+                                  <span class="item-action__icon"></span>
+                              </span>
+                              {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
+                              {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
+                              <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
+                          </div>
+                      </div>
+
+                      {{#if ../owner}}
+                      <div class="item-controls flexrow">
+                          <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
+                          <a class="item-control item-delete" title="Delete Ability"><i class="fas fa-trash"></i></a>
+                      </div>
+                      {{/if}}
+                  </li>
+                  {{/each}}
+              </ol>
+          </div>
+
+          <!-- BIOGRAPHY -->
+          <div class="tab biography" data-group="primary" data-tab="biography">
+              {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+          </div>
+
+          <!-- ITEMS -->
+          <div class="tab items" data-group="primary" data-tab="items">
+              <ol class="inventory-list directory-list">
+                  <li class="item flexrow inventory-header">
+                      <div class="item-name flexrow">
+                          <span class="item-image"></span>
+                          <span class="item-name">Name</span>
+                          <span class="item-type">Type</span>
                         </div>
-                    </div>
+                        {{#if owner}}
+                        <div class="item-controls">
+                            <a class="item-control item-create" title="Create Item" data-item-type="equipment" data-type="equipment">
+                            <i class="fas fa-plus"></i> Add</a>
+                        </div>
+                        {{/if}}
+                  </li>
 
-                    {{#if ../owner}}
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Ability"><i class="fas fa-trash"></i></a>
-                    </div>
-                    {{/if}}
-                </li>
-                {{/each}}
-            </ol>
+                  {{#each actor.equipment as |item i|}}
+                  <li class="item flexrow item" data-item-id="{{item._id}}" data-index="{{i}}">
+                      <div class="item-name flexrow">
+                        <div class="item-image" style="background-image: url({{item.img}})"></div>
+                        <div class="ability-usage ability-usage--equipment">
+                          <h4>{{item.name}}</h4>
+                          <div class="item-type">{{item.data.chackra}}</div>
+                        </div>
+                      </div>
+                      {{#if ../owner}}
+                      <div class="item-controls">
+                          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                      </div>
+                      {{/if}}
+                  </li>
+                  {{/each}}
+              </ol>
+          </div>
         </div>
-
-        <!-- BIOGRAPHY -->
-        <div class="tab biography" data-group="primary" data-tab="biography">
-            {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
-        </div>
-
-        <!-- ITEMS -->
-        <div class="tab items" data-group="primary" data-tab="items"></div>
     </section>
 
     <!-- SIDEBAR -->
     <section class="sheet-sidebar">
         <img class="sheet-profile" src="{{actor.img}}" title="{{actor.name}}" height="220" width="220" data-edit="img" />
 
-        <nav class="sheet-tabs tabs" data-group="sidebar">
-            <a class="item active" data-tab="abilities">Abilities</a>
+        <nav class="sheet-tabs tabs tabs-sidebar" data-group="sidebar">
+            <a class="item" data-tab="abilities">Abilities</a>
             <a class="item" data-tab="misc">Settings</a>
         </nav>
 
-        <!-- ABILITY SCORES -->
-        <div class="tab abilities" data-group="sidebar" data-tab="abilities">
-            <ol class="abilities-list">
-                {{#each data.abilities as |ability id|}}
-                <li class="ability" data-ability="{{id}}">
-                    <h4 class="ability-name rollable">{{ability.label}}</h4>
-                    <span class="ability-mod" title="Modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
-                    <span class="ability-score" title="Ability Score">
-                        <input name="data.abilities.{{id}}.value" type="text" value="{{ability.value}}" data-dtype="Number"
-                            placeholder="10" />
-                    </span>
-                    <span class="ability-lvl" title="Roll">{{numberFormat ability.lvl decimals=0 sign=true}}</span>
-                </li>
-                {{/each}}
-            </ol>
+        <div class="tabs-sidebar-content">
+          <!-- ABILITY SCORES -->
+          <div class="tab abilities" data-group="sidebar" data-tab="abilities">
+              <ol class="abilities-list">
+                  {{#each data.abilities as |ability id|}}
+                  <li class="ability" data-ability="{{id}}">
+                      <h4 class="ability-name rollable">{{ability.label}}</h4>
+                      <span class="ability-mod" title="Modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+                      <span class="ability-score" title="Ability Score">
+                          <input name="data.abilities.{{id}}.value" type="text" value="{{ability.value}}" data-dtype="Number"
+                              placeholder="10" />
+                      </span>
+                      <span class="ability-lvl" title="Roll">{{numberFormat ability.lvl decimals=0 sign=true}}</span>
+                  </li>
+                  {{/each}}
+              </ol>
 
-            <hr>
-            <h3 class="ability-header">Backgrounds</h3>
-            <ul class="directory-list directory-list--backgrounds">
-                {{#each data.backgrounds as |background b|}}
-                    {{#if background.isActive.value}}
-                        <li class="background background--{{b}}" data-background="{{b}}">
-                            <div class="background__item background__item--bonus"><input type="text" name="data.backgrounds.{{b}}.bonus.value" value="{{background.bonus.value}}" placeholder="Background bonus" data-dtype="{{background.bonus.type}}" /></div>
-                            <div class="background__item background__item--name"><input type="text" name="data.backgrounds.{{b}}.name.value" value="{{background.name.value}}" placeholder="Background name" data-dtype="{{background.name.type}}" /></div>
-                        </li>
-                    {{/if}}
-                {{/each}}
-            </ul>
-            <hr>
-            <h3 class="ability-header">Icon Relationships</h3>
-            <ul class="directory-list directory-list--icons">
-                {{#each data.icons as |icon i|}}
-                    {{#if icon.isActive.value}}
-                        <li class="icon icon--{{i}}" data-icon="{{i}}">
-                            <div class="icon__item icon__item--relationship">
-                                <select name="data.icons.{{i}}.relationship.value" data-dtype="{{icon.relationship.type}}">
-                                    {{#select icon.relationship.value}}
-                                    <option value=""></option>
-                                    <option value="Positive">Pos.</option>
-                                    <option value="Negative">Neg.</option>
-                                    <option value="Conflicted">Con.</option>
-                                    {{/select}}
-                                </select>
-                            </div>
-                            <div class="icon__item icon__item--bonus"><input type="text" name="data.icons.{{i}}.bonus.value" value="{{icon.bonus.value}}" placeholder="Icon bonus" data-dtype="{{icon.bonus.type}}" /></div>
-                            <div class="icon__item icon__item--name"><input type="text" name="data.icons.{{i}}.name.value" value="{{icon.name.value}}" placeholder="Icon name" data-dtype="{{icon.name.type}}" /></div>
-                        </li>
-                    {{/if}}
-                {{/each}}
-            </ul>
-            <hr>
+              <hr>
+              <h3 class="ability-header">Backgrounds</h3>
+              <ul class="directory-list directory-list--backgrounds">
+                  {{#each data.backgrounds as |background b|}}
+                      {{#if background.isActive.value}}
+                          <li class="background background--{{b}}" data-background="{{b}}">
+                              <div class="background__item background__item--bonus"><input type="text" name="data.backgrounds.{{b}}.bonus.value" value="{{background.bonus.value}}" placeholder="Background bonus" data-dtype="{{background.bonus.type}}" /></div>
+                              <div class="background__item background__item--name"><input type="text" name="data.backgrounds.{{b}}.name.value" value="{{background.name.value}}" placeholder="Background name" data-dtype="{{background.name.type}}" /></div>
+                          </li>
+                      {{/if}}
+                  {{/each}}
+              </ul>
+              <hr>
+              <h3 class="ability-header">Icon Relationships</h3>
+              <ul class="directory-list directory-list--icons">
+                  {{#each data.icons as |icon i|}}
+                      {{#if icon.isActive.value}}
+                          <li class="icon icon--{{i}}" data-icon="{{i}}">
+                              <div class="icon__item rollable"><i class="fas fa-dice-d20"></i></div>
+                              <div class="icon__item icon__item--relationship">
+                                  <select name="data.icons.{{i}}.relationship.value" data-dtype="{{icon.relationship.type}}">
+                                      {{#select icon.relationship.value}}
+                                      <option value=""></option>
+                                      <option value="Positive">Pos.</option>
+                                      <option value="Negative">Neg.</option>
+                                      <option value="Conflicted">Con.</option>
+                                      {{/select}}
+                                  </select>
+                              </div>
+                              <div class="icon__item icon__item--bonus"><input type="text" name="data.icons.{{i}}.bonus.value" value="{{icon.bonus.value}}" placeholder="Icon bonus" data-dtype="{{icon.bonus.type}}" /></div>
+                              <div class="icon__item icon__item--name"><input type="text" name="data.icons.{{i}}.name.value" value="{{icon.name.value}}" placeholder="Icon name" data-dtype="{{icon.name.type}}" /></div>
+                          </li>
+                      {{/if}}
+                  {{/each}}
+              </ul>
+              <hr>
 
-        </div>
+          </div>
 
-        <!-- SETTINGS -->
-        <div class="tab misc" data-group="sidebar" data-tab="misc">
-            <div class="settings-group form-group configure-flags">
-                <label>Special Traits</label>
-                <i class="fas fa-cog"></i>
-            </div>
+          <!-- SETTINGS -->
+          <div class="tab misc" data-group="sidebar" data-tab="misc">
+              <div class="settings-group form-group configure-flags">
+                  <label>Special Traits</label>
+                  <i class="fas fa-cog"></i>
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Base AC</strong>
-                <input class="attribute-input" name="data.attributes.ac.base" type="text" value="{{data.attributes.ac.base}}"
-                    data-dtype="{{data.attributes.ac.type}}" placeholder="10" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Base AC</strong>
+                  <input class="attribute-input" name="data.attributes.ac.base" type="text" value="{{data.attributes.ac.base}}"
+                      data-dtype="{{data.attributes.ac.type}}" placeholder="10" />
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Base PD</strong>
-                <input class="attribute-input" name="data.attributes.pd.base" type="text" value="{{data.attributes.pd.base}}"
-                    data-dtype="{{data.attributes.pd.type}}" placeholder="10" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Base PD</strong>
+                  <input class="attribute-input" name="data.attributes.pd.base" type="text" value="{{data.attributes.pd.base}}"
+                      data-dtype="{{data.attributes.pd.type}}" placeholder="10" />
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Base MD</strong>
-                <input class="attribute-input" name="data.attributes.md.base" type="text" value="{{data.attributes.md.base}}"
-                    data-dtype="{{data.attributes.md.type}}" placeholder="10" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Base MD</strong>
+                  <input class="attribute-input" name="data.attributes.md.base" type="text" value="{{data.attributes.md.base}}"
+                      data-dtype="{{data.attributes.md.type}}" placeholder="10" />
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Initiative</strong>
-                <input class="attribute-input" name="data.attributes.init.value" type="text" value="{{data.attributes.init.value}}"
-                    data-dtype="{{data.attributes.init.type}}" placeholder="0" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Initiative</strong>
+                  <input class="attribute-input" name="data.attributes.init.value" type="text" value="{{data.attributes.init.value}}"
+                      data-dtype="{{data.attributes.init.type}}" placeholder="0" />
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Melee Weapon Dice</strong>
-                <input class="attribute-input" name="data.attributes.weapon.melee.dice" type="text" value="{{data.attributes.weapon.melee.dice}}"
-                    data-dtype="String" placeholder="d8" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Recovery Dice</strong>
+                  <input class="attribute-input" name="data.attributes.recoveries.dice" type="text" value="{{data.attributes.recoveries.dice}}"
+                      data-dtype="String" placeholder="d8" />
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Ranged Weapon Dice</strong>
-                <input class="attribute-input" name="data.attributes.weapon.ranged.dice" type="text" value="{{data.attributes.weapon.ranged.dice}}"
-                    data-dtype="String" placeholder="d6" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Melee Weapon Dice</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.dice" type="text" value="{{data.attributes.weapon.melee.dice}}"
+                      data-dtype="String" placeholder="d8" />
+              </div>
 
-            <div class="settings-group">
-                <label for="data.attributes.weapon.melee.abil" class="attribute-name">Melee Ability</label>
-                <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
-                    {{#select data.attributes.weapon.melee.abil}}
-                    <option value="str">Str</option>
-                    <option value="dex">Dex</option>
-                    <option value="con">Con</option>
-                    <option value="int">Int</option>
-                    <option value="wis">Wis</option>
-                    <option value="cha">Cha</option>
-                    {{/select}}
-                </select>
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Ranged Weapon Dice</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.ranged.dice" type="text" value="{{data.attributes.weapon.ranged.dice}}"
+                      data-dtype="String" placeholder="d6" />
+              </div>
 
-            <div class="settings-group">
-                <label for="data.attributes.weapon.ranged.abil" class="attribute-name">Ranged Ability</label>
-                <select class="attribute-input" name="data.attributes.weapon.ranged.abil" data-type="String">
-                    {{#select data.attributes.weapon.ranged.abil}}
-                    <option value="str">Str</option>
-                    <option value="dex">Dex</option>
-                    <option value="con">Con</option>
-                    <option value="int">Int</option>
-                    <option value="wis">Wis</option>
-                    <option value="cha">Cha</option>
-                    {{/select}}
-                </select>
-            </div>
+              <div class="settings-group">
+                  <label for="data.attributes.weapon.melee.abil" class="attribute-name">Melee Ability</label>
+                  <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
+                      {{#select data.attributes.weapon.melee.abil}}
+                      <option value="str">Str</option>
+                      <option value="dex">Dex</option>
+                      <option value="con">Con</option>
+                      <option value="int">Int</option>
+                      <option value="wis">Wis</option>
+                      <option value="cha">Cha</option>
+                      {{/select}}
+                  </select>
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Melee Miss Dmg.</strong>
-                <input class="attribute-input" name="data.attributes.weapon.melee.miss" type="checkbox" value="1" {{checked data.attributes.weapon.melee.miss}}
-                    data-dtype="Boolean" />
-            </div>
+              <div class="settings-group">
+                  <label for="data.attributes.weapon.ranged.abil" class="attribute-name">Ranged Ability</label>
+                  <select class="attribute-input" name="data.attributes.weapon.ranged.abil" data-type="String">
+                      {{#select data.attributes.weapon.ranged.abil}}
+                      <option value="str">Str</option>
+                      <option value="dex">Dex</option>
+                      <option value="con">Con</option>
+                      <option value="int">Int</option>
+                      <option value="wis">Wis</option>
+                      <option value="cha">Cha</option>
+                      {{/select}}
+                  </select>
+              </div>
 
-            <div class="settings-group">
-                <strong class="attribute-name">Ranged Miss Dmg.</strong>
-                <input class="attribute-input" name="data.attributes.weapon.ranged.miss" type="checkbox" value="1" {{checked data.attributes.weapon.ranged.miss}}
-                    data-dtype="Boolean" />
-            </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">Melee Miss Dmg.</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.miss" type="checkbox" value="1" {{checked data.attributes.weapon.melee.miss}}
+                      data-dtype="Boolean" />
+              </div>
 
-            <hr>
+              <div class="settings-group">
+                  <strong class="attribute-name">Ranged Miss Dmg.</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.ranged.miss" type="checkbox" value="1" {{checked data.attributes.weapon.ranged.miss}}
+                      data-dtype="Boolean" />
+              </div>
 
-            {{#each data.backgrounds as |background b|}}
-                <div class="settings-group">
-                    <strong class="attribute-name">{{b}}</strong>
-                    <input class="attribute-input" name="data.backgrounds.{{b}}.isActive.value" type="checkbox" value="1" {{checked background.isActive.value}}
-                        data-dtype="{{background.isActive.type}}" />
-                </div>
-            {{/each}}
+              <hr>
 
-            <hr>
+              {{#each data.backgrounds as |background b|}}
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{b}}</strong>
+                      <input class="attribute-input" name="data.backgrounds.{{b}}.isActive.value" type="checkbox" value="1" {{checked background.isActive.value}}
+                          data-dtype="{{background.isActive.type}}" />
+                  </div>
+              {{/each}}
 
-            {{#each data.icons as |icon i|}}
-                <div class="settings-group">
-                    <strong class="attribute-name">{{i}}</strong>
-                    <input class="attribute-input" name="data.icons.{{i}}.isActive.value" type="checkbox" value="1" {{checked icon.isActive.value}}
-                        data-dtype="{{icon.isActive.type}}" />
-                </div>
-            {{/each}}
+              <hr>
+
+              {{#each data.icons as |icon i|}}
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{i}}</strong>
+                      <input class="attribute-input" name="data.icons.{{i}}.isActive.value" type="checkbox" value="1" {{checked icon.isActive.value}}
+                          data-dtype="{{icon.isActive.type}}" />
+                  </div>
+              {{/each}}
+          </div>
         </div>
     </section>
 </form>
-

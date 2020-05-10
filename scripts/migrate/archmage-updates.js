@@ -96,22 +96,22 @@ class ArchmageUpdateHandler {
           archmageType = 'npc';
         }
         console.log(`Updating ${a.name} to ${archmageType}`);
-        await a.update({"type": archmageType});
+        await a.update({ "type": archmageType });
       }
       else {
         // Some new schema types aren't automatically converted.
         if (a.data.type === 'npc') {
           let update = false;
           if (!a.data.data.details.resistance || !a.data.data.details.resistance.label) {
-            await a.update({'data.details.resistance.type': 'String'});
-            await a.update({'data.details.resistance.label': 'Resistance'});
+            await a.update({ 'data.details.resistance.type': 'String' });
+            await a.update({ 'data.details.resistance.label': 'Resistance' });
             update = true;
           }
 
           if (!a.data.data.details.vulnerability || !a.data.data.details.vulnerability.label) {
             update = true;
-            await a.update({'data.details.vulnerability.type': 'String'});
-            await a.update({'data.details.vulnerability.label': 'Vulnerability'});
+            await a.update({ 'data.details.vulnerability.type': 'String' });
+            await a.update({ 'data.details.vulnerability.label': 'Vulnerability' });
           }
 
           if (update) {
@@ -151,27 +151,27 @@ class ArchmageUpdateHandler {
    */
   async update1002() {
     // Define merge options.
-    let insertKeys, insertValues, overwrite, inplace;
-    var mergeOptions = {insertKeys=true, insertValues=false, overwrite=false, inplace=false}={};
-    // Update active entities.
-    for (let a of game.actors.entities) {
-      if (a.data.type == 'character') {
-        // Update each item with the new model.
-        let items = [];
-        items = duplicate(a.data.items);
-        for (let i = 0; i < items.length; i++) {
-          if (items[i].type == 'power') {
-            // Duplicate the item and update it with the template structure.
-            let item = items[i].data;
-            let powerTemplate = duplicate(game.system.template.item.power);
-            items[i].data = mergeObject(powerTemplate, item, mergeOptions);
-          }
-        }
-        // Update the actor entity.
-        console.log(`Updated items for ${a.name}`)
-        await a.update({items: items});
-      }
-    }
+    // let insertKeys, insertValues, overwrite, inplace;
+    // var mergeOptions = {insertKeys=true, insertValues=false, overwrite=false, inplace=false}={};
+    // // Update active entities.
+    // for (let a of game.actors.entities) {
+    //   if (a.data.type == 'character') {
+    //     // Update each item with the new model.
+    //     let items = [];
+    //     items = duplicate(a.data.items);
+    //     for (let i = 0; i < items.length; i++) {
+    //       if (items[i].type == 'power') {
+    //         // Duplicate the item and update it with the template structure.
+    //         let item = items[i].data;
+    //         let powerTemplate = duplicate(game.system.template.item.power);
+    //         items[i].data = mergeObject(powerTemplate, item, mergeOptions);
+    //       }
+    //     }
+    //     // Update the actor entity.
+    //     console.log(`Updated items for ${a.name}`)
+    //     await a.update({items: items});
+    //   }
+    // }
   }
 }
 
