@@ -53,6 +53,21 @@
     -ms-flex: 1;
     flex: 1; }
 
+input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.35); }
+
+input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.35); }
+
+input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.35); }
+
+input::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.35); }
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.35); }
+
 .grid,
 .grid-2col {
   display: grid;
