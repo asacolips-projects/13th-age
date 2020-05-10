@@ -31,6 +31,90 @@
   }
 }
 
+input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+input[type="checkbox"] {
+  zoom: 0.9;
+}
+
+@import 'grid';
+
+/* ---------------------------------------- */
+/* Controls Reference                       */
+/* ---------------------------------------- */
+#archmage-help {
+  .window-content {
+    max-height: 75vh;
+  }
+
+  h3 {
+    border-bottom: 1px solid #111;
+    font-weight: bold;
+    margin: 20px 0 0;
+  }
+
+  ol.hotkey-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ol.hotkey-list > li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+  }
+
+  ol.hotkey-list > li > * {
+    flex: 1;
+  }
+
+  ol.hotkey-list > li > .flex0 {
+    display: block;
+    flex: 0;
+  }
+
+  ol.hotkey-list > li > .flex1 {
+    flex: 1;
+  }
+
+  ol.hotkey-list > li > .flex2 {
+    flex: 2;
+  }
+
+  ol.hotkey-list > li > .flex3 {
+    flex: 3;
+  }
+
+  ol.hotkey-list h4 {
+    margin: 0;
+    flex: 2;
+    line-height: 24px;
+  }
+
+  ol.hotkey-list .keys {
+    flex: 3;
+  }
+
+  .key {
+    display: inline-block;
+    margin: 0 1px;
+    padding: 2px 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 1px 1px #444;
+    text-align: center;
+    min-width: 24px;
+  }
+}
+
 #chat-log {
   .message {
     font-family: $font-stack-secondary;
@@ -46,6 +130,13 @@
 
   .card-row p {
     line-height: 1.2;
+  }
+
+  .message-header {
+    .card-content {
+      font-size: 14px;
+      color: $c-black;
+    }
   }
 }
 
@@ -88,6 +179,10 @@
 // Actor Sheet
 
 .archmage {
+  input[type="checkbox"] {
+    transform: scale(1);
+  }
+
   &.sheet {
     font-family: $font-stack-secondary;
 
@@ -413,6 +508,18 @@
           display: inline-block;
         }
       }
+
+      .icon__item.rollable {
+        display: flex;
+        align-items: center;
+        padding: 0 4px;
+        font-size: 16px;
+      }
+    }
+
+    .directory-list--backgrounds,
+    .directory-list--icons {
+      padding: 0;
     }
 
     .backgrounds {
@@ -1216,6 +1323,10 @@
       flex-wrap: wrap;
       justify-content: flex-start;
 
+      .item-name {
+        padding-left: 4px;
+      }
+
       .item-image,
       h4 {
         flex: auto;
@@ -1242,6 +1353,10 @@
         flex: 0;
         font-size: 12px;
       }
+
+      .item-image {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
     }
 
     .item-usage {
@@ -1249,16 +1364,23 @@
     }
 
     .item-quantity,
-    .item-weight {
+    .item-weight,
+    .item-type {
       border-right: 1px solid $c-gray--dark;
       color: $c-white;
       flex: 0 0 32px;
       font-size: 12px;
       text-align: center;
+      font-size: 13px;
+    }
+
+    .item-type {
+      flex: 0 0 110px;
     }
 
     .item-controls {
-      flex: 0 0 44px;
+      flex: 0 0 94px;
+      justify-content: space-between;
 
       a {
         color: $c-gray--med;
@@ -1434,8 +1556,14 @@
       text-align: center;
     }
 
-    .item-quantity {
+    .item-quantity,
+    .item-type {
       border-left: 1px solid $c-gray--dark;
+      text-shadow: 1px 1px 2px $c-black;
+    }
+
+    .item-type {
+      text-transform: capitalize;
     }
 
     .ability-usage {
@@ -1491,6 +1619,10 @@
     .ability-usage--other {
       background: $c-power-other;
     }
+
+    .ability-usage--equipment {
+      background: $c-power-equipment;
+    }
   }
 
   .inventory-header {
@@ -1506,8 +1638,10 @@
     }
 
     .item-quantity,
-    .item-weight {
+    .item-weight,
+    .item-type {
       color: $c-gray--darker;
+      text-shadow: none;
     }
 
     .item-controls {

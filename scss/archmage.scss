@@ -4,7 +4,7 @@
 // Should contain NO css output.
 // Only variables / mixins / settings.
 // ========================================
-@import 'utils/init';
+@import 'global/utils/init';
 
 @font-face {
   font-family: 'Nodesto';
@@ -26,6 +26,6 @@
   font-size: 18px;
 }
 
-@import 'archmage-global';
-@import 'archmage-prepopulate';
-@import 'tables';
+@import 'global/archmage-global';
+@import 'global/archmage-prepopulate';
+@import 'global/tables';

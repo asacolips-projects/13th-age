@@ -82,7 +82,8 @@
             "type": "Number",
             "label": "Recoveries",
             "value": 8,
-            "max": 8
+            "max": 8,
+            "dice": "d8"
           },
           "init": {
             "type": "Number",
@@ -173,6 +174,48 @@
             }
           },
           "bg5": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg6": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg7": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg8": {
             "name": {
               "type": "String",
               "value": ""
@@ -327,7 +370,7 @@
     }
   },
   "Item": {
-    "types": ["power", "trait", "action", "nastierSpecial"],
+    "types": ["power", "trait", "action", "nastierSpecial", "tool", "loot", "equipment"],
     "templates": {
       "standard": {
         "name": {
@@ -555,6 +598,27 @@
     },
     "nastierSpecial": {
       "templates": ["standard"]
+    },
+    "tool": {
+      "templates": ["standard"]
+    },
+    "loot": {
+      "templates": ["standard"]
+    },
+    "equipment": {
+      "templates": ["standard"],
+      "properties": {},
+      "attributes": {
+        "attack": {
+          "melee": {"bonus": 0},
+          "ranged": {"bonus": 0},
+          "divine": {"bonus": 0},
+          "arcane": {"bonus": 0}
+        },
+        "ac": {"bonus": 0},
+        "md": {"bonus": 0},
+        "pd": {"bonus": 0}
+      }
     }
   }
 }

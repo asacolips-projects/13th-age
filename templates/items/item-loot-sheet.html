@@ -10,16 +10,19 @@
             <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}"/>
         </li>
         <li>
-            <label>Weight</label>
-            <input type="text" name="data.weight.value" value="{{data.weight.value}}" data-dtype="{{data.weight.type}}"/>
-        </li>
-        <li>
-            <label>Price</label>
+            <label>Value</label>
             <input type="text" name="data.price.value" value="{{data.price.value}}" data-dtype="{{data.price.type}}"/>
         </li>
     </ol>
 
-    <div class="tab" data-group="primary" data-tab="description">
-        {{editor content=data.description.value target="data.description.value" button=true}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+
+    <div class="sheet-tabs-content">
+      <div class="tab" data-group="primary" data-tab="description">
+          {{editor content=data.description.value target="data.description.value" button=true}}
+      </div>
     </div>
+
 </form>
