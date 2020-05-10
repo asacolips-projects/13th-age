@@ -199,6 +199,14 @@ Hooks.once('init', async function() {
   ArchmageUtility.replaceRollData();
 });
 
+Hooks.on('createItem', (data, options, id) => {
+  // TODO: create default images.
+  // let item = data;
+  // let type = item.data.type;
+  // let img = CONFIG.ARCHMAGE.defaultTokens[type] ? CONFIG.ARCHMAGE.defaultTokens[type] : CONFIG.DEFAULT_TOKEN;
+  // item.data.img = img;
+});
+
 /* ---------------------------------------------- */
 
 Hooks.once('ready', () => {

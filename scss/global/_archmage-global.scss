@@ -35,6 +35,10 @@ input::placeholder {
   color: rgba(0, 0, 0, 0.35);
 }
 
+input[type="checkbox"] {
+  zoom: 0.9;
+}
+
 @import 'grid';
 
 /* ---------------------------------------- */
@@ -127,6 +131,13 @@ input::placeholder {
   .card-row p {
     line-height: 1.2;
   }
+
+  .message-header {
+    .card-content {
+      font-size: 14px;
+      color: $c-black;
+    }
+  }
 }
 
 .ability-usage {
@@ -168,6 +179,10 @@ input::placeholder {
 // Actor Sheet
 
 .archmage {
+  input[type="checkbox"] {
+    transform: scale(1);
+  }
+
   &.sheet {
     font-family: $font-stack-secondary;
 
@@ -493,6 +508,18 @@ input::placeholder {
           display: inline-block;
         }
       }
+
+      .icon__item.rollable {
+        display: flex;
+        align-items: center;
+        padding: 0 4px;
+        font-size: 16px;
+      }
+    }
+
+    .directory-list--backgrounds,
+    .directory-list--icons {
+      padding: 0;
     }
 
     .backgrounds {
@@ -1296,6 +1323,10 @@ input::placeholder {
       flex-wrap: wrap;
       justify-content: flex-start;
 
+      .item-name {
+        padding-left: 4px;
+      }
+
       .item-image,
       h4 {
         flex: auto;
@@ -1322,6 +1353,10 @@ input::placeholder {
         flex: 0;
         font-size: 12px;
       }
+
+      .item-image {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
     }
 
     .item-usage {
@@ -1329,16 +1364,23 @@ input::placeholder {
     }
 
     .item-quantity,
-    .item-weight {
+    .item-weight,
+    .item-type {
       border-right: 1px solid $c-gray--dark;
       color: $c-white;
       flex: 0 0 32px;
       font-size: 12px;
       text-align: center;
+      font-size: 13px;
+    }
+
+    .item-type {
+      flex: 0 0 110px;
     }
 
     .item-controls {
-      flex: 0 0 44px;
+      flex: 0 0 94px;
+      justify-content: space-between;
 
       a {
         color: $c-gray--med;
@@ -1514,8 +1556,14 @@ input::placeholder {
       text-align: center;
     }
 
-    .item-quantity {
+    .item-quantity,
+    .item-type {
       border-left: 1px solid $c-gray--dark;
+      text-shadow: 1px 1px 2px $c-black;
+    }
+
+    .item-type {
+      text-transform: capitalize;
     }
 
     .ability-usage {
@@ -1571,6 +1619,10 @@ input::placeholder {
     .ability-usage--other {
       background: $c-power-other;
     }
+
+    .ability-usage--equipment {
+      background: $c-power-equipment;
+    }
   }
 
   .inventory-header {
@@ -1586,8 +1638,10 @@ input::placeholder {
     }
 
     .item-quantity,
-    .item-weight {
+    .item-weight,
+    .item-type {
       color: $c-gray--darker;
+      text-shadow: none;
     }
 
     .item-controls {

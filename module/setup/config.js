@@ -32,3 +32,16 @@ ARCHMAGE.actionTypes = {
   'free': 'Free',
   'interrupt': 'Interrupt'
 };
+
+ARCHMAGE.defaultTokens = {
+  'character': 'icons/svg/mystery-man.svg',
+  'npc': 'icons/svg/eye.svg',
+  'item': 'icons/svg/d20.svg',
+  'power': 'icons/svg/d20.svg',
+  'trait': 'icons/svg/regen.svg',
+  'action': 'icons/svg/target.svg',
+  'nastierSpecial': 'icons/svg/poison.svg',
+  'tool': 'icons/svg/anchor.svg',
+  'loot': 'icons/svg/daze.svg',
+  'equipment': 'icons/svg/combat.svg'
+};

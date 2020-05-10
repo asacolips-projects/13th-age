@@ -74,7 +74,6 @@ export class ActorSheetFlags extends BaseEntitySheet {
     for (let [k, v] of Object.entries(flags)) {
       if ([undefined, null, "", false, 0].includes(v)) {
         delete flags[k];
-        console.log(`${k}, ${v}`)
         if (hasProperty(actor.data.flags, `archmage.${k}`)) {
           unset = true;
           flags[`-=${k}`] = null;

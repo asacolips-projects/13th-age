@@ -158,7 +158,7 @@ export class ArchmageUtility {
             case 'weapon':
               data.wpn = {
                 m: v.melee,
-                r: v.ranged
+                r: v.ranged,
               };
 
               // Move the single die values from dice to die.
@@ -180,6 +180,15 @@ export class ArchmageUtility {
               delete data.wpn.r.attack;
               break;
 
+            case 'attack':
+              data.atk = {
+                m: v.melee,
+                r: v.ranged,
+                a: v.arcane,
+                d: v.divins
+              };
+              break;
+
             case 'standardBonuses':
               data.std = v.value;
 
@@ -189,8 +198,6 @@ export class ArchmageUtility {
           }
         }
       }
-
-      console.log(data);
 
       // Old syntax shorthand.
       data.attr = data.attributes;

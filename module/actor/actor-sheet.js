@@ -185,6 +185,20 @@ export class ActorArchmageSheet extends ActorSheet {
       this.actor.update({ 'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0) });
     });
 
+    html.find('.icon__item.rollable').click(ev => {
+      let actorData = this.actor.data.data;
+      let item = $(ev.currentTarget).parents('.icon');
+      let iconIndex = item.data('icon');
+
+      if (actorData.icons[iconIndex]) {
+        let icon = actorData.icons[iconIndex];
+        let roll = new Roll(`${icon.bonus.value}d6cs>=5`);
+        roll.roll().toMessage({
+          flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage ability-usage--recharge">Icon Roll</h3></header><div class="card-content"><div class="card-row"><div class="card-prop"><strong>${icon.name.value}:</strong> +${icon.bonus.value} ${icon.relationship.value}</div></div></div></div>`
+        });
+      }
+    });
+
     /* -------------------------------------------- */
     /*  Rollable Items                              */
     /* -------------------------------------------- */
@@ -213,14 +227,17 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-create').click(ev => {
       let header = event.currentTarget;
       let type = ev.currentTarget.getAttribute('data-item-type');
+      let img = CONFIG.ARCHMAGE.defaultTokens[type] ? CONFIG.ARCHMAGE.defaultTokens[type] : CONFIG.DEFAULT_TOKEN;
       this.actor.createOwnedItem({
         name: 'New ' + type.capitalize(),
         type: type,
+        img: img,
         data: duplicate(header.dataset)
       });
     });
 
-    html.find('.powers .item-create').on('contextmenu', ev => {
+    // html.find('.powers .item-create').on('contextmenu', ev => {
+    html.find('.item-import').click(ev => {
       var itemType = ev.currentTarget.getAttribute('data-item-type');
 
       let prepop = new ArchmagePrepopulate();

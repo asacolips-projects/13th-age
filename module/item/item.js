@@ -4,6 +4,18 @@
  */
 export class ItemArchmage extends Item {
 
+  prepareData() {
+    super.prepareData();
+    if (!this.data.img || this.data.img == CONFIG.DEFAULT_TOKEN) {
+      if (CONFIG.ARCHMAGE.defaultTokens[this.data.type]) {
+        this.data.img = CONFIG.ARCHMAGE.defaultTokens[this.data.type];
+      }
+      else {
+        this.data.img = CONST.DEFAULT_TOKEN;
+      }
+    }
+  }
+
   /**
    * Roll the item to Chat, creating a chat card which contains follow up attack or damage roll options
    * @return {Promise}

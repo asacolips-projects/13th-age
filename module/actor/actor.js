@@ -242,7 +242,7 @@ export class ActorArchmage extends Actor {
    */
   rollAbilityTest(abilityId) {
     let abl = this.data.data.abilities[abilityId];
-    let parts = ['@mod'];
+    let parts = ['@mod', '@background'];
     let flavor = `${abl.label} Ability Test`;
 
     // Call the roll helper utility
@@ -250,8 +250,10 @@ export class ActorArchmage extends Actor {
       event: event,
       parts: parts,
       data: {
-        mod: abl.mod + this.data.data.attributes.level.value
+        mod: abl.mod + this.data.data.attributes.level.value,
+        background: 0
       },
+      backgrounds: this.data.data.backgrounds,
       title: flavor,
       alias: this.actor,
     });

@@ -68,6 +68,9 @@ input::-ms-input-placeholder {
 input::placeholder {
   color: rgba(0, 0, 0, 0.35); }
 
+input[type="checkbox"] {
+  zoom: 0.9; }
+
 .grid,
 .grid-2col {
   display: grid;
@@ -237,6 +240,10 @@ input::placeholder {
 #chat-log .card-row p {
   line-height: 1.2; }
 
+#chat-log .message-header .card-content {
+  font-size: 14px;
+  color: #000; }
+
 .ability-usage {
   background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
   background: linear-gradient(45deg, #25003c, #dc9ff1a6);
@@ -270,6 +277,11 @@ input::placeholder {
 .ability-usage--other {
   background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
   background: linear-gradient(45deg, #25003c, #dc9ff1a6); }
+
+.archmage input[type="checkbox"] {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
 
 .archmage.sheet {
   font-family: "warnock-pro", "sans-serif"; }
@@ -611,6 +623,19 @@ input::placeholder {
   .archmage.actor-sheet .tab .background__item--bonus::before {
     content: '+';
     display: inline-block; }
+  .archmage.actor-sheet .tab .icon__item.rollable {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 4px;
+    font-size: 16px; }
+
+.archmage.actor-sheet .directory-list--backgrounds,
+.archmage.actor-sheet .directory-list--icons {
+  padding: 0; }
 
 .archmage.actor-sheet .backgrounds .directory-list {
   padding: 0; }
@@ -1345,6 +1370,8 @@ input::placeholder {
       -webkit-box-pack: start;
       -ms-flex-pack: start;
       justify-content: flex-start; }
+      .inventory-list .item .item-name .item-name {
+        padding-left: 4px; }
       .inventory-list .item .item-name .item-image,
       .inventory-list .item .item-name h4 {
         -webkit-box-flex: 1;
@@ -1369,23 +1396,34 @@ input::placeholder {
         -ms-flex: 0;
         flex: 0;
         font-size: 12px; }
+      .inventory-list .item .item-name .item-image {
+        background-color: rgba(0, 0, 0, 0.25); }
     .inventory-list .item .item-usage {
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1; }
     .inventory-list .item .item-quantity,
-    .inventory-list .item .item-weight {
+    .inventory-list .item .item-weight,
+    .inventory-list .item .item-type {
       border-right: 1px solid #333;
       color: #fff;
       -webkit-box-flex: 0;
       -ms-flex: 0 0 32px;
       flex: 0 0 32px;
       font-size: 12px;
-      text-align: center; }
+      text-align: center;
+      font-size: 13px; }
+    .inventory-list .item .item-type {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 110px;
+      flex: 0 0 110px; }
     .inventory-list .item .item-controls {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 44px;
-      flex: 0 0 44px; }
+      -ms-flex: 0 0 94px;
+      flex: 0 0 94px;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
       .inventory-list .item .item-controls a {
         color: #666;
         display: block;
@@ -1521,8 +1559,12 @@ input::placeholder {
       flex: 0 0 36px;
       padding: 0;
       text-align: center; }
-    .inventory-list .item .item-quantity {
-      border-left: 1px solid #333; }
+    .inventory-list .item .item-quantity,
+    .inventory-list .item .item-type {
+      border-left: 1px solid #333;
+      text-shadow: 1px 1px 2px #000; }
+    .inventory-list .item .item-type {
+      text-transform: capitalize; }
     .inventory-list .item .ability-usage {
       background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
       background: linear-gradient(45deg, #25003c, #dc9ff1a6);
@@ -1561,6 +1603,9 @@ input::placeholder {
     .inventory-list .item .ability-usage--other {
       background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
       background: linear-gradient(45deg, #25003c, #dc9ff1a6); }
+    .inventory-list .item .ability-usage--equipment {
+      background: -o-linear-gradient(45deg, #80361a, #efc44aa6);
+      background: linear-gradient(45deg, #80361a, #efc44aa6); }
   .inventory-list .inventory-header {
     background: rgba(0, 0, 0, 0.05);
     font-weight: 700;
@@ -1571,8 +1616,10 @@ input::placeholder {
       margin: 0;
       padding-left: 32px; }
     .inventory-list .inventory-header .item-quantity,
-    .inventory-list .inventory-header .item-weight {
-      color: #111; }
+    .inventory-list .inventory-header .item-weight,
+    .inventory-list .inventory-header .item-type {
+      color: #111;
+      text-shadow: none; }
     .inventory-list .inventory-header .item-controls .item-create {
       width: 100%; }
 

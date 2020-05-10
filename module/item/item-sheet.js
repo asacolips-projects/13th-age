@@ -145,7 +145,6 @@ export class ItemArchmageSheet extends ItemSheet {
       let $self = $(event.currentTarget);
       let prepop = new ArchmagePrepopulate();
       prepop.getPowerById($self.data('uuid')).then((res) => {
-        // console.log(res.powers[0]);
       });
     });
   }
