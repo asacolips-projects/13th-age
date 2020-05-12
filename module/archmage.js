@@ -44,7 +44,7 @@ Hooks.once('init', async function() {
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('archmage', ActorArchmageSheet, {
-    types: [],
+    types: ["character"],
     makeDefault: true
   });
 
