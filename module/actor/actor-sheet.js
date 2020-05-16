@@ -208,7 +208,7 @@ export class ActorArchmageSheet extends ActorSheet {
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
       let quantity = item.data.data.quantity;
-      quantity.value = quantity.value + 1;
+      quantity.value = Number(quantity.value) + 1;
       let that = this;
       item.update({ "data.quantity": quantity }).then(item => {
         html.find('input[name="data.attributes.hp.max"]').trigger('change');
@@ -221,7 +221,7 @@ export class ActorArchmageSheet extends ActorSheet {
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
       let quantity = item.data.data.quantity;
-      quantity.value = quantity.value - 1;
+      quantity.value = Number(quantity.value) - 1;
       quantity.value = quantity.value < 0 ? 0 : quantity.value;
       let that = this;
       item.update({ "data.quantity": quantity }).then(item => {

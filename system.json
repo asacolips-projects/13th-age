@@ -5,7 +5,7 @@
   "version": "1.4.1",
   "author": "Matt Smith",
   "minimumCoreVersion": "0.5.2",
-  "compatibleCoreVersion": "0.5.6",
+  "compatibleCoreVersion": "0.5.7",
   "esmodules": ["module/archmage.js"],
   "scripts": [
     "scripts/lib/parse-md.js",
