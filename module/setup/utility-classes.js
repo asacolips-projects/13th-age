@@ -185,7 +185,7 @@ export class ArchmageUtility {
                 m: v.melee,
                 r: v.ranged,
                 a: v.arcane,
-                d: v.divins
+                d: v.divine
               };
               break;
 
