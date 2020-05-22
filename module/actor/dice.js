@@ -113,7 +113,7 @@ export class DiceArchmage {
       formula: parts.join(' + '),
       data: data,
       backgrounds: backgrounds,
-      rollModes: CONFIG.rollModes
+      rollModes: CONFIG.Dice.rollModes
     };
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
@@ -244,7 +244,7 @@ export class DiceArchmage {
     let dialogData = {
       formula: parts.join(' + '),
       data: data,
-      rollModes: CONFIG.rollModes
+      rollModes: CONFIG.Dice.rollModes
     };
 
     // Render modal dialog
