@@ -94,6 +94,11 @@
                   </div>
 
                   <div class="form-group">
+                      <label>{{data.always.label}}</label>
+                      <input type="text" name="data.always.value" value="{{data.always.value}}" data-dtype="{{data.always.type}}" placeholder="Some effect that always happens"/>
+                  </div>
+
+                  <div class="form-group">
                       <label>{{data.attack.label}}</label>
                       <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="Strength + Level vs. AC"/>
                   </div>
@@ -101,6 +106,21 @@
                   <div class="form-group">
                       <label>{{data.hit.label}}</label>
                       <input type="text" name="data.hit.value" value="{{data.hit.value}}" data-dtype="{{data.hit.type}}" placeholder="WEAPON + Strength damage"/>
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{data.hitEven.label}}</label>
+                      <input type="text" name="data.hitEven.value" value="{{data.hitEven.value}}" data-dtype="{{data.hitEven.type}}" placeholder=""/>
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{data.hitOdd.label}}</label>
+                      <input type="text" name="data.hitOdd.value" value="{{data.hitOdd.value}}" data-dtype="{{data.hitOdd.type}}" placeholder=""/>
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{data.crit.label}}</label>
+                      <input type="text" name="data.crit.value" value="{{data.crit.value}}" data-dtype="{{data.crit.type}}" placeholder="Additional effects on a crit"/>
                   </div>
 
                   <div class="form-group">

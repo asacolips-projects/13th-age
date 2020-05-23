@@ -425,6 +425,11 @@
         "label": "Target",
         "value": ""
       },
+      "always": {
+        "type": "String",
+        "label": "Always",
+        "value": ""
+      },
       "attack": {
         "type": "String",
         "label": "Attack",
@@ -433,6 +438,21 @@
       "hit": {
         "type": "String",
         "label": "Hit",
+        "value": ""
+      },
+      "hitEven": {
+        "type": "String",
+        "label": "Natural Even Hit",
+        "value": ""
+      },
+      "hitOdd": {
+        "type": "String",
+        "label": "Natural Odd Hit",
+        "value": ""
+      },
+      "crit": {
+        "type": "String",
+        "label": "Crit",
         "value": ""
       },
       "miss": {

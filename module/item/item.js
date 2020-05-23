@@ -106,12 +106,28 @@ export class ItemArchmage extends Item {
         value: data.target.value
       },
       {
+        label: data.always.label,
+        value: data.always.value
+      },
+      {
         label: data.attack.label,
         value: data.attack.value
       },
       {
         label: data.hit.label,
         value: data.hit.value
+      },
+      {
+        label: data.hitEven.label,
+        value: data.hitEven.value
+      },
+      {
+        label: data.hitOdd.label,
+        value: data.hitOdd.value
+      },
+      {
+        label: data.crit.label,
+        value: data.crit.value
       },
       {
         label: data.miss.label,
