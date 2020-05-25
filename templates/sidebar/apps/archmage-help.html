@@ -44,23 +44,36 @@
         <div class="keys"><span class="key">@lvl</span></div>
       </li>
       <li>
-        <h4>Level + Escalation Die + Item Bonuses</h4>
-        <div class="keys"><span class="key">@std</span></div>
-      </li>
-      <li>
         <h4>Initiative</h4>
         <div class="keys"><span class="key">@init</span></div>
       </li>
     </ol>
 
+    <h3>Attack Bonuses</h3>
+    <ol class="hotkey-list">
+      <p>Attack bonuses (lvl + ed + item bonuses)</p>
+      <li>
+        <h4>Melee, Ranged, Arcane, Divine</h4>
+        <div class="keys">
+          <span class="key">@atk.m.bonus</span>
+          <span class="key">@atk.r.bonus</span>
+          <span class="key">@atk.a.bonus</span>
+          <span class="key">@atk.d.bonus</span>
+        </div>
+      </li>
+    </ol>
+
     <h3>Weapons</h3>
-    <p>Weapons are broken down into melee (@wpn.m) and ranged (@wpn.r).</p>
+    <p>Weapons are broken down into melee (@wpn.m), ranged (@wpn.r), JAB (@wpn.j), PUNCH (@wpn.p), and KICK (@wpn.k). JAB, PUNCH, and KICK are intended for monks, and will use the monk damage die (d6, d8, d10, respectively) and will use Dexterity for attacks and Strength for damage.</p>
     <ol class="hotkey-list">
       <li>
         <h4>Weapon Damage Die (single)</h4>
         <div class="keys">
           <span class="key">@wpn.m.die</span>
           <span class="key">@wpn.r.die</span>
+          <span class="key">@wpn.j.die</span>
+          <span class="key">@wpn.p.die</span>
+          <span class="key">@wpn.k.die</span>
         </div>
       </li>
       <li>
@@ -68,6 +81,19 @@
         <div class="keys">
           <span class="key">@wpn.m.dice</span>
           <span class="key">@wpn.r.dice</span>
+          <span class="key">@wpn.rjdice</span>
+          <span class="key">@wpn.rpdice</span>
+          <span class="key">@wpn.rkdice</span>
+        </div>
+      </li>
+      <li>
+        <h4>Weapon Ability Modifier (str/dex, no multiplier)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.mod</span>
+          <span class="key">@wpn.r.mod</span>
+          <span class="key">@wpn.j.mod</span>
+          <span class="key">@wpn.p.mod</span>
+          <span class="key">@wpn.k.mod</span>
         </div>
       </li>
       <li>
@@ -75,6 +101,9 @@
         <div class="keys">
           <span class="key">@wpn.m.dmg</span>
           <span class="key">@wpn.r.dmg</span>
+          <span class="key">@wpn.j.dmg</span>
+          <span class="key">@wpn.p.dmg</span>
+          <span class="key">@wpn.k.dmg</span>
         </div>
       </li>
       <li>
@@ -82,6 +111,9 @@
         <div class="keys">
           <span class="key">@wpn.m.atk</span>
           <span class="key">@wpn.r.atk</span>
+          <span class="key">@wpn.j.atk</span>
+          <span class="key">@wpn.p.atk</span>
+          <span class="key">@wpn.k.atk</span>
         </div>
       </li>
     </ol>

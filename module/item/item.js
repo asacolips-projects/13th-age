@@ -88,131 +88,64 @@ export class ItemArchmage extends Item {
         value: data.powerLevel !== undefined ? 'Level ' + data.powerLevel.value : 'Level ' + this.actor.data.data.details.level.value
       }
     ];
-    const properties = [
-      // {
-      //   label: data.range.label,
-      //   value: data.range.value
-      // },
-      {
-        label: data.recharge.label,
-        value: data.recharge.value
-      },
-      {
-        label: data.trigger.label,
-        value: data.trigger.value
-      },
-      {
-        label: data.target.label,
-        value: data.target.value
-      },
-      {
-        label: data.always.label,
-        value: data.always.value
-      },
-      {
-        label: data.attack.label,
-        value: data.attack.value
-      },
-      {
-        label: data.hit.label,
-        value: data.hit.value
-      },
-      {
-        label: data.hitEven.label,
-        value: data.hitEven.value
-      },
-      {
-        label: data.hitOdd.label,
-        value: data.hitOdd.value
-      },
-      {
-        label: data.crit.label,
-        value: data.crit.value
-      },
-      {
-        label: data.miss.label,
-        value: data.miss.value
-      },
-      {
-        label: data.missEven.label,
-        value: data.missEven.value
-      },
-      {
-        label: data.missOdd.label,
-        value: data.missOdd.value
-      },
-      {
-        label: data.cost.label,
-        value: data.cost.value
-      }
+
+    const propKeys = [
+      'recharge',
+      'trigger',
+      'target',
+      'always',
+      'attack',
+      'hit',
+      'hitEven',
+      'hitOdd',
+      'crit',
+      'miss',
+      'missEven',
+      'missOdd',
+      'cost',
     ];
-    const feats = [
-      {
-        label: data.feats.adventurer.description.label,
-        description: data.feats.adventurer.description.value,
-        isActive: data.feats.adventurer.isActive.value
-      },
-      {
-        label: data.feats.champion.description.label,
-        description: data.feats.champion.description.value,
-        isActive: data.feats.champion.isActive.value
-      },
-      {
-        label: data.feats.epic.description.label,
-        description: data.feats.epic.description.value,
-        isActive: data.feats.epic.isActive.value
-      }
+    const properties = propKeys.map(k => {
+      return {
+        label: data[k] ? data[k].label : null,
+        value: data[k] ? data[k].value : null,
+      };
+    })
+
+    const featKeys = [
+      'adventurer',
+      'champion',
+      'epic',
     ];
-    const effects = [
-      {
-        label: data.effect.label,
-        value: data.effect.value
-      },
-      {
-        label: data.castBroadEffect.label,
-        value: data.castBroadEffect.value
-      },
-      {
-        label: data.castPower.label,
-        value: data.castPower.value
-      },
-      {
-        label: data.sustainedEffect.label,
-        value: data.sustainedEffect.value
-      },
-      {
-        label: data.finalVerse.label,
-        value: data.finalVerse.value
-      },
-      {
-        label: data.spellLevel3.label,
-        value: data.spellLevel3.value
-      },
-      {
-        label: data.spellLevel5.label,
-        value: data.spellLevel5.value
-      },
-      {
-        label: data.spellLevel7.label,
-        value: data.spellLevel7.value
-      },
-      {
-        label: data.spellLevel9.label,
-        value: data.spellLevel9.value
-      },
-      {
-        label: data.spellChain.label,
-        value: data.spellChain.value
-      },
-      {
-        label: data.breathWeapon.label,
-        value: data.breathWeapon.value
-      },
-      {
-        label: data.special.label,
-        value: data.special.value
-      }
+    const feats = featKeys.map(k => {
+      return {
+        label: data.feats[k] ? data.feats[k].description.label : null,
+        description: data.feats[k] ? data.feats[k].description.value : null,
+        isActive: data.feats[k] ? data.feats[k].isActive.value : null,
+      };
+    });
+
+    const effectKeys = [
+      'effect',
+      'castBroadEffect',
+      'castPower',
+      'sustainedEffect',
+      'finalVerse',
+      'spellLevel3',
+      'spellLevel5',
+      'spellLevel7',
+      'spellLevel9',
+      'spellChain',
+      'breathWeapon',
+      'special',
     ];
+
+    const effects = effectKeys.map(k => {
+      return {
+        label: data[k] ? data[k].label : null,
+        value: data[k] ? data[k].value : null,
+      };
+    });
+
     data.tags = tags.filter(t => t.value !== null && t.value !== undefined && t.value != '');
     data.properties = properties.filter(p => p.value !== null && p.value !== undefined && p.value != '');
     data.feats = feats.filter(f => f.description !== null && f.description !== undefined && f.description !== '');

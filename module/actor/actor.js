@@ -158,7 +158,7 @@ export class ActorArchmage extends Actor {
             dice: 'd6',
             value: 'd6',
             abil: 'dex'
-          }
+          },
         };
       }
       // Handle some possibly unitialized variables. These can be tweaked through the sheet settings.
@@ -169,11 +169,44 @@ export class ActorArchmage extends Actor {
       // Set calculated values.
       data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod + data.attributes.attack.melee.bonus;
       data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
+      data.attributes.weapon.melee.mod = data.abilities[data.attributes.weapon.melee.abil].mod;
       data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg + data.attributes.attack.melee.bonus;
 
       data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod + data.attributes.attack.ranged.bonus;
       data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
+      data.attributes.weapon.ranged.mod = data.abilities[data.attributes.weapon.ranged.abil].mod;
       data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg + data.attributes.attack.ranged.bonus;
+
+      // Handle monk attacks.
+      let monkAttacks = {
+        jab: {
+          dice: 'd6',
+          value: 'd6',
+          abil: 'dex/str'
+        },
+        punch: {
+          dice: 'd8',
+          value: 'd8',
+          abil: 'dex/str'
+        },
+        kick: {
+          dice: 'd10',
+          value: 'd10',
+          abil: 'dex/str'
+        }
+      }
+      for (let [key, value] of Object.entries(monkAttacks)) {
+        let abil = value.abil.split('/');
+        data.attributes.attack[key] = data.attributes.attack.melee;
+        data.attributes.weapon[key] = mergeObject(value, {
+          miss: true,
+          abil: abil[0],
+          attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
+          value: `${data.attributes.level.value}${value.dice}`,
+          mod: data.abilities[abil[0]].mod,
+          dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
+        });
+      }
 
     }
 

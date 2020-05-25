@@ -159,25 +159,21 @@ export class ArchmageUtility {
               data.wpn = {
                 m: v.melee,
                 r: v.ranged,
+                j: v.jab,
+                p: v.punch,
+                k: v.kick
               };
 
-              // Move the single die values from dice to die.
-              data.wpn.m.die = data.wpn.m.dice;
-              data.wpn.r.die = data.wpn.r.dice;
+              // Clean up weapon properties.
+              let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
+              wpnTypes.forEach(wpn => {
+                data.wpn[wpn].die = data.wpn[wpn].dice;
+                data.wpn[wpn].dice = data.wpn[wpn].value;
+                data.wpn[wpn].atk = data.wpn[wpn].attack;
+                delete data.wpn[wpn].value;
+                delete data.wpn[wpn].attack;
+              });
 
-              // Move the multi die values from value to dice.
-              data.wpn.m.dice = data.wpn.m.value;
-              data.wpn.r.dice = data.wpn.r.value;
-
-              // Copy the attack.
-              data.wpn.m.atk = data.wpn.m.attack;
-              data.wpn.r.atk = data.wpn.r.attack;
-
-              // Delete unneeded keys.
-              delete data.wpn.m.value;
-              delete data.wpn.r.value;
-              delete data.wpn.m.attack;
-              delete data.wpn.r.attack;
               break;
 
             case 'attack':
@@ -217,7 +213,7 @@ export class ArchmageReference extends Application {
     options.title = "13th Age Inline Rolls Reference"
     options.id = "archmage-help";
     options.template = "systems/archmage/templates/sidebar/apps/archmage-help.html";
-    options.width = 600;
+    options.width = 820;
     return options;
   }
 }
