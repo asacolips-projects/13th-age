@@ -53,8 +53,10 @@ export class DiceArchmage {
     }
 
     // Inner roll function
-    let rollMode = 'roll';
-    let roll = () => {
+    let speaker = ChatMessage.getSpeaker();
+    let rollMode = game.settings.get("core", "rollMode");
+    let rolled = false;
+    let roll = (html = null) => {
       let flav = (flavor instanceof Function) ? flavor(parts, data) : title;
 
       // Don't include situational bonus unless it is defined
@@ -77,15 +79,18 @@ export class DiceArchmage {
         flav = `${title} (${situational > 0 ? '+' + situational : situational})`;
       }
 
+      let form = html.find('form')[0];
+      rollMode = form ? form.rollMode.value : rollMode;
+
       // Execute the roll and send it to chat
       let roll = new Roll(parts.join('+'), data).roll();
       roll.toMessage({
+        speaker: speaker,
         alias: alias,
         flavor: flav,
-        rollMode: rollMode,
         highlightSuccess: roll.parts[0].total === 20,
         highlightFailure: roll.parts[0].total === 1
-      });
+      }, { rollMode });
     };
 
     // Modify the roll and handle fast-forwarding
@@ -122,30 +127,51 @@ export class DiceArchmage {
         buttons: {
           disadvantage: {
             label: 'Dis.',
-            callback: () => adv = -1
+            callback: () => {
+              adv = -1;
+              rolled = true;
+            }
           },
           pen4: {
             label: '-4',
-            callback: () => situational = -4
+            callback: () => {
+              situational = -4;
+              rolled = true;
+            }
           },
           pen2: {
             label: '-2',
-            callback: () => situational = -2
+            callback: () => {
+              situational = -2;
+              rolled = true;
+            }
           },
           normal: {
             label: 'Normal',
+            callback: () => {
+              rolled = true;
+            }
           },
           bon2: {
             label: '+2',
-            callback: () => situational = 2
+            callback: () => {
+              situational = 2;
+              rolled = true;
+            }
           },
           bon4: {
             label: '+4',
-            callback: () => situational = 4
+            callback: () => {
+              situational = 4;
+              rolled = true;
+            }
           },
           advantage: {
             label: 'Adv.',
-            callback: () => adv = 1
+            callback: () => {
+              adv = 1;
+              rolled = true;
+            }
           }
         },
         default: 'normal',
@@ -153,10 +179,13 @@ export class DiceArchmage {
           if (onClose) {
             onClose(html, parts, data);
           }
-          rollMode = html.find('[name="rollMode"]').val();
-          data['bonus'] = html.find('[name="bonus"]').val();
-          data['background'] = html.find('[name="background"]').val();
-          roll();
+          if (rolled) {
+            rollMode = html.find('[name="rollMode"]').val();
+            data['bonus'] = html.find('[name="bonus"]').val();
+            data['background'] = html.find('[name="background"]').val();
+            console.log(html);
+            roll(html);
+          }
         }
       }, dialogOptions).render(true);
     });
