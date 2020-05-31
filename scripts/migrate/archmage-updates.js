@@ -27,41 +27,44 @@ class ArchmageUpdateHandler {
    * schema version and attempts to run the next one, if it exists.
    */
   async runUpdates() {
-    // Retrieve the schema version.
-    this.schema = game.settings.get('archmage', 'schemaVersion');
-    var runUpdates = true;
-    var currentUpdate;
+    if (game.user.isGM) {
+      console.log('Running updates');
+      // Retrieve the schema version.
+      this.schema = game.settings.get('archmage', 'schemaVersion');
+      var runUpdates = true;
+      var currentUpdate;
 
-    // Re-run for as many updates there are currently.
-    while (runUpdates) {
-      // Increase the version to fire updates for the next update.
-      this.schema++;
-      currentUpdate = `update${this.schema}`;
+      // Re-run for as many updates there are currently.
+      while (runUpdates) {
+        // Increase the version to fire updates for the next update.
+        this.schema++;
+        currentUpdate = `update${this.schema}`;
 
-      // If the method exists, we need to run it.
-      if (typeof this[currentUpdate] === 'function') {
-        // Run the update and wait for its result.
-        // eslint-disable-next-line no-console
-        console.log(`Performing archmage update ${currentUpdate}`);
-        let result = await this[currentUpdate]();
-
-        // If the result was anything other than false, bump update the schema
-        // version setting with the number we just ran the update for.
-        if (result !== false) {
+        // If the method exists, we need to run it.
+        if (typeof this[currentUpdate] === 'function') {
+          // Run the update and wait for its result.
           // eslint-disable-next-line no-console
-          console.log(`Completed archmage update ${currentUpdate}`);
-          game.settings.set('archmage', 'schemaVersion', this.schema);
+          console.log(`Performing archmage update ${currentUpdate}`);
+          let result = await this[currentUpdate]();
+
+          // If the result was anything other than false, bump update the schema
+          // version setting with the number we just ran the update for.
+          if (result !== false) {
+            // eslint-disable-next-line no-console
+            console.log(`Completed archmage update ${currentUpdate}`);
+            game.settings.set('archmage', 'schemaVersion', this.schema);
+          }
+          // Otherwise, note the failure and break from the loop.
+          else {
+            // eslint-disable-next-line no-console
+            console.log(`Unable to complete update ${currentUpdate}`);
+            runUpdates = false;
+          }
         }
-        // Otherwise, note the failure and break from the loop.
+        // Otherwise, break from the loop.
         else {
-          // eslint-disable-next-line no-console
-          console.log(`Unable to complete update ${currentUpdate}`);
           runUpdates = false;
         }
-      }
-      // Otherwise, break from the loop.
-      else {
-        runUpdates = false;
       }
     }
   }
