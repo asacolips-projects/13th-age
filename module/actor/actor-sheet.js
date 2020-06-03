@@ -462,7 +462,7 @@ export class ActorArchmageSheet extends ActorSheet {
       var outputString = inputString;
       if (inputString !== undefined && inputString !== null) {
         if (inputString.includes('"/srd')) {
-          outputString = inputString.replace(/\/srd/g, 'http://www.toolkit13.com/srd');
+          outputString = inputString.replace(/\/srd/g, 'https://www.toolkit13.com/srd');
         }
       }
       return outputString;

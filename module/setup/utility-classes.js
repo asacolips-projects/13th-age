@@ -223,7 +223,7 @@ export class ArchmageReference extends Application {
  */
 export class ArchmagePrepopulate {
   constructor() {
-    this.endpointBase = 'http://www.toolkit13.com/v1/json/powers';
+    this.endpointBase = 'https://www.toolkit13.com/v1/json/powers';
   }
 
   async request(endpoint) {
