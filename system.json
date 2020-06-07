@@ -20,6 +20,22 @@
       "path": "packs/monk.db",
       "system": "archmage",
       "absPath": "./packs/monk.db"
+    },
+    {
+      "label": "Druid",
+      "entity": "Item",
+      "name": "druid",
+      "path": "packs/druid.db",
+      "system": "archmage",
+      "absPath": "./packs/druid.db"
+    },
+    {
+      "label": "Occultist",
+      "entity": "Item",
+      "name": "occultist",
+      "path": "packs/occultist.db",
+      "system": "archmage",
+      "absPath": "./packs/occultist.db"
     }
   ],
   "languages": ["en"],

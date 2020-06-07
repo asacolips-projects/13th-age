@@ -276,7 +276,6 @@ export class ActorArchmageSheet extends ActorSheet {
         'bard',
         'cleric',
         'commander',
-        'druid',
         'fighter',
         'paladin',
         'ranger',
