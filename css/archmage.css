@@ -1801,14 +1801,17 @@ input[type="checkbox"] {
 .archmage.actor-sheet.npc-sheet .traits-header .item-name,
 .archmage.actor-sheet.npc-sheet .traits-header .item-controls,
 .archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name,
-.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls {
+.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-name,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-controls {
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 4px 8px; }
 
 .archmage.actor-sheet.npc-sheet .actions-header .item-name,
 .archmage.actor-sheet.npc-sheet .traits-header .item-name,
-.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name {
+.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-name {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -1816,7 +1819,8 @@ input[type="checkbox"] {
 
 .archmage.actor-sheet.npc-sheet .actions-header .item-controls,
 .archmage.actor-sheet.npc-sheet .traits-header .item-controls,
-.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls {
+.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 64px;
   flex: 0 0 64px; }
@@ -1934,7 +1938,7 @@ input[type="checkbox"] {
       line-height: 1;
       margin: 0;
       text-transform: capitalize;
-      font-size: 14px;
+      font-size: 12px;
       padding: 4px 0;
       width: 100%;
       border-top: 1px solid rgba(0, 0, 0, 0.1);

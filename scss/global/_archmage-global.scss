@@ -1884,7 +1884,8 @@ input[type="checkbox"] {
 
   .actions-header,
   .traits-header,
-  .nastier-specials-header {
+  .nastier-specials-header,
+  .npc-details-header {
     .item-name,
     .item-controls {
       background: $ct-black--75;
@@ -2039,7 +2040,7 @@ input[type="checkbox"] {
           line-height: 1;
           margin: 0;
           text-transform: capitalize;
-          font-size: 14px;
+          font-size: 12px;
           padding: 4px 0;
           width: 100%;
           border-top: 1px solid rgba(0, 0, 0, 0.1);
