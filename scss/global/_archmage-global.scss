@@ -807,7 +807,11 @@ input[type="checkbox"] {
         order: 0;
 
         img {
-          flex: 0 0 44px;
+          // flex: 0 0 44px;
+          flex: 0;
+          width: auto;
+          height: auto;
+          max-height: 100%;
         }
       }
     }
