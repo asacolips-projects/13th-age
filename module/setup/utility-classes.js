@@ -201,7 +201,59 @@ export class ArchmageUtility {
       return data;
     };
   }
+
+  static async updateCompendiums() {
+    let pack = game.packs.get('archmage.monsters-core');
+    let monsters = pack ? await pack.getContent() : null;
+
+    if (monsters) {
+      for (let actor of monsters) {
+        let name = actor.data.name.toLowerCase();
+        let update = {};
+
+        // Handle size.
+        let size = '';
+        for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureSizes)) {
+          size += size == '' ? key : `|${key}`;
+        }
+        let sizeRegex = new RegExp(size);
+        let sizeMatch = name.match(sizeRegex);
+        if (sizeMatch && sizeMatch[0]) {
+          update['data.details.size.value'] = sizeMatch[0];
+        }
+        else {
+          update['data.details.size.value'] = 'normal';
+        }
+        // Handle role.
+        let role = '';
+        for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureRoles)) {
+          role += role == '' ? key : `|${key}`;
+        }
+        let roleRegex = new RegExp(role);
+        let roleMatch = name.match(roleRegex);
+        if (roleMatch && roleMatch[0]) {
+          update['data.details.role.value'] = roleMatch && roleMatch[0];
+        }
+        // Handle type.
+        let type = '';
+        for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureTypes)) {
+          type += type == '' ? key : `|${key}`;
+        }
+        let typeRegex = new RegExp(type);
+        let typeMatch = name.match(typeRegex);
+        if (typeMatch && typeMatch[0]) {
+          update['data.details.type.value'] = typeMatch[0];
+        }
+        if (Object.keys(update).length > 0) {
+          update['_id'] = actor.data._id;
+          update['name'] = actor.data.name.replace(/( |)\[.*\]/g, '');
+          await pack.updateEntity(update);
+        }
+      };
+    }
+  }
 }
+
 
 /**
  * Keyboard Controls Reference Sheet

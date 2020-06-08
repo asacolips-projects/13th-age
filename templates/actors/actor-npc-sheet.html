@@ -107,6 +107,38 @@
     </section>
 
     <section class="sheet-body">
+        <div class="npc-details">
+            <div class="actions-header item flexrow" style="width: 100%;">
+                <div class="item-name">Details</div>
+            </div>
+            <div class="npc-details-content flexrow">
+                <select name="data.details.size.value">
+                    <option value="">—</option>
+                    {{#select data.details.size.value }}
+                        {{#each sizes as |size key|}}
+                        <option value="{{key}}">{{size}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+                <select name="data.details.role.value">
+                    <option value="">—</option>
+                    {{#select data.details.role.value }}
+                        {{#each roles as |role key|}}
+                        <option value="{{key}}">{{role}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+                <select name="data.details.type.value">
+                    <option value="">—</option>
+                    {{#select data.details.type.value }}
+                        {{#each types as |type key|}}
+                        <option value="{{key}}">{{type}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
         <div class="actions">
             <div class="actions-header item flexrow">
                 <div class="item-name">Actions</div>

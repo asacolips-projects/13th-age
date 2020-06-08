@@ -1218,6 +1218,15 @@ input[type="checkbox"] {
   }
 }
 
+.window-app {
+  .window-content {
+    background: url('../assets/src/ricepaper2_@2X.png');
+    background-attachment: local;
+    background-size: 300px;
+    box-shadow: inset 0 0 32px 4px $ct-black--45;
+  }
+}
+
 // Biography Tab
 
 // Abilities Sidebar Tab
@@ -1990,6 +1999,54 @@ input[type="checkbox"] {
     position: absolute;
     right: 10px;
     width: 100px;
+  }
+}
+
+// Compendium hacks.
+.compendium {
+  &[data-pack="archmage.monsters-core"] {
+    // Hide the original compendium.
+    .directory-list {
+      display: none;
+
+      // Show the new compendium.
+      &.directory-list--archmage {
+        display: block;
+      }
+    }
+  }
+
+  .directory-list--archmage {
+    .directory-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      font-family: $font-stack-secondary;
+
+      h4.entry-name {
+        display: flex;
+        flex-wrap: wrap;
+
+        a {
+          font-family: $font-stack-base;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 1;
+          white-space: normal;
+          padding: 0 0 4px;
+        }
+
+        .tags {
+          line-height: 1;
+          margin: 0;
+          text-transform: capitalize;
+          font-size: 14px;
+          padding: 4px 0;
+          width: 100%;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
   }
 }
 

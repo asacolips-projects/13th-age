@@ -11,7 +11,7 @@ import { DiceArchmage } from './actor/dice.js';
 
 Hooks.once('init', async function() {
 
-  // CONFIG.debug.hooks = true;
+  CONFIG.debug.hooks = true;
 
   String.prototype.safeCSSId = function() {
     return encodeURIComponent(
@@ -25,8 +25,11 @@ Hooks.once('init', async function() {
     ActorArchmageNPCSheet,
     DiceArchmage,
     ItemArchmage,
-    ItemArchmageSheet
+    ItemArchmageSheet,
+    ArchmageUtility,
   };
+
+  console.log(game.archmage);
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
@@ -226,6 +229,77 @@ Hooks.on("renderSettings", (app, html) => {
     ev.preventDefault();
     new ArchmageReference().render(true);
   });
+});
+
+// Hijack compendium search.
+Hooks.on('renderCompendium', async (compendium, html, options) => {
+  console.log(compendium);
+  console.log(options);
+  if (compendium.metadata.entity == 'Actor') {
+    // Build a search index.
+    let monsters = await compendium.getContent();
+    monsters.forEach(m => {
+      // console.log(m.data);
+      let option = options.index.find(o => o._id == m._id);
+      let data = m.data.data;
+      option.search = {
+        level: data.details.level ? data.details.level.value : null,
+        class: data.details.class.value ? data.details.class.value : null,
+        race: data.details.race.value ? data.details.race.value : null,
+        size: data.details.size ? data.details.size.value : null,
+        role: data.details.role ? data.details.role.value : null,
+        type: data.details.type ? data.details.type.value : null,
+      };
+    });
+
+    // Replace the markup.
+    html.find('.directory-list').remove();
+    let template = 'systems/archmage/templates/sidebar/apps/compendium.html';
+    let content = await renderTemplate(template, options);
+    html.find('.directory-header').after(content);
+
+    // Handle sheet opening.
+    html.find('.entry-name').click(ev => {
+      let li = ev.currentTarget.parentElement;
+      compendium.getEntity(li.dataset.entryId).then(entity => {
+        entity.sheet.render(true);
+      });
+    });
+
+    // Handle lazy loading images.
+    let lazyCallback = (entries, observer) => {
+      for (let e of entries) {
+        if (!e.isIntersecting) continue;
+        const li = e.target;
+
+        // Background Image
+        if (li.dataset.backgroundImage) {
+          li.style["background-image"] = `url("${li.dataset.backgroundImage}")`;
+          delete li.dataset.backgroundImage;
+        }
+
+        // Avatar image
+        const img = li.querySelector("img");
+        if (img && img.dataset.src) {
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+        }
+
+        // No longer observe the target
+        observer.unobserve(e.target);
+      }
+    }
+
+    const directory = html.find('.directory-list');
+    const entries = directory.find('.directory-item');
+
+    const observer = new IntersectionObserver(lazyCallback, { root: directory[0] });
+    entries.each((i, li) => observer.observe(li));
+
+    // Handle dragdrop.
+    const dragDrop = new DragDrop(compendium.options.dragDrop[0]);
+    dragDrop.bind(html[0]);
+  }
 });
 
 /* ---------------------------------------------- */

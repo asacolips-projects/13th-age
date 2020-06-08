@@ -18,24 +18,28 @@
       "entity": "Item",
       "name": "monk",
       "path": "packs/monk.db",
-      "system": "archmage",
-      "absPath": "./packs/monk.db"
+      "system": "archmage"
     },
     {
       "label": "Druid",
       "entity": "Item",
       "name": "druid",
       "path": "packs/druid.db",
-      "system": "archmage",
-      "absPath": "./packs/druid.db"
+      "system": "archmage"
     },
     {
       "label": "Occultist",
       "entity": "Item",
       "name": "occultist",
       "path": "packs/occultist.db",
-      "system": "archmage",
-      "absPath": "./packs/occultist.db"
+      "system": "archmage"
+    },
+    {
+      "label": "Monsters (core)",
+      "entity": "Actor",
+      "name": "monsters-core",
+      "path": "packs/monsters-core.db",
+      "system": "archmage"
     }
   ],
   "languages": ["en"],

@@ -347,14 +347,17 @@
       "templates": ["standard"],
       "details": {
         "role": {
+          "value": "",
           "type": "String",
           "label": "Role"
         },
         "size": {
+          "value": "Normal",
           "type": "String",
           "label": "Size"
         },
         "type": {
+          "value": "",
           "type": "String",
           "label": "Type"
         },

@@ -1,0 +1,18 @@
+<ol class="directory-list directory-list--archmage">
+    {{#each index}}
+    <li class="directory-item flexrow {{../cssClass}}" data-entry-id="{{this._id}}">
+        <img class="profile" data-src="{{this.img}}" title="{{this.name}}"/>
+        <h4 class="entry-name">
+          <a>{{this.name}}</a>
+          <div class="tags flexrow">
+            <span>Lvl {{this.search.level}}</span>
+            {{#if this.search.race}}<span>{{this.search.race}}</span>{{/if}}
+            {{#if this.search.class}}<span>{{this.search.class}}</span>{{/if}}
+            {{#if this.search.size}}<span>{{this.search.size}}</span>{{/if}}
+            {{#if this.search.role}}<span>{{this.search.role}}</span>{{/if}}
+            {{#if this.search.type}}<span>{{this.search.type}}</span>{{/if}}
+          </div>
+        </h4>
+    </li>
+    {{/each}}
+</ol>
