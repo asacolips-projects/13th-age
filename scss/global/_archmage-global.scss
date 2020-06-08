@@ -2122,7 +2122,8 @@ input[type="checkbox"] {
 
 .chat-card,
 .message {
-  .inline-roll {
+  .inline-roll,
+  .inline-roll--archmage {
     background: $ct-black--75;
     color: $c-white;
     border-color: $c-black;
@@ -2131,6 +2132,10 @@ input[type="checkbox"] {
     line-height: 0;
     padding: 1px 4px;
     transition: transform ease-in-out 0.25s;
+
+    &.expanded {
+      color: rgba($c-white, 0.5);
+    }
 
     &:hover {
       transform: scale(1.2);
@@ -2141,6 +2146,10 @@ input[type="checkbox"] {
       color: $c-white;
       font-size: 10px;
       line-height: 12px;
+    }
+
+    .die {
+      color: $c-white;
     }
   }
 

@@ -29,8 +29,7 @@ Hooks.once('init', async function() {
     ArchmageUtility,
   };
 
-  console.log(game.archmage);
-
+  // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
 
@@ -403,6 +402,55 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       }
     }
   }
+});
+
+Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
+  html.find('a.inline-roll--archmage').on('click', event => {
+    event.preventDefault();
+    const a = event.currentTarget;
+
+    console.log(a);
+
+    // For inline results expand or collapse the roll details
+    if (a.classList.contains("inline-result")) {
+      const roll = Roll.fromJSON(unescape(a.dataset.roll));
+      const dieTotal = roll.parts.reduce((string, r) => {
+        console.log(string);
+        if (typeof string == 'object') {
+          string = '';
+        }
+
+        if (r.rolls) {
+          string = `${string}<span class="die">${r.rolls.map(d => d.roll).join('</span>+<span class="die">')}</span>`;
+        }
+        else {
+          string = `${string}${r}`;
+        }
+
+        return string;
+      }, {});
+
+      console.log(dieTotal);
+      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal}`;
+      console.log(roll);
+      a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+      a.classList.toggle("expanded");
+    }
+
+    // Otherwise execute the deferred roll
+    else {
+      const cls = CONFIG.ChatMessage.entityClass;
+
+      // Get the "speaker" for the inline roll
+      const actor = cls.getSpeakerActor(cls.getSpeaker());
+      const rollData = actor ? actor.getRollData() : {};
+
+      // Execute the roll
+      const roll = new Roll(a.dataset.formula, rollData).roll();
+      return roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+    }
+  });
 });
 
 /* ---------------------------------------------- */

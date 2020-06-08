@@ -2001,7 +2001,9 @@ input[type="checkbox"] {
   color: #ff8484; }
 
 .chat-card .inline-roll,
-.message .inline-roll {
+.chat-card .inline-roll--archmage,
+.message .inline-roll,
+.message .inline-roll--archmage {
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   border-color: #000;
@@ -2014,17 +2016,31 @@ input[type="checkbox"] {
   -o-transition: transform ease-in-out 0.25s;
   transition: transform ease-in-out 0.25s;
   transition: transform ease-in-out 0.25s, -webkit-transform ease-in-out 0.25s; }
+  .chat-card .inline-roll.expanded,
+  .chat-card .inline-roll--archmage.expanded,
+  .message .inline-roll.expanded,
+  .message .inline-roll--archmage.expanded {
+    color: rgba(255, 255, 255, 0.5); }
   .chat-card .inline-roll:hover,
-  .message .inline-roll:hover {
+  .chat-card .inline-roll--archmage:hover,
+  .message .inline-roll:hover,
+  .message .inline-roll--archmage:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
     z-index: 90; }
   .chat-card .inline-roll .fas,
-  .message .inline-roll .fas {
+  .chat-card .inline-roll--archmage .fas,
+  .message .inline-roll .fas,
+  .message .inline-roll--archmage .fas {
     color: #fff;
     font-size: 10px;
     line-height: 12px; }
+  .chat-card .inline-roll .die,
+  .chat-card .inline-roll--archmage .die,
+  .message .inline-roll .die,
+  .message .inline-roll--archmage .die {
+    color: #fff; }
 
 .chat-card .dc-discarded,
 .message .dc-discarded {
