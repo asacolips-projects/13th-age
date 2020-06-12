@@ -434,7 +434,7 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
 Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let $content = $(`<div class="wrapper">${data.content}</div>`);
   let $rolls = $content.find('.inline-result');
-  let rollTotal = 0;
+  let rollTotal = undefined;
   let rollTarget = "";
   let originalRolls = $rolls;
   let updated_content = null;
@@ -465,6 +465,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
     }
 
     let rollResult = 0;
+    console.log(roll_data);
     roll_data.parts.forEach(p => {
       if (p.faces === 20) {
         rollResult = p.total;
@@ -520,39 +521,51 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
           else if (row_text.toLowerCase().includes(" md")) {
             rollTarget = "md";
           }
+
+          let $roll = $row_self.find('.inline-result');
+          // If there isn't exactly one roll, then we can't parse it
+          if ($roll.length === 1) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+              let $roll_self = $(this);
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              rollTotal = roll_data.total;
+            });
+          }
+
+          console.log(rollTotal + " vs " + rollTarget);
+
+          if (rollTotal != undefined) {
+            targets.forEach(target => {
+              //console.log(target);
   
-          rollTotal = parseInt(originalRolls[index].text);
-          //console.log(rollTotal + " vs " + rollTarget);
-
-          targets.forEach(target => {
-            //console.log(target);
-
-            var targetDefense = getTargetDefenseValue(target);
+              var targetDefense = getTargetDefenseValue(target);
+    
+              var hit = rollTotal > targetDefense;
+              //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
   
-            var hit = rollTotal > targetDefense;
-            //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
-
-            // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
-            if (hit) {
-              targetsHit.push(target.data.name);
-              if (hasHit == undefined || !hasHit) {
-                hasHit = true;
+              // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
+              if (hit) {
+                targetsHit.push(target.data.name);
+                if (hasHit == undefined || !hasHit) {
+                  hasHit = true;
+                }
+                if (hasMissed == undefined) {
+                  hasMissed = false;
+                }
               }
-              if (hasMissed == undefined) {
-                hasMissed = false;
+              else {
+                targetsMissed.push(target.data.name);
+                if (hasMissed == undefined || !hasMissed) {
+                  hasMissed = true;
+                }
+                if (hasHit == undefined) {
+                  hasHit = false;
+                }
               }
-            }
-            else {
-              targetsMissed.push(target.data.name);
-              if (hasMissed == undefined || !hasMissed) {
-                hasMissed = true;
-              }
-              if (hasHit == undefined) {
-                hasHit = false;
-              }
-            }
-          });
-
+            });
+          }
+          
           //console.log(targetsHit);
           //console.log(targetsMissed);
 
@@ -591,7 +604,8 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
         // This regex just finds any numbers in the string, and we use the first one
         var regex = new RegExp("\\d+");
         var scoreToBeatArray = regex.exec($row_self[0].innerText);
-        if (scoreToBeatArray.length == 1) {
+        
+        if (scoreToBeatArray && scoreToBeatArray.length == 1) {
           var maxTargets = parseInt(scoreToBeatArray[0]);
           //console.log("MaxTargets " + maxTargets);
 
@@ -679,7 +693,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
           // This regex just finds any numbers in the string, and we use the first one
           var regex = new RegExp("\\d+");
           var scoreToBeatArray = regex.exec(triggerText);
-          if (scoreToBeatArray.length == 1) {
+          if (scoreToBeatArray && scoreToBeatArray.length == 1) {
             var scoreToBeat = parseInt(scoreToBeatArray[0]);
             if (rollResult >= scoreToBeat) {
               active = true;
