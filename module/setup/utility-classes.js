@@ -51,16 +51,12 @@ export class ArchmageUtility {
    *
    * @return {string} 'crit', 'fail', or 'normal'.
    */
-  static inlineRollCritTest(roll) {
+  static inlineRollCritTest(roll, actor = null) {
     for (let i = 0; i < roll.parts.length; i++) {
       var part = roll.parts[i];
-      console.log(roll);
       if (part.rolls) {
         let result = part.rolls.map((r) => {
-          console.log(r);
           if (part.faces === 20) {
-            console.log(roll.formula.match(/^2d20kh/g));
-            console.log(part.rolls);
             // Natural 20.
             if (r.roll === part.faces && !r.discarded) {
               return 'crit';
@@ -70,7 +66,8 @@ export class ArchmageUtility {
               return 'fail';
             }
             // Barbarian crit.
-            else if (roll.formula.match(/^2d20kh/g) && part.rolls[0].roll > 10 && part.rolls[1].roll > 10) {
+            else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
+              && roll.formula.match(/^2d20kh/g) && part.rolls[0].roll > 10 && part.rolls[1].roll > 10) {
               return 'crit';
             }
             else {

@@ -183,7 +183,6 @@ export class DiceArchmage {
             rollMode = html.find('[name="rollMode"]').val();
             data['bonus'] = html.find('[name="bonus"]').val();
             data['background'] = html.find('[name="background"]').val();
-            console.log(html);
             roll(html);
           }
         }

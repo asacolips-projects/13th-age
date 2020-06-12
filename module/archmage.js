@@ -11,7 +11,7 @@ import { DiceArchmage } from './actor/dice.js';
 
 Hooks.once('init', async function() {
 
-  CONFIG.debug.hooks = true;
+  // CONFIG.debug.hooks = true;
 
   String.prototype.safeCSSId = function() {
     return encodeURIComponent(
@@ -232,13 +232,10 @@ Hooks.on("renderSettings", (app, html) => {
 
 // Hijack compendium search.
 Hooks.on('renderCompendium', async (compendium, html, options) => {
-  console.log(compendium);
-  console.log(options);
   if (compendium.metadata.entity == 'Actor') {
     // Build a search index.
     let monsters = await compendium.getContent();
     monsters.forEach(m => {
-      // console.log(m.data);
       let option = options.index.find(o => o._id == m._id);
       let data = m.data.data;
       option.search = {
@@ -311,12 +308,18 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let $rolls = $content.find('.inline-result');
   let updated_content = null;
 
+  let actor = game.actors.get(data.speaker.actor);
+  if (data.speaker.token) {
+    let token = canvas.tokens.get(data.speaker.token);
+    actor = token.actor;
+  }
+
   // Iterate through inline rolls, add a class to crits/fails.
   for (let i = 0; i < $rolls.length; i++) {
     let $roll = $($rolls[i]);
 
     let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
-    let result = ArchmageUtility.inlineRollCritTest(roll_data);
+    let result = ArchmageUtility.inlineRollCritTest(roll_data, actor);
 
     if (result.includes('crit')) {
       $roll.addClass('dc-crit');
