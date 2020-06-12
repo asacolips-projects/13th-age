@@ -2136,6 +2136,15 @@ input[type="checkbox"] {
   .message .dc-fail .fas {
     color: #ff8484; }
 
+.trigger-active {
+  color: #005800; }
+
+.trigger-inactive {
+  opacity: 0.3; }
+
+.hide {
+  display: none; }
+
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
