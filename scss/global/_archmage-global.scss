@@ -118,6 +118,15 @@ input[type="checkbox"] {
 #chat-log {
   .message {
     font-family: $font-stack-secondary;
+    background: url('../assets/src/ricepaper2_@2X.png');
+    background-attachment: local;
+    background-size: 300px;
+    // box-shadow: inset 0 0 32px 4px $ct-black--45;
+    font-size: 14px;
+
+    p {
+      margin: 0 0 14px 0;
+    }
   }
 
   .card-header {
@@ -1297,6 +1306,30 @@ input[type="checkbox"] {
   }
 }
 
+.tag--feat {
+  $c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
+  background: $c-feat;
+  border: 0;
+  margin: 4px 0;
+
+  &.tag--inactive {
+    opacity: 0.3;
+  }
+
+  > strong {
+    display: block;
+    margin: 8px 0 0 4px;
+  }
+
+  .description {
+    margin-left: 12px;
+  }
+
+  p {
+    margin: 0 0 8px;
+  }
+}
+
 // Inventory List
 
 .inventory-list {
@@ -1450,26 +1483,6 @@ input[type="checkbox"] {
 
         .description {
           margin-left: 8px;
-        }
-      }
-
-      .tag--feat {
-        $c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
-        background: $c-feat;
-        border: 0;
-        margin: 4px 0;
-
-        > strong {
-          display: block;
-          margin: 8px 0 0 4px;
-        }
-
-        .description {
-          margin-left: 12px;
-        }
-
-        p {
-          margin: 0 0 8px;
         }
       }
     }
@@ -1990,6 +2003,13 @@ input[type="checkbox"] {
 
 #chat-form {
   position: relative;
+
+  textarea {
+    background: url('../assets/src/ricepaper2_@2X.png');
+    background-attachment: local;
+    background-size: 300px;
+    box-shadow: inset 0 0 32px 4px $ct-black--45;
+  }
 
   &::before {
     background-image: url('../assets/src/13a-logo.png');

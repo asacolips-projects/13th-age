@@ -229,7 +229,13 @@ input[type="checkbox"] {
   min-width: 24px; }
 
 #chat-log .message {
-  font-family: "warnock-pro", "sans-serif"; }
+  font-family: "warnock-pro", "sans-serif";
+  background: url("../assets/src/ricepaper2_@2X.png");
+  background-attachment: local;
+  background-size: 300px;
+  font-size: 14px; }
+  #chat-log .message p {
+    margin: 0 0 14px 0; }
 
 #chat-log .card-header {
   font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif; }
@@ -1335,6 +1341,21 @@ input[type="checkbox"] {
     .currency .denomination:last-child {
       border-right: 0; }
 
+.tag--feat {
+  background: -o-linear-gradient(45deg, #68d7f194, #ffffff00);
+  background: linear-gradient(45deg, #68d7f194, #ffffff00);
+  border: 0;
+  margin: 4px 0; }
+  .tag--feat.tag--inactive {
+    opacity: 0.3; }
+  .tag--feat > strong {
+    display: block;
+    margin: 8px 0 0 4px; }
+  .tag--feat .description {
+    margin-left: 12px; }
+  .tag--feat p {
+    margin: 0 0 8px; }
+
 .inventory-list {
   height: calc(100% - 44px);
   list-style: none;
@@ -1492,22 +1513,6 @@ input[type="checkbox"] {
         .inventory-list .item .item-properties .tag--special .description,
         .inventory-list .item .item-properties .tag--feat .description {
           margin-left: 8px; }
-      .inventory-list .item .item-tags .tag--feat,
-      .inventory-list .item .item-properties .tag--feat {
-        background: -o-linear-gradient(45deg, #68d7f194, #ffffff00);
-        background: linear-gradient(45deg, #68d7f194, #ffffff00);
-        border: 0;
-        margin: 4px 0; }
-        .inventory-list .item .item-tags .tag--feat > strong,
-        .inventory-list .item .item-properties .tag--feat > strong {
-          display: block;
-          margin: 8px 0 0 4px; }
-        .inventory-list .item .item-tags .tag--feat .description,
-        .inventory-list .item .item-properties .tag--feat .description {
-          margin-left: 12px; }
-        .inventory-list .item .item-tags .tag--feat p,
-        .inventory-list .item .item-properties .tag--feat p {
-          margin: 0 0 8px; }
     .inventory-list .item .item-action {
       border-left: 1px solid #333;
       -webkit-box-flex: 0;
@@ -1901,6 +1906,12 @@ input[type="checkbox"] {
 
 #chat-form {
   position: relative; }
+  #chat-form textarea {
+    background: url("../assets/src/ricepaper2_@2X.png");
+    background-attachment: local;
+    background-size: 300px;
+    -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
+    box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45); }
   #chat-form::before {
     background-image: url("../assets/src/13a-logo.png");
     background-repeat: no-repeat;

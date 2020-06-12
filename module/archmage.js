@@ -19,6 +19,10 @@ Hooks.once('init', async function() {
     ).replace(/%[0-9A-F]{2}/gi, '-');
   }
 
+  Handlebars.registerHelper('safeCSSId', (arg) => {
+    return `${arg}`.safeCSSId();
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,

@@ -705,9 +705,7 @@ export class ActorArchmageSheet extends ActorSheet {
         chatData.properties.forEach(p => props.append(`<span class="tag tag--property tag--${p.label.safeCSSId()}"><strong>${p.label}:</strong> ${p.value}</span>`));
         chatData.effects.forEach(e => props.append(`<div class="tag tag--property tag--${e.label.safeCSSId()}"><strong>${e.label}:</strong> ${e.value}</div>`));
         chatData.feats.forEach(f => {
-          if (f.isActive) {
-            props.append(`<div class="tag tag--feat tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`);
-          }
+          props.append(`<div class="tag tag--feat tag--${f.isActive ? 'active' : 'inactive'} tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`);
         });
         div.append(tags);
         div.append(props);
