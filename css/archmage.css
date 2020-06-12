@@ -1957,6 +1957,8 @@ input[type="checkbox"] {
       width: 100%;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       color: rgba(0, 0, 0, 0.5); }
+  .compendium .directory-list--archmage .directory-item.ability-usage h4.entry-name .tags {
+    color: #fff; }
 
 .dc-inline-roll {
   display: inline-block;

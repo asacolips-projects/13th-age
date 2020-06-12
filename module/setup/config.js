@@ -82,3 +82,21 @@ ARCHMAGE.defaultTokens = {
   'loot': 'icons/svg/daze.svg',
   'equipment': 'icons/svg/combat.svg'
 };
+
+ARCHMAGE.classList = {
+  'barbarian': 'Barbarian',
+  'bard': 'Bard',
+  'cleric': 'Cleric',
+  'fighter': 'Fighter',
+  'paladin': 'Paladin',
+  'ranger': 'Ranger',
+  'rogue': 'Rogue',
+  'sorcerer': 'Sorcerer',
+  'wizard': 'Wizard',
+  'chaosmage': 'Chaos Mage',
+  'commander': 'Commander',
+  'druid': 'Druid',
+  'monk': 'Monk',
+  'necromancer': ' Necromancer',
+  'occultist': 'Occultist'
+};

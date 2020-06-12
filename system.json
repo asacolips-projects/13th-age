@@ -14,10 +14,10 @@
   "styles": ["css/archmage.css"],
   "packs": [
     {
-      "label": "Monk",
+      "label": "Chaos Mage",
       "entity": "Item",
-      "name": "monk",
-      "path": "packs/monk.db",
+      "name": "chaosmage",
+      "path": "packs/chaosmage.db",
       "system": "archmage"
     },
     {
@@ -25,6 +25,13 @@
       "entity": "Item",
       "name": "druid",
       "path": "packs/druid.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Monk",
+      "entity": "Item",
+      "name": "monk",
+      "path": "packs/monk.db",
       "system": "archmage"
     },
     {

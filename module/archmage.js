@@ -240,10 +240,28 @@ Hooks.on("renderSettings", (app, html) => {
 
 // Hijack compendium search.
 Hooks.on('renderCompendium', async (compendium, html, options) => {
+  let compendiumContent = null;
+  if (compendium.metadata.entity == 'Item') {
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+    if (compendium.metadata.name.match(classRegex)) {
+      compendiumContent = await compendium.getContent();
+      compendiumContent.forEach(p => {
+        let option = options.index.find(o => o._id == p._id);
+        let data = p.data.data;
+        option.search = {
+          level: data.powerLevel ? data.powerLevel.value : null,
+          usage: data.powerUsage ? data.powerUsage.value : null,
+          type: data.powerType ? data.powerType.value : null,
+          action: data.actionType ? data.actionType.value : null,
+        };
+      });
+    }
+  }
   if (compendium.metadata.entity == 'Actor') {
     // Build a search index.
-    let monsters = await compendium.getContent();
-    monsters.forEach(m => {
+    compendiumContent = await compendium.getContent();
+    compendiumContent.forEach(m => {
       let option = options.index.find(o => o._id == m._id);
       let data = m.data.data;
       option.search = {
@@ -255,7 +273,11 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
         type: data.details.type ? data.details.type.value : null,
       };
     });
+  }
 
+  if (compendiumContent) {
+    // Sort the options.
+    options.index.sort((a, b) => a.search.level - b.search.level);
     // Replace the markup.
     html.find('.directory-list').remove();
     let template = 'systems/archmage/templates/sidebar/apps/compendium.html';

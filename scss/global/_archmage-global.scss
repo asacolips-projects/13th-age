@@ -2071,6 +2071,14 @@ input[type="checkbox"] {
           color: rgba(0, 0, 0, 0.5);
         }
       }
+
+      &.ability-usage {
+        h4.entry-name {
+          .tags {
+            color: $c-white;
+          }
+        }
+      }
     }
   }
 }
