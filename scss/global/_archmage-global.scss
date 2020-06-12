@@ -2257,3 +2257,15 @@ input[type="checkbox"] {
     }
   }
 }
+
+.trigger-active {
+  color: #005800;
+}
+
+.trigger-inactive {
+  opacity: 0.3;
+}
+
+.hide {
+  display: none;
+}

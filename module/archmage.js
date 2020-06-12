@@ -43,6 +43,13 @@ Hooks.once('init', async function() {
     return usage;
   });
 
+  Handlebars.registerHelper('hideBasedOnSystemSetting', () => {
+    if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
+      return "hide";
+    }
+    return "";
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
@@ -135,6 +142,15 @@ Hooks.once('init', async function() {
     scope: "world",
     type: Boolean,
     default: true,
+    config: true
+  });
+
+  game.settings.register("archmage", "hideInsteadOfOpaque", {
+    name: "Hide inactive Features / Triggers instead of making them faded-out",
+    hint: "Enable this if you prefer not seeing inactive details at all",
+    scope: "world",
+    type: Boolean,
+    default: false,
     config: true
   });
 
@@ -418,7 +434,15 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
 Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let $content = $(`<div class="wrapper">${data.content}</div>`);
   let $rolls = $content.find('.inline-result');
+  let rollTotal = 0;
+  let rollTarget = "";
+  let originalRolls = $rolls;
   let updated_content = null;
+  let hasHit = undefined;
+  let hasMissed = undefined;
+  let targetsHit = [];
+  let targetsMissed = [];
+  let targets = [];
 
   let actor = game.actors.get(data.speaker.actor);
   if (data.speaker.token) {
@@ -440,8 +464,16 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       $roll.addClass('dc-fail');
     }
 
+    let rollResult = 0;
+    roll_data.parts.forEach(p => {
+      if (p.faces === 20) {
+        rollResult = p.total;
+      }
+    });
+
     // Update the array of roll HTML elements.
     $rolls[i] = $roll[0];
+    $rolls[i].d20result = rollResult;
   }
 
   // Now that we know which rolls were crits, update the content string.
@@ -459,17 +491,241 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
     // Assume no crit or fail.
     let has_crit = false;
     let has_fail = false;
+
     // Iterate through each of the card properties/rows.
     $rows.each(function(index) {
       // Determine if this line is for an attack and if it's a crit/fail.
       let $row_self = $(this);
       let row_text = $row_self.html();
+
+
       if (row_text.includes('Attack:')) {
         if (row_text.includes('dc-crit')) {
           has_crit = true;
         }
         if (row_text.includes('dc-fail')) {
           has_fail = true;
+        }
+        
+        //console.log(game.user.targets);
+
+        // If the user currently has Targets selected, try and figure out if we hit or missed said target
+        if (targets.length > 0) {
+          if (row_text.toLowerCase().includes(" ac")) {
+            rollTarget = "ac";
+          }
+          else if (row_text.toLowerCase().includes(" pd")) {
+            rollTarget = "pd";
+          }
+          else if (row_text.toLowerCase().includes(" md")) {
+            rollTarget = "md";
+          }
+  
+          rollTotal = parseInt(originalRolls[index].text);
+          //console.log(rollTotal + " vs " + rollTarget);
+
+          targets.forEach(target => {
+            //console.log(target);
+
+            var targetDefense = getTargetDefenseValue(target);
+  
+            var hit = rollTotal > targetDefense;
+            //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
+
+            // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
+            if (hit) {
+              targetsHit.push(target.data.name);
+              if (hasHit == undefined || !hasHit) {
+                hasHit = true;
+              }
+              if (hasMissed == undefined) {
+                hasMissed = false;
+              }
+            }
+            else {
+              targetsMissed.push(target.data.name);
+              if (hasMissed == undefined || !hasMissed) {
+                hasMissed = true;
+              }
+              if (hasHit == undefined) {
+                hasHit = false;
+              }
+            }
+          });
+
+          //console.log(targetsHit);
+          //console.log(targetsMissed);
+
+          // Get either the Token overridden value or the base sheet value
+          function getTargetDefenseValue(target) {
+            if (target.data?.actorData?.data?.attributes != undefined) {
+              // Return token overridden value
+              if (target.data.actorData.data.attributes[rollTarget]) {
+                return target.data.actorData.data.attributes[rollTarget].value;
+              }
+            }
+            return target.actor.data.data.attributes[rollTarget].value;
+          }
+        }
+      }
+
+      
+      if (row_text.includes('Target:') && game.user.targets.size > 0) {
+
+        function shuffle(a) {
+          for (let i = a.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+
+        targets = [...game.user.targets.values()];
+
+        if (row_text.toLowerCase().includes("random")) {
+          targets = shuffle(targets);
+        }
+
+        // If there are 3 targets selected but the attack only can hit 2 (ex: result of 1d3 nearby targets), then we slice to that amount, in order of selection (unless randomized)
+
+        // This regex just finds any numbers in the string, and we use the first one
+        var regex = new RegExp("\\d+");
+        var scoreToBeatArray = regex.exec($row_self[0].innerText);
+        if (scoreToBeatArray.length == 1) {
+          var maxTargets = parseInt(scoreToBeatArray[0]);
+          //console.log("MaxTargets " + maxTargets);
+
+          targets = targets.slice(0, maxTargets);
+        }
+
+        var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+        $row_self[0].appendChild(text);
+      }
+
+
+      // Append hit targets to text
+      if (row_text.includes('Hit:') && targetsHit.length > 0) {
+        $row_self.find('strong').after("<span> (" + targetsHit.join(", ") + ") </span>")
+      }
+
+      // Append missed targets to text
+      if (row_text.includes('Miss:') && targetsMissed.length > 0) {
+        $row_self.find('strong').after("<span> (" + targetsMissed.join(", ") + ") </span>")
+      }
+
+
+      // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
+      var triggerText = row_text.toLowerCase();
+      //console.log(triggerText);
+      if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:")) {
+
+        var active = undefined;
+
+        // We've previously setup all d20's in the rolls to have a value. Rolls that aren't a d20 will have a value of 0, which gets filtered out. We cancel checking if there are more than one.
+        var rollResults = $rolls.toArray().map(x => x.d20result).filter(x => x > 0);
+        if (rollResults.length > 1) {
+          console.log("Archmage | Multi-attack rolls are not supported for Trigger evaluation, skipping.");
+
+          // Empty out our data arrays so we don't apply errant styling
+          targetsHit = [];
+          targetsMissed = [];
+          hasHit = undefined;
+          hasMissed = undefined;
+          return;
+        }
+        var rollResult = rollResults[0];
+
+        if (triggerText.includes("even")) {
+          if (rollResult % 2 == 0) {
+            active = true;
+            if (hasHit != undefined) {
+              if (triggerText.includes("hit") && !hasHit) {
+                active = false;
+              }
+            }
+            if (hasMissed != undefined) {
+              if (triggerText.includes("miss") && !hasMissed) {
+                active = false;
+              }
+            }
+          }
+          else {
+            active = false;
+          }
+        }
+
+        else if (triggerText.includes("odd")) {
+          if (rollResult % 2 == 1) {
+            active = true;
+
+            if (hasHit != undefined) {
+              if (triggerText.includes("hit") && !hasHit) {
+                active = false;
+              }
+            }
+            if (hasMissed != undefined) {
+              if (triggerText.includes("miss") && !hasMissed) {
+                active = false;
+              }
+            }
+          }
+          else {
+            active = false;
+          }
+        }
+
+        else if (triggerText.includes("+") && !triggerText.includes("hit") && !triggerText.includes("miss")) {
+
+          // This regex just finds any numbers in the string, and we use the first one
+          var regex = new RegExp("\\d+");
+          var scoreToBeatArray = regex.exec(triggerText);
+          if (scoreToBeatArray.length == 1) {
+            var scoreToBeat = parseInt(scoreToBeatArray[0]);
+            if (rollResult >= scoreToBeat) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (hasHit != undefined) {
+          // We've already handled even / odd + hit / miss when evaluating even / odd
+          if (triggerText.includes("hit") && !triggerText.includes("even") && !triggerText.includes("odd")) {
+            
+            if (hasHit) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (hasMissed != undefined) {
+          if (triggerText.includes("miss") && !triggerText.includes("even") && !triggerText.includes("odd")) {
+            
+            if (hasMissed) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (active == undefined) {
+          $row_self.addClass("trigger-unknown");
+        }
+        else if (active) {
+          $row_self.addClass("trigger-active");
+        }
+        else {
+          $row_self.addClass("trigger-inactive");
+          if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
+            $row_self.addClass("hide");
+          }
         }
       }
 
@@ -508,14 +764,12 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       }
     });
 
-    // If there was a crit, update the content again with the new damage rolls.
-    if (has_crit || has_fail) {
-      $content.find('.card-prop').replaceWith($rows);
+    // Update the content
+    $content.find('.card-prop').replaceWith($rows);
       updated_content = $content.html();
       if (updated_content != null) {
         data.content = updated_content;
       }
-    }
   }
 });
 
