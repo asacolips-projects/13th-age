@@ -203,7 +203,7 @@ input[type="checkbox"] {
     }
 
     .window-content {
-      background: url('../assets/src/ricepaper2_@2X.png');
+      background: url('../assets/src/ricepaper2_@2X.png') #fff;
       background-attachment: local;
       background-size: 300px;
       box-shadow: inset 0 0 32px 4px $ct-black--45;
@@ -1233,7 +1233,7 @@ input[type="checkbox"] {
 
 .window-app {
   .window-content {
-    background: url('../assets/src/ricepaper2_@2X.png');
+    background: url('../assets/src/ricepaper2_@2X.png') #fff;
     background-attachment: local;
     background-size: 300px;
     box-shadow: inset 0 0 32px 4px $ct-black--45;
@@ -2005,7 +2005,7 @@ input[type="checkbox"] {
   position: relative;
 
   textarea {
-    background: url('../assets/src/ricepaper2_@2X.png');
+    background: url('../assets/src/ricepaper2_@2X.png') #fff;
     background-attachment: local;
     background-size: 300px;
     box-shadow: inset 0 0 32px 4px $ct-black--45;
@@ -2029,7 +2029,7 @@ input[type="checkbox"] {
 
 // Compendium hacks.
 .compendium {
-  &[data-pack="archmage.monsters-core"] {
+  &.overrides {
     // Hide the original compendium.
     .directory-list {
       display: none;
@@ -2042,6 +2042,29 @@ input[type="checkbox"] {
   }
 
   .directory-list--archmage {
+    .directory-list--archmage {
+      overflow-y: visible;
+    }
+
+    .directory-item {
+      display: none;
+    }
+
+    h3.entry-group {
+      font-family: $font-stack-base;
+      font-weight: normal;
+      font-size: 24px;
+      text-shadow: 1px 1px 2px $c-black;
+      text-align: center;
+      text-transform: capitalize;
+      line-height: 1;
+      white-space: normal;
+      padding: 10px;
+      margin: 4px 0;
+      color: $c-white;
+      background: linear-gradient(45deg, #6f98b1, #333);
+    }
+
     .directory-item {
       padding: 10px 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.25);

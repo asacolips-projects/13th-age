@@ -542,6 +542,7 @@ export class ActorArchmageSheet extends ActorSheet {
                 data: {
                   'powerUsage.value': usage,
                   'actionType.value': action,
+                  'powerType.value': Object.entries(CONFIG.ARCHMAGE.powerTypes).find(p => p[1] == power.powerType)[0],
                   'powerLevel.value': power.level,
                   'range.value': power.type,
                   'trigger.value': power.trigger,

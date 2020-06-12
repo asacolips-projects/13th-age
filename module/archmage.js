@@ -23,6 +23,26 @@ Hooks.once('init', async function() {
     return `${arg}`.safeCSSId();
   });
 
+  Handlebars.registerHelper('getPowerClass', (inputString) => {
+    // Get the appropriate usage.
+    let usage = 'other';
+    let usageString = inputString !== null ? inputString.toLowerCase() : '';
+    if (usageString.includes('will')) {
+      usage = 'at-will';
+    }
+    else if (usageString.includes('recharge')) {
+      usage = 'recharge';
+    }
+    else if (usageString.includes('battle')) {
+      usage = 'once-per-battle';
+    }
+    else if (usageString.includes('daily')) {
+      usage = 'daily';
+    }
+
+    return usage;
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
@@ -241,24 +261,41 @@ Hooks.on("renderSettings", (app, html) => {
 // Hijack compendium search.
 Hooks.on('renderCompendium', async (compendium, html, options) => {
   let compendiumContent = null;
+  let newOptions = duplicate(options);
+  newOptions.index = {};
   if (compendium.metadata.entity == 'Item') {
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
     if (compendium.metadata.name.match(classRegex)) {
+      // Hide the original compendium.
+      html.find('.compendium').addClass('overrides');
       compendiumContent = await compendium.getContent();
       compendiumContent.forEach(p => {
         let option = options.index.find(o => o._id == p._id);
         let data = p.data.data;
         option.search = {
           level: data.powerLevel ? data.powerLevel.value : null,
-          usage: data.powerUsage ? data.powerUsage.value : null,
-          type: data.powerType ? data.powerType.value : null,
+          usage: data.powerUsage?.value ? data.powerUsage.value : 'other',
+          type: data.powerType ? data.powerType.value : 'other',
           action: data.actionType ? data.actionType.value : null,
         };
-      });
+      }, {});
     }
+
+    newOptions.index = duplicate(options).index.reduce((groups, option) => {
+      if (option._id) {
+        let group = option.search.type ? option.search.type : 'other';
+        if (!groups[group]) {
+          groups[group] = [];
+        }
+        groups[group].push(option);
+      }
+      return groups;
+    }, {});
   }
   if (compendium.metadata.entity == 'Actor') {
+    // Hide the original compendium.
+    html.find('.compendium').addClass('overrides');
     // Build a search index.
     compendiumContent = await compendium.getContent();
     compendiumContent.forEach(m => {
@@ -270,19 +307,55 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
         race: data.details.race.value ? data.details.race.value : null,
         size: data.details.size ? data.details.size.value : null,
         role: data.details.role ? data.details.role.value : null,
-        type: data.details.type ? data.details.type.value : null,
+        type: data.details.type ? data.details.type.value : 'other',
       };
     });
+    newOptions.index = duplicate(options).index.reduce((groups, option) => {
+      if (option._id) {
+        // console.log(option);
+        let group = option.search.type ? option.search.type : 'other';
+        if (!groups[group]) {
+          groups[group] = [];
+        }
+        groups[group].push(option);
+      }
+      return groups;
+    }, {});
   }
 
   if (compendiumContent) {
     // Sort the options.
-    options.index.sort((a, b) => a.search.level - b.search.level);
+    for (let [groupKey, group] of Object.entries(newOptions.index)) {
+      group.sort((a, b) => a.search.level - b.search.level);
+    }
     // Replace the markup.
     html.find('.directory-list').remove();
     let template = 'systems/archmage/templates/sidebar/apps/compendium.html';
-    let content = await renderTemplate(template, options);
+    let content = await renderTemplate(template, newOptions);
     html.find('.directory-header').after(content);
+
+    // Handle search filtering.
+    html.find('input[name="search"]').off('keyup');
+    html.find('input[name="search"]').on('keyup', event => {
+      // Close all directories.
+      html.find('.entry-group + .directory-list--archmage').addClass('hidden');
+      let searchString = event.target.value
+
+      const query = new RegExp(RegExp.escape(searchString), "i");
+      html.find('li.directory-item').each((i, li) => {
+        // Show the matches, and open their directory.
+        let name = li.getElementsByClassName('entry-name')[0].textContent;
+        if (searchString != '' && query.test(name)) {
+          li.style.display = 'flex';
+          $(li).parents('.directory-list--archmage').removeClass('hidden');
+        }
+        // Hide non-matches.
+        else {
+          li.style.display = 'none';
+        }
+      });
+      options.searchString = searchString;
+    });
 
     // Handle sheet opening.
     html.find('.entry-name').click(ev => {
@@ -325,6 +398,15 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
     // Handle dragdrop.
     const dragDrop = new DragDrop(compendium.options.dragDrop[0]);
     dragDrop.bind(html[0]);
+
+    // Handle folder toggles.
+    html.find('.entry-group').on('click', event => {
+      event.preventDefault();
+      let key = $(event.currentTarget).data('key');
+      $(event.currentTarget).toggleClass('hidden');
+      html.find(`.directory-item[data-key="${key}"]`).css('display', $(event.currentTarget).hasClass('hidden') ? 'none' : 'flex');
+      return false;
+    })
   }
 });
 

@@ -297,7 +297,7 @@ input[type="checkbox"] {
   .archmage.sheet h4 {
     font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif; }
   .archmage.sheet .window-content {
-    background: url("../assets/src/ricepaper2_@2X.png");
+    background: url("../assets/src/ricepaper2_@2X.png") #fff;
     background-attachment: local;
     background-size: 300px;
     -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
@@ -1274,7 +1274,7 @@ input[type="checkbox"] {
         padding-right: 0; }
 
 .window-app .window-content {
-  background: url("../assets/src/ricepaper2_@2X.png");
+  background: url("../assets/src/ricepaper2_@2X.png") #fff;
   background-attachment: local;
   background-size: 300px;
   -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
@@ -1907,7 +1907,7 @@ input[type="checkbox"] {
 #chat-form {
   position: relative; }
   #chat-form textarea {
-    background: url("../assets/src/ricepaper2_@2X.png");
+    background: url("../assets/src/ricepaper2_@2X.png") #fff;
     background-attachment: local;
     background-size: 300px;
     -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
@@ -1926,10 +1926,31 @@ input[type="checkbox"] {
     right: 10px;
     width: 100px; }
 
-.compendium[data-pack="archmage.monsters-core"] .directory-list {
+.compendium.overrides .directory-list {
   display: none; }
-  .compendium[data-pack="archmage.monsters-core"] .directory-list.directory-list--archmage {
+  .compendium.overrides .directory-list.directory-list--archmage {
     display: block; }
+
+.compendium .directory-list--archmage .directory-list--archmage {
+  overflow-y: visible; }
+
+.compendium .directory-list--archmage .directory-item {
+  display: none; }
+
+.compendium .directory-list--archmage h3.entry-group {
+  font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-weight: normal;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px #000;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 1;
+  white-space: normal;
+  padding: 10px;
+  margin: 4px 0;
+  color: #fff;
+  background: -o-linear-gradient(45deg, #6f98b1, #333);
+  background: linear-gradient(45deg, #6f98b1, #333); }
 
 .compendium .directory-list--archmage .directory-item {
   padding: 10px 0;

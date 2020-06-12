@@ -227,6 +227,14 @@ export class ArchmageUtility {
         let sizeMatch = name.match(sizeRegex);
         if (sizeMatch && sizeMatch[0]) {
           update['data.details.size.value'] = sizeMatch[0];
+          if (sizeMatch[0] == 'large') {
+            update['data.token.width'] = 2;
+            update['data.token.height'] = 2;
+          }
+          else if (sizeMatch[0] == 'huge') {
+            update['data.token.width'] = 3;
+            update['data.token.height'] = 3;
+          }
         }
         else {
           update['data.details.size.value'] = 'normal';
