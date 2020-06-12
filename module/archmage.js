@@ -27,6 +27,7 @@ Hooks.once('init', async function() {
     ItemArchmage,
     ItemArchmageSheet,
     ArchmageUtility,
+    rollItemMacro,
   };
 
   // Replace sheets.
@@ -216,6 +217,9 @@ Hooks.once('ready', () => {
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
+
+  // Wait to register the hotbar macros until ready.
+  Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
 });
 
 /* ---------------------------------------------- */
@@ -579,3 +583,53 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
     }
   }
 });
+
+/* -------------------------------------------- */
+/*  Hotbar Macros                               */
+/* -------------------------------------------- */
+
+/**
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {Object} data     The dropped data
+ * @param {number} slot     The hotbar slot to use
+ * @returns {Promise}
+ */
+async function createArchmageMacro(data, slot) {
+  if (data.type !== "Item") return;
+  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
+  const item = data.data;
+
+  // Create the macro command
+  const command = `game.archmage.rollItemMacro("${item.name}");`;
+  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  if (!macro) {
+    macro = await Macro.create({
+      name: item.name,
+      type: "script",
+      img: item.img,
+      command: command,
+      flags: { "archmage.itemMacro": true }
+    });
+  }
+  game.user.assignHotbarMacro(macro, slot);
+  return false;
+}
+
+/**
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {string} itemName
+ * @return {Promise}
+ */
+function rollItemMacro(itemName) {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  if (!actor) actor = game.actors.get(speaker.actor);
+  const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+
+  // Trigger the item roll
+  return item.roll();
+}
