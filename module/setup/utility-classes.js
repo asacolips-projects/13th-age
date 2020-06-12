@@ -128,7 +128,16 @@ export class ArchmageUtility {
      */
     const original = Actor.prototype.getRollData;
     Actor.prototype.getRollData = function() {
-      const data = original.call(this);
+      // Use the actor by default.
+      let actor = this;
+
+      // Use the current token if possible.
+      let token = canvas.tokens.controlled.find(t => t.actor.data._id == this.data._id);
+      if (token) {
+        actor = token.actor;
+      }
+
+      const data = original.call(actor);
       const shorthand = game.settings.get("archmage", "macroShorthand");
 
       // Get the escalation die value.
