@@ -372,7 +372,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               // If there's a crit, double the formula and reroll. If there's a
               // fail with no crit, 0 it out.
               if (has_crit) {
-                roll_data.formula = `(${roll_data.formula}) * 2`;
+                roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
                 $roll_self.addClass('dc-crit');
               }
               else {
@@ -404,36 +404,34 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   }
 });
 
+// Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
   html.find('a.inline-roll--archmage').on('click', event => {
     event.preventDefault();
     const a = event.currentTarget;
 
-    console.log(a);
-
     // For inline results expand or collapse the roll details
     if (a.classList.contains("inline-result")) {
       const roll = Roll.fromJSON(unescape(a.dataset.roll));
+      // Build a die string of the die parts, including whether they're discarded.
       const dieTotal = roll.parts.reduce((string, r) => {
-        console.log(string);
         if (typeof string == 'object') {
           string = '';
         }
 
         if (r.rolls) {
-          string = `${string}<span class="die">${r.rolls.map(d => d.roll).join('</span>+<span class="die">')}</span>`;
+          string = `${string}${r.rolls.map(d => `<span class="${d.discarded ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
         }
         else {
-          string = `${string}${r}`;
+          string = `${string}<span class="mod">${r}</span>`;
         }
 
         return string;
       }, {});
 
-      console.log(dieTotal);
-      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal}`;
-      console.log(roll);
+      // Replace the html.
+      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
       a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
       a.classList.toggle("expanded");
     }

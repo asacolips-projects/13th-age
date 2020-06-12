@@ -2130,15 +2130,21 @@ input[type="checkbox"] {
     border-radius: 4px;
     display: inline-block;
     line-height: 0;
-    padding: 1px 4px;
+    padding: 2px;
     transition: transform ease-in-out 0.25s;
 
     &.expanded {
-      color: rgba($c-white, 0.5);
+      color: $c-white;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      line-height: 1;
     }
 
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.05);
       z-index: 90;
     }
 
@@ -2148,8 +2154,17 @@ input[type="checkbox"] {
       line-height: 12px;
     }
 
+    .die,
+    .mod {
+      padding: 0 2px;
+    }
+
     .die {
-      color: $c-white;
+      color: #ffbd23;
+    }
+
+    .die--discarded {
+      opacity: 0.5;
     }
   }
 
@@ -2165,6 +2180,10 @@ input[type="checkbox"] {
       text-shadow: 0 0 8px $c-black;
     }
 
+    .die {
+      color: $c-crit;
+    }
+
     .fas {
       color: $c-crit;
     }
@@ -2173,6 +2192,10 @@ input[type="checkbox"] {
   .dc-fail {
     color: $c-fail;
     background: rgba(70, 0, 0, 0.75);
+
+    .die {
+      color: $c-fail;
+    }
 
     &:hover {
       text-shadow: 0 0 8px $c-black;
