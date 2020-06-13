@@ -2145,6 +2145,18 @@ input[type="checkbox"] {
 .hide {
   display: none; }
 
+.currency-input {
+  height: 25px !important;
+  text-align: center !important; }
+
+.attribute--currencies {
+  height: 50px !important; }
+
+.currencies {
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 0 60px !important;
+  flex: 0 0 60px !important; }
+
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
