@@ -283,7 +283,7 @@ export class ActorArchmage extends Actor {
       event: event,
       parts: parts,
       data: {
-        mod: abl.mod + this.data.data.attributes.level.value,
+        mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals.skills ? 1 : 0),
         background: 0
       },
       backgrounds: this.data.data.backgrounds,
