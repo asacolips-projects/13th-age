@@ -465,7 +465,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
     }
 
     let rollResult = 0;
-    console.log(roll_data);
+    // console.log(roll_data);
     roll_data.parts.forEach(p => {
       if (p.faces === 20) {
         rollResult = p.total;
@@ -507,7 +507,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
         if (row_text.includes('dc-fail')) {
           has_fail = true;
         }
-        
+
         //console.log(game.user.targets);
 
         // If the user currently has Targets selected, try and figure out if we hit or missed said target
@@ -533,17 +533,17 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
             });
           }
 
-          console.log(rollTotal + " vs " + rollTarget);
+          // console.log(rollTotal + " vs " + rollTarget);
 
           if (rollTotal != undefined) {
             targets.forEach(target => {
               //console.log(target);
-  
+
               var targetDefense = getTargetDefenseValue(target);
-    
+
               var hit = rollTotal > targetDefense;
               //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
-  
+
               // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
               if (hit) {
                 targetsHit.push(target.data.name);
@@ -565,7 +565,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               }
             });
           }
-          
+
           //console.log(targetsHit);
           //console.log(targetsMissed);
 
@@ -582,13 +582,13 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
         }
       }
 
-      
+
       if (row_text.includes('Target:') && game.user.targets.size > 0) {
 
         function shuffle(a) {
           for (let i = a.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [a[i], a[j]] = [a[j], a[i]];
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
           }
           return a;
         }
@@ -604,7 +604,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
         // This regex just finds any numbers in the string, and we use the first one
         var regex = new RegExp("\\d+");
         var scoreToBeatArray = regex.exec($row_self[0].innerText);
-        
+
         if (scoreToBeatArray && scoreToBeatArray.length == 1) {
           var maxTargets = parseInt(scoreToBeatArray[0]);
           //console.log("MaxTargets " + maxTargets);
@@ -707,7 +707,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
         if (hasHit != undefined) {
           // We've already handled even / odd + hit / miss when evaluating even / odd
           if (triggerText.includes("hit") && !triggerText.includes("even") && !triggerText.includes("odd")) {
-            
+
             if (hasHit) {
               active = true;
             }
@@ -719,7 +719,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
         if (hasMissed != undefined) {
           if (triggerText.includes("miss") && !triggerText.includes("even") && !triggerText.includes("odd")) {
-            
+
             if (hasMissed) {
               active = true;
             }
@@ -780,10 +780,10 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
     // Update the content
     $content.find('.card-prop').replaceWith($rows);
-      updated_content = $content.html();
-      if (updated_content != null) {
-        data.content = updated_content;
-      }
+    updated_content = $content.html();
+    if (updated_content != null) {
+      data.content = updated_content;
+    }
   }
 });
 
