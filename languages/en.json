@@ -7,6 +7,13 @@
     "ARCHMAGE.feats": "Feats",
     "ARCHMAGE.incrementals": "Incrementals",
 
+    "ARCHMAGE.CHARACTER.RESOURCES.ki": "Ki",
+    "ARCHMAGE.CHARACTER.RESOURCES.momentum": "Momentum",
+    "ARCHMAGE.CHARACTER.RESOURCES.cp": "CP",
+    "ARCHMAGE.CHARACTER.RESOURCES.custom1": "Custom Resource 1",
+    "ARCHMAGE.CHARACTER.RESOURCES.custom2": "Custom Resource 2",
+    "ARCHMAGE.CHARACTER.RESOURCES.custom3": "Custom Resource 3",
+
     "ARCHMAGE.CHARACTERFLAGS.initiativeAdvName": "Quick to Fight",
     "ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint": "Human racial feat to roll 2d20 for initiative and keep the higher roll.",
     "ARCHMAGE.CHARACTERFLAGS.improvedIniativeName": "Improved Initiative",

@@ -326,6 +326,43 @@
               "value": 0
             }
           }
+        },
+        "resources": {
+          "perCombat": {
+            "commandPoints": {
+              "current": 0,
+              "enabled": false
+            },
+            "momentum": {
+              "current": 0,
+              "enabled": false
+            }
+          },
+          "spendable": {
+            "ki": {
+              "current": 0,
+              "max": 0,
+              "enabled": false
+            },
+            "custom1": {
+              "label": "",
+              "current": 0,
+              "max": 0,
+              "enabled": false
+            },
+            "custom2": {
+              "label": "",
+              "current": 0,
+              "max": 0,
+              "enabled": false
+            },
+            "custom3": {
+              "label": "",
+              "current": 0,
+              "max": 0,
+              "enabled": false
+            }
+          }
         }
       }
     },
