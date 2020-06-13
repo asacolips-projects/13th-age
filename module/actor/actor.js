@@ -129,6 +129,19 @@ export class ActorArchmage extends Actor {
       // }
 
 
+      // Coins
+      if (!data.coins) {
+        data.coins = {
+          showRare: false,
+          platinum: 0,
+          gold: 0,
+          silver: 0,
+          copper: 0
+        }
+      }
+
+      data.coins.showRare = game.settings.get("archmage", "showRareCoins");
+
 
       // Add level ability mods.
       // Replace the ability attributes in the calculator with custom formulas.

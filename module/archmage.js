@@ -154,6 +154,16 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register('archmage', 'showRareCoins', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+    config: true
+  });
+
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
