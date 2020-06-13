@@ -81,8 +81,83 @@
                 <div class="attribute-value">
                     <span>{{numberFormat data.attributes.init.mod decimals=0 sign=true}}</span>
                 </div>
+                {{#if data.resources.perCombat.anyEnabled}}
+                <footer class="attribute-footer attribute-footer--temp-hp">
+                    {{#if data.resources.perCombat.momentum.enabled}}
+                    <span class="attribute-subname">{{localize "ARCHMAGE.CHARACTER.RESOURCES.momentum"}}</span>
+                    <input name="data.resources.perCombat.momentum.current" type="text" class="temphp" placeholder="0" value="{{data.resources.perCombat.momentum.current}}"
+                        data-dtype="{{data.resources.perCombat.momentum.current.type}}" />
+                    {{/if}}
+
+                    {{#if data.resources.perCombat.commandPoints.enabled}}
+                    <span class="attribute-subname">{{localize "ARCHMAGE.CHARACTER.RESOURCES.cp"}}</span>
+                    <input name="data.resources.perCombat.commandPoints.current" type="text" class="temphp" placeholder="0" value="{{data.resources.perCombat.commandPoints.current}}"
+                        data-dtype="{{data.resources.perCombat.commandPoints.current}}" />
+                    {{/if}}
+                </footer>
+                {{/if}}
             </div>
         </div>
+
+        {{#if data.resources.spendable.anyEnabled}}
+            <div class="primary-attributes">
+
+                {{#if data.resources.spendable.ki.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name">{{localize "ARCHMAGE.CHARACTER.RESOURCES.ki"}}</h4>
+                        <div class="attribute-value">
+                            <input name="data.resources.spendable.ki.current" type="text" value="{{data.resources.spendable.ki.current}}"
+                                data-dtype="{{data.resources.spendable.ki.current.type}}" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input name="data.resources.spendable.ki.max" type="text" value="{{data.resources.spendable.ki.max}}"
+                                data-dtype="{{data.resources.spendable.ki.max.type}}" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#if data.resources.spendable.custom1.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name"><input name="data.resources.spendable.custom1.label" type="text" value="{{data.resources.spendable.custom1.label}}"
+                            data-dtype="text" placeholder="Resource" /></h4>
+                        <div class="attribute-value">
+                            <input type="text" name="data.resources.spendable.custom1.current" value="{{data.resources.spendable.custom1.current}}"
+                                data-dtype="Number" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input type="text" name="data.resources.spendable.custom1.max" value="{{data.resources.spendable.custom1.max}}"
+                                data-dtype="Number" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#if data.resources.spendable.custom2.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name"><input name="data.resources.spendable.custom2.label" type="text" value="{{data.resources.spendable.custom2.label}}"
+                            data-dtype="text" placeholder="Resource" /></h4>
+                        <div class="attribute-value">
+                            <input type="text" name="data.resources.spendable.custom2.current" value="{{data.resources.spendable.custom2.current}}"
+                                data-dtype="Number" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input type="text" name="data.resources.spendable.custom2.max" value="{{data.resources.spendable.custom2.max}}"
+                                data-dtype="Number" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#if data.resources.spendable.custom3.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name"><input name="data.resources.spendable.custom3.label" type="text" value="{{data.resources.spendable.custom3.label}}"
+                            data-dtype="text" placeholder="Resource" /></h4>
+                        <div class="attribute-value">
+                            <input type="text" name="data.resources.spendable.custom3.current" value="{{data.resources.spendable.custom3.current}}"
+                                data-dtype="Number" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input type="text" name="data.resources.spendable.custom3.max" value="{{data.resources.spendable.custom3.max}}"
+                                data-dtype="Number" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
 
         <div class="primary-attributes">
             <div class="attribute attribute--weapons">
@@ -497,6 +572,25 @@
                           data-dtype="{{icon.isActive.type}}" />
                   </div>
               {{/each}}
+
+              <hr>
+
+              <div class="settings-group">
+                <strong class="attribute-name">{{localize "ARCHMAGE.CHARACTER.RESOURCES.custom1"}}</strong>
+                <input class="attribute-input" name="data.resources.spendable.custom1.enabled" type="checkbox" value="1" {{checked data.resources.spendable.custom1.enabled}}
+                    data-dtype="{{icon.isActive.type}}" />
+              </div>
+              <div class="settings-group">
+                <strong class="attribute-name">{{localize "ARCHMAGE.CHARACTER.RESOURCES.custom2"}}</strong>
+                <input class="attribute-input" name="data.resources.spendable.custom2.enabled" type="checkbox" value="1" {{checked data.resources.spendable.custom2.enabled}}
+                    data-dtype="{{icon.isActive.type}}" />
+              </div>
+              <div class="settings-group">
+                <strong class="attribute-name">{{localize "ARCHMAGE.CHARACTER.RESOURCES.custom3"}}</strong>
+                <input class="attribute-input" name="data.resources.spendable.custom3.enabled" type="checkbox" value="1" {{checked data.resources.spendable.custom3.enabled}}
+                    data-dtype="{{icon.isActive.type}}" />
+              </div>
+
           </div>
         </div>
     </section>
