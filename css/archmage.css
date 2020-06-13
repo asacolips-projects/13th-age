@@ -419,6 +419,8 @@ input[type="checkbox"] {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 220px;
         flex: 0 0 220px; }
+      .archmage.sheet form .sheet-sidebar .sheet-tabs > .item {
+        font-size: 12px; }
       .archmage.sheet form .sheet-sidebar .tab {
         padding-right: 3px; }
     .archmage.sheet form .sheet-tabs {
@@ -431,7 +433,12 @@ input[type="checkbox"] {
       .archmage.sheet form .sheet-tabs > .item {
         border-radius: 5px 5px 0 0;
         line-height: 26px;
-        padding: 0 10px; }
+        padding: 0 4px;
+        font-weight: normal; }
+        .archmage.sheet form .sheet-tabs > .item[data-tab="incrementals"] {
+          -webkit-box-flex: 2;
+          -ms-flex: 2;
+          flex: 2; }
         .archmage.sheet form .sheet-tabs > .item.active {
           border: 1px solid #666;
           border-bottom: 0;
@@ -1719,6 +1726,10 @@ input[type="checkbox"] {
     -webkit-box-shadow: 0 0 8px #ff0000;
     box-shadow: 0 0 8px #ff0000;
     outline: 0; }
+
+.archmage.sheet.actor-sheet .textarea {
+  font-family: "warnock-pro", "sans-serif";
+  min-height: 110px; }
 
 .archmage.sheet .action-sheet .form-inputs input[type='text'] {
   height: auto; }

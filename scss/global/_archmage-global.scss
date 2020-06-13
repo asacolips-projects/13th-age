@@ -320,6 +320,12 @@ input[type="checkbox"] {
           flex: 0 0 220px;
         }
 
+        .sheet-tabs {
+          >.item {
+            font-size: 12px;
+          }
+        }
+
         .tab {
           padding-right: 3px;
         }
@@ -334,7 +340,12 @@ input[type="checkbox"] {
         >.item {
           border-radius: 5px 5px 0 0;
           line-height: 26px;
-          padding: 0 10px;
+          padding: 0 4px;
+          font-weight: normal;
+
+          &[data-tab="incrementals"] {
+            flex: 2;
+          }
 
           &.active {
             border: 1px solid $c-gray--med;
@@ -1809,6 +1820,11 @@ input[type="checkbox"] {
       box-shadow: 0 0 8px $c-red;
       outline: 0;
     }
+  }
+
+  .textarea {
+    font-family: $font-stack-secondary;
+    min-height: 110px;
   }
 }
 
