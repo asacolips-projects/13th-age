@@ -275,16 +275,16 @@ export class ActorArchmageSheet extends ActorSheet {
       var itemType = ev.currentTarget.getAttribute('data-item-type');
 
       let validClasses = [
-        'barbarian',
-        'bard',
-        'cleric',
-        'commander',
-        'fighter',
-        'paladin',
-        'ranger',
-        'rogue',
-        'sorcerer',
-        'wizard'
+        // 'barbarian',
+        // 'bard',
+        // 'cleric',
+        // 'commander',
+        // 'fighter',
+        // 'paladin',
+        // 'ranger',
+        // 'rogue',
+        // 'sorcerer',
+        // 'wizard'
       ];
 
       let allClasses = [
@@ -316,34 +316,112 @@ export class ActorArchmageSheet extends ActorSheet {
       if (characterClasses.length > 0) {
         let offset = 250;
         characterClasses.forEach(powerClass => {
-          if (validClasses.includes(powerClass)) {
-            let prepop = new ArchmagePrepopulate();
+          // TODO: Deprecated.
+          // if (validClasses.includes(powerClass)) {
+          //   let prepop = new ArchmagePrepopulate();
 
-            prepop.getPowersList(powerClass, powerLevel).then((res) => {
+          //   prepop.getPowersList(powerClass, powerLevel).then((res) => {
+          //     var options = {
+          //       width: 720,
+          //       height: 640,
+          //       left: offset,
+          //       top: offset,
+          //       classes: ['archmage-prepopulate']
+          //     };
+
+          //     offset += 25;
+
+          //     for (let i = 0; i < res.powers.length; i++) {
+          //       if (res.powers[i].usage !== null) {
+          //         res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
+          //       }
+          //       else {
+          //         res.powers[i].usageClass = 'other';
+          //       }
+          //     }
+
+          //     var templateData = {
+          //       powers: res.powers,
+          //       class: powerClass,
+          //       itemType: 'power' // @TODO: Make this not hardcoded.
+          //     }
+
+          //     let template = 'systems/archmage/templates/prepopulate/powers--list.html';
+          //     renderTemplate(template, templateData).then(content => {
+          //       let d = new Dialog({
+          //         title: `Import Powers (${powerClass})`,
+          //         content: content,
+          //         buttons: {
+          //           cancel: {
+          //             icon: '<i class="fas fa-times"></i>',
+          //             label: "Cancel",
+          //             callback: () => null
+          //           },
+          //           submit: {
+          //             icon: '<i class="fas fa-check"></i>',
+          //             label: "Submit",
+          //             callback: dlg => _onImportPower(dlg, this.actor, {})
+          //           }
+          //         }
+          //       }, options);
+          //       d.render(true);
+          //     });
+          //   });
+          // }
+          // else {
+          // Import from compendiums.
+          // let powers = game.items.entities.filter(item => item.type == 'power');
+          let compendium = game.packs.filter(p => p.metadata.name == powerClass);
+          if (compendium.length > 0) {
+            compendium[0].getContent().then(res => {
               var options = {
                 width: 720,
                 height: 640,
-                left: offset,
-                top: offset,
                 classes: ['archmage-prepopulate']
               };
 
-              offset += 25;
-
-              for (let i = 0; i < res.powers.length; i++) {
-                if (res.powers[i].usage !== null) {
-                  res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
+              let powers = res.sort((a, b) => {
+                function sortTest(a, b) {
+                  if (a < b) {
+                    return -1;
+                  }
+                  if (a > b) {
+                    return 1;
+                  }
+                  return 0;
                 }
-                else {
-                  res.powers[i].usageClass = 'other';
-                }
-              }
+                let aSort = [
+                  a.data.data.powerLevel.value,
+                  a.data.data.powerType.value,
+                  a.data.name
+                ];
+                let bSort = [
+                  b.data.data.powerLevel.value,
+                  b.data.data.powerType.value,
+                  b.data.name
+                ];
+                return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
+              }).map(p => {
+                return {
+                  uuid: p.data._id,
+                  title: p.data.name,
+                  usage: p.data.data.powerUsage.value,
+                  usageClass: p.data.data.powerUsage.value ? _getPowerClasses(p.data.data.powerUsage.value)[0] : 'other',
+                  powerType: p.data.data.powerType.value,
+                  level: p.data.data.powerLevel.value,
+                };
+              });
 
               var templateData = {
-                powers: res.powers,
+                powers: powers,
                 class: powerClass,
                 itemType: 'power' // @TODO: Make this not hardcoded.
               }
+
+              let dlgData = {
+                powers: res
+              };
+
 
               let template = 'systems/archmage/templates/prepopulate/powers--list.html';
               renderTemplate(template, templateData).then(content => {
@@ -359,7 +437,7 @@ export class ActorArchmageSheet extends ActorSheet {
                     submit: {
                       icon: '<i class="fas fa-check"></i>',
                       label: "Submit",
-                      callback: dlg => _onImportPower(dlg, this.actor, {})
+                      callback: dlg => _onImportPower(dlg, this.actor, dlgData)
                     }
                   }
                 }, options);
@@ -367,87 +445,10 @@ export class ActorArchmageSheet extends ActorSheet {
               });
             });
           }
-          // Import from compendiums.
           else {
-            // let powers = game.items.entities.filter(item => item.type == 'power');
-            let compendium = game.packs.filter(p => p.metadata.name == powerClass);
-            if (compendium.length > 0) {
-              compendium[0].getContent().then(res => {
-                var options = {
-                  width: 720,
-                  height: 640,
-                  classes: ['archmage-prepopulate']
-                };
-
-                let powers = res.sort((a, b) => {
-                  function sortTest(a, b) {
-                    if (a < b) {
-                      return -1;
-                    }
-                    if (a > b) {
-                      return 1;
-                    }
-                    return 0;
-                  }
-                  let aSort = [
-                    a.data.data.powerLevel.value,
-                    a.data.data.powerType.value,
-                    a.data.name
-                  ];
-                  let bSort = [
-                    b.data.data.powerLevel.value,
-                    b.data.data.powerType.value,
-                    b.data.name
-                  ];
-                  return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
-                }).map(p => {
-                  return {
-                    uuid: p.data._id,
-                    title: p.data.name,
-                    usage: p.data.data.powerUsage.value,
-                    usageClass: p.data.data.powerUsage.value ? _getPowerClasses(p.data.data.powerUsage.value)[0] : 'other',
-                    powerType: p.data.data.powerType.value,
-                    level: p.data.data.powerLevel.value,
-                  };
-                });
-
-                var templateData = {
-                  powers: powers,
-                  class: powerClass,
-                  itemType: 'power' // @TODO: Make this not hardcoded.
-                }
-
-                let dlgData = {
-                  powers: res
-                };
-
-
-                let template = 'systems/archmage/templates/prepopulate/powers--list.html';
-                renderTemplate(template, templateData).then(content => {
-                  let d = new Dialog({
-                    title: `Import Powers (${powerClass})`,
-                    content: content,
-                    buttons: {
-                      cancel: {
-                        icon: '<i class="fas fa-times"></i>',
-                        label: "Cancel",
-                        callback: () => null
-                      },
-                      submit: {
-                        icon: '<i class="fas fa-check"></i>',
-                        label: "Submit",
-                        callback: dlg => _onImportPower(dlg, this.actor, dlgData)
-                      }
-                    }
-                  }, options);
-                  d.render(true);
-                });
-              });
-            }
-            else {
-              ui.notifications.error(`Class "${powerClass}" is not yet available for import.`);
-            }
+            ui.notifications.error(`Class "${powerClass}" is not yet available for import.`);
           }
+          // }
         });
       }
     });
@@ -540,12 +541,13 @@ export class ActorArchmageSheet extends ActorSheet {
               else if (actionString.includes('free')) {
                 action = 'free';
               }
+              let powerType = Object.entries(CONFIG.ARCHMAGE.powerTypes).find(p => p[1] == power.powerType);
               actor.createOwnedItem({
                 name: power.title,
                 data: {
                   'powerUsage.value': usage,
                   'actionType.value': action,
-                  'powerType.value': Object.entries(CONFIG.ARCHMAGE.powerTypes).find(p => p[1] == power.powerType)[0],
+                  'powerType.value': Array.isArray(powerType) ? powerType[0] : null,
                   'powerLevel.value': power.level,
                   'range.value': power.type,
                   'trigger.value': power.trigger,

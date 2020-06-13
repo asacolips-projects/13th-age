@@ -114,6 +114,11 @@
           "race": {
             "type": "String",
             "label": "Race"
+          },
+          "out": {
+            "label": "One Unique Thing",
+            "type": "String",
+            "value": ""
           }
         },
         "backgrounds": {

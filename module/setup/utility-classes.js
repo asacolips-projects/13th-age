@@ -276,6 +276,129 @@ export class ArchmageUtility {
       };
     }
   }
+
+  static async importClassCompendiums() {
+    let validClasses = [
+      'barbarian',
+      'bard',
+      'cleric',
+      'commander',
+      'fighter',
+      'paladin',
+      'ranger',
+      'rogue',
+      'sorcerer',
+      'wizard'
+    ];
+
+    let preprop = new ArchmagePrepopulate();
+    for (let className of validClasses) {
+      let classObj = await preprop.getPowersDetail(className);
+      let powers = [];
+      // Helper function.
+      function _getPowerClasses(inputString) {
+        // Get the appropriate usage.
+        let usage = 'other';
+        let recharge = 0;
+        let usageString = inputString !== null ? inputString.toLowerCase() : '';
+        if (usageString.includes('will')) {
+          usage = 'at-will';
+        }
+        else if (usageString.includes('recharge')) {
+          usage = 'recharge';
+          if (usageString.includes('16')) {
+            recharge = 16;
+          }
+          else if (usageString.includes('11')) {
+            recharge = 11;
+          }
+          else if (usageString.includes('6')) {
+            recharge = 6;
+          }
+        }
+        else if (usageString.includes('battle')) {
+          usage = 'once-per-battle';
+        }
+        else if (usageString.includes('daily')) {
+          usage = 'daily';
+        }
+
+        return [usage, recharge];
+      }
+      // Helper function.
+      function _replaceLinks(inputString) {
+        var outputString = inputString;
+        if (inputString !== undefined && inputString !== null) {
+          if (inputString.includes('"/srd')) {
+            outputString = inputString.replace(/\/srd/g, 'https://www.toolkit13.com/srd');
+          }
+        }
+        return outputString;
+      }
+      // Build the object.
+      classObj?.powers.forEach(power => {
+        let usageArray = _getPowerClasses(power.usage);
+        let usage = usageArray[0];
+        let recharge = usageArray[1];
+        let action = 'standard';
+        let actionString = power.action !== null ? power.action.toLowerCase() : '';
+        if (actionString.includes('move')) {
+          action = 'move';
+        }
+        else if (actionString.includes('quick')) {
+          action = 'quick';
+        }
+        else if (actionString.includes('interrupt')) {
+          action = 'interrupt';
+        }
+        else if (actionString.includes('free')) {
+          action = 'free';
+        }
+        let powerType = Object.entries(CONFIG.ARCHMAGE.powerTypes).find(p => p[1] == power.powerType);
+        powers.push({
+          name: power.title,
+          data: {
+            'powerUsage.value': usage,
+            'actionType.value': action,
+            'powerType.value': powerType != undefined ? powerType[0] : null,
+            'powerLevel.value': power.level,
+            'range.value': power.type,
+            'trigger.value': power.trigger,
+            'target.value': power.target,
+            'attack.value': power.attack,
+            'hit.value': power.hit,
+            'miss.value': power.miss,
+            'missEven.value': power.missEven,
+            'missOdd.value': power.missOdd,
+            'cost.value': power.cost,
+            'castBroadEffect.value': power.castBroadEffect,
+            'castPower.value': power.castPower,
+            'sustainedEffect.value': power.sustainedEffect,
+            'finalVerse.value': power.finalVerse,
+            'effect.value': _replaceLinks(power.effect),
+            'special.value': _replaceLinks(power.special),
+            'spellLevel3.value': power.spellLevel3,
+            'spellLevel5.value': power.spellLevel5,
+            'spellLevel7.value': power.spellLevel7,
+            'spellLevel9.value': power.spellLevel9,
+            'spellChain.value': power.spellChain,
+            'breathWeapon.value': power.breathWeapon,
+            'recharge.value': recharge,
+            'feats.adventurer.description.value': power.featAdventurer,
+            'feats.champion.description.value': power.featChampion,
+            'feats.epic.description.value': power.featEpic,
+          },
+          type: 'power'
+        });
+      });
+      // TODO: Uncomment this to create entities.
+      // let pack = game.packs.get(`archmage.${className}`);
+      // let items = await Item.create(powers, { temporary: true });
+      // for (let item of items) {
+      //   await pack.importEntity(item);
+      // }
+    }
+  }
 }
 
 
@@ -313,11 +436,11 @@ export class ArchmagePrepopulate {
   async getPowersList(powerClass = null, powerLevel = null) {
     let endpoint = `${this.endpointBase}/list/`;
 
-    if (powerClass.length > 0) {
+    if (powerClass?.length > 0) {
       endpoint += `${powerClass}/`;
     }
 
-    if (powerLevel.length > 0) {
+    if (powerLevel?.length > 0) {
       endpoint += `${powerLevel}/`;
     }
 
@@ -327,11 +450,11 @@ export class ArchmagePrepopulate {
   async getPowersDetail(powerClass = null, powerLevel = null) {
     let endpoint = `${this.endpointBase}/detail/`;
 
-    if (powerClass.length > 0) {
+    if (powerClass?.length > 0) {
       endpoint += `${powerClass}/`;
     }
 
-    if (powerLevel.length > 0) {
+    if (powerLevel?.length > 0) {
       endpoint += `${powerLevel}/`;
     }
 
