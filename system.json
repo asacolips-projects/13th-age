@@ -14,10 +14,80 @@
   "styles": ["css/archmage.css"],
   "packs": [
     {
+      "label": "Barbarian",
+      "entity": "Item",
+      "name": "barbarian",
+      "path": "packs/barbarian.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Bard",
+      "entity": "Item",
+      "name": "bard",
+      "path": "packs/bard.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Cleric",
+      "entity": "Item",
+      "name": "cleric",
+      "path": "packs/cleric.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Fighter",
+      "entity": "Item",
+      "name": "fighter",
+      "path": "packs/fighter.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Paladin",
+      "entity": "Item",
+      "name": "paladin",
+      "path": "packs/paladin.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Ranger",
+      "entity": "Item",
+      "name": "ranger",
+      "path": "packs/ranger.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Rogue",
+      "entity": "Item",
+      "name": "rogue",
+      "path": "packs/rogue.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Sorcerer",
+      "entity": "Item",
+      "name": "sorcerer",
+      "path": "packs/sorcerer.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Wizard",
+      "entity": "Item",
+      "name": "wizard",
+      "path": "packs/wizard.db",
+      "system": "archmage"
+    },
+    {
       "label": "Chaos Mage",
       "entity": "Item",
       "name": "chaosmage",
       "path": "packs/chaosmage.db",
+      "system": "archmage"
+    },
+    {
+      "label": "Commander",
+      "entity": "Item",
+      "name": "commander",
+      "path": "packs/commander.db",
       "system": "archmage"
     },
     {

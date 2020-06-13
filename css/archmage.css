@@ -889,7 +889,7 @@ input[type="checkbox"] {
         top: 2px; }
 
 .archmage.actor-sheet .biography .editor {
-  height: 380px;
+  height: 100%;
   padding-left: 8px; }
 
 .archmage.npc-sheet .character-detail {
