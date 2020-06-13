@@ -284,6 +284,56 @@ Hooks.on("renderSettings", (app, html) => {
   });
 });
 
+Hooks.on('diceSoNiceReady', (dice3d) => {
+  dice3d.addSystem({id: "13A", name: "13th Age"}, true);
+
+  dice3d.addDicePreset({
+    type: "d20",
+    labels: [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "systems/archmage/images/nat20.png"
+    ],
+    system: "13A"
+  });
+
+  dice3d.addTexture("13Ared", {
+    name: "13th Age Red",
+    composite: "source-over",
+    source: "systems/archmage/images/redTexture.png"
+  })
+  .then(() => {
+      dice3d.addColorset({
+        name: '13a',
+        description: "13th Age Red/Gold",
+        category: "13th Age",
+        background: ["#9F8"],
+        texture: '13Ared',
+        edge: '#9F8003',
+        foreground: '#9F8003',
+        default: true
+      });
+  });
+
+});
+
 // Hijack compendium search.
 Hooks.on('renderCompendium', async (compendium, html, options) => {
   let compendiumContent = null;
