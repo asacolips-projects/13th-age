@@ -49,7 +49,13 @@
       "system": "archmage"
     }
   ],
-  "languages": ["en"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json",
   "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/compendium/archmage-master.zip",
