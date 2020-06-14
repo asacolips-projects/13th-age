@@ -1,0 +1,101 @@
+name: archmage
+title: 13th Age
+description: Build campaigns in the 13th Age RPG using the Foundry VTT environment.
+version: 1.4.10
+author: Matt Smith
+minimumCoreVersion: 0.5.2
+compatibleCoreVersion: 0.6.2
+esmodules:
+  - module/archmage.js
+scripts:
+  - scripts/lib/parse-md.js
+  - scripts/migrate/archmage-updates.js
+styles:
+  - css/archmage.css
+packs:
+  - label: Barbarian
+    entity: Item
+    name: barbarian
+    path: packs/barbarian.db
+    system: archmage
+  - label: Bard
+    entity: Item
+    name: bard
+    path: packs/bard.db
+    system: archmage
+  - label: Cleric
+    entity: Item
+    name: cleric
+    path: packs/cleric.db
+    system: archmage
+  - label: Fighter
+    entity: Item
+    name: fighter
+    path: packs/fighter.db
+    system: archmage
+  - label: Paladin
+    entity: Item
+    name: paladin
+    path: packs/paladin.db
+    system: archmage
+  - label: Ranger
+    entity: Item
+    name: ranger
+    path: packs/ranger.db
+    system: archmage
+  - label: Rogue
+    entity: Item
+    name: rogue
+    path: packs/rogue.db
+    system: archmage
+  - label: Sorcerer
+    entity: Item
+    name: sorcerer
+    path: packs/sorcerer.db
+    system: archmage
+  - label: Wizard
+    entity: Item
+    name: wizard
+    path: packs/wizard.db
+    system: archmage
+  - label: Chaos Mage
+    entity: Item
+    name: chaosmage
+    path: packs/chaosmage.db
+    system: archmage
+  - label: Commander
+    entity: Item
+    name: commander
+    path: packs/commander.db
+    system: archmage
+  - label: Druid
+    entity: Item
+    name: druid
+    path: packs/druid.db
+    system: archmage
+  - label: Monk
+    entity: Item
+    name: monk
+    path: packs/monk.db
+    system: archmage
+  - label: Occultist
+    entity: Item
+    name: occultist
+    path: packs/occultist.db
+    system: archmage
+  - label: Monsters (core)
+    entity: Actor
+    name: monsters-core
+    path: packs/monsters-core.db
+    system: archmage
+languages:
+  - lang: en
+    name: English
+    path: languages/en.json
+url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
+manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/compendium/archmage-master.zip
+initiative: 1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)
+gridDistance: 1
+gridUnits: ''
+primaryTokenAttribute: attributes.hp

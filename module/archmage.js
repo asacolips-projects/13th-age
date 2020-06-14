@@ -43,6 +43,16 @@ Hooks.once('init', async function() {
     return usage;
   });
 
+  Handlebars.registerHelper('concat', function() {
+    var outStr = '';
+    for (var arg in arguments) {
+      if (typeof arguments[arg] != 'object') {
+        outStr += arguments[arg];
+      }
+    }
+    return outStr;
+  });
+
   Handlebars.registerHelper('hideBasedOnSystemSetting', () => {
     if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
       return "hide";

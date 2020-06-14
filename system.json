@@ -5,13 +5,17 @@
   "version": "1.4.10",
   "author": "Matt Smith",
   "minimumCoreVersion": "0.5.2",
-  "compatibleCoreVersion": "0.6.1",
-  "esmodules": ["module/archmage.js"],
+  "compatibleCoreVersion": "0.6.2",
+  "esmodules": [
+    "module/archmage.js"
+  ],
   "scripts": [
     "scripts/lib/parse-md.js",
     "scripts/migrate/archmage-updates.js"
   ],
-  "styles": ["css/archmage.css"],
+  "styles": [
+    "css/archmage.css"
+  ],
   "packs": [
     {
       "label": "Barbarian",
