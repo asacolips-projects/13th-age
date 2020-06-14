@@ -722,7 +722,6 @@ input[type="checkbox"] {
       -ms-flex: 0 0 50%;
       flex: 0 0 50%; }
     .archmage.actor-sheet .primary-attributes .attribute:last-child {
-      border-right: 0;
       margin-right: 0; }
     .archmage.actor-sheet .primary-attributes .attribute .attribute-name {
       border-bottom: 1px solid #ccc;
@@ -790,14 +789,25 @@ input[type="checkbox"] {
           -webkit-box-flex: 65%;
           -ms-flex: 65%;
           flex: 65%;
-          padding: 0 8px;
-          text-align: right; }
+          padding: 0 4px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 12px; }
+          .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span.attribute-subname--grow {
+            -webkit-box-flex: 100%;
+            -ms-flex: 100%;
+            flex: 100%;
+            font-size: 12px;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            padding: 2px; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > input {
           -webkit-box-flex: 35%;
           -ms-flex: 35%;
           flex: 35%;
-          padding-left: 8px;
-          text-align: left; }
+          padding: 0 2px;
+          text-align: center; }
       .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input {
         max-width: 24px; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.temphp {
@@ -811,6 +821,8 @@ input[type="checkbox"] {
           text-align: left; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.speed, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.hpformula {
           max-width: 90%; }
+      .archmage.actor-sheet .primary-attributes .attribute .attribute-footer .temphp + .attribute-subname {
+        border-left: 1px solid rgba(0, 0, 0, 0.25); }
       .archmage.actor-sheet .primary-attributes .attribute .attribute-footer .rest {
         background: rgba(0, 0, 0, 0.03);
         border: 1px solid #ccc;

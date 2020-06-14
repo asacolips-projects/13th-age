@@ -81,8 +81,91 @@
                 <div class="attribute-value">
                     <span>{{numberFormat data.attributes.init.mod decimals=0 sign=true}}</span>
                 </div>
+                {{#if data.resources.perCombat.anyEnabled}}
+                <footer class="attribute-footer attribute-footer--temp-hp">
+                    {{!-- Momentum --}}
+                    {{#if data.resources.perCombat.momentum.enabled}}
+                    <span class="attribute-subname">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.momentum'}}</span>
+                    <input name="data.resources.perCombat.momentum.current" type="text" class="temphp" placeholder="0" value="{{data.resources.perCombat.momentum.current}}"
+                        data-dtype="{{data.resources.perCombat.momentum.current.type}}" />
+                        {{!-- Command Points (shortened) --}}
+                        {{#if data.resources.perCombat.commandPoints.enabled}}
+                        <span class="attribute-subname">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.cp'}}</span>
+                        <input name="data.resources.perCombat.commandPoints.current" type="text" class="temphp" title="{{localize 'ARCHMAGE.CHARAGER.RESOURCES.cp'}}" placeholder="0" value="{{data.resources.perCombat.commandPoints.current}}"
+                            data-dtype="{{data.resources.perCombat.commandPoints.current}}" />
+                        {{/if}}
+                    {{else}}
+                      {{!-- Command Points (long) --}}
+                      {{#if data.resources.perCombat.commandPoints.enabled}}
+                      <span class="attribute-subname attribute-subname--grow">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.commandPoints'}}</span>
+                      <input name="data.resources.perCombat.commandPoints.current" type="text" class="temphp" placeholder="0" value="{{data.resources.perCombat.commandPoints.current}}"
+                          data-dtype="{{data.resources.perCombat.commandPoints.current}}" />
+                      {{/if}}
+                    {{/if}}
+                </footer>
+                {{/if}}
             </div>
         </div>
+
+        {{#if data.resources.spendable.anyEnabled}}
+            <div class="primary-attributes">
+
+                {{#if data.resources.spendable.ki.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.ki'}}</h4>
+                        <div class="attribute-value">
+                            <input name="data.resources.spendable.ki.current" type="text" value="{{data.resources.spendable.ki.current}}"
+                                data-dtype="{{data.resources.spendable.ki.current.type}}" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input name="data.resources.spendable.ki.max" type="text" value="{{data.resources.spendable.ki.max}}"
+                                data-dtype="{{data.resources.spendable.ki.max.type}}" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#if data.resources.spendable.custom1.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name"><input name="data.resources.spendable.custom1.label" type="text" value="{{data.resources.spendable.custom1.label}}"
+                            data-dtype="text" placeholder="Resource" /></h4>
+                        <div class="attribute-value">
+                            <input type="text" name="data.resources.spendable.custom1.current" value="{{data.resources.spendable.custom1.current}}"
+                                data-dtype="Number" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input type="text" name="data.resources.spendable.custom1.max" value="{{data.resources.spendable.custom1.max}}"
+                                data-dtype="Number" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#if data.resources.spendable.custom2.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name"><input name="data.resources.spendable.custom2.label" type="text" value="{{data.resources.spendable.custom2.label}}"
+                            data-dtype="text" placeholder="Resource" /></h4>
+                        <div class="attribute-value">
+                            <input type="text" name="data.resources.spendable.custom2.current" value="{{data.resources.spendable.custom2.current}}"
+                                data-dtype="Number" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input type="text" name="data.resources.spendable.custom2.max" value="{{data.resources.spendable.custom2.max}}"
+                                data-dtype="Number" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+
+                {{#if data.resources.spendable.custom3.enabled}}
+                    <div class="attribute attribute--recoveries">
+                        <h4 class="attribute-name"><input name="data.resources.spendable.custom3.label" type="text" value="{{data.resources.spendable.custom3.label}}"
+                            data-dtype="text" placeholder="Resource" /></h4>
+                        <div class="attribute-value">
+                            <input type="text" name="data.resources.spendable.custom3.current" value="{{data.resources.spendable.custom3.current}}"
+                                data-dtype="Number" placeholder="0" />
+                            <span class="flex0"> / </span>
+                            <input type="text" name="data.resources.spendable.custom3.max" value="{{data.resources.spendable.custom3.max}}"
+                                data-dtype="Number" placeholder="4" />
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
 
         <div class="primary-attributes">
             <div class="attribute attribute--weapons">
@@ -187,20 +270,20 @@
             <div class="primary-attributes currencies">
                 <div class="attribute attribute--defenses attribute--currencies">
                     <div class="attribute-value attribute-value--parent">
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.platinumHint" }}' >
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.platinum" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.platinumHint' }}' >
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.platinum' }}</strong>
                             <input name="data.coins.platinum.value" type="text" value="{{data.coins.platinum.value}}" data-dtype="{{data.coins.platinum.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.goldHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.gold" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.goldHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.gold' }}</strong>
                             <input name="data.coins.gold.value" type="text" value="{{data.coins.gold.value}}" data-dtype="{{data.coins.gold.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.silverHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.silver" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.silverHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.silver' }}</strong>
                             <input name="data.coins.silver.value" type="text" value="{{data.coins.silver.value}}" data-dtype="{{data.coins.silver.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.copperHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.copper" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.copperHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.copper' }}</strong>
                             <input name="data.coins.copper.value" type="text" value="{{data.coins.copper.value}}" data-dtype="{{data.coins.copper.type}}" placeholder="0" class="currency-input" />
                         </div>
                     </div>
@@ -212,32 +295,32 @@
             <div class="primary-attributes currencies">
                 <div class="attribute attribute--defenses attribute--currencies">
                     <div class="attribute-value attribute-value--parent">
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.trinesHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.trines" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.trinesHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.trines' }}</strong>
                             <input name="data.coins.trines.value" type="text" value="{{data.coins.trines.value}}" data-dtype="{{data.coins.trines.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.impsHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.imps" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.impsHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.imps' }}</strong>
                             <input name="data.coins.imps.value" type="text" value="{{data.coins.imps.value}}" data-dtype="{{data.coins.imps.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.towersHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.towers" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.towersHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.towers' }}</strong>
                             <input name="data.coins.towers.value" type="text" value="{{data.coins.towers.value}}" data-dtype="{{data.coins.towers.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.glitsHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.glits" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.glitsHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.glits' }}</strong>
                             <input name="data.coins.glits.value" type="text" value="{{data.coins.glits.value}}" data-dtype="{{data.coins.glits.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.nupesHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.nupes" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.nupesHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.nupes' }}</strong>
                             <input name="data.coins.nupes.value" type="text" value="{{data.coins.nupes.value}}" data-dtype="{{data.coins.nupes.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.saintsHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.saints" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.saintsHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.saints' }}</strong>
                             <input name="data.coins.saints.value" type="text" value="{{data.coins.saints.value}}" data-dtype="{{data.coins.saints.type}}" placeholder="0" class="currency-input" />
                         </div>
-                        <div class="attribute-sub" title='{{ localize "ARCHMAGE.COINS.draksHint" }}'>
-                            <strong class="attribute-name">{{ localize "ARCHMAGE.COINS.draks" }}</strong>
+                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.draksHint' }}'>
+                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.draks' }}</strong>
                             <input name="data.coins.draks.value" type="text" value="{{data.coins.draks.value}}" data-dtype="{{data.coins.draks.type}}" placeholder="0" class="currency-input" />
                         </div>
                     </div>
@@ -287,7 +370,7 @@
 
         <nav class="sheet-tabs tabs tabs-sidebar" data-group="sidebar">
             <a class="item" data-tab="abilities">{{localize 'ARCHMAGE.abilities'}}</a>
-            <a class="item" data-tab="incrementals">{{ localize "ARCHMAGE.incrementals" }}</a>
+            <a class="item" data-tab="incrementals">{{ localize 'ARCHMAGE.incrementals' }}</a>
             <a class="item" data-tab="misc">{{localize 'ARCHMAGE.settings'}}</a>
         </nav>
 
@@ -404,12 +487,12 @@
                   <label for="data.attributes.weapon.melee.abil" class="attribute-name">{{localize 'ARCHMAGE.meleeAbility'}}</label>
                   <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
                       {{#select data.attributes.weapon.melee.abil}}
-                      <option value="str">{{localize "ARCHMAGE.str.key"}}</option>
-                      <option value="dex">{{localize "ARCHMAGE.dex.key"}}</option>
-                      <option value="con">{{localize "ARCHMAGE.con.key"}}</option>
-                      <option value="int">{{localize "ARCHMAGE.int.key"}}</option>
-                      <option value="wis">{{localize "ARCHMAGE.wis.key"}}</option>
-                      <option value="cha">{{localize "ARCHMAGE.cha.key"}}</option>
+                      <option value="str">{{localize 'ARCHMAGE.str.key'}}</option>
+                      <option value="dex">{{localize 'ARCHMAGE.dex.key'}}</option>
+                      <option value="con">{{localize 'ARCHMAGE.con.key'}}</option>
+                      <option value="int">{{localize 'ARCHMAGE.int.key'}}</option>
+                      <option value="wis">{{localize 'ARCHMAGE.wis.key'}}</option>
+                      <option value="cha">{{localize 'ARCHMAGE.cha.key'}}</option>
                       {{/select}}
                   </select>
               </div>
@@ -418,12 +501,12 @@
                   <label for="data.attributes.weapon.ranged.abil" class="attribute-name">{{localize 'ARCHMAGE.rangedAbility'}}</label>
                   <select class="attribute-input" name="data.attributes.weapon.ranged.abil" data-type="String">
                       {{#select data.attributes.weapon.ranged.abil}}
-                      <option value="str">{{localize "ARCHMAGE.str.key"}}</option>
-                      <option value="dex">{{localize "ARCHMAGE.dex.key"}}</option>
-                      <option value="con">{{localize "ARCHMAGE.con.key"}}</option>
-                      <option value="int">{{localize "ARCHMAGE.int.key"}}</option>
-                      <option value="wis">{{localize "ARCHMAGE.wis.key"}}</option>
-                      <option value="cha">{{localize "ARCHMAGE.cha.key"}}</option>
+                      <option value="str">{{localize 'ARCHMAGE.str.key'}}</option>
+                      <option value="dex">{{localize 'ARCHMAGE.dex.key'}}</option>
+                      <option value="con">{{localize 'ARCHMAGE.con.key'}}</option>
+                      <option value="int">{{localize 'ARCHMAGE.int.key'}}</option>
+                      <option value="wis">{{localize 'ARCHMAGE.wis.key'}}</option>
+                      <option value="cha">{{localize 'ARCHMAGE.cha.key'}}</option>
                       {{/select}}
                   </select>
               </div>
@@ -459,48 +542,67 @@
                           data-dtype="{{icon.isActive.type}}" />
                   </div>
               {{/each}}
+
+              <hr>
+
+              <div class="settings-group">
+                <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.custom1'}}</strong>
+                <input class="attribute-input" name="data.resources.spendable.custom1.enabled" type="checkbox" value="1" {{checked data.resources.spendable.custom1.enabled}}
+                    data-dtype="{{icon.isActive.type}}" />
+              </div>
+              <div class="settings-group">
+                <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.custom2'}}</strong>
+                <input class="attribute-input" name="data.resources.spendable.custom2.enabled" type="checkbox" value="1" {{checked data.resources.spendable.custom2.enabled}}
+                    data-dtype="{{icon.isActive.type}}" />
+              </div>
+              <div class="settings-group">
+                <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTER.RESOURCES.custom3'}}</strong>
+                <input class="attribute-input" name="data.resources.spendable.custom3.enabled" type="checkbox" value="1" {{checked data.resources.spendable.custom3.enabled}}
+                    data-dtype="{{icon.isActive.type}}" />
+              </div>
+
           </div>
 
           <div class="tab incrementals" data-group="sidebar" data-tab="incrementals">
-              <h3 class="ability-header" style="padding-bottom: 5px;">{{ localize "ARCHMAGE.incrementalAdvances" }}</h3>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.featHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.featName" }}</strong>
+              <h3 class="ability-header" style="padding-bottom: 5px;">{{ localize 'ARCHMAGE.incrementalAdvances' }}</h3>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.featHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.featName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.feature" type="checkbox" value="1" {{checked data.incrementals.feature}} data-dtype="{{data.incrementals.feature.type}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.hpHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.hpName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.hpHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.hpName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.hp" type="checkbox" value="1" {{checked data.incrementals.hp}} data-dtype="{{data.incrementals.hp.type}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.skillsHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.skillsName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.skillsHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.skillsName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.skills" type="checkbox" value="1" {{checked data.incrementals.skills}} data-dtype="{{data.incrementals.skills.type}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.extraMagicItemHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.extraMagicItemName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.extraMagicItemHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.extraMagicItemName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.extraMagicItem" type="checkbox" value="1" {{checked data.incrementals.extraMagicItem}} data-dtype="{{data.incrementals.feature.extraMagicItem}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.abilityScoreBonusHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.abilityScoreBonusName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.abilityScoreBonusHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.abilityScoreBonusName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.abilityScoreBonus" type="checkbox" value="1" {{checked data.incrementals.abilityScoreBonus}} data-dtype="{{data.incrementals.feature.abilityScoreBonus}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.iconRelationshipPointHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.iconRelationshipPointName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.iconRelationshipPointHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.iconRelationshipPointName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.iconRelationshipPoint" type="checkbox" value="1" {{checked data.incrementals.iconRelationshipPoint}} data-dtype="{{data.incrementals.feature.iconRelationshipPoint}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.powerSpellHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.powerSpellName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.powerSpell1" type="checkbox" value="1" {{checked data.incrementals.powerSpell1}} data-dtype="{{data.incrementals.feature.powerSpell1}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.powerSpellHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.powerSpellName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.powerSpell2" type="checkbox" value="1" {{checked data.incrementals.powerSpell2}} data-dtype="{{data.incrementals.feature.powerSpell2}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.powerSpellHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.powerSpellName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.powerSpell3" type="checkbox" value="1" {{checked data.incrementals.powerSpell3}} data-dtype="{{data.incrementals.feature.powerSpell3}}">
               </div>
-              <div class="settings-group incremental" title='{{ localize "ARCHMAGE.INCREMENTALS.powerSpellHint" }}'>
-                  <strong class="attribute-name">{{ localize "ARCHMAGE.INCREMENTALS.powerSpellName" }}</strong>
+              <div class="settings-group incremental" title='{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellHint' }}'>
+                  <strong class="attribute-name">{{ localize 'ARCHMAGE.INCREMENTALS.powerSpellName' }}</strong>
                   <input class="attribute-input" name="data.incrementals.powerSpell4" type="checkbox" value="1" {{checked data.incrementals.powerSpell4}} data-dtype="{{data.incrementals.feature.powerSpell4}}">
               </div>
               <hr>

@@ -610,7 +610,7 @@ input[type="checkbox"] {
         }
 
         &:last-child {
-          border-right: 0;
+          // border-right: 0;
           margin-right: 0;
         }
 
@@ -673,14 +673,24 @@ input[type="checkbox"] {
             > span {
               border-right: 1px solid $ct-black--25;
               flex: 65%;
-              padding: 0 8px;
-              text-align: right;
+              padding: 0 4px;
+              text-align: center;
+              font-weight: bold;
+              font-size: 12px;
+
+              &.attribute-subname--grow {
+                flex: 100%;
+                font-size: 12px;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                padding: 2px;
+              }
             }
 
             > input {
               flex: 35%;
-              padding-left: 8px;
-              text-align: left;
+              padding: 0 2px;
+              text-align: center;
             }
           }
 
@@ -706,6 +716,10 @@ input[type="checkbox"] {
             &.hpformula {
               max-width: 90%;
             }
+          }
+
+          .temphp + .attribute-subname {
+            border-left: 1px solid $ct-black--25;
           }
 
           .rest {

@@ -80,6 +80,24 @@
                         data-dtype="Number" placeholder="0" />
                   </div>
 
+                  <div class="settings-group">
+                    <strong class="attribute-name">Recoveries Bonus</strong>
+                    <input class="attribute-input" name="data.attributes.recoveries.bonus" type="text" value="{{data.attributes.recoveries.bonus}}"
+                        data-dtype="Number" placeholder="0" />
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">Save Bonus</strong>
+                    <input class="attribute-input" name="data.attributes.save.bonus" type="text" value="{{data.attributes.save.bonus}}"
+                        data-dtype="Number" placeholder="0" />
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">Disengage Bonus</strong>
+                    <input class="attribute-input" name="data.attributes.disengage.bonus" type="text" value="{{data.attributes.disengage.bonus}}"
+                        data-dtype="Number" placeholder="0" />
+                  </div>
+                  
 
                   <div class="settings-group form-group" style="padding-top: 10px;">
                       <label>{{localize 'ARCHMAGE.ITEM.chakraSlot'}}</label>
@@ -89,22 +107,22 @@
                       <select class="attribute-input" name="data.chackra" data-type="String">
                           {{#select data.chackra}}
                           <option value="none">None</option>
-                          <option value="armor">Armor, robe, shirt, tunic</option>
+                          <option value="armor" title="Default Bonus: Armor Class">Armor, robe, shirt, tunic</option>
                           <option value="arrow">Arrow, crossbow bolt, slingstone</option>
-                          <option value="belt">Belt, swordbelt, kilt, girdle</option>
+                          <option value="belt" title="Default Bonus: Recoveries">Belt, swordbelt, kilt, girdle</option>
                           <option value="book">Book, scroll, manual, grimoire</option>
-                          <option value="boots">Boots, scandals, slippers, shoes</option>
-                          <option value="cloak">Cloak, mantle, cape</option>
+                          <option value="boots" title="Default Bonus: Disengage Checks">Boots, scandals, slippers, shoes</option>
+                          <option value="cloak" title="Default Bonus: Physical Defense">Cloak, mantle, cape</option>
                           <option value="glove">Glove, gauntlet, mitt</option>
-                          <option value="helmet">Helmet, circlet, crown, cap</option>
-                          <option value="necklace">Necklace, pendant</option>
+                          <option value="helmet" title="Default Bonus: Mental Defense">Helmet, circlet, crown, cap</option>
+                          <option value="necklace" title="Default Bonus: Save bonus">Necklace, pendant</option>
                           <option value="ring">Ring</option>
-                          <option value="shield">Shield</option>
-                          <option value="staff">Staff (implement)</option>
-                          <option value="symbol">Symbol, holy relic, sacred sickle (implement)</option>
-                          <option value="wand">Wand (implement)</option>
-                          <option value="melee">Weapon, melee</option>
-                          <option value="ranged">Weapon, ranged</option>
+                          <option value="shield" title="Default Bonus: Hit points">Shield</option>
+                          <option value="staff" title="Operates as both a Wand and a Symbol">Staff (implement)</option>
+                          <option value="symbol" title="Default Bonus: Divine Attack and Damage">Symbol, holy relic, sacred sickle (implement)</option>
+                          <option value="wand" title="Default Bonus: Arcane Attack and Damage">Wand (implement)</option>
+                          <option value="melee" title="Default Bonus: Attack and Damage">Weapon, melee</option>
+                          <option value="ranged" title="Default Bonus: Attack and Damage">Weapon, ranged</option>
                           <option value="wondrous">Wondrous item</option>
                           {{/select}}
                       </select>
