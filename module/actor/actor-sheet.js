@@ -87,9 +87,16 @@ export class ActorArchmageSheet extends ActorSheet {
     // Assign and return
     actorData.powers = powers;
     actorData.equipment = equipment;
-    
-    actorData.data.resources.perCombat.anyEnabled = actorData.data.resources.perCombat.momentum.enabled || actorData.data.resources.perCombat.commandPoints.enabled;
-    actorData.data.resources.spendable.anyEnabled = actorData.data.resources.spendable.ki.enabled || actorData.data.resources.spendable.custom1.enabled || actorData.data.resources.spendable.custom2.enabled || actorData.data.resources.spendable.custom3.enabled;
+
+    if (!actorData.data.resources) {
+      actorData.data.resouces = {
+        perCombat: { anyEnabled: false },
+        spendable: { anyEnabled: false }
+      };
+    }
+
+    actorData.data.resources.perCombat.anyEnabled = actorData.data.resources.perCombat?.momentum?.enabled || actorData.data.resources.perCombat?.commandPoints?.enabled;
+    actorData.data.resources.spendable.anyEnabled = actorData.data.resources.spendable?.ki?.enabled || actorData.data.resources.spendable?.custom1?.enabled || actorData.data.resources.spendable?.custom2?.enabled || actorData.data.resources.spendable?.custom3?.enabled;
   }
 
   /* -------------------------------------------- */

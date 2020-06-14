@@ -147,42 +147,46 @@ export class ActorArchmage extends Actor {
 
       if (!data.resources) {
         data.resources = {
-          perCombat: {
-            commandPoints: {
-              current: 0,
-              enabled: false
-            },
-            momentum: {
-              current: 0,
-              enabled: false
-            }
+        };
+      }
+      if (!data.resources.perCombat) {
+        data.resources.perCombat = {
+          commandPoints: {
+            current: 0,
+            enabled: false
           },
-          spendable: {
-            ki: {
-              current: 0,
-              max: 0,
-              enabled: false
-            },
-            custom1: {
-              label: "",
-              current: 0,
-              max: 0,
-              enabled: false
-            },
-            custom2: {
-              label: "",
-              current: 0,
-              max: 0,
-              enabled: false
-            },
-            custom3: {
-              label: "",
-              current: 0,
-              max: 0,
-              enabled: false
-            },
+          momentum: {
+            current: 0,
+            enabled: false
           }
-        }
+        };
+      }
+      if (!data.resources.spendable) {
+        data.resources.spendable = {
+          ki: {
+            current: 0,
+            max: 0,
+            enabled: false
+          },
+          custom1: {
+            label: "",
+            current: 0,
+            max: 0,
+            enabled: false
+          },
+          custom2: {
+            label: "",
+            current: 0,
+            max: 0,
+            enabled: false
+          },
+          custom3: {
+            label: "",
+            current: 0,
+            max: 0,
+            enabled: false
+          },
+        };
       }
 
       // Add level ability mods.
@@ -304,10 +308,14 @@ export class ActorArchmage extends Actor {
     data.details.detectedClasses = matchedClasses;
 
     // Enable resources based on detected classes
-    if (data.details.detectedClasses) {
-      data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
-      data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-      data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
+    if (data.details.detectedClasses && data.resources) {
+      if (data.resources.perCombat) {
+        data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+        data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+      }
+      if (data.resources.spendable) {
+        data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
+      }
     }
   }
 

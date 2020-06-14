@@ -43,7 +43,7 @@ Hooks.once('init', async function() {
     return usage;
   });
 
-  Handlebars.registerHelper('concat', function() {
+  Handlebars.registerHelper('concatenate', function() {
     var outStr = '';
     for (var arg in arguments) {
       if (typeof arguments[arg] != 'object') {
@@ -534,10 +534,15 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let targetsMissed = [];
   let targets = [];
 
-  let actor = game.actors.get(data.speaker.actor);
-  if (data.speaker.token) {
-    let token = canvas.tokens.get(data.speaker.token);
-    actor = token.actor;
+  let tokens = canvas.tokens.controlled;
+  let actor = tokens ? tokens[0] : null;
+
+  if (data?.speaker?.actor) {
+    actor = game.actors.get(data.speaker.actor);
+    if (data.speaker.token) {
+      let token = canvas.tokens.get(data.speaker.token);
+      actor = token.actor;
+    }
   }
 
   // Iterate through inline rolls, add a class to crits/fails.
