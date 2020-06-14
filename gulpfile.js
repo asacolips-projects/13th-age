@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
+const yaml = require('gulp-yaml');
 // const concat = require('gulp-concat');
 
 // /* ----------------------------------------- */
@@ -61,11 +62,23 @@ function compileScss() {
 const css = gulp.series(compileScss);
 
 /* ----------------------------------------- */
+/*  Compile YAML
+/* ----------------------------------------- */
+const SYSTEM_YAML = ['./yaml/**/*.yml', './yaml/**/*.yaml'];
+function compileYaml() {
+  return gulp.src(SYSTEM_YAML)
+    .pipe(yaml({ space: 2 }))
+    .pipe(gulp.dest('./'))
+}
+const yamlTask = gulp.series(compileYaml);
+
+/* ----------------------------------------- */
 /*  Watch Updates
 /* ----------------------------------------- */
 
 function watchUpdates() {
   gulp.watch(SYSTEM_SCSS, css);
+  gulp.watch(SYSTEM_YAML, yamlTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 
@@ -79,4 +92,5 @@ exports.default = gulp.series(
   watchUpdates
 );
 exports.css = css;
+exports.yaml = yamlTask;
 // exports.scripts = scripts;

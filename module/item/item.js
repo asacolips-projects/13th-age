@@ -68,24 +68,24 @@ export class ItemArchmage extends Item {
     const data = duplicate(this.data.data);
     const tags = [
       {
-        label: data.actionType.label,
+        label: game.i18n.localize('ARCHMAGE.CHAT.actionType'),
         value: CONFIG.ARCHMAGE.actionTypes[data.actionType.value]
       },
       {
-        label: data.powerUsage.label,
+        label: game.i18n.localize('ARCHMAGE.CHAT.powerUsage'),
         value: CONFIG.ARCHMAGE.powerUsages[data.powerUsage.value]
       },
       {
-        label: data.powerSource.label,
+        label: game.i18n.localize('ARCHMAGE.CHAT.powerSource'),
         value: CONFIG.ARCHMAGE.powerSources[data.powerSource.value]
       },
       {
-        label: data.powerType.label,
+        label: game.i18n.localize('ARCHMAGE.CHAT.powerType'),
         value: CONFIG.ARCHMAGE.powerTypes[data.powerType.value]
       },
       {
         label: data.powerLevel !== undefined ? data.powerLevel.label : 'Level',
-        value: data.powerLevel !== undefined ? 'Level ' + data.powerLevel.value : 'Level ' + this.actor.data.data.details.level.value
+        value: game.i18n.localize('ARCHMAGE.level') + ' ' + (data.powerLevel !== undefined ? data.powerLevel.value : this.actor.data.data.details.level.value)
       }
     ];
 
@@ -106,7 +106,7 @@ export class ItemArchmage extends Item {
     ];
     const properties = propKeys.map(k => {
       return {
-        label: data[k] ? data[k].label : null,
+        label: data[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
         value: data[k] ? data[k].value : null,
       };
     })
@@ -118,7 +118,7 @@ export class ItemArchmage extends Item {
     ];
     const feats = featKeys.map(k => {
       return {
-        label: data.feats[k] ? data.feats[k].description.label : null,
+        label: data.feats[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
         description: data.feats[k] ? data.feats[k].description.value : null,
         isActive: data.feats[k] ? data.feats[k].isActive.value : null,
       };
@@ -141,7 +141,7 @@ export class ItemArchmage extends Item {
 
     const effects = effectKeys.map(k => {
       return {
-        label: data[k] ? data[k].label : null,
+        label: data[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
         value: data[k] ? data[k].value : null,
       };
     });
@@ -151,11 +151,11 @@ export class ItemArchmage extends Item {
     data.feats = feats.filter(f => f.description !== null && f.description !== undefined && f.description !== '');
     data.effects = effects.filter(e => e.value !== null && e.value !== undefined && e.value != '');
     data.effect = {
-      label: data.effect.label,
+      label: game.i18n.localize(`ARCHMAGE.CHAT.effect`),
       value: data.effect.value
     };
     data.special = {
-      label: data.special.label,
+      label: game.i18n.localize(`ARCHMAGE.CHAT.special`),
       value: data.special.value
     };
     return data;

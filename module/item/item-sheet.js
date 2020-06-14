@@ -12,7 +12,7 @@ export class ItemArchmageSheet extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: super.defaultOptions.classes.concat(['archmage', 'item', 'item-sheet']),
       template: 'systems/archmage/templates/item-power-sheet.html',
-      height: 400,
+      height: 550,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-tabs-content", initial: "details" }]
     });
   }

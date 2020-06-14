@@ -1,0 +1,185 @@
+ARCHMAGE.SETTINGS.ShowDebugLogsName: Show debug logs?
+ARCHMAGE.SETTINGS.ShowDebugLogsHint: Turn this on for bug reports
+ARCHMAGE.SETTINGS.ShowRareCoinsName: Should rare coins be shown in the character sheet?
+ARCHMAGE.SETTINGS.ShowRareCoinsHint: Rare coins include Towers, Trines, and Saints
+ARCHMAGE.feats: Feats
+ARCHMAGE.incrementals: Incrementals
+ARCHMAGE.incrementalAdvances: Incremental Advances
+ARCHMAGE.CHARACTER.RESOURCES.ki: Ki
+ARCHMAGE.CHARACTER.RESOURCES.momentum: Momentum
+ARCHMAGE.CHARACTER.RESOURCES.cp: Cmd
+ARCHMAGE.CHARACTER.RESOURCES.commandPoints: Command Points
+ARCHMAGE.CHARACTER.RESOURCES.custom1: Custom Resource 1
+ARCHMAGE.CHARACTER.RESOURCES.custom2: Custom Resource 2
+ARCHMAGE.CHARACTER.RESOURCES.custom3: Custom Resource 3
+ARCHMAGE.CHARACTERFLAGS.initiativeAdvName: Quick to Fight
+ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
+ARCHMAGE.CHARACTERFLAGS.improvedIniativeName: Improved Initiative
+ARCHMAGE.CHARACTERFLAGS.improvedIniativeHint: General feat to increase initiative by +4.
+ARCHMAGE.INCREMENTALS.featName: Feature
+ARCHMAGE.INCREMENTALS.featHint: Choose one feature as if you were the next level
+ARCHMAGE.INCREMENTALS.hpName: Hit Points
+ARCHMAGE.INCREMENTALS.hpHint: Increase your HP as if you were the next level
+ARCHMAGE.INCREMENTALS.skillsName: Skills
+ARCHMAGE.INCREMENTALS.skillsHint: Add +1 to all skill rolls
+ARCHMAGE.INCREMENTALS.extraMagicItemName: Extra Magic Item
+ARCHMAGE.INCREMENTALS.extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
+ARCHMAGE.INCREMENTALS.abilityScoreBonusName: Ability Score Bonus
+ARCHMAGE.INCREMENTALS.abilityScoreBonusHint: 4th/7th/10th Level (+1 to 3 abilities)
+ARCHMAGE.INCREMENTALS.iconRelationshipPointName: Icon Relationship Point
+ARCHMAGE.INCREMENTALS.iconRelationshipPointHint: 5th/8th Level
+ARCHMAGE.INCREMENTALS.powerSpellName: Power / Spell
+ARCHMAGE.INCREMENTALS.powerSpellHint: Choose a power / spell as if you were the next level
+ARCHMAGE.COINS.platinum: Platinum
+ARCHMAGE.COINS.platinumHint: 1 Platinum = 10 Gold
+ARCHMAGE.COINS.gold: Gold
+ARCHMAGE.COINS.goldHint: 1 Gold = 10 Silver
+ARCHMAGE.COINS.silver: Silver
+ARCHMAGE.COINS.silverHint: 1 Silver = 10 Copper
+ARCHMAGE.COINS.copper: Copper
+ARCHMAGE.COINS.copperHint: 10 Copper = 1 Silver
+ARCHMAGE.COINS.trines: Trines
+ARCHMAGE.COINS.trinesHint: Beautiful Elven coins that meld gold, silver, and platinum. Usually worth 3 Standard Gold pieces.
+ARCHMAGE.COINS.imps: Imps
+ARCHMAGE.COINS.impsHint: Standard Gold pieces from Axis
+ARCHMAGE.COINS.towers: Towers
+ARCHMAGE.COINS.towersHint: Standard Dwarven Gold pieces - square with grooved edges, they stack perfectly with themselves.
+ARCHMAGE.COINS.glits: Glits
+ARCHMAGE.COINS.glitsHint: Standard Gold pieces from Glitterhaegen
+ARCHMAGE.COINS.nupes: Nupes
+ARCHMAGE.COINS.nupesHint: Standard Gold pieces from New Port
+ARCHMAGE.COINS.saints: Saints
+ARCHMAGE.COINS.saintsHint: Standard Gold pieces from Santa Cora
+ARCHMAGE.COINS.draks: Draks
+ARCHMAGE.COINS.draksHint: Standard Gold pieces from Drakkenhall
+# Ability Scores
+ARCHMAGE.str.label: Strength
+ARCHMAGE.dex.label: Dexterity
+ARCHMAGE.con.label: Constitution
+ARCHMAGE.int.label: Intelligence
+ARCHMAGE.wis.label: Wisdom
+ARCHMAGE.cha.label: Charisma
+ARCHMAGE.str.key: STR
+ARCHMAGE.dex.key: DEX
+ARCHMAGE.con.key: CON
+ARCHMAGE.int.key: INT
+ARCHMAGE.wis.key: WIS
+ARCHMAGE.cha.key: CHA
+# Character Sheets
+ARCHMAGE.level: Level
+ARCHMAGE.race: Race
+ARCHMAGE.class: Class
+ARCHMAGE.health: Health
+ARCHMAGE.defenses: Defenses
+ARCHMAGE.recoveries: Recoveries
+ARCHMAGE.initiative: Iniative
+ARCHMAGE.tempHp: Temp HP
+ARCHMAGE.ac.key: AC
+ARCHMAGE.pd.key: PD
+ARCHMAGE.md.key: MD
+ARCHMAGE.ac.label: Armor Class
+ARCHMAGE.pd.label: Physical Defense
+ARCHMAGE.md.label: Mental Defense
+ARCHMAGE.melee: Melee
+ARCHMAGE.ranged: Ranged
+ARCHMAGE.attack: Attack
+ARCHMAGE.hit: Hit
+ARCHMAGE.miss: Miss
+ARCHMAGE.abilities: Abilities
+ARCHMAGE.settings: Settings
+ARCHMAGE.backgrounds: Backgrounds
+ARCHMAGE.iconRelationships: Icon Relationships
+ARCHMAGE.oneUniqueThing: One Unique Thing
+ARCHMAGE.powers: Powers
+ARCHMAGE.biography: Biography
+ARCHMAGE.equipment: Equipment
+ARCHMAGE.abilityName: Ability Name
+ARCHMAGE.rchg: Rchg.
+ARCHMAGE.recharge: Recharge
+ARCHMAGE.act: Act.
+ARCHMAGE.action: Action
+ARCHMAGE.uses: Uses
+ARCHMAGE.add: Add
+ARCHMAGE.import: Import
+ARCHMAGE.name: Name
+ARCHMAGE.type: Type
+# Settings
+ARCHMAGE.specialTraits: Special Traits
+ARCHMAGE.baseAC: Base AC
+ARCHMAGE.basePD: Base PD
+ARCHMAGE.baseMD: Base MD
+ARCHMAGE.recoveryDice: Recovery Dice
+ARCHMAGE.meleeWeaponDice: Melee Weapon Dice
+ARCHMAGE.rangedWeaponDice: Ranged Weapon Dice
+ARCHMAGE.meleeAbility: Melee Ability
+ARCHMAGE.rangedAbility: Ranged Ability
+ARCHMAGE.meleeMiss: Melee Miss Dmg.
+ARCHMAGE.rangedMiss: Ranged Miss Dmg.
+# NPC Sheets
+ARCHMAGE.attributes: Attributes
+ARCHMAGE.misc: Misc.
+ARCHMAGE.miscellaneous: Miscellaneous
+ARCHMAGE.resistance: Resistance
+ARCHMAGE.vulnerability: Vulnerability
+ARCHMAGE.details: Details
+ARCHMAGE.size: Size
+ARCHMAGE.role: Role
+ARCHMAGE.actions: Actions
+ARCHMAGE.traits: Traits
+ARCHMAGE.nastierSpecials: Nastier Specials
+# Item sheets
+ARCHMAGE.description: Description
+ARCHMAGE.ITEM.price: Price
+ARCHMAGE.ITEM.attackBonuses: Attack Bonuses
+ARCHMAGE.ITEM.meleeAttackBonus: Melee Attack Bonus
+ARCHMAGE.ITEM.rangedAttackBonus: Ranged Attack Bonus
+ARCHMAGE.ITEM.divineAttackBonus: Divine Spell / Divine Attack Bonus
+ARCHMAGE.ITEM.arcaneAttackBonus: Arcane Spell / Arcane Attack Bonus
+ARCHMAGE.ITEM.defenseBonuses: Defense Bonuses
+ARCHMAGE.ITEM.acBonus: AC Bonus
+ARCHMAGE.ITEM.pdBonus: PD Bonus
+ARCHMAGE.ITEM.mdBonus: MD Bonus
+ARCHMAGE.ITEM.hpBonus: HP Bonus
+ARCHMAGE.ITEM.chakraSlot: Chakra Slot
+# Chat cards
+ARCHMAGE.CHAT.actionType: Action Type
+ARCHMAGE.CHAT.powerUsage: Power Usage
+ARCHMAGE.CHAT.powerSource: Power Source
+ARCHMAGE.CHAT.powerType: Power Type
+ARCHMAGE.CHAT.powerLevel: Level
+ARCHMAGE.CHAT.range: Range
+ARCHMAGE.CHAT.recharge: Recharge
+ARCHMAGE.CHAT.trigger: Trigger
+ARCHMAGE.CHAT.target: Target
+ARCHMAGE.CHAT.always: Always
+ARCHMAGE.CHAT.attack: Attack
+ARCHMAGE.CHAT.hit: Hit
+ARCHMAGE.CHAT.hitEven: Even Hit
+ARCHMAGE.CHAT.hitOdd: Odd Hit
+ARCHMAGE.CHAT.crit: Crit
+ARCHMAGE.CHAT.miss: Miss
+ARCHMAGE.CHAT.missEven: Even Miss
+ARCHMAGE.CHAT.missOdd: Odd Miss
+ARCHMAGE.CHAT.cost: Cost
+ARCHMAGE.CHAT.adventurer: Adventurer Feat
+ARCHMAGE.CHAT.champion: Champion Feat
+ARCHMAGE.CHAT.epic: Epic Feat
+ARCHMAGE.CHAT.adventurerDescription: Adventurer Feat Description
+ARCHMAGE.CHAT.championDescription: Champion Feat Description
+ARCHMAGE.CHAT.epicDescription: Epic Feat Description
+ARCHMAGE.CHAT.effect: Effect
+ARCHMAGE.CHAT.castBroadEffect: Cast for Broad Effect
+ARCHMAGE.CHAT.castPower: Cast for Power
+ARCHMAGE.CHAT.sustainedEffect: Opening and Sustained Effect
+ARCHMAGE.CHAT.finalVerse: Final Verse
+ARCHMAGE.CHAT.spellLevel3: 3rd Level Spell
+ARCHMAGE.CHAT.spellLevel5: 5th Level Spell
+ARCHMAGE.CHAT.spellLevel7: 7th Level Spell
+ARCHMAGE.CHAT.spellLevel9: 9th Level Spell
+ARCHMAGE.CHAT.spellChain: Chain Spell
+ARCHMAGE.CHAT.breathWeapon: Breath Weapon
+ARCHMAGE.CHAT.special: Special
+# NPC Chat Cards
+ARCHMAGE.CHAT.hit1: Special Hit (1)
+ARCHMAGE.CHAT.hit2: Special Hit (2)
+ARCHMAGE.CHAT.hit3: Special Hit (3)
