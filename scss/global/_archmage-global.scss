@@ -841,10 +841,10 @@ input[type="checkbox"] {
         order: 0;
 
         img {
-          // flex: 0 0 44px;
-          flex: 0;
-          width: auto;
-          height: auto;
+          flex: 0 0 44px;
+          // flex: 0;
+          width: 44px;
+          height: 44px;
           max-height: 100%;
         }
       }

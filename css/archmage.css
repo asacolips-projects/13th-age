@@ -924,10 +924,10 @@ input[type="checkbox"] {
   order: 0; }
   .archmage.sheet .item-sheet .sheet-header img, .archmage.actor-sheet .item-sheet .sheet-header img, .archmage.npc-sheet .item-sheet .sheet-header img, .archmage.item-sheet .item-sheet .sheet-header img {
     -webkit-box-flex: 0;
-    -ms-flex: 0;
-    flex: 0;
-    width: auto;
-    height: auto;
+    -ms-flex: 0 0 44px;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
     max-height: 100%; }
 
 .archmage.sheet .editor, .archmage.actor-sheet .editor, .archmage.npc-sheet .editor, .archmage.item-sheet .editor {
