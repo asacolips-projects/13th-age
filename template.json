@@ -683,7 +683,10 @@
         "ac": {"bonus": 0},
         "md": {"bonus": 0},
         "pd": {"bonus": 0},
-        "hp": {"bonus": 0}
+        "hp": {"bonus": 0},
+        "recoveries": {"bonus": 0},
+        "save": {"bonus": 0},
+        "disengage": {"bonus": 0}
       }
     }
   }
