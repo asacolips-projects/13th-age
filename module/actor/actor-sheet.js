@@ -216,31 +216,37 @@ export class ActorArchmageSheet extends ActorSheet {
       }
     });
 
-    html.find('.item-quantity.rollable').click(ev => {
+    html.find('.item-quantity.rollable').click(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
-      let quantity = item.data.data.quantity;
-      quantity.value = Number(quantity.value) + 1;
-      let that = this;
-      item.update({ "data.quantity": quantity }).then(item => {
-        html.find('input[name="data.attributes.hp.max"]').trigger('change');
-        that.render();
-      });
+
+      // Update the quantity.
+      let updatedItem = duplicate(item);
+      let quantity = updatedItem.data.quantity.value ? updatedItem.data.quantity.value : 0;
+      quantity = Number(quantity) + 1;
+      updatedItem.data.quantity.value = quantity;
+
+      // Update the owned item and rerender.
+      await this.actor.updateOwnedItem(updatedItem);
+      this.render();
     });
 
-    html.find('.item-quantity.rollable').contextmenu(ev => {
+    html.find('.item-quantity.rollable').contextmenu(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
-      let quantity = item.data.data.quantity;
-      quantity.value = Number(quantity.value) - 1;
-      quantity.value = quantity.value < 0 ? 0 : quantity.value;
-      let that = this;
-      item.update({ "data.quantity": quantity }).then(item => {
-        html.find('input[name="data.attributes.hp.max"]').trigger('change');
-        that.render();
-      });
+
+      // Update the quantity.
+      let updatedItem = duplicate(item);
+      let quantity = updatedItem.data.quantity.value ? updatedItem.data.quantity.value : 0;
+      quantity = Number(quantity) - 1;
+      quantity = quantity < 0 ? 0 : quantity;
+      updatedItem.data.quantity.value = quantity;
+
+      // Update the owned item and rerender.
+      await this.actor.updateOwnedItem(updatedItem);
+      this.render();
     });
 
     /* -------------------------------------------- */
