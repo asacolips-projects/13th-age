@@ -303,8 +303,6 @@ export class ActorArchmage extends Actor {
     var matchedClasses = classText.match(classRegex);
     data.details.detectedClasses = matchedClasses;
 
-    console.log(matchedClasses);
-
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
       data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");

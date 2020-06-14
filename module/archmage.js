@@ -295,7 +295,7 @@ Hooks.on("renderSettings", (app, html) => {
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
-  dice3d.addSystem({id: "13A", name: "13th Age"}, true);
+  dice3d.addSystem({ id: "13A", name: "13th Age" }, true);
 
   dice3d.addDicePreset({
     type: "d20",
@@ -329,7 +329,7 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
     composite: "source-over",
     source: "systems/archmage/images/redTexture.png"
   })
-  .then(() => {
+    .then(() => {
       dice3d.addColorset({
         name: '13a',
         description: "13th Age Red/Gold",
@@ -340,7 +340,7 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
         foreground: '#9F8003',
         default: true
       });
-  });
+    });
 
 });
 
