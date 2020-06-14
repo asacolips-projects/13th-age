@@ -88,15 +88,18 @@ export class ActorArchmageSheet extends ActorSheet {
     actorData.powers = powers;
     actorData.equipment = equipment;
 
-    if (!actorData.data.resources) {
-      actorData.data.resouces = {
-        perCombat: { anyEnabled: false },
-        spendable: { anyEnabled: false }
-      };
+    actorData.data.resources = actorData.data.resources ? actorData.data.resources : {};
+
+    if (!actorData.data.resources.perCombat) {
+      actorData.data.resources.perCombat = { anyEnabled: false };
+    }
+    if (!actorData.data.resources.spendable) {
+      actorData.data.resources.spendable = { anyEnabled: false };
     }
 
     actorData.data.resources.perCombat.anyEnabled = actorData.data.resources.perCombat?.momentum?.enabled || actorData.data.resources.perCombat?.commandPoints?.enabled;
     actorData.data.resources.spendable.anyEnabled = actorData.data.resources.spendable?.ki?.enabled || actorData.data.resources.spendable?.custom1?.enabled || actorData.data.resources.spendable?.custom2?.enabled || actorData.data.resources.spendable?.custom3?.enabled;
+
   }
 
   /* -------------------------------------------- */
@@ -314,8 +317,14 @@ export class ActorArchmageSheet extends ActorSheet {
 
       let classRegex = new RegExp(allClasses.join('|'), 'g');
 
-      let cleanClassName = this.actor.data.data.details.class.value.toLowerCase().replace(/[^a-zA-z\d]/g, '');
+      let cleanClassName = this.actor.data.data.details.class.value;
+      cleanClassName = cleanClassName ? cleanClassName.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
       let powerLevel = this.actor.data.data.details.level;
+
+      if (cleanClassName == '') {
+        ui.notifications.error(`No class has been added to this character. Add a class before attempting to import powers.`);
+        return;
+      }
 
       let characterClasses = cleanClassName.match(classRegex);
 

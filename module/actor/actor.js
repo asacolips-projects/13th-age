@@ -302,7 +302,8 @@ export class ActorArchmage extends Actor {
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
 
-    var classText = data.details.class.value.toLowerCase();
+    var classText = data.details.class?.value;
+    classText = classText ? classText.toLowerCase() : '';
 
     var matchedClasses = classText.match(classRegex);
     data.details.detectedClasses = matchedClasses;
