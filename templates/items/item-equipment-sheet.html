@@ -1,15 +1,15 @@
 <form class="dnd5e item-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
     <article class="sheet-content">
 
         <section class="sheet-body">
             <nav class="sheet-tabs tabs" data-group="primary">
-                <a class="item" data-tab="description">Description</a>
-                <a class="item" data-tab="details">Details</a>
+                <a class="item" data-tab="description">{{localize 'ARCHMAGE.description'}}</a>
+                <a class="item" data-tab="details">{{localize 'ARCHMAGE.details'}}</a>
             </nav>
 
             <div class="sheet-tabs-content">
@@ -19,70 +19,70 @@
 
               <div class="tab" data-group="primary" data-tab="details">
                   <div class="settings-group">
-                      <strong class="attribute-name">Price</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.price'}}</strong>
                       <input name="data.price.value" type="text" value="{{data.price.value}}"
                           data-dtype="String" placeholder="1,000gp" />
                   </div>
 
                   <div class="settings-group form-group">
-                      <label>Attack Bonuses</label>
+                      <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">Melee Attack Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeAttackBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.attack.melee.bonus" type="text" value="{{data.attributes.attack.melee.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">Ranged Attack Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedAttackBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.attack.ranged.bonus" type="text" value="{{data.attributes.attack.ranged.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">Divine Spell / Divine Attack Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.divineAttackBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.attack.divine.bonus" type="text" value="{{data.attributes.attack.divine.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">Arcane Spell / Arcane Attack Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneAttackBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.attack.arcane.bonus" type="text" value="{{data.attributes.attack.arcane.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group form-group" style="padding-top: 10px;">
-                      <label>Defense Bonuses</label>
+                      <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">AC Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.ac.bonus" type="text" value="{{data.attributes.ac.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">PD Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.pdBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.pd.bonus" type="text" value="{{data.attributes.pd.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
-                      <strong class="attribute-name">MD Bonus</strong>
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.mdBonus'}}</strong>
                       <input class="attribute-input" name="data.attributes.md.bonus" type="text" value="{{data.attributes.md.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
-                    <strong class="attribute-name">HP Bonus</strong>
+                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.hpBonus'}}</strong>
                     <input class="attribute-input" name="data.attributes.hp.bonus" type="text" value="{{data.attributes.hp.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
 
 
                   <div class="settings-group form-group" style="padding-top: 10px;">
-                      <label>Chakra Slot</label>
+                      <label>{{localize 'ARCHMAGE.ITEM.chakraSlot'}}</label>
                   </div>
 
                   <div class="settings-group">

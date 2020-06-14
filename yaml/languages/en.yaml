@@ -122,6 +122,18 @@ ARCHMAGE.traits: Traits
 ARCHMAGE.nastierSpecials: Nastier Specials
 # Item sheets
 ARCHMAGE.description: Description
+ARCHMAGE.ITEM.price: Price
+ARCHMAGE.ITEM.attackBonuses: Attack Bonuses
+ARCHMAGE.ITEM.meleeAttackBonus: Melee Attack Bonus
+ARCHMAGE.ITEM.rangedAttackBonus: Ranged Attack Bonus
+ARCHMAGE.ITEM.divineAttackBonus: Divine Spell / Divine Attack Bonus
+ARCHMAGE.ITEM.arcaneAttackBonus: Arcane Spell / Arcane Attack Bonus
+ARCHMAGE.ITEM.defenseBonuses: Defense Bonuses
+ARCHMAGE.ITEM.acBonus: AC Bonus
+ARCHMAGE.ITEM.pdBonus: PD Bonus
+ARCHMAGE.ITEM.mdBonus: MD Bonus
+ARCHMAGE.ITEM.hpBonus: HP Bonus
+ARCHMAGE.ITEM.chakraSlot: Chakra Slot
 # Chat cards
 ARCHMAGE.CHAT.actionType: Action Type
 ARCHMAGE.CHAT.powerUsage: Power Usage
@@ -160,3 +172,7 @@ ARCHMAGE.CHAT.spellLevel9: 9th Level Spell
 ARCHMAGE.CHAT.spellChain: Chain Spell
 ARCHMAGE.CHAT.breathWeapon: Breath Weapon
 ARCHMAGE.CHAT.special: Special
+# NPC Chat Cards
+ARCHMAGE.CHAT.hit1: Special Hit (1)
+ARCHMAGE.CHAT.hit2: Special Hit (2)
+ARCHMAGE.CHAT.hit3: Special Hit (3)

@@ -90,7 +90,7 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.target'}}</label>
-                      <input type="text" name="data.target.value" value="{{data.target.value}}" data-dtype="{{data.target.type}}" placeholder="1d3 nearby enemies"/>
+                      <input type="text" name="data.target.value" value="{{data.target.value}}" data-dtype="{{data.target.type}}" placeholder="[[1d3]] nearby enemies"/>
                   </div>
 
                   <div class="form-group">
@@ -100,12 +100,12 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.attack'}}</label>
-                      <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="Strength + Level vs. AC"/>
+                      <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="[[d20+@str.mod+@lvl+@ed]] vs. AC"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.hit'}}</label>
-                      <input type="text" name="data.hit.value" value="{{data.hit.value}}" data-dtype="{{data.hit.type}}" placeholder="WEAPON + Strength damage"/>
+                      <input type="text" name="data.hit.value" value="{{data.hit.value}}" data-dtype="{{data.hit.type}}" placeholder="[[@wpn.m.dice+@str.dmg]] damage"/>
                   </div>
 
                   <div class="form-group">
@@ -125,7 +125,7 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.miss'}}</label>
-                      <input type="text" name="data.miss.value" value="{{data.miss.value}}" data-dtype="{{data.miss.type}}" placeholder="Damage equal to your level"/>
+                      <input type="text" name="data.miss.value" value="{{data.miss.value}}" data-dtype="{{data.miss.type}}" placeholder="Damage equal to your level ([[@lvl]])"/>
                   </div>
 
                   <div class="form-group">
@@ -201,22 +201,22 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel3'}}</label>
-                      <input type="text" name="data.spellLevel3.value" value="{{data.spellLevel3.value}}" data-dtype="{{data.spellLevel3.type}}" placeholder="3d6 damage"/>
+                      <input type="text" name="data.spellLevel3.value" value="{{data.spellLevel3.value}}" data-dtype="{{data.spellLevel3.type}}" placeholder="[[3d6]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel5'}}</label>
-                      <input type="text" name="data.spellLevel5.value" value="{{data.spellLevel5.value}}" data-dtype="{{data.spellLevel5.type}}" placeholder="5d6 damage"/>
+                      <input type="text" name="data.spellLevel5.value" value="{{data.spellLevel5.value}}" data-dtype="{{data.spellLevel5.type}}" placeholder="[[5d6]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel7'}}</label>
-                      <input type="text" name="data.spellLevel7.value" value="{{data.spellLevel7.value}}" data-dtype="{{data.spellLevel7.type}}" placeholder="7d6 damage"/>
+                      <input type="text" name="data.spellLevel7.value" value="{{data.spellLevel7.value}}" data-dtype="{{data.spellLevel7.type}}" placeholder="[[7d6]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel9'}}</label>
-                      <input type="text" name="data.spellLevel9.value" value="{{data.spellLevel9.value}}" data-dtype="{{data.spellLevel9.type}}" placeholder="9d6 damage"/>
+                      <input type="text" name="data.spellLevel9.value" value="{{data.spellLevel9.value}}" data-dtype="{{data.spellLevel9.type}}" placeholder="[[9d6]] damage"/>
                   </div>
 
                   <details class="form-details" open="true">
