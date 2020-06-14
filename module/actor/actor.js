@@ -129,6 +129,61 @@ export class ActorArchmage extends Actor {
       // }
 
 
+      // Coins
+      if (!data.coins) {
+        data.coins = {
+          showRare: false,
+          platinum: 0,
+          gold: 0,
+          silver: 0,
+          copper: 0
+        }
+      }
+
+      data.coins.showRare = game.settings.get("archmage", "showRareCoins");
+
+
+      // Resources
+
+      if (!data.resources) {
+        data.resources = {
+          perCombat: {
+            commandPoints: {
+              current: 0,
+              enabled: false
+            },
+            momentum: {
+              current: 0,
+              enabled: false
+            }
+          },
+          spendable: {
+            ki: {
+              current: 0,
+              max: 0,
+              enabled: false
+            },
+            custom1: {
+              label: "",
+              current: 0,
+              max: 0,
+              enabled: false
+            },
+            custom2: {
+              label: "",
+              current: 0,
+              max: 0,
+              enabled: false
+            },
+            custom3: {
+              label: "",
+              current: 0,
+              max: 0,
+              enabled: false
+            },
+          }
+        }
+      }
 
       // Add level ability mods.
       // Replace the ability attributes in the calculator with custom formulas.
@@ -237,6 +292,23 @@ export class ActorArchmage extends Actor {
 
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
+
+
+    // Find known classes
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+
+    var classText = data.details.class.value.toLowerCase();
+
+    var matchedClasses = classText.match(classRegex);
+    data.details.detectedClasses = matchedClasses;
+
+    // Enable resources based on detected classes
+    if (data.details.detectedClasses) {
+      data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+      data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+      data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
+    }
   }
 
   /* -------------------------------------------- */
@@ -283,7 +355,7 @@ export class ActorArchmage extends Actor {
       event: event,
       parts: parts,
       data: {
-        mod: abl.mod + this.data.data.attributes.level.value,
+        mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals.skills ? 1 : 0),
         background: 0
       },
       backgrounds: this.data.data.backgrounds,

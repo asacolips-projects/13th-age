@@ -22,7 +22,14 @@
                     {{{data.description.value}}}
                 </div>
             {{/if}}
-            {{!-- TODO: Loop over data.feats --}}
+            {{#if data.feats}}
+                {{#each data.feats as |feat key|}}
+                    <div class="tag tag--feat tag--{{#if feat.isActive}}active{{else}}inactive {{hideBasedOnSystemSetting}}{{/if}} tag--{{safeCSSId feat.label}}">
+                        <strong>{{feat.label}}:</strong>
+                        <div class="description">{{{feat.description}}}</div>
+                    </div>
+                {{/each}}
+            {{/if}}
         </div>
     </div>
 

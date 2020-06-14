@@ -118,6 +118,15 @@ input[type="checkbox"] {
 #chat-log {
   .message {
     font-family: $font-stack-secondary;
+    background: url('../assets/src/ricepaper2_@2X.png');
+    background-attachment: local;
+    background-size: 300px;
+    // box-shadow: inset 0 0 32px 4px $ct-black--45;
+    font-size: 14px;
+
+    p {
+      margin: 0 0 14px 0;
+    }
   }
 
   .card-header {
@@ -194,7 +203,7 @@ input[type="checkbox"] {
     }
 
     .window-content {
-      background: url('../assets/src/ricepaper2_@2X.png');
+      background: url('../assets/src/ricepaper2_@2X.png') #fff;
       background-attachment: local;
       background-size: 300px;
       box-shadow: inset 0 0 32px 4px $ct-black--45;
@@ -311,6 +320,12 @@ input[type="checkbox"] {
           flex: 0 0 220px;
         }
 
+        .sheet-tabs {
+          >.item {
+            font-size: 12px;
+          }
+        }
+
         .tab {
           padding-right: 3px;
         }
@@ -325,7 +340,12 @@ input[type="checkbox"] {
         >.item {
           border-radius: 5px 5px 0 0;
           line-height: 26px;
-          padding: 0 10px;
+          padding: 0 4px;
+          font-weight: normal;
+
+          &[data-tab="incrementals"] {
+            flex: 2;
+          }
 
           &.active {
             border: 1px solid $c-gray--med;
@@ -590,7 +610,7 @@ input[type="checkbox"] {
         }
 
         &:last-child {
-          border-right: 0;
+          // border-right: 0;
           margin-right: 0;
         }
 
@@ -653,14 +673,24 @@ input[type="checkbox"] {
             > span {
               border-right: 1px solid $ct-black--25;
               flex: 65%;
-              padding: 0 8px;
-              text-align: right;
+              padding: 0 4px;
+              text-align: center;
+              font-weight: bold;
+              font-size: 12px;
+
+              &.attribute-subname--grow {
+                flex: 100%;
+                font-size: 12px;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                padding: 2px;
+              }
             }
 
             > input {
               flex: 35%;
-              padding-left: 8px;
-              text-align: left;
+              padding: 0 2px;
+              text-align: center;
             }
           }
 
@@ -686,6 +716,10 @@ input[type="checkbox"] {
             &.hpformula {
               max-width: 90%;
             }
+          }
+
+          .temphp + .attribute-subname {
+            border-left: 1px solid $ct-black--25;
           }
 
           .rest {
@@ -779,7 +813,7 @@ input[type="checkbox"] {
 
     .biography {
       .editor {
-        height: 380px;
+        height: 100%;
         padding-left: 8px;
       }
     }
@@ -807,7 +841,11 @@ input[type="checkbox"] {
         order: 0;
 
         img {
-          flex: 0 0 44px;
+          // flex: 0 0 44px;
+          flex: 0;
+          width: auto;
+          height: auto;
+          max-height: 100%;
         }
       }
     }
@@ -1218,6 +1256,15 @@ input[type="checkbox"] {
   }
 }
 
+.window-app {
+  .window-content {
+    background: url('../assets/src/ricepaper2_@2X.png') #fff;
+    background-attachment: local;
+    background-size: 300px;
+    box-shadow: inset 0 0 32px 4px $ct-black--45;
+  }
+}
+
 // Biography Tab
 
 // Abilities Sidebar Tab
@@ -1281,6 +1328,30 @@ input[type="checkbox"] {
     &:last-child {
       border-right: 0;
     }
+  }
+}
+
+.tag--feat {
+  $c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
+  background: $c-feat;
+  border: 0;
+  margin: 4px 0;
+
+  &.tag--inactive {
+    opacity: 0.3;
+  }
+
+  > strong {
+    display: block;
+    margin: 8px 0 0 4px;
+  }
+
+  .description {
+    margin-left: 12px;
+  }
+
+  p {
+    margin: 0 0 8px;
   }
 }
 
@@ -1437,26 +1508,6 @@ input[type="checkbox"] {
 
         .description {
           margin-left: 8px;
-        }
-      }
-
-      .tag--feat {
-        $c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
-        background: $c-feat;
-        border: 0;
-        margin: 4px 0;
-
-        > strong {
-          display: block;
-          margin: 8px 0 0 4px;
-        }
-
-        .description {
-          margin-left: 12px;
-        }
-
-        p {
-          margin: 0 0 8px;
         }
       }
     }
@@ -1784,6 +1835,11 @@ input[type="checkbox"] {
       outline: 0;
     }
   }
+
+  .textarea {
+    font-family: $font-stack-secondary;
+    min-height: 110px;
+  }
 }
 
 .archmage.sheet .action-sheet {
@@ -1875,7 +1931,8 @@ input[type="checkbox"] {
 
   .actions-header,
   .traits-header,
-  .nastier-specials-header {
+  .nastier-specials-header,
+  .npc-details-header {
     .item-name,
     .item-controls {
       background: $ct-black--75;
@@ -1977,6 +2034,13 @@ input[type="checkbox"] {
 #chat-form {
   position: relative;
 
+  textarea {
+    background: url('../assets/src/ricepaper2_@2X.png') #fff;
+    background-attachment: local;
+    background-size: 300px;
+    box-shadow: inset 0 0 32px 4px $ct-black--45;
+  }
+
   &::before {
     background-image: url('../assets/src/13a-logo.png');
     background-repeat: no-repeat;
@@ -1990,6 +2054,85 @@ input[type="checkbox"] {
     position: absolute;
     right: 10px;
     width: 100px;
+  }
+}
+
+// Compendium hacks.
+.compendium {
+  &.overrides {
+    // Hide the original compendium.
+    .directory-list {
+      display: none;
+
+      // Show the new compendium.
+      &.directory-list--archmage {
+        display: block;
+      }
+    }
+  }
+
+  .directory-list--archmage {
+    .directory-list--archmage {
+      overflow-y: visible;
+    }
+
+    .directory-item {
+      display: none;
+    }
+
+    h3.entry-group {
+      font-family: $font-stack-base;
+      font-weight: normal;
+      font-size: 24px;
+      text-shadow: 1px 1px 2px $c-black;
+      text-align: center;
+      text-transform: capitalize;
+      line-height: 1;
+      white-space: normal;
+      padding: 10px;
+      margin: 4px 0;
+      color: $c-white;
+      background: linear-gradient(45deg, #6f98b1, #333);
+    }
+
+    .directory-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      font-family: $font-stack-secondary;
+
+      h4.entry-name {
+        display: flex;
+        flex-wrap: wrap;
+
+        a {
+          font-family: $font-stack-base;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 1;
+          white-space: normal;
+          padding: 0 0 4px;
+        }
+
+        .tags {
+          line-height: 1;
+          margin: 0;
+          text-transform: capitalize;
+          font-size: 12px;
+          padding: 4px 0;
+          width: 100%;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      &.ability-usage {
+        h4.entry-name {
+          .tags {
+            color: $c-white;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -2060,18 +2203,29 @@ input[type="checkbox"] {
 
 .chat-card,
 .message {
-  .inline-roll {
+  .inline-roll,
+  .inline-roll--archmage {
     background: $ct-black--75;
     color: $c-white;
     border-color: $c-black;
     border-radius: 4px;
     display: inline-block;
     line-height: 0;
-    padding: 1px 4px;
+    padding: 2px;
     transition: transform ease-in-out 0.25s;
 
+    &.expanded {
+      color: $c-white;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      line-height: 1;
+    }
+
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.05);
       z-index: 90;
     }
 
@@ -2079,6 +2233,19 @@ input[type="checkbox"] {
       color: $c-white;
       font-size: 10px;
       line-height: 12px;
+    }
+
+    .die,
+    .mod {
+      padding: 0 2px;
+    }
+
+    .die {
+      color: #ffbd23;
+    }
+
+    .die--discarded {
+      opacity: 0.5;
     }
   }
 
@@ -2094,6 +2261,10 @@ input[type="checkbox"] {
       text-shadow: 0 0 8px $c-black;
     }
 
+    .die {
+      color: $c-crit;
+    }
+
     .fas {
       color: $c-crit;
     }
@@ -2103,6 +2274,10 @@ input[type="checkbox"] {
     color: $c-fail;
     background: rgba(70, 0, 0, 0.75);
 
+    .die {
+      color: $c-fail;
+    }
+
     &:hover {
       text-shadow: 0 0 8px $c-black;
     }
@@ -2111,4 +2286,29 @@ input[type="checkbox"] {
       color: $c-fail;
     }
   }
+}
+
+.trigger-active {
+  color: #005800;
+}
+
+.trigger-inactive {
+  opacity: 0.3;
+}
+
+.hide {
+  display: none;
+}
+
+.currency-input {
+  height: 25px !important;
+  text-align: center !important;
+}
+
+.attribute--currencies {
+  height: 50px !important;
+}
+
+.currencies {
+  flex: 0 0 60px !important;
 }

@@ -55,3 +55,14 @@ If you're using the **Inline Rolls** setting of the [Dice Calculator](https://gi
 | @attr.escalation.value | Current value of the Escalation Die |
 | @attr.weapon.melee.value | Melee weapon damage dice |
 | @attr.weapon.ranged.value | Ranged weapon damage dice |
+
+## Credits
+
+### Development
+
+* asacolips
+* cswendrowski
+
+### Compendium Content
+
+* Veilheim (Chaos Mage)

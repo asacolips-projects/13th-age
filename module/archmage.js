@@ -19,15 +19,59 @@ Hooks.once('init', async function() {
     ).replace(/%[0-9A-F]{2}/gi, '-');
   }
 
+  Handlebars.registerHelper('safeCSSId', (arg) => {
+    return `${arg}`.safeCSSId();
+  });
+
+  Handlebars.registerHelper('getPowerClass', (inputString) => {
+    // Get the appropriate usage.
+    let usage = 'other';
+    let usageString = inputString !== null ? inputString.toLowerCase() : '';
+    if (usageString.includes('will')) {
+      usage = 'at-will';
+    }
+    else if (usageString.includes('recharge')) {
+      usage = 'recharge';
+    }
+    else if (usageString.includes('battle')) {
+      usage = 'once-per-battle';
+    }
+    else if (usageString.includes('daily')) {
+      usage = 'daily';
+    }
+
+    return usage;
+  });
+
+  Handlebars.registerHelper('concat', function() {
+    var outStr = '';
+    for (var arg in arguments) {
+      if (typeof arguments[arg] != 'object') {
+        outStr += arguments[arg];
+      }
+    }
+    return outStr;
+  });
+
+  Handlebars.registerHelper('hideBasedOnSystemSetting', () => {
+    if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
+      return "hide";
+    }
+    return "";
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
     ActorArchmageNPCSheet,
     DiceArchmage,
     ItemArchmage,
-    ItemArchmageSheet
+    ItemArchmageSheet,
+    ArchmageUtility,
+    rollItemMacro,
   };
 
+  // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
 
@@ -108,6 +152,25 @@ Hooks.once('init', async function() {
     scope: "world",
     type: Boolean,
     default: true,
+    config: true
+  });
+
+  game.settings.register("archmage", "hideInsteadOfOpaque", {
+    name: "Hide inactive Features / Triggers instead of making them faded-out",
+    hint: "Enable this if you prefer not seeing inactive details at all",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
+  game.settings.register('archmage', 'showRareCoins', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
     config: true
   });
 
@@ -214,6 +277,9 @@ Hooks.once('ready', () => {
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
+
+  // Wait to register the hotbar macros until ready.
+  Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
 });
 
 /* ---------------------------------------------- */
@@ -228,6 +294,228 @@ Hooks.on("renderSettings", (app, html) => {
   });
 });
 
+Hooks.on('diceSoNiceReady', (dice3d) => {
+  dice3d.addSystem({ id: "13A", name: "13th Age" }, true);
+
+  dice3d.addDicePreset({
+    type: "d20",
+    labels: [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "systems/archmage/images/nat20.png"
+    ],
+    system: "13A"
+  });
+
+  dice3d.addTexture("13Ared", {
+    name: "13th Age Red",
+    composite: "source-over",
+    source: "systems/archmage/images/redTexture.png"
+  })
+    .then(() => {
+      dice3d.addColorset({
+        name: '13a',
+        description: "13th Age Red/Gold",
+        category: "13th Age",
+        background: ["#9F8"],
+        texture: '13Ared',
+        edge: '#9F8003',
+        foreground: '#9F8003',
+        default: true
+      });
+    });
+
+});
+
+// Hijack compendium search.
+Hooks.on('renderCompendium', async (compendium, html, options) => {
+  let compendiumContent = null;
+  let newOptions = duplicate(options);
+  newOptions.index = {};
+  if (compendium.metadata.entity == 'Item') {
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+    if (compendium.metadata.name.match(classRegex)) {
+      // Hide the original compendium.
+      html.find('.compendium').addClass('overrides');
+      compendiumContent = await compendium.getContent();
+      compendiumContent.forEach(p => {
+        let option = options.index.find(o => o._id == p._id);
+        let data = p.data.data;
+        option.search = {
+          level: data.powerLevel ? data.powerLevel.value : null,
+          usage: data.powerUsage?.value ? data.powerUsage.value : 'other',
+          type: data.powerType ? data.powerType.value : 'other',
+          action: data.actionType ? data.actionType.value : null,
+        };
+      }, {});
+    }
+
+    newOptions.index = duplicate(options).index.reduce((groups, option) => {
+      if (option._id) {
+        let group = option.search.type ? option.search.type : 'other';
+        if (!groups[group]) {
+          groups[group] = [];
+        }
+        groups[group].push(option);
+      }
+      return groups;
+    }, {});
+  }
+  if (compendium.metadata.entity == 'Actor') {
+    // Hide the original compendium.
+    html.find('.compendium').addClass('overrides');
+    // Build a search index.
+    compendiumContent = await compendium.getContent();
+    compendiumContent.forEach(m => {
+      let option = options.index.find(o => o._id == m._id);
+      let data = m.data.data;
+      option.search = {
+        level: data.details.level ? data.details.level.value : null,
+        class: data.details.class.value ? data.details.class.value : null,
+        race: data.details.race.value ? data.details.race.value : null,
+        size: data.details.size ? data.details.size.value : null,
+        role: data.details.role ? data.details.role.value : null,
+        type: data.details.type ? data.details.type.value : 'other',
+      };
+    });
+    newOptions.index = duplicate(options).index.reduce((groups, option) => {
+      if (option._id) {
+        // console.log(option);
+        let group = option.search.type ? option.search.type : 'other';
+        if (!groups[group]) {
+          groups[group] = [];
+        }
+        groups[group].push(option);
+      }
+      return groups;
+    }, {});
+  }
+
+  if (compendiumContent) {
+    // Sort the options.
+    for (let [groupKey, group] of Object.entries(newOptions.index)) {
+      group.sort((a, b) => a.search.level - b.search.level);
+    }
+    // Replace the markup.
+    html.find('.directory-list').remove();
+    let template = 'systems/archmage/templates/sidebar/apps/compendium.html';
+    let content = await renderTemplate(template, newOptions);
+    html.find('.directory-header').after(content);
+
+    // Handle search filtering.
+    html.find('input[name="search"]').off('keyup');
+    html.find('input[name="search"]').on('keyup', event => {
+      // Close all directories.
+      html.find('.entry-group + .directory-list--archmage').addClass('hidden');
+      let searchString = event.target.value
+
+      const query = new RegExp(RegExp.escape(searchString), "i");
+      html.find('li.directory-item').each((i, li) => {
+        // Show the matches, and open their directory.
+        let name = li.getElementsByClassName('entry-name')[0].textContent;
+        if (searchString != '' && query.test(name)) {
+          li.style.display = 'flex';
+          $(li).parents('.directory-list--archmage').removeClass('hidden');
+        }
+        // Hide non-matches.
+        else {
+          li.style.display = 'none';
+        }
+      });
+      options.searchString = searchString;
+    });
+
+    // Handle sheet opening.
+    html.find('.entry-name').click(ev => {
+      let li = ev.currentTarget.parentElement;
+      compendium.getEntity(li.dataset.entryId).then(entity => {
+        entity.sheet.render(true);
+      });
+    });
+
+    // Handle lazy loading images.
+    let lazyCallback = (entries, observer) => {
+      for (let e of entries) {
+        if (!e.isIntersecting) continue;
+        const li = e.target;
+
+        // Background Image
+        if (li.dataset.backgroundImage) {
+          li.style["background-image"] = `url("${li.dataset.backgroundImage}")`;
+          delete li.dataset.backgroundImage;
+        }
+
+        // Avatar image
+        const img = li.querySelector("img");
+        if (img && img.dataset.src) {
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+        }
+
+        // No longer observe the target
+        observer.unobserve(e.target);
+      }
+    }
+
+    const directory = html.find('.directory-list');
+    const entries = directory.find('.directory-item');
+
+    const observer = new IntersectionObserver(lazyCallback, { root: directory[0] });
+    entries.each((i, li) => observer.observe(li));
+
+    // Handle dragdrop.
+    const dragDrop = new DragDrop(compendium.options.dragDrop[0]);
+    dragDrop.bind(html[0]);
+
+    // Handle folder toggles.
+    html.find('.entry-group').on('click', event => {
+      event.preventDefault();
+      let key = $(event.currentTarget).data('key');
+      $(event.currentTarget).toggleClass('hidden');
+      html.find(`.directory-item[data-key="${key}"]`).css('display', $(event.currentTarget).hasClass('hidden') ? 'none' : 'flex');
+      return false;
+    })
+  }
+});
+
+/* ---------------------------------------------- */
+Hooks.on('preCreateToken', async (scene, data, options, id) => {
+  let actorId = data.actorId;
+  // Attempt to get the actor.
+  let actor = game.actors.get(actorId);
+
+  // If there's an actor, set the token size.
+  if (actor) {
+    let size = actor.data.data.details.size?.value;
+    if (size == 'large') {
+      data.height = 2;
+      data.width = 2;
+    }
+    if (size == 'huge') {
+      data.height = 3;
+      data.width = 3;
+    }
+  }
+});
+
 /* ---------------------------------------------- */
 
 /**
@@ -236,14 +524,28 @@ Hooks.on("renderSettings", (app, html) => {
 Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let $content = $(`<div class="wrapper">${data.content}</div>`);
   let $rolls = $content.find('.inline-result');
+  let rollTotal = undefined;
+  let rollTarget = "";
+  let originalRolls = $rolls;
   let updated_content = null;
+  let hasHit = undefined;
+  let hasMissed = undefined;
+  let targetsHit = [];
+  let targetsMissed = [];
+  let targets = [];
+
+  let actor = game.actors.get(data.speaker.actor);
+  if (data.speaker.token) {
+    let token = canvas.tokens.get(data.speaker.token);
+    actor = token.actor;
+  }
 
   // Iterate through inline rolls, add a class to crits/fails.
   for (let i = 0; i < $rolls.length; i++) {
     let $roll = $($rolls[i]);
 
     let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
-    let result = ArchmageUtility.inlineRollCritTest(roll_data);
+    let result = ArchmageUtility.inlineRollCritTest(roll_data, actor);
 
     if (result.includes('crit')) {
       $roll.addClass('dc-crit');
@@ -252,8 +554,17 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       $roll.addClass('dc-fail');
     }
 
+    let rollResult = 0;
+    // console.log(roll_data);
+    roll_data.parts.forEach(p => {
+      if (p.faces === 20) {
+        rollResult = p.total;
+      }
+    });
+
     // Update the array of roll HTML elements.
     $rolls[i] = $roll[0];
+    $rolls[i].d20result = rollResult;
   }
 
   // Now that we know which rolls were crits, update the content string.
@@ -271,17 +582,254 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
     // Assume no crit or fail.
     let has_crit = false;
     let has_fail = false;
+
     // Iterate through each of the card properties/rows.
     $rows.each(function(index) {
       // Determine if this line is for an attack and if it's a crit/fail.
       let $row_self = $(this);
       let row_text = $row_self.html();
+
+
       if (row_text.includes('Attack:')) {
         if (row_text.includes('dc-crit')) {
           has_crit = true;
         }
         if (row_text.includes('dc-fail')) {
           has_fail = true;
+        }
+
+        //console.log(game.user.targets);
+
+        // If the user currently has Targets selected, try and figure out if we hit or missed said target
+        if (targets.length > 0) {
+          if (row_text.toLowerCase().includes(" ac")) {
+            rollTarget = "ac";
+          }
+          else if (row_text.toLowerCase().includes(" pd")) {
+            rollTarget = "pd";
+          }
+          else if (row_text.toLowerCase().includes(" md")) {
+            rollTarget = "md";
+          }
+
+          let $roll = $row_self.find('.inline-result');
+          // If there isn't exactly one roll, then we can't parse it
+          if ($roll.length === 1) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+              let $roll_self = $(this);
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              rollTotal = roll_data.total;
+            });
+          }
+
+          // console.log(rollTotal + " vs " + rollTarget);
+
+          if (rollTotal != undefined) {
+            targets.forEach(target => {
+              //console.log(target);
+
+              var targetDefense = getTargetDefenseValue(target);
+
+              var hit = rollTotal > targetDefense;
+              //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
+
+              // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
+              if (hit) {
+                targetsHit.push(target.data.name);
+                if (hasHit == undefined || !hasHit) {
+                  hasHit = true;
+                }
+                if (hasMissed == undefined) {
+                  hasMissed = false;
+                }
+              }
+              else {
+                targetsMissed.push(target.data.name);
+                if (hasMissed == undefined || !hasMissed) {
+                  hasMissed = true;
+                }
+                if (hasHit == undefined) {
+                  hasHit = false;
+                }
+              }
+            });
+          }
+
+          //console.log(targetsHit);
+          //console.log(targetsMissed);
+
+          // Get either the Token overridden value or the base sheet value
+          function getTargetDefenseValue(target) {
+            if (target.data?.actorData?.data?.attributes != undefined) {
+              // Return token overridden value
+              if (target.data.actorData.data.attributes[rollTarget]) {
+                return target.data.actorData.data.attributes[rollTarget].value;
+              }
+            }
+            return target.actor.data.data.attributes[rollTarget].value;
+          }
+        }
+      }
+
+
+      if (row_text.includes('Target:') && game.user.targets.size > 0) {
+
+        function shuffle(a) {
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+
+        targets = [...game.user.targets.values()];
+
+        if (row_text.toLowerCase().includes("random")) {
+          targets = shuffle(targets);
+        }
+
+        // If there are 3 targets selected but the attack only can hit 2 (ex: result of 1d3 nearby targets), then we slice to that amount, in order of selection (unless randomized)
+
+        // This regex just finds any numbers in the string, and we use the first one
+        var regex = new RegExp("\\d+");
+        var scoreToBeatArray = regex.exec($row_self[0].innerText);
+
+        if (scoreToBeatArray && scoreToBeatArray.length == 1) {
+          var maxTargets = parseInt(scoreToBeatArray[0]);
+          //console.log("MaxTargets " + maxTargets);
+
+          targets = targets.slice(0, maxTargets);
+        }
+
+        var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+        $row_self[0].appendChild(text);
+      }
+
+
+      // Append hit targets to text
+      if (row_text.includes('Hit:') && targetsHit.length > 0) {
+        $row_self.find('strong').after("<span> (" + targetsHit.join(", ") + ") </span>")
+      }
+
+      // Append missed targets to text
+      if (row_text.includes('Miss:') && targetsMissed.length > 0) {
+        $row_self.find('strong').after("<span> (" + targetsMissed.join(", ") + ") </span>")
+      }
+
+
+      // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
+      var triggerText = row_text.toLowerCase();
+      //console.log(triggerText);
+      if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:")) {
+
+        var active = undefined;
+
+        // We've previously setup all d20's in the rolls to have a value. Rolls that aren't a d20 will have a value of 0, which gets filtered out. We cancel checking if there are more than one.
+        var rollResults = $rolls.toArray().map(x => x.d20result).filter(x => x > 0);
+        if (rollResults.length > 1) {
+          console.log("Archmage | Multi-attack rolls are not supported for Trigger evaluation, skipping.");
+
+          // Empty out our data arrays so we don't apply errant styling
+          targetsHit = [];
+          targetsMissed = [];
+          hasHit = undefined;
+          hasMissed = undefined;
+          return;
+        }
+        var rollResult = rollResults[0];
+
+        if (triggerText.includes("even")) {
+          if (rollResult % 2 == 0) {
+            active = true;
+            if (hasHit != undefined) {
+              if (triggerText.includes("hit") && !hasHit) {
+                active = false;
+              }
+            }
+            if (hasMissed != undefined) {
+              if (triggerText.includes("miss") && !hasMissed) {
+                active = false;
+              }
+            }
+          }
+          else {
+            active = false;
+          }
+        }
+
+        else if (triggerText.includes("odd")) {
+          if (rollResult % 2 == 1) {
+            active = true;
+
+            if (hasHit != undefined) {
+              if (triggerText.includes("hit") && !hasHit) {
+                active = false;
+              }
+            }
+            if (hasMissed != undefined) {
+              if (triggerText.includes("miss") && !hasMissed) {
+                active = false;
+              }
+            }
+          }
+          else {
+            active = false;
+          }
+        }
+
+        else if (triggerText.includes("+") && !triggerText.includes("hit") && !triggerText.includes("miss")) {
+
+          // This regex just finds any numbers in the string, and we use the first one
+          var regex = new RegExp("\\d+");
+          var scoreToBeatArray = regex.exec(triggerText);
+          if (scoreToBeatArray && scoreToBeatArray.length == 1) {
+            var scoreToBeat = parseInt(scoreToBeatArray[0]);
+            if (rollResult >= scoreToBeat) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (hasHit != undefined) {
+          // We've already handled even / odd + hit / miss when evaluating even / odd
+          if (triggerText.includes("hit") && !triggerText.includes("even") && !triggerText.includes("odd")) {
+
+            if (hasHit) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (hasMissed != undefined) {
+          if (triggerText.includes("miss") && !triggerText.includes("even") && !triggerText.includes("odd")) {
+
+            if (hasMissed) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (active == undefined) {
+          $row_self.addClass("trigger-unknown");
+        }
+        else if (active) {
+          $row_self.addClass("trigger-active");
+        }
+        else {
+          $row_self.addClass("trigger-inactive");
+          if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
+            $row_self.addClass("hide");
+          }
         }
       }
 
@@ -299,7 +847,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               // If there's a crit, double the formula and reroll. If there's a
               // fail with no crit, 0 it out.
               if (has_crit) {
-                roll_data.formula = `(${roll_data.formula}) * 2`;
+                roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
                 $roll_self.addClass('dc-crit');
               }
               else {
@@ -320,15 +868,60 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       }
     });
 
-    // If there was a crit, update the content again with the new damage rolls.
-    if (has_crit || has_fail) {
-      $content.find('.card-prop').replaceWith($rows);
-      updated_content = $content.html();
-      if (updated_content != null) {
-        data.content = updated_content;
-      }
+    // Update the content
+    $content.find('.card-prop').replaceWith($rows);
+    updated_content = $content.html();
+    if (updated_content != null) {
+      data.content = updated_content;
     }
   }
+});
+
+// Override the inline roll click behavior.
+Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
+  html.find('a.inline-roll--archmage').on('click', event => {
+    event.preventDefault();
+    const a = event.currentTarget;
+
+    // For inline results expand or collapse the roll details
+    if (a.classList.contains("inline-result")) {
+      const roll = Roll.fromJSON(unescape(a.dataset.roll));
+      // Build a die string of the die parts, including whether they're discarded.
+      const dieTotal = roll.parts.reduce((string, r) => {
+        if (typeof string == 'object') {
+          string = '';
+        }
+
+        if (r.rolls) {
+          string = `${string}${r.rolls.map(d => `<span class="${d.discarded ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
+        }
+        else {
+          string = `${string}<span class="mod">${r}</span>`;
+        }
+
+        return string;
+      }, {});
+
+      // Replace the html.
+      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+      a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+      a.classList.toggle("expanded");
+    }
+
+    // Otherwise execute the deferred roll
+    else {
+      const cls = CONFIG.ChatMessage.entityClass;
+
+      // Get the "speaker" for the inline roll
+      const actor = cls.getSpeakerActor(cls.getSpeaker());
+      const rollData = actor ? actor.getRollData() : {};
+
+      // Execute the roll
+      const roll = new Roll(a.dataset.formula, rollData).roll();
+      return roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+    }
+  });
 });
 
 /* ---------------------------------------------- */
@@ -456,3 +1049,53 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
     }
   }
 });
+
+/* -------------------------------------------- */
+/*  Hotbar Macros                               */
+/* -------------------------------------------- */
+
+/**
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {Object} data     The dropped data
+ * @param {number} slot     The hotbar slot to use
+ * @returns {Promise}
+ */
+async function createArchmageMacro(data, slot) {
+  if (data.type !== "Item") return;
+  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
+  const item = data.data;
+
+  // Create the macro command
+  const command = `game.archmage.rollItemMacro("${item.name}");`;
+  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  if (!macro) {
+    macro = await Macro.create({
+      name: item.name,
+      type: "script",
+      img: item.img,
+      command: command,
+      flags: { "archmage.itemMacro": true }
+    });
+  }
+  game.user.assignHotbarMacro(macro, slot);
+  return false;
+}
+
+/**
+ * Create a Macro from an Item drop.
+ * Get an existing item macro if one exists, otherwise create a new one.
+ * @param {string} itemName
+ * @return {Promise}
+ */
+function rollItemMacro(itemName) {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  if (!actor) actor = game.actors.get(speaker.actor);
+  const item = actor ? actor.items.find(i => i.name === itemName) : null;
+  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+
+  // Trigger the item roll
+  return item.roll();
+}

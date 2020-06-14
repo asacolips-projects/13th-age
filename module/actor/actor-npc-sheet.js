@@ -22,6 +22,11 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
 
     this._prepareCharacterItems(sheetData.actor);
 
+    // Prepare select fields.
+    sheetData.roles = CONFIG.ARCHMAGE.creatureRoles;
+    sheetData.sizes = CONFIG.ARCHMAGE.creatureSizes;
+    sheetData.types = CONFIG.ARCHMAGE.creatureTypes;
+
     return sheetData;
   }
 

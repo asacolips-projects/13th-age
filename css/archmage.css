@@ -229,7 +229,13 @@ input[type="checkbox"] {
   min-width: 24px; }
 
 #chat-log .message {
-  font-family: "warnock-pro", "sans-serif"; }
+  font-family: "warnock-pro", "sans-serif";
+  background: url("../assets/src/ricepaper2_@2X.png");
+  background-attachment: local;
+  background-size: 300px;
+  font-size: 14px; }
+  #chat-log .message p {
+    margin: 0 0 14px 0; }
 
 #chat-log .card-header {
   font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif; }
@@ -291,7 +297,7 @@ input[type="checkbox"] {
   .archmage.sheet h4 {
     font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif; }
   .archmage.sheet .window-content {
-    background: url("../assets/src/ricepaper2_@2X.png");
+    background: url("../assets/src/ricepaper2_@2X.png") #fff;
     background-attachment: local;
     background-size: 300px;
     -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
@@ -413,6 +419,8 @@ input[type="checkbox"] {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 220px;
         flex: 0 0 220px; }
+      .archmage.sheet form .sheet-sidebar .sheet-tabs > .item {
+        font-size: 12px; }
       .archmage.sheet form .sheet-sidebar .tab {
         padding-right: 3px; }
     .archmage.sheet form .sheet-tabs {
@@ -425,7 +433,12 @@ input[type="checkbox"] {
       .archmage.sheet form .sheet-tabs > .item {
         border-radius: 5px 5px 0 0;
         line-height: 26px;
-        padding: 0 10px; }
+        padding: 0 4px;
+        font-weight: normal; }
+        .archmage.sheet form .sheet-tabs > .item[data-tab="incrementals"] {
+          -webkit-box-flex: 2;
+          -ms-flex: 2;
+          flex: 2; }
         .archmage.sheet form .sheet-tabs > .item.active {
           border: 1px solid #666;
           border-bottom: 0;
@@ -709,7 +722,6 @@ input[type="checkbox"] {
       -ms-flex: 0 0 50%;
       flex: 0 0 50%; }
     .archmage.actor-sheet .primary-attributes .attribute:last-child {
-      border-right: 0;
       margin-right: 0; }
     .archmage.actor-sheet .primary-attributes .attribute .attribute-name {
       border-bottom: 1px solid #ccc;
@@ -777,14 +789,25 @@ input[type="checkbox"] {
           -webkit-box-flex: 65%;
           -ms-flex: 65%;
           flex: 65%;
-          padding: 0 8px;
-          text-align: right; }
+          padding: 0 4px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 12px; }
+          .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span.attribute-subname--grow {
+            -webkit-box-flex: 100%;
+            -ms-flex: 100%;
+            flex: 100%;
+            font-size: 12px;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            padding: 2px; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > input {
           -webkit-box-flex: 35%;
           -ms-flex: 35%;
           flex: 35%;
-          padding-left: 8px;
-          text-align: left; }
+          padding: 0 2px;
+          text-align: center; }
       .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input {
         max-width: 24px; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.temphp {
@@ -798,6 +821,8 @@ input[type="checkbox"] {
           text-align: left; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.speed, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.hpformula {
           max-width: 90%; }
+      .archmage.actor-sheet .primary-attributes .attribute .attribute-footer .temphp + .attribute-subname {
+        border-left: 1px solid rgba(0, 0, 0, 0.25); }
       .archmage.actor-sheet .primary-attributes .attribute .attribute-footer .rest {
         background: rgba(0, 0, 0, 0.03);
         border: 1px solid #ccc;
@@ -883,7 +908,7 @@ input[type="checkbox"] {
         top: 2px; }
 
 .archmage.actor-sheet .biography .editor {
-  height: 380px;
+  height: 100%;
   padding-left: 8px; }
 
 .archmage.npc-sheet .character-detail {
@@ -899,8 +924,11 @@ input[type="checkbox"] {
   order: 0; }
   .archmage.sheet .item-sheet .sheet-header img, .archmage.actor-sheet .item-sheet .sheet-header img, .archmage.npc-sheet .item-sheet .sheet-header img, .archmage.item-sheet .item-sheet .sheet-header img {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 44px;
-    flex: 0 0 44px; }
+    -ms-flex: 0;
+    flex: 0;
+    width: auto;
+    height: auto;
+    max-height: 100%; }
 
 .archmage.sheet .editor, .archmage.actor-sheet .editor, .archmage.npc-sheet .editor, .archmage.item-sheet .editor {
   height: 100%; }
@@ -1264,6 +1292,13 @@ input[type="checkbox"] {
         border-right: 0;
         padding-right: 0; }
 
+.window-app .window-content {
+  background: url("../assets/src/ricepaper2_@2X.png") #fff;
+  background-attachment: local;
+  background-size: 300px;
+  -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
+  box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45); }
+
 .traits .form-group label {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 50%;
@@ -1324,6 +1359,21 @@ input[type="checkbox"] {
       text-align: right; }
     .currency .denomination:last-child {
       border-right: 0; }
+
+.tag--feat {
+  background: -o-linear-gradient(45deg, #68d7f194, #ffffff00);
+  background: linear-gradient(45deg, #68d7f194, #ffffff00);
+  border: 0;
+  margin: 4px 0; }
+  .tag--feat.tag--inactive {
+    opacity: 0.3; }
+  .tag--feat > strong {
+    display: block;
+    margin: 8px 0 0 4px; }
+  .tag--feat .description {
+    margin-left: 12px; }
+  .tag--feat p {
+    margin: 0 0 8px; }
 
 .inventory-list {
   height: calc(100% - 44px);
@@ -1482,22 +1532,6 @@ input[type="checkbox"] {
         .inventory-list .item .item-properties .tag--special .description,
         .inventory-list .item .item-properties .tag--feat .description {
           margin-left: 8px; }
-      .inventory-list .item .item-tags .tag--feat,
-      .inventory-list .item .item-properties .tag--feat {
-        background: -o-linear-gradient(45deg, #68d7f194, #ffffff00);
-        background: linear-gradient(45deg, #68d7f194, #ffffff00);
-        border: 0;
-        margin: 4px 0; }
-        .inventory-list .item .item-tags .tag--feat > strong,
-        .inventory-list .item .item-properties .tag--feat > strong {
-          display: block;
-          margin: 8px 0 0 4px; }
-        .inventory-list .item .item-tags .tag--feat .description,
-        .inventory-list .item .item-properties .tag--feat .description {
-          margin-left: 12px; }
-        .inventory-list .item .item-tags .tag--feat p,
-        .inventory-list .item .item-properties .tag--feat p {
-          margin: 0 0 8px; }
     .inventory-list .item .item-action {
       border-left: 1px solid #333;
       -webkit-box-flex: 0;
@@ -1705,6 +1739,10 @@ input[type="checkbox"] {
     box-shadow: 0 0 8px #ff0000;
     outline: 0; }
 
+.archmage.sheet.actor-sheet .textarea {
+  font-family: "warnock-pro", "sans-serif";
+  min-height: 110px; }
+
 .archmage.sheet .action-sheet .form-inputs input[type='text'] {
   height: auto; }
 
@@ -1794,14 +1832,17 @@ input[type="checkbox"] {
 .archmage.actor-sheet.npc-sheet .traits-header .item-name,
 .archmage.actor-sheet.npc-sheet .traits-header .item-controls,
 .archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name,
-.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls {
+.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-name,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-controls {
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 4px 8px; }
 
 .archmage.actor-sheet.npc-sheet .actions-header .item-name,
 .archmage.actor-sheet.npc-sheet .traits-header .item-name,
-.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name {
+.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-name,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-name {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -1809,7 +1850,8 @@ input[type="checkbox"] {
 
 .archmage.actor-sheet.npc-sheet .actions-header .item-controls,
 .archmage.actor-sheet.npc-sheet .traits-header .item-controls,
-.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls {
+.archmage.actor-sheet.npc-sheet .nastier-specials-header .item-controls,
+.archmage.actor-sheet.npc-sheet .npc-details-header .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 64px;
   flex: 0 0 64px; }
@@ -1887,6 +1929,12 @@ input[type="checkbox"] {
 
 #chat-form {
   position: relative; }
+  #chat-form textarea {
+    background: url("../assets/src/ricepaper2_@2X.png") #fff;
+    background-attachment: local;
+    background-size: 300px;
+    -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
+    box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45); }
   #chat-form::before {
     background-image: url("../assets/src/13a-logo.png");
     background-repeat: no-repeat;
@@ -1900,6 +1948,61 @@ input[type="checkbox"] {
     position: absolute;
     right: 10px;
     width: 100px; }
+
+.compendium.overrides .directory-list {
+  display: none; }
+  .compendium.overrides .directory-list.directory-list--archmage {
+    display: block; }
+
+.compendium .directory-list--archmage .directory-list--archmage {
+  overflow-y: visible; }
+
+.compendium .directory-list--archmage .directory-item {
+  display: none; }
+
+.compendium .directory-list--archmage h3.entry-group {
+  font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+  font-weight: normal;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px #000;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 1;
+  white-space: normal;
+  padding: 10px;
+  margin: 4px 0;
+  color: #fff;
+  background: -o-linear-gradient(45deg, #6f98b1, #333);
+  background: linear-gradient(45deg, #6f98b1, #333); }
+
+.compendium .directory-list--archmage .directory-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  font-family: "warnock-pro", "sans-serif"; }
+  .compendium .directory-list--archmage .directory-item h4.entry-name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .compendium .directory-list--archmage .directory-item h4.entry-name a {
+      font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1;
+      white-space: normal;
+      padding: 0 0 4px; }
+    .compendium .directory-list--archmage .directory-item h4.entry-name .tags {
+      line-height: 1;
+      margin: 0;
+      text-transform: capitalize;
+      font-size: 12px;
+      padding: 4px 0;
+      width: 100%;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.5); }
+  .compendium .directory-list--archmage .directory-item.ability-usage h4.entry-name .tags {
+    color: #fff; }
 
 .dc-inline-roll {
   display: inline-block;
@@ -1955,30 +2058,74 @@ input[type="checkbox"] {
   color: #ff8484; }
 
 .chat-card .inline-roll,
-.message .inline-roll {
+.chat-card .inline-roll--archmage,
+.message .inline-roll,
+.message .inline-roll--archmage {
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   border-color: #000;
   border-radius: 4px;
   display: inline-block;
   line-height: 0;
-  padding: 1px 4px;
+  padding: 2px;
   -webkit-transition: -webkit-transform ease-in-out 0.25s;
   transition: -webkit-transform ease-in-out 0.25s;
   -o-transition: transform ease-in-out 0.25s;
   transition: transform ease-in-out 0.25s;
   transition: transform ease-in-out 0.25s, -webkit-transform ease-in-out 0.25s; }
+  .chat-card .inline-roll.expanded,
+  .chat-card .inline-roll--archmage.expanded,
+  .message .inline-roll.expanded,
+  .message .inline-roll--archmage.expanded {
+    color: #fff;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    line-height: 1; }
   .chat-card .inline-roll:hover,
-  .message .inline-roll:hover {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+  .chat-card .inline-roll--archmage:hover,
+  .message .inline-roll:hover,
+  .message .inline-roll--archmage:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
     z-index: 90; }
   .chat-card .inline-roll .fas,
-  .message .inline-roll .fas {
+  .chat-card .inline-roll--archmage .fas,
+  .message .inline-roll .fas,
+  .message .inline-roll--archmage .fas {
     color: #fff;
     font-size: 10px;
     line-height: 12px; }
+  .chat-card .inline-roll .die,
+  .chat-card .inline-roll .mod,
+  .chat-card .inline-roll--archmage .die,
+  .chat-card .inline-roll--archmage .mod,
+  .message .inline-roll .die,
+  .message .inline-roll .mod,
+  .message .inline-roll--archmage .die,
+  .message .inline-roll--archmage .mod {
+    padding: 0 2px; }
+  .chat-card .inline-roll .die,
+  .chat-card .inline-roll--archmage .die,
+  .message .inline-roll .die,
+  .message .inline-roll--archmage .die {
+    color: #ffbd23; }
+  .chat-card .inline-roll .die--discarded,
+  .chat-card .inline-roll--archmage .die--discarded,
+  .message .inline-roll .die--discarded,
+  .message .inline-roll--archmage .die--discarded {
+    opacity: 0.5; }
 
 .chat-card .dc-discarded,
 .message .dc-discarded {
@@ -1991,6 +2138,9 @@ input[type="checkbox"] {
   .chat-card .dc-crit:hover,
   .message .dc-crit:hover {
     text-shadow: 0 0 8px #000; }
+  .chat-card .dc-crit .die,
+  .message .dc-crit .die {
+    color: #7bff94; }
   .chat-card .dc-crit .fas,
   .message .dc-crit .fas {
     color: #7bff94; }
@@ -1999,12 +2149,36 @@ input[type="checkbox"] {
 .message .dc-fail {
   color: #ff8484;
   background: rgba(70, 0, 0, 0.75); }
+  .chat-card .dc-fail .die,
+  .message .dc-fail .die {
+    color: #ff8484; }
   .chat-card .dc-fail:hover,
   .message .dc-fail:hover {
     text-shadow: 0 0 8px #000; }
   .chat-card .dc-fail .fas,
   .message .dc-fail .fas {
     color: #ff8484; }
+
+.trigger-active {
+  color: #005800; }
+
+.trigger-inactive {
+  opacity: 0.3; }
+
+.hide {
+  display: none; }
+
+.currency-input {
+  height: 25px !important;
+  text-align: center !important; }
+
+.attribute--currencies {
+  height: 50px !important; }
+
+.currencies {
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 0 60px !important;
+  flex: 0 0 60px !important; }
 
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;

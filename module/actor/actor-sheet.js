@@ -87,6 +87,9 @@ export class ActorArchmageSheet extends ActorSheet {
     // Assign and return
     actorData.powers = powers;
     actorData.equipment = equipment;
+    
+    actorData.data.resources.perCombat.anyEnabled = actorData.data.resources.perCombat.momentum.enabled || actorData.data.resources.perCombat.commandPoints.enabled;
+    actorData.data.resources.spendable.anyEnabled = actorData.data.resources.spendable.ki.enabled || actorData.data.resources.spendable.custom1.enabled || actorData.data.resources.spendable.custom2.enabled || actorData.data.resources.spendable.custom3.enabled;
   }
 
   /* -------------------------------------------- */
@@ -272,149 +275,181 @@ export class ActorArchmageSheet extends ActorSheet {
       var itemType = ev.currentTarget.getAttribute('data-item-type');
 
       let validClasses = [
+        // 'barbarian',
+        // 'bard',
+        // 'cleric',
+        // 'commander',
+        // 'fighter',
+        // 'paladin',
+        // 'ranger',
+        // 'rogue',
+        // 'sorcerer',
+        // 'wizard'
+      ];
+
+      let allClasses = [
         'barbarian',
         'bard',
         'cleric',
-        'commander',
         'fighter',
         'paladin',
         'ranger',
         'rogue',
         'sorcerer',
-        'wizard'
+        'wizard',
+        'chaosmage',
+        'commander',
+        'druid',
+        'monk',
+        'necromancer',
+        'occultist'
       ];
 
-      let powerClass = this.actor.data.data.details.class.value.toLowerCase();
+      let classRegex = new RegExp(allClasses.join('|'), 'g');
+
+      let cleanClassName = this.actor.data.data.details.class.value.toLowerCase().replace(/[^a-zA-z\d]/g, '');
       let powerLevel = this.actor.data.data.details.level;
 
+      let characterClasses = cleanClassName.match(classRegex);
+
       // Import from toolkit13.com
-      if (validClasses.includes(powerClass)) {
-        let prepop = new ArchmagePrepopulate();
+      if (characterClasses.length > 0) {
+        let offset = 250;
+        characterClasses.forEach(powerClass => {
+          // TODO: Deprecated.
+          // if (validClasses.includes(powerClass)) {
+          //   let prepop = new ArchmagePrepopulate();
 
-        prepop.getPowersList(powerClass, powerLevel).then((res) => {
-          var options = {
-            width: 720,
-            height: 640,
-            classes: ['archmage-prepopulate']
-          };
+          //   prepop.getPowersList(powerClass, powerLevel).then((res) => {
+          //     var options = {
+          //       width: 720,
+          //       height: 640,
+          //       left: offset,
+          //       top: offset,
+          //       classes: ['archmage-prepopulate']
+          //     };
 
-          for (let i = 0; i < res.powers.length; i++) {
-            if (res.powers[i].usage !== null) {
-              res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
-            }
-            else {
-              res.powers[i].usageClass = 'other';
-            }
-          }
+          //     offset += 25;
 
-          var templateData = {
-            powers: res.powers,
-            class: powerClass,
-            itemType: 'power' // @TODO: Make this not hardcoded.
-          }
+          //     for (let i = 0; i < res.powers.length; i++) {
+          //       if (res.powers[i].usage !== null) {
+          //         res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
+          //       }
+          //       else {
+          //         res.powers[i].usageClass = 'other';
+          //       }
+          //     }
 
-          let template = 'systems/archmage/templates/prepopulate/powers--list.html';
-          renderTemplate(template, templateData).then(content => {
-            let d = new Dialog({
-              title: "Import Power",
-              content: content,
-              buttons: {
-                cancel: {
-                  icon: '<i class="fas fa-times"></i>',
-                  label: "Cancel",
-                  callback: () => null
-                },
-                submit: {
-                  icon: '<i class="fas fa-check"></i>',
-                  label: "Submit",
-                  callback: dlg => _onImportPower(dlg, this.actor, {})
-                }
-              }
-            }, options);
-            d.render(true);
-          });
-        });
-      }
-      // Import from compendiums.
-      else {
-        // let powers = game.items.entities.filter(item => item.type == 'power');
-        let compendium = game.packs.filter(p => p.metadata.name == powerClass);
-        if (compendium.length > 0) {
-          compendium[0].getContent().then(res => {
-            var options = {
-              width: 720,
-              height: 640,
-              classes: ['archmage-prepopulate']
-            };
+          //     var templateData = {
+          //       powers: res.powers,
+          //       class: powerClass,
+          //       itemType: 'power' // @TODO: Make this not hardcoded.
+          //     }
 
-            let powers = res.sort((a, b) => {
-              function sortTest(a, b) {
-                if (a < b) {
-                  return -1;
-                }
-                if (a > b) {
-                  return 1;
-                }
-                return 0;
-              }
-              let aSort = [
-                a.data.data.powerLevel.value,
-                a.data.data.powerType.value,
-                a.data.name
-              ];
-              let bSort = [
-                b.data.data.powerLevel.value,
-                b.data.data.powerType.value,
-                b.data.name
-              ];
-              return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
-            }).map(p => {
-              return {
-                uuid: p.data._id,
-                title: p.data.name,
-                usage: p.data.data.powerUsage.value,
-                usageClass: p.data.data.powerUsage.value ? _getPowerClasses(p.data.data.powerUsage.value)[0] : 'other',
-                powerType: p.data.data.powerType.value,
-                level: p.data.data.powerLevel.value,
+          //     let template = 'systems/archmage/templates/prepopulate/powers--list.html';
+          //     renderTemplate(template, templateData).then(content => {
+          //       let d = new Dialog({
+          //         title: `Import Powers (${powerClass})`,
+          //         content: content,
+          //         buttons: {
+          //           cancel: {
+          //             icon: '<i class="fas fa-times"></i>',
+          //             label: "Cancel",
+          //             callback: () => null
+          //           },
+          //           submit: {
+          //             icon: '<i class="fas fa-check"></i>',
+          //             label: "Submit",
+          //             callback: dlg => _onImportPower(dlg, this.actor, {})
+          //           }
+          //         }
+          //       }, options);
+          //       d.render(true);
+          //     });
+          //   });
+          // }
+          // else {
+          // Import from compendiums.
+          // let powers = game.items.entities.filter(item => item.type == 'power');
+          let compendium = game.packs.filter(p => p.metadata.name == powerClass);
+          if (compendium.length > 0) {
+            compendium[0].getContent().then(res => {
+              var options = {
+                width: 720,
+                height: 640,
+                classes: ['archmage-prepopulate']
               };
-            });
 
-            var templateData = {
-              powers: powers,
-              class: powerClass,
-              itemType: 'power' // @TODO: Make this not hardcoded.
-            }
-
-            let dlgData = {
-              powers: res
-            };
-
-
-            let template = 'systems/archmage/templates/prepopulate/powers--list.html';
-            renderTemplate(template, templateData).then(content => {
-              let d = new Dialog({
-                title: "Import Power",
-                content: content,
-                buttons: {
-                  cancel: {
-                    icon: '<i class="fas fa-times"></i>',
-                    label: "Cancel",
-                    callback: () => null
-                  },
-                  submit: {
-                    icon: '<i class="fas fa-check"></i>',
-                    label: "Submit",
-                    callback: dlg => _onImportPower(dlg, this.actor, dlgData)
+              let powers = res.sort((a, b) => {
+                function sortTest(a, b) {
+                  if (a < b) {
+                    return -1;
                   }
+                  if (a > b) {
+                    return 1;
+                  }
+                  return 0;
                 }
-              }, options);
-              d.render(true);
+                let aSort = [
+                  a.data.data.powerLevel.value,
+                  a.data.data.powerType.value,
+                  a.data.name
+                ];
+                let bSort = [
+                  b.data.data.powerLevel.value,
+                  b.data.data.powerType.value,
+                  b.data.name
+                ];
+                return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
+              }).map(p => {
+                return {
+                  uuid: p.data._id,
+                  title: p.data.name,
+                  usage: p.data.data.powerUsage.value,
+                  usageClass: p.data.data.powerUsage.value ? _getPowerClasses(p.data.data.powerUsage.value)[0] : 'other',
+                  powerType: p.data.data.powerType.value,
+                  level: p.data.data.powerLevel.value,
+                };
+              });
+
+              var templateData = {
+                powers: powers,
+                class: powerClass,
+                itemType: 'power' // @TODO: Make this not hardcoded.
+              }
+
+              let dlgData = {
+                powers: res
+              };
+
+
+              let template = 'systems/archmage/templates/prepopulate/powers--list.html';
+              renderTemplate(template, templateData).then(content => {
+                let d = new Dialog({
+                  title: `Import Powers (${powerClass})`,
+                  content: content,
+                  buttons: {
+                    cancel: {
+                      icon: '<i class="fas fa-times"></i>',
+                      label: "Cancel",
+                      callback: () => null
+                    },
+                    submit: {
+                      icon: '<i class="fas fa-check"></i>',
+                      label: "Submit",
+                      callback: dlg => _onImportPower(dlg, this.actor, dlgData)
+                    }
+                  }
+                }, options);
+                d.render(true);
+              });
             });
-          });
-        }
-        else {
-          ui.notifications.error(`Class "${powerClass}" is not yet available for import.`);
-        }
+          }
+          else {
+            ui.notifications.error(`Class "${powerClass}" is not yet available for import.`);
+          }
+          // }
+        });
       }
     });
 
@@ -506,11 +541,13 @@ export class ActorArchmageSheet extends ActorSheet {
               else if (actionString.includes('free')) {
                 action = 'free';
               }
+              let powerType = Object.entries(CONFIG.ARCHMAGE.powerTypes).find(p => p[1] == power.powerType);
               actor.createOwnedItem({
                 name: power.title,
                 data: {
                   'powerUsage.value': usage,
                   'actionType.value': action,
+                  'powerType.value': Array.isArray(powerType) ? powerType[0] : null,
                   'powerLevel.value': power.level,
                   'range.value': power.type,
                   'trigger.value': power.trigger,
@@ -674,9 +711,7 @@ export class ActorArchmageSheet extends ActorSheet {
         chatData.properties.forEach(p => props.append(`<span class="tag tag--property tag--${p.label.safeCSSId()}"><strong>${p.label}:</strong> ${p.value}</span>`));
         chatData.effects.forEach(e => props.append(`<div class="tag tag--property tag--${e.label.safeCSSId()}"><strong>${e.label}:</strong> ${e.value}</div>`));
         chatData.feats.forEach(f => {
-          if (f.isActive) {
-            props.append(`<div class="tag tag--feat tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`);
-          }
+          props.append(`<div class="tag tag--feat tag--${f.isActive ? 'active' : 'inactive'} ${!f.isActive && game.settings.get("archmage", "hideInsteadOfOpaque") ? 'hide' : ''} tag--${f.label.safeCSSId()}"><strong>${f.label}:</strong><div class="description">${f.description}</div></div>`);
         });
         div.append(tags);
         div.append(props);

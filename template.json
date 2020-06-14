@@ -1,6 +1,9 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": [
+      "character",
+      "npc"
+    ],
     "templates": {
       "standard": {
         "abilities": {
@@ -114,6 +117,11 @@
           "race": {
             "type": "String",
             "label": "Race"
+          },
+          "out": {
+            "label": "One Unique Thing",
+            "type": "String",
+            "value": ""
           }
         },
         "backgrounds": {
@@ -325,7 +333,9 @@
       }
     },
     "character": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "attributes": {
         "weapon": {
           "melee": {
@@ -344,17 +354,22 @@
       }
     },
     "npc": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "details": {
         "role": {
+          "value": "",
           "type": "String",
           "label": "Role"
         },
         "size": {
+          "value": "Normal",
           "type": "String",
           "label": "Size"
         },
         "type": {
+          "value": "",
           "type": "String",
           "label": "Type"
         },
@@ -370,7 +385,15 @@
     }
   },
   "Item": {
-    "types": ["power", "trait", "action", "nastierSpecial", "tool", "loot", "equipment"],
+    "types": [
+      "power",
+      "trait",
+      "action",
+      "nastierSpecial",
+      "tool",
+      "loot",
+      "equipment"
+    ],
     "templates": {
       "standard": {
         "name": {
@@ -384,7 +407,9 @@
       }
     },
     "power": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "powerSource": {
         "type": "String",
         "label": "Power Source",
@@ -579,10 +604,14 @@
       }
     },
     "trait": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "action": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "attack": {
         "type": "String",
         "label": "Attack Roll"
@@ -617,27 +646,61 @@
       }
     },
     "nastierSpecial": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "tool": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "loot": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "equipment": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "properties": {},
       "attributes": {
         "attack": {
-          "melee": {"bonus": 0},
-          "ranged": {"bonus": 0},
-          "divine": {"bonus": 0},
-          "arcane": {"bonus": 0}
+          "melee": {
+            "bonus": 0
+          },
+          "ranged": {
+            "bonus": 0
+          },
+          "divine": {
+            "bonus": 0
+          },
+          "arcane": {
+            "bonus": 0
+          }
         },
-        "ac": {"bonus": 0},
-        "md": {"bonus": 0},
-        "pd": {"bonus": 0}
+        "ac": {
+          "bonus": 0
+        },
+        "md": {
+          "bonus": 0
+        },
+        "pd": {
+          "bonus": 0
+        },
+        "hp": {
+          "bonus": 0
+        },
+        "recoveries": {
+          "bonus": 0
+        },
+        "save": {
+          "bonus": 0
+        },
+        "disengage": {
+          "bonus": 0
+        }
       }
     }
   }
