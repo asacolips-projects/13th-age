@@ -120,11 +120,15 @@ ARCHMAGE.role: Role
 ARCHMAGE.actions: Actions
 ARCHMAGE.traits: Traits
 ARCHMAGE.nastierSpecials: Nastier Specials
-# Item Sheets
+# Item sheets
+ARCHMAGE.description: Description
+# Chat cards
 ARCHMAGE.CHAT.actionType: Action Type
 ARCHMAGE.CHAT.powerUsage: Power Usage
 ARCHMAGE.CHAT.powerSource: Power Source
 ARCHMAGE.CHAT.powerType: Power Type
+ARCHMAGE.CHAT.powerLevel: Level
+ARCHMAGE.CHAT.range: Range
 ARCHMAGE.CHAT.recharge: Recharge
 ARCHMAGE.CHAT.trigger: Trigger
 ARCHMAGE.CHAT.target: Target
@@ -141,6 +145,9 @@ ARCHMAGE.CHAT.cost: Cost
 ARCHMAGE.CHAT.adventurer: Adventurer Feat
 ARCHMAGE.CHAT.champion: Champion Feat
 ARCHMAGE.CHAT.epic: Epic Feat
+ARCHMAGE.CHAT.adventurerDescription: Adventurer Feat Description
+ARCHMAGE.CHAT.championDescription: Champion Feat Description
+ARCHMAGE.CHAT.epicDescription: Epic Feat Description
 ARCHMAGE.CHAT.effect: Effect
 ARCHMAGE.CHAT.castBroadEffect: Cast for Broad Effect
 ARCHMAGE.CHAT.castPower: Cast for Power
