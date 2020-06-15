@@ -532,7 +532,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let hasMissed = undefined;
   let targetsHit = [];
   let targetsMissed = [];
-  let targets = [];
+  let targets = [...game.user.targets.values()];
 
   let tokens = canvas.tokens.controlled;
   let actor = tokens ? tokens[0] : null;
@@ -603,9 +603,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
           has_fail = true;
         }
 
-        //console.log(game.user.targets);
-
         // If the user currently has Targets selected, try and figure out if we hit or missed said target
+        //console.log(targets);
+
         if (targets.length > 0) {
           if (row_text.toLowerCase().includes(" ac")) {
             rollTarget = "ac";
@@ -628,7 +628,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
             });
           }
 
-          // console.log(rollTotal + " vs " + rollTarget);
+          //console.log(rollTotal + " vs " + rollTarget);
 
           if (rollTotal != undefined) {
             targets.forEach(target => {
@@ -666,6 +666,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
           // Get either the Token overridden value or the base sheet value
           function getTargetDefenseValue(target) {
+            //console.log(target);
             if (target.data?.actorData?.data?.attributes != undefined) {
               // Return token overridden value
               if (target.data.actorData.data.attributes[rollTarget]) {
@@ -678,7 +679,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       }
 
 
-      if (row_text.includes('Target:') && game.user.targets.size > 0) {
+      if (row_text.includes('Target:') && targets.length > 0) {
 
         function shuffle(a) {
           for (let i = a.length - 1; i > 0; i--) {
@@ -687,8 +688,6 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
           }
           return a;
         }
-
-        targets = [...game.user.targets.values()];
 
         if (row_text.toLowerCase().includes("random")) {
           targets = shuffle(targets);
