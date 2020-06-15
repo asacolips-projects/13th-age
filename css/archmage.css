@@ -907,9 +907,16 @@ input[type="checkbox"] {
         position: relative;
         top: 2px; }
 
-.archmage.actor-sheet .biography .editor {
-  height: 100%;
-  padding-left: 8px; }
+.archmage.actor-sheet .tabs-primary-content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+.archmage.actor-sheet .biography {
+  height: 100%; }
+  .archmage.actor-sheet .biography .editor {
+    height: 100%;
+    padding-left: 8px; }
 
 .archmage.npc-sheet .character-detail {
   width: 25%; }

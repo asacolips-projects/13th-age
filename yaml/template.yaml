@@ -263,6 +263,15 @@ Actor:
           label: Ranged weapon dice
           dice: d8
           value: d8
+    resources:
+      perCombat:
+        momentum:
+          enabled: false
+        commandPoints:
+          enabled: false
+      spendable:
+        ki:
+          enabled: false
   npc:
     templates:
       - standard

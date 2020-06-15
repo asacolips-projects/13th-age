@@ -811,7 +811,13 @@ input[type="checkbox"] {
       }
     }
 
+    .tabs-primary-content {
+      flex: 1;
+    }
+
     .biography {
+      height: 100%;
+
       .editor {
         height: 100%;
         padding-left: 8px;
