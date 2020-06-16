@@ -534,6 +534,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let targetsMissed = [];
   let targets = [...game.user.targets.values()];
 
+  // TODO (#74): All card evaluation needs to load from Localization
+  let rowsToSkip = [ "Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:" ];
+
   let tokens = canvas.tokens.controlled;
   let actor = tokens ? tokens[0] : null;
 
@@ -594,6 +597,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       let $row_self = $(this);
       let row_text = $row_self.html();
 
+      if (rowsToSkip.filter(x => row_text.includes(x)).length > 0) {
+        return;
+      }
 
       if (row_text.includes('Attack:')) {
         if (row_text.includes('dc-crit')) {
