@@ -50,8 +50,55 @@ export class ItemArchmage extends Item {
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
 
-    // Create the chat message
-    return ChatMessage.create(chatData, { displaySheet: false });
+    let renderMessage = false;
+    let that = this;
+
+    // If 3d dice are enabled, handle them first.
+    if (game.dice3d) {
+      // Enrich the message to parse inline rolls.
+      chatData.content = TextEditor.enrichHTML(chatData.content, { rollData: that.actor.getRollData() });
+      let contentHtml = $(chatData.content);
+      let r = null;
+
+      if (contentHtml.length > 0) {
+        // Find all property rows.
+        let $rows = contentHtml.find('.card-prop');
+        if ($rows.length > 0) {
+          // Iterate over properties.
+          $rows.each(function(index) {
+            let $row_self = $(this);
+            let row_text = $row_self.html();
+            // If this is an attack row, we need to get the roll data.
+            if (row_text.includes('Attack:')) {
+              let $roll_html = $row_self.find('.inline-result');
+              if (!r && $roll_html.length > 0) {
+                r = Roll.fromJSON(unescape($roll_html.data('roll')));
+              }
+            }
+          });
+        }
+
+        // If we have roll data, handle a 3d roll.
+        if (r && r.total) {
+          let pool = new DicePool(r, 'kh');
+          game.dice3d.showForRoll(r).then(result => {
+            return ChatMessage.create(chatData, { displaySheet: false });
+          });
+        }
+      }
+      else {
+        renderMessage = true;
+      }
+    }
+    else {
+      renderMessage = true;
+    }
+
+    if (renderMessage) {
+      // Create the chat message
+      return ChatMessage.create(chatData, { displaySheet: false });
+    }
+
   }
 
   /* -------------------------------------------- */
