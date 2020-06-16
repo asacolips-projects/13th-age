@@ -58,7 +58,7 @@ export class ItemArchmage extends Item {
       // Enrich the message to parse inline rolls.
       chatData.content = TextEditor.enrichHTML(chatData.content, { rollData: that.actor.getRollData() });
       let contentHtml = $(chatData.content);
-      let r = null;
+      let rolls = [];
 
       if (contentHtml.length > 0) {
         // Find all property rows.
@@ -68,22 +68,26 @@ export class ItemArchmage extends Item {
           $rows.each(function(index) {
             let $row_self = $(this);
             let row_text = $row_self.html();
+            // TODO: Move crit detection here.
             // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:')) {
+            if (row_text.includes('Attack:') || row_text.includes('Hit:')) {
               let $roll_html = $row_self.find('.inline-result');
-              if (!r && $roll_html.length > 0) {
-                r = Roll.fromJSON(unescape($roll_html.data('roll')));
+              if ($roll_html.length > 0) {
+                rolls.push(Roll.fromJSON(unescape($roll_html.data('roll'))));
               }
             }
           });
         }
 
         // If we have roll data, handle a 3d roll.
-        if (r && r.total) {
-          let pool = new DicePool(r, 'kh');
-          game.dice3d.showForRoll(r).then(result => {
+        if (rolls.length > 0) {
+          let pool = new DicePool(rolls, 'kh');
+          game.dice3d.showForRoll(pool, game.user, true).then(result => {
             return ChatMessage.create(chatData, { displaySheet: false });
           });
+        }
+        else {
+          renderMessage = true;
         }
       }
       else {
