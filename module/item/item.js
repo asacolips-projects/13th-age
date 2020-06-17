@@ -81,10 +81,11 @@ export class ItemArchmage extends Item {
 
         // If we have roll data, handle a 3d roll.
         if (rolls.length > 0) {
-          let pool = new DicePool(rolls, 'kh');
-          game.dice3d.showForRoll(pool, game.user, true).then(result => {
-            return ChatMessage.create(chatData, { displaySheet: false });
-          });
+          for (let r of rolls) {
+            await game.dice3d.showForRoll(r, game.user, true);
+          }
+
+          return ChatMessage.create(chatData, { displaySheet: false });
         }
         else {
           renderMessage = true;
