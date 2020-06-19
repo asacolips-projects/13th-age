@@ -24,4 +24,3 @@
 
 /label ~Feature
 /cc @Asacolips @cswendrowski
-/assign @Asacolips
