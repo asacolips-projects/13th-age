@@ -7,6 +7,7 @@ import { ItemArchmageSheet } from './item/item-sheet.js';
 import { CinderWeatherEffect } from './setup/weather.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { ArchmageReference } from './setup/utility-classes.js';
+import { ArchmageEncounterGeneratorApp } from './encounterGenerator/ArchmageEncounterGeneratorApp.js';
 import { DiceArchmage } from './actor/dice.js';
 
 Hooks.once('init', async function() {
@@ -273,6 +274,7 @@ Hooks.on('createItem', (data, options, id) => {
 /* ---------------------------------------------- */
 
 Hooks.once('ready', () => {
+  //CONFIG.debug.hooks = true;
   let escalation = game.settings.get('archmage', 'currentEscalation');
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
@@ -285,12 +287,30 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
+  console.log("ya");
   let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> 13th Age Inline Rolls</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
     ev.preventDefault();
     new ArchmageReference().render(true);
+  });
+});
+
+// let combat = $('#combat');
+// console.log(combat);
+// combat.append('<footer class="directory-footer"><button class="encounter-generator"><i class="fas fa-wrench"></i>Encounter Generator</button></footer>');
+
+Hooks.on("renderCombatTracker", (app, html) => {
+  console.log("yo");
+  console.log(html);
+  html.append('<footer class="directory-footer"><button class="encounter-generator"><i class="fas fa-wrench"></i>Encounter Generator</button></footer>');
+
+  $('.encounter-generator').on('click', ev => {
+    ev.preventDefault();
+    console.log("Boop");
+
+    new ArchmageEncounterGeneratorApp().render(true);
   });
 });
 
@@ -394,7 +414,14 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
         size: data.details.size ? data.details.size.value : null,
         role: data.details.role ? data.details.role.value : null,
         type: data.details.type ? data.details.type.value : 'other',
+        cost: 0
       };
+
+      // var calculator = new MonsterValueCalculator();
+      // var value = calculator.getMonsterValue(m.data.name, option.search.level, option.search.size, option.search.role.toLowerCase() == "mook", 4);
+      // console.log("Cost: " + value);
+
+      // option.search.cost = value;
     });
     newOptions.index = duplicate(options).index.reduce((groups, option) => {
       if (option._id) {

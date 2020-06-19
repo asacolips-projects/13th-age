@@ -1,0 +1,47 @@
+<h1>Configure</h1>
+
+<h2>Party</h2>
+<h2>Monsters</h2>
+
+<h3>Level</h3>
+<label for="level_min">Minimum Level</label>
+<input class="filter" type="number" value="{{monsterFilters.level_min}}" />
+
+<label for="level_min">Maximum Level</label>
+<input class="filter" type="number" value="{{monsterFilters.level_max}}" />
+
+<h3>Sizes</h3>
+{{#each sizes as |value filter|}}
+  <div>
+    <input class="filter" type="checkbox" data-filter="{{filter}}" {{checked value.value}}/> {{value.display}}
+  </div>
+{{/each}}
+
+<h3>Roles</h3>
+{{#each roles as |value filter|}}
+  <div>
+    <input class="filter" type="checkbox" data-filter="{{filter}}" {{checked value.value}}/> {{ value.display}}
+  </div>
+{{/each}}
+
+<h3>Types</h3>
+{{#each types as |value filter|}}
+  <div>
+    <input class="filter" type="checkbox" data-filter="{{filter}}" {{checked value.value}}/> {{ value.display}}
+  </div>
+{{/each}}
+
+<h2>Settings</h2>
+
+{{#each encounterSettings as |value filter|}}
+  <div>
+    <input class="filter" type="checkbox" data-filter="{{filter}}" {{checked value.value}}/> {{ value.display}}
+  </div>
+{{/each}}
+
+<h1>Eligible Monsters</h1> 
+<ol class="directory-list directory-list--archmage">
+    {{#each monsters}}
+        <li>{{ this.data.name }}</li>
+    {{/each}}
+</ol>
