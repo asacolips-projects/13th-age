@@ -35,4 +35,3 @@ logs, and code as it's very hard to read otherwise.)
 
 /label ~Bugs
 /cc @Asacolips @cswendrowski
-/assign @Asacolips
