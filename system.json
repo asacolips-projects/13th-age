@@ -18,6 +18,13 @@
   ],
   "packs": [
     {
+      "label": "Races",
+      "entity": "Item",
+      "name": "races",
+      "path": "packs/races.db",
+      "system": "archmage"
+    },
+    {
       "label": "Barbarian",
       "entity": "Item",
       "name": "barbarian",
