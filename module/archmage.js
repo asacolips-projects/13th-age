@@ -351,6 +351,7 @@ Hooks.on('renderCompendium', async (compendium, html, options) => {
   newOptions.index = {};
   if (compendium.metadata.entity == 'Item') {
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    classList.push('races');
     let classRegex = new RegExp(classList.join('|'), 'g');
     if (compendium.metadata.name.match(classRegex)) {
       // Hide the original compendium.

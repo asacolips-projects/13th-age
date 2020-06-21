@@ -2,7 +2,7 @@
   "name": "archmage",
   "title": "13th Age",
   "description": "Build campaigns in the 13th Age RPG using the Foundry VTT environment.",
-  "version": "beta1-1.6.0",
+  "version": "beta2-1.6.0",
   "author": "Matt Smith",
   "minimumCoreVersion": "0.5.2",
   "compatibleCoreVersion": "0.6.2",
@@ -17,6 +17,13 @@
     "css/archmage.css"
   ],
   "packs": [
+    {
+      "label": "Races",
+      "entity": "Item",
+      "name": "races",
+      "path": "packs/races.db",
+      "system": "archmage"
+    },
     {
       "label": "Barbarian",
       "entity": "Item",
