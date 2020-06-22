@@ -643,7 +643,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
               var targetDefense = getTargetDefenseValue(target);
 
-              var hit = rollTotal > targetDefense;
+              var hit = rollTotal >= targetDefense;
               //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
 
               // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
