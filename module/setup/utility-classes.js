@@ -62,7 +62,7 @@ export class ArchmageUtility {
               return 'crit';
             }
             // Natural 1.
-            else if (r.roll === 1 && !r.discarded) {
+            else if (r.roll === 1 && !r.discarded && !r.rerolled) {
               return 'fail';
             }
             // Barbarian crit.
