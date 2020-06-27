@@ -74,3 +74,7 @@ Compendium content primarily uses the text from the Archmage Engine SRD where po
 - [OPEN GAME LICENSE Version 1.0a](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/OGL.txt)
 - [13th Age Roleplaying Game Archmage Engine License](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/archmage-engine.txt)
 - [Fire Opal Media, 13th Age — Community Use Policy](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/community-use.txt)
+
+## Community Use Policy
+
+This system for FoundryVTT uses trademarks and/or copyrights owned by Fire Opal Media, which are used under the Fire Opal Media, 13th Age Community Use Policy. We are expressly prohibited from charging you to use or access this content. This system for FoundryVTT is not published, endorsed, or specifically approved by Fire Opal Media. For more information about Fire Opal Media's 13th Age Community Use Policy, please visit http://www.fireopalmedia.com/communityuse. For more information about Fire Opal Media and 13th Age products, please visit http://www.fireopalmedia.com and http://www.pelgranepress.com.
