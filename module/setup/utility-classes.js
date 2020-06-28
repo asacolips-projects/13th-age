@@ -186,6 +186,7 @@ export class ArchmageUtility {
                 data.wpn[wpn].die = data.wpn[wpn].dice;
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
+                data.wpn[wpn].dmg = data.wpn[wpn].dmg;
                 delete data.wpn[wpn].value;
                 delete data.wpn[wpn].attack;
               });
