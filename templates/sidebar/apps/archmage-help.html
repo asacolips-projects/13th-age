@@ -1,7 +1,7 @@
 <div>
     <p class="notes">The following stats can all be used in inline or regular dice rolls.</p>
-    <p class="notes">Example attack: <span class="key">[[d20+@str.mod+@lvl+@ed]] vs. AC</span></p>
-    <p class="notes">Example damage: <span class="key">[[@wpn.m.dice+@str.dmg]] slashing damage</span></p>
+    <p class="notes">Example attack: <span class="key">[[d20+@str.mod+@lvl+@ed+@atk.m.bonus]] vs. AC</span></p>
+    <p class="notes">Example damage: <span class="key">[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] slashing damage</span></p>
 
     <h3>Ability Modifiers</h3>
     <ol class="hotkey-list">
@@ -47,11 +47,14 @@
         <h4>Initiative</h4>
         <div class="keys"><span class="key">@init</span></div>
       </li>
+      <li>
+        <h4>Standard Bonuses (Level + Escalation Die)</h4>
+        <div class="keys"><span class="key">@std</span></div>
+      </li>
     </ol>
 
-    <h3>Attack Bonuses</h3>
+    <h3>Item Attack / Damage Bonuses</h3>
     <ol class="hotkey-list">
-      <p>Attack bonuses (lvl + ed + item bonuses)</p>
       <li>
         <h4>Melee, Ranged, Arcane, Divine</h4>
         <div class="keys">
@@ -81,9 +84,9 @@
         <div class="keys">
           <span class="key">@wpn.m.dice</span>
           <span class="key">@wpn.r.dice</span>
-          <span class="key">@wpn.rjdice</span>
-          <span class="key">@wpn.rpdice</span>
-          <span class="key">@wpn.rkdice</span>
+          <span class="key">@wpn.j.dice</span>
+          <span class="key">@wpn.p.dice</span>
+          <span class="key">@wpn.k.dice</span>
         </div>
       </li>
       <li>
