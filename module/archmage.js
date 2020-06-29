@@ -7,6 +7,8 @@ import { ItemArchmageSheet } from './item/item-sheet.js';
 import { CinderWeatherEffect } from './setup/weather.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { ArchmageReference } from './setup/utility-classes.js';
+import { ContextMenu2 } from './setup/contextMenu2.js';
+import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
 
 Hooks.once('init', async function() {
@@ -174,6 +176,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register('archmage', 'roundUpDamageApplication', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
@@ -280,6 +291,8 @@ Hooks.once('ready', () => {
 
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
+
+  $('.message').off("contextmenu");
 });
 
 /* ---------------------------------------------- */
@@ -518,6 +531,13 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 });
 
 /* ---------------------------------------------- */
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 
 /**
  * Parse inline rolls.
@@ -891,6 +911,63 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
+
+  html.find('.inline-roll--archmage').each(function() {
+    var uuid = uuidv4();
+    // Add a way to uniquely identify this roll
+    $(this).addClass(uuid);
+    $(this).off("contextmenu");
+
+    console.log($(this).parent()[0].innerText);
+    if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
+      return;
+    }
+
+    new ContextMenu2($(this).parent(), "." + uuid, [
+      {
+        name: "Apply as Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, 1);
+        }
+      },
+      {
+        name: "Apply as Half Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, .5);
+        }
+      },
+      {
+        name: "Apply as Double Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, 2);
+        }
+      },
+      {
+        name: "Apply as Triple Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, 3);
+        }
+      },
+      {
+        name: "Apply as Healing",
+        icon: '<i class="fas fa-medkit"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asHealing(inlineRoll);
+        }
+      },
+      {
+        name: "Apply as Temp Health",
+        icon: '<i class="fas fa-heart"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asTempHealth(inlineRoll);
+        }
+      }
+    ]);
+  });
   html.find('a.inline-roll--archmage').on('click', event => {
     event.preventDefault();
     const a = event.currentTarget;
@@ -930,8 +1007,11 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
       // Execute the roll
       const roll = new Roll(a.dataset.formula, rollData).roll();
-      return roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+      var message = roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+      $('.message').off("contextmenu");
+      return message;
     }
+
   });
 });
 
