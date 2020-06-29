@@ -31,9 +31,102 @@
   }
 }
 
+input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+input[type="checkbox"] {
+  zoom: 0.9;
+}
+
+@import 'grid';
+
+/* ---------------------------------------- */
+/* Controls Reference                       */
+/* ---------------------------------------- */
+#archmage-help {
+  .window-content {
+    max-height: 75vh;
+  }
+
+  h3 {
+    border-bottom: 1px solid #111;
+    font-weight: bold;
+    margin: 20px 0 0;
+  }
+
+  ol.hotkey-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ol.hotkey-list > li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+  }
+
+  ol.hotkey-list > li > * {
+    flex: 1;
+  }
+
+  ol.hotkey-list > li > .flex0 {
+    display: block;
+    flex: 0;
+  }
+
+  ol.hotkey-list > li > .flex1 {
+    flex: 1;
+  }
+
+  ol.hotkey-list > li > .flex2 {
+    flex: 2;
+  }
+
+  ol.hotkey-list > li > .flex3 {
+    flex: 3;
+  }
+
+  ol.hotkey-list h4 {
+    margin: 0;
+    flex: 2;
+    line-height: 24px;
+  }
+
+  ol.hotkey-list .keys {
+    flex: 3;
+  }
+
+  .key {
+    display: inline-block;
+    margin: 0 1px;
+    padding: 2px 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 1px 1px #444;
+    text-align: center;
+    min-width: 24px;
+  }
+}
+
 #chat-log {
   .message {
     font-family: $font-stack-secondary;
+    background: url('../assets/src/ricepaper2_@2X.png');
+    background-attachment: local;
+    background-size: 300px;
+    // box-shadow: inset 0 0 32px 4px $ct-black--45;
+    font-size: 14px;
+
+    p {
+      margin: 0 0 14px 0;
+    }
   }
 
   .card-header {
@@ -46,6 +139,13 @@
 
   .card-row p {
     line-height: 1.2;
+  }
+
+  .message-header {
+    .card-content {
+      font-size: 14px;
+      color: $c-black;
+    }
   }
 }
 
@@ -88,6 +188,10 @@
 // Actor Sheet
 
 .archmage {
+  input[type="checkbox"] {
+    transform: scale(1);
+  }
+
   &.sheet {
     font-family: $font-stack-secondary;
 
@@ -99,7 +203,7 @@
     }
 
     .window-content {
-      background: url('../assets/src/ricepaper2_@2X.png');
+      background: url('../assets/src/ricepaper2_@2X.png') #fff;
       background-attachment: local;
       background-size: 300px;
       box-shadow: inset 0 0 32px 4px $ct-black--45;
@@ -216,6 +320,12 @@
           flex: 0 0 220px;
         }
 
+        .sheet-tabs {
+          >.item {
+            font-size: 12px;
+          }
+        }
+
         .tab {
           padding-right: 3px;
         }
@@ -230,7 +340,12 @@
         >.item {
           border-radius: 5px 5px 0 0;
           line-height: 26px;
-          padding: 0 10px;
+          padding: 0 4px;
+          font-weight: normal;
+
+          &[data-tab="incrementals"] {
+            flex: 2;
+          }
 
           &.active {
             border: 1px solid $c-gray--med;
@@ -413,6 +528,18 @@
           display: inline-block;
         }
       }
+
+      .icon__item.rollable {
+        display: flex;
+        align-items: center;
+        padding: 0 4px;
+        font-size: 16px;
+      }
+    }
+
+    .directory-list--backgrounds,
+    .directory-list--icons {
+      padding: 0;
     }
 
     .backgrounds {
@@ -483,7 +610,7 @@
         }
 
         &:last-child {
-          border-right: 0;
+          // border-right: 0;
           margin-right: 0;
         }
 
@@ -546,14 +673,24 @@
             > span {
               border-right: 1px solid $ct-black--25;
               flex: 65%;
-              padding: 0 8px;
-              text-align: right;
+              padding: 0 4px;
+              text-align: center;
+              font-weight: bold;
+              font-size: 12px;
+
+              &.attribute-subname--grow {
+                flex: 100%;
+                font-size: 12px;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                padding: 2px;
+              }
             }
 
             > input {
               flex: 35%;
-              padding-left: 8px;
-              text-align: left;
+              padding: 0 2px;
+              text-align: center;
             }
           }
 
@@ -579,6 +716,10 @@
             &.hpformula {
               max-width: 90%;
             }
+          }
+
+          .temphp + .attribute-subname {
+            border-left: 1px solid $ct-black--25;
           }
 
           .rest {
@@ -670,9 +811,15 @@
       }
     }
 
+    .tabs-primary-content {
+      flex: 1;
+    }
+
     .biography {
+      height: 100%;
+
       .editor {
-        height: 380px;
+        height: 100%;
         padding-left: 8px;
       }
     }
@@ -701,6 +848,10 @@
 
         img {
           flex: 0 0 44px;
+          // flex: 0;
+          width: 44px;
+          height: 44px;
+          max-height: 100%;
         }
       }
     }
@@ -1111,6 +1262,15 @@
   }
 }
 
+.window-app {
+  .window-content {
+    background: url('../assets/src/ricepaper2_@2X.png') #fff;
+    background-attachment: local;
+    background-size: 300px;
+    box-shadow: inset 0 0 32px 4px $ct-black--45;
+  }
+}
+
 // Biography Tab
 
 // Abilities Sidebar Tab
@@ -1177,6 +1337,30 @@
   }
 }
 
+.tag--feat {
+  $c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
+  background: $c-feat;
+  border: 0;
+  margin: 4px 0;
+
+  &.tag--inactive {
+    opacity: 0.3;
+  }
+
+  > strong {
+    display: block;
+    margin: 8px 0 0 4px;
+  }
+
+  .description {
+    margin-left: 12px;
+  }
+
+  p {
+    margin: 0 0 8px;
+  }
+}
+
 // Inventory List
 
 .inventory-list {
@@ -1216,6 +1400,10 @@
       flex-wrap: wrap;
       justify-content: flex-start;
 
+      .item-name {
+        padding-left: 4px;
+      }
+
       .item-image,
       h4 {
         flex: auto;
@@ -1242,6 +1430,10 @@
         flex: 0;
         font-size: 12px;
       }
+
+      .item-image {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
     }
 
     .item-usage {
@@ -1249,16 +1441,23 @@
     }
 
     .item-quantity,
-    .item-weight {
+    .item-weight,
+    .item-type {
       border-right: 1px solid $c-gray--dark;
       color: $c-white;
       flex: 0 0 32px;
       font-size: 12px;
       text-align: center;
+      font-size: 13px;
+    }
+
+    .item-type {
+      flex: 0 0 110px;
     }
 
     .item-controls {
-      flex: 0 0 44px;
+      flex: 0 0 94px;
+      justify-content: space-between;
 
       a {
         color: $c-gray--med;
@@ -1315,26 +1514,6 @@
 
         .description {
           margin-left: 8px;
-        }
-      }
-
-      .tag--feat {
-        $c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
-        background: $c-feat;
-        border: 0;
-        margin: 4px 0;
-
-        > strong {
-          display: block;
-          margin: 8px 0 0 4px;
-        }
-
-        .description {
-          margin-left: 12px;
-        }
-
-        p {
-          margin: 0 0 8px;
         }
       }
     }
@@ -1434,8 +1613,14 @@
       text-align: center;
     }
 
-    .item-quantity {
+    .item-quantity,
+    .item-type {
       border-left: 1px solid $c-gray--dark;
+      text-shadow: 1px 1px 2px $c-black;
+    }
+
+    .item-type {
+      text-transform: capitalize;
     }
 
     .ability-usage {
@@ -1491,6 +1676,10 @@
     .ability-usage--other {
       background: $c-power-other;
     }
+
+    .ability-usage--equipment {
+      background: $c-power-equipment;
+    }
   }
 
   .inventory-header {
@@ -1506,8 +1695,10 @@
     }
 
     .item-quantity,
-    .item-weight {
+    .item-weight,
+    .item-type {
       color: $c-gray--darker;
+      text-shadow: none;
     }
 
     .item-controls {
@@ -1650,6 +1841,11 @@
       outline: 0;
     }
   }
+
+  .textarea {
+    font-family: $font-stack-secondary;
+    min-height: 110px;
+  }
 }
 
 .archmage.sheet .action-sheet {
@@ -1741,7 +1937,8 @@
 
   .actions-header,
   .traits-header,
-  .nastier-specials-header {
+  .nastier-specials-header,
+  .npc-details-header {
     .item-name,
     .item-controls {
       background: $ct-black--75;
@@ -1843,6 +2040,13 @@
 #chat-form {
   position: relative;
 
+  textarea {
+    background: url('../assets/src/ricepaper2_@2X.png') #fff;
+    background-attachment: local;
+    background-size: 300px;
+    box-shadow: inset 0 0 32px 4px $ct-black--45;
+  }
+
   &::before {
     background-image: url('../assets/src/13a-logo.png');
     background-repeat: no-repeat;
@@ -1856,6 +2060,85 @@
     position: absolute;
     right: 10px;
     width: 100px;
+  }
+}
+
+// Compendium hacks.
+.compendium {
+  &.overrides {
+    // Hide the original compendium.
+    .directory-list {
+      display: none;
+
+      // Show the new compendium.
+      &.directory-list--archmage {
+        display: block;
+      }
+    }
+  }
+
+  .directory-list--archmage {
+    .directory-list--archmage {
+      overflow-y: visible;
+    }
+
+    .directory-item {
+      display: none;
+    }
+
+    h3.entry-group {
+      font-family: $font-stack-base;
+      font-weight: normal;
+      font-size: 24px;
+      text-shadow: 1px 1px 2px $c-black;
+      text-align: center;
+      text-transform: capitalize;
+      line-height: 1;
+      white-space: normal;
+      padding: 10px;
+      margin: 4px 0;
+      color: $c-white;
+      background: linear-gradient(45deg, #6f98b1, #333);
+    }
+
+    .directory-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      font-family: $font-stack-secondary;
+
+      h4.entry-name {
+        display: flex;
+        flex-wrap: wrap;
+
+        a {
+          font-family: $font-stack-base;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 1;
+          white-space: normal;
+          padding: 0 0 4px;
+        }
+
+        .tags {
+          line-height: 1;
+          margin: 0;
+          text-transform: capitalize;
+          font-size: 12px;
+          padding: 4px 0;
+          width: 100%;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      &.ability-usage {
+        h4.entry-name {
+          .tags {
+            color: $c-white;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -1926,18 +2209,29 @@
 
 .chat-card,
 .message {
-  .inline-roll {
+  .inline-roll,
+  .inline-roll--archmage {
     background: $ct-black--75;
     color: $c-white;
     border-color: $c-black;
     border-radius: 4px;
     display: inline-block;
     line-height: 0;
-    padding: 1px 4px;
+    padding: 2px;
     transition: transform ease-in-out 0.25s;
 
+    &.expanded {
+      color: $c-white;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      line-height: 1;
+    }
+
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.05);
       z-index: 90;
     }
 
@@ -1945,6 +2239,19 @@
       color: $c-white;
       font-size: 10px;
       line-height: 12px;
+    }
+
+    .die,
+    .mod {
+      padding: 0 2px;
+    }
+
+    .die {
+      color: #ffbd23;
+    }
+
+    .die--discarded {
+      opacity: 0.5;
     }
   }
 
@@ -1960,6 +2267,10 @@
       text-shadow: 0 0 8px $c-black;
     }
 
+    .die {
+      color: $c-crit;
+    }
+
     .fas {
       color: $c-crit;
     }
@@ -1969,6 +2280,10 @@
     color: $c-fail;
     background: rgba(70, 0, 0, 0.75);
 
+    .die {
+      color: $c-fail;
+    }
+
     &:hover {
       text-shadow: 0 0 8px $c-black;
     }
@@ -1977,4 +2292,29 @@
       color: $c-fail;
     }
   }
+}
+
+.trigger-active {
+  color: #005800;
+}
+
+.trigger-inactive {
+  opacity: 0.3;
+}
+
+.hide {
+  display: none;
+}
+
+.currency-input {
+  height: 25px !important;
+  text-align: center !important;
+}
+
+.attribute--currencies {
+  height: 50px !important;
+}
+
+.currencies {
+  flex: 0 0 60px !important;
 }

@@ -1,6 +1,9 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": [
+      "character",
+      "npc"
+    ],
     "templates": {
       "standard": {
         "abilities": {
@@ -82,7 +85,8 @@
             "type": "Number",
             "label": "Recoveries",
             "value": 8,
-            "max": 8
+            "max": 8,
+            "dice": "d8"
           },
           "init": {
             "type": "Number",
@@ -113,6 +117,11 @@
           "race": {
             "type": "String",
             "label": "Race"
+          },
+          "out": {
+            "label": "One Unique Thing",
+            "type": "String",
+            "value": ""
           }
         },
         "backgrounds": {
@@ -173,6 +182,48 @@
             }
           },
           "bg5": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg6": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg7": {
+            "name": {
+              "type": "String",
+              "value": ""
+            },
+            "bonus": {
+              "type": "Number",
+              "value": 0
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": 0
+            }
+          },
+          "bg8": {
             "name": {
               "type": "String",
               "value": ""
@@ -282,7 +333,9 @@
       }
     },
     "character": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "attributes": {
         "weapon": {
           "melee": {
@@ -298,20 +351,40 @@
             "value": "d8"
           }
         }
+      },
+      "resources": {
+        "perCombat": {
+          "momentum": {
+            "enabled": false
+          },
+          "commandPoints": {
+            "enabled": false
+          }
+        },
+        "spendable": {
+          "ki": {
+            "enabled": false
+          }
+        }
       }
     },
     "npc": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "details": {
         "role": {
+          "value": "",
           "type": "String",
           "label": "Role"
         },
         "size": {
+          "value": "Normal",
           "type": "String",
           "label": "Size"
         },
         "type": {
+          "value": "",
           "type": "String",
           "label": "Type"
         },
@@ -327,7 +400,15 @@
     }
   },
   "Item": {
-    "types": ["power", "trait", "action", "nastierSpecial", "tool", "loot", "equipment"],
+    "types": [
+      "power",
+      "trait",
+      "action",
+      "nastierSpecial",
+      "tool",
+      "loot",
+      "equipment"
+    ],
     "templates": {
       "standard": {
         "name": {
@@ -341,7 +422,9 @@
       }
     },
     "power": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "powerSource": {
         "type": "String",
         "label": "Power Source",
@@ -382,6 +465,11 @@
         "label": "Target",
         "value": ""
       },
+      "always": {
+        "type": "String",
+        "label": "Always",
+        "value": ""
+      },
       "attack": {
         "type": "String",
         "label": "Attack",
@@ -390,6 +478,21 @@
       "hit": {
         "type": "String",
         "label": "Hit",
+        "value": ""
+      },
+      "hitEven": {
+        "type": "String",
+        "label": "Natural Even Hit",
+        "value": ""
+      },
+      "hitOdd": {
+        "type": "String",
+        "label": "Natural Odd Hit",
+        "value": ""
+      },
+      "crit": {
+        "type": "String",
+        "label": "Crit",
         "value": ""
       },
       "miss": {
@@ -516,10 +619,14 @@
       }
     },
     "trait": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "action": {
-      "templates": ["standard"],
+      "templates": [
+        "standard"
+      ],
       "attack": {
         "type": "String",
         "label": "Attack Roll"
@@ -554,17 +661,62 @@
       }
     },
     "nastierSpecial": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "tool": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "loot": {
-      "templates": ["standard"]
+      "templates": [
+        "standard"
+      ]
     },
     "equipment": {
-      "templates": ["standard"],
-      "properties": {}
+      "templates": [
+        "standard"
+      ],
+      "properties": {},
+      "attributes": {
+        "attack": {
+          "melee": {
+            "bonus": 0
+          },
+          "ranged": {
+            "bonus": 0
+          },
+          "divine": {
+            "bonus": 0
+          },
+          "arcane": {
+            "bonus": 0
+          }
+        },
+        "ac": {
+          "bonus": 0
+        },
+        "md": {
+          "bonus": 0
+        },
+        "pd": {
+          "bonus": 0
+        },
+        "hp": {
+          "bonus": 0
+        },
+        "recoveries": {
+          "bonus": 0
+        },
+        "save": {
+          "bonus": 0
+        },
+        "disengage": {
+          "bonus": 0
+        }
+      }
     }
   }
 }

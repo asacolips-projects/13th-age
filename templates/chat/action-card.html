@@ -9,10 +9,10 @@
               <em>{{data.range.value}}</em>
           {{/if}}
           {{#if data.attack.value }}
-              <div class="card-prop"><strong>Attack:</strong> {{data.attack.value}}</div>
+              <div class="card-prop"><strong>{{localize 'ARCHMAGE.CHAT.attack'}}:</strong> {{data.attack.value}}</div>
           {{/if}}
           {{#if data.hit.value }}
-              <div class="card-prop"><strong>Hit:</strong> {{data.hit.value}}</div>
+              <div class="card-prop"><strong>{{localize 'ARCHMAGE.CHAT.hit'}}:</strong> {{data.hit.value}}</div>
           {{/if}}
           {{#if data.hit1.value }}
               <div class="card-prop"><strong>{{data.hit1.name}}:</strong> {{data.hit1.value}}</div>
@@ -24,7 +24,7 @@
               <div class="card-prop"><strong>{{data.hit3.name}}:</strong> {{data.hit3.value}}</div>
           {{/if}}
           {{#if data.miss.value }}
-              <div class="card-prop"><strong>Miss:</strong> {{data.miss.value}}</div>
+              <div class="card-prop"><strong>{{localize 'ARCHMAGE.CHAT.miss'}}:</strong> {{data.miss.value}}</div>
           {{/if}}
           {{#if data.description.value}}
               <div class="card-row">

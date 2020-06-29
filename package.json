@@ -1,57 +1,26 @@
 {
-  "name": "toolkitd8",
+  "name": "archmage",
   "version": "1.0.0",
+  "description": "CSS compiler for the Archmage system",
   "scripts": {
-    "build": "gulp",
-    "compile": "gulp compile",
-    "watch": "gulp watch",
-    "styleguide": "gulp styleguide",
-    "compress": "gulp compress",
-    "lint": "gulp lint",
-    "clean": "gulp clean",
-    "gulp": "gulp"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "IE >= 9",
-              "last 3 versions"
-            ]
-          }
-        }
-      ]
-    ],
-    "plugins": [
-      "transform-remove-strict-mode"
-    ]
+    "build": "gulp yaml & gulp css",
+    "compile": "gulp css",
+    "watch": "gulp",
+    "gulp": "gulp",
+    "yaml": "gulp yaml"
   },
   "browserslist": [
-    "IE >= 9",
     "last 3 versions"
   ],
-  "devDependencies": {
-    "babel-plugin-transform-remove-strict-mode": "0.0.2",
-    "babel-preset-env": "^1.6.0",
-    "breakpoint-sass": "^2.7.1",
-    "browser-sync": "^2.18.12",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^6.1.2",
+  "author": "Asacolips",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
-    "gulp-eslint": "^4.0.0",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-order": "^1.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-lint": "^1.3.2",
-    "gulp-sourcemaps": "^2.6.0",
-    "kss": "^3.0.0-beta.25",
-    "run-sequence": "^2.0.0",
-    "singularitygs": "^1.8.0"
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-yaml": "^2.0.4"
   }
 }

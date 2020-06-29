@@ -23,35 +23,54 @@ Build campaigns in the 13th Age RPG using the Foundry VTT environment.
 
 # Inline Rolls
 
-If you're using the **Inline Rolls** setting of the [Dice Calculator](https://gitlab.com/asacolips-projects/foundry-mods/foundry-vtt-dice-calculator) module, you can use any of the following attributes in your roll formulas. For example:
+For a full reference of how to use inline rolls, go to the settings tab of the right sidebar and click the "13th Age Inline Rolls" button.
 
-`[[d20 + @abil.str.mod + @attr.level.value + @attr.escalation.value]]`
+---
 
-## Ability Modifiers
-| Formula | Value |
-| :-- | :-- |
-| @abil.str.mod | Strength modifier |
-| @abil.dex.mod | Dexterity modifier |
-| @abil.con.mod | Constitution modifier |
-| @abil.int.mod | Intelligence modifier |
-| @abil.wis.mod | Wisdom modifier |
-| @abil.cha.mod | Charisma modifier |
+# Credits
 
-## Ability Modifiers (x2 Champion, x3 Epic)
-| Formula | Value |
-| :-- | :-- |
-| @abil.str.dmg | Strength modifier |
-| @abil.dex.dmg | Dexterity modifier |
-| @abil.con.dmg | Constitution modifier |
-| @abil.int.dmg | Intelligence modifier |
-| @abil.wis.dmg | Wisdom modifier |
-| @abil.cha.dmg | Charisma modifier |
+## Development
 
-## Attributes
-| Formula | Value |
-| :-- | :-- |
-| @attr.init.mod | Initiative modifier |
-| @attr.level.value | Current level |
-| @attr.escalation.value | Current value of the Escalation Die |
-| @attr.weapon.melee.value | Melee weapon damage dice |
-| @attr.weapon.ranged.value | Ranged weapon damage dice |
+* asacolips
+* cswendrowski
+
+## Compendium Content
+
+* Veilheim (Chaos Mage)
+* Bronzemountain (Monk)
+* Cousken (Druid, Occultist)
+* Víctor Ujaldon García (Monsters, core rules)
+
+---
+
+# Licenses
+
+This system makes usage of several different licenses, both for the code and for the compendium content.
+
+## HTML, CSS, and Javscript
+
+All HTML, CSS, and Javascript files are licensed under the [MIT license](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/MIT.txt).
+
+## Images and file assets
+
+The `assets/13a-logo.png` file is provided un the Community Use license (see below).
+
+Images and files in the `assets/icons` directory are provided via licenses secured by Foundry VTT at [https://foundryvtt.com/article/partnerships/](https://foundryvtt.com/article/partnerships/) and may only be used within Foundry VTT. At the time of writing, that includes the following assets:
+
+* Thanks to J. W. Bjerk (eleazzar) for “Painterly Spell Icons” series: https://opengameart.org
+* Potion Artwork** Thanks to Melle, https://opengameart.org/content/fantasy-potion-set
+* Thanks to various contributors, https://game-icons.net
+* Dice by Mike Valstar from the Noun Project
+* Dice by Dank By Design from the Noun Project
+* Dice by Heberti Almeida from the Noun Project
+* Licensed icon artwork by Rexard https://assetstore.unity.com/publishers/13229
+
+Other image assets licensed under the MIT license.
+
+## Compendium Content
+
+Compendium content primarily uses the text from the Archmage Engine SRD where possible, but in some instances uses product identity from 13th Age. Due to that, compendium content uses the following three licenses:
+
+- [OPEN GAME LICENSE Version 1.0a](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/OGL.txt)
+- [13th Age Roleplaying Game Archmage Engine License](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/archmage-engine.txt)
+- [Fire Opal Media, 13th Age — Community Use Policy](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/community-use.txt)
