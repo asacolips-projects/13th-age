@@ -556,7 +556,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let targets = [...game.user.targets.values()];
 
   // TODO (#74): All card evaluation needs to load from Localization
-  let rowsToSkip = [ "Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:" ];
+  let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
 
   let tokens = canvas.tokens.controlled;
   let actor = tokens ? tokens[0] : null;
@@ -918,7 +918,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).addClass(uuid);
     $(this).off("contextmenu");
 
-    console.log($(this).parent()[0].innerText);
+    // console.log($(this).parent()[0].innerText);
     if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
       return;
     }
