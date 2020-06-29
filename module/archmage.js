@@ -905,7 +905,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         }
 
         if (r.rolls) {
-          string = `${string}${r.rolls.map(d => `<span class="${d.discarded ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
+          string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
         }
         else {
           string = `${string}<span class="mod">${r}</span>`;
