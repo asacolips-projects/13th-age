@@ -1,10 +1,10 @@
 name: archmage
-title: 13th Age
-description: Build campaigns in the 13th Age RPG using the Foundry VTT environment.
-version: beta2-1.6.0
+title: Archmage
+description: An unofficial FVTT game system for the 13th Age RPG.
+version: beta3-1.6.0
 author: Matt Smith
-minimumCoreVersion: 0.5.2
-compatibleCoreVersion: 0.6.2
+minimumCoreVersion: 0.6.0
+compatibleCoreVersion: 0.6.4
 esmodules:
   - module/archmage.js
 scripts:
@@ -78,20 +78,10 @@ packs:
     name: druid
     path: packs/druid.db
     system: archmage
-  - label: Monk
-    entity: Item
-    name: monk
-    path: packs/monk.db
-    system: archmage
   - label: Occultist
     entity: Item
     name: occultist
     path: packs/occultist.db
-    system: archmage
-  - label: Monsters (core)
-    entity: Actor
-    name: monsters-core
-    path: packs/monsters-core.db
     system: archmage
 languages:
   - lang: en

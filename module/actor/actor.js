@@ -140,7 +140,7 @@ export class ActorArchmage extends Actor {
         }
       }
 
-      data.coins.showRare = game.settings.get("archmage", "showRareCoins");
+      data.coins.showRare = false;
 
 
       // Resources

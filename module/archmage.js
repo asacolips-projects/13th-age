@@ -166,16 +166,6 @@ Hooks.once('init', async function() {
     config: true
   });
 
-  game.settings.register('archmage', 'showRareCoins', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsHint"),
-    scope: 'world',
-    config: true,
-    default: false,
-    type: Boolean,
-    config: true
-  });
-
   game.settings.register('archmage', 'roundUpDamageApplication', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
@@ -298,7 +288,7 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
-  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> 13th Age Inline Rolls</button>`);
+  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Archmage Inline Rolls</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
@@ -308,47 +298,47 @@ Hooks.on("renderSettings", (app, html) => {
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
-  dice3d.addSystem({ id: "13A", name: "13th Age" }, true);
+  dice3d.addSystem({ id: "archmage", name: "Archmage" }, true);
 
-  dice3d.addDicePreset({
-    type: "d20",
-    labels: [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "systems/archmage/images/nat20.png"
-    ],
-    system: "13A"
-  });
+  // dice3d.addDicePreset({
+  //   type: "d20",
+  //   labels: [
+  //     "1",
+  //     "2",
+  //     "3",
+  //     "4",
+  //     "5",
+  //     "6",
+  //     "7",
+  //     "8",
+  //     "9",
+  //     "10",
+  //     "11",
+  //     "12",
+  //     "13",
+  //     "14",
+  //     "15",
+  //     "16",
+  //     "17",
+  //     "18",
+  //     "19",
+  //     "20"
+  //   ],
+  //   system: "archmage"
+  // });
 
-  dice3d.addTexture("13Ared", {
-    name: "13th Age Red",
+  dice3d.addTexture("archmagered", {
+    name: "Archmage Red",
     composite: "source-over",
     source: "systems/archmage/images/redTexture.png"
   })
     .then(() => {
       dice3d.addColorset({
-        name: '13a',
-        description: "13th Age Red/Gold",
-        category: "13th Age",
+        name: 'archmage',
+        description: "Archmage Red/Gold",
+        category: "Archmage",
         background: ["#9F8"],
-        texture: '13Ared',
+        texture: 'archmagered',
         edge: '#9F8003',
         foreground: '#9F8003',
         default: true
