@@ -140,7 +140,7 @@ export class ActorArchmage extends Actor {
         }
       }
 
-      data.coins.showRare = game.settings.get("archmage", "showRareCoins");
+      data.coins.showRare = false;
 
 
       // Resources
@@ -211,12 +211,14 @@ export class ActorArchmage extends Actor {
           melee: {
             dice: 'd8',
             value: 'd8',
-            abil: 'str'
+            abil: 'str',
+            damageAbil: 'str'
           },
           ranged: {
             dice: 'd6',
             value: 'd6',
-            abil: 'dex'
+            abil: 'dex',
+            damageAbil: 'dex'
           },
         };
       }
@@ -225,16 +227,18 @@ export class ActorArchmage extends Actor {
       data.attributes.weapon.ranged.miss = data.attributes.weapon.ranged.miss === undefined ? false : data.attributes.weapon.ranged.miss;
       data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
       data.attributes.weapon.ranged.abil = data.attributes.weapon.ranged.abil === undefined ? 'dex' : data.attributes.weapon.ranged.abil;
+      data.attributes.weapon.melee.damageAbil = data.attributes.weapon.melee.damageAbil === undefined ? 'str' : data.attributes.weapon.melee.damageAbil;
+      data.attributes.weapon.ranged.damageAbil = data.attributes.weapon.ranged.damageAbil === undefined ? 'dex' : data.attributes.weapon.ranged.damageAbil;
       // Set calculated values.
       data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod + data.attributes.attack.melee.bonus;
       data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
       data.attributes.weapon.melee.mod = data.abilities[data.attributes.weapon.melee.abil].mod;
-      data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.abil].dmg + data.attributes.attack.melee.bonus;
+      data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.damageAbil].dmg + data.attributes.attack.melee.bonus;
 
       data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod + data.attributes.attack.ranged.bonus;
       data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
       data.attributes.weapon.ranged.mod = data.abilities[data.attributes.weapon.ranged.abil].mod;
-      data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.abil].dmg + data.attributes.attack.ranged.bonus;
+      data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.damageAbil].dmg + data.attributes.attack.ranged.bonus;
 
       // Handle monk attacks.
       let monkAttacks = {

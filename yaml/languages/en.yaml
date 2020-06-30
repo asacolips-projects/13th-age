@@ -1,7 +1,7 @@
 ARCHMAGE.SETTINGS.ShowDebugLogsName: Show debug logs?
 ARCHMAGE.SETTINGS.ShowDebugLogsHint: Turn this on for bug reports
-ARCHMAGE.SETTINGS.ShowRareCoinsName: Should rare coins be shown in the character sheet?
-ARCHMAGE.SETTINGS.ShowRareCoinsHint: Rare coins include Towers, Trines, and Saints
+ARCHMAGE.SETTINGS.RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
+ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
 ARCHMAGE.feats: Feats
 ARCHMAGE.incrementals: Incrementals
 ARCHMAGE.incrementalAdvances: Incremental Advances
@@ -38,20 +38,6 @@ ARCHMAGE.COINS.silver: Silver
 ARCHMAGE.COINS.silverHint: 1 Silver = 10 Copper
 ARCHMAGE.COINS.copper: Copper
 ARCHMAGE.COINS.copperHint: 10 Copper = 1 Silver
-ARCHMAGE.COINS.trines: Trines
-ARCHMAGE.COINS.trinesHint: Beautiful Elven coins that meld gold, silver, and platinum. Usually worth 3 Standard Gold pieces.
-ARCHMAGE.COINS.imps: Imps
-ARCHMAGE.COINS.impsHint: Standard Gold pieces from Axis
-ARCHMAGE.COINS.towers: Towers
-ARCHMAGE.COINS.towersHint: Standard Dwarven Gold pieces - square with grooved edges, they stack perfectly with themselves.
-ARCHMAGE.COINS.glits: Glits
-ARCHMAGE.COINS.glitsHint: Standard Gold pieces from Glitterhaegen
-ARCHMAGE.COINS.nupes: Nupes
-ARCHMAGE.COINS.nupesHint: Standard Gold pieces from New Port
-ARCHMAGE.COINS.saints: Saints
-ARCHMAGE.COINS.saintsHint: Standard Gold pieces from Santa Cora
-ARCHMAGE.COINS.draks: Draks
-ARCHMAGE.COINS.draksHint: Standard Gold pieces from Drakkenhall
 # Ability Scores
 ARCHMAGE.str.label: Strength
 ARCHMAGE.dex.label: Dexterity
@@ -112,7 +98,9 @@ ARCHMAGE.recoveryDice: Recovery Dice
 ARCHMAGE.meleeWeaponDice: Melee Weapon Dice
 ARCHMAGE.rangedWeaponDice: Ranged Weapon Dice
 ARCHMAGE.meleeAbility: Melee Ability
+ARCHMAGE.meleeDamageAbility: Melee Damage Ability
 ARCHMAGE.rangedAbility: Ranged Ability
+ARCHMAGE.rangedDamageAbility: Ranged Damage Ability
 ARCHMAGE.meleeMiss: Melee Miss Dmg.
 ARCHMAGE.rangedMiss: Ranged Miss Dmg.
 # NPC Sheets

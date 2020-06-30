@@ -62,7 +62,7 @@ export class ArchmageUtility {
               return 'crit';
             }
             // Natural 1.
-            else if (r.roll === 1 && !r.discarded) {
+            else if (r.roll === 1 && !r.discarded && !r.rerolled) {
               return 'fail';
             }
             // Barbarian crit.
@@ -186,6 +186,7 @@ export class ArchmageUtility {
                 data.wpn[wpn].die = data.wpn[wpn].dice;
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
+                data.wpn[wpn].dmg = data.wpn[wpn].dmg;
                 delete data.wpn[wpn].value;
                 delete data.wpn[wpn].attack;
               });
@@ -409,7 +410,7 @@ export class ArchmageUtility {
 export class ArchmageReference extends Application {
   static get defaultOptions() {
     const options = super.defaultOptions;
-    options.title = "13th Age Inline Rolls Reference"
+    options.title = "Archmage Inline Rolls Reference"
     options.id = "archmage-help";
     options.template = "systems/archmage/templates/sidebar/apps/archmage-help.html";
     options.width = 820;

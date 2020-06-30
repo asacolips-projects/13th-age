@@ -7,6 +7,8 @@ import { ItemArchmageSheet } from './item/item-sheet.js';
 import { CinderWeatherEffect } from './setup/weather.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { ArchmageReference } from './setup/utility-classes.js';
+import { ContextMenu2 } from './setup/contextMenu2.js';
+import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
 
 Hooks.once('init', async function() {
@@ -164,14 +166,13 @@ Hooks.once('init', async function() {
     config: true
   });
 
-  game.settings.register('archmage', 'showRareCoins', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ShowRareCoinsHint"),
+  game.settings.register('archmage', 'roundUpDamageApplication', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
     scope: 'world',
     config: true,
-    default: false,
-    type: Boolean,
-    config: true
+    default: true,
+    type: Boolean
   });
 
   /**
@@ -280,12 +281,14 @@ Hooks.once('ready', () => {
 
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
+
+  $('.message').off("contextmenu");
 });
 
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
-  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> 13th Age Inline Rolls</button>`);
+  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Archmage Inline Rolls</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
@@ -295,47 +298,47 @@ Hooks.on("renderSettings", (app, html) => {
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
-  dice3d.addSystem({ id: "13A", name: "13th Age" }, true);
+  dice3d.addSystem({ id: "archmage", name: "Archmage" }, true);
 
-  dice3d.addDicePreset({
-    type: "d20",
-    labels: [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "systems/archmage/images/nat20.png"
-    ],
-    system: "13A"
-  });
+  // dice3d.addDicePreset({
+  //   type: "d20",
+  //   labels: [
+  //     "1",
+  //     "2",
+  //     "3",
+  //     "4",
+  //     "5",
+  //     "6",
+  //     "7",
+  //     "8",
+  //     "9",
+  //     "10",
+  //     "11",
+  //     "12",
+  //     "13",
+  //     "14",
+  //     "15",
+  //     "16",
+  //     "17",
+  //     "18",
+  //     "19",
+  //     "20"
+  //   ],
+  //   system: "archmage"
+  // });
 
-  dice3d.addTexture("13Ared", {
-    name: "13th Age Red",
+  dice3d.addTexture("archmagered", {
+    name: "Archmage Red",
     composite: "source-over",
     source: "systems/archmage/images/redTexture.png"
   })
     .then(() => {
       dice3d.addColorset({
-        name: '13a',
-        description: "13th Age Red/Gold",
-        category: "13th Age",
+        name: 'archmage',
+        description: "Archmage Red/Gold",
+        category: "Archmage",
         background: ["#9F8"],
-        texture: '13Ared',
+        texture: 'archmagered',
         edge: '#9F8003',
         foreground: '#9F8003',
         default: true
@@ -519,6 +522,13 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 /* ---------------------------------------------- */
 
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
 /**
  * Parse inline rolls.
  */
@@ -534,6 +544,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
   let targetsHit = [];
   let targetsMissed = [];
   let targets = [...game.user.targets.values()];
+
+  // TODO (#74): All card evaluation needs to load from Localization
+  let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
 
   let tokens = canvas.tokens.controlled;
   let actor = tokens ? tokens[0] : null;
@@ -595,6 +608,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       let $row_self = $(this);
       let row_text = $row_self.html();
 
+      if (rowsToSkip.filter(x => row_text.includes(x)).length > 0) {
+        return;
+      }
 
       if (row_text.includes('Attack:')) {
         if (row_text.includes('dc-crit')) {
@@ -885,6 +901,63 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
+
+  html.find('.inline-roll--archmage').each(function() {
+    var uuid = uuidv4();
+    // Add a way to uniquely identify this roll
+    $(this).addClass(uuid);
+    $(this).off("contextmenu");
+
+    // console.log($(this).parent()[0].innerText);
+    if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
+      return;
+    }
+
+    new ContextMenu2($(this).parent(), "." + uuid, [
+      {
+        name: "Apply as Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, 1);
+        }
+      },
+      {
+        name: "Apply as Half Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, .5);
+        }
+      },
+      {
+        name: "Apply as Double Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, 2);
+        }
+      },
+      {
+        name: "Apply as Triple Damage",
+        icon: '<i class="fas fa-tint"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asDamage(inlineRoll, 3);
+        }
+      },
+      {
+        name: "Apply as Healing",
+        icon: '<i class="fas fa-medkit"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asHealing(inlineRoll);
+        }
+      },
+      {
+        name: "Apply as Temp Health",
+        icon: '<i class="fas fa-heart"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asTempHealth(inlineRoll);
+        }
+      }
+    ]);
+  });
   html.find('a.inline-roll--archmage').on('click', event => {
     event.preventDefault();
     const a = event.currentTarget;
@@ -899,7 +972,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         }
 
         if (r.rolls) {
-          string = `${string}${r.rolls.map(d => `<span class="${d.discarded ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
+          string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
         }
         else {
           string = `${string}<span class="mod">${r}</span>`;
@@ -924,8 +997,11 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
       // Execute the roll
       const roll = new Roll(a.dataset.formula, rollData).roll();
-      return roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+      var message = roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
+      $('.message').off("contextmenu");
+      return message;
     }
+
   });
 });
 

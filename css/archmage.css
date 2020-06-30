@@ -1943,7 +1943,7 @@ input[type="checkbox"] {
     -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);
     box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45); }
   #chat-form::before {
-    background-image: url("../assets/src/13a-logo.png");
+    background-image: transparent;
     background-repeat: no-repeat;
     background-size: contain;
     bottom: 4px;
@@ -2290,3 +2290,46 @@ input[type="checkbox"] {
 .item-properties tr:nth-child(even),
 .card-prop tr:nth-child(even) {
   background: rgba(0, 0, 0, 0.05); }
+
+/* ----------------------------------------- */
+/*  Context Dropdown Menu
+/* ----------------------------------------- */
+#context-menu2 {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  min-width: 150px;
+  max-width: 360px;
+  position: absolute;
+  left: 0;
+  background: #23221d;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #EEE;
+  z-index: 31; }
+
+#context-menu2.expand-down {
+  top: calc(100% + 2px); }
+
+#context-menu2.expand-up {
+  bottom: calc(100% + 2px); }
+
+#context-menu2 ol.context-items {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+#context-menu2 li.context-item {
+  padding: 0 5px;
+  line-height: 32px; }
+
+#context-menu2 li.context-item:hover {
+  color: #FFF;
+  text-shadow: 0 0 4px red; }
+
+#context-menu2 li.context-item > i {
+  margin-right: 5px; }
+
+.window-app #context-menu2 {
+  z-index: 101; }
