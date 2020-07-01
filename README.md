@@ -1,19 +1,17 @@
-# Install
-
-1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this manifest link:
-    * Foundry 0.6.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
-3. Create a Game World using the unofficial 13th Age system.
-
-Compatible with FoundryVTT 0.3.x
-
 # Description
 
-Build campaigns using this unofficial FVTT character sheet for the [13th Age RPG](https://site.pelgranepress.com/index.php/category/products/13th-age/), which is a trademark of [Fire Opal Media](http://www.fireopalmedia.com/) and published by [Pelgrane Press](https://site.pelgranepress.com/). This system alone cannot be used to play 13th Age, you must also own either the official books or use the freely available SRD.
+Create characters in this character sheet for OGL games using mechanics such as icon relationships, backgrounds, one unique thing, and a number of talents, spells, and powers. Full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions.
+
+# Install
+
+1. Go to the setup page and choose Game Systems.
+2. Click the Install System button, and paste in this manifest link:
+    * Foundry 0.6.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
+3. Create a game world using the new sytem.
 
 # Inline Rolls
 
-For a full reference of how to use inline rolls, go to the settings tab of the right sidebar and click the "Archmage Inline Rolls" button.
+All powers and monster actions require usage of inline dice rolls, such as `[[d20+@str+@lvl+@ed+2]]` to function with automation and dice rolls in chat messages. Many of the compendium entries for powers come preformatted using this syntax, but some are still in progress. For a full reference of how to use inline rolls, go to the settings tab of the right sidebar and click the "Archmage Inline Rolls" button.
 
 ---
 
@@ -41,7 +39,7 @@ Other image assets licensed under the MIT license.
 
 ## SRD and OGL Content
 
-This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm) to provide content available in the [13th Age Argmage Engine SRD](https://site.pelgranepress.com/index.php/the-archmage-engine-13th-age-srd/). It is not officially endorsed by Pelgrane Press or Fire Opal Media, and any references to the 13th Age trademark are strictly intended as fair use to make it easier for players and GMs to find and use the system. Its content is freely available in JSON format at https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/tree/master/packs in the form of .db files that can be opened in a text editor.
+This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm), the text of which is reproduced below (including additional required copyright notices). Its content is freely available in JSON format at [https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/tree/master/packs](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/tree/master/packs) in the form of .db files that can be opened in a text editor.
 
 ### Open Game License
 
