@@ -1,6 +1,6 @@
 # Description
 
-Create characters in this character sheet for OGL games using mechanics such as icon relationships, backgrounds, one unique thing, and a number of talents, spells, and powers. Full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions.
+Create characters in this FoundryVTT character sheet for OGL games using mechanics such as icon relationships, backgrounds, one unique thing, and a number of talents, spells, and powers. Full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions.
 
 # Install
 
