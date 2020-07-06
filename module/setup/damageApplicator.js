@@ -43,13 +43,33 @@ export class DamageApplicator {
       if (token.data?.actorData?.data?.attributes != undefined) {
         var tokenData = duplicate(token.data);
         var hp = tokenData.actorData.data.attributes["hp"];
-        hp.value -= toApply;
+        var temp = hp.temp;
+        
+        if (toApply > temp) {
+          var overflow = toApply - temp;
+          hp.temp = 0;
+          hp.value -= overflow;
+        }
+        else {
+          hp.temp -= toApply;
+        }
+
         token.update(tokenData);
       }
       else {
         var actorData = duplicate(token.actor.data);
         var hp = actorData.data.attributes["hp"];
-        hp.value -= toApply;
+        var temp = hp.temp;
+
+        if (toApply > temp) {
+          var overflow = toApply - temp;
+          hp.temp = 0;
+          hp.value -= overflow;
+        }
+        else {
+          hp.temp -= toApply;
+        }
+
         token.actor.update(actorData);
       }
     });
