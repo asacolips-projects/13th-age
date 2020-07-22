@@ -865,22 +865,49 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               let $roll_self = $(this);
               // Retrieve the roll formula.
               let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-              // If there's a crit, double the formula and reroll. If there's a
-              // fail with no crit, 0 it out.
-              if (has_crit) {
-                roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
-                $roll_self.addClass('dc-crit');
+              //////////////////////////////////////////////////////////////////////////
+              //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+              //////////////////////////////////////////////////////////////////////////
+              if (!isNewerVersion(game.data.version, "0.7")) {
+                // If there's a crit, double the formula and reroll. If there's a
+                // fail with no crit, 0 it out.
+                if (has_crit) {
+                  roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  $roll_self.addClass('dc-crit');
+                }
+                else {
+                  roll_data.formula = `0`;
+                  $roll_self.addClass('dc-fail');
+                }
+                // Reroll and recalculate.
+                roll_data = roll_data.reroll();
+                // Update inline roll's markup.
+                $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+                $roll_self.attr('title', roll_data.formula);
+                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
               }
-              else {
-                roll_data.formula = `0`;
-                $roll_self.addClass('dc-fail');
+              //////////////////////////////////////////////////////////////////////////
+              //////////////////////// END OF DEPRECATED CODE //////////////////////////
+              //////////////////////////////////////////////////////////////////////////
+              {
+                let new_formula = roll_data.formula;
+                // If there's a crit, double the formula and reroll. If there's a
+                // fail with no crit, 0 it out.
+                if (has_crit) {
+                  new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  $roll_self.addClass('dc-crit');
+                }
+                else {
+                  new_formula = `0`;
+                  $roll_self.addClass('dc-fail');
+                }
+                // Reroll and recalculate.
+                let new_roll = new Roll(new_formula).roll();
+                // Update inline roll's markup.
+                $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
+                $roll_self.attr('title', new_roll.formula);
+                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
               }
-              // Reroll and recalculate.
-              roll_data = roll_data.reroll();
-              // Update inline roll's markup.
-              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
-              $roll_self.attr('title', roll_data.formula);
-              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
             });
           }
           // Update the row with the new roll(s) markup.
@@ -965,26 +992,56 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     // For inline results expand or collapse the roll details
     if (a.classList.contains("inline-result")) {
       const roll = Roll.fromJSON(unescape(a.dataset.roll));
-      // Build a die string of the die parts, including whether they're discarded.
-      const dieTotal = roll.parts.reduce((string, r) => {
-        if (typeof string == 'object') {
-          string = '';
-        }
+      //////////////////////////////////////////////////////////////////////////
+      //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+      //////////////////////////////////////////////////////////////////////////
+      if (!isNewerVersion(game.data.version, "0.7")) {
+        // Build a die string of the die parts, including whether they're discarded.
+        const dieTotal = roll.parts.reduce((string, r) => {
+          if (typeof string == 'object') {
+            string = '';
+          }
 
-        if (r.rolls) {
-          string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
-        }
-        else {
-          string = `${string}<span class="mod">${r}</span>`;
-        }
+          if (r.rolls) {
+            string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
+          }
+          else {
+            string = `${string}<span class="mod">${r}</span>`;
+          }
 
-        return string;
-      }, {});
+          return string;
+        }, {});
 
-      // Replace the html.
-      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
-      a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
-      a.classList.toggle("expanded");
+        // Replace the html.
+        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+        a.classList.toggle("expanded");
+      }
+      //////////////////////////////////////////////////////////////////////////
+      //////////////////////// END OF DEPRECATED CODE //////////////////////////
+      //////////////////////////////////////////////////////////////////////////
+      else {
+        // Build a die string of the die parts, including whether they're discarded.
+        const dieTotal = roll.terms.reduce((string, r) => {
+          if (typeof string == 'object') {
+            string = '';
+          }
+
+          if (r.results) {
+            string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
+          }
+          else {
+            string = `${string}<span class="mod">${r}</span>`;
+          }
+
+          return string;
+        }, {});
+
+        // Replace the html.
+        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+        a.classList.toggle("expanded");
+      }
     }
 
     // Otherwise execute the deferred roll

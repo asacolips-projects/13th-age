@@ -88,8 +88,8 @@ export class DiceArchmage {
         speaker: speaker,
         alias: alias,
         flavor: flav,
-        highlightSuccess: roll.parts[0].total === 20,
-        highlightFailure: roll.parts[0].total === 1
+        highlightSuccess: roll.terms[0].total === 20,
+        highlightFailure: roll.terms[0].total === 1
       }, { rollMode });
     };
 
