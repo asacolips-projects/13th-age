@@ -85,26 +85,18 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 
 15. COPYRIGHT NOTICE
 
-Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+**Open Game License** v 1.0a. Copyright 2000, Wizards of the Coast, Inc.
 
-System Reference Document Copyright 2000, Wizards of the Coast, Inc. Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+**System Reference Document**. Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 
-13th Age Archmage Engine Copyright 2013, Fire Opal Media. Author: Chad Dylan Long, based on material by Jonathan Tweet and Rob Heinsoo. Edited by Cal Moore and Simon Rogers.
+**13th Age**. Copyright 2013, Fire Opal Media; Authors: Rob Heinsoo, Jonathan Tweet, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 
-13th Age Copyright 2013, Fire Opal Media. Authors: Rob Heinsoo and Jonathan Tweet. Edited by Cal Moore. Additional editing by Simon Rogers. The 13th Age RPG and supplements are published under exclusive license to Pelgrane Press.
+**13th Age Bestiary**. Copyright 2014, Fire Opal Media and Pelgrane Press Ltd; Authors: Ryven Cedyrlle, Rob Heinsoo, Kenneth Hite, Kevin Kulp, ASH LAW, Cal Moore, Steve Townshend, Rob Watkins, Rob Wieland.
 
-13 True Ways. Copyright 2014, Fire Opal Media, Inc.; Authors Rob Heinsoo, Jonathan Tweet, based on material by Jonathan Tweet, Monte Cook, and Skip Williams
+**13 True Ways**. Copyright 2014, Fire Opal Media, Inc.; Authors: Rob Heinsoo, Jonathan Tweet, Robin D. Laws.
 
-13th Age Bestiary. Copyright 2014, Fire Opal Media and Pelgrane Press Ltd; Authors: Ryven Cedyrlle, Rob Heinsoo, Kenneth Hite, Kevin Kulp, ASH LAW, Cal Moore, Steve Townshend, Rob Watkins, Rob Wieland.
+**Pathfinder RPG Core Rulebook**. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 
-Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+**Castles & Crusades**, Copyright 2004, Troll Lord Games; Authors: Davis Chenault, Mac Golden.
 
-Castles & Crusades, Copyright 2004, Troll Lord Games; Authors: Davis Chenault, Mac Golden.
-
-13 Barbarian Talents and Feats. © 2019, Jon Brazer Enterprises, Author: Richard Moore.
-
-13 Cleric Domains and Spells. © 2018, Jon Brazer Enterprises, Author: Richard Moore.
-
-13 Fighter Talents and Maneuvers. © 2017, Jon Brazer Enterprises, Author: Richard Moore.
-
-13 Wizard Cantrips and Spells. © 2018, Jon Brazer Enterprises, Author: Richard Moore.
+**13th Age Archmage Engine**. Copyright 2013-2016, Fire Opal Media. Author: Chad Dylan Long, based on material by Jonathan Tweet, Rob Heinsoo, Ryven Cedyrlle, Kenneth Hite, Kevin Kulp, ASH LAW, Cal Moore, Steve Townshend, Rob Watkins, and Rob Wieland.
