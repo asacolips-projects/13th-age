@@ -1,11 +1,11 @@
 # Description
 
-Create characters in this FoundryVTT character sheet for OGL games using mechanics such as icon relationships, backgrounds, one unique thing, and a number of talents, spells, and powers. Full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions.
+Create characters in this FoundryVTT character sheet that is compatible with the _13th Age Roleplaying Game_. It has full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions. Compendium entries are based on the OGL content for the _13th Age Roleplaying Game_, and conversion of them to FoundryVTT compendiums is still in progress for some classes. Rules unrelated to classes or monsters are not provided in this system, which means that the _13th Age Roleplaying Game_ is required to play it.
 
 # Install
 
 1. Go to the setup page and choose Game Systems.
-2. Click the Install System button, and paste in this manifest link:
+2. Click the Install System button, and either search for Toolkit13 or paste in this manifest link:
     * Foundry 0.6.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
 3. Create a game world using the new sytem.
 
@@ -18,6 +18,16 @@ All powers and monster actions require usage of inline dice rolls, such as `[[d2
 # Licenses
 
 This system makes usage of several different licenses, both for the code and for the compendium content.
+
+## Compatible with the 13th Age Roleplaying Game
+
+Compatible with the 13th Age Roleplaying Game requires the 13th Age Roleplaying Game from Fire Opal Media Inc. and Pelgrane Press Ltd. See [http://13thage.com](13thAge.com) for more information on the 13th Age Roleplaying Game. Fire Opal Media Inc. does not guarantee compatibility, and does not endorse this product.
+
+## Copyright
+
+The Toolkit13 name is copyright © 2020 by Matt Smith. Some rights reserved.
+
+13th Age is a registered trademark of Fire Opal Media Inc., and the 13th Age Roleplaying Game and the 13th Age Roleplaying Game Compatibility Logo are trademarks of Fire Opal Media Inc. under exclusive license to Pelgrane Press Ltd., and are used under the 13th Age Roleplaying Game Compatibility License. See [http://13thage.com](13thAge.com) for more information on the compatibility license.
 
 ## HTML, CSS, and Javscript
 
@@ -39,7 +49,7 @@ Other image assets licensed under the MIT license.
 
 ## SRD and OGL Content
 
-This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm), the text of which is reproduced below (including additional required copyright notices). Its content is freely available in JSON format at [https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/tree/master/packs](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/tree/master/packs) in the form of .db files that can be opened in a text editor.
+This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm), the text of which is reproduced below (including additional required copyright notices).
 
 ### Open Game License
 
