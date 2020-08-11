@@ -32,8 +32,6 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
-    console.log("Item roll");
-    console.log(this.actor);
     // Basic chat message data
     const chatData = {
       user: game.user._id,
