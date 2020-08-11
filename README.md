@@ -1,25 +1,33 @@
-# Install
-
-1. Go to the setup page and choose **Game Systems**.
-2. Click the **Install System** button, and paste in this manifest link:
-    * Foundry 0.6.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
-3. Create a Game World using the unofficial 13th Age system.
-
-Compatible with FoundryVTT 0.3.x
-
 # Description
 
-Build campaigns using this unofficial FVTT character sheet for the [13th Age RPG](https://site.pelgranepress.com/index.php/category/products/13th-age/), which is a trademark of [Fire Opal Media](http://www.fireopalmedia.com/) and published by [Pelgrane Press](https://site.pelgranepress.com/). This system alone cannot be used to play 13th Age, you must also own either the official books or use the freely available SRD.
+Create characters in this FoundryVTT character sheet that is compatible with the _13th Age Roleplaying Game_. It has full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions. Compendium entries are based on the OGL content for the _13th Age Roleplaying Game_, and conversion of them to FoundryVTT compendiums is still in progress for some classes. Rules unrelated to classes or monsters are not provided in this system, which means that the _13th Age Roleplaying Game_ is required to play it.
+
+# Install
+
+1. Go to the setup page and choose Game Systems.
+2. Click the Install System button, and either search for Toolkit13 or paste in this manifest link:
+    * Foundry 0.6.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
+3. Create a game world using the new sytem.
 
 # Inline Rolls
 
-For a full reference of how to use inline rolls, go to the settings tab of the right sidebar and click the "Archmage Inline Rolls" button.
+All powers and monster actions require usage of inline dice rolls, such as `[[d20+@str+@lvl+@ed+2]]` to function with automation and dice rolls in chat messages. Many of the compendium entries for powers come preformatted using this syntax, but some are still in progress. For a full reference of how to use inline rolls, go to the settings tab of the right sidebar and click the "Archmage Inline Rolls" button.
 
 ---
 
 # Licenses
 
 This system makes usage of several different licenses, both for the code and for the compendium content.
+
+## Compatible with the 13th Age Roleplaying Game
+
+Compatible with the 13th Age Roleplaying Game requires the 13th Age Roleplaying Game from Fire Opal Media Inc. and Pelgrane Press Ltd. See [http://13thage.com](13thAge.com) for more information on the 13th Age Roleplaying Game. Fire Opal Media Inc. does not guarantee compatibility, and does not endorse this product.
+
+## Copyright
+
+The Toolkit13 name is copyright © 2020 by Matt Smith. Some rights reserved.
+
+13th Age is a registered trademark of Fire Opal Media Inc., and the 13th Age Roleplaying Game and the 13th Age Roleplaying Game Compatibility Logo are trademarks of Fire Opal Media Inc. under exclusive license to Pelgrane Press Ltd., and are used under the 13th Age Roleplaying Game Compatibility License. See [http://13thage.com](13thAge.com) for more information on the compatibility license.
 
 ## HTML, CSS, and Javscript
 
@@ -41,7 +49,7 @@ Other image assets licensed under the MIT license.
 
 ## SRD and OGL Content
 
-This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm) to provide content available in the [13th Age Argmage Engine SRD](https://site.pelgranepress.com/index.php/the-archmage-engine-13th-age-srd/). It is not officially endorsed by Pelgrane Press or Fire Opal Media, and any references to the 13th Age trademark are strictly intended as fair use to make it easier for players and GMs to find and use the system. Its content is freely available in JSON format at https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/tree/master/packs in the form of .db files that can be opened in a text editor.
+This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm), the text of which is reproduced below (including additional required copyright notices).
 
 ### Open Game License
 
@@ -77,26 +85,18 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 
 15. COPYRIGHT NOTICE
 
-Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+**Open Game License** v 1.0a. Copyright 2000, Wizards of the Coast, Inc.
 
-System Reference Document Copyright 2000, Wizards of the Coast, Inc. Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+**System Reference Document**. Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 
-13th Age Archmage Engine Copyright 2013, Fire Opal Media. Author: Chad Dylan Long, based on material by Jonathan Tweet and Rob Heinsoo. Edited by Cal Moore and Simon Rogers.
+**13th Age**. Copyright 2013, Fire Opal Media; Authors: Rob Heinsoo, Jonathan Tweet, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 
-13th Age Copyright 2013, Fire Opal Media. Authors: Rob Heinsoo and Jonathan Tweet. Edited by Cal Moore. Additional editing by Simon Rogers. The 13th Age RPG and supplements are published under exclusive license to Pelgrane Press.
+**13th Age Bestiary**. Copyright 2014, Fire Opal Media and Pelgrane Press Ltd; Authors: Ryven Cedyrlle, Rob Heinsoo, Kenneth Hite, Kevin Kulp, ASH LAW, Cal Moore, Steve Townshend, Rob Watkins, Rob Wieland.
 
-13 True Ways. Copyright 2014, Fire Opal Media, Inc.; Authors Rob Heinsoo, Jonathan Tweet, based on material by Jonathan Tweet, Monte Cook, and Skip Williams
+**13 True Ways**. Copyright 2014, Fire Opal Media, Inc.; Authors: Rob Heinsoo, Jonathan Tweet, Robin D. Laws.
 
-13th Age Bestiary. Copyright 2014, Fire Opal Media and Pelgrane Press Ltd; Authors: Ryven Cedyrlle, Rob Heinsoo, Kenneth Hite, Kevin Kulp, ASH LAW, Cal Moore, Steve Townshend, Rob Watkins, Rob Wieland.
+**Pathfinder RPG Core Rulebook**. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 
-Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+**Castles & Crusades**, Copyright 2004, Troll Lord Games; Authors: Davis Chenault, Mac Golden.
 
-Castles & Crusades, Copyright 2004, Troll Lord Games; Authors: Davis Chenault, Mac Golden.
-
-13 Barbarian Talents and Feats. © 2019, Jon Brazer Enterprises, Author: Richard Moore.
-
-13 Cleric Domains and Spells. © 2018, Jon Brazer Enterprises, Author: Richard Moore.
-
-13 Fighter Talents and Maneuvers. © 2017, Jon Brazer Enterprises, Author: Richard Moore.
-
-13 Wizard Cantrips and Spells. © 2018, Jon Brazer Enterprises, Author: Richard Moore.
+**13th Age Archmage Engine**. Copyright 2013-2016, Fire Opal Media. Author: Chad Dylan Long, based on material by Jonathan Tweet, Rob Heinsoo, Ryven Cedyrlle, Kenneth Hite, Kevin Kulp, ASH LAW, Cal Moore, Steve Townshend, Rob Watkins, and Rob Wieland.

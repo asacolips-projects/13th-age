@@ -1,6 +1,7 @@
 import { ARCHMAGE } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
+import { ReorganizedCharacterArchmageSheet } from './actor/reorganized-character-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
@@ -65,6 +66,7 @@ Hooks.once('init', async function() {
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
+    ReorganizedCharacterArchmageSheet,
     ActorArchmageNPCSheet,
     DiceArchmage,
     ItemArchmage,
@@ -92,6 +94,11 @@ Hooks.once('init', async function() {
   Actors.registerSheet('archmage', ActorArchmageSheet, {
     types: ["character"],
     makeDefault: true
+  });
+
+  Actors.registerSheet('archmage', ReorganizedCharacterArchmageSheet, {
+    types: ["character"],
+    makeDefault: false
   });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
