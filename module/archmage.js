@@ -909,6 +909,29 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
           // Update the row with the new roll(s) markup.
           $row_self.find('.inline-result').replaceWith($roll);
         }
+        if (row_text.includes('Miss:')) {
+          let $roll = $row_self.find('.inline-result');
+                    if ($roll.length > 0) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+              let $roll_self = $(this);
+              // Retrieve the roll formula.
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              // If there's a crit, double the formula and reroll. If there's a
+              // fail with no crit, 0 it out.
+              if (has_fail) {
+                roll_data.formula = `0`;
+                $roll_self.addClass('dc-fail');
+              }
+              // Reroll and recalculate.
+              roll_data = roll_data.reroll();
+              // Update inline roll's markup.
+              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+              $roll_self.attr('title', roll_data.formula);
+              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+            });
+          }
+        }
       }
     });
 
