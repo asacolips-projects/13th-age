@@ -194,42 +194,8 @@ export class ActorArchmageSheet extends ActorSheet {
       // Perform the roll.
       let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
       roll.roll();
-      // Send to chat 
-      if(this.actor.getFlag('archmage', 'strongRecovery')) {
-        var max_dice=1;
-        if (actorData.attributes.level.value>4){
-          max_dice=2;
-        } else if (actorData.attributes.level.value>7){
-          max_dice=3;
-        }
-        var templateData = {
-          max_dice = max_dice;
-        }
-        let template = 'systems/archmage/templates/chat/recovery-roll_dialog.html';
-          
-        renderTemplate(template, templateData).then(content => {
-           let d = new Dialog({
-             title: `Import Powers (${powerClass})`,
-             content: content,
-             buttons: {
-               cancel: {
-               icon: '<i class="fas fa-times"></i>',
-               label: "Cancel",
-               callback: () => null
-               },
-               submit: {
-               icon: '<i class="fas fa-check"></i>',
-               label: "Submit",
-               callback: dlg => _onImportPower(dlg, this.actor, {})
-               }
-            }
-          }, options);
-          d.render(true);
-        });
-      } else {
-        roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
-      }
-      // Reduce the number of recoveries
+      // Send to chat and reduce the number of recoveries.
+      roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
       this.actor.update({
         'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0),
         'data.attributes.hp.value': Math.min(this.actor.data.data.attributes.hp.max, this.actor.data.data.attributes.hp.value + roll.total)
