@@ -114,6 +114,13 @@
       "name": "occultist",
       "path": "packs/occultist.db",
       "system": "archmage"
+    },
+    {
+      "name": "srd-monsters",
+      "label": "SRD Monsters",
+      "system": "archmage",
+      "path": "./packs/srd-monsters.db",
+      "entity": "Actor"
     }
   ],
   "languages": [
