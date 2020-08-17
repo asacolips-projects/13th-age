@@ -88,6 +88,45 @@ export class ItemArchmageSheet extends ItemSheet {
     return data;
   }
 
+  _getHeaderButtons() {
+    let buttons = super._getHeaderButtons();
+
+    let me = this;
+
+    // Share Entry
+    if (game.user.isGM) {
+      buttons.unshift({
+        label: "Show Players",
+        class: "share-image",
+        icon: "fas fa-eye",
+        onclick: () => this.shareItem()
+      });
+    }
+
+    return buttons;
+  }
+
+  shareItem() {
+    game.socket.emit("system.archmage", {
+      itemId: this.item._id
+    });
+  }
+
+  /**
+   * Handle a received request to display an item.
+   */
+  static _handleShareItem({itemId}={}) {
+    let item = game.items.get(itemId);
+    var itemSheet = new ItemArchmageSheet(item, {
+      title: item.title,
+      uuid: item.uuid,
+      shareable: false,
+      editable: false
+    });
+
+    return itemSheet.render(true);
+  }
+
   /* -------------------------------------------- */
 
   /**
@@ -149,3 +188,11 @@ export class ItemArchmageSheet extends ItemSheet {
     });
   }
 }
+
+
+
+Hooks.once('ready', async function () {
+  game.socket.on("system.archmage", (msg) => {
+    ItemArchmageSheet._handleShareItem(msg);
+  });
+})
