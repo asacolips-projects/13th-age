@@ -5,7 +5,7 @@
   "version": "beta2-1.6.3",
   "author": "Matt Smith",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.6.4",
+  "compatibleCoreVersion": "0.7.1",
   "socket": true,
   "esmodules": [
     "module/archmage.js"
