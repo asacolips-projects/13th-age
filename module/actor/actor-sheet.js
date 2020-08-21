@@ -262,7 +262,37 @@ export class ActorArchmageSheet extends ActorSheet {
         // Render the template
         chatData["content"] = await renderTemplate(template, templateData);
 
-        return ChatMessage.create(chatData, { displaySheet: false });
+        let message = ChatMessage.create(chatData, { displaySheet: false });
+
+        // Card support
+        if (game.decks) {
+
+          for (var x = 0; x < fives; x++ ) {
+            await addIconCard(icon.name.value, 5);
+          }
+          for (var x = 0; x < sixes; x++ ) {
+            await addIconCard(icon.name.value, 6);
+          }
+
+          async function addIconCard(icon, value) {
+              let c = {};
+              let decks = game.decks.decks;
+              for (var deckId in decks) {
+                  let deck = await game.decks.get(deckId);
+                  let cards = await Promise.all(deck._cards.map(async function(x) {
+                      return { id: x, data: await deck.getCardData(x) };
+                  }));
+                  
+                  let card = cards.find(x => x.data.icon && x.data.icon == icon && x.data.value == value);
+              
+                  if (card) {
+                      await ui.cardHotbar.populator.addToHand([card.id]);
+                  }
+              }
+          }
+        }
+
+        return message;
       }
     });
 
