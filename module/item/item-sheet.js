@@ -117,7 +117,21 @@ export class ItemArchmageSheet extends ItemSheet {
    */
   static _handleShareItem({itemId}={}) {
     let item = game.items.get(itemId);
-    var itemSheet = new ItemArchmageSheet(item, {
+
+    if (item == undefined) {
+      let characters = game.actors.filter(x => x.data.type == "character");
+
+      for (var x = 0; x <= characters.length; x++) {
+        let actor = characters[x];
+        let found = actor.data.items.find(x => x._id == itemId);
+        if (found) {
+          item = actor.getOwnedItem(itemId);
+          break;
+        }
+      }  
+    }
+
+    let itemSheet = new ItemArchmageSheet(item, {
       title: item.title,
       uuid: item.uuid,
       shareable: false,
