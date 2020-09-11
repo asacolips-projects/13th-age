@@ -3,10 +3,9 @@
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
   "description": "Run 13th Age Compatible campaigns",
   "version": "beta2-1.6.3",
-  "author": "Matt Smith",
+  "author": "Matt Smith & Cody Swendrowski",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.7.1",
-  "socket": true,
+  "compatibleCoreVersion": "0.7.2",
   "esmodules": [
     "module/archmage.js"
   ],
@@ -117,11 +116,11 @@
       "system": "archmage"
     },
     {
-      "name": "srd-monsters",
-      "label": "SRD Monsters",
-      "system": "archmage",
-      "path": "./packs/srd-monsters.db",
-      "entity": "Actor"
+      "label": "General Feats",
+      "entity": "Item",
+      "name": "generalfeats",
+      "path": "packs/general-feats.db",
+      "system": "archmage"
     }
   ],
   "languages": [

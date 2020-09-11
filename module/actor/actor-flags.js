@@ -16,7 +16,7 @@ export class ActorSheetFlags extends BaseEntitySheet {
    * @type {String}
    */
   get title() {
-    return `${game.i18n.localize('Archmage.FlagsTitle')}: ${this.object.name}`;
+    return `${game.i18n.localize('ARCHMAGE.CHARACTERFLAGS.title')}: ${this.object.name}`;
   }
 
   /* -------------------------------------------- */

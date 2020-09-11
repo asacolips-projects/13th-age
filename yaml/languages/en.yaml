@@ -12,6 +12,7 @@ ARCHMAGE.CHARACTER.RESOURCES.commandPoints: Command Points
 ARCHMAGE.CHARACTER.RESOURCES.custom1: Custom Resource 1
 ARCHMAGE.CHARACTER.RESOURCES.custom2: Custom Resource 2
 ARCHMAGE.CHARACTER.RESOURCES.custom3: Custom Resource 3
+ARCHMAGE.CHARACTERFLAGS.title: Flags
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvName: Quick to Fight
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeName: Improved Initiative
@@ -76,7 +77,6 @@ ARCHMAGE.settings: Settings
 ARCHMAGE.backgrounds: Backgrounds
 ARCHMAGE.iconRelationships: Icon Relationships
 ARCHMAGE.oneUniqueThing: One Unique Thing
-ARCHMAGE.powers: Powers
 ARCHMAGE.biography: Biography
 ARCHMAGE.equipment: Equipment
 ARCHMAGE.abilityName: Ability Name
@@ -89,11 +89,21 @@ ARCHMAGE.add: Add
 ARCHMAGE.import: Import
 ARCHMAGE.name: Name
 ARCHMAGE.type: Type
+ARCHMAGE.features: Features
+ARCHMAGE.talents: Talents
+ARCHMAGE.spells: Spells
+ARCHMAGE.powers: Powers
+ARCHMAGE.maneuvers: Maneuvers
+ARCHMAGE.other: Other
 # Settings
 ARCHMAGE.specialTraits: Special Traits
 ARCHMAGE.baseAC: Base AC
 ARCHMAGE.basePD: Base PD
 ARCHMAGE.baseMD: Base MD
+ARCHMAGE.baseHP: Base HP
+ARCHMAGE.calculateHP: Calculate Max HP?
+ARCHMAGE.baseRecoveries: Base Recoveries
+ARCHMAGE.calculateRecoveries: Calculate Max Recoveries?
 ARCHMAGE.recoveryDice: Recovery Dice
 ARCHMAGE.meleeWeaponDice: Melee Weapon Dice
 ARCHMAGE.rangedWeaponDice: Ranged Weapon Dice
@@ -169,6 +179,7 @@ ARCHMAGE.CHAT.breathWeapon: Breath Weapon
 ARCHMAGE.CHAT.special: Special
 ARCHMAGE.CHAT.unambiguousAdvantages: Unambiguous Advantages
 ARCHMAGE.CHAT.complicatedAdvantages: Complicated Advantages
+ARCHMAGE.CHAT.group: Group
 # NPC Chat Cards
 ARCHMAGE.CHAT.hit1: Special Hit (1)
 ARCHMAGE.CHAT.hit2: Special Hit (2)
