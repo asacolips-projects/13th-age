@@ -1,8 +1,8 @@
 import { ActorArchmageSheet } from './actor-sheet.js';
 
-export class ReorganizedCharacterArchmageSheet extends ActorArchmageSheet {
+export class ActionsCharacterArchmageSheet extends ActorArchmageSheet {
     get template() {
-      return "systems/archmage/templates/actors/reorganized-character-sheet.html";
+      return "systems/archmage/templates/actors/actions-character-sheet.html";
     }
 
     getData() {

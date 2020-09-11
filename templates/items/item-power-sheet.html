@@ -27,6 +27,11 @@
               <!-- Ability Details -->
               <div class="tab" data-group="primary" data-tab="details">
 
+                <div class="form-group">
+                    <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
+                    <input type="text" name="data.group.value" value="{{data.group.value}}" data-dtype="{{data.group.type}}" placeholder="Things with the same group will be grouped together"/>
+                </div>
+
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerSource'}}</label>
                       <select name="data.powerSource.value" data-dtype="{{data.powerSource.type}}">

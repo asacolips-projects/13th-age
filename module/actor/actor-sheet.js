@@ -296,6 +296,67 @@ export class ActorArchmageSheet extends ActorSheet {
       }
     });
 
+    async function rollSave(type, target, actor) {
+      let roll = new Roll(`d20`);
+      let result = roll.roll();
+
+      let rollResult = result.total;
+
+      let success = rollResult >= target;
+
+      // Basic template rendering data
+      const template = `systems/archmage/templates/chat/save-card.html`
+      const token = actor.token;
+
+      // Basic chat message data
+      const chatData = {
+        user: game.user._id,
+        type: 5,
+        roll: roll,
+        speaker: {
+          actor: actor._id,
+          token: actor.token,
+          alias: actor.name,
+          scene: game.user.viewedScene
+        }
+      };
+      
+      const templateData = {
+        actor: actor,
+        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        saveType: type,
+        success: success,
+        data: chatData
+      };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
+      // Render the template
+      chatData["content"] = await renderTemplate(template, templateData);
+
+      let message = ChatMessage.create(chatData, { displaySheet: false });
+      return message;
+    }
+
+    html.find('.easy-save.rollable').click(async ev => {
+        return await rollSave("Easy Save", this.actor.data.data.attributes.save.easy, this.actor);
+    });
+
+    html.find('.normal-save.rollable').click(async ev => {
+      return await rollSave("Normal Save", this.actor.data.data.attributes.save.normal, this.actor);
+    });
+
+    html.find('.hard-save.rollable').click(async ev => {
+      return await rollSave("Hard Save", this.actor.data.data.attributes.save.hard, this.actor);
+    });
+
+    html.find('.disengage.rollable').click(async ev => {
+      return await rollSave("Disengage", this.actor.data.data.attributes.disengage, this.actor);
+    });
+
     html.find('.item-quantity.rollable').click(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
