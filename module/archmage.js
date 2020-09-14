@@ -1,8 +1,6 @@
 import { ARCHMAGE } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
-import { ActionsCharacterArchmageSheet } from './actor/actions-character-sheet.js';
-import { PowerTypesCharacterArchmageSheet } from './actor/power-types-character-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
@@ -67,8 +65,6 @@ Hooks.once('init', async function() {
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
-    ActionsCharacterArchmageSheet: ActionsCharacterArchmageSheet,
-    PowerTypesCharacterArchmageSheet: PowerTypesCharacterArchmageSheet,
     ActorArchmageNPCSheet,
     DiceArchmage,
     ItemArchmage,
@@ -96,16 +92,6 @@ Hooks.once('init', async function() {
   Actors.registerSheet('archmage', ActorArchmageSheet, {
     types: ["character"],
     makeDefault: true
-  });
-
-  Actors.registerSheet('archmage', ActionsCharacterArchmageSheet, {
-    types: ["character"],
-    makeDefault: false
-  });
-
-  Actors.registerSheet('archmage', PowerTypesCharacterArchmageSheet, {
-    types: ["character"],
-    makeDefault: false
   });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
