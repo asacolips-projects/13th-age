@@ -1,7 +1,6 @@
 import { ARCHMAGE } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
-import { ReorganizedCharacterArchmageSheet } from './actor/reorganized-character-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
@@ -66,7 +65,6 @@ Hooks.once('init', async function() {
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
-    ReorganizedCharacterArchmageSheet,
     ActorArchmageNPCSheet,
     DiceArchmage,
     ItemArchmage,
@@ -96,11 +94,6 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
-  Actors.registerSheet('archmage', ReorganizedCharacterArchmageSheet, {
-    types: ["character"],
-    makeDefault: false
-  });
-
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
     types: ["npc"],
     makeDefault: true
@@ -117,6 +110,18 @@ Hooks.once('init', async function() {
     "improvedIniative": {
       name: "Improved Initiative",
       hint: "General feat to increase initiative by +4.",
+      section: "Feats",
+      type: Boolean
+    },
+    // "strongRecovery": {
+    //   name: "Strong Recovery",
+    //   hint: "General feat to reroll some of your recovery die, keeping highest",
+    //   section: "Feats",
+    //   type: Boolean
+    // },
+    "toughness": {
+      name: "Toughness",
+      hint: "General feat to increase your max HP based on your base HP",
       section: "Feats",
       type: Boolean
     },
