@@ -99,3 +99,4 @@ initiative: 1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.lev
 gridDistance: 1
 gridUnits: ''
 primaryTokenAttribute: attributes.hp
+socket: true

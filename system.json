@@ -9,6 +9,7 @@
   "esmodules": [
     "module/archmage.js"
   ],
+  "socket": true,
   "scripts": [
     "scripts/lib/parse-md.js",
     "scripts/migrate/archmage-updates.js"
