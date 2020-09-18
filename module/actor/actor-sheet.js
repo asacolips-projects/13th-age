@@ -202,17 +202,67 @@ export class ActorArchmageSheet extends ActorSheet {
       });
     });
 
-    html.find('.icon__item.rollable').click(ev => {
+    html.find('.icon__item.rollable').click(async ev => {
       let actorData = this.actor.data.data;
       let item = $(ev.currentTarget).parents('.icon');
       let iconIndex = item.data('icon');
 
       if (actorData.icons[iconIndex]) {
         let icon = actorData.icons[iconIndex];
-        let roll = new Roll(`${icon.bonus.value}d6cs>=5`);
-        roll.roll().toMessage({
-          flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage ability-usage--recharge">Icon Roll</h3></header><div class="card-content"><div class="card-row"><div class="card-prop"><strong>${icon.name.value}:</strong> +${icon.bonus.value} ${icon.relationship.value}</div></div></div></div>`
+        let roll = new Roll(`${icon.bonus.value}d6`);
+        let result = roll.roll();
+
+        let fives = 0;
+        let sixes = 0;
+
+        var rollResults = result.parts[0].rolls;
+
+        rollResults.forEach(rollResult => {
+          if (rollResult.roll == 5) {
+            fives++;
+          }
+          else if (rollResult.roll == 6) {
+            sixes++;
+          }
         });
+
+        // Basic template rendering data
+        const template = `systems/archmage/templates/chat/icon-relationship-card.html`
+        const token = this.actor.token;
+
+        // Basic chat message data
+        const chatData = {
+          user: game.user._id,
+          type: 5,
+          roll: roll,
+          speaker: {
+            actor: this.actor._id,
+            token: this.actor.token,
+            alias: this.actor.name,
+            scene: game.user.viewedScene
+          }
+        };
+        
+        const templateData = {
+          actor: this.actor,
+          tokenId: token ? `${token.scene._id}.${token.id}` : null,
+          icon: icon,
+          fives: fives,
+          sixes: sixes,
+          hasFives: fives > 0,
+          hasSixes: sixes > 0,
+          data: chatData
+        };
+
+        // Toggle default roll mode
+        let rollMode = game.settings.get("core", "rollMode");
+        if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+        if (rollMode === "blindroll") chatData["blind"] = true;
+
+        // Render the template
+        chatData["content"] = await renderTemplate(template, templateData);
+
+        return ChatMessage.create(chatData, { displaySheet: false });
       }
     });
 

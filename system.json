@@ -115,6 +115,13 @@
       "name": "occultist",
       "path": "packs/occultist.db",
       "system": "archmage"
+    },
+    {
+      "name": "srd-monsters",
+      "label": "SRD Monsters",
+      "system": "archmage",
+      "path": "./packs/srd-monsters.db",
+      "entity": "Actor"
     }
   ],
   "languages": [
@@ -126,7 +133,7 @@
   ],
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/1.6.3/archmage-master.zip",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/beta/archmage-master.zip",
   "initiative": "1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)",
   "gridDistance": 1,
   "gridUnits": "",
