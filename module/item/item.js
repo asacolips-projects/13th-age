@@ -215,6 +215,11 @@ export class ItemArchmage extends Item {
     return data;
   }
 
+  _equipmentChatData() {
+    const data = duplicate(this.data.data);
+    return data;
+  }
+
   _actionChatData() {
     const data = duplicate(this.data.data);
     return data;
