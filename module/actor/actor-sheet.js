@@ -317,19 +317,32 @@ export class ActorArchmageSheet extends ActorSheet {
           }
 
           async function addIconCard(icon, value) {
-              let c = {};
               let decks = game.decks.decks;
               for (var deckId in decks) {
-                  let deck = await game.decks.get(deckId);
-                  let cards = await Promise.all(deck._cards.map(async function(x) {
-                      return { id: x, data: await deck.getCardData(x) };
-                  }));
-                  
-                  let card = cards.find(x => x.data.icon && x.data.icon == icon && x.data.value == value);
+                  let msg = {
+                    type: "GETALLCARDSBYDECK",
+                    playerID: game.users.find(el => el.isGM && el.active).id,
+                    deckID: deckId
+                  };
+
+                  const wait=ms=>new Promise(resolve => setTimeout(resolve, ms)); 
+
+                  let foundCard = undefined;
+                  game.socket.on("module.cardsupport", async (recieveMsg) => {
+                    if (recieveMsg == undefined) return;
+                    let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
               
-                  if (card) {
-                      await ui.cardHotbar.populator.addToHand([card.id]);
-                  }
+                    if (card) {
+                        await ui.cardHotbar.populator.addToPlayerHand([card]);
+                        foundCard = true;
+                    }
+                    foundCard = false;
+                  });
+                  
+                  game.socket.emit("module.cardsupport", msg);
+
+                  await wait(200);
+                  if (foundCard) return;
               }
           }
         }
