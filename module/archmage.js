@@ -735,10 +735,10 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
         // This regex just finds any numbers in the string, and we use the first one
         var regex = new RegExp("\\d+");
-        var scoreToBeatArray = regex.exec($row_self[0].innerText);
+        var scoreToMatchArray = regex.exec($row_self[0].innerText);
 
-        if (scoreToBeatArray && scoreToBeatArray.length == 1) {
-          var maxTargets = parseInt(scoreToBeatArray[0]);
+        if (scoreToMatchArray && scoreToMatchArray.length == 1) {
+          var maxTargets = parseInt(scoreToMatchArray[0]);
           //console.log("MaxTargets " + maxTargets);
 
           targets = targets.slice(0, maxTargets);
@@ -763,7 +763,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
       var triggerText = row_text.toLowerCase();
       //console.log(triggerText);
-      if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:")) {
+      if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:") || triggerText.includes("always:") || triggerText.includes("crit:")) {
 
         var active = undefined;
 
@@ -824,16 +824,44 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
           // This regex just finds any numbers in the string, and we use the first one
           var regex = new RegExp("\\d+");
-          var scoreToBeatArray = regex.exec(triggerText);
-          if (scoreToBeatArray && scoreToBeatArray.length == 1) {
-            var scoreToBeat = parseInt(scoreToBeatArray[0]);
-            if (rollResult >= scoreToBeat) {
+          var scoreToMatchArray = regex.exec(triggerText);
+          if (scoreToMatchArray && scoreToMatchArray.length == 1) {
+            var scoreToMatch = parseInt(scoreToMatchArray[0]);
+            if (rollResult >= scoreToMatch) {
               active = true;
             }
             else {
               active = false;
             }
           }
+        }
+
+        else if (triggerText.includes("natural")) { // Natural 1, Natural 5, etc
+          // This regex just finds any numbers in the string, and we use the first one
+          var regex = new RegExp("\\d+");
+          var scoreToMatchArray = regex.exec(triggerText);
+          if (scoreToMatchArray && scoreToMatchArray.length == 1) {
+            var scoreToMatch = parseInt(scoreToMatchArray[0]);
+            if (rollResult == scoreToMatch) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        else if (triggerText.includes("crit")) {
+            if (rollResult == 20) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+        }
+        
+        else if (triggerText.includes("always")) {
+          active = true;
         }
 
         if (hasHit != undefined) {
