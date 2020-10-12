@@ -2,19 +2,21 @@
   "name": "archmage",
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
   "description": "Run 13th Age Compatible campaigns",
-  "version": "alpha6-1.7.0",
+  "version": "alpha7-1.7.0",
   "author": "Matt Smith & Cody Swendrowski",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.7.2",
+  "compatibleCoreVersion": "0.7.3",
   "esmodules": [
     "module/archmage.js"
   ],
   "scripts": [
     "scripts/lib/parse-md.js",
-    "scripts/migrate/archmage-updates.js"
+    "scripts/migrate/archmage-updates.js",
+    "scripts/lib/intro.js"
   ],
   "styles": [
-    "css/archmage.css"
+    "css/archmage.css",
+    "css/introjs.css"
   ],
   "packs": [
     {

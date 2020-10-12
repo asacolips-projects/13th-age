@@ -147,6 +147,22 @@ export class ActorArchmage extends Actor {
       data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
       data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value + mdBonus;
 
+      // Add level ability mods.
+      // Replace the ability attributes in the calculator with custom formulas.
+      let levelMultiplier = 1;
+      if (data.attributes.level.value >= 5) {
+        levelMultiplier = 2;
+      }
+      if (data.attributes.level.value >= 8) {
+        levelMultiplier = 3;
+      }
+
+      if (levelMultiplier > 0) {
+        for (let prop in data.abilities) {
+          data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
+        }
+      }
+
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
         let level = data.attributes.level.value;
@@ -155,13 +171,6 @@ export class ActorArchmage extends Actor {
         let toughness = 0;
         if (flags.archmage) {
           toughness = flags.archmage.toughness ? data.attributes.hp.base / 2 : 0;
-
-          if (data.attributes.level.value >= 5) {
-            levelMultiplier *= 2;
-          }
-          if (data.attributes.level.value >= 8) {
-            levelMultiplier *= 2;
-          }
         }
 
         data.attributes.hp.max = (data.attributes.hp.base + minimumOf0(data.abilities.con.mod)) * hpLevelModifier[level] + hpBonus + Math.floor(toughness);
@@ -238,21 +247,7 @@ export class ActorArchmage extends Actor {
         };
       }
 
-      // Add level ability mods.
-      // Replace the ability attributes in the calculator with custom formulas.
-      let levelMultiplier = 1;
-      if (data.attributes.level.value >= 5) {
-        levelMultiplier = 2;
-      }
-      if (data.attributes.level.value >= 8) {
-        levelMultiplier = 3;
-      }
 
-      if (levelMultiplier > 0) {
-        for (let prop in data.abilities) {
-          data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
-        }
-      }
 
       // Set an attribute for weapon damage.
       if (data.attributes.weapon === undefined) {
