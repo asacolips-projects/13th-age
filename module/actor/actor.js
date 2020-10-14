@@ -404,13 +404,13 @@ export class ActorArchmage extends Actor {
    */
   rollAbilityTest(abilityId) {
     let abl = this.data.data.abilities[abilityId];
-    let parts = ['@mod', '@background'];
+    let terms = ['@mod', '@background'];
     let flavor = `${abl.label} Ability Test`;
 
     // Call the roll helper utility
     DiceArchmage.d20Roll({
       event: event,
-      parts: parts,
+      terms: terms,
       data: {
         mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals.skills ? 1 : 0),
         background: 0
