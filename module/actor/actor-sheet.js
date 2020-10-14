@@ -256,8 +256,14 @@ export class ActorArchmageSheet extends ActorSheet {
 
         let fives = 0;
         let sixes = 0;
+        var rollResults;
 
-        var rollResults = result.parts[0].rolls;
+        if (!isNewerVersion(game.data.version, "0.7")) {
+          rollResults = result.parts[0].rolls;
+        }
+        else {
+          rollResults = result.terms[0].rolls;
+        }
 
         rollResults.forEach(rollResult => {
           if (rollResult.roll == 5) {

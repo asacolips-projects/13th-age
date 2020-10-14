@@ -596,11 +596,23 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
     let rollResult = 0;
     // console.log(roll_data);
-    roll_data.parts.forEach(p => {
-      if (p.faces === 20) {
-        rollResult = p.total;
-      }
-    });
+
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      roll_data.parts.forEach(p => {
+        if (p.faces === 20) {
+          rollResult = p.total;
+        }
+      });
+    }
+    else {
+      roll_data.terms.forEach(p => {
+        if (p.faces === 20) {
+          rollResult = p.total;
+        }
+      });
+    }
+
+    
 
     // Update the array of roll HTML elements.
     $rolls[i] = $roll[0];
@@ -939,21 +951,46 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                     if ($roll.length > 0) {
             // Iterate through the inline rolls on the hit row.
             $roll.each(function(roll_index) {
-              let $roll_self = $(this);
-              // Retrieve the roll formula.
-              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-              // If there's a crit, double the formula and reroll. If there's a
-              // fail with no crit, 0 it out.
-              if (has_fail) {
-                roll_data.formula = `0`;
-                $roll_self.addClass('dc-fail');
+                let $roll_self = $(this);
+                // Retrieve the roll formula.
+                let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+                //////////////////////////////////////////////////////////////////////////
+                //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+                //////////////////////////////////////////////////////////////////////////
+                if (!isNewerVersion(game.data.version, "0.7")) {
+                  // If there's a crit, double the formula and reroll. If there's a
+                  // fail with no crit, 0 it out.
+                  if (has_fail)
+                  {
+                    roll_data.formula = `0`;
+                    $roll_self.addClass('dc-fail');
+                  }
+                  // Reroll and recalculate.
+                  roll_data = roll_data.reroll();
+                  // Update inline roll's markup.
+                  $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+                  $roll_self.attr('title', roll_data.formula);
+                  $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+                }
+                //////////////////////////////////////////////////////////////////////////
+                //////////////////////// END OF DEPRECATED CODE //////////////////////////
+                //////////////////////////////////////////////////////////////////////////
+                else
+                {
+                  let new_formula = roll_data.formula;
+                  // If there's a crit, double the formula and reroll. If there's a
+                  // fail with no crit, 0 it out.
+                  if (has_fail) {
+                    new_formula = `0`;
+                    $roll_self.addClass('dc-fail');
+                  }
+                  // Reroll and recalculate.
+                  let new_roll = new Roll(new_formula).roll();
+                  // Update inline roll's markup.
+                  $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
+                  $roll_self.attr('title', new_roll.formula);
+                  $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
               }
-              // Reroll and recalculate.
-              roll_data = roll_data.reroll();
-              // Update inline roll's markup.
-              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
-              $roll_self.attr('title', roll_data.formula);
-              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
             });
           }
         }
