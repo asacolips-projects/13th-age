@@ -10,6 +10,7 @@ import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
 import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
+import { TourGuide } from './tours/tourguide.js';
 
 Hooks.once('init', async function() {
 
@@ -196,6 +197,13 @@ Hooks.once('init', async function() {
     type: Boolean,
   });
 
+  game.settings.register('archmage', 'lastTourVersion', {
+    scope: 'client',
+    config: false,
+    default: "1.6.0",
+    type: String,
+  });
+
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
@@ -297,7 +305,7 @@ Hooks.on('createItem', (data, options, id) => {
 Hooks.once('ready', () => {
   let escalation = game.settings.get('archmage', 'currentEscalation');
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
-  $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
+  $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}" data-intro='Hello step one!' data-hint='Hello step one!'>${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
 
   // Wait to register the hotbar macros until ready.
@@ -316,6 +324,9 @@ Hooks.on("renderSettings", (app, html) => {
     ev.preventDefault();
     new ArchmageReference().render(true);
   });
+
+  let tourGuide = new TourGuide();
+  tourGuide.startNewFeatureTours();
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
