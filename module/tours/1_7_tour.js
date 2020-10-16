@@ -2,7 +2,7 @@ export class OneDotSevenTour {
     constructor() {
         let tour = introJs()
 
-        tour.oncomplete(function() {
+        tour.onexit(function() {
           game.settings.set("archmage", "lastTourVersion", "1.7.0");
         });
 
@@ -26,7 +26,14 @@ export class OneDotSevenTour {
                 intro: "Welcome to Toolkit13 (13th Age Compatible) version 1.7.0! Here's a quick tour of new features"
               },
               { 
-                intro: "We now have Card Support for Icon Relationship 5's and 6's - Please see the documentation for more info on how to enable and set this up"
+                element: document.querySelector('.fa-cogs'),
+                intro: "We have started the (long) process of writing documentation for the system. If you have documentation you want to contribute, please reach out or issue a Pull Request!",
+                position: 'bottom'
+              },
+              { 
+                element: document.querySelector('[data-action="userguide]"'),
+                intro: "We now have Card Support for Icon Relationship 5's and 6's - Please see the documentation for more info on how to enable and set this up",
+                position: 'bottom'
               },
               { 
                 element: document.querySelector('.fa-users'),

@@ -325,6 +325,23 @@ Hooks.on("renderSettings", (app, html) => {
     new ArchmageReference().render(true);
   });
 
+  // Reset Tours
+  let players = html.find("button[data-action='players']");
+  $(`<button data-action="resettours"><i class="fas fa-hiking" aria-hidden="true"></i>Reset Feature Tours</button>`).insertAfter(players);
+  html.find('button[data-action="resettours"]').click(ev => {
+    game.settings.set("archmage", "lastTourVersion", "0.0.0");
+    location.reload();
+  });
+
+  // User guide
+  let docs = html.find("button[data-action='docs']");
+  $(`<button data-action="userguide"><i class="fas fa-file" aria-hidden="true"></i>System Wiki</button>`).insertAfter(docs);
+  html.find('button[data-action="userguide"]').click(ev => {
+    new FrameViewer('https://mageflame.github.io/Toolkit13/', {resizable: true}).render(true);
+  });
+  
+
+  // This is intentionally in renderSettings, as it is one of the last bits of HTML to get rendered, which is required for the Tour to hook in
   let tourGuide = new TourGuide();
   tourGuide.startNewFeatureTours();
 });
