@@ -1,0 +1,56 @@
+name: Release Creation
+
+on: 
+  push:
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Compile with Gulp
+      uses: elstudio/actions-js-build/build@v2
+
+    #Substitute the Manifest and Download URLs in the system.json
+    - name: Substitute Manifest and Download Links For Versioned Ones
+      id: sub_manifest_link_version
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: 'system.json'
+      env:
+        version: ${{github.event.release.tag_name}}
+        manifest: https://github.com/${{github.repository}}/releases/download/${{github.ref}}/system.json
+        download: https://github.com/${{github.repository}}/releases/download/${{github.ref}}/system.zip
+
+    # create a zip file with all files required by the system to add to the release
+    - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/
+
+    # Create a release for this specific version
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        artifacts: './system.json,./system.zip'
+
+    # Update the 'latest' release
+    - name: Create Release
+      id: create_latest_release
+      uses: ncipollo/release-action@v1
+      if: endsWith(github.ref, 'master')
+      with:
+        allowUpdates: true
+        name: Latest
+        draft: false
+        prerelease: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: './system.json,./system.zip'
+        tag: latest
