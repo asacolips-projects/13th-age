@@ -44,7 +44,7 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
-        token: ${{ secrets.GITHUB_TOKEN }}:  
+        token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './system.json,./system.zip'
 
     # Update the 'latest' release
