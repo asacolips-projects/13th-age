@@ -11,10 +11,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run npm build
+    - name: Run Gulp YAML
       uses: elstudio/actions-js-build/build@v2
       with:
-        args: run-script build
+        args: yaml
+        
+    - name: Run Gulp CSS
+      uses: elstudio/actions-js-build/build@v2
+      with:
+        args: css
 
     #Substitute the Manifest and Download URLs in the system.json
     - name: Substitute Manifest and Download Links For Versioned Ones
