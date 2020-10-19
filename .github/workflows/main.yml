@@ -17,7 +17,7 @@ jobs:
       uses: Adzz/yarn_command_action@v1.0.0
       with:
         package-manager: npm
-        command: build
+        command: run-script build
 
     #Substitute the Manifest and Download URLs in the system.json
     - name: Substitute Manifest and Download Links For Versioned Ones
@@ -35,8 +35,8 @@ jobs:
 
     # Create a release for this specific version
     - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
+      id: create_version_release
+      uses: ncipollo/release-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
