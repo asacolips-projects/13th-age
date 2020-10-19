@@ -11,6 +11,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Run npm install
+      # You may pin to the exact commit or the version.
+      # uses: Adzz/yarn_command_action@56ed36b86d715869a3cf3d2a9b2de2aff7fa945e
+      uses: Adzz/yarn_command_action@v1.0.0
+      with:
+        package-manager: npm
+        command: install
+
     - name: Run npm build
       # You may pin to the exact commit or the version.
       # uses: Adzz/yarn_command_action@56ed36b86d715869a3cf3d2a9b2de2aff7fa945e
