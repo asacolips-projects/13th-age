@@ -1,8 +1,9 @@
 name: Release Creation
 
 on: 
-  release:
-    types: [published]
+  push:
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -21,25 +22,24 @@ jobs:
         files: 'system.json'
       env:
         version: ${{github.event.release.tag_name}}
-        manifest: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.json
-        download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
+        manifest: https://github.com/${{github.repository}}/releases/download/${{github.ref}}/system.json
+        download: https://github.com/${{github.repository}}/releases/download/${{github.ref}}/system.zip
 
     # create a zip file with all files required by the system to add to the release
     - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/
 
     # Create a release for this specific version
-    - name: Update Release with Files
-      id: create_version_release
-      uses: ncipollo/release-action@v1
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        allowUpdates: true # set this to false if you want to prevent updating existing releases
-        name: ${{ github.event.release.name }}
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
-        token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './system.json, ./system.zip'
-        tag: ${{ github.event.release.tag_name }}
-        body: ${{ github.event.release.body }}
+        artifacts: './system.json,./system.zip'
 
     # Update the 'latest' release
     - name: Create Release
@@ -54,4 +54,3 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './system.json,./system.zip'
         tag: latest
-        body: ${{ github.event.release.body }}
