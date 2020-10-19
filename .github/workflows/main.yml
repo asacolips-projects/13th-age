@@ -40,8 +40,8 @@ jobs:
       id: create_version_release
       uses: ncipollo/release-action@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag: ${{ github.ref }}
+        name: Release ${{ github.ref }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -51,7 +51,6 @@ jobs:
     - name: Create Release
       id: create_latest_release
       uses: ncipollo/release-action@v1
-      if: endsWith(github.ref, 'master')
       with:
         allowUpdates: true
         name: Latest
