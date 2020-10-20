@@ -16,9 +16,18 @@ export class ActorArchmage extends Actor {
     super.prepareData();
 
     // Get the Actor's data object
+    this.data = duplicate(this._data);
+    if (!this.data.img) this.data.img = CONST.DEFAULT_TOKEN;
+    if ( !this.data.name ) this.data.name = "New " + this.entity;
+    this.prepareBaseData();
+    this.prepareEmbeddedEntities();
+
+    this.prepareDerivedData();
+
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
+
 
     // Prepare Character data
     if (actorData.type === 'character') {
@@ -166,7 +175,7 @@ export class ActorArchmage extends Actor {
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
         let level = data.attributes.level.value;
-        if (data.incrementals.hp) level++;
+        if (data.incrementals?.hp) level++;
 
         let toughness = 0;
         if (flags.archmage) {
@@ -327,6 +336,8 @@ export class ActorArchmage extends Actor {
         value: data.attributes.level.value + data.attributes.escalation.value
       };
     }
+
+    this.applyActiveEffects();
 
     // Return the prepared Actor data
     return actorData;

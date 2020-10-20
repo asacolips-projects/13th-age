@@ -41,33 +41,38 @@ export class ActorArchmageSheet extends ActorSheet {
 
     this._prepareCharacterItems(sheetData);
 
+    let powers = sheetData.actor.powers;
+
     if (sheetData.actor.data.sheetGrouping == "type") {
       sheetData.actor.byType = true;
-      sheetData.actor.features = sheetData.actor.powers.filter(power => power.data.powerType.value === "feature");
-      sheetData.actor.talents = sheetData.actor.powers.filter(power => power.data.powerType.value === "talent");
-      sheetData.actor.spells = sheetData.actor.powers.filter(power => power.data.powerType.value === "spell");
-      sheetData.actor.powers = sheetData.actor.powers.filter(power => power.data.powerType.value === "power");
-      sheetData.actor.maneuvers = sheetData.actor.powers.filter(power => power.data.powerType.value === "maneuver");
-      sheetData.actor.other = sheetData.actor.powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
+      sheetData.actor.features = powers.filter(power => power.data.powerType.value === "feature");
+      sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
+      sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
+      sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
+      sheetData.actor.maneuvers = powers.filter(power => power.data.powerType.value === "maneuver");
+      sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
     }
     else if (sheetData.actor.data.sheetGrouping == "action") {
       sheetData.actor.byAction = true;
-      sheetData.actor.class = sheetData.actor.powers.filter(power => power.data.actionType.value === "");
-      sheetData.actor.actions = sheetData.actor.powers.filter(power => power.data.actionType.value !== "");
+      sheetData.actor.class = powers.filter(power => power.data.actionType.value === "");
+      sheetData.actor.actions = powers.filter(power => power.data.actionType.value !== "");
     }
     else if (sheetData.actor.data.sheetGrouping == "group") {
       sheetData.actor.byGroup = true;
       let groups = [];
       let powerDict = {};
-      sheetData.actor.powers.forEach(power => {
-        let groupValue = power.data.group.value;
+      powers.forEach(power => {
+        let groupValue = power.data.group?.value;
+        if (groupValue == undefined || groupValue == "") {
+          groupValue = game.i18n.localize("ARCHMAGE.other");
+        }
         if(groups.indexOf(groupValue) < 0) {
           groups.push(groupValue);
           if (powerDict[groupValue] == undefined) {
             powerDict[groupValue] = [];
           }
-          powerDict[groupValue].push(power);
         }
+        powerDict[groupValue].push(power);
       });
       var keys = Object.keys(powerDict);
 
@@ -260,19 +265,26 @@ export class ActorArchmageSheet extends ActorSheet {
 
         if (!isNewerVersion(game.data.version, "0.7")) {
           rollResults = result.parts[0].rolls;
+          rollResults.forEach(rollResult => {
+            if (rollResult.roll == 5) {
+              fives++;
+            }
+            else if (rollResult.roll == 6) {
+              sixes++;
+            }
+          });
         }
         else {
-          rollResults = result.terms[0].rolls;
+          rollResults = result.terms[0].results;
+          rollResults.forEach(rollResult => {
+            if (rollResult.result == 5) {
+              fives++;
+            }
+            else if (rollResult.result == 6) {
+              sixes++;
+            }
+          });
         }
-
-        rollResults.forEach(rollResult => {
-          if (rollResult.roll == 5) {
-            fives++;
-          }
-          else if (rollResult.roll == 6) {
-            sixes++;
-          }
-        });
 
         // Basic template rendering data
         const template = `systems/archmage/templates/chat/icon-relationship-card.html`
@@ -852,7 +864,13 @@ export class ActorArchmageSheet extends ActorSheet {
 
     /* Item Dragging */
     // Core handlers from foundry.js
-    let dragHandler = ev => this._onDragItemStart(ev);
+    var dragHandler;
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      dragHandler = ev => this._onDragItemStart(ev);
+    }
+    else {
+      dragHandler = ev => this._onDragStart(ev);
+    }
     // Custom handlers.
     // let dragHandlerArchmage = ev => this._onDragItemStartArchmage(ev);
     // let dragOverHandlerArchmage = ev => this._onDragOverArchmage(ev);
