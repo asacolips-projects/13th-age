@@ -32,9 +32,9 @@ jobs:
       with:
         files: 'system.json'
       env:
-        version: ${{VERSION}}
-        manifest: https://github.com/${{github.repository}}/releases/download/${{VERSION}}/system.json
-        download: https://github.com/${{github.repository}}/releases/download/${{VERSION}}/system.zip
+        version: ${{ steps.get_version.outputs.VERSION }}
+        manifest: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.json
+        download: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     # create a zip file with all files required by the system to add to the release
     - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/
@@ -44,8 +44,8 @@ jobs:
       id: create_version_release
       uses: ncipollo/release-action@v1
       with:
-        tag: ${{ VERSION }}
-        name: Release ${{ VERSION }}
+        tag: ${{ steps.get_version.outputs.VERSION }}
+        name: Release ${{ steps.get_version.outputs.VERSION }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
