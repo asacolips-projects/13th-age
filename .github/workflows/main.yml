@@ -21,6 +21,10 @@ jobs:
       with:
         args: css
 
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+  
     #Substitute the Manifest and Download URLs in the system.json
     - name: Substitute Manifest and Download Links For Versioned Ones
       id: sub_manifest_link_version
@@ -28,9 +32,9 @@ jobs:
       with:
         files: 'system.json'
       env:
-        version: ${{github.event.release.tag_name}}
-        manifest: https://github.com/${{github.repository}}/releases/download/${{github.ref}}/system.json
-        download: https://github.com/${{github.repository}}/releases/download/${{github.ref}}/system.zip
+        version: ${{VERSION}}
+        manifest: https://github.com/${{github.repository}}/releases/download/${{VERSION}}/system.json
+        download: https://github.com/${{github.repository}}/releases/download/${{VERSION}}/system.zip
 
     # create a zip file with all files required by the system to add to the release
     - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/
@@ -40,8 +44,8 @@ jobs:
       id: create_version_release
       uses: ncipollo/release-action@v1
       with:
-        tag: ${{ github.ref }}
-        name: Release ${{ github.ref }}
+        tag: ${{ VERSION }}
+        name: Release ${{ VERSION }}
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
