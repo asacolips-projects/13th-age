@@ -10,8 +10,10 @@ esmodules:
 scripts:
   - scripts/lib/parse-md.js
   - scripts/migrate/archmage-updates.js
+  - scripts/lib/intro.js
 styles:
   - css/archmage.css
+  - css/introjs.css
 packs:
   - label: Races
     entity: Item
@@ -88,13 +90,18 @@ packs:
     name: generalfeats
     path: packs/general-feats.db
     system: archmage
+  - label: SRD Monsters
+    entity: Actor
+    name: srd-Monsters
+    path: packs/srd-monsters.db
+    system: archmage
 languages:
   - lang: en
     name: English
     path: languages/en.json
-url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
-manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/alpha/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/alpha/archmage-master.zip
+url: https://github.com/Mageflame/Toolkit13
+manifest: https://raw.githubusercontent.com/Mageflame/Toolkit13/beta/system.json
+download: https://github.com/Mageflame/Toolkit13/archive/beta.zip
 initiative: 1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)
 gridDistance: 1
 gridUnits: ''

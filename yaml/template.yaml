@@ -449,7 +449,7 @@ Item:
     quantity:
       type: Number
       label: Uses
-      value: 1
+      value: 0
     feats:
       adventurer:
         description:

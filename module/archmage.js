@@ -305,7 +305,7 @@ Hooks.on('createItem', (data, options, id) => {
 Hooks.once('ready', () => {
   let escalation = game.settings.get('archmage', 'currentEscalation');
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
-  $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}" data-intro='Hello step one!' data-hint='Hello step one!'>${escalation}</div>`);
+  $('body').append(`<div class="archmage-escalation${hide}">${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
 
   // Wait to register the hotbar macros until ready.

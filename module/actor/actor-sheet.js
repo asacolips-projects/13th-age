@@ -415,19 +415,19 @@ export class ActorArchmageSheet extends ActorSheet {
     }
 
     html.find('.easy-save.rollable').click(async ev => {
-        return await rollSave("Easy Save", this.actor.data.data.attributes.save.easy, this.actor);
+        return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.easy"), this.actor.data.data.attributes.save.easy, this.actor);
     });
 
     html.find('.normal-save.rollable').click(async ev => {
-      return await rollSave("Normal Save", this.actor.data.data.attributes.save.normal, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.normal"), this.actor.data.data.attributes.save.normal, this.actor);
     });
 
     html.find('.hard-save.rollable').click(async ev => {
-      return await rollSave("Hard Save", this.actor.data.data.attributes.save.hard, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.hard"), this.actor.data.data.attributes.save.hard, this.actor);
     });
 
     html.find('.disengage.rollable').click(async ev => {
-      return await rollSave("Disengage", this.actor.data.data.attributes.disengage, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.disengage"), this.actor.data.data.attributes.disengage, this.actor);
     });
 
     html.find('.item-quantity.rollable').click(async (event) => {
