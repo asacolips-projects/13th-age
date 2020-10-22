@@ -3,6 +3,29 @@
     <h3 class="ability-usage ability-usage--recharge">{{icon.name.value}}: +{{icon.bonus.value}} {{icon.relationship.value}}</h3>
   </header>
   <div class="card-content">
+    <div class="dice-roll">
+      <div class="dice-result">
+          <div class="dice-formula">{{data.roll.formula}}</div>
+          <div class="dice-tooltip">
+            <section class="tooltip-part">
+              <div class="dice">
+                  <header class="part-header flexrow">
+                      <span class="part-formula">{{data.roll.formula}}</span>             
+                      <span class="part-total">{{data.roll.total}}</span>
+                  </header>
+                  <ol class="dice-rolls">
+                    {{#each data.roll.terms as |term i|}}
+                      {{#each term.results as |result r|}}
+                      <li class="roll die d{{term.faces}}">{{result.result}}</li>
+                      {{/each}}
+                    {{/each}}
+                  </ol>
+              </div>
+            </section>
+          </div>
+          <h4 class="dice-total">{{data.roll.total}}</h4>
+      </div>
+    </div>
     <div class="card-row">
       <div class="card-prop">
         <span {{#if hasSixes}}style="color: green;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.unambiguousAdvantages' }}: </b> {{sixes}}</span><br />

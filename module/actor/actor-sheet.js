@@ -399,7 +399,8 @@ export class ActorArchmageSheet extends ActorSheet {
         tokenId: token ? `${token.scene._id}.${token.id}` : null,
         saveType: type,
         success: success,
-        data: chatData
+        data: chatData,
+        target
       };
 
       // Toggle default roll mode

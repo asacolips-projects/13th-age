@@ -1,11 +1,11 @@
 {
   "name": "archmage",
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
-  "version": "beta1-1.7.0",
+  "version": "beta2-1.7.0",
   "author": "Matt Smith & Cody Swendrowski",
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.7.4",
+  "compatibleCoreVersion": "0.7.5",
   "esmodules": [
     "module/archmage.js"
   ],
