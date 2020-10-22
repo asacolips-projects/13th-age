@@ -41,6 +41,53 @@ export class ActorArchmageSheet extends ActorSheet {
 
     this._prepareCharacterItems(sheetData);
 
+    let powers = sheetData.actor.powers;
+
+    if (sheetData.actor.data.sheetGrouping == "type") {
+      sheetData.actor.byType = true;
+      sheetData.actor.features = powers.filter(power => power.data.powerType.value === "feature");
+      sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
+      sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
+      sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
+      sheetData.actor.maneuvers = powers.filter(power => power.data.powerType.value === "maneuver");
+      sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
+    }
+    else if (sheetData.actor.data.sheetGrouping == "action") {
+      sheetData.actor.byAction = true;
+      sheetData.actor.class = powers.filter(power => power.data.actionType.value === "");
+      sheetData.actor.actions = powers.filter(power => power.data.actionType.value !== "");
+    }
+    else if (sheetData.actor.data.sheetGrouping == "group") {
+      sheetData.actor.byGroup = true;
+      let groups = [];
+      let powerDict = {};
+      powers.forEach(power => {
+        let groupValue = power.data.group?.value;
+        if (groupValue == undefined || groupValue == "") {
+          groupValue = game.i18n.localize("ARCHMAGE.other");
+        }
+        if(groups.indexOf(groupValue) < 0) {
+          groups.push(groupValue);
+          if (powerDict[groupValue] == undefined) {
+            powerDict[groupValue] = [];
+          }
+        }
+        powerDict[groupValue].push(power);
+      });
+      var keys = Object.keys(powerDict);
+
+      let namePowerPairs = [];
+      for (var x = 0; x < keys.length; x++) {
+        let key = keys[x];
+        namePowerPairs.push({
+          name: key,
+          powers: powerDict[key]
+        });
+      }
+      sheetData.actor.namePowerPairs = namePowerPairs;
+    }
+
+
     // Return data to the sheet
     return sheetData;
   }
@@ -214,17 +261,30 @@ export class ActorArchmageSheet extends ActorSheet {
 
         let fives = 0;
         let sixes = 0;
+        var rollResults;
 
-        var rollResults = result.parts[0].rolls;
-
-        rollResults.forEach(rollResult => {
-          if (rollResult.roll == 5) {
-            fives++;
-          }
-          else if (rollResult.roll == 6) {
-            sixes++;
-          }
-        });
+        if (!isNewerVersion(game.data.version, "0.7")) {
+          rollResults = result.parts[0].rolls;
+          rollResults.forEach(rollResult => {
+            if (rollResult.roll == 5) {
+              fives++;
+            }
+            else if (rollResult.roll == 6) {
+              sixes++;
+            }
+          });
+        }
+        else {
+          rollResults = result.terms[0].results;
+          rollResults.forEach(rollResult => {
+            if (rollResult.result == 5) {
+              fives++;
+            }
+            else if (rollResult.result == 6) {
+              sixes++;
+            }
+          });
+        }
 
         // Basic template rendering data
         const template = `systems/archmage/templates/chat/icon-relationship-card.html`
@@ -262,8 +322,112 @@ export class ActorArchmageSheet extends ActorSheet {
         // Render the template
         chatData["content"] = await renderTemplate(template, templateData);
 
-        return ChatMessage.create(chatData, { displaySheet: false });
+        let message = ChatMessage.create(chatData, { displaySheet: false });
+
+        // Card support
+        if (game.decks) {
+
+          for (var x = 0; x < fives; x++ ) {
+            await addIconCard(icon.name.value, 5);
+          }
+          for (var x = 0; x < sixes; x++ ) {
+            await addIconCard(icon.name.value, 6);
+          }
+
+          async function addIconCard(icon, value) {
+              let decks = game.decks.decks;
+              for (var deckId in decks) {
+                  let msg = {
+                    type: "GETALLCARDSBYDECK",
+                    playerID: game.users.find(el => el.isGM && el.active).id,
+                    deckID: deckId
+                  };
+
+                  const wait=ms=>new Promise(resolve => setTimeout(resolve, ms)); 
+
+                  let foundCard = undefined;
+                  game.socket.on("module.cardsupport", async (recieveMsg) => {
+                    if (recieveMsg == undefined) return;
+                    let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
+              
+                    if (card) {
+                        await ui.cardHotbar.populator.addToPlayerHand([card]);
+                        foundCard = true;
+                    }
+                    foundCard = false;
+                  });
+                  
+                  game.socket.emit("module.cardsupport", msg);
+
+                  await wait(200);
+                  if (foundCard) return;
+              }
+          }
+        }
+
+        return message;
       }
+    });
+
+    async function rollSave(type, target, actor) {
+      let roll = new Roll(`d20`);
+      let result = roll.roll();
+
+      let rollResult = result.total;
+
+      let success = rollResult >= target;
+
+      // Basic template rendering data
+      const template = `systems/archmage/templates/chat/save-card.html`
+      const token = actor.token;
+
+      // Basic chat message data
+      const chatData = {
+        user: game.user._id,
+        type: 5,
+        roll: roll,
+        speaker: {
+          actor: actor._id,
+          token: actor.token,
+          alias: actor.name,
+          scene: game.user.viewedScene
+        }
+      };
+      
+      const templateData = {
+        actor: actor,
+        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        saveType: type,
+        success: success,
+        data: chatData
+      };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
+      // Render the template
+      chatData["content"] = await renderTemplate(template, templateData);
+
+      let message = ChatMessage.create(chatData, { displaySheet: false });
+      return message;
+    }
+
+    html.find('.easy-save.rollable').click(async ev => {
+        return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.easy"), this.actor.data.data.attributes.save.easy, this.actor);
+    });
+
+    html.find('.normal-save.rollable').click(async ev => {
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.normal"), this.actor.data.data.attributes.save.normal, this.actor);
+    });
+
+    html.find('.hard-save.rollable').click(async ev => {
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.hard"), this.actor.data.data.attributes.save.hard, this.actor);
+    });
+
+    html.find('.disengage.rollable').click(async ev => {
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.disengage"), this.actor.data.data.attributes.disengage, this.actor);
     });
 
     html.find('.item-quantity.rollable').click(async (event) => {
@@ -700,7 +864,13 @@ export class ActorArchmageSheet extends ActorSheet {
 
     /* Item Dragging */
     // Core handlers from foundry.js
-    let dragHandler = ev => this._onDragItemStart(ev);
+    var dragHandler;
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      dragHandler = ev => this._onDragItemStart(ev);
+    }
+    else {
+      dragHandler = ev => this._onDragStart(ev);
+    }
     // Custom handlers.
     // let dragHandlerArchmage = ev => this._onDragItemStartArchmage(ev);
     // let dragOverHandlerArchmage = ev => this._onDragOverArchmage(ev);

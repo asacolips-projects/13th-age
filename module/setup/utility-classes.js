@@ -52,37 +52,80 @@ export class ArchmageUtility {
    * @return {string} 'crit', 'fail', or 'normal'.
    */
   static inlineRollCritTest(roll, actor = null) {
-    for (let i = 0; i < roll.parts.length; i++) {
-      var part = roll.parts[i];
-      if (part.rolls) {
-        let result = part.rolls.map((r) => {
-          if (part.faces === 20) {
-            // Natural 20.
-            if (r.roll === part.faces && !r.discarded) {
-              return 'crit';
-            }
-            // Natural 1.
-            else if (r.roll === 1 && !r.discarded && !r.rerolled) {
-              return 'fail';
-            }
-            // Barbarian crit.
-            else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-              && roll.formula.match(/^2d20kh/g) && part.rolls[0].roll > 10 && part.rolls[1].roll > 10) {
-              return 'crit';
+    //////////////////////////////////////////////////////////////////////////
+    //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+    //////////////////////////////////////////////////////////////////////////
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      for (let i = 0; i < roll.parts.length; i++) {
+        var part = roll.parts[i];
+        if (part.rolls) {
+          let result = part.rolls.map((r) => {
+            if (part.faces === 20) {
+              // Natural 20.
+              if (r.roll === part.faces && !r.discarded) {
+                return 'crit';
+              }
+              // Natural 1.
+              else if (r.roll === 1 && !r.discarded && !r.rerolled) {
+                return 'fail';
+              }
+              // Barbarian crit.
+              else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
+                && roll.formula.match(/^2d20kh/g) && part.rolls[0].roll > 10 && part.rolls[1].roll > 10) {
+                return 'crit';
+              }
+              else {
+                return 'normal';
+              }
             }
             else {
               return 'normal';
             }
-          }
-          else {
-            return 'normal';
-          }
-        });
+          });
 
-        return result;
+          return result;
+        }
+        else {
+          return 'none';
+        }
       }
-      else {
-        return 'none';
+    }
+    //////////////////////////////////////////////////////////////////////////
+    //////////////////////// END OF DEPRECATED CODE //////////////////////////
+    //////////////////////////////////////////////////////////////////////////
+    else {
+      for (let i = 0; i < roll.terms.length; i++) {
+        var part = roll.terms[i];
+        if (part.results) {
+          let result = part.results.map((r) => {
+            if (part.faces === 20) {
+              // Natural 20.
+              if (r.result === part.faces && !r.discarded) {
+                return 'crit';
+              }
+              // Natural 1.
+              else if (r.result === 1 && !r.discarded && !r.rerolled) {
+                return 'fail';
+              }
+              // Barbarian crit.
+              else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
+                && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
+                return 'crit';
+              }
+              else {
+                return 'normal';
+              }
+            }
+            else {
+              return 'normal';
+            }
+          });
+
+          return result;
+        }
+        else {
+          return 'none';
+        }
       }
     }
   }

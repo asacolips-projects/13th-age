@@ -297,7 +297,12 @@ input[type="checkbox"] {
   .archmage.sheet h4 {
     font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif; }
   .archmage.sheet .window-content {
-    background: url("../assets/src/ricepaper2_@2X.png") #fff;
+    --background-filter: hsl(46 71% 83% / 0.8);
+    --background-blend: hard-light;
+    background: url(/ui/parchment.jpg), var(--background-filter);
+    background-repeat: repeat;
+    background-blend-mode: var(--background-blend);
+    background-position: 0px 130px;
     background-attachment: local;
     background-size: 300px;
     -webkit-box-shadow: inset 0 0 32px 4px rgba(0, 0, 0, 0.45);

@@ -165,7 +165,7 @@
                 <li class="item flexrow item--action" data-item-id="{{item._id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
-                        <h4>{{item.name}}</h4>
+                        <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{item.name}}</h4>
                     </div>
 
                     {{!-- <div class="ability-usage ability-usage--{{item.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.powerUsage.label}}</span></div> --}}
@@ -217,7 +217,7 @@
                 <li class="item flexrow item--trait" data-item-id="{{item._id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
-                        <h4>{{item.name}}</h4>
+                        <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{item.name}}</h4>
                     </div>
 
                     {{!-- <div class="ability-usage ability-usage--{{item.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.powerUsage.label}}</span></div> --}}
@@ -256,7 +256,7 @@
                 <li class="item flexrow item--nastier-special" data-item-id="{{item._id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
-                        <h4>{{item.name}}</h4>
+                        <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{item.name}}</h4>
                     </div>
 
                     {{!-- <div class="ability-usage ability-usage--{{item.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.powerUsage.label}}</span></div> --}}

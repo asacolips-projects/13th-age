@@ -1,7 +1,6 @@
 import { ARCHMAGE } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
-import { ReorganizedCharacterArchmageSheet } from './actor/reorganized-character-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
@@ -11,6 +10,7 @@ import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
 import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
+import { TourGuide } from './tours/tourguide.js';
 
 Hooks.once('init', async function() {
 
@@ -66,7 +66,6 @@ Hooks.once('init', async function() {
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
-    ReorganizedCharacterArchmageSheet,
     ActorArchmageNPCSheet,
     DiceArchmage,
     ItemArchmage,
@@ -96,11 +95,6 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
-  Actors.registerSheet('archmage', ReorganizedCharacterArchmageSheet, {
-    types: ["character"],
-    makeDefault: false
-  });
-
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
     types: ["npc"],
     makeDefault: true
@@ -117,6 +111,18 @@ Hooks.once('init', async function() {
     "improvedIniative": {
       name: "Improved Initiative",
       hint: "General feat to increase initiative by +4.",
+      section: "Feats",
+      type: Boolean
+    },
+    // "strongRecovery": {
+    //   name: "Strong Recovery",
+    //   hint: "General feat to reroll some of your recovery die, keeping highest",
+    //   section: "Feats",
+    //   type: Boolean
+    // },
+    "toughness": {
+      name: "Toughness",
+      hint: "General feat to increase your max HP based on your base HP",
       section: "Feats",
       type: Boolean
     },
@@ -189,6 +195,13 @@ Hooks.once('init', async function() {
     config: true,
     default: false,
     type: Boolean,
+  });
+
+  game.settings.register('archmage', 'lastTourVersion', {
+    scope: 'client',
+    config: false,
+    default: "1.6.0",
+    type: String,
   });
 
   /**
@@ -292,7 +305,7 @@ Hooks.on('createItem', (data, options, id) => {
 Hooks.once('ready', () => {
   let escalation = game.settings.get('archmage', 'currentEscalation');
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
-  $('body').append(`<div class="archmage-escalation${hide}" data-value="${escalation}">${escalation}</div>`);
+  $('body').append(`<div class="archmage-escalation${hide}">${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
 
   // Wait to register the hotbar macros until ready.
@@ -311,6 +324,26 @@ Hooks.on("renderSettings", (app, html) => {
     ev.preventDefault();
     new ArchmageReference().render(true);
   });
+
+  // Reset Tours
+  let players = html.find("button[data-action='players']");
+  $(`<button data-action="resettours"><i class="fas fa-hiking" aria-hidden="true"></i>Reset Feature Tours</button>`).insertAfter(players);
+  html.find('button[data-action="resettours"]').click(ev => {
+    game.settings.set("archmage", "lastTourVersion", "0.0.0");
+    location.reload();
+  });
+
+  // User guide
+  let docs = html.find("button[data-action='docs']");
+  $(`<button data-action="userguide"><i class="fas fa-file" aria-hidden="true"></i>System Wiki</button>`).insertAfter(docs);
+  html.find('button[data-action="userguide"]').click(ev => {
+    new FrameViewer('https://mageflame.github.io/Toolkit13/', {resizable: true}).render(true);
+  });
+  
+
+  // This is intentionally in renderSettings, as it is one of the last bits of HTML to get rendered, which is required for the Tour to hook in
+  let tourGuide = new TourGuide();
+  tourGuide.startNewFeatureTours();
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
@@ -591,11 +624,23 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
 
     let rollResult = 0;
     // console.log(roll_data);
-    roll_data.parts.forEach(p => {
-      if (p.faces === 20) {
-        rollResult = p.total;
-      }
-    });
+
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      roll_data.parts.forEach(p => {
+        if (p.faces === 20) {
+          rollResult = p.total;
+        }
+      });
+    }
+    else {
+      roll_data.terms.forEach(p => {
+        if (p.faces === 20) {
+          rollResult = p.total;
+        }
+      });
+    }
+
+    
 
     // Update the array of roll HTML elements.
     $rolls[i] = $roll[0];
@@ -881,36 +926,49 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               let $roll_self = $(this);
               // Retrieve the roll formula.
               let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-              // If there's a crit, double the formula and reroll. If there's a
-              // fail with no crit, 0 it out.
-              if (has_crit) {
-                // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
-                if(game.settings.get('archmage', 'originalCritDamage')){
-                  let formula_full = `${roll_data.formula}`;
-                  let formula_parts = formula_full.split('+');
-                  let new_formula = '';
-                  for (var i = 0; i < formula_parts.length - 1; i++) {
-                    formula_parts[i] = formula_parts[i]+'* 2 +';
-                    new_formula = new_formula.concat(formula_parts[i]);
-                  }
-                  formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
-                  new_formula = new_formula.concat(formula_parts[formula_parts.length - 1]);
-                  roll_data.formula = new_formula;
-                } else {
+              //////////////////////////////////////////////////////////////////////////
+              //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+              //////////////////////////////////////////////////////////////////////////
+              if (!isNewerVersion(game.data.version, "0.7")) {
+                // If there's a crit, double the formula and reroll. If there's a
+                // fail with no crit, 0 it out.
+                if (has_crit) {
                   roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  $roll_self.addClass('dc-crit');
                 }
-                $roll_self.addClass('dc-crit');
+                else {
+                  roll_data.formula = `0`;
+                  $roll_self.addClass('dc-fail');
+                }
+                // Reroll and recalculate.
+                roll_data = roll_data.reroll();
+                // Update inline roll's markup.
+                $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+                $roll_self.attr('title', roll_data.formula);
+                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
               }
-              else {
-                roll_data.formula = `0`;
-                $roll_self.addClass('dc-fail');
+              //////////////////////////////////////////////////////////////////////////
+              //////////////////////// END OF DEPRECATED CODE //////////////////////////
+              //////////////////////////////////////////////////////////////////////////
+              {
+                let new_formula = roll_data.formula;
+                // If there's a crit, double the formula and reroll. If there's a
+                // fail with no crit, 0 it out.
+                if (has_crit) {
+                  new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  $roll_self.addClass('dc-crit');
+                }
+                else {
+                  new_formula = `0`;
+                  $roll_self.addClass('dc-fail');
+                }
+                // Reroll and recalculate.
+                let new_roll = new Roll(new_formula).roll();
+                // Update inline roll's markup.
+                $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
+                $roll_self.attr('title', new_roll.formula);
+                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
               }
-              // Reroll and recalculate.
-              roll_data = roll_data.reroll();
-              // Update inline roll's markup.
-              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
-              $roll_self.attr('title', roll_data.formula);
-              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
             });
           }
           // Update the row with the new roll(s) markup.
@@ -921,21 +979,46 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                     if ($roll.length > 0) {
             // Iterate through the inline rolls on the hit row.
             $roll.each(function(roll_index) {
-              let $roll_self = $(this);
-              // Retrieve the roll formula.
-              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-              // If there's a crit, double the formula and reroll. If there's a
-              // fail with no crit, 0 it out.
-              if (has_fail) {
-                roll_data.formula = `0`;
-                $roll_self.addClass('dc-fail');
+                let $roll_self = $(this);
+                // Retrieve the roll formula.
+                let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+                //////////////////////////////////////////////////////////////////////////
+                //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+                //////////////////////////////////////////////////////////////////////////
+                if (!isNewerVersion(game.data.version, "0.7")) {
+                  // If there's a crit, double the formula and reroll. If there's a
+                  // fail with no crit, 0 it out.
+                  if (has_fail)
+                  {
+                    roll_data.formula = `0`;
+                    $roll_self.addClass('dc-fail');
+                  }
+                  // Reroll and recalculate.
+                  roll_data = roll_data.reroll();
+                  // Update inline roll's markup.
+                  $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+                  $roll_self.attr('title', roll_data.formula);
+                  $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+                }
+                //////////////////////////////////////////////////////////////////////////
+                //////////////////////// END OF DEPRECATED CODE //////////////////////////
+                //////////////////////////////////////////////////////////////////////////
+                else
+                {
+                  let new_formula = roll_data.formula;
+                  // If there's a crit, double the formula and reroll. If there's a
+                  // fail with no crit, 0 it out.
+                  if (has_fail) {
+                    new_formula = `0`;
+                    $roll_self.addClass('dc-fail');
+                  }
+                  // Reroll and recalculate.
+                  let new_roll = new Roll(new_formula).roll();
+                  // Update inline roll's markup.
+                  $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
+                  $roll_self.attr('title', new_roll.formula);
+                  $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
               }
-              // Reroll and recalculate.
-              roll_data = roll_data.reroll();
-              // Update inline roll's markup.
-              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
-              $roll_self.attr('title', roll_data.formula);
-              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
             });
           }
         }
@@ -1018,26 +1101,56 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     // For inline results expand or collapse the roll details
     if (a.classList.contains("inline-result")) {
       const roll = Roll.fromJSON(unescape(a.dataset.roll));
-      // Build a die string of the die parts, including whether they're discarded.
-      const dieTotal = roll.parts.reduce((string, r) => {
-        if (typeof string == 'object') {
-          string = '';
-        }
+      //////////////////////////////////////////////////////////////////////////
+      //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+      //////////////////////////////////////////////////////////////////////////
+      if (!isNewerVersion(game.data.version, "0.7")) {
+        // Build a die string of the die parts, including whether they're discarded.
+        const dieTotal = roll.parts.reduce((string, r) => {
+          if (typeof string == 'object') {
+            string = '';
+          }
 
-        if (r.rolls) {
-          string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
-        }
-        else {
-          string = `${string}<span class="mod">${r}</span>`;
-        }
+          if (r.rolls) {
+            string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
+          }
+          else {
+            string = `${string}<span class="mod">${r}</span>`;
+          }
 
-        return string;
-      }, {});
+          return string;
+        }, {});
 
-      // Replace the html.
-      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
-      a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
-      a.classList.toggle("expanded");
+        // Replace the html.
+        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+        a.classList.toggle("expanded");
+      }
+      //////////////////////////////////////////////////////////////////////////
+      //////////////////////// END OF DEPRECATED CODE //////////////////////////
+      //////////////////////////////////////////////////////////////////////////
+      else {
+        // Build a die string of the die parts, including whether they're discarded.
+        const dieTotal = roll.terms.reduce((string, r) => {
+          if (typeof string == 'object') {
+            string = '';
+          }
+
+          if (r.results) {
+            string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
+          }
+          else {
+            string = `${string}<span class="mod">${r}</span>`;
+          }
+
+          return string;
+        }, {});
+
+        // Replace the html.
+        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+        a.classList.toggle("expanded");
+      }
     }
 
     // Otherwise execute the deferred roll

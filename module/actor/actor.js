@@ -16,9 +16,18 @@ export class ActorArchmage extends Actor {
     super.prepareData();
 
     // Get the Actor's data object
+    this.data = duplicate(this._data);
+    if (!this.data.img) this.data.img = CONST.DEFAULT_TOKEN;
+    if ( !this.data.name ) this.data.name = "New " + this.entity;
+    this.prepareBaseData();
+    this.prepareEmbeddedEntities();
+
+    this.prepareDerivedData();
+
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
+
 
     // Prepare Character data
     if (actorData.type === 'character') {
@@ -68,6 +77,12 @@ export class ActorArchmage extends Actor {
     var mdBonus = 0;
     var pdBonus = 0;
 
+    var hpBonus = 0;
+    var recoveriesBonus = 0;
+
+    var saveBonus = 0;
+    var disengageBonus = 0;
+
     function getBonusOr0(type) {
       if (type && type.bonus) {
         return type.bonus;
@@ -86,6 +101,12 @@ export class ActorArchmage extends Actor {
           acBonus += getBonusOr0(item.data.data.attributes.ac);
           mdBonus += getBonusOr0(item.data.data.attributes.md);
           pdBonus += getBonusOr0(item.data.data.attributes.pd);
+
+          hpBonus += getBonusOr0(item.data.data.attributes.hp);
+          recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
+
+          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });
     }
@@ -118,9 +139,55 @@ export class ActorArchmage extends Actor {
         }
       };
 
+      function minimumOf0(num) {
+        if (num < 0) return 0;
+        return num;
+      }
+
+      data.attributes.save = {
+        easy: minimumOf0(6 - saveBonus),
+        normal: minimumOf0(11 - saveBonus),
+        hard: minimumOf0(16 - saveBonus)
+      };
+
+      data.attributes.disengage = minimumOf0(11 - disengageBonus);
+
       data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value + acBonus;
       data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
       data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value + mdBonus;
+
+      // Add level ability mods.
+      // Replace the ability attributes in the calculator with custom formulas.
+      let levelMultiplier = 1;
+      if (data.attributes.level.value >= 5) {
+        levelMultiplier = 2;
+      }
+      if (data.attributes.level.value >= 8) {
+        levelMultiplier = 3;
+      }
+
+      if (levelMultiplier > 0) {
+        for (let prop in data.abilities) {
+          data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
+        }
+      }
+
+      if (data.attributes.hp.automatic) {
+        let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
+        let level = data.attributes.level.value;
+        if (data.incrementals?.hp) level++;
+
+        let toughness = 0;
+        if (flags.archmage) {
+          toughness = flags.archmage.toughness ? data.attributes.hp.base / 2 : 0;
+        }
+
+        data.attributes.hp.max = (data.attributes.hp.base + minimumOf0(data.abilities.con.mod)) * hpLevelModifier[level] + hpBonus + Math.floor(toughness);
+      }
+
+      if (data.attributes.recoveries.automatic) {
+        data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
+      }
 
       // Skill modifiers
       // for (let skl of Object.values(data.skills)) {
@@ -189,21 +256,7 @@ export class ActorArchmage extends Actor {
         };
       }
 
-      // Add level ability mods.
-      // Replace the ability attributes in the calculator with custom formulas.
-      let levelMultiplier = 1;
-      if (data.attributes.level.value >= 5) {
-        levelMultiplier = 2;
-      }
-      if (data.attributes.level.value >= 8) {
-        levelMultiplier = 3;
-      }
 
-      if (levelMultiplier > 0) {
-        for (let prop in data.abilities) {
-          data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
-        }
-      }
 
       // Set an attribute for weapon damage.
       if (data.attributes.weapon === undefined) {
@@ -284,6 +337,8 @@ export class ActorArchmage extends Actor {
       };
     }
 
+    this.applyActiveEffects();
+
     // Return the prepared Actor data
     return actorData;
   }
@@ -360,13 +415,13 @@ export class ActorArchmage extends Actor {
    */
   rollAbilityTest(abilityId) {
     let abl = this.data.data.abilities[abilityId];
-    let parts = ['@mod', '@background'];
+    let terms = ['@mod', '@background'];
     let flavor = `${abl.label} Ability Test`;
 
     // Call the roll helper utility
     DiceArchmage.d20Roll({
       event: event,
-      parts: parts,
+      terms: terms,
       data: {
         mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals.skills ? 1 : 0),
         background: 0
