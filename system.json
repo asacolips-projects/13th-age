@@ -140,7 +140,7 @@
     }
   ],
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
-  "manifest": "https://raw.githubusercontent.com/Mageflame/Toolkit13/master/system.json",
+  "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
   "download": "https://github.com/Mageflame/Toolkit13/releases/download/1.7.0/system.zip",
   "initiative": "1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)",
   "gridDistance": 1,
