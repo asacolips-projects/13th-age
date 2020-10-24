@@ -18,7 +18,7 @@ export class ActorArchmage extends Actor {
     // Get the Actor's data object
     this.data = duplicate(this._data);
     if (!this.data.img) this.data.img = CONST.DEFAULT_TOKEN;
-    if ( !this.data.name ) this.data.name = "New " + this.entity;
+    if (!this.data.name) this.data.name = "New " + this.entity;
     this.prepareBaseData();
     this.prepareEmbeddedEntities();
 
@@ -423,7 +423,7 @@ export class ActorArchmage extends Actor {
       event: event,
       terms: terms,
       data: {
-        mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals.skills ? 1 : 0),
+        mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals?.skills ? 1 : 0),
         background: 0
       },
       backgrounds: this.data.data.backgrounds,
