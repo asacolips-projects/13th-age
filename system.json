@@ -1,7 +1,7 @@
 {
   "name": "archmage",
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
-  "version": "beta2-1.7.0",
+  "version": "1.7.0",
   "author": "Matt Smith & Cody Swendrowski",
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
   "minimumCoreVersion": "0.6.0",
@@ -139,9 +139,9 @@
       "path": "languages/en.json"
     }
   ],
-  "url": "https://github.com/Mageflame/Toolkit13",
-  "manifest": "https://raw.githubusercontent.com/Mageflame/Toolkit13/beta/system.json",
-  "download": "https://github.com/Mageflame/Toolkit13/archive/beta.zip",
+  "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
+  "manifest": "https://raw.githubusercontent.com/Mageflame/Toolkit13/master/system.json",
+  "download": "https://github.com/Mageflame/Toolkit13/releases/download/1.7.0/system.zip",
   "initiative": "1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)",
   "gridDistance": 1,
   "gridUnits": "",
