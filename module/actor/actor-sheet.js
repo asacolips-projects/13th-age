@@ -43,6 +43,11 @@ export class ActorArchmageSheet extends ActorSheet {
 
     let powers = sheetData.actor.powers;
 
+    // Fallback to grouping by type if not specified.
+    if (!sheetData.actor.data.sheetGrouping) {
+      sheetData.actor.data.sheetGrouping = 'type';
+    }
+
     if (sheetData.actor.data.sheetGrouping == "type") {
       sheetData.actor.byType = true;
       sheetData.actor.features = powers.filter(power => power.data.powerType.value === "feature");
@@ -66,7 +71,7 @@ export class ActorArchmageSheet extends ActorSheet {
         if (groupValue == undefined || groupValue == "") {
           groupValue = game.i18n.localize("ARCHMAGE.other");
         }
-        if(groups.indexOf(groupValue) < 0) {
+        if (groups.indexOf(groupValue) < 0) {
           groups.push(groupValue);
           if (powerDict[groupValue] == undefined) {
             powerDict[groupValue] = [];
@@ -302,7 +307,7 @@ export class ActorArchmageSheet extends ActorSheet {
             scene: game.user.viewedScene
           }
         };
-        
+
         const templateData = {
           actor: this.actor,
           tokenId: token ? `${token.scene._id}.${token.id}` : null,
@@ -327,41 +332,41 @@ export class ActorArchmageSheet extends ActorSheet {
         // Card support
         if (game.decks) {
 
-          for (var x = 0; x < fives; x++ ) {
+          for (var x = 0; x < fives; x++) {
             await addIconCard(icon.name.value, 5);
           }
-          for (var x = 0; x < sixes; x++ ) {
+          for (var x = 0; x < sixes; x++) {
             await addIconCard(icon.name.value, 6);
           }
 
           async function addIconCard(icon, value) {
-              let decks = game.decks.decks;
-              for (var deckId in decks) {
-                  let msg = {
-                    type: "GETALLCARDSBYDECK",
-                    playerID: game.users.find(el => el.isGM && el.active).id,
-                    deckID: deckId
-                  };
+            let decks = game.decks.decks;
+            for (var deckId in decks) {
+              let msg = {
+                type: "GETALLCARDSBYDECK",
+                playerID: game.users.find(el => el.isGM && el.active).id,
+                deckID: deckId
+              };
 
-                  const wait=ms=>new Promise(resolve => setTimeout(resolve, ms)); 
+              const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-                  let foundCard = undefined;
-                  game.socket.on("module.cardsupport", async (recieveMsg) => {
-                    if (recieveMsg == undefined) return;
-                    let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
-              
-                    if (card) {
-                        await ui.cardHotbar.populator.addToPlayerHand([card]);
-                        foundCard = true;
-                    }
-                    foundCard = false;
-                  });
-                  
-                  game.socket.emit("module.cardsupport", msg);
+              let foundCard = undefined;
+              game.socket.on("module.cardsupport", async (recieveMsg) => {
+                if (recieveMsg == undefined) return;
+                let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
 
-                  await wait(200);
-                  if (foundCard) return;
-              }
+                if (card) {
+                  await ui.cardHotbar.populator.addToPlayerHand([card]);
+                  foundCard = true;
+                }
+                foundCard = false;
+              });
+
+              game.socket.emit("module.cardsupport", msg);
+
+              await wait(200);
+              if (foundCard) return;
+            }
           }
         }
 
@@ -393,7 +398,7 @@ export class ActorArchmageSheet extends ActorSheet {
           scene: game.user.viewedScene
         }
       };
-      
+
       const templateData = {
         actor: actor,
         tokenId: token ? `${token.scene._id}.${token.id}` : null,
@@ -416,7 +421,7 @@ export class ActorArchmageSheet extends ActorSheet {
     }
 
     html.find('.easy-save.rollable').click(async ev => {
-        return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.easy"), this.actor.data.data.attributes.save.easy, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.easy"), this.actor.data.data.attributes.save.easy, this.actor);
     });
 
     html.find('.normal-save.rollable').click(async ev => {
