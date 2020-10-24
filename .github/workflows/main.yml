@@ -33,7 +33,6 @@ jobs:
         files: 'system.json'
       env:
         version: ${{ steps.get_version.outputs.VERSION }}
-        manifest: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.json
         download: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     # create a zip file with all files required by the system to add to the release
@@ -50,16 +49,3 @@ jobs:
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './system.json,./system.zip'
-
-    # Update the 'latest' release
-    - name: Create Release
-      id: create_latest_release
-      uses: ncipollo/release-action@v1
-      with:
-        allowUpdates: true
-        name: Latest
-        draft: false
-        prerelease: false
-        token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './system.json,./system.zip'
-        tag: latest
