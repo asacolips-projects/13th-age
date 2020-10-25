@@ -41,57 +41,58 @@ export class ActorArchmageSheet extends ActorSheet {
 
     this._prepareCharacterItems(sheetData);
 
-    let powers = sheetData.actor.powers;
+    let powers = sheetData.actor.powers ?? [];
 
-    // Fallback to grouping by type if not specified.
-    if (!sheetData.actor.data.sheetGrouping) {
-      sheetData.actor.data.sheetGrouping = 'type';
-    }
-
-    if (sheetData.actor.data.sheetGrouping == "type") {
-      sheetData.actor.byType = true;
-      sheetData.actor.features = powers.filter(power => power.data.powerType.value === "feature");
-      sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
-      sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
-      sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
-      sheetData.actor.maneuvers = powers.filter(power => power.data.powerType.value === "maneuver");
-      sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
-    }
-    else if (sheetData.actor.data.sheetGrouping == "action") {
-      sheetData.actor.byAction = true;
-      sheetData.actor.class = powers.filter(power => power.data.actionType.value === "");
-      sheetData.actor.actions = powers.filter(power => power.data.actionType.value !== "");
-    }
-    else if (sheetData.actor.data.sheetGrouping == "group") {
-      sheetData.actor.byGroup = true;
-      let groups = [];
-      let powerDict = {};
-      powers.forEach(power => {
-        let groupValue = power.data.group?.value;
-        if (groupValue == undefined || groupValue == "") {
-          groupValue = game.i18n.localize("ARCHMAGE.other");
-        }
-        if (groups.indexOf(groupValue) < 0) {
-          groups.push(groupValue);
-          if (powerDict[groupValue] == undefined) {
-            powerDict[groupValue] = [];
-          }
-        }
-        powerDict[groupValue].push(power);
-      });
-      var keys = Object.keys(powerDict);
-
-      let namePowerPairs = [];
-      for (var x = 0; x < keys.length; x++) {
-        let key = keys[x];
-        namePowerPairs.push({
-          name: key,
-          powers: powerDict[key]
-        });
+    if (sheetData.actor.data.type == 'character') {
+      // Fallback to grouping by type if not specified.
+      if (!sheetData.actor.data.sheetGrouping) {
+        sheetData.actor.data.sheetGrouping = 'type';
       }
-      sheetData.actor.namePowerPairs = namePowerPairs;
-    }
 
+      if (sheetData.actor.data.sheetGrouping == "type") {
+        sheetData.actor.byType = true;
+        sheetData.actor.features = powers.filter(power => power.data.powerType.value === "feature");
+        sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
+        sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
+        sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
+        sheetData.actor.maneuvers = powers.filter(power => power.data.powerType.value === "maneuver");
+        sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
+      }
+      else if (sheetData.actor.data.sheetGrouping == "action") {
+        sheetData.actor.byAction = true;
+        sheetData.actor.class = powers.filter(power => power.data.actionType.value === "");
+        sheetData.actor.actions = powers.filter(power => power.data.actionType.value !== "");
+      }
+      else if (sheetData.actor.data.sheetGrouping == "group") {
+        sheetData.actor.byGroup = true;
+        let groups = [];
+        let powerDict = {};
+        powers.forEach(power => {
+          let groupValue = power.data.group?.value;
+          if (groupValue == undefined || groupValue == "") {
+            groupValue = game.i18n.localize("ARCHMAGE.other");
+          }
+          if (groups.indexOf(groupValue) < 0) {
+            groups.push(groupValue);
+            if (powerDict[groupValue] == undefined) {
+              powerDict[groupValue] = [];
+            }
+          }
+          powerDict[groupValue].push(power);
+        });
+        var keys = Object.keys(powerDict);
+
+        let namePowerPairs = [];
+        for (var x = 0; x < keys.length; x++) {
+          let key = keys[x];
+          namePowerPairs.push({
+            name: key,
+            powers: powerDict[key]
+          });
+        }
+        sheetData.actor.namePowerPairs = namePowerPairs;
+      }
+    }
 
     // Return data to the sheet
     return sheetData;
