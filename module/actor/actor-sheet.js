@@ -43,7 +43,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
     let powers = sheetData.actor.powers ?? [];
 
-    if (sheetData.actor.data.type == 'character') {
+    if (sheetData.actor.type == 'character') {
       // Fallback to grouping by type if not specified.
       if (!sheetData.actor.data.sheetGrouping) {
         sheetData.actor.data.sheetGrouping = 'type';
