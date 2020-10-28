@@ -141,6 +141,11 @@
                         <div class="attribute-display"><a class="disengage rollable"><i class="fas fa-dice-d20"></i> {{data.attributes.disengage}}+</a></div>
                     </div>
                 </div>
+                <div class="attribute-footer attribute-footer--disengage">
+                    <span class="attribute-subname">{{localize 'ARCHMAGE.disengageAdjustment'}}</span>
+                    <input name="data.attributes.disengageBonus" type="text" class="disengage-adjustment" placeholder="0" value="{{data.attributes.disengageBonus}}"
+                        data-dtype="Number" />
+                </div>
             </div>
         </div>
 
@@ -522,7 +527,7 @@
                             <span class="item-image"></span>
                             <span class="item-name">{{localize 'ARCHMAGE.abilityName'}}</span>
                         </div>
-  
+
                         {{#if owner}}
                         <div class="item-controls flexrow">
                             <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
@@ -532,7 +537,7 @@
                         </div>
                         {{/if}}
                     </li>
-  
+
                     {{#each actor.class as |item i|}}
                     <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                         <div class="item-name flexrow rollable">
@@ -541,7 +546,7 @@
                                 <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{#if item.data.powerLevel.value}}[{{item.data.powerLevel.value}}] {{/if}}{{item.name}}</h4>
                             </div>
                         </div>
-  
+
                         {{#if ../owner}}
                         <div class="item-controls flexrow">
                             <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
@@ -551,7 +556,7 @@
                     </li>
                     {{/each}}
                 </ol>
-  
+
                 <h2>{{localize 'ARCHMAGE.actions'}}</h2>
                 <ol class="feats-list powers-list inventory-list directory-list">
                     <li class="item flexrow inventory-header">
@@ -562,7 +567,7 @@
                             <span class="item-action">{{localize 'ARCHMAGE.act'}}</span>
                             <span class="item-quantity">{{localize 'ARCHMAGE.uses'}}</span>
                         </div>
-  
+
                         {{#if owner}}
                         <div class="item-controls flexrow">
                             <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
@@ -572,7 +577,7 @@
                         </div>
                         {{/if}}
                     </li>
-  
+
                     {{#each actor.actions as |item i|}}
                     <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                         <div class="item-name flexrow rollable">
@@ -590,7 +595,7 @@
                                 <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                             </div>
                         </div>
-  
+
                         {{#if ../owner}}
                         <div class="item-controls flexrow">
                             <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
@@ -616,7 +621,7 @@
                                 <span class="item-action">{{localize 'ARCHMAGE.act'}}</span>
                                 <span class="item-quantity">{{localize 'ARCHMAGE.uses'}}</span>
                             </div>
-        
+
                             {{#if ../owner}}
                             <div class="item-controls flexrow">
                                 <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
@@ -626,7 +631,7 @@
                             </div>
                             {{/if}}
                         </li>
-        
+
                         {{#each grouping.powers as |item i|}}
                         <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                             <div class="item-name flexrow rollable">
@@ -643,7 +648,7 @@
                                     <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                                 </div>
                             </div>
-        
+
                             {{#if ../../owner}}
                             <div class="item-controls flexrow">
                                 <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>

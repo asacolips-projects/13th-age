@@ -150,7 +150,7 @@ export class ActorArchmage extends Actor {
         hard: minimumOf0(16 - saveBonus)
       };
 
-      data.attributes.disengage = minimumOf0(11 - disengageBonus);
+      data.attributes.disengage = minimumOf0(11 - disengageBonus - (data.attributes?.disengageBonus ?? 0));
 
       data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value + acBonus;
       data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
