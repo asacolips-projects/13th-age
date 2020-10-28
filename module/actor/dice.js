@@ -117,7 +117,7 @@ export class DiceArchmage {
     let dialogData = {
       formula: terms.join(' + '),
       data: data,
-      backgrounds: backgrounds,
+      backgrounds: backgrounds ? backgrounds : {},
       rollModes: CONFIG.Dice.rollModes
     };
     renderTemplate(template, dialogData).then(dlg => {
