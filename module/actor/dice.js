@@ -67,7 +67,7 @@ export class DiceArchmage {
       // Handle combat advantage.
       if (adv === 1) {
         terms[0] = ['2d20kh'];
-        terms = `${title} (Advantage)`;
+        flav = `${title} (Advantage)`;
       }
       else if (adv === -1) {
         terms[0] = ['2d20kl'];;
