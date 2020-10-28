@@ -773,7 +773,7 @@ input[type="checkbox"] {
       text-align: center; }
       .archmage.actor-sheet .primary-attributes .attribute .attribute-footer span {
         display: inline-block; }
-      .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp {
+      .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--disengage {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
@@ -789,7 +789,7 @@ input[type="checkbox"] {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between; }
-        .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span {
+        .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--disengage > span {
           border-right: 1px solid rgba(0, 0, 0, 0.25);
           -webkit-box-flex: 65%;
           -ms-flex: 65%;
@@ -798,7 +798,7 @@ input[type="checkbox"] {
           text-align: center;
           font-weight: bold;
           font-size: 12px; }
-          .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span.attribute-subname--grow {
+          .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > span.attribute-subname--grow, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--disengage > span.attribute-subname--grow {
             -webkit-box-flex: 100%;
             -ms-flex: 100%;
             flex: 100%;
@@ -807,7 +807,7 @@ input[type="checkbox"] {
             flex-wrap: nowrap;
             white-space: nowrap;
             padding: 2px; }
-        .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > input {
+        .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--temp-hp > input, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer.attribute-footer--disengage > input {
           -webkit-box-flex: 35%;
           -ms-flex: 35%;
           flex: 35%;
@@ -815,7 +815,7 @@ input[type="checkbox"] {
           text-align: center; }
       .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input {
         max-width: 24px; }
-        .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.temphp {
+        .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.temphp, .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.disengage-adjustment {
           max-width: 100%; }
         .archmage.actor-sheet .primary-attributes .attribute .attribute-footer input.hit-dice {
           max-width: 16px;

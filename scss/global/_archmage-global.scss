@@ -667,7 +667,8 @@ input[type="checkbox"] {
             display: inline-block;
           }
 
-          &.attribute-footer--temp-hp {
+          &.attribute-footer--temp-hp,
+          &.attribute-footer--disengage {
             align-items: center;
             border-top: 1px solid $c-gray--lightest;
             display: flex;
@@ -702,7 +703,8 @@ input[type="checkbox"] {
           input {
             max-width: 24px;
 
-            &.temphp {
+            &.temphp,
+            &.disengage-adjustment {
               max-width: 100%;
             }
 
