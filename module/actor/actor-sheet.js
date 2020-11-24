@@ -442,14 +442,17 @@ export class ActorArchmageSheet extends ActorSheet {
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
-      // Update the quantity.
-      let updatedItem = duplicate(item);
-      let quantity = updatedItem.data.quantity.value ? updatedItem.data.quantity.value : 0;
-      quantity = Number(quantity) + 1;
-      updatedItem.data.quantity.value = quantity;
-
       // Update the owned item and rerender.
-      await this.actor.updateOwnedItem(updatedItem);
+      const update = {
+        _id: item._id,
+        data: {
+          quantity: {
+            value: Number(item.data.data.quantity.value || 0) + 1
+          }
+        }
+      };
+
+      await this.actor.updateOwnedItem(update, { recursive: true });
       this.render();
     });
 
@@ -458,15 +461,17 @@ export class ActorArchmageSheet extends ActorSheet {
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
-      // Update the quantity.
-      let updatedItem = duplicate(item);
-      let quantity = updatedItem.data.quantity.value ? updatedItem.data.quantity.value : 0;
-      quantity = Number(quantity) - 1;
-      quantity = quantity < 0 ? 0 : quantity;
-      updatedItem.data.quantity.value = quantity;
-
       // Update the owned item and rerender.
-      await this.actor.updateOwnedItem(updatedItem);
+      const update = {
+        _id: item._id,
+        data: {
+          quantity: {
+            value: Math.max(0, Number(item.data.data.quantity.value || 0) - 1)
+          }
+        }
+      };
+
+      await this.actor.updateOwnedItem(update, { recursive: true });
       this.render();
     });
 
