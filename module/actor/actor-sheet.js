@@ -443,16 +443,14 @@ export class ActorArchmageSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
       // Update the owned item and rerender.
-      const update = {
+      await this.actor.updateOwnedItem({
         _id: item._id,
         data: {
           quantity: {
             value: Number(item.data.data.quantity.value || 0) + 1
           }
         }
-      };
-
-      await this.actor.updateOwnedItem(update, { recursive: true });
+      });
       this.render();
     });
 
@@ -462,16 +460,14 @@ export class ActorArchmageSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
       // Update the owned item and rerender.
-      const update = {
+      await this.actor.updateOwnedItem({
         _id: item._id,
         data: {
           quantity: {
             value: Math.max(0, Number(item.data.data.quantity.value || 0) - 1)
           }
         }
-      };
-
-      await this.actor.updateOwnedItem(update, { recursive: true });
+      });
       this.render();
     });
 
