@@ -111,6 +111,13 @@
       "system": "archmage"
     },
     {
+      "label": "Monk",
+      "entity": "Item",
+      "name": "monk",
+      "path": "packs/monk.db",
+      "system": "archmage"
+    },
+    {
       "label": "Occultist",
       "entity": "Item",
       "name": "occultist",
