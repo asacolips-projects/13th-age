@@ -172,6 +172,8 @@ export class ActorArchmage extends Actor {
         }
       }
 
+	  data.tier = levelMultiplier
+
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
         let level = data.attributes.level.value;
