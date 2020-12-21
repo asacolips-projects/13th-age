@@ -187,7 +187,7 @@ Hooks.once('init', async function() {
     default: true,
     type: Boolean
   });
-  
+
   game.settings.register('archmage', 'originalCritDamage', {
     name: 'Double damage result on critical hit',
     hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
@@ -317,7 +317,7 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
-  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Archmage Inline Rolls</button>`);
+  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
@@ -339,7 +339,7 @@ Hooks.on("renderSettings", (app, html) => {
   html.find('button[data-action="userguide"]').click(ev => {
     new FrameViewer('https://mageflame.github.io/Toolkit13/', {resizable: true}).render(true);
   });
-  
+
 
   // This is intentionally in renderSettings, as it is one of the last bits of HTML to get rendered, which is required for the Tour to hook in
   let tourGuide = new TourGuide();
@@ -640,7 +640,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
       });
     }
 
-    
+
 
     // Update the array of roll HTML elements.
     $rolls[i] = $roll[0];
