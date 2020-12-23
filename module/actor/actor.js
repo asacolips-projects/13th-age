@@ -172,17 +172,25 @@ export class ActorArchmage extends Actor {
         }
       }
 
+	  data.tier = levelMultiplier
+
       if (data.attributes.hp.automatic) {
-        let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
+        let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
         let level = data.attributes.level.value;
         if (data.incrementals?.hp) level++;
 
         let toughness = 0;
         if (flags.archmage) {
-          toughness = flags.archmage.toughness ? data.attributes.hp.base / 2 : 0;
+          toughness = flags.archmage.toughness ? data.attributes.hp.base : 0;
+          if (level <= 4) {
+            toughness /= 2
+            toughness = Math.floor(toughness)
+          } else if (level >= 8) {
+            toughness *= 2
+          }
         }
 
-        data.attributes.hp.max = (data.attributes.hp.base + minimumOf0(data.abilities.con.mod)) * hpLevelModifier[level] + hpBonus + Math.floor(toughness);
+        data.attributes.hp.max = Math.floor((data.attributes.hp.base + minimumOf0(data.abilities.con.mod)) * hpLevelModifier[level] + hpBonus + toughness);
       }
 
       if (data.attributes.recoveries.automatic) {
