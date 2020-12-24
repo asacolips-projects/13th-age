@@ -313,7 +313,7 @@ Hooks.once('ready', () => {
   $('body').on('click', '.ed-control', (event) => {
     let $self = $(event.currentTarget);
     let isIncrease = $self.hasClass('ed-plus');
-    ArchmageUtility.setEscalation(game.combat, isIncrease);
+    ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
   });
 
   // Wait to register the hotbar macros until ready.
