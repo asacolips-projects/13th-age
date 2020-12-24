@@ -3,10 +3,10 @@ export class OneDotEightTour {
         let tour = introJs()
 
         tour.onexit(function() {
-          //game.settings.set("archmage", "lastTourVersion", "1.8.0");
+          game.settings.set("archmage", "lastTourVersion", "1.8.0");
         });
         tour.oncomplete(function() {
-          //game.settings.set("archmage", "lastTourVersion", "1.8.0");
+          game.settings.set("archmage", "lastTourVersion", "1.8.0");
         });
 
         tour.setOption('tooltipPosition', 'auto');
