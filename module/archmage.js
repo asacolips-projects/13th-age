@@ -152,14 +152,6 @@ Hooks.once('init', async function() {
     onChange: enable => _setArchmageInitiative(enable)
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
-  game.settings.register('archmage', 'currentEscalation', {
-    name: 'Current Escalation Die Value',
-    hint: 'Automatically updated each combat round.',
-    scope: 'world',
-    config: false,
-    default: 0,
-    type: Number,
-  });
   // Macro shorthand
   game.settings.register("archmage", "macroShorthand", {
     name: "Shortened Macro Syntax",
@@ -194,7 +186,16 @@ Hooks.once('init', async function() {
     scope: 'world',
     config: true,
     default: false,
-    type: Boolean,
+    type: Boolean
+  });
+
+  game.settings.register('archmage', 'unboundEscDie', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean
   });
 
   game.settings.register('archmage', 'lastTourVersion', {
@@ -303,10 +304,17 @@ Hooks.on('createItem', (data, options, id) => {
 /* ---------------------------------------------- */
 
 Hooks.once('ready', () => {
-  let escalation = game.settings.get('archmage', 'currentEscalation');
+  let escalation = ArchmageUtility.getEscalation();
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
-  $('body').append(`<div class="archmage-escalation${hide}">${escalation}</div>`);
+  $('body').append(`<div class="archmage-escalation${hide}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
   $('body').append('<div class="archmage-preload"></div>');
+
+  // Add click events for ed.
+  $('body').on('click', '.ed-control', (event) => {
+    let $self = $(event.currentTarget);
+    let isIncrease = $self.hasClass('ed-plus');
+    ArchmageUtility.setEscalation(game.combat, isIncrease);
+  });
 
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
@@ -1188,7 +1196,7 @@ Hooks.on('updateCombat', (async (combat, update) => {
     let $escalationDiv = $('.archmage-escalation');
     $escalationDiv.attr('data-value', escalation);
     $escalationDiv.removeClass('hide');
-    $escalationDiv.text(escalation);
+    $escalationDiv.find('.ed-number').text(escalation);
   }
 }));
 
@@ -1212,14 +1220,13 @@ Hooks.on('renderCombatTracker', (async () => {
   }
   // Update the value of the tracker.
   $escalationDiv.attr('data-value', escalation);
-  $escalationDiv.text(escalation);
+  $escalationDiv.find('.ed-number').text(escalation);
 }));
 
 /* ---------------------------------------------- */
 
 // Clear escalation die values.
 Hooks.on('deleteCombat', (combat) => {
-  game.settings.set('archmage', 'currentEscalation', 0);
   $('.archmage-escalation').addClass('hide');
 });
 

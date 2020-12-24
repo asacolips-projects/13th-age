@@ -336,7 +336,7 @@ export class ActorArchmage extends Actor {
 
     // Get the escalation die value.
     data.attributes.escalation = {
-      value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : game.settings.get('archmage', 'currentEscalation'),
+      value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
     if (actorData.type === 'character') {
