@@ -152,14 +152,6 @@ Hooks.once('init', async function() {
     onChange: enable => _setArchmageInitiative(enable)
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
-  game.settings.register('archmage', 'currentEscalation', {
-    name: 'Current Escalation Die Value',
-    hint: 'Automatically updated each combat round.',
-    scope: 'world',
-    config: false,
-    default: 0,
-    type: Number,
-  });
   // Macro shorthand
   game.settings.register("archmage", "macroShorthand", {
     name: "Shortened Macro Syntax",
@@ -303,7 +295,7 @@ Hooks.on('createItem', (data, options, id) => {
 /* ---------------------------------------------- */
 
 Hooks.once('ready', () => {
-  let escalation = game.settings.get('archmage', 'currentEscalation');
+  let escalation = ArchmageUtility.getEscalation();
   let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}">${escalation}</div>`);
   $('body').append('<div class="archmage-preload"></div>');
@@ -1219,7 +1211,6 @@ Hooks.on('renderCombatTracker', (async () => {
 
 // Clear escalation die values.
 Hooks.on('deleteCombat', (combat) => {
-  game.settings.set('archmage', 'currentEscalation', 0);
   $('.archmage-escalation').addClass('hide');
 });
 
