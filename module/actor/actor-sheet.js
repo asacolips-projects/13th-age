@@ -353,12 +353,14 @@ export class ActorArchmageSheet extends ActorSheet {
 
               let foundCard = undefined;
               game.socket.on("module.cardsupport", async (recieveMsg) => {
-                if (recieveMsg == undefined) return;
+                if (recieveMsg?.cards == undefined || foundCard) return;
                 let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
 
                 if (card) {
                   await ui.cardHotbar.populator.addToPlayerHand([card]);
                   foundCard = true;
+                  // Unbind
+                  game.socket.off("module.cardsupport");
                 }
                 foundCard = false;
               });
@@ -366,6 +368,8 @@ export class ActorArchmageSheet extends ActorSheet {
               game.socket.emit("module.cardsupport", msg);
 
               await wait(200);
+              // Unbind
+              game.socket.off("module.cardsupport");
               if (foundCard) return;
             }
           }
@@ -451,6 +455,7 @@ export class ActorArchmageSheet extends ActorSheet {
           }
         }
       });
+
       this.render();
     });
 
@@ -468,6 +473,7 @@ export class ActorArchmageSheet extends ActorSheet {
           }
         }
       });
+
       this.render();
     });
 

@@ -88,6 +88,7 @@ function watchUpdates() {
 
 exports.default = gulp.series(
   compileScss,
+  compileYaml,
   // compileScripts,
   watchUpdates
 );
