@@ -353,12 +353,14 @@ export class ActorArchmageSheet extends ActorSheet {
 
               let foundCard = undefined;
               game.socket.on("module.cardsupport", async (recieveMsg) => {
-                if (recieveMsg == undefined) return;
+                if (recieveMsg?.cards == undefined || foundCard) return;
                 let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
 
                 if (card) {
                   await ui.cardHotbar.populator.addToPlayerHand([card]);
                   foundCard = true;
+                  // Unbind
+                  game.socket.off("module.cardsupport");
                 }
                 foundCard = false;
               });
@@ -366,6 +368,8 @@ export class ActorArchmageSheet extends ActorSheet {
               game.socket.emit("module.cardsupport", msg);
 
               await wait(200);
+              // Unbind
+              game.socket.off("module.cardsupport");
               if (foundCard) return;
             }
           }
@@ -442,15 +446,14 @@ export class ActorArchmageSheet extends ActorSheet {
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
+      // Update the quantity.
+      let updatedItem = duplicate(item);
+      let quantity = updatedItem.data.quantity.value ? updatedItem.data.quantity.value : 0;
+      quantity = Number(quantity) + 1;
+      updatedItem.data.quantity.value = quantity;
+
       // Update the owned item and rerender.
-      await this.actor.updateOwnedItem({
-        _id: item._id,
-        data: {
-          quantity: {
-            value: Number(item.data.data.quantity.value || 0) + 1
-          }
-        }
-      });
+      await this.actor.updateOwnedItem(updatedItem);
       this.render();
     });
 
@@ -459,15 +462,15 @@ export class ActorArchmageSheet extends ActorSheet {
       const li = event.currentTarget.closest(".item");
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
+      // Update the quantity.
+      let updatedItem = duplicate(item);
+      let quantity = updatedItem.data.quantity.value ? updatedItem.data.quantity.value : 0;
+      quantity = Number(quantity) - 1;
+      quantity = quantity < 0 ? 0 : quantity;
+      updatedItem.data.quantity.value = quantity;
+
       // Update the owned item and rerender.
-      await this.actor.updateOwnedItem({
-        _id: item._id,
-        data: {
-          quantity: {
-            value: Math.max(0, Number(item.data.data.quantity.value || 0) - 1)
-          }
-        }
-      });
+      await this.actor.updateOwnedItem(updatedItem);
       this.render();
     });
 
