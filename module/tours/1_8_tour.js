@@ -3,20 +3,10 @@ export class OneDotEightTour {
         let tour = introJs()
 
         tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.8.0");
+          //game.settings.set("archmage", "lastTourVersion", "1.8.0");
         });
         tour.oncomplete(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.8.0");
-        });
-
-        tour.onbeforechange(function(targetElement) {
-
-          if ($(targetElement).data("pack") == "archmage.monk") {
-            $('.item>.fa-atlas').click();
-          }
-          else if ($(targetElement).hasClass("fas")) {
-            $(targetElement).click();
-          }
+          //game.settings.set("archmage", "lastTourVersion", "1.8.0");
         });
 
         tour.setOption('tooltipPosition', 'auto');
@@ -26,25 +16,25 @@ export class OneDotEightTour {
         tour.setOptions({
             steps: [
               { 
-                intro: game.i18n.localize("ARCHMAGE.TOURS.170.welcome")
+                intro: game.i18n.localize("ARCHMAGE.TOURS.180.welcome")
               },
               {
-                element: document.querySelector('[data-pack="archmage.monk"]'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.170.monkCompendium"),
+                element: document.querySelector('.fa-atlas'),
+                intro: game.i18n.localize("ARCHMAGE.TOURS.180.monkCompendium"),
                 position: 'bottom'
               },
               {
-                element: document.querySelector('.fa-fist'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.170.escalationDie"),
+                element: document.querySelector('.fa-fist-raised'),
+                intro: game.i18n.localize("ARCHMAGE.TOURS.180.escalationDie"),
                 position: 'bottom'
               },
               { 
                 element: document.querySelector('.fa-cogs'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.170.tierShorthand"),
+                intro: game.i18n.localize("ARCHMAGE.TOURS.180.tierShorthand"),
                 position: 'bottom'
               },
               { 
-                intro: game.i18n.localize("ARCHMAGE.TOURS.170.end")
+                intro: game.i18n.localize("ARCHMAGE.TOURS.180.end")
               },
             ]
           });
