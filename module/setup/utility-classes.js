@@ -21,6 +21,9 @@ export class ArchmageUtility {
       combat = game.combat;
     }
 
+    // Assume the escalation die is 0 by default.
+    let result = 0;
+
     // Get the escalation value.
     if (combat !== null) {
       // Get the current round.
@@ -30,18 +33,83 @@ export class ArchmageUtility {
       }
       // Format it for min/max values.
       if (round < 1) {
-        return 0;
+        result = 0;
       }
       else if (round > 6) {
-        return 6;
+        result = 6;
       }
       else {
-        return round - 1;
+        result = round - 1;
+      }
+
+      // Get the manual offset for this combat..
+      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+      if (edOffset) {
+        result = result + edOffset;
+
+        // If the escalation die isn't unlimited, set a min/max.
+        if (!game.settings.get('archmage', 'unboundEscDie')) {
+          if (result > 6) {
+            result = 6;
+          }
+          else if (result < 0) {
+            result = 0;
+          }
+        }
       }
     }
 
     // Otherwise, return 0.
-    return 0;
+    return result;
+  }
+
+  /**
+   * Set the Escalation Die offset for this combat..
+   *
+   * @param {object} combat
+   *   (Optional) Combat to set the escalation die offset for.
+   * @param {Boolean} isIncrease
+   *   (Optional) If true, increase the esc. die, otherwise decrease it.
+   */
+  static setEscalationOffset(combat = null, isIncrease = true) {
+    // Get the current combat if one wasn't provided.
+    if (!combat) {
+      combat = game.combat;
+    }
+
+    // Get the escalation value.
+    if (combat !== null) {
+      // Get the current round.
+      let round = combat.current.round;
+      if (round == null) {
+        round = combat.data.round;
+      }
+
+      // Establish limits on the current round.
+      if (round > 6) round = 6;
+      if (round < 0) round = 0;
+
+      // Retrieve the escalation die offset for this combat.
+      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+
+      // By default, limit how far the escalation die can be adjusted.
+      if (!game.settings.get('archmage', 'unboundEscDie')) {
+        if (isIncrease) {
+          if (round + edOffset < 7) edOffset++;
+        }
+        else {
+          if (round + edOffset > 0) edOffset--;
+        }
+      }
+      // If it's unbound, unlimited power!
+      else {
+        if (isIncrease) edOffset++;
+        else edOffset--;
+      }
+
+      // Update the escalation die offset flag.
+      combat.setFlag('archmage', 'edOffset', edOffset);
+    }
   }
 
   /**
