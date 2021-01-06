@@ -963,7 +963,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                 // If there's a crit, double the formula and reroll. If there's a
                 // fail with no crit, 0 it out.
                 if (has_crit) {
-                  new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  if (!game.settings.get("archmage", "originalCritDamage")) {
+                    new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
                   $roll_self.addClass('dc-crit');
                 }
                 else {
@@ -972,6 +974,9 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                 }
                 // Reroll and recalculate.
                 let new_roll = new Roll(new_formula).roll();
+                if (has_crit && game.settings.get("archmage", "originalCritDamage")) {
+                  new_roll._total = new_roll.total * 2
+                }
                 // Update inline roll's markup.
                 $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
                 $roll_self.attr('title', new_roll.formula);
