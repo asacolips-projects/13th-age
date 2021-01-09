@@ -98,5 +98,6 @@ ARCHMAGE.classList = {
   'druid': 'Druid',
   'monk': 'Monk',
   'necromancer': ' Necromancer',
-  'occultist': 'Occultist'
+  'occultist': 'Occultist',
+  'demonologist': 'Demonologist'
 };
