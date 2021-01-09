@@ -481,6 +481,7 @@ function _updateCharacterData(actor, data, options, id) {
       let baseRec = new Array();
       let baseMWpn = new Array();
       let baseRWpn = new Array();
+      let skilledWarrior = new Array();
 
       //Barbarian
       if (matchedClasses.includes("barbarian")) {
@@ -492,6 +493,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(10);
         baseMWpn.push(8);
         baseRWpn.push(8);
+        skilledWarrior.push(true);
       }
       //Bard
       if (matchedClasses.includes("bard")) {
@@ -503,6 +505,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(8);
         baseMWpn.push(8);
         baseRWpn.push(6);
+        skilledWarrior.push(true);
       }
       //Chaos Mage
       if (matchedClasses.includes("chaosmage")) {
@@ -514,6 +517,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(4);
         baseRWpn.push(4);
+        skilledWarrior.push(false);
       }
       //Cleric
       if (matchedClasses.includes("cleric")) {
@@ -525,6 +529,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(8);
         baseMWpn.push(6);
         baseRWpn.push(6);
+        skilledWarrior.push(false);
       }
       //Commander
       if (matchedClasses.includes("commander")) {
@@ -536,6 +541,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(8);
         baseMWpn.push(6);
         baseRWpn.push(6);
+        skilledWarrior.push(true);
       }
       //Demonologist
       if (matchedClasses.includes("demonologist")) {
@@ -547,6 +553,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(6);
         baseRWpn.push(4);
+        skilledWarrior.push(false);
       }
       //Druid
       if (matchedClasses.includes("druid")) {
@@ -558,6 +565,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(6);
         baseRWpn.push(6);
+        skilledWarrior.push(false);
       }
       //Fighter
       if (matchedClasses.includes("fighter")) {
@@ -569,6 +577,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(10);
         baseMWpn.push(8);
         baseRWpn.push(8);
+        skilledWarrior.push(true);
       }
       //Monk
       if (matchedClasses.includes("monk")) {
@@ -580,6 +589,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(8);
         baseMWpn.push(8);
         baseRWpn.push(6);
+        skilledWarrior.push(false);
       }
       //Necromancer
       if (matchedClasses.includes("necromancer")) {
@@ -591,6 +601,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(4);
         baseRWpn.push(4);
+        skilledWarrior.push(false);
       }
       //Occultist
       if (matchedClasses.includes("occultist")) {
@@ -602,6 +613,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(4);
         baseRWpn.push(4);
+        skilledWarrior.push(false);
       }
       //Paladin
       if (matchedClasses.includes("paladin")) {
@@ -613,6 +625,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(10);
         baseMWpn.push(8);
         baseRWpn.push(8);
+        skilledWarrior.push(true);
       }
       //Ranger
       if (matchedClasses.includes("ranger")) {
@@ -624,6 +637,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(8);
         baseMWpn.push(8);
         baseRWpn.push(8);
+        skilledWarrior.push(true);
       }
       //Rogue
       if (matchedClasses.includes("rogue")) {
@@ -635,6 +649,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(8);
         baseMWpn.push(8);
         baseRWpn.push(6);
+        skilledWarrior.push(true);
       }
       //Sorcerer
       if (matchedClasses.includes("sorcerer")) {
@@ -646,6 +661,7 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(6);
         baseRWpn.push(6);
+        skilledWarrior.push(false);
       }
       //Wizard
       if (matchedClasses.includes("wizard")) {
@@ -657,9 +673,12 @@ function _updateCharacterData(actor, data, options, id) {
         baseRec.push(6);
         baseMWpn.push(4);
         baseRWpn.push(4);
+        skilledWarrior.push(false);
       }
 
       // Combine base stats based on detected classes
+      if (skilledWarrior.length == 1) skilledWarrior = true;
+      else skilledWarrior = skilledWarrior.every(a => a);
       baseHp = (baseHp.reduce((a, b) => a + b, 0) / baseHp.length);
       baseAC = Math.max.apply(null, baseAC);
       if (Math.min.apply(null, baseAC_heavy) > 0) baseAC = Math.max.apply(null, baseAC_heavy);
@@ -669,6 +688,10 @@ function _updateCharacterData(actor, data, options, id) {
       else baseRec = (Math.ceil(baseRec.reduce((a, b) => a/2 + b/2) / baseRec.length) * 2);
       baseMWpn = Math.max.apply(null, baseMWpn);
       baseRWpn = Math.max.apply(null, baseRWpn);
+      if (!skilledWarrior) {
+        baseMWpn = Math.max(baseMWpn - 2, 4);
+        baseRWpn = Math.max(baseMWpn - 2, 4);
+      }
 
       //Assign computed values
       data.data.attributes = new Object();
