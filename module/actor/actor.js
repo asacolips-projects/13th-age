@@ -475,203 +475,221 @@ function _updateCharacterData(actor, data, options, id) {
       // Collect base stats for detected classes
       let baseHp = new Array();
       let baseAC = new Array();
+      let baseAC_heavy = new Array();
       let basePD = new Array();
       let baseMD = new Array();
       let baseRec = new Array();
       let baseMWpn = new Array();
       let baseRWpn = new Array();
 
-      if (matchedClasses !== null) {
-        //Barbarian
-        if (matchedClasses.includes("barbarian")) {
-          baseHp.push(7);
-          baseAC.push(12);
-          basePD.push(11);
-          baseMD.push(10);
-          baseRec.push(10);
-          baseMWpn.push(8);
-          baseRWpn.push(8);
-        }
-        //Bard
-        if (matchedClasses.includes("bard")) {
-          baseHp.push(7);
-          baseAC.push(12);
-          basePD.push(10);
-          baseMD.push(11);
-          baseRec.push(8);
-          baseMWpn.push(8);
-          baseRWpn.push(6);
-        }
-        //Chaos Mage
-        if (matchedClasses.includes("chaosmage")) {
-          baseHp.push(6);
-          baseAC.push(10);
-          basePD.push(10);
-          baseMD.push(11);
-          baseRec.push(6);
-          baseMWpn.push(4);
-          baseRWpn.push(4);
-        }
-        //Cleric
-        if (matchedClasses.includes("cleric")) {
-          baseHp.push(7);
-          baseAC.push(14);
-          basePD.push(11);
-          baseMD.push(11);
-          baseRec.push(8);
-          baseMWpn.push(6);
-          baseRWpn.push(6);
-        }
-        //Commander
-        if (matchedClasses.includes("commander")) {
-          baseHp.push(7);
-          baseAC.push(12);
-          basePD.push(10);
-          baseMD.push(12);
-          baseRec.push(8);
-          baseMWpn.push(6);
-          baseRWpn.push(6);
-        }
-        //Demonologist
-        if (matchedClasses.includes("demonologist")) {
-          baseHp.push(6);
-          baseAC.push(11);
-          basePD.push(11);
-          baseMD.push(11);
-          baseRec.push(6);
-          baseMWpn.push(6);
-          baseRWpn.push(4);
-        }
-        //Druid
-        if (matchedClasses.includes("druid")) {
-          baseHp.push(6);
-          baseAC.push(10);
-          basePD.push(11);
-          baseMD.push(11);
-          baseRec.push(6);
-          baseMWpn.push(6);
-          baseRWpn.push(6);
-        }
-        //Fighter
-        if (matchedClasses.includes("fighter")) {
-          baseHp.push(8);
-          baseAC.push(15);
-          basePD.push(10);
-          baseMD.push(10);
-          baseRec.push(10);
-          baseMWpn.push(8);
-          baseRWpn.push(8);
-        }
-        //Monk
-        if (matchedClasses.includes("monk")) {
-          baseHp.push(7);
-          baseAC.push(11);
-          basePD.push(11);
-          baseMD.push(11);
-          baseRec.push(8);
-          baseMWpn.push(8);
-          baseRWpn.push(6);
-        }
-        //Necromancer
-        if (matchedClasses.includes("necromancer")) {
-          baseHp.push(6);
-          baseAC.push(10);
-          basePD.push(10);
-          baseMD.push(11);
-          baseRec.push(6);
-          baseMWpn.push(4);
-          baseRWpn.push(4);
-        }
-        //Occultist
-        if (matchedClasses.includes("occultist")) {
-          baseHp.push(6);
-          baseAC.push(11);
-          basePD.push(10);
-          baseMD.push(11);
-          baseRec.push(6);
-          baseMWpn.push(4);
-          baseRWpn.push(4);
-        }
-        //Paladin
-        if (matchedClasses.includes("paladin")) {
-          baseHp.push(8);
-          baseAC.push(16);
-          basePD.push(10);
-          baseMD.push(12);
-          baseRec.push(10);
-          baseMWpn.push(8);
-          baseRWpn.push(8);
-        }
-        //Ranger
-        if (matchedClasses.includes("ranger")) {
-          baseHp.push(7);
-          baseAC.push(14);
-          basePD.push(11);
-          baseMD.push(10);
-          baseRec.push(8);
-          baseMWpn.push(8);
-          baseRWpn.push(8);
-        }
-        //Rogue
-        if (matchedClasses.includes("rogue")) {
-          baseHp.push(6);
-          baseAC.push(12);
-          basePD.push(12);
-          baseMD.push(10);
-          baseRec.push(8);
-          baseMWpn.push(8);
-          baseRWpn.push(6);
-        }
-        //Sorcerer
-        if (matchedClasses.includes("sorcerer")) {
-          baseHp.push(6);
-          baseAC.push(10);
-          basePD.push(11);
-          baseMD.push(10);
-          baseRec.push(6);
-          baseMWpn.push(6);
-          baseRWpn.push(6);
-        }
-        //Wizard
-        if (matchedClasses.includes("wizard")) {
-          baseHp.push(6);
-          baseAC.push(10);
-          basePD.push(10);
-          baseMD.push(12);
-          baseRec.push(6);
-          baseMWpn.push(4);
-          baseRWpn.push(4);
-        }
-
-        // Combine base stats based on detected classes
-        baseHp = (baseHp.reduce((a, b) => a + b, 0) / baseHp.length);
-        baseAC = Math.max.apply(null, baseAC);
-        basePD = Math.max.apply(null, basePD);
-        baseMD = Math.max.apply(null, baseMD);
-        if (baseRec.length == 1) baseRec = baseRec[0];
-        else baseRec = (Math.ceil(baseRec.reduce((a, b) => a/2 + b/2) / baseRec.length) * 2);
-        baseMWpn = Math.max.apply(null, baseMWpn);
-        baseRWpn = Math.max.apply(null, baseRWpn);
-
-        //Assign computed values
-        data.data.attributes = new Object();
-        data.data.attributes.hp = new Object();
-        data.data.attributes.hp.base = baseHp;
-        data.data.attributes.ac = new Object();
-        data.data.attributes.ac.base = baseAC;
-        data.data.attributes.pd = new Object();
-        data.data.attributes.pd.base = basePD;
-        data.data.attributes.md = new Object();
-        data.data.attributes.md.base = baseMD;
-        data.data.attributes.recoveries = new Object();
-        data.data.attributes.recoveries.dice = "d" + baseRec.toString();
-        data.data.attributes.weapon = new Object();
-        data.data.attributes.weapon.melee = new Object();
-        data.data.attributes.weapon.melee.dice = "d" + baseMWpn.toString();
-        data.data.attributes.weapon.ranged = new Object();
-        data.data.attributes.weapon.ranged.dice = "d" + baseRWpn.toString();
+      //Barbarian
+      if (matchedClasses.includes("barbarian")) {
+        baseHp.push(7);
+        baseAC.push(12);
+        baseAC_heavy.push(-1);
+        basePD.push(11);
+        baseMD.push(10);
+        baseRec.push(10);
+        baseMWpn.push(8);
+        baseRWpn.push(8);
       }
+      //Bard
+      if (matchedClasses.includes("bard")) {
+        baseHp.push(7);
+        baseAC.push(12);
+        baseAC_heavy.push(-1);
+        basePD.push(10);
+        baseMD.push(11);
+        baseRec.push(8);
+        baseMWpn.push(8);
+        baseRWpn.push(6);
+      }
+      //Chaos Mage
+      if (matchedClasses.includes("chaosmage")) {
+        baseHp.push(6);
+        baseAC.push(10);
+        baseAC_heavy.push(-1);
+        basePD.push(10);
+        baseMD.push(11);
+        baseRec.push(6);
+        baseMWpn.push(4);
+        baseRWpn.push(4);
+      }
+      //Cleric
+      if (matchedClasses.includes("cleric")) {
+        baseHp.push(7);
+        baseAC.push(12);
+        baseAC_heavy.push(14);
+        basePD.push(11);
+        baseMD.push(11);
+        baseRec.push(8);
+        baseMWpn.push(6);
+        baseRWpn.push(6);
+      }
+      //Commander
+      if (matchedClasses.includes("commander")) {
+        baseHp.push(7);
+        baseAC.push(12);
+        baseAC_heavy.push(-1);
+        basePD.push(10);
+        baseMD.push(12);
+        baseRec.push(8);
+        baseMWpn.push(6);
+        baseRWpn.push(6);
+      }
+      //Demonologist
+      if (matchedClasses.includes("demonologist")) {
+        baseHp.push(6);
+        baseAC.push(11);
+        baseAC_heavy.push(-1);
+        basePD.push(11);
+        baseMD.push(11);
+        baseRec.push(6);
+        baseMWpn.push(6);
+        baseRWpn.push(4);
+      }
+      //Druid
+      if (matchedClasses.includes("druid")) {
+        baseHp.push(6);
+        baseAC.push(10);
+        baseAC_heavy.push(-1);
+        basePD.push(11);
+        baseMD.push(11);
+        baseRec.push(6);
+        baseMWpn.push(6);
+        baseRWpn.push(6);
+      }
+      //Fighter
+      if (matchedClasses.includes("fighter")) {
+        baseHp.push(8);
+        baseAC.push(13);
+        baseAC_heavy.push(15);
+        basePD.push(10);
+        baseMD.push(10);
+        baseRec.push(10);
+        baseMWpn.push(8);
+        baseRWpn.push(8);
+      }
+      //Monk
+      if (matchedClasses.includes("monk")) {
+        baseHp.push(7);
+        baseAC.push(11);
+        baseAC_heavy.push(-1);
+        basePD.push(11);
+        baseMD.push(11);
+        baseRec.push(8);
+        baseMWpn.push(8);
+        baseRWpn.push(6);
+      }
+      //Necromancer
+      if (matchedClasses.includes("necromancer")) {
+        baseHp.push(6);
+        baseAC.push(10);
+        baseAC_heavy.push(-1);
+        basePD.push(10);
+        baseMD.push(11);
+        baseRec.push(6);
+        baseMWpn.push(4);
+        baseRWpn.push(4);
+      }
+      //Occultist
+      if (matchedClasses.includes("occultist")) {
+        baseHp.push(6);
+        baseAC.push(11);
+        baseAC_heavy.push(-1);
+        basePD.push(10);
+        baseMD.push(11);
+        baseRec.push(6);
+        baseMWpn.push(4);
+        baseRWpn.push(4);
+      }
+      //Paladin
+      if (matchedClasses.includes("paladin")) {
+        baseHp.push(8);
+        baseAC.push(12);
+        baseAC_heavy.push(16);
+        basePD.push(10);
+        baseMD.push(12);
+        baseRec.push(10);
+        baseMWpn.push(8);
+        baseRWpn.push(8);
+      }
+      //Ranger
+      if (matchedClasses.includes("ranger")) {
+        baseHp.push(7);
+        baseAC.push(14);
+        baseAC_heavy.push(-1);
+        basePD.push(11);
+        baseMD.push(10);
+        baseRec.push(8);
+        baseMWpn.push(8);
+        baseRWpn.push(8);
+      }
+      //Rogue
+      if (matchedClasses.includes("rogue")) {
+        baseHp.push(6);
+        baseAC.push(12);
+        baseAC_heavy.push(-1);
+        basePD.push(12);
+        baseMD.push(10);
+        baseRec.push(8);
+        baseMWpn.push(8);
+        baseRWpn.push(6);
+      }
+      //Sorcerer
+      if (matchedClasses.includes("sorcerer")) {
+        baseHp.push(6);
+        baseAC.push(10);
+        baseAC_heavy.push(-1);
+        basePD.push(11);
+        baseMD.push(10);
+        baseRec.push(6);
+        baseMWpn.push(6);
+        baseRWpn.push(6);
+      }
+      //Wizard
+      if (matchedClasses.includes("wizard")) {
+        baseHp.push(6);
+        baseAC.push(10);
+        baseAC_heavy.push(-1);
+        basePD.push(10);
+        baseMD.push(12);
+        baseRec.push(6);
+        baseMWpn.push(4);
+        baseRWpn.push(4);
+      }
+
+      // Combine base stats based on detected classes
+      baseHp = (baseHp.reduce((a, b) => a + b, 0) / baseHp.length);
+      baseAC = Math.max.apply(null, baseAC);
+      if (Math.min.apply(null, baseAC_heavy) > 0) baseAC = Math.max.apply(null, baseAC_heavy);
+      basePD = Math.max.apply(null, basePD);
+      baseMD = Math.max.apply(null, baseMD);
+      if (baseRec.length == 1) baseRec = baseRec[0];
+      else baseRec = (Math.ceil(baseRec.reduce((a, b) => a/2 + b/2) / baseRec.length) * 2);
+      baseMWpn = Math.max.apply(null, baseMWpn);
+      baseRWpn = Math.max.apply(null, baseRWpn);
+
+      //Assign computed values
+      data.data.attributes = new Object();
+      data.data.attributes.hp = new Object();
+      data.data.attributes.hp.base = baseHp;
+      data.data.attributes.ac = new Object();
+      data.data.attributes.ac.base = baseAC;
+      data.data.attributes.pd = new Object();
+      data.data.attributes.pd.base = basePD;
+      data.data.attributes.md = new Object();
+      data.data.attributes.md.base = baseMD;
+      data.data.attributes.recoveries = new Object();
+      data.data.attributes.recoveries.dice = "d" + baseRec.toString();
+      data.data.attributes.weapon = new Object();
+      data.data.attributes.weapon.melee = new Object();
+      data.data.attributes.weapon.melee.dice = "d" + baseMWpn.toString();
+      data.data.attributes.weapon.ranged = new Object();
+      data.data.attributes.weapon.ranged.dice = "d" + baseRWpn.toString();
+
     }
+
     //Store matched classes for future reference
     data.flags = new Object();
     data.flags.matchedClasses = matchedClasses;
