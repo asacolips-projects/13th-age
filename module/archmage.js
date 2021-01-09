@@ -175,6 +175,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
       
+  game.settings.register('archmage', 'originalCritDamage', {
+    name: 'Double damage result on critical hit',
+    hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
 
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
@@ -869,6 +878,7 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               // If there's a crit, double the formula and reroll. If there's a
               // fail with no crit, 0 it out.
               if (has_crit) {
+                // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
                 if(game.settings.get('archmage', 'originalCritDamage')){
                   let formula_full = `${roll_data.formula}`;
                   let formula_parts = formula_full.split('+');
