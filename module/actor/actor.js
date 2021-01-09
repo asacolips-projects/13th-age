@@ -454,6 +454,7 @@ function _updateCharacterData(actor, data, options, id) {
   if (options.diff
     && data.data.details !== undefined
     && data.data.details.class !== undefined
+    && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
     // Here we received an update of the class name
 
