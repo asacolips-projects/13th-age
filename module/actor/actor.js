@@ -322,14 +322,16 @@ export class ActorArchmage extends Actor {
       for (let [key, value] of Object.entries(monkAttacks)) {
         let abil = value.abil.split('/');
         data.attributes.attack[key] = data.attributes.attack.melee;
-        data.attributes.weapon[key] = mergeObject(value, {
-          miss: true,
-          abil: abil[0],
-          attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
-          value: `${data.attributes.level.value}${value.dice}`,
-          mod: data.abilities[abil[0]].mod,
-          dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
-        });
+        if (data.attributes.weapon[key] === undefined) {
+          data.attributes.weapon[key] = mergeObject(value, {
+            miss: true,
+            abil: abil[0],
+            attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
+            value: `${data.attributes.level.value}${value.dice}`,
+            mod: data.abilities[abil[0]].mod,
+            dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
+          });
+        }
       }
 
     }
@@ -450,8 +452,8 @@ export class ActorArchmage extends Actor {
 
 function _updateCharacterData(actor, data, options, id) {
   if (options.diff
-    && typeof data.data.details !== 'undefined'
-    && typeof data.data.details.class !== 'undefined'
+    && data.data.details !== undefined
+    && data.data.details.class !== undefined
     ) {
     // Here we received an update of the class name
 
@@ -466,7 +468,7 @@ function _updateCharacterData(actor, data, options, id) {
       matchedClasses = matchedClasses.sort();
 
       // Check that the matched classes actually changed
-      if (typeof actor.data.flags.matchedClasses !== 'undefined'
+      if (actor.data.flags.matchedClasses !== undefined
         && JSON.stringify(actor.data.flags.matchedClasses) == JSON.stringify(matchedClasses)
         ) {
         return
@@ -688,9 +690,15 @@ function _updateCharacterData(actor, data, options, id) {
       else baseRec = (Math.ceil(baseRec.reduce((a, b) => a/2 + b/2) / baseRec.length) * 2);
       baseMWpn = Math.max.apply(null, baseMWpn);
       baseRWpn = Math.max.apply(null, baseRWpn);
+      let jabWpn = 6;
+      let punchWpn = 8;
+      let kickWpn = 10;
       if (!skilledWarrior) {
         baseMWpn = Math.max(baseMWpn - 2, 4);
         baseRWpn = Math.max(baseMWpn - 2, 4);
+        jabWpn = jabWpn - 2;
+        punchWpn = punchWpn - 2;
+        kickWpn = kickWpn - 2;
       }
 
       //Assign computed values
@@ -705,12 +713,23 @@ function _updateCharacterData(actor, data, options, id) {
       data.data.attributes.md.base = baseMD;
       data.data.attributes.recoveries = new Object();
       data.data.attributes.recoveries.dice = "d" + baseRec.toString();
+      let lvl = actor.data.data.attributes.level.value;
       data.data.attributes.weapon = new Object();
       data.data.attributes.weapon.melee = new Object();
       data.data.attributes.weapon.melee.dice = "d" + baseMWpn.toString();
+      data.data.attributes.weapon.melee.value = lvl.toString()+data.data.attributes.weapon.melee.dice;
       data.data.attributes.weapon.ranged = new Object();
       data.data.attributes.weapon.ranged.dice = "d" + baseRWpn.toString();
-
+      data.data.attributes.weapon.ranged.value = lvl.toString()+data.data.attributes.weapon.ranged.dice;
+      data.data.attributes.weapon.jab = new Object();
+      data.data.attributes.weapon.jab.dice = "d" + jabWpn.toString();
+      data.data.attributes.weapon.jab.value = lvl.toString()+data.data.attributes.weapon.jab.dice;
+      data.data.attributes.weapon.punch = new Object();
+      data.data.attributes.weapon.punch.dice = "d" + punchWpn.toString();
+      data.data.attributes.weapon.punch.value = lvl.toString()+data.data.attributes.weapon.punch.dice;
+      data.data.attributes.weapon.kick = new Object();
+      data.data.attributes.weapon.kick.dice = "d" + kickWpn.toString();
+      data.data.attributes.weapon.kick.value = lvl.toString()+data.data.attributes.weapon.kick.dice;
     }
 
     //Store matched classes for future reference
