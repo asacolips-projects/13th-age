@@ -460,7 +460,14 @@ function _updateCharacterData(actor, data, options, id) {
     let classRegex = new RegExp(classList.join('|'), 'g');
     let classText = data.data.details.class.value;
     classText = classText ? classText.toLowerCase() : '';
-    let matchedClasses = classText.match(classRegex);
+    let matchedClasses = classText.match(classRegex).sort();
+
+    // Check that the matched classes actually changed
+    if (typeof actor.data.flags.matchedClasses !== 'undefined'
+      && JSON.stringify(actor.data.flags.matchedClasses) == JSON.stringify(matchedClasses)
+      ) {
+      return
+    }
 
     // Collect base stats for detected classes
     let baseHp = new Array();
@@ -660,6 +667,8 @@ function _updateCharacterData(actor, data, options, id) {
       data.data.attributes.weapon.melee.dice = "d" + baseMWpn.toString();
       data.data.attributes.weapon.ranged = new Object();
       data.data.attributes.weapon.ranged.dice = "d" + baseRWpn.toString();
+      data.flags = new Object();
+      data.flags.matchedClasses = matchedClasses;
     }
   }
 }
