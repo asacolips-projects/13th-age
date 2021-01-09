@@ -174,6 +174,7 @@ Hooks.once('init', async function() {
     default: true,
     type: Boolean
   });
+      
 
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
@@ -868,7 +869,20 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
               // If there's a crit, double the formula and reroll. If there's a
               // fail with no crit, 0 it out.
               if (has_crit) {
-                roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                if(game.settings.get('archmage', 'originalCritDamage')){
+                  let formula_full = `${roll_data.formula}`;
+                  let formula_parts = formula_full.split('+');
+                  let new_formula = '';
+                  for (var i = 0; i < formula_parts.length - 1; i++) {
+                    formula_parts[i] = formula_parts[i]+'* 2 +';
+                    new_formula = new_formula.concat(formula_parts[i]);
+                  }
+                  formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                  new_formula = new_formula.concat(formula_parts[formula_parts.length - 1]);
+                  roll_data.formula = new_formula;
+                } else {
+                  roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                }
                 $roll_self.addClass('dc-crit');
               }
               else {
@@ -886,6 +900,30 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
           // Update the row with the new roll(s) markup.
           $row_self.find('.inline-result').replaceWith($roll);
         }
+        if (row_text.includes('Miss:')) {
+          let $roll = $row_self.find('.inline-result');
+                    if ($roll.length > 0) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+              let $roll_self = $(this);
+              // Retrieve the roll formula.
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              // If there's a crit, double the formula and reroll. If there's a
+              // fail with no crit, 0 it out.
+              if (has_fail) {
+                roll_data.formula = `0`;
+                $roll_self.addClass('dc-fail');
+              }
+              // Reroll and recalculate.
+              roll_data = roll_data.reroll();
+              // Update inline roll's markup.
+              $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+              $roll_self.attr('title', roll_data.formula);
+              $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+            });
+          }
+        }
+
       }
     });
 
