@@ -201,7 +201,7 @@ Hooks.once('init', async function() {
   game.settings.register('archmage', 'automateBaseStatsFromClass', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
-    scope: 'world',
+    scope: 'client',
     config: true,
     default: true,
     type: Boolean

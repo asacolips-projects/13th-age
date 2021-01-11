@@ -467,6 +467,7 @@ function _preUpdateCharacterData(actor, data, options, id) {
     let matchedClasses = classText.match(classRegex);
 
     if (matchedClasses !== null) {
+      // Sort to avoid problems with future matches
       matchedClasses = matchedClasses.sort();
 
       // Check that the matched classes actually changed
@@ -523,57 +524,33 @@ function _preUpdateCharacterData(actor, data, options, id) {
       if (!base.skilledWarrior) {
         base.mWpn = Math.max(base.mWpn - 2, 4);
         base.rWpn = Math.max(base.mWpn - 2, 4);
-        jabWpn = jabWpn - 2;
-        punchWpn = punchWpn - 2;
-        kickWpn = kickWpn - 2;
+        jabWpn -= 2;
+        punchWpn -= 2;
+        kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
 
-      //Assign computed values
+      // Assign computed values
       data.data.attributes = {
-        hp: {
-          base: base.hp
-        },
-        ac: {
-          base: base.ac
-        },
-        pd: {
-          base: base.pd
-        },
-        md: {
-          base: base.md
-        },
-        recoveries: {
-          dice: `d${base.rec}`
-        },
+        hp: {base: base.hp},
+        ac: {base: base.ac},
+        pd: {base: base.pd},
+        md: {base: base.md},
+        recoveries: {dice: `d${base.rec}`},
         weapon: {
-          melee: {
-            dice: `d${base.mWpn}`,
-            value: `${lvl}d${base.mWpn}`
-          },
-          ranged: {
-            dice: `d${base.rWpn}`,
-            value: `${lvl}d${base.rWpn}`
-          },
-          jab: {
-            dice: `d${jabWpn}`,
-            value: `${lvl}d${jabWpn}`
-          },
-          punch: {
-            dice: `d${punchWpn}`,
-            value: `${lvl}d${punchWpn}`
-          },
-          kick: {
-            dice: `d${kickWpn}`,
-            value: `${lvl}d${kickWpn}`
-          },
+          melee: {dice: `d${base.mWpn}`, value: `${lvl}d${base.mWpn}`},
+          ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
+          jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
+          punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},
+          kick: {dice: `d${kickWpn}`, value: `${lvl}d${kickWpn}`}
         }
       };
     }
-    //Store matched classes for future reference
-    data.flags = {
-      matchedClasses: matchedClasses
-    };
+    // Store matched classes for future reference
+    if (data.flags !== undefined) {
+      // Should never happen, but handle it since this is a preUpdate
+      data.flags.matchedClasses = matchedClasses;
+    } else data.flags = {matchedClasses: matchedClasses};
   }
 }
 
