@@ -318,7 +318,7 @@ export class ActorArchmage extends Actor {
           value: 'd10',
           abil: 'dex/str'
         }
-      }
+      };
       for (let [key, value] of Object.entries(monkAttacks)) {
         let abil = value.abil.split('/');
         data.attributes.attack[key] = data.attributes.attack.melee;
@@ -450,8 +450,9 @@ export class ActorArchmage extends Actor {
  * @return {undefined}
  */
 
-function _updateCharacterData(actor, data, options, id) {
+function _preUpdateCharacterData(actor, data, options, id) {
   if (options.diff
+    && data.data !== undefined
     && data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
@@ -476,267 +477,104 @@ function _updateCharacterData(actor, data, options, id) {
       }
 
       // Collect base stats for detected classes
-      let baseHp = new Array();
-      let baseAC = new Array();
-      let baseAC_heavy = new Array();
-      let basePD = new Array();
-      let baseMD = new Array();
-      let baseRec = new Array();
-      let baseMWpn = new Array();
-      let baseRWpn = new Array();
-      let skilledWarrior = new Array();
+      let base = {
+        hp: new Array(),
+        ac: new Array(),
+        ac_hvy: new Array(),
+        pd: new Array(),
+        md: new Array(),
+        rec: new Array(),
+        mWpn: new Array(),
+        rWpn: new Array(),
+        skilledWarrior: new Array()
+      }
 
-      //Barbarian
-      if (matchedClasses.includes("barbarian")) {
-        baseHp.push(7);
-        baseAC.push(12);
-        baseAC_heavy.push(-1);
-        basePD.push(11);
-        baseMD.push(10);
-        baseRec.push(10);
-        baseMWpn.push(8);
-        baseRWpn.push(8);
-        skilledWarrior.push(true);
-      }
-      //Bard
-      if (matchedClasses.includes("bard")) {
-        baseHp.push(7);
-        baseAC.push(12);
-        baseAC_heavy.push(-1);
-        basePD.push(10);
-        baseMD.push(11);
-        baseRec.push(8);
-        baseMWpn.push(8);
-        baseRWpn.push(6);
-        skilledWarrior.push(true);
-      }
-      //Chaos Mage
-      if (matchedClasses.includes("chaosmage")) {
-        baseHp.push(6);
-        baseAC.push(10);
-        baseAC_heavy.push(-1);
-        basePD.push(10);
-        baseMD.push(11);
-        baseRec.push(6);
-        baseMWpn.push(4);
-        baseRWpn.push(4);
-        skilledWarrior.push(false);
-      }
-      //Cleric
-      if (matchedClasses.includes("cleric")) {
-        baseHp.push(7);
-        baseAC.push(12);
-        baseAC_heavy.push(14);
-        basePD.push(11);
-        baseMD.push(11);
-        baseRec.push(8);
-        baseMWpn.push(6);
-        baseRWpn.push(6);
-        skilledWarrior.push(false);
-      }
-      //Commander
-      if (matchedClasses.includes("commander")) {
-        baseHp.push(7);
-        baseAC.push(12);
-        baseAC_heavy.push(-1);
-        basePD.push(10);
-        baseMD.push(12);
-        baseRec.push(8);
-        baseMWpn.push(6);
-        baseRWpn.push(6);
-        skilledWarrior.push(true);
-      }
-      //Demonologist
-      if (matchedClasses.includes("demonologist")) {
-        baseHp.push(6);
-        baseAC.push(11);
-        baseAC_heavy.push(-1);
-        basePD.push(11);
-        baseMD.push(11);
-        baseRec.push(6);
-        baseMWpn.push(6);
-        baseRWpn.push(4);
-        skilledWarrior.push(false);
-      }
-      //Druid
-      if (matchedClasses.includes("druid")) {
-        baseHp.push(6);
-        baseAC.push(10);
-        baseAC_heavy.push(-1);
-        basePD.push(11);
-        baseMD.push(11);
-        baseRec.push(6);
-        baseMWpn.push(6);
-        baseRWpn.push(6);
-        skilledWarrior.push(false);
-      }
-      //Fighter
-      if (matchedClasses.includes("fighter")) {
-        baseHp.push(8);
-        baseAC.push(13);
-        baseAC_heavy.push(15);
-        basePD.push(10);
-        baseMD.push(10);
-        baseRec.push(10);
-        baseMWpn.push(8);
-        baseRWpn.push(8);
-        skilledWarrior.push(true);
-      }
-      //Monk
-      if (matchedClasses.includes("monk")) {
-        baseHp.push(7);
-        baseAC.push(11);
-        baseAC_heavy.push(-1);
-        basePD.push(11);
-        baseMD.push(11);
-        baseRec.push(8);
-        baseMWpn.push(8);
-        baseRWpn.push(6);
-        skilledWarrior.push(false);
-      }
-      //Necromancer
-      if (matchedClasses.includes("necromancer")) {
-        baseHp.push(6);
-        baseAC.push(10);
-        baseAC_heavy.push(-1);
-        basePD.push(10);
-        baseMD.push(11);
-        baseRec.push(6);
-        baseMWpn.push(4);
-        baseRWpn.push(4);
-        skilledWarrior.push(false);
-      }
-      //Occultist
-      if (matchedClasses.includes("occultist")) {
-        baseHp.push(6);
-        baseAC.push(11);
-        baseAC_heavy.push(-1);
-        basePD.push(10);
-        baseMD.push(11);
-        baseRec.push(6);
-        baseMWpn.push(4);
-        baseRWpn.push(4);
-        skilledWarrior.push(false);
-      }
-      //Paladin
-      if (matchedClasses.includes("paladin")) {
-        baseHp.push(8);
-        baseAC.push(12);
-        baseAC_heavy.push(16);
-        basePD.push(10);
-        baseMD.push(12);
-        baseRec.push(10);
-        baseMWpn.push(8);
-        baseRWpn.push(8);
-        skilledWarrior.push(true);
-      }
-      //Ranger
-      if (matchedClasses.includes("ranger")) {
-        baseHp.push(7);
-        baseAC.push(14);
-        baseAC_heavy.push(-1);
-        basePD.push(11);
-        baseMD.push(10);
-        baseRec.push(8);
-        baseMWpn.push(8);
-        baseRWpn.push(8);
-        skilledWarrior.push(true);
-      }
-      //Rogue
-      if (matchedClasses.includes("rogue")) {
-        baseHp.push(6);
-        baseAC.push(12);
-        baseAC_heavy.push(-1);
-        basePD.push(12);
-        baseMD.push(10);
-        baseRec.push(8);
-        baseMWpn.push(8);
-        baseRWpn.push(6);
-        skilledWarrior.push(true);
-      }
-      //Sorcerer
-      if (matchedClasses.includes("sorcerer")) {
-        baseHp.push(6);
-        baseAC.push(10);
-        baseAC_heavy.push(-1);
-        basePD.push(11);
-        baseMD.push(10);
-        baseRec.push(6);
-        baseMWpn.push(6);
-        baseRWpn.push(6);
-        skilledWarrior.push(false);
-      }
-      //Wizard
-      if (matchedClasses.includes("wizard")) {
-        baseHp.push(6);
-        baseAC.push(10);
-        baseAC_heavy.push(-1);
-        basePD.push(10);
-        baseMD.push(12);
-        baseRec.push(6);
-        baseMWpn.push(4);
-        baseRWpn.push(4);
-        skilledWarrior.push(false);
-      }
+      matchedClasses.forEach(function(item) {
+        base.hp.push(CONFIG.ARCHMAGE.classes[item].hp);
+        base.ac.push(CONFIG.ARCHMAGE.classes[item].ac_lgt);
+        if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {
+          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);
+        } else {
+          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);
+        }
+        base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
+        base.md.push(CONFIG.ARCHMAGE.classes[item].md);
+        base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
+        base.mWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        base.rWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_rngd);
+        base.skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
+      });
 
       // Combine base stats based on detected classes
-      if (skilledWarrior.length == 1) skilledWarrior = true;
-      else skilledWarrior = skilledWarrior.every(a => a);
-      baseHp = (baseHp.reduce((a, b) => a + b, 0) / baseHp.length);
-      baseAC = Math.max.apply(null, baseAC);
-      if (Math.min.apply(null, baseAC_heavy) > 0) baseAC = Math.max.apply(null, baseAC_heavy);
-      basePD = Math.max.apply(null, basePD);
-      baseMD = Math.max.apply(null, baseMD);
-      if (baseRec.length == 1) baseRec = baseRec[0];
-      else baseRec = (Math.ceil(baseRec.reduce((a, b) => a/2 + b/2) / baseRec.length) * 2);
-      baseMWpn = Math.max.apply(null, baseMWpn);
-      baseRWpn = Math.max.apply(null, baseRWpn);
+      if (base.skilledWarrior.length == 1) base.skilledWarrior = true;
+      else base.skilledWarrior = base.skilledWarrior.every(a => a);
+      base.hp = (base.hp.reduce((a, b) => a + b, 0) / base.hp.length);
+      base.ac = Math.max.apply(null, base.ac);
+      if (Math.min.apply(null, base.ac_hvy) > 0) base.ac = Math.max.apply(null, base.ac_hvy);
+      base.pd = Math.max.apply(null, base.pd);
+      base.md = Math.max.apply(null, base.md);
+      if (base.rec.length == 1) base.rec = base.rec[0];
+      else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
+      base.mWpn = Math.max.apply(null, base.mWpn);
+      base.rWpn = Math.max.apply(null, base.rWpn);
       let jabWpn = 6;
       let punchWpn = 8;
       let kickWpn = 10;
-      if (!skilledWarrior) {
-        baseMWpn = Math.max(baseMWpn - 2, 4);
-        baseRWpn = Math.max(baseMWpn - 2, 4);
+      if (!base.skilledWarrior) {
+        base.mWpn = Math.max(base.mWpn - 2, 4);
+        base.rWpn = Math.max(base.mWpn - 2, 4);
         jabWpn = jabWpn - 2;
         punchWpn = punchWpn - 2;
         kickWpn = kickWpn - 2;
       }
+      let lvl = actor.data.data.attributes.level.value;
 
       //Assign computed values
-      data.data.attributes = new Object();
-      data.data.attributes.hp = new Object();
-      data.data.attributes.hp.base = baseHp;
-      data.data.attributes.ac = new Object();
-      data.data.attributes.ac.base = baseAC;
-      data.data.attributes.pd = new Object();
-      data.data.attributes.pd.base = basePD;
-      data.data.attributes.md = new Object();
-      data.data.attributes.md.base = baseMD;
-      data.data.attributes.recoveries = new Object();
-      data.data.attributes.recoveries.dice = "d" + baseRec.toString();
-      let lvl = actor.data.data.attributes.level.value;
-      data.data.attributes.weapon = new Object();
-      data.data.attributes.weapon.melee = new Object();
-      data.data.attributes.weapon.melee.dice = "d" + baseMWpn.toString();
-      data.data.attributes.weapon.melee.value = lvl.toString()+data.data.attributes.weapon.melee.dice;
-      data.data.attributes.weapon.ranged = new Object();
-      data.data.attributes.weapon.ranged.dice = "d" + baseRWpn.toString();
-      data.data.attributes.weapon.ranged.value = lvl.toString()+data.data.attributes.weapon.ranged.dice;
-      data.data.attributes.weapon.jab = new Object();
-      data.data.attributes.weapon.jab.dice = "d" + jabWpn.toString();
-      data.data.attributes.weapon.jab.value = lvl.toString()+data.data.attributes.weapon.jab.dice;
-      data.data.attributes.weapon.punch = new Object();
-      data.data.attributes.weapon.punch.dice = "d" + punchWpn.toString();
-      data.data.attributes.weapon.punch.value = lvl.toString()+data.data.attributes.weapon.punch.dice;
-      data.data.attributes.weapon.kick = new Object();
-      data.data.attributes.weapon.kick.dice = "d" + kickWpn.toString();
-      data.data.attributes.weapon.kick.value = lvl.toString()+data.data.attributes.weapon.kick.dice;
+      data.data.attributes = {
+        hp: {
+          base: base.hp
+        },
+        ac: {
+          base: base.ac
+        },
+        pd: {
+          base: base.pd
+        },
+        md: {
+          base: base.md
+        },
+        recoveries: {
+          dice: `d${base.rec}`
+        },
+        weapon: {
+          melee: {
+            dice: `d${base.mWpn}`,
+            value: `${lvl}d${base.mWpn}`
+          },
+          ranged: {
+            dice: `d${base.rWpn}`,
+            value: `${lvl}d${base.rWpn}`
+          },
+          jab: {
+            dice: `d${jabWpn}`,
+            value: `${lvl}d${jabWpn}`
+          },
+          punch: {
+            dice: `d${punchWpn}`,
+            value: `${lvl}d${punchWpn}`
+          },
+          kick: {
+            dice: `d${kickWpn}`,
+            value: `${lvl}d${kickWpn}`
+          },
+        }
+      };
     }
-
     //Store matched classes for future reference
-    data.flags = new Object();
-    data.flags.matchedClasses = matchedClasses;
+    data.flags = {
+      matchedClasses: matchedClasses
+    };
   }
 }
 
-Hooks.on('preUpdateActor', _updateCharacterData);
+Hooks.on('preUpdateActor', _preUpdateCharacterData);
