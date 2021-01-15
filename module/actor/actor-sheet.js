@@ -250,8 +250,8 @@ export class ActorArchmageSheet extends ActorSheet {
       // Send to chat and reduce the number of recoveries.
       roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
       this.actor.update({
-        'data.attributes.recoveries.value': Math.max(this.actor.data.data.attributes.recoveries.value - 1, 0),
-        'data.attributes.hp.value': Math.min(this.actor.data.data.attributes.hp.max, this.actor.data.data.attributes.hp.value + roll.total)
+        'data.attributes.recoveries.value': this.actor.data.data.attributes.recoveries.value - 1,
+        'data.attributes.hp.value': Math.min(this.actor.data.data.attributes.hp.max, Math.max(this.actor.data.data.attributes.hp.value, 0) + roll.total)
       });
     });
 
