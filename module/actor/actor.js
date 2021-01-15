@@ -67,15 +67,17 @@ export class ActorArchmage extends Actor {
         return (values[half - 1] + values[half]) / 2.0;
       }
     }
+    
+    let missingRecPenalty = Math.min(data.attributes.recoveries.value, 0);
 
-    var meleeAttackBonus = 0;
-    var rangedAttackBonus = 0;
-    var divineAttackBonus = 0;
-    var arcaneAttackBonus = 0;
+    var meleeAttackBonus = missingRecPenalty;
+    var rangedAttackBonus = missingRecPenalty;
+    var divineAttackBonus = missingRecPenalty;
+    var arcaneAttackBonus = missingRecPenalty;
 
-    var acBonus = 0;
-    var mdBonus = 0;
-    var pdBonus = 0;
+    var acBonus = missingRecPenalty;
+    var mdBonus = missingRecPenalty;
+    var pdBonus = missingRecPenalty;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -172,7 +174,7 @@ export class ActorArchmage extends Actor {
         }
       }
 
-	  data.tier = levelMultiplier
+      data.tier = levelMultiplier
 
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
