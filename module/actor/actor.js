@@ -67,17 +67,15 @@ export class ActorArchmage extends Actor {
         return (values[half - 1] + values[half]) / 2.0;
       }
     }
-    
-    let missingRecPenalty = Math.min(data.attributes.recoveries.value, 0);
 
-    var meleeAttackBonus = missingRecPenalty;
-    var rangedAttackBonus = missingRecPenalty;
-    var divineAttackBonus = missingRecPenalty;
-    var arcaneAttackBonus = missingRecPenalty;
+    var meleeAttackBonus = 0;
+    var rangedAttackBonus = 0;
+    var divineAttackBonus = 0;
+    var arcaneAttackBonus = 0;
 
-    var acBonus = missingRecPenalty;
-    var mdBonus = missingRecPenalty;
-    var pdBonus = missingRecPenalty;
+    var acBonus = 0;
+    var mdBonus = 0;
+    var pdBonus = 0;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -341,9 +339,15 @@ export class ActorArchmage extends Actor {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
+    // Penalties to attack rolls
+    data.attributes.atkpen = 0;
+    // Negative recoveries
+    data.attributes.atkpen += Math.min(data.attributes.recoveries.value, 0);
+    // TODO: handle dazed, weakened, etc. here
+
     if (actorData.type === 'character') {
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value
+        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
       };
     }
 
