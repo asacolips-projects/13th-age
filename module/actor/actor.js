@@ -72,10 +72,12 @@ export class ActorArchmage extends Actor {
     var rangedAttackBonus = 0;
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
+    
+    var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
-    var acBonus = 0;
-    var mdBonus = 0;
-    var pdBonus = 0;
+    var acBonus = missingRecPenalty;
+    var mdBonus = missingRecPenalty;
+    var pdBonus = missingRecPenalty;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -340,9 +342,7 @@ export class ActorArchmage extends Actor {
     };
 
     // Penalties to attack rolls
-    data.attributes.atkpen = 0;
-    // Negative recoveries
-    data.attributes.atkpen += Math.min(data.attributes.recoveries.value, 0);
+    data.attributes.atkpen = missingRecPenalty;
     // TODO: handle dazed, weakened, etc. here
 
     if (actorData.type === 'character') {
