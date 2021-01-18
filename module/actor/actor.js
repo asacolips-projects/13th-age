@@ -368,14 +368,16 @@ export class ActorArchmage extends Actor {
 
 
     // Find known classes
-    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-    let classRegex = new RegExp(classList.join('|'), 'g');
+    if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
+      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+      let classRegex = new RegExp(classList.join('|'), 'g');
 
-    var classText = data.details.class?.value;
-    classText = classText ? classText.toLowerCase() : '';
+      var classText = data.details.class?.value;
+      classText = classText ? classText.toLowerCase() : '';
 
-    var matchedClasses = classText.match(classRegex);
-    data.details.detectedClasses = matchedClasses;
+      var matchedClasses = classText.match(classRegex);
+      data.details.detectedClasses = matchedClasses.sort();
+    }
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses && data.resources) {
@@ -471,8 +473,8 @@ function _preUpdateCharacterData(actor, data, options, id) {
       matchedClasses = matchedClasses.sort();
 
       // Check that the matched classes actually changed
-      if (actor.data.flags.matchedClasses !== undefined
-        && JSON.stringify(actor.data.flags.matchedClasses) == JSON.stringify(matchedClasses)
+      if (actor.data.data.details.matchedClasses !== undefined
+        && JSON.stringify(actor.data.data.details.matchedClasses) == JSON.stringify(matchedClasses)
         ) {
         return
       }
@@ -547,10 +549,7 @@ function _preUpdateCharacterData(actor, data, options, id) {
       };
     }
     // Store matched classes for future reference
-    if (data.flags !== undefined) {
-      // Should never happen, but handle it since this is a preUpdate
-      data.flags.matchedClasses = matchedClasses;
-    } else data.flags = {matchedClasses: matchedClasses};
+    data.data.details.detectedClasses = matchedClasses;
   }
 }
 
