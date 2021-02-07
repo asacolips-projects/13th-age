@@ -1,4 +1,9 @@
 {
+  "ARCHMAGE.SETTINGS.ColorblindName": "Enable Colorblind Accessibility Mode",
+  "ARCHMAGE.SETTINGS.ColorblindHint": "Change the colors of the power cards to more accessibility color palette.",
+  "ARCHMAGE.SETTINGS.ColorblindOptionDefault": "Default Colors",
+  "ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG": "Protanopla / Deutanopla (Red/Green)",
+  "ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY": "Tritanopia (Blue/Yellow)",
   "ARCHMAGE.SETTINGS.ShowDebugLogsName": "Show debug logs?",
   "ARCHMAGE.SETTINGS.ShowDebugLogsHint": "Turn this on for bug reports",
   "ARCHMAGE.SETTINGS.RoundUpDamageApplicationName": "When applying damage via the right-click context menu, should it round up (true) or round down (false)?",
