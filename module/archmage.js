@@ -198,6 +198,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'automateBaseStatsFromClass', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'lastTourVersion', {
     scope: 'client',
     config: false,

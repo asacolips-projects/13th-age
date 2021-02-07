@@ -5,6 +5,8 @@
   "ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint": "This will be applied the same way for both characters and npcs",
   "ARCHMAGE.SETTINGS.UnboundEscDieName": "Unlimited Escalation Die",
   "ARCHMAGE.SETTINGS.UnboundEscDieHint": "Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).",
+  "ARCHMAGE.SETTINGS.automateBaseStatsFromClassName": "Automatically compute base stats",
+  "ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint": "Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).",
   "ARCHMAGE.feats": "Feats",
   "ARCHMAGE.incrementals": "Incrementals",
   "ARCHMAGE.incrementalAdvances": "Incremental Advances",
