@@ -72,10 +72,12 @@ export class ActorArchmage extends Actor {
     var rangedAttackBonus = 0;
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
+    
+    var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
-    var acBonus = 0;
-    var mdBonus = 0;
-    var pdBonus = 0;
+    var acBonus = missingRecPenalty;
+    var mdBonus = missingRecPenalty;
+    var pdBonus = missingRecPenalty;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -172,7 +174,7 @@ export class ActorArchmage extends Actor {
         }
       }
 
-	  data.tier = levelMultiplier
+      data.tier = levelMultiplier
 
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
@@ -339,9 +341,13 @@ export class ActorArchmage extends Actor {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
+    // Penalties to attack rolls
+    data.attributes.atkpen = missingRecPenalty;
+    // TODO: handle dazed, weakened, etc. here
+
     if (actorData.type === 'character') {
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value
+        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
       };
     }
 
