@@ -56,7 +56,9 @@ ARCHMAGE.creatureSizes = {
   'large': 'Large',
   'huge': 'Huge',
   'double': 'Double-strength',
-  'triple': 'Triple-strength'
+  'triple': 'Triple-strength',
+  'weakling': 'Weakling',
+  'elite': 'Elite'
 };
 
 ARCHMAGE.creatureRoles = {
