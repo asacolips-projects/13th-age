@@ -376,7 +376,8 @@ export class ActorArchmage extends Actor {
       classText = classText ? classText.toLowerCase() : '';
 
       var matchedClasses = classText.match(classRegex);
-      data.details.detectedClasses = matchedClasses.sort();
+      if (matchedClasses !== null) matchedClasses.sort();
+      data.details.detectedClasses = matchedClasses;
     }
 
     // Enable resources based on detected classes
@@ -470,7 +471,7 @@ function _preUpdateCharacterData(actor, data, options, id) {
 
     if (matchedClasses !== null) {
       // Sort to avoid problems with future matches
-      matchedClasses = matchedClasses.sort();
+      matchedClasses.sort();
 
       // Check that the matched classes actually changed
       if (actor.data.data.details.matchedClasses !== undefined
