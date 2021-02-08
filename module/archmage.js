@@ -941,7 +941,21 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                 // If there's a crit, double the formula and reroll. If there's a
                 // fail with no crit, 0 it out.
                 if (has_crit) {
-                  roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
+                  if(game.settings.get('archmage', 'originalCritDamage')){
+                    let formula_full = `${roll_data.formula}`;
+                    let formula_parts = formula_full.split('+');
+                    let temp_formula = '';
+                    for (var i = 0; i < formula_parts.length - 1; i++) {
+                      formula_parts[i] = formula_parts[i]+'* 2 +';
+                      temp_formula = temp_formula.concat(formula_parts[i]);
+                    }
+                    formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                    temp_formula = temp_formula.concat(formula_parts[formula_parts.length - 1]);
+                    roll_data.formula = temp_formula;
+                  } else {
+                    roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
                   $roll_self.addClass('dc-crit');
                 }
                 else {
@@ -963,7 +977,20 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                 // If there's a crit, double the formula and reroll. If there's a
                 // fail with no crit, 0 it out.
                 if (has_crit) {
-                  new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
+                  if(game.settings.get('archmage', 'originalCritDamage')){
+                    let formula_full = `${roll_data.formula}`;
+                    let formula_parts = formula_full.split('+');
+                    let temp_formula = '';
+                    for (var i = 0; i < formula_parts.length - 1; i++) {
+                      formula_parts[i] = formula_parts[i]+'* 2 +';
+                      temp_formula = temp_formula.concat(formula_parts[i]);
+                    }
+                    formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                    new_formula = temp_formula.concat(formula_parts[formula_parts.length - 1]);
+                  } else {
+                    new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
                   $roll_self.addClass('dc-crit');
                 }
                 else {
