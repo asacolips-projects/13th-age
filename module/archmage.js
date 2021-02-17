@@ -291,6 +291,29 @@ Hooks.once('init', async function() {
   CONFIG.weatherEffects.cinder = CinderWeatherEffect;
 
   ArchmageUtility.replaceRollData();
+
+  /* --------------------------------------------- */
+  // Autocomplete Inline Rolls
+  const AIP = {
+    packageName: 'archmage',
+    sheetClasses: [
+      {
+        name: "ItemArchmageSheet",
+        fieldConfigs: [
+          {
+            selector: '.archmage-aip input[type="text"]',
+            showButton: true,
+            allowHotkey: true,
+            dataMode: CONST.AIP.DATA_MODE.CUSTOM,
+            customDataGetter: (sheet) => {
+              return sheet.actor.getRollData();
+            }
+          }
+        ]
+      }
+    ]
+  };
+  CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
 });
 
 Hooks.on('createItem', (data, options, id) => {
