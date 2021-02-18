@@ -98,8 +98,7 @@ ARCHMAGE.classList = {
   'druid': 'Druid',
   'monk': 'Monk',
   'necromancer': ' Necromancer',
-  'occultist': 'Occultist',
-  'demonologist': 'Demonologist'
+  'occultist': 'Occultist'
 };
 
 ARCHMAGE.classes = {
@@ -177,21 +176,6 @@ ARCHMAGE.classes = {
     wpn_2h_pen: 0,
     wpn_rngd: 6,
     skilled_warrior: true
-  },
-  demonologist: {
-    hp: 6,
-    ac_lgt: 11,
-    ac_hvy: 12,
-    ac_hvy_pen: -5,
-    shld_pen: -2,
-    pd: 11,
-    md: 11,
-    rec_die: 6,
-    wpn_1h: 6,
-    wpn_2h: 6,
-    wpn_2h_pen: -2,
-    wpn_rngd: 4,
-    skilled_warrior: false
   },
   druid: {
     hp: 6,
