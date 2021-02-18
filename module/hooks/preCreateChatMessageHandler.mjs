@@ -126,7 +126,7 @@ export default class preCreateChatMessageHandler {
                 // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
                 var triggerText = row_text.toLowerCase();
                 //console.log(triggerText);
-                if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:")) {
+                if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:") || triggerText.includes("crit:")) {
 
                     let triggers = new Triggers();
                     let active = triggers.evaluateRow(row_text, $rolls, hitEvaluationResults);
