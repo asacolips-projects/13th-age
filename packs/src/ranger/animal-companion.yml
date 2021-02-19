@@ -1,0 +1,166 @@
+name: 'Animal Companion'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: ''
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'talent'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: '1'
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: null
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: null
+  target:
+    type: 'String'
+    label: 'Target'
+    value: null
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: null
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: null
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: null
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: null
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: null
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: null
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: null
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: null
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: null
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: null
+  special:
+    type: 'String'
+    label: 'Special'
+    value: "<p>Unlike most class talents, this talent takes up\_<strong>two</strong>\_ranger class talent slots.</p><p>You have a normal-sized animal companion that fights alongside you in battle. See Animal Companion Rules.</p><p>If you would rather have a smaller beast as a pet, see the Ranger's Pet talent.</p><h2>Animal Companion Rules</h2><p>You have a devoted animal companion who fights alongside you like a member of your adventuring party.</p><h3>Recoveries</h3><p>Add two recoveries to your total recoveries. You can use a recovery on yourself or your animal companion.</p><h3>Actions</h3><p>Your animal companion acts on your initiative turn, either immediately before or after you, depending on the animal type.</p><p>Your animal companion moves gets a move action and a standard action, but not a quick action.</p><p>If you have powers that care about the 'first time you attack an enemy,' an attack by your animal companion counts as your attack.</p><h3>Animal\_Harm</h3><p>Your animal companion can be healed like an ally. If it gets healed without you being healed, it uses one of your recoveries. When you use a recovery while next to your animal companion (including being engaged with the same enemy), your animal companion is also healed using a free recovery.</p><p>Instead of dying like a monster or NPC at 0 hp, your animal companion follows PC rules for falling unconscious at 0 hp and dying after four failed death saves or when its negative hit points equal half its normal hit points. If your animal companion dies, you can summon another one. If you're still on the same adventure, you can call a new animal companion the next day, but it will be one level lower than an animal companion would normally be. At the start of a new adventure, or when you gain a level, bump the companion up to its proper level.</p><h3>Stats &amp;\_Levels</h3><p>Each animal companion has roughly the same base stats as listed below.</p><p>Your animal companion is always one level lower than you. As a 1st\_level ranger, you'll have a level 0 animal companion. Once you gain a level, your animal companion rises to 1st\_level.</p><p>On top of the base stats, each type of animal has a zoologically appropriate power or advantage.</p>"
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: null
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: null
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: null
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: null
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: null
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: null
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: null
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: null
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: null
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+flags: {}
+img: 'icons/svg/mystery-man.svg'

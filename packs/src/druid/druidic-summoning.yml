@@ -1,0 +1,168 @@
+name: 'Druidic Summoning'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'feature'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: ''
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: null
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: ''
+  range:
+    type: 'String'
+    label: 'Range'
+    value: ''
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: "<p>The 3rd level Elemental Caster spells are the four elemental summoning spells: summon air elemental, summon earth elemental, summon fire elemental, and summon water elemental. Each summoning spell summons an elemental of the same level as the spell.</p>\n<p>Summoned elementals start battles with half the <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Hit-Points\">hit points</a> of standard elementals.</p>\n<p>Each elemental that&rsquo;s at least 5th level has a transformation ability that greatly improves its effectiveness in battle. <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Free\">Free</a> elementals transform the first time they succeed with their transformation rolls, but summoned elementals have to succeed with their transformation rolls twice before their transformation takes effect.</p>\n<p>Initiates can choose only one summon elemental spell each day, while adepts can choose up to two.</p>\n<p>(See <a href=\"https://www.13thagesrd.com/character-rules/summoning-rules/\">Summoning Rules</a> for the basic summoning rules.)</p>\n<p>These feats apply to the following summoning spells.</p>"
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>Your summoned creatures can arrive anywhere you can see nearby, instead of needing to appear beside you.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>When you summon a non-mook creature, roll 2d10 and add double your Strength modifier or Dexterity modifier, whichever is higher. Your summoned creature increases its base <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> by that amount. (At 8th level, roll 3d10 and add triple the modifier.)</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'icons/svg/mystery-man.svg'

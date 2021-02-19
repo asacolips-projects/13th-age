@@ -1,0 +1,166 @@
+name: 'Tumble'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: ''
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'talent'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: '1'
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: null
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: null
+  target:
+    type: 'String'
+    label: 'Target'
+    value: null
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: null
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: null
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: null
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: null
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: null
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: null
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: null
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: null
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: null
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: null
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>You gain a +5 bonus to disengage checks. In addition, while you are moving, if an enemy moves to intercept you, you can make one disengage roll per intercepting enemy as a free action to avoid that enemy, but you must stop the first time you fail any of those disengage checks.</p>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: null
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: null
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: null
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: null
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: null
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: null
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>You ignore the penalty for disengaging from more than one enemy at a time.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>One battle per day as a free action, you can declare that you''re a tumbling fool and automatically succeed on your first disengage check each turn.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>Whenever you take critical hit damage, roll a hard save (16+). If you succeed, you somehow tumbled out of the way of whatever was about to hit you, and instead only take damage equal to the attacker''s level.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+flags: {}
+img: 'icons/svg/mystery-man.svg'
