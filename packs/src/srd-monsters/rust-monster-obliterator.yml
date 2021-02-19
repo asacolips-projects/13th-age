@@ -1,0 +1,492 @@
+name: 'Rust Monster Obliterator'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 72
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 72
+      min: 0
+      max: 72
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 3
+      mod: 8
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'spoiler'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'normal'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'demon'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Rust Monster Obliterator'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'omBiCpJ7TWFpWwh1'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: '6DQ8SbJfWc3Lzm4J'
+    flags: {}
+    name: 'Caustic bite'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs AC (one creature wearing light armor or no armor)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[18]] damage, and [[5]] ongoing acid damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural 14+'
+        value: 'The target is now considered to be wearing no armor (the armor is damaged beyond repair; adjust defenses accordingly). If the target’s armor is magical, the target must roll a hard save (16+). On a success, the armor isn’t affected. This effect is permanent until the creature obtains new armor.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 100000
+  - _id: 'PPAkROBsPZM5jOhn'
+    flags: {}
+    name: 'Rusting antenna'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Each time the rust monster obliterator destroys heavy armor with this attack, it gains a different random demon ability until the end of the battle (reroll duplicate abilities). (See the demon abilities table.)</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs PD (one creature wearing heavy armor)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[10]] damage, and the target is now considered to be wearing no armor (the armor is damaged beyond repair; adjust defenses accordingly). If the target’s armor is magical, the target must roll a hard save (16+). On a success, the armor isn’t affected. This effect is permanent until the creature obtains new armor.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 200000
+  - _id: 'CXGlSqn8pAhEtvJm'
+    flags: {}
+    name: 'Corrupting body'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Whenever a creature hits the rust monster with a melee weapon, the attacker must roll a save; on a failure, the weapon is destroyed. Magic weapons require an easy save (6+) instead. This effect is permanent.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 300000
+  - _id: 'pflITxvemkzQQLJN'
+    flags: {}
+    name: 'Rust''s targets'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Magic items wielded by creatures with 100 hp or more are not affected by the rust monster&rsquo;s ability to destroy items (but the target still takes damage).</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 400000
+  - _id: 'AdxkUpE0uqhh7JjS'
+    flags: {}
+    name: 'Saving quirks'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Before rolling a save for a magic item, a PC can gain a +5 bonus to the save by agreeing to roleplay the item&rsquo;s quirk as a huge element of their personality until the next full heal-up. Failure to live up to this roleplaying agreement means that the item hasn&rsquo;t received the support it needs from its owner to survive the rust monster&rsquo;s destructive effects, and the item is destroyed at the end of the next battle even if its owner saved.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 500000
+  - _id: 'BYMyfllMq1KlWFIX'
+    flags: {}
+    name: 'Tail whirligig'
+    type: 'nastierSpecial'
+    img: 'icons/svg/poison.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>When an enemy targets the rust monster obliterator with a spell, the rust monster rolls a save. On a success, the spell has no effect on the rust monster. If the rust monster is staggered, it must roll a hard save (16+) instead.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 600000

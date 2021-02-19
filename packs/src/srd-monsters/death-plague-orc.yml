@@ -1,0 +1,387 @@
+name: 'Death-Plague Orc'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 10
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 10
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 10
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 10
+      min: 0
+      max: 10
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: -1
+      mod: 2
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'spoiler'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'large'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'humanoid'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Death-Plague Orc'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: '6PluOHWgQdGG3guh'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'XuRbT9uAV41gIdao'
+    flags: {}
+    name: 'Huge spiked flail'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs AC'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[21]] damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural roll is above target''s Constitution'
+        value: 'The target catches a disease.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 100000
+  - _id: 'kOG363EorLNLH2hP'
+    flags: {}
+    name: 'Disease'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: "<p>When a creature contracts a death-plague orc disease, roll a [[1d4]] for the disease type and a [[1d6]] for that disease&rsquo;s symptoms after the battle. Until cured, at the start of each day (after each full heal-up) the PC makes a Constitution check (including any appropriate background) to determine the severity of the disease for that day, or if the PC is cured.</p>\n<p>Full bed rest under the care of a healer reduces severity roll from a d6 to a d4 (so a severity check result of 18 would be 1d4 + 2 not 1d6 + 2). A PC under the care of and experience healer or someone who knows healing magic gains a +10 bonus to the Constitution check. At the GM&rsquo;s option, special ingredients or healing items, found via quest, can give additional bonuses to the check.</p>\n<p>Disease Type (d4)</p>\n<ol>\n<li>Filthy Fever (d6 roll for symptoms that day)</li>\n<li>Chatter Pox (d6 roll for symptoms that day)</li>\n<li>Slug Scourge (d6 roll for symptoms that day)</li>\n<li>Red Fever (d6 roll for symptoms that day)</li>\n</ol>\n<p>Filthy Fever Symptoms (d6)</p>\n<ul>\n<li>Slight temperature.</li>\n<li>2&ndash;3: The runs. You gain 1 less recovery than normal after a full heal-up due to fluid loss.</li>\n<li>4+: You have a hacking cough that sounds like insane laughter and are losing fluids. You gain 2 fewer recoveries than normal after a full heal-up and can&rsquo;t remain silent.</li>\n</ul>\n<p>Chatter Pox Symptoms (d6)</p>\n<ul>\n<li>1: Unsightly and painful sores, occasional shivers.</li>\n<li>2&ndash;3: Running sores, shivering and chattering teeth. You take a &ndash;3 penalty to social skill checks and to attack rolls with spells.</li>\n<li>4+: Infected sores, fever dreams. Your constitution is weakened. After each full heal-up, roll 1d4 + 3 to determine your starting maximum recoveries for that day. Each time you cast a spell that isn&rsquo;t at-will, there&rsquo;s a 25% chance it fails (but you don&rsquo;t expend the spell).</li>\n</ul>\n<p>Slug Scourge Symptoms (d6)</p>\n<ul>\n<li>1: Extreme appetite, nausea.</li>\n<li>2&ndash;3: Vomiting up slugs. Whenever you make a non-combat Charisma check, roll 2d20 and take the lower result.</li>\n<li>4+: The slugs are inside your lungs! After each quick rest, you lose 25% of your maximum hit points. If you drop to 0 hp this way, you enter into a coma until the next day.</li>\n</ul>\n<p>Red Fever Symptoms (d6)</p>\n<ul>\n<li>1: Scarlet stripes on the eyeballs, itching, buzzing in ears.</li>\n<li>2&ndash;3: Blurred vision. You take a &ndash;3 penalty to ranged attacks.</li>\n<li>4+: Fever, rage, and confusion. Whenever you roll a natural odd attack roll, you are confused until the end of your next turn. Ranged attacks have a 25% chance of accidentally targeting an ally (check before making the attack roll).</li>\n</ul>\n<p>Disease Severity (Con check each day; result affects d6 symptoms roll)</p>\n<ul>\n<li>1&ndash;14: d6 + 3</li>\n<li>15&ndash;20: d6 + 2</li>\n<li>20&ndash;24: d6 + 1</li>\n<li>25&ndash;29: d6 + 0</li>\n<li>30+: Cured</li>\n</ul>"
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 200000
