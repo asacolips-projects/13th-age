@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs PD'
+        value: '[[d20 + 12]] vs. PD'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs MD (up to 2 nearby enemies)'
+        value: '[[d20 + 12]] vs. MD (up to 2 nearby enemies)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs MD (one nearby enemy with 60 hp or fewer)'
+        value: '[[d20 + 14]] vs. MD (one nearby enemy with 60 hp or fewer)'
       hit:
         type: ''
         label: 'Hit'

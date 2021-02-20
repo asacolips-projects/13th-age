@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs AC'
+        value: '[[d20 + 12]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs PD ([[1d3]] nearby or far away enemies in a group)'
+        value: '[[d20 + 13]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs MD (one nearby or far away enemy)'
+        value: '[[d20 + 13]] vs. MD (one nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -450,7 +450,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs MD (one enemy spellcaster)'
+        value: '[[d20 + 12]] vs. MD (one enemy spellcaster)'
       hit:
         type: ''
         label: 'Hit'

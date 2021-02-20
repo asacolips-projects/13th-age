@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs PD (2 attacks)'
+        value: '[[d20 + 8]] vs. PD (2 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -370,7 +370,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs AC (one enemy it’s grabbing; includes +4 grab bonus)'
+        value: '[[d20 + 12]] vs. AC (one enemy it’s grabbing; includes +4 grab bonus)'
       hit:
         type: ''
         label: 'Hit'

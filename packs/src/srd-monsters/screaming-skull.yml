@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs MD (up to 2 nearby or far away enemies)'
+        value: '[[d20 + 11]] vs. MD (up to 2 nearby or far away enemies)'
       hit:
         type: ''
         label: 'Hit'

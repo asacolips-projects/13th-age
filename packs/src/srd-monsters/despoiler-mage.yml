@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs AC (2 attacks)'
+        value: '[[d20 + 13]] vs. AC (2 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs MD (one nearby or far away enemy)'
+        value: '[[d20 + 14]] vs. MD (one nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -448,7 +448,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs MD (2 nearby enemies engaged with the same creature or with each other)'
+        value: '[[d20 + 14]] vs. MD (2 nearby enemies engaged with the same creature or with each other)'
       hit:
         type: ''
         label: 'Hit'

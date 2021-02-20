@@ -336,7 +336,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+13]] vs PD'
+        value: '[[d20+13]] vs. PD'
       hit:
         type: 'String'
         label: 'Hit'
@@ -386,7 +386,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+13]] vs AC (one random nearby enemy)'
+        value: '[[d20+13]] vs. AC (one random nearby enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+13]] vs AC ([[1d3]] random nearby enemies)'
+        value: '[[d20+13]] vs. AC ([[1d3]] random nearby enemies)'
       hit:
         type: 'String'
         label: 'Hit'
