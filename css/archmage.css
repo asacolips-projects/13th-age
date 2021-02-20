@@ -264,12 +264,12 @@ input[type="checkbox"] {
 .ability-usage--at-will {
   background: -o-linear-gradient(45deg, #003c15, #5ee25e);
   background: linear-gradient(45deg, #003c15, #5ee25e); }
-.colorBlindRG .ability-usage--at-will {
-  background: -o-linear-gradient(45deg, #003c15, #087830);
-  background: linear-gradient(45deg, #003c15, #087830); }
-.colorBlindBY .ability-usage--at-will {
-  background: -o-linear-gradient(45deg, #796501, #efde89);
-  background: linear-gradient(45deg, #796501, #efde89); }
+  .colorBlindRG .ability-usage--at-will {
+    background: -o-linear-gradient(45deg, #003c15, #087830);
+    background: linear-gradient(45deg, #003c15, #087830); }
+  .colorBlindBY .ability-usage--at-will {
+    background: -o-linear-gradient(45deg, #796501, #efde89);
+    background: linear-gradient(45deg, #796501, #efde89); }
 
 .ability-usage--header {
   background: transparent; }
@@ -277,45 +277,42 @@ input[type="checkbox"] {
 .ability-usage--once-per-battle {
   background: -o-linear-gradient(45deg, #3c0000, #dc0000);
   background: linear-gradient(45deg, #3c0000, #dc0000); }
-.colorBlindRG .ability-usage--once-per-battle {
-  background: -o-linear-gradient(45deg, #003854, #89cdef);
-  background: linear-gradient(45deg, #003854, #89cdef); }
-.colorBlindBY .ability-usage--once-per-battle {
-  background: -o-linear-gradient(45deg, #4e0129, #891c54);
-  background: linear-gradient(45deg, #4e0129, #891c54); }
+  .colorBlindRG .ability-usage--once-per-battle {
+    background: -o-linear-gradient(45deg, #003854, #89cdef);
+    background: linear-gradient(45deg, #003854, #89cdef); }
+  .colorBlindBY .ability-usage--once-per-battle {
+    background: -o-linear-gradient(45deg, #4e0129, #891c54);
+    background: linear-gradient(45deg, #4e0129, #891c54); }
 
 .ability-usage--daily {
   background: -o-linear-gradient(45deg, #01003c, #ababab);
   background: linear-gradient(45deg, #01003c, #ababab); }
-.colorBlindRG .ability-usage--daily {
-  background: -o-linear-gradient(45deg, #005748, #42ac9a);
-  background: linear-gradient(45deg, #005748, #42ac9a); }
-.colorBlindBY .ability-usage--daily {
-  background: -o-linear-gradient(45deg, #333300, #9a9a30);
-  background: linear-gradient(45deg, #333300, #9a9a30); }
+  .colorBlindRG .ability-usage--daily {
+    background: -o-linear-gradient(45deg, #005748, #42ac9a);
+    background: linear-gradient(45deg, #005748, #42ac9a); }
+  .colorBlindBY .ability-usage--daily {
+    background: -o-linear-gradient(45deg, #333300, #9a9a30);
+    background: linear-gradient(45deg, #333300, #9a9a30); }
 
 .ability-usage--recharge {
   background: -o-linear-gradient(45deg, #01003c, #71a2ec);
   background: linear-gradient(45deg, #01003c, #71a2ec); }
-.colorBlindRG .ability-usage--recharge {
-  background: -o-linear-gradient(45deg, #695702, #decd78);
-  background: linear-gradient(45deg, #695702, #decd78); }
-.colorBlindBY .ability-usage--recharge {
-  background: -o-linear-gradient(45deg, #01536e, #66cdef);
-  background: linear-gradient(45deg, #01536e, #66cdef); }
+  .colorBlindRG .ability-usage--recharge {
+    background: -o-linear-gradient(45deg, #695702, #decd78);
+    background: linear-gradient(45deg, #695702, #decd78); }
+  .colorBlindBY .ability-usage--recharge {
+    background: -o-linear-gradient(45deg, #01536e, #66cdef);
+    background: linear-gradient(45deg, #01536e, #66cdef); }
 
 .ability-usage--other {
   background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
   background: linear-gradient(45deg, #25003c, #dc9ff1a6); }
-.color-blind .ability-usage--other {
-  background: -o-linear-gradient(45deg, #301c89, #301c89);
-  background: linear-gradient(45deg, #301c89, #301c89); }
-.colorBlindRG .ability-usage--other {
-  background: -o-linear-gradient(45deg, #0d0145, #301c89);
-  background: linear-gradient(45deg, #0d0145, #301c89); }
-.colorBlindBY .ability-usage--other {
-  background: -o-linear-gradient(45deg, #0d0145, #301c89);
-  background: linear-gradient(45deg, #0d0145, #301c89); }
+  .colorBlindRG .ability-usage--other {
+    background: -o-linear-gradient(45deg, #0d0145, #301c89);
+    background: linear-gradient(45deg, #0d0145, #301c89); }
+  .colorBlindBY .ability-usage--other {
+    background: -o-linear-gradient(45deg, #0d0145, #301c89);
+    background: linear-gradient(45deg, #0d0145, #301c89); }
 
 .archmage input[type="checkbox"] {
   -webkit-transform: scale(1);
@@ -1665,59 +1662,53 @@ input[type="checkbox"] {
     .inventory-list .item .ability-usage--blank {
       color: #000;
       text-shadow: none; }
-
     .inventory-list .item .ability-usage--at-will {
       background: -o-linear-gradient(45deg, #003c15, #5ee25e);
       background: linear-gradient(45deg, #003c15, #5ee25e); }
-    .colorBlindRG .inventory-list .item .ability-usage--at-will {
-      background: -o-linear-gradient(45deg, #003c15, #087830);
-      background: linear-gradient(45deg, #003c15, #087830); }
-    .colorBlindBY .inventory-list .item .ability-usage--at-will {
-      background: -o-linear-gradient(45deg, #796501, #efde89);
-      background: linear-gradient(45deg, #796501, #efde89); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--at-will {
+        background: -o-linear-gradient(45deg, #003c15, #087830);
+        background: linear-gradient(45deg, #003c15, #087830); }
+      .colorBlindBY .inventory-list .item .ability-usage--at-will {
+        background: -o-linear-gradient(45deg, #796501, #efde89);
+        background: linear-gradient(45deg, #796501, #efde89); }
     .inventory-list .item .ability-usage--header {
       background: transparent; }
     .inventory-list .item .ability-usage--once-per-battle {
       background: -o-linear-gradient(45deg, #3c0000, #dc0000);
       background: linear-gradient(45deg, #3c0000, #dc0000); }
-    .colorBlindRG .inventory-list .item .ability-usage--once-per-battle {
-      background: -o-linear-gradient(45deg, #003854, #89cdef);
-      background: linear-gradient(45deg, #003854, #89cdef); }
-    .colorBlindBY .inventory-list .item .ability-usage--once-per-battle {
-      background: -o-linear-gradient(45deg, #4e0129, #891c54);
-      background: linear-gradient(45deg, #4e0129, #891c54); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--once-per-battle {
+        background: -o-linear-gradient(45deg, #003854, #89cdef);
+        background: linear-gradient(45deg, #003854, #89cdef); }
+      .colorBlindBY .inventory-list .item .ability-usage--once-per-battle {
+        background: -o-linear-gradient(45deg, #4e0129, #891c54);
+        background: linear-gradient(45deg, #4e0129, #891c54); }
     .inventory-list .item .ability-usage--daily {
       background: -o-linear-gradient(45deg, #01003c, #ababab);
       background: linear-gradient(45deg, #01003c, #ababab); }
-    .colorBlindRG .inventory-list .item .ability-usage--daily {
-      background: -o-linear-gradient(45deg, #005748, #42ac9a);
-      background: linear-gradient(45deg, #005748, #42ac9a); }
-    .colorBlindBY .inventory-list .item .ability-usage--daily {
-      background: -o-linear-gradient(45deg, #333300, #9a9a30);
-      background: linear-gradient(45deg, #333300, #9a9a30); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--daily {
+        background: -o-linear-gradient(45deg, #005748, #42ac9a);
+        background: linear-gradient(45deg, #005748, #42ac9a); }
+      .colorBlindBY .inventory-list .item .ability-usage--daily {
+        background: -o-linear-gradient(45deg, #333300, #9a9a30);
+        background: linear-gradient(45deg, #333300, #9a9a30); }
     .inventory-list .item .ability-usage--recharge {
       background: -o-linear-gradient(45deg, #01003c, #71a2ec);
       background: linear-gradient(45deg, #01003c, #71a2ec); }
-    .colorBlindRG .inventory-list .item .ability-usage--recharge {
-      background: -o-linear-gradient(45deg, #695702, #decd78);
-      background: linear-gradient(45deg, #695702, #decd78); }
-    .colorBlindBY .inventory-list .item .ability-usage--recharge {
-      background: -o-linear-gradient(45deg, #01536e, #66cdef);
-      background: linear-gradient(45deg, #01536e, #66cdef); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--recharge {
+        background: -o-linear-gradient(45deg, #695702, #decd78);
+        background: linear-gradient(45deg, #695702, #decd78); }
+      .colorBlindBY .inventory-list .item .ability-usage--recharge {
+        background: -o-linear-gradient(45deg, #01536e, #66cdef);
+        background: linear-gradient(45deg, #01536e, #66cdef); }
     .inventory-list .item .ability-usage--other {
       background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
       background: linear-gradient(45deg, #25003c, #dc9ff1a6); }
-    .colorBlindRG .inventory-list .item .ability-usage--other {
-      background: -o-linear-gradient(45deg, #0d0145, #301c89);
-      background: linear-gradient(45deg, #0d0145, #301c89); }
-    .colorBlindBY .inventory-list .item .ability-usage--other {
-      background: -o-linear-gradient(45deg, #0d0145, #301c89);
-      background: linear-gradient(45deg, #0d0145, #301c89); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--other {
+        background: -o-linear-gradient(45deg, #0d0145, #301c89);
+        background: linear-gradient(45deg, #0d0145, #301c89); }
+      .colorBlindBY .inventory-list .item .ability-usage--other {
+        background: -o-linear-gradient(45deg, #0d0145, #301c89);
+        background: linear-gradient(45deg, #0d0145, #301c89); }
     .inventory-list .item .ability-usage--equipment {
       background: -o-linear-gradient(45deg, #80361a, #efc44aa6);
       background: linear-gradient(45deg, #80361a, #efc44aa6); }
