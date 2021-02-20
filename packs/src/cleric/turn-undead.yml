@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@wis.mod+@cha.mod+@lvl+@ed]] vs. MD'
+    value: '[[d20+@wis.mod+@cha.mod+@std+@atk.d.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
