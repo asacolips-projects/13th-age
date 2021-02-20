@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC (2 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs PD (one staggered or unconscious enemy)'
+        value: '[[d20 + 11]] vs. PD (one staggered or unconscious enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs AC ([[1d4]] nearby enemies)'
+        value: '[[d20 + 11]] vs. AC ([[1d4]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'

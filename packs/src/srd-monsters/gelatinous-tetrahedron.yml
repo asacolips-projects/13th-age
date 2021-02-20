@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs PD'
+        value: '[[d20 + 9]] vs. PD'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs AC (up to 2 attacks'
+        value: '[[d20 + 9]] vs. AC (up to 2 attacks'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs PD (one engaged enemy)'
+        value: '[[d20 + 9]] vs. PD (one engaged enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -448,7 +448,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs PD (one nearby enemy not engaged with the ooze)'
+        value: '[[d20 + 9]] vs. PD (one nearby enemy not engaged with the ooze)'
       hit:
         type: ''
         label: 'Hit'
@@ -488,7 +488,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs PD (one far away enemy)'
+        value: '[[d20 + 9]] vs. PD (one far away enemy)'
       hit:
         type: ''
         label: 'Hit'

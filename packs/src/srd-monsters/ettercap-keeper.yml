@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs AC'
+        value: '[[d20 + 9]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs MD (one nearby or far away enemy)'
+        value: '[[d20 + 9]] vs. MD (one nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs MD (each nearby enemy engaged with one or more ettercaps)'
+        value: '[[d20 + 9]] vs. MD (each nearby enemy engaged with one or more ettercaps)'
       hit:
         type: ''
         label: 'Hit'
@@ -448,7 +448,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs MD (one nearby enemy per point on esc. die)'
+        value: '[[d20 + 9]] vs. MD (one nearby enemy per point on esc. die)'
       hit:
         type: ''
         label: 'Hit'

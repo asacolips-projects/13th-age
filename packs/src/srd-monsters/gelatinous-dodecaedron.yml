@@ -337,7 +337,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs PD'
+        value: '[[d20+10]] vs. PD'
       hit:
         type: 'String'
         label: 'Hit'
@@ -388,7 +388,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs AC (up to 2 attacks, each against a diffferrente nearby enemy)'
+        value: '[[d20+10]] vs. AC (up to 2 attacks, each against a diffferrente nearby enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -475,7 +475,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs PD ([[1d4 nearby enemies]]'
+        value: '[[d20+10]] vs. PD ([[1d4 nearby enemies]]'
       hit:
         type: 'String'
         label: 'Hit'
@@ -526,7 +526,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+12]] vs PD (each enemy engaged with it)'
+        value: '[[d20+12]] vs. PD (each enemy engaged with it)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -577,7 +577,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+12]] vs PD (one nearby or far away enemy)'
+        value: '[[d20+12]] vs. PD (one nearby or far away enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -628,7 +628,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs AC (one nearby enemy)'
+        value: '[[d20+10]] vs. AC (one nearby enemy)'
       hit:
         type: 'String'
         label: 'Hit'

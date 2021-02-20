@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs AC ([[1d3]] enemies engaged with the empress)'
+        value: '[[d20 + 9]] vs. AC ([[1d3]] enemies engaged with the empress)'
       hit:
         type: ''
         label: 'Hit'

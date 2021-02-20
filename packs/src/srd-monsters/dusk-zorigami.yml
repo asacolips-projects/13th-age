@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs AC (2 attacks)'
+        value: '[[d20 + 15]] vs. AC (2 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -375,7 +375,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs MD (each nearby enemy not engaged with a zorigami)'
+        value: '[[d20 + 15]] vs. MD (each nearby enemy not engaged with a zorigami)'
       hit:
         type: ''
         label: 'Hit'

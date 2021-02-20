@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs AC (one enemy hit by claws last turn)'
+        value: '[[d20 + 7]] vs. AC (one enemy hit by claws last turn)'
       hit:
         type: ''
         label: 'Hit'

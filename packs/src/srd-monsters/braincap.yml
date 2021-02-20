@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs PD (1 nearby or far away staggered enemy)'
+        value: '[[d20 + 8]] vs. PD (1 nearby or far away staggered enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'
@@ -410,7 +410,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs MD ([[1d3]] nearby enemies)'
+        value: '[[d20 + 8]] vs. MD ([[1d3]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'

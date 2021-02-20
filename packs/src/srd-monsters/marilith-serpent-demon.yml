@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs AC (6 attacks)'
+        value: '[[d20 + 17]] vs. AC (6 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs MD (one nearby or far away unengaged enemy)'
+        value: '[[d20 + 17]] vs. MD (one nearby or far away unengaged enemy)'
       hit:
         type: ''
         label: 'Hit'

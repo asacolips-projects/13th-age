@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -370,7 +370,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs AC (2 attacks vs. nearby or far away enemies)'
+        value: '[[d20 + 14]] vs. AC (2 attacks vs. nearby or far away enemies)'
       hit:
         type: ''
         label: 'Hit'
@@ -412,7 +412,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs PD (one random nearby enemy)'
+        value: '[[d20 + 15]] vs. PD (one random nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -454,7 +454,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs PD (all nearby creatures)'
+        value: '[[d20 + 15]] vs. PD (all nearby creatures)'
       hit:
         type: ''
         label: 'Hit'

@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs AC'
+        value: '[[d20 + 15]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs PD (each enemy engaged with ogre)'
+        value: '[[d20 + 15]] vs. PD (each enemy engaged with ogre)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs PD ([[1d3]] nearby or far away enemies in a group)'
+        value: '[[d20 + 15]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
@@ -450,7 +450,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs PD (one enemy near the target)'
+        value: '[[d20 + 15]] vs. PD (one enemy near the target)'
       hit:
         type: ''
         label: 'Hit'

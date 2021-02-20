@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs AC'
+        value: '[[d20 + 17]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 18]] vs MD ([[1d3]] enemies engaged with the dragon)'
+        value: '[[d20 + 18]] vs. MD ([[1d3]] enemies engaged with the dragon)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 18]] vs PD ([[1d4]] enemies in a group)'
+        value: '[[d20 + 18]] vs. PD ([[1d4]] enemies in a group)'
       hit:
         type: ''
         label: 'Hit'

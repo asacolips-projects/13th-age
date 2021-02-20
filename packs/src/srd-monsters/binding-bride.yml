@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -410,7 +410,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs PD (up to 2 enemies in a group)'
+        value: '[[d20 + 10]] vs. PD (up to 2 enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
@@ -450,7 +450,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs MD'
+        value: '[[d20 + 10]] vs. MD'
       hit:
         type: ''
         label: 'Hit'

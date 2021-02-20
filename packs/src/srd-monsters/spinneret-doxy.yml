@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs AC (or automatic critical hit vs. an infatuated enemy)'
+        value: '[[d20 + 8]] vs. AC (or automatic critical hit vs. an infatuated enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs MD (one infatuated enemy)'
+        value: '[[d20 + 8]] vs. MD (one infatuated enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -406,7 +406,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs MD (each nearby infatuated enemy)'
+        value: '[[d20 + 8]] vs. MD (each nearby infatuated enemy)'
       hit:
         type: ''
         label: 'Hit'

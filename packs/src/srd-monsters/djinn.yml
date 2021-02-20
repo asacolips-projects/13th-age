@@ -337,7 +337,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+13]] vs AC (2 attacks)'
+        value: '[[d20+13]] vs. AC (2 attacks)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -388,7 +388,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+13]] vs PD ([[1d4+1]] nearby creatures, including invisible creatures)'
+        value: '[[d20+13]] vs. PD ([[1d4+1]] nearby creatures, including invisible creatures)'
       hit:
         type: 'String'
         label: 'Hit'
