@@ -1,4 +1,4 @@
-name: 'Second Certain Toxin (Flow)'
+name: 'Second Certain Toxin (Original Venom)'
 permission:
   default: 0
 type: 'power'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -165,7 +165,7 @@ data:
   group:
     type: 'String'
     label: 'Group'
-    value: ''
+    value: 'Flow'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/green_23.jpg'
 effects: []

@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per battle when the escalation die (<a class="inline-roll inline-result" data-roll="%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%220%22%2C%22dice%22%3A%5B%5D%2C%22parts%22%3A%5B%220%22%5D%2C%22result%22%3A%220%22%2C%22total%22%3A0%7D" title="@ed"><i class="fas fa-dice-d20"></i> 0</a>) is 1+, you can teleport to a nearby location you can see as a move action.</p>'
+    value: '<p>Once per battle when the escalation die is 1+, you can teleport to a nearby location you can see as a move action.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

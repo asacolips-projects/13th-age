@@ -1,4 +1,4 @@
-name: 'Panther Spins Free (Opening)'
+name: 'Panther Spins Free (Claws of the Panther)'
 permission:
   default: 0
 type: 'power'
@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p><em><strong>Claws of the Panther&nbsp;</strong>(Opening Attack)</em></p>'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -167,7 +167,7 @@ data:
         label: 'Active'
         value: false
   group:
-    value: ''
+    value: 'Opening'
     type: 'String'
     label: 'Group'
 flags: {}
