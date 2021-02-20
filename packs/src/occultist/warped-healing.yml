@@ -104,23 +104,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Randomly choose one of the targets. That target can heal using a recovery. The other target gains 10 temporary hit points and grows a strange eye, limb, or other physical feature that lasts as long as the temporary hit points do.</p>\n<p>&nbsp;</p>"
+    value: "<p>Randomly choose one of the targets. That target can heal using a recovery. The other target gains [[10]] temporary hit points and grows a strange eye, limb, or other physical feature that lasts as long as the temporary hit points do.</p>\n<p>&nbsp;</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '20 temporary hit points.'
+    value: '[[20]] temporary hit points.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '30 temporary hit points.'
+    value: '[[30]] temporary hit points.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '45 temporary hit points.'
+    value: '[[45]] temporary hit points.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '70 temporary hit points.'
+    value: '[[70]] temporary hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

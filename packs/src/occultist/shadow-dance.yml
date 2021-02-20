@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The targets teleport and swap places. Each teleported enemy takes 1d6 damage&nbsp; [[1d6]]. You and your allies don&rsquo;t take damage from teleporting.</p>'
+    value: '<p>The targets teleport and swap places. Each teleported enemy takes [[1d6]] damage. You and your allies don&rsquo;t take damage from teleporting.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

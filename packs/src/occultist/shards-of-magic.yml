@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[1d20+@cha.mod+@lvl+@ed]] vs PD'
+    value: '[[1d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -56,11 +56,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '[[1d6+@cha.dmg]] Force damage and you can roll a hard save 16+ [[1d20]].  If you succeed, you get an extra standard action this turn.'
+    value: '[[1d6+@cha.dmg+@atk.a.bonus]] Force damage and you can roll a hard save 16+ [[1d20]].  If you succeed, you get an extra standard action this turn.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: '7 ongoing damage'
+    value: '[[7]] ongoing damage'
   crit:
     type: 'String'
     label: 'Crit'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: 'Even hit:  [[3d6+@cha.dmg]]; Odd hit: 10 ongoing damage.'
+    value: 'Even hit: [[3d6+@cha.dmg+@atk.a.bonus]]; Odd hit: [[10]] ongoing damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'Even hit:  [[5d6+@cha.dmg]]; Odd hit: 18 ongoing damage.'
+    value: 'Even hit: [[5d6+@cha.dmg+@atk.a.bonus]]; Odd hit: [[18]] ongoing damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Even hit:  [[5d8+@cha.dmg]]; Odd hit: 28 ongoing damage.'
+    value: 'Even hit: [[5d8+@cha.dmg+@atk.a.bonus]]; Odd hit: [[28]] ongoing damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Even hit:  [[7d10+@cha.dmg]]; Odd hit: 40 ongoing damage.'
+    value: 'Even hit: [[7d10+@cha.dmg+@atk.a.bonus]]; Odd hit: [[40]] ongoing damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>A natural odd miss now deals damage equal to your level.</p>'
+        value: '<p>A natural odd miss now deals [[@lvl]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

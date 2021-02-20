@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The target can heal using a free recovery, adding hit points equal to 1d6 x the escalation die to that healing. Unless you or the target is a dwarf, randomly choose one of the target&rsquo;s true magic items. You actively gain that item&rsquo;s quirk until the end of the day.</p>'
+    value: '<p>The target can heal using a free recovery, adding hit points equal to [[@ed*d6]] to that healing. Unless you or the target is a dwarf, randomly choose one of the target&rsquo;s true magic items. You actively gain that item&rsquo;s quirk until the end of the day.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

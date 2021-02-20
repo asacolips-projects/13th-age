@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>when an enemy engaged with you misses you with an attack, it takes&nbsp; [[3d6+@cha.dmg]]</p>'
+    value: '<p>when an enemy engaged with you misses you with an attack, it takes&nbsp;[[3d6+@cha.dmg+@atk.a.bonus]]</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[5d6+@cha.dmg]]'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]]'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[5d8+@cha.dmg]]'
+    value: '[[5d8+@cha.dmg+@atk.a.bonus]]'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[7d10+@cha.dmg]]'
+    value: '[[7d10+@cha.dmg+@atk.a.bonus]]'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

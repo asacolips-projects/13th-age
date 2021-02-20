@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The target can move as a free action before using a <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a> or attacking.</p>'
+        value: '<p>The target can move as a free action before using a recovery or attacking.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When the target heals using a recovery, it adds hit points equal to 1d10 x the escalation die to that healing.</p>'
+        value: '<p>When the target heals using a recovery, it adds hit points equal to [[@ed*1d10]] to that healing.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
