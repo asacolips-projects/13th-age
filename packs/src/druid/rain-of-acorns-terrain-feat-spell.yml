@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d4 damage + Wisdom damage.'
+    value: '[[1d4+@wis.dmg+@atk.d.bonus]] damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '2d4 damage.'
+    value: '[[2d4+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '2d6 damage.'
+    value: '[[2d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '4d6 damage.'
+    value: '[[4d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '6d6 damage.'
+    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>This spell now targets 1d4 enemies in a group.</p>'
+        value: '<p>This spell now targets [[1d4]] enemies in a group.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

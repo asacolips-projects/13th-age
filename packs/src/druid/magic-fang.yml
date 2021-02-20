@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>If the target already adds the <a href="https://www.13thagesrd.com/combat-rules#TOC-Escalation-Die">escalation die</a> to its attacks, it gains a +2 attack bonus until the end of the battle. If not, it now adds the <a href="https://www.13thagesrd.com/combat-rules#TOC-Escalation-Die">escalation die</a> to its attacks until the end of the battle.</p>'
+    value: '<p>If the target already adds the escalation die to its attacks, it gains a +2 attack bonus until the end of the battle. If not, it now adds the escalation die to its attacks until the end of the battle.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p><strong>Initiate Effect</strong>: Until the end of the battle, while in beast form you gain a +2 bonus to attacks and damage against lower level enemies and mooks of any level (damage bonus increases to 2 + double your Strength or Dexterity modifier at 5th level; damage bonus increases to 2 + triple your Strength or Dexterity modifier at 8th level).</p>\n<p><strong>Adept Effect</strong>: As the initiate effect, and when you first shift into this aspect, roll your <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Recoveries\">recovery</a> dice as if you were healing, but you instead gain that many temporary <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Hit-Points\">hit points</a>. You don&rsquo;t spend a <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Recoveries\">recovery</a>.</p>"
+    value: "<p><strong>Initiate Effect</strong>: Until the end of the battle, while in beast form you gain a +2 bonus to attacks and damage against lower level enemies and mooks of any level (damage bonus increases to 2 + double your Strength or Dexterity modifier at 5th level; damage bonus increases to 2 + triple your Strength or Dexterity modifier at 8th level).</p>\n<p><strong>Adept Effect</strong>: As the initiate effect, and when you first shift into this aspect, roll your recovery dice as if you were healing, but you instead gain that many temporary hit points. You don&rsquo;t spend a recovery.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Adepts also gain a +2 <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> bonus while using this aspect.</p>'
+        value: '<p>Adepts also gain a +2 AC bonus while using this aspect.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Until the first time it recharges each day, <a href="https://www.13thagesrd.com/monsters#TOC-Bear">bear</a> aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
+        value: '<p>Until the first time it recharges each day, bear aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

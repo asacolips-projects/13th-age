@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The target gains resist damage 16+ against attacks targeting <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> until the end of the battle or until two natural 16+ attack rolls against <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> hit the target.</p>'
+    value: '<p>The target gains resist damage 16+ against attacks targeting AC until the end of the battle or until two natural 16+ attack rolls against AC hit the target.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

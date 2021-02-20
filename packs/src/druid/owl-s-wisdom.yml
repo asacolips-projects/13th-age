@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle or until targeted with another beast spirits spell, the target gains a +2 bonus to <a href="https://www.13thagesrd.com/combat-rules#TOC-Mental-Defense-MD-">MD</a> and a +1 bonus to saves.</p>'
+    value: '<p>Until the end of the battle or until targeted with another beast spirits spell, the target gains a +2 bonus to MD and a +1 bonus to saves.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The target instead gains a +4 bonus to <a href="https://www.13thagesrd.com/combat-rules#TOC-Mental-Defense-MD-">MD</a> and a +2 bonus to saves.</p>'
+        value: '<p>The target instead gains a +4 bonus to MD and a +2 bonus to saves.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

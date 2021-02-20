@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '5d6 + Wisdom damage, and if the target has 80 hp or fewer after the damage, it’s stuck (save ends).'
+    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, and if the target has 80 hp or fewer after the damage, it’s stuck (save ends).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level, if the target has 80 hp or fewer after the damage, it’s stuck (easy save ends, 6+).'
+    value: '[[@lvl]] damage, if the target has 80 hp or fewer after the damage, it’s stuck (easy save ends, 6+).'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ' 5d10 damage; hit/miss effect affects targets with 135 hp or fewer.'
+    value: ' [[5d10+@wis.dmg+@atk.d.bonus]] damage; hit/miss effect affects targets with 135 hp or fewer.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '6d10 damage; hit/miss effect affects targets with 220 hp or fewer.'
+    value: '[[6d10+@wis.dmg+@atk.d.bonus]] damage; hit/miss effect affects targets with 220 hp or fewer.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '10d10 damage; hit/miss effect affects targets with 350 hp or fewer.'
+    value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage; hit/miss effect affects targets with 350 hp or fewer.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

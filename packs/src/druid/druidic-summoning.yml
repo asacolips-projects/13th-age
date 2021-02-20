@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p>The 3rd level Elemental Caster spells are the four elemental summoning spells: summon air elemental, summon earth elemental, summon fire elemental, and summon water elemental. Each summoning spell summons an elemental of the same level as the spell.</p>\n<p>Summoned elementals start battles with half the <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Hit-Points\">hit points</a> of standard elementals.</p>\n<p>Each elemental that&rsquo;s at least 5th level has a transformation ability that greatly improves its effectiveness in battle. <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Free\">Free</a> elementals transform the first time they succeed with their transformation rolls, but summoned elementals have to succeed with their transformation rolls twice before their transformation takes effect.</p>\n<p>Initiates can choose only one summon elemental spell each day, while adepts can choose up to two.</p>\n<p>(See <a href=\"https://www.13thagesrd.com/character-rules/summoning-rules/\">Summoning Rules</a> for the basic summoning rules.)</p>\n<p>These feats apply to the following summoning spells.</p>"
+    value: "<p>The 3rd level Elemental Caster spells are the four elemental summoning spells: summon air elemental, summon earth elemental, summon fire elemental, and summon water elemental. Each summoning spell summons an elemental of the same level as the spell.</p>\n<p>Summoned elementals start battles with half the hit points of standard elementals.</p>\n<p>Each elemental that&rsquo;s at least 5th level has a transformation ability that greatly improves its effectiveness in battle. Free elementals transform the first time they succeed with their transformation rolls, but summoned elementals have to succeed with their transformation rolls twice before their transformation takes effect.</p>\n<p>Initiates can choose only one summon elemental spell each day, while adepts can choose up to two.</p>\n<p>(See Summoning Rules for the basic summoning rules.)</p>\n<p>These feats apply to the following summoning spells.</p>"
   effect:
     type: 'String'
     label: 'Effect'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When you summon a non-mook creature, roll 2d10 and add double your Strength modifier or Dexterity modifier, whichever is higher. Your summoned creature increases its base <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> by that amount. (At 8th level, roll 3d10 and add triple the modifier.)</p>'
+        value: '<p>When you summon a non-mook creature, roll [[2d10+2*@str.mod]] or [[2d10+2*@dex.mod]], whichever is higher. Your summoned creature increases its base hit points by that amount. (At 8th level, roll [[3d10+3*@str.mod]] or [[3d10+3*@dex.mod]].)</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

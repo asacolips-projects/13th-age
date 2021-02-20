@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d8 + Wisdom damage; or 2d8 + Wisdom damage against a mook.'
+    value: '[[1d8+@wis.dmg+@atk.d.bonus]] damage; or [[2d8+@wis.dmg+@atk.d.bonus]] damage against a mook.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level against a non-mook; no effect against a mook.'
+    value: '[[@lvl]] damage against a non-mook; no effect against a mook.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d6 damage, or 6d6 against a mook.'
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d6+@wis.dmg+@atk.d.bonus]] against a mook.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d6 damage, or 6d10 against a mook.'
+    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d10+@wis.dmg+@atk.d.bonus]] against a mook.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '5d8 damage, or 10d8 against a mook.'
+    value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage, or [[10d8+@wis.dmg+@atk.d.bonus]] against a mook.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '8d10 damage, or 3d6 x 10 against a mook.'
+    value: '[[8d10+@wis.dmg+@atk.d.bonus]] damage, or [[3d6*10+@wis.dmg+@atk.d.bonus]] against a mook.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

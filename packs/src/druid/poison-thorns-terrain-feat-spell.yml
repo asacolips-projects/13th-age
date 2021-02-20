@@ -49,11 +49,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: ' Wisdom + Level vs. PD'
+    value: ' [[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '5 damage, and 5 ongoing poison damage.'
+    value: '[[5]] damage, and [[5]] ongoing poison damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -109,19 +109,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '8 damage, and 8 ongoing poison damage.'
+    value: '[[8]] damage, and [[8]] ongoing poison damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '13 damage, and 13 ongoing poison damage.'
+    value: '[[13]] damage, and [[13]] ongoing poison damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '20 damage, and 20 ongoing poison damage.'
+    value: '[[20]] damage, and [[20]] ongoing poison damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '30 damage, and 30 ongoing poison damage.'
+    value: '[[30]] damage, and [[30]] ongoing poison damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

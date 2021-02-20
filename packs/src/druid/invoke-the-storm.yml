@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Roll a d3. Deal lightning damage equal to five times the number you rolled to one nearby enemy other than the target of the triggering attack.</p>'
+    value: '<p>Roll a [[d3*5]]. Deal lightning damage equal to the total to one nearby enemy other than the target of the triggering attack.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Roll a d4 instead of a d3.</p>'
+        value: '<p>Roll a [[d4*5]] instead of a d3.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Roll a d6 instead of a d4 and use whichever is higher, the <a href="https://www.13thagesrd.com/combat-rules#TOC-Escalation-Die">escalation die</a> or your d6 roll.</p>'
+        value: '<p>Roll a [[d6*5]] or [[@ed*5]] instead of a d4 and use whichever is higher.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add the <a href="https://www.13thagesrd.com/combat-rules#TOC-Escalation-Die">escalation die</a> and your d6 roll together, then multiply by five for the damage you deal.</p>'
+        value: '<p>[[(@ed+d6)*5]] for the damage you deal.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

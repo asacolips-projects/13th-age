@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per battle, when an attack targeting <a href="https://www.13thagesrd.com/combat-rules#TOC-Mental-Defense-MD-">MD</a> hits you while you&rsquo;re not fighting in bright sunlight, you can force the attacker to reroll that attack, but you must accept the reroll.</p>'
+        value: '<p>Once per battle, when an attack targeting MD hits you while you&rsquo;re not fighting in bright sunlight, you can force the attacker to reroll that attack, but you must accept the reroll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

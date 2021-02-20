@@ -104,23 +104,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, when an enemy engaged with you attacks you and rolls a natural 1&ndash;15, it takes 1d10 cold damage after the attack.</p>'
+    value: '<p>Until the end of the battle, when an enemy engaged with you attacks you and rolls a natural 1&ndash;15, it takes [[1d10]] cold damage after the attack.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '4d6 damage.'
+    value: '[[4d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ' 6d6 damage.'
+    value: ' [[6d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ' 6d10 damage.'
+    value: ' [[6d10+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '10d10 damage.'
+    value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

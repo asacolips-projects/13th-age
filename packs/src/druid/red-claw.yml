@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When you use this flexible attack, your animal companion also heals <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> equal to triple your Strength or Dexterity modifier.</p>'
+        value: '<p>When you use this flexible attack, your animal companion also heals hit points equal to triple your Strength or Dexterity modifier.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

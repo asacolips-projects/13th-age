@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> by +1.</p>'
+        value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
