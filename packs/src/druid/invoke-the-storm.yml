@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Roll a [[d6*5]] or [[@ed*5]] instead of a d4 and use whichever is higher.</p>'
+        value: '<p>Roll a [[max((d6),@ed)*5]] instead of a d4.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
