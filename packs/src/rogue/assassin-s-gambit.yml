@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dexterity + Level vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'Half of WEAPON + Dexterity damage (including Sneak Attack damage if any), and if you drop a non-mook target to 0 hp, you can take another standard action this turn.'
+    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage (including Sneak Attack damage if any), and if you drop a non-mook target to 0 hp, you can take another standard action this turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'

@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: '1d4 nearby enemies in a group; breath weapon'
+    value: '[[1d4]] nearby enemies in a group; breath weapon'
   always:
     type: 'String'
     label: 'Always'
@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '5 ongoing poison damage.'
+    value: '[[5]] ongoing poison damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '25 + Charisma ongoing poison damage; 10 ongoing on a miss.'
+    value: '25 + Charisma ongoing poison damage; [[10]] ongoing on a miss.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '35 + Charisma ongoing poison damage; 15 ongoing on a miss.'
+    value: '35 + Charisma ongoing poison damage; [[15]] ongoing on a miss.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '50 + Charisma ongoing poison damage; 25 ongoing on a miss.'
+    value: '50 + Charisma ongoing poison damage; [[25]] ongoing on a miss.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
