@@ -112,7 +112,7 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'Each target also gains [[2d10]] temporary hit points instead of [[1d10]] per point of the attack bonus.'
+    value: 'Each target also gains [[2d10]] temporary hit points instead of 1d10 per point of the attack bonus.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
