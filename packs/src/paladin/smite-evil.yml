@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
