@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>The targets are embroiled in silver fire! Each targeted ally can roll an immediate easy save (6+); if that ally succeeds, they regain one daily or recharge power of their choice. Then each targeted enemy takes damage equal to 1d10 x the escalation die.&nbsp; [[1d10*@ed]]</p>\n<p>After the damage, roll the escalation die and use the new result.</p>"
+    value: "<p>The targets are embroiled in silver fire! Each targeted ally can roll an immediate easy save (6+); if that ally succeeds, they regain one daily or recharge power of their choice. Then each targeted enemy takes damage equal to [[d10*@ed]] (1d10 x the escalation die).</p>\n<p>After the damage, roll the escalation die and use the new result.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Damage equal to 2d6 x the escalation die.  [[2d6*@ed]]'
+    value: 'Damage equal to [[2d6*@ed]] (2d6 x the escalation die).'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Damage equal to 2d12 x the escalation die. [[2d12*@ed]]'
+    value: 'Damage equal to [[2d12*@ed]] (2d12 x the escalation die).'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

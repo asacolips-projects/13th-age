@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add 50 <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hp</a> to the <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit point</a> threshold for targets that can be affected.</p>'
+        value: '<p>Add 50 hp to the hp threshold for targets that can be affected.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

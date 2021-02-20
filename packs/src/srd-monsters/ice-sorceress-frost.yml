@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs AC'
+        value: '[[d20 + 14]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs PD'
+        value: '[[d20 + 14]] vs. PD'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs MD (one enemy)'
+        value: '[[d20 + 14]] vs. MD (one enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -448,7 +448,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs PD (one moving enemy or ranged attacker)'
+        value: '[[d20 + 14]] vs. PD (one moving enemy or ranged attacker)'
       hit:
         type: ''
         label: 'Hit'

@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You heal <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> equal to your Strength or Dexterity modifier (double that modifier at 5th level; triple it at 8th level).</p>'
+    value: '<p>You heal [[max(@str.dmg,@dex.dmg)]] hit points.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Add 1d6 to the healing provided by this flexible attack.</p>'
+        value: '<p>Add [[1d6]] to the healing provided by this flexible attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add 4d10 instead of 1d6 to the healing provided by this flexible attack, and you can use warrior&rsquo;s blessing twice per battle.</p>'
+        value: '<p>Add [[4d10]] instead of 1d6 to the healing provided by this flexible attack, and you can use warrior&rsquo;s blessing twice per battle.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

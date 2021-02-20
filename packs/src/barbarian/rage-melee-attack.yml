@@ -1,4 +1,4 @@
-name: 'Unsummoning'
+name: '(Rage) Melee attack'
 permission:
   default: 0
 type: 'power'
@@ -12,19 +12,19 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: 'class'
+    value: ''
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 7
+    value: '1'
   actionType:
     type: 'String'
     label: 'Action'
@@ -32,15 +32,15 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged Spell'
+    value: null
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: ''
+    value: null
   target:
     type: 'String'
     label: 'Target'
-    value: 'One nearby non-undead enemy that the GM hasn’t given a proper name, or that doesn’t play a key role in the current storyline'
+    value: 'One enemy'
   always:
     type: 'String'
     label: 'Always'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[1d20+@cha.mod+@lvl+@ed]] vs MD.'
+    value: '[[2d20kh+@str.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is sent elsewhere, possibly to a location that’s close enough for the PCs to have to deal with it in a subsequent battle. It might also go somewhere “interesting.”  See Effect.'
+    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,35 +68,35 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[7d10+@cha.dmg]] Psychic damage'
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: ''
+    value: null
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: ''
+    value: null
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: null
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
-    value: ''
+    value: null
   castPower:
     type: 'String'
     label: 'Cast for Power'
-    value: ''
+    value: null
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: ''
+    value: null
   finalVerse:
     type: 'String'
     label: 'Final Verse'
-    value: ''
+    value: null
   special:
     type: 'String'
     label: 'Special'
@@ -104,31 +104,31 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Replace the target with the GM&rsquo;s choice of an undamaged and hostile undead creature that is one level lower than the original target. If the target was a large or double-strength creature, the replacement must be large or double-strength, or perhaps two normal undead instead of one show up. Ditto for huge/triple-strength targets. Therefore you&rsquo;re only slightly reducing the raw power of the opposition; the advantage of using the spell is that you&rsquo;re getting rid of an enemy you match up badly against and dropping the level of the opposition by one. The disadvantage, of course, is that you&rsquo;ll probably have to face that enemy again.</p>'
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: null
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: null
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: null
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'On miss: [[8d10+@cha.dmg]] Psychic damage'
+    value: null
   spellChain:
     type: 'String'
     label: 'Chain Spell'
-    value: ''
+    value: null
   breathWeapon:
     type: 'String'
     label: 'Breath Weapon'
-    value: ''
+    value: null
   recharge:
     type: 'Number'
     label: 'Recharge'
@@ -136,33 +136,31 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: false
     champion:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>This spell can now also target an entire mob of mooks. If the attack hits, replace them with a mob of undead mooks that is one level lower.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
     epic:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You don&rsquo;t expend the spell when you miss with it.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
 flags: {}
-img: 'systems/archmage/assets/icons/spells/wind-grasp-eerie-3.jpg'
+img: 'icons/svg/mystery-man.svg'

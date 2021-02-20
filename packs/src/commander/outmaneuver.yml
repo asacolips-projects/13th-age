@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@cha.mod+@lvl+@ed]] vs. MD'
+    value: '[[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Once per battle as a free action when you hit with this tactic, the target also takes 1d10 psychic damage for each point on the escalation die ([[1d10*@ed]]).</p>'
+        value: '<p>Once per battle as a free action when you hit with this tactic, the target also takes [[1d10*@ed]] psychic damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

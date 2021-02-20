@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ' The spell now targets you and 1d4 + 1 nearby allies.'
+    value: ' The spell now targets you and [[1d4+1]] nearby allies.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs AC'
+        value: '[[d20 + 10]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs AC (different target from first big swing)'
+        value: '[[d20 + 10]] vs. AC (different target from first big swing)'
       hit:
         type: ''
         label: 'Hit'

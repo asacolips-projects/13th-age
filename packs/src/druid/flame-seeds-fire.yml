@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '3d12 + Wisdom fire damage, and 5 ongoing fire damage (hard save ends, 16+).'
+    value: '[[3d12+@wis.dmg+@atk.d.bonus]] fire damage, and [[5]] ongoing fire damage (hard save ends, 16+).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, you can use a <a href="https://www.13thagesrd.com/combat-rules#TOC-Standard-Move-and-Quick-Actions">quick action</a> once per turn to increase the flame seeds ongoing fire damage by 5 for each target that hasn&rsquo;t saved. (Yes, you can use a <a href="https://www.13thagesrd.com/combat-rules#TOC-Standard-Move-and-Quick-Actions">quick action</a> the same turn that you cast the spell.)</p>'
+    value: '<p>Until the end of the battle, you can use a quick action once per turn to increase the flame seeds ongoing fire damage by 5 for each target that hasn&rsquo;t saved. (Yes, you can use a quick action the same turn that you cast the spell.)</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '5d12 damage.'
+    value: '[[5d12+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '8d12 damage.'
+    value: '[[8d12+@wis.dmg+@atk.d.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs AC (7 attacks)'
+        value: '[[d20 + 12]] vs. AC (7 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -370,7 +370,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs PD ([[1d2]] nearby enemies)'
+        value: '[[d20 + 12]] vs. PD ([[1d2]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'

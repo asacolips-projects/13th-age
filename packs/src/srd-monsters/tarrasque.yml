@@ -354,7 +354,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+19]] vs AC'
+        value: '[[d20+19]] vs. AC'
       hit:
         type: 'String'
         label: 'Hit'
@@ -404,7 +404,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+18]] vs AC'
+        value: '[[d20+18]] vs. AC'
       hit:
         type: 'String'
         label: 'Hit'
@@ -454,7 +454,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+20]] vs AC (each nearby enemy in a group)'
+        value: '[[d20+20]] vs. AC (each nearby enemy in a group)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -504,7 +504,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+18]] vs PD (each nearby enemy in a group)'
+        value: '[[d20+18]] vs. PD (each nearby enemy in a group)'
       hit:
         type: 'String'
         label: 'Hit'

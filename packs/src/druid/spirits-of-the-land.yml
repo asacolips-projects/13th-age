@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>During your next turn, you can cast a Terrain Caster at-will feat spell of your choice once as a <a href="https://www.13thagesrd.com/combat-rules#TOC-Standard-Move-and-Quick-Actions">quick action</a>, even if you don&rsquo;t normally know that spell. The spell must match a type of terrain you are in.</p>'
+    value: '<p>During your next turn, you can cast a Terrain Caster at-will feat spell of your choice once as a quick action, even if you don&rsquo;t normally know that spell. The spell must match a type of terrain you are in.</p>'
   effect:
     type: 'String'
     label: 'Effect'

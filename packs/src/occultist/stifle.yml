@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Intelligence + Level vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>On a hit, the target also takes psychic damage equal to your Level + double your Wisdom modifier (triple it at 8th level).</p>'
+        value: '<p>On a hit, the target also takes  [[@lvl+@wis.dmg]] psychic damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You summon a 3rd level small water elemental (18 <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hp</a>).</p>'
+    value: '<p>You summon a 3rd level small water elemental (18 hp).</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

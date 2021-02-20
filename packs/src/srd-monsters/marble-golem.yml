@@ -337,7 +337,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+15]] vs AC'
+        value: '[[d20+15]] vs. AC'
       hit:
         type: 'String'
         label: 'Hit'
@@ -370,7 +370,7 @@ items:
     sort: 100000
   - _id: 'iG1ZJ082FPe43GdU'
     flags: {}
-    name: 'Backswing +14 vs PD'
+    name: 'Backswing +14 vs. PD'
     type: 'action'
     img: 'icons/svg/target.svg'
     data:

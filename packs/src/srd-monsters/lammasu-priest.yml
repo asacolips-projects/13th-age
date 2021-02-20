@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs AC (2 attacks)'
+        value: '[[d20 + 14]] vs. AC (2 attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs PD (one nearby or far away enemy)'
+        value: '[[d20 + 13]] vs. PD (one nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -408,7 +408,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs MD (each nearby conscious enemy that’s staggered)'
+        value: '[[d20 + 14]] vs. MD (each nearby conscious enemy that’s staggered)'
       hit:
         type: ''
         label: 'Hit'
@@ -450,7 +450,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs PD (one nearby enemy)'
+        value: '[[d20 + 13]] vs. PD (one nearby enemy)'
       hit:
         type: ''
         label: 'Hit'

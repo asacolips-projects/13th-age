@@ -49,11 +49,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. MD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '2d6 x 10 + Wisdom psychic damage, and you and each of your nearby allies can roll a save with a +5 bonus against any save ends effect created by the target.'
+    value: '[[2d6*10+@wis.dmg+@atk.d.bonus]] psychic damage, and you and each of your nearby allies can roll a save with a +5 bonus against any save ends effect created by the target.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -69,7 +69,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage, and you and 1d3 of your nearby allies can each roll a save against any save ends effect created by the target.'
+    value: 'Half damage, and you and [[1d3]] of your nearby allies can each roll a save against any save ends effect created by the target.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -121,7 +121,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d10 x 10 damage.'
+    value: '[[2d10*10+@wis.dmg+@atk.d.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

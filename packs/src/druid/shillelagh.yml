@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>If the target isn&rsquo;t <a href="https://www.13thagesrd.com/combat-rules#TOC-Staggered">staggered</a> after the attack, the attack is a critical hit. If the target is <a href="https://www.13thagesrd.com/combat-rules#TOC-Staggered">staggered</a> after the attack, you can heal using a <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a> and the target is <a href="https://www.13thagesrd.com/combat-rules#TOC-Stuck">stuck</a> until the end of its next turn.</p>'
+    value: '<p>If the target isn&rsquo;t staggered after the attack, the attack is a critical hit. If the target is staggered after the attack, you can heal using a recovery and the target is stuck until the end of its next turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The <a href="https://www.13thagesrd.com/combat-rules#TOC-Stuck">stuck</a> effect is now save ends.</p>'
+        value: '<p>The stuck effect is now save ends.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

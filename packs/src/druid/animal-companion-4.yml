@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your animal companion adds the <a href="https://www.13thagesrd.com/combat-rules#TOC-Escalation-Die">escalation die</a> to its attacks.</p>'
+        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
