@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The target also gains temporary hit points equal to 3d10 + triple your Charisma modifier ([[3d10*(3*@cha.mod)]]).</p>'
+        value: '<p>The target also gains temporary hit points equal to [[3d10+@cha.dmg+@atk.a.bonus]] modifier ([[3d10*(3*@cha.mod)]]).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
