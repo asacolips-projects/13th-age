@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[4d10]] force damage.'
+    value: '[[4d10+@atk.a.bonus]] force damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[7d10]] damage.'
+    value: '[[7d10+@atk.a.bonus]] damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[10d12]] damage.'
+    value: '[[10d12+@atk.a.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[3d6*10]] damage.'
+    value: '[[3d6*10+@atk.a.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

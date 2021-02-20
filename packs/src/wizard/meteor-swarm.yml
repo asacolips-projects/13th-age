@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[4d4*10]] damage of the energy type of your choice (cold, fire, lightning).  Any allies engaged with the enemies you are targeting take [[floor((4d4*10)/4)]] damage from each meteor that impacts the area.'
+    value: '[[4d4*10+@atk.a.bonus]] damage of the energy type of your choice (cold, fire, lightning).  Any allies engaged with the enemies you are targeting take one fourth damage from each meteor that impacts the area.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
