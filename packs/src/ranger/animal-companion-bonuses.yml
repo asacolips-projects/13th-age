@@ -12,7 +12,7 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: ''
+    value: 'class'
   powerType:
     type: 'String'
     label: 'Power Type'
