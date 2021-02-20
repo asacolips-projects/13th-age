@@ -16,11 +16,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'maneuver'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>That ally''s attack also deals +[[1d6]] (1d6) damage.</p>'
+        value: '<p>That ally''s attack also deals +[[1d6]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The damage bonus increases to +[[3d6]] (3d6).</p>'
+        value: '<p>The damage bonus increases to +[[3d6]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The damage bonus increases to +[[3d12]] (3d12).</p>'
+        value: '<p>The damage bonus increases to +[[3d12]]).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

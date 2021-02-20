@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'maneuver'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: 2
   feats:
     adventurer:
       description:

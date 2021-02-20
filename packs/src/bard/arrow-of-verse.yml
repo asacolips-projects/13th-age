@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[(@ed)d6]] psychic damage (escalation die)'
+    value: '[[(@ed)d6]] psychic damage (escalation die d6s)'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Bonus dice and miss dice are now d12s.</p>'
+        value: '<p>Bonus dice and miss dice are now d12s ([[(@ed)d12]] bonus damage).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

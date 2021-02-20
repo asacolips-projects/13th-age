@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@str.mod+@std+@atk.m.bonus]] OR [[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] OR [[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage'
+    value: '[[@wpn.m.dice+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

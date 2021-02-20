@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: null
+    value: '[[1d4 + 1]] nearby enemies'
   always:
     type: 'String'
     label: 'Always'
@@ -92,7 +92,7 @@ data:
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: '<p>Make the following attack against [[1d4+1]] nearby enemies.</p>'
+    value: '<p>Make the above attack.</p>'
   finalVerse:
     type: 'String'
     label: 'Final Verse'
