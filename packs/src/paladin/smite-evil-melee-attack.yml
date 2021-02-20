@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+    value: '[[1d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: 3
   feats:
     adventurer:
       description:
