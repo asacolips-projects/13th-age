@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Unlike other monks, you have no attack penalty with ranged weapons, including thrown weapons, longbows, shortbows, and crossbows. Your basic ranged attacks also deal miss [[@lvl]] damage.</p>\n<p>Once per battle when you would make a melee attack as an element of one of your monk forms, you can use a ranged attack against a nearby enemy instead. This attack deals damage according to the JAB/PUNCH/KICK hierarchy that’s part of the form rather than WEAPON damage like basic attacks.</p>"
+    value: "<p>Unlike other monks, you have no attack penalty with ranged weapons, including thrown weapons, longbows, shortbows, and crossbows. Your basic ranged attacks also deal miss damage equal to your level.</p>\n<p>Once per battle when you would make a melee attack as an element of one of your monk forms, you can use a ranged attack against a nearby enemy instead. This attack deals damage according to the JAB/PUNCH/KICK hierarchy that’s part of the form rather than WEAPON damage like basic attacks.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
