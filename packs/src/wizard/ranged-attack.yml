@@ -1,4 +1,4 @@
-name: 'Ranged Attack'
+name: 'Ranged Attack (Wizard)'
 permission:
   default: 0
 type: 'power'
@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@dex.mod+@std+@atk.r.bonus vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

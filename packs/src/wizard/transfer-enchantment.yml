@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[floor((2d6*10)/2)]] psychic damage'
+    value: 'Half psychic damage'
   missEven:
     type: 'String'
     label: 'Even Miss'

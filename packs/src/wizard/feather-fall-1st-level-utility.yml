@@ -1,4 +1,4 @@
-name: 'Feather Fall (1st Level Utility)'
+name: 'Feather Fall'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
