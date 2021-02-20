@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>On a miss, the spell deals damage equal to your level [[@lvl]].</p>'
+        value: '<p>On a miss, the spell deals [[@lvl]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The spell now targets [[1d4 + 1]] nearby enemies in a group.</p>'
+        value: '<p>The spell now targets [[1d4+1]] nearby enemies in a group.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

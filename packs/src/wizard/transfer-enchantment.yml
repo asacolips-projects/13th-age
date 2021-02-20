@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[2d6 x 10]] psychic damage, and you can transfer one condition caused by your enemies from you or the ally you are next to over to the target. If timing is required, interpret the transferred condition as if you had caused it with this spell.'
+    value: '[[2d6*10]] psychic damage, and you can transfer one condition caused by your enemies from you or the ally you are next to over to the target. If timing is required, interpret the transferred condition as if you had caused it with this spell.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[2d10 x 10]] damage; if the spell misses, you regain it during your next quick rest.'
+    value: '[[2d10*10]] damage; if the spell misses, you regain it during your next quick rest.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. Intelligence + Level vs. PD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[2d8 x 10]] damage.'
+    value: '[[2d8*10]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[3d8 x 10]] damage.'
+    value: '[[3d8*10]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

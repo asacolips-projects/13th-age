@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[3d4 x 10]] damage.'
+    value: '[[3d4*10]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[3d6 x 10]] damage.'
+    value: '[[3d6*10]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase the number of targets to [[1d4 + 1]].</p>'
+        value: '<p>Increase the number of targets to [[1d4+1]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
