@@ -1,0 +1,166 @@
+name: 'Breath Weapon'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'feature'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: '1'
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: null
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: null
+  target:
+    type: 'String'
+    label: 'Target'
+    value: null
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: null
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: null
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: null
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: null
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: null
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: null
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: null
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: null
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: null
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: null
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>Spells with the <em>breath weapon</em> keyword have a chance to be re-used during battle. Each <em>breath weapon</em> spell lists the chance of re-using it (usually 16+). At the start of each round after you''ve cast the <em>breath weapon </em>spell, make the re-use roll. Success indicates that you may re-use that spell as a standard action, but for that round only. If you fail the re-use roll, you don''t have the option to re-use the spell, but you get another chance at the beginning of the next round.</p><p>The <em>breath weapon</em> power lasts for a single battle only.</p><p>You can have only one <em>breath weapon</em> spell active at a time. If you cast a different <em>breath weapon</em> spell when you have an earlier spell active, the new spell cancels the earlier spell. (See the Chromatic Destroyer Heritage talent for the path to multiple <em>breath weapon</em> spells.)</p><p>Failing a death save cancels any <em>breath weapon</em> spells you have active.</p>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: null
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: null
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: null
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: null
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: null
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: null
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>Failing a death save no longer cancels your <em>breath weapon</em> spells. Keep rolling the entire battle.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: null
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: null
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+flags: {}
+img: 'icons/svg/mystery-man.svg'

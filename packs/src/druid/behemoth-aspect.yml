@@ -1,0 +1,169 @@
+name: 'Behemoth Aspect'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'power'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: null
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'quick'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: ''
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: '<p>Daily, or recharge 16+ for adepts</p>'
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: "<p>Initiate Effect: You gain a +2 bonus to AC and PD.</p>\n<p>Adept Effect: As the initiate effect, and the first time you become staggered this battle, roll a hard save (16+). If you fail, choose one of the two following benefits. If you succeed, you get both.</p>\n<p>Endurance: You can heal using a recovery.</p>\n<p>Wrath: Begin rolling 2d20 for each of your melee attacks and choose the result you prefer until the end of the battle or until you make both rolls for a melee attack and each roll is a natural 10 or less.</p>"
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>The recovery from the adept&rsquo;s endurance effect is now free.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>For adepts, the bonus to AC and PD is now +3 instead of +2.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>The save that determines the adept&rsquo;s benefit(s) is now a normal save.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'icons/svg/mystery-man.svg'

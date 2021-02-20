@@ -1,0 +1,408 @@
+name: 'Ethereal Dybbuk'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 206
+      min: 0
+      max: 206
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 9
+      mod: 16
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    role:
+      type: 'String'
+      label: 'Role'
+      value: 'Wrecker'
+    size:
+      type: 'String'
+      label: 'Size'
+      value: '2x'
+    type:
+      type: 'String'
+      label: 'Type'
+      value: 'Demon'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 12
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags:
+  archmage: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Ethereal Dybbuk'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'Gsx0TSi3j2JBhnJv'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'nul8sHRinRX6sOXl'
+    flags: {}
+    name: 'R: Soul-suck'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'Limited use: If the dybbuk hits the same target with its first two soul-suck attacks, it must make the third attack against a different target if it can (or loses the attack).'
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 12]] vs. MD (3 attacks'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: 'against nearby or far away enemies);38 negative energy damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 0
+  - _id: 'DMzEwfe7ydJ99ME2'
+    flags: {}
+    name: 'Fading'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When the escalation die is 2+, the dybbuk’s soul-suck attack only deals 19 damage, and when it’s 4+, soul-suck only deals 10 damage. When the escalation die reaches 6, the dybbuk fades away at the end of the round. A dybbuk that fades away undefeated is not gone forever and may return in a later adventure.'
+    sort: 100000
+  - _id: 'pXqFR0pcOy412VcS'
+    flags: {}
+    name: 'Fear'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'While engaged with this creature, enemies that have 36 hp or fewer are dazed (–4 attack) and do not add the escalation die to their attacks.'
+    sort: 200000
+  - _id: 'iIB1mFE9F2qIERIS'
+    flags: {}
+    name: 'Flight'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The dybbuk hovers eerily, roughly 6 feet off the ground.'
+    sort: 300000
+  - _id: 'q0ySSoLxoirG6zuW'
+    flags: {}
+    name: 'Otherworldly'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When a melee attack that doesn’t deal holy damage targets this creature, the attacker must roll a natural 18+ on the attack roll or it only deals half damage.'
+    sort: 400000

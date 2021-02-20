@@ -1,0 +1,167 @@
+name: 'Liberating Blow'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'at-will'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 7
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'interrupt'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Close-quarters spell'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: 'A nearby ally fails a disengage check'
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: 'Retain Focus: 1–5.'
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: 'Focus'
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>The triggering ally can make a basic melee attack against<br />an enemy engaged with it as a free action, but it uses your<br />attack roll instead of its own: [[d20+@int.mod+@std+@atk.a.bonus]] vs. MD. On<br />a hit, the attack deals normal damage and the disengage check<br />is successful.</p>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: 'The target can now make an at-will or closequarters attack instead of a basic melee attack, using your attack roll'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: null
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>The target&rsquo;s disengage check is successful whether or not the attack hits.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'icons/svg/mystery-man.svg'

@@ -23,119 +23,119 @@
       "label": "Races",
       "entity": "Item",
       "name": "races",
-      "path": "packs/races.db",
+      "path": "packs/dist/races.db",
       "system": "archmage"
     },
     {
       "label": "Barbarian",
       "entity": "Item",
       "name": "barbarian",
-      "path": "packs/barbarian.db",
+      "path": "packs/dist/barbarian.db",
       "system": "archmage"
     },
     {
       "label": "Bard",
       "entity": "Item",
       "name": "bard",
-      "path": "packs/bard.db",
+      "path": "packs/dist/bard.db",
       "system": "archmage"
     },
     {
       "label": "Cleric",
       "entity": "Item",
       "name": "cleric",
-      "path": "packs/cleric.db",
+      "path": "packs/dist/cleric.db",
       "system": "archmage"
     },
     {
       "label": "Fighter",
       "entity": "Item",
       "name": "fighter",
-      "path": "packs/fighter.db",
+      "path": "packs/dist/fighter.db",
       "system": "archmage"
     },
     {
       "label": "Paladin",
       "entity": "Item",
       "name": "paladin",
-      "path": "packs/paladin.db",
+      "path": "packs/dist/paladin.db",
       "system": "archmage"
     },
     {
       "label": "Ranger",
       "entity": "Item",
       "name": "ranger",
-      "path": "packs/ranger.db",
+      "path": "packs/dist/ranger.db",
       "system": "archmage"
     },
     {
       "label": "Rogue",
       "entity": "Item",
       "name": "rogue",
-      "path": "packs/rogue.db",
+      "path": "packs/dist/rogue.db",
       "system": "archmage"
     },
     {
       "label": "Sorcerer",
       "entity": "Item",
       "name": "sorcerer",
-      "path": "packs/sorcerer.db",
+      "path": "packs/dist/sorcerer.db",
       "system": "archmage"
     },
     {
       "label": "Wizard",
       "entity": "Item",
       "name": "wizard",
-      "path": "packs/wizard.db",
+      "path": "packs/dist/wizard.db",
       "system": "archmage"
     },
     {
       "label": "Chaos Mage",
       "entity": "Item",
       "name": "chaosmage",
-      "path": "packs/chaosmage.db",
+      "path": "packs/dist/chaosmage.db",
       "system": "archmage"
     },
     {
       "label": "Commander",
       "entity": "Item",
       "name": "commander",
-      "path": "packs/commander.db",
+      "path": "packs/dist/commander.db",
       "system": "archmage"
     },
     {
       "label": "Druid",
       "entity": "Item",
       "name": "druid",
-      "path": "packs/druid.db",
+      "path": "packs/dist/druid.db",
       "system": "archmage"
     },
     {
       "label": "Monk",
       "entity": "Item",
       "name": "monk",
-      "path": "packs/monk.db",
+      "path": "packs/dist/monk.db",
       "system": "archmage"
     },
     {
       "label": "Occultist",
       "entity": "Item",
       "name": "occultist",
-      "path": "packs/occultist.db",
+      "path": "packs/dist/occultist.db",
       "system": "archmage"
     },
     {
       "label": "General Feats",
       "entity": "Item",
       "name": "generalfeats",
-      "path": "packs/general-feats.db",
+      "path": "packs/dist/general-feats.db",
       "system": "archmage"
     },
     {
       "label": "SRD Monsters",
       "entity": "Actor",
       "name": "srd-Monsters",
-      "path": "packs/srd-monsters.db",
+      "path": "packs/dist/srd-monsters.db",
       "system": "archmage"
     }
   ],

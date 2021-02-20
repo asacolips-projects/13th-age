@@ -1,0 +1,175 @@
+name: 'Third Poisonous Lesson (Finishing)'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: ''
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'power'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'at-will'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Melee'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: 'One enemy'
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: '[[@wpn.k.dice+@str.dmg+@atk.m.bonus]] damage,'
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: 'As a hit, plus [[10]] ongoing poison damage, and if the target has 45 hp points or fewer, it’s hampered (save ends both). (The hp threshold also goes up automatically based on your level.)'
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: 'As a hit, plus [[5]] ongoing poison damage'
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: 'You take [[@lvl]] damage.'
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: "<p><strong>Natural Even Hit</strong> hp thresholds:</p>\n<p><strong>3rd </strong>level monk 72 hp or fewer.</p>\n<p><strong>5th </strong>level monk 108 hp or fewer.</p>\n<p><strong>7th </strong>level monk 180 hp or fewer.</p>\n<p><strong>9th </strong>level monk 300 hp or fewer.</p>"
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>You gain&nbsp;<em>resist poison 14+</em>.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: ''
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: ''
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+  group:
+    value: ''
+    type: 'String'
+    label: 'Group'
+flags: {}
+img: 'systems/archmage/assets/icons/skills/green_23.jpg'
+effects: []

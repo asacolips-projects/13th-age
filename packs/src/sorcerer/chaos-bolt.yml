@@ -1,0 +1,166 @@
+name: 'Chaos Bolt'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'at-will'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: '1'
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Ranged spell'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: null
+  target:
+    type: 'String'
+    label: 'Target'
+    value: 'Either a single nearby enemy or a single far away enemy with a -2 attack penalty.'
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: '[[1d8+@cha.dmg+@atk.a.bonus]] random energy damage, and if the natural attack roll was even, you gain a chaotic benefit as if you had gathered power.'
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: '[[@lvl]] damage.'
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: null
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: null
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: null
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: null
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: null
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: null
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: null
+  special:
+    type: 'String'
+    label: 'Special'
+    value: '<p>The first time you use <em>chaos bolt</em> each battle, determine a random energy type. The spell deals that type of damage each time you use it that battle.</p>'
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage.'
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage.'
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: '[[7d8+@cha.dmg+@atk.a.bonus]] damage.'
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage.'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: null
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: null
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>You don''t take the –2 penalty for attacking a far away enemy with the spell.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>If you are a champion-tier sorcerer, roll any chaotic benefit gained with this spell on the epic chaotic benefits table. If you are an epic-tier sorcerer, choose the epic chaotic benefit you want instead of rolling.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: null
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+flags: {}
+img: 'icons/svg/mystery-man.svg'
