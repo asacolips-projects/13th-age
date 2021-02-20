@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: '[[1d4 + 1]] nearby enemies'
+    value: '[[1d4+1]] nearby enemies'
   always:
     type: 'String'
     label: 'Always'
