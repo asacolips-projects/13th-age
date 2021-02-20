@@ -49,11 +49,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '3d6 damage, and 5 ongoing cold damage.'
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, and [[5]] ongoing cold damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -109,19 +109,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '6d6 damage.'
+    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '6d10 damage and 10 ongoing cold damage, and you gain flight until the end of your next turn.'
+    value: '[[6d10+@wis.dmg+@atk.d.bonus]] damage and [[10]] ongoing cold damage, and you gain flight until the end of your next turn.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '10d10 damage and 10 ongoing cold damage, and you gain flight until the end of the battle.'
+    value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage and [[10]] ongoing cold damage, and you gain flight until the end of the battle.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ' 2d8 x 10 damage, and 15 ongoing cold damage.'
+    value: ' [[2d8*10+@wis.dmg+@atk.d.bonus]] damage, and [[15]] ongoing cold damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

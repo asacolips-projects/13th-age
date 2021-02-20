@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You end a beast aspect power that you are using and then take only 6d6 damage from the triggering attack and ignore the rest of the damage. You still suffer any other effects of the attack (including ongoing damage).</p>'
+    value: '<p>You end a beast aspect power that you are using and then take only [[6d6]] damage from the triggering attack and ignore the rest of the damage. You still suffer any other effects of the attack (including ongoing damage).</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

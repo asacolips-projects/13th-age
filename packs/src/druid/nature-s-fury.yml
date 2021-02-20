@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When you cast <em>heal</em> on an ally you are next to, that ally adds +30 <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hp</a> to the <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a>.</p>'
+        value: '<p>When you cast <em>heal</em> on an ally you are next to, that ally adds +30 hp to the recovery.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle or until targeted with another beast spirits spell, the target gains a +2 bonus to <a href="https://www.13thagesrd.com/combat-rules#TOC-Physical-Defense-PD-">PD</a> and temporary <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> equal to your level + your Wisdom modifier.</p>'
+    value: '<p>Until the end of the battle or until targeted with another beast spirits spell, the target gains a +2 bonus to PD and temporary hit points equal to your level + your Wisdom modifier.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '2d6 + Wisdom cold damage, or 3d6 + Wisdom cold damage to an enemy you are engaged with.'
+    value: '[[2d6+@wis.dmg+@atk.d.bonus]] cold damage, or [[3d6+@wis.dmg+@atk.d.bonus]] cold damage to an enemy you are engaged with.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -76,7 +76,7 @@ data:
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   cost:
     type: 'String'
     label: 'Cost'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '4d6 damage, or 6d6 to an enemy you are engaged with'
+    value: '[[4d6+@wis.dmg+@atk.a.bonus]] damage, or [[6d6+@wis.dmg+@atk.a.bonus]] to an enemy you are engaged with'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d10 damage, or 6d10 to an enemy you are engaged with.'
+    value: '[[5d10+@wis.dmg+@atk.a.bonus]] damage, or [[6d10+@wis.dmg+@atk.a.bonus]] to an enemy you are engaged with.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ' 8d10 damage, or 10d10 to an enemy you are engaged with.'
+    value: '[[8d10+@wis.dmg+@atk.a.bonus]] damage, or [[10d10+@wis.dmg+@atk.a.bonus]] to an enemy you are engaged with.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d6 x 10 damage, or 2d8 x 10 to an enemy you are engaged with.'
+    value: '[[2d6*10+@wis.dmg+@atk.a.bonus]] damage, or [[2d8*10+@wis.dmg+@atk.a.bonus]] to an enemy you are engaged with.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
