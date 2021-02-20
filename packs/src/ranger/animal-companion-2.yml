@@ -1,4 +1,4 @@
-name: 'Animal Companion 2 (Druid)'
+name: 'Animal Companion 2 (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'

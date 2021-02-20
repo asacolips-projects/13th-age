@@ -1,4 +1,4 @@
-name: 'Animal Companion 2 (Druid)'
+name: 'Animal Companion 3 (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle, your animal companion can turn a disengage success by an enemy it is engaged with into a failure.</p>'
+        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your Lethal Hunter talent also applies to your animal companion.</p>'
+        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,6 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

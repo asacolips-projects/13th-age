@@ -1,4 +1,4 @@
-name: 'Animal Companion Bonuses'
+name: 'Animal Companion 4 (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -24,7 +24,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: '1'
+    value: null
   actionType:
     type: 'String'
     label: 'Action'
@@ -32,15 +32,15 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: null
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: null
+    value: ''
   target:
     type: 'String'
     label: 'Target'
-    value: null
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: null
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: null
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,39 +68,39 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: null
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: null
+    value: ''
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: null
+    value: ''
   cost:
     type: 'String'
     label: 'Cost'
-    value: null
+    value: ''
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
-    value: null
+    value: ''
   castPower:
     type: 'String'
     label: 'Cast for Power'
-    value: null
+    value: ''
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: null
+    value: ''
   finalVerse:
     type: 'String'
     label: 'Final Verse'
-    value: null
+    value: ''
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Each type of animal companion is a little different.</p><h2>Bear (also Giant Badger, Wolverine)</h2><p><strong>Acts</strong>: After ranger</p><p><strong>Advantage</strong>: The bear gains temporary hit points equal to its level each time it hits with an attack.</p><h3>Champion Feat</h3><p>The temporary hit points increase to double its level.</p><h2>Boar (also Spiky Lizard)</h2><p><strong>Acts</strong>: Before ranger</p><p><strong>Advantage</strong>: The boar gains a +1 attack bonus when it moves before its attack during the same turn.</p><h2>Eagle (also Falcon, Hawk, Owl, Vulture)</h2><p><strong>Acts</strong>: Before ranger</p><p><strong>Advantage</strong>: It flies! Its melee damage die is dropped by one size (d6 at level 0).</p><h2>Panther (also Lion, Tiger)</h2><p><strong>Acts</strong>: Before ranger</p><p><strong>Advantage</strong>: The panther''s crit range expands by 2 against enemies with lower initiative.</p><h2>Snake (also Giant Spider, Poison Toad)</h2><p><strong>Acts</strong>: After ranger</p><p><strong>Advantage</strong>: The snake also deals ongoing poison damage equal to twice your level on a natural attack roll of 18+.</p><h3>Champion Feat</h3><p>The ongoing damage is three times your level instead.</p><h3>Epic Feat</h3><p>The ongoing damage is four times your level instead.</p><h2>Wolf (also Big Dog, Coyote, Hyena, Jackal)</h2><p><strong>Acts</strong>: After ranger</p><p><strong>Advantage</strong>: The wolf gains a +1 attack bonus against enemies its master attacked the same turn, or against enemies engaged with its master.</p>'
+    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -108,27 +108,27 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: null
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: null
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: null
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: null
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
-    value: null
+    value: ''
   breathWeapon:
     type: 'String'
     label: 'Breath Weapon'
-    value: null
+    value: ''
   recharge:
     type: 'Number'
     label: 'Recharge'
@@ -136,31 +136,32 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: null
+        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
     champion:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
     epic:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
