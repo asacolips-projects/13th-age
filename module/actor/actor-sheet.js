@@ -244,6 +244,10 @@ export class ActorArchmageSheet extends ActorSheet {
       if (this.actor.getFlag('archmage', 'averageRecoveries')) {
         formula = Math.floor(actorData.attributes.level.value * ((Number(actorData.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
       }
+      // Handle strong recovery. Ignores average results if set!
+      if (this.actor.getFlag('archmage', 'strongRecovery')) {
+        formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
+      }
       // Perform the roll.
       let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
       roll.roll();
