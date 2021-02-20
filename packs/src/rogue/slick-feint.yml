@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p><strong>First</strong> <strong>Target</strong>: One enemy engaged with you</p><p><strong>Attack</strong>: Charisma + Level vs. MD</p><p><strong>Hit</strong>: The target is dazed until the end of your next turn, and you can make an improved attack against a second target.</p><p>Miss (First Target): Your attack action is over; the feint was a screw-up.</p><p><strong>Second</strong> <strong>Target</strong>: A different enemy from the first target that is engaged with you</p><p><strong>Attack</strong>: Dexterity + Level +2 vs. AC</p><p><strong>Hit</strong>: WEAPON + Dexterity damage.</p><p>Miss (Second Target): Damage equal to your level.</p>'
+    value: '<p><strong>First</strong> <strong>Target</strong>: One enemy engaged with you</p><p><strong>Attack</strong>: [[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD</p><p><strong>Hit</strong>: The target is dazed until the end of your next turn, and you can make an improved attack against a second target.</p><p>Miss (First Target): Your attack action is over; the feint was a screw-up.</p><p><strong>Second</strong> <strong>Target</strong>: A different enemy from the first target that is engaged with you</p><p><strong>Attack</strong>: [[d20+2+@dex.mod+@std+@atk.m.bonus]] vs. AC</p><p><strong>Hit</strong>: [[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.</p><p>Miss (Second Target): [[@lvl]] damage.</p>'
   effect:
     type: 'String'
     label: 'Effect'
