@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dexterity + Level vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
@@ -56,11 +56,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: 'Your attack against your ally misses, and deals no damage. The confusion effect you are suffering from ends and you finish your turn normally.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: ''
+    value: '[[(@wpn.r.dice+@dex.dmg+@atk.r.bonus)/2]] damage.'
   crit:
     type: 'String'
     label: 'Crit'
@@ -72,11 +72,11 @@ data:
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: null
+    value: 'Your attack against your ally misses, and deals no damage. The confusion effect you are suffering from ends and you finish your turn normally.'
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: null
+    value: 'No effect.'
   cost:
     type: 'String'
     label: 'Cost'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p><strong>Natural even hit or miss:\_</strong>Your attack against your ally misses, and deals no damage. The confusion effect you are suffering from ends and you finish your turn normally.</p><p><strong>Natural odd hit:</strong>\_Half of WEAPON + Dexterity damage.</p><p><strong>Miss:</strong>\_No effect.</p>"
+    value: null
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

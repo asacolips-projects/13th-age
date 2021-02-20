@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. MD'
+    value: '[[d20+@cha.mod+@std+@atk.r.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
