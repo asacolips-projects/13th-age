@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[2d6+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[2d6+@atk.a.bonus]] damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[2d10+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[2d10+@atk.a.bonus]] damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[3d12+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[3d12+@atk.a.bonus]] damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[4d12+@cha.dmg+@atk.a.bonus]] damage'
+    value: '[[4d12+@atk.a.bonus]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

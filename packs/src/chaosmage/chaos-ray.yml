@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[1d6]] to a different nearby enemy'
+    value: '[[1d6]] damage to a different nearby enemy'
   missEven:
     type: 'String'
     label: 'Even Miss'

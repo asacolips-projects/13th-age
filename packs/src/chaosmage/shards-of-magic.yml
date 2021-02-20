@@ -56,7 +56,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '[[1d6+@cha.dmg+@atk.a.bonus]] force damage and you can roll a hard save 16+.  If you succeed, you get an extra standard action this turn.'
+    value: '[[1d6+@cha.dmg+@atk.a.bonus]] force damage and you can roll a hard save (16+). If you succeed, you get an extra standard action this turn.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
