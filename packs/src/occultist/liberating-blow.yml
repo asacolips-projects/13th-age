@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The triggering ally can make a basic melee attack against<br />an enemy engaged with it as a free action, but it uses your<br />attack roll instead of its own: Intelligence + Level vs. MD. On<br />a hit, the attack deals normal damage and the disengage check<br />is successful.</p>'
+    value: '<p>The triggering ally can make a basic melee attack against<br />an enemy engaged with it as a free action, but it uses your<br />attack roll instead of its own: [[d20+@int.mod+@std+@atk.a.bonus]] vs. MD. On<br />a hit, the attack deals normal damage and the disengage check<br />is successful.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma+ Level vs. PD [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[1d20+@cha.mod+@std+@atk.a.bonus]]'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d8 + Charisma damage. [[1d8+@cha.dmg]]'
+    value: '[[1d8+@cha.dmg+@atk.a.bonus]]'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[1d6]] 1d6 damage to a different nearby enemy'
+    value: '[[1d6]] damage to a different nearby enemy'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '4d6 + Charisma Damage [[4d6+@cha.dmg]] :  1d10 miss [[1d10]]'
+    value: '[[4d6+@cha.dmg+@atk.a.bonus]] :  [[1d10]] miss'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '6d6 + Charisma Damage [[6d6+@cha.dmg]] :  2d12 miss [[2d12]]'
+    value: '[[6d6+@cha.dmg+@atk.a.bonus]] :  [[2d12]] miss'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '6d10 + Charisma Damage [[6d10+@cha.dmg]] :  3d12 miss [[3d12]]'
+    value: '[[6d10+@cha.dmg+@atk.a.bonus]] :  [[3d12]] miss'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '8d10 + Charisma Damage [[8d10+@cha.dmg]] :  5d12 miss [[5d12]]'
+    value: '[[8d10+@cha.dmg+@atk.a.bonus]] :  [[5d12]] miss'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
