@@ -242,7 +242,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
       // Handle average results.
       if (this.actor.getFlag('archmage', 'averageRecoveries')) {
-        formula = actorData.attributes.level.value * (Number(actorData.attributes.recoveries.dice.replace('d', '')) / 2) + actorData.abilities.con.mod;
+        formula = Math.floor(actorData.attributes.level.value * ((Number(actorData.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
       }
       // Perform the roll.
       let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);

@@ -1,5 +1,5 @@
 import { ARCHMAGE } from './setup/config.js';
-import { ActorArchmage } from './actor/actor.js';
+import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
@@ -198,12 +198,41 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'automateBaseStatsFromClass', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'lastTourVersion', {
     scope: 'client',
     config: false,
     default: "1.6.0",
     type: String,
   });
+
+  game.settings.register('archmage', 'colorBlindMode', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
+    scope: 'client',
+    config: true,
+    default: 'default',
+    type: String,
+    choices: {
+      default: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptionDefault"),
+      colorBlindRG: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG"),
+      colorBlindBY: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY"),
+      // custom: game.i18n.localize("ARCHMAGE.SETTINGS.Custom"),
+    },
+    onChange: () => {
+      $('body').removeClass(['default', 'colorBlindRG', 'colorBlindBY', 'custom']).addClass(game.settings.get('archmage', 'colorBlindMode'));
+    }
+  });
+  //Adding the colorblind mode class at startup
+  $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
@@ -576,6 +605,8 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
     }
   }
 });
+
+Hooks.on('preUpdateActor', archmagePreUpdateCharacterData);
 
 /* ---------------------------------------------- */
 
