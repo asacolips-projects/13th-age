@@ -52,11 +52,11 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage, and if your natural attack roll was even, the target takes ongoing damage equal to [[d4*@lvl]].'
+    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: 'The target takes [[d4*@lvl]] ongoing damage.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>A natural even miss also deals ongoing [[@lvl]] damage.</p>'
+        value: '<p>A natural even miss also deals [[@lvl]] ongoing damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

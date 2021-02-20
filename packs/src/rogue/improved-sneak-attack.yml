@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Your Sneak Attack damage is better than other rogues. Use the following Sneak Attack bonus damage progression instead.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Rogue Level</th><th>Extra Damage</th></tr></thead><tbody><tr><td class="rtecenter"><strong>1</strong></td><td class="rtecenter">+1d6</td></tr><tr><td class="rtecenter"><strong>2</strong></td><td class="rtecenter">+1d8</td></tr><tr><td class="rtecenter"><strong>4</strong></td><td class="rtecenter">+2d8</td></tr><tr><td class="rtecenter"><strong>6</strong></td><td class="rtecenter">+3d8</td></tr><tr><td class="rtecenter"><strong>8</strong></td><td class="rtecenter">+5d8</td></tr><tr><td class="rtecenter"><strong>10</strong></td><td class="rtecenter">+7d8</td></tr></tbody></table>'
+    value: '<p>Your Sneak Attack damage is better than other rogues. Use the following Sneak Attack bonus damage progression instead.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Rogue Level</th><th>Extra Damage</th></tr></thead><tbody><tr><td class="rtecenter"><strong>1</strong></td><td class="rtecenter">+[[1d6]]</td></tr><tr><td class="rtecenter"><strong>2</strong></td><td class="rtecenter">+[[1d8]]</td></tr><tr><td class="rtecenter"><strong>4</strong></td><td class="rtecenter">+[[2d8]]</td></tr><tr><td class="rtecenter"><strong>6</strong></td><td class="rtecenter">+[[3d8]]</td></tr><tr><td class="rtecenter"><strong>8</strong></td><td class="rtecenter">+[[5d8]]</td></tr><tr><td class="rtecenter"><strong>10</strong></td><td class="rtecenter">+[[7d8]]</td></tr></tbody></table>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
