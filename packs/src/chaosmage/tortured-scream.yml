@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. MD  [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '3d6 + Charisma psychic damage. [[3d6+@cha.dmg]]'
+    value: '[[3d6+@cha.dmg+@atk.a.bonus]] psychic damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level. [[@lvl]]'
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>When you cast the spell, you or a willing nearby ally of your choice loses 1d6 hit points [[1d6]].</p>'
+    value: '<p>When you cast the spell, you or a willing nearby ally of your choice loses [[1d6]] hit points.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '6d6 damage [[6d6+@cha.dmg]] and you or ally loses 2d6 hit points.  [[2d6]]'
+    value: '[[6d6+@cha.dmg+@atk.a.bonus]] damage and you or ally loses [[2d6]] hit points.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '6d10 damage, [[6d10+@cha.dmg]] and you or ally loses 4d6 hit points. [[4d6]]'
+    value: '[[6d10+@cha.dmg+@atk.a.bonus]] damage, and you or ally loses [[4d6]] hit points.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '10d10 damage [[10d10+@cha.dmg]] and you or ally loses 6d6 hit points.   [[6d6]]'
+    value: '[[10d10+@cha.dmg+@atk.a.bonus]] damage and you or ally loses [[6d6]] hit points.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d8 x 10 damage  [[2d8*10+@cha.dmg]] and you or ally loses 8d6 hit points.  [[8d6]]'
+    value: '[[2d8*10+@cha.dmg+@atk.a.bonus]] damage and you or ally loses [[8d6]] hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. MD  [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '7d10 + Charisma psychic damage.   [[7d10+@cha.dmg]]'
+    value: '[[7d10+@cha.dmg+@atk.a.bonus]] psychic damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'On miss: 8d10 + Charisma psychic damage.   [[8d10+@cha.dmg]] '
+    value: 'On miss: [[8d10+@cha.dmg+@atk.a.bonus]] psychic damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

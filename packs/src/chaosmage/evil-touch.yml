@@ -48,15 +48,15 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD  [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d10 + Charisma negative energy damage. [[1d10+@cha.dmg]]'
+    value: '[[1d10+@cha.dmg+@atk.a.bonus]] negative energy damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus you gain 5 temporary hit points if the target drops to 0 hp during the battle.'
+    value: 'As a hit, plus you gain [[5]] temporary hit points if the target drops to 0 hp during the battle.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d10 damage [[3d10+@cha.dmg]], 8 temporary hit points.'
+    value: '[[3d10+@cha.dmg+@atk.a.bonus]] damage, [[8]] temporary hit points.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d10 damage [[5d10+@cha.dmg]], 10 temporary hit points.'
+    value: '[[5d10+@cha.dmg+@atk.a.bonus]] damage, [[10]] temporary hit points.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d10 damage [[7d10+@cha.dmg]], 15 temporary hit points.'
+    value: '[[7d10+@cha.dmg+@atk.a.bonus]] damage, [[15]] temporary hit points.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d10 damage [[9d10+@cha.dmg]], 25 temporary hit points.'
+    value: '[[9d10+@cha.dmg+@atk.a.bonus]] damage, [[25]] temporary hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
