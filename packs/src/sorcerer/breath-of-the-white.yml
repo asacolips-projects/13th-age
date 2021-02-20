@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: '1d2 nearby enemies in a group; breath weapon'
+    value: '[[1d2]] nearby enemies in a group; breath weapon'
   always:
     type: 'String'
     label: 'Always'
