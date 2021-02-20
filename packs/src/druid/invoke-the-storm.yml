@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Roll a [[d3*5]]. Deal lightning damage equal to the total to one nearby enemy other than the target of the triggering attack.</p>'
+    value: '<p>Deal [[d3*5]] lightning damage to one nearby enemy other than the target of the triggering attack.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Roll a [[d4*5]] instead of a d3.</p>'
+        value: '<p>[[d4*5]] damage instead.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>[[(@ed+d6)*5]] for the damage you deal.</p>'
+        value: '<p>[[(@ed+1d6)*5]]damage instead.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

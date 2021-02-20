@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Each elemental you summon gains temporary hit points equal to your level the first time each turn it rolls a natural even attack roll.</p>'
+        value: '<p>Each elemental you summon gains [[@lvl]] temporary hit points the first time each turn it rolls a natural even attack roll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
