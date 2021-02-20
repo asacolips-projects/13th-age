@@ -21,7 +21,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -29,7 +29,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>While you have an <em>earth</em> or <em>metal </em>warp effect active, when an enemy in the battle drops to 0 hp, you gain temporary hit points equal to your Charisma modifier (double your Charisma modifier at 5th level;triple it at 8th level).</p>'
+        value: '<p>While you have an <em>earth</em> or <em>metal </em>warp effect active, when an enemy in the battle drops to 0 hp, you gain [[@cha.dmg]] temporary hit points.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

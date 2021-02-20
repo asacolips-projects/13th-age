@@ -21,7 +21,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -29,7 +29,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
