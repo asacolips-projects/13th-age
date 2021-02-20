@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: ' [[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
@@ -56,11 +56,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '[[(@lvl)d10+@str.dmg+@atk.m.bonus]] or [[(@lvl)d10+@dex.dmg+@atk.m.bonus]] damage.'
+    value: '[[(@lvl)d10+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: '[[(@lvl)d6+@str.dmg+@atk.m.bonus]] or [[(@lvl)d6+@dex.dmg+@atk.m.bonus]] damage.'
+    value: '[[(@lvl)d6+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
   crit:
     type: 'String'
     label: 'Crit'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>For both initiates and adepts, your second beast form attack (the one you roll when the first attack misses) now deals miss [[@lvl]] damage. If you are a Shifter adept, you can have two beast aspects active at the same time. If you start using a third aspect, one of the two previous aspects of your choice ends.</p>'
+        value: '<p>For both initiates and adepts, your second beast form attack (the one you roll when the first attack misses) now deals [[@lvl]] miss damage. If you are a Shifter adept, you can have two beast aspects active at the same time. If you start using a third aspect, one of the two previous aspects of your choice ends.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

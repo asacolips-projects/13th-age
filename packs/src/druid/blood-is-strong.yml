@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'You now heal hit points equal to [[2d10+(2*@wis.dmg)]] modifier.'
+    value: 'You now heal hit points equal to [[2d10+(2*@wis.mod)]] modifier.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
