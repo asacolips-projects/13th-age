@@ -1,4 +1,4 @@
-name: 'Smite Evil'
+name: '(Smite Evil) Melee attack'
 permission:
   default: 0
 type: 'power'
@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: null
+    value: 'One enemy'
   always:
     type: 'String'
     label: 'Always'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: null
+    value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: null
+    value: '[[d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: null
+    value: 'Half damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You can use this talent once per battle, plus an additional number of times per day equal to your Charisma modifier.</p><p>As a free action before you make a paladin melee attack roll, you can declare that you''re using a Smite Evil attack. Add 1d12 to the damage roll AND deal half damage with the attack if it misses.</p>'
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your Smite Evil attacks gain a +4 attack bonus.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Add 2d12 to the damage roll instead of 1d12.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add 4d12 to the damage roll instead of 2d12.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
