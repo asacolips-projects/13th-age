@@ -215,5 +215,6 @@ exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
   compileScss,
   compileYaml,
+  cleanPacks,
   compilePacks
 );
