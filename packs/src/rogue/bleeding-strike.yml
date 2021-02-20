@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dexterity + Level vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'WEAPON + Dexterity damage, and if your natural attack roll was even, the target takes ongoing damage equal to 1d4 times your level.'
+    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage, and if your natural attack roll was even, the target takes ongoing damage equal to [[d4*@lvl]].'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The ongoing damage against large or huge targets increases to 1d6 times your level.</p>'
+        value: '<p>The ongoing damage against large or huge targets increases to [[@lvl*1d6]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>A natural even miss also deals ongoing damage equal to your level.</p>'
+        value: '<p>A natural even miss also deals ongoing [[@lvl]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

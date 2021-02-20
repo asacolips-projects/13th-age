@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Intelligence + Level vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '3d6 + Wisdom psychic damage'
+    value: '[[3d6+@wis.dmg+@atk.a.bonus]] psychic damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '5d6 damage'
+    value: '[[5d6+@wis.dmg+@atk.a.bonus]] damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d10 damage'
+    value: '[[5d10+@wis.dmg+@atk.a.bonus]] damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d10 damage'
+    value: '[[7d10+@wis.dmg+@atk.a.bonus]] damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '10d10 damage'
+    value: '[[10d10+@wis.dmg+@atk.a.bonus]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

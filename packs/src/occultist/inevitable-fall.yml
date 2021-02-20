@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Intelligence + Level vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '4d8 + Wisdom psychic damage, and 5 ongoing psychic damage.'
+    value: '[[4d8+@wis.dmg+@atk.a.bonus]] psychic damage, and [[5]] ongoing psychic damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '5 ongoing psychic damage'
+    value: '[[5]] ongoing psychic damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '8d6 damage, and 10 ongoing damage. 10 ongoing damage on a miss.'
+    value: '[[8d6+@wis.dmg+@atk.a.bonus]] damage, and [[10]] ongoing damage. [[10]] ongoing damage on a miss.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '8d10 damage, and 15 ongoing damage. 15 ongoing damage on a miss'
+    value: '[[8d10+@wis.dmg+@atk.a.bonus]] damage, and [[15]] ongoing damage. [[15]] ongoing damage on a miss'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '2d6 x 10 damage, and 25 ongoing damage. 25 ongoing damage on a miss.'
+    value: '[[2d6*10+@wis.dmg+@atk.a.bonus]]]] damage, and [[25]] ongoing damage. [[25]] ongoing damage on a miss.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d10 x 10 damage, and 35 ongoing damage. 35 ongoing damage on a miss.'
+    value: '[[2d10*10+@wis.dmg+@atk.a.bonus]]]] damage, and [[35]] ongoing damage. [[35]] ongoing damage on a miss.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
