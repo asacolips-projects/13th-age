@@ -52,11 +52,11 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[1d8+@cha.dmg+@atk.a.bonus]] random energy damage, and if the natural attack roll was even, you gain a chaotic benefit as if you had gathered power.'
+    value: '[[1d8+@cha.dmg+@atk.a.bonus]] random energy damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: 'You gain a chaotic benefit as if you had gathered power'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
