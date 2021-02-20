@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You can use this talent once per battle, plus an additional number of times per day equal to your Charisma modifier.</p><p>As a free action before you make a paladin melee attack roll, you can declare that you''re using a Smite Evil attack. Add +1d12 to the damage roll AND deal half damage with the attack if it misses.</p>'
+    value: '<p>You can use this talent once per battle, plus an additional number of times per day equal to your Charisma modifier.</p><p>As a free action before you make a paladin melee attack roll, you can declare that you''re using a Smite Evil attack. Add [[1d12]] to the damage roll AND deal half damage with the attack if it misses.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Add 2d12 to the damage roll instead of 1d12.</p>'
+        value: '<p>Add [[2d12]] to the damage roll instead of 1d12.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add 4d12 to the damage roll instead of 2d12.</p>'
+        value: '<p>Add [[4d12]] to the damage roll instead of 2d12.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
