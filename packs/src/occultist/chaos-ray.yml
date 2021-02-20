@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: ' [[1d20+@cha.mod+@std+@atk.a.bonus'
+    value: '[[1d20+@cha.mod+@std+@atk.a.bonus]]'
   hit:
     type: 'String'
     label: 'Hit'

@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>On a hit, the target also takes psychic [[@lvl + (2*@wis.mod)]] damage ([[@lvl + (3*@wis.mod)]] at 8th level).</p>'
+        value: '<p>On a hit, the target also takes  [[@lvl+@wis.dmg]] psychic damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
