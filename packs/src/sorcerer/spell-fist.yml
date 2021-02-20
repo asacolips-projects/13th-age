@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>When you miss with a sorcerer spell against an enemy you are engaged with, add [[#cha.dmg]] to the damage you deal.</p>'
+        value: '<p>When you miss with a sorcerer spell against an enemy you are engaged with, add [[@cha.dmg]] to the damage you deal.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

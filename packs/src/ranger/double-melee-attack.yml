@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -32,7 +32,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: null
+    value: 'Melee attack'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: null
+    value: 'One enemy'
   always:
     type: 'String'
     label: 'Always'
@@ -48,15 +48,15 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: null
+    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: null
+    value: '[[(@lvl)d(@wpn.m.dieNum - 2)+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: 'Make a second attack as a free action'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,11 +68,11 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: null
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: null
+    value: 'Make a second attack as a free action'
   missOdd:
     type: 'String'
     label: 'Odd Miss'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When fighting with two one-handed melee weapons, your default option is to make a double melee attack.</p><p>Your weapon damage die drops one notch, usually from d8s to d6s. If your first attack is a natural even roll (hit or miss), you can make a second attack as a free action.</p><p>If you decide you don''t want to try for a double melee attack while fighting with two one-handed weapons, declare it before rolling your attack; the single attack will deal the normal damage dice instead of using reduced damage dice.</p>'
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your second attack gains a +2 attack bonus if it is against a different target.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per battle, use Double Melee Attack after an odd attack roll.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Each turn, you can pop free of one enemy before one attack roll that is part of a Double Melee Attack. You can also use your move action in between your two attacks if you wish.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
