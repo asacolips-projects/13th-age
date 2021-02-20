@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '3d6 + Charisma thunder damage, and the first enemy that hits you with a melee attack before the start of your next turn takes 2d6 thunder damage. (An empowered spell does not double this aftershock damage.)'
+    value: '[[3d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the first enemy that hits you with a melee attack before the start of your next turn takes [[2d6]] thunder damage. (An empowered spell does not double this aftershock damage.)'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d6 damage; 2d6 aftershock damage.'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage; [[2d6]] aftershock damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d6 damage; 3d6 aftershock damage.'
+    value: '[[7d6+@cha.dmg+@atk.a.bonus]] damage; [[3d6]] aftershock damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d6 damage; 4d6 aftershock damage.'
+    value: '[[9d6+@cha.dmg+@atk.a.bonus]] damage; [[4d6]] aftershock damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

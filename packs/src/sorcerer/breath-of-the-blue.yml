@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '10d12 + Charisma lightning damage, and at the start of the target&#039;s next turn, 1d6 of its nearby allies take 20 lightning damage.'
+    value: '[[10d12+@cha.dmg+@atk.a.bonus]] lightning damage, and at the start of the target&#039;s next turn, [[1d6]] of its nearby allies take [[20]] lightning damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d10 x 10 damage; 25 lightning damage to nearby allies.'
+    value: '[[2d10*10+@cha.dmg+@atk.a.bonus]]]] damage; [[25]] lightning damage to nearby allies.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
