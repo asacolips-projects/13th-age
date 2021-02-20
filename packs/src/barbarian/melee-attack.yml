@@ -32,7 +32,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: null
+    value: 'Melee attack'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
