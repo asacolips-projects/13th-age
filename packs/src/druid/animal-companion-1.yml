@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, your animal companion can attack twice in a round with a <a href="https://www.13thagesrd.com/combat-rules#TOC-Standard-Move-and-Quick-Actions">standard action</a>.</p>'
+        value: '<p>Once per day, your animal companion can attack twice in a round with a standard action.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

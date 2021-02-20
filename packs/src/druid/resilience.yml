@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain 5 temporary <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> and resist damage 12+ against attacks that target <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> until two attacks against you have had their damage halved from that resistance.</p>'
+    value: '<p>You gain [[5]] temporary hit points and resist damage 12+ against attacks that target AC until two attacks against you have had their damage halved from that resistance.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The damage resistance also applies to attacks that target <a href="https://www.13thagesrd.com/combat-rules#TOC-Physical-Defense-PD-">PD</a>.</p>'
+        value: '<p>The damage resistance also applies to attacks that target PD.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You now gain 10 temporary <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> instead of 5, and the damage resistance increases to 14+.</p>'
+        value: '<p>You now gain [[10]] temporary hit points instead of 5, and the damage resistance increases to 14+.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You now gain 15 temporary <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> instead of 10, and the damage resistance increases to 16+.</p>'
+        value: '<p>You now gain [[15]] temporary hit points instead of 10, and the damage resistance increases to 16+.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

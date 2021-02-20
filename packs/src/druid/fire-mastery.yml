@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When an elemental you have summoned drops to 0 <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hp</a>, one enemy engaged with it takes damage equal to your level + double your Wisdom modifier.</p>'
+        value: '<p>When an elemental you have summoned drops to 0 hp, one enemy engaged with it takes [[@lvl + (2*@wis.mod)]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

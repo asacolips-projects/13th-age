@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, when the target hits with a melee attack, you heal <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> equal to 1d10 + your Wisdom modifier.</p>'
+    value: '<p>Until the end of the battle, when the target hits with a melee attack, you heal hit points equal to [[1d10+@wis.dmg]] modifier.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'You now heal hit points equal to 2d10 + double your Wisdom modifier.'
+    value: 'You now heal hit points equal to [[2d10+(2*@wis.mod)]] modifier.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

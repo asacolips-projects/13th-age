@@ -49,11 +49,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d8 + Wisdom lightning damage, or 2d8 + Wisdom lightning damage against a creature that is flying.'
+    value: '[[1d8+@wis.dmg+@atk.d.bonus]] lightning damage, or [[2d8+@wis.dmg+@atk.d.bonus]] lightning damage against a creature that is flying.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -69,7 +69,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -109,19 +109,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d6 damage, or 6d6 against a flying creature.'
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d6+@wis.dmg+@atk.d.bonus]] against a flying creature.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ' 5d6 damage, or 6d10 against a flying creature.'
+    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, or [[6d10+@wis.dmg+@atk.d.bonus]] against a flying creature.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ' 5d8 damage, or 10d8 against a flying creature.'
+    value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage, or [[10d8+@wis.dmg+@atk.d.bonus]] against a flying creature.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '8d10 damage, or 3d6 x 10 against a flying creature.'
+    value: '[[8d10+@wis.dmg+@atk.d.bonus]] damage, or [[3d6*10+@wis.dmg+@atk.d.bonus]] against a flying creature.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

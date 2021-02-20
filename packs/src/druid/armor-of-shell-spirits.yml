@@ -100,11 +100,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You must spend a <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a> to cast this spell.</p>'
+    value: '<p>You must spend a recovery to cast this spell.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, the target gains resist damage 12+ against attacks that target <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a>.</p>'
+    value: '<p>Until the end of the battle, the target gains resist damage 12+ against attacks that target AC.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
