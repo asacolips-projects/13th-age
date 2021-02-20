@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '5d6 + Charisma thunder damage'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] thunder damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -92,7 +92,7 @@ data:
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: '<p>Make the following attack against 1d4 + 1 nearby enemies.</p>'
+    value: '<p>Make the following attack against [[1d4+1]] nearby enemies.</p>'
   finalVerse:
     type: 'String'
     label: 'Final Verse'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '7d6 damage.'
+    value: '[[7d6+@cha.dmg+@atk.a.bonus]] damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '9d8 damage.'
+    value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '10d12 damage.'
+    value: '[[10d12+@cha.dmg+@atk.a.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The number of targets increases to 2d4.</p>'
+        value: '<p>The number of targets increases to [[2d4]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

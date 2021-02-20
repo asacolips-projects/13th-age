@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: '1d4 nearby enemies in a group'
+    value: '[[1d4]] nearby enemies in a group'
   always:
     type: 'String'
     label: 'Always'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '5d6 + Charisma thunder damage, and the target is dazed until end of your next turn.'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the target is dazed until end of your next turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage, and deal thunder damage equal to your level to each of your allies engaged with the target.'
+    value: 'Half damage, and deal thunder [[@lvl]] damage to each of your allies engaged with the target.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '6d8 damage'
+    value: '[[6d8+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '8d10 damage'
+    value: '[[8d10+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '2d6 x 10 damage'
+    value: '[[2d6*10+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '3d6 x 10 damage'
+    value: '[[3d6*10+@cha.dmg+@atk.a.bonus]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You can now target 1d4 + 1 enemies in a group with the spell.</p>'
+        value: '<p>You can now target [[1d4+1]] enemies in a group with the spell.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

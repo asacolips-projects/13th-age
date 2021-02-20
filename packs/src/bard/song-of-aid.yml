@@ -92,7 +92,7 @@ data:
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: '<p>You or a nearby ally gains 3d6 temporary hit points.</p>'
+    value: '<p>You or a nearby ally gains [[3d6]] temporary hit points.</p>'
   finalVerse:
     type: 'String'
     label: 'Final Verse'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d6 tempory hit points; sustain the song on a 9+.'
+    value: '[[5d6]] tempory hit points; sustain the song on a 9+.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d6 temporary hit points, and the recovery from the final verse is free.'
+    value: '[[7d6]] temporary hit points, and the recovery from the final verse is free.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d8 temporary hit points; sustain the song on a 7+.'
+    value: '[[9d8]] temporary hit points; sustain the song on a 7+.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. MD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d4 + Charisma thunder damage'
+    value: '[[1d4+@cha.dmg+@atk.a.bonus]] thunder damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '2d4 damage'
+    value: '[[2d4+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '4d4 damage'
+    value: '[[4d4+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '6d4 damage'
+    value: '[[6d4+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '10d4 damage'
+    value: '[[10d4+@cha.dmg+@atk.a.bonus]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

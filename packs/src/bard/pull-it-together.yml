@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The target adds +1d4 healing per point on the escalation die.</p>'
+        value: '<p>The target adds [[(@ed)d4]](+1d4 healing per point on the escalation die).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The attack can now also trigger on any natural even roll; the extra healing is now +1d6 per point.</p>'
+        value: '<p>The attack can now also trigger on any natural even roll; the extra healing is now [[(@ed)d6]](+1d6 per point).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: "<p>You can use\_<em>pull it together</em>\_three times per battle; the extra healing is now +1d10 per point.</p>"
+        value: "<p>You can use\_<em>pull it together</em>\_three times per battle; the extra healing is now [[(@ed)d10]](+1d10 per point).</p>"
       isActive:
         type: 'Boolean'
         label: 'Active'
