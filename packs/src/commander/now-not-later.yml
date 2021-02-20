@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The target gains a bonus to the recharge roll equal to your Charisma modifier ([[@cha.mod]]).</p>'
+        value: '<p>The target gains a +[[@cha.mod]] bonus to the recharge roll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

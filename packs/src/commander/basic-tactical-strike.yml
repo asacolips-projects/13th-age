@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>On a hit, the attack gains a damage bonus equal to your Charisma modifier ([[@cha.mod]]).</p>'
+        value: '<p>On a hit, the attack gains a +[[@cha.mod]] damage bonus.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The target gains an attack bonus equal to your Charisma modifier ([[@cha.mod]]) with that attack.</p>'
+        value: '<p>The target gains a +[[@cha.mod]] attack bonus with that attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
