@@ -13,6 +13,7 @@ ARCHMAGE.powerTypes = {
   'feature': 'Feature',
   'talent': 'Talent',
   'maneuver': 'Maneuver',
+  'flexible': 'Flexible Attack',
   'spell': 'Spell',
   'other': 'Other'
 };
