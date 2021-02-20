@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. PD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[4d4 x 10]] damage of the energy type of your choice (cold, fire, lightning).  Any allies engaged with the enemies you are targeting take [[floor((4d4*10)/4)]] damage from each meteor that impacts the area.'
+    value: '[[4d4*10+@atk.a.bonus]] damage of the energy type of your choice (cold, fire, lightning).  Any allies engaged with the enemies you are targeting take one fourth damage from each meteor that impacts the area.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Each meteor now deals [[5d4 x 10]] damage.</p>'
+        value: '<p>Each meteor now deals [[5d4*10]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
