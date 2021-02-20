@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@dex.mod+@lvl+@ed]] vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.r.bonus vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'damage[[wpn.r.dice+@dex.dmg]]'
+    value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]]'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

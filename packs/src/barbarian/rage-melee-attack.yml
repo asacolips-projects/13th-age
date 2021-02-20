@@ -1,4 +1,4 @@
-name: 'Nobody''s Fool (for long)'
+name: '(Rage) Melee attack'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -24,7 +24,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: '7'
+    value: '1'
   actionType:
     type: 'String'
     label: 'Action'
@@ -32,7 +32,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: 'Melee attack'
+    value: null
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'One of your usual allies'
+    value: 'One enemy'
   always:
     type: 'String'
     label: 'Always'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dexterity + Level vs. AC'
+    value: '[[2d20kh+@str.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: null
+    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: null
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -100,11 +100,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>This attack can only be used in place of a basic attack when you are confused and are therefore forced to attack one of your allies.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p><strong>Natural even hit or miss:\_</strong>Your attack against your ally misses, and deals no damage. The confusion effect you are suffering from ends and you finish your turn normally.</p><p><strong>Natural odd hit:</strong>\_Half of WEAPON + Dexterity damage.</p><p><strong>Miss:</strong>\_No effect.</p>"
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When you roll a natural even hit or miss with the attack, you also gain another standard action this turn.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'

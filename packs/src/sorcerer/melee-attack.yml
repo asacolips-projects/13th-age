@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Strength + Level vs. AC'
+    value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'WEAPON + Strength damage'
+    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level'
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'

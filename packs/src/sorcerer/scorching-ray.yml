@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d6 + Charisma fire damage, and if the natural attack roll is even, the target also takes 1d8 ongoing fire damage.'
+    value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage, and if the natural attack roll is even, the target also takes [[1d8]] ongoing fire damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d6 damage; 2d4 ongoing.'
+    value: '[[3d6+@cha.dmg+@atk.a.bonus]] damage; [[2d4]] ongoing.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '4d6 damage; 2d6 ongoing.'
+    value: '[[4d6+@cha.dmg+@atk.a.bonus]] damage; [[2d6]] ongoing.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '6d6 damage; 3d6 ongoing.'
+    value: '[[6d6+@cha.dmg+@atk.a.bonus]] damage; [[3d6]] ongoing.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '10d6 damage; 5d6 ongoing.'
+    value: '[[10d6+@cha.dmg+@atk.a.bonus]] damage; [[5d6]] ongoing.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dextery + Level vs. PD'
+    value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'Half of WEAPON + Dexterity damage (including Sneak Attack damage if any), and roll a normal save. If you succeed, you can pickpocket an item from the target that they are not holding. (If you roll 16+, the target doesn&#039;t realize you pickpocketed them.)'
+    value: '[[(@wpn.m.dice+@dex.dmg+@atk.m.bonus)/2]] damage (including Sneak Attack damage if any), and roll a normal save. If you succeed, you can pickpocket an item from the target that they are not holding. (If you roll 16+, the target doesn&#039;t realize you pickpocketed them.)'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

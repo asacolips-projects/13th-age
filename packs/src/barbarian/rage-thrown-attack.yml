@@ -1,4 +1,4 @@
-name: 'Resistance is Delicious'
+name: '(Rage) Thrown attack'
 permission:
   default: 0
 type: 'power'
@@ -16,15 +16,15 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: '7'
+    value: '1'
   actionType:
     type: 'String'
     label: 'Action'
@@ -32,7 +32,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: 'Melee attack'
+    value: null
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dexterity + Level vs. AC'
+    value: '[[2d20kh+@dex.mod+@std+@atk.r.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'Weapon + Dexterity damage, and ignore any resistance the target has to your attack.'
+    value: '[[@wpn.m.dice+@dex.dmg+@atk.r.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The next ally who attacks the target also ignores its resistance.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
