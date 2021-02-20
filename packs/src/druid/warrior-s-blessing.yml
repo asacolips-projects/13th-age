@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You heal hit points equal to your [[@str.dmg]] or [[@dex.dmg]].</p>'
+    value: '<p>You heal [[max(@str.dmg,@dex.dmg)]] hit points.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
