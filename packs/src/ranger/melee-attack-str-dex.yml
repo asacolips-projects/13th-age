@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@str.mod+@std+@atk.m.bonus]] (Str) OR [[d20+@dex.mod+@std+@atk.m.bonus]] (Dex) vs. AC'
+    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
