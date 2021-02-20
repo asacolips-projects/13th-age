@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain 4 additional background points that must be used somehow in relation to knowledge or lore.</p><p><strong>Invocation of Knowledge/Lore</strong>: You must use this invocation during your first round of a battle. When you do, you get a quick glimpse of the battle’s future. Roll a d6; as a free action at any point after the escalation die equals the number you rolled, you can allow one of your allies to reroll a single attack roll with a +2 bonus thanks to your vision of this future.</p>'
+    value: '<p>You gain 4 additional background points that must be used somehow in relation to knowledge or lore.</p><p><strong>Invocation of Knowledge/Lore</strong>: You must use this invocation during your first round of a battle. When you do, you get a quick glimpse of the battle’s future. Roll a [[d6]]; as a free action at any point after the escalation die equals the number you rolled, you can allow one of your allies to reroll a single attack roll with a +2 bonus thanks to your vision of this future.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You now roll a d4 for the invocation, not a d6.</p>'
+        value: '<p>You now roll a [[d4]] for the invocation, not a d6.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The tactic now affects [[1d3 + 1]] nearby allies.</p>'
+        value: '<p>The tactic now affects [[1d3+1]] nearby allies.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

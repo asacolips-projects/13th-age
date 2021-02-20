@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle, you can deal extra damage to one target you hit with a melee attack as a free action. The damage bonus is a number of d4 equal to your Strength modifier or to your level, whichever is higher.</p>'
+        value: '<p>Once per battle, you can deal extra damage to one target you hit with a melee attack as a free action. The damage bonus is [[(max(@lvl,@str.mod))d4]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You can use d8s instead of d4s for the bonus damage dice.</p>'
+        value: '<p>The damage bonus becomes The damage bonus is [[(max(@lvl,@str.mod))d8]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Once per day, you can use d20s instead of d8s for the bonus damage dice.</p>'
+        value: '<p>Once per day, the damage bonus becomes The damage bonus is [[(max(@lvl,@str.mod))d20]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

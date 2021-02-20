@@ -21,7 +21,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -29,7 +29,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -137,13 +137,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain a random wizard talent at the start of each day. Roll a d3. 1: Abjuration; 2: Evocation; 3: High Arcana (<em>counter magic</em>). Replace references to &ldquo;wizard&rdquo; in these talents with &ldquo;chaos mage&rdquo; and Intelligence with Charisma.</p>'
+        value: '<p>You gain a random wizard talent at the start of each day. Roll a [[d3]]. 1: Abjuration; 2: Evocation; 3: High Arcana (<em>counter magic</em>). Replace references to &ldquo;wizard&rdquo; in these talents with &ldquo;chaos mage&rdquo; and Intelligence with Charisma.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

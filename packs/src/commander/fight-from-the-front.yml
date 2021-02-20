@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Twice per day when you hit with a melee attack, you can gain additional command points equal to double your Strength modifier ([[2*@str.mod]]).</p>'
+        value: '<p>Twice per day when you hit with a melee attack, you can gain additional [[2*@str.mod]] command points.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

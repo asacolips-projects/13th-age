@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day after a battle, you can gain a bonus to all recharge rolls you make for your expended tactics equal to your Wisdom modifier ([[@wis.mod]]).</p>'
+        value: '<p>Once per day after a battle, you can gain a +[[@wis.mod]] bonus to all recharge rolls you make for your expended tactics.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

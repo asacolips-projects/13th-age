@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>If the escalation die is 3+, the damage increases to 15 instead of 10.</p>'
+        value: '<p>If the escalation die is 3+, the damage increases to [[15]] instead of 10.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

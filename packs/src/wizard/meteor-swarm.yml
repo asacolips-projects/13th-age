@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Each meteor now deals [[5d4*10]] damage.</p>'
+        value: '<p>Each meteor now deals [[5d4*10+@atk.a.bonus]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

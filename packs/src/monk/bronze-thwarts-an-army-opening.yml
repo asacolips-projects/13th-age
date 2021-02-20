@@ -1,4 +1,4 @@
-name: 'Bronze Thwarts an Army (Opening)'
+name: 'Bronze Thwarts an Army (Way of the Metallic Dragon)'
 permission:
   default: 0
 type: 'power'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -167,7 +167,7 @@ data:
         label: 'Active'
         value: false
   group:
-    value: ''
+    value: 'Opening'
     type: 'String'
     label: 'Group'
 flags: {}

@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Add your Charisma modifier [[@cha.mod]] to the damage dealt by your ally (double your Charisma modifier ([[2*@cha.mod]]) at 5th level; triple it ([[3*@cha.mod]]) at 8th level). In addition, during your next turn, you gain a +2 attack bonus with melee attacks against the enemy that your ally hit.</p>'
+    value: '<p>Add [[@cha.dmg]] to the damage dealt by your ally. In addition, during your next turn, you gain a +2 attack bonus with melee attacks against the enemy that your ally hit.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Your attacks that benefit from the +2 attack bonus against that enemy also add triple your Charisma modifier ([[3*@cha.mod]]) to your damage on a hit.</p>'
+        value: '<p>Your attacks that benefit from the +2 attack bonus against that enemy also add [[3*@cha.mod]] to your damage on a hit.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

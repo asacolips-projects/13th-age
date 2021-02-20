@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>One battle per day, when you roll initiative, you can choose to invoke your Fey Heritage and gain the racial power of one the elven races in addition to your own racial power. Roll on the table below. If you roll your own race''s power, you gain the half-elf''s <em>surprising</em> racial power instead.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Roll (d6)</th><th>Racial Power</th></tr><tr><td><strong>1-2</strong></td><td>Cruel (drow)</td></tr><tr><td><strong>3-4</strong></td><td>Highblood teleport (high elf)</td></tr><tr><td><strong>5-6</strong></td><td>Elven grace (wood elf)</td></tr></thead></table>'
+    value: '<p>One battle per day, when you roll initiative, you can choose to invoke your Fey Heritage and gain the racial power of one the elven races in addition to your own racial power. Roll [[d6]] on the table below. If you roll your own race''s power, you gain the half-elf''s <em>surprising</em> racial power instead.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Roll (d6)</th><th>Racial Power</th></tr><tr><td><strong>1-2</strong></td><td>Cruel (drow)</td></tr><tr><td><strong>3-4</strong></td><td>Highblood teleport (high elf)</td></tr><tr><td><strong>5-6</strong></td><td>Elven grace (wood elf)</td></tr></thead></table>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

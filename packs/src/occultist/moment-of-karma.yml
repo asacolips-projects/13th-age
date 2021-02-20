@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When you hit with this spell, the target also takes ongoing damage equal to double your Wisdom modifier (triple it at 8th level).</p>'
+        value: '<p>When you hit with this spell, the target also takes [[@wis.dmg]] ongoing damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add triple your Wisdom modifier to your miss damage</p>'
+        value: '<p>Add [[@wis.dmg]] to your miss damage</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

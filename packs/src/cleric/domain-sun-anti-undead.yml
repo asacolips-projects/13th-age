@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>If your attack already deals holy damage, it gains the following bonus damage—adventurer tier: +1 damage; champion tier: +2 damage; epic tier: +3 damage.</p>'
+        value: '<p>If your attack already deals holy damage, it gains a +[[@tier]] bonus to damage—adventurer tier.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

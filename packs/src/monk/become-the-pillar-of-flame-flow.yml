@@ -1,4 +1,4 @@
-name: 'Become the Pillar of Flame (Flow)'
+name: 'Becomes the Pillar of Flame (Rising Phoenix)'
 permission:
   default: 0
 type: 'power'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -163,7 +163,7 @@ data:
         label: 'Active'
         value: false
   group:
-    value: ''
+    value: 'Flow'
     type: 'String'
     label: 'Group'
 flags: {}

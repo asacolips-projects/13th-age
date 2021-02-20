@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Once per level, while meditating during a quick rest, you can decide that it’s time for the start of a new day. You and each of your willing allies can make a hard save (<a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%22d20%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A20%2C%22rolls%22%3A%5B%7B%22roll%22%3A2%7D%5D%2C%22formula%22%3A%221d20%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%222%22%2C%22total%22%3A2%7D\" title=\"d20\"><i class=\"fas fa-dice-d20\"></i> 2</a> vs. 16+). Each character who succeeds regains all spells, powers, hit points, ki, and recoveries as if they had taken a full heal-up and started a new day.</p>\n<p>The only character element that does not reset as if it was a new day are your icon relationship rolls and any icon relationships.</p>"
+    value: "<p>Once per level, while meditating during a quick rest, you can decide that it’s time for the start of a new day. You and each of your willing allies can make a hard save. Each character who succeeds regains all spells, powers, hit points, ki, and recoveries as if they had taken a full heal-up and started a new day.</p>\n<p>The only character element that does not reset as if it was a new day are your icon relationship rolls and any icon relationships.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -161,7 +161,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You and each of your allies gain a bonus to the save equal to your Strength modifier or your Wisdom modifier.</p>'
+        value: '<p>You and each of your allies gain a +[[max(@str.mod,@wis.mod]] bonus to the save.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

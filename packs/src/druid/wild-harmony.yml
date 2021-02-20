@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'flexible'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -100,7 +100,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>If you cast a regeneration or greater regeneration spell before the start of your next turn, the target adds your Wisdom modifier to the healing they gain from their first recovery roll (not subsequent rolls). (Double your Wisdom modifier at 5th level; triple it at 8th level).</p>'
+    value: '<p>If you cast a regeneration or greater regeneration spell before the start of your next turn, the target adds [[@wis.dmg]] to the healing they gain from their first recovery roll (not subsequent rolls).</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When this flexible attack triggers, you or one nearby conscious ally heal hit points equal to double your Wisdom modifier.</p>'
+        value: '<p>When this flexible attack triggers, you or one nearby conscious ally heal [[2*@wis.mod]] hit points.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

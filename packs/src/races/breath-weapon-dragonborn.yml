@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>NOTE: Adjust the attack ability score to your highest</p>'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -49,7 +49,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20 + @str.mod + @lvl + @ed]] vs. PD'
+    value: '[[d20+max(@str.mod,@dex.mod,@con.mod,@int.mod,@wis.mod,@cha.mod)+@std]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your breath weapon attack targets 1d3 nearby enemies in a group instead.</p>'
+        value: '<p>Your breath weapon attack targets [[1d3]] nearby enemies in a group instead.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

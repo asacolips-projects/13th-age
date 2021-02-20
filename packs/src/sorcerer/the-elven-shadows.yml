@@ -52,11 +52,11 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[8d6+@cha.dmg+@atk.a.bonus]] psychic damage, and if the natural attack roll is even, you can teleport to a nearby location you can see.'
+    value: '[[8d6+@cha.dmg+@atk.a.bonus]] psychic damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: 'You can teleport to a nearby location you can see'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'

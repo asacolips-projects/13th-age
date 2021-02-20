@@ -52,11 +52,11 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage, and if the natural attack roll is even, the target also takes [[1d8]] ongoing fire damage.'
+    value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: 'The target also takes [[1d8]] ongoing fire damage'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
