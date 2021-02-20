@@ -114,12 +114,12 @@ Hooks.once('init', async function() {
       section: "Feats",
       type: Boolean
     },
-    // "strongRecovery": {
-    //   name: "Strong Recovery",
-    //   hint: "General feat to reroll some of your recovery die, keeping highest",
-    //   section: "Feats",
-    //   type: Boolean
-    // },
+    "strongRecovery": {
+      name: "Strong Recovery",
+      hint: "General feat to reroll some of your recovery die, keeping highest. Ignores average recoveries.",
+      section: "Feats",
+      type: Boolean
+    },
     "toughness": {
       name: "Toughness",
       hint: "General feat to increase your max HP based on your base HP",
