@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD  [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d4 + Charisma lightning damage, and a different random nearby enemy takes the same amount of thunder damage. [[1d4+@cha.dmg]]'
+    value: '[[1d4+@cha.dmg+@atk.a.bonus]] lightning damage, and a different random nearby enemy takes the same amount of thunder damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '2d6 damage. [[2d6+@cha.dmg]]'
+    value: '[[2d6+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '3d6 damage. [[3d6+@cha.dmg]]'
+    value: '[[3d6+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '5d6 damage. [[5d6+@cha.dmg]]'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '5d8 damage. [[5d8+@cha.dmg]]'
+    value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>This spell now deals damage equal to your level on a miss.</p>'
+        value: '<p>This spell now deals [[@lvl]] damage on a miss.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

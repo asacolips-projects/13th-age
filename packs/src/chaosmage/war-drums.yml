@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When you cast this spell, each nearby enemy that&rsquo;s staggered also takes 2d6 thunder damage (4d6 thunder damage at 8th level).</p>'
+        value: '<p>When you cast this spell, each nearby enemy that&rsquo;s staggered also takes [[2d6]] thunder damage ([[4d6]] thunder damage at 8th level).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

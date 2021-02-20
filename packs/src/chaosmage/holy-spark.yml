@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d8 + Charisma holy damage  [[1d8+@cha.dmg]], and one nearby ally gains 3 temporary hit points.'
+    value: '[[1d8+@cha.dmg+@atk.a.bonus]] holy damage , and one nearby ally gains [[3]] temporary hit points.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d8 damage  [[3d8+@cha.dmg]], 5 temporary hit points.'
+    value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage, [[5]] temporary hit points.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d8 damage  [[5d8+@cha.dmg]], 8 temporary hit points.'
+    value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage, [[8]] temporary hit points.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d8 damage  [[7d8+@cha.dmg]], 10 temporary hit points.'
+    value: '[[7d8+@cha.dmg+@atk.a.bonus]] damage, [[10]] temporary hit points.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d8 damage  [[9d8+@cha.dmg]], 15 temporary hit points.'
+    value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage, [[15]] temporary hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
