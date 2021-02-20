@@ -1,4 +1,4 @@
-name: 'Melee attack'
+name: '(Smite Evil) Melee attack'
 permission:
   default: 0
 type: 'power'
@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+    value: '[[d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[@lvl]] damage'
+    value: 'Half damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
