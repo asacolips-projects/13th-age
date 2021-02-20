@@ -1,5 +1,5 @@
 import { ARCHMAGE } from './setup/config.js';
-import { ActorArchmage } from './actor/actor.js';
+import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
@@ -605,6 +605,8 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
     }
   }
 });
+
+Hooks.on('preUpdateActor', archmagePreUpdateCharacterData);
 
 /* ---------------------------------------------- */
 

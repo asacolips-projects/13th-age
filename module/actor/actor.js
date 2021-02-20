@@ -453,7 +453,11 @@ export class ActorArchmage extends Actor {
  * @return {undefined}
  */
 
-function _preUpdateCharacterData(actor, data, options, id) {
+export function archmagePreUpdateCharacterData(actor, data, options, id) {
+  if (actor.data.type != 'character') {
+    return;
+  }
+
   if (options.diff
     && data.data !== undefined
     && data.data.details !== undefined
@@ -553,5 +557,3 @@ function _preUpdateCharacterData(actor, data, options, id) {
     data.data.details.detectedClasses = matchedClasses;
   }
 }
-
-Hooks.on('preUpdateActor', _preUpdateCharacterData);
