@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs PD'
+        value: '[[d20 + 14]] vs. PD'
       hit:
         type: ''
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs PD (one nearby enemy OR each nearby enemy taking ongoing fire damage)'
+        value: '[[d20 + 14]] vs. PD (one nearby enemy OR each nearby enemy taking ongoing fire damage)'
       hit:
         type: ''
         label: 'Hit'

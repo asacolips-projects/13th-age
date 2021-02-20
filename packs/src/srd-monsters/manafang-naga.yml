@@ -336,7 +336,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+12]] vs AC'
+        value: '[[d20+12]] vs. AC'
       hit:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+12]] vs MD (one nearby enemy, or one nearby enemy per point of es. die if mystic escalator benefit is active)'
+        value: '[[d20+12]] vs. MD (one nearby enemy, or one nearby enemy per point of es. die if mystic escalator benefit is active)'
       hit:
         type: 'String'
         label: 'Hit'

@@ -326,7 +326,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs AC'
+        value: '[[d20 + 7]] vs. AC'
       hit:
         type: ''
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs MD'
+        value: '[[d20 + 9]] vs. MD'
       hit:
         type: ''
         label: 'Hit'

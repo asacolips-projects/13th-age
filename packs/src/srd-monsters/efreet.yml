@@ -337,7 +337,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+15]] vs AC (3 attacks)'
+        value: '[[d20+15]] vs. AC (3 attacks)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -388,7 +388,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+15]] vs PD (one randome nearby conscious enemy('
+        value: '[[d20+15]] vs. PD (one randome nearby conscious enemy('
       hit:
         type: 'String'
         label: 'Hit'
