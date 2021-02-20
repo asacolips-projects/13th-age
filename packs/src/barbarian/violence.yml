@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per battle, add a +1d4 bonus to a barbarian melee attack roll after finding out whether you hit or missed.</p>'
+    value: '<p>Once per battle, add a +[[1d4]](1d4) bonus to a barbarian melee attack roll after finding out whether you hit or missed.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
