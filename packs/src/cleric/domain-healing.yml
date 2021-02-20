@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>When you cast a spell that lets you or an ally heal using a recovery, the target also adds hit points equal to double your level ([[2*@lvl]]) to the recovery.</p>\n<p><strong>Invocation of Healing</strong>: This battle, you gain an additional use of the&nbsp;<em>heal</em>&nbsp;spell (see Class Features, left). The first&nbsp;<em>heal</em>&nbsp;spell you cast after using this invocation allows the target to heal using a free recovery instead of spending a recovery.</p>"
+    value: "<p>When you cast a spell that lets you or an ally heal using a recovery, the target also adds [[2*@lvl]] hit points to the recovery.</p>\n<p><strong>Invocation of Healing</strong>: This battle, you gain an additional use of the&nbsp;<em>heal</em>&nbsp;spell (see Class Features, left). The first&nbsp;<em>heal</em>&nbsp;spell you cast after using this invocation allows the target to heal using a free recovery instead of spending a recovery.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase the additional hit points the target heals to triple your level ([[3*@lvl]]).</p>'
+        value: '<p>Increase the additional hit points the target heals to [[3*@lvl]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

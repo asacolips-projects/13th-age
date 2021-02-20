@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Allies now also get a damage bonus against such enemies equal to double your Charisma modifier ([[2*@cha.mod]]).</p>'
+        value: '<p>Allies now also get a damage bonus against such enemies equal to [[2*@cha.mod]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
