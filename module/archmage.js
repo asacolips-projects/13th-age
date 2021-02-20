@@ -205,6 +205,26 @@ Hooks.once('init', async function() {
     type: String,
   });
 
+  game.settings.register('archmage', 'colorBlindMode', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
+    scope: 'client',
+    config: true,
+    default: 'default',
+    type: String,
+    choices: {
+      default: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptionDefault"),
+      colorBlindRG: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG"),
+      colorBlindBY: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY"),
+      // custom: game.i18n.localize("ARCHMAGE.SETTINGS.Custom"),
+    },
+    onChange: () => {
+      $('body').removeClass(['default', 'colorBlindRG', 'colorBlindBY', 'custom']).addClass(game.settings.get('archmage', 'colorBlindMode'));
+    }
+  });
+  //Adding the colorblind mode class at startup
+  $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
+
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate

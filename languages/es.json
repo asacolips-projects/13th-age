@@ -1,4 +1,9 @@
 {
+  "ARCHMAGE.SETTINGS.ColorblindName": "Habilitar el modo de accesibilidad daltónico",
+  "ARCHMAGE.SETTINGS.ColorblindHint": "Cambia los colores de las tarjetas de potencia a una paleta de colores más accesible.",
+  "ARCHMAGE.SETTINGS.ColorblindOptionDefault": "Colores Predeterminados",
+  "ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG": "Protanopla / Deutanopla (Rojo/Verde)",
+  "ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY": "Tritanopia (Azul /Amarillo)",
   "ARCHMAGE.SETTINGS.ShowDebugLogsName": "¿Mostrar los registros de depuración?",
   "ARCHMAGE.SETTINGS.ShowDebugLogsHint": "Activa esto para el reporte de errores",
   "ARCHMAGE.SETTINGS.RoundUpDamageApplicationName": "Cuando se aplica el daño a través del menú contextual del botón derecho del ratón, ¿debe redondear hacia arriba (verdadero) o hacia abajo (falso)?",
