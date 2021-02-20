@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'You and [[1d4 + 2]] nearby allies can breathe underwater this battle.'
+    value: 'You and [[1d4+2]] nearby allies can breathe underwater this battle.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'The spell affects you and [[1d6 + 2]] nearby allies for [[4d6]] hours.'
+    value: 'The spell affects you and [[1d6+2]] nearby allies for [[4d6]] hours.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

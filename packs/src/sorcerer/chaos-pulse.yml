@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '3d10 + Charisma random energy damage.'
+    value: '[[3d10+@cha.dmg+@atk.a.bonus]] random energy damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -76,7 +76,7 @@ data:
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: 'Damage equal to your level.'
+    value: '[[@lvl]] damage.'
   cost:
     type: 'String'
     label: 'Cost'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d10 damage.'
+    value: '[[5d10+@cha.dmg+@atk.a.bonus]] damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d10 damage.'
+    value: '[[7d10+@cha.dmg+@atk.a.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d10 damage.'
+    value: '[[9d10+@cha.dmg+@atk.a.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Some sorcerer spells deal damage of a random type. If it matters for the situation, use a d4 to determine which type of damage the spell deals.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Roll (d4)</th><th>Energy Type</th></tr><tr><td><strong>1</strong></td><td>Cold</td></tr><tr><td><strong>2</strong></td><td>Fire</td></tr><tr><td><strong>3</strong></td><td>Lightning</td></tr><tr><td><strong>4</strong></td><td>Thunder</td></tr></thead></table>'
+    value: '<p>Some sorcerer spells deal damage of a random type. If it matters for the situation, use a [[d4]] to determine which type of damage the spell deals.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Roll (d4)</th><th>Energy Type</th></tr><tr><td><strong>1</strong></td><td>Cold</td></tr><tr><td><strong>2</strong></td><td>Fire</td></tr><tr><td><strong>3</strong></td><td>Lightning</td></tr><tr><td><strong>4</strong></td><td>Thunder</td></tr></thead></table>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
