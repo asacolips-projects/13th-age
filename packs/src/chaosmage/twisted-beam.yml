@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -56,7 +56,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '1d6 + Charisma fire damage. [[1d6+@cha.dmg]]'
+    value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '3 ongoing acid damage.'
+    value: '[[3]] ongoing acid damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d6 damage  [[3d6+@cha.dmg]], 6 ongoing damage.'
+    value: '[[3d6+@cha.dmg+@atk.a.bonus]] damage , [[6]] ongoing damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d6 damage [[5d6+@cha.dmg]], 9 ongoing damage.'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage, [[9]] ongoing damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d8 damage [[7d8+@cha.dmg]], 12 ongoing damage.'
+    value: '[[7d8+@cha.dmg+@atk.a.bonus]] damage, [[12]] ongoing damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d8 damage [[9d8+@cha.dmg]], 18 ongoing damage.'
+    value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage, [[18]] ongoing damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

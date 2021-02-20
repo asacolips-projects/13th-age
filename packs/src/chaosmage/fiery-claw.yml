@@ -49,11 +49,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. PD [[1d20+@cha.mod+@lvl+@ed]]'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d8 + Charisma fire damage, and the target loses its resist damage abilities, if any (hard save ends, 16+).  [[1d8+@cha.dmg]]'
+    value: '[[1d8+@cha.dmg+@atk.a.bonus]] fire damage, and the target loses its resist damage abilities, if any (hard save ends, 16+). '
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -69,7 +69,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to your level [[@lvl]]'
+    value: '[[@lvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -109,19 +109,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d8 damage [[3d8+@cha.dmg]]'
+    value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d8 damage [[5d8+@cha.dmg]]'
+    value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '7d8 damage [[7d8+@cha.dmg]]'
+    value: '[[7d8+@cha.dmg+@atk.a.bonus]] damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '9d8 damage [[9d8+@cha.dmg]]'
+    value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
