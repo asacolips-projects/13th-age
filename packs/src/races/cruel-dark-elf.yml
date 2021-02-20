@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day, you can instead use cruel to deal 5 ongoing damage per level against an enemy you miss or that you roll a natural odd attack against.</p>'
+        value: '<p>Once per day, you can instead use cruel to deal [[@lvl * 5]] ongoing damage against an enemy you miss or that you roll a natural odd attack against.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
