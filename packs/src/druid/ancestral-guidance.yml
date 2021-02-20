@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'flexible'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Add damage to the attack equal to your Wisdom modifier, hit or miss. (Double your Wisdom modifier at 5th level; triple it at 8th level.)</p>\n<p>If you are a Warrior Druid adept and you use ancestral guidance while in humanoid form, you also regain all the once-per-battle flexible attacks you have expended this battle.</p>"
+    value: "<p>Add [[@wis.dmg]] damage to the attack, hit or miss.</p>\n<p>If you are a Warrior Druid adept and you use ancestral guidance while in humanoid form, you also regain all the once-per-battle flexible attacks you have expended this battle.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>All elementals you summon gain a bonus to disengage checks equal to your Strength or Dexterity modifier.</p>'
+        value: '<p>All elementals you summon gain a + [[max(@str.mod,@dex.mod)]] bonus to disengage checks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
