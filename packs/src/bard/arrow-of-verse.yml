@@ -12,7 +12,7 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: ''
+    value: 'class'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Charisma + Level vs. MD'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '8d8 + Charisma psychic damage + Xd6 bonus damage, where X = escalation die.'
+    value: '[[8d8+@cha.dmg+@atk.a.bonus+(@ed)d6]] psychic damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Xd6 psychic damage, where X = escalation die'
+    value: '[[(@ed)d6]] psychic damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '10d10 damage.'
+    value: '[[10d10+@cha.dmg+@atk.a.bonus+(@ed)d6]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d10 x 10 damage'
+    value: '[[2d10*10+@cha.dmg+@atk.a.bonus+(@ed)d6]] damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

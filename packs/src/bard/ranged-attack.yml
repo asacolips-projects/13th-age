@@ -12,7 +12,7 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: ''
+    value: 'class'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Dexterity + Level vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'WEAPON + Dexterity damage'
+    value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

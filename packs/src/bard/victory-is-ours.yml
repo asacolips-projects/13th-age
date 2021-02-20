@@ -12,15 +12,15 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: ''
+    value: 'class'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'maneuver'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>A nearby ally can heal using a recovery, and three nearby allies gain a +3d6 damage bonus to their next damage roll this battle.</p>'
+    value: '<p>A nearby ally can heal using a recovery, and three nearby allies gain a +[[3d6]] damage bonus to their next damage roll this battle.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
