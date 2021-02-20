@@ -72,7 +72,7 @@ export class ActorArchmage extends Actor {
     var rangedAttackBonus = 0;
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
-    
+
     var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
     var acBonus = missingRecPenalty;
@@ -348,6 +348,8 @@ export class ActorArchmage extends Actor {
     // TODO: handle dazed, weakened, etc. here
 
     if (actorData.type === 'character') {
+      // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
+      // duplicate code needs to be retired from the utility class if possible.
       data.attributes.standardBonuses = {
         value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
       };
