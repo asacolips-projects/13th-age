@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>During your next turn, you can cast an elemental caster&rsquo;s Elemental Mastery at-will feat spell of your choice as a <a href="https://www.13thagesrd.com/combat-rules#TOC-Standard-Move-and-Quick-Actions">quick action</a>, even if you don&rsquo;t normally know that spell.</p>'
+    value: '<p>During your next turn, you can cast an elemental caster&rsquo;s Elemental Mastery at-will feat spell of your choice as a quick action, even if you don&rsquo;t normally know that spell.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per battle before you roll an attack, you can declare you''re using Power Attack to deal additional damage with that attack roll. If the attack hits, you deal the following additional damage:</p><p>Deal 1d4 additional damage per level if you are using a one-handed weapon.</p><p>Deal 1d6 additional damage per level if you are using a two-handed weapon.</p>'
+    value: '<p>Once per battle before you roll an attack, you can declare you''re using Power Attack to deal additional damage with that attack roll. If the attack hits, you deal the following additional damage:</p><p>Deal [[(@lvl)d4]] additional damage if you are using a one-handed weapon.</p><p>Deal [[(@lvl)d6]] additional damage if you are using a two-handed weapon.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>One-handed weapon damage using Power Attack increases to 1d6 per level; two-handed weapon damage using Power Attack increases to 1d8 per level.</p>'
+        value: '<p>One-handed weapon damage using Power Attack increases to [[(@lvl)d6]]; two-handed weapon damage using Power Attack increases to [[(@lvl)d8]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

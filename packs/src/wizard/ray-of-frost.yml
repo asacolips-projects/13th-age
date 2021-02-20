@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. PD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[3d6]] cold damage'
+    value: '[[3d6+@atk.a.bonus]] cold damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -108,19 +108,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[4d8]] damage.'
+    value: '[[4d8+@atk.a.bonus]] damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[6d8]] damage.'
+    value: '[[6d8+@atk.a.bonus]] damage.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[7d10]] damage.'
+    value: '[[7d10+@atk.a.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[10d12]] damage.'
+    value: '[[10d12+@atk.a.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

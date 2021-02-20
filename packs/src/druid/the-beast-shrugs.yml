@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, the target can use a <a href="https://www.13thagesrd.com/combat-rules#TOC-Standard-Move-and-Quick-Actions">quick action</a> (once per turn) to heal 4d6 <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a>. The target can take this action only when it&rsquo;s not <a href="https://www.13thagesrd.com/combat-rules#TOC-Staggered">staggered</a>.</p>'
+    value: '<p>Until the end of the battle, the target can use a quick action (once per turn) to heal [[4d6]] hit points. The target can take this action only when it&rsquo;s not staggered.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'Heal 6d6 hit points.'
+    value: 'Heal [[6d6]] hit points.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Heal 7d10 hit points.'
+    value: 'Heal [[7d10]] hit points.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Heal 10d10 hit points.'
+    value: 'Heal [[10d10]] hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

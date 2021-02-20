@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@lvl+@ed]] vs. MD'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'Targets [[5d20 + 50]] max hp.'
+    value: 'Targets [[5d20+50]] max hp.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Targets [[7d20 + 100]] max hp.'
+    value: 'Targets [[7d20+100]] max hp.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Targets [[9d10 + 200]] max hp.'
+    value: 'Targets [[9d10+200]] max hp.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

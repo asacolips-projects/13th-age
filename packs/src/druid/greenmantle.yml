@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain a +4 bonus to <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> until an attack against <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> misses you.</p>'
+    value: '<p>You gain a +4 bonus to AC until an attack against AC misses you.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The bonus now also applies to <a href="https://www.13thagesrd.com/combat-rules#TOC-Physical-Defense-PD-">PD</a> (and attacks against <a href="https://www.13thagesrd.com/combat-rules#TOC-Physical-Defense-PD-">PD</a> that miss).</p>'
+        value: '<p>The bonus now also applies to PD (and attacks against PD that miss).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You now gain a +6 <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a> bonus instead of +4.</p>'
+        value: '<p>You now gain a +6 AC bonus instead of +4.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

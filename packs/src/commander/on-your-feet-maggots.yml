@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>This tactic now targets up to [[1d4 + 1]] allies.</p>'
+        value: '<p>This tactic now targets up to [[1d4+1]] allies.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

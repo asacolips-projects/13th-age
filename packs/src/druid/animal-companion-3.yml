@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Increase your animal companion&rsquo;s <a href="https://www.13thagesrd.com/combat-rules#TOC-Physical-Defense-PD-">Physical Defense</a> and <a href="https://www.13thagesrd.com/combat-rules#TOC-Mental-Defense-MD-">Mental Defense</a> by +1.</p>'
+        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

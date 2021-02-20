@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: Until the end of the battle, your crit range with melee attacks expands by 2.</p>\n<p>Adept Effect: As the initiate effect, and you gain a +1 bonus to melee attacks and a +2 bonus to <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-\">AC</a> and <a href=\"https://www.13thagesrd.com/combat-rules#TOC-Physical-Defense-PD-\">PD</a>.</p>"
+    value: "<p>Initiate Effect: Until the end of the battle, your crit range with melee attacks expands by 2.</p>\n<p>Adept Effect: As the initiate effect, and you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>When you score a critical hit, you heal <a href="https://www.13thagesrd.com/combat-rules#TOC-Hit-Points">hit points</a> equal to your level + your Wisdom modifier (double your Wisdom modifier at 5th level; triple it at 8th level).</p>'
+        value: '<p>When you score a critical hit, you heal hit points equal to your level + your Wisdom modifier (double your Wisdom modifier at 5th level; triple it at 8th level).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Until the first time it recharges each day, <a href="https://www.13thagesrd.com/monsters#TOC-Owlbear">owlbear</a> aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
+        value: '<p>Until the first time it recharges each day, owlbear aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

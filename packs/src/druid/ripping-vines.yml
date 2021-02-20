@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '1d8 + Wisdom damage'
+    value: '[[1d8+@wis.dmg+@atk.d.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -104,23 +104,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>As a hit, plus ongoing damage equal to your Strength or Dexterity modifier, whichever is higher.</p>\n<p>Crit: As a hit, plus the target is stuck (save ends).</p>"
+    value: "<p>As a hit, plus ongoing damage equal to your [[@str.mod]] or [[@dex.mod]], whichever is higher.</p>\n<p>Crit: As a hit, plus the target is stuck (save ends).</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '3d6 damage.'
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '5d6 damage, ongoing damage equal to double your Strength or Dexterity modifier on a natural odd hit.'
+    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, ongoing damage equal to [[2*@str.mod]] or [[2*@dex.mod]] on a natural odd hit.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '5d8 damage.'
+    value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '7d10 damage, ongoing damage equal to triple your Strength or Dexterity modifier on a natural odd hit.'
+    value: '[[7d10+@wis.dmg+@atk.d.bonus]] damage, ongoing damage equal to [[3*@str.mod]] or [[3*@dex.mod]] on a natural odd hit.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

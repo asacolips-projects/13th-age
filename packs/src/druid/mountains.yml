@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day, you can heal using a second <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a> when some other effect has enabled you to heal using a single <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a>. This bonus <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a> is a free <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a>, but it doesn’t benefit from any bonuses the first <a href="https://www.13thagesrd.com/combat-rules#TOC-Recoveries">recovery</a> gains.</p>'
+        value: '<p>Once per day, you can heal using a second recovery when some other effect has enabled you to heal using a single recovery. This bonus recovery is a free recovery, but it doesn’t benefit from any bonuses the first recovery gains.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

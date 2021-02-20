@@ -142,7 +142,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle when you make an attack against <a href="https://www.13thagesrd.com/combat-rules#TOC-Armor-Class-AC-">AC</a>, you can instead make that attack against the target&rsquo;s <a href="https://www.13thagesrd.com/combat-rules#TOC-Mental-Defense-MD-">MD</a> as the spirits guide your strike.</p>'
+        value: '<p>Once per battle when you make an attack against AC, you can instead make that attack against the target&rsquo;s MD as the spirits guide your strike.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

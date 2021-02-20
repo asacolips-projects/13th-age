@@ -49,11 +49,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: 'Wisdom + Level vs. PD'
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: ' 3d6 + Wisdom fire damage, and the target is vulnerable (hard save ends, 16+).'
+    value: ' [[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and the target is vulnerable (hard save ends, 16+).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -109,19 +109,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '6d6 damage, and in addition to being vulnerable, the target can’t turn invisible or hide from you or your allies (save ends both).'
+    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage, and in addition to being vulnerable, the target can’t turn invisible or hide from you or your allies (save ends both).'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '6d10 damage, and the target also can’t teleport (save ends all).'
+    value: '[[6d10+@wis.dmg+@atk.d.bonus]] damage, and the target also can’t teleport (save ends all).'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '10d10 damage.'
+    value: '[[10d10+@wis.dmg+@atk.d.bonus]] damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '2d8 x 10 damage.'
+    value: '[[2d8*10+@wis.dmg+@atk.d.bonus]] damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
