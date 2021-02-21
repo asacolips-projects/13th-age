@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per battle when a healing effect would be applied to you, you can roll a save (11+). If you succeed, you get the healing immediately. If you fail, lose a hit point.</p>'
+        value: '<p>Once per battle when a healing effect would be applied to you, you can roll a save (11+). If you succeed, you get the healing immediately. If you fail, lose [[1]] hit point.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
