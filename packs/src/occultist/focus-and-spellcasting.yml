@@ -1,4 +1,4 @@
-name: 'Chaos Ray'
+name: 'Focus and Spellcasting'
 permission:
   default: 0
 type: 'power'
@@ -16,11 +16,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'once-per-battle'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,11 +28,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'other'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged Spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -48,15 +48,15 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[1d8+@cha.dmg+@atk.a.bonus]] damage.'
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus another nearby enemy takes half damage.'
+    value: ''
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[1d6]] damage to a different nearby enemy'
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -104,23 +104,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Wielding your arcane power of reality requires two steps. First, you take time to focus your mind. Once you have this focus, you can cast a spell. Casting a spell generally expends your focus, though there will be exceptions depending on the spell.</p><p>Gaining your focus requires a standard action, and it draws opportunity attacks just like using a ranged attack does. (The “range” in this case is “beyond this world.”) You can cast most of your spells only in response to an event, typically during an enemy’s turn or an ally’s turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[4d6+@cha.dmg+@atk.a.bonus]] Damage : [[1d10]] miss'
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[6d6+@cha.dmg+@atk.a.bonus]] Damage : [[2d12]] miss'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[6d10+@cha.dmg+@atk.a.bonus]] Damage : [[3d12]] miss'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[8d10+@cha.dmg+@atk.a.bonus]] Damage : [[5d12]] miss'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -136,12 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: '<p>When you cast a spell and retain your focus, you gain a +2 bonus to all defenses until the start of your next turn.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,6 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>While you have your focus, when an enemy misses you with an attack, it takes psychic damage equal to your level.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,9 +160,13 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: '<p>The “retain focus” range of your occultist spells increases by 2 (for example, 1–5 would be 1–7).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    value: null
 flags: {}
-img: 'systems/archmage/assets/icons/spells/beam-eerie-2.jpg'
+img: 'icons/svg/mystery-man.svg'
+effects: []
