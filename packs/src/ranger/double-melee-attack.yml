@@ -56,7 +56,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'Make a second attack as a free action'
+    value: 'Repeat this attack as a free action if this was your first attack with this action.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -72,7 +72,7 @@ data:
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: 'Make a second attack as a free action'
+    value: 'Repeat this attack as a free action if this was your first attack with this action.'
   missOdd:
     type: 'String'
     label: 'Odd Miss'
