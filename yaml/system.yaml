@@ -70,6 +70,11 @@ packs:
     name: chaosmage
     path: packs/dist/chaosmage.db
     system: archmage
+  - label: Chaos Mage Rollable Tables
+    entity: RollTable
+    name: chaosmage-tables
+    path: packs/dist/chaosmage-tables.db
+    system: archmage
   - label: Commander
     entity: Item
     name: commander
