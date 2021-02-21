@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'spell'
   powerLevel:
     type: 'Number'
     label: 'Level'
