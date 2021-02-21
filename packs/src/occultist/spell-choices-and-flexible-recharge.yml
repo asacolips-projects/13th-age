@@ -1,4 +1,4 @@
-name: 'Cascading Power'
+name: 'Spell Choices and Flexible Recharge'
 permission:
   default: 0
 type: 'power'
@@ -16,23 +16,23 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 5
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'other'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged Spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -40,7 +40,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'A number of random nearby creatures equal to the escalation die'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>The targets are embroiled in silver fire! Each targeted ally can roll an immediate easy save (6+); if that ally succeeds, they regain one daily or recharge power of their choice. Then each targeted enemy takes damage equal to [[1d10*@ed]]</p>\n<p>After the damage, roll the escalation die and use the new result.</p>"
+    value: '<p>Like a standard spellcaster, you choose the spells you will be able to cast after each full heal-up. When you successfully recharge a spell, you can regain any spell of that spell’s level, not necessarily the same spell again. In effect, you roll to recharge that level’s spell slot.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[2d6*@ed]] damage'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[2d12*@ed]] damage'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -136,12 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: '<p>Once per day, you can automatically succeed on a recharge roll that’s 6+ (but not 11+ or 16+).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,6 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>Once per day when you recharge a spell (usually during a quick rest), you can make a recharge roll for a recharge spell even if you haven’t expended that spell (allowing you to have an additional use of that spell available).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,9 +160,13 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: '<p>Once per day, you can automatically succeed on a recharge roll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    value: null
 flags: {}
-img: 'systems/archmage/assets/icons/spells/lighting-eerie-3.jpg'
+img: 'icons/svg/mystery-man.svg'
+effects: []

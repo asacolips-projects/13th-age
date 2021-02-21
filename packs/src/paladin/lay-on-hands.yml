@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: 2
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Add twice your Charisma modifier to the healing provided by Lay on Hands.</p>'
+        value: '<p>Add [[2*@cha.mod]] to the healing provided by Lay on Hands.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

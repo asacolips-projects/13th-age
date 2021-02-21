@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -166,7 +166,9 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Cantrip'
+    type: 'String'
+    label: 'Group'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/yellow_21.jpg'
 effects: []

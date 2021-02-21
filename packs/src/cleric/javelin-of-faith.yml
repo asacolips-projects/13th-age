@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The spell also deals +[[1d6]] damage against an undamaged target. At 5<sup>th</sup> level that increases to +[[2d6]] damage; at 8<sup>th</sup> level it increases to +[[4d6]] damage.</p>'
+        value: '<p>The spell also deals +[[(@tier)d6]] damage against an undamaged target.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, the escalation die becomes a d8 instead of a d6. Then roll a [[@d20]]. If you roll 11+, increase the escalation die by 1.</p>'
+    value: '<p>Until the end of the battle, the escalation die becomes a d8 instead of a d6. Then roll a [[d20]]. If you roll 11+, increase the escalation die by 1.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -1,4 +1,4 @@
-name: 'Animal Companion'
+name: 'Animal Companion (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -20,27 +20,27 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: '1'
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
-    value: null
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: null
+    value: ''
   target:
     type: 'String'
     label: 'Target'
-    value: null
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -48,11 +48,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: null
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: null
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -68,67 +68,67 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: null
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: null
+    value: ''
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: null
+    value: ''
   cost:
     type: 'String'
     label: 'Cost'
-    value: null
+    value: ''
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
-    value: null
+    value: ''
   castPower:
     type: 'String'
     label: 'Cast for Power'
-    value: null
+    value: ''
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: null
+    value: ''
   finalVerse:
     type: 'String'
     label: 'Final Verse'
-    value: null
+    value: ''
   special:
     type: 'String'
     label: 'Special'
-    value: "<p>Unlike most class talents, this talent takes up\_<strong>two</strong>\_ranger class talent slots.</p><p>You have a normal-sized animal companion that fights alongside you in battle. See Animal Companion Rules.</p><p>If you would rather have a smaller beast as a pet, see the Ranger's Pet talent.</p><h2>Animal Companion Rules</h2><p>You have a devoted animal companion who fights alongside you like a member of your adventuring party.</p><h3>Recoveries</h3><p>Add two recoveries to your total recoveries. You can use a recovery on yourself or your animal companion.</p><h3>Actions</h3><p>Your animal companion acts on your initiative turn, either immediately before or after you, depending on the animal type.</p><p>Your animal companion moves gets a move action and a standard action, but not a quick action.</p><p>If you have powers that care about the 'first time you attack an enemy,' an attack by your animal companion counts as your attack.</p><h3>Animal\_Harm</h3><p>Your animal companion can be healed like an ally. If it gets healed without you being healed, it uses one of your recoveries. When you use a recovery while next to your animal companion (including being engaged with the same enemy), your animal companion is also healed using a free recovery.</p><p>Instead of dying like a monster or NPC at 0 hp, your animal companion follows PC rules for falling unconscious at 0 hp and dying after four failed death saves or when its negative hit points equal half its normal hit points. If your animal companion dies, you can summon another one. If you're still on the same adventure, you can call a new animal companion the next day, but it will be one level lower than an animal companion would normally be. At the start of a new adventure, or when you gain a level, bump the companion up to its proper level.</p><h3>Stats &amp;\_Levels</h3><p>Each animal companion has roughly the same base stats as listed below.</p><p>Your animal companion is always one level lower than you. As a 1st\_level ranger, you'll have a level 0 animal companion. Once you gain a level, your animal companion rises to 1st\_level.</p><p>On top of the base stats, each type of animal has a zoologically appropriate power or advantage.</p>"
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: "<p>You have a devoted animal companion who fights alongside you like a member of your adventuring party.</p>\n<p>If you have a single talent invested into Animal Companion, you are an Animal Companion initiate. If you invested two talents into Animal Companion, you are an Animal Companion adept.</p>\n<p>When you roll initiative, you may choose whether you want your animal companion to take part in the battle. You may also call your animal companion during the battle with a quick action.</p>\n<p>Animal Companion initiates may only call their animal companion once every other battle. The animal companion may not fight in two battles in a row&mdash;even between full heal-ups, adventures, or gaining new levels. Animal Companion adepts don&rsquo;t have this limitation; their animal companion can fight in every battle if the adept so chooses.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: null
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: null
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: null
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: null
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
-    value: null
+    value: ''
   breathWeapon:
     type: 'String'
     label: 'Breath Weapon'
-    value: null
+    value: ''
   recharge:
     type: 'Number'
     label: 'Recharge'
@@ -142,25 +142,25 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
     champion:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
     epic:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'

@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The target also adds hit points equal to your Charisma modifier ([[@cha.mod]]) to the recovery. (Double your Charisma ([[2*@cha.mod]])modifier at 5th level; triple it ([[3*@cha.mod]])at 8th level.)</p>'
+        value: '<p>The target also adds [[@cha.dmg]] hit points to the recovery.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

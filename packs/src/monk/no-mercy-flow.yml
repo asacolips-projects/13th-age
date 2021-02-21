@@ -1,4 +1,4 @@
-name: 'No Mercy (Flow)'
+name: 'No Mercy (Iron Crusader Form)'
 permission:
   default: 0
 type: 'power'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -167,7 +167,7 @@ data:
         label: 'Active'
         value: false
   group:
-    value: ''
+    value: 'Flow'
     type: 'String'
     label: 'Group'
 flags: {}

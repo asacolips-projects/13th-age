@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Once per turn when an enemy scores a critical hit against you or a nearby ally, or drops you or a nearby ally to 0 hp or below, you gain an attack-reroll blessing. Immediately choose a nearby ally and give them the blessing as a free action.</p>\n<p>An ally with this blessing can use it to reroll an attack as a free action this battle. An ally can only have one such blessing on them at a time.</p>\n<p><strong>Invocation of Justice/Vengeance</strong>: This battle, add double your level ([[2*@lvl]]) to the miss damage of your attacks and the attacks of your nearby allies. (For example, your basic melee attack as a cleric will deal triple your level ([[3*@lvl]]) as miss damage while this invocation is active.)</p>"
+    value: "<p>Once per turn when an enemy scores a critical hit against you or a nearby ally, or drops you or a nearby ally to 0 hp or below, you gain an attack-reroll blessing. Immediately choose a nearby ally and give them the blessing as a free action.</p>\n<p>An ally with this blessing can use it to reroll an attack as a free action this battle. An ally can only have one such blessing on them at a time.</p>\n<p><strong>Invocation of Justice/Vengeance</strong>: This battle, add [[2*@lvl]] to the miss damage of your attacks and the attacks of your nearby allies. (For example, your basic melee attack as a cleric will deal [[3*@lvl]] as miss damage while this invocation is active.)</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Each battle, the first time an ally near you becomes staggered, that ally immediately heals hit points equal to twice your level ([[2*@lvl]]).</p>'
+        value: '<p>Each battle, the first time an ally near you becomes staggered, that ally immediately heals [[2*@lvl]] hit points.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

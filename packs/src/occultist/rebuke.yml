@@ -1,4 +1,4 @@
-name: 'The Final Surge'
+name: 'Rebuke'
 permission:
   default: 0
 type: 'power'
@@ -16,23 +16,23 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 3
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'other'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged Spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You and each of your nearby allies each heal hit points equal to [[1d6]] x the number of recoveries that character has expended this day. (And no, free recoveries don&rsquo;t count;this spell only counts the resources you&rsquo;ve expended.)</p>'
+    value: '<p>With focus, you can pummel someone with their own negative karma. In addition to the spells you normally know based on your level, you also know karmic rebuke. There are no feats associated with this spell, but you can improve it with the Superior Rebuke talent.</p><p>Karmic rebuke requires a quick action instead of an interrupt action. It’s designed so you can cast it during your turn when you’ve retained your focus, then use your standard action to get your focus back that same turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -112,15 +112,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[1d10]] x the number of recoveries.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[2d6]] x the number of recoveries.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[2d10]] x the number of recoveries.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -136,12 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,6 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,9 +160,13 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    value: null
 flags: {}
-img: 'systems/archmage/assets/icons/spells/light-sky-3.jpg'
+img: 'icons/svg/mystery-man.svg'
+effects: []

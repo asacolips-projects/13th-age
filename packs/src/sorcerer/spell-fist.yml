@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>When you miss with a sorcerer spell against an enemy you are engaged with, add your Charisma modifier to the damage you deal. At 5th level, add double your Charisma modifier; at 8th level, triple it.</p>'
+        value: '<p>When you miss with a sorcerer spell against an enemy you are engaged with, add [[@cha.dmg]] to the damage you deal.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

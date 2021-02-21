@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, when the target hits with a melee attack, you heal hit points equal to [[1d10+@wis.dmg]] modifier.</p>'
+    value: '<p>Until the end of the battle, when the target hits with a melee attack, you heal [[1d10+@wis.dmg]] hit points.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'You now heal hit points equal to [[2d10+(2*@wis.mod)]] modifier.'
+    value: 'You now heal [[2d10+(2*@wis.mod)]] hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

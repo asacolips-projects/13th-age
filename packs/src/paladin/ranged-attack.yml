@@ -1,4 +1,4 @@
-name: 'Ranged Attack'
+name: 'Ranged Attack (Paladin)'
 permission:
   default: 0
 type: 'power'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>If you wish, any time an element of the monk class refers to Wisdom, you can replace that element with a reference to Charisma.</p>\n<p>In addition, while you&rsquo;re staggered, when you roll a natural even attack roll, you heal damage equal to your Strength modifier or your Wisdom modifier (double that modifier at 5th level; triple it at 8th level).</p>"
+    value: "<p>If you wish, any time an element of the monk class refers to Wisdom, you can replace that element with a reference to Charisma.</p>\n<p>In addition, while you&rsquo;re staggered, when you roll a natural even attack roll, you heal [[max(@str.dmg,@wis.dmg,@cha.dmg)]] damage.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -161,7 +161,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The first time you die after taking this feat, you are resurrected at a place of power like your home monastery or other sanctum between one and four days later, assuming another resurrection doesn’t find you first. (This counts against your normal resurrection limit, as normal.)</p>'
+        value: '<p>The first time you die after taking this feat, you are resurrected at a place of power like your home monastery or other sanctum between one and four days later, assuming another resurrection doesn’t find you first. (This counts against your resurrection limit, as normal.)</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

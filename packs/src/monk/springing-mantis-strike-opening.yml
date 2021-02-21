@@ -1,4 +1,4 @@
-name: 'Springing Mantis Strike (Opening)'
+name: 'Springing Mantis Strike (Dance of the Mantis)'
 permission:
   default: 0
 type: 'power'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -169,7 +169,7 @@ data:
   group:
     type: 'String'
     label: 'Group'
-    value: ''
+    value: 'Opening'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/weapon_20.jpg'
 effects: []

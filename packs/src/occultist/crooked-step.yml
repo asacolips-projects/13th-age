@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The ally the triggering enemy is attacking gains a bonus to all defenses against that attack equal to your Intelligence modifier.</p>'
+        value: '<p>The ally the triggering enemy is attacking gains a +[[@int.mod]] bonus to all defenses against that attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

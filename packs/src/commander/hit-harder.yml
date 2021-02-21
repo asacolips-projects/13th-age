@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The target gains a bonus to the damage roll equal to your Charisma modifier ([[@cha.mod]]) (double your Charisma modifier ([[2*@cha.mod]]) at 5th level; triple it ([[3*@cha.mod]]) at 8th level).</p>'
+        value: '<p>The target gains a +[[@cha.dmg]] bonus to the damage roll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -16,11 +16,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'flexible'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain temporary hit points equal to your Constitution modifier.</p>'
+    value: '<p>You gain [[@con.mod]] temporary hit points.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The temporary hit points increase to double your Constitution modifier.</p>'
+        value: '<p>The temporary hit points increase to [[2*@con.mod]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

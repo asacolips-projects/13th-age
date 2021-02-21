@@ -136,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Add your Strength modifier to the miss damage.</p>'
+        value: '<p>Add [[@str.mod]] to the miss damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>If you don''t add your Sneak Attack damage to the attack, you also deal damage equal to five times your Strength modifier to your deadly thrust target when you hit.</p>'
+        value: '<p>If you don''t add your Sneak Attack damage to the attack, you also deal [[5*@str.mod]] damage to your deadly thrust target when you hit.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

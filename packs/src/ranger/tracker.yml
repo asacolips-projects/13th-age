@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You have the Tracker background at its full possible bonus of +5, without having to spend your normal background points on it. You are an expert wilderness tracker, capable of reading clues from the environment that others can''t perceive. Tracking doesn''t work well, however, in heavily traveled urban environments.</p><p>In addition, you have the terrain stunt power.</p><p><strong>Terrain stunt</strong>: At the start of each battle in a non-urban environment, roll a d6. Any time after the escalation die reaches that number, you''ll be able to use a quick action to execute a terrain stunt. Normally you can only use terrain stunt once per battle, but circumstances, geography, or excellent planning may suggest that you can pull it off more than once.</p><p>Terrain stunts are improvisational effects that play off your preternatural understanding of the wilderness and all the diverse forms of the natural world. Things like knocking a hornets nest no one had noticed onto your enemy''s head, maneuvering a foe onto a soggy patch of ground that slows them down, shooting the cap off a mushroom spore in a dungeon that erupts on your enemies, getting your enemy''s sword wedged into a stalactite, finding the tree branch that lets you vault up to attack the flying demon that thought it was out of axe range, and similar types of actions.</p>'
+    value: '<p>You have the Tracker background at its full possible bonus of +5, without having to spend your normal background points on it. You are an expert wilderness tracker, capable of reading clues from the environment that others can''t perceive. Tracking doesn''t work well, however, in heavily traveled urban environments.</p><p>In addition, you have the terrain stunt power.</p><p><strong>Terrain stunt</strong>: At the start of each battle in a non-urban environment, roll a [[d6]]. Any time after the escalation die reaches that number, you''ll be able to use a quick action to execute a terrain stunt. Normally you can only use terrain stunt once per battle, but circumstances, geography, or excellent planning may suggest that you can pull it off more than once.</p><p>Terrain stunts are improvisational effects that play off your preternatural understanding of the wilderness and all the diverse forms of the natural world. Things like knocking a hornets nest no one had noticed onto your enemy''s head, maneuvering a foe onto a soggy patch of ground that slows them down, shooting the cap off a mushroom spore in a dungeon that erupts on your enemies, getting your enemy''s sword wedged into a stalactite, finding the tree branch that lets you vault up to attack the flying demon that thought it was out of axe range, and similar types of actions.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

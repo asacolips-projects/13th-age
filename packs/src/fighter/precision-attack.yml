@@ -16,11 +16,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'flexible'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You gain a bonus to the damage roll equal to your Dexterity modifier. At 5th\_level, the damage bonus increases to double your Dexterity modifier; at 8th\_level the damage bonus increases to triple it.</p>"
+    value: "<p>You gain a +[[@des.dmg]] bonus to the damage roll equal to your Dexterity modifier.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

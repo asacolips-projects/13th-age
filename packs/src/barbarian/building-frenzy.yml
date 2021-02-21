@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>One battle per day, as a free action after you have missed an attack, gain 1d4 damage to each successful melee attack until the end of the battle. For each missed attack following this, add another +1d4 damage, up to a maximum of +4d4 damage ([[/r d4]] [[/r 2d4]] [[/r 3d4]] [[/r 4d4]]).</p>'
+    value: '<p>One battle per day, as a free action after you have missed an attack, gain 1d4 damage to each successful melee attack until the end of the battle. For each missed attack following this, add another +1d4 damage, up to a maximum of +4d4 damage ([[/r 1d4]] [[/r 2d4]] [[/r 3d4]] [[/r 4d4]]).</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
