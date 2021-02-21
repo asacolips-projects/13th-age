@@ -1,4 +1,4 @@
-name: 'Double Ranged Attack'
+name: 'Double Ranged Attack (Attack)'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -56,7 +56,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'Repeat this attack as a free action if this was your first attack with this action.'
+    value: 'Repeat this attack if this was your first attack with this action.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -72,7 +72,7 @@ data:
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: 'Repeat this attack as a free action if this was your first attack with this action.'
+    value: 'Repeat this attack if this was your first attack with this action.'
   missOdd:
     type: 'String'
     label: 'Odd Miss'
