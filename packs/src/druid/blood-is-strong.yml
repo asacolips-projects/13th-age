@@ -16,11 +16,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'spell'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
