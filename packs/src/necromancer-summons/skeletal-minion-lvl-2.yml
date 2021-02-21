@@ -1,0 +1,361 @@
+name: 'Skeletal Minion (Lvl 2)'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 12
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 18
+      min: 0
+      max: 18
+      temp: 0
+      tempmax: 0
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 0
+      mod: 2
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 2
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: ''
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'Normal'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: ''
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 2
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Skeletal Minion (1)'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'h3zKJaqu3g6i6Lms'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'BbEkmhYVNGpQ0rnr'
+    flags: {}
+    name: 'Pathetic Flailing'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+7]] vs. AC'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[d8]] damage.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 100000

@@ -1,0 +1,170 @@
+name: 'Redeemer'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: ''
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'talent'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: ''
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: ''
+  range:
+    type: 'String'
+    label: 'Range'
+    value: ''
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: "<p>When you summon undead to fight for you, their spirits are released from service to any master when they drop to 0 hp or when they collapse or discorporate after the battle as the spell fades. In other words, your magic cuts into the power reserves of creatures who stockpile undead servitors, like the Lich King.</p>\n<p>As a consequence, summoned undead tend to fight harder for you. They may not truly understand their condition, but they understand “freedom from this current slavery,” and that they’ll get it as long as they strive to serve you. If you choose the feats associated with this talent, undead you summon fight much harder for you than they would for other summoners.</p>\n<p>In game terms, undead you summon release holy energy bursts as they drop to 0 hp, dealing a small amount of damage to each enemy engaged with them.</p>\n<ul>\n<li>Mooks you summon deal <a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%220%22%2C%22dice%22%3A%5B%5D%2C%22parts%22%3A%5B%220%22%5D%2C%22result%22%3A%220%22%2C%22total%22%3A0%7D\" title=\"@cha.dmg\"><i class=\"fas fa-dice-d20\"></i> 0</a> holy damage.</li>\n<li>Non-mooks you summon deal [[(@cha.mod)d4]] holy damage ([[(@cha.mod)d8]]) at 5th level; <a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%2202d6%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A6%2C%22rolls%22%3A%5B%7B%22roll%22%3A5%7D%2C%7B%22roll%22%3A1%7D%5D%2C%22formula%22%3A%222d6%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%226%22%2C%22total%22%3A6%7D\" title=\"(@cha.mod)2d6\"><i class=\"fas fa-dice-d20\"></i> 6</a> at 8th level).</li>\n</ul>\n<p>In story terms, you’re not likely to have a purely positive relationship with the Lich King if you take the Redeemer talent.</p>"
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>The first time each battle an undead creature you have summoned attacks, it gains an attack bonus equal to your Charisma modifier.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>When one of your summoned undead creatures drops to 0 hp, instead of having it deal holy damage to engaged enemies, you can heal hit points equal to that damage instead.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>You can memorize a single spell that summons undead twice.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'systems/archmage/assets/icons/skills/water_03.jpg'

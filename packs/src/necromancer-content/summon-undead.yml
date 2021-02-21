@@ -1,0 +1,170 @@
+name: 'Summon Undead'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: ''
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'daily'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Ranged'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: "<p>You summon a mob of <a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%221d3%20+%201%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A3%2C%22rolls%22%3A%5B%7B%22roll%22%3A3%7D%5D%2C%22formula%22%3A%221d3%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%2C%22+%22%2C%221%22%5D%2C%22result%22%3A%223%20+%201%22%2C%22total%22%3A4%7D\" title=\"1d3 + 1\"><i class=\"fas fa-dice-d20\"></i> 4</a> crumbling skeleton mooks, as per the summoning rules on page 11. These skeletons fight for you until the end of the battle or until they drop to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, the mooks you summon vary, as shown below.</p>\n<p><em>Summoned mob stats are in the Summoned Creatures compendium.</em></p>"
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: '[[d3+1]] Putrid Zombie mooks'
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: '[[d3+1]] Starving Ghoul mooks'
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: '[[d3+1]] Masterless Vampire Spawn mooks'
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: '[[d3+1]] Blackamber Skeletal Warrior mooks'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: ''
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>You now summon 1d4+1 mooks when you use this spell instead of 1d3+1.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>If one or more mooks summoned by the spell survive the battle, you can keep one mook with you until the next battle. Or until someone in the party or the world gets sick of it and slays the thing.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'systems/archmage/assets/icons/skills/affliction_07.jpg'

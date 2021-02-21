@@ -1,0 +1,436 @@
+name: 'Summoned Wraith'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 5
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 33
+      min: 0
+      max: 33
+      temp: 0
+      tempmax: 0
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 5
+      mod: 10
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 10
+    escalation:
+      value: 2
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'spoiler'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'normal'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'undead'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: 'Resist Damage 16+'
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: 'Holy'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Summoned Wraith'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'DIQ4khTDVd6WTxsF'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'H67LPBGH2FFi3Lex'
+    flags: {}
+    name: 'Ice-Cold Blade'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs. PD'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[14]] negative energy damage.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural 16+'
+        value: 'The target is also weakened until the end of its next turn.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 100000
+  - _id: 'GpzFRdeuE9IDJlAe'
+    flags: {}
+    name: 'C: Spiraling Assault'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p><em>Limited use.</em> The wraith can use spiraling assault only when the escalation die ([[@ed]]) is even.</p>'
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs PD ([[d3]] nearby enemies)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[10]] negative energy damage, and after the attack the wraith teleports to and engages with one target it hit'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 200000
+  - _id: 'DsykUFnpIFc9Jfmh'
+    flags: {}
+    name: 'Flight'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>The wraith hovers and zooms about.</p>'
+    sort: 300000
+  - _id: 'YHnBefmr17m8ZqZp'
+    flags: {}
+    name: 'Ghostly'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: "<p>This creature has resist damage 16+ to all damage (yes, even holy damage) except force damage, which damages it normally.</p>\n<p>A wraith can move through solid objects, but it can’t end its movement inside them.</p>"
+    sort: 400000

@@ -1,0 +1,170 @@
+name: 'Wave of Decay'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: ''
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'daily'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 3
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Ranged'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: "<p>Choose a nearby enemy. It takes <a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%222d6%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A6%2C%22rolls%22%3A%5B%7B%22roll%22%3A1%7D%2C%7B%22roll%22%3A4%7D%5D%2C%22formula%22%3A%222d6%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%225%22%2C%22total%22%3A5%7D\" title=\"2d6\"><i class=\"fas fa-dice-d20\"></i> 5</a> negative energy damage for each point on the escalation die (<a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%220%22%2C%22dice%22%3A%5B%5D%2C%22parts%22%3A%5B%220%22%5D%2C%22result%22%3A%220%22%2C%22total%22%3A0%7D\" title=\"@ed\"><i class=\"fas fa-dice-d20\"></i> 0</a>). (For example, if the escalation die is 2 when you cast the spell, you’ll deal 4d6 negative energy damage to the target.)</p>\n<p>Until the end of the battle, as a free action at the start of each of your turns, repeat the effect above, choosing a target and dealing damage based on the escalation die value.</p>\n<p>The effect ends at the end of the battle, when you drop to 0 hp, or when your wave of decay damage drops an enemy to 0 hit points!</p>"
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: '[[2d12]] per point of [[@ed]]'
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: '[[3d12]] per point of [[@ed]]'
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: '[[5d12]] per point of [[@ed]]'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: ''
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>The spell no longer ends when you drop to 0 hit points or below; instead it ends when you fail a death save.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>The spell no longer ends when you use it to drop an enemy to 0 hit points; it now ends when it drops a second enemy to 0 hit points.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'systems/archmage/assets/icons/spells/rip-acid-2.jpg'
