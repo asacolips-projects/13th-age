@@ -1,4 +1,4 @@
-name: 'Chaos Ray'
+name: 'Stance of Necessity'
 permission:
   default: 0
 type: 'power'
@@ -16,11 +16,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'once-per-battle'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,11 +28,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'other'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged Spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -48,15 +48,15 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[1d8+@cha.dmg+@atk.a.bonus]] damage.'
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus another nearby enemy takes half damage.'
+    value: ''
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[1d6]] damage to a different nearby enemy'
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -104,23 +104,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Twice per day as a quick action, you can gain a +4 bonus to all defenses. The protection lasts until the end of the battle and is in effect while you do NOT have your focus. The bonus also ends when an attack hits you while you don’t have your focus.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[4d6+@cha.dmg+@atk.a.bonus]] Damage : [[1d10]] miss'
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[6d6+@cha.dmg+@atk.a.bonus]] Damage : [[2d12]] miss'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[6d10+@cha.dmg+@atk.a.bonus]] Damage : [[3d12]] miss'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[8d10+@cha.dmg+@atk.a.bonus]] Damage : [[5d12]] miss'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -136,12 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: '<p>You can guard a nearby ally instead of yourself (you don’t have to see that ally). The defense bonus ends if either you or the ally is hit while you don’t have your focus.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -150,6 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>Your Stance of Necessity uses are now recharge 16+ instead of daily.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,9 +160,13 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: '<p>When an enemy misses you with an attack while you don’t have your focus, it takes psychic damage equal to [[@wis.dmg+@lvl]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    value: null
 flags: {}
-img: 'systems/archmage/assets/icons/spells/beam-eerie-2.jpg'
+img: 'icons/svg/mystery-man.svg'
+effects: []

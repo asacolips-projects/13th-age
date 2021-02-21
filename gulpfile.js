@@ -210,6 +210,7 @@ exports.default = gulp.series(
 );
 exports.css = css;
 exports.yaml = yamlTask;
+exports.cleanPacks = gulp.series(cleanPacks);
 exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
