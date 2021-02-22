@@ -1,4 +1,4 @@
-name: 'Double Melee Attack (Attack)'
+name: 'Ranged Attack (Occultist)'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -32,7 +32,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: 'Melee attack'
+    value: null
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -48,15 +48,15 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
+    value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[(@lvl)d(@wpn.m.dieNum - 2)+@str.dmg+@atk.m.bonus]] damage'
+    value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'Repeat this attack if this was your first attack with this action.'
+    value: ''
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,11 +68,11 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[@lvl]] damage'
+    value: '—'
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: 'Repeat this attack if this was your first attack with this action.'
+    value: null
   missOdd:
     type: 'String'
     label: 'Odd Miss'

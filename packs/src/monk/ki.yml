@@ -1,4 +1,4 @@
-name: 'Double Melee Attack (Attack)'
+name: 'Ki'
 permission:
   default: 0
 type: 'power'
@@ -9,6 +9,11 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: "<p>You gain a number of ki points each day equal to 1 + your Wisdom modifier. You can spend ki to modify the natural result of one of your attack rolls. Ki is a daily resource. When you take a full heal-up, you regain all your ki points. You don&rsquo;t regain ki during a quick rest.</p>\n<p>After rolling an attack, you can spend 1 point of ki as a free action to change your attack&rsquo;s natural result by 1, unless that result is a natural 1. The change can be +1 or -1. Spending ki is a free action, but you can only spend 1 point of ki each turn.</p>"
+  group:
+    type: 'String'
+    label: 'Group'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -16,31 +21,31 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: '1'
+    value: null
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
-    value: 'Melee attack'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: null
+    value: ''
   target:
     type: 'String'
     label: 'Target'
-    value: 'One enemy'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -48,15 +53,15 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[(@lvl)d(@wpn.m.dieNum - 2)+@str.dmg+@atk.m.bonus]] damage'
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'Repeat this attack if this was your first attack with this action.'
+    value: ''
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -68,35 +73,35 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[@lvl]] damage'
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: 'Repeat this attack if this was your first attack with this action.'
+    value: ''
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: null
+    value: ''
   cost:
     type: 'String'
     label: 'Cost'
-    value: null
+    value: ''
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
-    value: null
+    value: ''
   castPower:
     type: 'String'
     label: 'Cast for Power'
-    value: null
+    value: ''
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: null
+    value: ''
   finalVerse:
     type: 'String'
     label: 'Final Verse'
-    value: null
+    value: ''
   special:
     type: 'String'
     label: 'Special'
@@ -108,27 +113,27 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: null
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: null
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: null
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: null
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
-    value: null
+    value: ''
   breathWeapon:
     type: 'String'
     label: 'Breath Weapon'
-    value: null
+    value: ''
   recharge:
     type: 'Number'
     label: 'Recharge'
@@ -142,25 +147,29 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: null
+        value: '<p>You gain 1 additional point of ki each day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
     champion:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: null
+        value: '<p>You can spend as much ki as you like during a turn. You must spend each point of ki on a different attack roll or a different ki power.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
     epic:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: null
+        value: '<p>Work with your GM to invent a new ki power related to your one unique thing or some other aspect of your character&rsquo;s story. If the ki power is too good and overshadows your other ki powers, the GM should rule that you can only use it once a day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
+        value: false
 flags: {}
-img: 'icons/svg/mystery-man.svg'
+img: 'icons/svg/d20.svg'
+effects: []
