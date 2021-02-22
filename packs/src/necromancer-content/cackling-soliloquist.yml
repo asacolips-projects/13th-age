@@ -143,7 +143,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The sound of your own voice invigorates you—you gain <a class="inline-roll inline-result" data-roll="%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%22d6%20+%200%20+%200%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A6%2C%22rolls%22%3A%5B%7B%22roll%22%3A1%7D%5D%2C%22formula%22%3A%221d6%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%2C%22+%22%2C%220%22%2C%22+%22%2C%220%22%5D%2C%22result%22%3A%221%20+%200%20+%200%22%2C%22total%22%3A1%7D" title="d6+@lvl+@cha.mod"><i class="fas fa-dice-d20"></i> 1</a> temporary hit points when you use Cackling Soliloquist (double your Charisma modifier at 5th level; triple it at 8th level).</p>'
+        value: '<p>The sound of your own voice invigorates you—you gain [[d6+@lvl+@cha.mod]] temporary hit points when you use Cackling Soliloquist (double your Charisma modifier at 5th level; triple it at 8th level).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
