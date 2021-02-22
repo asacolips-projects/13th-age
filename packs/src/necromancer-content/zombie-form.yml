@@ -105,23 +105,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The target gains 30 temporary hit points that last until the end of the next battle. Until the end of the next battle, the target takes a –5 penalty to Charisma and Dexterity skill checks (no penalty to attacks), to disengage checks, and to initiative rolls.</p>'
+    value: '<p>The target gains [[30]] temporary hit points that last until the end of the next battle. Until the end of the next battle, the target takes a –5 penalty to Charisma and Dexterity skill checks (no penalty to attacks), to disengage checks, and to initiative rolls.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '50 temporary hit points'
+    value: '[[50]] temporary hit points'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '80 temporary hit points'
+    value: '[[80]] temporary hit points'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '130 temporary hit points'
+    value: '[[130]] temporary hit points'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '210 temporary hit points'
+    value: '[[210]] temporary hit points'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
