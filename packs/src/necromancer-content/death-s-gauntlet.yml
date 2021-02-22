@@ -143,7 +143,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>When a target uses a standard action to end death’s gauntlet ongoing damage, it takes negative energy damage equal to your level.</p>'
+        value: '<p>When a target uses a standard action to end death’s gauntlet ongoing damage, it takes [[@lvl]] negative energy damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
