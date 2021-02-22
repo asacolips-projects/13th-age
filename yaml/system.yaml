@@ -59,6 +59,10 @@ packs:
     entity: Item
     name: sorcerer
     path: packs/dist/sorcerer.db
+  - label: Sorcerer Tables
+    entity: RollTable
+    name: sorcerer-tables
+    path: packs/dist/sorcerer-tables.db
     system: archmage
   - label: Wizard
     entity: Item
@@ -70,7 +74,7 @@ packs:
     name: chaosmage
     path: packs/dist/chaosmage.db
     system: archmage
-  - label: Chaos Mage Rollable Tables
+  - label: Chaos Mage Tables
     entity: RollTable
     name: chaosmage-tables
     path: packs/dist/chaosmage-tables.db
@@ -99,6 +103,11 @@ packs:
     entity: Item
     name: generalfeats
     path: packs/dist/general-feats.db
+    system: archmage
+  - label: Multiclass Feats
+    entity: Item
+    name: multiclassfeats
+    path: packs/dist/multiclass-feats.db
     system: archmage
   - label: SRD Monsters
     entity: Actor
