@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '15 ongoing negative energy damage (hard save ends, 16+).'
+    value: '[[15]] ongoing negative energy damage (hard save ends, 16+).'
   missEven:
     type: 'String'
     label: 'Even Miss'

@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Choose a nearby enemy. It takes <a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%222d6%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A6%2C%22rolls%22%3A%5B%7B%22roll%22%3A1%7D%2C%7B%22roll%22%3A4%7D%5D%2C%22formula%22%3A%222d6%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%225%22%2C%22total%22%3A5%7D\" title=\"2d6\"><i class=\"fas fa-dice-d20\"></i> 5</a> negative energy damage for each point on the escalation die (<a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%220%22%2C%22dice%22%3A%5B%5D%2C%22parts%22%3A%5B%220%22%5D%2C%22result%22%3A%220%22%2C%22total%22%3A0%7D\" title=\"@ed\"><i class=\"fas fa-dice-d20\"></i> 0</a>). (For example, if the escalation die is 2 when you cast the spell, you’ll deal 4d6 negative energy damage to the target.)</p>\n<p>Until the end of the battle, as a free action at the start of each of your turns, repeat the effect above, choosing a target and dealing damage based on the escalation die value.</p>\n<p>The effect ends at the end of the battle, when you drop to 0 hp, or when your wave of decay damage drops an enemy to 0 hit points!</p>"
+    value: "<p>Choose a nearby enemy. It takes [[(@ed*2)d6]] negative energy damage. (For example, if the escalation die is 2 when you cast the spell, you’ll deal 4d6 negative energy damage to the target.)</p>\n<p>Until the end of the battle, as a free action at the start of each of your turns, repeat the effect above, choosing a target and dealing damage based on the escalation die value.</p>\n<p>The effect ends at the end of the battle, when you drop to 0 hp, or when your wave of decay damage drops an enemy to 0 hit points!</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -113,15 +113,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[2d12]] per point of [[@ed]]'
+    value: '[[(@ed*2)d12]]'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[3d12]] per point of [[@ed]]'
+    value: '[[(@ed*3)d12]]'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[5d12]] per point of [[@ed]]'
+    value: '[[(@ed*5)d12]]'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

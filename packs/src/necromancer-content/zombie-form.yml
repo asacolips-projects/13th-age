@@ -101,7 +101,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You can only cast this spell outside battle.&nbsp; It takes <a class="inline-roll inline-result" data-roll="%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%222d4%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A4%2C%22rolls%22%3A%5B%7B%22roll%22%3A1%7D%2C%7B%22roll%22%3A4%7D%5D%2C%22formula%22%3A%222d4%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%225%22%2C%22total%22%3A5%7D" title="2d4"><i class="fas fa-dice-d20"></i> 5</a> rounds to cast.</p>'
+    value: '<p>You can only cast this spell outside battle.&nbsp; It takes [[2d4]] rounds to cast.</p>'
   effect:
     type: 'String'
     label: 'Effect'

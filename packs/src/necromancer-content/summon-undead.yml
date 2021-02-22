@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You summon a mob of <a class=\"inline-roll inline-result\" data-roll=\"%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%221d3%20+%201%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A3%2C%22rolls%22%3A%5B%7B%22roll%22%3A3%7D%5D%2C%22formula%22%3A%221d3%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%2C%22+%22%2C%221%22%5D%2C%22result%22%3A%223%20+%201%22%2C%22total%22%3A4%7D\" title=\"1d3 + 1\"><i class=\"fas fa-dice-d20\"></i> 4</a> crumbling skeleton mooks, as per the summoning rules on page 11. These skeletons fight for you until the end of the battle or until they drop to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, the mooks you summon vary, as shown below.</p>\n<p><em>Summoned mob stats are in the Summoned Creatures compendium.</em></p>"
+    value: "<p>You summon a mob of [[1d3+1]] crumbling skeleton mooks, as per the summoning rules on page 11. These skeletons fight for you until the end of the battle or until they drop to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, the mooks you summon vary, as shown below.</p>\n<p><em>Summoned mob stats are in the Summoned Creatures compendium.</em></p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You now summon 1d4+1 mooks when you use this spell instead of 1d3+1.</p>'
+        value: '<p>You now summon [[1d4+1]] mooks when you use this spell instead of 1d3+1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

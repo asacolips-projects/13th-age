@@ -101,7 +101,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You can use this spell <a class="inline-roll inline-result" data-roll="%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%221d3%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A3%2C%22rolls%22%3A%5B%7B%22roll%22%3A3%7D%5D%2C%22formula%22%3A%221d3%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%223%22%2C%22total%22%3A3%7D" title="1d3"><i class="fas fa-dice-d20"></i> 3</a> times each day (roll during a full heal-up when you take it). Each time you use the spell, you must wait <a class="inline-roll inline-result" data-roll="%7B%22class%22%3A%22Roll%22%2C%22formula%22%3A%221d6%22%2C%22dice%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22faces%22%3A6%2C%22rolls%22%3A%5B%7B%22roll%22%3A4%7D%5D%2C%22formula%22%3A%221d6%22%2C%22options%22%3A%7B%7D%7D%5D%2C%22parts%22%3A%5B%22_d0%22%5D%2C%22result%22%3A%224%22%2C%22total%22%3A4%7D" title="1d6"><i class="fas fa-dice-d20"></i> 4</a> hours before casting it again.</p>'
+    value: '<p>You can use this spell [[1d3]] times each day (roll during a full heal-up when you take it). Each time you use the spell, you must wait [[1d6]] hours before casting it again.</p>'
   effect:
     type: 'String'
     label: 'Effect'
