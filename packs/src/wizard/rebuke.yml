@@ -20,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
