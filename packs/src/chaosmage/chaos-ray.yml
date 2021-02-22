@@ -108,7 +108,6 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-<<<<<<< HEAD
     value: '[[4d6+@cha.dmg+@atk.a.bonus]] Damage : [[1d10]] miss'
   spellLevel5:
     type: 'String'
@@ -122,21 +121,6 @@ data:
     type: 'String'
     label: '9th Level Spell'
     value: '[[8d10+@cha.dmg+@atk.a.bonus]] Damage : [[5d12]] miss'
-=======
-    value: '[[4d6+@cha.dmg+@atk.a.bonus]] :  [[1d10]] miss'
-  spellLevel5:
-    type: 'String'
-    label: '5th Level Spell'
-    value: '[[6d6+@cha.dmg+@atk.a.bonus]] :  [[2d12]] miss'
-  spellLevel7:
-    type: 'String'
-    label: '7th Level Spell'
-    value: '[[6d10+@cha.dmg+@atk.a.bonus]] :  [[3d12]] miss'
-  spellLevel9:
-    type: 'String'
-    label: '9th Level Spell'
-    value: '[[8d10+@cha.dmg+@atk.a.bonus]] :  [[5d12]] miss'
->>>>>>> integration-27-compendiums
   spellChain:
     type: 'String'
     label: 'Chain Spell'

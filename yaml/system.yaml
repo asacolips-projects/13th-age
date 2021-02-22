@@ -1,6 +1,6 @@
 name: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
-version: beta1-1.8.0
+version: 1.8.1
 author: Matt Smith & Cody Swendrowski
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
 minimumCoreVersion: 0.7.5
@@ -59,6 +59,10 @@ packs:
     entity: Item
     name: sorcerer
     path: packs/dist/sorcerer.db
+  - label: Sorcerer Tables
+    entity: RollTable
+    name: sorcerer-tables
+    path: packs/dist/sorcerer-tables.db
     system: archmage
   - label: Wizard
     entity: Item
@@ -69,6 +73,11 @@ packs:
     entity: Item
     name: chaosmage
     path: packs/dist/chaosmage.db
+    system: archmage
+  - label: Chaos Mage Tables
+    entity: RollTable
+    name: chaosmage-tables
+    path: packs/dist/chaosmage-tables.db
     system: archmage
   - label: Commander
     entity: Item
@@ -95,6 +104,11 @@ packs:
     name: generalfeats
     path: packs/dist/general-feats.db
     system: archmage
+  - label: Multiclass Feats
+    entity: Item
+    name: multiclassfeats
+    path: packs/dist/multiclass-feats.db
+    system: archmage
   - label: SRD Monsters
     entity: Actor
     name: srd-Monsters
@@ -108,8 +122,8 @@ languages:
     name: Español
     path: languages/es.json
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
-manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/beta/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/beta/archmage-beta.zip
+manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/beta/system.json?job=build-beta
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/beta/raw/archmage.zip?job=build-beta
 initiative: 1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)
 gridDistance: 1
 gridUnits: ''
