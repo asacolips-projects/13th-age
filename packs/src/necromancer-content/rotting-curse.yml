@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '30 ongoing negative energy damage (hard save ends, 16+), and each time the target fails the save, the ongoing negative energy damage increases by 15'
+    value: '[[30+@atk.a.bonus]] ongoing negative energy damage (hard save ends, 16+), and each time the target fails the save, the ongoing negative energy damage increases by [[15]]'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -116,11 +116,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '50 ongoing damage on a hit, with fail increments/miss damage of 25.'
+    value: '[[50+@atk.a.bonus]] ongoing damage on a hit, with fail increments/miss damage of [[25]].'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '80 ongoing damage on a hit, with fail increments/miss damage of 40.'
+    value: '[[80+@atk.a.bonus]] ongoing damage on a hit, with fail increments/miss damage of [[40]].'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
