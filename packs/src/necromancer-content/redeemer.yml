@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>When you summon undead to fight for you, their spirits are released from service to any master when they drop to 0 hp or when they collapse or discorporate after the battle as the spell fades. In other words, your magic cuts into the power reserves of creatures who stockpile undead servitors, like the Lich King.</p>\n<p>As a consequence, summoned undead tend to fight harder for you. They may not truly understand their condition, but they understand “freedom from this current slavery,” and that they’ll get it as long as they strive to serve you. If you choose the feats associated with this talent, undead you summon fight much harder for you than they would for other summoners.</p>\n<p>In game terms, undead you summon release holy energy bursts as they drop to 0 hp, dealing a small amount of damage to each enemy engaged with them.</p>\n<ul>\n<li>Mooks you summon deal [[@cha.dmg]] holy damage.</li>\n<li>Non-mooks you summon deal [[@cha.mod*(1d4)]] holy damage ([[@cha.mod*(1d8)]]) at 5th level; [[@cha.mod*(2d6)]] at 8th level).</li>\n</ul>\n<p>In story terms, you’re not likely to have a purely positive relationship with the Lich King if you take the Redeemer talent.</p>"
+    value: "<p>Undead you summon release holy energy bursts as they drop to 0 hp, dealing a small amount of damage to each enemy engaged with them.</p>\n<ul>\n<li>Mooks you summon deal [[@cha.dmg]] holy damage.</li>\n<li>Non-mooks you summon deal [[@cha.mod*(1d4)]] holy damage ([[@cha.mod*(1d8)]]) at 5th level; [[@cha.mod*(2d6)]] at 8th level).</li>\n</ul>\n<p>In story terms, you’re not likely to have a positive relationship with any necromantic icons if you take the Redeemer talent.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -143,7 +143,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The first time each battle an undead creature you have summoned attacks, it gains an attack bonus equal to your Charisma modifier.</p>'
+        value: '<p>The first time each battle an undead creature you have summoned attacks, it gains an attack bonus equal to [[@cha.mod]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
