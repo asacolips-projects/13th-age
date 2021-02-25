@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Necromancers don’t necessarily serve the Lich King, but they know him. All necromancers must spend at least one relationship point with the Lich King.</p>\n<p>Many player character necromancers have conflicted or negative relationships with the Lich King, often because they’ve stolen part of his power or are allied with other icons who don’t mind turning the Lich King’s secrets against him.</p>\n<p>If your one unique thing somehow suggests that you might be free of this requirement, make a case to your GM that this is a way in which you are unique.</p>"
+    value: "<p>All necromancers must spend at least one relationship point with any necromantic icon. (This might be conflicted or negative.) If you're one unique thing somehow suggests that you might be free of this requirement, make a case to your GM that this is a way in which you are unique.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

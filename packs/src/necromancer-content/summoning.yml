@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Your summoning spells use the standard summoning rules from page 11.</p>'
+    value: '<p>Your summoning spells use the standard summoning rules. The following feats enable you to improve your summoning powers.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

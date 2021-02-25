@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Necromancers can cast their spells as rituals (13th Age core rulebook, page 192).</p>'
+    value: '<p>Necromancers can cast their spells as rituals.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -1,4 +1,4 @@
-name: 'Dead Wizard'
+name: 'Spell Choices'
 permission:
   default: 0
 type: 'power'
@@ -9,7 +9,6 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -21,7 +20,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -29,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'other'
   range:
     type: 'String'
     label: 'Range'
@@ -105,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You gain the Cantrips class feature from the wizard class. The talent functions like the wizard’s class feature with the following exceptions:</p>\n<ul>\n<li>You can’t cast <em>mending</em>.</li>\n<li>Your <em>light </em>cantrip has a sickly flicker or a dark edge. Feel free to call it darklight.</li>\n</ul>"
+    value: '<p>Like other standard spellcasters, you choose the spells you will be able to cast after each full heal-up.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -137,13 +136,13 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You can take a wizard spell in place of one of your necromancer spells of the same level. You can change this spell for a new one you know whenever you take a full heal-up.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -152,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You gain a bonus wizard spell that is at least two levels below your level, in addition to the spells you can cast as a necromancer. You can change this spell for a new one you know whenever you take a full heal-up.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -161,10 +160,13 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You gain a second bonus wizard spell, but this one can be of your level or lower. You can change this spell for a new one you know whenever you take a full heal-up.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    value: null
 flags: {}
-img: 'systems/archmage/assets/icons/skills/water_03.jpg'
+img: 'icons/svg/mystery-man.svg'
+effects: []

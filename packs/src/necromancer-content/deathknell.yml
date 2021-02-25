@@ -105,23 +105,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>As a quick action, you can drop a nearby enemy that has 5 hp or fewer down to 0 hp. When you drop an enemy using Deathknell, you heal [[1d6]] hit points.</p>\n<p>You can use Deathknell to drop a mook, but only if it’s the last mook in its mob and the mob has 5 hp or fewer left, at which point it’s time for the mook’s Deathknelled exit.</p>\n<ul>\n<li>3rd level spell Drop an enemy with 10 hp or fewer. Heal [[1d10]] hit points.</li>\n<li>5th level spell Drop an enemy with 15 hp or fewer. Heal [[2d8]] hit points.</li>\n<li>7th level spell Drop an enemy with 20 hp or fewer. Heal [[4d6]] hit points.</li>\n<li>9th level spell Drop an enemy with 25 hp or fewer. Heal [[4d8]] hit points.</li>\n</ul>"
+    value: "<p>As a quick action, you can drop a nearby enemy that has 5 hp or fewer down to 0 hp. When you drop an enemy using Deathknell, you heal [[1d6]] hit points.</p>\n<p>You can use Deathknell to drop a mook, but only if it’s the last mook in its mob and the mob has 5 hp or fewer left.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: 'Drop an enemy with 10 hp or fewer. Heal [[1d10]] hit points'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'Drop an enemy with 15 hp or fewer. Heal [[2d8]] hit points.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'Drop an enemy with 20 hp or fewer. Heal [[4d6]] hit points.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'Drop an enemy with 25 hp or fewer. Heal [[4d8]] hit points.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

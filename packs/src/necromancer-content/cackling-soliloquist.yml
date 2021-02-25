@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>If you spend your move action, your quick action, and your standard action casting a daily spell that ordinarily only requires a standard action—while screaming grandiloquently, cackling maniacally, or megalomaniacally describing the grandeur of your plans and the futility of your enemies’ resistance—the daily spell is recharge 18+ after battle instead of daily, and you can invent a slight improvement to the spell, especially if it’s partly storyoriented, that provides an extra benefit determined by the GM or by you (with GM approval). (For example, if you cast ray of enfeeblement and wax eloquent on how the recurring villain you target will bow before you, you could suggest that your target also loses its next move action as the ray forces it to its knees.)</p>\n<p>Note, it seems fine to us to let you use this feature with any daily spell you pick up thanks to one of the necromancer talents, but the no power crossover rule for a spellcasting multiclass (see page 104) still applies.</p>"
+    value: "<p>If you spend your move action, your quick action, <em>and</em> your standard action casting a daily spell that ordinarily only requires a standard action — while screaming grandiloquently, cackling maniacally, or megalomaniacally describing the grandeur of your plans and the futility of your enemies’ resistance — the daily spell is recharge 18+ after battle instead of daily, and you can invent a slight improvement to the spell, especially if it’s partly story-oriented, that provides an extra benefit determined by the GM or by you (with GM approval).</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -143,7 +143,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The sound of your own voice invigorates you—you gain [[d6+@lvl+@cha.mod]] temporary hit points when you use Cackling Soliloquist (double your Charisma modifier at 5th level; triple it at 8th level).</p>'
+        value: '<p>The sound of your own voice invigorates you—you gain [[d6+@lvl+@cha.dmg]] temporary hit points when you use Cackling Soliloquist.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -161,7 +161,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Once per day, you can hog the spotlight when using Cackling Soliloquist. When you do, you heal using a free recovery and steal the escalation die, keeping it all to yourself. Until the end of your next turn, you are the only creature—PC, NPC, or monster—that can use the escalation die, and you treat the escalation die as if it were an 8. At the end of your next turn, return the escalation die to the table, one point higher than it was when you seized it. Make sure to remind everyone to be grateful they have it back.</p>'
+        value: '<p>Once per day, you can hog the spotlight when using Cackling Soliloquist. When you do, you heal using a free recovery and steal the escalation die, keeping it all to yourself. Until the end of your next turn, you are the only creature—PC, NPC, or monster—that can use the escalation die, and you treat the escalation die as if it were an 8. At the end of your next turn, return the escalation die to the table, one point higher than it was when you seized it.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
