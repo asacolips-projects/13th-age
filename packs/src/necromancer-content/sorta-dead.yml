@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>In some ways, you’re dead already. You don’t need to eat or sleep or breathe. You can’t drown in normal water/liquid, though magical gas will probably still affect you.</p>\n<p>When a spell or effect targets or applies to undead, you can decide whether you want to count as undead for that specific effect. (For example, you could count as undead to take advantage of a target’s vulnerability created by the ripping claws attack of a starving ghoul mook you summoned via summon undead.)</p>\n<p>The first time you die each level, roll a normal save, adding your Charisma modifier ([[d20+@cha.mod]]). If you succeed, you heal using a free recovery instead of dying. If you were dying because of last gasp saves, consider yourself saved from the last gasp problem also.</p>"
+    value: "<p>In some ways, you’re dead already. You don’t need to eat or sleep or breathe. You can’t drown in normal water/liquid, though magical gas will still affect you.</p>\n<p>When a spell or effect targets or applies to undead, you can decide whether you want to count as undead for that specific effect. (For example, you could count as undead to take advantage of a target’s vulnerability created by the ripping claws attack of a starving ghoul mook you summoned via summon undead.)</p>\n<p>The first time you die each level, roll a normal save, adding [[d20+@cha.mod]]. If you succeed, you heal using a free recovery instead of dying. If you were dying because of last gasp saves, consider yourself saved from the last gasp problem also.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -143,7 +143,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain&nbsp;<em>resist poison 16+</em> and&nbsp;<em>resist negative energy 16+</em>.</p>'
+        value: '<p>You gain <em>resist poison 16+</em> and <em>resist negative energy 16+</em>.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -161,7 +161,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>No undead creature that is not under the direct command of the Lich King can attack you unless you attack it or cast a spell against it first. (This is an example of why the Lich King values living, or at least non-undead, followers.)</p>'
+        value: '<p>No undead creature that is not under the direct command of a necromantic icon can attack you unless you attack it or cast a spell against it first.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You have a skeleton minion the same level as you that acts as a servant, fights alongside you in battle, and is replaced by a new skeletal minion when it inevitably collapses or is destroyed.</p>\n<p>Technically, the skeletal minion is not a summoned creature, so those rules don’t apply to it. (We say “technically” because if you like the story flavor that you are summoning a skeletal minion, that’s up to you, but the summoning rules don’t apply.)</p>\n<p>Your skeletal minion fights alongside you, taking a standard action and a move action each turn. (Technically it has a quick action also, but we advise skipping its use unless there’s something really important it can do in the battle.) Your minion acts on your initiative; you decide whether it takes its turn before or after you.</p>\n<p>The listed attack and damage values are for melee attacks. To be clear, this minion isn’t powerful. It neither deals nor withstands much damage. Alone, it’s not going to slay your enemies for you, but it might slow them down and it’s good at intercepting.</p>\n<p>Ordinarily your skeletal minion can’t heal. When it drops to 0 hp, it’s destroyed for that battle. When you take a quick rest, you can create, summon, or dig up a new skeletal minion, or patch the old one back together—the story is up to you.</p>\n<p>Your minion’s story is also up to you. It might be your oldest enemy, your hated father, a skeletal war dog, or a random orc.</p>\n<p>Certainly, civilized folk are strangely less squeamish about orc and animal skeletons than they are about skeletons that might have belonged to people they knew, so take that under consideration when operating outside the dungeon.</p>\n<p>Please see the Necromancer Summons compendium for Minion stats.</p>"
+    value: "<p>You have a skeleton minion the same level as you that acts as a servant, fights alongside you in battle, and is replaced by a new skeletal minion when it inevitably collapses or is destroyed. It is not a summoned creature; summoning rules don’t apply.</p>\n<p>Your skeletal minion fights alongside you, taking a standard action, a move action, and (if possible) a quick action each turn. Your minion acts on your initiative; you decide whether it takes its turn before or after you.</p>\n<p>The listed attack and damage values are for melee attacks. The listed attack and damage values are for melee attacks. Your skeletal minion can’t heal. When it drops to 0 hp, it’s destroyed for that battle. When you take a quick rest, a new (or patched up) skeletal minion will take its place.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: "<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p>\n<ul>\n<li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 3d6 becomes 4d6).</li>\n<li>Add double your Charisma modifier to your skeletal minion’s hit points. At 8th level, add triple it.</li>\n</ul>"
+        value: "<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p>\n<ul>\n<li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 3d6 becomes 4d6).</li>\n<li>Add [[@cha.dmg]] to your skeletal minion’s hit points.</li>\n</ul>"
       isActive:
         type: 'Boolean'
         label: 'Active'
