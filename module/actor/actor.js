@@ -73,9 +73,11 @@ export class ActorArchmage extends Actor {
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
 
-    var acBonus = 0;
-    var mdBonus = 0;
-    var pdBonus = 0;
+    var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
+
+    var acBonus = missingRecPenalty;
+    var mdBonus = missingRecPenalty;
+    var pdBonus = missingRecPenalty;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -172,7 +174,7 @@ export class ActorArchmage extends Actor {
         }
       }
 
-	  data.tier = levelMultiplier
+      data.tier = levelMultiplier
 
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
@@ -318,18 +320,20 @@ export class ActorArchmage extends Actor {
           value: 'd10',
           abil: 'dex/str'
         }
-      }
+      };
       for (let [key, value] of Object.entries(monkAttacks)) {
         let abil = value.abil.split('/');
         data.attributes.attack[key] = data.attributes.attack.melee;
-        data.attributes.weapon[key] = mergeObject(value, {
-          miss: true,
-          abil: abil[0],
-          attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
-          value: `${data.attributes.level.value}${value.dice}`,
-          mod: data.abilities[abil[0]].mod,
-          dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
-        });
+        if (data.attributes.weapon[key] === undefined) {
+          data.attributes.weapon[key] = mergeObject(value, {
+            miss: true,
+            abil: abil[0],
+            attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
+            value: `${data.attributes.level.value}${value.dice}`,
+            mod: data.abilities[abil[0]].mod,
+            dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
+          });
+        }
       }
 
     }
@@ -339,9 +343,15 @@ export class ActorArchmage extends Actor {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
+    // Penalties to attack rolls
+    data.attributes.atkpen = missingRecPenalty;
+    // TODO: handle dazed, weakened, etc. here
+
     if (actorData.type === 'character') {
+      // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
+      // duplicate code needs to be retired from the utility class if possible.
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value
+        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
       };
     }
 
@@ -366,14 +376,17 @@ export class ActorArchmage extends Actor {
 
 
     // Find known classes
-    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-    let classRegex = new RegExp(classList.join('|'), 'g');
+    if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
+      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+      let classRegex = new RegExp(classList.join('|'), 'g');
 
-    var classText = data.details.class?.value;
-    classText = classText ? classText.toLowerCase() : '';
+      var classText = data.details.class?.value;
+      classText = classText ? classText.toLowerCase() : '';
 
-    var matchedClasses = classText.match(classRegex);
-    data.details.detectedClasses = matchedClasses;
+      var matchedClasses = classText.match(classRegex);
+      if (matchedClasses !== null) matchedClasses.sort();
+      data.details.detectedClasses = matchedClasses;
+    }
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses && data.resources) {
@@ -438,5 +451,117 @@ export class ActorArchmage extends Actor {
       title: flavor,
       alias: this.actor,
     });
+  }
+}
+
+/**
+ * Character sheet update hook
+ * Automates update of base stats based on class
+ *
+ * @return {undefined}
+ */
+
+export function archmagePreUpdateCharacterData(actor, data, options, id) {
+  if (actor.data.type != 'character') {
+    return;
+  }
+
+  if (options.diff
+    && data.data !== undefined
+    && data.data.details !== undefined
+    && data.data.details.class !== undefined
+    && game.settings.get('archmage', 'automateBaseStatsFromClass')
+    ) {
+    // Here we received an update of the class name
+
+    // Find known classes
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+    let classText = data.data.details.class.value;
+    classText = classText ? classText.toLowerCase() : '';
+    let matchedClasses = classText.match(classRegex);
+
+    if (matchedClasses !== null) {
+      // Sort to avoid problems with future matches
+      matchedClasses.sort();
+
+      // Check that the matched classes actually changed
+      if (actor.data.data.details.matchedClasses !== undefined
+        && JSON.stringify(actor.data.data.details.matchedClasses) == JSON.stringify(matchedClasses)
+        ) {
+        return
+      }
+
+      // Collect base stats for detected classes
+      let base = {
+        hp: new Array(),
+        ac: new Array(),
+        ac_hvy: new Array(),
+        pd: new Array(),
+        md: new Array(),
+        rec: new Array(),
+        mWpn: new Array(),
+        rWpn: new Array(),
+        skilledWarrior: new Array()
+      }
+
+      matchedClasses.forEach(function(item) {
+        base.hp.push(CONFIG.ARCHMAGE.classes[item].hp);
+        base.ac.push(CONFIG.ARCHMAGE.classes[item].ac_lgt);
+        if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {
+          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);
+        } else {
+          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);
+        }
+        base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
+        base.md.push(CONFIG.ARCHMAGE.classes[item].md);
+        base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
+        base.mWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        base.rWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_rngd);
+        base.skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
+      });
+
+      // Combine base stats based on detected classes
+      if (base.skilledWarrior.length == 1) base.skilledWarrior = true;
+      else base.skilledWarrior = base.skilledWarrior.every(a => a);
+      base.hp = (base.hp.reduce((a, b) => a + b, 0) / base.hp.length);
+      base.ac = Math.max.apply(null, base.ac);
+      if (Math.min.apply(null, base.ac_hvy) > 0) base.ac = Math.max.apply(null, base.ac_hvy);
+      base.pd = Math.max.apply(null, base.pd);
+      base.md = Math.max.apply(null, base.md);
+      if (base.rec.length == 1) base.rec = base.rec[0];
+      else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
+      base.mWpn = Math.max.apply(null, base.mWpn);
+      base.rWpn = Math.max.apply(null, base.rWpn);
+      let jabWpn = 6;
+      let punchWpn = 8;
+      let kickWpn = 10;
+      if (!base.skilledWarrior) {
+        base.mWpn = Math.max(base.mWpn - 2, 4);
+        base.rWpn = Math.max(base.mWpn - 2, 4);
+        jabWpn -= 2;
+        punchWpn -= 2;
+        kickWpn -= 2;
+      }
+      let lvl = actor.data.data.attributes.level.value;
+
+      // Assign computed values
+      data.data.attributes = {
+        hp: {base: base.hp},
+        ac: {base: base.ac},
+        pd: {base: base.pd},
+        md: {base: base.md},
+        recoveries: {dice: `d${base.rec}`},
+        weapon: {
+          melee: {dice: `d${base.mWpn}`, value: `${lvl}d${base.mWpn}`},
+          ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
+          jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
+          punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},
+          kick: {dice: `d${kickWpn}`, value: `${lvl}d${kickWpn}`}
+        }
+      };
+    }
+    // Store matched classes for future reference
+    data.data.details.detectedClasses = matchedClasses;
   }
 }

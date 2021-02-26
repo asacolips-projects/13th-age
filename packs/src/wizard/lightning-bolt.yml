@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[floor((7d8)/2)]] lightning damage'
+    value: 'Half damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
