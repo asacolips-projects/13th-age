@@ -53,7 +53,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'Vs. Enemy: [[5d11+@int.dmg+@atk.a.bonus]] negative energy damage. Vs. Ally: [[d6]] negative energy damage.'
+    value: 'Vs. Enemy: [[5d10+@int.dmg+@atk.a.bonus]] negative energy damage. Vs. Ally: [[d6]] negative energy damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

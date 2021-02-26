@@ -53,7 +53,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[d4+@int.mod+@atk.a.bonus]] ongoing negative energy damage.'
+    value: '[[d4+@int.dmg+@atk.a.bonus]] ongoing negative energy damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -109,19 +109,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[2d8+@int.mod+@atk.a.bonus]] ongoing damage'
+    value: '[[2d8+@int.dmg+@atk.a.bonus]] ongoing damage'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[4d6+@int.mod+@atk.a.bonus]] ongoing damage'
+    value: '[[4d6+@int.dmg+@atk.a.bonus]] ongoing damage'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[6d6+@int.mod+@atk.a.bonus]] ongoing damage'
+    value: '[[6d6+@int.dmg+@atk.a.bonus]] ongoing damage'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[7d10+@int.mod+@atk.a.bonus]] ongoing damage'
+    value: '[[7d10+@int.dmg+@atk.a.bonus]] ongoing damage'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
