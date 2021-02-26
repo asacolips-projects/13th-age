@@ -678,8 +678,28 @@ export class ActorArchmageSheet extends ActorSheet {
                 };
               });
 
+              let templatePowers = [];
+              console.log(powers);
+              templatePowers = duplicate(powers).reduce((powerGroup, power) => {
+                if (power.powerType) {
+                  let group = power.powerType ? power.powerType : 'other';
+                  let level = power.level ?? 1;
+                  if (!powerGroup[group]) {
+                    powerGroup[group] = [];
+                  }
+                  if (!powerGroup[group][level]) {
+                    powerGroup[group][level] = [];
+                  }
+                  powerGroup[group][level].push(power);
+                }
+                return powerGroup;
+              }, {});
+
+              console.log(templatePowers);
+
               var templateData = {
                 powers: powers,
+                powersByGroup: templatePowers,
                 class: powerClass,
                 itemType: 'power' // @TODO: Make this not hardcoded.
               }
