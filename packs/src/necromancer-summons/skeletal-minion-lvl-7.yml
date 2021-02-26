@@ -118,7 +118,7 @@ data:
       type: 'String'
       label: 'Size'
     type:
-      value: ''
+      value: 'undead'
       type: 'String'
       label: 'Type'
     resistance:

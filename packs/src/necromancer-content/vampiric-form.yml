@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, or until you drop to –40 hit points, you heal [[6d10+@cha.mod+@cha.mod+@cha.mod]] at the start of each of your turns. In addition, as long as this spell is in effect, you can make the listed attack as a free action against each nearby enemy that misses you with an attack with a natural roll of 1–5.</p>'
+    value: '<p>Until the end of the battle, or until you drop to –40 hit points, you heal [[6d10+@cha.dmg]] at the start of each of your turns. In addition, as long as this spell is in effect, you can make the listed attack as a free action against each nearby enemy that misses you with an attack with a natural roll of 1–5.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -453,7 +453,10 @@ input[type="checkbox"] {
         border-bottom: 1px solid #ccc;
         -webkit-box-flex: 0;
         -ms-flex: 0 0 220px;
-        flex: 0 0 220px; }
+        flex: 0 0 220px;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; }
       .archmage.sheet form .sheet-sidebar .sheet-tabs > .item {
         font-size: 12px; }
       .archmage.sheet form .sheet-sidebar .tab {

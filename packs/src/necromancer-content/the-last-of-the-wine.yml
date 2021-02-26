@@ -101,7 +101,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>After you cast this spell, you drop to 0 hit points and can’t use the escalation die any longer this battle. Nothing can prevent this change in hit points. You’re going down. And if you get back up, you burned the escalation die’s momentum up for your own spells and powers.</p>'
+    value: '<p>After you cast this spell, you drop to 0 hit points and can’t use the escalation die any longer this battle. Nothing can prevent this change in hit points.</p>'
   effect:
     type: 'String'
     label: 'Effect'

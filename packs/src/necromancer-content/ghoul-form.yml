@@ -121,7 +121,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'The target also rolls an icon relationship die with the Lich King, choosing whether the relationship is positive or negative.'
+    value: 'The target also rolls an icon relationship die with any necromantic icon, choosing whether the relationship is positive or negative.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

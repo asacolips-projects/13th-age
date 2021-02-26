@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You summon a ghoul, as per the summoning rules on page 11. The summoned ghoul fights for you until the end of the battle or until it drops to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, the creature you summon varies, as shown below. The stats for each creature are in the Summoned Creatures compendium.</p>"
+    value: "<p>You summon a ghoul, as per the summoning rules. The summoned ghoul fights for you until the end of the battle or until it drops to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, the creature you summon varies, as shown below. The stats for each creature are in the Summoned Creatures compendium.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
