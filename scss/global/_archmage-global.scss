@@ -163,6 +163,9 @@ input[type="checkbox"] {
 
 .ability-usage--at-will {
   background: $c-power-will;
+
+  .colorBlindRG & { background: $cb-rg-power-will; }
+  .colorBlindBY & { background: $cb-by-power-will; }
 }
 
 .ability-usage--header {
@@ -171,18 +174,30 @@ input[type="checkbox"] {
 
 .ability-usage--once-per-battle {
   background: $c-power-battle;
+
+  .colorBlindRG & { background: $cb-rg-power-battle; }
+  .colorBlindBY & { background: $cb-by-power-battle; }
 }
 
 .ability-usage--daily {
   background: $c-power-daily;
+
+  .colorBlindRG & { background: $cb-rg-power-daily; }
+  .colorBlindBY & { background: $cb-by-power-daily; }
 }
 
 .ability-usage--recharge {
   background: $c-power-recharge;
+
+  .colorBlindRG & { background: $cb-rg-power-recharge; }
+  .colorBlindBY & { background: $cb-by-power-recharge; }
 }
 
 .ability-usage--other {
   background: $c-power-other;
+
+  .colorBlindRG & { background: $cb-rg-power-other; }
+  .colorBlindBY & { background: $cb-by-power-other; }
 }
 
 // Actor Sheet
@@ -323,6 +338,8 @@ input[type="checkbox"] {
           border: 0;
           border-bottom: 1px solid $c-gray--lightest;
           flex: 0 0 220px;
+          width: 100%;
+          object-fit: cover;
         }
 
         .sheet-tabs {
@@ -1662,6 +1679,9 @@ input[type="checkbox"] {
 
     .ability-usage--at-will {
       background: $c-power-will;
+
+      .colorBlindRG & { background: $cb-rg-power-will; }
+      .colorBlindBY & { background: $cb-by-power-will; }
     }
 
     .ability-usage--header {
@@ -1670,18 +1690,30 @@ input[type="checkbox"] {
 
     .ability-usage--once-per-battle {
       background: $c-power-battle;
+
+      .colorBlindRG & { background: $cb-rg-power-battle; }
+      .colorBlindBY & { background: $cb-by-power-battle; }
     }
 
     .ability-usage--daily {
       background: $c-power-daily;
+
+      .colorBlindRG & { background: $cb-rg-power-daily; }
+      .colorBlindBY & { background: $cb-by-power-daily; }
     }
 
     .ability-usage--recharge {
       background: $c-power-recharge;
+
+      .colorBlindRG & { background: $cb-rg-power-recharge; }
+      .colorBlindBY & { background: $cb-by-power-recharge; }
     }
 
     .ability-usage--other {
       background: $c-power-other;
+
+      .colorBlindRG & { background: $cb-rg-power-other; }
+      .colorBlindBY & { background: $cb-by-power-other; }
     }
 
     .ability-usage--equipment {
