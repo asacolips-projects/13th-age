@@ -2356,7 +2356,17 @@ input[type="checkbox"] {
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
-  padding: 2px 4px; }
+  padding: 2px 4px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .import-powers-item .item-summary {
+    overflow: hidden;
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .import-powers-item .item-summary .card-footer {
+      display: none; }
   .import-powers-item:hover, .import-powers-item:focus {
     color: #fff; }
   .import-powers-item > div {
@@ -2381,6 +2391,27 @@ input[type="checkbox"] {
     flex: 0 0 24px; }
   .import-powers-item + .import-powers-item {
     border-top: 1px solid #999; }
+
+.prepopulate-power-list {
+  padding: 10px 20px; }
+  .prepopulate-power-list .archmage.chat-card .card-header {
+    border: 0; }
+  .prepopulate-power-list .title {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px; }
+  .prepopulate-power-list .import-powers-item {
+    color: #000; }
+
+.power-list-title {
+  font-size: 32px;
+  text-transform: capitalize;
+  margin: 40px 0 0; }
+
+.power-list-subtitle {
+  font-size: 22px;
+  text-transform: capitalize;
+  margin: 40px 0 20px; }
 
 .item-properties table,
 .card-prop table {

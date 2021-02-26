@@ -53,6 +53,16 @@
   list-style-type: none;
   margin: 0;
   padding: 2px 4px;
+  align-items: flex-start;
+
+  .item-summary {
+    overflow: hidden;
+    transition: all ease-in-out 0.25s;
+
+    .card-footer {
+      display: none;
+    }
+  }
 
   &:hover,
   &:focus {
@@ -82,4 +92,34 @@
   + .import-powers-item {
     border-top: 1px solid $c-gray--light;
   }
+}
+
+.prepopulate-power-list {
+  padding: 10px 20px;
+
+  .archmage.chat-card {
+    .card-header {
+      border: 0;
+    }
+  }
+
+  .title {
+    flex: 0 0 40px;
+  }
+
+  .import-powers-item {
+    color: $c-black;
+  }
+}
+
+.power-list-title {
+  font-size: 32px;
+  text-transform: capitalize;
+  margin: 40px 0 0;
+}
+
+.power-list-subtitle {
+  font-size: 22px;
+  text-transform: capitalize;
+  margin: 40px 0 20px;
 }

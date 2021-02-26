@@ -642,7 +642,7 @@ export class ActorArchmageSheet extends ActorSheet {
             compendium[0].getContent().then(res => {
               var options = {
                 width: 720,
-                height: 640,
+                height: 1080,
                 classes: ['archmage-prepopulate']
               };
 
@@ -668,6 +668,11 @@ export class ActorArchmageSheet extends ActorSheet {
                 ];
                 return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
               }).map(p => {
+                let chatData = p.getChatData();
+                chatData.feats.forEach(f => {
+                  f.isActive = true;
+                });
+
                 return {
                   uuid: p.data._id,
                   title: p.data.name,
@@ -675,6 +680,8 @@ export class ActorArchmageSheet extends ActorSheet {
                   usageClass: p.data.data.powerUsage.value ? _getPowerClasses(p.data.data.powerUsage.value)[0] : 'other',
                   powerType: p.data.data.powerType.value,
                   level: p.data.data.powerLevel.value,
+                  powerData: p.data,
+                  powerCard: chatData,
                 };
               });
 
@@ -711,6 +718,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
               let template = 'systems/archmage/templates/prepopulate/powers--list.html';
               renderTemplate(template, templateData).then(content => {
+                $(content).find('.import-powers-item .ability-usage').on('click', event => this._onPowerListSummary(event));
                 let d = new Dialog({
                   title: `Import Powers (${powerClass})`,
                   content: content,
@@ -725,6 +733,25 @@ export class ActorArchmageSheet extends ActorSheet {
                       label: "Submit",
                       callback: dlg => _onImportPower(dlg, this.actor, dlgData)
                     }
+                  },
+                  render: html => {
+                    $(html).find('.import-powers-item').addClass('collapsed');
+                    $(html).find('.import-powers-item .item-summary').css('max-height', 0);
+                    $(html).find('.import-powers-item .ability-usage').on('click', event => {
+                      console.log('CLICK');
+                      event.preventDefault();
+                      let li = $(event.currentTarget).parents(".import-powers-item");
+                      let summary = li.find('.item-summary');
+                      console.log(li);
+                      console.log(event.currentTarget);
+                      li.toggleClass('collapsed');
+                      if (li.hasClass('collapsed')) {
+                        summary.css('max-height', 0);
+                      }
+                      else {
+                        summary.css('max-height', summary.find('.card-content').outerHeight() + 40)
+                      }
+                    });
                   }
                 }, options);
                 d.render(true);
