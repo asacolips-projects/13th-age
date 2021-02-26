@@ -68,7 +68,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[floor((4d4*10)/2)]] damage'
+    value: 'Half damage'
   missEven:
     type: 'String'
     label: 'Even Miss'

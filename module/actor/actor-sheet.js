@@ -55,7 +55,7 @@ export class ActorArchmageSheet extends ActorSheet {
         sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
         sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
         sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
-        sheetData.actor.maneuvers = powers.filter(power => power.data.powerType.value === "maneuver");
+        sheetData.actor.flexible = powers.filter(power => power.data.powerType.value === "maneuver" || power.data.powerType.value === "flexible");
         sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
       }
       else if (sheetData.actor.data.sheetGrouping == "action") {
@@ -508,13 +508,25 @@ export class ActorArchmageSheet extends ActorSheet {
     // Create New Item
     html.find('.item-create').click(ev => {
       let header = event.currentTarget;
+      let dataset = header.dataset;
       let type = ev.currentTarget.getAttribute('data-item-type');
       let img = CONFIG.ARCHMAGE.defaultTokens[type] ? CONFIG.ARCHMAGE.defaultTokens[type] : CONFIG.DEFAULT_TOKEN;
+      let data = {};
+      if (type == 'power') {
+        if (typeof dataset == 'object') {
+          for (let [k,v] of Object.entries(dataset)) {
+            data[k] = { value: v };
+          }
+        }
+      }
+      else {
+        data = dataset;
+      }
       this.actor.createOwnedItem({
         name: 'New ' + type.capitalize(),
         type: type,
         img: img,
-        data: duplicate(header.dataset)
+        data: data
       });
     });
 

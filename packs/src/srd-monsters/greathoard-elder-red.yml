@@ -518,7 +518,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>A greathoard elder can use&nbsp;precise breath <a class="inline-roll inline-result" title="1d4 + 1" data-roll="%7B%22class%22%3A%22Roll%22%2C%22dice%22%3A%5B%5D%2C%22formula%22%3A%221d4%20+%201%22%2C%22terms%22%3A%5B%7B%22class%22%3A%22Die%22%2C%22number%22%3A1%2C%22faces%22%3A4%2C%22modifiers%22%3A%5B%5D%2C%22options%22%3A%7B%7D%2C%22results%22%3A%5B%7B%22result%22%3A1%2C%22active%22%3Atrue%7D%5D%7D%2C%22+%22%2C1%5D%2C%22results%22%3A%5B1%2C%22+%22%2C1%5D%2C%22total%22%3A2%7D"><i class="fas fa-dice-d20"></i> 2</a> times per battle, but never two turns in a row.</p>'
+        value: '<p>A greathoard elder can use&nbsp;precise breath [[1d4 + 1]] times per battle, but never two turns in a row.</p>'
       group:
         type: 'String'
         label: 'Group'

@@ -94,6 +94,16 @@ packs:
     name: monk
     path: packs/dist/monk.db
     system: archmage
+  - label: Necromancer
+    entity: Item
+    name: necromancer-content
+    path: packs/dist/necromancer-content.db
+    system: archmage
+  - label: Necromancer (Summons)
+    entity: Actor
+    name: necromancer-summons
+    path: packs/dist/necromancer-summons.db
+    system: archmage
   - label: Occultist
     entity: Item
     name: occultist
