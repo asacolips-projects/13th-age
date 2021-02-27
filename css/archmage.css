@@ -234,6 +234,12 @@ input[type="checkbox"] {
   background-attachment: local;
   background-size: 300px;
   font-size: 14px; }
+  #chat-log .message.whisper {
+    -webkit-box-shadow: inset 0 0 25px -5px #5e0080;
+    box-shadow: inset 0 0 25px -5px #5e0080; }
+  #chat-log .message.blind {
+    -webkit-box-shadow: inset 0 0 25px -5px #ddb20b;
+    box-shadow: inset 0 0 25px -5px #ddb20b; }
   #chat-log .message p {
     margin: 0 0 14px 0; }
 
@@ -432,8 +438,8 @@ input[type="checkbox"] {
       display: -ms-flexbox;
       display: flex;
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 220px;
-      flex: 0 0 220px;
+      -ms-flex: 0 0 232px;
+      flex: 0 0 232px;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -755,6 +761,14 @@ input[type="checkbox"] {
     height: 72px;
     margin: 4px 0;
     padding: 0 4px; }
+    .archmage.actor-sheet .primary-attributes .attribute.attribute--recoveries {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 21%;
+      flex: 0 0 21%; }
+    .archmage.actor-sheet .primary-attributes .attribute.attributes--health {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 27%;
+      flex: 0 0 27%; }
     .archmage.actor-sheet .primary-attributes .attribute.attribute--weapons {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
@@ -1046,7 +1060,9 @@ input[type="checkbox"] {
       -ms-flex: 1;
       flex: 1; }
     .archmage .abilities .ability .ability-name {
-      font-size: 16px; }
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden; }
     .archmage .abilities .ability .ability-proficiency {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 24px;
@@ -2168,6 +2184,22 @@ input[type="checkbox"] {
 
 .dc-fail {
   color: #ff8484; }
+
+.chat-card.icon-roll .dice-tooltip .dice-rolls .roll.die,
+.message.icon-roll .dice-tooltip .dice-rolls .roll.die {
+  background: #aaa;
+  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  line-height: 24px;
+  padding: 0;
+  margin-right: 5px; }
+  .chat-card.icon-roll .dice-tooltip .dice-rolls .roll.die.result-5,
+  .message.icon-roll .dice-tooltip .dice-rolls .roll.die.result-5 {
+    background: #8acee4; }
+  .chat-card.icon-roll .dice-tooltip .dice-rolls .roll.die.result-6,
+  .message.icon-roll .dice-tooltip .dice-rolls .roll.die.result-6 {
+    background: #93c385; }
 
 .chat-card .inline-roll,
 .chat-card .inline-roll--archmage,
