@@ -1,3 +1,4 @@
+import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -31,6 +32,9 @@ export class ItemArchmage extends Item {
       item: this.data,
       data: this.getChatData()
     };
+
+    console.log(templateData);
+    await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {

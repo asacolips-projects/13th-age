@@ -113,13 +113,15 @@ export default class preCreateChatMessageHandler {
 
 
                 // Append hit targets to text
-                if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
-                    $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit.join(", ") + ") </span>")
-                }
-
-                // Append missed targets to text
-                if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
-                    $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed.join(", ") + ") </span>")
+                if (hitEvaluationResults) {
+                    if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
+                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit.join(", ") + ") </span>")
+                    }
+    
+                    // Append missed targets to text
+                    if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
+                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed.join(", ") + ") </span>")
+                    }
                 }
 
 

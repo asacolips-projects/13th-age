@@ -1,5 +1,6 @@
 import { ActorSheetFlags } from './actor-flags.js';
 import { ArchmagePrepopulate } from '../setup/utility-classes.js';
+import ArchmageRolls from '../rolls/ArchmageRolls.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -518,19 +519,6 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-import').click(ev => {
       var itemType = ev.currentTarget.getAttribute('data-item-type');
 
-      let validClasses = [
-        // 'barbarian',
-        // 'bard',
-        // 'cleric',
-        // 'commander',
-        // 'fighter',
-        // 'paladin',
-        // 'ranger',
-        // 'rogue',
-        // 'sorcerer',
-        // 'wizard'
-      ];
-
       let allClasses = [
         'barbarian',
         'bard',
@@ -553,7 +541,6 @@ export class ActorArchmageSheet extends ActorSheet {
 
       let cleanClassName = this.actor.data.data.details.class.value;
       cleanClassName = cleanClassName ? cleanClassName.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-      let powerLevel = this.actor.data.data.details.level;
 
       if (cleanClassName == '') {
         ui.notifications.error(`No class has been added to this character. Add a class before attempting to import powers.`);
@@ -566,61 +553,6 @@ export class ActorArchmageSheet extends ActorSheet {
       if (characterClasses.length > 0) {
         let offset = 250;
         characterClasses.forEach(powerClass => {
-          // TODO: Deprecated.
-          // if (validClasses.includes(powerClass)) {
-          //   let prepop = new ArchmagePrepopulate();
-
-          //   prepop.getPowersList(powerClass, powerLevel).then((res) => {
-          //     var options = {
-          //       width: 720,
-          //       height: 640,
-          //       left: offset,
-          //       top: offset,
-          //       classes: ['archmage-prepopulate']
-          //     };
-
-          //     offset += 25;
-
-          //     for (let i = 0; i < res.powers.length; i++) {
-          //       if (res.powers[i].usage !== null) {
-          //         res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
-          //       }
-          //       else {
-          //         res.powers[i].usageClass = 'other';
-          //       }
-          //     }
-
-          //     var templateData = {
-          //       powers: res.powers,
-          //       class: powerClass,
-          //       itemType: 'power' // @TODO: Make this not hardcoded.
-          //     }
-
-          //     let template = 'systems/archmage/templates/prepopulate/powers--list.html';
-          //     renderTemplate(template, templateData).then(content => {
-          //       let d = new Dialog({
-          //         title: `Import Powers (${powerClass})`,
-          //         content: content,
-          //         buttons: {
-          //           cancel: {
-          //             icon: '<i class="fas fa-times"></i>',
-          //             label: "Cancel",
-          //             callback: () => null
-          //           },
-          //           submit: {
-          //             icon: '<i class="fas fa-check"></i>',
-          //             label: "Submit",
-          //             callback: dlg => _onImportPower(dlg, this.actor, {})
-          //           }
-          //         }
-          //       }, options);
-          //       d.render(true);
-          //     });
-          //   });
-          // }
-          // else {
-          // Import from compendiums.
-          // let powers = game.items.entities.filter(item => item.type == 'power');
           let compendium = game.packs.filter(p => p.metadata.name == powerClass);
           if (compendium.length > 0) {
             compendium[0].getContent().then(res => {
