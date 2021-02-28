@@ -449,7 +449,9 @@ export class ActorArchmage extends Actor {
       },
       backgrounds: this.data.data.backgrounds,
       title: flavor,
-      alias: this.actor,
+      alias: this.data.name,
+      actor: this,
+      ability: abl
     });
   }
 }
