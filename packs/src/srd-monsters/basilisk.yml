@@ -1,0 +1,562 @@
+name: 'Basilisk'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 4
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 4
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 4
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 4
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 4
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 4
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 85
+      min: 0
+      max: 85
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: -1
+      mod: 3
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 4
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    role:
+      type: 'String'
+      label: 'Role'
+      value: 'Wrecker'
+    size:
+      type: 'String'
+      label: 'Size'
+      value: 'Large'
+    type:
+      type: 'String'
+      label: 'Type'
+      value: 'Beast'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 4
+      min: 0
+      max: 12
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags:
+  archmage: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Basilisk'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'fWw82Ut2Abqwu3rQ'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: '5SOoHJg8tZbBnJ2d'
+    flags: {}
+    name: 'Multi-legged attack'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 8]] vs. AC (3 attacks'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: 'each against a different enemy);12 damage'
+      hit1:
+        type: ''
+        label: 'Hit'
+        name: 'Natural 16+'
+        value: 'The target takes 5 ongoing poison damage.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 0
+  - _id: 'RSITmVbqHx3CEjT2'
+    flags: {}
+    name: '[Special trigger] C: Basilisk’s stare'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 8]] vs. MD'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '5 ongoing poison damage, and the target must start making last gasp saves depending on the basilisk’s type (see below) as it accidentally takes a full look at the basilisk. Constructs and undead are immune to this effect.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 100000
+  - _id: '70vsKUvErvhvnrqJ'
+    flags: {}
+    name: 'Basilisk’s stare'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When a basilisk hits an enemy that is already taking ongoing poison damage, the basilisk can make a basilisk’s stare attack against the target as a free action.'
+    sort: 200000
+  - _id: 'qOQISPkvHe4CqTS8'
+    flags: {}
+    name: 'Failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target takes 25 poison damage as its blood turns to poison.'
+    sort: 300000
+  - _id: 'NL4YOhntJTUH8aiW'
+    flags: {}
+    name: 'Fourth failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target’s body liquefies and they die.'
+    sort: 400000
+  - _id: 'RKZLxzDZkULV2HwX'
+    flags: {}
+    name: 'Failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target takes 15 fire damage, and each of the target’s nearby allies takes 5 fire damage as the target’s blood boils under their skin and sprays outward in gouts of liquid fire.'
+    sort: 500000
+  - _id: 'pFi2SwlpfmGqfUk1'
+    flags: {}
+    name: 'Fourth failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target’s body ignites as their flaming skull shoots upward on a jet of burning blood, killing them.'
+    sort: 600000
+  - _id: 'avR7EKPIx6knlHh6'
+    flags: {}
+    name: 'Failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target’s blood begins to coagulate and harden, and dust puffs out of their lungs through their mouth.'
+    sort: 700000
+  - _id: '3s0kOIGtMnD04AYE'
+    flags: {}
+    name: 'Fourth failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target’s body turns to stone and they die.'
+    sort: 800000
+  - _id: '3vIF7u6ThFTzlLPc'
+    flags: {}
+    name: 'Failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target begins to evaporate. The target must make an immediate normal save (11+) or it loses a chunk of flesh or a limb, whatever is dramatic but will allow the creature to survive (perhaps with minuses until healed).'
+    sort: 900000
+  - _id: 'KC0nF5CmsVudZa8P'
+    flags: {}
+    name: 'Fourth failed save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target’s body explodes into a fine red mist and they die.'
+    sort: 1000000
+  - _id: 'zfg0C4ekhLsKRXIU'
+    flags: {}
+    name: 'Resist melee damage 18+'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When a melee attack targets this creature, the attacker must roll a natural 18+ on the attack roll or it only deals half damage. An attacker can ignore this resistance by declaring they are looking directly at the basilisk during the attack. If they do, the basilisk can make a basilisk’s stare attack against them as a free action before the attack. Constructs and undead are not affected by this resistance.'
+    sort: 1100000
+  - _id: 'iD4wjK4tCPuYi0S6'
+    flags: {}
+    name: 'Stare-down'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When an enemy makes a ranged attack against the basilisk, the basilisk can make a basilisk’s stare attack against them as a free action before the attack.'
+    sort: 1200000
+  - _id: 'O3BBD3jhd0vHV59I'
+    flags: {}
+    name: 'Death breath'
+    type: 'nastierSpecial'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'Each creature engaged with the basilisk at the end of the basilisk’s turn takes 10 poison damage.'
+    sort: 1300000

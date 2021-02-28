@@ -1,5 +1,5 @@
 import { ARCHMAGE } from './setup/config.js';
-import { ActorArchmage } from './actor/actor.js';
+import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
@@ -114,12 +114,12 @@ Hooks.once('init', async function() {
       section: "Feats",
       type: Boolean
     },
-    // "strongRecovery": {
-    //   name: "Strong Recovery",
-    //   hint: "General feat to reroll some of your recovery die, keeping highest",
-    //   section: "Feats",
-    //   type: Boolean
-    // },
+    "strongRecovery": {
+      name: "Strong Recovery",
+      hint: "General feat to reroll some of your recovery die, keeping highest. Ignores average recoveries.",
+      section: "Feats",
+      type: Boolean
+    },
     "toughness": {
       name: "Toughness",
       hint: "General feat to increase your max HP based on your base HP",
@@ -198,12 +198,41 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'automateBaseStatsFromClass', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'lastTourVersion', {
     scope: 'client',
     config: false,
     default: "1.6.0",
     type: String,
   });
+
+  game.settings.register('archmage', 'colorBlindMode', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
+    scope: 'client',
+    config: true,
+    default: 'default',
+    type: String,
+    choices: {
+      default: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptionDefault"),
+      colorBlindRG: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG"),
+      colorBlindBY: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY"),
+      // custom: game.i18n.localize("ARCHMAGE.SETTINGS.Custom"),
+    },
+    onChange: () => {
+      $('body').removeClass(['default', 'colorBlindRG', 'colorBlindBY', 'custom']).addClass(game.settings.get('archmage', 'colorBlindMode'));
+    }
+  });
+  //Adding the colorblind mode class at startup
+  $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
@@ -291,6 +320,65 @@ Hooks.once('init', async function() {
   CONFIG.weatherEffects.cinder = CinderWeatherEffect;
 
   ArchmageUtility.replaceRollData();
+
+  /* --------------------------------------------- */
+  // Autocomplete Inline Rolls
+  const aipKeys = [
+    'str',
+    'dex',
+    'con',
+    'int',
+    'wis',
+    'cha',
+    'ac',
+    'pd',
+    'md',
+    'hp',
+    'recoveries',
+    'wpn.m',
+    'wpn.r',
+    'wpn.p',
+    'wpn.k',
+    'wpn.j'
+  ];
+  let filteredKeys = [
+    'standardBonuses',
+    'out',
+    'incrementals',
+    'icons',
+    'details',
+    'coins',
+    'backgrounds',
+    'attr',
+    'attributes',
+    'abilities',
+    'abil',
+    'tier',
+    'sheetGrouping',
+    'disengage',
+  ];
+  aipKeys.forEach(k => {
+    filteredKeys.push(`${k}.type`);
+    filteredKeys.push(`${k}.label`);
+  });
+  const AIP = {
+    packageName: 'archmage',
+    sheetClasses: [
+      {
+        name: "ItemArchmageSheet",
+        fieldConfigs: [
+          {
+            selector: '.archmage-aip input[type="text"]',
+            showButton: true,
+            allowHotkey: true,
+            dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+            filteredKeys: filteredKeys
+          }
+        ]
+      }
+    ]
+  };
+  CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
 });
 
 Hooks.on('createItem', (data, options, id) => {
@@ -576,6 +664,8 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
     }
   }
 });
+
+Hooks.on('preUpdateActor', archmagePreUpdateCharacterData);
 
 /* ---------------------------------------------- */
 
@@ -941,7 +1031,21 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                 // If there's a crit, double the formula and reroll. If there's a
                 // fail with no crit, 0 it out.
                 if (has_crit) {
-                  roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
+                  if(game.settings.get('archmage', 'originalCritDamage')){
+                    let formula_full = `${roll_data.formula}`;
+                    let formula_parts = formula_full.split('+');
+                    let temp_formula = '';
+                    for (var i = 0; i < formula_parts.length - 1; i++) {
+                      formula_parts[i] = formula_parts[i]+'* 2 +';
+                      temp_formula = temp_formula.concat(formula_parts[i]);
+                    }
+                    formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                    temp_formula = temp_formula.concat(formula_parts[formula_parts.length - 1]);
+                    roll_data.formula = temp_formula;
+                  } else {
+                    roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
                   $roll_self.addClass('dc-crit');
                 }
                 else {
@@ -963,7 +1067,20 @@ Hooks.on('preCreateChatMessage', (data, options, userId) => {
                 // If there's a crit, double the formula and reroll. If there's a
                 // fail with no crit, 0 it out.
                 if (has_crit) {
-                  new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
+                  if(game.settings.get('archmage', 'originalCritDamage')){
+                    let formula_full = `${roll_data.formula}`;
+                    let formula_parts = formula_full.split('+');
+                    let temp_formula = '';
+                    for (var i = 0; i < formula_parts.length - 1; i++) {
+                      formula_parts[i] = formula_parts[i]+'* 2 +';
+                      temp_formula = temp_formula.concat(formula_parts[i]);
+                    }
+                    formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                    new_formula = temp_formula.concat(formula_parts[formula_parts.length - 1]);
+                  } else {
+                    new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
                   $roll_self.addClass('dc-crit');
                 }
                 else {
