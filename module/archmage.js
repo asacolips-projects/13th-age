@@ -413,7 +413,7 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
-  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
+  let button = $(`<button id="archmage-reference-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
