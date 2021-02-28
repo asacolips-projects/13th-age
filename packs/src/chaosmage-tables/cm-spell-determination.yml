@@ -1,0 +1,78 @@
+name: 'CM Spell Determination'
+permission:
+  default: 0
+flags:
+  core:
+    sourceId: 'RollTable.Gz5OLJqxLHhVr0yO'
+img: 'icons/svg/d20-grey.svg'
+description: ''
+results:
+  - _id: 'B4eZF9b2pezTNcLF'
+    flags: {}
+    type: 0
+    text: 'attack'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+  - _id: 'oEMdEueTvulCJ1Va'
+    flags: {}
+    type: 0
+    text: 'attack'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+  - _id: 'JZI8hogxBdutPmtG'
+    flags: {}
+    type: 0
+    text: 'defense'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+  - _id: 'hlqkTbwXOLLyMbL5'
+    flags: {}
+    type: 0
+    text: 'defense'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 4
+      - 4
+    drawn: false
+  - _id: 'CE2BKFmXjganAGVI'
+    flags: {}
+    type: 0
+    text: 'iconic'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 5
+      - 5
+    drawn: false
+  - _id: 'L5suIUE6e9mmBT4h'
+    flags: {}
+    type: 0
+    text: 'iconic'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 6
+      - 6
+    drawn: false
+formula: '1d6'
+replacement: false
+displayRoll: false

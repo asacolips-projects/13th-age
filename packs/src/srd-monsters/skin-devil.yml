@@ -1,0 +1,408 @@
+name: 'Skin Devil'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 2
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 28
+      min: 0
+      max: 28
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 4
+      mod: 6
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 2
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    role:
+      type: 'String'
+      label: 'Role'
+      value: 'Troop'
+    size:
+      type: 'String'
+      label: 'Size'
+      value: 'Normal'
+    type:
+      type: 'String'
+      label: 'Type'
+      value: 'Devil'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 2
+      min: 0
+      max: 12
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags:
+  archmage: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Skin Devil'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'cHbBJ0Yqk05fE0ZX'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: '6S9eZHOJH7YKgJVt'
+    flags: {}
+    name: 'Fleshy limb'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 7]] vs. AC'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '6 damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 0
+  - _id: 'kZqpNKpgzAX1PXz0'
+    flags: {}
+    name: 'Stay whole'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'At the start of its turn, a skin devil heals 8 hp. If it doesn’t heal up to its maximum hit points, it loses its ability to heal from this ability until the end of the battle.'
+    sort: 100000
+  - _id: 'YdVil6AGGrxk8cpA'
+    flags: {}
+    name: 'Structural collapse'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'While the skin devil is staggered, when an enemy damages it, it loses an additional 4 hp as the hapless thing fails to hold its boneless, bulky mass together.'
+    sort: 200000
+  - _id: 'DE9YCywrApG1ytEC'
+    flags: {}
+    name: 'Weakling'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When building battles using this monster, it only counts as half a normal monster.'
+    sort: 300000
+  - _id: 'PQsMZq3rFTIjzpsJ'
+    flags: {}
+    name: 'Free-form covert ability—Unnoticed'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The skin devil is routinely able to pass through civilized areas without alerting dogs, bouncers, city guards, or passersby. If the thing attacks, that’s when you notice that it’s not a human but a monstrous pile of flesh. In addition to passing unnoticed in crowds, it uses its fluid shape to sneak through hidden places, and it doesn’t make much noise unless it wants to. PCs looking for the devil won’t find it unless they have some special information or advantage, and even then it’s a hard check (DC 25). Normally when PCs think they have the devil cornered, it escapes through a tight exit that it had previously identified.'
+    sort: 400000

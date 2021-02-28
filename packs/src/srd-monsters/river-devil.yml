@@ -1,0 +1,440 @@
+name: 'River Devil'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 10
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 10
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 10
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 10
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 10
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 10
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 25
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 230
+      min: 0
+      max: 230
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 8
+      mod: 18
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 10
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    role:
+      type: 'String'
+      label: 'Role'
+      value: 'Wrecker'
+    size:
+      type: 'String'
+      label: 'Size'
+      value: 'Normal'
+    type:
+      type: 'String'
+      label: 'Type'
+      value: 'Devil'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 10
+      min: 0
+      max: 12
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags:
+  archmage: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'River Devil'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'zjvUdRYI5Catt3py'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'NJFu6nw3hzckeXhk'
+    flags: {}
+    name: 'Cutting talons'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 15]] vs. AC (2 attacks)'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '20 damage'
+      hit1:
+        type: ''
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The target also takes 10 ongoing damage.'
+      hit2:
+        type: ''
+        label: 'Hit'
+        name: 'Natural odd miss'
+        value: '10 ongoing damage.'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 0
+  - _id: '3KvcASVQ842Ib0Zn'
+    flags: {}
+    name: 'Ripping tentacle'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 15]] vs. AC'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '10 damage'
+      hit1:
+        type: ''
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The target is hampered until the end of its next turn.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 100000
+  - _id: 'zTDVpJtuE4N6NLvp'
+    flags: {}
+    name: 'Quick use'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'This ability only requires a quick action (once per round) to use.'
+    sort: 200000
+  - _id: 'sXbWI9VFXnP9EeTH'
+    flags: {}
+    name: 'Devil’s due (Foreshadowed weakness)'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When you choose to add the escalation die to an attack against a river devil, you only heal half the normal hit points the next time you heal using a recovery this battle. The effect is cumulative (so the second time you heal, the third time, etc.) if you pay the devil’s due more than once before using a recovery.'
+    sort: 300000
+  - _id: 'NLq3VTKRG8vwYloz'
+    flags: {}
+    name: 'Resist energy 13+'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When an energy attack targets this creature, the attacker must roll a natural 13+ on the attack roll or it only deals half damage.'
+    sort: 400000

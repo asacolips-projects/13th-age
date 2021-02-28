@@ -1,0 +1,170 @@
+name: 'Whiff of Sorcery'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: '<p>You gain a random spell from the sorcerer class. Whenever you take a full heal-up, randomly choose a sorcerer spell of the highest level you can cast. For the rest of the day, you know this sorcerer spell and can cast it according to its normal usage pattern&mdash;at-will, once per battle, recharge, or daily&mdash;when that option comes up during your chaos mage spellcasting sequence.</p>'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'talent'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: ''
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: ''
+  range:
+    type: 'String'
+    label: 'Range'
+    value: ''
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>Twice per day, you can gather power as if you were a sorcerer in order to deal double damage with either a sorcerer spell or a chaos mage spell the next time you cast a spell. You also gain the chaotic benefit for gathering power. (Note that you should have already determined the type of spell you will be casting, since you select a spell type when you roll initiative and at the end of each turn, so you&rsquo;re generally better off waiting to gather power when you know you have an attack or iconic spell coming.)</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: true
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>While you have an <em>air</em> or <em>fire </em>warp effect active, add [[@cha.dmg]] fire damage to your miss damage.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: true
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>If you don&rsquo;t like the first random sorcerer spell you select for the day, you can determine another random sorcerer spell. You&rsquo;re stuck with the second one.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: true
+flags: {}
+img: 'systems/archmage/assets/icons/spells/fog-blue-1.jpg'
