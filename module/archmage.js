@@ -429,11 +429,12 @@ Hooks.on("renderSettings", (app, html) => {
     location.reload();
   });
 
-  // User guide
-  let docs = html.find("button[data-action='docs']");
-  $(`<button data-action="userguide"><i class="fas fa-file" aria-hidden="true"></i>System Wiki</button>`).insertAfter(docs);
-  html.find('button[data-action="userguide"]').click(ev => {
-    new FrameViewer('https://mageflame.github.io/Toolkit13/', {resizable: true}).render(true);
+  let helpButton = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
+  html.find('button[data-action="controls"]').after(helpButton);
+
+  helpButton.on('click', ev => {
+    ev.preventDefault();
+    window.open('https://asacolips.gitbook.io/toolkit13-system/', 'archmageHelp', 'width=1032,height=720');
   });
 
 
