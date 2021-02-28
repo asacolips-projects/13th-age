@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "CSS compiler for the Archmage system",
   "scripts": {
-    "build": "gulp yaml & gulp css",
+    "build": "gulp build",
     "compile": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
-    "yaml": "gulp yaml"
+    "yaml": "gulp yaml",
+    "compilePacks": "gulp compilePacks",
+    "extractPacks": "gulp extractPacks"
   },
   "browserslist": [
     "last 3 versions"
@@ -18,9 +20,16 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-yaml": "^2.0.4"
+    "gulp-yaml": "^2.0.4",
+    "js-yaml": "^4.0.0",
+    "merge-stream": "^2.0.0",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7",
+    "through2": "^4.0.2",
+    "yargs": "^16.2.0"
   }
 }

@@ -80,7 +80,7 @@
                     {{/if}}
                 </div>
                 <div class="attribute-footer">
-                  <a class="recovery-roll rollable" data-roll="{{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.mod}}"><i class="fas fa-dice-d20"></i> {{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.mod}}</a>
+                  <a class="recovery-roll rollable" data-roll="{{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.dmg}}"><i class="fas fa-dice-d20"></i> {{data.attributes.level.value}}{{data.attributes.recoveries.dice}}+{{data.abilities.con.dmg}}</a>
                 </div>
             </div>
 
@@ -235,7 +235,7 @@
 
                     {{#if owner}}
                     <div class="item-controls flexrow">
-                        <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                        <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="feature">
                             <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                         <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                             <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -284,7 +284,7 @@
 
                       {{#if owner}}
                       <div class="item-controls flexrow">
-                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                          <a class="item-control item-create" title="Create Talent" data-item-type="power" data-power-type="talent">
                               <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                           <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                               <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -333,7 +333,7 @@
 
                       {{#if owner}}
                       <div class="item-controls flexrow">
-                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="spell" data-power-usage="daily" data-action-type="standard">
                               <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                           <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                               <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -382,7 +382,7 @@
 
                       {{#if owner}}
                       <div class="item-controls flexrow">
-                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="power" data-power-usage="at-will" data-action-type="standard">
                               <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                           <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                               <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -418,7 +418,7 @@
                   {{/each}}
               </ol>
 
-              <h2>{{localize 'ARCHMAGE.maneuvers'}}</h2>
+              <h2>{{localize 'ARCHMAGE.flexible'}}</h2>
               <ol class="feats-list powers-list inventory-list directory-list">
                   <li class="item flexrow inventory-header">
                       <div class="item-name flexrow">
@@ -431,7 +431,7 @@
 
                       {{#if owner}}
                       <div class="item-controls flexrow">
-                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="flexible">
                               <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                           <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                               <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -439,7 +439,7 @@
                       {{/if}}
                   </li>
 
-                  {{#each actor.maneuvers as |item i|}}
+                  {{#each actor.flexible as |item i|}}
                   <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow rollable">
                           <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -480,7 +480,7 @@
 
                       {{#if owner}}
                       <div class="item-controls flexrow">
-                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                          <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="other">
                               <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                           <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                               <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -530,7 +530,7 @@
 
                         {{#if owner}}
                         <div class="item-controls flexrow">
-                            <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                            <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-source="class">
                                 <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                             <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                                 <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -570,7 +570,7 @@
 
                         {{#if owner}}
                         <div class="item-controls flexrow">
-                            <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                            <a class="item-control item-create" title="Create Power" data-item-type="power" data-action-type="standard">
                                 <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                             <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                                 <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -624,7 +624,7 @@
 
                             {{#if ../owner}}
                             <div class="item-controls flexrow">
-                                <a class="item-control item-create" title="Create Power" data-item-type="power" data-type="power">
+                                <a class="item-control item-create" title="Create Power" data-item-type="power" data-group="{{grouping.name}}">
                                     <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
                                 <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
                                     <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
@@ -783,7 +783,7 @@
               <ol class="abilities-list">
                   {{#each data.abilities as |ability id|}}
                   <li class="ability" data-ability="{{id}}">
-                      <h4 class="ability-name rollable">{{localize (concatenate 'ARCHMAGE.' id '.label')}}</h4>
+                      <h4 class="ability-name rollable"><i class="fas fa-dice-d20"></i> {{localize (concatenate 'ARCHMAGE.' id '.label')}}</h4>
                       <span class="ability-mod" title="Modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
                       <span class="ability-score" title="Ability Score">
                           <input name="data.abilities.{{id}}.value" type="text" value="{{ability.value}}" data-dtype="Number"
