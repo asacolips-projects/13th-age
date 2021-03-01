@@ -4,6 +4,13 @@ ARCHMAGE.SETTINGS.RoundUpDamageApplicationName: When applying damage via the rig
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
 ARCHMAGE.SETTINGS.UnboundEscDieName: Unlimited Escalation Die
 ARCHMAGE.SETTINGS.UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
+ARCHMAGE.SETTINGS.ColorblindName: Enable Colorblind Accessibility Mode
+ARCHMAGE.SETTINGS.ColorblindHint: Change the colors of the power cards to more accessibility color palette.
+ARCHMAGE.SETTINGS.ColorblindOptionDefault: Default Colors
+ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
+ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
+ARCHMAGE.SETTINGS.automateBaseStatsFromClassName: Automatically compute base stats
+ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
 ARCHMAGE.feats: Feats
 ARCHMAGE.incrementals: Incrementals
 ARCHMAGE.incrementalAdvances: Incremental Advances
@@ -96,6 +103,7 @@ ARCHMAGE.talents: Talents
 ARCHMAGE.spells: Spells
 ARCHMAGE.powers: Powers
 ARCHMAGE.maneuvers: Maneuvers
+ARCHMAGE.flexible: Flexible Attacks
 ARCHMAGE.other: Other
 ARCHMAGE.byType: Group by Power Type
 ARCHMAGE.byAction: Group by if the Power has an Action or Not
@@ -215,3 +223,14 @@ ARCHMAGE.TOURS.180.monkCompendium: The Monk compendium is back up and available 
 ARCHMAGE.TOURS.180.escalationDie: The Escalation die is now manually adjustable, and via a new System Setting can even go past 9000! (6 is the default max)
 ARCHMAGE.TOURS.180.tierShorthand: Thanks to LegoFed3, there is now a @tier shorthand for Actors. Tier is the multiplier for each tier (1x adv, 2x cha, 3x epic)
 ARCHMAGE.TOURS.180.end: "There's a variety of bug fixes and minor tweaks as well, such as multi-class health calculations and various compendium updates. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+## 1.9.0
+ARCHMAGE.TOURS.190.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.9.0! Here's a quick tour of new features
+ARCHMAGE.TOURS.190.aip: Added basic support for the Autocomplete Inline Properties (https://foundryvtt.com/packages/autocomplete-inline-properties/) module, if enabled.
+ARCHMAGE.TOURS.190.necromancer: The Necromancer compendium is back up and available to use! Go Raise Hell!
+ARCHMAGE.TOURS.190.colorblind: Thanks to EndlesNights, we now have colorblind options. Check out the System Settings - powers should be much clearer for colorblind players!
+ARCHMAGE.TOURS.190.baseStats: HP, AC, Damage dice, and more are now optionally calculated automatically based on your Class. Huge thanks to LegoFed3 for this!
+ARCHMAGE.TOURS.190.inlineRoll: All Power Compendiums should now have inline Rolls. Thanks to everyone in the community who helped!
+ARCHMAGE.TOURS.190.inlineRollDocs: We now have additional documentation for inline Rolls in the Reference dialog!
+ARCHMAGE.TOURS.190.systemDocs: Our System documentation has been expanded even further, and is now in Gitbooks for a better experience
+ARCHMAGE.TOURS.190.chatCards: Ability / Background checks now have a new Chat Card layout that includes useful information such as "Background used". The Icon Roll Chat Cards got a makeover as well - roll the dice and see what the Icons bring!
+ARCHMAGE.TOURS.190.end: "There's a variety of bug fixes and minor tweaks as well, such as fixing powers in the Compendiums, adding Weakling / Elite to creature sizes, negative recovery logic, and more. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"

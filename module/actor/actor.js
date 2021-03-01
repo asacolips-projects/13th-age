@@ -72,7 +72,7 @@ export class ActorArchmage extends Actor {
     var rangedAttackBonus = 0;
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
-    
+
     var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
     var acBonus = missingRecPenalty;
@@ -348,6 +348,8 @@ export class ActorArchmage extends Actor {
     // TODO: handle dazed, weakened, etc. here
 
     if (actorData.type === 'character') {
+      // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
+      // duplicate code needs to be retired from the utility class if possible.
       data.attributes.standardBonuses = {
         value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
       };
@@ -382,7 +384,8 @@ export class ActorArchmage extends Actor {
       classText = classText ? classText.toLowerCase() : '';
 
       var matchedClasses = classText.match(classRegex);
-      data.details.detectedClasses = matchedClasses.sort();
+      if (matchedClasses !== null) matchedClasses.sort();
+      data.details.detectedClasses = matchedClasses;
     }
 
     // Enable resources based on detected classes
@@ -446,7 +449,9 @@ export class ActorArchmage extends Actor {
       },
       backgrounds: this.data.data.backgrounds,
       title: flavor,
-      alias: this.actor,
+      alias: this.data.name,
+      actor: this,
+      ability: abl
     });
   }
 }
@@ -458,7 +463,11 @@ export class ActorArchmage extends Actor {
  * @return {undefined}
  */
 
-function _preUpdateCharacterData(actor, data, options, id) {
+export function archmagePreUpdateCharacterData(actor, data, options, id) {
+  if (actor.data.type != 'character') {
+    return;
+  }
+
   if (options.diff
     && data.data !== undefined
     && data.data.details !== undefined
@@ -476,7 +485,7 @@ function _preUpdateCharacterData(actor, data, options, id) {
 
     if (matchedClasses !== null) {
       // Sort to avoid problems with future matches
-      matchedClasses = matchedClasses.sort();
+      matchedClasses.sort();
 
       // Check that the matched classes actually changed
       if (actor.data.data.details.matchedClasses !== undefined
@@ -558,5 +567,3 @@ function _preUpdateCharacterData(actor, data, options, id) {
     data.data.details.detectedClasses = matchedClasses;
   }
 }
-
-Hooks.on('preUpdateActor', _preUpdateCharacterData);

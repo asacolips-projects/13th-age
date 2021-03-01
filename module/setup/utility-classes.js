@@ -257,9 +257,9 @@ export class ArchmageUtility {
           value: ArchmageUtility.getEscalation(game.combat)
         };
 
-        if (data.attributes.standardBonuses) {
+        if (!data.attributes.standardBonuses) {
           data.attributes.standardBonuses = {
-            value: data.attributes.level.value + data.attributes.escalation.value
+            value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
           };
         }
       }
@@ -295,6 +295,7 @@ export class ArchmageUtility {
               let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
               wpnTypes.forEach(wpn => {
                 data.wpn[wpn].die = data.wpn[wpn].dice;
+                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
                 data.wpn[wpn].dmg = data.wpn[wpn].dmg;

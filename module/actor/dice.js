@@ -37,6 +37,8 @@ export class DiceArchmage {
     backgrounds,
     title,
     alias,
+    actor,
+    ability,
     flavor,
     advantage = true,
     situational = 0,
@@ -56,7 +58,7 @@ export class DiceArchmage {
     let speaker = ChatMessage.getSpeaker();
     let rollMode = game.settings.get("core", "rollMode");
     let rolled = false;
-    let roll = (html = null) => {
+    let roll = (html = null, data = {}) => {
       let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
 
       // Don't include situational bonus unless it is defined
@@ -84,13 +86,48 @@ export class DiceArchmage {
 
       // Execute the roll and send it to chat
       let roll = new Roll(terms.join('+'), data).roll();
-      roll.toMessage({
-        speaker: speaker,
-        alias: alias,
-        flavor: flav,
-        highlightSuccess: roll.terms[0].total === 20,
-        highlightFailure: roll.terms[0].total === 1
-      }, { rollMode });
+
+      // Grab the template.
+      const template = `systems/archmage/templates/chat/skill-check-card.html`;
+      const token = actor.token;
+
+      // Prepare chat data for the template.
+      const chatData = {
+        user: game.user._id,
+        type: 5,
+        roll: roll,
+        speaker: {
+          actor: actor._id,
+          token: actor.token,
+          alias: actor.name,
+          scene: game.user.viewedScene
+        }
+      };
+
+      // Prepare template data.
+      const templateData = {
+        actor: actor,
+        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        ability: {
+          name: ability.label,
+          bonus: ability.lvl
+        },
+        background: {
+          name: data.backgroundName ?? null,
+          bonus: data.background ?? 0
+        },
+        data: chatData
+      };
+
+      // Handle roll visibility.
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
+      // Render the template.
+      renderTemplate(template, templateData).then(content => {
+        chatData.content = content;
+        ChatMessage.create(chatData, { displaySheet: false });
+      });
     };
 
     // Modify the roll and handle fast-forwarding
@@ -183,7 +220,8 @@ export class DiceArchmage {
             rollMode = html.find('[name="rollMode"]').val();
             data['bonus'] = html.find('[name="bonus"]').val();
             data['background'] = html.find('[name="background"]').val();
-            roll(html);
+            data['backgroundName'] = Number(data['background']) > 0 ? html.find('[name="background"] option:selected').text() : null;
+            roll(html, data);
           }
         }
       }, dialogOptions).render(true);

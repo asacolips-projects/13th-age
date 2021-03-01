@@ -55,7 +55,7 @@ export class ActorArchmageSheet extends ActorSheet {
         sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
         sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
         sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
-        sheetData.actor.maneuvers = powers.filter(power => power.data.powerType.value === "maneuver");
+        sheetData.actor.flexible = powers.filter(power => power.data.powerType.value === "maneuver" || power.data.powerType.value === "flexible");
         sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
       }
       else if (sheetData.actor.data.sheetGrouping == "action") {
@@ -242,7 +242,11 @@ export class ActorArchmageSheet extends ActorSheet {
 
       // Handle average results.
       if (this.actor.getFlag('archmage', 'averageRecoveries')) {
-        formula = actorData.attributes.level.value * (Number(actorData.attributes.recoveries.dice.replace('d', '')) / 2) + actorData.abilities.con.mod;
+        formula = Math.floor(actorData.attributes.level.value * ((Number(actorData.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
+      }
+      // Handle strong recovery. Ignores average results if set!
+      if (this.actor.getFlag('archmage', 'strongRecovery')) {
+        formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
       }
       // Perform the roll.
       let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
@@ -504,13 +508,25 @@ export class ActorArchmageSheet extends ActorSheet {
     // Create New Item
     html.find('.item-create').click(ev => {
       let header = event.currentTarget;
+      let dataset = header.dataset;
       let type = ev.currentTarget.getAttribute('data-item-type');
       let img = CONFIG.ARCHMAGE.defaultTokens[type] ? CONFIG.ARCHMAGE.defaultTokens[type] : CONFIG.DEFAULT_TOKEN;
+      let data = {};
+      if (type == 'power') {
+        if (typeof dataset == 'object') {
+          for (let [k,v] of Object.entries(dataset)) {
+            data[k] = { value: v };
+          }
+        }
+      }
+      else {
+        data = dataset;
+      }
       this.actor.createOwnedItem({
         name: 'New ' + type.capitalize(),
         type: type,
         img: img,
-        data: duplicate(header.dataset)
+        data: data
       });
     });
 
