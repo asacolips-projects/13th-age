@@ -325,6 +325,31 @@ input[type="checkbox"] {
   -ms-transform: scale(1);
   transform: scale(1); }
 
+.archmage .tabs-primary-content {
+  position: relative; }
+  .archmage .tabs-primary-content .item-import {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 140px;
+    flex: 0 0 140px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    padding: 2px 4px;
+    line-height: 1;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #444;
+    color: white;
+    border-color: black;
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .archmage .tabs-primary-content .item-import:hover, .archmage .tabs-primary-content .item-import:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: #3d64ae; }
+
 .archmage.sheet {
   font-family: "warnock-pro", "sans-serif"; }
   .archmage.sheet h1,
@@ -1530,8 +1555,8 @@ input[type="checkbox"] {
       flex: 0 0 110px; }
     .inventory-list .item .item-controls {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 94px;
-      flex: 0 0 94px;
+      -ms-flex: 0 0 48px;
+      flex: 0 0 48px;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between; }
@@ -2424,10 +2449,20 @@ input[type="checkbox"] {
   .import-powers-item + .import-powers-item {
     border-top: 1px solid #999; }
 
+.prepopulate-help {
+  font-size: 16px;
+  margin: 40px 20px 0; }
+
 .prepopulate-power-list {
   padding: 10px 20px; }
   .prepopulate-power-list .archmage.chat-card .card-header {
     border: 0; }
+  .prepopulate-power-list .ability-usage {
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .prepopulate-power-list .ability-usage:hover {
+      opacity: 0.8; }
   .prepopulate-power-list .title {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 40px;

@@ -222,8 +222,8 @@
 
             {{#if owner}}
             <div class="item-controls flexrow">
-                <a class="item-control item-import" title="Create Power" data-item-type="power" data-type="power">
-                    <i class="fas fa-arrow-down"></i> {{localize 'ARCHMAGE.import'}}</a>
+                <button class="item-control item-import button" title="Create Power" data-item-type="power" data-type="power" type="button">
+                    <i class="fas fa-atlas"></i> {{localize 'ARCHMAGE.import'}}</button>
             </div>
             {{/if}}
 
@@ -243,7 +243,7 @@
                     {{#if owner}}
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="feature">
-                            <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                            <i class="fas fa-plus"></i></a>
                     </div>
                     {{/if}}
                 </li>
@@ -260,8 +260,6 @@
                                 <span class="item-action__letter"></span>
                                 <span class="item-action__icon"></span>
                             </span>
-                            {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                            {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                             <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                         </div>
                     </div>
@@ -290,7 +288,7 @@
                       {{#if owner}}
                       <div class="item-controls flexrow">
                           <a class="item-control item-create" title="Create Talent" data-item-type="power" data-power-type="talent">
-                              <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                              <i class="fas fa-plus"></i></a>
                       </div>
                       {{/if}}
                   </li>
@@ -307,8 +305,6 @@
                                   <span class="item-action__letter"></span>
                                   <span class="item-action__icon"></span>
                               </span>
-                              {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                              {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                               <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                           </div>
                       </div>
@@ -337,7 +333,7 @@
                       {{#if owner}}
                       <div class="item-controls flexrow">
                           <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="spell" data-power-usage="daily" data-action-type="standard">
-                              <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                              <i class="fas fa-plus"></i></a>
                       </div>
                       {{/if}}
                   </li>
@@ -354,8 +350,6 @@
                                   <span class="item-action__letter"></span>
                                   <span class="item-action__icon"></span>
                               </span>
-                              {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                              {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                               <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                           </div>
                       </div>
@@ -384,7 +378,7 @@
                       {{#if owner}}
                       <div class="item-controls flexrow">
                           <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="power" data-power-usage="at-will" data-action-type="standard">
-                              <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                              <i class="fas fa-plus"></i></a>
                       </div>
                       {{/if}}
                   </li>
@@ -401,8 +395,6 @@
                                   <span class="item-action__letter"></span>
                                   <span class="item-action__icon"></span>
                               </span>
-                              {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                              {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                               <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                           </div>
                       </div>
@@ -417,7 +409,7 @@
                   {{/each}}
               </ol>
 
-              <h2>{{localize 'ARCHMAGE.flexible'}}</h2>
+              <h2>{{localize 'ARCHMAGE.flexibles'}}</h2>
               <ol class="feats-list powers-list inventory-list directory-list">
                   <li class="item flexrow inventory-header">
                       <div class="item-name flexrow">
@@ -431,7 +423,7 @@
                       {{#if owner}}
                       <div class="item-controls flexrow">
                           <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="flexible">
-                              <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                              <i class="fas fa-plus"></i></a>
                       </div>
                       {{/if}}
                   </li>
@@ -448,8 +440,6 @@
                                   <span class="item-action__letter"></span>
                                   <span class="item-action__icon"></span>
                               </span>
-                              {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                              {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                               <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                           </div>
                       </div>
@@ -478,7 +468,7 @@
                       {{#if owner}}
                       <div class="item-controls flexrow">
                           <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-type="other">
-                              <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                              <i class="fas fa-plus"></i></a>
                       </div>
                       {{/if}}
                   </li>
@@ -495,8 +485,6 @@
                                   <span class="item-action__letter"></span>
                                   <span class="item-action__icon"></span>
                               </span>
-                              {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                              {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                               <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                           </div>
                       </div>
@@ -526,7 +514,7 @@
                         {{#if owner}}
                         <div class="item-controls flexrow">
                             <a class="item-control item-create" title="Create Power" data-item-type="power" data-power-source="class">
-                                <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                                <i class="fas fa-plus"></i></a>
                         </div>
                         {{/if}}
                     </li>
@@ -564,7 +552,7 @@
                         {{#if owner}}
                         <div class="item-controls flexrow">
                             <a class="item-control item-create" title="Create Power" data-item-type="power" data-action-type="standard">
-                                <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                                <i class="fas fa-plus"></i></a>
                         </div>
                         {{/if}}
                     </li>
@@ -581,8 +569,6 @@
                                     <span class="item-action__letter"></span>
                                     <span class="item-action__icon"></span>
                                 </span>
-                                {{!-- TODO: Item inputs are broken as of 0.3.9, refactor this. --}}
-                                {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                                 <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                             </div>
                         </div>
@@ -616,7 +602,7 @@
                             {{#if ../owner}}
                             <div class="item-controls flexrow">
                                 <a class="item-control item-create" title="Create Power" data-item-type="power" data-group="{{grouping.name}}">
-                                    <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                                    <i class="fas fa-plus"></i></a>
                             </div>
                             {{/if}}
                         </li>
@@ -633,7 +619,6 @@
                                         <span class="item-action__letter"></span>
                                         <span class="item-action__icon"></span>
                                     </span>
-                                    {{!-- <span class="item-quantity"><input type="text" name="data.items.{{i}}.data.quantity.value" value="{{item.data.quantity.value}}"/></span> --}}
                                     <span class="item-quantity rollable" title="Left click to add, right click to subtract">{{item.data.quantity.value}}</span>
                                 </div>
                             </div>
@@ -729,7 +714,7 @@
                         {{#if owner}}
                         <div class="item-controls">
                             <a class="item-control item-create" title="Create Item" data-item-type="equipment" data-type="equipment">
-                            <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                            <i class="fas fa-plus"></i></a>
                         </div>
                         {{/if}}
                   </li>

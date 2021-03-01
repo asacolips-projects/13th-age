@@ -582,61 +582,6 @@ export class ActorArchmageSheet extends ActorSheet {
       if (characterClasses.length > 0) {
         let offset = 250;
         characterClasses.forEach(powerClass => {
-          // TODO: Deprecated.
-          // if (validClasses.includes(powerClass)) {
-          //   let prepop = new ArchmagePrepopulate();
-
-          //   prepop.getPowersList(powerClass, powerLevel).then((res) => {
-          //     var options = {
-          //       width: 720,
-          //       height: 640,
-          //       left: offset,
-          //       top: offset,
-          //       classes: ['archmage-prepopulate']
-          //     };
-
-          //     offset += 25;
-
-          //     for (let i = 0; i < res.powers.length; i++) {
-          //       if (res.powers[i].usage !== null) {
-          //         res.powers[i].usageClass = _getPowerClasses(res.powers[i].usage)[0];
-          //       }
-          //       else {
-          //         res.powers[i].usageClass = 'other';
-          //       }
-          //     }
-
-          //     var templateData = {
-          //       powers: res.powers,
-          //       class: powerClass,
-          //       itemType: 'power' // @TODO: Make this not hardcoded.
-          //     }
-
-          //     let template = 'systems/archmage/templates/prepopulate/powers--list.html';
-          //     renderTemplate(template, templateData).then(content => {
-          //       let d = new Dialog({
-          //         title: `Import Powers (${powerClass})`,
-          //         content: content,
-          //         buttons: {
-          //           cancel: {
-          //             icon: '<i class="fas fa-times"></i>',
-          //             label: "Cancel",
-          //             callback: () => null
-          //           },
-          //           submit: {
-          //             icon: '<i class="fas fa-check"></i>',
-          //             label: "Submit",
-          //             callback: dlg => _onImportPower(dlg, this.actor, {})
-          //           }
-          //         }
-          //       }, options);
-          //       d.render(true);
-          //     });
-          //   });
-          // }
-          // else {
-          // Import from compendiums.
-          // let powers = game.items.entities.filter(item => item.type == 'power');
           let compendium = game.packs.filter(p => p.metadata.name == powerClass);
           if (compendium.length > 0) {
             compendium[0].getContent().then(res => {
@@ -686,7 +631,6 @@ export class ActorArchmageSheet extends ActorSheet {
               });
 
               let templatePowers = [];
-              console.log(powers);
               templatePowers = duplicate(powers).reduce((powerGroup, power) => {
                 if (power.powerType) {
                   let group = power.powerType ? power.powerType : 'other';
@@ -702,7 +646,28 @@ export class ActorArchmageSheet extends ActorSheet {
                 return powerGroup;
               }, {});
 
-              console.log(templatePowers);
+              let groupOrder = [
+                'feature',
+                'talent',
+                'flexible',
+                'power',
+                'spell',
+                'other'
+              ];
+
+              // TODO: Sort by the groupOrder key; see the below example from PBTA.
+              // let newData = Object.keys(actorData.data[group])
+              // // Sort them based on the sorting array.
+              // .sort((a,b) => {
+              //   return sortingArray.indexOf(a) - sortingArray.indexOf(b);
+              // })
+              // // Build a new object from the sorted keys.
+              // .reduce(
+              //   (obj, key) => {
+              //     obj[key] = actorData.data[group][key];
+              //     return obj;
+              //   }, {}
+              // );
 
               var templateData = {
                 powers: powers,
