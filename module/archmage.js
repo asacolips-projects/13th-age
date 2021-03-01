@@ -322,63 +322,65 @@ Hooks.once('init', async function() {
   ArchmageUtility.replaceRollData();
 
   /* --------------------------------------------- */
-  // Autocomplete Inline Rolls
-  const aipKeys = [
-    'str',
-    'dex',
-    'con',
-    'int',
-    'wis',
-    'cha',
-    'ac',
-    'pd',
-    'md',
-    'hp',
-    'recoveries',
-    'wpn.m',
-    'wpn.r',
-    'wpn.p',
-    'wpn.k',
-    'wpn.j'
-  ];
-  let filteredKeys = [
-    'standardBonuses',
-    'out',
-    'incrementals',
-    'icons',
-    'details',
-    'coins',
-    'backgrounds',
-    'attr',
-    'attributes',
-    'abilities',
-    'abil',
-    'tier',
-    'sheetGrouping',
-    'disengage',
-  ];
-  aipKeys.forEach(k => {
-    filteredKeys.push(`${k}.type`);
-    filteredKeys.push(`${k}.label`);
-  });
-  const AIP = {
-    packageName: 'archmage',
-    sheetClasses: [
-      {
-        name: "ItemArchmageSheet",
-        fieldConfigs: [
-          {
-            selector: '.archmage-aip input[type="text"]',
-            showButton: true,
-            allowHotkey: true,
-            dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
-            filteredKeys: filteredKeys
-          }
-        ]
-      }
-    ]
-  };
-  CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
+  if (CONST.AIP && CONFIG.AIP) {
+    // Autocomplete Inline Rolls
+    const aipKeys = [
+      'str',
+      'dex',
+      'con',
+      'int',
+      'wis',
+      'cha',
+      'ac',
+      'pd',
+      'md',
+      'hp',
+      'recoveries',
+      'wpn.m',
+      'wpn.r',
+      'wpn.p',
+      'wpn.k',
+      'wpn.j'
+    ];
+    let filteredKeys = [
+      'standardBonuses',
+      'out',
+      'incrementals',
+      'icons',
+      'details',
+      'coins',
+      'backgrounds',
+      'attr',
+      'attributes',
+      'abilities',
+      'abil',
+      'tier',
+      'sheetGrouping',
+      'disengage',
+    ];
+    aipKeys.forEach(k => {
+      filteredKeys.push(`${k}.type`);
+      filteredKeys.push(`${k}.label`);
+    });
+    const AIP = {
+      packageName: 'archmage',
+      sheetClasses: [
+        {
+          name: "ItemArchmageSheet",
+          fieldConfigs: [
+            {
+              selector: '.archmage-aip input[type="text"]',
+              showButton: true,
+              allowHotkey: true,
+              dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+              filteredKeys: filteredKeys
+            }
+          ]
+        }
+      ]
+    };
+    CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
+  }
 });
 
 Hooks.on('createItem', (data, options, id) => {
