@@ -324,6 +324,67 @@ Hooks.once('init', async function() {
   CONFIG.weatherEffects.cinder = CinderWeatherEffect;
 
   ArchmageUtility.replaceRollData();
+
+  /* --------------------------------------------- */
+  if (CONST.AIP && CONFIG.AIP) {
+    // Autocomplete Inline Rolls
+    const aipKeys = [
+      'str',
+      'dex',
+      'con',
+      'int',
+      'wis',
+      'cha',
+      'ac',
+      'pd',
+      'md',
+      'hp',
+      'recoveries',
+      'wpn.m',
+      'wpn.r',
+      'wpn.p',
+      'wpn.k',
+      'wpn.j'
+    ];
+    let filteredKeys = [
+      'standardBonuses',
+      'out',
+      'incrementals',
+      'icons',
+      'details',
+      'coins',
+      'backgrounds',
+      'attr',
+      'attributes',
+      'abilities',
+      'abil',
+      'tier',
+      'sheetGrouping',
+      'disengage',
+    ];
+    aipKeys.forEach(k => {
+      filteredKeys.push(`${k}.type`);
+      filteredKeys.push(`${k}.label`);
+    });
+    const AIP = {
+      packageName: 'archmage',
+      sheetClasses: [
+        {
+          name: "ItemArchmageSheet",
+          fieldConfigs: [
+            {
+              selector: '.archmage-aip input[type="text"]',
+              showButton: true,
+              allowHotkey: true,
+              dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+              filteredKeys: filteredKeys
+            }
+          ]
+        }
+      ]
+    };
+    CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
+  }
 });
 
 Hooks.on('createItem', (data, options, id) => {
@@ -358,7 +419,7 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
-  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
+  let button = $(`<button id="archmage-reference-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
@@ -374,11 +435,12 @@ Hooks.on("renderSettings", (app, html) => {
     location.reload();
   });
 
-  // User guide
-  let docs = html.find("button[data-action='docs']");
-  $(`<button data-action="userguide"><i class="fas fa-file" aria-hidden="true"></i>System Wiki</button>`).insertAfter(docs);
-  html.find('button[data-action="userguide"]').click(ev => {
-    new FrameViewer('https://mageflame.github.io/Toolkit13/', {resizable: true}).render(true);
+  let helpButton = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
+  html.find('button[data-action="controls"]').after(helpButton);
+
+  helpButton.on('click', ev => {
+    ev.preventDefault();
+    window.open('https://asacolips.gitbook.io/toolkit13-system/', 'archmageHelp', 'width=1032,height=720');
   });
 
 

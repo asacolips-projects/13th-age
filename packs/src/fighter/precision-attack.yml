@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You gain a +[[@des.dmg]] bonus to the damage roll equal to your Dexterity modifier.</p>"
+    value: "<p>You gain a +[[@dex.dmg]] bonus to the damage roll.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
