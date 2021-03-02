@@ -645,8 +645,9 @@ export class ActorArchmageSheet extends ActorSheet {
                 }
                 return powerGroup;
               }, {});
-
-              let groupOrder = [
+              
+              // Sort the powers by group.
+              let groupSortingArray = [
                 'feature',
                 'talent',
                 'flexible',
@@ -655,23 +656,22 @@ export class ActorArchmageSheet extends ActorSheet {
                 'other'
               ];
 
-              // TODO: Sort by the groupOrder key; see the below example from PBTA.
-              // let newData = Object.keys(actorData.data[group])
-              // // Sort them based on the sorting array.
-              // .sort((a,b) => {
-              //   return sortingArray.indexOf(a) - sortingArray.indexOf(b);
-              // })
-              // // Build a new object from the sorted keys.
-              // .reduce(
-              //   (obj, key) => {
-              //     obj[key] = actorData.data[group][key];
-              //     return obj;
-              //   }, {}
-              // );
+              let sortedPowers = Object.keys(templatePowers)
+              // Sort them based on the sorting array.
+              .sort((a,b) => {
+                return groupSortingArray.indexOf(a) - groupSortingArray.indexOf(b);
+              })
+              // Build a new object from the sorted keys.
+              .reduce(
+                (obj, key) => {
+                  obj[key] = templatePowers[key];
+                  return obj;
+                }, {}
+              );
 
               var templateData = {
                 powers: powers,
-                powersByGroup: templatePowers,
+                powersByGroup: sortedPowers,
                 class: powerClass,
                 itemType: 'power' // @TODO: Make this not hardcoded.
               }
