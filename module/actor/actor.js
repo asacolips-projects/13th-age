@@ -543,7 +543,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (!base.skilledWarrior) {
         base.mWpn_1h = Math.max(base.mWpn_1h - 2, 4);
         base.mWpn_2h = Math.max(base.mWpn_2h - 2, 4);
-        base.rWpn = Math.max(base.mWpn_1h - 2, 4);
+        base.rWpn = Math.max(base.rWpn - 2, 4);
         jabWpn -= 2;
         punchWpn -= 2;
         kickWpn -= 2;
