@@ -384,7 +384,10 @@ export class ActorArchmage extends Actor {
       classText = classText ? classText.toLowerCase() : '';
 
       var matchedClasses = classText.match(classRegex);
-      if (matchedClasses !== null) matchedClasses.sort();
+      if (matchedClasses !== null) {
+        matchedClasses = [...new Set(matchedClasses)];
+        matchedClasses.sort();
+      }
       data.details.detectedClasses = matchedClasses;
     }
 
@@ -464,17 +467,14 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
-  if (actor.data.type != 'character') {
-    return;
-  }
-
-  if (options.diff
+  if (actor.data.type == 'character'
+    && options.diff
     && data.data !== undefined
     && data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
-    // Here we received an update of the class name
+    // Here we received an update of the class name for a character
 
     // Find known classes
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
@@ -484,6 +484,8 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let matchedClasses = classText.match(classRegex);
 
     if (matchedClasses !== null) {
+      // Remove duplicates
+      matchedClasses = [...new Set(matchedClasses)];
       // Sort to avoid problems with future matches
       matchedClasses.sort();
 
