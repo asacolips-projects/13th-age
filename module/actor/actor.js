@@ -549,12 +549,13 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
-      // Pick best weapon (and eventually shield)
-      if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
-      else if (!base.mWpn_2h_pen
-        && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
-        ) {base.mWpn = base.mWpn_2h;}
-      else {base.mWpn = base.mWpn_1h;}
+      // Pick best weapon (and possibly shield)
+      // if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
+      // else if (!base.mWpn_2h_pen
+        // && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
+        // ) {base.mWpn = base.mWpn_2h;}
+      // else {base.mWpn = base.mWpn_1h;}
+      base.mWpn = base.mWpn_1h;
 
       // Assign computed values
       data.data.attributes = {
