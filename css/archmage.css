@@ -2492,7 +2492,25 @@ input[type="checkbox"] {
 
 .item-properties tr:nth-child(even),
 .card-prop tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.05); }
+  background: rgba(128, 188, 223, 0.25); }
+
+table {
+  font-family: "warnock-pro", "sans-serif";
+  background: transparent;
+  border: 0;
+  text-align: center; }
+  table thead {
+    background: transparent;
+    color: #000;
+    text-shadow: none; }
+  table tbody {
+    border: 10px solid #124560;
+    border-left: 0;
+    border-right: 0; }
+    table tbody tr:nth-child(odd) {
+      background: transparent; }
+    table tbody tr:nth-child(even) {
+      background: rgba(128, 188, 223, 0.25); }
 
 /* ----------------------------------------- */
 /*  Context Dropdown Menu
