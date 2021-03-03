@@ -531,7 +531,7 @@ export class ActorArchmageSheet extends ActorSheet {
     });
 
     // html.find('.powers .item-create').on('contextmenu', ev => {
-    html.find('.item-import').click(ev => {
+    html.find('.item-import').click(async ev => {
       var itemType = ev.currentTarget.getAttribute('data-item-type');
 
       let validClasses = [
@@ -577,6 +577,11 @@ export class ActorArchmageSheet extends ActorSheet {
       }
 
       let characterClasses = cleanClassName.match(classRegex);
+      let classJournalPacks = game.packs.filter(p => p.metadata.name == 'classes' && p.metadata.entity == 'JournalEntry');
+      let classJournals = [];
+      if (classJournalPacks.length > 0) {
+        classJournals = await classJournalPacks[0].getContent();
+      }
 
       // Import from toolkit13.com
       if (characterClasses.length > 0) {
@@ -586,7 +591,7 @@ export class ActorArchmageSheet extends ActorSheet {
           if (compendium.length > 0) {
             compendium[0].getContent().then(res => {
               var options = {
-                width: 720,
+                width: 1080,
                 height: 1080,
                 classes: ['archmage-prepopulate']
               };
@@ -669,9 +674,14 @@ export class ActorArchmageSheet extends ActorSheet {
                 }, {}
               );
 
+              // Add journal entry for the class.
+              let classContent = classJournals.find(j => j.data.name.toLowerCase().trim() == powerClass);
+
               var templateData = {
                 powers: powers,
                 powersByGroup: sortedPowers,
+                className: classContent?.data?.name ?? powerClass,
+                classContent: classContent?.data?.content ?? null,
                 class: powerClass,
                 itemType: 'power' // @TODO: Make this not hardcoded.
               }

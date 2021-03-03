@@ -1,21 +1,26 @@
 <div class="archmage sheet prepopulate-sheet">
-  <p class="prepopulate-help">{{localize "ARCHMAGE.PREPOPULATE.help"}}</p>
-  <div class="prepopulate-power-list">
-    {{#each powersByGroup as |group groupKey|}}
-    <h2 class="power-list-title">{{localize (concatenate "ARCHMAGE." groupKey "s")}}</h2>
-      {{#each group as |level levelKey|}}
-      <h3 class="power-list-subtitle">{{localize "ARCHMAGE.level"}} {{levelKey}} {{localize (concatenate "ARCHMAGE." groupKey "s")}}</h3>
-      <ul class="import-powers-list">
-        {{#each level as |power powerKey|}}
-          <li class="import-powers-item">
-            <div class="title">
-              <input type="checkbox" name="power-{{power.uuid}}" data-uuid="{{power.uuid}}" data-item-type="power"/>
-            </div>
-            <div class="content">{{> "systems/archmage/templates/chat/power-card.html" item=power.powerData data=power.powerCard}}</div>
-          </li>
+  {{#if classContent}}
+    <div class="class-content">{{{classContent}}}</div>
+  {{/if}}
+  <div class="l-center">
+    <p class="prepopulate-help">{{localize "ARCHMAGE.PREPOPULATE.help"}}</p>
+    <div class="prepopulate-power-list">
+      {{#each powersByGroup as |group groupKey|}}
+      <h2 class="power-list-title">{{localize (concatenate "ARCHMAGE." groupKey "s")}}</h2>
+        {{#each group as |level levelKey|}}
+        <h3 class="power-list-subtitle">{{localize "ARCHMAGE.level"}} {{levelKey}} {{localize (concatenate "ARCHMAGE." groupKey "s")}}</h3>
+        <ul class="import-powers-list grid grid-2col">
+          {{#each level as |power powerKey|}}
+            <li class="import-powers-item">
+              <div class="title">
+                <input type="checkbox" name="power-{{power.uuid}}" data-uuid="{{power.uuid}}" data-item-type="power"/>
+              </div>
+              <div class="content">{{> "systems/archmage/templates/chat/power-card.html" item=power.powerData data=power.powerCard}}</div>
+            </li>
+          {{/each}}
+        </ul>
         {{/each}}
-      </ul>
       {{/each}}
-    {{/each}}
+    </div>
   </div>
 </div>

@@ -2349,6 +2349,9 @@ input[type="checkbox"] {
   -ms-flex: 0 0 60px !important;
   flex: 0 0 60px !important; }
 
+.l-center {
+  margin: 0 40px; }
+
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
@@ -2446,15 +2449,17 @@ input[type="checkbox"] {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px; }
-  .import-powers-item + .import-powers-item {
-    border-top: 1px solid #999; }
 
 .prepopulate-help {
   font-size: 16px;
-  margin: 40px 20px 0; }
+  margin: 40px 0 0;
+  background: rgba(128, 188, 223, 0.25);
+  padding: 20px;
+  border: 1px solid #124560;
+  border-radius: 5px; }
 
 .prepopulate-power-list {
-  padding: 10px 20px; }
+  padding: 10px 0; }
   .prepopulate-power-list .archmage.chat-card .card-header {
     border: 0; }
   .prepopulate-power-list .ability-usage {
@@ -2470,11 +2475,48 @@ input[type="checkbox"] {
   .prepopulate-power-list .import-powers-item {
     color: #000; }
 
+.class-content {
+  padding: 0 20px; }
+  .class-content .grid {
+    gap: 40px; }
+
+.archmage-class-title {
+  font-size: 48px;
+  text-transform: capitalize;
+  margin: 40px 0 0;
+  text-align: center;
+  border: 0;
+  position: relative; }
+  .archmage-class-title::before, .archmage-class-title::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 32%;
+    height: 6px;
+    background: -webkit-gradient(linear, right top, left top, from(#124560), color-stop(60%, rgba(18, 69, 96, 0.4)), to(transparent));
+    background: -o-linear-gradient(right, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    background: linear-gradient(-90deg, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 50px 0 50px 0; }
+  .archmage-class-title::after {
+    left: auto;
+    right: 0;
+    background: -webkit-gradient(linear, left top, right top, from(#124560), color-stop(60%, rgba(18, 69, 96, 0.4)), to(transparent));
+    background: -o-linear-gradient(left, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    background: linear-gradient(90deg, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    border-radius: 0 50px 0 50px; }
+
+.archmage-class-heading,
 .power-list-title {
   font-size: 32px;
   text-transform: capitalize;
-  margin: 40px 0 0; }
+  margin: 40px 0 10px;
+  border-bottom: 2px solid #124560; }
 
+.archmage-class-subheading,
 .power-list-subtitle {
   font-size: 22px;
   text-transform: capitalize;
@@ -2503,6 +2545,8 @@ table {
     background: transparent;
     color: #000;
     text-shadow: none; }
+    table thead th {
+      padding: 2px 4px; }
   table tbody {
     border: 10px solid #124560;
     border-left: 0;

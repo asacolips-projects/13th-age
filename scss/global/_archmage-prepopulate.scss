@@ -89,18 +89,22 @@
     flex: 0 0 24px;
   }
 
-  + .import-powers-item {
-    border-top: 1px solid $c-gray--light;
-  }
+  // + .import-powers-item {
+  //   border-top: 1px solid $c-gray--light;
+  // }
 }
 
 .prepopulate-help {
   font-size: 16px;
-  margin: 40px 20px 0;
+  margin: 40px 0 0;
+  background: $ct-blue--25;
+  padding: 20px;
+  border: 1px solid $c-blue--dark;
+  border-radius: 5px;
 }
 
 .prepopulate-power-list {
-  padding: 10px 20px;
+  padding: 10px 0;
 
   .archmage.chat-card {
     .card-header {
@@ -125,12 +129,54 @@
   }
 }
 
+.class-content {
+  .grid {
+    gap: 40px;
+  }
+
+  padding: 0 20px;
+}
+
+.archmage-class-title {
+  font-size: 48px;
+  text-transform: capitalize;
+  margin: 40px 0 0;
+  text-align: center;
+  border: 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 32%;
+    height: 6px;
+    background: linear-gradient(-90deg, $c-blue--dark, rgba($c-blue--dark, .4) 60%, transparent);
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 50px 0 50px 0;
+  }
+
+  &::after {
+    left: auto;
+    right: 0;
+    background: linear-gradient(90deg, $c-blue--dark, rgba($c-blue--dark, .4) 60%, transparent);
+    border-radius: 0 50px 0 50px;
+  }
+}
+
+.archmage-class-heading,
 .power-list-title {
   font-size: 32px;
   text-transform: capitalize;
-  margin: 40px 0 0;
+  margin: 40px 0 10px;
+  border-bottom: 2px solid $c-blue--dark;
 }
 
+.archmage-class-subheading,
 .power-list-subtitle {
   font-size: 22px;
   text-transform: capitalize;

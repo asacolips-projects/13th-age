@@ -26,6 +26,10 @@ table {
     background: transparent;
     color: $c-black;
     text-shadow: none;
+
+    th {
+      padding: 2px 4px;
+    }
   }
 
   tbody {
