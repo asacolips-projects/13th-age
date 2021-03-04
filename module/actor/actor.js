@@ -436,6 +436,7 @@ export class ActorArchmage extends Actor {
           normal: {
             label: 'Normal',
             callback: () => {
+              data['label'] = 'Normal';
               rolled = true;
             }
           },
@@ -545,16 +546,14 @@ export class ActorArchmage extends Actor {
 
     if (do_update) {
       // Send to chat and reduce the number of recoveries.
-      roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
+      roll.toMessage({flavor: `<div class="archmage chat-card"><header class="card-header flexrow"><img src="${this.img}" title="${this.name}" width="36" height="36"/><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`});
       let newHp = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + roll.total);
-      if (!data['free']) {
-        this.update({
-          'data.attributes.recoveries.value': this.data.data.attributes.recoveries.value - 1,
-          'data.attributes.hp.value': newHp
-        });
-      } else {
-        this.update({'data.attributes.hp.value': newHp});
-      }
+      let newRec = this.data.data.attributes.recoveries.value;
+      if (!data['free']) {newRec -= 1;}
+      this.update({
+        'data.attributes.recoveries.value': newRec,
+        'data.attributes.hp.value': newHp
+      });
     }
     return roll.total;
   }
