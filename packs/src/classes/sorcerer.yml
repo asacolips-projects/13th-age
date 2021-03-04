@@ -1,20 +1,21 @@
-name: 'Barbarian'
+name: 'Sorcerer'
 permission:
   default: 0
 folder: ''
 flags: {}
 content: |
   <div class="l-center">
-    <h1 class="archmage-class-title">Barbarian</h1>
+    <h1 class="archmage-class-title">Sorcerer</h1>
     <div class="grid grid-2col">
       <div class="details">
         <h2 class="archmage-class-heading">Ability Scores</h2>
-        <p>Barbarians gain a +2 class bonus to Strength or Constitution, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
+        <p>Sorcerers gain a +2 class bonus to Charisma or Constitution, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
         <h2 class="archmage-class-heading">Backgrounds</h2>
-        <p>Possible backgrounds include: clan champion, caravan outrider, fur trapper, mountain tribeswoman, wasteland survivalist, and gladiator.</p>
+        <p>Possible backgrounds include: tribal shaman, pirate captain, spell-arena gladiator, failed wizard, sahuagin hunter.</p>
         <h2 class="archmage-class-heading">Gear</h2>
+        <p>At 1st level, a sorcerer usually has a simple melee weapon, a few changes of clothing, a wand or staff, and other paraphernalia suggested by their backgrounds.</p>
         <h3 class="archmage-class-subheading">Gold Pieces</h3>
-        <p>Barbarians may start with either 25 gp or 1d6 x 10 gp.</p>
+        <p>Sorcerers may start with either 25 gp or 1d6 x 10 gp.</p>
       </div>
       <div class="armor">
         <h2 class="archmage-class-heading">Armor</h2>
@@ -33,10 +34,10 @@ content: |
             </tr>
             <tr>
               <td>
-              <p><strong>None</strong></p>
+              <p><strong><em>None</em></strong></p>
               </td>
               <td>
-              <p>10</p>
+              <p><em>10</em></p>
               </td>
               <td>
               <p>—</p>
@@ -47,7 +48,7 @@ content: |
               <p><strong><em>Light</em></strong></p>
               </td>
               <td>
-              <p><em>12</em></p>
+              <p><em>10</em></p>
               </td>
               <td>
               <p>—</p>
@@ -58,7 +59,7 @@ content: |
               <p><strong>Heavy</strong></p>
               </td>
               <td>
-              <p>13</p>
+              <p>11</p>
               </td>
               <td>
               <p>–2</p>
@@ -72,7 +73,7 @@ content: |
               <p>+1</p>
               </td>
               <td>
-              <p>—</p>
+              <p>-2</p>
               </td>
             </tr>
           </tbody>
@@ -103,7 +104,7 @@ content: |
               <p>1d4 dagger</p>
               </td>
               <td>
-              <p>1d6 club</p>
+              <p>1d6 staff</p>
               </td>
             </tr>
             <tr>
@@ -111,7 +112,7 @@ content: |
               <p><strong>Light or Simple</strong></p>
               </td>
               <td>
-              <p>1d6 hand-axe, warclub</p>
+              <p>1d6 shortsword</p>
               </td>
               <td>
               <p>1d8 spear</p>
@@ -122,14 +123,15 @@ content: |
               <p><strong>Heavy or Martial</strong></p>
               </td>
               <td>
-              <p>1d8 longsword, battleaxe</p>
+              <p>1d8 (-2 atk) longsword</p>
               </td>
               <td>
-              <p>1d10 greatsword, greataxe</p>
+              <p>1d10 (-2 atk) greatsword*</p>
               </td>
             </tr>
           </tbody>
         </table>
+        <p>* A sorcerer needs one free hand to cast spells. As such, they suffer a penalty for using a two-handed weapon. (The penalty applies to spells also.)</p>
       </div>
       <div class="ranged-weapons">
         <h2 class="archmage-class-heading">Ranged Weapons</h2>
@@ -157,7 +159,7 @@ content: |
               <p>1d4 dagger</p>
               </td>
               <td>
-              <p>1d4 (–5 atk) hand crossbow</p>
+              <p>1d4 hand crossbow</p>
               </td>
               <td>
               <p>—</p>
@@ -168,13 +170,13 @@ content: |
               <p><strong>Light or Simple</strong></p>
               </td>
               <td>
-              <p>1d6 javelin, axe, spear</p>
+              <p>1d6 javelin</p>
               </td>
               <td>
-              <p>1d6 (–5 atk) light crossbow</p>
+              <p>1d6 (–1 atk) light crossbow*</p>
               </td>
               <td>
-              <p>1d6 shortbow</p>
+              <p>1d6 (-2 atk) shortbow*</p>
               </td>
             </tr>
             <tr>
@@ -185,10 +187,10 @@ content: |
               <p>—</p>
               </td>
               <td>
-              <p>1d8 (–5 atk) heavy crossbow</p>
+              <p>1d8 (–3 atk) heavy crossbow*</p>
               </td>
               <td>
-              <p>1d8 longbow</p>
+              <p>1d8 (-4 atk) longbow*</p>
               </td>
             </tr>
           </tbody>
@@ -201,7 +203,7 @@ content: |
     <tbody>
       <tr>
         <td>
-        <p><strong>Barbarian Level</strong></p>
+        <p><strong>Sorcerer Level</strong></p>
         </td>
         <td>
         <p><strong>Total Hit Points</strong></p>
@@ -210,13 +212,25 @@ content: |
         <p><strong>Total Feats</strong></p>
         </td>
         <td>
-        <p><strong>Class Talents</strong></p>
+        <p><strong>1st level spell</strong></p>
+        </td>
+        <td>
+        <p><strong>3rd level spell</strong></p>
+        </td>
+        <td>
+        <p><strong>5th level spell</strong></p>
+        </td>
+        <td>
+        <p><strong>7th level spell</strong></p>
+        </td>
+        <td>
+        <p><strong>9th level spell</strong></p>
         </td>
         <td>
         <p><strong>Level-up Ability Bonuses</strong></p>
         </td>
         <td>
-        <p><strong>Damage Bonus from Ability Score</strong></p>
+        <p><strong>Damage Bonus From Ability Score</strong></p>
         </td>
       </tr>
       <tr>
@@ -224,13 +238,25 @@ content: |
         <p><strong>Level 1</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>3</strong></p>
+        <p>(6 + CON mod) x <strong>3</strong></p>
         </td>
         <td>
         <p>1 adventurer</p>
         </td>
         <td>
-        <p>3 adventurer</p>
+        <p>4</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -244,13 +270,25 @@ content: |
         <p><strong>Level 2</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>4</strong></p>
+        <p>(6 + CON mod) x <strong>4</strong></p>
         </td>
         <td>
         <p>2 adventurer</p>
         </td>
         <td>
-        <p>3 adventurer</p>
+        <p>5</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -264,13 +302,25 @@ content: |
         <p><strong>Level 3</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>5</strong></p>
+        <p>(6 + CON mod) x <strong>5</strong></p>
         </td>
         <td>
         <p>3 adventurer</p>
         </td>
         <td>
-        <p>3 adventurer</p>
+        <p>3</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -284,13 +334,27 @@ content: |
         <p><strong>Level 4</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>6</strong></p>
+        <p>(6 + CON mod) x <strong>6</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
+
+        <p>&nbsp;</p>
         </td>
         <td>
-        <p>3 adventurer</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>6</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>+1 to 3 abilities</p>
@@ -304,7 +368,7 @@ content: |
         <p><strong>Level 5</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>8</strong></p>
+        <p>(6 + CON mod) x <strong>8</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
@@ -312,9 +376,19 @@ content: |
         <p>1 champion</p>
         </td>
         <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>4</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -328,7 +402,7 @@ content: |
         <p><strong>Level 6</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>10</strong></p>
+        <p>(6 + CON mod) x <strong>10</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
@@ -336,9 +410,19 @@ content: |
         <p>2 champion</p>
         </td>
         <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>7</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -352,7 +436,7 @@ content: |
         <p><strong>Level 7</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>12</strong></p>
+        <p>(6 + CON mod) x <strong>12</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
@@ -360,9 +444,19 @@ content: |
         <p>3 champion</p>
         </td>
         <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>5</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>+1 to 3 abilities</p>
@@ -376,7 +470,7 @@ content: |
         <p><strong>Level 8</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>16</strong></p>
+        <p>(6 + CON mod) x <strong>16</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
@@ -386,11 +480,19 @@ content: |
         <p>1 epic</p>
         </td>
         <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-
-        <p>1 epic</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>8</p>
+        </td>
+        <td>
+        <p>—</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -404,7 +506,7 @@ content: |
         <p><strong>Level 9</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>20</strong></p>
+        <p>(6 + CON mod) x <strong>20</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
@@ -414,11 +516,19 @@ content: |
         <p>2 epic</p>
         </td>
         <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-
-        <p>1 epic</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>6</p>
         </td>
         <td>
         <p>&nbsp;</p>
@@ -432,7 +542,7 @@ content: |
         <p><strong>Level 10</strong></p>
         </td>
         <td>
-        <p>(7 + CON mod) x <strong>24</strong></p>
+        <p>(6 + CON mod) x <strong>24</strong></p>
         </td>
         <td>
         <p>4 adventurer</p>
@@ -442,11 +552,19 @@ content: |
         <p>3 epic</p>
         </td>
         <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-
-        <p>1 epic</p>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>9</p>
         </td>
         <td>
         <p>+1 to 3 abilities</p>
@@ -458,6 +576,7 @@ content: |
     </tbody>
   </table>
   <div class="l-center">
+    <p>Note: Although not listed on the table, this class gets three talents. It does not gain more at higher levels.</p>
     <h2 class="archmage-class-heading">Stats</h2>
     <p>Initiative, AC, PD, MD, Hit Points, Recovery Dice, Feats, and some Talents are level dependent.</p>
     <table>
@@ -467,7 +586,7 @@ content: |
           <p><strong>Ability Bonus</strong></p>
           </td>
           <td>
-          <p>+2 Strength or Constitution (different from racial bonus)</p>
+          <p>+2 Charisma or Constitution (different from racial bonus)</p>
           </td>
         </tr>
         <tr>
@@ -483,15 +602,7 @@ content: |
           <p><strong>Armor Class </strong>(light armor)</p>
           </td>
           <td>
-          <p>12 + middle mod of Con/Dex/Wis + Level</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-          <p><strong>Armor Class </strong>(shield and light armor)</p>
-          </td>
-          <td>
-          <p>13 + middle mod of Con/Dex/Wis + Level</p>
+          <p>10 + middle mod of Con/Dex/Wis + Level</p>
           </td>
         </tr>
         <tr>
@@ -515,7 +626,7 @@ content: |
           <p><strong>Hit Points</strong></p>
           </td>
           <td>
-          <p>(7 + Con mod) x Level modifier (see level progression chart)</p>
+          <p>(6 + Con mod) x Level modifier (see level progression chart)</p>
           </td>
         </tr>
         <tr>
@@ -523,7 +634,7 @@ content: |
           <p><strong>Recoveries</strong></p>
           </td>
           <td>
-          <p>(probably) 8</p>
+          <p>8</p>
           </td>
         </tr>
         <tr>
@@ -531,7 +642,7 @@ content: |
           <p><strong>Recovery Dice</strong></p>
           </td>
           <td>
-          <p>(1d10 x Level) + Con mod</p>
+          <p>(1d6 x Level) + Con mod</p>
           </td>
         </tr>
         <tr>
@@ -555,7 +666,7 @@ content: |
           <p><strong>Talents</strong></p>
           </td>
           <td>
-          <p>3 (see level progression chart)</p>
+          <p>3</p>
           </td>
         </tr>
         <tr>
@@ -569,4 +680,4 @@ content: |
       </tbody>
     </table>
   </div>
-img: 'systems/archmage/assets/icons/items/weapons/battleaxe.png'
+img: 'systems/archmage/assets/icons/skills/blue_21.jpg'

@@ -675,7 +675,7 @@ export class ActorArchmageSheet extends ActorSheet {
               );
 
               // Add journal entry for the class.
-              let classContent = classJournals.find(j => j.data.name.toLowerCase().trim() == powerClass);
+              let classContent = classJournals.find(j => j.data.name.toLowerCase().replace(/[^a-zA-z\d]/g, '') == powerClass);
 
               var templateData = {
                 powers: powers,
