@@ -436,7 +436,6 @@ export class ActorArchmage extends Actor {
           normal: {
             label: 'Normal',
             callback: () => {
-              data['label'] = 'Normal';
               rolled = true;
             }
           },
@@ -489,6 +488,7 @@ export class ActorArchmage extends Actor {
         close: html => {
           if (rolled) {
             data['bonus'] += html.find('[name="bonus"]').val();
+            data['apply'] = html.find('[name="apply"]').is(':checked');
             this._rollRecovery(data, true);
           }
         }
@@ -501,17 +501,18 @@ export class ActorArchmage extends Actor {
   /**
    * Recovery roll.
    * @param data object{bonus: "+X", max: 0, free: false, label: ""}
-   * @param do_update boolean
+   * @param print boolean
    *
    * @return {Int} The total rolled for the recovery
    */
 
 
-  _rollRecovery(data, do_update = true) {
-    let bonus = data['bonus'] || "";
-    let max = data['max'] || 0;
-    let free = data['free'] || false;
-    let label = data['label']+" Recovery Roll" || "Recovery Roll";
+  _rollRecovery(data, print = true) {
+    let bonus = (data['bonus'] !== undefined) ? data['bonus'] : "";
+    let max = (data['max'] !== undefined) ? data['max'] : 0;
+    let free = (data['free'] !== undefined) ? data['free'] : false;
+    let label = (data['label'] !== undefined) ? data['label']+" Recovery Roll" : "Recovery Roll";
+    let apply = (data['apply'] !== undefined) ? data['apply'] : true;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
@@ -544,7 +545,7 @@ export class ActorArchmage extends Actor {
     let roll = new Roll(`${formula}`);
     roll.roll();
 
-    if (do_update) {
+    if (print) {
       // Send to chat and reduce the number of recoveries.
       roll.toMessage({
         flavor: `<div class="archmage chat-card"><header class="card-header flexrow"><img src="${this.img}" title="${this.name}" width="36" height="36"/><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`, speaker: {
@@ -553,14 +554,15 @@ export class ActorArchmage extends Actor {
           alias: this.name,
           scene: game.user.viewedScene
         }});
-      let newHp = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + roll.total);
-      let newRec = this.data.data.attributes.recoveries.value;
-      if (!data['free']) {newRec -= 1;}
-      this.update({
-        'data.attributes.recoveries.value': newRec,
-        'data.attributes.hp.value': newHp
-      });
     }
+    let newHp = this.data.data.attributes.hp.value;
+    let newRec = this.data.data.attributes.recoveries.value;
+    if (!free) {newRec -= 1;}
+    if (apply) {newHp = Math.min(this.data.data.attributes.hp.max, Math.max(newHp, 0) + roll.total);}
+    this.update({
+      'data.attributes.recoveries.value': newRec,
+      'data.attributes.hp.value': newHp
+    });
     return roll.total;
   }
 
