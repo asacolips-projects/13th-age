@@ -546,7 +546,13 @@ export class ActorArchmage extends Actor {
 
     if (do_update) {
       // Send to chat and reduce the number of recoveries.
-      roll.toMessage({flavor: `<div class="archmage chat-card"><header class="card-header flexrow"><img src="${this.img}" title="${this.name}" width="36" height="36"/><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`});
+      roll.toMessage({
+        flavor: `<div class="archmage chat-card"><header class="card-header flexrow"><img src="${this.img}" title="${this.name}" width="36" height="36"/><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`, speaker: {
+          actor: this._id,
+          token: this.token,
+          alias: this.name,
+          scene: game.user.viewedScene
+        }});
       let newHp = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + roll.total);
       let newRec = this.data.data.attributes.recoveries.value;
       if (!data['free']) {newRec -= 1;}
