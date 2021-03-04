@@ -423,13 +423,19 @@ export class ActorArchmage extends Actor {
   rollRecovery() {
     let actorData = this.data.data;
     let rolled = false;
-    let data = {bonus: ""};
+    let avg = this.getFlag('archmage', 'averageRecoveries') ? "checked" : "";
+    let data = {bonus: "", average: avg};
+
+    if (event.shiftKey) {
+      this._rollRecovery(data, true);
+      return;
+    }
 
     // Render modal dialog
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
     let dialogData = {
       formula: actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString()+' ('+actorData.attributes.recoveries.avg.toString()+')',
-      avg: this.getFlag('archmage', 'averageRecoveries') ? "checked" : ""
+      avg: avg
       };
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
