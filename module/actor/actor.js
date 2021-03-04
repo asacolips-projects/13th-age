@@ -422,13 +422,15 @@ export class ActorArchmage extends Actor {
 
   rollRecovery() {
     let actorData = this.data.data;
-    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
     let rolled = false;
     let data = {bonus: ""};
 
     // Render modal dialog
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
-    let dialogData = {formula: formula};
+    let dialogData = {
+      formula: actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString()+' ('+actorData.attributes.recoveries.avg.toString()+')',
+      avg: this.getFlag('archmage', 'averageRecoveries') ? "checked" : ""
+      };
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: "Recovery Roll",
@@ -490,6 +492,8 @@ export class ActorArchmage extends Actor {
           if (rolled) {
             data['bonus'] += html.find('[name="bonus"]').val();
             data['apply'] = html.find('[name="apply"]').is(':checked');
+            data['average'] = html.find('[name="average"]').is(':checked');
+            this.setFlag('archmage', 'averageRecoveries', data['average'])
             this._rollRecovery(data, true);
           }
         }
@@ -514,6 +518,7 @@ export class ActorArchmage extends Actor {
     let free = (data['free'] !== undefined) ? data['free'] : false;
     let label = (data['label'] !== undefined) ? data['label']+" Recovery Roll" : "Recovery Roll";
     let apply = (data['apply'] !== undefined) ? data['apply'] : true;
+    let average = (data['average'] !== undefined) ? data['average'] : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
@@ -521,9 +526,8 @@ export class ActorArchmage extends Actor {
     if (this.getFlag('archmage', 'strongRecovery')) {
       // Handle strong recovery. Ignores average results if set!
       formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
-    } else if (this.getFlag('archmage', 'averageRecoveries')) {
+    } else if (average) {
       // Handle average results.
-      // formula = Math.floor(actorData.attributes.level.value * ((Number(actorData.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
       formula = this.data.data.attributes.recoveries.avg;
     }
 
