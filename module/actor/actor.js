@@ -423,8 +423,7 @@ export class ActorArchmage extends Actor {
   rollRecovery() {
     let actorData = this.data.data;
     let rolled = false;
-    let avg = this.getFlag('archmage', 'averageRecoveries') ? "checked" : "";
-    let data = {bonus: "", average: avg};
+    let data = {bonus: "", average: this.getFlag('archmage', 'averageRecoveries')};
 
     if (event.shiftKey) {
       this._rollRecovery(data, true);
@@ -435,7 +434,7 @@ export class ActorArchmage extends Actor {
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
     let dialogData = {
       formula: actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString()+' ('+actorData.attributes.recoveries.avg.toString()+')',
-      avg: avg
+      avg: this.getFlag('archmage', 'averageRecoveries') ? "checked" : ""
       };
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
@@ -451,44 +450,44 @@ export class ActorArchmage extends Actor {
           free: {
             label: 'Free',
             callback: () => {
-              data['label'] = 'Free';
-              data['free'] = true;
+              data.label = 'Free';
+              data.free = true;
               rolled = true;
             }
           },
           pot1: {
             label: 'Potion (Adv.)',
             callback: () => {
-              data['label'] = 'Potion (Adv.)';
-              data['bonus'] = "+1d8";
-              data['max'] = 30;
+              data.label = 'Potion (Adv.)';
+              data.bonus = "+1d8";
+              data.max = 30;
               rolled = true;
             }
           },
           pot2: {
             label: 'Potion (Cha.)',
             callback: () => {
-              data['label'] = 'Potion (Cha.)';
-              data['bonus'] = "+2d8";
-              data['max'] = 60;
+              data.label = 'Potion (Cha.)';
+              data.bonus = "+2d8";
+              data.max = 60;
               rolled = true;
             }
           },
           pot3: {
             label: 'Potion (Epic)',
             callback: () => {
-              data['label'] = 'Potion (Epic)';
-              data['bonus'] = "+3d8";
-              data['max'] = 100;
+              data.label = 'Potion (Epic)';
+              data.bonus = "+3d8";
+              data.max = 100;
               rolled = true;
             }
           },
           pot4: {
             label: 'Potion (Iconic)',
             callback: () => {
-              data['label'] = 'Potion (Iconic)';
-              data['bonus'] = "+4d8";
-              data['max'] = 130;
+              data.label = 'Potion (Iconic)';
+              data.bonus = "+4d8";
+              data.max = 130;
               rolled = true;
             }
           },
@@ -496,10 +495,10 @@ export class ActorArchmage extends Actor {
         default: 'normal',
         close: html => {
           if (rolled) {
-            data['bonus'] += html.find('[name="bonus"]').val();
-            data['apply'] = html.find('[name="apply"]').is(':checked');
-            data['average'] = html.find('[name="average"]').is(':checked');
-            this.setFlag('archmage', 'averageRecoveries', data['average'])
+            data.bonus += html.find('[name="bonus"]').val();
+            data.apply = html.find('[name="apply"]').is(':checked');
+            data.average = html.find('[name="average"]').is(':checked');
+            this.setFlag('archmage', 'averageRecoveries', data.average)
             this._rollRecovery(data, true);
           }
         }
@@ -519,28 +518,27 @@ export class ActorArchmage extends Actor {
 
 
   _rollRecovery(data, print = true) {
-    let bonus = (data['bonus'] !== undefined) ? data['bonus'] : "";
-    let max = (data['max'] !== undefined) ? data['max'] : 0;
-    let free = (data['free'] !== undefined) ? data['free'] : false;
-    let label = (data['label'] !== undefined) ? data['label']+" Recovery Roll" : "Recovery Roll";
-    let apply = (data['apply'] !== undefined) ? data['apply'] : true;
-    let average = (data['average'] !== undefined) ? data['average'] : false;
+    data.bonus = (data.bonus !== undefined) ? data.bonus : "";
+    data.max = (data.max !== undefined) ? data.max : 0;
+    data.free = (data.free !== undefined) ? data.free : false;
+    data.label = (data.label !== undefined) ? data.label+" Recovery Roll" : "Recovery Roll";
+    data.apply = (data.apply !== undefined) ? data.apply : true;
+    data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
 
     if (this.getFlag('archmage', 'strongRecovery')) {
-      // Handle strong recovery. Ignores average results if set!
+      // Handle strong recovery.
       formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
-    } else if (average) {
-      // Handle average results.
+    } else if (data.average) {
       formula = this.data.data.attributes.recoveries.avg;
     }
 
     // Add bonus if any
-    if (bonus !== "") {
-      // We assume to have signs INSIDE bonus, to handle negative bonuses
-      formula = `${formula}${bonus}`;
+    if (data.bonus !== "") {
+      // We assume to have signs in bonus, to handle negative bonuses
+      formula = `${formula}${data.bonus}`;
     }
 
     // Half healing for recoveries we do NOT have
@@ -548,9 +546,9 @@ export class ActorArchmage extends Actor {
       formula = `floor((${formula})/2)`;
     }
 
-    // If max is set, handle italics
-    if (max > 0) {
-      formula = `min((${formula}), ${max})`;
+    // If max is set, handle it
+    if (data.max > 0) {
+      formula = `min((${formula}), ${data.max})`;
     }
 
     // Perform the roll.
@@ -558,19 +556,15 @@ export class ActorArchmage extends Actor {
     roll.roll();
 
     if (print) {
-      // Send to chat and reduce the number of recoveries.
       roll.toMessage({
-        flavor: `<div class="archmage chat-card"><header class="card-header flexrow"><img src="${this.img}" title="${this.name}" width="36" height="36"/><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`, speaker: {
-          actor: this._id,
-          token: this.token,
-          alias: this.name,
-          scene: game.user.viewedScene
+        flavor: `<div class="archmage chat-card"><header class="card-header flexrow"><img src="${this.img}" title="${this.name}" width="36" height="36"/><h3 class="ability-usage">${data.label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`,
+        speaker: {actor: this._id, token: this.token, alias: this.name, scene: game.user.viewedScene
         }});
     }
     let newHp = this.data.data.attributes.hp.value;
     let newRec = this.data.data.attributes.recoveries.value;
-    if (!free) {newRec -= 1;}
-    if (apply) {newHp = Math.min(this.data.data.attributes.hp.max, Math.max(newHp, 0) + roll.total);}
+    if (!data.free) {newRec -= 1;}
+    if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, Math.max(newHp, 0) + roll.total);}
     this.update({
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
