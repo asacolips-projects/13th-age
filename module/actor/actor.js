@@ -414,6 +414,154 @@ export class ActorArchmage extends Actor {
   /* -------------------------------------------- */
 
   /**
+   * Recovery roll dialog.
+   *
+   * @return {undefined}
+   */
+
+  rollRecovery() {
+    let actorData = this.data.data;
+    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
+    let rolled = false;
+    let data = {bonus: ""};
+
+    // Render modal dialog
+    let template = 'systems/archmage/templates/chat/recovery-dialog.html';
+    let dialogData = {formula: formula};
+    renderTemplate(template, dialogData).then(dlg => {
+      new Dialog({
+        title: "Recovery Roll",
+        content: dlg,
+        buttons: {
+          normal: {
+            label: 'Normal',
+            callback: () => {
+              rolled = true;
+            }
+          },
+          free: {
+            label: 'Free',
+            callback: () => {
+              data['label'] = 'Free';
+              data['free'] = true;
+              rolled = true;
+            }
+          },
+          pot1: {
+            label: 'Potion (Adv.)',
+            callback: () => {
+              data['label'] = 'Potion (Adv.)';
+              data['bonus'] = "+1d8";
+              data['max'] = 30;
+              rolled = true;
+            }
+          },
+          pot2: {
+            label: 'Potion (Cha.)',
+            callback: () => {
+              data['label'] = 'Potion (Cha.)';
+              data['bonus'] = "+2d8";
+              data['max'] = 60;
+              rolled = true;
+            }
+          },
+          pot3: {
+            label: 'Potion (Epic)',
+            callback: () => {
+              data['label'] = 'Potion (Epic)';
+              data['bonus'] = "+3d8";
+              data['max'] = 100;
+              rolled = true;
+            }
+          },
+          pot4: {
+            label: 'Potion (Iconic)',
+            callback: () => {
+              data['label'] = 'Potion (Iconic)';
+              data['bonus'] = "+4d8";
+              data['max'] = 130;
+              rolled = true;
+            }
+          },
+        },
+        default: 'normal',
+        close: html => {
+          if (rolled) {
+            data['bonus'] += html.find('[name="bonus"]').val();
+            this._rollRecovery(data, true);
+          }
+        }
+      }).render(true);
+    });
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Recovery roll.
+   * @param data object{bonus: "+X", max: 0, free: false, label: ""}
+   * @param do_update boolean
+   *
+   * @return {Int} The total rolled for the recovery
+   */
+
+
+  _rollRecovery(data, do_update = true) {
+    let bonus = data['bonus'] || "";
+    let max = data['max'] || 0;
+    let free = data['free'] || false;
+    let label = data['label']+" Recovery Roll" || "Recovery Roll";
+    let actorData = this.data.data;
+    let totalRecoveries = actorData.attributes.recoveries.value;
+    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
+
+    if (this.getFlag('archmage', 'strongRecovery')) {
+      // Handle strong recovery. Ignores average results if set!
+      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
+    } else if (this.getFlag('archmage', 'averageRecoveries')) {
+      // Handle average results.
+      formula = Math.floor(actorData.attributes.level.value * ((Number(actorData.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
+    }
+
+    // Add bonus if any
+    if (bonus !== "") {
+      // We assume to have signs INSIDE bonus, to handle negative bonuses
+      formula = `${formula}${bonus}`;
+    }
+
+    // Half healing for recoveries we do NOT have
+    if (Number(totalRecoveries) <= 0) {
+      formula = `floor((${formula})/2)`;
+    }
+
+    // If max is set, handle italics
+    if (max > 0) {
+      formula = `min((${formula}), ${max})`;
+    }
+
+    // Perform the roll.
+    let roll = new Roll(`${formula}`);
+    roll.roll();
+
+    if (do_update) {
+      // Send to chat and reduce the number of recoveries.
+      roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">${label}${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
+      let newHp = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + roll.total);
+      if (!data['free']) {
+        this.update({
+          'data.attributes.recoveries.value': this.data.data.attributes.recoveries.value - 1,
+          'data.attributes.hp.value': newHp
+        });
+      } else {
+        this.update({'data.attributes.hp.value': newHp});
+      }
+    }
+    return roll.total;
+  }
+
+  /* -------------------------------------------- */
+
+  /**
    * Roll a generic ability test or saving throw.
    * Prompt the user for input on which variety of roll they want to do.
    * @param abilityId {String}    The ability id (e.g. "str")
