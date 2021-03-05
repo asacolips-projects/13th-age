@@ -555,9 +555,11 @@ export class ActorArchmageSheet extends ActorSheet {
       let cleanClassName = this.actor.data.data.details.class.value;
       cleanClassName = cleanClassName ? cleanClassName.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
 
+      let characterRace = this.actor.data.data.details.race.value;
+
       let characterClasses = cleanClassName.match(classRegex) ?? [];
       let prepop = new ArchmagePrepopulate();
-      let classResults = await prepop.renderDialog(characterClasses);
+      let classResults = await prepop.renderDialog(characterClasses, characterRace);
       if (!classResults) {
         return;
       }

@@ -81,6 +81,7 @@
       font-family: $font-stack-base;
       font-size: 18px;
       flex-grow: 0;
+      white-space: nowrap;
 
       &.active,
       &:hover,

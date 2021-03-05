@@ -20,6 +20,26 @@ export class ArchmagePrepopulate {
     'occultist'
   ];
 
+  validRaces = [
+    'darkelf',
+    'dragonspawn',
+    'dragonic',
+    'dwarf',
+    'dwarfforged',
+    'forgeborn',
+    'gnome',
+    'halfelf',
+    'halforc',
+    'halfling',
+    'highelf',
+    'holyone',
+    'aasimar',
+    'human',
+    'tiefling',
+    'demontouched',
+    'woodelf'
+  ];
+
   constructor() {
     // Pass.
   }
@@ -42,18 +62,36 @@ export class ArchmagePrepopulate {
    *
    * @param {array} classes
    *   Array of clean class names, such as ['fighter','barbarian'].
+   * @param {string} race
+   *   Character race.
    *
    * @returns {object}
    *   Array with keys equal to each class name, with each entry being an object
    *   with the keys 'name' and 'content' for each result.
    */
-  async getCompendiums(classes = []) {
-    let packs = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)));
+  async getCompendiums(classes = [], race = '') {
+    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)));
     let content = {};
-    for (let i = 0; i < packs.length; i++) {
-      let pack = await packs[i].getContent();
-      content[this.cleanClassName(packs[i].metadata.name)] = {
-        name: packs[i].metadata.label,
+    let cleanRace = this.cleanClassName(race);
+
+    if (race != '' && this.validRaces.includes(cleanRace)) {
+      let racePack = await game.packs.find(p => p.metadata.name == 'races');
+      let pack = await racePack.getContent();
+      for (let entry of pack) {
+        let raceNamesArray = entry.data.data.group.value.split('/').map(n => this.cleanClassName(n));
+        if (raceNamesArray.includes(cleanRace)) {
+          content[cleanRace] = {
+            name: race,
+            content: [entry]
+          };
+        }
+      }
+    }
+
+    for (let i = 0; i < classPacks.length; i++) {
+      let pack = await classPacks[i].getContent();
+      content[this.cleanClassName(classPacks[i].metadata.name)] = {
+        name: classPacks[i].metadata.label,
         content: pack
       };
     }
@@ -244,9 +282,9 @@ export class ArchmagePrepopulate {
    * @returns {object|false}
    *   Object with the keys powers, content, options, and tabs.
    */
-  async renderDialog(classes = []) {
+  async renderDialog(classes = [], race = '') {
     let compendiumClasses = classes.filter(a => this.validClasses.includes(a));
-    let classCompendiums = await this.getCompendiums(compendiumClasses);
+    let classCompendiums = await this.getCompendiums(compendiumClasses, race);
 
     if (classes.length < 1 || Object.keys(classCompendiums).length < 1) {
       ui.notifications.error(`No class has been added to this character. Add a class before attempting to import powers.`);
@@ -266,7 +304,8 @@ export class ArchmagePrepopulate {
         machineName: classKey
       });
       templateData.tabs.push({
-        name: classKey,
+        name: classObject.name,
+        key: classKey,
         content: classPowerPage,
       });
     }
@@ -290,7 +329,7 @@ export class ArchmagePrepopulate {
       tabs: {
         navSelector: '.tabs-primary',
         contentSelector: '.tabs-primary-content',
-        initial: templateData.tabs[0].name,
+        initial: templateData.tabs[1] && !this.validClasses.includes(templateData.tabs[0].key) ? templateData.tabs[1].key : templateData.tabs[0].key,
         callback: () => {}
       }
     };

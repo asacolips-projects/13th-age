@@ -2443,7 +2443,8 @@ input[type="checkbox"] {
       font-size: 18px;
       -webkit-box-flex: 0;
       -ms-flex-positive: 0;
-      flex-grow: 0; }
+      flex-grow: 0;
+      white-space: nowrap; }
       .archmage-prepopulate-tabs .tabs > .item.active, .archmage-prepopulate-tabs .tabs > .item:hover, .archmage-prepopulate-tabs .tabs > .item:focus {
         text-shadow: none;
         background: #124560;

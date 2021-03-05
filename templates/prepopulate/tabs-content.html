@@ -1,12 +1,12 @@
 <div class="archmage-prepopulate-tabs">
   <nav class="sheet-tabs tabs tabs-primary flexrow {{#if showTabs}}show-tabs{{/if}}" data-group="primary">
     {{#each tabs as |tab k|}}
-      <a class="item" data-tab="{{tab.name}}">{{tab.name}}</a>
+      <a class="item" data-tab="{{tab.key}}">{{tab.name}}</a>
     {{/each}}
   </nav>
   <div class="tabs-primary-content">
     {{#each tabs as |tab k|}}
-      <div class="tab {{tab.name}}" data-group="primary" data-tab="{{tab.name}}">{{{tab.content}}}</div>
+      <div class="tab {{tab.key}}" data-group="primary" data-tab="{{tab.key}}">{{{tab.content}}}</div>
     {{/each}}
   </div>
 </div>
