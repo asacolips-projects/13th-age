@@ -234,7 +234,7 @@ export class ActorArchmageSheet extends ActorSheet {
     });
 
     // Recoveries.
-    html.find('.recovery-roll.rollable').click(ev => this.actor.rollRecovery());
+    html.find('.recovery-roll.rollable').click(ev => this.actor.rollRecoveryDialog());
 
     html.find('.icon__item.rollable').click(async ev => {
       let actorData = this.actor.data.data;
