@@ -21,6 +21,11 @@ jobs:
       with:
         args: css
 
+    - name: Run Gulp Compile Packs
+      uses: elstudio/actions-js-build/build@v2
+      with:
+        args: compilePacks
+
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
