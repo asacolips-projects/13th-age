@@ -419,11 +419,11 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-
-  rollRecovery() {
+  rollRecoveryDialog() {
     let actorData = this.data.data;
     let rolled = false;
-    let data = {bonus: "", average: this.getFlag('archmage', 'averageRecoveries')};
+    let avg = this.getFlag('archmage', 'averageRecoveries');
+    let data = {bonus: "", average: avg};
 
     if (event.shiftKey) {
       this._rollRecovery(data, true);
@@ -434,7 +434,7 @@ export class ActorArchmage extends Actor {
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
     let dialogData = {
       formula: actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString()+' ('+actorData.attributes.recoveries.avg.toString()+')',
-      avg: this.getFlag('archmage', 'averageRecoveries') ? "checked" : ""
+      avg: avg ? "checked" : ""
       };
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
@@ -458,7 +458,7 @@ export class ActorArchmage extends Actor {
           pot1: {
             label: 'Potion (Adv.)',
             callback: () => {
-              data.label = 'Potion (Adv.)';
+              data.label = 'Adventurer Potion';
               data.bonus = "+1d8";
               data.max = 30;
               rolled = true;
@@ -467,7 +467,7 @@ export class ActorArchmage extends Actor {
           pot2: {
             label: 'Potion (Cha.)',
             callback: () => {
-              data.label = 'Potion (Cha.)';
+              data.label = 'Champion Potion';
               data.bonus = "+2d8";
               data.max = 60;
               rolled = true;
@@ -476,7 +476,7 @@ export class ActorArchmage extends Actor {
           pot3: {
             label: 'Potion (Epic)',
             callback: () => {
-              data.label = 'Potion (Epic)';
+              data.label = 'Epic Potion';
               data.bonus = "+3d8";
               data.max = 100;
               rolled = true;
@@ -485,7 +485,7 @@ export class ActorArchmage extends Actor {
           pot4: {
             label: 'Potion (Iconic)',
             callback: () => {
-              data.label = 'Potion (Iconic)';
+              data.label = 'Iconic Potion';
               data.bonus = "+4d8";
               data.max = 130;
               rolled = true;
@@ -499,7 +499,7 @@ export class ActorArchmage extends Actor {
             data.apply = html.find('[name="apply"]').is(':checked');
             data.average = html.find('[name="average"]').is(':checked');
             this.setFlag('archmage', 'averageRecoveries', data.average)
-            this._rollRecovery(data, true);
+            this.rollRecovery(data, true);
           }
         }
       }).render(true);
@@ -510,14 +510,12 @@ export class ActorArchmage extends Actor {
 
   /**
    * Recovery roll.
-   * @param data object{bonus: "+X", max: 0, free: false, label: ""}
+   * @param data object{bonus: "+X", max: 0, free: false, label: "", apply: true}
    * @param print boolean
    *
-   * @return {Int} The total rolled for the recovery
+   * @return {Roll} The rolled roll for the recovery
    */
-
-
-  _rollRecovery(data, print = true) {
+  rollRecovery(data, print = true) {
     data.bonus = (data.bonus !== undefined) ? data.bonus : "";
     data.max = (data.max !== undefined) ? data.max : 0;
     data.free = (data.free !== undefined) ? data.free : false;
@@ -569,7 +567,7 @@ export class ActorArchmage extends Actor {
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
     });
-    return roll.total;
+    return roll;
   }
 
   /* -------------------------------------------- */
