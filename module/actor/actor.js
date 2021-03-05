@@ -384,7 +384,7 @@ export class ActorArchmage extends Actor {
       classText = classText ? classText.toLowerCase() : '';
 
       var matchedClasses = classText.match(classRegex);
-      if (matchedClasses !== null) matchedClasses.sort();
+      if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
       data.details.detectedClasses = matchedClasses;
     }
 
@@ -464,17 +464,14 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
-  if (actor.data.type != 'character') {
-    return;
-  }
-
-  if (options.diff
+  if (actor.data.type == 'character'
+    && options.diff
     && data.data !== undefined
     && data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
-    // Here we received an update of the class name
+    // Here we received an update of the class name for a character
 
     // Find known classes
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
@@ -484,8 +481,8 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let matchedClasses = classText.match(classRegex);
 
     if (matchedClasses !== null) {
-      // Sort to avoid problems with future matches
-      matchedClasses.sort();
+      // Remove duplicates and Sort to avoid problems with future matches
+      matchedClasses = [...new Set(matchedClasses)].sort();
 
       // Check that the matched classes actually changed
       if (actor.data.data.details.matchedClasses !== undefined
@@ -499,10 +496,12 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         hp: new Array(),
         ac: new Array(),
         ac_hvy: new Array(),
+        shld_pen: new Array(),
         pd: new Array(),
         md: new Array(),
         rec: new Array(),
-        mWpn: new Array(),
+        mWpn_1h: new Array(),
+        mWpn_2h: new Array(),
         rWpn: new Array(),
         skilledWarrior: new Array()
       }
@@ -510,15 +509,15 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       matchedClasses.forEach(function(item) {
         base.hp.push(CONFIG.ARCHMAGE.classes[item].hp);
         base.ac.push(CONFIG.ARCHMAGE.classes[item].ac_lgt);
-        if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {
-          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);
-        } else {
-          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);
-        }
+        if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);}
+        else {base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);}
+        base.shld_pen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
         base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
         base.md.push(CONFIG.ARCHMAGE.classes[item].md);
         base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
-        base.mWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        base.mWpn_1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        if (CONFIG.ARCHMAGE.classes[item].wpn_2h_pen < 0) {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);}
+        else {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);}
         base.rWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_rngd);
         base.skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
       });
@@ -529,23 +528,34 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       base.hp = (base.hp.reduce((a, b) => a + b, 0) / base.hp.length);
       base.ac = Math.max.apply(null, base.ac);
       if (Math.min.apply(null, base.ac_hvy) > 0) base.ac = Math.max.apply(null, base.ac_hvy);
+      base.shld_pen = base.shld_pen.some(a => a < 0);
       base.pd = Math.max.apply(null, base.pd);
       base.md = Math.max.apply(null, base.md);
       if (base.rec.length == 1) base.rec = base.rec[0];
       else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
-      base.mWpn = Math.max.apply(null, base.mWpn);
+      base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
+      base.mWpn_2h_pen = base.mWpn_2h.some(a => a < 0);
+      base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
       base.rWpn = Math.max.apply(null, base.rWpn);
       let jabWpn = 6;
       let punchWpn = 8;
       let kickWpn = 10;
       if (!base.skilledWarrior) {
-        base.mWpn = Math.max(base.mWpn - 2, 4);
-        base.rWpn = Math.max(base.mWpn - 2, 4);
+        base.mWpn_1h = Math.max(base.mWpn_1h - 2, 4);
+        base.mWpn_2h = Math.max(base.mWpn_2h - 2, 4);
+        base.rWpn = Math.max(base.rWpn - 2, 4);
         jabWpn -= 2;
         punchWpn -= 2;
         kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
+      // Pick best weapon (and possibly shield)
+      // if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
+      // else if (!base.mWpn_2h_pen
+        // && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
+        // ) {base.mWpn = base.mWpn_2h;}
+      // else {base.mWpn = base.mWpn_1h;}
+      base.mWpn = base.mWpn_1h;
 
       // Assign computed values
       data.data.attributes = {
