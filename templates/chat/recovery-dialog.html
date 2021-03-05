@@ -1,9 +1,5 @@
 <form>
   <div class="form-group">
-    <label>Recovery roll</label>
-    <input type="text" name="formula" value="{{formula}}" disabled/>
-  </div>
-  <div class="form-group">
     <label>Recovery bonus?</label>
     <input type="text" name="bonus" value="" placeholder="e.g. +1d4"/>
   </div>
@@ -12,7 +8,7 @@
     <input type="checkbox" name="apply" checked />
   </div>
   <div class="form-group">
-    <label>Average roll?</label>
+    <label>Average roll? <strong>{{warning}}</strong></label>
     <input type="checkbox" name="average" {{avg}} />
   </div>
 </form>

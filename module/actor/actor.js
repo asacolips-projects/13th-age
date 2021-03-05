@@ -423,6 +423,7 @@ export class ActorArchmage extends Actor {
     let actorData = this.data.data;
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
+    let strRec = this.getFlag('archmage', 'strongRecovery');
     let data = {bonus: "", average: avg};
 
     if (event.shiftKey) {
@@ -433,7 +434,7 @@ export class ActorArchmage extends Actor {
     // Render modal dialog
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
     let dialogData = {
-      formula: actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString()+' ('+actorData.attributes.recoveries.avg.toString()+')',
+      warning: strRec ? "Will ignore bonus from Strong Recovery." : "",
       avg: avg ? "checked" : ""
       };
     renderTemplate(template, dialogData).then(dlg => {
@@ -526,11 +527,11 @@ export class ActorArchmage extends Actor {
     let totalRecoveries = actorData.attributes.recoveries.value;
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
 
-    if (this.getFlag('archmage', 'strongRecovery')) {
+    if (data.average) {
+      formula = this.data.data.attributes.recoveries.avg;
+    } else if (this.getFlag('archmage', 'strongRecovery')) {
       // Handle strong recovery.
       formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
-    } else if (data.average) {
-      formula = this.data.data.attributes.recoveries.avg;
     }
 
     // Add bonus if any
