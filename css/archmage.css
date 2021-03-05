@@ -2371,6 +2371,20 @@ input[type="checkbox"] {
   flex-wrap: nowrap;
   padding: 10px 0 3px; }
 
+.archmage-prepopulate button.cancel,
+.archmage-prepopulate button.submit {
+  background: #782e22;
+  color: #fff;
+  font-family: "warnock-pro", "sans-serif";
+  font-size: 18px;
+  padding: 10px;
+  margin: 0 10px 20px;
+  border-radius: 8px;
+  border: 0; }
+
+.archmage-prepopulate button.submit {
+  background: #3d64ae; }
+
 .archmage-import-power {
   background: rgba(0, 0, 0, 0.01);
   border: 1px solid #999;
@@ -2392,6 +2406,54 @@ input[type="checkbox"] {
   -webkit-box-flex: 0 !important;
   -ms-flex: 0 0 24px !important;
   flex: 0 0 24px !important; }
+
+.archmage-prepopulate-tabs {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden; }
+  .archmage-prepopulate-tabs .tabs {
+    padding: 20px 0 0;
+    border-bottom: 2px solid #124560;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: none; }
+    .archmage-prepopulate-tabs .tabs.show-tabs {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    .archmage-prepopulate-tabs .tabs > .item {
+      text-transform: capitalize;
+      background: transparent;
+      color: #000;
+      border: 2px solid #124560;
+      border-bottom: 0;
+      padding: 8px 24px;
+      margin: 0 20px;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s;
+      font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+      font-size: 18px;
+      -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+      flex-grow: 0; }
+      .archmage-prepopulate-tabs .tabs > .item.active, .archmage-prepopulate-tabs .tabs > .item:hover, .archmage-prepopulate-tabs .tabs > .item:focus {
+        text-shadow: none;
+        background: #124560;
+        color: #fff;
+        -webkit-box-shadow: 0;
+        box-shadow: 0; }
+  .archmage-prepopulate-tabs .tabs-primary-content {
+    height: 100%;
+    margin: 20px 0;
+    overflow-y: auto; }
 
 .import-powers-list {
   list-style-type: none;

@@ -5,7 +5,7 @@
   <div class="l-center">
     <p class="prepopulate-help">{{localize "ARCHMAGE.PREPOPULATE.help"}}</p>
     <div class="prepopulate-power-list">
-      {{#each powersByGroup as |group groupKey|}}
+      {{#each powers as |group groupKey|}}
       <h2 class="power-list-title">{{localize (concatenate "ARCHMAGE." groupKey "s")}}</h2>
         {{#each group as |level levelKey|}}
         <h3 class="power-list-subtitle">{{localize "ARCHMAGE.level"}} {{levelKey}} {{localize (concatenate "ARCHMAGE." groupKey "s")}}</h3>

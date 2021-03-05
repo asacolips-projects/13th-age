@@ -12,6 +12,22 @@
     flex-wrap: nowrap;
     padding: 10px 0 3px;
   }
+
+  button.cancel,
+  button.submit {
+    background: $c-copper;
+    color: $c-white;
+    font-family: $font-stack-secondary;
+    font-size: 18px;
+    padding: 10px;
+    margin: 0 10px 20px;
+    border-radius: 8px;
+    border: 0;
+  }
+
+  button.submit {
+    background: $c-blue;
+  }
 }
 
 .archmage-import-power {
@@ -34,6 +50,53 @@
     > .archmage-import-power {
       flex: 0 0 24px !important;
     }
+  }
+}
+
+.archmage-prepopulate-tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .tabs {
+    padding: 20px 0 0;
+    border-bottom: 2px solid $c-blue--dark;
+    justify-content: center;
+    display: none;
+
+    &.show-tabs {
+      display: flex;
+    }
+
+    > .item {
+      text-transform: capitalize;
+      background: transparent;
+      color: $c-black;
+      border: 2px solid $c-blue--dark;
+      border-bottom: 0;
+      padding: 8px 24px;
+      margin: 0 20px;
+      transition: all ease-in-out 0.25s;
+      font-family: $font-stack-base;
+      font-size: 18px;
+      flex-grow: 0;
+
+      &.active,
+      &:hover,
+      &:focus {
+        text-shadow: none;
+        background: $c-blue--dark;
+        color: $c-white;
+        box-shadow: 0;
+      }
+    }
+  }
+
+  .tabs-primary-content {
+    height: 100%;
+    margin: 20px 0;
+    overflow-y: auto;
   }
 }
 
