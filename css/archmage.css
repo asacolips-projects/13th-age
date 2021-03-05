@@ -325,6 +325,31 @@ input[type="checkbox"] {
   -ms-transform: scale(1);
   transform: scale(1); }
 
+.archmage .tabs-primary-content {
+  position: relative; }
+  .archmage .tabs-primary-content .item-import {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 140px;
+    flex: 0 0 140px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    padding: 2px 4px;
+    line-height: 1;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #444;
+    color: white;
+    border-color: black;
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .archmage .tabs-primary-content .item-import:hover, .archmage .tabs-primary-content .item-import:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: #3d64ae; }
+
 .archmage.sheet {
   font-family: "warnock-pro", "sans-serif"; }
   .archmage.sheet h1,
@@ -1530,8 +1555,8 @@ input[type="checkbox"] {
       flex: 0 0 110px; }
     .inventory-list .item .item-controls {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 94px;
-      flex: 0 0 94px;
+      -ms-flex: 0 0 48px;
+      flex: 0 0 48px;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between; }
@@ -2324,6 +2349,9 @@ input[type="checkbox"] {
   -ms-flex: 0 0 60px !important;
   flex: 0 0 60px !important; }
 
+.l-center {
+  margin: 0 40px; }
+
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
@@ -2342,6 +2370,20 @@ input[type="checkbox"] {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   padding: 10px 0 3px; }
+
+.archmage-prepopulate button.cancel,
+.archmage-prepopulate button.submit {
+  background: #782e22;
+  color: #fff;
+  font-family: "warnock-pro", "sans-serif";
+  font-size: 18px;
+  padding: 10px;
+  margin: 0 10px 20px;
+  border-radius: 8px;
+  border: 0; }
+
+.archmage-prepopulate button.submit {
+  background: #3d64ae; }
 
 .archmage-import-power {
   background: rgba(0, 0, 0, 0.01);
@@ -2364,6 +2406,55 @@ input[type="checkbox"] {
   -webkit-box-flex: 0 !important;
   -ms-flex: 0 0 24px !important;
   flex: 0 0 24px !important; }
+
+.archmage-prepopulate-tabs {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden; }
+  .archmage-prepopulate-tabs .tabs {
+    padding: 20px 0 0;
+    border-bottom: 2px solid #124560;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: none; }
+    .archmage-prepopulate-tabs .tabs.show-tabs {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    .archmage-prepopulate-tabs .tabs > .item {
+      text-transform: capitalize;
+      background: transparent;
+      color: #000;
+      border: 2px solid #124560;
+      border-bottom: 0;
+      padding: 8px 24px;
+      margin: 0 20px;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s;
+      font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+      font-size: 18px;
+      -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+      flex-grow: 0;
+      white-space: nowrap; }
+      .archmage-prepopulate-tabs .tabs > .item.active, .archmage-prepopulate-tabs .tabs > .item:hover, .archmage-prepopulate-tabs .tabs > .item:focus {
+        text-shadow: none;
+        background: #124560;
+        color: #fff;
+        -webkit-box-shadow: 0;
+        box-shadow: 0; }
+  .archmage-prepopulate-tabs .tabs-primary-content {
+    height: 100%;
+    margin: 20px 0;
+    overflow-y: auto; }
 
 .import-powers-list {
   list-style-type: none;
@@ -2388,7 +2479,17 @@ input[type="checkbox"] {
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
-  padding: 2px 4px; }
+  padding: 2px 4px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .import-powers-item .item-summary {
+    overflow: hidden;
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .import-powers-item .item-summary .card-footer {
+      display: none; }
   .import-powers-item:hover, .import-powers-item:focus {
     color: #fff; }
   .import-powers-item > div {
@@ -2411,8 +2512,78 @@ input[type="checkbox"] {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px; }
-  .import-powers-item + .import-powers-item {
-    border-top: 1px solid #999; }
+
+.prepopulate-help {
+  font-size: 16px;
+  margin: 40px 0 0;
+  background: rgba(128, 188, 223, 0.25);
+  padding: 20px;
+  border: 1px solid #124560;
+  border-radius: 5px; }
+
+.prepopulate-power-list {
+  padding: 10px 0; }
+  .prepopulate-power-list .archmage.chat-card .card-header {
+    border: 0; }
+  .prepopulate-power-list .ability-usage {
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .prepopulate-power-list .ability-usage:hover {
+      opacity: 0.8; }
+  .prepopulate-power-list .title {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px; }
+  .prepopulate-power-list .import-powers-item {
+    color: #000; }
+
+.class-content {
+  padding: 0 20px; }
+  .class-content .grid {
+    gap: 40px; }
+
+.archmage-class-title {
+  font-size: 48px;
+  text-transform: capitalize;
+  margin: 40px 0 0;
+  text-align: center;
+  border: 0;
+  position: relative; }
+  .archmage-class-title::before, .archmage-class-title::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 32%;
+    height: 6px;
+    background: -webkit-gradient(linear, right top, left top, from(#124560), color-stop(60%, rgba(18, 69, 96, 0.4)), to(transparent));
+    background: -o-linear-gradient(right, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    background: linear-gradient(-90deg, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 50px 0 50px 0; }
+  .archmage-class-title::after {
+    left: auto;
+    right: 0;
+    background: -webkit-gradient(linear, left top, right top, from(#124560), color-stop(60%, rgba(18, 69, 96, 0.4)), to(transparent));
+    background: -o-linear-gradient(left, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    background: linear-gradient(90deg, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    border-radius: 0 50px 0 50px; }
+
+.archmage-class-heading,
+.power-list-title {
+  font-size: 32px;
+  text-transform: capitalize;
+  margin: 40px 0 10px;
+  border-bottom: 2px solid #124560; }
+
+.archmage-class-subheading,
+.power-list-subtitle {
+  font-size: 22px;
+  text-transform: capitalize;
+  margin: 40px 0 20px; }
 
 .item-properties table,
 .card-prop table {
@@ -2426,7 +2597,27 @@ input[type="checkbox"] {
 
 .item-properties tr:nth-child(even),
 .card-prop tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.05); }
+  background: rgba(128, 188, 223, 0.25); }
+
+table {
+  font-family: "warnock-pro", "sans-serif";
+  background: transparent;
+  border: 0;
+  text-align: center; }
+  table thead {
+    background: transparent;
+    color: #000;
+    text-shadow: none; }
+    table thead th {
+      padding: 2px 4px; }
+  table tbody {
+    border: 10px solid #124560;
+    border-left: 0;
+    border-right: 0; }
+    table tbody tr:nth-child(odd) {
+      background: transparent; }
+    table tbody tr:nth-child(even) {
+      background: rgba(128, 188, 223, 0.25); }
 
 /* ----------------------------------------- */
 /*  Context Dropdown Menu

@@ -1,0 +1,302 @@
+name: 'Commander'
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |
+  <div class="l-center">
+    <h1 class="archmage-class-title">Commander</h1>
+    <div class="grid grid-2col">
+      <div class="details">
+        <h2 class="archmage-class-heading">Ability Scores</h2>
+        <p>Commanders gain a +2 class bonus to Strength or Charisma, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
+        <h2 class="archmage-class-heading">Backgrounds</h2>
+        <p>Possible backgrounds include: historical re-enactor, sergeant of the city guard, street gang survivor, ex-gladiator, wilderness scout, cobbler, bouncer, exotic dancer, wargame veteran, squad leader, reformed drunk, and officer of the guard.</p>
+        <h2 class="archmage-class-heading">Gear</h2>
+        <p>At 1st level, commanders start with a melee weapon or two, a ranged weapon, a shield, light armor of some type (or heavy armor if they chose the Armor Skills talent), and other minor odds-and-ends suggested by their backgrounds.</p>
+        <h3 class="archmage-class-subheading">Gold Pieces</h3>
+        <p>Commanders may start with either 25 gp or 1d6 x 10 gp.</p>
+      </div>
+      <div class="armor">
+        <h2 class="archmage-class-heading">Armor</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Armor Type</th>
+              <th>Base AC</th>
+              <th>Atk Penalty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>None</td>
+              <td>10</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Light</td>
+              <td>12</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Heavy</td>
+              <td>14</td>
+              <td>–2</td>
+            </tr>
+            <tr>
+              <td>Shield</td>
+              <td>+1</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="grid grid-2col">
+      <div class="melee-weapons">
+        <h2 class="archmage-class-heading">Melee Weapons</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>One-Handed</th>
+              <th>Two-Handed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small</td>
+              <td>1d4 dagger</td>
+              <td>1d6 club</td>
+            </tr>
+            <tr>
+              <td>Light or Simple</td>
+              <td>1d6 hand-axe, warclub</td>
+              <td>1d8 spear</td>
+            </tr>
+            <tr>
+              <td>Heavy or Martial</td>
+              <td>1d8 (-2 atk) longsword, battleaxe</td>
+              <td>1d10 (-3 atk) greatsword, greataxe</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ranged-weapons">
+        <h2 class="archmage-class-heading">Ranged Weapons</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Thrown</th>
+              <th>Crossbow</th>
+              <th>Bow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small</td>
+              <td>1d4 dagger</td>
+              <td>1d4 hand crossbow</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Light or Simple</td>
+              <td>1d6 javelin, axe, spear</td>
+              <td>1d6 light crossbow</td>
+              <td>1d6 shortbow</td>
+            </tr>
+            <tr>
+              <td>Heavy or Martial</td>
+              <td>—</td>
+              <td>1d8 (–2 atk) heavy crossbow</td>
+              <td>1d8 (-2 atk) longbow</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h2 class="archmage-class-heading">Level Progression</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Barbarian Level</th>
+        <th>Total Hit Points</th>
+        <th>Total Feats</th>
+        <th>Class Talents (M)</th>
+        <th>Commands &amp; Tactics (M)</th>
+        <th>Pool available (M)</th>
+        <th>Level-up Ability Bonuses</th>
+        <th>Damage Bonus from Ability Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Level 1 Multiclass</td>
+        <td>(Avg. of both classes) x 3</td>
+        <td>As 1st level PC</td>
+        <td>1 or 2 (3 total)</td>
+        <td>3</td>
+        <td>1st&nbsp;level</td>
+        <td>Not affected</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 1</td>
+        <td>(7 + CON mod) x 3</td>
+        <td>1 adventurer</td>
+        <td>3</td>
+        <td>4</td>
+        <td>1st&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 2</td>
+        <td>(7 + CON mod) x 4</td>
+        <td>2 adventurer</td>
+        <td>3</td>
+        <td>5</td>
+        <td>1st&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 3</td>
+        <td>(7 + CON mod) x 5</td>
+        <td>3 adventurer</td>
+        <td>3</td>
+        <td>6</td>
+        <td>3rd&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 4</td>
+        <td>(7 + CON mod) x 6</td>
+        <td>4 adventurer</td>
+        <td>3</td>
+        <td>7</td>
+        <td>3rd&nbsp;level</td>
+        <td>+1 to 3 abilities</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 5</td>
+        <td>(7 + CON mod) x 8</td>
+        <td>4 adventurer, 1 champion</td>
+        <td>4</td>
+        <td>7</td>
+        <td>5th&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 6</td>
+        <td>(7 + CON mod) x 10</td>
+        <td>4 adventurer, 2 champion</td>
+        <td>4</td>
+        <td>8</td>
+        <td>5th&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 7</td>
+        <td>(7 + CON mod) x 12</td>
+        <td>4 adventurer, 3 champion</td>
+        <td>4</td>
+        <td>8</td>
+        <td>7th&nbsp;level</td>
+        <td>+1 to 3 abilities</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 8</td>
+        <td>(7 + CON mod) x 16</td>
+        <td>4 adventurer, 3 champion, 1 epic</td>
+        <td>4</td>
+        <td>&nbsp;9</td>
+        <td>7th&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>3 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 9</td>
+        <td>(7 + CON mod) x 20</td>
+        <td>4 adventurer, 3 champion, 2 epic</td>
+        <td>4</td>
+        <td>9</td>
+        <td>9th&nbsp;level</td>
+        <td>&nbsp;</td>
+        <td>3 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 10</td>
+        <td>(7 + CON mod) x 24</td>
+        <td>4 adventurer, 3 champion, 3 epic</td>
+        <td>4</td>
+        <td>10</td>
+        <td>9th&nbsp;level</td>
+        <td>+1 to 3 abilities</td>
+        <td>3 x ability modifier</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="l-center">
+    <h2 class="archmage-class-heading">Stats</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>Ability Bonus</th>
+          <td>+2 Strength or Charisma (different from racial bonus)</td>
+        </tr>
+        <tr>
+          <th>Initiative</th>
+          <td>Dex mod + Level</td>
+        </tr>
+        <tr>
+          <th>Armor Class (light armor)</th>
+          <td>12 + middle mod of Con/Dex/Wis + Level</td>
+        </tr>
+        <tr>
+          <th>Physical Defense</th>
+          <td>10 + middle mod of Str/Con/Dex + Level</td>
+        </tr>
+        <tr>
+          <th>Mental Defense</th>
+          <td>12 + middle mod of Int/Wis/Cha + Level</td>
+        </tr>
+        <tr>
+          <th>Hit Points</th>
+          <td>(7 + Con mod) x Level modifier (see level progression chart)</td>
+        </tr>
+        <tr>
+          <th>Recoveries</th>
+          <td>(probably) 8</td>
+        </tr>
+        <tr>
+          <th>Recovery Dice</th>
+          <td>(1d8 x level) + Con mod</td>
+        </tr>
+        <tr>
+          <th>Backgrounds</th>
+          <td>8 points, max 5 in any one background</td>
+        </tr>
+        <tr>
+          <th>Icon Relationships</th>
+          <td>3 points (4 at 5th level; 5 at 8th level)</td>
+        </tr>
+        <tr>
+          <th>Talents</th>
+          <td>3 (4 at 5th, 5 at 8th)</td>
+        </tr>
+        <tr>
+          <th>Feats</th>
+          <td>1 per level</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+img: 'systems/archmage/assets/icons/items/inventory/badge-banner.jpg'

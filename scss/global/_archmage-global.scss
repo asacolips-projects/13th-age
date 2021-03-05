@@ -215,6 +215,32 @@ input[type="checkbox"] {
     transform: scale(1);
   }
 
+  .tabs-primary-content {
+    position: relative;
+
+    .item-import {
+      flex: 0 0 140px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      padding: 2px 4px;
+      line-height: 1;
+      border-radius: 4px;
+      font-size: 12px;
+      background: #444;
+      color: white;
+      border-color: black;
+      transition: all ease-in-out 0.25s;
+
+      &:hover,
+      &:focus {
+        box-shadow: none;
+        background-color: $c-blue;
+      }
+    }
+  }
+
   &.sheet {
     font-family: $font-stack-secondary;
 
@@ -1498,7 +1524,7 @@ input[type="checkbox"] {
     }
 
     .item-controls {
-      flex: 0 0 94px;
+      flex: 0 0 48px;
       justify-content: space-between;
 
       a {
@@ -2438,4 +2464,8 @@ input[type="checkbox"] {
 
 .currencies {
   flex: 0 0 60px !important;
+}
+
+.l-center {
+  margin: 0 40px;
 }

@@ -1,4 +1,4 @@
-name: 'Breath Weapon (Dragonborn)'
+name: 'Breath Weapon (Dragonspawn)'
 permission:
   default: 0
 type: 'power'
@@ -166,5 +166,9 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Dragonic / Dragonspawn'
 flags: {}
 img: 'icons/svg/d20.svg'

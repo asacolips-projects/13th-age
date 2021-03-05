@@ -15,6 +15,11 @@ styles:
   - css/archmage.css
   - css/introjs.css
 packs:
+  - label: Classes
+    entity: JournalEntry
+    name: classes
+    path: packs/dist/classes.db
+    system: archmage
   - label: Races
     entity: Item
     name: races
@@ -96,8 +101,8 @@ packs:
     system: archmage
   - label: Necromancer
     entity: Item
-    name: necromancer-content
-    path: packs/dist/necromancer-content.db
+    name: necromancer
+    path: packs/dist/necromancer.db
     system: archmage
   - label: Necromancer (Summons)
     entity: Actor
