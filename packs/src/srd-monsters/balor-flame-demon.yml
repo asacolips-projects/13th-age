@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The balor deals +[[1[[d20]]]] lightning damage to the target and to one other nearby enemy of balor’s choice. Then repeat that damage roll against the targets once for each point on the escalation die (so if it’s 4, that’s four more [[d20]] rolls)'
+        value: 'The balor deals +[[1d20]] lightning damage to the target and to one other nearby enemy of balor’s choice. Then repeat that damage roll against the targets once for each point on the escalation die (so if it’s 4, that’s four more [[d20]] rolls)'
       hit2:
         type: ''
         label: 'Hit'

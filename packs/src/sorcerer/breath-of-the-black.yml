@@ -120,7 +120,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[2d6*10+@cha.dmg+@atk.a.bonus]]]] damage, and [[60]] ongoing damage; [[30]] ongoing on a miss.'
+    value: '[[2d6*10+@cha.dmg+@atk.a.bonus]] damage, and [[60]] ongoing damage; [[30]] ongoing on a miss.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
