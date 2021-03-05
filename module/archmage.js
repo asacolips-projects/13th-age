@@ -218,6 +218,20 @@ Hooks.once('init', async function() {
     type: String,
   });
 
+  game.settings.register('archmage', 'tourVisibility', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityHint"),
+    scope: 'world',
+    config: true,
+    default: 'all',
+    type: String,
+    choices: {
+      all: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityAll'),
+      gm: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityGM'),
+      off: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityOff'),
+    }
+  });
+
   game.settings.register('archmage', 'colorBlindMode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
@@ -445,8 +459,17 @@ Hooks.on("renderSettings", (app, html) => {
 
 
   // This is intentionally in renderSettings, as it is one of the last bits of HTML to get rendered, which is required for the Tour to hook in
-  let tourGuide = new TourGuide();
-  tourGuide.startNewFeatureTours();
+  let tourVisibility = game.settings.get('archmage', 'tourVisibility');
+  let showTours = tourVisibility !== 'off' ? true : false;
+
+  if (tourVisibility == 'gm' && !game.user.isGM) {
+    showTours = false;
+  }
+
+  if (showTours) {
+    let tourGuide = new TourGuide();
+    tourGuide.startNewFeatureTours();
+  }
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {

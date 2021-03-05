@@ -257,11 +257,9 @@ export class ArchmageUtility {
           value: ArchmageUtility.getEscalation(game.combat)
         };
 
-        if (!data.attributes.standardBonuses) {
-          data.attributes.standardBonuses = {
-            value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
-          };
-        }
+        data.attributes.standardBonuses = {
+          value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
+        };
       }
 
       // Re-map all attributes onto the base roll data
