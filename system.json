@@ -140,8 +140,8 @@
     {
       "label": "Necromancer",
       "entity": "Item",
-      "name": "necromancer-content",
-      "path": "packs/dist/necromancer-content.db",
+      "name": "necromancer",
+      "path": "packs/dist/necromancer.db",
       "system": "archmage"
     },
     {
