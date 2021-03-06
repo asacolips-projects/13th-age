@@ -198,6 +198,7 @@ export class ActorArchmage extends Actor {
       if (data.attributes.recoveries.automatic) {
         data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
       }
+      data.attributes.recoveries.avg = Math.floor(data.attributes.level.value * ((Number(data.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + (data.abilities.con.mod * levelMultiplier);
 
       // Skill modifiers
       // for (let skl of Object.values(data.skills)) {
@@ -409,6 +410,187 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareNPCData(data) {
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Recovery roll dialog.
+   *
+   * @return {undefined}
+   */
+  rollRecoveryDialog() {
+    let actorData = this.data.data;
+    let rolled = false;
+    let avg = this.getFlag('archmage', 'averageRecoveries');
+    let strRec = this.getFlag('archmage', 'strongRecovery');
+    let data = {bonus: "", average: avg};
+
+    if (event.shiftKey) {
+      this._rollRecovery(data, true);
+      return;
+    }
+
+    // Render modal dialog
+    let template = 'systems/archmage/templates/chat/recovery-dialog.html';
+    let dialogData = {
+      warning: strRec ? "Will ignore bonus from Strong Recovery." : "",
+      avg: avg ? "checked" : ""
+      };
+    renderTemplate(template, dialogData).then(dlg => {
+      new Dialog({
+        title: "Recovery Roll",
+        content: dlg,
+        buttons: {
+          normal: {
+            label: 'Normal',
+            callback: () => {
+              rolled = true;
+            }
+          },
+          free: {
+            label: 'Free',
+            callback: () => {
+              data.label = 'Free';
+              data.free = true;
+              rolled = true;
+            }
+          },
+          pot1: {
+            label: 'Potion (Adv.)',
+            callback: () => {
+              data.label = 'Adventurer Potion';
+              data.bonus = "+1d8";
+              data.max = 30;
+              rolled = true;
+            }
+          },
+          pot2: {
+            label: 'Potion (Cha.)',
+            callback: () => {
+              data.label = 'Champion Potion';
+              data.bonus = "+2d8";
+              data.max = 60;
+              rolled = true;
+            }
+          },
+          pot3: {
+            label: 'Potion (Epic)',
+            callback: () => {
+              data.label = 'Epic Potion';
+              data.bonus = "+3d8";
+              data.max = 100;
+              rolled = true;
+            }
+          },
+          pot4: {
+            label: 'Potion (Iconic)',
+            callback: () => {
+              data.label = 'Iconic Potion';
+              data.bonus = "+4d8";
+              data.max = 130;
+              rolled = true;
+            }
+          },
+        },
+        default: 'normal',
+        close: html => {
+          if (rolled) {
+            data.bonus += html.find('[name="bonus"]').val();
+            data.apply = html.find('[name="apply"]').is(':checked');
+            data.average = html.find('[name="average"]').is(':checked');
+            this.setFlag('archmage', 'averageRecoveries', data.average);
+            this.rollRecovery(data, true);
+          }
+        }
+      }).render(true);
+    });
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Recovery roll.
+   * @param data object{bonus: "+X", max: 0, free: false, label: "", apply: true}
+   * @param print boolean
+   *
+   * @return {Roll} The rolled roll for the recovery
+   */
+  async rollRecovery(data, print = true) {
+    data.bonus = (data.bonus !== undefined) ? data.bonus : "";
+    data.max = (data.max !== undefined) ? data.max : 0;
+    data.free = (data.free !== undefined) ? data.free : false;
+    data.label = (data.label !== undefined) ? data.label+" Recovery" : "Recovery";
+    data.apply = (data.apply !== undefined) ? data.apply : true;
+    data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
+    let actorData = this.data.data;
+    let totalRecoveries = actorData.attributes.recoveries.value;
+    data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
+    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
+
+    if (data.average) {
+      formula = this.data.data.attributes.recoveries.avg;
+    } else if (this.getFlag('archmage', 'strongRecovery')) {
+      // Handle strong recovery.
+      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
+    }
+
+    // Add bonus if any
+    if (data.bonus !== "") {
+      // We assume to have signs in bonus, to handle negative bonuses
+      formula = `${formula}${data.bonus}`;
+    }
+
+    // Half healing for recoveries we do NOT have
+    if (Number(totalRecoveries) <= 0) {
+      formula = `floor((${formula})/2)`;
+    }
+
+    // If max is set, handle it
+    if (data.max > 0) {
+      formula = `min((${formula}), ${data.max})`;
+    }
+
+    let roll = new Roll(`${formula}`);
+
+    if (print) {
+      // Basic template rendering data
+      const template = `systems/archmage/templates/chat/recovery-card.html`
+      const token = this.token;
+      const templateData = {actor: this, label: data.label, formula: formula};
+      // Basic chat message data
+      const chatData = {
+        user: game.user._id, speaker: {actor: this._id, token: this.token,
+        alias: this.name, scene: game.user.viewedScene}
+      };
+      // Render the template
+      chatData["content"] = await renderTemplate(template, templateData);
+      // Create the chat message
+      let msg = await ChatMessage.create(chatData, {displaySheet: false});
+      // Get the roll from the chat message
+      let contentHtml = $(chatData.content);
+      let row = $(contentHtml.find('.card-prop')[0]);
+      let roll_html = $(row.find('.inline-result'));
+      roll = Roll.fromJSON(unescape(roll_html.data('roll')));
+    } else {
+      // Perform the roll ourselves
+      roll.roll();
+    }
+
+    // If 3d dice are enabled, handle them
+    if (game.dice3d) {
+      await game.dice3d.showForRoll(roll, game.user, true);
+    }
+
+    let newHp = this.data.data.attributes.hp.value;
+    let newRec = this.data.data.attributes.recoveries.value;
+    if (!data.free) {newRec -= 1;}
+    if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, Math.max(newHp, 0) + roll.total);}
+    this.update({
+      'data.attributes.recoveries.value': newRec,
+      'data.attributes.hp.value': newHp
+    });
+    return roll;
   }
 
   /* -------------------------------------------- */
