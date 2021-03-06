@@ -1,18 +1,5 @@
 <form class="{{cssClass}} toolkit13-sheet-background" autocomplete="off">
 
-  <!-- HEADER -->
-  <header class="sheet-header">
-    <h1 class="charname">
-      <input name="name" type="text" value="{{actor.name}}" placeholder="Character Name" />
-    </h1>
-
-    <div class="charlevel">
-      <div class="level">
-        <label>{{localize 'ARCHMAGE.level'}}</label>
-        <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" data-dtype="Number"
-            placeholder="1" />
-      </div>
-    </div>
-  </header>
+  <archmage-actor-sheet class="vueport-render" dependencies='actor-sheet' :actor='{{actorJSON}}'>Loading, please wait...</archmage-actor-sheet>
 
 </form>
