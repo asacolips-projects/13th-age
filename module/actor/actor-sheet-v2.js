@@ -19,6 +19,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   getData() {
     const sheetData = super.getData();
 
+    sheetData.actorJSON = JSON.stringify(sheetData.actor);
+
     return sheetData;
   }
 }

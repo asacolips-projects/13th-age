@@ -5,6 +5,12 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const yaml = require('gulp-yaml');
 const webp = require('gulp-webp');
+const vueComponent = require('gulp-vue-single-file-component');
+const babel = require('gulp-babel');
+const wrap = require('gulp-wrap');
+const declare = require('gulp-declare');
+const concat = require('gulp-concat');
+const minify = require('gulp-minify');
 
 // Dependencies for compendium tasks.
 const through2 = require("through2");
@@ -203,6 +209,36 @@ function compileYaml() {
 }
 const yamlTask = gulp.series(compileYaml);
 
+
+/* ----------------------------------------- */
+/*  Compile Vue
+/* ----------------------------------------- */
+
+const VUE_FILES = ["templates/vue/**/*.vue"];
+
+function compileVue() {
+  return gulp.src(VUE_FILES)
+        .pipe(vueComponent({ loadCssMethod: 'VuePort.loadCss' }))
+        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-commonjs'] }))
+        .pipe(wrap('Vue.component(<%= processComponentName(file.relative) %>, (function() {const exports = {}; <%= contents %>; return _default;})())', {}, {
+            imports: {
+                processComponentName: function (fileName) {
+                    // Strip the extension and escape the output with JSON.stringify
+                    return JSON.stringify(path.basename(fileName, '.js'));
+                }
+            }
+        }))
+        .pipe(declare({
+            namespace: 'VuePort.Components',
+            noRedeclare: true, // Avoid duplicate declarations
+        }))
+        .pipe(concat('vue-components.js'))
+
+    .pipe(minify({ noSource: true, ext: ".min.js" }))
+        .pipe(gulp.dest('dist/'));
+}
+const vueTask = gulp.series(compileVue);
+
 /* ----------------------------------------- */
 /*  Watch Updates
 /* ----------------------------------------- */
@@ -211,6 +247,7 @@ function watchUpdates() {
   gulp.watch(SYSTEM_SCSS, css);
   gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, imageTask);
+  gulp.watch(VUE_FILES, vueTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 
@@ -222,10 +259,12 @@ exports.default = gulp.series(
   compileScss,
   compileYaml,
   compileImages,
+  compileVue,
   watchUpdates
 );
 exports.css = css;
 exports.yaml = yamlTask;
+exports.vue = vueTask;
 exports.cleanPacks = gulp.series(cleanPacks);
 exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
@@ -233,6 +272,7 @@ exports.build = gulp.series(
   compileScss,
   compileYaml,
   compileImages,
+  compileVue,
   cleanPacks,
   compilePacks
 );
