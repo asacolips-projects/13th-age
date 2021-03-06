@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: ""
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'

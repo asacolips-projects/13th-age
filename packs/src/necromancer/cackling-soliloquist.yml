@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>If you spend your move action, your quick action, <em>and</em> your standard action casting a daily spell that ordinarily only requires a standard action — while screaming grandiloquently, cackling maniacally, or megalomaniacally describing the grandeur of your plans and the futility of your enemies’ resistance — the daily spell is recharge 18+ after battle instead of daily, and you can invent a slight improvement to the spell, especially if it’s partly story-oriented, that provides an extra benefit determined by the GM or by you (with GM approval).</p>"
+    value: '<p>If you spend your move action, your quick action, <em>and</em> your standard action casting a daily spell that ordinarily only requires a standard action — while screaming grandiloquently, cackling maniacally, or megalomaniacally describing the grandeur of your plans and the futility of your enemies’ resistance — the daily spell is recharge 18+ after battle instead of daily, and you can invent a slight improvement to the spell, especially if it’s partly story-oriented, that provides an extra benefit determined by the GM or by you (with GM approval).</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

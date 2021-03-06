@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You gain a +[[@dex.dmg]] bonus to the damage roll.</p>"
+    value: '<p>You gain a +[[@dex.dmg]] bonus to the damage roll.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
