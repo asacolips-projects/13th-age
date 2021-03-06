@@ -1,4 +1,4 @@
-name: 'Quick to Fight (Human)'
+name: 'Quick to Fight'
 permission:
   default: 0
 type: 'power'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

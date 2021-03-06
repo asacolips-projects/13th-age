@@ -1,4 +1,4 @@
-name: 'Breath Weapon (Dragonspawn)'
+name: 'Breath Weapon'
 permission:
   default: 0
 type: 'power'
@@ -156,7 +156,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     epic:
       description:
         type: 'String'
