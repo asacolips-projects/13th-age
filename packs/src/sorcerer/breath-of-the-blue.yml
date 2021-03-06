@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[10d12+@cha.dmg+@atk.a.bonus]] lightning damage, and at the start of the target's next turn, [[1d6]] of its nearby allies take [[20]] lightning damage.'
+    value: '[[10d12+@cha.dmg+@atk.a.bonus]] lightning damage, and at the start of the target’s next turn, [[1d6]] of its nearby allies take [[20]] lightning damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
