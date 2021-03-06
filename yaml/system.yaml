@@ -13,6 +13,7 @@ scripts:
   - scripts/lib/intro.js
 styles:
   - css/archmage.css
+  - css/v2/archmage-v2.css
   - css/introjs.css
 packs:
   - label: Classes

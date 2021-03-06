@@ -4,6 +4,7 @@ const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const yaml = require('gulp-yaml');
+const webp = require('gulp-webp');
 
 // Dependencies for compendium tasks.
 const through2 = require("through2");
@@ -151,6 +152,19 @@ function extractPacks() {
 }
 
 /* ----------------------------------------- */
+/* Convert images
+/* ----------------------------------------- */
+const SYSTEM_IMAGES = [
+  'assets/src/**/*.{png,jpeg,jpg}',
+];
+function compileImages() {
+  return gulp.src(SYSTEM_IMAGES, {base: 'assets/src'})
+    .pipe(webp())
+    .pipe(gulp.dest('./assets/dist'));
+};
+const imageTask = gulp.series(compileImages);
+
+/* ----------------------------------------- */
 /*  Compile Sass
 /* ----------------------------------------- */
 
@@ -196,6 +210,7 @@ const yamlTask = gulp.series(compileYaml);
 function watchUpdates() {
   gulp.watch(SYSTEM_SCSS, css);
   gulp.watch(SYSTEM_YAML, yamlTask);
+  gulp.watch(SYSTEM_IMAGES, imageTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 
@@ -206,6 +221,7 @@ function watchUpdates() {
 exports.default = gulp.series(
   compileScss,
   compileYaml,
+  compileImages,
   watchUpdates
 );
 exports.css = css;
@@ -216,6 +232,7 @@ exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
   compileScss,
   compileYaml,
+  compileImages,
   cleanPacks,
   compilePacks
 );

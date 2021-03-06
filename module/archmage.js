@@ -2,6 +2,7 @@ import { ARCHMAGE } from './setup/config.js';
 import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
+import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
 import { CinderWeatherEffect } from './setup/weather.js';
@@ -95,13 +96,22 @@ Hooks.once('init', async function() {
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('archmage', ActorArchmageSheet, {
+    label: "V1 Character Sheet",
     types: ["character"],
     makeDefault: true
   });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
+    label: "NPC Sheet",
     types: ["npc"],
     makeDefault: true
+  });
+
+  // V2 actor sheet (See issue #118).
+  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+    label: "V2 Character Sheet",
+    types: ["character"],
+    makeDefault: false
   });
 
   /* -------------------------------------------- */
