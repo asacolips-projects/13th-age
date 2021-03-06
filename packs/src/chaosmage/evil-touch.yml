@@ -146,7 +146,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     champion:
       description:
         type: 'String'
@@ -155,7 +155,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     epic:
       description:
         type: 'String'
@@ -164,6 +164,6 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
 flags: {}
 img: 'systems/archmage/assets/icons/spells/link-eerie-2.jpg'
