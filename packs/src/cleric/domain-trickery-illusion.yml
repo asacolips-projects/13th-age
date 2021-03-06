@@ -48,7 +48,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[@d20]]'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per battle, as a quick action when you are engaged with an enemy, roll a d20 (your ''trick die'').</p><p>As a free action before the start of your next turn, give your trick die to a nearby ally or enemy who is about to make an attack roll. The trick die result becomes the natural result of their roll instead.</p><p><strong>Invocation of Trickery/Illusion</strong>: This battle, attacks against you by enemies that moved to engage you during their turn miss on natural odd rolls.</p>'
+    value: '<p>Once per battle, as a quick action when you are engaged with an enemy, roll a d20 [[d20]] (your ''trick die'').</p><p>As a free action before the start of your next turn, give your trick die to a nearby ally or enemy who is about to make an attack roll. The trick die result becomes the natural result of their roll instead.</p><p><strong>Invocation of Trickery/Illusion</strong>: This battle, attacks against you by enemies that moved to engage you during their turn miss on natural odd rolls.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
