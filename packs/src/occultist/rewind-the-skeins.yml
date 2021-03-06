@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Reality goes back two minutes. You remember what<br />happened the first time. No one else does. This effect usually can&rsquo;t rewind past battles&mdash;it&rsquo;s designed for reliving or avoiding social interactions, roleplaying moments, traps, non-combat events, earthquakes, tarrasque appearances (if you could use it before rolling initiative!), and even icon relationship rolls.</p>'
+    value: '<p>Reality goes back two minutes. You remember what happened the first time. No one else does. This effect usually can&rsquo;t rewind past battles&mdash;it&rsquo;s designed for reliving or avoiding social interactions, roleplaying moments, traps, non-combat events, earthquakes, tarrasque appearances (if you could use it before rolling initiative!), and even icon relationship rolls.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:

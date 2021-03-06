@@ -166,7 +166,9 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Command'
+    type: 'String'
+    label: 'Group'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/red_23.jpg'
 effects: []

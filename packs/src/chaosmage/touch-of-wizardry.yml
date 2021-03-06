@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>You gain a random spell from the wizard class. Whenever you take a full heal-up, randomly choose a wizard spell of the highest level you can cast. For the rest of the day, you know this wizard spell and can cast it according to its normal usage pattern&mdash;at-will, cyclic, once per battle, recharge, or daily&mdash;when that option comes up during your chaos mage spellcasting sequence.</p>\n<p>If the wizard spell refers to Intelligence, you can replace that ability score with references to Charisma.</p>"
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>You gain a random spell from the wizard class. Whenever you take a full heal-up, randomly choose a wizard spell of the highest level you can cast. For the rest of the day, you know this wizard spell and can cast it according to its normal usage pattern&mdash;at-will, cyclic, once per battle, recharge, or daily&mdash;when that option comes up during your chaos mage spellcasting sequence.</p>\n<p>If the wizard spell refers to Intelligence, you can replace that ability score with references to Charisma.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -147,7 +147,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     champion:
       description:
         type: 'String'
@@ -156,7 +156,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     epic:
       description:
         type: 'String'
@@ -165,6 +165,6 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
 flags: {}
 img: 'systems/archmage/assets/icons/spells/light-blue-1.jpg'

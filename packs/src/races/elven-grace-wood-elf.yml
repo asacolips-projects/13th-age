@@ -1,4 +1,4 @@
-name: 'Elven Grace (Wood Elf)'
+name: 'Elven Grace'
 permission:
   default: 0
 type: 'power'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: 0
   feats:
     adventurer:
       description:

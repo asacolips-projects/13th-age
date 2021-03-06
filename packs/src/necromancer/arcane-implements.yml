@@ -25,7 +25,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
