@@ -20,11 +20,11 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
