@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>As a character casting arcane magic, your best options for improving your spellcasting are wands and staffs.</p>"
+    value: '<p>As a character casting arcane magic, your best options for improving your spellcasting are wands and staffs.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
