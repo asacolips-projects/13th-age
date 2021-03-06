@@ -1,0 +1,445 @@
+name: 'Wizard'
+permission:
+  default: 0
+folder: ''
+flags:
+  core:
+    sourceId: 'JournalEntry.ZEySbYPA195GOOCK'
+content: |
+  <div class="l-center">
+    <h1 class="archmage-class-title">Wizard</h1>
+    <div class="grid grid-2col">
+      <div class="details">
+        <h2 class="archmage-class-heading">Ability Scores</h2>
+        <p>Wizards gain a +2 class bonus to Intelligence or Wisdom, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
+
+        <h2 class="archmage-class-heading">Backgrounds</h2>
+        <p>Possible backgrounds include: magical prodigy, spell thief, hedge wizard, transformed familiar, ship’s wizard, royal poisoner.</p>
+
+        <h2 class="archmage-class-heading">Gear</h2>
+        <p>At 1st level, a wizard usually has a dagger, a robe or two, a wand, ritual components in pouches, and other minor accouterments suggested by their backgrounds.</p>
+
+        <h3 class="archmage-class-subheading">Gold Pieces</h3>
+        <p>Wizards may start with either 25 gp or 1d6 x 10 gp.</p>
+      </div>
+      <div class="armor">
+        <h2 class="archmage-class-heading">Armor</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+              <p><strong>Armor Type</strong></p>
+              </td>
+              <td>
+              <p><strong>Base AC</strong></p>
+              </td>
+              <td>
+              <p><strong>Atk Penalty</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong><em>None</em></strong></p>
+              </td>
+              <td>
+              <p><em>10</em></p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Light</strong></p>
+              </td>
+              <td>
+              <p>10</p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Heavy</strong></p>
+              </td>
+              <td>
+              <p>11</p>
+              </td>
+              <td>
+              <p>–2</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Shield</strong></p>
+              </td>
+              <td>
+              <p>+1</p>
+              </td>
+              <td>
+              <p>-2</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="grid grid-2col">
+      <div class="melee-weapons">
+        <h2 class="archmage-class-heading">Melee Weapons</h2>
+        <table>
+        <tbody>
+            <tr>
+            <td>
+            <p>&nbsp;</p>
+            </td>
+            <td>
+            <p><strong>One-Handed</strong></p>
+            </td>
+            <td>
+            <p><strong>Two-Handed</strong></p>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <p><strong>Small</strong></p>
+            </td>
+            <td>
+            <p>1d4 dagger</p>
+            </td>
+            <td>
+            <p>1d6 staff</p>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <p><strong>Light or Simple</strong></p>
+            </td>
+            <td>
+            <p>1d6 (-2 atk) shortsword</p>
+            </td>
+            <td>
+            <p>1d8 (-2 atk) spear*</p>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <p><strong>Heavy or Martial</strong></p>
+            </td>
+            <td>
+            <p>1d8 (-5 atk) longsword</p>
+            </td>
+            <td>
+            <p>1d10 (-5 atk) greatsword*</p>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+      <div class="ranged-weapons">
+        <h2 class="archmage-class-heading">Ranged Weapons</h2>
+        <table>
+        <tbody>
+            <tr>
+            <td>
+            <p>&nbsp;</p>
+            </td>
+            <td>
+            <p><strong>Thrown</strong></p>
+            </td>
+            <td>
+            <p><strong>Crossbow</strong></p>
+            </td>
+            <td>
+            <p><strong>Bow</strong></p>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <p><strong>Small</strong></p>
+            </td>
+            <td>
+            <p>1d4 dagger</p>
+            </td>
+            <td>
+            <p>1d4 hand crossbow</p>
+            </td>
+            <td>
+            <p>—</p>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <p><strong>Light or Simple</strong></p>
+            </td>
+            <td>
+            <p>1d6 (-2) javelin</p>
+            </td>
+            <td>
+            <p>1d6 (–1 atk) light crossbow*</p>
+            </td>
+            <td>
+            <p>1d6 (-2 atk) shortbow*</p>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <p><strong>Heavy or Martial</strong></p>
+            </td>
+            <td>
+            <p>—</p>
+            </td>
+            <td>
+            <p>1d8 (–4 atk) heavy crossbow*</p>
+            </td>
+            <td>
+            <p>1d8 (-5 atk) longbow*</p>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>* A wizard needs one free hand on a spellcasting implement to cast spells. As such, they suffer a penalty for using a two-handed weapon. (The penalty applies to spells also.)</p>
+  </div>
+
+  <h2 class="archmage-class-heading">Level Progression</h2>
+  <table style="width: 99.1549%; height: 374px;">
+    <thead>
+      <tr style="height: 34px;">
+        <th style="width: 8.9607%; height: 34px;">Wizard Level</th>
+        <th style="width: 11.5317%; height: 34px; min-width: 140px;">Total Hit Points</th>
+        <th style="width: 19.8129%; height: 34px;">Total Feats</th>
+        <th style="width: 8.51563%; height: 34px;">1st level spell</th>
+        <th style="width: 8.63636%; height: 34px;">3rd level spell</th>
+        <th style="width: 8.62926%; height: 34px;">5th level spell</th>
+        <th style="width: 8.62926%; height: 34px;">7th level spell</th>
+        <th style="width: 8.62926%; height: 34px;">9th level spell</th>
+        <th style="width: 15.2344%; height: 34px;">Level-up Ability Bonuses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 1</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 3</td>
+        <td style="width: 19.8129%; height: 34px;">1 adventurer</td>
+        <td style="width: 8.51563%; height: 34px;">5</td>
+        <td style="width: 8.63636%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 2</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 4</td>
+        <td style="width: 19.8129%; height: 34px;">2 adventurer</td>
+        <td style="width: 8.51563%; height: 34px;">6</td>
+        <td style="width: 8.63636%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 3</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 5</td>
+        <td style="width: 19.8129%; height: 34px;">3 adventurer</td>
+        <td style="width: 8.51563%; height: 34px;">3</td>
+        <td style="width: 8.63636%; height: 34px;">4</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 4</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 6</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer</td>
+        <td style="width: 8.51563%; height: 34px;">2</td>
+        <td style="width: 8.63636%; height: 34px;">6</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">+1 to 3 abilities</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 5</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 8</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer;<br />1 champion</td>
+        <td style="width: 8.51563%; height: 34px;">1</td>
+        <td style="width: 8.63636%; height: 34px;">4</td>
+        <td style="width: 8.62926%; height: 34px;">4</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 6</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 10</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer;<br />2 champion</td>
+        <td style="width: 8.51563%; height: 34px;">&mdash;</td>
+        <td style="width: 8.63636%; height: 34px;">2</td>
+        <td style="width: 8.62926%; height: 34px;">8</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 7</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 12</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer;<br />3 champion</td>
+        <td style="width: 8.51563%; height: 34px;">&mdash;</td>
+        <td style="width: 8.63636%; height: 34px;">1</td>
+        <td style="width: 8.62926%; height: 34px;">4</td>
+        <td style="width: 8.62926%; height: 34px;">5</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">+1 to 3 abilities</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 8</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 16</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer;<br />3 champion;<br />1 epic</td>
+        <td style="width: 8.51563%; height: 34px;">&mdash;</td>
+        <td style="width: 8.63636%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">3</td>
+        <td style="width: 8.62926%; height: 34px;">8</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 9</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 20</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer;<br />3 champion;<br />2 epic</td>
+        <td style="width: 8.51563%; height: 34px;">&mdash;</td>
+        <td style="width: 8.63636%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">1</td>
+        <td style="width: 8.62926%; height: 34px;">5</td>
+        <td style="width: 8.62926%; height: 34px;">6</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 10</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 24</td>
+        <td style="width: 19.8129%; height: 34px;">4 adventurer;<br />3 champion;<br />3 epic</td>
+        <td style="width: 8.51563%; height: 34px;">&mdash;</td>
+        <td style="width: 8.63636%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">3</td>
+        <td style="width: 8.62926%; height: 34px;">9</td>
+        <td style="width: 15.2344%; height: 34px;">+1 to 3 abilities</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Note: Although not listed on the table, this class gets three talents. It does not gain more at higher levels.</p>
+
+  <div class="l-center">
+
+    <h2 class="archmage-class-heading">Stats</h2>
+    <p>Initiative, AC, PD, MD, Hit Points, Recovery Dice, Feats, and some Talents are level dependent.</p>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+          <p><strong>Ability Bonus</strong></p>
+          </td>
+          <td>
+          <p>+2 Intelligence or Wisdom (different from racial bonus)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Initiative</strong></p>
+          </td>
+          <td>
+          <p>Dex mod + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Armor Class</strong> (light armor)</p>
+          </td>
+          <td>
+          <p>10 + middle mod of Con/Dex/Wis + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Physical Defense</strong></p>
+          </td>
+          <td>
+          <p>10 + middle mod of Str/Con/Dex + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Mental Defense</strong></p>
+          </td>
+          <td>
+          <p>12 + middle mod of Int/Wis/Cha + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Hit Points</strong></p>
+          </td>
+          <td>
+          <p>(6 + Con mod) x Level modifier (see level progression chart)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Recoveries</strong></p>
+          </td>
+          <td>
+          <p>8</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Recovery Dice</strong></p>
+          </td>
+          <td>
+          <p>(1d6 x Level) + Con mod</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Backgrounds</strong></p>
+          </td>
+          <td>
+          <p>8 points, max 5 in any one background</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Icon Relationships</strong></p>
+          </td>
+          <td>
+          <p>3 points</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Talents</strong></p>
+          </td>
+          <td>
+          <p>3</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Feats</strong></p>
+          </td>
+          <td>
+          <p>1 per Level</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+img: 'systems/archmage/assets/icons/items/inventory/book-purple.jpg'

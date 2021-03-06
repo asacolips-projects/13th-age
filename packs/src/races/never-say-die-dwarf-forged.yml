@@ -166,5 +166,9 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Forgeborn / Dwarf-forged'
 flags: {}
 img: 'icons/svg/d20.svg'

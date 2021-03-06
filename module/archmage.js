@@ -10,6 +10,7 @@ import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
 import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
+import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 
 Hooks.once('init', async function() {
@@ -21,6 +22,9 @@ Hooks.once('init', async function() {
       this.toLowerCase()
     ).replace(/%[0-9A-F]{2}/gi, '-');
   }
+
+  // Preload template partials.
+  preloadHandlebarsTemplates();
 
   Handlebars.registerHelper('safeCSSId', (arg) => {
     return `${arg}`.safeCSSId();

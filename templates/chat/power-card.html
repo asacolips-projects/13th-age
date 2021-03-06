@@ -4,38 +4,42 @@
         <h3 class="ability-usage ability-usage--{{data.powerUsage.value}}">{{item.name}}</h3>
     </header>
 
-    <div class="card-content">
-        <div class="card-row">
-            {{#if data.range.value}}
-                <em>{{data.range.value}}</em>
-            {{/if}}
-            {{#each data.properties}}
-            <div class="card-prop"><strong>{{this.label}}:</strong> {{this.value}}</div>
-            {{/each}}
-            {{#each data.effects}}
-            <div class="card-row">
-                <div class="card-prop"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
-            </div>
-            {{/each}}
-            {{#if data.description.value}}
-                <div class="card-row">
-                    {{{data.description.value}}}
-                </div>
-            {{/if}}
-            {{#if data.feats}}
-                {{#each data.feats as |feat key|}}
-                    <div class="tag tag--feat tag--{{#if feat.isActive}}active{{else}}inactive {{hideBasedOnSystemSetting}}{{/if}} tag--{{safeCSSId feat.label}}">
-                        <strong>{{feat.label}}:</strong>
-                        <div class="description">{{{feat.description}}}</div>
-                    </div>
-                {{/each}}
-            {{/if}}
-        </div>
-    </div>
+    <div class="item-summary">
 
-    <footer class="card-footer">
-        {{#each data.tags}}
-        <span>{{this.value}}</span>
-        {{/each}}
-    </footer>
+        <div class="card-content">
+            <div class="card-row">
+                {{#if data.range.value}}
+                    <em>{{data.range.value}}</em>
+                {{/if}}
+                {{#each data.properties}}
+                <div class="card-prop"><strong>{{this.label}}:</strong> {{this.value}}</div>
+                {{/each}}
+                {{#each data.effects}}
+                <div class="card-row">
+                    <div class="card-prop"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
+                </div>
+                {{/each}}
+                {{#if data.description.value}}
+                    <div class="card-row">
+                        {{{data.description.value}}}
+                    </div>
+                {{/if}}
+                {{#if data.feats}}
+                    {{#each data.feats as |feat key|}}
+                        <div class="tag tag--feat tag--{{#if feat.isActive}}active{{else}}inactive {{hideBasedOnSystemSetting}}{{/if}} tag--{{safeCSSId feat.label}}">
+                            <strong>{{feat.label}}:</strong>
+                            <div class="description">{{{feat.description}}}</div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+
+        <footer class="card-footer">
+            {{#each data.tags}}
+            <span>{{this.value}}</span>
+            {{/each}}
+        </footer>
+
+    </div>
 </div>
