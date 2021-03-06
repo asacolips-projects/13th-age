@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Roll a [[@d20]]. On a 11+, the target doesn&rsquo;t expend the use of its racial power and can use it again later this battle.</p>'
+    value: '<p>Roll a d20 [[d20]]]. On a 11+, the target doesn&rsquo;t expend the use of its racial power and can use it again later this battle.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -166,7 +166,9 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Command'
+    type: 'String'
+    label: 'Group'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/blue_04.jpg'
 effects: []
