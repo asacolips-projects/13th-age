@@ -146,7 +146,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     champion:
       description:
         type: 'String'

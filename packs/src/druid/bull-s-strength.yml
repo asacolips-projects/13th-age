@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -24,7 +24,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'

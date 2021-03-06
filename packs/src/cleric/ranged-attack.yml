@@ -52,7 +52,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.r.dmg+@dex.dmg+@atk.r.bonus]] damage'
+    value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

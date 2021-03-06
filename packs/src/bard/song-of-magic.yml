@@ -16,7 +16,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: null
+    value: 'power'
   powerUsage:
     type: 'String'
     label: 'Power Usage'

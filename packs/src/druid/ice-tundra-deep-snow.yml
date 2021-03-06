@@ -9,6 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -16,7 +17,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'

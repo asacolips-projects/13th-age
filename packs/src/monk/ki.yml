@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>You gain a number of ki points each day equal to 1 + your Wisdom modifier. You can spend ki to modify the natural result of one of your attack rolls. Ki is a daily resource. When you take a full heal-up, you regain all your ki points. You don&rsquo;t regain ki during a quick rest.</p>\n<p>After rolling an attack, you can spend 1 point of ki as a free action to change your attack&rsquo;s natural result by 1, unless that result is a natural 1. The change can be +1 or -1. Spending ki is a free action, but you can only spend 1 point of ki each turn.</p>"
+    value: ''
   group:
     type: 'String'
     label: 'Group'
@@ -29,7 +29,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>You gain a number of ki points each day equal to 1 + your Wisdom modifier. You can spend ki to modify the natural result of one of your attack rolls. Ki is a daily resource. When you take a full heal-up, you regain all your ki points. You don&rsquo;t regain ki during a quick rest.</p>\n<p>After rolling an attack, you can spend 1 point of ki as a free action to change your attack&rsquo;s natural result by 1, unless that result is a natural 1. The change can be +1 or -1. Spending ki is a free action, but you can only spend 1 point of ki each turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

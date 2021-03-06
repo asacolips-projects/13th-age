@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Roll a [[@d20]]. On a 11+, the target ignores the effects of one of those conditions (confused, dazed, weakened) this turn. On a 16+, the condition ends instead.</p>'
+    value: '<p>Roll a d20 [[d20]]]. On a 11+, the target ignores the effects of one of those conditions (confused, dazed, weakened) this turn. On a 16+, the condition ends instead.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -166,7 +166,9 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Command'
+    type: 'String'
+    label: 'Group'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/weapon_16.jpg'
 effects: []

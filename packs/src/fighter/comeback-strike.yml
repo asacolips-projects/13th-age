@@ -28,7 +28,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'

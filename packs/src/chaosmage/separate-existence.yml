@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>You are ever-so-slightly detached from normal physical reality. Play the story side of that as you like; the game mechanics side is that you can cast ranged spells while engaged with enemies without taking opportunity attacks.</p>'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>You are ever-so-slightly detached from normal physical reality. Play the story side of that as you like; the game mechanics side is that you can cast ranged spells while engaged with enemies without taking opportunity attacks.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -147,7 +147,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     champion:
       description:
         type: 'String'
@@ -156,7 +156,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     epic:
       description:
         type: 'String'

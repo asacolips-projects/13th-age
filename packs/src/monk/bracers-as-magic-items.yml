@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>Monks get magic-weapon style powers from magical bracers. In practice, a monk fighting barehanded looks to bracers for magical advantage. A monk who fights with the monastery&rsquo;s traditional weapons might use bracers or a magical weapon, but a monk wearing magical bracers can&rsquo;t use a magical melee weapon at the same time.</p>'
+    value: ''
   group:
     type: 'String'
     label: 'Group'
@@ -29,7 +29,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Monks get magic-weapon style powers from magical bracers. In practice, a monk fighting barehanded looks to bracers for magical advantage. A monk who fights with the monastery&rsquo;s traditional weapons might use bracers or a magical weapon, but a monk wearing magical bracers can&rsquo;t use a magical melee weapon at the same time.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
