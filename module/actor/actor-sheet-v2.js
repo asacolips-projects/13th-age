@@ -4,7 +4,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     mergeObject(options, {
-      classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']),
+      classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: 800,
       height: 960
     });
