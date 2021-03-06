@@ -143,7 +143,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: "<p>Whenever you take a full heal-up, you can choose whether you’d like to move a single point in a relationship with a positively or negatively aligned icon to one of the other icons. Tell a story of what has taken place to cause the shift, unless it’s already obvious from the events of the campaign. When you shift this relationship, the new point must match any current relationships with that icon, but it can be positive, negative, or conflicted if it’s currently the only point you have with that icon.</p>"
+        value: '<p>Whenever you take a full heal-up, you can choose whether you’d like to move a single point in a relationship with a positively or negatively aligned icon to one of the other icons. Tell a story of what has taken place to cause the shift, unless it’s already obvious from the events of the campaign. When you shift this relationship, the new point must match any current relationships with that icon, but it can be positive, negative, or conflicted if it’s currently the only point you have with that icon.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
