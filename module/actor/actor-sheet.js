@@ -234,30 +234,7 @@ export class ActorArchmageSheet extends ActorSheet {
     });
 
     // Recoveries.
-    html.find('.recovery-roll.rollable').click(ev => {
-      let actorData = this.actor.data.data;
-      let totalRecoveries = actorData.attributes.recoveries.value;
-      let recovery = $(ev.currentTarget).data();
-      let formula = recovery.roll;
-
-      // Handle average results.
-      if (this.actor.getFlag('archmage', 'averageRecoveries')) {
-        formula = Math.floor(actorData.attributes.level.value * ((Number(actorData.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
-      }
-      // Handle strong recovery. Ignores average results if set!
-      if (this.actor.getFlag('archmage', 'strongRecovery')) {
-        formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
-      }
-      // Perform the roll.
-      let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
-      roll.roll();
-      // Send to chat and reduce the number of recoveries.
-      roll.toMessage({ flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>` });
-      this.actor.update({
-        'data.attributes.recoveries.value': this.actor.data.data.attributes.recoveries.value - 1,
-        'data.attributes.hp.value': Math.min(this.actor.data.data.attributes.hp.max, Math.max(this.actor.data.data.attributes.hp.value, 0) + roll.total)
-      });
-    });
+    html.find('.recovery-roll.rollable').click(ev => this.actor.rollRecoveryDialog());
 
     html.find('.icon__item.rollable').click(async ev => {
       let actorData = this.actor.data.data;
