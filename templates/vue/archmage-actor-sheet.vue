@@ -1,76 +1,53 @@
 <template>
-<div>
+<div class="archmage-v2-vue flexcol">
 
-  <!-- HEADER -->
-  <header class="header character-header flexrow">
-    <!-- Name -->
-    <div class="unit unit--abs-label unit--name">
-      <label for="name">{{localize("Name")}}</label>
-      <input type="text" name="name" class="input-secondary" v-model="actor.name" >
-    </div>
-    <!-- Race -->
-    <div class="unit unit--abs-label unit--race">
-      <label for="data.details.race.value">{{localize("Race")}}</label>
-      <input type="text" name="data.details.race.value" class="input-secondary" v-model="race">
-    </div>
-    <!-- Class -->
-    <div class="unit unit--abs-label unit--class">
-      <label for="data.details.class.value">{{localize("Class")}}</label>
-      <input type="text" name="data.details.class.value" class="input-secondary" v-model="actorClass">
-    </div>
-    <!-- Level -->
-    <div class="unit unit--level flexrow">
-      <label for="data.attributes.level.value">{{localize("Level")}}</label>
-      <vue-numeric-input name="data.attributes.level.value" v-model="level" controls-type="updown"></vue-numeric-input>
-    </div>
-  </header>
-
-  <!-- Attributes section -->
-  <component v-bind:is="attributesComponent" :actor="actor"></component>
-
-  <!-- Left sidebar -->
-  <section class="section section--sidebar flexcol">
-
+  <!-- Top group -->
+  <section class="container container--top flexcol">
+    <!-- Header -->
+    <archmage-actor-c-header :actor="actor"></archmage-actor-c-header>
+    <!-- Attributes section -->
+    <archmage-actor-c-attributes :actor="actor"></archmage-actor-c-attributes>
   </section>
+  <!-- /Top group -->
 
-  <!-- Main content -->
-  <section class="section section--main flexcol">
+  <!-- Bottom group -->
+  <section class="container container--bottom flexrow">
 
-    <!-- Class resources -->
-    <section class="section section--resources flexrow">
+    <!-- Left sidebar -->
+    <section class="section section--sidebar flexcol">
+      <archmage-actor-c-abilities :actor="actor"></archmage-actor-c-abilities>
+      <archmage-actor-c-backgrounds :actor="actor"></archmage-actor-c-backgrounds>
+      <archmage-actor-c-icon-relationships :actor="actor"></archmage-actor-c-icon-relationships>
+      <archmage-actor-c-out :actor="actor"></archmage-actor-c-out>
+    </section>
+    <!-- /Left sidebar -->
+
+    <!-- Main content -->
+    <section class="section section--main flexcol">
+
+      <!-- Class resources -->
+      <archmage-actor-c-resources :actor="actor"></archmage-actor-c-resources>
+      <!-- Tabs -->
+      <archmage-actor-c-tabs :actor="actor"></archmage-actor-c-tabs>
+
+      <!-- Tabs content -->
+      <section class="section section--tabs-content flexcol">
+        <!-- Details tab -->
+        <archmage-actor-c-details :actor="actor"></archmage-actor-c-details>
+        <!-- Powers tab -->
+        <archmage-actor-c-powers :actor="actor"></archmage-actor-c-powers>
+        <!-- Inventory tab -->
+        <archmage-actor-c-inventory :actor="actor"></archmage-actor-c-inventory>
+        <!-- Effects tab -->
+        <archmage-actor-c-effects :actor="actor"></archmage-actor-c-effects>
+      </section>
+      <!-- /Tabs content -->
 
     </section>
+    <!-- /Main content -->
 
-    <!-- Tabs -->
-    <nav class="section section--tabs flexrow">
-
-    </nav>
-
-    <!-- Tabs content -->
-    <section class="section section--tabs-content flexcol">
-
-      <!-- Details tab -->
-      <section class="section section--details flexcol">
-
-      </section>
-
-      <!-- Powers tab -->
-      <section class="section section--powers flexcol">
-
-      </section>
-
-      <!-- Inventory tab -->
-      <section class="section section--inventory flexcol">
-
-      </section>
-
-      <!-- Effects tab -->
-      <section class="section section--effects flexcol">
-
-      </section>
-
-    </section>
   </section>
+  <!-- /Bottom group -->
 
 </div>
 </template>
@@ -79,37 +56,19 @@
 <script>
 export default {
   props: [ "actor" ],
-  data: () => ({
-    race: "",
-    actorClass: "",
-    level: 1
-  }),
-  methods: {
-    getSafeValue(property, defaultValue) {
-      if (property) return property.value;
-      return defaultValue;
-    },
-    localize(key) {
-      return game.i18n.localize(key);
-    }
-  },
-  computed: {
-    attributesComponent() {
-      return `archmage-actor-c-attributes`;
-    }
-  },
+  data: () => ({}),
+  methods: { /* See created. */},
+  computed: {},
   watch: {
   },
   async created() {
     console.log("Creating Sheet");
+    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
+      this[k] = v;
+    }
   },
   async mounted() {
     console.log("Sheet Mounted");
-    console.log(this.actor);
-
-    this.race = this.getSafeValue(this.actor.data.details.race, "");
-    this.actorClass = this.getSafeValue(this.actor.data.details.class, "");
-    this.level = this.getSafeValue(this.actor.data.attributes.level, 1);
   },
 };
 </script>

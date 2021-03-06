@@ -13,6 +13,8 @@
   // Layout.
   @import 'layout/grid';
   @import 'layout/layout';
+  // Components.
+  @import 'components/rollable';
 
   // Character and NPC sheets.
   &.sheet {

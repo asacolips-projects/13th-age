@@ -88,6 +88,19 @@ Actor:
           value: 1
           min: 0
           max: 10
+        saves:
+          easy: 6
+          normal: 11
+          hard: 16
+          death: 16
+          deathFails:
+            value: 0
+            max: 4
+            steps:
+              - false
+              - false
+              - false
+              - false
       details:
         alignment:
           type: String

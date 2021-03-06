@@ -57,26 +57,32 @@
       </div>
     </div>
     <!-- Init / Death Saves -->
-    <div class="unit unit--init-death flexcol">
-      <h2 class="unit-title">{{localize('Initiative')}}</h2>
-      <h2 class="unit-title">{{localize('Death Saves')}}</h2>
+    <div class="unit unit--init-death">
+      <div class="dividers flexcol">
+        <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('Initiative')}}</a>
+        <div class="death-saves">
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('Death Saves')}}</a>
+          <div class="death-save-attempts flexrow">
+            <input type="checkbox" name="data.attributes.saves.deathFails.0" v-model="actor.data.attributes.saves.deathFails[0]">
+            <input type="checkbox" name="data.attributes.saves.deathFails.1" v-model="actor.data.attributes.saves.deathFails[1]">
+            <input type="checkbox" name="data.attributes.saves.deathFails.2" v-model="actor.data.attributes.saves.deathFails[2]">
+            <input type="checkbox" name="data.attributes.saves.deathFails.3" v-model="actor.data.attributes.saves.deathFails[3]">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'archmage-actor-c-attributes',
   props: ['actor'],
   data: () => ({}),
   computed: {},
-  methods: {
-    getSafeValue(property, defaultValue) {
-      if (property) return property.value;
-      return defaultValue;
-    },
-    localize(key) {
-      return game.i18n.localize(key);
+  methods: { /* See created. */},
+  async created() {
+    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
+      this[k] = v;
     }
   },
   async mounted() {}

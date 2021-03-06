@@ -466,6 +466,14 @@ Hooks.once('ready', () => {
   Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
 
   $('.message').off("contextmenu");
+
+  // Preload Vue dependencies.
+  Dlopen.loadDependencies([
+    'vue',
+    'vue-select',
+    'vue-numeric-input',
+    'actor-sheet'
+  ]);
 });
 
 /* ---------------------------------------------- */
