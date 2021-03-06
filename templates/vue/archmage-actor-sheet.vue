@@ -2,7 +2,7 @@
 <div>
 
   <!-- HEADER -->
-  <header class="character-header flexrow">
+  <header class="header character-header flexrow">
     <!-- Name -->
     <div class="unit unit--abs-label unit--name">
       <label for="name">{{localize("Name")}}</label>
@@ -26,9 +26,7 @@
   </header>
 
   <!-- Attributes section -->
-  <section class="section section--attributes flexrow">
-
-  </section>
+  <component v-bind:is="attributesComponent" :actor="actor"></component>
 
   <!-- Left sidebar -->
   <section class="section section--sidebar flexcol">
@@ -96,6 +94,9 @@ export default {
     }
   },
   computed: {
+    attributesComponent() {
+      return `archmage-actor-c-attributes`;
+    }
   },
   watch: {
   },
