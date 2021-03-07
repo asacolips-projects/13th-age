@@ -211,19 +211,45 @@ content: |
         <p><strong>Total Feats</strong></p>
         </td>
         <td>
-        <p><strong>Maneuvers Known</strong></p>
+        <p><strong>Maneuvers Known (M)</strong></p>
         </td>
         <td>
-        <p><strong>Maneuver Pool Available</strong></p>
+        <p><strong>Maneuver Pool Available (M)</strong></p>
         </td>
         <td>
-        <p><strong>Class Talents</strong></p>
+        <p><strong>Class Talents (M)</strong></p>
         </td>
         <td>
         <p><strong>Level-up Ability Bonuses</strong></p>
         </td>
         <td>
         <p><strong>Damage Bonus From Ability Score</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 1 Multiclass</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x 3</p>
+        </td>
+        <td>
+        <p>As 1st level PC</p>
+        </td>
+        <td>
+        <p>2</p>
+        </td>
+        <td>
+        <p>1st level</p>
+        </td>
+        <td>
+        <p>1 or 2 (3 total)</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
         </td>
       </tr>
       <tr>
