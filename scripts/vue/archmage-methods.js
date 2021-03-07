@@ -11,6 +11,11 @@ window.archmageVueMethods = {
       value = parseFloat(value).toFixed(dec);
       if (sign ) return ( value >= 0 ) ? `+${value}` : value;
       return value;
+    },
+    concat(...args) {
+      return args.reduce((acc, cur) => {
+        return acc + cur;
+      }, '');
     }
   }
 }

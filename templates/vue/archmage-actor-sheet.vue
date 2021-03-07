@@ -19,6 +19,7 @@
       <archmage-actor-c-backgrounds :actor="actor"></archmage-actor-c-backgrounds>
       <archmage-actor-c-icon-relationships :actor="actor"></archmage-actor-c-icon-relationships>
       <archmage-actor-c-out :actor="actor"></archmage-actor-c-out>
+      <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals>
     </section>
     <!-- /Left sidebar -->
 

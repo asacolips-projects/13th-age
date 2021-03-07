@@ -20,6 +20,8 @@
   &.sheet {
     // Specific.
     @import 'components/sheet';
+    @import 'components/character/abilities';
+    @import 'components/character/backgrounds';
   }
 
   // Chat messages.

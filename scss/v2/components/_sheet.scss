@@ -1,3 +1,11 @@
 .window-content {
   background: url('#{$assets}/paper-v2.webp');
 }
+
+.section--sidebar {
+  flex: 0 0 260px;
+}
+
+.section--main {
+  flex: 1;
+}
