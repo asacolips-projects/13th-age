@@ -211,16 +211,39 @@ content: |
         <p><strong>Total Feats</strong></p>
         </td>
         <td>
-        <p><strong>Powers Known</strong></p>
+        <p><strong>Powers Known (M)</strong></p>
         </td>
         <td>
-        <p><strong>Power Pool Available</strong></p>
+        <p><strong>Power Pool Available (M)</strong></p>
         </td>
         <td>
         <p><strong>Level-up Ability Bonuses</strong></p>
         </td>
         <td>
         <p><strong>Damage Bonus From Ability Score</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 1 Multiclass</strong></p>
+        </td>
+        <td>
+        <p>(6 + CON mod) x <strong>3</strong></p>
+        </td>
+        <td>
+        <p>As 1st level PC</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>1st level</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
         </td>
       </tr>
       <tr>

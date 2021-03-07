@@ -214,15 +214,26 @@ content: |
         <th style="width: 8.9607%; height: 34px;">Wizard Level</th>
         <th style="width: 11.5317%; height: 34px; min-width: 140px;">Total Hit Points</th>
         <th style="width: 19.8129%; height: 34px;">Total Feats</th>
-        <th style="width: 8.51563%; height: 34px;">1st level spell</th>
-        <th style="width: 8.63636%; height: 34px;">3rd level spell</th>
-        <th style="width: 8.62926%; height: 34px;">5th level spell</th>
-        <th style="width: 8.62926%; height: 34px;">7th level spell</th>
-        <th style="width: 8.62926%; height: 34px;">9th level spell</th>
+        <th style="width: 8.51563%; height: 34px;">1st level spell (M)</th>
+        <th style="width: 8.63636%; height: 34px;">3rd level spell (M)</th>
+        <th style="width: 8.62926%; height: 34px;">5th level spell (M)</th>
+        <th style="width: 8.62926%; height: 34px;">7th level spell (M)</th>
+        <th style="width: 8.62926%; height: 34px;">9th level spell (M)</th>
         <th style="width: 15.2344%; height: 34px;">Level-up Ability Bonuses</th>
       </tr>
     </thead>
     <tbody>
+      <tr style="height: 34px;">
+        <td style="width: 8.9607%; height: 34px;">Level 1 Multiclass</td>
+        <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 3</td>
+        <td style="width: 19.8129%; height: 34px;">As 1st level PC</td>
+        <td style="width: 8.51563%; height: 34px;">4</td>
+        <td style="width: 8.63636%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 8.62926%; height: 34px;">&mdash;</td>
+        <td style="width: 15.2344%; height: 34px;">&mdash;</td>
+      </tr>
       <tr style="height: 34px;">
         <td style="width: 8.9607%; height: 34px;">Level 1</td>
         <td style="width: 11.5317%; height: 34px;">(6 + CON mod) x 3</td>

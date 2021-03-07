@@ -198,262 +198,106 @@ content: |
   </div>
   <h2 class="archmage-class-heading">Level Progression</h2>
   <table>
+    <thead>
+      <tr>
+        <th>Barbarian Level</strong></th>
+        <th>Total Hit Points</th>
+        <th>Total Feats</th>
+        <th>Class Talents (M)</th>
+        <th>Level-up Ability Bonuses</th>
+        <th>Damage Bonus from Ability Score</th>
+      </tr>
+    </thead>
     <tbody>
       <tr>
-        <td>
-        <p><strong>Barbarian Level</strong></p>
-        </td>
-        <td>
-        <p><strong>Total Hit Points</strong></p>
-        </td>
-        <td>
-        <p><strong>Total Feats</strong></p>
-        </td>
-        <td>
-        <p><strong>Class Talents</strong></p>
-        </td>
-        <td>
-        <p><strong>Level-up Ability Bonuses</strong></p>
-        </td>
-        <td>
-        <p><strong>Damage Bonus from Ability Score</strong></p>
-        </td>
+        <th>Level 1 Multiclass</th>
+        <td>(Avg. of both classes) x <strong>3</strong></td>
+        <td>As 1st level PC</td>
+        <td>1 or 2 (3 total)</td>
+        <td>Not affected</td>
+        <td>ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 1</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>3</strong></p>
-        </td>
-        <td>
-        <p>1 adventurer</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>ability modifier</p>
-        </td>
+        <th>Level 1</th>
+        <td>(7 + CON mod) x <strong>3</strong></td>
+        <td>1 adventurer</td>
+        <td>3 adventurer</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 2</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>4</strong></p>
-        </td>
-        <td>
-        <p>2 adventurer</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>ability modifier</p>
-        </td>
+        <th>Level 2</th>
+        <td>(7 + CON mod) x <strong>4</strong></td>
+        <td>2 adventurer</td>
+        <td>3 adventurer</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 3</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>5</strong></p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>ability modifier</p>
-        </td>
+        <th>Level 3</th>
+        <td>(7 + CON mod) x <strong>5</strong></td>
+        <td>3 adventurer</td>
+        <td>3 adventurer</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 4</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>6</strong></p>
-        </td>
-        <td>
-        <p>4 adventurer</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-        </td>
-        <td>
-        <p>+1 to 3 abilities</p>
-        </td>
-        <td>
-        <p>ability modifier</p>
-        </td>
+        <th>Level 4</th>
+        <td>(7 + CON mod) x <strong>6</strong></td>
+        <td>4 adventurer</td>
+        <td>3 adventurer</td>
+        <td>+1 to 3 abilities</td>
+        <td>ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 5</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>8</strong></p>
-        </td>
-        <td>
-        <p>4 adventurer</p>
-
-        <p>1 champion</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>2 x ability modifier</p>
-        </td>
+        <th>Level 5</th>
+        <td>(7 + CON mod) x <strong>8</strong></td>
+        <td><p>4 adventurer</p><p>1 champion</p></td>
+        <td><p>3 adventurer</p><p>1 champion</p></td>
+        <td>&nbsp;</td>
+        <td>2 x ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 6</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>10</strong></p>
-        </td>
-        <td>
-        <p>4 adventurer</p>
-
-        <p>2 champion</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>2 x ability modifier</p>
-        </td>
+        <th>Level 6</th>
+        <td>(7 + CON mod) x <strong>10</strong></td>
+        <td><p>4 adventurer</p><p>2 champion</p></td>
+        <td><p>3 adventurer</p><p>1 champion</p></td>
+        <td>&nbsp;</td>
+        <td>2 x ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 7</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>12</strong></p>
-        </td>
-        <td>
-        <p>4 adventurer</p>
-
-        <p>3 champion</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-        </td>
-        <td>
-        <p>+1 to 3 abilities</p>
-        </td>
-        <td>
-        <p>2 x ability modifier</p>
-        </td>
+        <th>Level 7</th>
+        <td>(7 + CON mod) x <strong>12</strong></td>
+        <td><p>4 adventurer</p><p>3 champion</p></td>
+        <td><p>3 adventurer</p><p>1 champion</p></td>
+        <td>+1 to 3 abilities</td>
+        <td>2 x ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 8</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>16</strong></p>
-        </td>
-        <td>
-        <p>4 adventurer</p>
-
-        <p>3 champion</p>
-
-        <p>1 epic</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-
-        <p>1 epic</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>3 x ability modifier</p>
-        </td>
+        <th>Level 8</th>
+        <td>(7 + CON mod) x <strong>16</strong></td>
+        <td><p>4 adventurer</p><p>3 champion</p><p>1 epic</p></td>
+        <td><p>3 adventurer</p><p>1 champion</p><p>1 epic</p></td>
+        <td>&nbsp;</td>
+        <td>3 x ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 9</strong></p>
-        </td>
-        <td>
-        <p>(7 + CON mod) x <strong>20</strong></p>
-        </td>
-        <td>
-        <p>4 adventurer</p>
-
-        <p>3 champion</p>
-
-        <p>2 epic</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-
-        <p>1 epic</p>
-        </td>
-        <td>
-        <p>&nbsp;</p>
-        </td>
-        <td>
-        <p>3 x ability modifier</p>
-        </td>
+        <th>Level 9</th>
+        <td>(7 + CON mod) x <strong>20</strong></td>
+        <td><p>4 adventurer</p><p>3 champion</p><p>2 epic</p></td>
+        <td><p>3 adventurer</p><p>1 champion</p><p>1 epic</p></td>
+        <td>&nbsp;</td>
+        <td>3 x ability modifier</td>
       </tr>
       <tr>
-        <td>
-        <p><strong>Level 10</strong></p>
+        <th>Level 10</th>
         </td>
-        <td>
-        <p>(7 + CON mod) x <strong>24</strong></p>
+        <td>(7 + CON mod) x <strong>24</strong></p>
         </td>
-        <td>
-        <p>4 adventurer</p>
-
-        <p>3 champion</p>
-
-        <p>3 epic</p>
-        </td>
-        <td>
-        <p>3 adventurer</p>
-
-        <p>1 champion</p>
-
-        <p>1 epic</p>
-        </td>
-        <td>
-        <p>+1 to 3 abilities</p>
-        </td>
-        <td>
-        <p>3 x ability modifier</p>
-        </td>
+        <td><p>4 adventurer</p><p>3 champion</p><p>3 epic</p></td>
+        <td><p>3 adventurer</p><p>1 champion</p><p>1 epic</p></td>
+        <td>+1 to 3 abilities</td>
+        <td>3 x ability modifier</td>
       </tr>
     </tbody>
   </table>
