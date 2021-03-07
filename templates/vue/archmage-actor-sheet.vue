@@ -57,7 +57,11 @@
 <script>
 export default {
   props: [ "actor" ],
-  data: () => ({}),
+  data: function () {
+    return {
+      actor: {}
+    }
+  },
   methods: { /* See created. */},
   computed: {},
   watch: {

@@ -1,6 +1,7 @@
 <template>
   <section class="section section--out flexcol">
-    <h2>One Unique Thing</h2>
+    <h2 class="unit-title">{{localize('Backgrounds')}}</h2>
+    <div class="out">{{actor.data.out.value}}</div>
   </section>
 </template>
 

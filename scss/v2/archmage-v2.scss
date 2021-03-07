@@ -12,6 +12,7 @@
   @import 'base/typography';
   // Layout.
   @import 'layout/grid';
+  @import 'layout/flex';
   @import 'layout/layout';
   // Components.
   @import 'components/rollable';
@@ -22,6 +23,8 @@
     @import 'components/sheet';
     @import 'components/character/abilities';
     @import 'components/character/backgrounds';
+    @import 'components/character/icons';
+    @import 'components/character/incrementals';
   }
 
   // Chat messages.

@@ -213,6 +213,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i2:
           name:
             type: String
@@ -226,6 +227,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i3:
           name:
             type: String
@@ -239,6 +241,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i4:
           name:
             type: String
@@ -252,6 +255,7 @@ Actor:
           isActive:
             type: Boolean
             value: 0
+          results: []
         i5:
           name:
             type: String
@@ -265,6 +269,7 @@ Actor:
           isActive:
             type: Boolean
             value: 0
+          results: []
   character:
     templates:
       - standard

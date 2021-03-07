@@ -1,0 +1,28 @@
+.section--incrementals {
+  ul,
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .incrementals {
+    display: flex;
+    flex-wrap: wrap;
+
+    input[type="checkbox"] {
+      margin: 0 2px 0 0;
+      padding: 0;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .incremental {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 4px;
+  }
+}

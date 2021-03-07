@@ -464,6 +464,7 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
+  console.log(data);
   if (actor.data.type == 'character'
     && options.diff
     && data.data !== undefined

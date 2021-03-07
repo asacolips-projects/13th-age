@@ -5,7 +5,7 @@
       <div class="ability-lvl-label grid-start-4">{{localize('LVL')}}</div>
     </div>
     <ul class="list list--abilities abilities">
-      <li v-for="(item, index) in actor.data.abilities" :key="concat('data.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index">
+      <li v-for="(item, index) in abilities" :key="concat('data.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index">
         <input type="number" v-bind:name="concat('data.abilities.', index, '.value')" class="ability-score" v-model="item.value"/>
         <a class="ability-name rollable rollable--ability" data-roll-type="ability" :data-roll-opt="index">{{localize(concat('ARCHMAGE.', index, '.label'))}}</a>
         <div class="ability-mod">{{numberFormat(item.mod, 0, true)}}</div>
@@ -18,7 +18,11 @@
 <script>
 export default {
   props: ['actor'],
-  data: () => ({}),
+  data: function () {
+    return {
+      abilities: {}
+    }
+  },
   computed: {},
   methods: {},
   async created() {
@@ -26,6 +30,10 @@ export default {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+    console.log(this.abilities);
+    this.abilities = this.actor.data.abilities;
+    console.log(this.actor);
+  }
 }
 </script>

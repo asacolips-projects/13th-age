@@ -1,0 +1,42 @@
+.section--icons {
+  ul,
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .vs__clear {
+    display: none !important;
+  }
+
+  .vs__search {
+    display: none;
+  }
+
+  .icon-roll {
+    display: block;
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    margin: 0 5px;
+    background: $c-white;
+    border: 1px solid $c-black;
+    text-align: center;
+    line-height: 14px;
+  }
+
+  // TODO: Make a way to view/edit this.
+  .hide {
+    display: none;
+  }
+
+  .icon-display,
+  .icon-edit {
+    flex: calc(100% - 16px);
+  }
+
+  .icon-edit-toggle {
+    flex: 0 0 16px;
+  }
+}
