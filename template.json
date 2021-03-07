@@ -384,6 +384,9 @@
           },
           "commandPoints": {
             "enabled": false
+          },
+          "focus": {
+            "enabled": false
           }
         },
         "spendable": {

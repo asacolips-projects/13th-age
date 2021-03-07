@@ -291,6 +291,8 @@ Actor:
           enabled: false
         commandPoints:
           enabled: false
+        focus:
+          enabled: false
       spendable:
         ki:
           enabled: false

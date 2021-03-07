@@ -235,6 +235,10 @@ export class ActorArchmage extends Actor {
           momentum: {
             current: 0,
             enabled: false
+          },
+          focus: {
+            current: 0,
+            enabled: false
           }
         };
       }
@@ -393,6 +397,7 @@ export class ActorArchmage extends Actor {
       if (data.resources.perCombat) {
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+        data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
         data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
