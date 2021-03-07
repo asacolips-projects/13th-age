@@ -1,13 +1,20 @@
 <template>
-  <section class="section section--tabs flexcol">
-    <h2>Tabs</h2>
+  <section class="section section--tabs flexshrink">
+    <nav :class="concat('sheet-tabs tabs tabs--', group)" :data-group="group">
+      <a v-for="item in tabs" :key="concat('tab-', group, '-', item)" :data-tab="item">{{localize(concat('ARCHMAGE.', item))}}</a>
+    </nav>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['actor'],
-  data: () => ({}),
+  props: ['actor', 'group', 'tabs'],
+  data: function () {
+    return {
+      group: 'primary',
+      tabs: []
+    }
+  },
   computed: {},
   methods: { /* See created. */},
   async created() {

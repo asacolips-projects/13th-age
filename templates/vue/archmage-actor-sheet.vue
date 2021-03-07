@@ -29,7 +29,7 @@
       <!-- Class resources -->
       <archmage-actor-c-resources :actor="actor"></archmage-actor-c-resources>
       <!-- Tabs -->
-      <archmage-actor-c-tabs :actor="actor"></archmage-actor-c-tabs>
+      <archmage-actor-c-tabs :actor="actor" group="primary" :tabs="['details','powers','inventory','effects']"></archmage-actor-c-tabs>
 
       <!-- Tabs content -->
       <section class="section section--tabs-content flexcol">
