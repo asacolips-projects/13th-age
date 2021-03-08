@@ -61,17 +61,10 @@ export default {
     return {
       actorData: {},
       abilities: {},
-      level: 0,
-      recalKey: 0
+      level: 0
     }
   },
-  methods: {
-    recalculate(event) {
-      console.log('FOOBAR');
-      this.actor.data.abilities.str.lvl = this.actor.data.abilities.str.mod + this.actor.data.attributes.level.value;
-      this.recalKey++;
-    }
-  },
+  methods: {},
   computed: {},
   watch: {
     actorData: {

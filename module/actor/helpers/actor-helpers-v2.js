@@ -21,9 +21,18 @@ export class ActorHelpersV2 {
   }
 
   static _prepareAbilityScores(actorData) {
+    let levelMultiplier = 1;
+    if (actorData.data.attributes.level.value >= 5) {
+      levelMultiplier = 2;
+    }
+    if (actorData.data.attributes.level.value >= 8) {
+      levelMultiplier = 3;
+    }
+
     for (let abl of Object.values(actorData.data.abilities)) {
       abl.mod = Math.floor((abl.value - 10) / 2);
       abl.lvl = abl.mod + actorData.data.attributes.level.value;
+      abl.dmg = abl.mod * levelMultiplier;
     }
   }
 
