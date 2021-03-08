@@ -382,7 +382,7 @@ export class ActorArchmage extends Actor {
       let classRegex = new RegExp(classList.join('|'), 'g');
 
       var classText = data.details.class?.value;
-      classText = classText ? classText.toLowerCase() : '';
+      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
 
       var matchedClasses = classText.match(classRegex);
       if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
@@ -659,7 +659,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
     let classText = data.data.details.class.value;
-    classText = classText ? classText.toLowerCase() : '';
+    classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
     let matchedClasses = classText.match(classRegex);
 
     if (matchedClasses !== null) {
