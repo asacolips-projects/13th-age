@@ -19,7 +19,7 @@
     <!-- Level -->
     <div class="unit unit--level flexrow">
       <label for="data.attributes.level.value">{{localize("Level")}}</label>
-      <vue-numeric-input name="data.attributes.level.value" v-model="actor.data.attributes.level.value" controls-type="updown"></vue-numeric-input>
+      <vue-numeric-input name="data.attributes.level.value" v-model="level.value" controls-type="updown"></vue-numeric-input>
     </div>
   </header>
 </template>
@@ -27,8 +27,11 @@
 <script>
 export default {
   props: ['actor'],
-  data: () => ({
-  }),
+  data: function() {
+    return {
+      level: {}
+    }
+  },
   computed: {},
   methods: { /* See created. */},
   async created() {
@@ -36,6 +39,8 @@ export default {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+    this.level = this.actor.data.attributes.level;
+  }
 }
 </script>

@@ -72,23 +72,28 @@ export default {
       this.recalKey++;
     }
   },
-  computed: {
-    actorData() {
-      return this.actor.data;
+  computed: {},
+  watch: {
+    actorData: {
+      deep: true,
+      handler() {
+        console.log('Vue Sheet Updated')
+        game.archmage.ActorHelpersV2.prepareData(this.actor);
+      }
     }
   },
-  watch: {},
   async created() {
     console.log("Creating Sheet");
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
     this.actorData = this.actor.data;
+    console.log(game.archmage);
   },
   async mounted() {
     console.log("Sheet Mounted");
     this.abilities = this.actor.data.abilities;
-    this.level = this.actor.data.attributes.level.value;
+    this.level = this.actor.data.attributes.level;
   },
 };
 </script>

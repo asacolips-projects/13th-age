@@ -13,6 +13,7 @@ import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
+import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 
 Hooks.once('init', async function() {
 
@@ -77,6 +78,7 @@ Hooks.once('init', async function() {
     ItemArchmageSheet,
     ArchmageUtility,
     rollItemMacro,
+    ActorHelpersV2
   };
 
   // Replace sheets.

@@ -18,7 +18,7 @@
       </div>
     </div>
     <!-- Defenses -->
-    <div class="unit unit--defenses" :key="recalKey">
+    <div class="unit unit--defenses">
       <h2 class="unit-title">{{localize('Defenses')}}</h2>
       <div class="defenses grid grid-3col">
         <div class="defense defense--ac flexcol">
@@ -76,7 +76,7 @@
 
 <script>
 export default {
-  props: ['actor', 'recalKey'],
+  props: ['actor'],
   data: () => ({}),
   computed: {},
   methods: {},
