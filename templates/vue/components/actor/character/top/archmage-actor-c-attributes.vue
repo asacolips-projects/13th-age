@@ -18,7 +18,7 @@
       </div>
     </div>
     <!-- Defenses -->
-    <div class="unit unit--defenses">
+    <div class="unit unit--defenses" :key="recalKey">
       <h2 class="unit-title">{{localize('Defenses')}}</h2>
       <div class="defenses grid grid-3col">
         <div class="defense defense--ac flexcol">
@@ -76,10 +76,10 @@
 
 <script>
 export default {
-  props: ['actor'],
+  props: ['actor', 'recalKey'],
   data: () => ({}),
   computed: {},
-  methods: { /* See created. */},
+  methods: {},
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;

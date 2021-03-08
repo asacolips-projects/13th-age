@@ -86,7 +86,6 @@ export default {
     }
   },
   async mounted() {
-    console.log(this.editArray);
   }
 }
 </script>

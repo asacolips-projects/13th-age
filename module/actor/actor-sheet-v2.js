@@ -22,10 +22,11 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   getData() {
     const sheetData = super.getData();
     sheetData.actorJSON = JSON.stringify(sheetData.actor);
+    console.log(sheetData);
     return sheetData;
   }
 
-  /** @override */
+  // /** @override */
   activateListeners(html) {
     // super.activateListeners(html);
 
@@ -35,10 +36,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     //   return
     // }
 
+    // Rebind the Vue form.
+    this.form = $(`form[data-actor-id="${this.actor.data._id}"]`)[0];
+
     // Process form submission
     this.form.onsubmit = this._onSubmit.bind(this, {preventRender: false});
 
-    // // Process changes to input fields
+    // Process changes to input fields
     html.on("change", "input,select,textarea", this._onChangeInput.bind(this));
 
     // // Detect and activate TinyMCE rich text editors
@@ -67,14 +71,14 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     // For pop-out windows update the inner content and the window title
     if ( this.popOut ) {
       // TODO: Replace this with Vue render.
-      element.find('.window-content').html(html);
+      // element.find('.window-content').html(html);
       element.find('.window-title').text(this.title);
     }
 
     // For regular applications, replace the whole thing
     else {
       // TODO: Replace this with Vue render.
-      element.replaceWith(html);
+      // element.replaceWith(html);
       this._element = html;
     }
   }

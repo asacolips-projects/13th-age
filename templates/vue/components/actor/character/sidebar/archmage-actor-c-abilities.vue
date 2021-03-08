@@ -5,7 +5,7 @@
       <div class="ability-lvl-label grid-start-4">{{localize('LVL')}}</div>
     </div>
     <ul class="list list--abilities abilities">
-      <li v-for="(item, index) in abilities" :key="concat('data.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index">
+      <li v-for="(item, index) in actor.data.abilities" :key="concat('data.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index">
         <input type="number" v-bind:name="concat('data.abilities.', index, '.value')" class="ability-score" v-model="item.value"/>
         <a class="ability-name rollable rollable--ability" data-roll-type="ability" :data-roll-opt="index">{{localize(concat('ARCHMAGE.', index, '.label'))}}</a>
         <div class="ability-mod">{{numberFormat(item.mod, 0, true)}}</div>
@@ -20,20 +20,33 @@ export default {
   props: ['actor'],
   data: function () {
     return {
-      abilities: {}
+      abilities: {},
+      level: {}
     }
   },
-  computed: {},
+  computed: {
+  },
   methods: {},
+  watch: {
+    actor: {
+      deep: true,
+      handler() {
+        for (let [k,v] of Object.entries(this.abilities)) {
+          this.abilities[k].mod = Math.floor((v.value - 10) / 2);
+          this.abilities[k].lvl = this.abilities[k].mod + this.level.value;
+        }
+        console.log('Abilities updated');
+      }
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
   },
   async mounted() {
-    console.log(this.abilities);
     this.abilities = this.actor.data.abilities;
-    console.log(this.actor);
+    this.level = this.actor.data.attributes.level;
   }
 }
 </script>

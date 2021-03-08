@@ -59,21 +59,36 @@ export default {
   props: [ "actor" ],
   data: function () {
     return {
-      actor: {}
+      actorData: {},
+      abilities: {},
+      level: 0,
+      recalKey: 0
     }
   },
-  methods: { /* See created. */},
-  computed: {},
-  watch: {
+  methods: {
+    recalculate(event) {
+      console.log('FOOBAR');
+      this.actor.data.abilities.str.lvl = this.actor.data.abilities.str.mod + this.actor.data.attributes.level.value;
+      this.recalKey++;
+    }
   },
+  computed: {
+    actorData() {
+      return this.actor.data;
+    }
+  },
+  watch: {},
   async created() {
     console.log("Creating Sheet");
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
+    this.actorData = this.actor.data;
   },
   async mounted() {
     console.log("Sheet Mounted");
+    this.abilities = this.actor.data.abilities;
+    this.level = this.actor.data.attributes.level.value;
   },
 };
 </script>
