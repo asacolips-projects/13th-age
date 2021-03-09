@@ -379,6 +379,22 @@ export class ActorArchmage extends Actor {
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
 
+    // Handle icons.
+    if (data?.icons) {
+      for (let [k,v] of Object.entries(data.icons)) {
+        if (v.results) {
+          let results = {};
+          for (let i = 0; i < v.bonus.value; i++) {
+            results[i] = {
+              // TODO: Make this dynamic.
+              value: 6
+            }
+          }
+          v.results = results;
+        }
+      }
+    }
+
 
     // Find known classes
     if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {

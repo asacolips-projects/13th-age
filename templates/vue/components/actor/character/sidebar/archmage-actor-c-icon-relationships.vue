@@ -9,7 +9,7 @@
             <span class="icon-name">{{item.bonus.value}} {{item.name.value}}</span>
           </div>
           <ul class="icon-rolls flexrow" :key="changeKey">
-            <li v-for="roll in item.bonus.value" :key="roll" class="icon-roll">5</li>
+            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll">{{roll.value}}</li>
           </ul>
         </div>
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">
@@ -39,12 +39,7 @@ export default {
     icons() {
       let filteredIcons = {};
       for (let [k,v] of Object.entries(this.actor.data.icons)) {
-        v.results = this.getIconResults(v);
         if (v.isActive.value === true) filteredIcons[k] = v;
-        // filteredIcons[k]['results'] = [];
-        for (let i = 0; i < v.bonus.value; i++) {
-          // filteredIcons[k].results[i] = { value: true };
-        }
       }
       return filteredIcons;
     },
@@ -85,16 +80,39 @@ export default {
         return this.editArray[index] === type ? ' hide ' : '';
       }
     },
-    getIconResults(icon) {
-      return Array.from(new Array(icon.bonus.value), (x,i) => i+1);
+    getIconResults() {
+      game.archmage.ActorHelpersV2._prepareIcons(this.actor);
     }
   },
   watch: {
-    icons: {
-      deep: true,
+    'icons.i1.bonus.value': {
+      deep: false,
       handler() {
-        console.log('Icons updated...');
-        this.changeKey++;
+        this.getIconResults();
+      }
+    },
+    'icons.i2.bonus.value': {
+      deep: false,
+      handler() {
+        this.getIconResults();
+      }
+    },
+    'icons.i3.bonus.value': {
+      deep: false,
+      handler() {
+        this.getIconResults();
+      }
+    },
+    'icons.i4.bonus.value': {
+      deep: false,
+      handler() {
+        this.getIconResults();
+      }
+    },
+    'icons.i5.bonus.value': {
+      deep: false,
+      handler() {
+        this.getIconResults();
       }
     }
   },

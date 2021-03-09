@@ -14,10 +14,29 @@ export class ActorHelpersV2 {
   static _prepareCharacterData(actorData) {
     ActorHelpersV2._prepareAbilityScores(actorData);
     ActorHelpersV2._prepareDefenses(actorData);
+    // ActorHelpersV2._prepareIcons(actorData);
   }
 
   static _prepareNpcData(actorData) {
     // Pass.
+  }
+
+  static _prepareIcons(actorData) {
+    // Handle icons.
+    if (actorData.data?.icons) {
+      for (let [k,v] of Object.entries(actorData.data.icons)) {
+        if (v.results) {
+          let results = {};
+          for (let i = 0; i < v.bonus.value; i++) {
+            results[i] = {
+              // TODO: Make this dynamic.
+              value: 6
+            }
+          }
+          v.results = results;
+        }
+      }
+    }
   }
 
   static _prepareAbilityScores(actorData) {
