@@ -47,9 +47,9 @@ export class ActorHelpersV2 {
     if (actorData.items) {
       actorData.items.forEach((item) => {
         if (item.type === 'equipment') {
-          acBonus += ActorHelpersV2._getBonusOr0(item.data.data.attributes.ac);
-          mdBonus += ActorHelpersV2._getBonusOr0(item.data.data.attributes.md);
-          pdBonus += ActorHelpersV2._getBonusOr0(item.data.data.attributes.pd);
+          acBonus += ActorHelpersV2._getBonusOr0(item?.data?.data?.attributes?.ac);
+          mdBonus += ActorHelpersV2._getBonusOr0(item?.data?.data?.attributes?.md);
+          pdBonus += ActorHelpersV2._getBonusOr0(item?.data?.data?.attributes?.pd);
         }
       });
     }

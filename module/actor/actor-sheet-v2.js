@@ -2,6 +2,18 @@ import { ActorArchmageSheet } from './actor-sheet.js';
 
 export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /** @override */
+  constructor(...args) {
+    super(...args);
+
+    /**
+     * If this Actor Sheet represents a synthetic Token actor, reference the active Token
+     * @type {Token}
+     */
+    this.token = this.object.token;
+    this._vm = null;
+  }
+
+  /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
     mergeObject(options, {
@@ -21,71 +33,47 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /** @override */
   getData() {
     const sheetData = super.getData();
-    sheetData.actorJSON = JSON.stringify(sheetData.actor);
-    console.log(sheetData);
     return sheetData;
   }
 
-  // /** @override */
+  /** @override */
   activateListeners(html) {
-    // super.activateListeners(html);
-
-    // Disable input fields if the form is not editable
-    // if ( !this.isEditable ) {
-    //   this._disableFields(this.form);
-    //   return
-    // }
-
-    // Rebind the Vue form.
-    this.form = $(`form[data-actor-id="${this.actor.data._id}"]`)[0];
-
-    // Process form submission
-    this.form.onsubmit = this._onSubmit.bind(this, {preventRender: false});
-
-    // Process changes to input fields
-    html.on("change", "input,select,textarea", this._onChangeInput.bind(this));
-
-    // // Detect and activate TinyMCE rich text editors
-    // html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
-
-    // // Detect and activate file-picker buttons
-    // html.find('button.file-picker').each((i, button) => this._activateFilePicker(button));
-
-    // // Support Image updates
-    // if ( this.options.editable ) {
-    //   html.find('img[data-edit]').click(ev => this._onEditImage(ev));
-    // }
-  }
-
-  /**
-   * Customize how inner HTML is replaced when the application is refreshed
-   * @param {HTMLElement|jQuery} element  The original HTML element
-   * @param {HTMLElement|jQuery} html     New updated HTML
-   * @private
-   */
-  _replaceHTML(element, html, options) {
-    console.log('Rendering replacement...');
-    let sheetData = this.getData();
-    if ( !element.length ) return;
-
-    // For pop-out windows update the inner content and the window title
-    if ( this.popOut ) {
-      // TODO: Replace this with Vue render.
-      // element.find('.window-content').html(html);
-      element.find('.window-title').text(this.title);
-    }
-
-    // For regular applications, replace the whole thing
-    else {
-      // TODO: Replace this with Vue render.
-      // element.replaceWith(html);
-      this._element = html;
-    }
+    super.activateListeners(html);
   }
 
   /** @override */
-  _updateObject(event, formData) {
-    const diffData = diffObject(this.actor.data, expandObject(formData));
-    return super._updateObject(event, diffData);
+  render(force=false, options={}) {
+    // Exit if Vue has already rendered.
+    if (this._vm) {
+      return;
+    }
+    // Run the normal Foundry render once.
+    this._render(force, options).catch(err => {
+      err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
+	    console.error(err);
+	    this._state = Application.RENDER_STATES.ERROR;
+    })
+    // Run Vue's render, assign it to our prop for tracking.
+    .then(rendered => {
+      // Prepare the actor data.
+      let sheetData = this.getData();
+      let el = this.element.find('.archmage-vueport');
+      // Render Vue and assign it to prevent later rendering.
+      VuePort.render(null, el[0], {data: {actor: sheetData.actor}}).then(vm => {
+        this._vm = vm;
+      });
+    })
+    // Return per the overridden method.
+    return this;
+  }
+
+  /** @override */
+  async close(options={}) {
+    // Destroy the Vue app.
+    if (this._vm) {
+      this._vm.$destroy();
+      this._vm = null;
+    }
+    return super.close(options);
   }
 }

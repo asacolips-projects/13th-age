@@ -60,17 +60,17 @@ export default {
   data: function () {
     return {
       actorData: {},
-      abilities: {},
-      level: 0
     }
   },
   methods: {},
   computed: {},
   watch: {
-    actorData: {
+    actor: {
       deep: true,
       handler() {
         console.log('Vue Sheet Updated')
+        // This method abstracts the prepare data call that the actor class
+        // itself would normally call.
         game.archmage.ActorHelpersV2.prepareData(this.actor);
       }
     }
@@ -80,13 +80,9 @@ export default {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
-    this.actorData = this.actor.data;
-    console.log(game.archmage);
   },
   async mounted() {
     console.log("Sheet Mounted");
-    this.abilities = this.actor.data.abilities;
-    this.level = this.actor.data.attributes.level;
   },
 };
 </script>

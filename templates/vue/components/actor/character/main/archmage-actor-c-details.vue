@@ -1,6 +1,6 @@
 <template>
   <section class="section section--details flexcol">
-    <h2>Details</h2>
+    <div class="editor-content" v-html="actor.data.details.biography.value"></div>
   </section>
 </template>
 

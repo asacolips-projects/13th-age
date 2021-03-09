@@ -14,6 +14,7 @@ export class ActorArchmage extends Actor {
    */
   prepareData() {
     super.prepareData();
+    console.log('/////////////////////\r\nPREPARING ACTOR\r\n/////////////////////');
 
     // Get the Actor's data object
     this.data = duplicate(this._data);
