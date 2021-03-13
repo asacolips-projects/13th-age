@@ -1,0 +1,23 @@
+.section--tabs {
+  .tab-link {
+    text-align: center;
+    padding: $padding-sm;
+
+    &.active {
+      box-shadow: inset 0 -4px 0 0 $c-black;
+    }
+  }
+}
+
+.section--tabs-content {
+  > .section {
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  }
+}

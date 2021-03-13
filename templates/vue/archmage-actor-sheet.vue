@@ -29,18 +29,18 @@
       <!-- Class resources -->
       <archmage-actor-c-resources :actor="actor"></archmage-actor-c-resources>
       <!-- Tabs -->
-      <archmage-actor-c-tabs :actor="actor" group="primary" :tabs="['details','powers','inventory','effects']"></archmage-actor-c-tabs>
+      <archmage-actor-c-tabs :actor="actor" group="primary" :tabs="tabs.primary"></archmage-actor-c-tabs>
 
       <!-- Tabs content -->
       <section class="section section--tabs-content flexcol">
         <!-- Details tab -->
-        <archmage-actor-c-details :actor="actor"></archmage-actor-c-details>
+        <archmage-actor-c-details :actor="actor" :tab="tabs.primary.details"></archmage-actor-c-details>
         <!-- Powers tab -->
-        <archmage-actor-c-powers :actor="actor"></archmage-actor-c-powers>
+        <archmage-actor-c-powers :actor="actor" :tab="tabs.primary.powers"></archmage-actor-c-powers>
         <!-- Inventory tab -->
-        <archmage-actor-c-inventory :actor="actor"></archmage-actor-c-inventory>
+        <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory"></archmage-actor-c-inventory>
         <!-- Effects tab -->
-        <archmage-actor-c-effects :actor="actor"></archmage-actor-c-effects>
+        <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects"></archmage-actor-c-effects>
       </section>
       <!-- /Tabs content -->
 
@@ -60,6 +60,14 @@ export default {
   data: function () {
     return {
       actorData: {},
+      tabs: {
+        primary: {
+          details: {active: false},
+          powers: {active: true},
+          inventory: {active: false},
+          effects: {active: false}
+        }
+      }
     }
   },
   methods: {},

@@ -1,14 +1,18 @@
 <template>
-  <section class="section section--powers flexcol">
+  <section :class="classes" data-tab="powers">
     <h2>powers</h2>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['actor'],
+  props: ['actor', 'tab'],
   data: () => ({}),
-  computed: {},
+  computed: {
+    classes() {
+      return `section section--details flexcol${this.tab.active ? ' active' : ''}`;
+    }
+  },
   methods: { /* See created. */},
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {

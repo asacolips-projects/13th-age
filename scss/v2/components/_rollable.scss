@@ -6,7 +6,7 @@
   &::before {
     @include fa-icon;
     content: fa-content($fa-var-dice-d20);
-    margin-right: 10px;
+    margin-right: $padding-md;
     color: $c-blue;
   }
 

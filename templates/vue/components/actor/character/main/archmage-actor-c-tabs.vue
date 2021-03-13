@@ -1,7 +1,7 @@
 <template>
   <section class="section section--tabs flexshrink">
     <nav :class="concat('sheet-tabs tabs tabs--', group)" :data-group="group">
-      <a v-for="item in tabs" :key="concat('tab-', group, '-', item)" :data-tab="item">{{localize(concat('ARCHMAGE.', item))}}</a>
+      <a v-for="(item, index) in tabs" :key="concat('tab-', group, '-', index)" :class="getTabClass(item)" :data-tab="index" v-on:click="changeTab">{{localize(concat('ARCHMAGE.', index))}}</a>
     </nav>
   </section>
 </template>
@@ -16,7 +16,19 @@ export default {
     }
   },
   computed: {},
-  methods: { /* See created. */},
+  methods: {
+    changeTab(event) {
+      let $target = $(event.currentTarget);
+      let tab = $target.data('tab');
+      for (let [k,v] of Object.entries(this.tabs)) {
+        this.tabs[k].active = false;
+      }
+      this.tabs[tab].active = true;
+    },
+    getTabClass(tab) {
+      return `tab-link${tab.active ? ' active' : ''}`;
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
