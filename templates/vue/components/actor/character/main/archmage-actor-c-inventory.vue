@@ -10,7 +10,7 @@ export default {
   data: () => ({}),
   computed: {
     classes() {
-      return `section section--details flexcol${this.tab.active ? ' active' : ''}`;
+      return `section section--inventory flexcol${this.tab.active ? ' active' : ''}`;
     }
   },
   methods: { /* See created. */},

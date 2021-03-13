@@ -6,11 +6,11 @@
 
 <script>
 export default {
-  props: ['actor', 'active'],
+  props: ['actor', 'tab'],
   data: () => ({}),
   computed: {
     classes() {
-      return `section section--effects flexcol${this.active ? ' active' : ''}`;
+      return `section section--effects flexcol${this.tab.active ? ' active' : ''}`;
     }
   },
   methods: { /* See created. */},
