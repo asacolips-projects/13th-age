@@ -14,7 +14,6 @@ export class ActorHelpersV2 {
   static _prepareCharacterData(actorData) {
     ActorHelpersV2._prepareAbilityScores(actorData);
     ActorHelpersV2._prepareDefenses(actorData);
-    // ActorHelpersV2._prepareIcons(actorData);
   }
 
   static _prepareNpcData(actorData) {
@@ -59,6 +58,8 @@ export class ActorHelpersV2 {
     let data = actorData.data;
     let missingRecPenalty = Math.min(data.attributes.recoveries.value, 0);
 
+    console.log(data.attributes.level.value);
+
     let acBonus = missingRecPenalty;
     let mdBonus = missingRecPenalty;
     let pdBonus = missingRecPenalty;
@@ -73,28 +74,12 @@ export class ActorHelpersV2 {
       });
     }
 
-    data.attributes.ac.value = data.attributes.ac.base + ActorHelpersV2._median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value + acBonus;
-    data.attributes.pd.value = data.attributes.pd.base + ActorHelpersV2._median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
-    data.attributes.md.value = data.attributes.md.base + ActorHelpersV2._median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value + mdBonus;
-  }
+    // Use array.sort()[1] to grab the middle of the three ability mods.
+    data.attributes.ac.value = data.attributes.ac.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1] + data.attributes.level.value + acBonus;
+    data.attributes.pd.value = data.attributes.pd.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1] + data.attributes.level.value + pdBonus;
+    data.attributes.md.value = data.attributes.md.base + [data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1] + data.attributes.level.value + mdBonus;
 
-  static _median(values) {
-    values.sort(function(a, b) {
-      return a - b;
-    });
-
-    if (values.length === 0) {
-      return 0;
-    }
-
-    let half = Math.floor(values.length / 2);
-
-    if (values.length % 2) {
-      return values[half];
-    }
-    else {
-      return (values[half - 1] + values[half]) / 2.0;
-    }
+    console.log(data.attributes);
   }
 
   static _getBonusOr0(type) {

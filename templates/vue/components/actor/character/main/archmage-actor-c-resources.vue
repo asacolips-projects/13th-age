@@ -69,21 +69,39 @@ export default {
     }
   },
   computed: {},
-  methods: { /* See created. */},
+  methods: {
+    updateResourceProps() {
+      this.commandPoints = this.actor.data.resources.perCombat.commandPoints.current;
+      this.momentum = this.actor.data.resources.perCombat.momentum.current;
+      this.focus = this.actor.data.resources.perCombat.focus.current;
+      this.ki = this.actor.data.resources.spendable.ki;
+      this.disengage = {
+        value: this.actor.data.attributes.disengage,
+        bonus: this.actor.data.attributes.disengageBonus
+      };
+    }
+  },
+  watch: {
+    'actor.data.resources': {
+      deep: true,
+      handler() {
+        this.updateResourceProps();
+      }
+    },
+    'actor.data.attributes': {
+      deep: true,
+      handler() {
+        this.updateResourceProps();
+      }
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
   },
   async mounted() {
-    this.commandPoints = this.actor.data.resources.perCombat.commandPoints.current;
-    this.momentum = this.actor.data.resources.perCombat.momentum.current;
-    this.focus = this.actor.data.resources.perCombat.focus.current;
-    this.ki = this.actor.data.resources.spendable.ki;
-    this.disengage = {
-      value: this.actor.data.attributes.disengage,
-      bonus: this.actor.data.attributes.disengageBonus
-    };
+    this.updateResourceProps();
   }
 }
 </script>

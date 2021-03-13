@@ -8,8 +8,12 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" class="power flexrow">
+        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="powerClass(power)">
           <h3 class="power-title unit-subtitle">{{power.name}}</h3>
+          <div class="item-controls">
+            <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
+          </div>
         </li>
       </ul>
     </section>
@@ -50,7 +54,11 @@ export default {
       return powersByGroup;
     }
   },
-  methods: { /* See created. */},
+  methods: {
+    powerClass(power) {
+      return `power power--${power._id} flexrow`;
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;

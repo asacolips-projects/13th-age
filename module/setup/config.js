@@ -76,14 +76,14 @@ ARCHMAGE.creatureRoles = {
 ARCHMAGE.defaultTokens = {
   'character': 'icons/svg/mystery-man.svg',
   'npc': 'icons/svg/eye.svg',
-  'item': 'icons/svg/d20.svg',
-  'power': 'icons/svg/d20.svg',
+  'item': 'systems/archmage/assets/icons/items/backpack.jpg',
+  'power': 'systems/archmage/assets/icons/skills/weapon_27.jpg',
   'trait': 'icons/svg/regen.svg',
   'action': 'icons/svg/target.svg',
   'nastierSpecial': 'icons/svg/poison.svg',
   'tool': 'icons/svg/anchor.svg',
   'loot': 'icons/svg/daze.svg',
-  'equipment': 'icons/svg/combat.svg'
+  'equipment': 'systems/archmage/assets/icons/items/backpack.jpg'
 };
 
 ARCHMAGE.classList = {

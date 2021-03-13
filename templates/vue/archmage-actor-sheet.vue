@@ -73,15 +73,15 @@ export default {
   methods: {},
   computed: {},
   watch: {
-    actor: {
-      deep: true,
-      handler() {
-        console.log('Vue Sheet Updated')
-        // This method abstracts the prepare data call that the actor class
-        // itself would normally call.
-        game.archmage.ActorHelpersV2.prepareData(this.actor);
-      }
-    }
+    // actor: {
+    //   deep: true,
+    //   handler() {
+    //     console.log('Vue Sheet Updated')
+    //     // This method abstracts the prepare data call that the actor class
+    //     // itself would normally call.
+    //     game.archmage.ActorHelpersV2.prepareData(this.actor);
+    //   }
+    // }
   },
   async created() {
     console.log("Creating Sheet");

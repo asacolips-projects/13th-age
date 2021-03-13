@@ -20,3 +20,9 @@
     text-align: center;
   }
 }
+
+.section--sidebar {
+  > .section {
+    flex: 0;
+  }
+}

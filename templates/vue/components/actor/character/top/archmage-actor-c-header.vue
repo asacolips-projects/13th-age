@@ -4,7 +4,7 @@
     <!-- Name -->
     <div class="unit unit--abs-label unit--name">
       <label for="name">{{localize("Name")}}</label>
-      <input type="text" name="name" class="input-secondary" v-model="actor.name" >
+      <input type="text" name="name" class="input-secondary" v-model="actor.name">
     </div>
     <!-- Race -->
     <div class="unit unit--abs-label unit--race">
@@ -17,9 +17,9 @@
       <input type="text" name="data.details.class.value" class="input-secondary" v-model="actor.data.details.class.value">
     </div>
     <!-- Level -->
-    <div class="unit unit--level flexrow">
+    <div class="unit unit--abs-label unit--level">
       <label for="data.attributes.level.value">{{localize("Level")}}</label>
-      <vue-numeric-input name="data.attributes.level.value" v-model="level.value" controls-type="updown"></vue-numeric-input>
+      <input type="number" name="data.attributes.level.value" class="input-secondary" v-model="actor.data.attributes.level.value" min="0">
     </div>
   </header>
 </template>
