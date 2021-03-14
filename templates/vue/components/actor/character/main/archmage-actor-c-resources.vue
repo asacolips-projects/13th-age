@@ -8,8 +8,8 @@
           <input type="text" name="data.resources.perCombat.commandPoints.current" v-model="commandPoints">
         </div>
         <div class="resource--right flexcol">
-          <a class="rollable rollable--command-4" data-roll-type="command-4" data-roll-opt="d4">d4</a>
-          <a class="rollable rollable--command-3" data-roll-type="command-3" data-roll-opt="d3">d3</a>
+          <a class="rollable rollable--command rollable--command-4" data-roll-type="command" data-roll-opt="d4">d4</a>
+          <a class="rollable rollable--command rollable--command-3" data-roll-type="command" data-roll-opt="d3">d3</a>
         </div>
       </div>
     </section>

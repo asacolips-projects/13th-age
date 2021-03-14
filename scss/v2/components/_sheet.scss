@@ -10,6 +10,10 @@
   flex: 1;
 }
 
+img[data-edit="img"] {
+  cursor: pointer;
+}
+
 .editor-wrapper {
   display: flex;
   height: 100%;

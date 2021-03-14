@@ -14,4 +14,10 @@
     color: $c-blue;
     text-shadow: none;
   }
+
+  &.hide-icon {
+    &::before {
+      display: none;
+    }
+  }
 }

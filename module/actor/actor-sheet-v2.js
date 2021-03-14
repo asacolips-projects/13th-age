@@ -124,9 +124,18 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    // CRUD listeners.
     html.on('click', '.item-create', (event) => this._createItem(event));
     html.on('click', '.item-delete', (event) => this._deleteItem(event));
     html.on('click', '.item-edit', (event) => this._editItem(event));
+
+    // Support Image updates
+    if ( this.options.editable ) {
+      html.on('click', 'img[data-edit]', (event) => this._onEditImage(event));
+    }
+
+    // Roll listeners.
+    html.on('click', '.rollable', (event) => this._onRollable(event));
   }
 
   /**
@@ -203,6 +212,81 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     // Render the edit form.
     const item =this.actor.getOwnedItem(itemId);
     if (item) item.sheet.render(true);
+  }
+
+  /**
+   * Handle rollable clicks.
+   */
+  _onRollable(event) {
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    // Get the roll type and roll options.
+    let type = dataset.rollType ?? null;
+    let opt = dataset.rollOpt ?? null;
+
+    if (type == 'item' && opt) this._onItemRoll(opt);
+    else if (type == 'recovery') this._onRecoveryRoll();
+    // else if (type == 'save') this._onSaveRoll(opt);
+    // else if (type == 'init') this._onInitRoll(opt);
+    // else if (type == 'ability') this._onAbilityRoll(opt);
+    // else if (type == 'background') this._onBackgroundRoll(opt);
+    // else if (type == 'icon') this._onIconRoll(opt);
+    // else if (type == 'command') this._onCommandRoll(opt);
+    // else if (type == 'disengage') this._onDisengageRoll(opt);
+
+    // Fallback to a plain formula roll.
+    else if (opt) this._onFormulaRoll(opt);
+
+  }
+
+  /**
+   * Perform a basic roll and send it to chat.
+   * @param {string} formula
+   */
+  _onFormulaRoll(formula) {
+    let roll = new Roll(formula, this.actor.getRollData());
+    roll.roll();
+    roll.toMessage();
+  }
+
+  /**
+   * Perform an owned item's roll.
+   * @param {string} id
+   */
+  _onItemRoll(id) {
+    let item = this.actor.getOwnedItem(id);
+    if (item) item.roll();
+  }
+
+  /**
+   * Roll a recovery for the actor.
+   */
+  _onRecoveryRoll() {
+    let actorData = this.actor.data.data;
+    let attr = actorData.attributes;
+    let totalRecoveries = attr.recoveries.value;
+    let formula = `${attr.level.value}${attr.recoveries.dice}+${actorData.abilities.con.dmg}`;
+
+    // Handle average results.
+    if (this.actor.getFlag('archmage', 'averageRecoveries')) {
+      formula = Math.floor(attr.level.value * ((Number(attr.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
+    }
+    // Handle strong recovery. Ignores average results if set!
+    if (this.actor.getFlag('archmage', 'strongRecovery')) {
+      formula = (attr.level.value + actorData.tier).toString() + attr.recoveries.dice + 'k' + attr.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
+    }
+    // Perform the roll.
+    let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
+    roll.roll();
+    // Send to chat and reduce the number of recoveries.
+    roll.toMessage({
+      flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`
+    });
+    this.actor.update({
+      'data.attributes.recoveries.value': attr.recoveries.value - 1,
+      'data.attributes.hp.value': Math.min(attr.hp.max, Math.max(attr.hp.value, 0) + roll.total)
+    });
   }
 }
 
