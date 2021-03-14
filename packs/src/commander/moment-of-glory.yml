@@ -104,7 +104,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When you roll initiative, also roll a [[@d4]] and record the result. As a free action, you can add the result to a single attack roll made by one of your nearby allies later this battle. (It&rsquo;s a free action, so you can add the result after seeing the roll.)</p>'
+    value: '<p>When you roll initiative, also roll a [[d4]] and record the result. As a free action, you can add the result to a single attack roll made by one of your nearby allies later this battle. (It&rsquo;s a free action, so you can add the result after seeing the roll.)</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Roll a [[@d6]] instead of a d4.</p>'
+        value: '<p>Roll a [[d6]] instead of a d4.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
