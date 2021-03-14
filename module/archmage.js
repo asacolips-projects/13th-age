@@ -412,32 +412,33 @@ Hooks.once('init', async function() {
     CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
   }
 
-  Dlopen.register('vue-select', {
-    scripts: [
-        // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
-        "https://unpkg.com/vue-select@3.0.0"
-    ],
-    styles: [
-        "https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
-    ],
-    dependencies: [],
-    init: () => Vue.component("v-select", VueSelect.default)
-  });
+  // Dlopen.register('vue-select', {
+  //   scripts: [
+  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
+  //       "https://unpkg.com/vue-select@3.0.0"
+  //   ],
+  //   styles: [
+  //       "https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+  //   ],
+  //   dependencies: [],
+  //   init: () => Vue.component("v-select", VueSelect.default)
+  // });
 
-  Dlopen.register('vue-numeric-input', {
-    scripts: [
-        // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
-        "https://unpkg.com/vue-numeric-input"
-    ],
-    styles: [],
-    dependencies: [],
-    init: () => Vue.component(VueNumericInput.default.name, VueNumericInput.default)
-  });
+  // Dlopen.register('vue-numeric-input', {
+  //   scripts: [
+  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
+  //       "https://unpkg.com/vue-numeric-input"
+  //   ],
+  //   styles: [],
+  //   dependencies: [],
+  //   init: () => Vue.component(VueNumericInput.default.name, VueNumericInput.default)
+  // });
 
    // Define dependency on our own custom vue components for when we need it
   Dlopen.register('actor-sheet', {
     scripts: "/systems/archmage/dist/vue-components.min.js",
-    dependencies: [ "vue-select", "vue-numeric-input" ]
+    dependencies: [],
+    // dependencies: [ "vue-select", "vue-numeric-input" ]
   });
 });
 
@@ -472,8 +473,8 @@ Hooks.once('ready', () => {
   // Preload Vue dependencies.
   Dlopen.loadDependencies([
     'vue',
-    'vue-select',
-    'vue-numeric-input',
+    // 'vue-select',
+    // 'vue-numeric-input',
     'actor-sheet'
   ]);
 
