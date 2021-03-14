@@ -18,7 +18,7 @@
       <archmage-actor-c-abilities :actor="actor"></archmage-actor-c-abilities>
       <archmage-actor-c-backgrounds :actor="actor"></archmage-actor-c-backgrounds>
       <archmage-actor-c-icon-relationships :actor="actor"></archmage-actor-c-icon-relationships>
-      <archmage-actor-c-out :actor="actor"></archmage-actor-c-out>
+      <archmage-actor-c-out :actor="actor" :owner="owner"></archmage-actor-c-out>
       <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals>
     </section>
     <!-- /Left sidebar -->
@@ -34,13 +34,13 @@
       <!-- Tabs content -->
       <section class="section section--tabs-content flexcol">
         <!-- Details tab -->
-        <archmage-actor-c-details :actor="actor" :tab="tabs.primary.details"></archmage-actor-c-details>
+        <archmage-actor-c-details :actor="actor" :owner="owner" :tab="tabs.primary.details"></archmage-actor-c-details>
         <!-- Powers tab -->
         <archmage-actor-c-powers :actor="actor" :tab="tabs.primary.powers"></archmage-actor-c-powers>
         <!-- Inventory tab -->
         <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory"></archmage-actor-c-inventory>
         <!-- Effects tab -->
-        <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects"></archmage-actor-c-effects>
+        <!-- <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects"></archmage-actor-c-effects> -->
       </section>
       <!-- /Tabs content -->
 
@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  props: [ "actor" ],
+  props: ['actor', 'owner'],
   data: function () {
     return {
       actorData: {},
@@ -65,7 +65,7 @@ export default {
           details: {active: false},
           powers: {active: true},
           inventory: {active: false},
-          effects: {active: false}
+          // effects: {active: false}
         }
       }
     }
@@ -91,6 +91,7 @@ export default {
   },
   async mounted() {
     console.log("Sheet Mounted");
+    console.log(this.$options.components);
   },
 };
 </script>

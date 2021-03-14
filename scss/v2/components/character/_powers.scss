@@ -41,8 +41,13 @@
     font-size: 10px;
   }
 
+  .power-item {
+    position: relative;
+  }
+
   .power-grid {
-    grid-template-columns: 32px auto 48px 32px 40px 28px 44px;
+    grid-template-columns: 32px auto 32px 40px 48px 28px 44px;
+    gap: 2px;
     font-size: 12px;
     text-align: center;
 
@@ -53,7 +58,7 @@
       justify-content: center;
     }
 
-    .power-title,
+    .power-name,
     .power-group-title {
       text-align: left;
       justify-content: flex-start;
@@ -63,10 +68,38 @@
       grid-column: 1 / 6;
     }
 
-    .power-title { grid-column-start: 2; }
-    .power-recharge { grid-column-start: 3; }
-    .power-feat-pips { grid-column-start: 4; }
-    .power-action { grid-column-start: 5; }
+    .power-name {
+      font-size: 14px;
+      font-family: $font-stack-secondary;
+      overflow: hidden;
+      padding-left: $padding-sm;
+
+      &:hover {
+        ~ .power-feat-pips,
+        ~ .power-action {
+          opacity: 0.25;
+        }
+
+        .power-title {
+          position: absolute;
+          overflow: visible;
+          padding-right: $padding-md;
+          z-index: 10;
+        }
+      }
+    }
+
+    .power-title {
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .power-name { grid-column-start: 2; }
+    .power-feat-pips { grid-column-start: 3; }
+    .power-action { grid-column-start: 4; }
+    .power-recharge { grid-column-start: 5; }
     .power-uses { grid-column-start: 6; }
     .item-controls { grid-column-start: 7; }
   }
@@ -76,7 +109,8 @@
     text-shadow: 0 0 10px rgba($c-black, 0.5);
     margin: 0 0 1px 0;
 
-    .rollable {
+    .rollable,
+    a {
       color: $c-white;
 
       &:hover {

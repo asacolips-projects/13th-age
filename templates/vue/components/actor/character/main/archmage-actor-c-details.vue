@@ -1,12 +1,12 @@
 <template>
   <section :class="classes" data-tab="details">
-    <div class="editor-content" v-html="actor.data.details.biography.value"></div>
+    <archmage-h-editor :owner="owner" target='data.details.biography.value' button="true" editable="true" :content="actor.data.details.biography.value"></archmage-h-editor>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['actor', 'tab'],
+  props: ['actor', 'owner', 'tab'],
   data: () => ({}),
   computed: {
     classes() {

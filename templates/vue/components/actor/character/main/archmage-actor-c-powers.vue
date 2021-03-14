@@ -30,10 +30,10 @@
         </div>
         <!-- Column labels. -->
         <div class="power-header-labels grid power-grid">
-          <div class="power-title">{{localize('Power Name')}}</div>
-          <div class="power-recharge">{{localize('Rchg.')}}</div>
+          <div class="power-name">{{localize('Power Name')}}</div>
           <div class="power-feat-pips">{{localize('Feat')}}</div>
           <div class="power-action">{{localize('Act.')}}</div>
+          <div class="power-recharge">{{localize('Rchg.')}}</div>
           <div class="power-uses">{{localize('Uses')}}</div>
           <div class="item-controls">{{localize('Edit')}}</div>
         </div>
@@ -43,16 +43,18 @@
           <!-- Clickable power header. -->
           <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'))">
             <img :src="power.img" class="power-image rollable-image"/>
-            <a class="power-title unit-subtitle" v-on:click="togglePower" :data-item-id="power._id"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}]</span> {{power.name}}</a>
-            <div class="power-recharge" v-if="power.data.recharge.value">
-              <archmage-h-rollable name="recharge" type="recharge" :opt="power.data.recharge.value">{{power.data.recharge.value}}+</archmage-h-rollable>
-            </div>
+            <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
+              <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
+            </a>
             <div class="power-feat-pips" v-if="hasFeats(power)">
               <ul class="feat-pips">
                 <li v-for="(feat, tier) in power.data.feats" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))"><div class="hide">{{tier}}</div></li>
               </ul>
             </div>
             <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
+            <div class="power-recharge" v-if="power.data.recharge.value">
+              <archmage-h-rollable name="recharge" type="recharge" :opt="power.data.recharge.value">{{power.data.recharge.value}}+</archmage-h-rollable>
+            </div>
             <div class="power-uses" v-if="power.data.quantity.value">{{power.data.quantity.value}}</div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>

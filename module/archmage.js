@@ -434,10 +434,20 @@ Hooks.once('init', async function() {
   //   init: () => Vue.component(VueNumericInput.default.name, VueNumericInput.default)
   // });
 
-   // Define dependency on our own custom vue components for when we need it
+  // Dlopen.register('vue-wysiwyg', {
+  //   scripts: [
+  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
+  //       "https://unpkg.com/vue-wysiwyg"
+  //   ],
+  //   styles: [],
+  //   dependencies: [],
+  //   // init: () => Vue.component('v-wysiwyg', vueWysiwyg.default)
+  //   init: () => Vue.use(vueWysiwyg, {})
+  // });
+
+  // Define dependency on our own custom vue components for when we need it
   Dlopen.register('actor-sheet', {
     scripts: "/systems/archmage/dist/vue-components.min.js",
-    dependencies: [],
     // dependencies: [ "vue-select", "vue-numeric-input" ]
   });
 });
@@ -475,6 +485,7 @@ Hooks.once('ready', () => {
     'vue',
     // 'vue-select',
     // 'vue-numeric-input',
+    // 'vue-wysiwyg',
     'actor-sheet'
   ]);
 

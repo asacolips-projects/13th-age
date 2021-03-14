@@ -1,13 +1,15 @@
 <template>
   <section class="section section--out flexcol">
-    <h2 class="unit-title">{{localize('Backgrounds')}}</h2>
-    <div class="out">{{actor.data.out.value}}</div>
+    <h2 class="unit-title">{{localize('One Unique Thing')}}</h2>
+    <div class="out">
+      <archmage-h-editor :owner="owner" target='data.out.value' button="true" editable="true" :content="actor.data.out.value"></archmage-h-editor>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['actor'],
+  props: ['actor', 'owner'],
   data: () => ({}),
   computed: {},
   methods: { /* See created. */},
@@ -16,6 +18,7 @@ export default {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+  }
 }
 </script>

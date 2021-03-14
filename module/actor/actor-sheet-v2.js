@@ -67,8 +67,9 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       // Prepare the actor data.
       let el = this.element.find('.archmage-vueport');
       // Render Vue and assign it to prevent later rendering.
-      VuePort.render(null, el[0], {data: {actor: sheetData.actor}}).then(vm => {
+      VuePort.render(null, el[0], {data: {actor: sheetData.actor, owner: this.actor.owner}}).then(vm => {
         this._vm = vm;
+        console.log(this._vm);
       });
     })
     // Return per the overridden method.
@@ -97,6 +98,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     html.on('click', '.item-create', (event) => this._createItem(event));
     html.on('click', '.item-delete', (event) => this._deleteItem(event));
     html.on('click', '.item-edit', (event) => this._editItem(event));
+    // TODO: This is a hack to get editors working, find a better solution.
+    setTimeout(() => {
+      html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+    }, 200);
   }
 
   /**
