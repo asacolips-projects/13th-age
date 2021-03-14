@@ -104,7 +104,10 @@ export class ArchmagePrepopulate {
         content: []
       };
       for (let entry of pack) {
-        content[key].content.push(entry)
+        let featClass = entry.data.data.group.value.split('/').map(n => this.cleanClassName(n))[0];
+        if (classes.includes(featClass)) {
+          content[key].content.push(entry)
+        }
       }
     }
 
