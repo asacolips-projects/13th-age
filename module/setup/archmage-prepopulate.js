@@ -99,30 +99,15 @@ export class ArchmagePrepopulate {
     if (classPacks.length > 1) {
       let key = "Multiclass Feats";
       let pack = await game.packs.find(p => p.metadata.label == key).getContent();
-      content[key] = {
-        name: key,
-        content: []
-      };
-      for (let entry of pack) {
-        let featClass = entry.data.name.split('(').map(n => this.cleanClassName(n)).pop();
-        if (classes.includes(featClass)) {
-          content[key].content.push(entry)
-        }
-      }
-      if (content[key].content.length == 0) {
-        delete content[key];
-      }
+      let powers = pack.filter(e => 
+        classes.includes(e.data.name.split('(').map(n => this.cleanClassName(n)).pop())
+      );
+      if (powers.length > 0) {content[key] = {name: key, content: powers};}
     }
 
     let key = "General Feats";
     let pack = await game.packs.find(p => p.metadata.label == key).getContent();
-    content[key] = {
-      name: key,
-      content: []
-    };
-    for (let entry of pack) {
-      content[key].content.push(entry)
-    }
+    content[key] = {name: key, content: pack};
     
     return content;
   }
