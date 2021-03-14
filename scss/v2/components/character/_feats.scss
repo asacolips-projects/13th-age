@@ -1,0 +1,24 @@
+.feat-pips {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  .feat-pip {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid $c-white;
+    margin: 0 1px;
+    padding: 0;
+
+    &.active {
+      background: $c-white;
+    }
+  }
+}

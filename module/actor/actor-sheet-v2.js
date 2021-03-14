@@ -128,17 +128,12 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     }
 
     // Create the item.
-    let item = await this.actor.createOwnedItem({
+    await this.actor.createOwnedItem({
       name: 'New ' + game.i18n.localize(`ARCHMAGE.${itemType}`),
       type: itemType,
       img: img,
       data: data
     });
-
-    // Add it to the Vue instance.
-    let vueItems = this._vm.actor.items;
-    let newIndex = vueItems.length;
-    Vue.set(this._vm.actor.items, newIndex, item);
   }
 
   /**
@@ -157,11 +152,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Delete the tiem from the actor object.
     await this.actor.deleteOwnedItem(itemId);
-
-    // Delete the item from the Vue instance.
-    let vueItems = this._vm.actor.items;
-    let delIndex = vueItems.findIndex(i => i._id == itemId);
-    Vue.delete(this._vm.actor.items, delIndex);
   }
 
   _editItem(event) {
