@@ -95,6 +95,29 @@ export class ArchmagePrepopulate {
         content: pack
       };
     }
+    
+    if (classPacks.length > 1) {
+      let key = "Multiclass Feats";
+      let pack = await game.packs.find(p => p.metadata.label == key).getContent();
+      content[key] = {
+        name: key,
+        content: []
+      };
+      for (let entry of pack) {
+        content[key].content.push(entry)
+      }
+    }
+
+    let key = "General Feats";
+    let pack = await game.packs.find(p => p.metadata.label == key).getContent();
+    content[key] = {
+      name: key,
+      content: []
+    };
+    for (let entry of pack) {
+      content[key].content.push(entry)
+    }
+    
     return content;
   }
 
