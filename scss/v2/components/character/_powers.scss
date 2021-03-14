@@ -129,16 +129,20 @@
     &.recharge { background: $c-power-recharge; }
     &.other { background: $c-power-other; }
   }
+
+  .power-content {
+    max-height: 0;
+    transition: all ease-in-out 0.25s;
+    overflow: hidden;
+
+    &.active {
+      max-height: none;
+    }
+  }
 }
 
 .power {
   line-height: 1.3;
-  max-height: 0;
-  overflow: hidden;
-
-  &.active {
-    max-height: 100%;
-  }
 
   .power-subheader {
     justify-content: flex-start;

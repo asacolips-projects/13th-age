@@ -62,8 +62,8 @@
             </div>
           </div>
           <!-- Expanded power content. -->
-          <div class="power-content">
-            <archmage-h-power :power="power" :active="activePowers[power._id]"></archmage-h-power>
+          <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
+            <archmage-h-power :power="power" :ref="concat('power--', power._id)"></archmage-h-power>
           </div>
         </li>
       </ul>
@@ -175,7 +175,7 @@ export default {
       }, {});
 
       return powersByGroup;
-    }
+    },
   },
   methods: {
     /**
@@ -261,13 +261,33 @@ export default {
       let dataset = target.dataset;
       let id = dataset.itemId;
       if (id) {
+        // Toggle the state if the power is currently being tracked.
         if (this.activePowers[id] !== undefined) {
           this.$set(this.activePowers, id, !this.activePowers[id]);
         }
+        // Otherwise, assume it should be open since this was click event.
         else {
           this.$set(this.activePowers, id, true);
         }
       }
+    },
+    /**
+     * Calculate CSS height of power.
+     */
+    getPowerStyle(powerId) {
+      // Retrieve the element from our refs.
+      let power = this.$refs[`power--${powerId}`];
+      let height = 0;
+
+      // Set the height if there's a ref.
+      if (power) {
+        height = this.activePowers[powerId] ? `${power[0].$el.clientHeight}px` : `0px`;
+      }
+
+      // Return CSS style object.
+      return {
+        maxHeight: height
+      };
     }
   },
   /**

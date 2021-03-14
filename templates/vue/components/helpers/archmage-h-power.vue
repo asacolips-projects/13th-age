@@ -1,5 +1,5 @@
 <template>
-  <section :class="concat('power ', (active ? 'active' : ''))">
+  <section class="power">
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">
       <strong v-if="power.data.group.value">{{power.data.group.value}}</strong>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  props: ['power', 'active'],
+  props: ['power'],
   data: () => ({}),
   computed: {
     constants() {
