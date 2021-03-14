@@ -47,13 +47,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   /** @override */
   render(force=false, options={}) {
-    console.log('test');
     // Grab the sheetdata for both updates and new apps.
     let sheetData = this.getData();
     // Exit if Vue has already rendered.
     if (this._vm) {
       if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
       if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
+      this._updateEditors($(this.form));
       return;
     }
     // Run the normal Foundry render once.
@@ -69,7 +69,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       // Render Vue and assign it to prevent later rendering.
       VuePort.render(null, el[0], {data: {actor: sheetData.actor, owner: this.actor.owner}}).then(vm => {
         this._vm = vm;
-        console.log(this._vm);
+        let html = $(this.form);
+        this.activateVueListeners(html);
       });
     })
     // Return per the overridden method.
@@ -87,6 +88,34 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     return super.close(options);
   }
 
+  // Update initial content throughout all editors.
+  _updateEditors(html) {
+    for (let [name, editor] of Object.entries(this.editors)) {
+      const data = this.object instanceof Entity ? this.object.data : this.object;
+      const initialContent = getProperty(data, name);
+      const div = $(this.form).find(`.editor-content[data-edit="${name}"]`)[0];
+      this.editors[name].initial = initialContent;
+      this.editors[name].options.target = div;
+    }
+  }
+
+  /** @override */
+  activateEditor(name, options={}, initialContent="") {
+    const editor = this.editors[name];
+    if ( !editor ) throw new Error(`${name} is not a registered editor name!`);
+    options = mergeObject(editor.options, options);
+    options.height = options.target.offsetHeight;
+    // Override initial content to pull from the editor, to avoid stale data.
+    initialContent = editor.initial;
+    TextEditor.create(options, initialContent).then(mce => {
+      editor.mce = mce;
+      editor.changed = false;
+      editor.active = true;
+      mce.focus();
+      mce.on('change', ev => editor.changed = true);
+    });
+  }
+
   /* ------------------------------------------------------------------------ */
   /*  Event Listeners ------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
@@ -98,10 +127,14 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     html.on('click', '.item-create', (event) => this._createItem(event));
     html.on('click', '.item-delete', (event) => this._deleteItem(event));
     html.on('click', '.item-edit', (event) => this._editItem(event));
-    // TODO: This is a hack to get editors working, find a better solution.
-    setTimeout(() => {
-      html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
-    }, 200);
+  }
+
+  /**
+   * Activate additional listeners on the rendered Vue app.
+   * @param {jQuery} html
+   */
+  activateVueListeners(html) {
+    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
   }
 
   /**
