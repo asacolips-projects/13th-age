@@ -132,7 +132,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: null
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'

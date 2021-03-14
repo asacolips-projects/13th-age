@@ -166,7 +166,9 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Utility'
+    type: 'String'
+    label: 'Group'
 flags: {}
 img: 'systems/archmage/assets/icons/items/inventory/feather-green.jpg'
 effects: []
