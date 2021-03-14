@@ -12,7 +12,7 @@ data:
   group:
     type: 'String'
     label: 'Group'
-    value: 'Ranger'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'

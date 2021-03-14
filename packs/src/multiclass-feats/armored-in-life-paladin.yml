@@ -12,7 +12,7 @@ data:
   group:
     type: 'String'
     label: 'Group'
-    value: 'Paladin'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
