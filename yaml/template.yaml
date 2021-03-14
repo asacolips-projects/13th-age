@@ -296,6 +296,18 @@ Actor:
       spendable:
         ki:
           enabled: false
+    incrementals:
+      abilityScoreBonus: false
+      extraMagicItem: false
+      feat: false
+      feature: false
+      hp: false
+      iconRelationshipPoint: false
+      powerSpell1: false
+      powerSpell2: false
+      powerSpell3: false
+      powerSpell4: false
+      skills: false
   npc:
     templates:
       - standard
