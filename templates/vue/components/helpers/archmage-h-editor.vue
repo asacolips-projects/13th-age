@@ -22,7 +22,6 @@ export default {
       const editable = Boolean(this.editable);
       this.canEdit = (button && editable);
       let editor = TextEditor.enrichHTML(this.content || '', {secrets: this.owner, entities: true});
-      console.log(editor);
       return editor;
     }
   },

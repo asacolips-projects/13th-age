@@ -91,7 +91,6 @@ export default {
   },
   async mounted() {
     console.log("Sheet Mounted");
-    console.log(this.$options.components);
   },
 };
 </script>

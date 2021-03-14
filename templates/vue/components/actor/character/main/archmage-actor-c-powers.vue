@@ -262,15 +262,12 @@ export default {
       let id = dataset.itemId;
       if (id) {
         if (this.activePowers[id] !== undefined) {
-          console.log('toggle');
           this.$set(this.activePowers, id, !this.activePowers[id]);
         }
         else {
-          console.log('enable');
           this.$set(this.activePowers, id, true);
         }
       }
-      console.log(this.activePowers);
     }
   },
   /**
