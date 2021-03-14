@@ -80,10 +80,14 @@ export class ArchmagePrepopulate {
       for (let entry of pack) {
         let raceNamesArray = entry.data.data.group.value.split('/').map(n => this.cleanClassName(n));
         if (raceNamesArray.includes(cleanRace)) {
-          content[cleanRace] = {
-            name: race,
-            content: [entry]
-          };
+          if (cleanRace in content) {
+            content[cleanRace].content.push(entry);
+          } else {
+            content[cleanRace] = {
+              name: race,
+              content: [entry]
+            };
+          }
         }
       }
     }
