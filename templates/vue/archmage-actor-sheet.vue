@@ -63,8 +63,8 @@ export default {
       tabs: {
         primary: {
           details: {active: false},
-          powers: {active: true},
-          inventory: {active: false},
+          powers: {active: false},
+          inventory: {active: true},
           // effects: {active: false}
         }
       }

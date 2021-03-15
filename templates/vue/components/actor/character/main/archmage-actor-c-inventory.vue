@@ -7,7 +7,19 @@
 <script>
 export default {
   props: ['actor', 'tab'],
-  data: () => ({}),
+  data: function() {
+    return {
+      equipment: [],
+      sortOptions: [
+        { value: 'custom', label: 'Custom' },
+        { value: 'name', label: 'Name' },
+        { value: 'chakra', label: 'Chakra' }
+      ],
+      sortBy: 'custom',
+      searchValue: null,
+      activePowers: {}
+    }
+  },
   computed: {
     classes() {
       return `section section--inventory flexcol${this.tab.active ? ' active' : ''}`;
