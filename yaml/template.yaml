@@ -326,6 +326,10 @@ Item:
       type: String
       label: Power Source
       value: ''
+    powerSourceName:
+      type: String
+      label: Power Source Name
+      value: ''
     powerType:
       type: String
       label: Power Type
@@ -449,7 +453,11 @@ Item:
     quantity:
       type: Number
       label: Uses
-      value: 0
+      value: null
+    maxQuantity:
+      type: Number
+      label: Max Uses
+      value: null
     feats:
       adventurer:
         description:

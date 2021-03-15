@@ -593,6 +593,42 @@ export class ActorArchmage extends Actor {
     return roll;
   }
 
+  restShort() {
+    console.log("lol!");
+    console.log(this);
+    //Recoveries & hp
+    let base_hp = this.data.data.attributes.hp.value;
+    let gained_hp = 0;
+    let used_rec = 0;
+
+    while (base_hp + gained_hp < this.data.data.attributes.hp.max/2) {
+      // Roll recoveries until we are above staggered
+      gained_hp += this.rollRecovery(false);
+      used_rec += 1;
+    }
+
+    // Update actor
+    this.update({
+      'data.attributes.recoveries.value': this.data.data.attributes.recoveries.value - used_rec,
+      'data.attributes.hp.value': Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gained_hp)
+    });
+  }
+
+  restFull() {
+    console.log("LOL!")
+    //Recoveries & hp
+    //Handled directly in update
+
+    //Powers
+    //TODO
+
+    // Update actor
+    this.update({
+      'data.attributes.recoveries.value': this.data.data.attributes.recoveries.max,
+      'data.attributes.hp.value': this.data.data.attributes.hp.max
+    });
+  }
+
   /* -------------------------------------------- */
 
   /**

@@ -203,6 +203,14 @@ export class ActorArchmageSheet extends ActorSheet {
     //   // this.mce.focus();
     // });
 
+    // Rests
+    html.find('.short-rest').click(ev => {
+      this.actor.restShort();
+    });
+    html.find('.full-rest').click(ev => {
+      this.actor.restFull();
+    });
+
     // Ability Checks
     html.find('.ability-name').click(ev => {
       let abl = ev.currentTarget.parentElement.getAttribute('data-ability');
