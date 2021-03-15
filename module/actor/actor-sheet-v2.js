@@ -304,32 +304,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /*  Import Powers --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
   async _importPowers(event) {
-    let allClasses = [
-      'barbarian',
-      'bard',
-      'cleric',
-      'fighter',
-      'paladin',
-      'ranger',
-      'rogue',
-      'sorcerer',
-      'wizard',
-      'chaosmage',
-      'commander',
-      'druid',
-      'monk',
-      'necromancer',
-      'occultist'
-    ];
-
-    let classRegex = new RegExp(allClasses.join('|'), 'g');
-
-    let cleanClassName = this.actor.data.data.details.class.value;
-    cleanClassName = cleanClassName ? cleanClassName.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-
     let characterRace = this.actor.data.data.details.race.value;
-
-    let characterClasses = cleanClassName.match(classRegex) ?? [];
+    let characterClasses = this.actor.data.data.details.detectedClasses ?? [];
     let prepop = new ArchmagePrepopulate();
     let classResults = await prepop.renderDialog(characterClasses, characterRace);
     if (!classResults) {

@@ -4,11 +4,11 @@
 
 <script>
 export default {
-  props: ['name', 'icon', 'type', 'opt'],
+  props: ['name', 'hide-icon', 'type', 'opt'],
   data: () => ({}),
   computed: {
     cssClass() {
-      return `rollable${!this.icon ? ' hide-icon' : ''}${this.name ? ' rollable--' + this.name : ''}`;
+      return `rollable${this.hideIcon ? ' hide-icon' : ''}${this.name ? ' rollable--' + this.name : ''}`;
     }
   },
   methods: {},

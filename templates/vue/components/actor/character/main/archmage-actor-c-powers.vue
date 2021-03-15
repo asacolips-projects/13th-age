@@ -45,7 +45,7 @@
         <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('power-item power-item--', power._id)" :data-item-id="power._id">
           <!-- Clickable power header. -->
           <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'))">
-            <archmage-h-rollable name="item" :icon="false" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
+            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
             <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
               <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
             </a>
