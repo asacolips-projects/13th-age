@@ -6,6 +6,7 @@ data:
   name:
     type: 'String'
     label: 'Name'
+    value: ''
   description:
     type: 'String'
     label: 'Description'
@@ -25,11 +26,11 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'

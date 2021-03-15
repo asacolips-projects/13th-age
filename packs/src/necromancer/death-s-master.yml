@@ -25,7 +25,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>All necromancers must spend at least one relationship point with any necromantic icon. (This might be conflicted or negative.) If you're one unique thing somehow suggests that you might be free of this requirement, make a case to your GM that this is a way in which you are unique.</p>"
+    value: '<p>All necromancers must spend at least one relationship point with any necromantic icon. (This might be conflicted or negative.) If you''re one unique thing somehow suggests that you might be free of this requirement, make a case to your GM that this is a way in which you are unique.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

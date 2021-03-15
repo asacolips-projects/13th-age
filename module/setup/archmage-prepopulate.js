@@ -80,10 +80,14 @@ export class ArchmagePrepopulate {
       for (let entry of pack) {
         let raceNamesArray = entry.data.data.group.value.split('/').map(n => this.cleanClassName(n));
         if (raceNamesArray.includes(cleanRace)) {
-          content[cleanRace] = {
-            name: race,
-            content: [entry]
-          };
+          if (cleanRace in content) {
+            content[cleanRace].content.push(entry);
+          } else {
+            content[cleanRace] = {
+              name: race,
+              content: [entry]
+            };
+          }
         }
       }
     }
@@ -95,6 +99,20 @@ export class ArchmagePrepopulate {
         content: pack
       };
     }
+    
+    if (classPacks.length > 1) {
+      let key = "Multiclass Feats";
+      let pack = await game.packs.find(p => p.metadata.label == key).getContent();
+      let powers = pack.filter(e => 
+        classes.includes(e.data.name.split('(').map(n => this.cleanClassName(n)).pop())
+      );
+      if (powers.length > 0) {content[key] = {name: key, content: powers};}
+    }
+
+    let key = "General Feats";
+    let pack = await game.packs.find(p => p.metadata.label == key).getContent();
+    content[key] = {name: key, content: pack};
+    
     return content;
   }
 

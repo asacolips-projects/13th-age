@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you learn a monk form, you learn all three elements of that form: an <strong>opening attack</strong>, <strong>flow attack</strong>, and <strong>finishing attack</strong>. Each element generally requires a standard action to use.</p>\n<p>Your first standard action attack in a battle must be an opening. Your second attack can be a flow attack from any form you know, or it can be another opening. After you use a flow attack, your next monk attack must be a finishing attack from any form you know, or it can be another opening. (You can&rsquo;t use flow attack twice in a row.) After a finishing attack you must start over with an opening on your next standard action. If you do not attack one turn, you must start over with an opening on your next standard action. This form progression applies whether you hit or miss with your attack.</p>\n<p>As long as you use the proper element of the form (opening, flow, or finishing attack), you can use an opening, flow, or finishing attack from ANY of the forms you know.</p>\n<p>When you use an element of a form, you gain an AC bonus until the start of your next turn. After using an opening attack you gain a +1 bonus to AC. After using a flow attack, you gain a +2 bonus to AC. After using a finishing attack, you gain a +3 bonus to AC. If elven grace or some other power lets you use multiple elements of your forms in a turn, the AC bonuses don&rsquo;t stack but you do get to use the highest bonus.</p>"
+    value: ''
   group:
     type: 'String'
     label: 'Group'
@@ -29,7 +29,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>When you learn a monk form, you learn all three elements of that form: an <strong>opening attack</strong>, <strong>flow attack</strong>, and <strong>finishing attack</strong>. Each element generally requires a standard action to use.</p>\n<p>Your first standard action attack in a battle must be an opening. Your second attack can be a flow attack from any form you know, or it can be another opening. After you use a flow attack, your next monk attack must be a finishing attack from any form you know, or it can be another opening. (You can&rsquo;t use flow attack twice in a row.) After a finishing attack you must start over with an opening on your next standard action. If you do not attack one turn, you must start over with an opening on your next standard action. This form progression applies whether you hit or miss with your attack.</p>\n<p>As long as you use the proper element of the form (opening, flow, or finishing attack), you can use an opening, flow, or finishing attack from ANY of the forms you know.</p>\n<p>When you use an element of a form, you gain an AC bonus until the start of your next turn. After using an opening attack you gain a +1 bonus to AC. After using a flow attack, you gain a +2 bonus to AC. After using a finishing attack, you gain a +3 bonus to AC. If elven grace or some other power lets you use multiple elements of your forms in a turn, the AC bonuses don&rsquo;t stack but you do get to use the highest bonus.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

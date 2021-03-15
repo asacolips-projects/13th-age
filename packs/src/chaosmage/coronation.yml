@@ -154,7 +154,7 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     epic:
       description:
         type: 'String'
@@ -163,6 +163,6 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
 flags: {}
 img: 'systems/archmage/assets/icons/spells/haste-sky-3.jpg'

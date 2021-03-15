@@ -25,7 +25,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -105,7 +105,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Necromancers are frail, gaunt, parched, skinny, sickly, wasted, cadaverous, dependent on unearthly substances, or partially dead. This isn’t just an aesthetic note — as a necromancer, you must subtract your Constitution modifier ([[max(0,@con.mod)]]) from all your necromancer spell attacks if your modifier is positive. In addition, you don't die until you fail five death saves. Similarly, you don't succumb to last gasp save effects until you fail the fifth save.</p>"
+    value: '<p>Necromancers are frail, gaunt, parched, skinny, sickly, wasted, cadaverous, dependent on unearthly substances, or partially dead. This isn’t just an aesthetic note — as a necromancer, you must subtract your Constitution modifier ([[max(0,@con.mod)]]) from all your necromancer spell attacks if your modifier is positive. In addition, you don''t die until you fail five death saves. Similarly, you don''t succumb to last gasp save effects until you fail the fifth save.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -137,7 +137,7 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

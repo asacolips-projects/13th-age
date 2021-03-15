@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>Since monks are trained to strike with all their limbs, they can always be considered to be fighting with two weapons in melee, even when they&rsquo;re barehanded. The principal advantage of &ldquo;two-weapon fighting&rdquo; is that you get to reroll your attack when you roll a natural 2 with a melee attack, sticking with the reroll.</p>'
+    value: ''
   group:
     type: 'String'
     label: 'Group'
@@ -29,7 +29,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Since monks are trained to strike with all their limbs, they can always be considered to be fighting with two weapons in melee, even when they&rsquo;re barehanded. The principal advantage of &ldquo;two-weapon fighting&rdquo; is that you get to reroll your attack when you roll a natural 2 with a melee attack, sticking with the reroll.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

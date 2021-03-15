@@ -17,7 +17,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -152,7 +152,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: ''
+        value: '<p> Once per day when you drop to 0 hit points or below, you can roll a normal save. If you succeed, heal using a recovery before going unconscious. If you fail, it counts as a failed death check.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -161,7 +161,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: ''
+        value: '<p>You can now cast one bonus daily ruins spell that doesn’t count against your total daily spells, but you still can’t cast a specific daily spell of that type more than once per day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

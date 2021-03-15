@@ -28,7 +28,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -169,6 +169,6 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
-flags: 
+flags: null
 img: 'icons/svg/mystery-man.svg'
 effects: []

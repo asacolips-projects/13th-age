@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>Chaos mages use arcane implements, such as wands and staffs, to improve their attacks. Unlike wizards and clerics, chaos mages don&rsquo;t choose the spells they know. Instead, a chaos mage of a given level can access all the spells in a category that are their level or lower.</p>\n<p>The category of spell you&rsquo;ll cast on your turn is randomly decided, but you get to decide how many of your resources you&rsquo;ll use. You have a limited number of daily and once-per-battle spells, so each turn you must decide whether to use one of the powerful spells in the category you&rsquo;re casting from or whether you&rsquo;ll stick with an at-will spell.</p>\n<p><span class=\"fontstyle0\">Chaos mages are not allowed to cast rituals.</span></p>"
+    value: ''
   group:
     type: 'String'
     label: 'Group'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Chaos mages use arcane implements, such as wands and staffs, to improve their attacks. Unlike wizards and clerics, chaos mages don&rsquo;t choose the spells they know. Instead, a chaos mage of a given level can access all the spells in a category that are their level or lower.</p>\n<p>The category of spell you&rsquo;ll cast on your turn is randomly decided, but you get to decide how many of your resources you&rsquo;ll use. You have a limited number of daily and once-per-battle spells, so each turn you must decide whether to use one of the powerful spells in the category you&rsquo;re casting from or whether you&rsquo;ll stick with an at-will spell.</p>\n<p><span class=\"fontstyle0\">Chaos mages are not allowed to cast rituals.</span></p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

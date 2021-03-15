@@ -211,25 +211,57 @@ content: |
         <p><strong>Total Feats</strong></p>
         </td>
         <td>
-        <p><strong>1st level spell</strong></p>
+        <p><strong>1st level spell (M)</strong></p>
         </td>
         <td>
-        <p><strong>3rd level spell</strong></p>
+        <p><strong>3rd level spell (M)</strong></p>
         </td>
         <td>
-        <p><strong>5th level spell</strong></p>
+        <p><strong>5th level spell (M)</strong></p>
         </td>
         <td>
-        <p><strong>7th level spell</strong></p>
+        <p><strong>7th level spell (M)</strong></p>
         </td>
         <td>
-        <p><strong>9th level spell</strong></p>
+        <p><strong>9th level spell (M)</strong></p>
         </td>
         <td>
         <p><strong>Level-up Ability Bonuses</strong></p>
         </td>
         <td>
         <p><strong>Damage Bonus From Ability Score</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 1 Multiclass</strong></p>
+        </td>
+        <td>
+        <p>(7 + CON mod) x 3</p>
+        </td>
+        <td>
+        <p>As 1st level PC</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>—</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
         </td>
       </tr>
       <tr>
