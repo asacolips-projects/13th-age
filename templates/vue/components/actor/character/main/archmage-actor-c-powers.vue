@@ -17,6 +17,9 @@
       <div class="filter-search-powers">
         <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('Filter powers by name')"/>
       </div>
+      <div class="import-powers">
+        <button class="item-import button" title="Create Power" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
+      </div>
     </header>
     <!-- Powers, by group. -->
     <section v-for="(group, groupKey) in groups" :key="groupKey" class="power-group">

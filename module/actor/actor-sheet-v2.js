@@ -1,4 +1,5 @@
 import { ActorArchmageSheet } from './actor-sheet.js';
+import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 
 export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /** @override */
@@ -136,6 +137,9 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Roll listeners.
     html.on('click', '.rollable', (event) => this._onRollable(event));
+
+    // Other listeners.
+    html.on('click', '.item-import', (event) => this._importPowers(event));
   }
 
   /**
@@ -145,6 +149,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   activateVueListeners(html) {
     html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
   }
+
+  /* ------------------------------------------------------------------------ */
+  /*  Create, Update, Delete------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
 
   /**
    * Create items on the actor, such as powers or magic items.
@@ -214,6 +222,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (item) item.sheet.render(true);
   }
 
+  /* ------------------------------------------------------------------------ */
+  /*  Handle rolls ---------------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+
   /**
    * Handle rollable clicks.
    */
@@ -237,7 +249,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Fallback to a plain formula roll.
     else if (opt) this._onFormulaRoll(opt);
-
   }
 
   /**
@@ -287,6 +298,109 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       'data.attributes.recoveries.value': attr.recoveries.value - 1,
       'data.attributes.hp.value': Math.min(attr.hp.max, Math.max(attr.hp.value, 0) + roll.total)
     });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /*  Import Powers --------------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  async _importPowers(event) {
+    let allClasses = [
+      'barbarian',
+      'bard',
+      'cleric',
+      'fighter',
+      'paladin',
+      'ranger',
+      'rogue',
+      'sorcerer',
+      'wizard',
+      'chaosmage',
+      'commander',
+      'druid',
+      'monk',
+      'necromancer',
+      'occultist'
+    ];
+
+    let classRegex = new RegExp(allClasses.join('|'), 'g');
+
+    let cleanClassName = this.actor.data.data.details.class.value;
+    cleanClassName = cleanClassName ? cleanClassName.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+
+    let characterRace = this.actor.data.data.details.race.value;
+
+    let characterClasses = cleanClassName.match(classRegex) ?? [];
+    let prepop = new ArchmagePrepopulate();
+    let classResults = await prepop.renderDialog(characterClasses, characterRace);
+    if (!classResults) {
+      return;
+    }
+
+    let d = new Dialog({
+      title: `Import Powers`,
+      content: classResults.content,
+      buttons: {
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "Cancel",
+          callback: () => null
+        },
+        submit: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "Submit",
+          callback: dlg => this._onImportPower(dlg, this.actor, classResults.powers)
+        }
+      },
+      render: html => {
+        let tabs = new Tabs(classResults.tabs);
+        tabs.bind(html[0]);
+        html.find('.import-powers-item').addClass('collapsed');
+        html.find('.import-powers-item .item-summary').css('max-height', 0);
+        html.find('.import-powers-item .ability-usage').on('click', event => {
+          event.preventDefault();
+          let li = $(event.currentTarget).parents(".import-powers-item");
+          let summary = li.find('.item-summary');
+          li.toggleClass('collapsed');
+          if (li.hasClass('collapsed')) {
+            summary.css('max-height', 0);
+          }
+          else {
+            summary.css('max-height', summary.find('.card-content').outerHeight() + 40)
+          }
+        });
+      }
+    }, classResults.options);
+    d.render(true);
+  }
+
+  _onImportPower(dlg, actor, packData) {
+    let $selected = $(dlg[0]).find('input[type="checkbox"]:checked');
+
+    if ($selected.length <= 0) {
+      return;
+    }
+
+    if (packData) {
+      // Get the selected powers.
+      let powerIds = [];
+      $selected.each((index, element) => {
+        powerIds.push(element.dataset.uuid);
+      });
+
+      // Retrieve the item entities.
+      let powers = packData
+        // Filter down the power items by id.
+        .filter(p => {
+          return powerIds.includes(p.data._id)
+        })
+        // Prepare the items for saving.
+        .map(p => {
+          return duplicate(p);
+        });
+
+      // Create the owned items.
+      actor.createOwnedItem(powers);
+    }
   }
 }
 
