@@ -439,6 +439,11 @@
         "label": "Power Source",
         "value": ""
       },
+      "powerSourceName": {
+        "type": "String",
+        "label": "Power Source Name",
+        "value": ""
+      },
       "powerType": {
         "type": "String",
         "label": "Power Type",
@@ -592,7 +597,12 @@
       "quantity": {
         "type": "Number",
         "label": "Uses",
-        "value": 0
+        "value": null
+      },
+      "maxQuantity": {
+        "type": "Number",
+        "label": "Max Uses",
+        "value": null
       },
       "feats": {
         "adventurer": {

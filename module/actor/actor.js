@@ -593,40 +593,65 @@ export class ActorArchmage extends Actor {
     return roll;
   }
 
-  restShort() {
+  async restShort() {
     console.log("lol!");
     console.log(this);
-    //Recoveries & hp
+    // Recoveries & hp
     let base_hp = this.data.data.attributes.hp.value;
     let gained_hp = 0;
+    let rec_rolls = [];
     let used_rec = 0;
+    let updateData = {}
 
     while (base_hp + gained_hp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
-      gained_hp += this.rollRecovery(false);
+      let roll = await this.rollRecovery({apply: false}, false);
+      gained_hp += roll.total;
       used_rec += 1;
+      rec_rolls.push(roll);
+    }
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - used_rec;
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gained_hp);
+    
+    // Resources
+    //TODO
+    
+    // Items (Powers)
+    for (let i = 0; i < this.data.items.length; i++) {
+      let item = this.data.items[i];
+      if (item.data.maxQuantity.value && item.data.powerUsage.value == 'once-per-battle') {
+        let uses = Number(item.data.maxQuantity.value);
+        updateData[`items[${i}].data.quantity.value`] = uses;
+      }
     }
 
     // Update actor
-    this.update({
-      'data.attributes.recoveries.value': this.data.data.attributes.recoveries.value - used_rec,
-      'data.attributes.hp.value': Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gained_hp)
-    });
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
+    }
   }
 
   restFull() {
     console.log("LOL!")
-    //Recoveries & hp
-    //Handled directly in update
+    let updateData = {}
+    // Recoveries & hp
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
+    updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
 
-    //Powers
+    // Resources
     //TODO
 
+    // Items (Powers)
+    for (let i = 0; i < this.data.items.length; i++) {
+      let item = this.data.items[i];
+      if (item.data.maxQuantity.value) {
+        let uses = Number(item.data.maxQuantity.value);
+        updateData[`items[${i}].data.quantity.value`] = uses;
+      }
+    }
+
     // Update actor
-    this.update({
-      'data.attributes.recoveries.value': this.data.data.attributes.recoveries.max,
-      'data.attributes.hp.value': this.data.data.attributes.hp.max
-    });
+    this.update(updateData);
   }
 
   /* -------------------------------------------- */
