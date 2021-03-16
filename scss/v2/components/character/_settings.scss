@@ -1,0 +1,10 @@
+.section--settings {
+  .sheet-settings {
+    grid-template-columns: 150px 100px auto;
+  }
+
+  .unit--base-settings {
+    grid-column-start: 1;
+    grid-column-end: span 3;
+  }
+}

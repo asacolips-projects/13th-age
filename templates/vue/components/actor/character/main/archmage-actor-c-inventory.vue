@@ -134,12 +134,8 @@ export default {
     getBonuses(equipment) {
       let bonuses = {};
       for (let [prop, value] of Object.entries(equipment.data.attributes)) {
-        console.log(prop);
-        console.log(value.bonus);
         if (value.bonus) {
           bonuses[prop] = value.bonus
-          console.log(value.bonus);
-          console.log('test');
         }
         else if (prop == 'attack') {
           for (let [atkProp, atkValue] of Object.entries(value)) {
@@ -192,7 +188,6 @@ export default {
     'actor.items': {
       deep: true,
       handler() {
-        console.log('UPDATE INVENTORY');
         this.getEquipment();
       }
     },

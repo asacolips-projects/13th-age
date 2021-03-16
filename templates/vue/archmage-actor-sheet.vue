@@ -41,6 +41,8 @@
         <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory"></archmage-actor-c-inventory>
         <!-- Effects tab -->
         <!-- <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects"></archmage-actor-c-effects> -->
+        <!-- Settings tab -->
+        <archmage-actor-c-settings :actor="actor" :tab="tabs.primary.settings"></archmage-actor-c-settings>
       </section>
       <!-- /Tabs content -->
 
@@ -64,8 +66,9 @@ export default {
         primary: {
           details: {active: false},
           powers: {active: false},
-          inventory: {active: true},
-          // effects: {active: false}
+          inventory: {active: false},
+          // effects: {active: false},
+          settings: {active: true}
         }
       }
     }

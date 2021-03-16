@@ -10,7 +10,8 @@
       <div class="resource flexrow">
         <input type="text" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
         <span class="resource-separator">/</span>
-        <input type="text" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
+        <div v-if="actor.data.attributes.hp.automatic" class="resource-max">{{actor.data.attributes.hp.max}}</div>
+        <input v-else type="text" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
       </div>
       <div class="labeled-input flexrow">
         <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('Temp HP')}}</label>
@@ -41,7 +42,8 @@
       <div class="resource flexrow">
         <input type="text" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
         <span class="resource-separator">/</span>
-        <input type="text" name="data.attributes.recoveries.max" class="resource-max" v-model="actor.data.attributes.recoveries.max">
+        <div v-if="actor.data.attributes.recoveries.automatic" class="resource-max">{{actor.data.attributes.recoveries.max}}</div>
+        <input v-else type="text" name="data.attributes.recoveries.max" class="resource-max" v-model="actor.data.attributes.recoveries.max">
       </div>
       <div class="roll">
         <a class="rollable rollable--recover" data-roll-type="recovery">{{actor.data.attributes.level.value}}{{actor.data.attributes.recoveries.dice}}+{{actor.data.abilities.con.dmg}}</a>
