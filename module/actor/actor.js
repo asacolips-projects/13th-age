@@ -597,21 +597,22 @@ export class ActorArchmage extends Actor {
     console.log("lol!");
     console.log(this);
     // Recoveries & hp
-    let base_hp = this.data.data.attributes.hp.value;
-    let gained_hp = 0;
-    let rec_rolls = [];
-    let used_rec = 0;
+    let baseHp = this.data.data.attributes.hp.value;
+    let gainedHp = 0;
+    let recoveryRolls = [];
+    let rechargeRolls = [];
+    let usedRecoveries = 0;
     let updateData = {}
 
-    while (base_hp + gained_hp < this.data.data.attributes.hp.max/2) {
+    while (baseHp + gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
       let roll = await this.rollRecovery({apply: false}, false);
-      gained_hp += roll.total;
-      used_rec += 1;
-      rec_rolls.push(roll);
+      gainedHp += roll.total;
+      usedRecoveries += 1;
+      recoveryRolls.push(roll);
     }
-    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - used_rec;
-    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gained_hp);
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - usedRecoveries;
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gainedHp);
     
     // Resources
     //TODO
@@ -619,10 +620,23 @@ export class ActorArchmage extends Actor {
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
-      if (item.data.maxQuantity.value && item.data.powerUsage.value == 'once-per-battle') {
-        let uses = Number(item.data.maxQuantity.value);
-        updateData[`items[${i}].data.quantity.value`] = uses;
-      }
+      if (item.data.maxQuantity.value) {
+        if (item.data.powerUsage.value == 'once-per-battle') {
+          await this.updateOwnedItem({
+            _id: item._id,
+            data: {quantity: {value: Number(item.data.maxQuantity.value)}}
+          });
+        } else if (item.data.recharge.value > 0) {// This captures other as well
+          let roll = new Roll("1d20").roll();
+          if (roll.total >= item.data.recharge.value) {
+            await this.updateOwnedItem({
+              _id: item._id,
+              data: {quantity: {value: Number(item.data.maxQuantity.value)}}
+            });
+          }
+          rechargeRolls.push(item.name+": "+roll.total.toString()+">="+item.data.recharge.value.toString());
+        }
+      } 
     }
 
     // Update actor
@@ -631,7 +645,7 @@ export class ActorArchmage extends Actor {
     }
   }
 
-  restFull() {
+  async restFull() {
     console.log("LOL!")
     let updateData = {}
     // Recoveries & hp
@@ -646,7 +660,10 @@ export class ActorArchmage extends Actor {
       let item = this.data.items[i];
       if (item.data.maxQuantity.value) {
         let uses = Number(item.data.maxQuantity.value);
-        updateData[`items[${i}].data.quantity.value`] = uses;
+        await this.updateOwnedItem({
+          _id: item._id,
+          data: {quantity: {value: uses}}
+        });
       }
     }
 
