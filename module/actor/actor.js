@@ -594,8 +594,6 @@ export class ActorArchmage extends Actor {
   }
 
   async restShort() {
-    console.log("lol!");
-    console.log(this);
     // Recoveries & hp
     let baseHp = this.data.data.attributes.hp.value;
     let gainedHp = 0;
@@ -615,7 +613,12 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gainedHp);
     
     // Resources
-    //TODO
+    if (this.data.data.resources.perCombat.commandPoints.enabled) {
+      updateData['data.resources.perCombat.commandPoints.current'] = 1;
+    }
+    if (this.data.data.resources.perCombat.momentum.enabled) {
+      updateData['data.resources.perCombat.momentum.current'] = false;
+    }
     
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
@@ -646,14 +649,21 @@ export class ActorArchmage extends Actor {
   }
 
   async restFull() {
-    console.log("LOL!")
     let updateData = {}
     // Recoveries & hp
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
 
     // Resources
-    //TODO
+    if (this.data.data.resources.perCombat.commandPoints.enabled) {
+      updateData['data.resources.perCombat.commandPoints.current'] = "1";
+    }
+    if (this.data.data.resources.perCombat.momentum.enabled) {
+      updateData['data.resources.perCombat.momentum.current'] = false;
+    }
+    if (this.data.data.resources.spendable.ki.enabled) {
+      updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
+    }
 
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
