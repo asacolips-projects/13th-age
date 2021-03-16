@@ -162,7 +162,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    */
   async _createItem(event) {
     let target = event.currentTarget;
-    let dataset = target.dataset;
+    let dataset = duplicate(target.dataset);
 
     // Grab the item type from the dataset and then remove it.
     let itemType = dataset.itemType ?? 'power';
@@ -183,12 +183,14 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     }
 
     // Create the item.
-    await this.actor.createOwnedItem({
+    let item = await this.actor.createOwnedItem({
       name: 'New ' + game.i18n.localize(`ARCHMAGE.${itemType}`),
       type: itemType,
       img: img,
       data: data
     });
+
+    console.log(item);
   }
 
   /**

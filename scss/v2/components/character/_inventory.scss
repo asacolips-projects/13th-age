@@ -46,7 +46,7 @@
   }
 
   .equipment-grid {
-    grid-template-columns: 32px auto 32px 40px 48px 28px 44px;
+    grid-template-columns: 32px auto 130px 60px 44px;
     gap: 2px;
     font-size: 12px;
     text-align: center;
@@ -97,11 +97,9 @@
     }
 
     .equipment-name { grid-column-start: 2; }
-    .equipment-feat-pips { grid-column-start: 3; }
-    .equipment-action { grid-column-start: 4; }
-    .equipment-recharge { grid-column-start: 5; }
-    .equipment-uses { grid-column-start: 6; }
-    .item-controls { grid-column-start: 7; }
+    .equipment-bonuses { grid-column-start: 3; }
+    .equipment-chakra { grid-column-start: 4; }
+    .item-controls { grid-column-start: 5; }
   }
 
   .equipment-summary {
@@ -133,6 +131,25 @@
     &.active {
       max-height: none;
     }
+  }
+
+  .equipment-bonus {
+    align-items: stretch;
+  }
+
+  .bonus {
+    background: rgba($c-black, 0.25);
+    border-radius: $padding-sm;
+    margin: 4px 2px;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bonus-label {
+    text-transform: uppercase;
+    margin-right: 2px;
   }
 }
 

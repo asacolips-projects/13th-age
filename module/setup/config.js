@@ -83,7 +83,7 @@ ARCHMAGE.defaultTokens = {
   'nastierSpecial': 'icons/svg/poison.svg',
   'tool': 'icons/svg/anchor.svg',
   'loot': 'icons/svg/daze.svg',
-  'equipment': 'systems/archmage/assets/icons/items/backpack.jpg'
+  'equipment': 'systems/archmage/assets/icons/items/inventory/backpack.jpg'
 };
 
 ARCHMAGE.classList = {

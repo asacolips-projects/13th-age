@@ -11,9 +11,6 @@
       <div class="filter-search-equipment">
         <input type="text" name="equipment-filter-search" v-model="searchValue" :placeholder="localize('Filter equipment by name')"/>
       </div>
-      <div class="import-equipment">
-        <button class="item-import button" title="Create Equipment" data-item-type="equipment" data-type="equipment" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
-      </div>
     </header>
     <!-- Equipment, by group. -->
     <section class="equipment-group">
@@ -28,20 +25,37 @@
         <!-- Column labels. -->
         <div class="equipment-header-labels grid equipment-grid">
           <div class="equipment-name">{{localize('Equipment Name')}}</div>
+          <div class="equipment-bonus">{{localize('Bonuses')}}</div>
+          <div class="equipment-chakra">{{localize('Chakra')}}</div>
           <div class="item-controls">{{localize('Edit')}}</div>
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
         <li v-for="(equipment, equipmentKey) in equipment" :key="equipmentKey" :class="concat('equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id">
           <!-- Clickable equipment header. -->
-          <div :class="concat('equipment-summary grid equipment-grid ', (equipment.data.equipmentUsage.value ? equipment.data.equipmentUsage.value : 'other'))">
+          <div class="equipment-summary grid equipment-grid equipment">
             <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></archmage-h-rollable>
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
-              <h3 class="equipment-title unit-subtitle"><span v-if="equipment.data.equipmentLevel.value">[{{equipment.data.equipmentLevel.value}}] </span> {{equipment.name}}</h3>
+              <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
+            <div class="equipment-bonus flexrow">
+              <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
+                <span class="bonus-label">{{bonusProp}} </span>
+                <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
+              </span>
+            </div>
+            <div class="equipment-chakra" v-if="equipment.data.chackra">
+              <!-- TODO: Fix typo in attr name. -->
+              <h3 class="equipment-title unit-subtitle">{{equipment.data.chackra}}</h3>
+            </div>
+            <div class="item-controls">
+              <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>
+            </div>
+          </div>
           <!-- Expanded equipment content. -->
           <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))" :style="getEquipmentStyle(equipment._id)">
-            <archmage-h-equipment :equipment="equipment" :ref="concat('equipment--', equipment._id)"></archmage-h-equipment>
+            <archmage-h-equipment :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"></archmage-h-equipment>
           </div>
         </li>
       </ul>
@@ -86,7 +100,15 @@ export default {
       if (this.searchValue) {
         equipment = equipment.filter(i => {
           let needle = this.cleanClassName(this.searchValue);
-          let haystack = this.cleanClassName(i.name);
+          let haystack = `${i.name}${i.data.chackra ? i.data.chackra : ''}`;
+
+          let bonuses = this.getBonuses(i);
+          for (let [k,v] of Object.entries(bonuses)) {
+            haystack = `${haystack}${k}${v}`;
+          }
+
+          haystack = this.cleanClassName(haystack);
+
           return haystack.includes(needle);
         });
       }
@@ -108,6 +130,26 @@ export default {
         }
       });
       this.equipment = equipment;
+    },
+    getBonuses(equipment) {
+      let bonuses = {};
+      for (let [prop, value] of Object.entries(equipment.data.attributes)) {
+        console.log(prop);
+        console.log(value.bonus);
+        if (value.bonus) {
+          bonuses[prop] = value.bonus
+          console.log(value.bonus);
+          console.log('test');
+        }
+        else if (prop == 'attack') {
+          for (let [atkProp, atkValue] of Object.entries(value)) {
+            if (atkValue.bonus) {
+              bonuses[atkProp] = atkValue.bonus;
+            }
+          }
+        }
+      }
+      return bonuses;
     },
     /**
      * Toggle equipment display (click event).
@@ -146,11 +188,28 @@ export default {
       };
     }
   },
+  watch: {
+    'actor.items': {
+      deep: true,
+      handler() {
+        console.log('UPDATE INVENTORY');
+        this.getEquipment();
+      }
+    },
+    'searchValue': {
+      deep: false,
+      handler() {
+        this.getEquipment();
+      }
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+    this.getEquipment();
+  }
 }
 </script>
