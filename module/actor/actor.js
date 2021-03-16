@@ -624,20 +624,32 @@ export class ActorArchmage extends Actor {
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
       if (item.data.maxQuantity.value) {
-        if (item.data.powerUsage.value == 'once-per-battle') {
+        let rechAttempts = item.data.maxQuantity.value - item.data.quantity.value;
+        if (game.settings.get('archmage', 'rechargeOncePerDay')) {
+          rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
+        }
+        if (item.data.powerUsage.value == 'once-per-battle' && rechAttempts > 0) {
           await this.updateOwnedItem({
             _id: item._id,
-            data: {quantity: {value: Number(item.data.maxQuantity.value)}}
+            data: {quantity: {value: item.data.maxQuantity.value}}
           });
-        } else if (item.data.recharge.value > 0) {// This captures other as well
-          let roll = new Roll("1d20").roll();
-          if (roll.total >= item.data.recharge.value) {
+        } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
+          // This captures other as well
+          let successes = 0;
+          for (let j = 0; j < rechAttempts; j++) {
+            let roll = new Roll("1d20").roll();
+            if (roll.total >= item.data.recharge.value) {successes++;}
+            rechargeRolls.push(item.name+": "+roll.total.toString()+">="+item.data.recharge.value.toString()); 
+          }
+          if (successes > 0) {
             await this.updateOwnedItem({
               _id: item._id,
-              data: {quantity: {value: Number(item.data.maxQuantity.value)}}
+              data: {
+                quantity: {value: item.data.quantity.value + successes},
+                rechargeAttempts: {value: item.data.rechargeAttempts.value + rechAttempts}
+                }
             });
           }
-          rechargeRolls.push(item.name+": "+roll.total.toString()+">="+item.data.recharge.value.toString());
         }
       } 
     }
@@ -669,10 +681,12 @@ export class ActorArchmage extends Actor {
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
       if (item.data.maxQuantity.value) {
-        let uses = Number(item.data.maxQuantity.value);
         await this.updateOwnedItem({
           _id: item._id,
-          data: {quantity: {value: uses}}
+          data: {
+            quantity: {value: item.data.maxQuantity.value},
+            rechargeAttempts: {value: 0}
+            }
         });
       }
     }
