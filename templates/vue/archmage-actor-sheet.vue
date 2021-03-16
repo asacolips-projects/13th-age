@@ -68,7 +68,7 @@ export default {
           powers: {active: false},
           inventory: {active: false},
           // effects: {active: false},
-          settings: {active: true}
+          settings: {icon: 'fa-cogs', hideLabel: true, active: true}
         }
       }
     }

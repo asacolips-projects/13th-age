@@ -1,7 +1,7 @@
 <template>
   <section class="section section--tabs flexshrink">
     <nav :class="concat('sheet-tabs tabs tabs--', group)" :data-group="group">
-      <a v-for="(item, index) in tabs" :key="concat('tab-', group, '-', index)" :class="getTabClass(item)" :data-tab="index" v-on:click="changeTab">{{localize(concat('ARCHMAGE.', index))}}</a>
+      <a v-for="(item, index) in tabs" :key="concat('tab-', group, '-', index)" :class="getTabClass(item, index)" :data-tab="index" v-on:click="changeTab"><i v-if="item.icon" :class="concat('fas ', item.icon)"></i><span v-if="!item.hideLabel">{{localize(concat('ARCHMAGE.', index))}}</span></a>
     </nav>
   </section>
 </template>
@@ -25,8 +25,8 @@ export default {
       }
       this.tabs[tab].active = true;
     },
-    getTabClass(tab) {
-      return `tab-link${tab.active ? ' active' : ''}`;
+    getTabClass(tab, index) {
+      return `tab-link tab-link--${index}${tab.active ? ' active' : ''}`;
     }
   },
   async created() {

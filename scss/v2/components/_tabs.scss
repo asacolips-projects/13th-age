@@ -7,6 +7,10 @@
       box-shadow: inset 0 -4px 0 0 $c-black;
     }
   }
+
+  .tab-link--settings {
+    flex: 0 0 44px;
+  }
 }
 
 .section--tabs-content {
