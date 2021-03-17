@@ -633,8 +633,8 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollAbility(abilityId) {
-    this.rollAbilityTest(abilityId);
+  rollAbility(abilityId, background = null) {
+    this.rollAbilityTest(abilityId, background);
   }
 
   /* -------------------------------------------- */
@@ -647,24 +647,53 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollAbilityTest(abilityId) {
-    let abl = this.data.data.abilities[abilityId];
-    let terms = ['@mod', '@background'];
-    let flavor = `${abl.label} Ability Test`;
+  rollAbilityTest(abilityId, background = null) {
+    let abl = null;
+    let bg = null;
+    let terms = ['@abil', '@lvl', '@bg'];
+    let flavor = '';
+    let abilityName = '';
+    let backgroundName = '';
+
+    if (abilityId) {
+      abl = this.data.data.abilities[abilityId]  ?? null;
+      flavor = abl ? `${abl.label} Ability Check` : 'Ability Check';
+      abilityName = abl.label ? abl.label : '';
+    }
+
+    if (background) {
+      bg = Object.entries(this.data.data.backgrounds).find(([k,v]) => {
+        return v.name.value && (v.name.value.safeCSSId() == background.safeCSSId());
+      });
+      if (bg) {
+        flavor = `${bg[1].name.value} Background Check`;
+        backgroundName = Number(bg[1].bonus.value) >= 0 ? `+${bg[1].bonus.value} ${bg[1].name.value}` : `${bg[1].bonus.value} ${bg[1].name.value}`;
+      }
+      else {
+        flavor = 'Background Check';
+      }
+    }
 
     // Call the roll helper utility
     DiceArchmage.d20Roll({
       event: event,
       terms: terms,
       data: {
-        mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals?.skills ? 1 : 0),
-        background: 0
+        abil: abl ? abl.mod : 0,
+        lvl: this.data.data.attributes.level.value + (this.data.data.incrementals?.skills ? 1 : 0),
+        bg: bg ? bg[1].bonus.value : 0,
+        abilityName: abilityName,
+        backgroundName: backgroundName,
+        abilityCheck: Boolean(abl),
+        backgroundCheck: Boolean(bg)
       },
+      abilities: this.data.data.abilities,
       backgrounds: this.data.data.backgrounds,
       title: flavor,
       alias: this.data.name,
       actor: this,
-      ability: abl
+      ability: abl,
+      background: bg
     });
   }
 }

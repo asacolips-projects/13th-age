@@ -245,8 +245,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     else if (type == 'recovery') this._onRecoveryRoll();
     else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
     else if (type == 'init') this._onInitRoll();
-    // else if (type == 'ability') this._onAbilityRoll(opt);
-    // else if (type == 'background') this._onBackgroundRoll(opt);
+    else if (type == 'ability') this._onAbilityRoll(opt);
+    else if (type == 'background') this._onBackgroundRoll(opt);
     // else if (type == 'icon') this._onIconRoll(opt);
     // else if (type == 'command') this._onCommandRoll(opt);
 
@@ -401,6 +401,20 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (!combatant) {
       await this.actor.rollInitiative({createCombatants: true});
     }
+  }
+
+  /**
+   * Roll ability check for the actor.
+   */
+  _onAbilityRoll(ability) {
+    this.actor.rollAbility(ability);
+  }
+
+  /**
+   * Roll background check for the actor.
+   */
+   _onBackgroundRoll(background) {
+    this.actor.rollAbility(null, background);
   }
 
   /* ------------------------------------------------------------------------ */
