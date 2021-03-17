@@ -40,7 +40,7 @@
     <section class="unit unit--disengage flexshrink">
       <h2 class="unit-title">{{localize('Disengage')}}</h2>
       <div class="resource flexcol">
-        <a class="rollable rollable--disengage disengage-value" data-roll-type="disengage" :data-roll-opt="disengage.value">{{disengage.value}}+</a>
+        <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
         <div class="disengage-bonus flexrow">
           <span class="disengage-label">{{localize('Bonus')}}</span>
           <input type="text" name="data.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">

@@ -233,6 +233,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    * Handle rollable clicks.
    */
   _onRollable(event) {
+    event.preventDefault;
     let target = event.currentTarget;
     let dataset = target.dataset;
 
@@ -243,7 +244,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (type == 'item' && opt) this._onItemRoll(opt);
     else if (type == 'recovery') this._onRecoveryRoll();
     else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
-    // else if (type == 'init') this._onInitRoll(opt);
+    else if (type == 'init') this._onInitRoll();
     // else if (type == 'ability') this._onAbilityRoll(opt);
     // else if (type == 'background') this._onBackgroundRoll(opt);
     // else if (type == 'icon') this._onIconRoll(opt);
@@ -255,6 +256,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   /**
    * Perform a basic roll and send it to chat.
+   *
    * @param {string} formula
    */
   _onFormulaRoll(formula) {
@@ -265,6 +267,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   /**
    * Perform an owned item's roll.
+   *
    * @param {string} id
    */
   _onItemRoll(id) {
@@ -303,6 +306,12 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   }
 
 
+  /**
+   * Roll a saving throw for the actor.
+   *
+   * @param {string} difficulty
+   *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
+   */
   async _onSaveRoll(difficulty) {
     // Initialize the roll and our values.
     let actor = this.actor;
@@ -325,7 +334,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
 
     // Determine the roll result.
-    let target = actor.data.data.attributes.save[dc];
+    let target = dc != 'disengage' ? actor.data.data.attributes.save[dc] : actor.data.data.attributes.disengage;
     let rollResult = result.total;
     let success = rollResult >= target;
 
@@ -377,6 +386,20 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
           'data.attributes.saves.deathFails.value': Math.min(4, Number(actor.data.data.attributes.saves.deathFails.value) + 1)
         });
       }
+    }
+  }
+
+  /**
+   * Roll initiative for the actor.
+   */
+  async _onInitRoll() {
+    let combat = game.combat;
+    if (!combat) return;
+    // Check to see if this actor is already in the combat.
+    let combatant = combat.combatants.find(c => c?.actor?.data?._id == this.actor._id);
+    // If not, roll initiative.
+    if (!combatant) {
+      await this.actor.rollInitiative({createCombatants: true});
     }
   }
 
