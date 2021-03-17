@@ -304,11 +304,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
 
   async _onSaveRoll(difficulty) {
+    // Initialize the roll and our values.
     let actor = this.actor;
     let roll = new Roll(`d20`);
     let result = roll.roll();
     let dc = 'normal';
 
+    // Determine the roll type.
     if (difficulty == 'easy') {
       dc = 'easy';
     }
@@ -319,8 +321,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       dc = 'disengage';
     }
 
+    // Create the chat message title.
     let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
 
+    // Determine the roll result.
     let target = actor.data.data.attributes.save[dc];
     let rollResult = result.total;
     let success = rollResult >= target;
