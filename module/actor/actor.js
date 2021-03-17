@@ -615,11 +615,13 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
     
     // Resources
-    if (this.data.data.resources.perCombat.commandPoints.enabled) {
-      updateData['data.resources.perCombat.commandPoints.current'] = 1;
+    if (this.data.data.resources.perCombat.commandPoints.enabled
+      && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      updateData['data.resources.perCombat.commandPoints.current'] = "1";
       templateData.resources.push({key: "Command Points", message: "reset to 1"});
     }
-    if (this.data.data.resources.perCombat.momentum.enabled) {
+    if (this.data.data.resources.perCombat.momentum.enabled
+      && this.data.data.resources.perCombat.momentum.current) {
       updateData['data.resources.perCombat.momentum.current'] = false;
       templateData.resources.push({key: "Momentum", message: "lost"});
     }
@@ -699,15 +701,18 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
 
     // Resources
-    if (this.data.data.resources.perCombat.commandPoints.enabled) {
+    if (this.data.data.resources.perCombat.commandPoints.enabled
+      && this.data.data.resources.perCombat.commandPoints.current != 1) {
       updateData['data.resources.perCombat.commandPoints.current'] = "1";
       templateData.resources.push({key: "Command Points", message: "reset to 1"});
     }
-    if (this.data.data.resources.perCombat.momentum.enabled) {
+    if (this.data.data.resources.perCombat.momentum.enabled
+      && this.data.data.resources.perCombat.momentum.current) {
       updateData['data.resources.perCombat.momentum.current'] = false;
       templateData.resources.push({key: "Momentum", message: "lost"});
     }
-    if (this.data.data.resources.spendable.ki.enabled) {
+    if (this.data.data.resources.spendable.ki.enabled
+      && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
       updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
       templateData.resources.push({key: "Ki", message: `reset to ${this.data.data.resources.spendable.ki.max}`});
     }
@@ -720,7 +725,8 @@ export class ActorArchmage extends Actor {
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
-      if (item.data.maxQuantity.value) {
+      if (item.data.maxQuantity.value
+        && item.data.quantity.value < item.data.maxQuantity.value) {
         await this.updateOwnedItem({
           _id: item._id,
           data: {
