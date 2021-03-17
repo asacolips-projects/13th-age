@@ -383,13 +383,10 @@ export class ActorArchmage extends Actor {
     // Handle icons.
     if (data?.icons) {
       for (let [k,v] of Object.entries(data.icons)) {
-        if (v.results) {
-          let results = {};
+        if (v.results && v.results.length < v.bonus.value) {
+          let results = [];
           for (let i = 0; i < v.bonus.value; i++) {
-            results[i] = {
-              // TODO: Make this dynamic.
-              value: 6
-            }
+            results[i] = v.results[i] ?? 0
           }
           v.results = results;
         }

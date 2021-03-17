@@ -24,6 +24,13 @@
     border: 1px solid $c-black;
     text-align: center;
     line-height: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background: $c-blue;
+      color: $c-white;
+      border-color: $c-blue;
+    }
   }
 
   // TODO: Make a way to view/edit this.

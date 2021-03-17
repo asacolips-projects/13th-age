@@ -9,7 +9,7 @@
             <span class="icon-name">{{item.bonus.value}} {{item.name.value}}</span>
           </div>
           <ul class="icon-rolls flexrow" :key="changeKey">
-            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll">{{getRollResult(roll)}}</li>
+            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll" :data-key="index" :data-roll-key="rollIndex" :data-roll="getRollResult(roll)">{{getRollResult(roll)}}</li>
           </ul>
         </div>
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">

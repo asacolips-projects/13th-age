@@ -141,6 +141,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     // Other listeners.
     html.on('click', '.item-import', (event) => this._importPowers(event));
     html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateDeathFails(event));
+    html.on('click', '.icon-roll', (event) => this._updateIconRoll(event));
   }
 
   /**
@@ -417,6 +418,12 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     this.actor.rollAbility(null, background);
   }
 
+  /**
+   * Roll an icon relationship for the actor.
+   *
+   * @param {string} iconIndex | Index, such as i1 or i2
+   * @returns object | Chat message
+   */
   async _onIconRoll(iconIndex) {
     let actorData = this.actor.data.data;
 
@@ -564,6 +571,31 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         deathCount = Math.max(0, deathCount - 1);
       }
       await this.actor.update({'data.attributes.saves.deathFails.value': deathCount});
+    }
+  }
+
+  async _updateIconRoll(event) {
+    event.preventDefault();
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    if (dataset.roll && dataset.key && dataset.rollKey) {
+      let iconIndex = dataset.key;
+      let resultIndex = dataset.rollKey;
+      let value = Number(dataset.roll);
+
+      // Increment the value.
+      value++;
+      if (value > 6) {
+        value = 0;
+      }
+      else if (value < 5) {
+        value = 5;
+      }
+
+      let updates = {};
+      updates[`data.icons.${iconIndex}.results.${resultIndex}`] = value;
+      await this.actor.update(updates);
     }
   }
 
