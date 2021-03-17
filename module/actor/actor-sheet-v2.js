@@ -247,7 +247,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     else if (type == 'init') this._onInitRoll();
     else if (type == 'ability') this._onAbilityRoll(opt);
     else if (type == 'background') this._onBackgroundRoll(opt);
-    // else if (type == 'icon') this._onIconRoll(opt);
+    else if (type == 'icon') this._onIconRoll(opt);
     // else if (type == 'command') this._onCommandRoll(opt);
 
     // Fallback to a plain formula roll.
@@ -415,6 +415,139 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    */
    _onBackgroundRoll(background) {
     this.actor.rollAbility(null, background);
+  }
+
+  async _onIconRoll(iconIndex) {
+    let actorData = this.actor.data.data;
+
+    if (actorData.icons[iconIndex]) {
+      let icon = actorData.icons[iconIndex];
+      let roll = new Roll(`${icon.bonus.value}d6`);
+      let result = roll.roll();
+
+      let fives = 0;
+      let sixes = 0;
+      var rollResults;
+
+      let actorIconResults = [];
+
+      if (!isNewerVersion(game.data.version, "0.7")) {
+        rollResults = result.parts[0].rolls;
+        rollResults.forEach(rollResult => {
+          if (rollResult.roll == 5) {
+            fives++;
+            actorIconResults.push(5);
+          }
+          else if (rollResult.roll == 6) {
+            sixes++;
+            actorIconResults.push(6);
+          }
+        });
+      }
+      else {
+        rollResults = result.terms[0].results;
+        rollResults.forEach(rollResult => {
+          if (rollResult.result == 5) {
+            fives++;
+            actorIconResults.push(5);
+          }
+          else if (rollResult.result == 6) {
+            sixes++;
+            actorIconResults.push(6);
+          }
+        });
+      }
+
+      // Update actor.
+      let updateData = {};
+      updateData[`data.icons.${iconIndex}.results`] = actorIconResults;
+      this.actor.update(updateData);
+
+      // Basic template rendering data
+      const template = `systems/archmage/templates/chat/icon-relationship-card.html`
+      const token = this.actor.token;
+
+      // Basic chat message data
+      const chatData = {
+        user: game.user._id,
+        type: 5,
+        roll: roll,
+        speaker: {
+          actor: this.actor._id,
+          token: this.actor.token,
+          alias: this.actor.name,
+          scene: game.user.viewedScene
+        }
+      };
+
+      const templateData = {
+        actor: this.actor,
+        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        icon: icon,
+        fives: fives,
+        sixes: sixes,
+        hasFives: fives > 0,
+        hasSixes: sixes > 0,
+        data: chatData
+      };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
+      // Render the template
+      chatData["content"] = await renderTemplate(template, templateData);
+
+      let message = ChatMessage.create(chatData, { displaySheet: false });
+
+      // Card support
+      if (game.decks) {
+
+        for (var x = 0; x < fives; x++) {
+          await addIconCard(icon.name.value, 5);
+        }
+        for (var x = 0; x < sixes; x++) {
+          await addIconCard(icon.name.value, 6);
+        }
+
+        async function addIconCard(icon, value) {
+          let decks = game.decks.decks;
+          for (var deckId in decks) {
+            let msg = {
+              type: "GETALLCARDSBYDECK",
+              playerID: game.users.find(el => el.isGM && el.active).id,
+              deckID: deckId
+            };
+
+            const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+            let foundCard = undefined;
+            game.socket.on("module.cardsupport", async (recieveMsg) => {
+              if (recieveMsg?.cards == undefined || foundCard) return;
+              let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
+
+              if (card) {
+                await ui.cardHotbar.populator.addToPlayerHand([card]);
+                foundCard = true;
+                // Unbind
+                game.socket.off("module.cardsupport");
+              }
+              foundCard = false;
+            });
+
+            game.socket.emit("module.cardsupport", msg);
+
+            await wait(200);
+            // Unbind
+            game.socket.off("module.cardsupport");
+            if (foundCard) return;
+          }
+        }
+      }
+
+      return message;
+    }
   }
 
   /* ------------------------------------------------------------------------ */

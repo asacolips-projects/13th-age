@@ -4,12 +4,12 @@
     <ul class="list list--icons icons">
       <li v-for="(item, index) in icons" :key="concat('data.icons.', index)" class="list-item list-item--icons icon flexrow" :data-key="index">
         <div :class="concat('icon-display flexrow', isEdit(index, editArray[index]))">
-          <div class="rollable rollable--icon" data-roll-type="icon" :data-roll-opt="item.name.value">
+          <div class="rollable rollable--icon" data-roll-type="icon" :data-roll-opt="index">
             <span class="icon-symbol flexshrink">{{iconSymbol(item.relationship.value)}}</span>
             <span class="icon-name">{{item.bonus.value}} {{item.name.value}}</span>
           </div>
           <ul class="icon-rolls flexrow" :key="changeKey">
-            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll">{{roll.value}}</li>
+            <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll">{{getRollResult(roll)}}</li>
           </ul>
         </div>
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">
@@ -80,8 +80,8 @@ export default {
         return this.editArray[index] === type ? ' hide ' : '';
       }
     },
-    getIconResults() {
-      game.archmage.ActorHelpersV2._prepareIcons(this.actor);
+    getRollResult(roll) {
+      return roll == 5 || roll == 6 ? roll : 0;
     }
   },
   watch: {
