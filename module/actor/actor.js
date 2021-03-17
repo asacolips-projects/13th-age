@@ -556,7 +556,6 @@ export class ActorArchmage extends Actor {
     if (print) {
       // Basic template rendering data
       const template = `systems/archmage/templates/chat/recovery-card.html`
-      const token = this.token;
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
       const chatData = {
@@ -594,30 +593,40 @@ export class ActorArchmage extends Actor {
   }
 
   async restShort() {
+    let templateData = {
+      actor: this,
+      usedRecoveries: 0,
+      gainedHp: 0,
+      resources: [],
+      items: []
+    };
+    let updateData = {};
+
     // Recoveries & hp
     let baseHp = this.data.data.attributes.hp.value;
-    let gainedHp = 0;
-    let recoveryRolls = [];
-    let rechargeRolls = [];
-    let usedRecoveries = 0;
-    let updateData = {}
 
-    while (baseHp + gainedHp < this.data.data.attributes.hp.max/2) {
+    while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
       let roll = await this.rollRecovery({apply: false}, false);
-      gainedHp += roll.total;
-      usedRecoveries += 1;
-      recoveryRolls.push(roll);
+      templateData.gainedHp += roll.total;
+      templateData.usedRecoveries += 1;
     }
-    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - usedRecoveries;
-    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + gainedHp);
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
     
     // Resources
     if (this.data.data.resources.perCombat.commandPoints.enabled) {
       updateData['data.resources.perCombat.commandPoints.current'] = 1;
+      templateData.resources.push({key: "Command Points", message: "reset to 1"});
     }
     if (this.data.data.resources.perCombat.momentum.enabled) {
       updateData['data.resources.perCombat.momentum.current'] = false;
+      templateData.resources.push({key: "Momentum", message: "lost"});
+    }
+
+    // Update actor at this point (items are updated separately)
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
     }
     
     // Items (Powers)
@@ -628,18 +637,33 @@ export class ActorArchmage extends Actor {
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
         }
-        if (item.data.powerUsage.value == 'once-per-battle' && rechAttempts > 0) {
+        if (item.data.powerUsage.value == 'once-per-battle'
+          && item.data.maxQuantity.value < item.data.quantity.value) {
           await this.updateOwnedItem({
             _id: item._id,
             data: {quantity: {value: item.data.maxQuantity.value}}
+          });
+          templateData.items.push({
+            key: item.name,
+            message: `restored to ${item.data.maxQuantity.value} uses`
           });
         } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
             let roll = new Roll("1d20").roll();
-            if (roll.total >= item.data.recharge.value) {successes++;}
-            rechargeRolls.push(item.name+": "+roll.total.toString()+">="+item.data.recharge.value.toString()); 
+            if (roll.total >= item.data.recharge.value) {
+              successes++;
+              templateData.items.push({
+                key: item.name,
+                message: `recharged (${roll.total} >= ${item.data.recharge.value})`
+              });
+            } else {
+              templateData.items.push({
+                key: item.name,
+                message: `recharge failed (${roll.total} < ${item.data.recharge.value})`
+              });
+            }
           }
           if (successes > 0) {
             await this.updateOwnedItem({
@@ -654,14 +678,24 @@ export class ActorArchmage extends Actor {
       } 
     }
 
-    // Update actor
-    if ( !isObjectEmpty(updateData) ) {
-      this.update(updateData);
-    }
+    // Print outcomes to chat
+    const template = `systems/archmage/templates/chat/rest-short-card.html`
+    const chatData = {
+      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      alias: this.name, scene: game.user.viewedScene}
+    };
+    chatData["content"] = await renderTemplate(template, templateData);
+    let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
   async restFull() {
+    let templateData = {
+      actor: this,
+      resources: [],
+      items: []
+    };
     let updateData = {}
+
     // Recoveries & hp
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
@@ -669,12 +703,20 @@ export class ActorArchmage extends Actor {
     // Resources
     if (this.data.data.resources.perCombat.commandPoints.enabled) {
       updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      templateData.resources.push({key: "Command Points", message: "reset to 1"});
     }
     if (this.data.data.resources.perCombat.momentum.enabled) {
       updateData['data.resources.perCombat.momentum.current'] = false;
+      templateData.resources.push({key: "Momentum", message: "lost"});
     }
     if (this.data.data.resources.spendable.ki.enabled) {
       updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
+      templateData.resources.push({key: "Ki", message: `reset to ${this.data.data.resources.spendable.ki.max}`});
+    }
+
+    // Update actor at this point (items are updated separately)
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
     }
 
     // Items (Powers)
@@ -688,11 +730,21 @@ export class ActorArchmage extends Actor {
             rechargeAttempts: {value: 0}
             }
         });
+        templateData.items.push({
+          key: item.name,
+          message: `restored to ${item.data.maxQuantity.value} uses`
+        });
       }
     }
 
-    // Update actor
-    this.update(updateData);
+    // Print outcomes to chat
+    const template = `systems/archmage/templates/chat/rest-full-card.html`
+    const chatData = {
+      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      alias: this.name, scene: game.user.viewedScene}
+    };
+    chatData["content"] = await renderTemplate(template, templateData);
+    let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
   /* -------------------------------------------- */

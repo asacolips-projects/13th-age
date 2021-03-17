@@ -1,0 +1,21 @@
+<div class="archmage chat-card">
+  <header class="card-header flexrow">
+    <img src="{{actor.img}}" title="{{actor.name}}" width="36" height="36"/>
+    <h3 class="ability-usage ability-usage--once-per-battle">Quick Rest</h3>
+  </header>
+  <div class="card-content">
+    <div class="card-row">
+      <div class="card-prop"><strong>Recoveries:</strong> rolled {{usedRecoveries}} recoveries healing {{gainedHp}} hp</div>
+    </div>
+    {{#each resources as |rsc key|}}
+    <div class="card-row">
+      <div class="card-prop"><strong>{{rsc.key}}:</strong> {{rsc.message}}</div>
+    </div>
+    {{/each}}
+    {{#each items as |itm key|}}
+    <div class="card-row">
+      <div class="card-prop"><strong>{{itm.key}}:</strong> {{itm.message}}</div>
+    </div>
+    {{/each}}
+  </div>
+</div>
