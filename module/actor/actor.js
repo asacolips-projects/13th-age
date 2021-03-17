@@ -665,15 +665,13 @@ export class ActorArchmage extends Actor {
               });
             }
           }
-          if (successes > 0) {
-            await this.updateOwnedItem({
-              _id: item._id,
-              data: {
-                quantity: {value: item.data.quantity.value + successes},
-                rechargeAttempts: {value: item.data.rechargeAttempts.value + rechAttempts}
-                }
-            });
-          }
+          await this.updateOwnedItem({
+            _id: item._id,
+            data: {
+              quantity: {value: item.data.quantity.value + successes},
+              rechargeAttempts: {value: item.data.rechargeAttempts.value + rechAttempts - successes}
+              }
+          });
         }
       } 
     }
