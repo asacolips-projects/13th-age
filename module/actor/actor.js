@@ -592,7 +592,7 @@ export class ActorArchmage extends Actor {
     return roll;
   }
 
-  async restShort() {
+  async restQuick() {
     let templateData = {
       actor: this,
       usedRecoveries: 0,

@@ -204,11 +204,53 @@ export class ActorArchmageSheet extends ActorSheet {
     // });
 
     // Rests
-    html.find('.short-rest').click(ev => {
-      this.actor.restShort();
+    html.find('.quick-rest').click(ev => {
+      if (event.shiftKey) {
+        this.actor.restQuick();
+      } else {
+        let doRest = false;
+        new Dialog({
+          title: "Quick Rest",
+          buttons: {
+            rest: {
+              label: 'Rest',
+              callback: () => {doRest = true;}
+            },
+            cancel: {
+              label: 'Cancel',
+              callback: () => {}
+            }
+          },
+          default: 'rest',
+          close: html => {
+            if (doRest) {this.actor.restQuick();}
+          }
+        }).render(true);
+      }
     });
     html.find('.full-rest').click(ev => {
-      this.actor.restFull();
+      if (event.shiftKey) {
+        this.actor.restFull();
+      } else {
+        let doRest = false;
+        new Dialog({
+          title: "Full Heal Up",
+          buttons: {
+            rest: {
+              label: 'Rest',
+              callback: () => {doRest = true;}
+            },
+            cancel: {
+              label: 'Cancel',
+              callback: () => {}
+            }
+          },
+          default: 'rest',
+          close: html => {
+            if (doRest) {this.actor.restFull();}
+          }
+        }).render(true);
+      }
     });
 
     // Ability Checks
