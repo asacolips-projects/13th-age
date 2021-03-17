@@ -421,6 +421,15 @@ export class ActorArchmage extends Actor {
         data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
       }
     }
+
+    // Handle death saves.
+    if (data.attributes.saves.deathFails) {
+      let deathCount = data.attributes.saves.deathFails.value;
+      data.attributes.saves.deathFails.steps = [false, false, false, false];
+      for (let i = 0; i < deathCount; i++) {
+        data.attributes.saves.deathFails.steps[i] = true;
+      }
+    }
   }
 
   /* -------------------------------------------- */
@@ -441,15 +450,15 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollRecoveryDialog() {
+  rollRecoveryDialog(event) {
     let actorData = this.data.data;
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
     let strRec = this.getFlag('archmage', 'strongRecovery');
     let data = {bonus: "", average: avg};
 
-    if (event.shiftKey) {
-      this._rollRecovery(data, true);
+    if (event && event.shiftKey) {
+      this.rollRecovery(data, true);
       return;
     }
 

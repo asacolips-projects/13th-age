@@ -140,6 +140,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Other listeners.
     html.on('click', '.item-import', (event) => this._importPowers(event));
+    html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateDeathFails(event));
   }
 
   /**
@@ -241,13 +242,12 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     if (type == 'item' && opt) this._onItemRoll(opt);
     else if (type == 'recovery') this._onRecoveryRoll();
-    // else if (type == 'save') this._onSaveRoll(opt);
+    else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
     // else if (type == 'init') this._onInitRoll(opt);
     // else if (type == 'ability') this._onAbilityRoll(opt);
     // else if (type == 'background') this._onBackgroundRoll(opt);
     // else if (type == 'icon') this._onIconRoll(opt);
     // else if (type == 'command') this._onCommandRoll(opt);
-    // else if (type == 'disengage') this._onDisengageRoll(opt);
 
     // Fallback to a plain formula roll.
     else if (opt) this._onFormulaRoll(opt);
@@ -300,6 +300,97 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       'data.attributes.recoveries.value': attr.recoveries.value - 1,
       'data.attributes.hp.value': Math.min(attr.hp.max, Math.max(attr.hp.value, 0) + roll.total)
     });
+  }
+
+
+  async _onSaveRoll(difficulty) {
+    let actor = this.actor;
+    let roll = new Roll(`d20`);
+    let result = roll.roll();
+    let dc = 'normal';
+
+    if (difficulty == 'easy') {
+      dc = 'easy';
+    }
+    else if (difficulty == 'hard' || difficulty == 'death') {
+      dc = 'hard';
+    }
+    else if (difficulty == 'disengage') {
+      dc = 'disengage';
+    }
+
+    let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
+
+    let target = actor.data.data.attributes.save[dc];
+    let rollResult = result.total;
+    let success = rollResult >= target;
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/save-card.html`
+    const token = actor.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user._id,
+      type: 5,
+      roll: roll,
+      speaker: {
+        actor: actor._id,
+        token: actor.token,
+        alias: actor.name,
+        scene: game.user.viewedScene
+      }
+    };
+
+    const templateData = {
+      actor: actor,
+      tokenId: token ? `${token.scene._id}.${token.id}` : null,
+      saveType: label,
+      success: success,
+      data: chatData,
+      target
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+    ChatMessage.create(chatData, { displaySheet: false });
+
+    // Handle recoveries or failures on death saves.
+    if (difficulty == 'death') {
+      if (success) {
+        actor.rollRecovery({}, true);
+        await actor.update({
+          'data.attributes.saves.deathFails.value': 0,
+        });
+      }
+      else {
+        await actor.update({
+          'data.attributes.saves.deathFails.value': Math.min(4, Number(actor.data.data.attributes.saves.deathFails.value) + 1)
+        });
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /*  Special Listeners ----------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  async _updateDeathFails(event) {
+    event.preventDefault();
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    if (dataset.opt) {
+      let deathCount = Number(dataset.opt);
+      if (deathCount == this.actor.data.data.attributes.saves.deathFails.value) {
+        deathCount = Math.max(0, deathCount - 1);
+      }
+      await this.actor.update({'data.attributes.saves.deathFails.value': deathCount});
+    }
   }
 
   /* ------------------------------------------------------------------------ */

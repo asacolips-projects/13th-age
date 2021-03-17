@@ -65,10 +65,10 @@
         <div class="death-saves">
           <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('Death Saves')}}</a>
           <div class="death-save-attempts flexrow">
-            <input type="checkbox" name="data.attributes.saves.deathFails.0" v-model="actor.data.attributes.saves.deathFails[0]">
-            <input type="checkbox" name="data.attributes.saves.deathFails.1" v-model="actor.data.attributes.saves.deathFails[1]">
-            <input type="checkbox" name="data.attributes.saves.deathFails.2" v-model="actor.data.attributes.saves.deathFails[2]">
-            <input type="checkbox" name="data.attributes.saves.deathFails.3" v-model="actor.data.attributes.saves.deathFails[3]">
+            <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[0]" data-opt="1">
+            <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[1]" data-opt="2">
+            <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[2]" data-opt="3">
+            <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[3]" data-opt="4">
           </div>
         </div>
       </div>
