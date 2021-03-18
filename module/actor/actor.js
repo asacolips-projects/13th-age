@@ -603,7 +603,7 @@ export class ActorArchmage extends Actor {
     let updateData = {};
 
     // Recoveries & hp
-    let baseHp = this.data.data.attributes.hp.value;
+    let baseHp = Math.min(this.data.data.attributes.hp.value, 0);
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
