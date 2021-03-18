@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You can use this spell twice per battle.</p>'
+    value: '<p>You can use this spell twice per battle, but only once per turn.</p>'
   effect:
     type: 'String'
     label: 'Effect'
