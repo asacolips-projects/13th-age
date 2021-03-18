@@ -634,7 +634,7 @@ export class ActorArchmage extends Actor {
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
-      if (item.data.maxQuantity.value) {
+      if (item.type == "power" && item.data.maxQuantity.value) {
         let rechAttempts = item.data.maxQuantity.value - item.data.quantity.value;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
@@ -725,7 +725,7 @@ export class ActorArchmage extends Actor {
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
-      if (item.data.maxQuantity.value
+      if (item.type == "power" && item.data.maxQuantity.value
         && item.data.quantity.value < item.data.maxQuantity.value) {
         await this.updateOwnedItem({
           _id: item._id,
