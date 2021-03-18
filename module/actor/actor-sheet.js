@@ -478,13 +478,13 @@ export class ActorArchmageSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
       // Update the owned item and rerender.
+      let value = Number(item.data.data.quantity.value || 0) + 1;
+      if (item.data.data.maxQuantity.value) {
+        value = Math.min(value, item.data.data.maxQuantity.value);
+      }
       await this.actor.updateOwnedItem({
         _id: item._id,
-        data: {
-          quantity: {
-            value: Number(item.data.data.quantity.value || 0) + 1
-          }
-        }
+        data: { quantity: { value: value } }
       });
 
       this.render();
