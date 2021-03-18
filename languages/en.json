@@ -4,7 +4,7 @@
   "ARCHMAGE.SETTINGS.RoundUpDamageApplicationName": "When applying damage via the right-click context menu, should it round up (true) or round down (false)?",
   "ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint": "This will be applied the same way for both characters and npcs",
   "ARCHMAGE.SETTINGS.rechargeOncePerDayName": "Recharge once per day",
-  "ARCHMAGE.SETTINGS.rechargeOncePerDayHint": "Attempt recharge rolls during quick rests only once (true) or after every quick rest (false)?",
+  "ARCHMAGE.SETTINGS.rechargeOncePerDayHint": "Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?",
   "ARCHMAGE.SETTINGS.UnboundEscDieName": "Unlimited Escalation Die",
   "ARCHMAGE.SETTINGS.UnboundEscDieHint": "Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).",
   "ARCHMAGE.SETTINGS.ColorblindName": "Enable Colorblind Accessibility Mode",

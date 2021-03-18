@@ -17,10 +17,6 @@ data:
     type: 'String'
     label: 'Power Source Name'
     value: 'Barbarian'
-  powerSourceName:
-    type: 'String'
-    label: 'Power Source Name'
-    value: 'Barbarian'
   powerType:
     type: 'String'
     label: 'Power Type'
