@@ -31,7 +31,7 @@
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="(equipment, equipmentKey) in equipment" :key="equipmentKey" :class="concat('equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id">
+        <li v-for="(equipment, equipmentKey) in equipment" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
             <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></archmage-h-rollable>
@@ -80,6 +80,9 @@ export default {
     }
   },
   computed: {
+    draggable() {
+      return this.sortBy == 'custom' ? true : false;
+    },
     classes() {
       return `section section--inventory flexcol${this.tab.active ? ' active' : ''}`;
     }

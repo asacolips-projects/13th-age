@@ -150,6 +150,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    */
   activateVueListeners(html) {
     html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+    this._dragHandler(html);
   }
 
   /* ------------------------------------------------------------------------ */
@@ -249,7 +250,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     else if (type == 'ability') this._onAbilityRoll(opt);
     else if (type == 'background') this._onBackgroundRoll(opt);
     else if (type == 'icon') this._onIconRoll(opt);
-    // else if (type == 'command') this._onCommandRoll(opt);
+    else if (type == 'command') this._onCommandRoll(opt);
 
     // Fallback to a plain formula roll.
     else if (opt) this._onFormulaRoll(opt);
@@ -564,6 +565,55 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     }
   }
 
+  /**
+   * Roll command points for an actor, and apply them.
+   *
+   * @param {string} dice
+   *   Dice formula to roll.
+   */
+  async _onCommandRoll(dice) {
+    let actor = this.actor;
+    let roll = new Roll(dice, this.actor.getRollData());
+    roll.roll();
+
+    let pointsOld = actor.data.data.resources.perCombat.commandPoints.current;
+    let pointsNew = roll.total;
+
+    await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/command-card.html`
+    const token = actor.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user._id,
+      type: 5,
+      roll: roll,
+      speaker: {
+        actor: actor._id,
+        token: actor.token,
+        alias: actor.name,
+        scene: game.user.viewedScene
+      }
+    };
+
+    const templateData = {
+      actor: actor,
+      tokenId: token ? `${token.scene._id}.${token.id}` : null,
+      data: chatData
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+    ChatMessage.create(chatData, { displaySheet: false });
+  }
+
   /* ------------------------------------------------------------------------ */
   /*  Special Listeners ----------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
@@ -609,6 +659,18 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       updates[`data.icons.${iconIndex}.results`] = results;
       await this.actor.update(updates);
     }
+  }
+
+  /**
+   * Apply drag events to items (powers and equipment).
+   * @param {jQuery} html
+   */
+  _dragHandler(html) {
+    let dragHandler = event => this._onDragStart(event);
+    html.find('.item[data-draggable="true"]').each((i, li) => {
+      li.setAttribute('draggable', true);
+      li.addEventListener('dragstart', dragHandler, false);
+    });
   }
 
   /* ------------------------------------------------------------------------ */

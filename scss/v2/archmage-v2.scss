@@ -32,9 +32,11 @@
     @import 'components/character/inventory';
     @import 'components/character/settings';
   }
+}
 
+.system-archmage {
   // Chat messages.
-  &.message {
+  .message {
     @import 'components/message';
   }
 }

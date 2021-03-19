@@ -1451,13 +1451,32 @@ Hooks.on('deleteCombat', (combat) => {
         let actor = a.actor;
         // Perform the update.
         if (actor) {
-          await actor.update({
-            'data.attributes.saves.deathFails.value': 0,
-          });
+          let updates = {};
+          updates['data.attributes.saves.deathFails.value'] = 0;
+          for (let k of Object.keys(actor.data.data.resources.perCombat)) {
+            updates[`data.resources.perCombat.${k}.current`] = 0;
+          }
+          await actor.update(updates);
           updatedActors[actor.data._id];
         }
       }
     });
+  }
+});
+
+Hooks.on('createCombatant', (combat, combatant, options, id) => {
+  // Retrieve the actor for this combatant.
+  let tokens = combat.scene.data.tokens;
+  let tokenId = combatant.tokenId;
+  if (tokens && tokenId) {
+    let token = tokens.find(t => t._id == tokenId);
+    let actor = token ? game.actors.get(token.actorId) : null;
+    // Add command points at start of combat.
+    if (actor && actor.data.type == 'character') {
+      let updates = {};
+      updates['data.resources.perCombat.commandPoints.current'] = 1;
+      actor.update(updates);
+    }
   }
 });
 

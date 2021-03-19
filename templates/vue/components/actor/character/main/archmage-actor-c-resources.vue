@@ -5,7 +5,7 @@
       <h2 class="unit-title">{{localize('Command Points')}}</h2>
       <div class="resource flexrow">
         <div class="resource--left">
-          <input type="text" name="data.resources.perCombat.commandPoints.current" v-model="commandPoints">
+          <input type="number" name="data.resources.perCombat.commandPoints.current" v-model="commandPoints">
         </div>
         <div class="resource--right flexcol">
           <a class="rollable rollable--command rollable--command-4" data-roll-type="command" data-roll-opt="d4">d4</a>
@@ -17,9 +17,9 @@
     <section v-if="actor.data.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki flexshrink">
       <h2 class="unit-title">{{localize('Ki Points')}}</h2>
       <div class="resource flexrow">
-        <input type="text" name="data.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
+        <input type="number" name="data.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
         <span class="resource-separator">/</span>
-        <input type="text" name="data.resources.spendable.ki.max" class="resource-max" v-model="ki.max">
+        <input type="number" name="data.resources.spendable.ki.max" class="resource-max" v-model="ki.max">
       </div>
     </section>
     <!-- Focus -->
@@ -43,7 +43,7 @@
         <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
         <div class="disengage-bonus flexrow">
           <span class="disengage-label">{{localize('Bonus')}}</span>
-          <input type="text" name="data.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
+          <input type="number" name="data.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
         </div>
       </div>
     </section>

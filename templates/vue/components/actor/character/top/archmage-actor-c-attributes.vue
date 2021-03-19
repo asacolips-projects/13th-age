@@ -8,14 +8,14 @@
     <div class="unit unit--has-max unit--hp">
       <h2 class="unit-title">{{localize('Hit Points')}}</h2>
       <div class="resource flexrow">
-        <input type="text" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
+        <input type="number" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
         <span class="resource-separator">/</span>
         <div v-if="actor.data.attributes.hp.automatic" class="resource-max">{{actor.data.attributes.hp.max}}</div>
-        <input v-else type="text" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
+        <input v-else type="number" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
       </div>
       <div class="labeled-input flexrow">
         <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('Temp HP')}}</label>
-        <input type="text" name="data.attributes.hp.temp" class="temp-hp" v-model="actor.data.attributes.hp.temp">
+        <input type="number" name="data.attributes.hp.temp" class="temp-hp" v-model="actor.data.attributes.hp.temp">
       </div>
     </div>
     <!-- Defenses -->
@@ -40,10 +40,10 @@
     <div class="unit unit--has-max unit--recoveries">
       <h2 class="unit-title">{{localize('Recoveries')}}</h2>
       <div class="resource flexrow">
-        <input type="text" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
+        <input type="number" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
         <span class="resource-separator">/</span>
         <div v-if="actor.data.attributes.recoveries.automatic" class="resource-max">{{actor.data.attributes.recoveries.max}}</div>
-        <input v-else type="text" name="data.attributes.recoveries.max" class="resource-max" v-model="actor.data.attributes.recoveries.max">
+        <input v-else type="number" name="data.attributes.recoveries.max" class="resource-max" v-model="actor.data.attributes.recoveries.max">
       </div>
       <div class="roll">
         <a class="rollable rollable--recover" data-roll-type="recovery">{{actor.data.attributes.level.value}}{{actor.data.attributes.recoveries.dice}}+{{actor.data.abilities.con.dmg}}</a>

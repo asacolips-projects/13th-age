@@ -65,10 +65,10 @@ export default {
       tabs: {
         primary: {
           details: {active: false},
-          powers: {active: false},
+          powers: {active: true},
           inventory: {active: false},
           // effects: {active: false},
-          settings: {icon: 'fa-cogs', hideLabel: true, active: true}
+          settings: {active: false, icon: 'fa-cogs', hideLabel: true}
         }
       }
     }

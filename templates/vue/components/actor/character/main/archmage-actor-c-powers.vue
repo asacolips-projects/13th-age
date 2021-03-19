@@ -42,7 +42,7 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('power-item power-item--', power._id)" :data-item-id="power._id">
+        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable power header. -->
           <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'))">
             <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
@@ -99,6 +99,9 @@ export default {
     }
   },
   computed: {
+    draggable() {
+      return this.sortBy == 'custom' ? true : false;
+    },
     /**
      * Retrieve the groups as a computed property. Stored as keyed object where
      * the key is the machine name for the group and the value is the labe.
