@@ -142,6 +142,11 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     html.on('click', '.item-import', (event) => this._importPowers(event));
     html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateDeathFails(event));
     html.on('click', '.icon-roll', (event) => this._updateIconRoll(event));
+
+    // Item listeners.
+    html.on('click', '.power-uses', (event) => this._updateQuantity(event, true));
+    html.on('contextmenu', '.power-uses', (event) => this._updateQuantity(event, false));
+    html.on('click', '.feat-pip', (event) => this._updateFeat(event));
   }
 
   /**
@@ -664,6 +669,57 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       let updates = {};
       updates[`data.icons.${iconIndex}.results`] = results;
       await this.actor.update(updates);
+    }
+  }
+
+  async _updateQuantity(event, increase = true) {
+    event.preventDefault();
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+    let itemId = dataset.itemId;
+
+    if (!itemId) return;
+
+    let item = this.actor.items.find(i => i.data._id == itemId);
+    if (item) {
+      // Update the quantity.
+      let newQuantity = Number(item.data.data.quantity.value) ?? 0;
+      newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
+
+      // TODO: Refactor the fallback to not be absurdly high after maxQuantity
+      // has become regularly used.
+      let maxQuantity = item.data.data?.maxQuantity?.value ?? 99;
+
+      await this.actor.updateOwnedItem({
+        _id: itemId,
+        data: {
+          'quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)
+        }
+      });
+    }
+  }
+
+  async _updateFeat(event) {
+    event.preventDefault();
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+    let itemId = dataset.itemId;
+
+    if (!itemId) return;
+
+    let item = this.actor.items.find(i => i.data._id == itemId);
+    if (item) {
+      let tier = dataset.tier ?? null;
+      if (!tier) return;
+
+      let isActive = item.data.data.feats[tier].isActive.value;
+      let updateData = {};
+      updateData[`feats.${tier}.isActive.value`] = !isActive;
+
+      await this.actor.updateOwnedItem({
+        _id: itemId,
+        data: updateData
+      });
     }
   }
 

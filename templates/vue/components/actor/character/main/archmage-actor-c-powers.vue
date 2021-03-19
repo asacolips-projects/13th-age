@@ -51,14 +51,14 @@
             </a>
             <div class="power-feat-pips" v-if="hasFeats(power)">
               <ul class="feat-pips">
-                <li v-for="(feat, tier) in power.data.feats" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))"><div class="hide">{{tier}}</div></li>
+                <li v-for="(feat, tier) in power.data.feats" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
               </ul>
             </div>
             <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
             <div class="power-recharge" v-if="power.data.recharge.value">
               <archmage-h-rollable name="recharge" type="recharge" :opt="power._id">{{power.data.recharge.value}}+</archmage-h-rollable>
             </div>
-            <div class="power-uses" v-if="power.data.quantity.value">{{power.data.quantity.value}}</div>
+            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.data.quantity.value"><span v-if="power.data.quantity.value">{{power.data.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
