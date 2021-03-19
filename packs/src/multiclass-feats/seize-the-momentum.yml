@@ -1,4 +1,4 @@
-name: 'Controlled Rage (Barbarian)'
+name: 'Seize the Momentum'
 permission:
   default: 0
 type: 'power'
@@ -17,6 +17,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Rogue'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -24,7 +28,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -140,13 +144,17 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You can use powers and attacks from your other class while raging. You can&rsquo;t use the extra d20 that Barbarian Rage gives you while making an attack from the other class, but at least you can slip out of your rage long enough to use a power or attack from your other class.</p>'
+        value: '<p>Once per day when you hit with an attack from your non-rogue class, you can gain <em>momentum </em>as if you had used a rogue attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -155,7 +163,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per battle while raging, you can use a melee attack from your other class as if it was a barbarian attack, rolling 2d20 for the attack. (Examples of possible uses include a bard&rsquo;s flexible attack battle cries, a commander attack using the Lead from the Front talent that will garner command points, a fighter&rsquo;s flexible attacks, a ranger&rsquo;s double melee attack, and so on.)</p>'
+        value: '<p>In addition to using the adventurer-tier feat once per day, you can also use it once per battle (so in a four-battle day, you could use it five times).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
