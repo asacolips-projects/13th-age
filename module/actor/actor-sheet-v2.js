@@ -690,15 +690,3 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     }
   }
 }
-
-Hooks.on('deleteCombat', (combat, data, id) => {
-  let combatants = combat.data.combatants;
-  if (combatants) {
-    let actors = combatants.filter(c => c?.actor?.data?.type == 'character');
-    actors.forEach(async (actor) => {
-      await actor.update({
-        'data.attributes.saves.deathFails.value': 0,
-      });
-    });
-  }
-});

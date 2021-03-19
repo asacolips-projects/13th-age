@@ -1433,9 +1433,32 @@ Hooks.on('renderCombatTracker', (async () => {
 
 /* ---------------------------------------------- */
 
-// Clear escalation die values.
 Hooks.on('deleteCombat', (combat) => {
+  // Clear the escalation die.
   $('.archmage-escalation').addClass('hide');
+
+  // Clear out death saves.
+  let combatants = combat.data.combatants;
+  if (combatants) {
+    // Retrieve the character actors.
+    let actors = combatants.filter(c => c?.actor?.data?.type == 'character');
+    let updatedActors = {};
+    // Iterate over the actors for updates.
+    actors.forEach(async (a) => {
+      // Only proceed if this combatant has an actor and hasn't been updated.
+      if (a.actor && !updatedActors[a.actor.data._id]) {
+        // Retrieve the actor.
+        let actor = a.actor;
+        // Perform the update.
+        if (actor) {
+          await actor.update({
+            'data.attributes.saves.deathFails.value': 0,
+          });
+          updatedActors[actor.data._id];
+        }
+      }
+    });
+  }
 });
 
 /* ---------------------------------------------- */
