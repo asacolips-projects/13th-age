@@ -424,10 +424,10 @@ export class ActorArchmage extends Actor {
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
     let strRec = this.getFlag('archmage', 'strongRecovery');
-    let data = {bonus: "", average: avg};
+    let data = {bonus: "", average: avg, createMessage: true};
 
     if (event.shiftKey) {
-      this._rollRecovery(data, true);
+      this.rollRecovery(data);
       return;
     }
 
@@ -500,7 +500,7 @@ export class ActorArchmage extends Actor {
             data.apply = html.find('[name="apply"]').is(':checked');
             data.average = html.find('[name="average"]').is(':checked');
             this.setFlag('archmage', 'averageRecoveries', data.average);
-            this.rollRecovery(data, true);
+            this.rollRecovery(data);
           }
         }
       }).render(true);
@@ -516,13 +516,14 @@ export class ActorArchmage extends Actor {
    *
    * @return {Roll} The rolled roll for the recovery
    */
-  async rollRecovery(data, print = true) {
+  async rollRecovery(data) {
     data.bonus = (data.bonus !== undefined) ? data.bonus : "";
     data.max = (data.max !== undefined) ? data.max : 0;
     data.free = (data.free !== undefined) ? data.free : false;
     data.label = (data.label !== undefined) ? data.label+" Recovery" : "Recovery";
     data.apply = (data.apply !== undefined) ? data.apply : true;
     data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
+    data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
     data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
@@ -553,7 +554,7 @@ export class ActorArchmage extends Actor {
 
     let roll = new Roll(`${formula}`);
 
-    if (print) {
+    if (data.createMessage) {
       // Basic template rendering data
       const template = `systems/archmage/templates/chat/recovery-card.html`
       const templateData = {actor: this, label: data.label, formula: formula};
@@ -589,7 +590,7 @@ export class ActorArchmage extends Actor {
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
     });
-    return roll;
+    return {roll: roll, total: roll.total};
   }
 
   async restQuick() {
@@ -607,8 +608,8 @@ export class ActorArchmage extends Actor {
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
-      let roll = await this.rollRecovery({apply: false}, false);
-      templateData.gainedHp += roll.total;
+      let rec = await this.rollRecovery({apply: false}, false);
+      templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
