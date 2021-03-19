@@ -1,0 +1,37 @@
+<div class="archmage chat-card">
+  <header class="card-header">
+    <h3 class="ability-usage ability-usage--recharge">{{localize 'Recharge Roll'}}</h3>
+  </header>
+  <div class="card-content">
+    <p class="recharge-text">{{localize 'Rolling recharge for '}}<strong>{{title}}</strong>.</p>
+    <div class="dice-roll">
+      <div class="dice-result">
+          <div class="dice-formula">{{data.roll.formula}}</div>
+          <div class="dice-tooltip">
+            <section class="tooltip-part">
+              <div class="dice">
+                  <header class="part-header flexrow">
+                      <span class="part-formula">{{data.roll.formula}}</span>
+                      <span class="part-total">{{data.roll.total}}</span>
+                  </header>
+                  <ol class="dice-rolls">
+                    {{#each data.roll.terms as |term i|}}
+                      <li class="roll die d{{term.faces}}">{{term.total}}</li>
+                    {{/each}}
+                  </ol>
+              </div>
+            </section>
+          </div>
+          <h4 class="dice-total dice-total--small">{{localize 'Recharge: '}}{{data.roll.total}}</h4>
+      </div>
+    </div>
+    <div class="card-row" style="padding-top: 5px;">
+      <div class="card-prop">
+        {{#if success}}
+        <span style="color: green;"><b>{{localize 'ARCHMAGE.SAVE.success'}}</b></span>
+        {{else}}
+        <span style="color: red;"><b>{{localize 'ARCHMAGE.SAVE.failure'}}</b></span>
+        {{/if}}
+      </div>
+  </div>
+</div>

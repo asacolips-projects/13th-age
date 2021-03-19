@@ -107,6 +107,86 @@ export class ItemArchmage extends Item {
 
   }
 
+  /**
+   * Roll an item's recharge, and update its quanity based on the maxQuantity.
+   *
+   * @param {Object} options      Options to pass during execution.
+   * @param {Boolean} options.createMessage  Whether or not to render chat messages.
+   * @returns {Promise.<Object>}  A promise resolving to an object with roll results.
+   */
+  async recharge({createMessage=true}={}) {
+    // Only update for recharge powers/items.
+    if (this.data.data?.powerUsage?.value != 'recharge') return;
+
+    // Only update for owned items.
+    if (!this.options?.actor) return;
+
+    // let actor = game.actors.get(this.options.actor.data._id);
+    let actor = this.options.actor;
+    let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
+    let recharge = this.data.data?.recharge?.value ?? 16;
+
+    let roll = new Roll('d20');
+    roll.roll();
+
+    let rechargeSuccessful = roll.total >= Number(recharge);
+
+    if (createMessage) {
+      // Basic template rendering data
+      const template = `systems/archmage/templates/chat/recharge-card.html`
+      const token = actor.token;
+
+      // Basic chat message data
+      const chatData = {
+        user: game.user._id,
+        type: 5,
+        roll: roll,
+        speaker: {
+          actor: actor._id,
+          token: actor.token,
+          alias: actor.name,
+          scene: game.user.viewedScene
+        }
+      };
+
+      const templateData = {
+        actor: actor,
+        title: this.data.name,
+        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        success: rechargeSuccessful,
+        data: chatData,
+      };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
+      // TODO: Wait for 3d dice.
+
+      // Render the template
+      chatData["content"] = await renderTemplate(template, templateData);
+      ChatMessage.create(chatData, { displaySheet: false });
+
+      // Update the item.
+      if (rechargeSuccessful) {
+        await actor.updateOwnedItem({
+          _id: this.data._id,
+          data: {
+            'quantity.value': Number(maxQuantity)
+          }
+        });
+      }
+    }
+
+    return {
+      roll: roll,
+      total: roll.total,
+      target: recharge,
+      success: rechargeSuccessful
+    };
+  }
+
   /* -------------------------------------------- */
   /*  Chat Card Data
   /* -------------------------------------------- */
