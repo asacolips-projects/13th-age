@@ -79,7 +79,7 @@ export class ArchmagePrepopulate {
       let racePack = await game.packs.find(p => p.metadata.name == 'races');
       let pack = await racePack.getContent();
       for (let entry of pack) {
-        let raceNamesArray = entry.data.data.group.value.split('/').map(n => this.cleanClassName(n));
+        let raceNamesArray = entry.data.data.powerSourceName.value.split('/').map(n => this.cleanClassName(n));
         if (raceNamesArray.includes(cleanRace)) {
           if (cleanRace in content) {
             content[cleanRace].content.push(entry);

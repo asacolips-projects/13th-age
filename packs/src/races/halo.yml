@@ -13,7 +13,11 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: 'class'
+    value: 'race'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Aasimar / Holy One'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -138,6 +142,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
@@ -169,6 +177,6 @@ data:
   group:
     type: 'String'
     label: 'Group'
-    value: 'Aasimar / Holy One'
+    value: ''
 flags: {}
 img: 'icons/svg/d20.svg'
