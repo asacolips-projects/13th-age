@@ -56,7 +56,7 @@
             </div>
             <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
             <div class="power-recharge" v-if="power.data.recharge.value">
-              <archmage-h-rollable name="recharge" type="recharge" :opt="power.data.recharge.value">{{power.data.recharge.value}}+</archmage-h-rollable>
+              <archmage-h-rollable name="recharge" type="recharge" :opt="power._id">{{power.data.recharge.value}}+</archmage-h-rollable>
             </div>
             <div class="power-uses" v-if="power.data.quantity.value">{{power.data.quantity.value}}</div>
             <div class="item-controls">

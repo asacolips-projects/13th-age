@@ -251,6 +251,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     else if (type == 'background') this._onBackgroundRoll(opt);
     else if (type == 'icon') this._onIconRoll(opt);
     else if (type == 'command') this._onCommandRoll(opt);
+    else if (type == 'recharge') this._onRechargeRoll(opt);
 
     // Fallback to a plain formula roll.
     else if (opt) this._onFormulaRoll(opt);
@@ -612,6 +613,11 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
     ChatMessage.create(chatData, { displaySheet: false });
+  }
+
+  async _onRechargeRoll(itemId) {
+    let item = this.actor.items.find(i => i.data._id == itemId);
+    if (item) await item.recharge();
   }
 
   /* ------------------------------------------------------------------------ */
