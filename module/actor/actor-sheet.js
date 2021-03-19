@@ -210,14 +210,14 @@ export class ActorArchmageSheet extends ActorSheet {
       } else {
         let doRest = false;
         new Dialog({
-          title: "Quick Rest",
+          title: game.i18n.localize("ARCHMAGE.CHAT.QuickRest"),
           buttons: {
             rest: {
-              label: 'Rest',
+              label: game.i18n.localize("ARCHMAGE.CHAT.Rest"),
               callback: () => {doRest = true;}
             },
             cancel: {
-              label: 'Cancel',
+              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
               callback: () => {}
             }
           },
@@ -234,14 +234,14 @@ export class ActorArchmageSheet extends ActorSheet {
       } else {
         let doRest = false;
         new Dialog({
-          title: "Full Heal Up",
+          title: game.i18n.localize("ARCHMAGE.CHAT.FullHeal"),
           buttons: {
             rest: {
-              label: 'Rest',
+              label: game.i18n.localize("ARCHMAGE.CHAT.Rest"),
               callback: () => {doRest = true;}
             },
             cancel: {
-              label: 'Cancel',
+              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
               callback: () => {}
             }
           },

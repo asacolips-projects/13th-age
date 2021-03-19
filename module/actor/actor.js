@@ -619,12 +619,18 @@ export class ActorArchmage extends Actor {
     if (this.data.data.resources.perCombat.commandPoints.enabled
       && this.data.data.resources.perCombat.commandPoints.current != 1) {
       updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      templateData.resources.push({key: "Command Points", message: "reset to 1"});
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      });
     }
     if (this.data.data.resources.perCombat.momentum.enabled
       && this.data.data.resources.perCombat.momentum.current) {
       updateData['data.resources.perCombat.momentum.current'] = false;
-      templateData.resources.push({key: "Momentum", message: "lost"});
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      });
     }
 
     // Update actor at this point (items are updated separately)
@@ -641,14 +647,14 @@ export class ActorArchmage extends Actor {
           rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
         }
         if (item.data.powerUsage.value == 'once-per-battle'
-          && item.data.maxQuantity.value < item.data.quantity.value) {
+          && item.data.quantity.value < item.data.maxQuantity.value) {
           await this.updateOwnedItem({
             _id: item._id,
             data: {quantity: {value: item.data.maxQuantity.value}}
           });
           templateData.items.push({
             key: item.name,
-            message: `restored to ${item.data.maxQuantity.value} uses`
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
           });
         } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
           // This captures other as well
@@ -659,12 +665,12 @@ export class ActorArchmage extends Actor {
               successes++;
               templateData.items.push({
                 key: item.name,
-                message: `recharged (${roll.total} >= ${item.data.recharge.value})`
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${item.data.recharge.value})`
               });
             } else {
               templateData.items.push({
                 key: item.name,
-                message: `recharge failed (${roll.total} < ${item.data.recharge.value})`
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${item.data.recharge.value})`
               });
             }
           }
@@ -705,17 +711,26 @@ export class ActorArchmage extends Actor {
     if (this.data.data.resources.perCombat.commandPoints.enabled
       && this.data.data.resources.perCombat.commandPoints.current != 1) {
       updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      templateData.resources.push({key: "Command Points", message: "reset to 1"});
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      });
     }
     if (this.data.data.resources.perCombat.momentum.enabled
       && this.data.data.resources.perCombat.momentum.current) {
       updateData['data.resources.perCombat.momentum.current'] = false;
-      templateData.resources.push({key: "Momentum", message: "lost"});
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      });
     }
     if (this.data.data.resources.spendable.ki.enabled
       && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
       updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
-      templateData.resources.push({key: "Ki", message: `reset to ${this.data.data.resources.spendable.ki.max}`});
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
+        message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.data.data.resources.spendable.ki.max}`
+      });
     }
 
     // Update actor at this point (items are updated separately)
@@ -737,7 +752,7 @@ export class ActorArchmage extends Actor {
         });
         templateData.items.push({
           key: item.name,
-          message: `restored to ${item.data.maxQuantity.value} uses`
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
         });
       }
     }

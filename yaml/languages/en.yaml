@@ -2,7 +2,7 @@ ARCHMAGE.SETTINGS.ShowDebugLogsName: Show debug logs?
 ARCHMAGE.SETTINGS.ShowDebugLogsHint: Turn this on for bug reports
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
-ARCHMAGE.SETTINGS.rechargeOncePerDayName: Recharge once per day
+ARCHMAGE.SETTINGS.rechargeOncePerDayName: Recharge once per day only
 ARCHMAGE.SETTINGS.rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
 ARCHMAGE.SETTINGS.UnboundEscDieName: Unlimited Escalation Die
 ARCHMAGE.SETTINGS.UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
@@ -211,6 +211,20 @@ ARCHMAGE.CHAT.special: Special
 ARCHMAGE.CHAT.unambiguousAdvantages: Unambiguous Advantages
 ARCHMAGE.CHAT.complicatedAdvantages: Complicated Advantages
 ARCHMAGE.CHAT.group: Group
+ARCHMAGE.CHAT.QuickRest: Quick Rest
+ARCHMAGE.CHAT.Rest: Rest
+ARCHMAGE.CHAT.Cancel: Cancel
+ARCHMAGE.CHAT.FullHeal: Full Heal Up
+ARCHMAGE.CHAT.CmdPtsReset: reset to 1
+ARCHMAGE.CHAT.MomentReset: lost
+ARCHMAGE.CHAT.KiReset: reset to
+ARCHMAGE.CHAT.ItemReset: restored uses to
+ARCHMAGE.CHAT.RechargeSucc: recharged
+ARCHMAGE.CHAT.RechargeFail: recharge failed
+ARCHMAGE.CHAT.QuickRestHP1: rolled
+ARCHMAGE.CHAT.QuickRestHP2: recoveries healing
+ARCHMAGE.CHAT.FullHealHP: reset to maximum
+ARCHMAGE.CHAT.HP: HP
 # NPC Chat Cards
 ARCHMAGE.CHAT.hit1: Special Hit (1)
 ARCHMAGE.CHAT.hit2: Special Hit (2)

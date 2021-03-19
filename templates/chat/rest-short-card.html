@@ -5,7 +5,7 @@
   </header>
   <div class="card-content">
     <div class="card-row">
-      <div class="card-prop"><strong>Recoveries:</strong> rolled {{usedRecoveries}} recoveries healing {{gainedHp}} hp</div>
+      <div class="card-prop"><strong>{{localize 'ARCHMAGE.recoveries'}}:</strong> {{localize 'ARCHMAGE.CHAT.QuickRestHP1'}} {{usedRecoveries}} {{localize 'ARCHMAGE.CHAT.QuickRestHP2'}} {{gainedHp}} {{localize 'ARCHMAGE.CHAT.HP'}}</div>
     </div>
     {{#each resources as |rsc key|}}
     <div class="card-row">
