@@ -6,6 +6,42 @@ import { DiceArchmage } from './dice.js';
  */
 export class ActorArchmage extends Actor {
 
+  /** @override */
+  async rollInitiative({createCombatants=false, rerollInitiative=false, initiativeOptions={}}={}) {
+    // Obtain (or create) a combat encounter
+    let combat = game.combat;
+    if ( !combat ) {
+      if ( game.user.isGM && canvas.scene ) {
+        combat = await game.combats.object.create({scene: canvas.scene._id, active: true});
+      }
+      else {
+        ui.notifications.warn(game.i18n.localize("COMBAT.NoneActive"));
+        return null;
+      }
+    }
+
+    // Create new combatants
+    if ( createCombatants ) {
+      const tokens = this.isToken ? [this.token] : this.getActiveTokens();
+      const createData = tokens.reduce((arr, t) => {
+        if ( t.inCombat ) return arr;
+        arr.push({tokenId: t.id, hidden: t.data.hidden});
+        return arr;
+      }, []);
+      await combat.createEmbeddedEntity("Combatant", createData);
+    }
+
+    // Iterate over combatants to roll for
+    const combatantIds = combat.combatants.reduce((arr, c) => {
+      if ( !c.actor ) return arr;
+      if ( (c.actor.id !== this.id) || (this.isToken && (c.tokenId !== this.token.id)) ) return arr;
+      if ( c.initiative && !rerollInitiative ) return arr;
+      arr.push(c._id);
+      return arr;
+    }, []);
+    return combatantIds.length ? combat.rollInitiative(combatantIds, initiativeOptions) : combat;
+  }
+
   /**
    * Augment the basic actor data with additional dynamic data.
    * @param {Object} actorData The actor to prepare.
@@ -380,10 +416,11 @@ export class ActorArchmage extends Actor {
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
 
-    // Handle icons.
+    // Build out the icon results structure if it hasn't been
+    // previously initialized.
     if (data?.icons) {
       for (let [k,v] of Object.entries(data.icons)) {
-        if (v.results && v.results.length < v.bonus.value) {
+        if (v.results && v.results.length != v.bonus.value) {
           let results = [];
           for (let i = 0; i < v.bonus.value; i++) {
             results[i] = v.results[i] ?? 0

@@ -279,7 +279,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /**
    * Roll a recovery for the actor.
    */
-  _onRecoveryRoll() {
+  async _onRecoveryRoll() {
     let actorData = this.actor.data.data;
     let attr = actorData.attributes;
     let totalRecoveries = attr.recoveries.value;
@@ -300,7 +300,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     roll.toMessage({
       flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`
     });
-    this.actor.update({
+    await this.actor.update({
       'data.attributes.recoveries.value': attr.recoveries.value - 1,
       'data.attributes.hp.value': Math.min(attr.hp.max, Math.max(attr.hp.value, 0) + roll.total)
     });
@@ -378,9 +378,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (difficulty == 'death') {
       if (success) {
         actor.rollRecovery({}, true);
-        await actor.update({
-          'data.attributes.saves.deathFails.value': 0,
-        });
       }
       else {
         await actor.update({
@@ -395,12 +392,16 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    */
   async _onInitRoll() {
     let combat = game.combat;
-    if (!combat) return;
     // Check to see if this actor is already in the combat.
+    if (!combat) return;
     let combatant = combat.combatants.find(c => c?.actor?.data?._id == this.actor._id);
-    // If not, roll initiative.
+    // Create the combatant if needed.
     if (!combatant) {
       await this.actor.rollInitiative({createCombatants: true});
+    }
+    // Otherwise, determine if the existing combatant should roll init.
+    else if (!combatant.initiative && combatant.initiative !== 0) {
+      await combat.rollInitiative([combatant._id]);
     }
   }
 
@@ -449,6 +450,9 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
             sixes++;
             actorIconResults.push(6);
           }
+          else {
+            actorIconResults.push(0);
+          }
         });
       }
       else {
@@ -462,13 +466,16 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
             sixes++;
             actorIconResults.push(6);
           }
+          else {
+            actorIconResults.push(0);
+          }
         });
       }
 
       // Update actor.
       let updateData = {};
       updateData[`data.icons.${iconIndex}.results`] = actorIconResults;
-      this.actor.update(updateData);
+      await this.actor.update(updateData);
 
       // Basic template rendering data
       const template = `systems/archmage/templates/chat/icon-relationship-card.html`
@@ -593,8 +600,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         value = 5;
       }
 
+      // Retrieve the original results array, replace this die result.
+      let results = this.actor.data.data.icons[iconIndex].results;
+      results[resultIndex] = value;
+
+      // Execute the update.
       let updates = {};
-      updates[`data.icons.${iconIndex}.results.${resultIndex}`] = value;
+      updates[`data.icons.${iconIndex}.results`] = results;
       await this.actor.update(updates);
     }
   }
@@ -679,4 +691,14 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   }
 }
 
-Hooks.on()
+Hooks.on('deleteCombat', (combat, data, id) => {
+  let combatants = combat.data.combatants;
+  if (combatants) {
+    let actors = combatants.filter(c => c?.actor?.data?.type == 'character');
+    actors.forEach(async (actor) => {
+      await actor.update({
+        'data.attributes.saves.deathFails.value': 0,
+      });
+    });
+  }
+});
