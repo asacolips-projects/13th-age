@@ -16,6 +16,7 @@
     <!-- Ki -->
     <section v-if="actor.data.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki flexshrink">
       <h2 class="unit-title">{{localize('Ki Points')}}</h2>
+      <archmage-h-progress name="ki" :current="actor.data.resources.spendable.ki.current" :max="actor.data.resources.spendable.ki.max"/>
       <div class="resource flexrow">
         <input type="number" name="data.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
         <span class="resource-separator">/</span>

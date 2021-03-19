@@ -7,6 +7,7 @@
     <!-- HP -->
     <div class="unit unit--has-max unit--hp">
       <h2 class="unit-title">{{localize('Hit Points')}}</h2>
+      <archmage-h-progress name="hp" :current="actor.data.attributes.hp.value" :temp="actor.data.attributes.hp.temp" :max="actor.data.attributes.hp.max"/>
       <div class="resource flexrow">
         <input type="number" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
         <span class="resource-separator">/</span>
@@ -39,6 +40,7 @@
     <!-- Recoveries -->
     <div class="unit unit--has-max unit--recoveries">
       <h2 class="unit-title">{{localize('Recoveries')}}</h2>
+      <archmage-h-progress name="recoveries" :current="actor.data.attributes.recoveries.value" :max="actor.data.attributes.recoveries.max"/>
       <div class="resource flexrow">
         <input type="number" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
         <span class="resource-separator">/</span>
