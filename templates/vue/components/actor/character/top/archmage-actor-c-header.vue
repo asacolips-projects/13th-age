@@ -1,6 +1,6 @@
 <template>
   <!-- HEADER -->
-  <header class="header character-header flexrow">
+  <header class="header character-header grid grid-4col">
     <!-- Name -->
     <div class="unit unit--abs-label unit--name">
       <label for="name">{{localize("Name")}}</label>

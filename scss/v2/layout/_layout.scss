@@ -1,23 +1,50 @@
+.archmage-v2-vue {
+  padding: $padding-md;
+
+  .section--sidebar {
+    padding-right: $padding-lg;
+  }
+}
+
 .container,
 .section,
 .header,
 .unit {
-  padding: 2px;
-  margin: 2px;
-  border: 2px solid rgba(0,0,0,0.75);
+  // padding: 2px;
+  // margin: 2px;
+  // border: 2px solid rgba(0,0,0,0.75);
 }
 
 .section,
 .header {
-  border-color: rgba(0,0,0,0.5);
+  // border-color: rgba(0,0,0,0.5);
 }
 
 .unit {
-  border: 2px solid rgba(0,0,0,0.25);
-
   .resource {
     justify-content: center;
     text-align: center;
+  }
+}
+
+.unit-title {
+  font-family: $font-stack-secondary;
+  font-weight: normal;
+  font-size: 16px;
+  border: 0;
+  text-align: center;
+}
+
+.unit--abs-label {
+  position: relative;
+
+  label {
+    font-size: 10px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
   }
 }
 

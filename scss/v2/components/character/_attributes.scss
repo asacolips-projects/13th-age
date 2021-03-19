@@ -1,0 +1,75 @@
+.section--attributes {
+  .unit--img {
+    flex: 0 auto;
+    margin-right: $padding-lg;
+  }
+
+  .unit--attributes {
+    @include borderBoth;
+    @include borderWide;
+
+    .unit {
+      position: relative;
+
+      + .unit {
+        &::before {
+          display: block;
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -$padding-md;
+          width: 2px;
+          background: $ct-border;
+        }
+      }
+    }
+  }
+
+  .unit--hp {
+    .labeled-input {
+      align-items: center;
+    }
+
+    .unit-subtitle {
+      font-weight: bold;
+    }
+
+    .temp-hp {
+      flex: 0 0 44px;
+    }
+  }
+
+  .unit--defenses {
+    text-align: center;
+
+    .unit-title {
+      height: 35px;
+    }
+
+    .defense-value {
+      font-size: 20px;
+      font-family: $font-stack-base;
+      font-weight: bold;
+      display: flex;
+      line-height: 1;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      border-bottom: 2px solid $ct-border;
+    }
+
+    .unit-subtitle {
+      font-family: $font-stack-secondary;
+      font-size: 12px;
+    }
+  }
+
+  .unit--saves {
+    .unit-title {
+      flex: 0 auto;
+    }
+  }
+
+}

@@ -1,0 +1,14 @@
+.resource {
+  .resource-max {
+    font-size: 20px;
+    font-family: $font-stack-base;
+    font-weight: bold;
+    display: flex;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid $ct-border;
+  }
+}

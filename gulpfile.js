@@ -170,6 +170,15 @@ function compileImages() {
 };
 const imageTask = gulp.series(compileImages);
 
+const SYSTEM_SVG = [
+  'assets/src/**/*.svg',
+];
+function compileSvg() {
+  return gulp.src(SYSTEM_SVG, {base: 'assets/src'})
+    .pipe(gulp.dest('./assets/dist'));
+}
+const svgTask = gulp.series(compileSvg);
+
 /* ----------------------------------------- */
 /*  Compile Sass
 /* ----------------------------------------- */
@@ -247,6 +256,7 @@ function watchUpdates() {
   gulp.watch(SYSTEM_SCSS, css);
   gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, imageTask);
+  gulp.watch(SYSTEM_SVG, svgTask);
   gulp.watch(VUE_FILES, vueTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
@@ -259,6 +269,7 @@ exports.default = gulp.series(
   compileScss,
   compileYaml,
   compileImages,
+  compileSvg,
   compileVue,
   watchUpdates
 );
@@ -272,6 +283,7 @@ exports.build = gulp.series(
   compileScss,
   compileYaml,
   compileImages,
+  compileSvg,
   compileVue,
   cleanPacks,
   compilePacks

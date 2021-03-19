@@ -49,6 +49,8 @@ export default {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+    if (!this.temp) this.temp = 0;
+  }
 }
 </script>

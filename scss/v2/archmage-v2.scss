@@ -18,14 +18,18 @@
   @import 'components/rollable';
   @import 'components/tabs';
   @import 'components/progress-bar';
+  @import 'components/resource';
 
   // Character and NPC sheets.
   &.sheet {
     // Specific.
     @import 'components/sheet';
+    @import 'components/character/header';
     @import 'components/character/abilities';
+    @import 'components/character/attributes';
     @import 'components/character/backgrounds';
     @import 'components/character/icons';
+    @import 'components/character/out';
     @import 'components/character/incrementals';
     @import 'components/character/resources';
     @import 'components/character/powers';

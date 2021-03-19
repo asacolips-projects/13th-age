@@ -4,6 +4,11 @@
 
 .section--sidebar {
   flex: 0 0 260px;
+
+  .section + .section {
+    @include borderTop;
+    @include borderNarrow;
+  }
 }
 
 .section--main {
