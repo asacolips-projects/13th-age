@@ -604,7 +604,7 @@ export class ActorArchmage extends Actor {
     let updateData = {};
 
     // Recoveries & hp
-    let baseHp = Math.min(this.data.data.attributes.hp.value, 0);
+    let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
@@ -660,7 +660,7 @@ export class ActorArchmage extends Actor {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
-            let roll = new Roll("1d20").roll();
+            let roll = await this.items.get(item._id).recharge({createMessage: false});
             if (roll.total >= item.data.recharge.value) {
               successes++;
               templateData.items.push({
@@ -674,13 +674,6 @@ export class ActorArchmage extends Actor {
               });
             }
           }
-          await this.updateOwnedItem({
-            _id: item._id,
-            data: {
-              quantity: {value: item.data.quantity.value + successes},
-              rechargeAttempts: {value: item.data.rechargeAttempts.value + rechAttempts - successes}
-              }
-          });
         }
       } 
     }
