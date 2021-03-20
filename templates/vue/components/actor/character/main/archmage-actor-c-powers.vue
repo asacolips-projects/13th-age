@@ -119,7 +119,7 @@ export default {
       if (sortTypes.includes(this.groupBy)) {
         let sortKey = `${this.groupBy}s`;
         for (let [key, label] of Object.entries(CONFIG.ARCHMAGE[sortKey])) {
-          groups[key] = label;
+          groups[key] = sortKey == 'powerTypes' ? `ARCHMAGE.${key}s` : `ARCHMAGE.${key}`;
         }
       }
       // Handle custom groups.
