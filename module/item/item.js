@@ -1,3 +1,4 @@
+import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 
 /**
  * Override and extend the basic :class:`Item` implementation
@@ -22,11 +23,12 @@ export class ItemArchmage extends Item {
    */
   async roll() {
     // Update uses left
-    let uses = this.data.data.quantity.value;
+    let uses = this.data.data.quantity?.value;
     let newUses = uses;
     if (uses == null) {
-      this._roll();
-    } else {
+      await this._roll();
+    }
+    else {
       if (uses == 0 && !event.shiftKey) {
         let use = false;
         new Dialog({
@@ -48,15 +50,18 @@ export class ItemArchmage extends Item {
             }
           }
         }).render(true);
-      } else {
-        this._roll();
+      }
+      else {
+        await this._roll();
         newUses = Math.max(uses - 1, 0);
       }
+
+      await this.actor.updateOwnedItem({
+        _id: this.data._id,
+        data: {'quantity.value': newUses}
+      });
     }
-    await this.actor.updateOwnedItem({
-      _id: this.data._id,
-      data: {'quantity.value': newUses}
-    });
+
   }
 
   async _roll() {
@@ -69,6 +74,9 @@ export class ItemArchmage extends Item {
       item: this.data,
       data: this.getChatData()
     };
+
+    console.log(templateData);
+    await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {
