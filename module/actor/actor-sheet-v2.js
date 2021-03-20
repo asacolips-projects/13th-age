@@ -664,6 +664,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     let item = this.actor.items.find(i => i.data._id == itemId);
     if (item) {
+      if (!(item.data.data?.quantity?.value !== null)) return;
       // Update the quantity.
       let newQuantity = Number(item.data.data.quantity.value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
