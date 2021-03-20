@@ -1,0 +1,176 @@
+name: 'Crooked Step'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Occultist'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 5
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'interrupt'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Close-quarters spell'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: 'An enemy with 100 hp or fewer moves to engage one of your allies and attacks.'
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: 'Retain Focus: 1–5.'
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: 'Focus'
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>The triggering enemy rerolls its attack and uses the roll of<br />your choice. If the attack misses, that enemy isn&rsquo;t engaged with<br />your ally (it wasn&rsquo;t able to move quickly/close enough).</p>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: '160 hp or fewer'
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: '250 hp or fewer'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 16
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>The ally the triggering enemy is attacking gains a +[[@int.mod]] bonus to all defenses against that attack.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>When this spell makes the triggering enemy miss with an attack, that enemy takes psychic damage equal to ([[1d8]] x the spell level) + [[@wis.mod*3]]. For example, casting at 7th level with a Wisdom of 20, and rolling<br />a 4 on the d8, you&rsquo;d deal 43 damage (28 + 15).</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'icons/svg/mystery-man.svg'

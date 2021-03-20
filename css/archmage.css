@@ -234,6 +234,12 @@ input[type="checkbox"] {
   background-attachment: local;
   background-size: 300px;
   font-size: 14px; }
+  #chat-log .message.whisper {
+    -webkit-box-shadow: inset 0 0 25px -5px #5e0080;
+    box-shadow: inset 0 0 25px -5px #5e0080; }
+  #chat-log .message.blind {
+    -webkit-box-shadow: inset 0 0 25px -5px #ddb20b;
+    box-shadow: inset 0 0 25px -5px #ddb20b; }
   #chat-log .message p {
     margin: 0 0 14px 0; }
 
@@ -264,12 +270,12 @@ input[type="checkbox"] {
 .ability-usage--at-will {
   background: -o-linear-gradient(45deg, #003c15, #5ee25e);
   background: linear-gradient(45deg, #003c15, #5ee25e); }
-.colorBlindRG .ability-usage--at-will {
-  background: -o-linear-gradient(45deg, #003c15, #087830);
-  background: linear-gradient(45deg, #003c15, #087830); }
-.colorBlindBY .ability-usage--at-will {
-  background: -o-linear-gradient(45deg, #796501, #efde89);
-  background: linear-gradient(45deg, #796501, #efde89); }
+  .colorBlindRG .ability-usage--at-will {
+    background: -o-linear-gradient(45deg, #003c15, #087830);
+    background: linear-gradient(45deg, #003c15, #087830); }
+  .colorBlindBY .ability-usage--at-will {
+    background: -o-linear-gradient(45deg, #796501, #efde89);
+    background: linear-gradient(45deg, #796501, #efde89); }
 
 .ability-usage--header {
   background: transparent; }
@@ -277,50 +283,72 @@ input[type="checkbox"] {
 .ability-usage--once-per-battle {
   background: -o-linear-gradient(45deg, #3c0000, #dc0000);
   background: linear-gradient(45deg, #3c0000, #dc0000); }
-.colorBlindRG .ability-usage--once-per-battle {
-  background: -o-linear-gradient(45deg, #003854, #89cdef);
-  background: linear-gradient(45deg, #003854, #89cdef); }
-.colorBlindBY .ability-usage--once-per-battle {
-  background: -o-linear-gradient(45deg, #4e0129, #891c54);
-  background: linear-gradient(45deg, #4e0129, #891c54); }
+  .colorBlindRG .ability-usage--once-per-battle {
+    background: -o-linear-gradient(45deg, #003854, #89cdef);
+    background: linear-gradient(45deg, #003854, #89cdef); }
+  .colorBlindBY .ability-usage--once-per-battle {
+    background: -o-linear-gradient(45deg, #4e0129, #891c54);
+    background: linear-gradient(45deg, #4e0129, #891c54); }
 
 .ability-usage--daily {
   background: -o-linear-gradient(45deg, #01003c, #ababab);
   background: linear-gradient(45deg, #01003c, #ababab); }
-.colorBlindRG .ability-usage--daily {
-  background: -o-linear-gradient(45deg, #005748, #42ac9a);
-  background: linear-gradient(45deg, #005748, #42ac9a); }
-.colorBlindBY .ability-usage--daily {
-  background: -o-linear-gradient(45deg, #333300, #9a9a30);
-  background: linear-gradient(45deg, #333300, #9a9a30); }
+  .colorBlindRG .ability-usage--daily {
+    background: -o-linear-gradient(45deg, #005748, #42ac9a);
+    background: linear-gradient(45deg, #005748, #42ac9a); }
+  .colorBlindBY .ability-usage--daily {
+    background: -o-linear-gradient(45deg, #333300, #9a9a30);
+    background: linear-gradient(45deg, #333300, #9a9a30); }
 
 .ability-usage--recharge {
   background: -o-linear-gradient(45deg, #01003c, #71a2ec);
   background: linear-gradient(45deg, #01003c, #71a2ec); }
-.colorBlindRG .ability-usage--recharge {
-  background: -o-linear-gradient(45deg, #695702, #decd78);
-  background: linear-gradient(45deg, #695702, #decd78); }
-.colorBlindBY .ability-usage--recharge {
-  background: -o-linear-gradient(45deg, #01536e, #66cdef);
-  background: linear-gradient(45deg, #01536e, #66cdef); }
+  .colorBlindRG .ability-usage--recharge {
+    background: -o-linear-gradient(45deg, #695702, #decd78);
+    background: linear-gradient(45deg, #695702, #decd78); }
+  .colorBlindBY .ability-usage--recharge {
+    background: -o-linear-gradient(45deg, #01536e, #66cdef);
+    background: linear-gradient(45deg, #01536e, #66cdef); }
 
 .ability-usage--other {
   background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
   background: linear-gradient(45deg, #25003c, #dc9ff1a6); }
-.color-blind .ability-usage--other {
-  background: -o-linear-gradient(45deg, #301c89, #301c89);
-  background: linear-gradient(45deg, #301c89, #301c89); }
-.colorBlindRG .ability-usage--other {
-  background: -o-linear-gradient(45deg, #0d0145, #301c89);
-  background: linear-gradient(45deg, #0d0145, #301c89); }
-.colorBlindBY .ability-usage--other {
-  background: -o-linear-gradient(45deg, #0d0145, #301c89);
-  background: linear-gradient(45deg, #0d0145, #301c89); }
+  .colorBlindRG .ability-usage--other {
+    background: -o-linear-gradient(45deg, #0d0145, #301c89);
+    background: linear-gradient(45deg, #0d0145, #301c89); }
+  .colorBlindBY .ability-usage--other {
+    background: -o-linear-gradient(45deg, #0d0145, #301c89);
+    background: linear-gradient(45deg, #0d0145, #301c89); }
 
 .archmage input[type="checkbox"] {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1); }
+
+.archmage .tabs-primary-content {
+  position: relative; }
+  .archmage .tabs-primary-content .item-import {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 140px;
+    flex: 0 0 140px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: auto;
+    padding: 2px 4px;
+    line-height: 1;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #444;
+    color: white;
+    border-color: black;
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .archmage .tabs-primary-content .item-import:hover, .archmage .tabs-primary-content .item-import:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background-color: #3d64ae; }
 
 .archmage.sheet {
   font-family: "warnock-pro", "sans-serif"; }
@@ -435,8 +463,8 @@ input[type="checkbox"] {
       display: -ms-flexbox;
       display: flex;
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 220px;
-      flex: 0 0 220px;
+      -ms-flex: 0 0 232px;
+      flex: 0 0 232px;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -456,7 +484,10 @@ input[type="checkbox"] {
         border-bottom: 1px solid #ccc;
         -webkit-box-flex: 0;
         -ms-flex: 0 0 220px;
-        flex: 0 0 220px; }
+        flex: 0 0 220px;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; }
       .archmage.sheet form .sheet-sidebar .sheet-tabs > .item {
         font-size: 12px; }
       .archmage.sheet form .sheet-sidebar .tab {
@@ -755,6 +786,14 @@ input[type="checkbox"] {
     height: 72px;
     margin: 4px 0;
     padding: 0 4px; }
+    .archmage.actor-sheet .primary-attributes .attribute.attribute--recoveries {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 21%;
+      flex: 0 0 21%; }
+    .archmage.actor-sheet .primary-attributes .attribute.attributes--health {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 27%;
+      flex: 0 0 27%; }
     .archmage.actor-sheet .primary-attributes .attribute.attribute--weapons {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
@@ -1046,7 +1085,9 @@ input[type="checkbox"] {
       -ms-flex: 1;
       flex: 1; }
     .archmage .abilities .ability .ability-name {
-      font-size: 16px; }
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden; }
     .archmage .abilities .ability .ability-proficiency {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 24px;
@@ -1515,8 +1556,8 @@ input[type="checkbox"] {
       flex: 0 0 110px; }
     .inventory-list .item .item-controls {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 94px;
-      flex: 0 0 94px;
+      -ms-flex: 0 0 48px;
+      flex: 0 0 48px;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between; }
@@ -1666,59 +1707,53 @@ input[type="checkbox"] {
     .inventory-list .item .ability-usage--blank {
       color: #000;
       text-shadow: none; }
-
     .inventory-list .item .ability-usage--at-will {
       background: -o-linear-gradient(45deg, #003c15, #5ee25e);
       background: linear-gradient(45deg, #003c15, #5ee25e); }
-    .colorBlindRG .inventory-list .item .ability-usage--at-will {
-      background: -o-linear-gradient(45deg, #003c15, #087830);
-      background: linear-gradient(45deg, #003c15, #087830); }
-    .colorBlindBY .inventory-list .item .ability-usage--at-will {
-      background: -o-linear-gradient(45deg, #796501, #efde89);
-      background: linear-gradient(45deg, #796501, #efde89); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--at-will {
+        background: -o-linear-gradient(45deg, #003c15, #087830);
+        background: linear-gradient(45deg, #003c15, #087830); }
+      .colorBlindBY .inventory-list .item .ability-usage--at-will {
+        background: -o-linear-gradient(45deg, #796501, #efde89);
+        background: linear-gradient(45deg, #796501, #efde89); }
     .inventory-list .item .ability-usage--header {
       background: transparent; }
     .inventory-list .item .ability-usage--once-per-battle {
       background: -o-linear-gradient(45deg, #3c0000, #dc0000);
       background: linear-gradient(45deg, #3c0000, #dc0000); }
-    .colorBlindRG .inventory-list .item .ability-usage--once-per-battle {
-      background: -o-linear-gradient(45deg, #003854, #89cdef);
-      background: linear-gradient(45deg, #003854, #89cdef); }
-    .colorBlindBY .inventory-list .item .ability-usage--once-per-battle {
-      background: -o-linear-gradient(45deg, #4e0129, #891c54);
-      background: linear-gradient(45deg, #4e0129, #891c54); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--once-per-battle {
+        background: -o-linear-gradient(45deg, #003854, #89cdef);
+        background: linear-gradient(45deg, #003854, #89cdef); }
+      .colorBlindBY .inventory-list .item .ability-usage--once-per-battle {
+        background: -o-linear-gradient(45deg, #4e0129, #891c54);
+        background: linear-gradient(45deg, #4e0129, #891c54); }
     .inventory-list .item .ability-usage--daily {
       background: -o-linear-gradient(45deg, #01003c, #ababab);
       background: linear-gradient(45deg, #01003c, #ababab); }
-    .colorBlindRG .inventory-list .item .ability-usage--daily {
-      background: -o-linear-gradient(45deg, #005748, #42ac9a);
-      background: linear-gradient(45deg, #005748, #42ac9a); }
-    .colorBlindBY .inventory-list .item .ability-usage--daily {
-      background: -o-linear-gradient(45deg, #333300, #9a9a30);
-      background: linear-gradient(45deg, #333300, #9a9a30); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--daily {
+        background: -o-linear-gradient(45deg, #005748, #42ac9a);
+        background: linear-gradient(45deg, #005748, #42ac9a); }
+      .colorBlindBY .inventory-list .item .ability-usage--daily {
+        background: -o-linear-gradient(45deg, #333300, #9a9a30);
+        background: linear-gradient(45deg, #333300, #9a9a30); }
     .inventory-list .item .ability-usage--recharge {
       background: -o-linear-gradient(45deg, #01003c, #71a2ec);
       background: linear-gradient(45deg, #01003c, #71a2ec); }
-    .colorBlindRG .inventory-list .item .ability-usage--recharge {
-      background: -o-linear-gradient(45deg, #695702, #decd78);
-      background: linear-gradient(45deg, #695702, #decd78); }
-    .colorBlindBY .inventory-list .item .ability-usage--recharge {
-      background: -o-linear-gradient(45deg, #01536e, #66cdef);
-      background: linear-gradient(45deg, #01536e, #66cdef); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--recharge {
+        background: -o-linear-gradient(45deg, #695702, #decd78);
+        background: linear-gradient(45deg, #695702, #decd78); }
+      .colorBlindBY .inventory-list .item .ability-usage--recharge {
+        background: -o-linear-gradient(45deg, #01536e, #66cdef);
+        background: linear-gradient(45deg, #01536e, #66cdef); }
     .inventory-list .item .ability-usage--other {
       background: -o-linear-gradient(45deg, #25003c, #dc9ff1a6);
       background: linear-gradient(45deg, #25003c, #dc9ff1a6); }
-    .colorBlindRG .inventory-list .item .ability-usage--other {
-      background: -o-linear-gradient(45deg, #0d0145, #301c89);
-      background: linear-gradient(45deg, #0d0145, #301c89); }
-    .colorBlindBY .inventory-list .item .ability-usage--other {
-      background: -o-linear-gradient(45deg, #0d0145, #301c89);
-      background: linear-gradient(45deg, #0d0145, #301c89); }
-
+      .colorBlindRG .inventory-list .item .ability-usage--other {
+        background: -o-linear-gradient(45deg, #0d0145, #301c89);
+        background: linear-gradient(45deg, #0d0145, #301c89); }
+      .colorBlindBY .inventory-list .item .ability-usage--other {
+        background: -o-linear-gradient(45deg, #0d0145, #301c89);
+        background: linear-gradient(45deg, #0d0145, #301c89); }
     .inventory-list .item .ability-usage--equipment {
       background: -o-linear-gradient(45deg, #80361a, #efc44aa6);
       background: linear-gradient(45deg, #80361a, #efc44aa6); }
@@ -2176,6 +2211,22 @@ input[type="checkbox"] {
 .dc-fail {
   color: #ff8484; }
 
+.chat-card.icon-roll .dice-tooltip .dice-rolls .roll.die,
+.message.icon-roll .dice-tooltip .dice-rolls .roll.die {
+  background: #aaa;
+  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  line-height: 24px;
+  padding: 0;
+  margin-right: 5px; }
+  .chat-card.icon-roll .dice-tooltip .dice-rolls .roll.die.result-5,
+  .message.icon-roll .dice-tooltip .dice-rolls .roll.die.result-5 {
+    background: #8acee4; }
+  .chat-card.icon-roll .dice-tooltip .dice-rolls .roll.die.result-6,
+  .message.icon-roll .dice-tooltip .dice-rolls .roll.die.result-6 {
+    background: #93c385; }
+
 .chat-card .inline-roll,
 .chat-card .inline-roll--archmage,
 .message .inline-roll,
@@ -2299,6 +2350,9 @@ input[type="checkbox"] {
   -ms-flex: 0 0 60px !important;
   flex: 0 0 60px !important; }
 
+.l-center {
+  margin: 0 40px; }
+
 .archmage-prepopulate .window-content > .dialog-content {
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
@@ -2317,6 +2371,20 @@ input[type="checkbox"] {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   padding: 10px 0 3px; }
+
+.archmage-prepopulate button.cancel,
+.archmage-prepopulate button.submit {
+  background: #782e22;
+  color: #fff;
+  font-family: "warnock-pro", "sans-serif";
+  font-size: 18px;
+  padding: 10px;
+  margin: 0 10px 20px;
+  border-radius: 8px;
+  border: 0; }
+
+.archmage-prepopulate button.submit {
+  background: #3d64ae; }
 
 .archmage-import-power {
   background: rgba(0, 0, 0, 0.01);
@@ -2339,6 +2407,55 @@ input[type="checkbox"] {
   -webkit-box-flex: 0 !important;
   -ms-flex: 0 0 24px !important;
   flex: 0 0 24px !important; }
+
+.archmage-prepopulate-tabs {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden; }
+  .archmage-prepopulate-tabs .tabs {
+    padding: 20px 0 0;
+    border-bottom: 2px solid #124560;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: none; }
+    .archmage-prepopulate-tabs .tabs.show-tabs {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+    .archmage-prepopulate-tabs .tabs > .item {
+      text-transform: capitalize;
+      background: transparent;
+      color: #000;
+      border: 2px solid #124560;
+      border-bottom: 0;
+      padding: 8px 24px;
+      margin: 0 20px;
+      -webkit-transition: all ease-in-out 0.25s;
+      -o-transition: all ease-in-out 0.25s;
+      transition: all ease-in-out 0.25s;
+      font-family: "mason-serif", "Nodesto", "Signika", "Palatino Linotype", serif;
+      font-size: 18px;
+      -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+      flex-grow: 0;
+      white-space: nowrap; }
+      .archmage-prepopulate-tabs .tabs > .item.active, .archmage-prepopulate-tabs .tabs > .item:hover, .archmage-prepopulate-tabs .tabs > .item:focus {
+        text-shadow: none;
+        background: #124560;
+        color: #fff;
+        -webkit-box-shadow: 0;
+        box-shadow: 0; }
+  .archmage-prepopulate-tabs .tabs-primary-content {
+    height: 100%;
+    margin: 20px 0;
+    overflow-y: auto; }
 
 .import-powers-list {
   list-style-type: none;
@@ -2363,7 +2480,17 @@ input[type="checkbox"] {
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
-  padding: 2px 4px; }
+  padding: 2px 4px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
+  .import-powers-item .item-summary {
+    overflow: hidden;
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .import-powers-item .item-summary .card-footer {
+      display: none; }
   .import-powers-item:hover, .import-powers-item:focus {
     color: #fff; }
   .import-powers-item > div {
@@ -2386,8 +2513,78 @@ input[type="checkbox"] {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px; }
-  .import-powers-item + .import-powers-item {
-    border-top: 1px solid #999; }
+
+.prepopulate-help {
+  font-size: 16px;
+  margin: 40px 0 0;
+  background: rgba(128, 188, 223, 0.25);
+  padding: 20px;
+  border: 1px solid #124560;
+  border-radius: 5px; }
+
+.prepopulate-power-list {
+  padding: 10px 0; }
+  .prepopulate-power-list .archmage.chat-card .card-header {
+    border: 0; }
+  .prepopulate-power-list .ability-usage {
+    -webkit-transition: all ease-in-out 0.25s;
+    -o-transition: all ease-in-out 0.25s;
+    transition: all ease-in-out 0.25s; }
+    .prepopulate-power-list .ability-usage:hover {
+      opacity: 0.8; }
+  .prepopulate-power-list .title {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px; }
+  .prepopulate-power-list .import-powers-item {
+    color: #000; }
+
+.class-content {
+  padding: 0 20px; }
+  .class-content .grid {
+    gap: 40px; }
+
+.archmage-class-title {
+  font-size: 48px;
+  text-transform: capitalize;
+  margin: 40px 0 0;
+  text-align: center;
+  border: 0;
+  position: relative; }
+  .archmage-class-title::before, .archmage-class-title::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 32%;
+    height: 6px;
+    background: -webkit-gradient(linear, right top, left top, from(#124560), color-stop(60%, rgba(18, 69, 96, 0.4)), to(transparent));
+    background: -o-linear-gradient(right, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    background: linear-gradient(-90deg, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 50px 0 50px 0; }
+  .archmage-class-title::after {
+    left: auto;
+    right: 0;
+    background: -webkit-gradient(linear, left top, right top, from(#124560), color-stop(60%, rgba(18, 69, 96, 0.4)), to(transparent));
+    background: -o-linear-gradient(left, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    background: linear-gradient(90deg, #124560, rgba(18, 69, 96, 0.4) 60%, transparent);
+    border-radius: 0 50px 0 50px; }
+
+.archmage-class-heading,
+.power-list-title {
+  font-size: 32px;
+  text-transform: capitalize;
+  margin: 40px 0 10px;
+  border-bottom: 2px solid #124560; }
+
+.archmage-class-subheading,
+.power-list-subtitle {
+  font-size: 22px;
+  text-transform: capitalize;
+  margin: 40px 0 20px; }
 
 .item-properties table,
 .card-prop table {
@@ -2401,7 +2598,27 @@ input[type="checkbox"] {
 
 .item-properties tr:nth-child(even),
 .card-prop tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.05); }
+  background: rgba(128, 188, 223, 0.25); }
+
+table {
+  font-family: "warnock-pro", "sans-serif";
+  background: transparent;
+  border: 0;
+  text-align: center; }
+  table thead {
+    background: transparent;
+    color: #000;
+    text-shadow: none; }
+    table thead th {
+      padding: 2px 4px; }
+  table tbody {
+    border: 10px solid #124560;
+    border-left: 0;
+    border-right: 0; }
+    table tbody tr:nth-child(odd) {
+      background: transparent; }
+    table tbody tr:nth-child(even) {
+      background: rgba(128, 188, 223, 0.25); }
 
 /* ----------------------------------------- */
 /*  Context Dropdown Menu

@@ -1,0 +1,174 @@
+name: 'Sneak Attack'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Rogue'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'feature'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: '1'
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'free'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: null
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: null
+  target:
+    type: 'String'
+    label: 'Target'
+    value: null
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: null
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: null
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: null
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: null
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: null
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: null
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: null
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: null
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: null
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: null
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>Once per round when you make a rogue melee weapon attack against an enemy engaged with one or more of your allies, you can deal extra damage if your attack hits.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Rogue Level</th><th>Extra Damage</th></tr><tr><td class="rtecenter"><strong>1</strong></td><td class="rtecenter">+[[1d4]]</td></tr><tr><td class="rtecenter"><strong>2</strong></td><td class="rtecenter">+[[1d6]]</td></tr><tr><td class="rtecenter"><strong>4</strong></td><td class="rtecenter">+[[2d6]]</td></tr><tr><td class="rtecenter"><strong>6</strong></td><td class="rtecenter">+[[3d6]]</td></tr><tr><td class="rtecenter"><strong>8</strong></td><td class="rtecenter">+[[5d6]]</td></tr><tr><td class="rtecenter"><strong>10</strong></td><td class="rtecenter">+[[7d6]]</td></tr></thead></table>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: null
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: null
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: null
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: null
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: null
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: null
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>Your Sneak Attack feature also works the first round of combat against enemies with a lower initiative than you.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>Your Sneak Attack feature also works against enemies who are confused, dazed, stunned, vulnerable to your attack, or weakened.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>Once per battle when you miss with an attack that would have allowed you to deal Sneak Attack damage, replace the normal miss damage with your full Sneak Attack damage.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+flags: {}
+img: 'icons/svg/mystery-man.svg'

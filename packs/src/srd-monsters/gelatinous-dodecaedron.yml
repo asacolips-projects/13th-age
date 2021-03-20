@@ -1,0 +1,661 @@
+name: 'Gelatinous Dodecaedron'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 7
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 550
+      min: 0
+      max: 550
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: -2
+      mod: 5
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'blocker'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'huge'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'ooze'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Gelatinous Dodecaedron'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'ixxp1yU5WxtbU9J6'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: '5KxMDtbWyJmI0fSz'
+    flags: {}
+    name: 'Shlup''n''schlorp'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs. PD'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[30]] acid damage, and the dodecahedron engulfs the target (functions like a grab; see below) if it''s smaller than the dodecahedron.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: 'The cube can make a spasms attack as a free action'
+    sort: 100000
+  - _id: 'PaY3wgIviPt7Dsfm'
+    flags: {}
+    name: '[Special trigger] C: Spasms'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs. AC (up to 2 attacks, each against a diffferrente nearby enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[15]] damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 200000
+  - _id: 'NZQEHnMchPcE9jC6'
+    flags: {}
+    name: 'Engulf and dissolve'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: "<p>Targets engulfed/grabbed by the cube take [[30]] acid damage at the start of the cube&rsquo;s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously.</p>\n<p>Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>"
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 300000
+  - _id: 'ljyeULegGpI8gHi3'
+    flags: {}
+    name: 'Instinctive actions'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: "<p>Gelatinous creatures have no brains, sometimes they just&nbsp;do things. When the escalation die is odd, instead of making an attack or moving, roll a d12 to see what the dodecahedron does. If an option is not available (you roll a 1 but there are no nearby enemies), reroll until you get a valid option.</p>\n<ol>\n<li>The dodecahedron makes a&nbsp;squash&nbsp;attack against [[1d4]] nearby enemies as it rolls and shlorps around the area. Any enemies already engulfed by the dodecahedron take [[10]] thunder damage.</li>\n<li>The dodecahedron throws out whip-like tendrils and makes a sudden orifice attack against each enemy engaged with it. Then it pulls each nearby enemy next to it and engages that creature.</li>\n<li>&nbsp;Hundreds of finger-size slimes slither out from the interior of the dodecahedron and begin worming their way across the bodies of each of its enemies in the battle. Until the end of the battle, when a non-ooze creature takes any damage besides ongoing acid damage, it also takes 10 acid damage.</li>\n<li>&nbsp;The dodecahedron bounces and thrums. Each enemy engaged with it or engulfed by it must roll a save; on a failure, that enemy takes 30 thunder damage. On a success, it takes [[15]] thunder damage and pops free from the dodecahedron.</li>\n<li>The dodecahedron hunkers down and produces acidic spikes. It gains a +4 bonus to all defenses until the end of the battle, and each enemy who makes a melee attack against it with a non-magical weapon must roll a save; on a failure the weapon dissolves. When a creature&rsquo;s weapon dissolves, that creature is hampered and weakened (save ends both). Magical weapons lose their bonuses to hit and damage until the end of the battle instead of being dissolved (but the owner is still hampered and weakened). They can be &ldquo;restored&rdquo; after the battle by taking a few minutes during a rest to re-attune them.</li>\n<li>The dodecahedron moves, rolling around the battlefield, then makes a shlup&rsquo;n&rsquo;schlorp attack at the end of its movement with a +5 bonus. If the attack misses, instead of making a spasms attack the dodecahedron rolls about the area again and makes a second shlup&rsquo;n&rsquo;schlorp attack with a +10 bonus. If the second attack misses, it doesn&rsquo;t get a spasms attack and the dodecahedron&rsquo;s turn ends.</li>\n<li>The dodecahedron makes a spasms attack. If it misses with either attack roll, after the attacks, it can make a stretch and engulf attack as a free action.</li>\n<li>C: Pseudopod slaps</li>\n<li>Each enemy engulfed by the dodecahedron takes [[40]] acid damage, and the dodecahedron heals [[40]] hp for each enemy it has engulfed.</li>\n<li>The dodecahedron splits into an octahedron and a tetrahedron, and each one can act this turn (roll a [[1d8]] and [[1d4]] for the instinctive actions of each one). Divide the dodecahedron&rsquo;s current hit points into thirds, and give one third to the tetrahedron and two thirds to the octahedron.</li>\n<li>The dodecahedron splits into three tetrahedrons, and each one can act this turn (roll a [[1d4]] for the instinctive actions of each one). Divide the dodecahedron&rsquo;s current hit points equally between the three new creatures.</li>\n<li>The dodecahedron splits into two cubahedrons, and each one can act this turn (roll a [[1d6]] for the instinctive actions of each one). Divide the dodecahedron&rsquo;s current hit points equally between the two new creatures.</li>\n</ol>"
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 400000
+  - _id: 'aGVxHLwPr3Ch5jGb'
+    flags: {}
+    name: '1. Squash'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs. PD ([[1d4 nearby enemies]]'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[20]] damage, and the target is stunned (easy save ends, 6+)'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 500000
+  - _id: 'kL1JWnQPntvh24fs'
+    flags: {}
+    name: '2. Sudden orifice'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+12]] vs. PD (each enemy engaged with it)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: 'The dodecahedron engulfs the target if it''s smaller than the dodecahedron.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 600000
+  - _id: 'yP5XEVGwuNFSvYd3'
+    flags: {}
+    name: '7. C: Stretch and engulf'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+12]] vs. PD (one nearby or far away enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[30]] acid damage, and the dodecahedron enguls the target if it''s smaller than the dodecahedron.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 700000
+  - _id: 'ALPLW4dydU8kVDdd'
+    flags: {}
+    name: '8. C: Pesudopod slaps'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs. AC (one nearby enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[25]] thunder damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural odd hit'
+        value: 'The target pops free from the dodecahedron and is knocked far away, and the ooze makes the attack again against a different nearby enemy as a free action.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The dodecahedron engulfs the target if it''s samller than the dodecahedron.'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 800000

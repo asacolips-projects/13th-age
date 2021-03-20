@@ -1,0 +1,595 @@
+name: 'Blue Sorcerer'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 48
+      min: 0
+      max: 48
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 6
+      mod: 9
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'caster'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'normal'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'humanoid'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Blue Sorcerer'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'aPXj5qDCtUM0wVGB'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'hjI6MwJIHvJExo4h'
+    flags: {}
+    name: 'Nasty dagger or shot spear'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs. AC'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[6]] damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 100000
+  - _id: 'aNbhel42WSI13bxe'
+    flags: {}
+    name: 'R: Lightning fork'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: 'Minor Spell'
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs. PD'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[6]] lightning damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural even hit or miss'
+        value: 'The sorceder can target a different nearby enemy with the attack'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 200000
+  - _id: '8Bt4Ccu6y2SfNiv9'
+    flags: {}
+    name: 'C: Breath of the Blue'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: 'Major Spell'
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs. PD (one nearby enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[10]] lightning damage, and at the start of the target''s next turn,  [[1d6]] nearby allies of the target take [[4]] lightning damage.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 300000
+  - _id: '6MCeal3SkvoTXKWU'
+    flags: {}
+    name: 'C: Chaos orb'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: 'Major Spell'
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs. MD ([[1d3]] nearby enemies'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[8]] lightning damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The sorcerer gains one use of the target’s racial power, if any. It must use that power by the end of the battle or lose it, and it can’t use the power this turn.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 400000
+  - _id: '7w8MpCU25te0G4Hz'
+    flags: {}
+    name: 'Power-monger'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>When the blue sorcerer starts its turn and it didn&rsquo;t&nbsp;gather power&nbsp;the previous turn, choose whether it will gather power or cast a spell this turn. When it chooses to cast a spell, roll a [[1d20]] to see if it uses a minor spell or a major spell:&nbsp;1&ndash;10:&nbsp;minor spell;&nbsp;11&ndash;20:&nbsp;major spell.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 600000
+  - _id: 'uT2YUtd3dyKyjHJt'
+    flags: {}
+    name: 'Gather power'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: "<p>Like a PC sorcerer, a blue sorcerer can use its standard action to gather power in order to cast a double-strength and double-damage spell with its next standard action. When it gathers power, the sorcerer rolls a d6 and gains one of the following chaotic benefits.</p>\n<p>1&ndash;2:&nbsp;The sorcerer gains a +1 bonus to AC until the start of its next turn.</p>\n<p>3&ndash;4:&nbsp;One nearby enemy of the sorcerer&rsquo;s choice takes damage equal to sorcerer&rsquo;s level (3).</p>\n<p>5&ndash;6:&nbsp;Each nearby enemy engaged with the sorcerer&rsquo;s allies takes damage equal to sorcerer&rsquo;s level (3); OR grant one nearby dragon with&nbsp;intermittent breath&nbsp;an additional use of its breath weapon this battle.</p>"
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 700000
+  - _id: 'PZyc5SGB22V03eif'
+    flags: {}
+    name: 'Escalating caster'
+    type: 'nastierSpecial'
+    img: 'icons/svg/poison.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Add the escalation die to the sorcerer&rsquo;s&nbsp;power-monger&nbsp;rolls and attack rolls.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 800000
+  - _id: 'iCOfeC1qEI8lSNZi'
+    flags: {}
+    name: 'Sorcerous evasion (kobold sorcerers only)'
+    type: 'nastierSpecial'
+    img: 'icons/svg/poison.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Once per battle when an attack misses the sorcerer, the attacker takes the miss damage from that attack, if any, and the sorcerer takes no damage</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 1000000

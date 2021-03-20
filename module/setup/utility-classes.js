@@ -215,11 +215,9 @@ export class ArchmageUtility {
           value: ArchmageUtility.getEscalation(game.combat)
         };
 
-        if (data.attributes.standardBonuses) {
-          data.attributes.standardBonuses = {
-            value: data.attributes.level.value + data.attributes.escalation.value
-          };
-        }
+        data.attributes.standardBonuses = {
+          value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
+        };
       }
 
       // Re-map all attributes onto the base roll data
@@ -253,6 +251,7 @@ export class ArchmageUtility {
               let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
               wpnTypes.forEach(wpn => {
                 data.wpn[wpn].die = data.wpn[wpn].dice;
+                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
                 data.wpn[wpn].dmg = data.wpn[wpn].dmg;
@@ -484,55 +483,5 @@ export class ArchmageReference extends Application {
     options.template = "systems/archmage/templates/sidebar/apps/archmage-help.html";
     options.width = 820;
     return options;
-  }
-}
-
-/**
- * Class that can be used to query toolkit13.com.
- */
-export class ArchmagePrepopulate {
-  constructor() {
-    this.endpointBase = 'https://www.toolkit13.com/v1/json/powers';
-  }
-
-  async request(endpoint) {
-    return await $.ajax({
-      url: endpoint,
-      type: 'GET',
-      cache: false
-    });
-  }
-
-  async getPowersList(powerClass = null, powerLevel = null) {
-    let endpoint = `${this.endpointBase}/list/`;
-
-    if (powerClass?.length > 0) {
-      endpoint += `${powerClass}/`;
-    }
-
-    if (powerLevel?.length > 0) {
-      endpoint += `${powerLevel}/`;
-    }
-
-    return this.request(endpoint);
-  }
-
-  async getPowersDetail(powerClass = null, powerLevel = null) {
-    let endpoint = `${this.endpointBase}/detail/`;
-
-    if (powerClass?.length > 0) {
-      endpoint += `${powerClass}/`;
-    }
-
-    if (powerLevel?.length > 0) {
-      endpoint += `${powerLevel}/`;
-    }
-
-    return this.request(endpoint);
-  }
-
-  async getPowerById(uuid) {
-    let endpoint = `${this.endpointBase}/id/${uuid}`;
-    return this.request(endpoint);
   }
 }

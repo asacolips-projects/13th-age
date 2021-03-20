@@ -1,4 +1,4 @@
-<form class="archmage item-sheet spell-sheet {{cssClass}}" autocomplete="off">
+<form class="archmage item-sheet spell-sheet power-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="44" width="44"/>
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
@@ -25,12 +25,17 @@
               </div>
 
               <!-- Ability Details -->
-              <div class="tab" data-group="primary" data-tab="details">
+              <div class="tab archmage-aip" data-group="primary" data-tab="details">
 
                 <div class="form-group">
                     <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
                     <input type="text" name="data.group.value" value="{{data.group.value}}" data-dtype="{{data.group.type}}" placeholder="Things with the same group will be grouped together"/>
                 </div>
+
+                <div class="form-group">
+                    <label>{{localize 'ARCHMAGE.CHAT.powerSourceName'}}</label>
+                    <input type="text" name="data.powerSourceName.value" value="{{data.powerSourceName.value}}" data-dtype="{{data.powerSourceName.type}}" placeholder="Wizard"/>
+                  </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerSource'}}</label>
@@ -155,7 +160,12 @@
 
                   <div class="form-group">
                       <label>Uses Remaining</label>
-                      <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
+                      <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}" placeholder="Number of remaining uses, usually the same as Max Uses"/>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label>Max Uses</label>
+                      <input type="text" name="data.maxQuantity.value" value="{{data.maxQuantity.value}}" data-dtype="{{data.maxQuantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
                   </div>
 
                   <div class="form-group">

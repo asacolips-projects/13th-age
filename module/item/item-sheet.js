@@ -1,5 +1,3 @@
-import { ArchmagePrepopulate } from '../setup/utility-classes.js';
-
 /**
  * Override and extend the basic :class:`ItemSheet` implementation
  */
@@ -152,54 +150,6 @@ export class ItemArchmageSheet extends ItemSheet {
    */
   activateListeners(html) {
     super.activateListeners(html);
-
-    // // Activate tabs
-    // new Tabs(html.find('.tabs'));
-
-    $('.archmage-import-power').on('click', (event) => {
-      let prepop = new ArchmagePrepopulate();
-      let powerClass = $(event.target).data('class');
-      let powerLevel = $(event.target).data('level');
-      prepop.getPowersList(powerClass, powerLevel).then((res) => {
-        var options = {
-          width: 520,
-          height: 640
-        };
-
-        let template = 'systems/archmage/templates/prepopulate/powers--list.html';
-        renderTemplate(template, {
-          powers: res.powers,
-          class: powerClass
-        }).then(content => {
-          let d = new Dialog({
-            title: "Import Power",
-            content: content,
-            buttons: {
-              cancel: {
-                icon: '<i class="fas fa-times"></i>',
-                label: "Cancel",
-                callback: () => null
-              },
-              submit: {
-                icon: '<i class="fas fa-check"></i>',
-                label: "Submit",
-                callback: () => null
-              }
-            }
-          }, options);
-          d.render(true);
-        });
-      });
-    });
-
-    $('body').on('click', '.import-powers-link', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      let $self = $(event.currentTarget);
-      let prepop = new ArchmagePrepopulate();
-      prepop.getPowerById($self.data('uuid')).then((res) => {
-      });
-    });
   }
 }
 

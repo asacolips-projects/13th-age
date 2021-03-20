@@ -72,7 +72,7 @@ export class ActorArchmage extends Actor {
     var rangedAttackBonus = 0;
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
-    
+
     var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
     var acBonus = missingRecPenalty;
@@ -198,6 +198,7 @@ export class ActorArchmage extends Actor {
       if (data.attributes.recoveries.automatic) {
         data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
       }
+      data.attributes.recoveries.avg = Math.floor(data.attributes.level.value * ((Number(data.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + (data.abilities.con.mod * levelMultiplier);
 
       // Skill modifiers
       // for (let skl of Object.values(data.skills)) {
@@ -348,6 +349,8 @@ export class ActorArchmage extends Actor {
     // TODO: handle dazed, weakened, etc. here
 
     if (actorData.type === 'character') {
+      // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
+      // duplicate code needs to be retired from the utility class if possible.
       data.attributes.standardBonuses = {
         value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
       };
@@ -379,10 +382,11 @@ export class ActorArchmage extends Actor {
       let classRegex = new RegExp(classList.join('|'), 'g');
 
       var classText = data.details.class?.value;
-      classText = classText ? classText.toLowerCase() : '';
+      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
 
       var matchedClasses = classText.match(classRegex);
-      data.details.detectedClasses = matchedClasses.sort();
+      if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
+      data.details.detectedClasses = matchedClasses;
     }
 
     // Enable resources based on detected classes
@@ -406,6 +410,366 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareNPCData(data) {
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Recovery roll dialog.
+   *
+   * @return {undefined}
+   */
+  rollRecoveryDialog() {
+    let actorData = this.data.data;
+    let rolled = false;
+    let avg = this.getFlag('archmage', 'averageRecoveries');
+    let strRec = this.getFlag('archmage', 'strongRecovery');
+    let data = {bonus: "", average: avg, createMessage: true};
+
+    if (event.shiftKey) {
+      this.rollRecovery(data);
+      return;
+    }
+
+    // Render modal dialog
+    let template = 'systems/archmage/templates/chat/recovery-dialog.html';
+    let dialogData = {
+      warning: strRec ? "Will ignore bonus from Strong Recovery." : "",
+      avg: avg ? "checked" : ""
+      };
+    renderTemplate(template, dialogData).then(dlg => {
+      new Dialog({
+        title: "Recovery Roll",
+        content: dlg,
+        buttons: {
+          normal: {
+            label: 'Normal',
+            callback: () => {
+              rolled = true;
+            }
+          },
+          free: {
+            label: 'Free',
+            callback: () => {
+              data.label = 'Free';
+              data.free = true;
+              rolled = true;
+            }
+          },
+          pot1: {
+            label: 'Potion (Adv.)',
+            callback: () => {
+              data.label = 'Adventurer Potion';
+              data.bonus = "+1d8";
+              data.max = 30;
+              rolled = true;
+            }
+          },
+          pot2: {
+            label: 'Potion (Cha.)',
+            callback: () => {
+              data.label = 'Champion Potion';
+              data.bonus = "+2d8";
+              data.max = 60;
+              rolled = true;
+            }
+          },
+          pot3: {
+            label: 'Potion (Epic)',
+            callback: () => {
+              data.label = 'Epic Potion';
+              data.bonus = "+3d8";
+              data.max = 100;
+              rolled = true;
+            }
+          },
+          pot4: {
+            label: 'Potion (Iconic)',
+            callback: () => {
+              data.label = 'Iconic Potion';
+              data.bonus = "+4d8";
+              data.max = 130;
+              rolled = true;
+            }
+          },
+        },
+        default: 'normal',
+        close: html => {
+          if (rolled) {
+            data.bonus += html.find('[name="bonus"]').val();
+            data.apply = html.find('[name="apply"]').is(':checked');
+            data.average = html.find('[name="average"]').is(':checked');
+            this.setFlag('archmage', 'averageRecoveries', data.average);
+            this.rollRecovery(data);
+          }
+        }
+      }).render(true);
+    });
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Recovery roll.
+   * @param data object{bonus: "+X", max: 0, free: false, label: "", apply: true}
+   * @param print boolean
+   *
+   * @return {Roll} The rolled roll for the recovery
+   */
+  async rollRecovery(data) {
+    data.bonus = (data.bonus !== undefined) ? data.bonus : "";
+    data.max = (data.max !== undefined) ? data.max : 0;
+    data.free = (data.free !== undefined) ? data.free : false;
+    data.label = (data.label !== undefined) ? data.label+" Recovery" : "Recovery";
+    data.apply = (data.apply !== undefined) ? data.apply : true;
+    data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
+    data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
+    let actorData = this.data.data;
+    let totalRecoveries = actorData.attributes.recoveries.value;
+    data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
+    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
+
+    if (data.average) {
+      formula = this.data.data.attributes.recoveries.avg;
+    } else if (this.getFlag('archmage', 'strongRecovery')) {
+      // Handle strong recovery.
+      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
+    }
+
+    // Add bonus if any
+    if (data.bonus !== "") {
+      // We assume to have signs in bonus, to handle negative bonuses
+      formula = `${formula}${data.bonus}`;
+    }
+
+    // Half healing for recoveries we do NOT have
+    if (Number(totalRecoveries) <= 0) {
+      formula = `floor((${formula})/2)`;
+    }
+
+    // If max is set, handle it
+    if (data.max > 0) {
+      formula = `min((${formula}), ${data.max})`;
+    }
+
+    let roll = new Roll(`${formula}`);
+
+    if (data.createMessage) {
+      // Basic template rendering data
+      const template = `systems/archmage/templates/chat/recovery-card.html`
+      const templateData = {actor: this, label: data.label, formula: formula};
+      // Basic chat message data
+      const chatData = {
+        user: game.user._id, speaker: {actor: this._id, token: this.token,
+        alias: this.name, scene: game.user.viewedScene}
+      };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
+      // Render the template
+      chatData["content"] = await renderTemplate(template, templateData);
+      // Create the chat message
+      let msg = await ChatMessage.create(chatData, {displaySheet: false});
+      // Get the roll from the chat message
+      let contentHtml = $(chatData.content);
+      let row = $(contentHtml.find('.card-prop')[0]);
+      let roll_html = $(row.find('.inline-result'));
+      roll = Roll.fromJSON(unescape(roll_html.data('roll')));
+    } else {
+      // Perform the roll ourselves
+      roll.roll();
+    }
+
+    // If 3d dice are enabled, handle them
+    if (game.dice3d) {
+      await game.dice3d.showForRoll(roll, game.user, true);
+    }
+
+    let newHp = this.data.data.attributes.hp.value;
+    let newRec = this.data.data.attributes.recoveries.value;
+    if (!data.free) {newRec -= 1;}
+    if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, Math.max(newHp, 0) + roll.total);}
+    this.update({
+      'data.attributes.recoveries.value': newRec,
+      'data.attributes.hp.value': newHp
+    });
+    return {roll: roll, total: roll.total};
+  }
+
+  async restQuick() {
+    let templateData = {
+      actor: this,
+      usedRecoveries: 0,
+      gainedHp: 0,
+      resources: [],
+      items: []
+    };
+    let updateData = {};
+
+    // Recoveries & hp
+    let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
+
+    while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
+      // Roll recoveries until we are above staggered
+      let rec = await this.rollRecovery({apply: false}, false);
+      templateData.gainedHp += rec.total;
+      templateData.usedRecoveries += 1;
+    }
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
+    
+    // Resources
+    // if (this.data.data.resources.perCombat.commandPoints.enabled
+      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      // });
+    // }
+    // if (this.data.data.resources.perCombat.momentum.enabled
+      // && this.data.data.resources.perCombat.momentum.current) {
+      // updateData['data.resources.perCombat.momentum.current'] = false;
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      // });
+    // }
+
+    // Update actor at this point (items are updated separately)
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
+    }
+    
+    // Items (Powers)
+    for (let i = 0; i < this.data.items.length; i++) {
+      let item = this.data.items[i];
+      if (item.type == "power" && item.data.maxQuantity.value) {
+        let rechAttempts = item.data.maxQuantity.value - item.data.quantity.value;
+        if (game.settings.get('archmage', 'rechargeOncePerDay')) {
+          rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
+        }
+        if (item.data.powerUsage.value == 'once-per-battle'
+          && item.data.quantity.value < item.data.maxQuantity.value) {
+          await this.updateOwnedItem({
+            _id: item._id,
+            data: {quantity: {value: item.data.maxQuantity.value}}
+          });
+          templateData.items.push({
+            key: item.name,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
+          });
+        } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
+          // This captures other as well
+          let successes = 0;
+          for (let j = 0; j < rechAttempts; j++) {
+            let roll = await this.items.get(item._id).recharge({createMessage: false});
+            if (roll.total >= item.data.recharge.value) {
+              successes++;
+              templateData.items.push({
+                key: item.name,
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${item.data.recharge.value})`
+              });
+            } else {
+              templateData.items.push({
+                key: item.name,
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${item.data.recharge.value})`
+              });
+            }
+          }
+        }
+      } 
+    }
+
+    // Print outcomes to chat
+    const template = `systems/archmage/templates/chat/rest-short-card.html`
+    const chatData = {
+      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      alias: this.name, scene: game.user.viewedScene}
+    };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+    chatData["content"] = await renderTemplate(template, templateData);
+    let msg = await ChatMessage.create(chatData, {displaySheet: false});
+  }
+
+  async restFull() {
+    let templateData = {
+      actor: this,
+      resources: [],
+      items: []
+    };
+    let updateData = {}
+
+    // Recoveries & hp
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
+    updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
+
+    // Resources
+    // if (this.data.data.resources.perCombat.commandPoints.enabled
+      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      // });
+    // }
+    // if (this.data.data.resources.perCombat.momentum.enabled
+      // && this.data.data.resources.perCombat.momentum.current) {
+      // updateData['data.resources.perCombat.momentum.current'] = false;
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      // });
+    // }
+    if (this.data.data.resources.spendable.ki.enabled
+      && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
+      updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
+        message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.data.data.resources.spendable.ki.max}`
+      });
+    }
+
+    // Update actor at this point (items are updated separately)
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
+    }
+
+    // Items (Powers)
+    for (let i = 0; i < this.data.items.length; i++) {
+      let item = this.data.items[i];
+      if (item.type == "power" && item.data.maxQuantity.value
+        && item.data.quantity.value < item.data.maxQuantity.value) {
+        await this.updateOwnedItem({
+          _id: item._id,
+          data: {
+            quantity: {value: item.data.maxQuantity.value},
+            rechargeAttempts: {value: 0}
+            }
+        });
+        templateData.items.push({
+          key: item.name,
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
+        });
+      }
+    }
+
+    // Print outcomes to chat
+    const template = `systems/archmage/templates/chat/rest-full-card.html`
+    const chatData = {
+      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      alias: this.name, scene: game.user.viewedScene}
+    };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+    chatData["content"] = await renderTemplate(template, templateData);
+    let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
   /* -------------------------------------------- */
@@ -446,7 +810,9 @@ export class ActorArchmage extends Actor {
       },
       backgrounds: this.data.data.backgrounds,
       title: flavor,
-      alias: this.actor,
+      alias: this.data.name,
+      actor: this,
+      ability: abl
     });
   }
 }
@@ -458,25 +824,26 @@ export class ActorArchmage extends Actor {
  * @return {undefined}
  */
 
-function _preUpdateCharacterData(actor, data, options, id) {
-  if (options.diff
+export function archmagePreUpdateCharacterData(actor, data, options, id) {
+  if (actor.data.type == 'character'
+    && options.diff
     && data.data !== undefined
     && data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
-    // Here we received an update of the class name
+    // Here we received an update of the class name for a character
 
     // Find known classes
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
     let classText = data.data.details.class.value;
-    classText = classText ? classText.toLowerCase() : '';
+    classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
     let matchedClasses = classText.match(classRegex);
 
     if (matchedClasses !== null) {
-      // Sort to avoid problems with future matches
-      matchedClasses = matchedClasses.sort();
+      // Remove duplicates and Sort to avoid problems with future matches
+      matchedClasses = [...new Set(matchedClasses)].sort();
 
       // Check that the matched classes actually changed
       if (actor.data.data.details.matchedClasses !== undefined
@@ -490,10 +857,12 @@ function _preUpdateCharacterData(actor, data, options, id) {
         hp: new Array(),
         ac: new Array(),
         ac_hvy: new Array(),
+        shld_pen: new Array(),
         pd: new Array(),
         md: new Array(),
         rec: new Array(),
-        mWpn: new Array(),
+        mWpn_1h: new Array(),
+        mWpn_2h: new Array(),
         rWpn: new Array(),
         skilledWarrior: new Array()
       }
@@ -501,15 +870,15 @@ function _preUpdateCharacterData(actor, data, options, id) {
       matchedClasses.forEach(function(item) {
         base.hp.push(CONFIG.ARCHMAGE.classes[item].hp);
         base.ac.push(CONFIG.ARCHMAGE.classes[item].ac_lgt);
-        if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {
-          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);
-        } else {
-          base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);
-        }
+        if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);}
+        else {base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);}
+        base.shld_pen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
         base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
         base.md.push(CONFIG.ARCHMAGE.classes[item].md);
         base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
-        base.mWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        base.mWpn_1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        if (CONFIG.ARCHMAGE.classes[item].wpn_2h_pen < 0) {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);}
+        else {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);}
         base.rWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_rngd);
         base.skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
       });
@@ -520,23 +889,34 @@ function _preUpdateCharacterData(actor, data, options, id) {
       base.hp = (base.hp.reduce((a, b) => a + b, 0) / base.hp.length);
       base.ac = Math.max.apply(null, base.ac);
       if (Math.min.apply(null, base.ac_hvy) > 0) base.ac = Math.max.apply(null, base.ac_hvy);
+      base.shld_pen = base.shld_pen.some(a => a < 0);
       base.pd = Math.max.apply(null, base.pd);
       base.md = Math.max.apply(null, base.md);
       if (base.rec.length == 1) base.rec = base.rec[0];
       else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
-      base.mWpn = Math.max.apply(null, base.mWpn);
+      base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
+      base.mWpn_2h_pen = base.mWpn_2h.some(a => a < 0);
+      base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
       base.rWpn = Math.max.apply(null, base.rWpn);
       let jabWpn = 6;
       let punchWpn = 8;
       let kickWpn = 10;
       if (!base.skilledWarrior) {
-        base.mWpn = Math.max(base.mWpn - 2, 4);
-        base.rWpn = Math.max(base.mWpn - 2, 4);
+        base.mWpn_1h = Math.max(base.mWpn_1h - 2, 4);
+        base.mWpn_2h = Math.max(base.mWpn_2h - 2, 4);
+        base.rWpn = Math.max(base.rWpn - 2, 4);
         jabWpn -= 2;
         punchWpn -= 2;
         kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
+      // Pick best weapon (and possibly shield)
+      // if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
+      // else if (!base.mWpn_2h_pen
+        // && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
+        // ) {base.mWpn = base.mWpn_2h;}
+      // else {base.mWpn = base.mWpn_1h;}
+      base.mWpn = base.mWpn_1h;
 
       // Assign computed values
       data.data.attributes = {
@@ -558,5 +938,3 @@ function _preUpdateCharacterData(actor, data, options, id) {
     data.data.details.detectedClasses = matchedClasses;
   }
 }
-
-Hooks.on('preUpdateActor', _preUpdateCharacterData);

@@ -1,5 +1,5 @@
 import { ARCHMAGE } from './setup/config.js';
-import { ActorArchmage } from './actor/actor.js';
+import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ItemArchmage } from './item/item.js';
@@ -10,6 +10,7 @@ import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
 import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
+import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
 
@@ -22,6 +23,9 @@ Hooks.once('init', async function() {
       this.toLowerCase()
     ).replace(/%[0-9A-F]{2}/gi, '-');
   }
+
+  // Preload template partials.
+  preloadHandlebarsTemplates();
 
   Handlebars.registerHelper('safeCSSId', (arg) => {
     return `${arg}`.safeCSSId();
@@ -115,12 +119,12 @@ Hooks.once('init', async function() {
       section: "Feats",
       type: Boolean
     },
-    // "strongRecovery": {
-    //   name: "Strong Recovery",
-    //   hint: "General feat to reroll some of your recovery die, keeping highest",
-    //   section: "Feats",
-    //   type: Boolean
-    // },
+    "strongRecovery": {
+      name: "Strong Recovery",
+      hint: "General feat to reroll some of your recovery die, keeping highest. Doesn't apply when taking average recoveries.",
+      section: "Feats",
+      type: Boolean
+    },
     "toughness": {
       name: "Toughness",
       hint: "General feat to increase your max HP based on your base HP",
@@ -181,6 +185,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'rechargeOncePerDay', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'originalCritDamage', {
     name: 'Double damage result on critical hit',
     hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
@@ -213,6 +226,20 @@ Hooks.once('init', async function() {
     config: false,
     default: "1.6.0",
     type: String,
+  });
+
+  game.settings.register('archmage', 'tourVisibility', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityHint"),
+    scope: 'world',
+    config: true,
+    default: 'all',
+    type: String,
+    choices: {
+      all: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityAll'),
+      gm: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityGM'),
+      off: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityOff'),
+    }
   });
 
   game.settings.register('archmage', 'colorBlindMode', {
@@ -254,6 +281,67 @@ Hooks.once('init', async function() {
   }
 
   ArchmageUtility.replaceRollData();
+
+  /* --------------------------------------------- */
+  if (CONST.AIP && CONFIG.AIP) {
+    // Autocomplete Inline Rolls
+    const aipKeys = [
+      'str',
+      'dex',
+      'con',
+      'int',
+      'wis',
+      'cha',
+      'ac',
+      'pd',
+      'md',
+      'hp',
+      'recoveries',
+      'wpn.m',
+      'wpn.r',
+      'wpn.p',
+      'wpn.k',
+      'wpn.j'
+    ];
+    let filteredKeys = [
+      'standardBonuses',
+      'out',
+      'incrementals',
+      'icons',
+      'details',
+      'coins',
+      'backgrounds',
+      'attr',
+      'attributes',
+      'abilities',
+      'abil',
+      'tier',
+      'sheetGrouping',
+      'disengage',
+    ];
+    aipKeys.forEach(k => {
+      filteredKeys.push(`${k}.type`);
+      filteredKeys.push(`${k}.label`);
+    });
+    const AIP = {
+      packageName: 'archmage',
+      sheetClasses: [
+        {
+          name: "ItemArchmageSheet",
+          fieldConfigs: [
+            {
+              selector: '.archmage-aip input[type="text"]',
+              showButton: true,
+              allowHotkey: true,
+              dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+              filteredKeys: filteredKeys
+            }
+          ]
+        }
+      ]
+    };
+    CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
+  }
 });
 
 Hooks.on('createItem', (data, options, id) => {
@@ -288,7 +376,7 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", (app, html) => {
-  let button = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
+  let button = $(`<button id="archmage-reference-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
@@ -304,17 +392,27 @@ Hooks.on("renderSettings", (app, html) => {
     location.reload();
   });
 
-  // User guide
-  let docs = html.find("button[data-action='docs']");
-  $(`<button data-action="userguide"><i class="fas fa-file" aria-hidden="true"></i>System Wiki</button>`).insertAfter(docs);
-  html.find('button[data-action="userguide"]').click(ev => {
-    window.open('https://asacolips.gitbook.io/toolkit13-system/third-party-module-integrations', '_blank');
+  let helpButton = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
+  html.find('button[data-action="controls"]').after(helpButton);
+
+  helpButton.on('click', ev => {
+    ev.preventDefault();
+    window.open('https://asacolips.gitbook.io/toolkit13-system/', 'archmageHelp', 'width=1032,height=720');
   });
 
 
   // This is intentionally in renderSettings, as it is one of the last bits of HTML to get rendered, which is required for the Tour to hook in
-  let tourGuide = new TourGuide();
-  tourGuide.startNewFeatureTours();
+  let tourVisibility = game.settings.get('archmage', 'tourVisibility');
+  let showTours = tourVisibility !== 'off' ? true : false;
+
+  if (tourVisibility == 'gm' && !game.user.isGM) {
+    showTours = false;
+  }
+
+  if (showTours) {
+    let tourGuide = new TourGuide();
+    tourGuide.startNewFeatureTours();
+  }
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
@@ -540,6 +638,8 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   }
 });
 
+Hooks.on('preUpdateActor', archmagePreUpdateCharacterData);
+
 /* ---------------------------------------------- */
 
 function uuidv4() {
@@ -554,6 +654,483 @@ function uuidv4() {
  */
 Hooks.on('preCreateChatMessage', (data, options, userId) => {
   preCreateChatMessageHandler.handle(data, options.userId);
+  let $content = $(`<div class="wrapper">${data.content}</div>`);
+  let $rolls = $content.find('.inline-result');
+  let rollTotal = undefined;
+  let rollTarget = "";
+  let originalRolls = $rolls;
+  let updated_content = null;
+  let hasHit = undefined;
+  let hasMissed = undefined;
+  let targetsHit = [];
+  let targetsMissed = [];
+  let targets = [...game.user.targets.values()];
+
+  // TODO (#74): All card evaluation needs to load from Localization
+  let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
+
+  let tokens = canvas.tokens.controlled;
+  let actor = tokens ? tokens[0] : null;
+
+  if (data?.speaker?.actor) {
+    actor = game.actors.get(data.speaker.actor);
+    if (data.speaker.token) {
+      let token = canvas.tokens.get(data.speaker.token);
+      actor = token.actor;
+    }
+  }
+
+  // Iterate through inline rolls, add a class to crits/fails.
+  for (let i = 0; i < $rolls.length; i++) {
+    let $roll = $($rolls[i]);
+
+    let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
+    let result = ArchmageUtility.inlineRollCritTest(roll_data, actor);
+
+    if (result.includes('crit')) {
+      $roll.addClass('dc-crit');
+    }
+    else if (result.includes('fail')) {
+      $roll.addClass('dc-fail');
+    }
+
+    let rollResult = 0;
+    // console.log(roll_data);
+
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      roll_data.parts.forEach(p => {
+        if (p.faces === 20) {
+          rollResult = p.total;
+        }
+      });
+    }
+    else {
+      roll_data.terms.forEach(p => {
+        if (p.faces === 20) {
+          rollResult = p.total;
+        }
+      });
+    }
+
+
+
+    // Update the array of roll HTML elements.
+    $rolls[i] = $roll[0];
+    $rolls[i].d20result = rollResult;
+  }
+
+  // Now that we know which rolls were crits, update the content string.
+  $content.find('.inline-result').replaceWith($rolls);
+  updated_content = $content.html();
+  if (updated_content != null) {
+    data.content = updated_content;
+  }
+
+  // Next, let's see if any of the crits were on attack lines.
+  $content = $(`<div class="wrapper">${data.content}</div>`);
+  let $rows = $content.find('.card-prop');
+
+  if ($rows.length > 0) {
+    // Assume no crit or fail.
+    let has_crit = false;
+    let has_fail = false;
+
+    // Iterate through each of the card properties/rows.
+    $rows.each(function(index) {
+      // Determine if this line is for an attack and if it's a crit/fail.
+      let $row_self = $(this);
+      let row_text = $row_self.html();
+
+      if (rowsToSkip.filter(x => row_text.includes(x)).length > 0) {
+        return;
+      }
+
+      if (row_text.includes('Attack:')) {
+        if (row_text.includes('dc-crit')) {
+          has_crit = true;
+        }
+        if (row_text.includes('dc-fail')) {
+          has_fail = true;
+        }
+
+        // If the user currently has Targets selected, try and figure out if we hit or missed said target
+        //console.log(targets);
+
+        if (targets.length > 0) {
+          if (row_text.toLowerCase().includes(" ac")) {
+            rollTarget = "ac";
+          }
+          else if (row_text.toLowerCase().includes(" pd")) {
+            rollTarget = "pd";
+          }
+          else if (row_text.toLowerCase().includes(" md")) {
+            rollTarget = "md";
+          }
+
+          let $roll = $row_self.find('.inline-result');
+          // If there isn't exactly one roll, then we can't parse it
+          if ($roll.length === 1) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+              let $roll_self = $(this);
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              rollTotal = roll_data.total;
+            });
+          }
+
+          //console.log(rollTotal + " vs " + rollTarget);
+
+          if (rollTotal != undefined) {
+            targets.forEach(target => {
+              //console.log(target);
+
+              var targetDefense = getTargetDefenseValue(target);
+
+              var hit = rollTotal >= targetDefense;
+              //console.log(rollTotal + " vs " + targetDefense + " ? " + hit);
+
+              // Keep track of hasHit and hasMissed seperately in case we have a group of enemies we are targetting
+              if (hit) {
+                targetsHit.push(target.data.name);
+                if (hasHit == undefined || !hasHit) {
+                  hasHit = true;
+                }
+                if (hasMissed == undefined) {
+                  hasMissed = false;
+                }
+              }
+              else {
+                targetsMissed.push(target.data.name);
+                if (hasMissed == undefined || !hasMissed) {
+                  hasMissed = true;
+                }
+                if (hasHit == undefined) {
+                  hasHit = false;
+                }
+              }
+            });
+          }
+
+          //console.log(targetsHit);
+          //console.log(targetsMissed);
+
+          // Get either the Token overridden value or the base sheet value
+          function getTargetDefenseValue(target) {
+            //console.log(target);
+            if (target.data?.actorData?.data?.attributes != undefined) {
+              // Return token overridden value
+              if (target.data.actorData.data.attributes[rollTarget]) {
+                return target.data.actorData.data.attributes[rollTarget].value;
+              }
+            }
+            return target.actor.data.data.attributes[rollTarget].value;
+          }
+        }
+      }
+
+
+      if (row_text.includes('Target:') && targets.length > 0) {
+
+        function shuffle(a) {
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+
+        if (row_text.toLowerCase().includes("random")) {
+          targets = shuffle(targets);
+        }
+
+        // If there are 3 targets selected but the attack only can hit 2 (ex: result of 1d3 nearby targets), then we slice to that amount, in order of selection (unless randomized)
+
+        // This regex just finds any numbers in the string, and we use the first one
+        var regex = new RegExp("\\d+");
+        var scoreToBeatArray = regex.exec($row_self[0].innerText);
+
+        if (scoreToBeatArray && scoreToBeatArray.length == 1) {
+          var maxTargets = parseInt(scoreToBeatArray[0]);
+          //console.log("MaxTargets " + maxTargets);
+
+          targets = targets.slice(0, maxTargets);
+        }
+
+        var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+        $row_self[0].appendChild(text);
+      }
+
+
+      // Append hit targets to text
+      if (row_text.includes('Hit:') && targetsHit.length > 0) {
+        $row_self.find('strong').after("<span> (" + targetsHit.join(", ") + ") </span>")
+      }
+
+      // Append missed targets to text
+      if (row_text.includes('Miss:') && targetsMissed.length > 0) {
+        $row_self.find('strong').after("<span> (" + targetsMissed.join(", ") + ") </span>")
+      }
+
+
+      // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
+      var triggerText = row_text.toLowerCase();
+      //console.log(triggerText);
+      if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:")) {
+
+        var active = undefined;
+
+        // We've previously setup all d20's in the rolls to have a value. Rolls that aren't a d20 will have a value of 0, which gets filtered out. We cancel checking if there are more than one.
+        var rollResults = $rolls.toArray().map(x => x.d20result).filter(x => x > 0);
+        if (rollResults.length > 1) {
+          console.log("Archmage | Multi-attack rolls are not supported for Trigger evaluation, skipping.");
+
+          // Empty out our data arrays so we don't apply errant styling
+          targetsHit = [];
+          targetsMissed = [];
+          hasHit = undefined;
+          hasMissed = undefined;
+          return;
+        }
+        var rollResult = rollResults[0];
+
+        if (triggerText.includes("even")) {
+          if (rollResult % 2 == 0) {
+            active = true;
+            if (hasHit != undefined) {
+              if (triggerText.includes("hit") && !hasHit) {
+                active = false;
+              }
+            }
+            if (hasMissed != undefined) {
+              if (triggerText.includes("miss") && !hasMissed) {
+                active = false;
+              }
+            }
+          }
+          else {
+            active = false;
+          }
+        }
+
+        else if (triggerText.includes("odd")) {
+          if (rollResult % 2 == 1) {
+            active = true;
+
+            if (hasHit != undefined) {
+              if (triggerText.includes("hit") && !hasHit) {
+                active = false;
+              }
+            }
+            if (hasMissed != undefined) {
+              if (triggerText.includes("miss") && !hasMissed) {
+                active = false;
+              }
+            }
+          }
+          else {
+            active = false;
+          }
+        }
+
+        else if (triggerText.includes("+") && !triggerText.includes("hit") && !triggerText.includes("miss")) {
+
+          // This regex just finds any numbers in the string, and we use the first one
+          var regex = new RegExp("\\d+");
+          var scoreToBeatArray = regex.exec(triggerText);
+          if (scoreToBeatArray && scoreToBeatArray.length == 1) {
+            var scoreToBeat = parseInt(scoreToBeatArray[0]);
+            if (rollResult >= scoreToBeat) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (hasHit != undefined) {
+          // We've already handled even / odd + hit / miss when evaluating even / odd
+          if (triggerText.includes("hit") && !triggerText.includes("even") && !triggerText.includes("odd")) {
+
+            if (hasHit) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (hasMissed != undefined) {
+          if (triggerText.includes("miss") && !triggerText.includes("even") && !triggerText.includes("odd")) {
+
+            if (hasMissed) {
+              active = true;
+            }
+            else {
+              active = false;
+            }
+          }
+        }
+
+        if (active == undefined) {
+          $row_self.addClass("trigger-unknown");
+        }
+        else if (active) {
+          $row_self.addClass("trigger-active");
+        }
+        else {
+          $row_self.addClass("trigger-inactive");
+          if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
+            $row_self.addClass("hide");
+          }
+        }
+      }
+
+      // If so, determine if the current row (next iteration, usually) is a hit.
+      if (has_crit || has_fail) {
+        if (row_text.includes('Hit:')) {
+          // If the hit row includes inline results, we need to reroll them.
+          let $roll = $row_self.find('.inline-result');
+          if ($roll.length > 0) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+              let $roll_self = $(this);
+              // Retrieve the roll formula.
+              let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+              //////////////////////////////////////////////////////////////////////////
+              //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+              //////////////////////////////////////////////////////////////////////////
+              if (!isNewerVersion(game.data.version, "0.7")) {
+                // If there's a crit, double the formula and reroll. If there's a
+                // fail with no crit, 0 it out.
+                if (has_crit) {
+                  // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
+                  if(game.settings.get('archmage', 'originalCritDamage')){
+                    let formula_full = `${roll_data.formula}`;
+                    let formula_parts = formula_full.split('+');
+                    let temp_formula = '';
+                    for (var i = 0; i < formula_parts.length - 1; i++) {
+                      formula_parts[i] = formula_parts[i]+'* 2 +';
+                      temp_formula = temp_formula.concat(formula_parts[i]);
+                    }
+                    formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                    temp_formula = temp_formula.concat(formula_parts[formula_parts.length - 1]);
+                    roll_data.formula = temp_formula;
+                  } else {
+                    roll_data.formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
+                  $roll_self.addClass('dc-crit');
+                }
+                else {
+                  roll_data.formula = `0`;
+                  $roll_self.addClass('dc-fail');
+                }
+                // Reroll and recalculate.
+                roll_data = roll_data.reroll();
+                // Update inline roll's markup.
+                $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+                $roll_self.attr('title', roll_data.formula);
+                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+              }
+              //////////////////////////////////////////////////////////////////////////
+              //////////////////////// END OF DEPRECATED CODE //////////////////////////
+              //////////////////////////////////////////////////////////////////////////
+              {
+                let new_formula = roll_data.formula;
+                // If there's a crit, double the formula and reroll. If there's a
+                // fail with no crit, 0 it out.
+                if (has_crit) {
+                  // This next parts seems over-complicated, but it ensures the full roll results are still available when clicking in chat (using brackets hides inner results)
+                  if(game.settings.get('archmage', 'originalCritDamage')){
+                    let formula_full = `${roll_data.formula}`;
+                    let formula_parts = formula_full.split('+');
+                    let temp_formula = '';
+                    for (var i = 0; i < formula_parts.length - 1; i++) {
+                      formula_parts[i] = formula_parts[i]+'* 2 +';
+                      temp_formula = temp_formula.concat(formula_parts[i]);
+                    }
+                    formula_parts[formula_parts.length - 1] = formula_parts[formula_parts.length - 1]+'* 2';
+                    new_formula = temp_formula.concat(formula_parts[formula_parts.length - 1]);
+                  } else {
+                    new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                  }
+                  $roll_self.addClass('dc-crit');
+                }
+                else {
+                  new_formula = `0`;
+                  $roll_self.addClass('dc-fail');
+                }
+                // Reroll and recalculate.
+                let new_roll = new Roll(new_formula).roll();
+                // Update inline roll's markup.
+                $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
+                $roll_self.attr('title', new_roll.formula);
+                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
+              }
+            });
+          }
+          // Update the row with the new roll(s) markup.
+          $row_self.find('.inline-result').replaceWith($roll);
+        }
+        if (row_text.includes('Miss:')) {
+          let $roll = $row_self.find('.inline-result');
+                    if ($roll.length > 0) {
+            // Iterate through the inline rolls on the hit row.
+            $roll.each(function(roll_index) {
+                let $roll_self = $(this);
+                // Retrieve the roll formula.
+                let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+                //////////////////////////////////////////////////////////////////////////
+                //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+                //////////////////////////////////////////////////////////////////////////
+                if (!isNewerVersion(game.data.version, "0.7")) {
+                  // If there's a crit, double the formula and reroll. If there's a
+                  // fail with no crit, 0 it out.
+                  if (has_fail)
+                  {
+                    roll_data.formula = `0`;
+                    $roll_self.addClass('dc-fail');
+                  }
+                  // Reroll and recalculate.
+                  roll_data = roll_data.reroll();
+                  // Update inline roll's markup.
+                  $roll_self.attr('data-roll', escape(JSON.stringify(roll_data)));
+                  $roll_self.attr('title', roll_data.formula);
+                  $roll_self.html(`<i class="fas fa-dice-d20"></i> ${roll_data.total}`);
+                }
+                //////////////////////////////////////////////////////////////////////////
+                //////////////////////// END OF DEPRECATED CODE //////////////////////////
+                //////////////////////////////////////////////////////////////////////////
+                else
+                {
+                  let new_formula = roll_data.formula;
+                  // If there's a crit, double the formula and reroll. If there's a
+                  // fail with no crit, 0 it out.
+                  if (has_fail) {
+                    new_formula = `0`;
+                    $roll_self.addClass('dc-fail');
+                  }
+                  // Reroll and recalculate.
+                  let new_roll = new Roll(new_formula).roll();
+                  // Update inline roll's markup.
+                  $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
+                  $roll_self.attr('title', new_roll.formula);
+                  $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
+              }
+            });
+          }
+        }
+      }
+    });
+
+    // Update the content
+    $content.find('.card-prop').replaceWith($rows);
+    updated_content = $content.html();
+    if (updated_content != null) {
+      data.content = updated_content;
+    }
+  }
 });
 
 // Override the inline roll click behavior.
