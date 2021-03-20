@@ -48,6 +48,14 @@
         </div>
       </div>
     </section>
+    <!-- Rests -->
+    <section class="unit unit--rest flexshrink">
+      <h2 class="unit-title">{{localize('Rests')}}</h2>
+      <div class="resource flexcol">
+        <button class="rest rest--quick" data-rest-type="quick"><i class="fas fa-campground"></i> {{localize('Quick Rest')}}</button>
+        <button class="rest rest--full" data-rest-type="full"><i class="fas fa-bed"></i> {{localize('Full Heal-Up')}}</button>
+      </div>
+    </section>
   </section>
 </template>
 

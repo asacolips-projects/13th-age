@@ -142,6 +142,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     html.on('click', '.item-import', (event) => this._importPowers(event));
     html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateDeathFails(event));
     html.on('click', '.icon-roll', (event) => this._updateIconRoll(event));
+    html.on('click', '.rest', (event) => this._onRest(event));
 
     // Item listeners.
     html.on('click', '.power-uses', (event) => this._updateQuantity(event, true));
@@ -724,6 +725,67 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         _id: itemId,
         data: updateData
       });
+    }
+  }
+
+  /**
+   * Handle rests.
+   */
+   _onRest(event) {
+    event.preventDefault;
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    // Get the roll type and roll options.
+    let type = dataset.restType ?? null;
+
+    // Exit if type is invalid;
+    if (type !== 'quick' && type !== 'full') return;
+
+    // Determine if we need to skip confirmation.
+    let bypass = event.shiftKey ? true : false;
+    if (bypass) {
+      if (type == 'quick') this.actor.restQuick();
+      else if (type == 'full') this.actor.restFull();
+    }
+    // Otherwise, we need to make a dialog.
+    else {
+      let options = {
+        title: null,
+        confirmLabel: 'ARCHMAGE.CHAT.Rest',
+        cancelLabel: 'ARCHMAGE.CHAT.Cancel',
+        default: 'rest',
+      };
+
+      if (type == 'quick') {
+        options.title = 'ARCHMAGE.CHAT.QuickRest';
+      }
+      else if (type == 'full') {
+        options.title = 'ARCHMAGE.CHAT.FullHeal';
+      }
+
+      // Render the rest dialog.
+      let doRest = false;
+      new Dialog({
+        title: game.i18n.localize(options.title),
+        buttons: {
+          rest: {
+            label: game.i18n.localize(options.confirmLabel),
+            callback: () => {doRest = true;}
+          },
+          cancel: {
+            label: game.i18n.localize(options.cancelLabel),
+            callback: () => {}
+          }
+        },
+        default: 'rest',
+        close: html => {
+          if (doRest) {
+            if (type == 'quick') this.actor.restQuick();
+            else if (type == 'full') this.actor.restFull();
+          }
+        }
+      }).render(true);
     }
   }
 

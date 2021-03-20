@@ -19,3 +19,32 @@
 .unit--ki {
   flex: 0 0 100px;
 }
+
+.unit--rest {
+  flex: 0 auto;
+
+  button + button {
+    margin-top: $padding-sm;
+  }
+
+  button.rest--quick {
+    background: $c-power-battle;
+    border-color: #3c0000;
+    transition: all ease-in-out 0.25s;
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(22deg, #3c0000, #dc0000, #dc0000);
+    }
+  }
+
+  button.rest--full {
+    background: $c-power-daily;
+    border-color: #01003c;
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(22deg, #01003c, #ababab, #ababab);
+    }
+  }
+}
