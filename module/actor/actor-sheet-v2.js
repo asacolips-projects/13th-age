@@ -254,7 +254,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let opt = dataset.rollOpt ?? null;
 
     if (type == 'item' && opt) this._onItemRoll(opt);
-    else if (type == 'recovery') this._onRecoveryRoll();
+    else if (type == 'recovery') this._onRecoveryRoll(event);
     else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
     else if (type == 'init') this._onInitRoll();
     else if (type == 'ability') this._onAbilityRoll(opt);
@@ -291,31 +291,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /**
    * Roll a recovery for the actor.
    */
-  async _onRecoveryRoll() {
-    let actorData = this.actor.data.data;
-    let attr = actorData.attributes;
-    let totalRecoveries = attr.recoveries.value;
-    let formula = `${attr.level.value}${attr.recoveries.dice}+${actorData.abilities.con.dmg}`;
-
-    // Handle average results.
-    if (this.actor.getFlag('archmage', 'averageRecoveries')) {
-      formula = Math.floor(attr.level.value * ((Number(attr.recoveries.dice.replace('d', ''))+1) / 2)) + actorData.abilities.con.dmg;
-    }
-    // Handle strong recovery. Ignores average results if set!
-    if (this.actor.getFlag('archmage', 'strongRecovery')) {
-      formula = (attr.level.value + actorData.tier).toString() + attr.recoveries.dice + 'k' + attr.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
-    }
-    // Perform the roll.
-    let roll = new Roll(Number(totalRecoveries) > 0 ? `${formula}` : `floor((${formula})/2)`);
-    roll.roll();
-    // Send to chat and reduce the number of recoveries.
-    roll.toMessage({
-      flavor: `<div class="archmage chat-card"><header class="card-header"><h3 class="ability-usage">Recovery Roll${Number(totalRecoveries) < 1 ? ' (Half)' : ''}</h3></header></div>`
-    });
-    await this.actor.update({
-      'data.attributes.recoveries.value': attr.recoveries.value - 1,
-      'data.attributes.hp.value': Math.min(attr.hp.max, Math.max(attr.hp.value, 0) + roll.total)
-    });
+  async _onRecoveryRoll(event) {
+    this.actor.rollRecoveryDialog(event);
   }
 
 
