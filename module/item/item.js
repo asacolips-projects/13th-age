@@ -27,7 +27,7 @@ export class ItemArchmage extends Item {
     if (uses == null) {
       this._roll();
     } else {
-      if (uses == 0) {
+      if (uses == 0 && !event.shiftKey) {
         let use = false;
         new Dialog({
           title: game.i18n.localize("ARCHMAGE.CHAT.ConfirmDialog"),
@@ -50,7 +50,7 @@ export class ItemArchmage extends Item {
         }).render(true);
       } else {
         this._roll();
-        newUses = uses - 1;
+        newUses = Math.max(uses - 1, 0);
       }
     }
     await this.actor.updateOwnedItem({
