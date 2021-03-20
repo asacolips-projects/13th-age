@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -134,6 +138,10 @@ data:
     label: 'Recharge'
     value: 0
   quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  maxQuantity:
     type: 'Number'
     label: 'Uses'
     value: 1

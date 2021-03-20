@@ -1,4 +1,4 @@
-name: 'Two-weapon Multiclass (Ranger)'
+name: 'Continual Warp'
 permission:
   default: 0
 type: 'power'
@@ -17,6 +17,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Chaos Mage'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -24,7 +28,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -141,12 +145,16 @@ data:
     type: 'Number'
     label: 'Uses'
     value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>While you are fighting with two melee weapons, you now gain the benefit of your TwoWeapon Mastery talent and any feats you&rsquo;ve taken for it even when using attacks from your non-ranger class.</p>'
+        value: '<p>If you have a warp effect already going, drawing the stone from your other class doesn&rsquo;t cancel the warp effect. The warp effect continues until it&rsquo;s replaced by another warp effect or the end of the battle, as usual.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -155,6 +163,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>If you invested in high weirdness, your high weirdness effects don&rsquo;t stop when you draw a multiclass stone.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

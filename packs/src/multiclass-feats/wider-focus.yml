@@ -1,4 +1,4 @@
-name: 'Diverse Gathering (Sorcerer)'
+name: 'Wider Focus'
 permission:
   default: 0
 type: 'power'
@@ -17,6 +17,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Occultist'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -24,7 +28,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -141,12 +145,16 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, you can cast a non-sorcerer spell after you have gathered power. You double the damage of the spell as if it were a sorcerer spell.</p>'
+        value: '<p>Once per battle, you can use a power, spell, or other effect from a different class while maintaining your occultist focus.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -155,7 +163,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You can now also gather power for a non-sorcerer spell as per the adventurer-tier feat once per battle while the escalation die is 4+ (so in a four battle day, you could use it up to five times assuming the escalation die allows it).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
