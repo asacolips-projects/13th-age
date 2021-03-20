@@ -622,22 +622,22 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
     
     // Resources
-    if (this.data.data.resources.perCombat.commandPoints.enabled
-      && this.data.data.resources.perCombat.commandPoints.current != 1) {
-      updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      templateData.resources.push({
-        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
-        message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
-      });
-    }
-    if (this.data.data.resources.perCombat.momentum.enabled
-      && this.data.data.resources.perCombat.momentum.current) {
-      updateData['data.resources.perCombat.momentum.current'] = false;
-      templateData.resources.push({
-        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
-        message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
-      });
-    }
+    // if (this.data.data.resources.perCombat.commandPoints.enabled
+      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      // });
+    // }
+    // if (this.data.data.resources.perCombat.momentum.enabled
+      // && this.data.data.resources.perCombat.momentum.current) {
+      // updateData['data.resources.perCombat.momentum.current'] = false;
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      // });
+    // }
 
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
@@ -710,22 +710,22 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
 
     // Resources
-    if (this.data.data.resources.perCombat.commandPoints.enabled
-      && this.data.data.resources.perCombat.commandPoints.current != 1) {
-      updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      templateData.resources.push({
-        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
-        message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
-      });
-    }
-    if (this.data.data.resources.perCombat.momentum.enabled
-      && this.data.data.resources.perCombat.momentum.current) {
-      updateData['data.resources.perCombat.momentum.current'] = false;
-      templateData.resources.push({
-        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
-        message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
-      });
-    }
+    // if (this.data.data.resources.perCombat.commandPoints.enabled
+      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      // });
+    // }
+    // if (this.data.data.resources.perCombat.momentum.enabled
+      // && this.data.data.resources.perCombat.momentum.current) {
+      // updateData['data.resources.perCombat.momentum.current'] = false;
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      // });
+    // }
     if (this.data.data.resources.spendable.ki.enabled
       && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
       updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
