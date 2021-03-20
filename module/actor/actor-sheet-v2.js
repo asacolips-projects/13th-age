@@ -737,15 +737,18 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
       if (type == 'quick') {
         options.title = 'ARCHMAGE.CHAT.QuickRest';
+        options.content = 'ARCHMAGE.CHAT.QuickRestBody';
       }
       else if (type == 'full') {
         options.title = 'ARCHMAGE.CHAT.FullHeal';
+        options.content = 'ARCHMAGE.CHAT.FullHealBody';
       }
 
       // Render the rest dialog.
       let doRest = false;
       new Dialog({
         title: game.i18n.localize(options.title),
+        content: game.i18n.localize(options.content),
         buttons: {
           rest: {
             label: game.i18n.localize(options.confirmLabel),

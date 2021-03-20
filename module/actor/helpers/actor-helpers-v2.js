@@ -58,7 +58,7 @@ export class ActorHelpersV2 {
     let data = actorData.data;
     let missingRecPenalty = Math.min(data.attributes.recoveries.value, 0);
 
-    console.log(data.attributes.level.value);
+    //console.log(data.attributes.level.value);
 
     let acBonus = missingRecPenalty;
     let mdBonus = missingRecPenalty;
@@ -79,7 +79,7 @@ export class ActorHelpersV2 {
     data.attributes.pd.value = data.attributes.pd.base + [data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1] + data.attributes.level.value + pdBonus;
     data.attributes.md.value = data.attributes.md.base + [data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1] + data.attributes.level.value + mdBonus;
 
-    console.log(data.attributes);
+    //console.log(data.attributes);
   }
 
   static _getBonusOr0(type) {

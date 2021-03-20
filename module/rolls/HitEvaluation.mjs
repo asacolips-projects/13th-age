@@ -74,10 +74,10 @@ export default class HitEvaluation {
     static _getTargetDefenseValue(target, defense) {
         //console.log(target);
         if (target.data?.actorData?.data?.attributes != undefined) {
-        // Return token overridden value
-        if (target.data.actorData.data.attributes[defense]) {
-            return target.data.actorData.data.attributes[defense].value;
-        }
+            // Return token overridden value
+            if (target.data.actorData.data.attributes[defense]) {
+                return target.data.actorData.data.attributes[defense].value;
+            }
         }
         return target.actor.data.data.attributes[defense].value;
     }
@@ -90,7 +90,7 @@ export default class HitEvaluation {
             return "pd";
         }
         else if (row_text.toLowerCase().includes(" md")) {
-            rollTarget = "md";
+            return  "md";
         }
     }
 }
