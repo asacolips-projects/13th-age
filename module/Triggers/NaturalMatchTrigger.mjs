@@ -21,7 +21,7 @@ export default class NaturalMatchTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ "+", "natural" ];
+        return [ "+" ];
     }
 
     doesntTriggerOn() {

@@ -23,7 +23,7 @@ export class ItemArchmage extends Item {
    */
   async roll() {
     // Update uses left
-    let uses = this.data.data.quantity.value;
+    let uses = this.data.data.quantity?.value;
     let newUses = uses;
     if (uses == null) {
       await this._roll();
@@ -56,10 +56,10 @@ export class ItemArchmage extends Item {
         newUses = Math.max(uses - 1, 0);
       }
 
-      // await this.actor.updateOwnedItem({
-      //   _id: this.data._id,
-      //   data: {'quantity.value': newUses}
-      // });
+      await this.actor.updateOwnedItem({
+        _id: this.data._id,
+        data: {'quantity.value': newUses}
+      });
     }
 
   }

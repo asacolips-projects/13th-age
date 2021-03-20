@@ -4,6 +4,7 @@ import HitTrigger from "./HitTrigger.mjs";
 import MissTrigger from "./MissTrigger.mjs";
 import NaturalMatchTrigger from "./NaturalMatchTrigger.mjs";
 import OddTrigger from "./OddTrigger.mjs";
+import NaturalExactTrigger from "./NaturalExactTrigger.mjs";
 
 export default class Triggers {
 
@@ -14,7 +15,8 @@ export default class Triggers {
             new HitTrigger(),
             new MissTrigger(),
             new NaturalMatchTrigger(),
-            new CritTrigger()
+            new CritTrigger(),
+            new NaturalExactTrigger()
         ];
     }
 
