@@ -6,6 +6,8 @@
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
+  "bugs": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues",
+  "allowBugReporter": true,
   "esmodules": [
     "module/archmage.js"
   ],
