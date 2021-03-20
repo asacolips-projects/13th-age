@@ -563,6 +563,12 @@ export class ActorArchmage extends Actor {
         user: game.user._id, speaker: {actor: this._id, token: this.token,
         alias: this.name, scene: game.user.viewedScene}
       };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
       // Create the chat message
@@ -684,6 +690,9 @@ export class ActorArchmage extends Actor {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
       alias: this.name, scene: game.user.viewedScene}
     };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
@@ -756,6 +765,9 @@ export class ActorArchmage extends Actor {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
       alias: this.name, scene: game.user.viewedScene}
     };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }

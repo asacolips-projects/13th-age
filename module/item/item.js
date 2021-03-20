@@ -121,7 +121,9 @@ export class ItemArchmage extends Item {
       && !recharge) recharge = 16;
 
     // Only update for recharge powers/items.
-    if (recharge <= 0 || recharge > 20) return;
+    if (!recharge) return;
+    // And only if recharge is feasible
+    // if (recharge <= 0 || recharge > 20) return;
 
     // Only update for owned items.
     if (!this.options?.actor) return;
