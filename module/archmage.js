@@ -196,6 +196,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'rechargeOncePerDay', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'originalCritDamage', {
     name: 'Double damage result on critical hit',
     hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',

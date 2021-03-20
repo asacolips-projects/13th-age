@@ -203,6 +203,56 @@ export class ActorArchmageSheet extends ActorSheet {
     //   // this.mce.focus();
     // });
 
+    // Rests
+    html.find('.quick-rest').click(ev => {
+      if (event.shiftKey) {
+        this.actor.restQuick();
+      } else {
+        let doRest = false;
+        new Dialog({
+          title: game.i18n.localize("ARCHMAGE.CHAT.QuickRest"),
+          buttons: {
+            rest: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Rest"),
+              callback: () => {doRest = true;}
+            },
+            cancel: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+              callback: () => {}
+            }
+          },
+          default: 'rest',
+          close: html => {
+            if (doRest) {this.actor.restQuick();}
+          }
+        }).render(true);
+      }
+    });
+    html.find('.full-rest').click(ev => {
+      if (event.shiftKey) {
+        this.actor.restFull();
+      } else {
+        let doRest = false;
+        new Dialog({
+          title: game.i18n.localize("ARCHMAGE.CHAT.FullHeal"),
+          buttons: {
+            rest: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Rest"),
+              callback: () => {doRest = true;}
+            },
+            cancel: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+              callback: () => {}
+            }
+          },
+          default: 'rest',
+          close: html => {
+            if (doRest) {this.actor.restFull();}
+          }
+        }).render(true);
+      }
+    });
+
     // Ability Checks
     html.find('.ability-name').click(ev => {
       let abl = ev.currentTarget.parentElement.getAttribute('data-ability');
@@ -428,13 +478,13 @@ export class ActorArchmageSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(li.dataset.itemId);
 
       // Update the owned item and rerender.
+      let value = Number(item.data.data.quantity.value || 0) + 1;
+      if (item.data.data.maxQuantity.value) {
+        value = Math.min(value, item.data.data.maxQuantity.value);
+      }
       await this.actor.updateOwnedItem({
         _id: item._id,
-        data: {
-          quantity: {
-            value: Number(item.data.data.quantity.value || 0) + 1
-          }
-        }
+        data: { quantity: { value: value } }
       });
 
       this.render();

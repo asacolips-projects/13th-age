@@ -20,7 +20,7 @@ ARCHMAGE.powerTypes = {
 
 ARCHMAGE.powerUsages = {
   'at-will': 'At Will',
-  'once-per-battle': 'Once Per Battle',
+  'once-per-battle': 'Per Battle',
   'recharge': 'Recharge',
   'daily': 'Daily',
   'other': 'Other'

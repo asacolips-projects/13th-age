@@ -74,11 +74,13 @@ export class ArchmagePrepopulate {
     let content = {};
     let cleanRace = this.cleanClassName(race);
 
+    // Load racial powers
     if (race != '' && this.validRaces.includes(cleanRace)) {
       let racePack = await game.packs.find(p => p.metadata.name == 'races');
       let pack = await racePack.getContent();
       for (let entry of pack) {
-        let raceNamesArray = entry.data.data.group.value.split('/').map(n => this.cleanClassName(n));
+        let sourceName = entry.data.data?.powerSourceName?.value ?? entry.data.data.group.value;
+        let raceNamesArray = sourceName.split('/').map(n => this.cleanClassName(n));
         if (raceNamesArray.includes(cleanRace)) {
           if (cleanRace in content) {
             content[cleanRace].content.push(entry);
@@ -92,6 +94,7 @@ export class ArchmagePrepopulate {
       }
     }
 
+    // Load class powers
     for (let i = 0; i < classPacks.length; i++) {
       let pack = await classPacks[i].getContent();
       content[this.cleanClassName(classPacks[i].metadata.name)] = {
@@ -99,20 +102,23 @@ export class ArchmagePrepopulate {
         content: pack
       };
     }
-    
+
+    // Load multiclass powers
     if (classPacks.length > 1) {
       let key = "Multiclass Feats";
       let pack = await game.packs.find(p => p.metadata.label == key).getContent();
-      let powers = pack.filter(e => 
-        classes.includes(e.data.name.split('(').map(n => this.cleanClassName(n)).pop())
-      );
+      let powers = pack.filter(e => {
+        let sourceName = e.data.data?.powerSourceName?.value ?? e.data.data.group.value;
+        return classes.includes(this.cleanClassName(sourceName))
+      });
       if (powers.length > 0) {content[key] = {name: key, content: powers};}
     }
 
+    // Load general feats
     let key = "General Feats";
     let pack = await game.packs.find(p => p.metadata.label == key).getContent();
     content[key] = {name: key, content: pack};
-    
+
     return content;
   }
 
