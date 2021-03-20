@@ -241,8 +241,8 @@ ARCHMAGE.classes = {
     skilled_warrior: false
   },
   occultist: {
-    hp: 6,
     ac_lgt: 11,
+    hp: 6,
     ac_hvy: 13,
     ac_hvy_pen: -2,
     shld_pen: -2,

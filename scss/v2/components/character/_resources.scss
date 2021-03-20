@@ -6,19 +6,8 @@
     position: relative;
 
     + .unit {
-      margin-left: $padding-md;
-      padding-left: $padding-md;
-
-      &::before {
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: -$padding-md;
-        width: 2px;
-        background: $ct-border;
-      }
+      padding: 0 $padding-md;
+      border-left: 2px solid $ct-border;
     }
   }
 }

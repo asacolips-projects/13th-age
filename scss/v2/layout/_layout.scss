@@ -3,6 +3,8 @@
 
   .section--sidebar {
     padding-right: $padding-lg;
+    margin-right: $padding-lg;
+    border-right: 2px solid $ct-border;
   }
 }
 
@@ -30,7 +32,7 @@
 .unit-title {
   font-family: $font-stack-secondary;
   font-weight: normal;
-  font-size: 16px;
+  font-size: $font-md;
   border: 0;
   text-align: center;
 }
@@ -39,7 +41,7 @@
   position: relative;
 
   label {
-    font-size: 10px;
+    font-size: $font-tiny;
     text-transform: uppercase;
     position: absolute;
     bottom: 0;

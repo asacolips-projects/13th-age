@@ -4,6 +4,44 @@
     flex: 0;
   }
 
+  .power-filters {
+    font-family: $font-stack-label;
+    font-size: $font-tiny;
+    padding: $padding-sm 0 $padding-md;
+    border-bottom: 1px dashed $ct-border;
+
+    > div {
+      flex: 0 auto;
+
+      + div {
+        padding-left: $padding-sm;
+        margin-left: $padding-sm;
+      }
+
+      &.filter-search-powers {
+        flex: 1;
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      font-size: $font-tiny;
+      font-family: $font-stack-label;
+      text-align: left;
+      font-weight: normal;
+    }
+  }
+
+  .item-import {
+    margin-top: $font-tiny;
+    font-family: $font-stack-label;
+  }
+
   .power-group + .power-group {
     margin-top: 20px;
   }
@@ -34,11 +72,17 @@
 
   .power-title {
     margin: 0;
+    font-size: $font-xs;
   }
 
   .power-header-labels {
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: $font-tiny;
+    font-family: $font-stack-label;
+
+    .power-name {
+      display: none;
+    }
   }
 
   .power-item {
@@ -46,9 +90,10 @@
   }
 
   .power-grid {
-    grid-template-columns: 32px auto 32px 40px 48px 28px 44px;
+    grid-template-columns: 32px auto 36px 44px 60px 36px 64px;
     gap: 2px;
-    font-size: 12px;
+    font-size: $font-tiny;
+    font-family: $font-stack-label;
     text-align: center;
 
     > * {
@@ -69,7 +114,7 @@
     }
 
     .power-name {
-      font-size: 14px;
+      font-size: $font-xs;
       font-family: $font-stack-secondary;
       overflow: hidden;
       padding-left: $padding-sm;
@@ -104,6 +149,14 @@
     .item-controls { grid-column-start: 7; }
   }
 
+  .item-control {
+    width: 28px;
+  }
+
+  .item-create {
+    width: 100%;
+  }
+
   .power-summary {
     color: $c-white;
     text-shadow: 0 0 10px rgba($c-black, 0.5);
@@ -120,6 +173,40 @@
 
       &::before {
         color: $c-white;
+      }
+    }
+
+    .rollable--item {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        line-height: 1;
+        font-size: $font-lg;
+        width: $font-lg;
+        height: $font-lg;
+        display: block;
+        opacity: 0;
+        transition: all ease-in-out 0.25s;
+      }
+
+      img {
+        transition: all ease-in-out 0.25s;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+
+        img {
+          opacity: 0;
+        }
       }
     }
 

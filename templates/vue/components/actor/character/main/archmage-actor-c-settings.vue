@@ -18,7 +18,7 @@
         </div>
         <div class="sub-unit sub-unit--base-hp flexrow">
           <strong class="unit-subtitle">{{localize('Base HP')}}</strong>
-          <input type="number" name="data.attributes.hp.base" v-model="actor.data.attributes.hp.base"/>
+          <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.attributes.hp.base"/>
         </div>
         <div class="sub-unit sub-unit--base-recoveries flexrow">
           <strong class="unit-subtitle">{{localize('Base Recoveries')}}</strong>
@@ -79,7 +79,7 @@
           </div>
           <div class="sub-unit sub-unit--ranged-miss flexrow">
             <strong class="unit-subtitle">{{localize('Ranged Miss Damage')}}</strong>
-            <input type="text" name="data.attributes.weapon.ranged.miss" v-model="actor.data.attributes.weapon.ranged.miss"/>
+            <input type="checkbox" name="data.attributes.weapon.ranged.miss" v-model="actor.data.attributes.weapon.ranged.miss"/>
           </div>
         </div>
       </div>

@@ -5,16 +5,17 @@
       <div class="group-powers">
         <label for="power-group">{{localize('Group by')}}</label>
         <select name="power-group" v-model="groupBy">
-          <option v-for="option in groupOptions" :key="option" :value="option.value">{{localize(option.label)}}</option>
+          <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(option.label)}}</option>
         </select>
       </div>
       <div class="sort-powers">
         <label for="power-sort">{{localize('Sort')}}</label>
         <select name="power-sort" v-model="sortBy">
-          <option v-for="option in sortOptions" :key="option" :value="option.value">{{localize(option.label)}}</option>
+          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(option.label)}}</option>
         </select>
       </div>
       <div class="filter-search-powers">
+        <label for="power-filter-search">{{localize('Filter')}}</label>
         <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('Filter powers by name')"/>
       </div>
       <div class="import-powers">

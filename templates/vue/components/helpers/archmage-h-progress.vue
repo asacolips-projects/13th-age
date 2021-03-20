@@ -12,7 +12,8 @@ export default {
   data: () => ({}),
   computed: {
     realMax() {
-      return Math.max(this.max, this.current + this.temp);
+      let temp = this.temp ? this.temp : 0;
+      return Math.max(this.max, this.current + temp);
     }
   },
   methods: {
@@ -38,6 +39,12 @@ export default {
     getProgressPercent(value, value2, includeSign = true) {
       let percent = Math.ceil(100 * (value / Math.max(1, value2)));
 
+      console.log({
+        name: this.name,
+        value: value,
+        value2: value2,
+      });
+
       if (percent > 100) percent = 100;
       else if (percent < 0) percent = 0;
 
@@ -49,8 +56,6 @@ export default {
       this[k] = v;
     }
   },
-  async mounted() {
-    if (!this.temp) this.temp = 0;
-  }
+  async mounted() {}
 }
 </script>

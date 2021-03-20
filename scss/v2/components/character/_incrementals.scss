@@ -15,14 +15,19 @@
       padding: 0;
       width: auto;
       height: auto;
+      position: relative;
+      top: 1px;
     }
   }
 
   .incremental {
     display: flex;
     flex-direction: row;
+    flex: 1 auto;
     align-items: center;
     justify-content: flex-start;
-    margin-right: $padding-sm;
+    margin: $padding-sm 0;
+    padding: 0 2px;
+    border-bottom: 1px solid $ct-border;
   }
 }

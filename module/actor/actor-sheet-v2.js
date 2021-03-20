@@ -21,7 +21,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     const options = super.defaultOptions;
     mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
-      width: 800,
+      width: 960,
       height: 960,
       submitOnClose: false, // Avoid double submissions.
       submitOnChange: true,
@@ -156,6 +156,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   activateVueListeners(html) {
     html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
     this._dragHandler(html);
+
+    // Input listeners.
+    html.on('click', 'input[type="text"],input[type="number"]', (event) => this._onFocus(event));
+    html.on('focus', 'input[type="text"],input[type="number"]', (event) => this._onFocus(event));
   }
 
   /* ------------------------------------------------------------------------ */
@@ -733,6 +737,14 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);
     });
+  }
+
+  _onFocus(event) {
+    let target = event.currentTarget;
+    console.log(target);
+    setTimeout(function() {
+      $(target).select();
+    }, 200);
   }
 
   /* ------------------------------------------------------------------------ */

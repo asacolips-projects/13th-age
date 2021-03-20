@@ -10,10 +10,7 @@
 export default {
   props: ['actor', 'group', 'tabs'],
   data: function () {
-    return {
-      group: 'primary',
-      tabs: []
-    }
+    return {}
   },
   computed: {},
   methods: {

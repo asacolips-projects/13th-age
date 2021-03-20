@@ -1,10 +1,31 @@
 .section--settings {
+  .sheet-settings {
+    grid-gap: 20px;
+  }
+
   .unit {
     grid-column-end: span 2;
   }
 
   .unit--base-settings,
   .unit--flags {
+    grid-column-end: span 3;
+  }
+
+  .unit--backgrounds,
+  .unit--icons,
+  .unit--resources {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .unit--icons {
+    grid-column-end: span 1;
+  }
+
+  .unit--resources {
     grid-column-end: span 3;
   }
 
@@ -24,12 +45,18 @@
 
   .sub-unit--melee,
   .sub-unit--ranged {
-    border-top: 2px solid rgba($c-black, 0.5);
-    margin: $padding-sm 0;
-    padding-top: $padding-sm;
+    border: 2px solid rgba($c-black, 0.5);
+    margin: $padding-md 0;
+    padding: $padding-md;
+    border-radius: 4px;
   }
 
   .unit-subtitle {
     font-weight: bold;
+  }
+
+  .notes {
+    font-size: $font-xxs;
+    font-family: $font-stack-label;
   }
 }

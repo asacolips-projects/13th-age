@@ -6,13 +6,13 @@
   &::before {
     @include fa-icon;
     content: fa-content($fa-var-dice-d20);
-    margin-right: $padding-md;
+    margin-right: $padding-sm;
     color: $c-blue;
   }
 
   &:hover {
     color: $c-blue;
-    text-shadow: none;
+    text-shadow: 0 0 5px rgba($c-blue, 0.5);
   }
 
   &.hide-icon {

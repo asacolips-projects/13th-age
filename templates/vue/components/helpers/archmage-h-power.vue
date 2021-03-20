@@ -3,7 +3,7 @@
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">
       <strong v-if="power.data.group.value">{{power.data.group.value}}</strong>
-      <strong v-if="power.data.range.value">{{power.data.range.value}}</strong>
+      <em v-if="power.data.range.value">{{power.data.range.value}}</em>
       <div class="power-subheader flexrow">
         <strong v-if="power.data.actionType.value">{{constants.actionTypes[power.data.actionType.value]}} {{localize('Action')}}</strong>
         <strong v-if="power.data.powerUsage.value">{{constants.powerUsages[power.data.powerUsage.value]}}</strong>

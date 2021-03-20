@@ -1,13 +1,60 @@
 .window-content {
   background: url('#{$assets}/paper-v2.webp');
+  background-size: cover;
+
+  > form,
+  .archmage-v2-vue,
+  .container--bottom {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .container--top {
+    flex: 0 auto;
+  }
+
+  .container--bottom {
+    flex: 1;
+  }
+
+  .section--sidebar,
+  .section--main {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* ----------------------------------------- */
+  /* Scrollbar
+  /* ----------------------------------------- */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: none;
+    background: rgba($c-black, 0.1);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 3px;
+    background: $c-blue;
+    border: 1px solid $c-blue;
+  }
 }
 
 .section--sidebar {
-  flex: 0 0 260px;
+  flex: 0 0 300px;
 
   .section + .section {
     @include borderTop;
     @include borderNarrow;
+    margin-top: $padding-md;
+  }
+
+  .unit-title {
+    text-align: left;
   }
 }
 
@@ -31,6 +78,12 @@ img[data-edit="img"] {
   min-height: 30px;
 }
 
+.editor-content {
+  background: rgba($c-black, 0.05);
+  padding: $padding-sm;
+  border-radius: $padding-sm;
+}
+
 .tox-tinymce,
 .tox-editor-container,
 .tox-sidebar-wrap,
@@ -49,7 +102,7 @@ img[data-edit="img"] {
   }
 
   button {
-    font-size: 12px;
+    font-size: $font-xxs;
     padding: 0;
     border: 0;
     background: transparent;
@@ -63,5 +116,24 @@ img[data-edit="img"] {
   button[title="Horizontal line"],
   button[title="Insert/edit link"] {
     display: none;
+  }
+}
+
+a {
+  &:hover {
+    color: $c-blue;
+    text-shadow: 0 0 5px $c-blue;
+  }
+}
+
+button {
+  color: $c-white;
+  background: $c-blue;
+  border-color: $c-blue;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($c-blue, 0.7);
+    box-shadow: 0 0 5px $c-blue;
   }
 }

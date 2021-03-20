@@ -6,6 +6,7 @@
 // Archmage custom.
 .archmage-v2 {
   font-family: $font-stack-base;
+  font-size: $font-xs;
 
   // Generic.
   @import 'base/input';
@@ -44,4 +45,9 @@
   .message {
     @import 'components/message';
   }
+}
+
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
 }

@@ -4,6 +4,10 @@
     margin: 0;
     padding: 0;
   }
+
+  li {
+    padding: 4px 0;
+  }
 }
 
 .background-sign {
@@ -16,4 +20,7 @@
 
 .background-name {
   flex: 2;
+  font-size: $font-xs;
+  font-weight: normal;
+  text-align: left;
 }

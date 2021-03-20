@@ -5,10 +5,11 @@
       <div class="sort-equipment">
         <label for="equipment-sort">{{localize('Sort')}}</label>
         <select name="equipment-sort" v-model="sortBy">
-          <option v-for="option in sortOptions" :key="option" :value="option.value">{{localize(option.label)}}</option>
+          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(option.label)}}</option>
         </select>
       </div>
       <div class="filter-search-equipment">
+        <label for="equipment-filter-search">{{localize('Filter')}}</label>
         <input type="text" name="equipment-filter-search" v-model="searchValue" :placeholder="localize('Filter equipment by name')"/>
       </div>
     </header>
@@ -44,10 +45,7 @@
                 <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
               </span>
             </div>
-            <div class="equipment-chakra" v-if="equipment.data.chackra">
-              <!-- TODO: Fix typo in attr name. -->
-              <h3 class="equipment-title unit-subtitle">{{equipment.data.chackra}}</h3>
-            </div>
+            <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>
