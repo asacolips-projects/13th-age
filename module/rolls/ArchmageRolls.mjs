@@ -4,7 +4,9 @@ export default class ArchmageRolls {
     let attack = item.data.data.attack.value;
     let attackRolls = ArchmageRolls._getInlineRolls(attack, item.actor.getRollData());
     console.log(attackRolls);
-    attackRolls[0].toMessage(item.actor.getRollData());
+    if (attackRolls && attackRolls.length > 0) {
+      attackRolls[0].toMessage(item.actor.getRollData());
+    }
   }
 
   static _getInlineRolls(text, data) {

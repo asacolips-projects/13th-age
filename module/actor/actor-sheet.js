@@ -1,6 +1,5 @@
 import { ActorSheetFlags } from './actor-flags.js';
-import { ArchmagePrepopulate } from '../setup/utility-classes.js';
-import ArchmageRolls from '../rolls/ArchmageRolls.mjs';
+import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
