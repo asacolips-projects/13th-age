@@ -18,6 +18,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Chaos Mage'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -139,6 +143,10 @@ data:
     label: 'Recharge'
     value: 0
   quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
     type: 'Number'
     label: 'Uses'
     value: null

@@ -13,7 +13,11 @@ data:
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: 'class'
+    value: 'other'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'General'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -135,6 +139,10 @@ data:
     label: 'Recharge'
     value: 0
   quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
     type: 'Number'
     label: 'Uses'
     value: null

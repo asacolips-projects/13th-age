@@ -424,10 +424,10 @@ export class ActorArchmage extends Actor {
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
     let strRec = this.getFlag('archmage', 'strongRecovery');
-    let data = {bonus: "", average: avg};
+    let data = {bonus: "", average: avg, createMessage: true};
 
     if (event.shiftKey) {
-      this._rollRecovery(data, true);
+      this.rollRecovery(data);
       return;
     }
 
@@ -500,7 +500,7 @@ export class ActorArchmage extends Actor {
             data.apply = html.find('[name="apply"]').is(':checked');
             data.average = html.find('[name="average"]').is(':checked');
             this.setFlag('archmage', 'averageRecoveries', data.average);
-            this.rollRecovery(data, true);
+            this.rollRecovery(data);
           }
         }
       }).render(true);
@@ -516,13 +516,14 @@ export class ActorArchmage extends Actor {
    *
    * @return {Roll} The rolled roll for the recovery
    */
-  async rollRecovery(data, print = true) {
+  async rollRecovery(data) {
     data.bonus = (data.bonus !== undefined) ? data.bonus : "";
     data.max = (data.max !== undefined) ? data.max : 0;
     data.free = (data.free !== undefined) ? data.free : false;
     data.label = (data.label !== undefined) ? data.label+" Recovery" : "Recovery";
     data.apply = (data.apply !== undefined) ? data.apply : true;
     data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
+    data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
     data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
@@ -553,16 +554,21 @@ export class ActorArchmage extends Actor {
 
     let roll = new Roll(`${formula}`);
 
-    if (print) {
+    if (data.createMessage) {
       // Basic template rendering data
       const template = `systems/archmage/templates/chat/recovery-card.html`
-      const token = this.token;
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
       const chatData = {
         user: game.user._id, speaker: {actor: this._id, token: this.token,
         alias: this.name, scene: game.user.viewedScene}
       };
+
+      // Toggle default roll mode
+      let rollMode = game.settings.get("core", "rollMode");
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (rollMode === "blindroll") chatData["blind"] = true;
+
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
       // Create the chat message
@@ -590,7 +596,180 @@ export class ActorArchmage extends Actor {
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
     });
-    return roll;
+    return {roll: roll, total: roll.total};
+  }
+
+  async restQuick() {
+    let templateData = {
+      actor: this,
+      usedRecoveries: 0,
+      gainedHp: 0,
+      resources: [],
+      items: []
+    };
+    let updateData = {};
+
+    // Recoveries & hp
+    let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
+
+    while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
+      // Roll recoveries until we are above staggered
+      let rec = await this.rollRecovery({apply: false}, false);
+      templateData.gainedHp += rec.total;
+      templateData.usedRecoveries += 1;
+    }
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
+    
+    // Resources
+    // if (this.data.data.resources.perCombat.commandPoints.enabled
+      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      // });
+    // }
+    // if (this.data.data.resources.perCombat.momentum.enabled
+      // && this.data.data.resources.perCombat.momentum.current) {
+      // updateData['data.resources.perCombat.momentum.current'] = false;
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      // });
+    // }
+
+    // Update actor at this point (items are updated separately)
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
+    }
+    
+    // Items (Powers)
+    for (let i = 0; i < this.data.items.length; i++) {
+      let item = this.data.items[i];
+      if (item.type == "power" && item.data.maxQuantity.value) {
+        let rechAttempts = item.data.maxQuantity.value - item.data.quantity.value;
+        if (game.settings.get('archmage', 'rechargeOncePerDay')) {
+          rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
+        }
+        if (item.data.powerUsage.value == 'once-per-battle'
+          && item.data.quantity.value < item.data.maxQuantity.value) {
+          await this.updateOwnedItem({
+            _id: item._id,
+            data: {quantity: {value: item.data.maxQuantity.value}}
+          });
+          templateData.items.push({
+            key: item.name,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
+          });
+        } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
+          // This captures other as well
+          let successes = 0;
+          for (let j = 0; j < rechAttempts; j++) {
+            let roll = await this.items.get(item._id).recharge({createMessage: false});
+            if (roll.total >= item.data.recharge.value) {
+              successes++;
+              templateData.items.push({
+                key: item.name,
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${item.data.recharge.value})`
+              });
+            } else {
+              templateData.items.push({
+                key: item.name,
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${item.data.recharge.value})`
+              });
+            }
+          }
+        }
+      } 
+    }
+
+    // Print outcomes to chat
+    const template = `systems/archmage/templates/chat/rest-short-card.html`
+    const chatData = {
+      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      alias: this.name, scene: game.user.viewedScene}
+    };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+    chatData["content"] = await renderTemplate(template, templateData);
+    let msg = await ChatMessage.create(chatData, {displaySheet: false});
+  }
+
+  async restFull() {
+    let templateData = {
+      actor: this,
+      resources: [],
+      items: []
+    };
+    let updateData = {}
+
+    // Recoveries & hp
+    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
+    updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
+
+    // Resources
+    // if (this.data.data.resources.perCombat.commandPoints.enabled
+      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
+      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
+      // });
+    // }
+    // if (this.data.data.resources.perCombat.momentum.enabled
+      // && this.data.data.resources.perCombat.momentum.current) {
+      // updateData['data.resources.perCombat.momentum.current'] = false;
+      // templateData.resources.push({
+        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
+        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
+      // });
+    // }
+    if (this.data.data.resources.spendable.ki.enabled
+      && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
+      updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
+      templateData.resources.push({
+        key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
+        message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.data.data.resources.spendable.ki.max}`
+      });
+    }
+
+    // Update actor at this point (items are updated separately)
+    if ( !isObjectEmpty(updateData) ) {
+      this.update(updateData);
+    }
+
+    // Items (Powers)
+    for (let i = 0; i < this.data.items.length; i++) {
+      let item = this.data.items[i];
+      if (item.type == "power" && item.data.maxQuantity.value
+        && item.data.quantity.value < item.data.maxQuantity.value) {
+        await this.updateOwnedItem({
+          _id: item._id,
+          data: {
+            quantity: {value: item.data.maxQuantity.value},
+            rechargeAttempts: {value: 0}
+            }
+        });
+        templateData.items.push({
+          key: item.name,
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
+        });
+      }
+    }
+
+    // Print outcomes to chat
+    const template = `systems/archmage/templates/chat/rest-full-card.html`
+    const chatData = {
+      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      alias: this.name, scene: game.user.viewedScene}
+    };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+    chatData["content"] = await renderTemplate(template, templateData);
+    let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
   /* -------------------------------------------- */
