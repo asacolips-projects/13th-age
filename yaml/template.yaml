@@ -285,6 +285,24 @@ Actor:
           label: Ranged weapon dice
           dice: d8
           value: d8
+        jab:
+          type: String
+          label: JAB dice
+          dice: d6
+          value: d6
+          abil: 'dex/str'
+        punch:
+          type: String
+          label: PUNCH dice
+          dice: d8
+          value: d8
+          abil: 'dex/str'
+        kick:
+          type: String
+          label: KICK dice
+          dice: d10
+          value: d10
+          abil: 'dex/str'
     resources:
       perCombat:
         momentum:

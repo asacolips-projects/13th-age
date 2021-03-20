@@ -4,10 +4,18 @@
 
   .unit {
     position: relative;
+    padding: 0 $padding-md;
+    margin-bottom: $padding-md;
+    border: 1px solid $ct-border;
+    border-top: 0;
+    border-bottom: 0;
 
-    + .unit {
-      padding: 0 $padding-md;
+    &:first-child {
       border-left: 2px solid $ct-border;
+    }
+
+    &:last-child {
+      border-right: 2px solid $ct-border;
     }
   }
 }
@@ -17,7 +25,17 @@
 }
 
 .unit--ki {
-  flex: 0 0 100px;
+  flex: 0 0 120px;
+}
+
+.unit--custom {
+  flex: 0 0 180px;
+}
+
+input.resource-title-input {
+  font-family: $font-stack-secondary;
+  font-weight: normal;
+  font-size: $font-md;
 }
 
 .unit--rest {
@@ -29,7 +47,7 @@
 
   button.rest--quick {
     background: $c-power-battle;
-    border-color: #3c0000;
+    border-color: #dc0000;
     transition: all ease-in-out 0.25s;
 
     &:hover,
@@ -40,7 +58,7 @@
 
   button.rest--full {
     background: $c-power-daily;
-    border-color: #01003c;
+    border-color: #ababab;
 
     &:hover,
     &:focus {

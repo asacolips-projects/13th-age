@@ -45,42 +45,23 @@
             <strong class="unit-subtitle">{{localize('Melee Weapon Die')}}</strong>
             <input type="text" name="data.attributes.weapon.melee.dice" v-model="actor.data.attributes.weapon.melee.dice" placeholder="d8"/>
           </div>
-          <div class="sub-unit sub-unit--melee-ability flexcol">
-            <strong class="unit-subtitle">{{localize('Melee Weapon Ability')}}</strong>
-            <select name="data.attributes.weapon.melee.abil" v-model="actor.data.attributes.weapon.melee.abil">
-              <option value="str">{{localize('ARCHMAGE.str.key')}}</option>
-              <option value="dex">{{localize('ARCHMAGE.dex.key')}}</option>
-              <option value="con">{{localize('ARCHMAGE.con.key')}}</option>
-              <option value="int">{{localize('ARCHMAGE.int.key')}}</option>
-              <option value="wis">{{localize('ARCHMAGE.wis.key')}}</option>
-              <option value="cha">{{localize('ARCHMAGE.cha.key')}}</option>
-            </select>
-          </div>
-          <div class="sub-unit sub-unit--melee-miss flexrow">
-            <strong class="unit-subtitle">{{localize('Melee Miss Damage')}}</strong>
-            <input type="checkbox" name="data.attributes.weapon.melee.miss" v-model="actor.data.attributes.weapon.melee.miss"/>
-          </div>
-        </div>
-        <div class="sub-unit sub-unit--ranged">
           <div class="sub-unit sub-unit--ranged-dice flexrow">
             <strong class="unit-subtitle">{{localize('Ranged Weapon Die')}}</strong>
             <input type="text" name="data.attributes.weapon.ranged.dice" v-model="actor.data.attributes.weapon.ranged.dice" placeholder="d8"/>
           </div>
-          <div class="sub-unit sub-unit--ranged-ability flexcol">
-            <strong class="unit-subtitle">{{localize('Ranged Weapon Ability')}}</strong>
-            <select name="data.attributes.weapon.ranged.abil" v-model="actor.data.attributes.weapon.ranged.abil">
-              <option value="str">{{localize('ARCHMAGE.str.key')}}</option>
-              <option value="dex">{{localize('ARCHMAGE.dex.key')}}</option>
-              <option value="con">{{localize('ARCHMAGE.con.key')}}</option>
-              <option value="int">{{localize('ARCHMAGE.int.key')}}</option>
-              <option value="wis">{{localize('ARCHMAGE.wis.key')}}</option>
-              <option value="cha">{{localize('ARCHMAGE.cha.key')}}</option>
-            </select>
+          <!-- TODO: Add monk dice. -->
+          <!-- <div class="sub-unit sub-unit--jab-dice flexrow">
+            <strong class="unit-subtitle">{{localize('JAB Weapon Die')}}</strong>
+            <input type="text" name="data.attributes.weapon.jab.dice" v-model="actor.data.attributes.weapon.jab.dice" placeholder="d6"/>
           </div>
-          <div class="sub-unit sub-unit--ranged-miss flexrow">
-            <strong class="unit-subtitle">{{localize('Ranged Miss Damage')}}</strong>
-            <input type="checkbox" name="data.attributes.weapon.ranged.miss" v-model="actor.data.attributes.weapon.ranged.miss"/>
+          <div class="sub-unit sub-unit--punch-dice flexrow">
+            <strong class="unit-subtitle">{{localize('PUNCH Weapon Die')}}</strong>
+            <input type="text" name="data.attributes.weapon.punch.dice" v-model="actor.data.attributes.weapon.punch.dice" placeholder="d8"/>
           </div>
+          <div class="sub-unit sub-unit--kick-dice flexrow">
+            <strong class="unit-subtitle">{{localize('KICK Weapon Die')}}</strong>
+            <input type="text" name="data.attributes.weapon.kick.dice" v-model="actor.data.attributes.weapon.kick.dice" placeholder="d10"/>
+          </div> -->
         </div>
       </div>
       <!-- Flag Settings -->

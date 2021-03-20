@@ -363,8 +363,13 @@ export class ActorArchmage extends Actor {
           abil: 'dex/str'
         }
       };
+
+      if (data.attributes.weapon?.jab?.value) monkAttacks.jab = duplicate(data.attributes.weapon.jab.value);
+      if (data.attributes.weapon?.kick?.value) monkAttacks.kick = duplicate(data.attributes.weapon.kick.value);
+      if (data.attributes.weapon?.punch?.value) monkAttacks.punch = duplicate(data.attributes.weapon.punch.value);
+
       for (let [key, value] of Object.entries(monkAttacks)) {
-        let abil = value.abil.split('/');
+        let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
         data.attributes.attack[key] = data.attributes.attack.melee;
         if (data.attributes.weapon[key] === undefined) {
           data.attributes.weapon[key] = mergeObject(value, {

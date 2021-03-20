@@ -37,6 +37,16 @@
         <input type="checkbox" name="data.resources.perCombat.momentum.current" v-model="momentum">
       </div>
     </section>
+    <!-- Custom Resouces -->
+    <section v-for="(resource, index) in customResources" :key="index" class="unit unit--custom flexshrink">
+      <input type="text" :name="concat('data.resources.spendable.', index, '.label')" class="resource-title-input" v-model="resource.label"/>
+      <archmage-h-progress :name="index" :current="resource.current" :max="resource.max"/>
+      <div class="resource flexrow">
+        <input type="number" :name="concat('data.resources.spendable.', index, '.current')" class="resource-current" v-model="resource.current">
+        <span class="resource-separator">/</span>
+        <input type="number" :name="concat('data.resources.spendable.', index, '.max')" class="resource-max" v-model="resource.max">
+      </div>
+    </section>
     <!-- Disengage -->
     <section class="unit unit--disengage flexshrink">
       <h2 class="unit-title">{{localize('Disengage')}}</h2>
@@ -52,8 +62,8 @@
     <section class="unit unit--rest flexshrink">
       <h2 class="unit-title">{{localize('Rests')}}</h2>
       <div class="resource flexcol">
-        <button class="rest rest--quick" data-rest-type="quick"><i class="fas fa-campground"></i> {{localize('Quick Rest')}}</button>
-        <button class="rest rest--full" data-rest-type="full"><i class="fas fa-bed"></i> {{localize('Full Heal-Up')}}</button>
+        <button type="button" class="rest rest--quick" data-rest-type="quick"><i class="fas fa-campground"></i> {{localize('Quick Rest')}}</button>
+        <button type="button" class="rest rest--full" data-rest-type="full"><i class="fas fa-bed"></i> {{localize('Full Heal-Up')}}</button>
       </div>
     </section>
   </section>
@@ -77,7 +87,15 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+    customResources() {
+      let resources = {};
+      for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
+        if (k.includes('custom') && v.enabled) resources[k] = v;
+      }
+      return resources;
+    }
+  },
   methods: {
     updateResourceProps() {
       this.commandPoints = this.actor.data.resources.perCombat.commandPoints.current;
