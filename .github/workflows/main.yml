@@ -41,7 +41,7 @@ jobs:
         download: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     # create a zip file with all files required by the system to add to the release
-    - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/
+    - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
 
     # Create a release for this specific version
     - name: Create Release
