@@ -59,7 +59,7 @@
             <div class="power-recharge" v-if="power.data.recharge.value">
               <archmage-h-rollable name="recharge" type="recharge" :opt="power._id">{{power.data.recharge.value}}+</archmage-h-rollable>
             </div>
-            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.data.quantity.value"><span v-if="power.data.quantity.value">{{power.data.quantity.value}}</span></div>
+            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.data.quantity.value"><span v-if="power.data.quantity.value !== null">{{power.data.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
