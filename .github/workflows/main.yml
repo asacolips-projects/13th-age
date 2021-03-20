@@ -38,7 +38,8 @@ jobs:
         files: 'system.json'
       env:
         version: ${{ steps.get_version.outputs.VERSION }}
-        download: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.zip
+        manifest: 
+        download: https://patreon.azurewebsites.net/api/download/toolkit13/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     # create a zip file with all files required by the system to add to the release
     - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
