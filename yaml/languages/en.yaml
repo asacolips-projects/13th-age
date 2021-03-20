@@ -33,8 +33,26 @@ ARCHMAGE.CHARACTERFLAGS.initiativeAdvName: Quick to Fight
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeName: Improved Initiative
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeHint: General feat to increase initiative by +4.
-ARCHMAGE.INCREMENTALS.featName: Feature
-ARCHMAGE.INCREMENTALS.featHint: Choose one feature as if you were the next level
+ARCHMAGE.CHARACTERSETTINGS.bg1: Background 1
+ARCHMAGE.CHARACTERSETTINGS.bg2: Background 2
+ARCHMAGE.CHARACTERSETTINGS.bg3: Background 3
+ARCHMAGE.CHARACTERSETTINGS.bg4: Background 4
+ARCHMAGE.CHARACTERSETTINGS.bg5: Background 5
+ARCHMAGE.CHARACTERSETTINGS.bg6: Background 6
+ARCHMAGE.CHARACTERSETTINGS.bg7: Background 7
+ARCHMAGE.CHARACTERSETTINGS.bg8: Background 8
+ARCHMAGE.CHARACTERSETTINGS.i1: Icon 1
+ARCHMAGE.CHARACTERSETTINGS.i2: Icon 2
+ARCHMAGE.CHARACTERSETTINGS.i3: Icon 3
+ARCHMAGE.CHARACTERSETTINGS.i4: Icon 4
+ARCHMAGE.CHARACTERSETTINGS.i5: Icon 5
+ARCHMAGE.CHARACTERSETTINGS.custom1: Custom Resource 1
+ARCHMAGE.CHARACTERSETTINGS.custom2: Custom Resource 2
+ARCHMAGE.CHARACTERSETTINGS.custom3: Custom Resource 3
+ARCHMAGE.INCREMENTALS.featName: Feat
+ARCHMAGE.INCREMENTALS.featHint: Choose one feat as if you were the next level
+ARCHMAGE.INCREMENTALS.featureName: Feature
+ARCHMAGE.INCREMENTALS.featureHint: Choose one class feature as if you were the next level
 ARCHMAGE.INCREMENTALS.hpName: Hit Points
 ARCHMAGE.INCREMENTALS.hpHint: Increase your HP as if you were the next level
 ARCHMAGE.INCREMENTALS.skillsName: Skills
@@ -47,6 +65,14 @@ ARCHMAGE.INCREMENTALS.iconRelationshipPointName: Icon Relationship Point
 ARCHMAGE.INCREMENTALS.iconRelationshipPointHint: 5th/8th Level
 ARCHMAGE.INCREMENTALS.powerSpellName: Power / Spell
 ARCHMAGE.INCREMENTALS.powerSpellHint: Choose a power / spell as if you were the next level
+ARCHMAGE.INCREMENTALS.powerSpell1Name: Power / Spell
+ARCHMAGE.INCREMENTALS.powerSpell1Hint: Choose a power / spell as if you were the next level
+ARCHMAGE.INCREMENTALS.powerSpell2Name: Power / Spell
+ARCHMAGE.INCREMENTALS.powerSpell2Hint: Choose a power / spell as if you were the next level
+ARCHMAGE.INCREMENTALS.powerSpell3Name: Power / Spell
+ARCHMAGE.INCREMENTALS.powerSpell3Hint: Choose a power / spell as if you were the next level
+ARCHMAGE.INCREMENTALS.powerSpell4Name: Power / Spell
+ARCHMAGE.INCREMENTALS.powerSpell4Hint: Choose a power / spell as if you were the next level
 ARCHMAGE.COINS.platinum: Platinum
 ARCHMAGE.COINS.platinumHint: 1 Platinum = 10 Gold
 ARCHMAGE.COINS.gold: Gold
@@ -96,9 +122,14 @@ ARCHMAGE.iconRelationships: Icon Relationships
 ARCHMAGE.oneUniqueThing: One Unique Thing
 ARCHMAGE.biography: Biography
 ARCHMAGE.equipment: Equipment
+ARCHMAGE.inventory: Inventory
+ARCHMAGE.effects: Effects
 ARCHMAGE.abilityName: Ability Name
 ARCHMAGE.rchg: Rchg.
 ARCHMAGE.recharge: Recharge
+ARCHMAGE.at-will: At-Will
+ARCHMAGE.once-per-battle: Per Battle
+ARCHMAGE.daily: Daily
 ARCHMAGE.act: Act.
 ARCHMAGE.action: Action
 ARCHMAGE.uses: Uses
@@ -120,6 +151,13 @@ ARCHMAGE.maneuvers: Maneuvers
 ARCHMAGE.flexible: Flexible Attack
 ARCHMAGE.flexibles: Flexible Attacks
 ARCHMAGE.other: Other
+ARCHMAGE.others: Other
+ARCHMAGE.standard: Standard Action
+ARCHMAGE.move: Move Action
+ARCHMAGE.quick: Quick Action
+ARCHMAGE.free: Free Action
+ARCHMAGE.interrupt: Interrupt Action
+ARCHMAGE.item: 'Item'
 ARCHMAGE.byType: Group by Power Type
 ARCHMAGE.byAction: Group by if the Power has an Action or Not
 ARCHMAGE.byGroup: Group by manual Power Group value entry
@@ -162,6 +200,10 @@ ARCHMAGE.ITEM.meleeAttackBonus: Melee Attack Bonus
 ARCHMAGE.ITEM.rangedAttackBonus: Ranged Attack Bonus
 ARCHMAGE.ITEM.divineAttackBonus: Divine Spell / Divine Attack Bonus
 ARCHMAGE.ITEM.arcaneAttackBonus: Arcane Spell / Arcane Attack Bonus
+ARCHMAGE.ITEM.meleeBonus: Melee Attack Bonus
+ARCHMAGE.ITEM.rangedBonus: Ranged Attack Bonus
+ARCHMAGE.ITEM.divineBonus: Divine Spell / Divine Attack Bonus
+ARCHMAGE.ITEM.arcaneBonus: Arcane Spell / Arcane Attack Bonus
 ARCHMAGE.ITEM.defenseBonuses: Defense Bonuses
 ARCHMAGE.ITEM.acBonus: AC Bonus
 ARCHMAGE.ITEM.pdBonus: PD Bonus
@@ -169,6 +211,23 @@ ARCHMAGE.ITEM.mdBonus: MD Bonus
 ARCHMAGE.ITEM.hpBonus: HP Bonus
 ARCHMAGE.ITEM.chakraSlot: Chakra Slot
 ARCHMAGE.ITEM.group: Things with the same group will be grouped together
+ARCHMAGE.CHAKRA.armor: Armor, robe, shirt, tunic
+ARCHMAGE.CHAKRA.arrow: Arrow, crossbow bolt, slingstone
+ARCHMAGE.CHAKRA.belt: Belt, swordbelt, kilt, girdle
+ARCHMAGE.CHAKRA.book: Book, scroll, manual, grimoire
+ARCHMAGE.CHAKRA.boots: Boots, scandals, slippers, shoes
+ARCHMAGE.CHAKRA.cloak: Cloak, mantle, cape
+ARCHMAGE.CHAKRA.glove: Glove, gauntlet, mitt
+ARCHMAGE.CHAKRA.helmet: Helmet, circlet, crown, cap
+ARCHMAGE.CHAKRA.necklace: Necklace, pendant
+ARCHMAGE.CHAKRA.ring: Ring
+ARCHMAGE.CHAKRA.shield: Shield
+ARCHMAGE.CHAKRA.staff: Staff (implement)
+ARCHMAGE.CHAKRA.symbol: Symbol, holy relic, sacred sickle (implement)
+ARCHMAGE.CHAKRA.wand: Wand (implement)
+ARCHMAGE.CHAKRA.melee: Weapon, melee
+ARCHMAGE.CHAKRA.ranged: Weapon, ranged
+ARCHMAGE.CHAKRA.wondrous: Wondrous item
 # Chat cards
 ARCHMAGE.CHAT.actionType: Action Type
 ARCHMAGE.CHAT.powerUsage: Power Usage
@@ -235,6 +294,7 @@ ARCHMAGE.CHAT.hit3: Special Hit (3)
 ARCHMAGE.SAVE.easy: Easy Save
 ARCHMAGE.SAVE.normal: Normal Save
 ARCHMAGE.SAVE.hard: Hard Save
+ARCHMAGE.SAVE.death: Death Save
 ARCHMAGE.SAVE.disengage: Disengage
 ARCHMAGE.SAVE.success: Succeeded
 ARCHMAGE.SAVE.failure: Failed

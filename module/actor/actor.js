@@ -6,6 +6,42 @@ import { DiceArchmage } from './dice.js';
  */
 export class ActorArchmage extends Actor {
 
+  /** @override */
+  async rollInitiative({createCombatants=false, rerollInitiative=false, initiativeOptions={}}={}) {
+    // Obtain (or create) a combat encounter
+    let combat = game.combat;
+    if ( !combat ) {
+      if ( game.user.isGM && canvas.scene ) {
+        combat = await game.combats.object.create({scene: canvas.scene._id, active: true});
+      }
+      else {
+        ui.notifications.warn(game.i18n.localize("COMBAT.NoneActive"));
+        return null;
+      }
+    }
+
+    // Create new combatants
+    if ( createCombatants ) {
+      const tokens = this.isToken ? [this.token] : this.getActiveTokens();
+      const createData = tokens.reduce((arr, t) => {
+        if ( t.inCombat ) return arr;
+        arr.push({tokenId: t.id, hidden: t.data.hidden});
+        return arr;
+      }, []);
+      await combat.createEmbeddedEntity("Combatant", createData);
+    }
+
+    // Iterate over combatants to roll for
+    const combatantIds = combat.combatants.reduce((arr, c) => {
+      if ( !c.actor ) return arr;
+      if ( (c.actor.id !== this.id) || (this.isToken && (c.tokenId !== this.token.id)) ) return arr;
+      if ( c.initiative && !rerollInitiative ) return arr;
+      arr.push(c._id);
+      return arr;
+    }, []);
+    return combatantIds.length ? combat.rollInitiative(combatantIds, initiativeOptions) : combat;
+  }
+
   /**
    * Augment the basic actor data with additional dynamic data.
    * @param {Object} actorData The actor to prepare.
@@ -14,6 +50,7 @@ export class ActorArchmage extends Actor {
    */
   prepareData() {
     super.prepareData();
+    console.log('/////////////////////\r\nPREPARING ACTOR\r\n/////////////////////');
 
     // Get the Actor's data object
     this.data = duplicate(this._data);
@@ -154,9 +191,9 @@ export class ActorArchmage extends Actor {
 
       data.attributes.disengage = minimumOf0(11 - disengageBonus - (data.attributes?.disengageBonus ?? 0));
 
-      data.attributes.ac.value = data.attributes.ac.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod]) + data.attributes.level.value + acBonus;
-      data.attributes.pd.value = data.attributes.pd.base + median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod]) + data.attributes.level.value + pdBonus;
-      data.attributes.md.value = data.attributes.md.base + median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod]) + data.attributes.level.value + mdBonus;
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number(median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod])) + Number(data.attributes.level.value) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number(median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod])) + Number(data.attributes.level.value) + Number(pdBonus);
+      data.attributes.md.value = Number(data.attributes.md.base) + Number(median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod])) + Number(data.attributes.level.value) + Number(mdBonus);
 
       // Add level ability mods.
       // Replace the ability attributes in the calculator with custom formulas.
@@ -234,6 +271,10 @@ export class ActorArchmage extends Actor {
             enabled: false
           },
           momentum: {
+            current: 0,
+            enabled: false
+          },
+          focus: {
             current: 0,
             enabled: false
           }
@@ -322,8 +363,13 @@ export class ActorArchmage extends Actor {
           abil: 'dex/str'
         }
       };
+
+      if (data.attributes.weapon?.jab?.value) monkAttacks.jab = duplicate(data.attributes.weapon.jab.value);
+      if (data.attributes.weapon?.kick?.value) monkAttacks.kick = duplicate(data.attributes.weapon.kick.value);
+      if (data.attributes.weapon?.punch?.value) monkAttacks.punch = duplicate(data.attributes.weapon.punch.value);
+
       for (let [key, value] of Object.entries(monkAttacks)) {
-        let abil = value.abil.split('/');
+        let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
         data.attributes.attack[key] = data.attributes.attack.melee;
         if (data.attributes.weapon[key] === undefined) {
           data.attributes.weapon[key] = mergeObject(value, {
@@ -375,6 +421,20 @@ export class ActorArchmage extends Actor {
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
 
+    // Build out the icon results structure if it hasn't been
+    // previously initialized.
+    if (data?.icons) {
+      for (let [k,v] of Object.entries(data.icons)) {
+        if (v.results && v.results.length != v.bonus.value) {
+          let results = [];
+          for (let i = 0; i < v.bonus.value; i++) {
+            results[i] = v.results[i] ?? 0
+          }
+          v.results = results;
+        }
+      }
+    }
+
 
     // Find known classes
     if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
@@ -394,9 +454,19 @@ export class ActorArchmage extends Actor {
       if (data.resources.perCombat) {
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+        data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
         data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
+      }
+    }
+
+    // Handle death saves.
+    if (data.attributes.saves.deathFails) {
+      let deathCount = data.attributes.saves.deathFails.value;
+      data.attributes.saves.deathFails.steps = [false, false, false, false];
+      for (let i = 0; i < deathCount; i++) {
+        data.attributes.saves.deathFails.steps[i] = true;
       }
     }
   }
@@ -419,7 +489,7 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollRecoveryDialog() {
+  rollRecoveryDialog(event) {
     let actorData = this.data.data;
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
@@ -620,7 +690,7 @@ export class ActorArchmage extends Actor {
     }
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
-    
+
     // Resources
     // if (this.data.data.resources.perCombat.commandPoints.enabled
       // && this.data.data.resources.perCombat.commandPoints.current != 1) {
@@ -643,24 +713,27 @@ export class ActorArchmage extends Actor {
     if ( !isObjectEmpty(updateData) ) {
       this.update(updateData);
     }
-    
+
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
-      if (item.type == "power" && item.data.maxQuantity.value) {
-        let rechAttempts = item.data.maxQuantity.value - item.data.quantity.value;
+      let maxQuantity = item.data?.maxQuantity?.value ?? 1;
+      if (item.type == "power" && maxQuantity) {
+        // Recharge powers.
+        let rechAttempts = maxQuantity - item.data.quantity.value;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
         }
+        // Per battle powers.
         if (item.data.powerUsage.value == 'once-per-battle'
-          && item.data.quantity.value < item.data.maxQuantity.value) {
+          && item.data.quantity.value < maxQuantity) {
           await this.updateOwnedItem({
             _id: item._id,
-            data: {quantity: {value: item.data.maxQuantity.value}}
+            data: {quantity: {value: maxQuantity}}
           });
           templateData.items.push({
             key: item.name,
-            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
         } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
           // This captures other as well
@@ -681,7 +754,7 @@ export class ActorArchmage extends Actor {
             }
           }
         }
-      } 
+      }
     }
 
     // Print outcomes to chat
@@ -743,18 +816,23 @@ export class ActorArchmage extends Actor {
     // Items (Powers)
     for (let i = 0; i < this.data.items.length; i++) {
       let item = this.data.items[i];
-      if (item.type == "power" && item.data.maxQuantity.value
-        && item.data.quantity.value < item.data.maxQuantity.value) {
+
+      if (item.type != 'power') continue;
+
+      let usageArray = ['once-per-battle','daily','recharge'];
+      let fallbackQuantity = usageArray.includes(item.data.powerUsage.value) || item.data.quantity.value !== null ? 1 : null;
+      let maxQuantity = item.data?.maxQuantity?.value ?? fallbackQuantity;
+      if (maxQuantity && item.data.quantity.value < maxQuantity) {
         await this.updateOwnedItem({
           _id: item._id,
           data: {
-            quantity: {value: item.data.maxQuantity.value},
+            quantity: {value: maxQuantity},
             rechargeAttempts: {value: 0}
             }
         });
         templateData.items.push({
           key: item.name,
-          message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.data.maxQuantity.value}`
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
         });
       }
     }
@@ -781,8 +859,8 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollAbility(abilityId) {
-    this.rollAbilityTest(abilityId);
+  rollAbility(abilityId, background = null) {
+    this.rollAbilityTest(abilityId, background);
   }
 
   /* -------------------------------------------- */
@@ -795,24 +873,53 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  rollAbilityTest(abilityId) {
-    let abl = this.data.data.abilities[abilityId];
-    let terms = ['@mod', '@background'];
-    let flavor = `${abl.label} Ability Test`;
+  rollAbilityTest(abilityId, background = null) {
+    let abl = null;
+    let bg = null;
+    let terms = ['@abil', '@lvl', '@bg'];
+    let flavor = '';
+    let abilityName = '';
+    let backgroundName = '';
+
+    if (abilityId) {
+      abl = this.data.data.abilities[abilityId]  ?? null;
+      flavor = abl ? `${abl.label} Ability Check` : 'Ability Check';
+      abilityName = abl.label ? abl.label : '';
+    }
+
+    if (background) {
+      bg = Object.entries(this.data.data.backgrounds).find(([k,v]) => {
+        return v.name.value && (v.name.value.safeCSSId() == background.safeCSSId());
+      });
+      if (bg) {
+        flavor = `${bg[1].name.value} Background Check`;
+        backgroundName = Number(bg[1].bonus.value) >= 0 ? `+${bg[1].bonus.value} ${bg[1].name.value}` : `${bg[1].bonus.value} ${bg[1].name.value}`;
+      }
+      else {
+        flavor = 'Background Check';
+      }
+    }
 
     // Call the roll helper utility
     DiceArchmage.d20Roll({
       event: event,
       terms: terms,
       data: {
-        mod: abl.mod + this.data.data.attributes.level.value + (this.data.data.incrementals?.skills ? 1 : 0),
-        background: 0
+        abil: abl ? abl.mod : 0,
+        lvl: this.data.data.attributes.level.value + (this.data.data.incrementals?.skills ? 1 : 0),
+        bg: bg ? bg[1].bonus.value : 0,
+        abilityName: abilityName,
+        backgroundName: backgroundName,
+        abilityCheck: Boolean(abl),
+        backgroundCheck: Boolean(bg)
       },
+      abilities: this.data.data.abilities,
       backgrounds: this.data.data.backgrounds,
       title: flavor,
       alias: this.data.name,
       actor: this,
-      ability: abl
+      ability: abl,
+      background: bg
     });
   }
 }
@@ -825,6 +932,7 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
+  console.log(data);
   if (actor.data.type == 'character'
     && options.diff
     && data.data !== undefined

@@ -1,0 +1,28 @@
+input[type="text"],
+input[type="number"] {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid $c-black;
+  border-radius: 0;
+  font-size: 20px;
+  font-family: $font-stack-base;
+  font-weight: bold;
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    border-color: $c-blue;
+    color: $c-blue;
+    text-shadow: none;
+    box-shadow: none;
+  }
+}
+
+button {
+  font-family: $font-stack-base;
+}

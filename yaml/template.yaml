@@ -88,6 +88,19 @@ Actor:
           value: 1
           min: 0
           max: 10
+        saves:
+          easy: 6
+          normal: 11
+          hard: 16
+          death: 16
+          deathFails:
+            value: 0
+            max: 4
+            steps:
+              - false
+              - false
+              - false
+              - false
       details:
         alignment:
           type: String
@@ -200,6 +213,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i2:
           name:
             type: String
@@ -213,6 +227,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i3:
           name:
             type: String
@@ -226,6 +241,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i4:
           name:
             type: String
@@ -239,6 +255,7 @@ Actor:
           isActive:
             type: Boolean
             value: 0
+          results: []
         i5:
           name:
             type: String
@@ -252,6 +269,7 @@ Actor:
           isActive:
             type: Boolean
             value: 0
+          results: []
   character:
     templates:
       - standard
@@ -267,15 +285,47 @@ Actor:
           label: Ranged weapon dice
           dice: d8
           value: d8
+        jab:
+          type: String
+          label: JAB dice
+          dice: d6
+          value: d6
+          abil: 'dex/str'
+        punch:
+          type: String
+          label: PUNCH dice
+          dice: d8
+          value: d8
+          abil: 'dex/str'
+        kick:
+          type: String
+          label: KICK dice
+          dice: d10
+          value: d10
+          abil: 'dex/str'
     resources:
       perCombat:
         momentum:
           enabled: false
         commandPoints:
           enabled: false
+        focus:
+          enabled: false
       spendable:
         ki:
           enabled: false
+    incrementals:
+      abilityScoreBonus: false
+      extraMagicItem: false
+      feat: false
+      feature: false
+      hp: false
+      iconRelationshipPoint: false
+      powerSpell1: false
+      powerSpell2: false
+      powerSpell3: false
+      powerSpell4: false
+      skills: false
   npc:
     templates:
       - standard

@@ -1,6 +1,6 @@
 name: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
-version: 1.9.1
+version: alpha2-1.10.0
 author: Matt Smith & Cody Swendrowski
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
 minimumCoreVersion: 0.7.5
@@ -11,8 +11,10 @@ scripts:
   - scripts/lib/parse-md.js
   - scripts/migrate/archmage-updates.js
   - scripts/lib/intro.js
+  - scripts/vue/archmage-methods.js
 styles:
   - css/archmage.css
+  - css/v2/archmage-v2.css
   - css/introjs.css
 packs:
   - label: Classes
@@ -139,6 +141,13 @@ languages:
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
 download: https://github.com/Mageflame/Toolkit13/releases/download/1.9.1/system.zip
+dependencies:
+  - name: dlopen
+    type: module
+    manifest: https://raw.githubusercontent.com/ForgeVTT/fvtt-module-dlopen/master/module.json
+  - name: vueport
+    type: module
+    manifest: https://raw.githubusercontent.com/ForgeVTT/fvtt-module-vueport/master/module.json
 initiative: 1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)
 gridDistance: 1
 gridUnits: ''

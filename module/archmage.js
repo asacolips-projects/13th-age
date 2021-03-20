@@ -2,6 +2,7 @@ import { ARCHMAGE } from './setup/config.js';
 import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
+import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
@@ -11,6 +12,7 @@ import { DamageApplicator } from './setup/damageApplicator.js';
 import { DiceArchmage } from './actor/dice.js';
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
+import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
 
 Hooks.once('init', async function() {
@@ -76,6 +78,7 @@ Hooks.once('init', async function() {
     ItemArchmageSheet,
     ArchmageUtility,
     rollItemMacro,
+    ActorHelpersV2
   };
 
   // Replace sheets.
@@ -95,13 +98,22 @@ Hooks.once('init', async function() {
 
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('archmage', ActorArchmageSheet, {
+    label: "V1 Character Sheet",
     types: ["character"],
     makeDefault: true
   });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
+    label: "NPC Sheet",
     types: ["npc"],
     makeDefault: true
+  });
+
+  // V2 actor sheet (See issue #118).
+  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+    label: "V2 Character Sheet",
+    types: ["character"],
+    makeDefault: false
   });
 
   /* -------------------------------------------- */
@@ -341,6 +353,45 @@ Hooks.once('init', async function() {
     };
     CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
   }
+
+  // Dlopen.register('vue-select', {
+  //   scripts: [
+  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
+  //       "https://unpkg.com/vue-select@3.0.0"
+  //   ],
+  //   styles: [
+  //       "https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+  //   ],
+  //   dependencies: [],
+  //   init: () => Vue.component("v-select", VueSelect.default)
+  // });
+
+  // Dlopen.register('vue-numeric-input', {
+  //   scripts: [
+  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
+  //       "https://unpkg.com/vue-numeric-input"
+  //   ],
+  //   styles: [],
+  //   dependencies: [],
+  //   init: () => Vue.component(VueNumericInput.default.name, VueNumericInput.default)
+  // });
+
+  // Dlopen.register('vue-wysiwyg', {
+  //   scripts: [
+  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
+  //       "https://unpkg.com/vue-wysiwyg"
+  //   ],
+  //   styles: [],
+  //   dependencies: [],
+  //   // init: () => Vue.component('v-wysiwyg', vueWysiwyg.default)
+  //   init: () => Vue.use(vueWysiwyg, {})
+  // });
+
+  // Define dependency on our own custom vue components for when we need it
+  Dlopen.register('actor-sheet', {
+    scripts: "/systems/archmage/dist/vue-components.min.js",
+    // dependencies: [ "vue-select", "vue-numeric-input" ]
+  });
 });
 
 Hooks.on('createItem', (data, options, id) => {
@@ -370,6 +421,16 @@ Hooks.once('ready', () => {
   Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
 
   $('.message').off("contextmenu");
+
+  // Preload Vue dependencies.
+  Dlopen.loadDependencies([
+    'vue',
+    // 'vue-select',
+    // 'vue-numeric-input',
+    // 'vue-wysiwyg',
+    'actor-sheet'
+  ]);
+
 });
 
 /* ---------------------------------------------- */
@@ -838,9 +899,54 @@ Hooks.on('renderCombatTracker', (async () => {
 
 /* ---------------------------------------------- */
 
-// Clear escalation die values.
 Hooks.on('deleteCombat', (combat) => {
+  // Clear the escalation die.
   $('.archmage-escalation').addClass('hide');
+
+  // Clear out death saves.
+  let combatants = combat.data.combatants;
+  if (combatants) {
+    // Retrieve the character actors.
+    let actors = combatants.filter(c => c?.actor?.data?.type == 'character');
+    let updatedActors = {};
+    // Iterate over the actors for updates.
+    actors.forEach(async (a) => {
+      // Only proceed if this combatant has an actor and hasn't been updated.
+      if (a.actor && !updatedActors[a.actor.data._id]) {
+        // Retrieve the actor.
+        let actor = a.actor;
+        // Perform the update.
+        if (actor) {
+          let updates = {};
+          updates['data.attributes.saves.deathFails.value'] = 0;
+          for (let k of Object.keys(actor.data.data.resources.perCombat)) {
+            updates[`data.resources.perCombat.${k}.current`] = 0;
+          }
+          await actor.update(updates);
+          updatedActors[actor.data._id];
+        }
+      }
+    });
+  }
+});
+
+Hooks.on('createCombatant', (combat, combatant, options, id) => {
+  // Retrieve the actor for this combatant.
+  let tokens = combat.scene.data.tokens;
+  let tokenId = combatant.tokenId;
+  if (tokens && tokenId) {
+    let token = tokens.find(t => t._id == tokenId);
+    let actor = token ? game.actors.get(token.actorId) : null;
+    // Add command points at start of combat.
+    if (actor && actor.data.type == 'character') {
+      let updates = {};
+      let hasStrategist = actor.items.find(i => i.data.name.safeCSSId().includes('strategist'));
+      let basePoints = hasStrategist ? 2 : 1;
+      // TODO: Add support for Forceful Command.
+      updates['data.resources.perCombat.commandPoints.current'] = basePoints;
+      actor.update(updates);
+    }
+  }
 });
 
 /* ---------------------------------------------- */

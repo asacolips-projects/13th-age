@@ -1,0 +1,294 @@
+.section--powers {
+  .power-filters,
+  .power-group {
+    flex: 0;
+  }
+
+  .power-filters {
+    font-family: $font-stack-label;
+    font-size: $font-tiny;
+    padding: $padding-sm 0 $padding-md;
+    border-bottom: 1px dashed $ct-border;
+
+    > div {
+      flex: 0 auto;
+
+      + div {
+        padding-left: $padding-sm;
+        margin-left: $padding-sm;
+      }
+
+      &.filter-search-powers {
+        flex: 1;
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      font-size: $font-tiny;
+      font-family: $font-stack-label;
+      text-align: left;
+      font-weight: normal;
+    }
+  }
+
+  .item-import {
+    margin-top: $font-tiny;
+    font-family: $font-stack-label;
+  }
+
+  .power-group + .power-group {
+    margin-top: 20px;
+  }
+
+  .item-controls {
+    flex: 0 0 64px;
+  }
+
+  .power-title,
+  .power-group-title {
+    border: 0;
+    text-align: left;
+  }
+
+  .power-group-content {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .power-header-title {
+    border-bottom: 2px solid;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .power-title {
+    margin: 0;
+    font-size: $font-xs;
+  }
+
+  .power-header-labels {
+    text-transform: uppercase;
+    font-size: $font-tiny;
+    font-family: $font-stack-label;
+
+    .power-name {
+      display: none;
+    }
+  }
+
+  .power-item {
+    position: relative;
+  }
+
+  .power-grid {
+    grid-template-columns: 32px auto 36px 44px 60px 36px 64px;
+    gap: 2px;
+    font-size: $font-tiny;
+    font-family: $font-stack-label;
+    text-align: center;
+
+    > * {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .power-name,
+    .power-group-title {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .power-group-title {
+      grid-column: 1 / 6;
+    }
+
+    .power-name {
+      font-size: $font-xs;
+      font-family: $font-stack-secondary;
+      overflow: hidden;
+      padding-left: $padding-sm;
+
+      &:hover {
+        ~ .power-feat-pips,
+        ~ .power-action {
+          opacity: 0.25;
+        }
+
+        .power-title {
+          position: absolute;
+          overflow: visible;
+          padding-right: $padding-md;
+          z-index: 10;
+        }
+      }
+    }
+
+    .power-title {
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .power-name { grid-column-start: 2; }
+    .power-feat-pips { grid-column-start: 3; }
+    .power-action { grid-column-start: 4; }
+    .power-recharge { grid-column-start: 5; }
+    .power-uses { grid-column-start: 6; }
+    .item-controls { grid-column-start: 7; }
+  }
+
+  .item-control {
+    width: 28px;
+  }
+
+  .item-create {
+    width: 100%;
+  }
+
+  .power-summary {
+    color: $c-white;
+    text-shadow: 0 0 10px rgba($c-black, 0.5);
+    margin: 0 0 1px 0;
+
+    .rollable,
+    a {
+      color: $c-white;
+
+      &:hover {
+        color: $c-white;
+        text-shadow: 0 0 10px $c-white;
+      }
+
+      &::before {
+        color: $c-white;
+      }
+    }
+
+    .rollable--item {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        line-height: 1;
+        font-size: $font-lg;
+        width: $font-lg;
+        height: $font-lg;
+        display: block;
+        opacity: 0;
+        transition: all ease-in-out 0.25s;
+      }
+
+      img {
+        transition: all ease-in-out 0.25s;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+
+        img {
+          opacity: 0;
+        }
+      }
+    }
+
+    &.at-will { background: $c-power-will; }
+    &.once-per-battle { background: $c-power-battle; }
+    &.daily { background: $c-power-daily; }
+    &.recharge { background: $c-power-recharge; }
+    &.other { background: $c-power-other; }
+
+    .feat-pip,
+    .power-uses {
+      cursor: pointer;
+    }
+  }
+
+  .power-content {
+    max-height: 0;
+    transition: all ease-in-out 0.25s;
+    overflow: hidden;
+
+    &.active {
+      max-height: none;
+    }
+  }
+}
+
+.power {
+  line-height: 1.3;
+
+  .power-subheader {
+    justify-content: flex-start;
+
+    > * {
+      flex: 0 1 auto;
+      padding-right: 12px;
+      position: relative;
+
+      + * {
+        &::before {
+          display: block;
+          content: '·';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -8px;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .power-details,
+  .power-feats {
+    p {
+      margin: 0;
+
+      + p {
+        margin-top: $padding-md;
+      }
+    }
+  }
+
+  .power-header,
+  .power-details {
+    margin: $padding-sm $padding-md;
+  }
+
+  .power-detail-value,
+  .power-detail-content {
+    > * {
+      padding-left: $padding-md;
+    }
+  }
+
+  .power-feat {
+    background: $c-feat;
+    margin-bottom: 2px;
+    opacity: 0.25;
+    padding: $padding-sm $padding-md;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
