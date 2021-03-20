@@ -21,36 +21,45 @@ export class ItemArchmage extends Item {
    * @return {Promise}
    */
   async roll() {
-
     // Update uses left
-    console.log(this);
     let uses = this.data.data.quantity.value;
-    if (uses !== null) {
-      let use = true;
+    let newUses = uses;
+    if (uses == null) {
+      this._roll();
+    } else {
       if (uses == 0) {
+        let use = false;
         new Dialog({
           title: game.i18n.localize("ARCHMAGE.CHAT.ConfirmDialog"),
           buttons: {
             use: {
               label: game.i18n.localize("ARCHMAGE.CHAT.Use"),
-              callback: () => {}
+              callback: () => {use = true;}
             },
             cancel: {
               label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-              callback: () => {use = false;}
+              callback: () => {}
             }
           },
           default: 'cancel',
+          close: html => {
+            if (use) {
+              this._roll();
+            }
+          }
         }).render(true);
-      }
-      if (use) {
-        await this.actor.updateOwnedItem({
-          _id: this.data._id,
-          data: {'quantity.value': Math.max(uses - 1, 0)}
-        });
+      } else {
+        this._roll();
+        newUses = uses - 1;
       }
     }
+    await this.actor.updateOwnedItem({
+      _id: this.data._id,
+      data: {'quantity.value': newUses}
+    });
+  }
 
+  async _roll() {
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = this.actor.token;
