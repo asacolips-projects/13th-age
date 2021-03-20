@@ -1,7 +1,7 @@
 export default class ArchmageRolls {
 
   static async rollItem(item) {
-    let attack = item.data.data.attack.value;
+    let attack = item.data.data.attack?.value ?? "";
     let attackRolls = ArchmageRolls._getInlineRolls(attack, item.actor.getRollData());
     console.log(attackRolls);
     if (attackRolls && attackRolls.length > 0) {

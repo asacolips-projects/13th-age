@@ -462,12 +462,18 @@ export class ActorArchmage extends Actor {
     }
 
     // Handle death saves.
-    if (data.attributes.saves.deathFails) {
-      let deathCount = data.attributes.saves.deathFails.value;
-      data.attributes.saves.deathFails.steps = [false, false, false, false];
-      for (let i = 0; i < deathCount; i++) {
-        data.attributes.saves.deathFails.steps[i] = true;
-      }
+    if (data.attributes.saves?.deathFails == undefined) {
+      data.attributes.saves.deathFails = {
+        value: 0,
+        max: 4,
+        steps: [false, false, false, false]
+      };
+    }
+
+    let deathCount = data.attributes.saves.deathFails.value;
+    data.attributes.saves.deathFails.steps = [false, false, false, false];
+    for (let i = 0; i < deathCount; i++) {
+      data.attributes.saves.deathFails.steps[i] = true;
     }
   }
 
