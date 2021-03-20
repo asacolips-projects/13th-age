@@ -22,6 +22,11 @@ export class ItemArchmage extends Item {
    * @return {Promise}
    */
   async roll() {
+    // Just roll for unlinked tokens
+    if (this.options.actor.token !== null) {
+      return this._roll();
+    }
+
     // Update uses left
     let uses = this.data.data.quantity?.value;
     let newUses = uses;
