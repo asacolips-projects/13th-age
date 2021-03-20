@@ -169,6 +169,7 @@ export class ItemArchmage extends Item {
     // let actor = game.actors.get(this.options.actor.data._id);
     let actor = this.options.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
+    let currQuantity = this.data.data?.quantity?.value ?? 0;
     let rechAttempts = this.data.data?.rechargeAttempts?.value ?? 0;
 
     let roll = new Roll('d20');
@@ -219,7 +220,7 @@ export class ItemArchmage extends Item {
       await actor.updateOwnedItem({
         _id: this.data._id,
         data: {
-          'quantity.value': Number(maxQuantity)
+          'quantity.value': Number(currQuantity) + 1
         }
       });
     } else {
