@@ -212,6 +212,16 @@ export class ActorArchmage extends Actor {
 
       data.tier = levelMultiplier
 
+      // Sort incrementals for better display order
+      let incrementalKeys = Object.keys(data.incrementals)
+      if (incrementalKeys[1] !== "skills") {
+        let srcIdx = incrementalKeys.findIndex(e => e == "skills");
+        incrementalKeys.splice(1, 0, incrementalKeys.splice(srcIdx, 1)[0]);
+        let newIncrementalArray = {};
+        incrementalKeys.forEach(e => newIncrementalArray[e] = data.incrementals[e])
+        data.incrementals = newIncrementalArray;
+      }
+
       if (data.attributes.hp.automatic) {
         let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
         let level = data.attributes.level.value;
