@@ -2,7 +2,7 @@
   <section class="section section--resources flexrow flexshrink">
     <!-- Command Points -->
     <section v-if="actor.data.resources.perCombat.commandPoints.enabled" class="unit unit--command-points flexshrink">
-      <h2 class="unit-title">{{localize('Command Points')}}</h2>
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints')}}</h2>
       <div class="resource flexrow">
         <div class="resource--left">
           <input type="number" name="data.resources.perCombat.commandPoints.current" v-model="commandPoints">
@@ -16,7 +16,7 @@
     </section>
     <!-- Ki -->
     <section v-if="actor.data.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki flexshrink">
-      <h2 class="unit-title">{{localize('Ki Points')}}</h2>
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.ki')}}</h2>
       <archmage-h-progress name="ki" :current="actor.data.resources.spendable.ki.current" :max="actor.data.resources.spendable.ki.max"/>
       <div class="resource flexrow">
         <input type="number" name="data.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
@@ -26,14 +26,14 @@
     </section>
     <!-- Focus -->
     <section v-if="actor.data.resources.perCombat.focus.enabled" class="unit unit--focus flexshrink">
-      <h2 class="unit-title">{{localize('Focus')}}</h2>
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.focus')}}</h2>
       <div class="resource flexrow">
         <input type="checkbox" name="data.resources.perCombat.focus.current" v-model="focus">
       </div>
     </section>
     <!-- Momentum -->
     <section v-if="actor.data.resources.perCombat.momentum.enabled" class="unit unit--momentum flexshrink">
-      <h2 class="unit-title">{{localize('Momentum')}}</h2>
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.momentum')}}</h2>
       <div class="resource flexrow">
         <input type="checkbox" name="data.resources.perCombat.momentum.current" v-model="momentum">
       </div>
@@ -50,21 +50,21 @@
     </section>
     <!-- Disengage -->
     <section class="unit unit--disengage flexshrink">
-      <h2 class="unit-title">{{localize('Disengage')}}</h2>
+      <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
       <div class="resource flexcol">
         <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
         <div class="disengage-bonus flexrow">
-          <span class="disengage-label">{{localize('Bonus')}}</span>
+          <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
           <input type="number" name="data.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
         </div>
       </div>
     </section>
     <!-- Rests -->
     <section class="unit unit--rest flexshrink">
-      <h2 class="unit-title">{{localize('Rests')}}</h2>
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHAT.Rests')}}</h2>
       <div class="resource flexcol">
-        <button type="button" class="rest rest--quick" data-rest-type="quick"><i class="fas fa-campground"></i> {{localize('Quick Rest')}}</button>
-        <button type="button" class="rest rest--full" data-rest-type="full"><i class="fas fa-bed"></i> {{localize('Full Heal-Up')}}</button>
+        <button type="button" class="rest rest--quick" data-rest-type="quick"><i class="fas fa-campground"></i> {{localize('ARCHMAGE.CHAT.QuickRest')}}</button>
+        <button type="button" class="rest rest--full" data-rest-type="full"><i class="fas fa-bed"></i> {{localize('ARCHMAGE.CHAT.FullHeal')}}</button>
       </div>
     </section>
   </section>

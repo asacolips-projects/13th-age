@@ -23,6 +23,7 @@ ARCHMAGE.incrementals: Incrementals
 ARCHMAGE.incrementalAdvances: Incremental Advances
 ARCHMAGE.CHARACTER.RESOURCES.ki: Ki
 ARCHMAGE.CHARACTER.RESOURCES.momentum: Momentum
+ARCHMAGE.CHARACTER.RESOURCES.focus: Focus
 ARCHMAGE.CHARACTER.RESOURCES.cp: Cmd
 ARCHMAGE.CHARACTER.RESOURCES.commandPoints: Command Points
 ARCHMAGE.CHARACTER.RESOURCES.custom1: Custom Resource 1
@@ -33,6 +34,7 @@ ARCHMAGE.CHARACTERFLAGS.initiativeAdvName: Quick to Fight
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeName: Improved Initiative
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeHint: General feat to increase initiative by +4.
+ARCHMAGE.CHARACTERSETTINGS.settings: Settings
 ARCHMAGE.CHARACTERSETTINGS.bg1: Background 1
 ARCHMAGE.CHARACTERSETTINGS.bg2: Background 2
 ARCHMAGE.CHARACTERSETTINGS.bg3: Background 3
@@ -99,9 +101,12 @@ ARCHMAGE.cha.key: CHA
 ARCHMAGE.level: Level
 ARCHMAGE.race: Race
 ARCHMAGE.class: Class
+ARCHMAGE.avatarAlt: Character profile image
 ARCHMAGE.health: Health
+ARCHMAGE.hitPoints: Hit Points
 ARCHMAGE.defenses: Defenses
 ARCHMAGE.recoveries: Recoveries
+ARCHMAGE.saves: Saves
 ARCHMAGE.initiative: Initiative
 ARCHMAGE.tempHp: Temp HP
 ARCHMAGE.ac.key: AC
@@ -110,29 +115,34 @@ ARCHMAGE.md.key: MD
 ARCHMAGE.ac.label: Armor Class
 ARCHMAGE.pd.label: Physical Defense
 ARCHMAGE.md.label: Mental Defense
+ARCHMAGE.ac.stats: Con/Dex/Wis
+ARCHMAGE.pd.stats: Str/Con/Dex
+ARCHMAGE.md.stats: Int/Wis/Cha
 ARCHMAGE.melee: Melee
 ARCHMAGE.ranged: Ranged
 ARCHMAGE.attack: Attack
 ARCHMAGE.hit: Hit
 ARCHMAGE.miss: Miss
 ARCHMAGE.abilities: Abilities
-ARCHMAGE.settings: Settings
+ARCHMAGE.mod: Mod
+ARCHMAGE.lvl: Lvl
+ARCHMAGE.settings: Settings # TODO: Delete this after the v1 sheet.
 ARCHMAGE.backgrounds: Backgrounds
 ARCHMAGE.iconRelationships: Icon Relationships
 ARCHMAGE.oneUniqueThing: One Unique Thing
+ARCHMAGE.positive: Positive
+ARCHMAGE.negative: Negative
+ARCHMAGE.conflicted: Conflicted
 ARCHMAGE.biography: Biography
 ARCHMAGE.equipment: Equipment
 ARCHMAGE.inventory: Inventory
 ARCHMAGE.effects: Effects
 ARCHMAGE.abilityName: Ability Name
-ARCHMAGE.rchg: Rchg.
 ARCHMAGE.recharge: Recharge
 ARCHMAGE.at-will: At-Will
 ARCHMAGE.once-per-battle: Per Battle
 ARCHMAGE.daily: Daily
-ARCHMAGE.act: Act.
 ARCHMAGE.action: Action
-ARCHMAGE.uses: Uses
 ARCHMAGE.add: Add
 ARCHMAGE.create: Create
 ARCHMAGE.import: Import Powers
@@ -161,15 +171,39 @@ ARCHMAGE.item: 'Item'
 ARCHMAGE.byType: Group by Power Type
 ARCHMAGE.byAction: Group by if the Power has an Action or Not
 ARCHMAGE.byGroup: Group by manual Power Group value entry
+ARCHMAGE.groupBy: Group by
+ARCHMAGE.GROUPS.powerType: Type
+ARCHMAGE.GROUPS.actionType: Action
+ARCHMAGE.GROUPS.powerUsage: Usage
+ARCHMAGE.GROUPS.powerSource: Class/Race/Item
+ARCHMAGE.GROUPS.group: Custom Groups
+ARCHMAGE.filter: Filter
+ARCHMAGE.filterName: Filter by name
+ARCHMAGE.sort: Sort
+ARCHMAGE.SORTS.custom: Custom
+ARCHMAGE.SORTS.name: Name
+ARCHMAGE.SORTS.level: Level
+ARCHMAGE.magicItems: Magic Items
+ARCHMAGE.equipmentName: Equipment Name
+ARCHMAGE.bonus: Bonus
+ARCHMAGE.bonuses: Bonuses
+ARCHMAGE.chakra: Chakra
+ARCHMAGE.powerName: Power Name
+ARCHMAGE.feat: Feat
+ARCHMAGE.act: Act.
+ARCHMAGE.rchg: Rchg.
+ARCHMAGE.uses: Uses
+ARCHMAGE.edit: Edit
 # Settings
 ARCHMAGE.specialTraits: Special Traits
 ARCHMAGE.baseAC: Base AC
 ARCHMAGE.basePD: Base PD
 ARCHMAGE.baseMD: Base MD
 ARCHMAGE.baseHP: Base HP
-ARCHMAGE.calculateHP: Calculate Max HP?
 ARCHMAGE.baseRecoveries: Base Recoveries
+ARCHMAGE.calculateHP: Calculate Max HP?
 ARCHMAGE.calculateRecoveries: Calculate Max Recoveries?
+ARCHMAGE.initAdjustment: Initiative Adjustment
 ARCHMAGE.recoveryDice: Recovery Dice
 ARCHMAGE.meleeWeaponDice: Melee Weapon Dice
 ARCHMAGE.rangedWeaponDice: Ranged Weapon Dice
@@ -209,6 +243,9 @@ ARCHMAGE.ITEM.acBonus: AC Bonus
 ARCHMAGE.ITEM.pdBonus: PD Bonus
 ARCHMAGE.ITEM.mdBonus: MD Bonus
 ARCHMAGE.ITEM.hpBonus: HP Bonus
+ARCHMAGE.ITEM.recoveriesBonus: Recoveries Bonus
+ARCHMAGE.ITEM.saveBonus: Save Bonus
+ARCHMAGE.ITEM.disengageBonus: Disengage Bonus
 ARCHMAGE.ITEM.chakraSlot: Chakra Slot
 ARCHMAGE.ITEM.group: Things with the same group will be grouped together
 ARCHMAGE.CHAKRA.armor: Armor, robe, shirt, tunic
@@ -228,6 +265,7 @@ ARCHMAGE.CHAKRA.wand: Wand (implement)
 ARCHMAGE.CHAKRA.melee: Weapon, melee
 ARCHMAGE.CHAKRA.ranged: Weapon, ranged
 ARCHMAGE.CHAKRA.wondrous: Wondrous item
+ARCHMAGE.CHAKRA.none: None
 # Chat cards
 ARCHMAGE.CHAT.actionType: Action Type
 ARCHMAGE.CHAT.powerUsage: Power Usage
@@ -272,9 +310,10 @@ ARCHMAGE.CHAT.complicatedAdvantages: Complicated Advantages
 ARCHMAGE.CHAT.group: Group
 ARCHMAGE.CHAT.QuickRest: Quick Rest
 ARCHMAGE.CHAT.QuickRestBody: Regain per-battle powers, roll to recharge spent recharge powers, and roll recoveries to heal above 50% health.
+ARCHMAGE.CHAT.Rests: Rests
 ARCHMAGE.CHAT.Rest: Rest
 ARCHMAGE.CHAT.Cancel: Cancel
-ARCHMAGE.CHAT.FullHeal: Full Heal Up
+ARCHMAGE.CHAT.FullHeal: Full Heal-Up
 ARCHMAGE.CHAT.FullHealBody: Regain all health, recoveries, and power uses.
 ARCHMAGE.CHAT.CmdPtsReset: reset to 1
 ARCHMAGE.CHAT.MomentReset: lost
@@ -293,6 +332,9 @@ ARCHMAGE.CHAT.hit1: Special Hit (1)
 ARCHMAGE.CHAT.hit2: Special Hit (2)
 ARCHMAGE.CHAT.hit3: Special Hit (3)
 # Saves
+ARCHMAGE.SAVE.easyShort: Easy
+ARCHMAGE.SAVE.normalShort: Normal
+ARCHMAGE.SAVE.hardShort: Hard
 ARCHMAGE.SAVE.easy: Easy Save
 ARCHMAGE.SAVE.normal: Normal Save
 ARCHMAGE.SAVE.hard: Hard Save

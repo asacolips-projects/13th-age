@@ -1,8 +1,8 @@
 <template>
   <section class="section section--abilities flexcol">
     <div class="list-item-header grid grid-4col">
-      <div class="ability-mod-label grid-start-3">{{localize('MOD')}}</div>
-      <div class="ability-lvl-label grid-start-4">{{localize('LVL')}}</div>
+      <div class="ability-mod-label grid-start-3">{{localize('ARCHMAGE.mod')}}</div>
+      <div class="ability-lvl-label grid-start-4">{{localize('ARCHMAGE.lvl')}}</div>
     </div>
     <ul class="list list--abilities abilities">
       <li v-for="(item, index) in actor.data.abilities" :key="concat('data.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index">
