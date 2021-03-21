@@ -1,6 +1,6 @@
 <template>
   <section class="section section--icons flexcol">
-    <h2 class="unit-title">{{localize('Icon Relationships')}}</h2>
+    <h2 class="unit-title">{{localize('ARCHMAGE.iconRelationships')}}</h2>
     <ul class="list list--icons icons">
       <li v-for="(item, index) in icons" :key="concat('data.icons.', index)" class="list-item list-item--icons icon flexrow" :data-key="index">
         <div :class="concat('icon-display flexrow', isEdit(index, editArray[index]))">
@@ -15,9 +15,9 @@
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">
           <select class="relationship-edit" :name="concat('data.icons.', index, '.relationship.value')" v-model="item.relationship.value">
             <option disabled value=""></option>
-            <option value="Positive">{{localize('Positive')}}</option>
-            <option value="Negative">{{localize('Negative')}}</option>
-            <option value="Conflicted">{{localize('Conflicted')}}</option>
+            <option value="Positive">{{localize('ARCHMAGE.positive')}}</option>
+            <option value="Negative">{{localize('ARCHMAGE.negative')}}</option>
+            <option value="Conflicted">{{localize('ARCHMAGE.conflicted')}}</option>
           </select>
           <input type="number" v-bind:name="concat('data.icons.', index, '.bonus.value')" class="icon-bonus-edit" v-model="item.bonus.value"/>
           <input type="text" v-bind:name="concat('data.icons.', index, '.name.value')" class="icon-name-edit" v-model="item.name.value"/>
@@ -45,9 +45,9 @@ export default {
     },
     relationshipTypes() {
       return [
-        {label: game.i18n.localize('Positive'), code: 'Positive'},
-        {label: game.i18n.localize('Negative'), code: 'Negative'},
-        {label: game.i18n.localize('Conflicted'), code: 'Conflicted'}
+        {label: game.i18n.localize('ARCHMAGE.positive'), code: 'Positive'},
+        {label: game.i18n.localize('ARCHMAGE.negative'), code: 'Negative'},
+        {label: game.i18n.localize('ARCHMAGE.conflicted'), code: 'Conflicted'}
       ];
     },
   },
