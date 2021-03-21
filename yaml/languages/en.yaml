@@ -23,6 +23,7 @@ ARCHMAGE.incrementals: Incrementals
 ARCHMAGE.incrementalAdvances: Incremental Advances
 ARCHMAGE.CHARACTER.RESOURCES.ki: Ki
 ARCHMAGE.CHARACTER.RESOURCES.momentum: Momentum
+ARCHMAGE.CHARACTER.RESOURCES.focus: Focus
 ARCHMAGE.CHARACTER.RESOURCES.cp: Cmd
 ARCHMAGE.CHARACTER.RESOURCES.commandPoints: Command Points
 ARCHMAGE.CHARACTER.RESOURCES.custom1: Custom Resource 1
@@ -172,6 +173,7 @@ ARCHMAGE.SORTS.name: Name
 ARCHMAGE.SORTS.level: Level
 ARCHMAGE.magicItems: Magic Items
 ARCHMAGE.equipmentName: Equipment Name
+ARCHMAGE.bonus: Bonus
 ARCHMAGE.bonuses: Bonuses
 ARCHMAGE.chakra: Chakra
 ARCHMAGE.powerName: Power Name
@@ -295,9 +297,10 @@ ARCHMAGE.CHAT.complicatedAdvantages: Complicated Advantages
 ARCHMAGE.CHAT.group: Group
 ARCHMAGE.CHAT.QuickRest: Quick Rest
 ARCHMAGE.CHAT.QuickRestBody: Regain per-battle powers, roll to recharge spent recharge powers, and roll recoveries to heal above 50% health.
+ARCHMAGE.CHAT.Rests: Rests
 ARCHMAGE.CHAT.Rest: Rest
 ARCHMAGE.CHAT.Cancel: Cancel
-ARCHMAGE.CHAT.FullHeal: Full Heal Up
+ARCHMAGE.CHAT.FullHeal: Full Heal-Up
 ARCHMAGE.CHAT.FullHealBody: Regain all health, recoveries, and power uses.
 ARCHMAGE.CHAT.CmdPtsReset: reset to 1
 ARCHMAGE.CHAT.MomentReset: lost
