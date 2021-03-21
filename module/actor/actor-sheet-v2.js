@@ -365,7 +365,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
-      if (success) {
+      if (success && actor.data.data.attributes.hp.value <= 0) {
         actor.rollRecovery({}, true);
       }
       else {
