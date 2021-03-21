@@ -417,6 +417,7 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareCharacterData(data) {
+    let model = game.system.model.Actor.character;
 
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
@@ -454,6 +455,13 @@ export class ActorArchmage extends Actor {
       if (data.resources.perCombat) {
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+        // Handle focus.
+        if (!data.resources.perCombat.focus) {
+          data.resources.perCombat.focus = {
+            current: 0,
+            enabled: false,
+          };
+        }
         data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
@@ -462,12 +470,8 @@ export class ActorArchmage extends Actor {
     }
 
     // Handle death saves.
-    if (data.attributes.saves?.deathFails == undefined) {
-      data.attributes.saves.deathFails = {
-        value: 0,
-        max: 4,
-        steps: [false, false, false, false]
-      };
+    if (!data.attributes.saves) {
+      data.attributes.saves = model.attributes.saves;
     }
 
     let deathCount = data.attributes.saves.deathFails.value;
@@ -486,6 +490,7 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareNPCData(data) {
+    let model = game.system.model.Actor.npc;
   }
 
   /* -------------------------------------------- */
