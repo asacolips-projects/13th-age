@@ -369,7 +369,9 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
-      if (success && actor.data.data.attributes.hp.value <= 0) {
+      if (success) {
+        // TODO: delete after last gasps are implemented
+        if (actor.data.data.attributes.hp.value > 0) return;
         actor.rollRecovery({}, true);
       }
       else {
