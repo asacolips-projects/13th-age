@@ -43,6 +43,13 @@
     width: 100%;
   }
 
+  .ability-mod-label,
+  .ability-lvl-label {
+    font-size: $font-tiny;
+    font-family: $font-stack-label;
+    text-transform: uppercase;
+  }
+
   .ability-mod,
   .ability-mod-label,
   .ability-lvl,

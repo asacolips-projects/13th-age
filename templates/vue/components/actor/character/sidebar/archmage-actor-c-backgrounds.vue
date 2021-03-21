@@ -1,6 +1,6 @@
 <template>
   <section class="section section--backgrounds flexcol">
-    <h2 class="unit-title">{{localize('Backgrounds')}}</h2>
+    <h2 class="unit-title">{{localize('ARCHMAGE.backgrounds')}}</h2>
     <ul class="list list--backgrounds backgrounds">
       <li v-for="(item, index) in backgrounds" :key="concat('data.backgrounds.', index)" class="list-item list-item--backgrounds background flexrow" :data-key="index">
         <span class="rollable rollable--background flexshrink" data-roll-type="background" :data-roll-opt="item.name.value"></span>

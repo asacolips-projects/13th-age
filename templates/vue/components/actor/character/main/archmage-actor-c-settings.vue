@@ -1,52 +1,52 @@
 <template>
   <section :class="classes" data-tab="settings">
-    <h2 class="unit-title">{{localize('Settings')}}</h2>
+    <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTERSETTINGS.settings')}}</h2>
     <section class="sheet-settings grid grid-6col">
       <!-- Main Settings -->
       <div class="unit unit--base-settings">
         <div class="sub-unit sub-unit--base-ac flexrow">
-          <strong class="unit-subtitle">{{localize('Base AC')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.baseAC')}}</strong>
           <input type="number" name="data.attributes.ac.base" v-model="actor.data.attributes.ac.base"/>
         </div>
         <div class="sub-unit sub-unit--base-pd flexrow">
-          <strong class="unit-subtitle">{{localize('Base PD')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.basePD')}}</strong>
           <input type="number" name="data.attributes.pd.base" v-model="actor.data.attributes.pd.base"/>
         </div>
         <div class="sub-unit sub-unit--base-md flexrow">
-          <strong class="unit-subtitle">{{localize('Base MD')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.baseMD')}}</strong>
           <input type="number" name="data.attributes.md.base" v-model="actor.data.attributes.md.base"/>
         </div>
         <div class="sub-unit sub-unit--base-hp flexrow">
-          <strong class="unit-subtitle">{{localize('Base HP')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.baseHP')}}</strong>
           <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.attributes.hp.base"/>
         </div>
         <div class="sub-unit sub-unit--base-recoveries flexrow">
-          <strong class="unit-subtitle">{{localize('Base Recoveries')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.baseRecoveries')}}</strong>
           <input type="number" name="data.attributes.recoveries.base" v-model="actor.data.attributes.recoveries.base"/>
         </div>
         <div class="sub-unit sub-unit--calculate-max-hp flexrow">
-          <strong class="unit-subtitle">{{localize('Calculate Max HP?')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateHP')}}</strong>
           <input type="checkbox" name="data.attributes.hp.automatic" v-model="actor.data.attributes.hp.automatic"/>
         </div>
         <div class="sub-unit sub-unit--calculate-max-recoveries flexrow">
-          <strong class="unit-subtitle">{{localize('Calculate Max Recoveries?')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateRecoveries')}}</strong>
           <input type="checkbox" name="data.attributes.recoveries.automatic" v-model="actor.data.attributes.recoveries.automatic"/>
         </div>
         <div class="sub-unit sub-unit--initiative-adjustment flexrow">
-          <strong class="unit-subtitle">{{localize('Initiative Adjustment')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.initAdjustment')}}</strong>
           <input type="number" name="data.attributes.init.value" v-model="actor.data.attributes.init.value" placeholder="0"/>
         </div>
         <div class="sub-unit sub-unit--recovery-dice flexrow">
-          <strong class="unit-subtitle">{{localize('Recovery Die')}}</strong>
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.recoveryDice')}}</strong>
           <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.attributes.recoveries.dice" placeholder="d8"/>
         </div>
         <div class="sub-unit sub-unit--melee">
           <div class="sub-unit sub-unit--melee-dice flexrow">
-            <strong class="unit-subtitle">{{localize('Melee Weapon Die')}}</strong>
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.meleeWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.melee.dice" v-model="actor.data.attributes.weapon.melee.dice" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--ranged-dice flexrow">
-            <strong class="unit-subtitle">{{localize('Ranged Weapon Die')}}</strong>
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.rangedWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.ranged.dice" v-model="actor.data.attributes.weapon.ranged.dice" placeholder="d8"/>
           </div>
           <!-- TODO: Add monk dice. -->

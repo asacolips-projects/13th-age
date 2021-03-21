@@ -54,6 +54,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (this._vm) {
       if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
       if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
+      if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
       this._updateEditors($(this.form));
       return;
     }

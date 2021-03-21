@@ -3,20 +3,20 @@
     <!-- Sorts and filters. -->
     <header class="power-filters flexrow">
       <div class="group-powers">
-        <label for="power-group">{{localize('Group by')}}</label>
+        <label for="power-group">{{localize('ARCHMAGE.groupBy')}}</label>
         <select name="power-group" v-model="groupBy">
-          <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(option.label)}}</option>
+          <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.',option.value))}}</option>
         </select>
       </div>
       <div class="sort-powers">
-        <label for="power-sort">{{localize('Sort')}}</label>
+        <label for="power-sort">{{localize('ARCHMAGE.sort')}}</label>
         <select name="power-sort" v-model="sortBy">
-          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(option.label)}}</option>
+          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.',option.value))}}</option>
         </select>
       </div>
       <div class="filter-search-powers">
-        <label for="power-filter-search">{{localize('Filter')}}</label>
-        <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('Filter powers by name')"/>
+        <label for="power-filter-search">{{localize('ARCHMAGE.filter')}}</label>
+        <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
       <div class="import-powers">
         <button class="item-import button" title="Create Power" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
@@ -29,17 +29,17 @@
         <div class="power-header-title grid power-grid">
           <h2 class="power-group-title unit-title">{{localize(group)}}</h2>
           <div class="item-controls">
-            <a class="item-control item-create" data-item-type="power" :data-power-type="groupKey"><i class="fas fa-plus"></i> Add</a>
+            <a class="item-control item-create" data-item-type="power" :data-power-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
         </div>
         <!-- Column labels. -->
         <div class="power-header-labels grid power-grid">
-          <div class="power-name">{{localize('Power Name')}}</div>
-          <div class="power-feat-pips">{{localize('Feat')}}</div>
-          <div class="power-action">{{localize('Act.')}}</div>
-          <div class="power-recharge">{{localize('Rchg.')}}</div>
-          <div class="power-uses">{{localize('Uses')}}</div>
-          <div class="item-controls">{{localize('Edit')}}</div>
+          <div class="power-name">{{localize('ARCHMAGE.powerName')}}</div>
+          <div class="power-feat-pips">{{localize('ARCHMAGE.feat')}}</div>
+          <div class="power-action">{{localize('ARCHMAGE.act')}}</div>
+          <div class="power-recharge">{{localize('ARCHMAGE.rchg')}}</div>
+          <div class="power-uses">{{localize('ARCHMAGE.uses')}}</div>
+          <div class="item-controls">{{localize('ARCHMAGE.edit')}}</div>
         </div>
       </div>
       <ul class="power-group-content flexcol">
