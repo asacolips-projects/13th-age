@@ -273,6 +273,8 @@ exports.default = gulp.series(
   compileVue,
   watchUpdates
 );
+exports.images = imageTask;
+exports.svg = svgTask;
 exports.css = css;
 exports.yaml = yamlTask;
 exports.vue = vueTask;
