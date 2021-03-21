@@ -183,6 +183,7 @@ export class ItemArchmage extends Item {
     let actor = this.options.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
+    if (maxQuantity - currQuantity <= 0) return;
     let rechAttempts = this.data.data?.rechargeAttempts?.value ?? 0;
 
     let roll = new Roll('d20');

@@ -304,6 +304,9 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
    */
   async _onSaveRoll(difficulty) {
+    // Skip death saves when NOT dying TODO: uncomment after implementing last gasps
+    // if (difficulty == 'death' && actor.data.data.attributes.hp.value > 0) return;
+    
     // Initialize the roll and our values.
     let actor = this.actor;
     let roll = new Roll(`d20`);
@@ -366,7 +369,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
-      if (success) {
+      if (success && actor.data.data.attributes.hp.value <= 0) {
         actor.rollRecovery({}, true);
       }
       else {
