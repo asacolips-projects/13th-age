@@ -52,7 +52,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let sheetData = this.getData();
     // Exit if Vue has already rendered.
     if (this._vm) {
-      console.log(sheetData);
       if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
       if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
       if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
