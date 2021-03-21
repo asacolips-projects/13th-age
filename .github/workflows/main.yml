@@ -67,4 +67,4 @@ jobs:
         container_name: toolkit13
         # The name of the directory you want to upload
         source_dir: .
-        extra_args: '--destination-path ${{ steps.get_version.outputs.VERSION }}'
+        extra_args: '--destination-path "${{ steps.get_version.outputs.VERSION }}"'
