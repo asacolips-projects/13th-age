@@ -34,6 +34,7 @@ ARCHMAGE.CHARACTERFLAGS.initiativeAdvName: Quick to Fight
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeName: Improved Initiative
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeHint: General feat to increase initiative by +4.
+ARCHMAGE.CHARACTERSETTINGS.settings: Settings
 ARCHMAGE.CHARACTERSETTINGS.bg1: Background 1
 ARCHMAGE.CHARACTERSETTINGS.bg2: Background 2
 ARCHMAGE.CHARACTERSETTINGS.bg3: Background 3
@@ -188,9 +189,10 @@ ARCHMAGE.baseAC: Base AC
 ARCHMAGE.basePD: Base PD
 ARCHMAGE.baseMD: Base MD
 ARCHMAGE.baseHP: Base HP
-ARCHMAGE.calculateHP: Calculate Max HP?
 ARCHMAGE.baseRecoveries: Base Recoveries
+ARCHMAGE.calculateHP: Calculate Max HP?
 ARCHMAGE.calculateRecoveries: Calculate Max Recoveries?
+ARCHMAGE.initAdjustment: Initiative Adjustment
 ARCHMAGE.recoveryDice: Recovery Dice
 ARCHMAGE.meleeWeaponDice: Melee Weapon Dice
 ARCHMAGE.rangedWeaponDice: Ranged Weapon Dice
