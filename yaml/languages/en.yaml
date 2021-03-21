@@ -101,9 +101,12 @@ ARCHMAGE.cha.key: CHA
 ARCHMAGE.level: Level
 ARCHMAGE.race: Race
 ARCHMAGE.class: Class
+ARCHMAGE.avatarAlt: Character profile image
 ARCHMAGE.health: Health
+ARCHMAGE.hitPoints: Hit Points
 ARCHMAGE.defenses: Defenses
 ARCHMAGE.recoveries: Recoveries
+ARCHMAGE.saves: Saves
 ARCHMAGE.initiative: Initiative
 ARCHMAGE.tempHp: Temp HP
 ARCHMAGE.ac.key: AC
@@ -112,6 +115,9 @@ ARCHMAGE.md.key: MD
 ARCHMAGE.ac.label: Armor Class
 ARCHMAGE.pd.label: Physical Defense
 ARCHMAGE.md.label: Mental Defense
+ARCHMAGE.ac.stats: Con/Dex/Wis
+ARCHMAGE.pd.stats: Str/Con/Dex
+ARCHMAGE.md.stats: Int/Wis/Cha
 ARCHMAGE.melee: Melee
 ARCHMAGE.ranged: Ranged
 ARCHMAGE.attack: Attack
@@ -326,6 +332,9 @@ ARCHMAGE.CHAT.hit1: Special Hit (1)
 ARCHMAGE.CHAT.hit2: Special Hit (2)
 ARCHMAGE.CHAT.hit3: Special Hit (3)
 # Saves
+ARCHMAGE.SAVE.easyShort: Easy
+ARCHMAGE.SAVE.normalShort: Normal
+ARCHMAGE.SAVE.hardShort: Hard
 ARCHMAGE.SAVE.easy: Easy Save
 ARCHMAGE.SAVE.normal: Normal Save
 ARCHMAGE.SAVE.hard: Hard Save
