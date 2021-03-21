@@ -11,20 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run Gulp YAML
+    - name: Run Gulp build
       uses: elstudio/actions-js-build/build@v2
       with:
-        args: yaml
-        
-    - name: Run Gulp CSS
-      uses: elstudio/actions-js-build/build@v2
-      with:
-        args: css
-
-    - name: Run Gulp Compile Packs
-      uses: elstudio/actions-js-build/build@v2
-      with:
-        args: compilePacks
+        args: build
 
     - name: Get the version
       id: get_version
