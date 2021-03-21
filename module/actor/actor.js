@@ -456,12 +456,7 @@ export class ActorArchmage extends Actor {
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
         // Handle focus.
-        if (!data.resources.perCombat.focus) {
-          data.resources.perCombat.focus = {
-            current: 0,
-            enabled: false,
-          };
-        }
+        if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
         data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
