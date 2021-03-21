@@ -1,19 +1,39 @@
 .section--attributes {
   align-items: center;
+  padding: $padding-md 0;
 
   .avatar {
-    border-radius: 50%;
     overflow: hidden;
-    background: $c-white;
-    box-shadow: 0 0 10px $ct-border;
-    border: 0;
-    padding: 4px;
     object-fit: cover;
+    max-width: 100%;
+    width: 185px;
+    height: auto;
+    border: 0;
+
+    &.avatar--square {
+      width: 185px;
+      height: 185px;
+    }
+
+    &.avatar--frame {
+      background: $c-white;
+      background: $c-white;
+      box-shadow: 0 0 10px $ct-border;
+      padding: 4px;
+    }
+
+    &.avatar--round {
+      border-radius: 50%;
+    }
   }
 
   .unit--img {
     flex: 0 auto;
+    width: 185px;
     margin-right: $padding-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .unit--attributes {

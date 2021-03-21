@@ -2,7 +2,7 @@
   <section class="section section--attributes flexrow">
     <!-- Actor image -->
     <div class="unit unit--img">
-      <img :src="actor.img" :alt="localize('ARCHMAGE.avatarAlt')" class="avatar" height="105" width="105" data-edit="img"/>
+      <img :src="actor.img" ref="avatar" :alt="localize('ARCHMAGE.avatarAlt')" :width="avatarWidth" :height="avatarHeight" :class="avatarClass" data-edit="img"/>
     </div>
     <div class="unit unit--attributes grid grid-5col border-both">
       <!-- HP -->
@@ -83,14 +83,78 @@
 <script>
 export default {
   props: ['actor'],
-  data: () => ({}),
+  data: function() {
+    return {
+      avatarClass: 'avatar',
+      avatarWidth: 105,
+      avatarHeight: 105
+    }
+  },
   computed: {},
-  methods: {},
+  methods: {
+    getAvatarDimensions() {
+      let img = this.$refs['avatar'];
+      let width = img.naturalWidth;
+      let height = img.naturalHeight;
+
+      let ratio = width / height;
+      let ratioClass = 'square';
+      let squareSize = width;
+
+      if (ratio < 0.9) {
+        ratioClass = 'portrait';
+        squareSize = width;
+      }
+      else if (ratio > 1.1) {
+        // TODO: Figure out a good layout for landscape.
+        // ratioClass = 'landscape';
+        ratioClass = 'square';
+        squareSize = height;
+      }
+
+      this.avatarWidth = ratioClass != 'square' ? width : squareSize;
+      this.avatarHeight = ratioClass != 'square' ? height : squareSize;
+      let classes = ['avatar', `avatar--${ratioClass}`];
+      if (this.actor.flags.archmage.portraitRound) classes.push('avatar--round');
+      if (this.actor.flags.archmage.portraitFrame) classes.push('avatar--frame');
+      this.avatarClass = classes.join(' ');
+    },
+    checkLoaded() {
+      if (this.$refs.avatar.complete) {
+        this.getAvatarDimensions();
+      }
+      else {
+        this.$refs.avatar.addEventListener('load', () => {
+          this.getAvatarDimensions();
+        });
+      }
+    }
+  },
+  watch: {
+    'actor.img': {
+      deep: false,
+      handler() {
+        this.$nextTick(() => {
+          this.checkLoaded();
+        });
+      }
+    },
+    'actor.flags.archmage': {
+      deep: true,
+      handler() {
+        this.getAvatarDimensions();
+      }
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+    this.$nextTick(() => {
+      this.checkLoaded();
+    });
+  }
 }
 </script>
