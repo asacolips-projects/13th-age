@@ -71,7 +71,7 @@ export class ItemArchmage extends Item {
     // Decrease resources if cost is set
     let cost = this.data.data.cost?.value;
     if (cost) {
-      let filter = /^([0-9]*) (command point+)|([a-z.]+)$/;
+      let filter = /^([0-9]*) (command point+)|([a-zA-Z]+)$/;
       let parsed = filter.exec(cost);
       if (parsed) {
         if (parsed[2]) {
@@ -99,7 +99,7 @@ export class ItemArchmage extends Item {
         }
         else if (parsed[3].toLowerCase() == "focus") {
           // Focus
-          if (!this.actor.data.data.resources.perCombat.momentum.current) {
+          if (!this.actor.data.data.resources.perCombat.focus.current) {
             ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoFocus"));
             return;
           } else {
@@ -121,7 +121,6 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
-    console.log(templateData);
     await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
