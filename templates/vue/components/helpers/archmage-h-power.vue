@@ -18,7 +18,7 @@
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
-      <div v-for="(feat, tier) in power.data.feats" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
+      <div v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', tier))}}:</strong>
         <div class="power-detail-content" v-html="feat.description.value"></div>
       </div>
@@ -68,7 +68,18 @@ export default {
       return powerFields;
     }
   },
-  methods: {},
+  methods: {
+    /**
+     * Filter empty feats
+     */
+    filterFeats(featObj) {
+      let res = {}
+      for (let [tier, feat] of Object.entries(featObj)) {
+        if (feat.description.value) res[tier] = feat;
+      }
+      return res;
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
