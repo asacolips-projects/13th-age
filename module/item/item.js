@@ -60,16 +60,57 @@ export class ItemArchmage extends Item {
         await this._roll();
         newUses = Math.max(uses - 1, 0);
       }
-
       await this.actor.updateOwnedItem({
         _id: this.data._id,
         data: {'quantity.value': newUses}
       });
     }
-
   }
 
   async _roll() {
+    // Decrease resources if cost is set
+    let cost = this.data.data.cost?.value;
+    if (cost) {
+      let filter = /^([0-9]*) (command point+)|([a-z.]+)$/;
+      let parsed = filter.exec(cost);
+      if (parsed) {
+        if (parsed[2]) {
+          // Command points
+          let costNum = Number(parsed[1]);
+          if (costNum > this.actor.data.data.resources.perCombat.commandPoints.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP"));
+            return;
+          } else {
+            this.actor.update({
+              'data.resources.perCombat.commandPoints.current': this.actor.data.data.resources.perCombat.commandPoints.current -costNum
+            });
+          }
+        }
+        else if (parsed[3].toLowerCase() == "momentum") {
+          // Momentum
+          if (!this.actor.data.data.resources.perCombat.momentum.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoMomentum"));
+            return;
+          } else {
+            this.actor.update({
+              'data.resources.perCombat.momentum.current': false
+            });
+          }
+        }
+        else if (parsed[3].toLowerCase() == "focus") {
+          // Focus
+          if (!this.actor.data.data.resources.perCombat.momentum.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoFocus"));
+            return;
+          } else {
+            this.actor.update({
+              'data.resources.perCombat.focus.current': false
+            });
+          }
+        }
+      }
+    }
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = this.actor.token;
