@@ -633,12 +633,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       if (count == this.actor.data.data.attributes.saves[tp].value) {
         count = Math.max(0, count - 1);
       }
-      if (tp == 'deathFails') {
-        await this.actor.update({'data.attributes.saves.deathFails.value': count});
-      }
-      else if (tp == 'lastGaspFails') {
-        await this.actor.update({'data.attributes.saves.lastGaspFails.value': count});
-      }
+      let updateData = {};
+      let path = `data.attributes.saves.${tp}.value`;
+      updateData[path] = count;
+      await this.actor.update(updateData);
     }
   }
 

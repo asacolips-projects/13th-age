@@ -1,5 +1,5 @@
 <template>
-  <section class="section section--abilities flexcol">
+  <section class="section section--initiative flexcol">
     <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
   </section>
 </template>
