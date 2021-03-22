@@ -141,7 +141,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Other listeners.
     html.on('click', '.item-import', (event) => this._importPowers(event));
-    html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateDeathFails(event));
+    html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "deathFails"));
+    html.on('click', '.lastgasp-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "lastGaspFails"));
     html.on('click', '.icon-roll', (event) => this._updateIconRoll(event));
     html.on('click', '.rest', (event) => this._onRest(event));
 
@@ -304,20 +305,21 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
    */
   async _onSaveRoll(difficulty) {
-    // Skip death saves when NOT dying TODO: uncomment after implementing last gasps
-    // if (difficulty == 'death' && actor.data.data.attributes.hp.value > 0) return;
-    
     // Initialize the roll and our values.
     let actor = this.actor;
     let roll = new Roll(`d20`);
     let result = roll.roll();
     let dc = 'normal';
 
+    // Skip death saves when NOT dying
+    if (difficulty == 'death' && actor.data.data.attributes.hp.value > 0) return;
+
     // Determine the roll type.
     if (difficulty == 'easy') {
       dc = 'easy';
     }
-    else if (difficulty == 'hard' || difficulty == 'death') {
+    else if (difficulty == 'hard' || difficulty == 'death'
+       || difficulty == 'lastGasp') {
       dc = 'hard';
     }
     else if (difficulty == 'disengage') {
@@ -369,7 +371,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
-      if (success && actor.data.data.attributes.hp.value <= 0) {
+      if (success) {
         actor.rollRecovery({}, true);
       }
       else {
@@ -377,6 +379,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
           'data.attributes.saves.deathFails.value': Math.min(4, Number(actor.data.data.attributes.saves.deathFails.value) + 1)
         });
       }
+    }
+
+    // Handle failures of last gasp saves.
+    if (difficulty == 'lastGasp' && !success) {
+      await actor.update({
+        'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(actor.data.data.attributes.saves.lastGaspFails.value) + 1)
+      });
     }
   }
 
@@ -614,17 +623,20 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /* ------------------------------------------------------------------------ */
   /*  Special Listeners ----------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
-  async _updateDeathFails(event) {
+  async _updateFails(event, tp) {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
 
     if (dataset.opt) {
-      let deathCount = Number(dataset.opt);
-      if (deathCount == this.actor.data.data.attributes.saves.deathFails.value) {
-        deathCount = Math.max(0, deathCount - 1);
+      let count = Number(dataset.opt);
+      if (count == this.actor.data.data.attributes.saves[tp].value) {
+        count = Math.max(0, count - 1);
       }
-      await this.actor.update({'data.attributes.saves.deathFails.value': deathCount});
+      let updateData = {};
+      let path = `data.attributes.saves.${tp}.value`;
+      updateData[path] = count;
+      await this.actor.update(updateData);
     }
   }
 

@@ -464,7 +464,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Handle death saves.
-    if (!data.attributes.saves) {
+    if (!data.attributes.saves || !data.attributes.saves.lastGasp) {
       data.attributes.saves = model.attributes.saves;
     }
 
@@ -472,6 +472,11 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.deathFails.steps = [false, false, false, false];
     for (let i = 0; i < deathCount; i++) {
       data.attributes.saves.deathFails.steps[i] = true;
+    }
+    let lastGaspsCount = data.attributes.saves.lastGaspFails.value;
+    data.attributes.saves.lastGaspFails.steps = [false, false, false, false];
+    for (let i = 0; i < lastGaspsCount; i++) {
+      data.attributes.saves.lastGaspFails.steps[i] = true;
     }
   }
 
@@ -613,7 +618,10 @@ export class ActorArchmage extends Actor {
 
     // Add bonus if any
     if (data.bonus !== "") {
-      // We assume to have signs in bonus, to handle negative bonuses
+      if (!['+', '-'].includes(data.bonus[0]) || isNaN(parseInt(data.bonus))) {
+        ui.notifications.error('"'+data.bonus+'" '+game.i18n.localize("ARCHMAGE.UI.errBonus"));
+        return;
+      }
       formula = `${formula}${data.bonus}`;
     }
 
@@ -937,7 +945,6 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
-  console.log(data);
   if (actor.data.type == 'character'
     && options.diff
     && data.data !== undefined
