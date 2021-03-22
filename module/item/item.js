@@ -81,7 +81,7 @@ export class ItemArchmage extends Item {
     };
 
     console.log(templateData);
-    await ArchmageRolls.rollItem(this);
+    //await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {
