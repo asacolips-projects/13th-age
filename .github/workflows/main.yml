@@ -77,3 +77,6 @@ jobs:
         # Local directory to copy from or to; this can either be an absolute path or a relative path
         local_directory: .
         # YAML document that allows setting http headers on blobs when uploading to Azure.
+        http_headers: |
+          - glob: "system.json"
+          - glob: "system.zip"
