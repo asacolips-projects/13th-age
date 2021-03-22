@@ -64,8 +64,7 @@
       <!-- Init / Death Saves -->
       <div class="unit unit--init-death">
         <div class="dividers flexcol">
-          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
-          <div class="death-saves">
+          <div class="">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('ARCHMAGE.SAVE.death')}}</a>
             <div class="death-save-attempts flexrow">
               <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[0]" data-opt="1">
