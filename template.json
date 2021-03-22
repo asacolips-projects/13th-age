@@ -118,6 +118,17 @@
                 false,
                 false
               ]
+            },
+            "lastGasp": 16,
+            "lastGaspFails": {
+              "value": 0,
+              "max": 4,
+              "steps": [
+                false,
+                false,
+                false,
+                false
+              ]
             }
           }
         },

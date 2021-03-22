@@ -74,6 +74,15 @@
               <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[3]" data-opt="4">
             </div>
           </div>
+          <div class="death-saves">
+            <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="lastGasp">{{localize('ARCHMAGE.SAVE.lastGasp')}}</a>
+            <div class="lastgasp-save-attempts flexrow">
+              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[0]" data-opt="1">
+              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[1]" data-opt="2">
+              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[2]" data-opt="3">
+              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[3]" data-opt="4">
+            </div>
+          </div>
         </div>
       </div>
     </div>
