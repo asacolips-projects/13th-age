@@ -61,15 +61,19 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './system.json,./system.zip'
         
-    - name: Azure Blob Storage Upload
+    - name: azure-blob-copy-action
       # You may pin to the exact commit or the version.
-      # uses: bacongobbler/azure-blob-storage-upload@779a18b594a1a7cf5412645e06c856324a8b01e5
-      uses: bacongobbler/azure-blob-storage-upload@v1.1.1
+      # uses: ulaval/azure-blob-copy-action@a5589c66042be9a15da7cc2a28e63adc3a42af3a
+      uses: ulaval/azure-blob-copy-action@v1
       with:
-        # The connection string for the storage account
+        # Either upload or download
+        action: upload
+        # Azure Blob Storage connection string
         connection_string: ${{ secrets.ConnectionString }}
-        # The name of the storage account container these assets will be uploaded to
+        # Azure Blob Storage container name
         container_name: toolkit13
-        # The name of the directory you want to upload
-        source_dir: "/"
-        extra_args: '--destination-path "${{ steps.get_version.outputs.VERSION }}/"'
+        # Directory in Azure to copy from or to
+        blob_directory: ${{ steps.get_version.outputs.VERSION }}
+        # Local directory to copy from or to; this can either be an absolute path or a relative path
+        local_directory: .
+        # YAML document that allows setting http headers on blobs when uploading to Azure.
