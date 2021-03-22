@@ -147,6 +147,18 @@ Hooks.once('init', async function() {
       hint: "Average results for recovery rolls instead of rolling them.",
       section: "Dice",
       type: Boolean
+    },
+    "portraitRound": {
+      name: "Round Portrait",
+      hint: "Whether or not the character portrait is rounded on the V2 sheet.",
+      section: "Sheet",
+      type: Boolean
+    },
+    "portraitFrame": {
+      name: "Portrait Frame",
+      hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
+      section: "Sheet",
+      type: Boolean
     }
   };
 

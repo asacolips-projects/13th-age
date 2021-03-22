@@ -54,6 +54,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (this._vm) {
       if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
       if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
+      if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
       this._updateEditors($(this.form));
       return;
     }
@@ -303,6 +304,9 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
    */
   async _onSaveRoll(difficulty) {
+    // Skip death saves when NOT dying TODO: uncomment after implementing last gasps
+    // if (difficulty == 'death' && actor.data.data.attributes.hp.value > 0) return;
+    
     // Initialize the roll and our values.
     let actor = this.actor;
     let roll = new Roll(`d20`);
@@ -365,7 +369,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
-      if (success) {
+      if (success && actor.data.data.attributes.hp.value <= 0) {
         actor.rollRecovery({}, true);
       }
       else {
@@ -664,7 +668,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     let item = this.actor.items.find(i => i.data._id == itemId);
     if (item) {
-      if (!(item.data.data?.quantity?.value !== null)) return;
+      if (item.data.data?.quantity?.value == null) return;
       // Update the quantity.
       let newQuantity = Number(item.data.data.quantity.value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;

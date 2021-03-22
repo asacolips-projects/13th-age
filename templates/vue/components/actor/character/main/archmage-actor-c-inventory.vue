@@ -3,14 +3,14 @@
     <!-- Sorts and filters. -->
     <header class="equipment-filters flexrow">
       <div class="sort-equipment">
-        <label for="equipment-sort">{{localize('Sort')}}</label>
+        <label for="equipment-sort">{{localize('ARCHMAGE.sort')}}</label>
         <select name="equipment-sort" v-model="sortBy">
-          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(option.label)}}</option>
+          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
         </select>
       </div>
       <div class="filter-search-equipment">
-        <label for="equipment-filter-search">{{localize('Filter')}}</label>
-        <input type="text" name="equipment-filter-search" v-model="searchValue" :placeholder="localize('Filter equipment by name')"/>
+        <label for="equipment-filter-search">{{localize('ARCHMAGE.filter')}}</label>
+        <input type="text" name="equipment-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
     </header>
     <!-- Equipment, by group. -->
@@ -18,17 +18,17 @@
       <div class="equipment-group-header">
         <!-- Group title and add button. -->
         <div class="equipment-header-title grid equipment-grid">
-          <h2 class="equipment-group-title unit-title">{{localize('Magic Items')}}</h2>
+          <h2 class="equipment-group-title unit-title">{{localize('ARCHMAGE.magicItems')}}</h2>
           <div class="item-controls">
-            <a class="item-control item-create" data-item-type="equipment"><i class="fas fa-plus"></i> Add</a>
+            <a class="item-control item-create" data-item-type="equipment"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
         </div>
         <!-- Column labels. -->
         <div class="equipment-header-labels grid equipment-grid">
-          <div class="equipment-name">{{localize('Equipment Name')}}</div>
-          <div class="equipment-bonus">{{localize('Bonuses')}}</div>
-          <div class="equipment-chakra">{{localize('Chakra')}}</div>
-          <div class="item-controls">{{localize('Edit')}}</div>
+          <div class="equipment-name">{{localize('ARCHMAGE.equipmentName')}}</div>
+          <div class="equipment-bonus">{{localize('ARCHMAGE.bonuses')}}</div>
+          <div class="equipment-chakra">{{localize('ARCHMAGE.chakra')}}</div>
+          <div class="item-controls">{{localize('ARCHMAGE.edit')}}</div>
         </div>
       </div>
       <ul class="equipment-group-content flexcol">

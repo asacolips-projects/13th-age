@@ -2,12 +2,12 @@
   <section class="section section--attributes flexrow">
     <!-- Actor image -->
     <div class="unit unit--img">
-      <img :src="actor.img" alt="localize('Character profile image')" class="avatar" height="105" width="105" data-edit="img"/>
+      <img :src="actor.img" ref="avatar" :alt="localize('ARCHMAGE.avatarAlt')" :width="avatarWidth" :height="avatarHeight" :class="avatarClass" data-edit="img"/>
     </div>
     <div class="unit unit--attributes grid grid-5col border-both">
       <!-- HP -->
       <div class="unit unit--has-max unit--hp">
-        <h2 class="unit-title">{{localize('Hit Points')}}</h2>
+        <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
         <archmage-h-progress name="hp" :current="actor.data.attributes.hp.value" :temp="actor.data.attributes.hp.temp" :max="actor.data.attributes.hp.max"/>
         <div class="resource flexrow">
           <input type="number" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
@@ -16,31 +16,31 @@
           <input v-else type="number" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
         </div>
         <div class="labeled-input flexrow">
-          <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('Temp HP')}}</label>
+          <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
           <input type="number" name="data.attributes.hp.temp" class="temp-hp" v-model="actor.data.attributes.hp.temp">
         </div>
       </div>
       <!-- Defenses -->
       <div class="unit unit--defenses">
-        <h2 class="unit-title">{{localize('Defenses')}}</h2>
+        <h2 class="unit-title">{{localize('ARCHMAGE.defenses')}}</h2>
         <div class="defenses grid grid-3col">
           <div class="defense defense--ac flexcol">
             <span class="defense-value">{{actor.data.attributes.ac.value}}</span>
-            <h3 class="unit-subtitle">{{localize('AC')}}</h3>
+            <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.ac.label'), ' (', localize('ARCHMAGE.ac.stats'), ')')">{{localize('ARCHMAGE.ac.key')}}</h3>
           </div>
           <div class="defense defense--pd flexcol">
             <span class="defense-value">{{actor.data.attributes.pd.value}}</span>
-            <h3 class="unit-subtitle">{{localize('PD')}}</h3>
+            <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.pd.label'), ' (', localize('ARCHMAGE.pd.stats'), ')')">{{localize('ARCHMAGE.pd.key')}}</h3>
           </div>
           <div class="defense defense--md flexcol">
             <span class="defense-value">{{actor.data.attributes.md.value}}</span>
-            <h3 class="unit-subtitle">{{localize('MD')}}</h3>
+            <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.md.label'), ' (', localize('ARCHMAGE.md.stats'), ')')">{{localize('ARCHMAGE.md.key')}}</h3>
           </div>
         </div>
       </div>
       <!-- Recoveries -->
       <div class="unit unit--has-max unit--recoveries">
-        <h2 class="unit-title">{{localize('Recoveries')}}</h2>
+        <h2 class="unit-title">{{localize('ARCHMAGE.recoveries')}}</h2>
         <archmage-h-progress name="recoveries" :current="actor.data.attributes.recoveries.value" :max="actor.data.attributes.recoveries.max"/>
         <div class="resource flexrow">
           <input type="number" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
@@ -54,19 +54,19 @@
       </div>
       <!-- Saving Throws -->
       <div class="unit unit--saves flexcol">
-        <h2 class="unit-title">{{localize('Saves')}}</h2>
+        <h2 class="unit-title">{{localize('ARCHMAGE.saves')}}</h2>
         <div class="saves flexcol">
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">{{actor.data.attributes.save.easy}}+ ({{localize('Easy')}})</a>
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="normal">{{actor.data.attributes.save.normal}}+ ({{localize('Normal')}})</a>
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="hard">{{actor.data.attributes.save.hard}}+ ({{localize('Hard')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">{{actor.data.attributes.save.easy}}+ ({{localize('ARCHMAGE.SAVE.easyShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="normal">{{actor.data.attributes.save.normal}}+ ({{localize('ARCHMAGE.SAVE.normalShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="hard">{{actor.data.attributes.save.hard}}+ ({{localize('ARCHMAGE.SAVE.hardShort')}})</a>
         </div>
       </div>
       <!-- Init / Death Saves -->
       <div class="unit unit--init-death">
         <div class="dividers flexcol">
-          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('Initiative')}}</a>
+          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
           <div class="death-saves">
-            <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('Death Saves')}}</a>
+            <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('ARCHMAGE.SAVE.death')}}</a>
             <div class="death-save-attempts flexrow">
               <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[0]" data-opt="1">
               <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[1]" data-opt="2">
@@ -83,14 +83,78 @@
 <script>
 export default {
   props: ['actor'],
-  data: () => ({}),
+  data: function() {
+    return {
+      avatarClass: 'avatar',
+      avatarWidth: 105,
+      avatarHeight: 105
+    }
+  },
   computed: {},
-  methods: {},
+  methods: {
+    getAvatarDimensions() {
+      let img = this.$refs['avatar'];
+      let width = img.naturalWidth;
+      let height = img.naturalHeight;
+
+      let ratio = width / height;
+      let ratioClass = 'square';
+      let squareSize = width;
+
+      if (ratio < 0.9) {
+        ratioClass = 'portrait';
+        squareSize = width;
+      }
+      else if (ratio > 1.1) {
+        // TODO: Figure out a good layout for landscape.
+        // ratioClass = 'landscape';
+        ratioClass = 'square';
+        squareSize = height;
+      }
+
+      this.avatarWidth = ratioClass != 'square' ? width : squareSize;
+      this.avatarHeight = ratioClass != 'square' ? height : squareSize;
+      let classes = ['avatar', `avatar--${ratioClass}`];
+      if (this.actor.flags.archmage.portraitRound) classes.push('avatar--round');
+      if (this.actor.flags.archmage.portraitFrame) classes.push('avatar--frame');
+      this.avatarClass = classes.join(' ');
+    },
+    checkLoaded() {
+      if (this.$refs.avatar.complete) {
+        this.getAvatarDimensions();
+      }
+      else {
+        this.$refs.avatar.addEventListener('load', () => {
+          this.getAvatarDimensions();
+        });
+      }
+    }
+  },
+  watch: {
+    'actor.img': {
+      deep: false,
+      handler() {
+        this.$nextTick(() => {
+          this.checkLoaded();
+        });
+      }
+    },
+    'actor.flags.archmage': {
+      deep: true,
+      handler() {
+        this.getAvatarDimensions();
+      }
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;
     }
   },
-  async mounted() {}
+  async mounted() {
+    this.$nextTick(() => {
+      this.checkLoaded();
+    });
+  }
 }
 </script>
