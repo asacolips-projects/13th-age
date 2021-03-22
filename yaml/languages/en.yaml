@@ -342,7 +342,6 @@ ARCHMAGE.SAVE.death: Death Save
 ARCHMAGE.SAVE.disengage: Disengage
 ARCHMAGE.SAVE.success: Succeeded
 ARCHMAGE.SAVE.failure: Failed
-# UI Messages
 ARCHMAGE.UI.errNotEnoughCP: You don't have enough command points to use this command.
 ARCHMAGE.UI.errNoMomentum: You need Momentum to use this power.
 ARCHMAGE.UI.errNoFocus: You need Focus to use this power.
