@@ -17,6 +17,8 @@ import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs
 
 Hooks.once('init', async function() {
 
+  let dependencies = typeof Dlopen !== 'undefined';
+
   // CONFIG.debug.hooks = true;
 
   String.prototype.safeCSSId = function() {
@@ -109,12 +111,14 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
-  // V2 actor sheet (See issue #118).
-  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-    label: "V2 Character Sheet",
-    types: ["character"],
-    makeDefault: false
-  });
+  if (dependencies) {
+    // V2 actor sheet (See issue #118).
+    Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+      label: "V2 Character Sheet",
+      types: ["character"],
+      makeDefault: false
+    });
+  }
 
   /* -------------------------------------------- */
   CONFIG.Actor.characterFlags = {
@@ -399,11 +403,13 @@ Hooks.once('init', async function() {
   //   init: () => Vue.use(vueWysiwyg, {})
   // });
 
-  // Define dependency on our own custom vue components for when we need it
-  Dlopen.register('actor-sheet', {
-    scripts: "/systems/archmage/dist/vue-components.min.js",
-    // dependencies: [ "vue-select", "vue-numeric-input" ]
-  });
+  if (dependencies) {
+    // Define dependency on our own custom vue components for when we need it
+    Dlopen.register('actor-sheet', {
+      scripts: "/systems/archmage/dist/vue-components.min.js",
+      // dependencies: [ "vue-select", "vue-numeric-input" ]
+    });
+  }
 });
 
 Hooks.on('createItem', (data, options, id) => {
@@ -434,14 +440,36 @@ Hooks.once('ready', () => {
 
   $('.message').off("contextmenu");
 
-  // Preload Vue dependencies.
-  Dlopen.loadDependencies([
-    'vue',
-    // 'vue-select',
-    // 'vue-numeric-input',
-    // 'vue-wysiwyg',
-    'actor-sheet'
-  ]);
+  let modules = {};
+  modules.dlopen = game.modules.get('dlopen');
+  modules.vueport = game.modules.get('vueport');
+
+  let dependencies = true;
+
+  if (!modules.dlopen || !modules.vueport) {
+    ui.notifications.error('The <strong>vueport</strong> and <strong>dlopen</strong> modules are required for the V2 character sheet to be available.');
+    dependencies = false;
+  }
+
+  if ((modules.dlopen && !modules.dlopen.active)
+   || (modules.vueport && !modules.vueport.active)) {
+    let moduleSettings = game.settings.get('core', 'moduleConfiguration');
+    moduleSettings['dlopen'] = true;
+    moduleSettings['vueport'] = true;
+    game.settings.set('core', 'moduleConfiguration', moduleSettings);
+    dependencies = false;
+  }
+
+  if (dependencies && typeof Dlopen !== 'undefined') {
+    // Preload Vue dependencies.
+    Dlopen.loadDependencies([
+      'vue',
+      // 'vue-select',
+      // 'vue-numeric-input',
+      // 'vue-wysiwyg',
+      'actor-sheet'
+    ]);
+  }
 
 });
 
