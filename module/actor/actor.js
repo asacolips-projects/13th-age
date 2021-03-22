@@ -618,7 +618,10 @@ export class ActorArchmage extends Actor {
 
     // Add bonus if any
     if (data.bonus !== "") {
-      // We assume to have signs in bonus, to handle negative bonuses
+      if (!['+', '-'].includes(data.bonus[0]) || isNaN(parseInt(data.bonus))) {
+        ui.notifications.error('"'+data.bonus+'" '+game.i18n.localize("ARCHMAGE.UI.errBonus"));
+        return;
+      }
       formula = `${formula}${data.bonus}`;
     }
 
