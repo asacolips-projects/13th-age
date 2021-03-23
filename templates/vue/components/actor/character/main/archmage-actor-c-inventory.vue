@@ -27,7 +27,7 @@
         <div class="equipment-header-title grid equipment-grid">
           <h2 class="equipment-group-title unit-title">{{localize(group)}}</h2>
           <div class="item-controls">
-            <a class="item-control item-create" data-item-type="equipment"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
+            <a class="item-control item-create" :data-item-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
         </div>
         <!-- Column labels. -->
