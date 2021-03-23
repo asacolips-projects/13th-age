@@ -1,0 +1,91 @@
+.archmage-v2.sheet .window-content {
+  .archmage-v2-vue.nightmode {
+    background-image: url('#{$assets}/paper-v2-nightmode.webp');
+    background-color: #222;
+    box-shadow: inset 0 0 100px 0 $c-black;
+    color: $c-white;
+
+    .notes {
+      color: rgba($c-white, 0.6);
+    }
+
+    select {
+      color: $c-white;
+      border-color: $c-black;
+      background: #111;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      color: $c-white;
+      border-color: $c-white;
+
+      &::placeholder {
+        color: rgba($c-white, 0.5);
+      }
+
+      &:hover,
+      &:focus {
+        color: $c-blue;
+        border-color: $c-blue;
+      }
+    }
+
+    .icon-roll {
+      background-color: rgba($c-white, 0.1) !important;
+
+      &:hover {
+        background-color: $c-blue !important;
+      }
+    }
+
+    .avatar--frame {
+      background-color: $ct-border-night !important;
+      box-shadow: 0 0 20px 10px $ct-border !important;
+    }
+
+    .unit--attributes .unit::before,
+    .ability-mod::after {
+      background-color: $ct-border-night !important;
+    }
+
+    .unit,
+    .power-filters,
+    .equipment-filters,
+    .list-item,
+    .section--sidebar {
+      border-color: $ct-border-night !important;
+    }
+
+    .editor-content {
+      background-color: rgba($c-white, 0.05);
+    }
+
+    .unit--attributes {
+      &::before,
+      &::after {
+        background-image: url('#{$assets}/svg/border-wide-white.svg') !important;
+      }
+    }
+
+    .section--sidebar .section::before {
+      background-image: url('#{$assets}/svg/border-narrow-white.svg') !important;
+    }
+
+    .section--resources::after {
+      background-image: url('#{$assets}/svg/border-white.svg') !important;
+    }
+
+    .unit--currency-gold {
+      color: #efc44a;
+    }
+
+    .unit--currency-silver {
+      color: #888;
+    }
+
+    .unit--currency-copper {
+      color: #c17a58;
+    }
+  }
+}
