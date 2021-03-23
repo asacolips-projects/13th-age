@@ -223,6 +223,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'automatePowerCost', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'originalCritDamage', {
     name: 'Double damage result on critical hit',
     hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
