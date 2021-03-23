@@ -1,5 +1,5 @@
 <template>
-<div class="archmage-v2-vue flexcol">
+<div :class="concat('archmage-v2-vue flexcol ', nightmode)">
 
   <!-- Top group -->
   <section class="container container--top flexcol">
@@ -75,7 +75,11 @@ export default {
     }
   },
   methods: {},
-  computed: {},
+  computed: {
+    nightmode() {
+      return this.actor.flags.archmage.nightmode ? 'nightmode' : '';
+    }
+  },
   watch: {
     // actor: {
     //   deep: true,

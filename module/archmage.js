@@ -159,6 +159,12 @@ Hooks.once('init', async function() {
       hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
       section: "Sheet",
       type: Boolean
+    },
+    "nightmode": {
+      name: "Night Mode",
+      hint: "Reverse the sheet color scheme into a darkened night mode.",
+      section: "Sheet",
+      type: Boolean
     }
   };
 

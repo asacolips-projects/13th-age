@@ -2,7 +2,7 @@
   <section :class="classes" data-tab="inventory">
     <!-- Currency. -->
     <section class="equipment-currency flexrow">
-      <div v-for="type in currency" :key="type" class="unit unit--currency">
+      <div v-for="type in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
         <h2 class="unit-title">{{localize(concat('ARCHMAGE.COINS.', type))}}</h2>
         <input type="number" :name="concat('data.coins.', type, '.value')" class="currency-input" v-model="actor.data.coins[type].value" placeholder="0">
       </div>
