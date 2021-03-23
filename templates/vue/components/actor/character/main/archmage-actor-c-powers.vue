@@ -52,7 +52,7 @@
             </a>
             <div class="power-feat-pips" v-if="hasFeats(power)">
               <ul class="feat-pips">
-                <li v-for="(feat, tier) in power.data.feats" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
+                <li v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
               </ul>
             </div>
             <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
@@ -205,7 +205,17 @@ export default {
       return hasFeats;
     },
     /**
-     * Retrieive the abbreviated action type, such as 'STD' or 'QCK'.
+     * Filter empty feats
+     */
+    filterFeats(featObj) {
+      let res = {}
+      for (let [tier, feat] of Object.entries(featObj)) {
+        if (feat.description.value) res[tier] = feat;
+      }
+      return res;
+    },
+    /**
+     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
      */
     getActionShort(actionType) {
       let actionTypes = {

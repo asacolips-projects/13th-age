@@ -15,6 +15,11 @@ export class ItemArchmage extends Item {
         this.data.img = CONST.DEFAULT_TOKEN;
       }
     }
+
+    if (this.data.type == 'loot' || this.data.type == 'tool') {
+      let model = game.system.model.Item[this.data.type];
+      if (!this.data.data.quantity) this.data.data.quantity = model.quantity;
+    }
   }
 
   /**
@@ -121,7 +126,7 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
-    await ArchmageRolls.rollItem(this);
+    //await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {

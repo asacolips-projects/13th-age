@@ -1,5 +1,5 @@
 <template>
-<div class="archmage-v2-vue flexcol">
+<div :class="concat('archmage-v2-vue flexcol ', nightmode)">
 
   <!-- Top group -->
   <section class="container container--top flexcol">
@@ -15,6 +15,7 @@
 
     <!-- Left sidebar -->
     <section class="section section--sidebar flexcol">
+      <archmage-actor-c-initiative :actor="actor"></archmage-actor-c-initiative>
       <archmage-actor-c-abilities :actor="actor"></archmage-actor-c-abilities>
       <archmage-actor-c-backgrounds :actor="actor"></archmage-actor-c-backgrounds>
       <archmage-actor-c-icon-relationships :actor="actor"></archmage-actor-c-icon-relationships>
@@ -74,7 +75,11 @@ export default {
     }
   },
   methods: {},
-  computed: {},
+  computed: {
+    nightmode() {
+      return this.actor.flags.archmage.nightmode ? 'nightmode' : '';
+    }
+  },
   watch: {
     // actor: {
     //   deep: true,

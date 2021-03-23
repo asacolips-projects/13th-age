@@ -4,6 +4,9 @@ $c-black: #000000;
 $c-white: #ffffff;
 $c-gray--25: rgba($c-black, 0.25);
 
+$color-text: $c-black;
+$color-text-night: $c-white;
+
 $c-blue-plus: lighten($c-blue, 25%);
 
 $c-feat-blue: #68d7f194;
@@ -17,6 +20,7 @@ $c-progress-staggered: #f78c01;
 $c-progress-dire: #ca0000;
 
 $ct-border: rgba($c-black, 0.25);
+$ct-border-night: rgba($c-white, 0.25);
 
 $c-power-will: linear-gradient(45deg, #003c15, #5ee25e);
 $c-power-battle: linear-gradient(45deg, #3c0000, #dc0000);

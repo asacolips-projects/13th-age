@@ -26,6 +26,11 @@ jobs:
       with:
         args: compilePacks
 
+    - name: Run Gulp Compile Vue
+      uses: elstudio/actions-js-build/build@v2
+      with:
+        args: vue
+
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -38,7 +43,7 @@ jobs:
         files: 'system.json'
       env:
         version: ${{ steps.get_version.outputs.VERSION }}
-        manifest: 
+        manifest: ""
         download: https://patreon.azurewebsites.net/api/download/toolkit13/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     # create a zip file with all files required by the system to add to the release
@@ -55,3 +60,23 @@ jobs:
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './system.json,./system.zip'
+        
+    - name: azure-blob-copy-action
+      # You may pin to the exact commit or the version.
+      # uses: ulaval/azure-blob-copy-action@a5589c66042be9a15da7cc2a28e63adc3a42af3a
+      uses: ulaval/azure-blob-copy-action@v1
+      with:
+        # Either upload or download
+        action: upload
+        # Azure Blob Storage connection string
+        connection_string: ${{ secrets.ConnectionString }}
+        # Azure Blob Storage container name
+        container_name: toolkit13
+        # Directory in Azure to copy from or to
+        blob_directory: ${{ steps.get_version.outputs.VERSION }}
+        # Local directory to copy from or to; this can either be an absolute path or a relative path
+        local_directory: .
+        # YAML document that allows setting http headers on blobs when uploading to Azure.
+        http_headers: |
+          - glob: "system.json"
+          - glob: "system.zip"

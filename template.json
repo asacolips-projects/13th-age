@@ -118,6 +118,17 @@
                 false,
                 false
               ]
+            },
+            "lastGasp": 16,
+            "lastGaspFails": {
+              "value": 0,
+              "max": 4,
+              "steps": [
+                false,
+                false,
+                false,
+                false
+              ]
             }
           }
         },
@@ -481,6 +492,18 @@
           "type": "String",
           "label": "Description"
         }
+      },
+      "spendable": {
+        "quantity": {
+          "type": "Number",
+          "label": "Quantity",
+          "value": 0
+        },
+        "price": {
+          "type": "Number",
+          "label": "Price",
+          "value": 0
+        }
       }
     },
     "power": {
@@ -764,12 +787,14 @@
     },
     "tool": {
       "templates": [
-        "standard"
+        "standard",
+        "spendable"
       ]
     },
     "loot": {
       "templates": [
-        "standard"
+        "standard",
+        "spendable"
       ]
     },
     "equipment": {
