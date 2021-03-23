@@ -31,6 +31,14 @@
       }
     }
 
+    .icon-roll {
+      background-color: rgba($c-white, 0.1) !important;
+
+      &:hover {
+        background-color: $c-blue !important;
+      }
+    }
+
     .avatar--frame {
       background-color: $ct-border-night !important;
       box-shadow: 0 0 20px 10px $ct-border !important;
