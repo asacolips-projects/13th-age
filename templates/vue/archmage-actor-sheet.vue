@@ -77,7 +77,8 @@ export default {
   methods: {},
   computed: {
     nightmode() {
-      return this.actor.flags.archmage.nightmode ? 'nightmode' : '';
+      let flags = this.actor.flags ? this.actor.flags.archmage : null;
+      return flags && flags.nightmode ? 'nightmode' : '';
     }
   },
   watch: {
