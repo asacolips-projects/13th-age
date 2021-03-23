@@ -27,6 +27,8 @@
     overflow-y: auto;
     overflow-x: hidden;
     padding-right: $padding-sm;
+    scrollbar-color: $c-blue transparent;
+    scrollbar-width: thin;
   }
 
   /* ----------------------------------------- */

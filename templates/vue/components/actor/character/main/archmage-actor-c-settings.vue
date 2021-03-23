@@ -103,8 +103,9 @@ export default {
   computed: {
     flags() {
       let flags = CONFIG.Actor.characterFlags;
+      let charFlags = this.actor.flags && this.actor.flags.archmage ? this.actor.flags.archmage : {};
       for (let [k, v] of Object.entries(flags)) {
-        v.value = this.actor.flags.archmage && this.actor.flags.archmage[k] ? this.actor.flags.archmage[k] : null;
+        v.value = charFlags && charFlags[k] ? charFlags[k] : null;
         flags[k] = v;
       }
       return flags;

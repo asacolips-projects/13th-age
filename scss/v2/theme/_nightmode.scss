@@ -1,8 +1,8 @@
 .archmage-v2.sheet .window-content {
   .archmage-v2-vue.nightmode {
-    background-image: url('#{$assets}/paper-v2-nightmode.webp');
-    background-color: #222;
-    box-shadow: inset 0 0 100px 0 $c-black;
+    // background-image: url('#{$assets}/paper-v2-nightmode.webp');
+    background: #292929;
+    box-shadow: inset 0 0 100px 0 #191919;
     color: $c-white;
 
     .notes {
@@ -13,6 +13,16 @@
       color: $c-white;
       border-color: $c-black;
       background: #111;
+    }
+
+    p,
+    table,
+    th,
+    td,
+    tbody,
+    thead {
+      color: $c-white !important;
+      border-color: $ct-border-night !important;
     }
 
     input[type="text"],
