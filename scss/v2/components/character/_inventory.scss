@@ -78,6 +78,14 @@
     }
   }
 
+  .equipment-currency {
+    margin: $padding-md 0;
+
+    .unit--currency {
+      margin: 0 $padding-md;
+    }
+  }
+
   .equipment-item {
     position: relative;
   }
@@ -172,7 +180,8 @@
 
     .equipment-name { grid-column-start: 2; }
     .equipment-bonus { grid-column-start: 3; }
-    .equipment-chakra { grid-column-start: 4; }
+    .equipment-chakra,
+    .equipment-quantity { grid-column-start: 4; }
     .item-controls { grid-column-start: 5; }
   }
 

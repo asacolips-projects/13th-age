@@ -6,8 +6,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   constructor(...args) {
     super(...args);
 
-    console.log('tester');
-
     /**
      * If this Actor Sheet represents a synthetic Token actor, reference the active Token
      * @type {Token}
@@ -147,8 +145,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     html.on('click', '.rest', (event) => this._onRest(event));
 
     // Item listeners.
-    html.on('click', '.power-uses', (event) => this._updateQuantity(event, true));
-    html.on('contextmenu', '.power-uses', (event) => this._updateQuantity(event, false));
+    html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
+    html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updateFeat(event));
   }
 
@@ -204,8 +202,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       img: img,
       data: data
     });
-
-    console.log(item);
   }
 
   /**
@@ -800,7 +796,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   _onFocus(event) {
     let target = event.currentTarget;
-    console.log(target);
     setTimeout(function() {
       $(target).select();
     }, 200);

@@ -6,8 +6,10 @@
     overflow: hidden;
     object-fit: cover;
     max-width: 100%;
-    width: 185px;
+    width: auto;
     height: auto;
+    max-width: 185px;
+    max-height: 225px;
     border: 0;
 
     &.avatar--square {
