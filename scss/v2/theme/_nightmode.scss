@@ -71,6 +71,53 @@
       background-color: rgba($c-white, 0.05);
     }
 
+    .editor-edit {
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .tox-tinymce {
+
+      .tox-toolbar-overlord,
+      .tox-toolbar__primary {
+        background: transparent;
+        border-bottom: 1px solid $c-white;
+      }
+
+      .tox-edit-area{
+        background: rgba($c-white, 0.85);
+      }
+
+      button {
+        font-size: $font-xxs;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        margin: 0;
+        width: auto;
+        height: auto;
+
+        svg * {
+          fill: $c-white !important;
+        }
+
+        &:hover {
+          box-shadow: none !important;
+
+          svg * {
+            fill: $c-blue !important;
+          }
+        }
+
+        &.tox-tbtn--disabled {
+          svg * {
+            fill: rgba($c-white, 0.4) !important;
+          }
+        }
+      }
+    }
+
     .unit--attributes {
       &::before,
       &::after {
