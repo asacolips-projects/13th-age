@@ -921,7 +921,7 @@ Hooks.on('deleteCombat', (combat) => {
   // Clear the escalation die.
   $('.archmage-escalation').addClass('hide');
 
-  // Clear out death saves.
+  // Clear out death saves, per combat resources and temp HP.
   let combatants = combat.data.combatants;
   if (combatants) {
     // Retrieve the character actors.
@@ -937,6 +937,7 @@ Hooks.on('deleteCombat', (combat) => {
         if (actor) {
           let updates = {};
           updates['data.attributes.saves.deathFails.value'] = 0;
+          updates['data.attributes.hp.temp'] = 0;
           for (let k of Object.keys(actor.data.data.resources.perCombat)) {
             updates[`data.resources.perCombat.${k}.current`] = 0;
           }
