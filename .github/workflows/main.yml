@@ -46,6 +46,8 @@ jobs:
         manifest: ""
         download: https://patreon.azurewebsites.net/api/download/toolkit13/${{ steps.get_version.outputs.VERSION }}/system.zip
 
+    - run: mkdir release
+
     # create a zip file with all files required by the system to add to the release
     - run: zip -r ./release/system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
 
