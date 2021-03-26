@@ -1,6 +1,7 @@
 <template>
   <section class="section section--abilities flexcol">
     <div class="list-item-header grid grid-4col">
+      <h2 class="unit-title grid-span-2">{{localize('ARCHMAGE.abilities')}}</h2>
       <div class="ability-mod-label grid-start-3">{{localize('ARCHMAGE.mod')}}</div>
       <div class="ability-lvl-label grid-start-4">{{localize('ARCHMAGE.lvl')}}</div>
     </div>

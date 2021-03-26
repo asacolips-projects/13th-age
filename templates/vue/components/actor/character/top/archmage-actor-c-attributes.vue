@@ -123,8 +123,9 @@ export default {
       this.avatarWidth = ratioClass != 'square' ? width : squareSize;
       this.avatarHeight = ratioClass != 'square' ? height : squareSize;
       let classes = ['avatar', `avatar--${ratioClass}`];
-      if (this.actor.flags.archmage.portraitRound) classes.push('avatar--round');
-      if (this.actor.flags.archmage.portraitFrame) classes.push('avatar--frame');
+      let flags = this.actor.flags && this.actor.flags.archmage ? this.actor.flags.archmage : {};
+      if (flags.portraitRound) classes.push('avatar--round');
+      if (flags.portraitFrame) classes.push('avatar--frame');
       this.avatarClass = classes.join(' ');
     },
     checkLoaded() {

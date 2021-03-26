@@ -1,5 +1,12 @@
 <template>
   <section :class="classes" data-tab="inventory">
+    <!-- Currency. -->
+    <section class="equipment-currency flexrow">
+      <div v-for="type in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
+        <h2 class="unit-title">{{localize(concat('ARCHMAGE.COINS.', type))}}</h2>
+        <input type="number" :name="concat('data.coins.', type, '.value')" class="currency-input" v-model="actor.data.coins[type].value" placeholder="0">
+      </div>
+    </section>
     <!-- Sorts and filters. -->
     <header class="equipment-filters flexrow">
       <div class="sort-equipment">
@@ -14,38 +21,40 @@
       </div>
     </header>
     <!-- Equipment, by group. -->
-    <section class="equipment-group">
+    <section v-for="(group, groupKey) in groups" :key="groupKey" class="equipment-group">
       <div class="equipment-group-header">
         <!-- Group title and add button. -->
         <div class="equipment-header-title grid equipment-grid">
-          <h2 class="equipment-group-title unit-title">{{localize('ARCHMAGE.magicItems')}}</h2>
+          <h2 class="equipment-group-title unit-title">{{localize(group)}}</h2>
           <div class="item-controls">
-            <a class="item-control item-create" data-item-type="equipment"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
+            <a class="item-control item-create" :data-item-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
         </div>
         <!-- Column labels. -->
         <div class="equipment-header-labels grid equipment-grid">
           <div class="equipment-name">{{localize('ARCHMAGE.equipmentName')}}</div>
-          <div class="equipment-bonus">{{localize('ARCHMAGE.bonuses')}}</div>
-          <div class="equipment-chakra">{{localize('ARCHMAGE.chakra')}}</div>
+          <div class="equipment-bonus" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.bonuses')}}</div>
+          <div class="equipment-chakra" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.chakra')}}</div>
+          <div class="equipment-quantity" v-if="groupKey != 'equipment'">{{localize('ARCHMAGE.quantity')}}</div>
           <div class="item-controls">{{localize('ARCHMAGE.edit')}}</div>
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="(equipment, equipmentKey) in equipment" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" :data-draggable="draggable" :draggable="draggable">
+        <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
             <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></archmage-h-rollable>
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
-            <div class="equipment-bonus flexrow">
+            <div class="equipment-bonus flexrow" v-if="equipment.data.attributes">
               <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                 <span class="bonus-label">{{bonusProp}} </span>
                 <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
+            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span v-if="equipment.data.quantity.value !== null">{{equipment.data.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>
@@ -53,7 +62,8 @@
           </div>
           <!-- Expanded equipment content. -->
           <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))" :style="getEquipmentStyle(equipment._id)">
-            <archmage-h-equipment :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"></archmage-h-equipment>
+            <archmage-h-equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"></archmage-h-equipment>
+            <archmage-h-loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"></archmage-h-loot>
           </div>
         </li>
       </ul>
@@ -74,7 +84,13 @@ export default {
       ],
       sortBy: 'custom',
       searchValue: null,
-      activeEquipment: {}
+      activeEquipment: {},
+      currency: [
+        'platinum',
+        'gold',
+        'silver',
+        'copper'
+      ]
     }
   },
   computed: {
@@ -83,7 +99,42 @@ export default {
     },
     classes() {
       return `section section--inventory flexcol${this.tab.active ? ' active' : ''}`;
-    }
+    },
+    groups() {
+      let groups = {};
+      let sortTypes = [
+        'equipment',
+        'tool',
+        'loot',
+      ];
+      // Handle the built-in sort types.
+      let sortKey = `${this.groupBy}`;
+      for (let key of sortTypes) {
+        groups[key] = `ARCHMAGE.INVENTORY.${key}`;
+      }
+      return groups;
+    },
+    equipmentGroups() {
+      let sortTypes = [
+        'equipment',
+        'tool',
+        'loot',
+      ];
+
+      let equipmentByGroup = this.equipment.reduce((equipmentGroup, equipment) => {
+        let group = equipment.type ? equipment.type : 'equipment';
+
+        // Create the group if it doesn't exist.
+        if (!equipmentGroup[group]) {
+          equipmentGroup[group] = [];
+        }
+        // Add the equipment and return for the next iteration.
+        equipmentGroup[group].push(equipment);
+        return equipmentGroup;
+      }, {});
+
+      return equipmentByGroup;
+    },
   },
   methods: {
     /**
@@ -97,15 +148,17 @@ export default {
      * equipment items on the actor. Filters by type and search keys.
      */
     getEquipment() {
-      let equipment = this.actor.items.filter(i => i.type == 'equipment');
+      let equipment = this.actor.items.filter(i => i.type == 'equipment' || i.type == 'loot' || i.type == 'tool');
       if (this.searchValue) {
         equipment = equipment.filter(i => {
           let needle = this.cleanClassName(this.searchValue);
           let haystack = `${i.name}${i.data.chackra ? i.data.chackra : ''}`;
 
-          let bonuses = this.getBonuses(i);
-          for (let [k,v] of Object.entries(bonuses)) {
-            haystack = `${haystack}${k}${v}`;
+          if (i.type == 'equipment') {
+            let bonuses = this.getBonuses(i);
+            for (let [k,v] of Object.entries(bonuses)) {
+              haystack = `${haystack}${k}${v}`;
+            }
           }
 
           haystack = this.cleanClassName(haystack);

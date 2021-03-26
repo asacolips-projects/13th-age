@@ -374,6 +374,15 @@ Item:
       description:
         type: String
         label: Description
+    spendable:
+      quantity:
+        type: Number
+        label: Quantity
+        value: 0
+      price:
+        type: Number
+        label: Price
+        value: 0
   power:
     templates:
       - standard
@@ -591,9 +600,11 @@ Item:
   tool:
     templates:
       - standard
+      - spendable
   loot:
     templates:
       - standard
+      - spendable
   equipment:
     templates:
       - standard

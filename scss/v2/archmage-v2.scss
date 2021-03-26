@@ -47,7 +47,4 @@
   }
 }
 
-:root {
-  scrollbar-width: thin;
-  scrollbar-color: #999 transparent;
-}
+@import 'theme/nightmode';
