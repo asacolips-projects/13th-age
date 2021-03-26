@@ -104,7 +104,7 @@ export class ItemArchmage extends Item {
           }
         }
         // Momentum
-        else if (parsed[3] && parsed[3].toLowerCase() == "momentum"
+        else if (parsed[3] && parsed[3].toLowerCase() == "spend momentum"
             && this.actor.data.data.resources.perCombat.momentum.enabled) {
           if (!this.actor.data.data.resources.perCombat.momentum.current) {
             ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoMomentum"));
@@ -113,6 +113,12 @@ export class ItemArchmage extends Item {
             let path = 'data.resources.perCombat.momentum.current';
             updateData[path] = false;
           }
+        }
+        else if (parsed[3] && parsed[3].toLowerCase() == "have momentum"
+            && this.actor.data.data.resources.perCombat.momentum.enabled) {
+          if (!this.actor.data.data.resources.perCombat.momentum.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoMomentum"));
+            return false;
         }
         // Focus
         else if (parsed[3] && parsed[3].toLowerCase() == "focus"

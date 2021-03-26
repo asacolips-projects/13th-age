@@ -84,7 +84,7 @@ data:
   cost:
     type: 'String'
     label: 'Cost'
-    value: 'Momentum'
+    value: 'Spend Momentum'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
