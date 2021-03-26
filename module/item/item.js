@@ -119,6 +119,7 @@ export class ItemArchmage extends Item {
           if (!this.actor.data.data.resources.perCombat.momentum.current) {
             ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoMomentum"));
             return false;
+          }
         }
         // Focus
         else if (parsed[3] && parsed[3].toLowerCase() == "focus"
