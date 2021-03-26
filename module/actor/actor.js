@@ -704,24 +704,6 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
 
-    // Resources
-    // if (this.data.data.resources.perCombat.commandPoints.enabled
-      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
-      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
-      // });
-    // }
-    // if (this.data.data.resources.perCombat.momentum.enabled
-      // && this.data.data.resources.perCombat.momentum.current) {
-      // updateData['data.resources.perCombat.momentum.current'] = false;
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
-      // });
-    // }
-
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
       this.update(updateData);
@@ -796,22 +778,6 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
 
     // Resources
-    // if (this.data.data.resources.perCombat.commandPoints.enabled
-      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
-      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
-      // });
-    // }
-    // if (this.data.data.resources.perCombat.momentum.enabled
-      // && this.data.data.resources.perCombat.momentum.current) {
-      // updateData['data.resources.perCombat.momentum.current'] = false;
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
-      // });
-    // }
     if (this.data.data.resources.spendable.ki.enabled
       && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
       updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
@@ -819,6 +785,20 @@ export class ActorArchmage extends Actor {
         key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.data.data.resources.spendable.ki.max}`
       });
+    }
+    for (let idx of ["1", "2", "3"]) {
+      let resourcePathName = "custom"+idx;
+      let resourceName = this.data.data.resources.spendable[resourcePathName].label;
+      let curr = this.data.data.resources.spendable[resourcePathName].current;
+      let max = this.data.data.resources.spendable[resourcePathName].max;
+      if (this.data.data.resources.spendable[resourcePathName].enabled && max && max && curr < max) {
+        let path = `data.resources.spendable.${resourcePathName}.current`;
+        updateData[path] = max;
+        templateData.resources.push({
+          key: resourceName,
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${max}`
+        });
+      }
     }
 
     // Update actor at this point (items are updated separately)
