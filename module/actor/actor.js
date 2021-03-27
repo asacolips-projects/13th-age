@@ -400,9 +400,10 @@ export class ActorArchmage extends Actor {
     if (!data.resources) {
       data.resources = model.resources;
     }
-    if (!data.resources.spendable.custom1) {
-      data.resources.spendable = model.resources.spendable;
-    }
+    if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
+    if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
+    if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
+
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
       if (data.resources.perCombat) {
