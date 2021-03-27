@@ -3,14 +3,16 @@
     <!-- Sorts and filters. -->
     <header class="power-filters flexrow">
       <div class="group-powers">
-        <label for="flags.archmage.sheetDisplay.powers.groupBy.value">{{localize('ARCHMAGE.groupBy')}}</label>
-        <select name="flags.archmage.sheetDisplay.powers.groupBy.value" v-model="flags.sheetDisplay.powers.groupBy.value">
+        <input type="hidden" name="flags.archmage.sheetDisplay.powers.groupBy.value" v-model="groupBy"/>
+        <label for="power-group">{{localize('ARCHMAGE.groupBy')}}</label>
+        <select name="power-group" v-model="groupBy">
           <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.',option.value))}}</option>
         </select>
       </div>
       <div class="sort-powers">
-        <label for="flags.archmage.sheetDisplay.powers.sortBy.value">{{localize('ARCHMAGE.sort')}}</label>
-        <select name="flags.archmage.sheetDisplay.powers.sortBy.value" v-model="flags.sheetDisplay.powers.sortBy.value">
+        <input type="hidden" name="flags.archmage.sheetDisplay.powers.sortBy.value" v-model="sortBy"/>
+        <label for="power-sort">{{localize('ARCHMAGE.sort')}}</label>
+        <select name="power-sort" v-model="sortBy">
           <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.',option.value))}}</option>
         </select>
       </div>
@@ -94,17 +96,13 @@ export default {
         { value: 'name', label: 'Name' },
         { value: 'level', label: 'Level' }
       ],
+      groupBy: 'powerType',
+      sortBy: 'custom',
       searchValue: null,
       activePowers: {}
     }
   },
   computed: {
-    groupBy() {
-      return this.flags.sheetDisplay.powers.groupBy.value ? this.flags.sheetDisplay.powers.groupBy.value : 'powerType';
-    },
-    sortBy() {
-      return this.flags.sheetDisplay.powers.sortBy.value ? this.flags.sheetDisplay.powers.sortBy.value : 'custom';
-    },
     draggable() {
       return this.sortBy == 'custom' ? true : false;
     },
@@ -339,6 +337,8 @@ export default {
   },
   async mounted() {
     this.getPowers();
+    this.groupBy = this.flags.sheetDisplay.powers.groupBy.value ? this.flags.sheetDisplay.powers.groupBy.value : 'powerType';
+    this.sortBy = this.flags.sheetDisplay.powers.sortBy.value ? this.flags.sheetDisplay.powers.sortBy.value : 'custom';
   }
 }
 </script>

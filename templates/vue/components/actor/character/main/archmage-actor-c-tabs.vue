@@ -1,6 +1,6 @@
 <template>
   <section class="section section--tabs flexshrink">
-    <input type="text" style="display:none;" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="flags.sheetDisplay.tabs[group].value"/>
+    <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/>
     <nav :class="concat('sheet-tabs tabs tabs--', group)" :data-group="group">
       <a v-for="(item, index) in tabs" :key="concat('tab-', group, '-', index)" :class="getTabClass(item, index)" :data-tab="index" v-on:click="changeTab"><i v-if="item.icon" :class="concat('fas ', item.icon)"></i><span v-if="!item.hideLabel">{{localize(concat('ARCHMAGE.', index))}}</span></a>
     </nav>
@@ -11,19 +11,17 @@
 export default {
   props: ['actor', 'group', 'tabs', 'flags'],
   data: function () {
-    return {}
+    return {
+      currentTab: 'details'
+    }
   },
   computed: {},
   methods: {
     changeTab(event) {
-      // Get the default tab.
-      let tab = this.flags.sheetDisplay.tabs[this.group].value;
-
       // If this was a click, update the default tab.
       if (event && event.currentTarget) {
         let $target = $(event.currentTarget);
-        tab = $target.data('tab');
-        this.flags.sheetDisplay.tabs[this.group].value = tab;
+        this.currentTab = $target.data('tab');
       }
 
       // Update the tab displays.
@@ -32,7 +30,7 @@ export default {
       }
 
       // Update the active tab display.
-      this.tabs[tab].active = true;
+      this.tabs[this.currentTab].active = true;
     },
     getTabClass(tab, index) {
       return `tab-link tab-link--${index}${tab.active ? ' active' : ''}`;
@@ -44,6 +42,7 @@ export default {
     }
   },
   async mounted() {
+    this.currentTab = this.flags.sheetDisplay.tabs[this.group].value ? this.flags.sheetDisplay.tabs[this.group].value : 'details';
     this.changeTab(false);
   }
 }

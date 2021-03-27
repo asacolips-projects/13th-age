@@ -10,8 +10,9 @@
     <!-- Sorts and filters. -->
     <header class="equipment-filters flexrow">
       <div class="sort-equipment">
-        <label for="flags.archmage.sheetDisplay.inventory.sortBy.value">{{localize('ARCHMAGE.sort')}}</label>
-        <select name="flags.archmage.sheetDisplay.inventory.sortBy.value" v-model="flags.sheetDisplay.inventory.sortBy.value">
+        <input type="hidden" name="flags.archmage.sheetDisplay.inventory.sortBy.value" v-model="sortBy"/>
+        <label for="equipment-sort">{{localize('ARCHMAGE.sort')}}</label>
+        <select name="equipment-sort" v-model="sortBy">
           <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
         </select>
       </div>
@@ -82,6 +83,7 @@ export default {
         { value: 'name', label: 'Name' },
         // { value: 'chakra', label: 'Chakra' } // TODO: Add this after fixing the typo in the template.
       ],
+      sortBy: 'custom',
       searchValue: null,
       activeEquipment: {},
       currency: [
@@ -93,9 +95,6 @@ export default {
     }
   },
   computed: {
-    sortBy() {
-      return this.flags.sheetDisplay.inventory.sortBy.value ? this.flags.sheetDisplay.inventory.sortBy.value : 'custom';
-    },
     draggable() {
       return this.sortBy == 'custom' ? true : false;
     },
@@ -261,6 +260,7 @@ export default {
   },
   async mounted() {
     this.getEquipment();
+    this.sortBy = this.flags.sheetDisplay.inventory.sortBy.value ? this.flags.sheetDisplay.inventory.sortBy.value : 'custom';
   }
 }
 </script>
