@@ -4,6 +4,8 @@ ARCHMAGE.SETTINGS.RoundUpDamageApplicationName: When applying damage via the rig
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
 ARCHMAGE.SETTINGS.rechargeOncePerDayName: Recharge once per day only
 ARCHMAGE.SETTINGS.rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
+ARCHMAGE.SETTINGS.automatePowerCostName: Automatically apply power costs
+ARCHMAGE.SETTINGS.automatePowerCostHint: Remove resources (e.g. Command Points, Ki or Focus) automatically when using a power with a cost?
 ARCHMAGE.SETTINGS.UnboundEscDieName: Unlimited Escalation Die
 ARCHMAGE.SETTINGS.UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
 ARCHMAGE.SETTINGS.ColorblindName: Enable Colorblind Accessibility Mode
@@ -184,10 +186,14 @@ ARCHMAGE.SORTS.custom: Custom
 ARCHMAGE.SORTS.name: Name
 ARCHMAGE.SORTS.level: Level
 ARCHMAGE.magicItems: Magic Items
+ARCHMAGE.INVENTORY.equipment: Magic Items
+ARCHMAGE.INVENTORY.loot: Loot
+ARCHMAGE.INVENTORY.tool: Tools
 ARCHMAGE.equipmentName: Equipment Name
 ARCHMAGE.bonus: Bonus
 ARCHMAGE.bonuses: Bonuses
 ARCHMAGE.chakra: Chakra
+ARCHMAGE.quantity: Quantity
 ARCHMAGE.powerName: Power Name
 ARCHMAGE.feat: Feat
 ARCHMAGE.act: Act.
@@ -344,6 +350,11 @@ ARCHMAGE.SAVE.disengage: Disengage
 ARCHMAGE.SAVE.success: Succeeded
 ARCHMAGE.SAVE.failure: Failed
 # UI Messages
+ARCHMAGE.UI.errNotEnoughCP: You don't have enough Command Points to use this command.
+ARCHMAGE.UI.errNotEnoughKi: You don't have enough Ki to use this power.
+ARCHMAGE.UI.errNoMomentum: You need Momentum to use this power.
+ARCHMAGE.UI.errNoFocus: You need Focus to use this power.
+ARCHMAGE.UI.errNoCustomResource: You don't have enough
 ARCHMAGE.UI.errBonus: must be an integer number prepended by either + or -
 # Tours
 ## 1.7.0

@@ -56,9 +56,9 @@
       <div class="unit unit--saves flexcol">
         <h2 class="unit-title">{{localize('ARCHMAGE.saves')}}</h2>
         <div class="saves flexcol">
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">{{actor.data.attributes.save.easy}}+ ({{localize('ARCHMAGE.SAVE.easyShort')}})</a>
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="normal">{{actor.data.attributes.save.normal}}+ ({{localize('ARCHMAGE.SAVE.normalShort')}})</a>
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="hard">{{actor.data.attributes.save.hard}}+ ({{localize('ARCHMAGE.SAVE.hardShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">{{actor.data.attributes.saves.easy}}+ ({{localize('ARCHMAGE.SAVE.easyShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="normal">{{actor.data.attributes.saves.normal}}+ ({{localize('ARCHMAGE.SAVE.normalShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="hard">{{actor.data.attributes.saves.hard}}+ ({{localize('ARCHMAGE.SAVE.hardShort')}})</a>
         </div>
       </div>
       <!-- Init / Death Saves -->
@@ -123,8 +123,9 @@ export default {
       this.avatarWidth = ratioClass != 'square' ? width : squareSize;
       this.avatarHeight = ratioClass != 'square' ? height : squareSize;
       let classes = ['avatar', `avatar--${ratioClass}`];
-      if (this.actor.flags.archmage.portraitRound) classes.push('avatar--round');
-      if (this.actor.flags.archmage.portraitFrame) classes.push('avatar--frame');
+      let flags = this.actor.flags && this.actor.flags.archmage ? this.actor.flags.archmage : {};
+      if (flags.portraitRound) classes.push('avatar--round');
+      if (flags.portraitFrame) classes.push('avatar--frame');
       this.avatarClass = classes.join(' ');
     },
     checkLoaded() {

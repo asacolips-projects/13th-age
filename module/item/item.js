@@ -15,6 +15,11 @@ export class ItemArchmage extends Item {
         this.data.img = CONST.DEFAULT_TOKEN;
       }
     }
+
+    if (this.data.type == 'loot' || this.data.type == 'tool') {
+      let model = game.system.model.Item[this.data.type];
+      if (!this.data.data.quantity) this.data.data.quantity = model.quantity;
+    }
   }
 
   /**
@@ -29,11 +34,10 @@ export class ItemArchmage extends Item {
 
     // Update uses left
     let uses = this.data.data.quantity?.value;
-    let newUses = uses;
+    let updateData = {};
     if (uses == null) {
-      await this._roll();
-    }
-    else {
+      return this._roll();
+    } else {
       if (uses == 0 && !event.shiftKey) {
         let use = false;
         new Dialog({
@@ -51,25 +55,105 @@ export class ItemArchmage extends Item {
           default: 'cancel',
           close: html => {
             if (use) {
-              this._roll();
+              return this._roll();
             }
           }
         }).render(true);
+      } else {
+        let rolled = await this._roll();
+        if (rolled) {
+          updateData._id = this.data._id;
+          updateData.data = {'quantity.value': Math.max(uses - 1, 0)};
+        }
+        if (!isObjectEmpty(updateData)) this.actor.updateOwnedItem(updateData);
+        return rolled;
       }
-      else {
-        await this._roll();
-        newUses = Math.max(uses - 1, 0);
-      }
-
-      await this.actor.updateOwnedItem({
-        _id: this.data._id,
-        data: {'quantity.value': newUses}
-      });
     }
-
   }
 
   async _roll() {
+    // Decrease resources if cost is set
+    let cost = this.data.data.cost?.value;
+    if (cost && game.settings.get("archmage", "automatePowerCost")) {
+      let updateData = {};
+      let filter = /^([0-9]*) ([a-zA-Z ]+)|([a-zA-Z ]+)$/;
+      let parsed = filter.exec(cost);
+      if (parsed) {
+        // Command points
+        if (parsed[2] && parsed[2].toLowerCase().includes("command point")
+            && this.actor.data.data.resources.perCombat.commandPoints.enabled) {
+          let costNum = Number(parsed[1]);
+          if (costNum > this.actor.data.data.resources.perCombat.commandPoints.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP"));
+            return false;
+          } else {
+            let path = 'data.resources.perCombat.commandPoints.current';
+            updateData[path] = this.actor.data.data.resources.perCombat.commandPoints.current - costNum;
+          }
+        }
+        // Ki
+        else if (parsed[2] && parsed[2].toLowerCase().includes("ki")
+            && this.actor.data.data.resources.spendable.ki.enabled) {
+          let costNum = Number(parsed[1]);
+          if (costNum > this.actor.data.data.resources.spendable.ki.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi"));
+            return false;
+          } else {
+            let path = 'data.resources.spendable.ki.current';
+            updateData[path] = this.actor.data.data.resources.perCombat.commandPoints.current - costNum;
+          }
+        }
+        // Momentum
+        else if (parsed[3] && parsed[3].toLowerCase() == "spend momentum"
+            && this.actor.data.data.resources.perCombat.momentum.enabled) {
+          if (!this.actor.data.data.resources.perCombat.momentum.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoMomentum"));
+            return false;
+          } else {
+            let path = 'data.resources.perCombat.momentum.current';
+            updateData[path] = false;
+          }
+        }
+        else if (parsed[3] && parsed[3].toLowerCase() == "have momentum"
+            && this.actor.data.data.resources.perCombat.momentum.enabled) {
+          if (!this.actor.data.data.resources.perCombat.momentum.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoMomentum"));
+            return false;
+          }
+        }
+        // Focus
+        else if (parsed[3] && parsed[3].toLowerCase() == "focus"
+            && this.actor.data.data.resources.perCombat.focus.enabled) {
+          if (!this.actor.data.data.resources.perCombat.focus.current) {
+            ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoFocus"));
+            return false;
+          } else {
+            let path = 'data.resources.perCombat.focus.current';
+            updateData[path] = false;
+          }
+        }
+        // Custom resources
+        for (let idx of ["1", "2", "3"]) {
+          let resourcePathName = "custom"+idx;
+          let resourceName = this.actor.data.data.resources.spendable[resourcePathName].label;
+          if (this.actor.data.data.resources.spendable[resourcePathName].enabled
+            && parsed[2] && parsed[1]
+            && this.actor.data.data.resources.spendable[resourcePathName].current !== null
+            && parsed[2].toLowerCase().includes(resourceName.toLowerCase())) {
+            let numUsed = Number(parsed[1]);
+            if (numUsed > this.actor.data.data.resources.spendable[resourcePathName].current) {
+              ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoCustomResource")+" "+resourceName);
+              return false;
+            } else {
+              let path = `data.resources.spendable.${resourcePathName}.current`;
+              updateData[path] = this.actor.data.data.resources.spendable[resourcePathName].current - numUsed;
+            }
+          }
+        }
+      }
+      if (!isObjectEmpty(updateData)) this.actor.update(updateData);
+    }
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = this.actor.token;
@@ -80,7 +164,6 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
-    console.log(templateData);
     //await ArchmageRolls.rollItem(this);
 
     // Basic chat message data

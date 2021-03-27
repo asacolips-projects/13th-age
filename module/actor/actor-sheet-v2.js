@@ -6,8 +6,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   constructor(...args) {
     super(...args);
 
-    console.log('tester');
-
     /**
      * If this Actor Sheet represents a synthetic Token actor, reference the active Token
      * @type {Token}
@@ -23,7 +21,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: 960,
       height: 960,
-      submitOnClose: false, // Avoid double submissions.
+      submitOnClose: true,
       submitOnChange: true,
       dragDrop: [{dragSelector: '.item-list .item', dropSelector: null}]
     });
@@ -52,11 +50,19 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let sheetData = this.getData();
     // Exit if Vue has already rendered.
     if (this._vm) {
-      if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
-      if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
-      if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
-      this._updateEditors($(this.form));
-      return;
+      let states = Application.RENDER_STATES;
+      if (this._state == states.RENDERING || this._state == states.RENDERED) {
+        if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
+        if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
+        if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
+        this._updateEditors($(this.form));
+        this.activateVueListeners($(this.form), true);
+        return;
+      }
+      else {
+        this._vm.$destroy();
+        this._vm = null;
+      }
     }
     // Run the normal Foundry render once.
     this._render(force, options).catch(err => {
@@ -126,6 +132,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    if (!this.options.editable) return;
+
     // CRUD listeners.
     html.on('click', '.item-create', (event) => this._createItem(event));
     html.on('click', '.item-delete', (event) => this._deleteItem(event));
@@ -147,8 +155,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     html.on('click', '.rest', (event) => this._onRest(event));
 
     // Item listeners.
-    html.on('click', '.power-uses', (event) => this._updateQuantity(event, true));
-    html.on('contextmenu', '.power-uses', (event) => this._updateQuantity(event, false));
+    html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
+    html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updateFeat(event));
   }
 
@@ -156,13 +164,22 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
    */
-  activateVueListeners(html) {
-    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+  activateVueListeners(html, repeat = false) {
+    if (!this.options.editable) {
+      html.find('input,select,textarea').attr('disabled', true);
+      return;
+    }
+
     this._dragHandler(html);
 
+    // Place one-time executions after this line.
+    if (repeat) return;
+
+    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+
     // Input listeners.
-    html.on('click', 'input[type="text"],input[type="number"]', (event) => this._onFocus(event));
-    html.on('focus', 'input[type="text"],input[type="number"]', (event) => this._onFocus(event));
+    let inputs = '.section input[type="text"], .section input[type="number"]';
+    html.on('focus', inputs, (event) => this._onFocus(event));
   }
 
   /* ------------------------------------------------------------------------ */
@@ -204,8 +221,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       img: img,
       data: data
     });
-
-    console.log(item);
   }
 
   /**
@@ -623,20 +638,20 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /* ------------------------------------------------------------------------ */
   /*  Special Listeners ----------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
-  async _updateFails(event, tp) {
+  async _updateFails(event, saveType) {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
 
     if (dataset.opt) {
       let count = Number(dataset.opt);
-      if (count == this.actor.data.data.attributes.saves[tp].value) {
+      if (count == this.actor.data.data.attributes.saves[saveType].value) {
         count = Math.max(0, count - 1);
       }
       let updateData = {};
-      let path = `data.attributes.saves.${tp}.value`;
+      let path = `data.attributes.saves.${saveType}.value`;
       updateData[path] = count;
-      await this.actor.update(updateData);
+      let update = await this.actor.update(updateData);
     }
   }
 
@@ -800,7 +815,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   _onFocus(event) {
     let target = event.currentTarget;
-    console.log(target);
     setTimeout(function() {
       $(target).select();
     }, 200);
