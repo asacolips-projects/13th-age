@@ -619,20 +619,20 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /* ------------------------------------------------------------------------ */
   /*  Special Listeners ----------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
-  async _updateFails(event, tp) {
+  async _updateFails(event, saveType) {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
 
     if (dataset.opt) {
       let count = Number(dataset.opt);
-      if (count == this.actor.data.data.attributes.saves[tp].value) {
+      if (count == this.actor.data.data.attributes.saves[saveType].value) {
         count = Math.max(0, count - 1);
       }
       let updateData = {};
-      let path = `data.attributes.saves.${tp}.value`;
+      let path = `data.attributes.saves.${saveType}.value`;
       updateData[path] = count;
-      await this.actor.update(updateData);
+      let update = await this.actor.update(updateData);
     }
   }
 
