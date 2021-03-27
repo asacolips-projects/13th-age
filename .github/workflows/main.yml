@@ -47,7 +47,17 @@ jobs:
         download: https://patreon.azurewebsites.net/api/download/toolkit13/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     # create a zip file with all files required by the system to add to the release
-    - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
+    - run: zip -r ./release/system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
+
+    - name: Copy file
+      # You may pin to the exact commit or the version.
+      # uses: canastro/copy-action@7ddff6fc153a2ea2cd0fb88ed9750544c051e399
+      uses: canastro/copy-action@0.0.2
+      with:
+        # Source file
+        source: 'system.json'
+        # Target file
+        target: './release/system.json'
 
     # Create a release for this specific version
     - name: Create Release
@@ -59,7 +69,7 @@ jobs:
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './system.json,./system.zip'
+        artifacts: './release/system.json,./release/system.zip'
         
     - name: azure-blob-copy-action
       # You may pin to the exact commit or the version.
@@ -75,8 +85,4 @@ jobs:
         # Directory in Azure to copy from or to
         blob_directory: ${{ steps.get_version.outputs.VERSION }}
         # Local directory to copy from or to; this can either be an absolute path or a relative path
-        local_directory: .
-        # YAML document that allows setting http headers on blobs when uploading to Azure.
-        http_headers: |
-          - glob: "system.json"
-          - glob: "system.zip"
+        local_directory: ./release

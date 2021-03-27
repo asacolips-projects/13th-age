@@ -223,6 +223,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'automatePowerCost', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'originalCritDamage', {
     name: 'Double damage result on critical hit',
     hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
@@ -921,7 +930,7 @@ Hooks.on('deleteCombat', (combat) => {
   // Clear the escalation die.
   $('.archmage-escalation').addClass('hide');
 
-  // Clear out death saves.
+  // Clear out death saves, per combat resources and temp HP.
   let combatants = combat.data.combatants;
   if (combatants) {
     // Retrieve the character actors.
@@ -937,6 +946,7 @@ Hooks.on('deleteCombat', (combat) => {
         if (actor) {
           let updates = {};
           updates['data.attributes.saves.deathFails.value'] = 0;
+          updates['data.attributes.hp.temp'] = 0;
           for (let k of Object.keys(actor.data.data.resources.perCombat)) {
             updates[`data.resources.perCombat.${k}.current`] = 0;
           }

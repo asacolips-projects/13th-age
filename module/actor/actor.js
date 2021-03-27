@@ -256,59 +256,6 @@ export class ActorArchmage extends Actor {
 
       data.coins.showRare = false;
 
-
-      // Resources
-
-      if (!data.resources) {
-        data.resources = {
-        };
-      }
-      if (!data.resources.perCombat) {
-        data.resources.perCombat = {
-          commandPoints: {
-            current: 0,
-            enabled: false
-          },
-          momentum: {
-            current: 0,
-            enabled: false
-          },
-          focus: {
-            current: 0,
-            enabled: false
-          }
-        };
-      }
-      if (!data.resources.spendable) {
-        data.resources.spendable = {
-          ki: {
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom1: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom2: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom3: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-        };
-      }
-
-
-
       // Set an attribute for weapon damage.
       if (data.attributes.weapon === undefined) {
         data.attributes.weapon = {
@@ -435,6 +382,11 @@ export class ActorArchmage extends Actor {
       }
     }
 
+    // Handle one unique thing.
+    if (!data.details.out.value && data.out.value) {
+      if (data.out.value.length > 0) data.details.out.value = data.out.value;
+      delete data.out;
+    }
 
     // Find known classes
     if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
@@ -449,16 +401,29 @@ export class ActorArchmage extends Actor {
       data.details.detectedClasses = matchedClasses;
     }
 
+    // Fallbacks for missing custom resources
+    if (!data.resources) {
+      data.resources = model.resources;
+    }
+    if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
+    if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
+    if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
+
     // Enable resources based on detected classes
-    if (data.details.detectedClasses && data.resources) {
+    if (data.details.detectedClasses) {
       if (data.resources.perCombat) {
+        // Momentum
+        if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+        // Command Points
+        if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-        // Handle focus.
+        // Focus
         if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
         data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
+        if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
         data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
       }
     }
@@ -704,24 +669,6 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
 
-    // Resources
-    // if (this.data.data.resources.perCombat.commandPoints.enabled
-      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
-      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
-      // });
-    // }
-    // if (this.data.data.resources.perCombat.momentum.enabled
-      // && this.data.data.resources.perCombat.momentum.current) {
-      // updateData['data.resources.perCombat.momentum.current'] = false;
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
-      // });
-    // }
-
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
       this.update(updateData);
@@ -796,22 +743,6 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
 
     // Resources
-    // if (this.data.data.resources.perCombat.commandPoints.enabled
-      // && this.data.data.resources.perCombat.commandPoints.current != 1) {
-      // updateData['data.resources.perCombat.commandPoints.current'] = "1";
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.CmdPtsReset")
-      // });
-    // }
-    // if (this.data.data.resources.perCombat.momentum.enabled
-      // && this.data.data.resources.perCombat.momentum.current) {
-      // updateData['data.resources.perCombat.momentum.current'] = false;
-      // templateData.resources.push({
-        // key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum"),
-        // message: game.i18n.localize("ARCHMAGE.CHAT.MomentReset")
-      // });
-    // }
     if (this.data.data.resources.spendable.ki.enabled
       && this.data.data.resources.spendable.ki.current < this.data.data.resources.spendable.ki.max) {
       updateData['data.resources.spendable.ki.current'] = this.data.data.resources.spendable.ki.max;
@@ -819,6 +750,20 @@ export class ActorArchmage extends Actor {
         key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.data.data.resources.spendable.ki.max}`
       });
+    }
+    for (let idx of ["1", "2", "3"]) {
+      let resourcePathName = "custom"+idx;
+      let resourceName = this.data.data.resources.spendable[resourcePathName].label;
+      let curr = this.data.data.resources.spendable[resourcePathName].current;
+      let max = this.data.data.resources.spendable[resourcePathName].max;
+      if (this.data.data.resources.spendable[resourcePathName].enabled && max && max && curr < max) {
+        let path = `data.resources.spendable.${resourcePathName}.current`;
+        updateData[path] = max;
+        templateData.resources.push({
+          key: resourceName,
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${max}`
+        });
+      }
     }
 
     // Update actor at this point (items are updated separately)
