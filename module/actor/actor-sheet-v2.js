@@ -50,11 +50,18 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let sheetData = this.getData();
     // Exit if Vue has already rendered.
     if (this._vm) {
-      if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
-      if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
-      if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
-      this._updateEditors($(this.form));
-      return;
+      let states = Application.RENDER_STATES;
+      if (this._state == states.RENDERING || this._state == states.RENDERED) {
+        if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
+        if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
+        if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
+        this._updateEditors($(this.form));
+        return;
+      }
+      else {
+        this._vm.$destroy();
+        this._vm = null;
+      }
     }
     // Run the normal Foundry render once.
     this._render(force, options).catch(err => {
