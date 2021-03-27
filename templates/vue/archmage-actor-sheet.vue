@@ -1,5 +1,5 @@
 <template>
-<div class="archmage-v2-vue flexcol">
+<div :class="concat('archmage-v2-vue flexcol ', nightmode)">
 
   <!-- Top group -->
   <section class="container container--top flexcol">
@@ -30,16 +30,16 @@
       <!-- Class resources -->
       <archmage-actor-c-resources :actor="actor"></archmage-actor-c-resources>
       <!-- Tabs -->
-      <archmage-actor-c-tabs :actor="actor" group="primary" :tabs="tabs.primary"></archmage-actor-c-tabs>
+      <archmage-actor-c-tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"></archmage-actor-c-tabs>
 
       <!-- Tabs content -->
       <section class="section section--tabs-content flexcol">
         <!-- Details tab -->
-        <archmage-actor-c-details :actor="actor" :owner="owner" :tab="tabs.primary.details"></archmage-actor-c-details>
+        <archmage-actor-c-details :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"></archmage-actor-c-details>
         <!-- Powers tab -->
-        <archmage-actor-c-powers :actor="actor" :tab="tabs.primary.powers"></archmage-actor-c-powers>
+        <archmage-actor-c-powers :actor="actor" :tab="tabs.primary.powers" :flags="flags"></archmage-actor-c-powers>
         <!-- Inventory tab -->
-        <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory"></archmage-actor-c-inventory>
+        <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"></archmage-actor-c-inventory>
         <!-- Effects tab -->
         <!-- <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects"></archmage-actor-c-effects> -->
         <!-- Settings tab -->
@@ -75,7 +75,30 @@ export default {
     }
   },
   methods: {},
-  computed: {},
+  computed: {
+    nightmode() {
+      let flags = this.actor.flags ? this.actor.flags.archmage : null;
+      return flags && flags.nightmode ? 'nightmode' : '';
+    },
+    flags() {
+      let flags = this.actor.flags ? this.actor.flags.archmage : {};
+      let baseFlags = {
+        'sheetDisplay': {
+          'powers': {
+            'groupBy': {'value': 'powerType'},
+            'sortBy': {'value': 'custom'}
+          },
+          'inventory': {
+            'sortBy': {'value': 'custom'}
+          },
+          'tabs': {
+            'primary': {'value': 'powers'}
+          },
+        }
+      }
+      return mergeObject(baseFlags, flags);
+    }
+  },
   watch: {
     // actor: {
     //   deep: true,

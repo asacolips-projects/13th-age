@@ -88,6 +88,8 @@ Actor:
           value: 1
           min: 0
           max: 10
+        disengage: 11
+        disengageBonus: 0
         saves:
           easy: 6
           normal: 11
@@ -316,12 +318,32 @@ Actor:
       perCombat:
         momentum:
           enabled: false
+          current: false
         commandPoints:
           enabled: false
+          current: 0
         focus:
           enabled: false
+          current: false
       spendable:
         ki:
+          enabled: false
+          current: 0
+          max: 0
+        custom1:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+        custom2:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+        custom3:
+          label: ""
+          current: 0
+          max: 0
           enabled: false
     incrementals:
       abilityScoreBonus: false
@@ -374,6 +396,15 @@ Item:
       description:
         type: String
         label: Description
+    spendable:
+      quantity:
+        type: Number
+        label: Quantity
+        value: 0
+      price:
+        type: Number
+        label: Price
+        value: 0
   power:
     templates:
       - standard
@@ -591,9 +622,11 @@ Item:
   tool:
     templates:
       - standard
+      - spendable
   loot:
     templates:
       - standard
+      - spendable
   equipment:
     templates:
       - standard

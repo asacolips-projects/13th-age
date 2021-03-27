@@ -37,10 +37,10 @@
     cursor: pointer;
 
     &[data-roll="0"] {
-      color: $c-white;
+      color: transparent;
 
       &:hover {
-        color: $c-blue;
+        color: transparent;
       }
     }
 

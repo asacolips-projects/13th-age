@@ -1,6 +1,10 @@
 .window-content {
-  background: url('#{$assets}/paper-v2.webp');
-  background-size: cover;
+  padding: 0;
+
+  .archmage-v2-vue {
+    background: url('#{$assets}/paper-v2.webp');
+    background-size: cover;
+  }
 
   > form,
   .archmage-v2-vue,
@@ -22,6 +26,9 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-right: $padding-sm;
+    scrollbar-color: $c-blue transparent;
+    scrollbar-width: thin;
   }
 
   /* ----------------------------------------- */
