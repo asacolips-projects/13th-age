@@ -383,8 +383,9 @@ export class ActorArchmage extends Actor {
     }
 
     // Handle one unique thing.
-    if (!data.details.out.value && data.out.value) {
+    if (!data.details.out.value && data?.out?.value) {
       if (data.out.value.length > 0) data.details.out.value = data.out.value;
+
       delete data.out;
     }
 
@@ -402,9 +403,8 @@ export class ActorArchmage extends Actor {
     }
 
     // Fallbacks for missing custom resources
-    if (!data.resources) {
-      data.resources = model.resources;
-    }
+    if (!data.resources) data.resources = model.resources;
+    if (!data.resources.spendable) data.resources.spendable = model.resources.spendable;
     if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
     if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
     if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
@@ -429,15 +429,18 @@ export class ActorArchmage extends Actor {
     }
 
     // Handle death saves.
-    if (!data.attributes.saves || !data.attributes.saves.lastGasp) {
-      data.attributes.saves = model.attributes.saves;
-    }
+    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
+    if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
+    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
 
+    // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
     data.attributes.saves.deathFails.steps = [false, false, false, false];
     for (let i = 0; i < deathCount; i++) {
       data.attributes.saves.deathFails.steps[i] = true;
     }
+
+    // Update last gasp save count.
     let lastGaspsCount = data.attributes.saves.lastGaspFails.value;
     data.attributes.saves.lastGaspFails.steps = [false, false, false, false];
     for (let i = 0; i < lastGaspsCount; i++) {
