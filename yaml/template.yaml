@@ -316,12 +316,32 @@ Actor:
       perCombat:
         momentum:
           enabled: false
+          current: false
         commandPoints:
           enabled: false
+          current: 0
         focus:
           enabled: false
+          current: false
       spendable:
         ki:
+          enabled: false
+          current: 0
+          max: 0
+        custom1:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+        custom2:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+        custom3:
+          label: ""
+          current: 0
+          max: 0
           enabled: false
     incrementals:
       abilityScoreBonus: false

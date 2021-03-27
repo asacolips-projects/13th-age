@@ -257,8 +257,7 @@ export class ActorArchmage extends Actor {
       data.coins.showRare = false;
 
 
-      // Resources
-
+      // Resources - fallback if template migration somehow fails
       if (!data.resources) {
         data.resources = {
         };
@@ -306,8 +305,6 @@ export class ActorArchmage extends Actor {
           },
         };
       }
-
-
 
       // Set an attribute for weapon damage.
       if (data.attributes.weapon === undefined) {
@@ -449,16 +446,28 @@ export class ActorArchmage extends Actor {
       data.details.detectedClasses = matchedClasses;
     }
 
+    // Fallbacks for missing custom resources
+    if (!data.resources) {
+      data.resources = model.resources;
+    }
+    if (!data.resources.spendable.custom1) {
+      data.resources.spendable = model.resources.spendable;
+    }
     // Enable resources based on detected classes
-    if (data.details.detectedClasses && data.resources) {
+    if (data.details.detectedClasses) {
       if (data.resources.perCombat) {
+        // Momentum
+        if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+        // Command Points
+        if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-        // Handle focus.
+        // Focus
         if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
         data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
+        if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
         data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
       }
     }
