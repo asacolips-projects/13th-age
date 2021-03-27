@@ -256,59 +256,6 @@ export class ActorArchmage extends Actor {
 
       data.coins.showRare = false;
 
-
-      // Resources
-
-      if (!data.resources) {
-        data.resources = {
-        };
-      }
-      if (!data.resources.perCombat) {
-        data.resources.perCombat = {
-          commandPoints: {
-            current: 0,
-            enabled: false
-          },
-          momentum: {
-            current: 0,
-            enabled: false
-          },
-          focus: {
-            current: 0,
-            enabled: false
-          }
-        };
-      }
-      if (!data.resources.spendable) {
-        data.resources.spendable = {
-          ki: {
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom1: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom2: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom3: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-        };
-      }
-
-
-
       // Set an attribute for weapon damage.
       if (data.attributes.weapon === undefined) {
         data.attributes.weapon = {
@@ -454,16 +401,29 @@ export class ActorArchmage extends Actor {
       data.details.detectedClasses = matchedClasses;
     }
 
+    // Fallbacks for missing custom resources
+    if (!data.resources) {
+      data.resources = model.resources;
+    }
+    if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
+    if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
+    if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
+
     // Enable resources based on detected classes
-    if (data.details.detectedClasses && data.resources) {
+    if (data.details.detectedClasses) {
       if (data.resources.perCombat) {
+        // Momentum
+        if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
         data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+        // Command Points
+        if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
         data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-        // Handle focus.
+        // Focus
         if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
         data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
       }
       if (data.resources.spendable) {
+        if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
         data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
       }
     }
