@@ -438,6 +438,7 @@ export class ActorArchmage extends Actor {
     // Handle one unique thing.
     if (!data.details.out.value && data.out.value) {
       if (data.out.value.length > 0) data.details.out.value = data.out.value;
+      delete data.out;
     }
 
     // Find known classes
