@@ -21,7 +21,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: 960,
       height: 960,
-      submitOnClose: false, // Avoid double submissions.
+      submitOnClose: true,
       submitOnChange: true,
       dragDrop: [{dragSelector: '.item-list .item', dropSelector: null}]
     });
@@ -56,6 +56,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
         if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
         this._updateEditors($(this.form));
+        this.activateVueListeners($(this.form), true);
         return;
       }
       else {
@@ -131,6 +132,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    if (!this.options.editable) return;
+
     // CRUD listeners.
     html.on('click', '.item-create', (event) => this._createItem(event));
     html.on('click', '.item-delete', (event) => this._deleteItem(event));
@@ -161,13 +164,22 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
    */
-  activateVueListeners(html) {
-    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+  activateVueListeners(html, repeat = false) {
+    if (!this.options.editable) {
+      html.find('input,select,textarea').attr('disabled', true);
+      return;
+    }
+
     this._dragHandler(html);
 
+    // Place one-time executions after this line.
+    if (repeat) return;
+
+    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+
     // Input listeners.
-    html.on('click', 'input[type="text"],input[type="number"]', (event) => this._onFocus(event));
-    html.on('focus', 'input[type="text"],input[type="number"]', (event) => this._onFocus(event));
+    let inputs = '.section input[type="text"], .section input[type="number"]';
+    html.on('focus', inputs, (event) => this._onFocus(event));
   }
 
   /* ------------------------------------------------------------------------ */

@@ -88,6 +88,8 @@ Actor:
           value: 1
           min: 0
           max: 10
+        disengage: 11
+        disengageBonus: 0
         saves:
           easy: 6
           normal: 11
