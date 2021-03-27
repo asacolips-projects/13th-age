@@ -10,8 +10,8 @@
     <!-- Sorts and filters. -->
     <header class="equipment-filters flexrow">
       <div class="sort-equipment">
-        <label for="equipment-sort">{{localize('ARCHMAGE.sort')}}</label>
-        <select name="equipment-sort" v-model="sortBy">
+        <label for="flags.archmage.sheetDisplay.inventory.sortBy.value">{{localize('ARCHMAGE.sort')}}</label>
+        <select name="flags.archmage.sheetDisplay.inventory.sortBy.value" v-model="flags.sheetDisplay.inventory.sortBy.value">
           <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
         </select>
       </div>
@@ -73,7 +73,7 @@
 
 <script>
 export default {
-  props: ['actor', 'tab'],
+  props: ['actor', 'tab', 'flags'],
   data: function() {
     return {
       equipment: [],
@@ -82,7 +82,6 @@ export default {
         { value: 'name', label: 'Name' },
         // { value: 'chakra', label: 'Chakra' } // TODO: Add this after fixing the typo in the template.
       ],
-      sortBy: 'custom',
       searchValue: null,
       activeEquipment: {},
       currency: [
@@ -94,6 +93,9 @@ export default {
     }
   },
   computed: {
+    sortBy() {
+      return this.flags.sheetDisplay.inventory.sortBy.value ? this.flags.sheetDisplay.inventory.sortBy.value : 'custom';
+    },
     draggable() {
       return this.sortBy == 'custom' ? true : false;
     },

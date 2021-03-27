@@ -3,14 +3,14 @@
     <!-- Sorts and filters. -->
     <header class="power-filters flexrow">
       <div class="group-powers">
-        <label for="power-group">{{localize('ARCHMAGE.groupBy')}}</label>
-        <select name="power-group" v-model="groupBy">
+        <label for="flags.archmage.sheetDisplay.powers.groupBy.value">{{localize('ARCHMAGE.groupBy')}}</label>
+        <select name="flags.archmage.sheetDisplay.powers.groupBy.value" v-model="flags.sheetDisplay.powers.groupBy.value">
           <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.',option.value))}}</option>
         </select>
       </div>
       <div class="sort-powers">
-        <label for="power-sort">{{localize('ARCHMAGE.sort')}}</label>
-        <select name="power-sort" v-model="sortBy">
+        <label for="flags.archmage.sheetDisplay.powers.sortBy.value">{{localize('ARCHMAGE.sort')}}</label>
+        <select name="flags.archmage.sheetDisplay.powers.sortBy.value" v-model="flags.sheetDisplay.powers.sortBy.value">
           <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.',option.value))}}</option>
         </select>
       </div>
@@ -45,7 +45,7 @@
       <ul class="power-group-content flexcol">
         <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable power header. -->
-          <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'))">
+          <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'), (power.data.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
             <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
             <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
               <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
@@ -64,6 +64,7 @@
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
             </div>
+            <div v-if="power.data.trigger.value" class="power-trigger"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.data.trigger.value}}</div>
           </div>
           <!-- Expanded power content. -->
           <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
@@ -77,7 +78,7 @@
 
 <script>
 export default {
-  props: ['actor', 'tab'],
+  props: ['actor', 'tab', 'flags'],
   data: function() {
     return {
       powers: [],
@@ -88,18 +89,22 @@ export default {
         { value: 'powerSource', label: 'Class/Race/Item' },
         { value: 'group', label: 'Custom Groups' },
       ],
-      groupBy: 'powerType',
       sortOptions: [
         { value: 'custom', label: 'Custom' },
         { value: 'name', label: 'Name' },
         { value: 'level', label: 'Level' }
       ],
-      sortBy: 'custom',
       searchValue: null,
       activePowers: {}
     }
   },
   computed: {
+    groupBy() {
+      return this.flags.sheetDisplay.powers.groupBy.value ? this.flags.sheetDisplay.powers.groupBy.value : 'powerType';
+    },
+    sortBy() {
+      return this.flags.sheetDisplay.powers.sortBy.value ? this.flags.sheetDisplay.powers.sortBy.value : 'custom';
+    },
     draggable() {
       return this.sortBy == 'custom' ? true : false;
     },
@@ -139,6 +144,9 @@ export default {
       else {
         groups['power'] = 'Power';
       }
+      // Handle the fallback group.
+      if (!groups['other']) groups['other'] = `ARCHMAGE.other`;
+      // Return clean groups.
       return groups;
     },
     /**

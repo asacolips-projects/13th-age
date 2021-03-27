@@ -64,6 +64,8 @@ export class ActorArchmage extends Actor {
     const data = actorData.data;
     const flags = actorData.flags;
 
+    // Initialize the model for data calculations.
+    let model = game.system.model.Actor[actorData.type];
 
     // Prepare Character data
     if (actorData.type === 'character') {
@@ -154,8 +156,7 @@ export class ActorArchmage extends Actor {
     if (flags.archmage) {
       improvedInit = flags.archmage.improvedIniative ? 4 : 0;
     }
-    data.attributes.init.mod = data.abilities.dex.mod + (data.attributes.init.value || 0) + improvedInit + data.attributes.level.value;
-    // data.attributes.ac.min = 10 + data.abilities.dex.mod;
+    data.attributes.init.mod = data.abilities.dex.mod + (data.attributes.init.value || 0) + improvedInit + (data.attributes.level.value || 0);
 
     // Set a copy of level in details in order to mimic 5e's data structure.
     data.details.level = data.attributes.level;
@@ -182,12 +183,11 @@ export class ActorArchmage extends Actor {
         return num;
       }
 
-      data.attributes.save = {
-        easy: minimumOf0(6 - saveBonus),
-        normal: minimumOf0(11 - saveBonus),
-        hard: minimumOf0(16 - saveBonus)
-      };
+      if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
 
+      data.attributes.saves.easy = minimumOf0(6 - saveBonus);
+      data.attributes.saves.normal = minimumOf0(11 - saveBonus);
+      data.attributes.saves.hard = minimumOf0(16 - saveBonus);
       data.attributes.disengage = minimumOf0(11 - disengageBonus - (data.attributes?.disengageBonus ?? 0));
 
       data.attributes.ac.value = Number(data.attributes.ac.base) + Number(median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod])) + Number(data.attributes.level.value) + Number(acBonus);

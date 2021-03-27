@@ -10,8 +10,7 @@ export default {
   data: function () {
     return {}
   },
-  computed: {
-  },
+  computed: {},
   methods: {},
   watch: {},
   async created() {
