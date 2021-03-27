@@ -161,6 +161,7 @@
     color: $c-white;
     text-shadow: 0 0 10px rgba($c-black, 0.5);
     margin: 0 0 1px 0;
+    position: relative;
 
     .rollable,
     a {
@@ -219,6 +220,59 @@
     .feat-pip,
     .power-uses {
       cursor: pointer;
+    }
+  }
+
+  .power-summary--trigger {
+    .power-trigger {
+      display: none;
+      position: absolute;
+      top: 100%;
+      min-width: 300px;
+      max-width: 450px;
+      padding: $padding-md;
+      font-family: $font-stack-base;
+      font-size: $font-xs;
+      background: $c-white;
+      color: $c-black;
+      border: $c-black;
+      margin: $padding-sm $padding-md $padding-md;
+      box-shadow: 0 0 $padding-md $ct-border;
+      text-shadow: none;
+      left: 0;
+      pointer-events: none;
+      text-align: left;
+      border-radius: $padding-sm;
+      border: 1px solid $ct-border;
+      z-index: 98;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background: $c-white;
+        width: 16px;
+        height: 16px;
+        top: -9px;
+        left: 30px;
+        transform: rotate(45deg);
+        border: 1px solid $ct-border;
+        border-bottom: 0;
+        border-right: 0;
+        z-index: 99;
+      }
+    }
+
+    &:hover {
+      .power-trigger {
+        display: block;
+      }
+    }
+
+    &.active:hover {
+      .power-trigger {
+        display: none;
+      }
     }
   }
 

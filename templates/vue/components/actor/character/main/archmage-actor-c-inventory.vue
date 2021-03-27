@@ -10,6 +10,7 @@
     <!-- Sorts and filters. -->
     <header class="equipment-filters flexrow">
       <div class="sort-equipment">
+        <input type="hidden" name="flags.archmage.sheetDisplay.inventory.sortBy.value" v-model="sortBy"/>
         <label for="equipment-sort">{{localize('ARCHMAGE.sort')}}</label>
         <select name="equipment-sort" v-model="sortBy">
           <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
@@ -73,7 +74,7 @@
 
 <script>
 export default {
-  props: ['actor', 'tab'],
+  props: ['actor', 'tab', 'flags'],
   data: function() {
     return {
       equipment: [],
@@ -259,6 +260,7 @@ export default {
   },
   async mounted() {
     this.getEquipment();
+    this.sortBy = this.flags.sheetDisplay.inventory.sortBy.value ? this.flags.sheetDisplay.inventory.sortBy.value : 'custom';
   }
 }
 </script>

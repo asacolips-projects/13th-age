@@ -1,8 +1,11 @@
+$bg-night: #292929;
+$bx-night: inset 0 0 100px 0 #191919;
+
 .archmage-v2.sheet .window-content {
   .archmage-v2-vue.nightmode {
     // background-image: url('#{$assets}/paper-v2-nightmode.webp');
-    background: #292929;
-    box-shadow: inset 0 0 100px 0 #191919;
+    background: $bg-night;
+    box-shadow: $bx-night;
     color: $c-white;
 
     .notes {
@@ -143,6 +146,13 @@
 
     .unit--currency-copper {
       color: #c17a58;
+    }
+
+    .power-trigger,
+    .power-trigger::before {
+      background: #111 !important;
+      color: $c-white !important;
+      border-color: $ct-border-night !important;
     }
   }
 }
