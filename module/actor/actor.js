@@ -256,56 +256,6 @@ export class ActorArchmage extends Actor {
 
       data.coins.showRare = false;
 
-
-      // Resources - fallback if template migration somehow fails
-      if (!data.resources) {
-        data.resources = {
-        };
-      }
-      if (!data.resources.perCombat) {
-        data.resources.perCombat = {
-          commandPoints: {
-            current: 0,
-            enabled: false
-          },
-          momentum: {
-            current: 0,
-            enabled: false
-          },
-          focus: {
-            current: 0,
-            enabled: false
-          }
-        };
-      }
-      if (!data.resources.spendable) {
-        data.resources.spendable = {
-          ki: {
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom1: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom2: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-          custom3: {
-            label: "",
-            current: 0,
-            max: 0,
-            enabled: false
-          },
-        };
-      }
-
       // Set an attribute for weapon damage.
       if (data.attributes.weapon === undefined) {
         data.attributes.weapon = {
