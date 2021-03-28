@@ -17,6 +17,15 @@ import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs
 
 Hooks.once('init', async function() {
 
+  // First, determine if the dependency modules are enabled.
+  let modules = {};
+  modules.dlopen = game.modules.get('dlopen');
+  modules.vueport = game.modules.get('vueport');
+  let dependencies = Boolean(modules.dlopen && modules.dlopen.active) && Boolean(modules.vueport && modules.vueport.active);
+
+  // As a failsafe, determine whether or not Dlopen is available.
+  if (typeof Dlopen === 'undefined') dependencies = false;
+
   // CONFIG.debug.hooks = true;
 
   String.prototype.safeCSSId = function() {
@@ -100,7 +109,7 @@ Hooks.once('init', async function() {
   Actors.registerSheet('archmage', ActorArchmageSheet, {
     label: "V1 Character Sheet",
     types: ["character"],
-    makeDefault: true
+    makeDefault: !dependencies ? true : false
   });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
@@ -109,12 +118,25 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
-  // V2 actor sheet (See issue #118).
-  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-    label: "V2 Character Sheet",
-    types: ["character"],
-    makeDefault: false
+  // Register a setting for prompting the GM to enable dependencies.
+  game.settings.register('archmage', 'dependencyPrompt', {
+    scope: 'world',
+    config: false,
+    default: true,
+    type: Boolean
   });
+
+  if (dependencies) {
+    // V2 actor sheet (See issue #118).
+    Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+      label: "V2 Character Sheet",
+      types: ["character"],
+      makeDefault: true
+    });
+    // Reset the prompt.
+    let prompt = game.settings.get('archmage', 'dependencyPrompt');
+    if (!prompt) game.settings.set('archmage', 'dependencyPrompt', true);
+  }
 
   /* -------------------------------------------- */
   CONFIG.Actor.characterFlags = {
@@ -381,44 +403,12 @@ Hooks.once('init', async function() {
     CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
   }
 
-  // Dlopen.register('vue-select', {
-  //   scripts: [
-  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
-  //       "https://unpkg.com/vue-select@3.0.0"
-  //   ],
-  //   styles: [
-  //       "https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
-  //   ],
-  //   dependencies: [],
-  //   init: () => Vue.component("v-select", VueSelect.default)
-  // });
-
-  // Dlopen.register('vue-numeric-input', {
-  //   scripts: [
-  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
-  //       "https://unpkg.com/vue-numeric-input"
-  //   ],
-  //   styles: [],
-  //   dependencies: [],
-  //   init: () => Vue.component(VueNumericInput.default.name, VueNumericInput.default)
-  // });
-
-  // Dlopen.register('vue-wysiwyg', {
-  //   scripts: [
-  //       // "https://unpkg.com/classnames@2.2.6/index.js", // can't load it this way because of the classnames/classNames issue in the file definition
-  //       "https://unpkg.com/vue-wysiwyg"
-  //   ],
-  //   styles: [],
-  //   dependencies: [],
-  //   // init: () => Vue.component('v-wysiwyg', vueWysiwyg.default)
-  //   init: () => Vue.use(vueWysiwyg, {})
-  // });
-
-  // Define dependency on our own custom vue components for when we need it
-  Dlopen.register('actor-sheet', {
-    scripts: "/systems/archmage/dist/vue-components.min.js",
-    // dependencies: [ "vue-select", "vue-numeric-input" ]
-  });
+  if (dependencies) {
+    // Define dependency on our own custom vue components for when we need it
+    Dlopen.register('actor-sheet', {
+      scripts: "/systems/archmage/dist/vue-components.min.js",
+    });
+  }
 });
 
 Hooks.on('createItem', (data, options, id) => {
@@ -449,14 +439,51 @@ Hooks.once('ready', () => {
 
   $('.message').off("contextmenu");
 
-  // Preload Vue dependencies.
-  Dlopen.loadDependencies([
-    'vue',
-    // 'vue-select',
-    // 'vue-numeric-input',
-    // 'vue-wysiwyg',
-    'actor-sheet'
-  ]);
+  let modules = {};
+  modules.dlopen = game.modules.get('dlopen');
+  modules.vueport = game.modules.get('vueport');
+
+  let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
+
+  let gm = game.user.isGM;
+  let prompt = game.settings.get('archmage', 'dependencyPrompt');
+
+  // If the modules don't exist, warn the user.
+  if (!dependencies) {
+    if (gm) {
+      ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errDependency'));
+    }
+  }
+  else {
+    // If the modules exist but aren't enabled, prompt the user.
+    if ((modules.dlopen && !modules.dlopen.active) || (modules.vueport && !modules.vueport.active)) {
+      if (prompt && gm) {
+        Dialog.confirm({
+          title: game.i18n.format('ARCHMAGE.UI.enableDependencies'),
+          content: game.i18n.format('ARCHMAGE.UI.dependencyContent'),
+          yes: () => {
+            let moduleSettings = game.settings.get('core', 'moduleConfiguration');
+            moduleSettings['dlopen'] = true;
+            moduleSettings['vueport'] = true;
+            game.settings.set('core', 'moduleConfiguration', moduleSettings);
+          }
+        });
+        // Prevent repeated prompts on subsequent loads.
+        game.settings.set('archmage', 'dependencyPrompt', false);
+      }
+    }
+    else {
+      // If Dlopen is present, load the dependencies.
+      if (typeof Dlopen !== 'undefined') {
+        // Preload Vue dependencies.
+        Dlopen.loadDependencies([
+          'vue',
+          'actor-sheet'
+        ]);
+      }
+    }
+  }
+
 
 });
 
