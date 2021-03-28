@@ -12,6 +12,9 @@
     </header>
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="power-details flexcol">
+      <div v-if="power.data.description.value" class="power-detail power-detail--description">
+        <span class="power-detail-value" v-html="power.data.description.value"></span>
+      </div>
       <div class="power-detail" v-for="field in powerDetailFields" :key="field">
         <strong class="power-detail-label">{{power.data[field].label}}:</strong> <span class="power-detail-value" v-html="power.data[field].value"></span>
       </div>

@@ -336,6 +336,16 @@
     }
   }
 
+  .power-detail--description {
+    margin: $padding-md 0;
+
+    .power-detail-value {
+      > * {
+        padding-left: 0;
+      }
+    }
+  }
+
   .power-feat {
     background: $c-feat;
     margin-bottom: 2px;
