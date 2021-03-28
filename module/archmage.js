@@ -102,7 +102,7 @@ Hooks.once('init', async function() {
   Actors.registerSheet('archmage', ActorArchmageSheet, {
     label: "V1 Character Sheet",
     types: ["character"],
-    makeDefault: true
+    makeDefault: !dependencies ? true : false
   });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
@@ -116,7 +116,7 @@ Hooks.once('init', async function() {
     Actors.registerSheet("archmage", ActorArchmageSheetV2, {
       label: "V2 Character Sheet",
       types: ["character"],
-      makeDefault: false
+      makeDefault: true
     });
   }
 
@@ -432,42 +432,47 @@ Hooks.once('ready', () => {
   modules.dlopen = game.modules.get('dlopen');
   modules.vueport = game.modules.get('vueport');
 
+  let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
+
   let gm = game.user.isGM;
   let prompt = game.settings.get('archmage', 'dependencyPrompt');
 
   // If the modules don't exist, warn the user.
-  if (!modules.dlopen || !modules.vueport) {
+  if (!dependencies) {
     if (gm) {
       ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errDependency'));
     }
   }
-
-  // If the modules exist but aren't enabled, prompt the user.
-  if ((modules.dlopen && !modules.dlopen.active) || (modules.vueport && !modules.vueport.active)) {
-    if (prompt) {
-      Dialog.confirm({
-        title: game.i18n.format('ARCHMAGE.UI.enableDependencies'),
-        content: game.i18n.format('ARCHMAGE.UI.dependencyContent'),
-        yes: () => {
-          let moduleSettings = game.settings.get('core', 'moduleConfiguration');
-          moduleSettings['dlopen'] = true;
-          moduleSettings['vueport'] = true;
-          game.settings.set('core', 'moduleConfiguration', moduleSettings);
-        }
-      });
-      // Prevent repeated prompts on subsequent loads.
-      game.settings.set('archmage', 'dependencyPrompt', false);
+  else {
+    // If the modules exist but aren't enabled, prompt the user.
+    if ((modules.dlopen && !modules.dlopen.active) || (modules.vueport && !modules.vueport.active)) {
+      if (prompt && gm) {
+        Dialog.confirm({
+          title: game.i18n.format('ARCHMAGE.UI.enableDependencies'),
+          content: game.i18n.format('ARCHMAGE.UI.dependencyContent'),
+          yes: () => {
+            let moduleSettings = game.settings.get('core', 'moduleConfiguration');
+            moduleSettings['dlopen'] = true;
+            moduleSettings['vueport'] = true;
+            game.settings.set('core', 'moduleConfiguration', moduleSettings);
+          }
+        });
+        // Prevent repeated prompts on subsequent loads.
+        game.settings.set('archmage', 'dependencyPrompt', false);
+      }
+    }
+    else {
+      // If Dlopen is present, load the dependencies.
+      if (typeof Dlopen !== 'undefined') {
+        // Preload Vue dependencies.
+        Dlopen.loadDependencies([
+          'vue',
+          'actor-sheet'
+        ]);
+      }
     }
   }
 
-  // If Dlopen is present, load the dependencies.
-  if (typeof Dlopen !== 'undefined') {
-    // Preload Vue dependencies.
-    Dlopen.loadDependencies([
-      'vue',
-      'actor-sheet'
-    ]);
-  }
 
 });
 
