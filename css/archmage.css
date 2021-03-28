@@ -320,6 +320,52 @@ input[type="checkbox"] {
     background: -o-linear-gradient(45deg, #0d0145, #301c89);
     background: linear-gradient(45deg, #0d0145, #301c89); }
 
+.archmage .editor-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  min-height: 120px; }
+
+.archmage .editor,
+.archmage .editor-content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: 40px; }
+
+.archmage .editor-content {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px;
+  border-radius: 4px; }
+
+.archmage .tox-tinymce,
+.archmage .tox-editor-container,
+.archmage .tox-sidebar-wrap,
+.archmage .tox-edit-area {
+  min-height: 170px;
+  height: 100% !important; }
+
+.archmage .tox-tinymce {
+  height: 100% !important; }
+  .archmage .tox-tinymce .tox-toolbar-overlord,
+  .archmage .tox-tinymce .tox-toolbar__primary {
+    background: transparent;
+    border-bottom: 1px solid #000; }
+  .archmage .tox-tinymce button {
+    font-size: 12px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    margin: 0;
+    width: auto;
+    height: auto; }
+  .archmage .tox-tinymce button[title="Formats"],
+  .archmage .tox-tinymce button[title="Table"],
+  .archmage .tox-tinymce button[title="Horizontal line"],
+  .archmage .tox-tinymce button[title="Insert/edit link"] {
+    display: none; }
+
 .archmage input[type="checkbox"] {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);

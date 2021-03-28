@@ -158,10 +158,23 @@ export class DiceArchmage {
       data: data,
       abilityCheck: data.abilityCheck ?? true,
       backgroundCheck: data.backgroundCheck ?? false,
+      defaultAbility: false,
       abilities: abilities ?? {},
       backgrounds: backgrounds ?? {},
       rollModes: CONFIG.Dice.rollModes
     };
+
+    // If this is a background check, default to the highest ability score.
+    if (data.backgroundCheck) {
+      let highestAbility = -5;
+      for (let ability of Object.values(abilities)) {
+        if (Number(ability.mod) > highestAbility) {
+          highestAbility = Number(ability.mod);
+        }
+      }
+      dialogData.defaultAbility = highestAbility;
+    }
+
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: title,

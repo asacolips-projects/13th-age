@@ -356,6 +356,9 @@ ARCHMAGE.UI.errNoMomentum: You need Momentum to use this power.
 ARCHMAGE.UI.errNoFocus: You need Focus to use this power.
 ARCHMAGE.UI.errNoCustomResource: You don't have enough
 ARCHMAGE.UI.errBonus: must be an integer number prepended by either + or -
+ARCHMAGE.UI.errDependency: The <strong>vueport</strong> and <strong>dlopen</strong> modules are required for the V2 character sheet. Return to the Foundry setup page and use the module installer to install both of those modules to allow the V2 character sheet to be available.
+ARCHMAGE.UI.enableDependencies: Enable dependencies?
+ARCHMAGE.UI.dependencyContent: The V2 character sheet requires the VuePort and dlopen modules to be enabled. Would you like to enable them now?
 # Tours
 ## 1.7.0
 ARCHMAGE.TOURS.170.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.7.0! Here's a quick tour of new features

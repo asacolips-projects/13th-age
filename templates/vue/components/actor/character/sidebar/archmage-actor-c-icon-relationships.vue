@@ -8,13 +8,12 @@
             <span class="icon-symbol flexshrink">{{iconSymbol(item.relationship.value)}}</span>
             <span class="icon-name">{{item.bonus.value}} {{item.name.value}}</span>
           </div>
-          <ul class="icon-rolls flexrow" :key="changeKey">
+          <ul v-if="item.results" class="icon-rolls flexrow" :key="changeKey">
             <li v-for="(roll, rollIndex) in item.results" :key="rollIndex" class="icon-roll" :data-key="index" :data-roll-key="rollIndex" :data-roll="getRollResult(roll)">{{getRollResult(roll)}}</li>
           </ul>
         </div>
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">
           <select class="relationship-edit" :name="concat('data.icons.', index, '.relationship.value')" v-model="item.relationship.value">
-            <option disabled value=""></option>
             <option value="Positive">{{localize('ARCHMAGE.positive')}}</option>
             <option value="Negative">{{localize('ARCHMAGE.negative')}}</option>
             <option value="Conflicted">{{localize('ARCHMAGE.conflicted')}}</option>
@@ -85,36 +84,6 @@ export default {
     }
   },
   watch: {
-    'icons.i1.bonus.value': {
-      deep: false,
-      handler() {
-        this.getIconResults();
-      }
-    },
-    'icons.i2.bonus.value': {
-      deep: false,
-      handler() {
-        this.getIconResults();
-      }
-    },
-    'icons.i3.bonus.value': {
-      deep: false,
-      handler() {
-        this.getIconResults();
-      }
-    },
-    'icons.i4.bonus.value': {
-      deep: false,
-      handler() {
-        this.getIconResults();
-      }
-    },
-    'icons.i5.bonus.value': {
-      deep: false,
-      handler() {
-        this.getIconResults();
-      }
-    }
   },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
