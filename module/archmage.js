@@ -17,7 +17,14 @@ import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs
 
 Hooks.once('init', async function() {
 
-  let dependencies = typeof Dlopen !== 'undefined';
+  // First, determine if the dependency modules are enabled.
+  let modules = {};
+  modules.dlopen = game.modules.get('dlopen');
+  modules.vueport = game.modules.get('vueport');
+  let dependencies = Boolean(modules.dlopen && modules.dlopen.active) && Boolean(modules.vueport && modules.vueport.active);
+
+  // As a failsafe, determine whether or not Dlopen is available.
+  if (typeof Dlopen === 'undefined') dependencies = false;
 
   // CONFIG.debug.hooks = true;
 
@@ -111,6 +118,14 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
+  // Register a setting for prompting the GM to enable dependencies.
+  game.settings.register('archmage', 'dependencyPrompt', {
+    scope: 'world',
+    config: false,
+    default: true,
+    type: Boolean
+  });
+
   if (dependencies) {
     // V2 actor sheet (See issue #118).
     Actors.registerSheet("archmage", ActorArchmageSheetV2, {
@@ -118,6 +133,9 @@ Hooks.once('init', async function() {
       types: ["character"],
       makeDefault: true
     });
+    // Reset the prompt.
+    let prompt = game.settings.get('archmage', 'dependencyPrompt');
+    if (!prompt) game.settings.set('archmage', 'dependencyPrompt', true);
   }
 
   /* -------------------------------------------- */
@@ -259,13 +277,6 @@ Hooks.once('init', async function() {
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
     scope: 'client',
     config: true,
-    default: true,
-    type: Boolean
-  });
-
-  game.settings.register('archmage', 'dependencyPrompt', {
-    scope: 'world',
-    config: false,
     default: true,
     type: Boolean
   });

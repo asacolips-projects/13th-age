@@ -211,6 +211,59 @@ input[type="checkbox"] {
 // Actor Sheet
 
 .archmage {
+  .editor-wrapper {
+    display: flex;
+    height: 100%;
+    min-height: 120px;
+  }
+
+  .editor,
+  .editor-content {
+    flex: 1;
+    min-height: 40px;
+  }
+
+  .editor-content {
+    background: rgba($c-black, 0.05);
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  .tox-tinymce,
+  .tox-editor-container,
+  .tox-sidebar-wrap,
+  .tox-edit-area {
+    min-height: 170px;
+    height: 100% !important;
+  }
+
+  .tox-tinymce {
+    height: 100% !important;
+
+    .tox-toolbar-overlord,
+    .tox-toolbar__primary {
+      background: transparent;
+      border-bottom: 1px solid $c-black;
+    }
+
+    button {
+      font-size: 12px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      margin: 0;
+      width: auto;
+      height: auto;
+    }
+
+    button[title="Formats"],
+    button[title="Table"],
+    button[title="Horizontal line"],
+    button[title="Insert/edit link"] {
+      display: none;
+    }
+  }
+
   input[type="checkbox"] {
     transform: scale(1);
   }
@@ -2342,16 +2395,16 @@ input[type="checkbox"] {
           line-height: 24px;
           padding: 0;
           margin-right: 5px;
-          
+
           &.result-5 {
             background: #8acee4;
           }
-      
+
           &.result-6 {
             background: #93c385;
           }
         }
-    
+
       }
     }
   }
