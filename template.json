@@ -6,366 +6,16 @@
     ],
     "templates": {
       "standard": {
-        "abilities": {
-          "str": {
-            "type": "Number",
-            "label": "Strength",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "dex": {
-            "type": "Number",
-            "label": "Dexterity",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "con": {
-            "type": "Number",
-            "label": "Constitution",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "int": {
-            "type": "Number",
-            "label": "Intelligence",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "wis": {
-            "type": "Number",
-            "label": "Wisdom",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "cha": {
-            "type": "Number",
-            "label": "Charisma",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          }
-        },
         "attributes": {
-          "ac": {
+          "level": {
             "type": "Number",
-            "label": "Armor Class",
-            "value": 10,
-            "base": 10,
-            "min": 0
-          },
-          "pd": {
-            "type": "Number",
-            "label": "Physical Defense",
-            "value": 10,
-            "base": 10,
-            "min": 0
-          },
-          "md": {
-            "type": "Number",
-            "label": "Mental Defense",
-            "value": 10,
-            "base": 10,
-            "min": 0
-          },
-          "hp": {
-            "type": "Number",
-            "label": "Hit Points",
-            "value": 10,
-            "min": 0,
-            "max": 10,
-            "temp": 0,
-            "tempmax": 0,
-            "base": 7,
-            "automatic": true
-          },
-          "recoveries": {
-            "type": "Number",
-            "label": "Recoveries",
-            "value": 8,
-            "max": 8,
-            "dice": "d8",
-            "base": 8,
-            "automatic": true
+            "label": "Level",
+            "value": 1
           },
           "init": {
             "type": "Number",
             "label": "Initiative Modifier",
             "value": 0
-          },
-          "level": {
-            "type": "Number",
-            "label": "Level",
-            "value": 1,
-            "min": 0,
-            "max": 10
-          },
-          "disengage": 11,
-          "disengageBonus": 0,
-          "saves": {
-            "easy": 6,
-            "normal": 11,
-            "hard": 16,
-            "death": 16,
-            "deathFails": {
-              "value": 0,
-              "max": 4,
-              "steps": [
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            "lastGasp": 16,
-            "lastGaspFails": {
-              "value": 0,
-              "max": 4,
-              "steps": [
-                false,
-                false,
-                false,
-                false
-              ]
-            }
-          }
-        },
-        "details": {
-          "alignment": {
-            "type": "String",
-            "label": "Alignment"
-          },
-          "biography": {
-            "type": "String",
-            "label": "Biography"
-          },
-          "class": {
-            "type": "String",
-            "label": "Class"
-          },
-          "race": {
-            "type": "String",
-            "label": "Race"
-          },
-          "out": {
-            "label": "One Unique Thing",
-            "type": "String",
-            "value": ""
-          }
-        },
-        "backgrounds": {
-          "bg1": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            }
-          },
-          "bg2": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            }
-          },
-          "bg3": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            }
-          },
-          "bg4": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg5": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg6": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg7": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg8": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          }
-        },
-        "icons": {
-          "i1": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            },
-            "results": []
-          },
-          "i2": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            },
-            "results": []
-          },
-          "i3": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            },
-            "results": []
-          },
-          "i4": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            },
-            "results": []
-          },
-          "i5": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            },
-            "results": []
           }
         }
       }
@@ -374,7 +24,102 @@
       "templates": [
         "standard"
       ],
+      "abilities": {
+        "str": {
+          "type": "Number",
+          "label": "Strength",
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "type": "Number",
+          "label": "Dexterity",
+          "value": 10,
+          "mod": 0
+        },
+        "con": {
+          "type": "Number",
+          "label": "Constitution",
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "type": "Number",
+          "label": "Intelligence",
+          "value": 10,
+          "mod": 0
+        },
+        "wis": {
+          "type": "Number",
+          "label": "Wisdom",
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "type": "Number",
+          "label": "Charisma",
+          "value": 10,
+          "mod": 0
+        }
+      },
       "attributes": {
+        "ac": {
+          "type": "Number",
+          "label": "Armor Class",
+          "value": 10,
+          "base": 10
+        },
+        "pd": {
+          "type": "Number",
+          "label": "Physical Defense",
+          "value": 10,
+          "base": 10
+        },
+        "md": {
+          "type": "Number",
+          "label": "Mental Defense",
+          "value": 10,
+          "base": 10
+        },
+        "hp": {
+          "type": "Number",
+          "label": "Hit Points",
+          "value": 10,
+          "max": 10,
+          "temp": 0,
+          "base": 7,
+          "automatic": true
+        },
+        "recoveries": {
+          "type": "Number",
+          "label": "Recoveries",
+          "value": 8,
+          "max": 8,
+          "dice": "d8",
+          "base": 8,
+          "automatic": true
+        },
+        "disengageBonus": 0,
+        "saves": {
+          "deathFails": {
+            "value": 0,
+            "steps": [
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          "lastGaspFails": {
+            "value": 0,
+            "steps": [
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        },
         "weapon": {
           "melee": {
             "type": "String",
@@ -409,6 +154,236 @@
             "value": "d10",
             "abil": "dex/str"
           }
+        }
+      },
+      "details": {
+        "biography": {
+          "type": "String",
+          "label": "Biography"
+        },
+        "class": {
+          "type": "String",
+          "label": "Class"
+        },
+        "race": {
+          "type": "String",
+          "label": "Race"
+        },
+        "out": {
+          "label": "One Unique Thing",
+          "type": "String",
+          "value": ""
+        }
+      },
+      "backgrounds": {
+        "bg1": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          }
+        },
+        "bg2": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          }
+        },
+        "bg3": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          }
+        },
+        "bg4": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg5": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg6": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg7": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg8": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        }
+      },
+      "icons": {
+        "i1": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          },
+          "results": []
+        },
+        "i2": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          },
+          "results": []
+        },
+        "i3": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          },
+          "results": []
+        },
+        "i4": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          },
+          "results": []
+        },
+        "i5": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          },
+          "results": []
         }
       },
       "resources": {
@@ -464,6 +439,12 @@
         "powerSpell3": false,
         "powerSpell4": false,
         "skills": false
+      },
+      "coins": {
+        "platinum": 0,
+        "gold": 0,
+        "silver": 0,
+        "copper": 0
       }
     },
     "npc": {
@@ -529,11 +510,34 @@
           "label": "Price",
           "value": 0
         }
+      },
+      "rechargeable": {
+        "recharge": {
+          "type": "Number",
+          "label": "Recharge",
+          "value": 0
+        },
+        "rechargeAttempts": {
+          "type": "Number",
+          "label": "Number of Recharges Attempted",
+          "value": 0
+        },
+        "quantity": {
+          "type": "Number",
+          "label": "Uses",
+          "value": null
+        },
+        "maxQuantity": {
+          "type": "Number",
+          "label": "Max Uses",
+          "value": null
+        }
       }
     },
     "power": {
       "templates": [
-        "standard"
+        "standard",
+        "rechargeable"
       ],
       "group": {
         "type": "String",
@@ -695,26 +699,6 @@
         "label": "Breath Weapon",
         "value": ""
       },
-      "recharge": {
-        "type": "Number",
-        "label": "Recharge",
-        "value": 0
-      },
-      "rechargeAttempts": {
-        "type": "Number",
-        "label": "Number of Recharges Attempted",
-        "value": 0
-      },
-      "quantity": {
-        "type": "Number",
-        "label": "Uses",
-        "value": null
-      },
-      "maxQuantity": {
-        "type": "Number",
-        "label": "Max Uses",
-        "value": null
-      },
       "feats": {
         "adventurer": {
           "description": {
@@ -824,7 +808,8 @@
     },
     "equipment": {
       "templates": [
-        "standard"
+        "standard",
+        "rechargeable"
       ],
       "properties": {},
       "attributes": {
