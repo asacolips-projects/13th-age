@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The target can now be a nearby ally instead. If the target of your heal spell is an ally with 0 hp or below, that ally also adds hit points equal to [[d10*@cha.mod]] to the recovery.</p>'
+        value: '<p>If the target of your heal spell is an ally with 0 hp or below, that ally also adds hit points equal to [[d10*@cha.mod]] to the recovery.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
