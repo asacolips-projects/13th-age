@@ -345,7 +345,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
 
     // Determine the roll result.
-    let target = dc != 'disengage' ? actor.data.data.attributes.save[dc] : actor.data.data.attributes.disengage;
+    let target = dc != 'disengage' ? actor.data.data.attributes.saves[dc] : actor.data.data.attributes.disengage;
     let rollResult = result.total;
     let success = rollResult >= target;
 
