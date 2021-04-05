@@ -135,7 +135,7 @@ const migrateItemData = function(item) {
  * @param {Object} scene  The Scene data to Update
  * @return {Object}       The updateData to apply
  */
-export const migrateSceneData = function(scene) {
+const migrateSceneData = function(scene) {
   const tokens = duplicate(scene.tokens);
   return {
     tokens: tokens.map(t => {
@@ -163,7 +163,7 @@ export const migrateSceneData = function(scene) {
  * @param pack
  * @return {Promise}
  */
-export const migrateCompendium = async function(pack) {
+const migrateCompendium = async function(pack) {
   const entity = pack.metadata.entity;
   if ( !["Actor", "Item", "Scene"].includes(entity) ) return;
 
@@ -216,7 +216,7 @@ export const migrateCompendium = async function(pack) {
 
 function _migrateItemMaxUses(item, updateData) {
   if ( item.data.quantity.value && !item.data.maxQuantity.value ) {
-    updateData["data.maxQuantity.value"] = Math.min(item.data.quantity.value, 1);
+    updateData["data.maxQuantity.value"] = Math.max(item.data.quantity.value, 1);
   }
   return updateData;
 }
