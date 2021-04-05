@@ -14,7 +14,11 @@ export const migrateWorld = async function() {
         await a.update(updateData, {enforceTypes: false});
       }
       // Actor Data Cleanup
+      console.log(`Cleaning Actor  ${a.name} data...`);
       cleanActorData(a.data);
+      // Call prepareData to recompute dynamic data
+      a.prepareData();
+      console.log(a);
     } catch(err) {
       err.message = `Failed system migration for Actor ${a.name}: ${err.message}`;
       console.error(err);
@@ -59,8 +63,7 @@ export const migrateWorld = async function() {
   // Set the migration as complete
   // game.settings.set("archmage", "systemMigrationVersion", game.system.data.version);
   // ui.notifications.info(`System Migration to version ${game.system.data.version} completed!`, {permanent: true});
-  
-  
+
   ui.notifications.info(`Migration finished. Have fun!`, {permanent: true});
 };
 
@@ -80,23 +83,23 @@ export const migrateActorData = function(actor) {
   const updateData = {};
 
   // Actor Data Updates
-  // TODO: call specific one-shot migrations here  
+  // TODO: call specific one-shot migrations here
 
   // Migrate Owned Items
-  // if ( !actor.items ) return updateData;
-  // let hasItemUpdates = false;
-  // const items = actor.items.map(i => {
+  if ( !actor.items ) return updateData;
+  let hasItemUpdates = false;
+  const items = actor.items.map(i => {
 
     // Migrate the Owned Item
-    // let itemUpdate = migrateItemData(i);
+    let itemUpdate = migrateItemData(i);
 
     // Update the Owned Item
-    // if ( !isObjectEmpty(itemUpdate) ) {
-      // hasItemUpdates = true;
-      // return mergeObject(i, itemUpdate, {enforceTypes: false, inplace: false});
-    // } else return i;
-  // });
-  // if ( hasItemUpdates ) updateData.items = items;
+    if ( !isObjectEmpty(itemUpdate) ) {
+      hasItemUpdates = true;
+      return mergeObject(i, itemUpdate, {enforceTypes: false, inplace: false});
+    } else return i;
+  });
+  if ( hasItemUpdates ) updateData.items = items;
   return updateData;
 };
 
@@ -108,8 +111,6 @@ export const migrateActorData = function(actor) {
  * @return {Object}             The scrubbed Actor data
  */
 function cleanActorData(actorData) {
-  console.log("Cleaning Actor data...");
-
   // Scrub system data
   const model = game.system.model.Actor[actorData.type];
   actorData.data = filterObject(actorData.data, model);
@@ -118,5 +119,25 @@ function cleanActorData(actorData) {
   return actorData;
 }
 
+/* -------------------------------------------- */
+
+/**
+ * Migrate a single Item entity to incorporate latest data model changes
+ * @param item
+ */
+export const migrateItemData = function(item) {
+  const updateData = {};
+  if (item.type == "power") {
+    _migrateItemMaxUses(item, updateData);
+  }
+  return updateData;
+};
+
+function _migrateItemMaxUses(item, updateData) {
+  if ( item.data.quantity.value && !item.data.maxQuantity.value ) {
+    updateData["data.maxQuantity.value"] = item.data.quantity.value
+  }
+  return updateData;
+}
 
 /* -------------------------------------------- */
