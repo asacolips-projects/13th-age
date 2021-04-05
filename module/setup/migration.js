@@ -31,8 +31,6 @@ export const migrateWorld = async function() {
         console.log(`Migrating Item entity ${i.name}`);
         await i.update(updateData, {enforceTypes: false});
       }
-      // Item Data Cleanup
-      cleanItemData(i.data);
     } catch(err) {
       err.message = `Failed system migration for Item ${i.name}: ${err.message}`;
       console.error(err);
@@ -126,25 +124,8 @@ const migrateItemData = function(item) {
   if (item.type == "power") {
     _migrateItemMaxUses(item, updateData);
   }
-  cleanItemData(item.data);
   return updateData;
 };
-
-/* -------------------------------------------- */
-
-/**
- * Scrub an Item's system data, removing all keys which are not explicitly defined in the system template
- * @param {Object} itemData    The data object for an Item
- * @return {Object}             The scrubbed Item data
- */
-function cleanItemData(itemData) {
-  // Scrub system data
-  const model = game.system.model.Item[itemData.type];
-  itemData.data = filterObject(itemData.data, model);
-
-  // Return the scrubbed data
-  return itemData;
-}
 
 /* -------------------------------------------- */
 
@@ -235,7 +216,7 @@ export const migrateCompendium = async function(pack) {
 
 function _migrateItemMaxUses(item, updateData) {
   if ( item.data.quantity.value && !item.data.maxQuantity.value ) {
-    updateData["data.maxQuantity.value"] = item.data.quantity.value
+    updateData["data.maxQuantity.value"] = Math.min(item.data.quantity.value, 1);
   }
   return updateData;
 }
