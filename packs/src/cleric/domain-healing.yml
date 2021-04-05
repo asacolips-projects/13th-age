@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: "<p>The\_<em>invocation of healing</em>\_gives you two additional uses of\_<em>heal</em>\_this battle instead of only one.</p><p>\_</p>"
+        value: "<p>The\_<em>invocation of healing</em>\_gives you two additional uses of\_<em>heal</em>\_this battle instead of only one.</p>"
       isActive:
         type: 'Boolean'
         label: 'Active'
