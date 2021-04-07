@@ -243,7 +243,7 @@ export class DiceArchmage {
             }
             if (data.backgroundCheck) {
               data['abil'] = html.find('[name="ability"]').val();
-              data['abilityName'] = Number(data['abil']) > 0 ? html.find('[name="ability"] option:selected').data('label') : null;
+              data['abilityName'] = !isNaN(Number(data['abil'])) ? html.find('[name="ability"] option:selected').data('label') : null;
             }
             roll(html, data);
           }
