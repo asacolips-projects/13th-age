@@ -1,0 +1,276 @@
+name: 'Druid'
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |
+  <div class="l-center">
+    <h1 class="archmage-class-title">Druid</h1>
+    <div class="grid grid-2col">
+      <div class="details">
+        <h2 class="archmage-class-heading">Ability Scores</h2>
+        <p>Druids gain a +2 class bonus to Strength, Dexterity, or Wisdom, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
+        <h2 class="archmage-class-heading">Backgrounds</h2>
+        <p>Possible backgrounds include: orc-tribe hunter/gatherer, avalanche prophet, cult zealot, river guide, tribe healer, failed shaman, wild temple priest, mystic waterfall guardian, and raised by wolverines.</p>
+        <h2 class="archmage-class-heading">Gear</h2>
+        <p>At 1st level, druids start with a melee weapon, light armor, possibly a staff, perhaps a bow or other ranged weapon, and other minor possessions suggested by their backgrounds.</p>
+        <h3 class="archmage-class-subheading">Gold Pieces</h3>
+        <p>Druids may start with either 25 gp or 1d6 x 10 gp.</p>
+      </div>
+      <div class="armor">
+        <h2 class="archmage-class-heading">Armor</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Armor Type</th>
+              <th>Base AC</th>
+              <th>Atk Penalty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>None</td>
+              <td>10</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Light</td>
+              <td>10*</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Heavy</td>
+              <td>14</td>
+              <td>-2</td>
+            </tr>
+            <tr>
+              <td>Shield</td>
+              <td>+1</td>
+              <td>-2*</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="grid grid-2col">
+      <div class="melee-weapons">
+        <h2 class="archmage-class-heading">Melee Weapons</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>One-Handed</th>
+              <th>Two-Handed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small</td>
+              <td>1d4 dagger</td>
+              <td>1d6 club</td>
+            </tr>
+            <tr>
+              <td>Light or Simple</td>
+              <td>1d6 mace, shortsword</td>
+              <td>1d8 spear</td>
+            </tr>
+            <tr>
+              <td>Heavy or Martial</td>
+              <td>1d8 (-2 atk)* longsword, warhammer</td>
+              <td>1d10 (–2 atk) greatsword, dire flail</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>*Warrior druid talent choices can change shield and one-handed weapon stats.</p>
+      </div>
+      <div class="ranged-weapons">
+        <h2 class="archmage-class-heading">Ranged Weapons</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Thrown</th>
+              <th>Crossbow</th>
+              <th>Bow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small</td>
+              <td>1d4 dagger</td>
+              <td>1d4 (-2 atk) hand crossbow</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Light or Simple</td>
+              <td>1d6 javelin, axe</td>
+              <td>1d6 (-2 atk) light crossbow</td>
+              <td>1d6 shortbow</td>
+            </tr>
+            <tr>
+              <td>Heavy or Martial</td>
+              <td>—</td>
+              <td>1d8 (–5 atk) heavy crossbow</td>
+              <td>1d8 (–2 atk) longbow</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h2 class="archmage-class-heading">Level Progression</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Druid Level</th>
+        <th>Total Hit Points</th>
+        <th>Total Feats</th>
+        <th>Level-up Ability Bonuses</th>
+        <th>Damage Bonus From Ability Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Level 1 Multiclass</td>
+        <td>(Avg. of both classes) x 3</td>
+        <td>As 1st level PC</td>
+        <td>Not affected</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 1</td>
+        <td>(6 + CON mod) x 3</td>
+        <td>1 adventurer</td>
+        <td>—</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 2</td>
+        <td>(6 + CON mod) x 4</td>
+        <td>2 adventurer</td>
+        <td>—</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 3</td>
+        <td>(6 + CON mod) x 5</td>
+        <td>3 adventurer</td>
+        <td>—</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 4</td>
+        <td>(6 + CON mod) x 6</td>
+        <td>4 adventurer</td>
+        <td>+1 to 3 abilities</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 5</td>
+        <td>(6 + CON mod) x 8</td>
+        <td>4 adventurer<br />
+        1 champion</td>
+        <td>—</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 6</td>
+        <td>(6 + CON mod) x 10</td>
+        <td>4 adventurer<br />
+        2 champion</td>
+        <td>—</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 7</td>
+        <td>(6 + CON mod) x 12</td>
+        <td>4 adventurer<br />
+        3 champion</td>
+        <td>+1 to 3 abilities</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 8</td>
+        <td>(6 + CON mod) x 16</td>
+        <td>4 adventurer<br />
+        3 champion<br />
+        1 epic</td>
+        <td>—</td>
+        <td>3 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>Level 9</td>
+        <td>(6 + CON mod) x 20</td>
+        <td>4 adventurer<br />
+        3 champion<br />
+        2 epic</td>
+        <td>—</td>
+        <td>3 x ability modifier</td>
+      </tr>
+      <tr>
+        <td><strong><strong>Level 10</strong></strong></td>
+        <td>(6 + CON mod) x 24</td>
+        <td>4 adventurer<br />
+        3 champion<br />
+        3 epic</td>
+        <td>+1 to 3 abilities</td>
+        <td>3 x ability modifier</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="l-center">
+    <h2 class="archmage-class-heading">Stats</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Ability Bonus</td>
+          <td>+2 Strength, Dexterity, or Wisdom (different from racial bonus)</td>
+        </tr>
+        <tr>
+          <td>Initiative</td>
+          <td>Dex mod + Level</td>
+        </tr>
+        <tr>
+          <td>Armor Class (heavy armor)</td>
+          <td>10 + middle mod of Con/Dex/Wis + Level</td>
+        </tr>
+        <tr>
+          <td>Armor Class (shield and heavy armor)</td>
+          <td>11 + middle mod of Con/Dex/Wis + Level</td>
+        </tr>
+        <tr>
+          <td>Physical Defense</td>
+          <td>11 + middle mod of Str/Con/Dex + Level</td>
+        </tr>
+        <tr>
+          <td>Mental Defense</td>
+          <td>11 + middle mod of Int/Wis/Cha + Level</td>
+        </tr>
+        <tr>
+          <td>Hit Points</td>
+          <td>(6 + Con mod) x Level modifier (see level progression chart)</td>
+        </tr>
+        <tr>
+          <td>Recoveries</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Recovery Dice</td>
+          <td>(1d6 x Level) + Con mod</td>
+        </tr>
+        <tr>
+          <td>Backgrounds</td>
+          <td>8 points, max 5 in any one background</td>
+        </tr>
+        <tr>
+          <td>Icon Relationships</td>
+          <td>3 points</td>
+        </tr>
+        <tr>
+          <td>Talents</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+img: 'systems/archmage/assets/icons/items/inventory/monster-antler.jpg'

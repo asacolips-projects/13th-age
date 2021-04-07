@@ -1,0 +1,11 @@
+.character-header {
+  grid-template-columns: auto 22% 32% 8%;
+
+  input[type="text"],
+  input[type="number"] {
+    text-align: left;
+    font-family: $font-stack-secondary;
+    font-weight: normal;
+    font-size: $font-sm;
+  }
+}

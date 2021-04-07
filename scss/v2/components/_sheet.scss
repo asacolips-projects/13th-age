@@ -1,0 +1,146 @@
+.window-content {
+  padding: 0;
+
+  .archmage-v2-vue {
+    background: url('#{$assets}/paper-v2.webp');
+    background-size: cover;
+  }
+
+  > form,
+  .archmage-v2-vue,
+  .container--bottom {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .container--top {
+    flex: 0 auto;
+  }
+
+  .container--bottom {
+    flex: 1;
+  }
+
+  .section--sidebar,
+  .section--main {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: $padding-sm;
+    scrollbar-color: $c-blue transparent;
+    scrollbar-width: thin;
+  }
+
+  /* ----------------------------------------- */
+  /* Scrollbar
+  /* ----------------------------------------- */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: none;
+    background: rgba($c-black, 0.1);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 3px;
+    background: $c-blue;
+    border: 1px solid $c-blue;
+  }
+}
+
+.section--sidebar {
+  flex: 0 0 300px;
+
+  .section + .section {
+    @include borderTop;
+    @include borderNarrow;
+    margin-top: $padding-md;
+  }
+
+  .unit-title {
+    text-align: left;
+  }
+}
+
+.section--main {
+  flex: 1;
+}
+
+img[data-edit="img"] {
+  cursor: pointer;
+}
+
+.editor-wrapper {
+  display: flex;
+  height: 100%;
+  min-height: 120px;
+}
+
+.editor,
+.editor-content {
+  flex: 1;
+  min-height: 30px;
+}
+
+.editor-content {
+  background: rgba($c-black, 0.05);
+  padding: $padding-sm;
+  border-radius: $padding-sm;
+}
+
+.tox-tinymce,
+.tox-editor-container,
+.tox-sidebar-wrap,
+.tox-edit-area {
+  min-height: 170px;
+  height: 100% !important;
+}
+
+.tox-tinymce {
+  height: 100% !important;
+
+  .tox-toolbar-overlord,
+  .tox-toolbar__primary {
+    background: transparent;
+    border-bottom: 1px solid $c-black;
+  }
+
+  button {
+    font-size: $font-xxs;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+
+  button[title="Formats"],
+  button[title="Table"],
+  button[title="Horizontal line"],
+  button[title="Insert/edit link"] {
+    display: none;
+  }
+}
+
+a {
+  &:hover {
+    color: $c-blue;
+    text-shadow: 0 0 5px $c-blue;
+  }
+}
+
+button {
+  color: $c-white;
+  background: $c-blue;
+  border-color: $c-blue;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($c-blue, 0.7);
+    box-shadow: 0 0 5px $c-blue;
+  }
+}

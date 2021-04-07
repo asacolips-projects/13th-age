@@ -1,6 +1,6 @@
 <div>
     <p class="notes">The following stats can all be used in inline or regular dice rolls.</p>
-    <p class="notes">Example attack: <span class="key">[[d20+@str.mod+@lvl+@ed+@atk.m.bonus]] vs. AC</span></p>
+    <p class="notes">Example attack: <span class="key">[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC</span></p>
     <p class="notes">Example damage: <span class="key">[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] slashing damage</span></p>
 
     <h3>Ability Modifiers</h3>
@@ -48,8 +48,12 @@
         <div class="keys"><span class="key">@init</span></div>
       </li>
       <li>
-        <h4>Standard Bonuses (Level + Escalation Die)</h4>
+        <h4>Standard Attack Bonuses (Level + Escalation Die - Attack Penalties)</h4>
         <div class="keys"><span class="key">@std</span></div>
+      </li>
+      <li>
+        <h4>Tier modifier (x1 Adventurer, x2 Champion, x3 Epic)</h4>
+        <div class="keys"><span class="key">@tier</span></div>
       </li>
     </ol>
 

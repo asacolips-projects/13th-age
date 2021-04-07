@@ -1,0 +1,50 @@
+@import 'init';
+
+// Theme overrides.
+@import 'application/window';
+
+// Archmage custom.
+.archmage-v2 {
+  font-family: $font-stack-base;
+  font-size: $font-xs;
+
+  // Generic.
+  @import 'base/input';
+  @import 'base/typography';
+  // Layout.
+  @import 'layout/grid';
+  @import 'layout/flex';
+  @import 'layout/layout';
+  // Components.
+  @import 'components/rollable';
+  @import 'components/tabs';
+  @import 'components/progress-bar';
+  @import 'components/resource';
+
+  // Character and NPC sheets.
+  &.sheet {
+    // Specific.
+    @import 'components/sheet';
+    @import 'components/character/header';
+    @import 'components/character/abilities';
+    @import 'components/character/attributes';
+    @import 'components/character/backgrounds';
+    @import 'components/character/icons';
+    @import 'components/character/out';
+    @import 'components/character/incrementals';
+    @import 'components/character/resources';
+    @import 'components/character/powers';
+    @import 'components/character/feats';
+    @import 'components/character/inventory';
+    @import 'components/character/settings';
+  }
+}
+
+.system-archmage {
+  // Chat messages.
+  .message {
+    @import 'components/message';
+  }
+}
+
+@import 'theme/nightmode';

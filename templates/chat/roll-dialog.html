@@ -7,20 +7,33 @@
     <label>Situational Bonus?</label>
     <input type="text" name="bonus" value="" placeholder="e.g. +1d4"/>
   </div>
-  <div class="form-group">
-    <label>Background</label>
-    {{log backgrounds}}
-    <select name="background" data-dtype="String">
-        {{!-- {{#select background}} --}}
+  {{!-- Ability checks require choosing a background. --}}
+  {{#if abilityCheck}}
+    <div class="form-group">
+      <label>Background</label>
+      <select name="background" data-dtype="String">
         <option value="0">—</option>
-          {{#each backgrounds as |background_obj key|}}
-            {{#if background_obj.isActive.value}}
-              <option value="{{background_obj.bonus.value}}">{{numberFormat background_obj.bonus.value decimals=0 sign=true}} {{background_obj.name.value}}</option>
-            {{/if}}
+        {{#each backgrounds as |background_obj key|}}
+          {{#if background_obj.isActive.value}}
+            <option value="{{background_obj.bonus.value}}" data-label="{{background_obj.name.value}}">{{numberFormat background_obj.bonus.value decimals=0 sign=true}} {{background_obj.name.value}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+  {{!-- Background checks require choosing an ability. --}}
+  {{#if backgroundCheck}}
+    <div class="form-group">
+      <label>Ability Score</label>
+      <select name="ability" data-dtype="String">
+        {{#select defaultAbility}}
+          {{#each abilities as |ability_obj key|}}
+            <option value="{{ability_obj.mod}}" data-label="{{ability_obj.label}}">{{numberFormat ability_obj.mod decimals=0 sign=true}} {{ability_obj.label}}</option>
           {{/each}}
-        {{!-- {{/select}} --}}
-    </select>
-  </div>
+        {{/select}}
+      </select>
+    </div>
+  {{/if}}
   <div class="form-group">
     <label>Roll Mode</label>
     <select name="rollMode">

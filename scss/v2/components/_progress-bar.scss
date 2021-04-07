@@ -1,0 +1,59 @@
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  margin: $padding-sm 0;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba($c-black, 0.5);
+
+  .progress-track,
+  .progress-current,
+  .progress-temp {
+    background: rgba($c-black, 0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .progress-current,
+  .progress-temp {
+    right: auto;
+    width: 100%;
+    transition: all ease-in-out 0.25s;
+    background-color: $c-progress-full;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 3;
+    border-right: 1px solid rgba($c-black, 0.5);
+
+    &.progress-hurt { background-color: $c-progress-hurt; }
+    &.progress-staggered { background-color: $c-progress-staggered; }
+    &.progress-dire { background-color: $c-progress-dire; }
+  }
+
+  .progress-temp {
+    opacity: 0.25;
+    border-radius: 0 50px 50px 0;
+    overflow: visible;
+    z-index: 2;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      right: 100%;
+    }
+
+    &.progress-full::before { background-color: $c-progress-full; }
+    &.progress-hurt::before { background-color: $c-progress-hurt; }
+    &.progress-staggered::before { background-color: $c-progress-staggered; }
+    &.progress-dire::before { background-color: $c-progress-dire; }
+  }
+}

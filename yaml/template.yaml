@@ -88,6 +88,30 @@ Actor:
           value: 1
           min: 0
           max: 10
+        disengage: 11
+        disengageBonus: 0
+        saves:
+          easy: 6
+          normal: 11
+          hard: 16
+          death: 16
+          deathFails:
+            value: 0
+            max: 4
+            steps:
+              - false
+              - false
+              - false
+              - false
+          lastGasp: 16
+          lastGaspFails:
+            value: 0
+            max: 4
+            steps:
+              - false
+              - false
+              - false
+              - false
       details:
         alignment:
           type: String
@@ -200,6 +224,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i2:
           name:
             type: String
@@ -213,6 +238,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i3:
           name:
             type: String
@@ -226,6 +252,7 @@ Actor:
           isActive:
             type: Boolean
             value: 1
+          results: []
         i4:
           name:
             type: String
@@ -239,6 +266,7 @@ Actor:
           isActive:
             type: Boolean
             value: 0
+          results: []
         i5:
           name:
             type: String
@@ -252,6 +280,7 @@ Actor:
           isActive:
             type: Boolean
             value: 0
+          results: []
   character:
     templates:
       - standard
@@ -267,15 +296,67 @@ Actor:
           label: Ranged weapon dice
           dice: d8
           value: d8
+        jab:
+          type: String
+          label: JAB dice
+          dice: d6
+          value: d6
+          abil: 'dex/str'
+        punch:
+          type: String
+          label: PUNCH dice
+          dice: d8
+          value: d8
+          abil: 'dex/str'
+        kick:
+          type: String
+          label: KICK dice
+          dice: d10
+          value: d10
+          abil: 'dex/str'
     resources:
       perCombat:
         momentum:
           enabled: false
+          current: false
         commandPoints:
           enabled: false
+          current: 0
+        focus:
+          enabled: false
+          current: false
       spendable:
         ki:
           enabled: false
+          current: 0
+          max: 0
+        custom1:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+        custom2:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+        custom3:
+          label: ""
+          current: 0
+          max: 0
+          enabled: false
+    incrementals:
+      abilityScoreBonus: false
+      extraMagicItem: false
+      feat: false
+      feature: false
+      hp: false
+      iconRelationshipPoint: false
+      powerSpell1: false
+      powerSpell2: false
+      powerSpell3: false
+      powerSpell4: false
+      skills: false
   npc:
     templates:
       - standard
@@ -315,6 +396,15 @@ Item:
       description:
         type: String
         label: Description
+    spendable:
+      quantity:
+        type: Number
+        label: Quantity
+        value: 0
+      price:
+        type: Number
+        label: Price
+        value: 0
   power:
     templates:
       - standard
@@ -325,6 +415,10 @@ Item:
     powerSource:
       type: String
       label: Power Source
+      value: ''
+    powerSourceName:
+      type: String
+      label: Power Source Name
       value: ''
     powerType:
       type: String
@@ -446,10 +540,18 @@ Item:
       type: Number
       label: Recharge
       value: 0
+    rechargeAttempts:
+      type: Number
+      label: Number of Recharges Attempted
+      value: 0
     quantity:
       type: Number
       label: Uses
-      value: 0
+      value: null
+    maxQuantity:
+      type: Number
+      label: Max Uses
+      value: null
     feats:
       adventurer:
         description:
@@ -520,9 +622,11 @@ Item:
   tool:
     templates:
       - standard
+      - spendable
   loot:
     templates:
       - standard
+      - spendable
   equipment:
     templates:
       - standard

@@ -1,0 +1,177 @@
+name: 'Timely Mistake'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Occultist'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'interrupt'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Close-quarters spell'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: 'A nearby enemy hits you or an ally with a natural odd attack roll.'
+  target:
+    type: 'String'
+    label: 'Target'
+    value: 'The attacking enemy'
+  always:
+    type: 'String'
+    label: 'Always'
+    value: 'Retain Focus: 1–5'
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: '[[1d6+@wis.dmg+@atk.a.bonus]] psychic damage, and the target rerolls the attack and must use the lower result.'
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: 'Damage equal to spell level'
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: 'Focus'
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: '[[3d6+@wis.dmg+@atk.a.bonus]] damage'
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: '[[5d6+@wis.dmg+@atk.a.bonus]] damage'
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: '[[5d8+@wis.dmg+@atk.a.bonus]] damage'
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: '[[7d10+@wis.dmg+@atk.a.bonus]] damage.'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 6
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>If the triggering attack targets one of your allies, that ally gains a bonus to all defenses against the rerolled attack equal to your Wisdom modifier.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>This spell&rsquo;s damage dice increase by one size (for example, d6s become d8s)</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>When you miss with this spell but retain your focus with the roll, the target takes double the miss damage, unless you rolled a 1</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+flags: {}
+img: 'icons/svg/mystery-man.svg'

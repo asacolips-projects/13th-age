@@ -21,6 +21,16 @@ jobs:
       with:
         args: css
 
+    - name: Run Gulp Compile Packs
+      uses: elstudio/actions-js-build/build@v2
+      with:
+        args: compilePacks
+
+    - name: Run Gulp Compile Vue
+      uses: elstudio/actions-js-build/build@v2
+      with:
+        args: vue
+
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -33,10 +43,23 @@ jobs:
         files: 'system.json'
       env:
         version: ${{ steps.get_version.outputs.VERSION }}
-        download: https://github.com/${{github.repository}}/releases/download/${{ steps.get_version.outputs.VERSION }}/system.zip
+        manifest: ""
+        download: https://patreon.azurewebsites.net/api/download/toolkit13/${{ steps.get_version.outputs.VERSION }}/system.zip
+
+    - run: mkdir release
 
     # create a zip file with all files required by the system to add to the release
-    - run: zip -r ./system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/
+    - run: zip -r ./release/system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
+
+    - name: Copy file
+      # You may pin to the exact commit or the version.
+      # uses: canastro/copy-action@7ddff6fc153a2ea2cd0fb88ed9750544c051e399
+      uses: canastro/copy-action@0.0.2
+      with:
+        # Source file
+        source: 'system.json'
+        # Target file
+        target: './release/system.json'
 
     # Create a release for this specific version
     - name: Create Release
@@ -48,4 +71,20 @@ jobs:
         draft: false
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: './system.json,./system.zip'
+        artifacts: './release/system.json,./release/system.zip'
+        
+    - name: azure-blob-copy-action
+      # You may pin to the exact commit or the version.
+      # uses: ulaval/azure-blob-copy-action@a5589c66042be9a15da7cc2a28e63adc3a42af3a
+      uses: ulaval/azure-blob-copy-action@v1
+      with:
+        # Either upload or download
+        action: upload
+        # Azure Blob Storage connection string
+        connection_string: ${{ secrets.ConnectionString }}
+        # Azure Blob Storage container name
+        container_name: toolkit13
+        # Directory in Azure to copy from or to
+        blob_directory: ${{ steps.get_version.outputs.VERSION }}
+        # Local directory to copy from or to; this can either be an absolute path or a relative path
+        local_directory: ./release

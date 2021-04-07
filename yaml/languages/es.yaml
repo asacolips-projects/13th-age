@@ -2,6 +2,20 @@ ARCHMAGE.SETTINGS.ShowDebugLogsName: "¿Mostrar los registros de depuración?"
 ARCHMAGE.SETTINGS.ShowDebugLogsHint: Activa esto para el reporte de errores
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationName: Cuando se aplica el daño a través del menú contextual del botón derecho del ratón, ¿debe redondear hacia arriba (verdadero) o hacia abajo (falso)?
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint: Esto se aplicará de la misma manera tanto para los personajes como para los pnjs
+ARCHMAGE.SETTINGS.UnboundEscDieName: Muere escalada ilimitada
+ARCHMAGE.SETTINGS.UnboundEscDieHint: Habilite esta configuración para permitir que la escala de escala vaya por encima de 6 y por debajo de 0 cuando se ajuste manualmente (aún permanece limitada cuando se cuenta por la ronda actual).
+ARCHMAGE.SETTINGS.ColorblindName: Habilitar el modo de accesibilidad daltónico
+ARCHMAGE.SETTINGS.ColorblindHint: Cambia los colores de las tarjetas de potencia a una paleta de colores más accesible.
+ARCHMAGE.SETTINGS.ColorblindOptionDefault: Colores Predeterminados
+ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Rojo/Verde)
+ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY: Tritanopia (Azul /Amarillo)
+ARCHMAGE.SETTINGS.automateBaseStatsFromClassName: Calcular estadísticas base automáticamente
+ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint: Complete automáticamente los dados de AC, PD, MD, HP base, Recovery y Weapon según el nombre de la clase.
+ARCHMAGE.SETTINGS.tourVisibilityName: Características de la visibilidad del tour
+ARCHMAGE.SETTINGS.tourVisibilityHint: Cuando se publiquen nuevas versiones de Toolkit13, el sistema mostrará un recorrido por los cambios. Utilice esta configuración para determinar quién debe ver los recorridos (o si deben estar deshabilitados).
+ARCHMAGE.SETTINGS.tourVisibilityAll: Todos pueden ver los tours
+ARCHMAGE.SETTINGS.tourVisibilityGM: Solo el maestro del juego puede ver giras.
+ARCHMAGE.SETTINGS.tourVisibilityOff: Los tours están deshabilitados
 ARCHMAGE.feats: Proezas
 ARCHMAGE.incrementals: Graduales
 ARCHMAGE.incrementalAdvances: Mejoras Graduales
@@ -164,3 +178,21 @@ ARCHMAGE.CHAT.special: Especial
 ARCHMAGE.CHAT.hit1: Éxito especial (1)
 ARCHMAGE.CHAT.hit2: Éxito especial (2)
 ARCHMAGE.CHAT.hit3: Éxito especial (3)
+ARCHMAGE.CHAT.QuickRest: Descanso rapido
+ARCHMAGE.CHAT.QuickRestBody: Recupera poderes por batalla, tira para recargar los poderes de recarga gastados y tira recuperaciones para curar por encima del 50% de salud.
+ARCHMAGE.CHAT.Rest: Descanso
+ARCHMAGE.CHAT.Cancel: Cancelar
+ARCHMAGE.CHAT.FullHeal: Curación completa
+ARCHMAGE.CHAT.FullHealBody: Recupera todos los usos de salud, recuperaciones y energía.
+# Tours
+## 1.9.0
+ARCHMAGE.TOURS.190.welcome: ¡Bienvenido a la versión 1.9.0 de Toolkit13 (13th Age Compatible)! Aquí hay un recorrido rápido por las nuevas funciones.
+ARCHMAGE.TOURS.190.aip: Se agregó soporte básico para el módulo Autocomplete Inline Properties (https://foundryvtt.com/packages/autocomplete-inline-properties/), si está habilitado.
+ARCHMAGE.TOURS.190.necromancer: ¡El compendio del Nigromante está disponible para su uso! ¡Ve al infierno!
+ARCHMAGE.TOURS.190.colorblind: Gracias a EndlesNights, ahora tenemos opciones para daltónicos. Echa un vistazo a la configuración del sistema - ¡los poderes deberían ser mucho más claros para los jugadores daltónicos!
+ARCHMAGE.TOURS.190.baseStats: HP, CA, dados de daño y más ahora se calculan opcionalmente automáticamente en función de su clase. ¡Muchas gracias a LegoFed3 por esto!
+ARCHMAGE.TOURS.190.inlineRoll: Todos los Compendios de poder ahora deberían tener Rolls en línea. ¡Gracias a todos los miembros de la comunidad que ayudaron!
+ARCHMAGE.TOURS.190.inlineRollDocs: ¡Ahora tenemos documentación adicional para Rolls en línea en el cuadro de diálogo Referencia!
+ARCHMAGE.TOURS.190.systemDocs: La documentación de nuestro sistema se ha ampliado aún más y ahora está en Gitbooks para una mejor experiencia
+ARCHMAGE.TOURS.190.chatCards: Las verificaciones de habilidades / antecedentes ahora tienen un nuevo diseño de tarjeta de chat que incluye información útil como "Antecedentes utilizados". Las tarjetas de chat Icon Roll también se renovaron - ¡tira los dados y mira lo que aportan los iconos!
+ARCHMAGE.TOURS.190.end: "También hay una variedad de correcciones de errores y ajustes menores, como corregir poderes en los Compendios, agregar Debil / Élite a los tamaños de las criaturas, lógica de recuperación negativa y más. Únase a nosotros en el canal Foundry Discord # 13th age para preguntas y comentarios!"

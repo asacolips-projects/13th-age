@@ -1,0 +1,98 @@
+.section--icons {
+  ul,
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .list-item--icons {
+    flex-wrap: nowrap;
+  }
+
+  .vs__clear {
+    display: none !important;
+  }
+
+  .vs__search {
+    display: none;
+  }
+
+  .icon-rolls {
+    flex: 0 auto;
+    padding-right: $padding-sm;
+  }
+
+  .icon-roll {
+    display: block;
+    flex: 0 0 $font-sm;
+    width: $font-sm;
+    height: $font-sm;
+    margin: 0 1px;
+    background: $c-white;
+    border: 1px solid $c-black;
+    text-align: center;
+    line-height: $font-sm;
+    font-size: $font-sm;
+    cursor: pointer;
+
+    &[data-roll="0"] {
+      color: transparent;
+
+      &:hover {
+        color: transparent;
+      }
+    }
+
+    &:hover {
+      background: $c-blue;
+      color: $c-white;
+      border-color: $c-blue;
+    }
+  }
+
+  // TODO: Make a way to view/edit this.
+  .hide {
+    display: none;
+  }
+
+  .icon-display,
+  .icon-edit {
+    flex: calc(100% - $font-sm);
+  }
+
+  .icon-edit-toggle {
+    flex: 0 0 $font-sm;
+    cursor: pointer;
+
+    &:hover {
+      color: $c-blue;
+      text-shadow: 0 0 5px $c-blue;
+    }
+  }
+
+  .icon-edit {
+    padding: $padding-sm;
+
+    select {
+      width: 100%;
+      flex: 100%;
+    }
+
+    .icon-bonus-edit {
+      flex: 0 0 32px;
+    }
+
+    .icon-name-edit {
+      flex: 3;
+      border-left: 1px solid $ct-border;
+      text-align: left;
+      padding: $padding-sm;
+    }
+
+    input {
+      font-size: $font-sm;
+      font-weight: normal;
+    }
+  }
+}
