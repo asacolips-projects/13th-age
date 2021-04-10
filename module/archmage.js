@@ -790,6 +790,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         name: "Apply as Damage",
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
+
           new DamageApplicator().asDamage(inlineRoll, 1);
         }
       },
