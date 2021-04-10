@@ -35,16 +35,16 @@ export class DamageApplicator {
     else {
       toApply = Math.floor(toApply * modifier);
     }
-console.log("LOL3");
+
     var selected = canvas.tokens.controlled;
     selected.forEach(token => {
-console.log(token);
+
 
       if (token.data?.actorData?.data?.attributes != undefined) {
         var tokenData = duplicate(token.data);
         var hp = tokenData.actorData.data.attributes["hp"];
         var temp = hp.temp;
-console.log("LOL4");
+
         if (toApply > temp) {
           var overflow = toApply - temp;
           hp.temp = 0;
@@ -53,8 +53,7 @@ console.log("LOL4");
         else {
           hp.temp -= toApply;
         }
-console.log("LOL5");
-console.log(tokenData);
+
         token.update(tokenData);
       }
       else {
