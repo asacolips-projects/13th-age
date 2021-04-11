@@ -47,7 +47,7 @@ export class DamageApplicator {
         var tokenData = duplicate(token.data);
         var hp = tokenData.actorData.data.attributes["hp"];
         var temp = hp.temp ?? 0;
-        if (isNaN(temp)) remp = 0;
+        if (isNaN(temp)) temp = 0;
 
         if (toApply > temp) {
           var overflow = toApply - temp;
