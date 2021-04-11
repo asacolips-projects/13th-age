@@ -37,14 +37,18 @@ export class DamageApplicator {
     }
 
     var selected = canvas.tokens.controlled;
+    if (selected.length === 0) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.noToken"));
+      return;
+    }
     selected.forEach(token => {
-      // console.log(token);
 
       if (token.data?.actorData?.data?.attributes != undefined) {
         var tokenData = duplicate(token.data);
         var hp = tokenData.actorData.data.attributes["hp"];
-        var temp = hp.temp;
-        
+        var temp = hp.temp ?? 0;
+        if (isNaN(temp)) temp = 0;
+
         if (toApply > temp) {
           var overflow = toApply - temp;
           hp.temp = 0;
