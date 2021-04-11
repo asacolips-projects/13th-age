@@ -38,13 +38,13 @@ export class DamageApplicator {
 
     var selected = canvas.tokens.controlled;
     selected.forEach(token => {
-
+      // console.log(token);
 
       if (token.data?.actorData?.data?.attributes != undefined) {
         var tokenData = duplicate(token.data);
         var hp = tokenData.actorData.data.attributes["hp"];
         var temp = hp.temp;
-
+        
         if (toApply > temp) {
           var overflow = toApply - temp;
           hp.temp = 0;
