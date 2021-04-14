@@ -2,6 +2,20 @@ ARCHMAGE.SETTINGS.ShowDebugLogsName: Show debug logs?
 ARCHMAGE.SETTINGS.ShowDebugLogsHint: Turn this on for bug reports
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
 ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
+ARCHMAGE.SETTINGS.UnboundEscDieName: Unlimited Escalation Die
+ARCHMAGE.SETTINGS.UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
+ARCHMAGE.SETTINGS.ColorblindName: Enable Colorblind Accessibility Mode
+ARCHMAGE.SETTINGS.ColorblindHint: Change the colors of the power cards to more accessibility color palette.
+ARCHMAGE.SETTINGS.ColorblindOptionDefault: Default Colors
+ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
+ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
+ARCHMAGE.SETTINGS.automateBaseStatsFromClassName: Automatically compute base stats
+ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
+ARCHMAGE.SETTINGS.tourVisibilityName: Features tour visibility
+ARCHMAGE.SETTINGS.tourVisibilityHint: When new versions of Toolkit13 are released, the system will display a tour of the changes. Use this setting to determine who should see the tours (or if they should be disabled).
+ARCHMAGE.SETTINGS.tourVisibilityAll: Everyone can see tours
+ARCHMAGE.SETTINGS.tourVisibilityGM: Only the GM can see tours
+ARCHMAGE.SETTINGS.tourVisibilityOff: Tours are disabled
 ARCHMAGE.feats: Feats
 ARCHMAGE.incrementals: Incrementals
 ARCHMAGE.incrementalAdvances: Incremental Advances
@@ -12,6 +26,7 @@ ARCHMAGE.CHARACTER.RESOURCES.commandPoints: Command Points
 ARCHMAGE.CHARACTER.RESOURCES.custom1: Custom Resource 1
 ARCHMAGE.CHARACTER.RESOURCES.custom2: Custom Resource 2
 ARCHMAGE.CHARACTER.RESOURCES.custom3: Custom Resource 3
+ARCHMAGE.CHARACTERFLAGS.title: Flags
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvName: Quick to Fight
 ARCHMAGE.CHARACTERFLAGS.initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
 ARCHMAGE.CHARACTERFLAGS.improvedIniativeName: Improved Initiative
@@ -76,7 +91,6 @@ ARCHMAGE.settings: Settings
 ARCHMAGE.backgrounds: Backgrounds
 ARCHMAGE.iconRelationships: Icon Relationships
 ARCHMAGE.oneUniqueThing: One Unique Thing
-ARCHMAGE.powers: Powers
 ARCHMAGE.biography: Biography
 ARCHMAGE.equipment: Equipment
 ARCHMAGE.abilityName: Ability Name
@@ -89,11 +103,25 @@ ARCHMAGE.add: Add
 ARCHMAGE.import: Import
 ARCHMAGE.name: Name
 ARCHMAGE.type: Type
+ARCHMAGE.features: Features
+ARCHMAGE.talents: Talents
+ARCHMAGE.spells: Spells
+ARCHMAGE.powers: Powers
+ARCHMAGE.maneuvers: Maneuvers
+ARCHMAGE.flexible: Flexible Attacks
+ARCHMAGE.other: Other
+ARCHMAGE.byType: Group by Power Type
+ARCHMAGE.byAction: Group by if the Power has an Action or Not
+ARCHMAGE.byGroup: Group by manual Power Group value entry
 # Settings
 ARCHMAGE.specialTraits: Special Traits
 ARCHMAGE.baseAC: Base AC
 ARCHMAGE.basePD: Base PD
 ARCHMAGE.baseMD: Base MD
+ARCHMAGE.baseHP: Base HP
+ARCHMAGE.calculateHP: Calculate Max HP?
+ARCHMAGE.baseRecoveries: Base Recoveries
+ARCHMAGE.calculateRecoveries: Calculate Max Recoveries?
 ARCHMAGE.recoveryDice: Recovery Dice
 ARCHMAGE.meleeWeaponDice: Melee Weapon Dice
 ARCHMAGE.rangedWeaponDice: Ranged Weapon Dice
@@ -103,6 +131,7 @@ ARCHMAGE.rangedAbility: Ranged Ability
 ARCHMAGE.rangedDamageAbility: Ranged Damage Ability
 ARCHMAGE.meleeMiss: Melee Miss Dmg.
 ARCHMAGE.rangedMiss: Ranged Miss Dmg.
+ARCHMAGE.disengageAdjustment: Disengage Adjustment
 # NPC Sheets
 ARCHMAGE.attributes: Attributes
 ARCHMAGE.misc: Misc.
@@ -129,6 +158,7 @@ ARCHMAGE.ITEM.pdBonus: PD Bonus
 ARCHMAGE.ITEM.mdBonus: MD Bonus
 ARCHMAGE.ITEM.hpBonus: HP Bonus
 ARCHMAGE.ITEM.chakraSlot: Chakra Slot
+ARCHMAGE.ITEM.group: Things with the same group will be grouped together
 # Chat cards
 ARCHMAGE.CHAT.actionType: Action Type
 ARCHMAGE.CHAT.powerUsage: Power Usage
@@ -167,7 +197,45 @@ ARCHMAGE.CHAT.spellLevel9: 9th Level Spell
 ARCHMAGE.CHAT.spellChain: Chain Spell
 ARCHMAGE.CHAT.breathWeapon: Breath Weapon
 ARCHMAGE.CHAT.special: Special
+ARCHMAGE.CHAT.unambiguousAdvantages: Unambiguous Advantages
+ARCHMAGE.CHAT.complicatedAdvantages: Complicated Advantages
+ARCHMAGE.CHAT.group: Group
 # NPC Chat Cards
 ARCHMAGE.CHAT.hit1: Special Hit (1)
 ARCHMAGE.CHAT.hit2: Special Hit (2)
 ARCHMAGE.CHAT.hit3: Special Hit (3)
+# Saves
+ARCHMAGE.SAVE.easy: Easy Save
+ARCHMAGE.SAVE.normal: Normal Save
+ARCHMAGE.SAVE.hard: Hard Save
+ARCHMAGE.SAVE.disengage: Disengage
+ARCHMAGE.SAVE.success: Succeeded
+ARCHMAGE.SAVE.failure: Failed
+# Tours
+## 1.7.0
+ARCHMAGE.TOURS.170.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.7.0! Here's a quick tour of new features
+ARCHMAGE.TOURS.170.documentation: We have started the (long) process of writing documentation for the system. If you have documentation you want to contribute, please reach out or issue a Pull Request!
+ARCHMAGE.TOURS.170.cards: We now have Card Support for Icon Relationship 5's and 6's - Please see the documentation for more info on how to enable and set this up
+ARCHMAGE.TOURS.170.sheets: Character sheets have been reworked. Open one up to check it out!
+ARCHMAGE.TOURS.170.showItem: You can now show an Item to all players with a new 'Show to Players' button
+ARCHMAGE.TOURS.170.iconRelationships: Rolling Icon Relationships now has a nicer Chat display, along with Disengage and Save checks
+ARCHMAGE.TOURS.170.monstersCompendium: There is now a system-provided Monsters Compendium
+ARCHMAGE.TOURS.170.generalFeats: Along with General Feats, courtesy of the Community!
+ARCHMAGE.TOURS.170.end: "There's a variety of bug fixes and minor tweaks as well, such as to Trigger automation. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+## 1.8.0
+ARCHMAGE.TOURS.180.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.8.0! Here's a quick tour of new features
+ARCHMAGE.TOURS.180.monkCompendium: The Monk compendium is back up and available to use! Monk forms come preloaded with groups, so checkout the manual group sorting option on monk character sheets! Go jab, punch, and kick your way to victory!
+ARCHMAGE.TOURS.180.escalationDie: The Escalation die is now manually adjustable, and via a new System Setting can even go past 9000! (6 is the default max)
+ARCHMAGE.TOURS.180.tierShorthand: Thanks to LegoFed3, there is now a @tier shorthand for Actors. Tier is the multiplier for each tier (1x adv, 2x cha, 3x epic)
+ARCHMAGE.TOURS.180.end: "There's a variety of bug fixes and minor tweaks as well, such as multi-class health calculations and various compendium updates. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+## 1.9.0
+ARCHMAGE.TOURS.190.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.9.0! Here's a quick tour of new features
+ARCHMAGE.TOURS.190.aip: Added basic support for the Autocomplete Inline Properties (https://foundryvtt.com/packages/autocomplete-inline-properties/) module, if enabled.
+ARCHMAGE.TOURS.190.necromancer: The Necromancer compendium is back up and available to use! Go Raise Hell!
+ARCHMAGE.TOURS.190.colorblind: Thanks to EndlesNights, we now have colorblind options. Check out the System Settings - powers should be much clearer for colorblind players!
+ARCHMAGE.TOURS.190.baseStats: HP, AC, Damage dice, and more are now optionally calculated automatically based on your Class. Huge thanks to LegoFed3 for this!
+ARCHMAGE.TOURS.190.inlineRoll: All Power Compendiums should now have inline Rolls. Thanks to everyone in the community who helped!
+ARCHMAGE.TOURS.190.inlineRollDocs: We now have additional documentation for inline Rolls in the Reference dialog!
+ARCHMAGE.TOURS.190.systemDocs: Our System documentation has been expanded even further, and is now in Gitbooks for a better experience
+ARCHMAGE.TOURS.190.chatCards: Ability / Background checks now have a new Chat Card layout that includes useful information such as "Background used". The Icon Roll Chat Cards got a makeover as well - roll the dice and see what the Icons bring!
+ARCHMAGE.TOURS.190.end: "There's a variety of bug fixes and minor tweaks as well, such as fixing powers in the Compendiums, adding Weakling / Elite to creature sizes, negative recovery logic, and more. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"

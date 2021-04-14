@@ -1,0 +1,172 @@
+name: 'Wizard''s Familiar'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'talent'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: ''
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: ''
+  range:
+    type: 'String'
+    label: 'Range'
+    value: ''
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: "<p>Your familiar is a tiny or small animal or creature that aids your magic and provides companionship. It also provides opportunities for improvisation between you and the GM.</p>\n<p>Your familiar is as intelligent as a normal person. It can communicate with you and will stay close you unless you've chosen abilities that let it roam. Your familiar is on your side but it's not perfectly in your control.</p>\n<p>If your familiar dies, it can come back to you the next time you get a full heal-up. (The method or story used is between you and the GM.) Alternatively, you can get a new familiar.</p>\n<p>Familiars are useless in combat, except as indicated by their abilities. Ordinarily they aren't damaged by enemy attacks and spells unless the story calls for it.</p>\n<p><strong>Familiar Abilities</strong></p>\n<p>Choose two of the following abilities for your familiar.</p>\n<h2>Agile</h2>\n<p>You gain a +2 bonus to Dexterity skill checks.</p>\n<h2>Alert, Maybe Even Insightful</h2>\n<p>You gain a +2 bonus to Wisdom skill checks.</p>\n<h2>Counter-bite</h2>\n<p>Each battle, if your familiar is close to you, it bites the first enemy that hits you with a melee attack after that attack, dealing [[1d4*@lvl]] damage (no attack roll) to that enemy.</p>\n<h2>Flight</h2>\n<p>Your familiar flies as well as a hawk. It doesn't fly that often and usually sticks with you, but it can do so when its other abilities allow.</p>\n<h2>Mimic</h2>\n<p>One battle per day, you gain the use of the racial power (without feats) of one nearby ally.</p>\n<h2>Poisonous</h2>\n<p>Once per battle, when you hit an enemy engaged with you, you can add [[5]] ongoing poison damage per tier to the damage roll.</p>\n<h2>Scout</h2>\n<p>Once per day, your familiar can separate itself from you and make a reconnaissance run of an area or location. Roll an easy skill check for the environment to get your familiar to scout unseen.</p>\n<h2>Tough</h2>\n<p>You gain a +1 save bonus. Tough counts as two familiar abilities.</p>\n<h2>Talkative</h2>\n<p>Your familiar can talk like a person (but the GM speaks for the familiar more than you do).</p>"
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>Your familiar gains another ability.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>Once per level, if your familiar is close to you, it can cast one of your spells as a free action on your initiative count, even if you have already expended the spell. The spell functions as if you had cast it.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>Your familiar gains another ability.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+  group:
+    value: null
+flags: {}
+img: 'systems/archmage/assets/icons/skills/red_27.jpg'
+effects: []

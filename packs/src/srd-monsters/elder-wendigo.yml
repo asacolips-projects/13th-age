@@ -1,0 +1,520 @@
+name: 'Elder Wendigo'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 600
+      min: 0
+      max: 600
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 9
+      mod: 18
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 9
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    role:
+      type: 'String'
+      label: 'Role'
+      value: 'Spoiler'
+    size:
+      type: 'String'
+      label: 'Size'
+      value: 'Huge'
+    type:
+      type: 'String'
+      label: 'Type'
+      value: 'Demon'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 9
+      min: 0
+      max: 12
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags:
+  archmage: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Elder Wendigo'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'IKeLIik4Q9NSbw2r'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'K2bROT4QtdGRelzc'
+    flags: {}
+    name: 'Icy claws'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 14]] vs. PD (3 attacks'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: 'each against a different nearby enemy);50 cold damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 0
+  - _id: '3iQw0jRJB7iCgwX9'
+    flags: {}
+    name: 'C: Flame blizzard'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 14]] vs. PD ([[1d6]] nearby or far away enemies'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: 'but not more than esc. die);90 fire or cold damage (GM choice)'
+      hit1:
+        type: ''
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The target is hampered until the end of its next turn.'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 100000
+  - _id: 'rBX3U3IgUXyWTYP6'
+    flags: {}
+    name: 'C: Horrific gaze'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 14]] vs. MD (one nearby or far away enemy)'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '120 psychic damage, and the target is confused (save ends)'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: ''
+        label: 'Hit'
+        name: 'Miss'
+        value: '60 psychic damage.'
+    sort: 200000
+  - _id: 'gZ2tmPy042YTw0Xs'
+    flags: {}
+    name: 'Frostburn'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'If all three attacks hit, each nearby enemy takes [[4d10]] fire damage.'
+    sort: 300000
+  - _id: 'nqGxEEynrqXhk2Iv'
+    flags: {}
+    name: 'Fourth failed confusion save'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The target slips into madness and becomes a cannibal cultist or wendigo or some other terrible demon-thing of the GM’s or player’s choice in [[2d10]] hours.'
+    sort: 400000
+  - _id: 'Gefw9nywPafunTLM'
+    flags: {}
+    name: 'Flight'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The elder wendigo can walk on the wind. It is not a graceful flyer, but it moves as fast as the wind that carries it.'
+    sort: 500000
+  - _id: '8gyuZv6M9vzhhHO0'
+    flags: {}
+    name: 'Swirling snow and fog and flame'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The elder wendigo gains a +5 bonus to all defenses against attacks by far away enemies.'
+    sort: 600000
+  - _id: 'fxsiPPkPOgzGalBA'
+    flags: {}
+    name: 'Force of disruption'
+    type: 'nastierSpecial'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When the elder wendigo scores a critical hit against a target or drops a target to 0 hp or lower, that creature must permanently change one of its icon relationship points to a relationship with a different icon—one of a few that the GM chooses. Alternatively, a point the character already has with one of those icons changes to involve another icon (of the PC’s choice).'
+    sort: 700000
+  - _id: 'pG9PfZKyEEhfm711'
+    flags: {}
+    name: 'The demon stares back'
+    type: 'nastierSpecial'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'Once per round when a nearby or far away enemy attacks the elder wendigo and rolls a natural odd miss, the wendigo can make a horrific gaze attack against that attacker as a free action.'
+    sort: 800000

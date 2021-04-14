@@ -35,7 +35,6 @@ export class ItemArchmage extends Item {
     // Basic chat message data
     const chatData = {
       user: game.user._id,
-      type: 5,
       speaker: {
         actor: this.actor._id,
         token: this.actor.token,
@@ -212,6 +211,11 @@ export class ItemArchmage extends Item {
       label: game.i18n.localize(`ARCHMAGE.CHAT.special`),
       value: data.special.value
     };
+    return data;
+  }
+
+  _equipmentChatData() {
+    const data = duplicate(this.data.data);
     return data;
   }
 

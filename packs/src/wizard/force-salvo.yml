@@ -1,0 +1,172 @@
+name: 'Force Salvo'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'daily'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 3
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Ranged spell'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: 'One or more nearby or far away enemies (see below)'
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. PD'
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: '[[4d10+@atk.a.bonus]] force damage.'
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: '<p>The spell creates a number of force bolts equal to [[@int.mod+1]]. You must target a different creature with each bolt; any extras can''t be used.</p>'
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: ''
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: '[[7d10+@atk.a.bonus]] damage.'
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: '[[10d12+@atk.a.bonus]] damage.'
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: '[[3d6*10+@atk.a.bonus]] damage.'
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+        value: '<p>You can now target a specific creature with more than one bolt. Once you hit that target, you must target a different creature, and so on. (Roll your attack after each bolt before picking a target for the next bolt.)</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>On a miss, a bolt now deals [[@lvl]] miss damage.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>Increase the number of bolts by 1.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+  group:
+    value: null
+flags: {}
+img: 'systems/archmage/assets/icons/skills/shadow_05.jpg'
+effects: []

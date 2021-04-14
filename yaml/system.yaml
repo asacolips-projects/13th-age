@@ -1,96 +1,145 @@
 name: archmage
-title: Toolkit13 Character Sheet
+title: Toolkit13 Character Sheet (13th Age Compatible)
+version: 1.9.1
+author: Matt Smith & Cody Swendrowski
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
-version: 1.6.2
-author: Matt Smith
-minimumCoreVersion: 0.6.0
-compatibleCoreVersion: 0.6.4
+minimumCoreVersion: 0.7.5
+compatibleCoreVersion: 0.7.9
 esmodules:
   - module/archmage.js
 scripts:
   - scripts/lib/parse-md.js
   - scripts/migrate/archmage-updates.js
+  - scripts/lib/intro.js
 styles:
   - css/archmage.css
+  - css/introjs.css
 packs:
   - label: Races
     entity: Item
     name: races
-    path: packs/races.db
+    path: packs/dist/races.db
     system: archmage
   - label: Barbarian
     entity: Item
     name: barbarian
-    path: packs/barbarian.db
+    path: packs/dist/barbarian.db
     system: archmage
   - label: Bard
     entity: Item
     name: bard
-    path: packs/bard.db
+    path: packs/dist/bard.db
     system: archmage
   - label: Cleric
     entity: Item
     name: cleric
-    path: packs/cleric.db
+    path: packs/dist/cleric.db
     system: archmage
   - label: Fighter
     entity: Item
     name: fighter
-    path: packs/fighter.db
+    path: packs/dist/fighter.db
     system: archmage
   - label: Paladin
     entity: Item
     name: paladin
-    path: packs/paladin.db
+    path: packs/dist/paladin.db
     system: archmage
   - label: Ranger
     entity: Item
     name: ranger
-    path: packs/ranger.db
+    path: packs/dist/ranger.db
     system: archmage
   - label: Rogue
     entity: Item
     name: rogue
-    path: packs/rogue.db
+    path: packs/dist/rogue.db
     system: archmage
   - label: Sorcerer
     entity: Item
     name: sorcerer
-    path: packs/sorcerer.db
+    path: packs/dist/sorcerer.db
+  - label: Sorcerer Tables
+    entity: RollTable
+    name: sorcerer-tables
+    path: packs/dist/sorcerer-tables.db
     system: archmage
   - label: Wizard
     entity: Item
     name: wizard
-    path: packs/wizard.db
+    path: packs/dist/wizard.db
     system: archmage
   - label: Chaos Mage
     entity: Item
     name: chaosmage
-    path: packs/chaosmage.db
+    path: packs/dist/chaosmage.db
+    system: archmage
+  - label: Chaos Mage Tables
+    entity: RollTable
+    name: chaosmage-tables
+    path: packs/dist/chaosmage-tables.db
     system: archmage
   - label: Commander
     entity: Item
     name: commander
-    path: packs/commander.db
+    path: packs/dist/commander.db
     system: archmage
   - label: Druid
     entity: Item
     name: druid
-    path: packs/druid.db
+    path: packs/dist/druid.db
+    system: archmage
+  - label: Monk
+    entity: Item
+    name: monk
+    path: packs/dist/monk.db
+    system: archmage
+  - label: Necromancer
+    entity: Item
+    name: necromancer-content
+    path: packs/dist/necromancer-content.db
+    system: archmage
+  - label: Necromancer (Summons)
+    entity: Actor
+    name: necromancer-summons
+    path: packs/dist/necromancer-summons.db
     system: archmage
   - label: Occultist
     entity: Item
     name: occultist
-    path: packs/occultist.db
+    path: packs/dist/occultist.db
+    system: archmage
+  - label: General Feats
+    entity: Item
+    name: generalfeats
+    path: packs/dist/general-feats.db
+    system: archmage
+  - label: Multiclass Feats
+    entity: Item
+    name: multiclassfeats
+    path: packs/dist/multiclass-feats.db
+    system: archmage
+  - label: SRD Monsters
+    entity: Actor
+    name: srd-Monsters
+    path: packs/dist/srd-monsters.db
     system: archmage
 languages:
   - lang: en
     name: English
     path: languages/en.json
+  - lang: es
+    name: Español
+    path: languages/es.json
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
-manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/archive/1.6.2/archmage-master.zip
+manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
+download: https://github.com/Mageflame/Toolkit13/releases/download/1.9.1/system.zip
 initiative: 1d20 + @abilities.dex.mod + @attributes.init.value + @attributes.level.value + (@abilities.dex.value / 100)
 gridDistance: 1
 gridUnits: ''
 primaryTokenAttribute: attributes.hp
+# Manifest+ Props
+manifestPlusVersion: 1.1.0
+media:
+  - type: cover
+    url: https://mattsmithin-files.s3.amazonaws.com/toolkit13.png

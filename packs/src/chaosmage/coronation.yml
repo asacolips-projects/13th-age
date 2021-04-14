@@ -1,0 +1,168 @@
+name: 'Coronation'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'spell'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'daily'
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 3
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: 'standard'
+  range:
+    type: 'String'
+    label: 'Range'
+    value: 'Close-quarters spell'
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: 'The target is confused until the end of its next turn.'
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>Until the end of the battle, when a staggered enemy hits you with an attack, you can make the following attack against that enemy as a free action after the attack.</p>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+        value: '<p>Once per battle when a staggered enemy misses you with an attack while this spell&rsquo;s effect is active, you can make the attack against that enemy.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: true
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+        value: '<p>When you make a natural even roll with a <em>coronation</em> attack, you can have the target become confused (save ends) instead of taking damage.</p>'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: true
+flags: {}
+img: 'systems/archmage/assets/icons/spells/haste-sky-3.jpg'

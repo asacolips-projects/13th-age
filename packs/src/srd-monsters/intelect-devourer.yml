@@ -1,0 +1,544 @@
+name: 'Intelect devourer'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 3
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 56
+      min: 0
+      max: 56
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 2
+      mod: 5
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'spoiler'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'normal'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'aberration'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Intelect devourer'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'Zf7uiqx7SStCKBbH'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'kAhCZTgnoP4ULvsO'
+    flags: {}
+    name: 'C: Recall trauma'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs. MD (one neraby enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[16]] psychic damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The target can''t add the escalation die to its attacks (save ends)'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 100000
+  - _id: 'fQRAqXu7qGF34TzV'
+    flags: {}
+    name: 'C: ego scourge'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+8]] vs. MD (one nearby or far away enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[10]] psychic damage, and the target must choose one: take [[10]] extra damage; OR lose two points (cumulative) from its highest current background (min 0) until the next full heal-up'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 200000
+  - _id: 'iWtbOaOw9t5KR5bM'
+    flags: {}
+    name: 'C: Mind wipe'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Limited use: 1/battle</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs. MD (one nearby enemy per point on esc. die)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: 'The target can neither detect the intellect devourer’s presence nor remember it was ever there to begin with. If no enemy in the battle remembers the devourer is there, remove it from play. Each nearby enemy immediately detects the devourer’s presence if it makes an attack or if it doesn’t leave the battle by the end of its next turn.'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 300000
+  - _id: 'pdz3GiFnD8eVqquM'
+    flags: {}
+    name: 'Exploit trauma'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>The intellect devourer&rsquo;s crit range with attacks against MD expands by 2.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 400000
+  - _id: 'hGm9hTD08gzzMcvB'
+    flags: {}
+    name: 'Lost opportunity'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>This creature can&rsquo;t make opportunity attacks.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 500000
+  - _id: 'yfjIHQaz5i5MMmBG'
+    flags: {}
+    name: 'Psychovore'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>An intellect devourer remembers the current escalation die value the first time its host body drops to 0 hit points in a battle and gains a bonus equal to that value to all attacks and defenses until the end of the battle.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 600000
+  - _id: 'hbSDoXvx2wfdCIGM'
+    flags: {}
+    name: 'Increased trauma'
+    type: 'nastierSpecial'
+    img: 'icons/svg/poison.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: "<p>Increased trauma:&nbsp;Add the following extra effect trigger to the intellect devourer&rsquo;s&nbsp;recall trauma&nbsp;attack.</p>\n<p>Natural 5, 10, 15, 20:&nbsp;The target can&rsquo;t cast spells until the end of its next turn.</p>"
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 700000

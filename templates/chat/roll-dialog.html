@@ -12,7 +12,7 @@
     {{log backgrounds}}
     <select name="background" data-dtype="String">
         {{!-- {{#select background}} --}}
-        <option value="">—</option>
+        <option value="0">—</option>
           {{#each backgrounds as |background_obj key|}}
             {{#if background_obj.isActive.value}}
               <option value="{{background_obj.bonus.value}}">{{numberFormat background_obj.bonus.value decimals=0 sign=true}} {{background_obj.name.value}}</option>

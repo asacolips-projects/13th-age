@@ -21,6 +21,9 @@ export class ArchmageUtility {
       combat = game.combat;
     }
 
+    // Assume the escalation die is 0 by default.
+    let result = 0;
+
     // Get the escalation value.
     if (combat !== null) {
       // Get the current round.
@@ -30,18 +33,83 @@ export class ArchmageUtility {
       }
       // Format it for min/max values.
       if (round < 1) {
-        return 0;
+        result = 0;
       }
       else if (round > 6) {
-        return 6;
+        result = 6;
       }
       else {
-        return round - 1;
+        result = round - 1;
+      }
+
+      // Get the manual offset for this combat..
+      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+      if (edOffset) {
+        result = result + edOffset;
+
+        // If the escalation die isn't unlimited, set a min/max.
+        if (!game.settings.get('archmage', 'unboundEscDie')) {
+          if (result > 6) {
+            result = 6;
+          }
+          else if (result < 0) {
+            result = 0;
+          }
+        }
       }
     }
 
     // Otherwise, return 0.
-    return 0;
+    return result;
+  }
+
+  /**
+   * Set the Escalation Die offset for this combat..
+   *
+   * @param {object} combat
+   *   (Optional) Combat to set the escalation die offset for.
+   * @param {Boolean} isIncrease
+   *   (Optional) If true, increase the esc. die, otherwise decrease it.
+   */
+  static setEscalationOffset(combat = null, isIncrease = true) {
+    // Get the current combat if one wasn't provided.
+    if (!combat) {
+      combat = game.combat;
+    }
+
+    // Get the escalation value.
+    if (combat !== null) {
+      // Get the current round.
+      let round = combat.current.round;
+      if (round == null) {
+        round = combat.data.round;
+      }
+
+      // Establish limits on the current round.
+      if (round > 6) round = 6;
+      if (round < 0) round = 0;
+
+      // Retrieve the escalation die offset for this combat.
+      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+
+      // By default, limit how far the escalation die can be adjusted.
+      if (!game.settings.get('archmage', 'unboundEscDie')) {
+        if (isIncrease) {
+          if (round + edOffset < 7) edOffset++;
+        }
+        else {
+          if (round + edOffset > 0) edOffset--;
+        }
+      }
+      // If it's unbound, unlimited power!
+      else {
+        if (isIncrease) edOffset++;
+        else edOffset--;
+      }
+
+      // Update the escalation die offset flag.
+      combat.setFlag('archmage', 'edOffset', edOffset);
+    }
   }
 
   /**
@@ -52,37 +120,80 @@ export class ArchmageUtility {
    * @return {string} 'crit', 'fail', or 'normal'.
    */
   static inlineRollCritTest(roll, actor = null) {
-    for (let i = 0; i < roll.parts.length; i++) {
-      var part = roll.parts[i];
-      if (part.rolls) {
-        let result = part.rolls.map((r) => {
-          if (part.faces === 20) {
-            // Natural 20.
-            if (r.roll === part.faces && !r.discarded) {
-              return 'crit';
-            }
-            // Natural 1.
-            else if (r.roll === 1 && !r.discarded && !r.rerolled) {
-              return 'fail';
-            }
-            // Barbarian crit.
-            else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-              && roll.formula.match(/^2d20kh/g) && part.rolls[0].roll > 10 && part.rolls[1].roll > 10) {
-              return 'crit';
+    //////////////////////////////////////////////////////////////////////////
+    //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
+    //////////////////////////////////////////////////////////////////////////
+    if (!isNewerVersion(game.data.version, "0.7")) {
+      for (let i = 0; i < roll.parts.length; i++) {
+        var part = roll.parts[i];
+        if (part.rolls) {
+          let result = part.rolls.map((r) => {
+            if (part.faces === 20) {
+              // Natural 20.
+              if (r.roll === part.faces && !r.discarded) {
+                return 'crit';
+              }
+              // Natural 1.
+              else if (r.roll === 1 && !r.discarded && !r.rerolled) {
+                return 'fail';
+              }
+              // Barbarian crit.
+              else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
+                && roll.formula.match(/^2d20kh/g) && part.rolls[0].roll > 10 && part.rolls[1].roll > 10) {
+                return 'crit';
+              }
+              else {
+                return 'normal';
+              }
             }
             else {
               return 'normal';
             }
-          }
-          else {
-            return 'normal';
-          }
-        });
+          });
 
-        return result;
+          return result;
+        }
+        else {
+          return 'none';
+        }
       }
-      else {
-        return 'none';
+    }
+    //////////////////////////////////////////////////////////////////////////
+    //////////////////////// END OF DEPRECATED CODE //////////////////////////
+    //////////////////////////////////////////////////////////////////////////
+    else {
+      for (let i = 0; i < roll.terms.length; i++) {
+        var part = roll.terms[i];
+        if (part.results) {
+          let result = part.results.map((r) => {
+            if (part.faces === 20) {
+              // Natural 20.
+              if (r.result === part.faces && !r.discarded) {
+                return 'crit';
+              }
+              // Natural 1.
+              else if (r.result === 1 && !r.discarded && !r.rerolled) {
+                return 'fail';
+              }
+              // Barbarian crit.
+              else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
+                && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
+                return 'crit';
+              }
+              else {
+                return 'normal';
+              }
+            }
+            else {
+              return 'normal';
+            }
+          });
+
+          return result;
+        }
+        else {
+          return 'none';
+        }
       }
     }
   }
@@ -146,11 +257,9 @@ export class ArchmageUtility {
           value: ArchmageUtility.getEscalation(game.combat)
         };
 
-        if (data.attributes.standardBonuses) {
-          data.attributes.standardBonuses = {
-            value: data.attributes.level.value + data.attributes.escalation.value
-          };
-        }
+        data.attributes.standardBonuses = {
+          value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
+        };
       }
 
       // Re-map all attributes onto the base roll data
@@ -184,6 +293,7 @@ export class ArchmageUtility {
               let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
               wpnTypes.forEach(wpn => {
                 data.wpn[wpn].die = data.wpn[wpn].dice;
+                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
                 data.wpn[wpn].dmg = data.wpn[wpn].dmg;

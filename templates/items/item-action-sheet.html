@@ -4,7 +4,12 @@
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
     </header>
 
-    <div class="tab">
+    <div class="tab archmage-aip">
+        <div class="form-group">
+            <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
+            <input type="text" name="data.group.value" value="{{data.group.value}}" data-dtype="{{data.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
+        </div>
+
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.attack'}}</label>
             <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="Ex: [[d20+10+@ed]], [[/r d20+10+@ed]] vs AC ([[1d3+1]] attacks)"/>

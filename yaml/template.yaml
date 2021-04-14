@@ -68,12 +68,16 @@ Actor:
           max: 10
           temp: 0
           tempmax: 0
+          base: 7
+          automatic: true
         recoveries:
           type: Number
           label: Recoveries
           value: 8
           max: 8
           dice: d8
+          base: 8
+          automatic: true
         init:
           type: Number
           label: Initiative Modifier
@@ -314,6 +318,10 @@ Item:
   power:
     templates:
       - standard
+    group:
+      type: String
+      label: Group
+      value: ''
     powerSource:
       type: String
       label: Power Source
@@ -441,7 +449,7 @@ Item:
     quantity:
       type: Number
       label: Uses
-      value: 1
+      value: 0
     feats:
       adventurer:
         description:
@@ -467,9 +475,17 @@ Item:
   trait:
     templates:
       - standard
+    group:
+      type: String
+      label: Group
+      value: ''
   action:
     templates:
       - standard
+    group:
+      type: String
+      label: Group
+      value: ''
     attack:
       type: String
       label: Attack Roll
@@ -497,6 +513,10 @@ Item:
   nastierSpecial:
     templates:
       - standard
+    group:
+      type: String
+      label: Group
+      value: ''
   tool:
     templates:
       - standard
