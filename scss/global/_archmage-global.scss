@@ -2476,6 +2476,20 @@ input[type="checkbox"] {
     }
   }
 
+  .dc-reroll {
+    color: $c-reroll;
+    background: rgba(204, 163, 0, 0.75);
+    &:hover {
+      text-shadow: 0 0 8px $c-black;
+    }
+    .die {
+      color: $c-reroll;
+    }
+    .fas {
+      color: $c-reroll;
+    }
+  }
+
   .dc-fail {
     color: $c-fail;
     background: rgba(70, 0, 0, 0.75);
