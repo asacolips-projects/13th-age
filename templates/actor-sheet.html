@@ -894,6 +894,22 @@
               </div>
 
               <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTERSETTINGS.shield'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.shield.value" type="checkbox" value="1" {{checked data.attributes.weapon.melee.shield.value}}
+                    data-dtype="Boolean"/>
+              </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTERSETTINGS.dualwield'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.dualwield.value" type="checkbox" value="1" {{checked data.attributes.weapon.melee.dualwield.value}}
+                    data-dtype="Boolean"/>
+              </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTERSETTINGS.twohanded'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.twohanded.value" type="checkbox" value="1" {{checked data.attributes.weapon.melee.twohanded.value}}
+                    data-dtype="Boolean"/>
+              </div>
+
+              <div class="settings-group">
                   <strong class="attribute-name">{{localize 'ARCHMAGE.rangedWeaponDice'}}</strong>
                   <input class="attribute-input" name="data.attributes.weapon.ranged.dice" type="text" value="{{data.attributes.weapon.ranged.dice}}"
                       data-dtype="String" placeholder="d6" />
