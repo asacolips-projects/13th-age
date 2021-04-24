@@ -291,6 +291,12 @@ Actor:
           label: Melee weapon dice
           dice: d8
           value: d8
+          shield:
+            value: false
+          dualwield:
+            value: false
+          twohanded:
+            value: false
         ranged:
           type: String
           label: Ranged weapon dice

@@ -291,6 +291,10 @@ export class ActorArchmage extends Actor {
       data.attributes.weapon.ranged.mod = data.abilities[data.attributes.weapon.ranged.abil].mod;
       data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.damageAbil].dmg + data.attributes.attack.ranged.bonus;
 
+      if (!data.attributes.weapon.melee.shield) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
+      if (!data.attributes.weapon.melee.dualwield) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
+      if (!data.attributes.weapon.melee.twohanded) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
+
       // Handle monk attacks.
       let monkAttacks = {
         jab: {
@@ -893,10 +897,79 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
-  if (actor.data.type == 'character'
-    && options.diff
-    && data.data !== undefined
-    && data.data.details !== undefined
+  if (!actor.data.type == 'character'
+    || !options.diff
+    || data.data === undefined) {
+      return;
+  }
+
+  if (data.data.attributes !== undefined
+    && data.data.attributes.weapon !== undefined
+    && data.data.attributes.weapon.melee !== undefined
+    && data.data.attributes.weapon.melee.dice === undefined) {
+    // Here we received an update of the melee weapon checkboxes
+
+    let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
+    let lvl = actor.data.data.attributes.level.value;
+
+    if (data.data.attributes.weapon.melee.shield !== undefined) {
+      // Here we received an update of the shield checkbox
+      if (data.data.attributes.weapon.melee.shield.value) {
+        // Adding shield
+        data.data.attributes.ac = {base: actor.data.data.attributes.ac.base + 1};
+        if (actor.data.data.attributes.weapon.melee.twohanded.value) {
+          // Can't wield both a two-handed weapon and a shield
+          mWpn -= 2;
+          data.data.attributes.weapon.melee.twohanded = {value: false};
+        }
+        else if (actor.data.data.attributes.weapon.melee.dualwield.value) {
+          // Can't dual-wield with a shield
+          data.data.attributes.weapon.melee.dualwield = {value: false};
+        }
+      } else {
+        // Removing shield
+        data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+      }
+    }
+    else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
+      // Here we received an update of the dual wield checkbox
+      if (data.data.attributes.weapon.melee.dualwield.value) {
+        // Adding dual-wield
+        if (actor.data.data.attributes.weapon.melee.twohanded.value) {
+          // Can't wield two two-handed weapons
+          mWpn -= 2;
+          data.data.attributes.weapon.melee.twohanded = {value: false};
+        }
+        else if (actor.data.data.attributes.weapon.melee.shield.value) {
+          // Can't duel-wield with a shield
+          data.data.attributes.weapon.melee.shield = {value: false};
+        }
+      }
+    }
+    else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
+      // Here we received an update of the two-handed checkbox
+      if (data.data.attributes.weapon.melee.twohanded.value) {
+        // Adding two-handed
+        mWpn += 2;
+        if (actor.data.data.attributes.weapon.melee.shield.value) {
+          // Can't wield both a two-handed weapon and a shield
+          data.data.attributes.weapon.melee.shield = {value: false};
+        }
+        else if (actor.data.data.attributes.weapon.melee.dualwield.value) {
+          // Can't wield two two-handed weapons
+          data.data.attributes.weapon.melee.dualwield = {value: false};
+        }
+      } else {
+        // Removing two-handed
+        mWpn -= 2;
+      }
+    }
+
+    data.data.attributes.weapon.melee.dice = `d${mWpn}`;
+    data.data.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
+  }
+
+  else if (data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
@@ -917,7 +990,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (actor.data.data.details.matchedClasses !== undefined
         && JSON.stringify(actor.data.data.details.matchedClasses) == JSON.stringify(matchedClasses)
         ) {
-        return
+        return;
       }
 
       // Collect base stats for detected classes
