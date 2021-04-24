@@ -1051,13 +1051,23 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
+      let shield = false;
+      let dualwield = false;
+      let twohanded = false;
       // Pick best weapon (and possibly shield)
-      // if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
-      // else if (!base.mWpn_2h_pen
-        // && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
-        // ) {base.mWpn = base.mWpn_2h;}
-      // else {base.mWpn = base.mWpn_1h;}
       base.mWpn = base.mWpn_1h;
+      if (matchedClasses.includes("monk")
+        || JSON.stringify(matchedClasses) === JSON.stringify(['ranger'])) {
+        dualwield = true;
+      }
+      else if (!base.shld_pen) {
+        base.ac += 1;
+        shield = true;
+      }
+      else if (!base.mWpn_2h_pen) {
+        base.mWpn = base.mWpn_2h;
+        twohanded = true;
+      }
 
       // Assign computed values
       data.data.attributes = {
@@ -1067,7 +1077,13 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         md: {base: base.md},
         recoveries: {dice: `d${base.rec}`},
         weapon: {
-          melee: {dice: `d${base.mWpn}`, value: `${lvl}d${base.mWpn}`},
+          melee: {
+            dice: `d${base.mWpn}`,
+            value: `${lvl}d${base.mWpn}`,
+            shield: {value: shield},
+            dualwield: {value: dualwield},
+            twohanded: {value: twohanded}
+          },
           ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
           jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
           punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},
