@@ -943,6 +943,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         else if (actor.data.data.attributes.weapon.melee.shield.value) {
           // Can't duel-wield with a shield
           data.data.attributes.weapon.melee.shield = {value: false};
+          data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
         }
       }
     }
@@ -954,6 +955,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         if (actor.data.data.attributes.weapon.melee.shield.value) {
           // Can't wield both a two-handed weapon and a shield
           data.data.attributes.weapon.melee.shield = {value: false};
+          data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
         }
         else if (actor.data.data.attributes.weapon.melee.dualwield.value) {
           // Can't wield two two-handed weapons
