@@ -1066,7 +1066,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         base.ac += 1;
         shield = true;
       }
-      else if (!base.mWpn_2h_pen) {
+      else if (!base.mWpn_2h_pen && base.mWpn_2h > base.mWpn_1h) {
         base.mWpn = base.mWpn_2h;
         twohanded = true;
       }
