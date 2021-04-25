@@ -140,7 +140,7 @@ export class ArchmageUtility {
                 return 'crit';
               }
               // Natural 2, if dual-wielding.
-              else if (actor && actor.data.data.attributes.weapon.melee.dualwield.value
+              else if (actor && actor.data.data.attributes.weapon.melee.dualwield
                 && r.result === 2 && !r.discarded && !r.rerolled) {
                 return 'reroll';
               }
