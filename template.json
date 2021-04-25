@@ -381,15 +381,9 @@
             "label": "Melee weapon dice",
             "dice": "d8",
             "value": "d8",
-            "shield": {
-              "value": false
-            },
-            "dualwield": {
-              "value": false
-            },
-            "twohanded": {
-              "value": false
-            }
+            "shield": false,
+            "dualwield": false,
+            "twohanded": false
           },
           "ranged": {
             "type": "String",

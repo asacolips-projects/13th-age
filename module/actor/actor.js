@@ -291,10 +291,6 @@ export class ActorArchmage extends Actor {
       data.attributes.weapon.ranged.mod = data.abilities[data.attributes.weapon.ranged.abil].mod;
       data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.damageAbil].dmg + data.attributes.attack.ranged.bonus;
 
-      if (!data.attributes.weapon.melee.shield) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
-      if (!data.attributes.weapon.melee.dualwield) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
-      if (!data.attributes.weapon.melee.twohanded) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
-
       // Handle monk attacks.
       let monkAttacks = {
         jab: {
@@ -405,6 +401,11 @@ export class ActorArchmage extends Actor {
       if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
       data.details.detectedClasses = matchedClasses;
     }
+
+    // Fallbacks for missing melee weapon options
+    if (data.attributes.weapon.melee.shield === undefined) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
+    if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
+    if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
 
     // Fallbacks for missing custom resources
     if (!data.resources) data.resources = model.resources;
@@ -914,55 +915,50 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
 
     if (data.data.attributes.weapon.melee.shield !== undefined) {
       // Here we received an update of the shield checkbox
-      if (data.data.attributes.weapon.melee.shield.value) {
-        // Adding shield
+      if (data.data.attributes.weapon.melee.shield) {
         data.data.attributes.ac = {base: actor.data.data.attributes.ac.base + 1};
-        if (actor.data.data.attributes.weapon.melee.twohanded.value) {
+        if (actor.data.data.attributes.weapon.melee.twohanded) {
           // Can't wield both a two-handed weapon and a shield
           mWpn -= 2;
-          data.data.attributes.weapon.melee.twohanded = {value: false};
+          data.data.attributes.weapon.melee.twohanded = false;
         }
-        else if (actor.data.data.attributes.weapon.melee.dualwield.value) {
+        else if (actor.data.data.attributes.weapon.melee.dualwield) {
           // Can't dual-wield with a shield
-          data.data.attributes.weapon.melee.dualwield = {value: false};
+          data.data.attributes.weapon.melee.dualwield = false;
         }
       } else {
-        // Removing shield
         data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
       }
     }
     else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
       // Here we received an update of the dual wield checkbox
-      if (data.data.attributes.weapon.melee.dualwield.value) {
-        // Adding dual-wield
-        if (actor.data.data.attributes.weapon.melee.twohanded.value) {
+      if (data.data.attributes.weapon.melee.dualwield) {
+        if (actor.data.data.attributes.weapon.melee.twohanded) {
           // Can't wield two two-handed weapons
           mWpn -= 2;
-          data.data.attributes.weapon.melee.twohanded = {value: false};
+          data.data.attributes.weapon.melee.twohanded = false;
         }
-        else if (actor.data.data.attributes.weapon.melee.shield.value) {
+        else if (actor.data.data.attributes.weapon.melee.shield) {
           // Can't duel-wield with a shield
-          data.data.attributes.weapon.melee.shield = {value: false};
+          data.data.attributes.weapon.melee.shield = false;
           data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
         }
       }
     }
     else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
       // Here we received an update of the two-handed checkbox
-      if (data.data.attributes.weapon.melee.twohanded.value) {
-        // Adding two-handed
+      if (data.data.attributes.weapon.melee.twohanded) {
         mWpn += 2;
-        if (actor.data.data.attributes.weapon.melee.shield.value) {
+        if (actor.data.data.attributes.weapon.melee.shield) {
           // Can't wield both a two-handed weapon and a shield
-          data.data.attributes.weapon.melee.shield = {value: false};
+          data.data.attributes.weapon.melee.shield = false;
           data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
         }
-        else if (actor.data.data.attributes.weapon.melee.dualwield.value) {
+        else if (actor.data.data.attributes.weapon.melee.dualwield) {
           // Can't wield two two-handed weapons
-          data.data.attributes.weapon.melee.dualwield = {value: false};
+          data.data.attributes.weapon.melee.dualwield = false;
         }
       } else {
-        // Removing two-handed
         mWpn -= 2;
       }
     }
@@ -1082,9 +1078,9 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
           melee: {
             dice: `d${base.mWpn}`,
             value: `${lvl}d${base.mWpn}`,
-            shield: {value: shield},
-            dualwield: {value: dualwield},
-            twohanded: {value: twohanded}
+            shield: shield,
+            dualwield: dualwield,
+            twohanded: twohanded
           },
           ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
           jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
