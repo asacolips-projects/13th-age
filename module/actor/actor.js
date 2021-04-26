@@ -923,8 +923,8 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         atkPen.shield.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
         atkPen.twohanded.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
       });
-      atkPen.shield = Math.min.apply(null, atkPen.shield);
-      atkPen.twohanded = Math.min.apply(null, atkPen.twohanded);
+      atkPen.shield = Math.max.apply(null, atkPen.shield);
+      atkPen.twohanded = Math.max.apply(null, atkPen.twohanded);
     }
 
     if (data.data.attributes.weapon.melee.shield !== undefined) {
@@ -1059,7 +1059,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (base.rec.length == 1) base.rec = base.rec[0];
       else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
       base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
-      base.mWpn_2h_pen = base.mWpn_2h.some(a => a < 0);
+      base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
       base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
       base.rWpn = Math.max.apply(null, base.rWpn);
       let jabWpn = 6;

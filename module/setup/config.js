@@ -130,8 +130,8 @@ ARCHMAGE.classes = {
     md: 11,
     rec_die: 8,
     wpn_1h: 8,
-    wpn_2h: 8,
-    wpn_2h_pen: 0,
+    wpn_2h: 10,
+    wpn_2h_pen: -2,
     wpn_rngd: 6,
     skilled_warrior: true
   },
@@ -295,8 +295,8 @@ ARCHMAGE.classes = {
     md: 10,
     rec_die: 8,
     wpn_1h: 8,
-    wpn_2h: 8,
-    wpn_2h_pen: 0,
+    wpn_2h: 10,
+    wpn_2h_pen: -2,
     wpn_rngd: 6,
     skilled_warrior: true
   },
