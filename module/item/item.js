@@ -164,8 +164,6 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
-    //await ArchmageRolls.rollItem(this);
-
     // Basic chat message data
     const chatData = {
       user: game.user._id,

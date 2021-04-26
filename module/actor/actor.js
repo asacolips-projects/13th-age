@@ -113,9 +113,9 @@ export class ActorArchmage extends Actor {
 
     var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
-    var acBonus = missingRecPenalty;
-    var mdBonus = missingRecPenalty;
-    var pdBonus = missingRecPenalty;
+    var acBonus = 0 + missingRecPenalty;
+    var mdBonus = 0 + missingRecPenalty;
+    var pdBonus = 0 + missingRecPenalty;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -336,15 +336,15 @@ export class ActorArchmage extends Actor {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
-    // Penalties to attack rolls
-    data.attributes.atkpen = missingRecPenalty;
-    // TODO: handle dazed, weakened, etc. here
+    // Fallback for attack modifier
+    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
+    data.attributes.attackMod.missingRecPenalty = missingRecPenalty;
 
     if (actorData.type === 'character') {
       // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
       // duplicate code needs to be retired from the utility class if possible.
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
+        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
       };
     }
 

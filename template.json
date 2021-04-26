@@ -51,6 +51,10 @@
           }
         },
         "attributes": {
+          "attackMod": {
+            "type": "Number",
+            "value": 0
+          },
           "ac": {
             "type": "Number",
             "label": "Armor Class",

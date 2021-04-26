@@ -42,6 +42,9 @@ Actor:
           min: 3
           mod: 0
       attributes:
+        attackMod:
+          type: Number
+          value: 0
         ac:
           type: Number
           label: Armor Class
