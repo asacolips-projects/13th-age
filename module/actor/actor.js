@@ -52,15 +52,14 @@ export class ActorArchmage extends Actor {
     super.prepareData();
 
     // Get the Actor's data object
-    this.data = duplicate(this._data);
-    if (!this.data.img) this.data.img = CONST.DEFAULT_TOKEN;
-    if (!this.data.name) this.data.name = "New " + this.entity;
+    const actorData = this.data;
+    if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
+    if (!actorData.name) actorData.name = "New " + this.entity;
     this.prepareBaseData();
     this.prepareEmbeddedEntities();
 
     this.prepareDerivedData();
 
-    const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
 
@@ -273,7 +272,7 @@ export class ActorArchmage extends Actor {
           },
         };
       }
-      // Handle some possibly unitialized variables. These can be tweaked through the sheet settings.
+      // Handle some possibly uninitialized variables. These can be tweaked through the sheet settings.
       data.attributes.weapon.melee.miss = data.attributes.weapon.melee.miss === undefined ? true : data.attributes.weapon.melee.miss;
       data.attributes.weapon.ranged.miss = data.attributes.weapon.ranged.miss === undefined ? false : data.attributes.weapon.ranged.miss;
       data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
@@ -349,9 +348,6 @@ export class ActorArchmage extends Actor {
     }
 
     this.applyActiveEffects();
-
-    // Return the prepared Actor data
-    return actorData;
   }
 
   /* -------------------------------------------- */

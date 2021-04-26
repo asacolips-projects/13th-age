@@ -2,7 +2,7 @@
     {{#each index as |group key|}}
         <h3 class="entry-group hidden" data-key="{{key}}">{{key}}</h3>
             {{#each group}}
-            <li class="directory-item flexrow {{../../cssClass}}{{#if this.search.usage}} ability-usage ability-usage--{{getPowerClass this.search.usage}}{{/if}}" data-key="{{key}}" data-entry-id="{{this._id}}">
+            <li class="directory-item flexrow {{../../cssClass}}{{#if this.search.usage}} ability-usage ability-usage--{{getPowerClass this.search.usage}}{{/if}}" data-key="{{key}}" data-entry-id="{{this.id}}">
                 <img class="profile" data-src="{{this.img}}" title="{{this.name}}"/>
                 <h4 class="entry-name">
                   <a>{{this.name}}</a>

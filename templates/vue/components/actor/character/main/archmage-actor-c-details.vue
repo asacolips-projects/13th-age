@@ -1,6 +1,6 @@
 <template>
   <section :class="classes" data-tab="details">
-    <archmage-h-editor :owner="owner" target='data.details.biography.value' button="true" editable="true" :content="actor.data.details.biography.value"></archmage-h-editor>
+    <archmage-h-editor :owner="owner" target='data.details.biography.value' button="true" editable="true" :content="actor.data.data.details.biography.value"></archmage-h-editor>
   </section>
 </template>
 

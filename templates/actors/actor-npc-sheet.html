@@ -162,7 +162,7 @@
             <ul class="actions-list inventory-list directory-list">
 
                 {{#each actor.actions as |item i|}}
-                <li class="item flexrow item--action" data-item-id="{{item._id}}">
+                <li class="item flexrow item--action" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
                         <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{item.name}}</h4>
@@ -214,7 +214,7 @@
             <ul class="traits-list inventory-list directory-list">
 
                 {{#each actor.traits as |item i|}}
-                <li class="item flexrow item--trait" data-item-id="{{item._id}}">
+                <li class="item flexrow item--trait" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
                         <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{item.name}}</h4>
@@ -253,7 +253,7 @@
             <ul class="nastier-specials-list inventory-list directory-list">
 
                 {{#each actor.nastierSpecials as |item i|}}
-                <li class="item flexrow item--nastier-special" data-item-id="{{item._id}}">
+                <li class="item flexrow item--nastier-special" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
                         <h4>{{#if item.data.group.value}}[{{item.data.group.value}}] {{/if}}{{item.name}}</h4>

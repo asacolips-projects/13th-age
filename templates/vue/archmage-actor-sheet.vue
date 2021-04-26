@@ -39,8 +39,8 @@
         <!-- Powers tab -->
         <archmage-actor-c-powers :actor="actor" :tab="tabs.primary.powers" :flags="flags"></archmage-actor-c-powers>
         <!-- Inventory tab -->
-        <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"></archmage-actor-c-inventory>
-        <!-- Effects tab -->
+<!--        <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"></archmage-actor-c-inventory>-->
+<!--        &lt;!&ndash; Effects tab &ndash;&gt;-->
         <!-- <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects"></archmage-actor-c-effects> -->
         <!-- Settings tab -->
         <archmage-actor-c-settings :actor="actor" :tab="tabs.primary.settings"></archmage-actor-c-settings>

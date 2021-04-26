@@ -44,8 +44,8 @@ export class ItemArchmageSheet extends ItemSheet {
    *
    * @return {undefined}
    */
-  getData() {
-    const data = super.getData();
+  async getData(options) {
+    const data = super.getData(options);
 
     // Power-specific data
     if (this.item.type === 'power') {

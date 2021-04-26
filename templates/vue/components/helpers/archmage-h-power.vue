@@ -2,26 +2,26 @@
   <section class="power">
     <!-- Group, range, and quick info. -->
     <header class="power-header flexcol">
-      <strong v-if="power.data.group.value">{{power.data.group.value}}</strong>
-      <em v-if="power.data.range.value">{{power.data.range.value}}</em>
+      <strong v-if="power.data.data.group.value">{{power.data.data.group.value}}</strong>
+      <em v-if="power.data.data.range.value">{{power.data.data.range.value}}</em>
       <div class="power-subheader flexrow">
-        <strong v-if="power.data.actionType.value">{{localize(concat('ARCHMAGE.',power.data.actionType.value))}}</strong>
-        <strong v-if="power.data.powerUsage.value">{{constants.powerUsages[power.data.powerUsage.value]}}</strong>
-        <strong v-if="power.data.powerType.value">{{constants.powerTypes[power.data.powerType.value]}}</strong>
+        <strong v-if="power.data.data.actionType.value">{{localize(concat('ARCHMAGE.',power.data.data.actionType.value))}}</strong>
+        <strong v-if="power.data.data.powerUsage.value">{{constants.powerUsages[power.data.data.powerUsage.value]}}</strong>
+        <strong v-if="power.data.data.powerType.value">{{constants.powerTypes[power.data.data.powerType.value]}}</strong>
       </div>
     </header>
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="power-details flexcol">
-      <div v-if="power.data.description.value" class="power-detail power-detail--description">
-        <span class="power-detail-value" v-html="power.data.description.value"></span>
+      <div v-if="power.data.data.description.value" class="power-detail power-detail--description">
+        <span class="power-detail-value" v-html="power.data.data.description.value"></span>
       </div>
       <div class="power-detail" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{power.data[field].label}}:</strong> <span class="power-detail-value" v-html="power.data[field].value"></span>
+        <strong class="power-detail-label">{{power.data.data[field].label}}:</strong> <span class="power-detail-value" v-html="power.data.data[field].value"></span>
       </div>
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
-      <div v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
+      <div v-for="(feat, tier) in filterFeats(power.data.data.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', tier))}}:</strong>
         <div class="power-detail-content" v-html="feat.description.value"></div>
       </div>
@@ -66,7 +66,7 @@ export default {
         'recharge',
       ];
 
-      powerFields = powerFields.filter(p => this.power.data[p].value);
+      powerFields = powerFields.filter(p => this.power.data.data[p].value);
 
       return powerFields;
     }

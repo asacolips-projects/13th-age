@@ -19,7 +19,7 @@ export default {
   computed: {
     backgrounds() {
       let filteredBackgrounds = {};
-      for (let [k,v] of Object.entries(this.actor.data.backgrounds)) {
+      for (let [k,v] of Object.entries(this.actor.data.data.backgrounds)) {
         if (v.isActive.value === true) filteredBackgrounds[k] = v;
       }
       return filteredBackgrounds;

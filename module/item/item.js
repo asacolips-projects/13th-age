@@ -28,7 +28,7 @@ export class ItemArchmage extends Item {
    */
   async roll() {
     // Just roll for unlinked tokens
-    if (this.options.actor.token !== null) {
+    if (this.actor.token !== null) {
       return this._roll();
     }
 
@@ -159,7 +159,7 @@ export class ItemArchmage extends Item {
     const token = this.actor.token;
     const templateData = {
       actor: this.actor,
-      tokenId: token ? `${token.scene._id}.${token.id}` : null,
+      tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
       item: this.data,
       data: this.getChatData()
     };
@@ -168,9 +168,9 @@ export class ItemArchmage extends Item {
 
     // Basic chat message data
     const chatData = {
-      user: game.user._id,
+      user: game.user.id,
       speaker: {
-        actor: this.actor._id,
+        actor: this.actor.id,
         token: this.actor.token,
         alias: this.actor.name,
         scene: game.user.viewedScene

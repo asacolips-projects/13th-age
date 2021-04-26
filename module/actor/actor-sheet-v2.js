@@ -35,8 +35,15 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   }
 
   /** @override */
-  getData() {
-    const sheetData = super.getData();
+  getData(options) {
+    const sheetData = super.getData(options);
+    // let data = {
+    //   actor: duplicate(sheetData.actor)
+    // };
+    // data.actor.data = sheetData.actor.data.data;
+    // console.log(data);
+    // return data;
+    console.log(sheetData);
     return sheetData;
   }
 
@@ -48,6 +55,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   render(force=false, options={}) {
     // Grab the sheetdata for both updates and new apps.
     let sheetData = this.getData();
+    console.log(sheetData);
     // Exit if Vue has already rendered.
     if (this._vm) {
       let states = Application.RENDER_STATES;
@@ -237,7 +245,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let itemId = dataset.itemId;
     if (!itemId) return;
 
-    // Delete the tiem from the actor object.
+    // Delete the item from the actor object.
     await this.actor.deleteOwnedItem(itemId);
   }
 

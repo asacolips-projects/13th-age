@@ -37,7 +37,7 @@ export default {
   computed: {
     icons() {
       let filteredIcons = {};
-      for (let [k,v] of Object.entries(this.actor.data.icons)) {
+      for (let [k,v] of Object.entries(this.actor.data.data.icons)) {
         if (v.isActive.value === true) filteredIcons[k] = v;
       }
       return filteredIcons;

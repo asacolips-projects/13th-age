@@ -17,7 +17,7 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
     return path + "actor-npc-sheet.html";
   }
 
-  getData() {
+    getData(options) {
     const sheetData = super.getData();
 
     this._prepareCharacterItems(sheetData.actor);
