@@ -913,14 +913,31 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
     let lvl = actor.data.data.attributes.level.value;
 
+    // Compute penalties due to equipment (if classes known)
+    data.data.attributes.attackMod = {value: actor.data.data.attributes.attackMod.value};
+    let atkPen = {shield: 0, twohanded: 0};
+    if (actor.data.data.details.detectedClasses !== undefined) {
+      atkPen.shield = new Array();
+      atkPen.twohanded = new Array();
+      actor.data.data.details.detectedClasses.forEach(function(item) {
+        atkPen.shield.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
+        atkPen.twohanded.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+      });
+      atkPen.shield = Math.min.apply(null, atkPen.shield);
+      atkPen.twohanded = Math.min.apply(null, atkPen.twohanded);
+    }
+
     if (data.data.attributes.weapon.melee.shield !== undefined) {
       // Here we received an update of the shield checkbox
       if (data.data.attributes.weapon.melee.shield) {
+        // Adding a shield
         data.data.attributes.ac = {base: actor.data.data.attributes.ac.base + 1};
+        data.data.attributes.attackMod.value += atkPen.shield;
         if (actor.data.data.attributes.weapon.melee.twohanded) {
           // Can't wield both a two-handed weapon and a shield
           mWpn -= 2;
           data.data.attributes.weapon.melee.twohanded = false;
+          data.data.attributes.attackMod.value -= atkPen.twohanded;
         }
         else if (actor.data.data.attributes.weapon.melee.dualwield) {
           // Can't dual-wield with a shield
@@ -928,8 +945,10 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         }
       } else {
         data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+        data.data.attributes.attackMod.value -= atkPen.shield;
       }
     }
+
     else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
       // Here we received an update of the dual wield checkbox
       if (data.data.attributes.weapon.melee.dualwield) {
@@ -937,22 +956,27 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
           // Can't wield two two-handed weapons
           mWpn -= 2;
           data.data.attributes.weapon.melee.twohanded = false;
+          data.data.attributes.attackMod.value -= atkPen.twohanded;
         }
         else if (actor.data.data.attributes.weapon.melee.shield) {
           // Can't duel-wield with a shield
-          data.data.attributes.weapon.melee.shield = false;
           data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+          data.data.attributes.weapon.melee.shield = false;
+          data.data.attributes.attackMod.value -= atkPen.shield;
         }
       }
     }
+
     else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
       // Here we received an update of the two-handed checkbox
       if (data.data.attributes.weapon.melee.twohanded) {
         mWpn += 2;
+        data.data.attributes.attackMod.value += atkPen.twohanded;
         if (actor.data.data.attributes.weapon.melee.shield) {
           // Can't wield both a two-handed weapon and a shield
-          data.data.attributes.weapon.melee.shield = false;
           data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+          data.data.attributes.weapon.melee.shield = false;
+          data.data.attributes.attackMod.value -= atkPen.shield;
         }
         else if (actor.data.data.attributes.weapon.melee.dualwield) {
           // Can't wield two two-handed weapons
@@ -960,6 +984,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         }
       } else {
         mWpn -= 2;
+        data.data.attributes.attackMod.value -= atkPen.twohanded;
       }
     }
 
