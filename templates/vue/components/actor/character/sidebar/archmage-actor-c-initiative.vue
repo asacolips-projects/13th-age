@@ -1,6 +1,14 @@
 <template>
-  <section class="section section--initiative flexcol">
-    <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.data.attributes.init.mod, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
+  <section class="section section--incrementals flexcol">
+    <h2 class="unit-title">{{localize('ARCHMAGE.incrementalAdvances')}}</h2>
+    <ul class="list list--incrementals incrementals">
+      <li v-for="(item, index) in getOrderedIncrementals(actor)" :key="index" class="list-item list-item--incrementals incremental" :data-key="index">
+        <label :for="concat('data.incrementals.', index)" :title="localize(concat('ARCHMAGE.INCREMENTALS.', index, 'Hint'))">
+          <input type="checkbox" :name="concat('data.incrementals.', index)" v-model="actor.data.data.incrementals[index]">
+          {{localize(concat('ARCHMAGE.INCREMENTALS.', index, 'Name'))}}
+        </label>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -11,8 +19,17 @@ export default {
     return {}
   },
   computed: {},
-  methods: {},
-  watch: {},
+  methods: {
+    getOrderedIncrementals(actor) {
+      let incrementalKeys = ['abilityScoreBonus', 'skills', 'extraMagicItem', 'feat', 'feature', 'hp', 'iconRelationshipPoint', 'powerSpell1', 'powerSpell2', 'powerSpell3', 'powerSpell4'];
+      let newIncrementalArray = {};
+      console.log(actor);
+      if (actor.data) {
+        incrementalKeys.forEach(e => newIncrementalArray[e] = actor.data.incrementals[e]);
+      }
+      return newIncrementalArray;
+    }
+  },
   async created() {
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
       this[k] = v;

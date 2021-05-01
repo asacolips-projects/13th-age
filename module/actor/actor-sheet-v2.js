@@ -10,7 +10,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
      * If this Actor Sheet represents a synthetic Token actor, reference the active Token
      * @type {Token}
      */
-    this.token = this.object.token;
     this._vm = null;
   }
 
@@ -37,14 +36,17 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /** @override */
   getData(options) {
     const sheetData = super.getData(options);
-    // let data = {
-    //   actor: duplicate(sheetData.actor)
-    // };
+    let data = {
+      actor: sheetData.actor.data,
+      data: sheetData.actor.data,
+      items: sheetData.items.map(x => x.data)
+    };
     // data.actor.data = sheetData.actor.data.data;
     // console.log(data);
     // return data;
+    sheetData.data = sheetData.actor.data.data;
     console.log(sheetData);
-    return sheetData;
+    return data;
   }
 
   /* ------------------------------------------------------------------------ */
@@ -59,10 +61,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     // Exit if Vue has already rendered.
     if (this._vm) {
       let states = Application.RENDER_STATES;
+      console.log(this._state);
       if (this._state == states.RENDERING || this._state == states.RENDERED) {
         if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
         if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
         if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
+        console.log("Set VM");
+        console.log(this._vm.actor);
         this._updateEditors($(this.form));
         this.activateVueListeners($(this.form), true);
         return;

@@ -6,61 +6,61 @@
       <div class="unit unit--base-settings">
         <div class="sub-unit sub-unit--base-ac flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseAC')}}</strong>
-          <input type="number" name="data.attributes.ac.base" v-model="actor.data.data.attributes.ac.base"/>
+          <input type="number" name="data.attributes.ac.base" v-model="actor.data.attributes.ac.base"/>
         </div>
         <div class="sub-unit sub-unit--base-pd flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.basePD')}}</strong>
-          <input type="number" name="data.attributes.pd.base" v-model="actor.data.data.attributes.pd.base"/>
+          <input type="number" name="data.attributes.pd.base" v-model="actor.data.attributes.pd.base"/>
         </div>
         <div class="sub-unit sub-unit--base-md flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseMD')}}</strong>
-          <input type="number" name="data.attributes.md.base" v-model="actor.data.data.attributes.md.base"/>
+          <input type="number" name="data.attributes.md.base" v-model="actor.data.attributes.md.base"/>
         </div>
         <div class="sub-unit sub-unit--base-hp flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseHP')}}</strong>
-          <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.data.attributes.hp.base"/>
+          <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.attributes.hp.base"/>
         </div>
         <div class="sub-unit sub-unit--base-recoveries flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseRecoveries')}}</strong>
-          <input type="number" name="data.attributes.recoveries.base" v-model="actor.data.data.attributes.recoveries.base"/>
+          <input type="number" name="data.attributes.recoveries.base" v-model="actor.data.attributes.recoveries.base"/>
         </div>
         <div class="sub-unit sub-unit--calculate-max-hp flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateHP')}}</strong>
-          <input type="checkbox" name="data.attributes.hp.automatic" v-model="actor.data.data.attributes.hp.automatic"/>
+          <input type="checkbox" name="data.attributes.hp.automatic" v-model="actor.data.attributes.hp.automatic"/>
         </div>
         <div class="sub-unit sub-unit--calculate-max-recoveries flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateRecoveries')}}</strong>
-          <input type="checkbox" name="data.attributes.recoveries.automatic" v-model="actor.data.data.attributes.recoveries.automatic"/>
+          <input type="checkbox" name="data.attributes.recoveries.automatic" v-model="actor.data.attributes.recoveries.automatic"/>
         </div>
         <div class="sub-unit sub-unit--initiative-adjustment flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.initAdjustment')}}</strong>
-          <input type="number" name="data.attributes.init.value" v-model="actor.data.data.attributes.init.value" placeholder="0"/>
+          <input type="number" name="data.attributes.init.value" v-model="actor.data.attributes.init.value" placeholder="0"/>
         </div>
         <div class="sub-unit sub-unit--recovery-dice flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.recoveryDice')}}</strong>
-          <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.data.attributes.recoveries.dice" placeholder="d8"/>
+          <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.attributes.recoveries.dice" placeholder="d8"/>
         </div>
         <div class="sub-unit sub-unit--melee">
           <div class="sub-unit sub-unit--melee-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.meleeWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.melee.dice" v-model="actor.data.data.attributes.weapon.melee.dice" placeholder="d8"/>
+            <input type="text" name="data.attributes.weapon.melee.dice" v-model="actor.data.attributes.weapon.melee.dice" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--ranged-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.rangedWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.ranged.dice" v-model="actor.data.data.attributes.weapon.ranged.dice" placeholder="d8"/>
+            <input type="text" name="data.attributes.weapon.ranged.dice" v-model="actor.data.attributes.weapon.ranged.dice" placeholder="d8"/>
           </div>
           <!-- TODO: Add monk dice. -->
           <!-- <div class="sub-unit sub-unit--jab-dice flexrow">
             <strong class="unit-subtitle">{{localize('JAB Weapon Die')}}</strong>
-            <input type="text" name="data.attributes.weapon.jab.dice" v-model="actor.data.data.attributes.weapon.jab.dice" placeholder="d6"/>
+            <input type="text" name="data.attributes.weapon.jab.dice" v-model="actor.data.attributes.weapon.jab.dice" placeholder="d6"/>
           </div>
           <div class="sub-unit sub-unit--punch-dice flexrow">
             <strong class="unit-subtitle">{{localize('PUNCH Weapon Die')}}</strong>
-            <input type="text" name="data.attributes.weapon.punch.dice" v-model="actor.data.data.attributes.weapon.punch.dice" placeholder="d8"/>
+            <input type="text" name="data.attributes.weapon.punch.dice" v-model="actor.data.attributes.weapon.punch.dice" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--kick-dice flexrow">
             <strong class="unit-subtitle">{{localize('KICK Weapon Die')}}</strong>
-            <input type="text" name="data.attributes.weapon.kick.dice" v-model="actor.data.data.attributes.weapon.kick.dice" placeholder="d10"/>
+            <input type="text" name="data.attributes.weapon.kick.dice" v-model="actor.data.attributes.weapon.kick.dice" placeholder="d10"/>
           </div> -->
         </div>
       </div>
@@ -73,14 +73,14 @@
       </div>
       <!-- Background Settings -->
       <div class="unit unit--backgrounds">
-        <div v-for="(background, b) in actor.data.data.backgrounds" :key="b" class="settings-background" :data-key="b">
+        <div v-for="(background, b) in actor.data.backgrounds" :key="b" class="settings-background" :data-key="b">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', b))}}</strong>
           <input type="checkbox" :name="concat('data.backgrounds.', b, '.isActive.value')" v-model="background.isActive.value">
         </div>
       </div>
       <!-- Icon Settings -->
       <div class="unit unit--icons">
-        <div v-for="(icon, i) in actor.data.data.icons" :key="i" class="settings-icon" :data-key="i">
+        <div v-for="(icon, i) in actor.data.icons" :key="i" class="settings-icon" :data-key="i">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', i))}}</strong>
           <input type="checkbox" :name="concat('data.icons.', i, '.isActive.value')" v-model="icon.isActive.value">
         </div>
@@ -115,7 +115,7 @@ export default {
     },
     resources() {
       let resources = {};
-      for (let [k,v] of Object.entries(this.actor.data.data.resources.spendable)) {
+      for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
         if (k.includes('custom')) {
           resources[k] = v;
         }

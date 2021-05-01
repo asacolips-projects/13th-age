@@ -6,15 +6,15 @@
         <strong class="equipment-detail-label">{{localize(concat('ARCHMAGE.ITEM.', index, 'Bonus'))}}: </strong><span class="equipment-detail-value">{{bonus}}</span>
       </div>
     </section>
-    <section class="equipment-chakra-slot flexcol" v-if="equipment.data.chackra">
+    <section class="equipment-chakra-slot flexcol" v-if="equipment.data.data.chackra">
       <div class="equipment-detail">
-        <strong class="equipment-detail-label">{{localize('ARCHMAGE.ITEM.chakraSlot')}}: </strong><span class="equipment-detail-value">{{localize(concat('ARCHMAGE.CHAKRA.', equipment.data.chackra))}}</span>
+        <strong class="equipment-detail-label">{{localize('ARCHMAGE.ITEM.chakraSlot')}}: </strong><span class="equipment-detail-value">{{localize(concat('ARCHMAGE.CHAKRA.', equipment.data.data.chackra))}}</span>
       </div>
     </section>
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="equipment-details flexcol">
       <div class="equipment-detail">
-        <span class="equipment-detail-value" v-html="equipment.data.description.value"></span>
+        <span class="equipment-detail-value" v-html="equipment.data.data.description.value"></span>
       </div>
     </section>
   </section>

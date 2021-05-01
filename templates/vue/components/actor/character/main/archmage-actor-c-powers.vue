@@ -45,32 +45,32 @@
         </div>
       </div>
       <ul class="power-group-content flexcol">
-        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power.id)" :data-item-id="power.id" :data-draggable="draggable" :draggable="draggable">
+        <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable power header. -->
-          <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage ? power.data.powerUsage.value : 'other'), (power.data.trigger ? ' power-summary--trigger' : ''), (activePowers[power.id] ? ' active' : ''))">
-            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="power.id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
-            <a class="power-name" v-on:click="togglePower" :data-item-id="power.id">
-              <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
+          <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'), (power.data.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
+            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
+            <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
+              <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
             </a>
             <div class="power-feat-pips" v-if="hasFeats(power)">
               <ul class="feat-pips">
-                <li v-for="(feat, tier) in filterFeats(power.data.data.feats)" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power.id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
+                <li v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
               </ul>
             </div>
-            <div class="power-action" v-if="power.data.data.actionType.value">{{getActionShort(power.data.data.actionType.value)}}</div>
-            <div class="power-recharge" v-if="power.data.data.recharge.value">
-              <archmage-h-rollable name="recharge" type="recharge" :opt="power.id">{{power.data.data.recharge.value}}+</archmage-h-rollable>
+            <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
+            <div class="power-recharge" v-if="power.data.recharge.value">
+              <archmage-h-rollable name="recharge" type="recharge" :opt="power._id">{{power.data.recharge.value}}+</archmage-h-rollable>
             </div>
-            <div class="power-uses" :data-item-id="power.id" :data-quantity="power.data.data.quantity.value"><span v-if="power.data.data.quantity.value !== null">{{power.data.data.quantity.value}}</span></div>
+            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.data.quantity.value"><span v-if="power.data.quantity.value !== null">{{power.data.quantity.value}}</span></div>
             <div class="item-controls">
-              <a class="item-control item-edit" :data-item-id="power.id"><i class="fas fa-edit"></i></a>
-              <a class="item-control item-delete" :data-item-id="power.id"><i class="fas fa-trash"></i></a>
+              <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
             </div>
-            <div v-if="power.data.data.trigger.value" class="power-trigger"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.data.data.trigger.value}}</div>
+            <div v-if="power.data.trigger.value" class="power-trigger"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.data.trigger.value}}</div>
           </div>
           <!-- Expanded power content. -->
-          <div :class="concat('power-content', (activePowers[power.id] ? ' active' : ''))" :style="getPowerStyle(power.id)">
-            <archmage-h-power :power="power" :ref="concat('power--', power.id)"></archmage-h-power>
+          <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
+            <archmage-h-power :power="power" :ref="concat('power--', power._id)"></archmage-h-power>
           </div>
         </li>
       </ul>
@@ -145,7 +145,6 @@ export default {
       // Handle the fallback group.
       if (!groups['other']) groups['other'] = `ARCHMAGE.other`;
       // Return clean groups.
-      console.log(groups);
       return groups;
     },
     /**
@@ -172,11 +171,11 @@ export default {
 
         // Handle the built-in group types.
         if (sortTypes.includes(this.groupBy)) {
-          group = power.data.data[this.groupBy].value ? power.data.data[this.groupBy].value : 'other';
+          group = power.data[this.groupBy].value ? power.data[this.groupBy].value : 'other';
         }
         // Handle custom groups.
         else if (this.groupBy == 'group') {
-          group = power.data.data.group.value ? this.cleanClassName(power.data.data.group.value) : 'power';
+          group = power.data.group.value ? this.cleanClassName(power.data.group.value) : 'power';
         }
 
         // Create the group if it doesn't exist.
@@ -188,7 +187,6 @@ export default {
         return powerGroup;
       }, {});
 
-      console.log(powersByGroup);
       return powersByGroup;
     },
   },
@@ -204,8 +202,8 @@ export default {
      */
     hasFeats(power) {
       let hasFeats = false;
-      if (power.data && power.data.data && power.data.data.feats) {
-        for (let [tier, feat] of Object.entries(power.data.data.feats)) {
+      if (power.data && power.data && power.data.feats) {
+        for (let [tier, feat] of Object.entries(power.data.feats)) {
           if (feat.description.value || feat.isActive.value) {
             hasFeats = true;
             break;
@@ -242,7 +240,7 @@ export default {
      * powers on the actor. Filters by type and search keys.
      */
     getPowers() {
-      let powers = this.actor.items.filter(i => i.type == 'power');
+      let powers = this.actor.items.filter(i => i.type == 'power').map(x => x.data);
       if (this.searchValue) {
         powers = powers.filter(i => {
           let needle = this.cleanClassName(this.searchValue);
@@ -263,10 +261,10 @@ export default {
       }
       if (this.sortBy == 'level') {
         powers = powers.sort((a,b) => {
-          if (a.data.data.powerLevel.value < b.data.data.powerLevel.value) {
+          if (a.data.powerLevel.value < b.data.powerLevel.value) {
             return -1;
           }
-          if (a.data.data.powerLevel.value > b.data.data.powerLevel.value) {
+          if (a.data.powerLevel.value > b.data.powerLevel.value) {
             return 1;
           }
           return 0;

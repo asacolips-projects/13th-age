@@ -250,8 +250,10 @@ export class ArchmageUtility {
               // Clean up weapon properties.
               let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
               wpnTypes.forEach(wpn => {
-                data.wpn[wpn].die = data.wpn[wpn].dice;
-                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+                if (data.wpn[wpn].dice) {
+                  data.wpn[wpn].die = data.wpn[wpn].dice;
+                  data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+                }
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
                 data.wpn[wpn].dmg = data.wpn[wpn].dmg;

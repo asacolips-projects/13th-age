@@ -4,7 +4,7 @@
     <section class="equipment-currency flexrow">
       <div v-for="type in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
         <h2 class="unit-title">{{localize(concat('ARCHMAGE.COINS.', type))}}</h2>
-        <input type="number" :name="concat('data.coins.', type, '.value')" class="currency-input" v-model="actor.data.data.coins[type].value" placeholder="0">
+        <input type="number" :name="concat('data.coins.', type, '.value')" class="currency-input" v-model="actor.data.coins[type].value" placeholder="0">
       </div>
     </section>
     <!-- Sorts and filters. -->
@@ -55,7 +55,7 @@
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment.id" :data-quantity="equipment.data.quantity.value"><span v-if="equipment.data.quantity.value !== null">{{equipment.data.quantity.value}}</span></div>
+            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment.id" :data-quantity="equipment.data.data.quantity.value"><span v-if="equipment.data.data.quantity.value !== null">{{equipment.data.data.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="equipment.id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="equipment.id"><i class="fas fa-trash"></i></a>
@@ -188,7 +188,6 @@ export default {
     },
     getBonuses(equipment) {
       let bonuses = {};
-      console.log(equipment);
       for (let [prop, value] of Object.entries(equipment.data.data.attributes)) {
         if (value.bonus) {
           bonuses[prop] = value.bonus
