@@ -530,7 +530,7 @@ Hooks.on("renderSettings", (app, html) => {
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
-  dice3d.addSystem({ id: "archmage", name: "Archmage" }, true);
+  dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // dice3d.addDicePreset({
   //   type: "d20",

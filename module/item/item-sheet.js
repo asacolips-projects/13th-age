@@ -7,7 +7,7 @@ export class ItemArchmageSheet extends ItemSheet {
    * Extend and override the default options used by the 5e Actor Sheet
    */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: super.defaultOptions.classes.concat(['archmage', 'item', 'item-sheet']),
       template: 'systems/archmage/templates/item-power-sheet.html',
       height: 550,
@@ -83,6 +83,8 @@ export class ItemArchmageSheet extends ItemSheet {
       data['powerLevel'] = powerLevelString;
     }
 
+    console.log(data);
+    data.data = data.data.data;
     return data;
   }
 

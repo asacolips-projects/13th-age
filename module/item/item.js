@@ -5,8 +5,9 @@ import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
  */
 export class ItemArchmage extends Item {
 
-  prepareData() {
-    super.prepareData();
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    console.log(this.data);
     if (!this.data.img || this.data.img == CONFIG.DEFAULT_TOKEN) {
       if (CONFIG.ARCHMAGE.defaultTokens[this.data.type]) {
         this.data.img = CONFIG.ARCHMAGE.defaultTokens[this.data.type];
