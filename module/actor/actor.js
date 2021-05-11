@@ -234,14 +234,26 @@ export class ActorArchmage extends Actor {
       if (data.attributes.recoveries.automatic) {
         data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
       }
-      data.attributes.recoveries.avg = Math.floor(data.attributes.level.value * ((Number(data.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + (data.abilities.con.mod * levelMultiplier);
+
+      // Get the recovery level and dice.
+      let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
+      // Fall back to a d8 if the recovery dice is invalid.
+      let recoveryDice = 'd8';
+      if (typeof data.attributes?.recoveries?.dice == 'string') {
+        recoveryDice = data.attributes.recoveries.dice;
+      }
+
+      // Calculate the average of the formula.
+      let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
+
+      // Calculate the total average recovery.
+      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
 
       // Skill modifiers
       // for (let skl of Object.values(data.skills)) {
       //   skl.value = parseFloat(skl.value || 0);
       //   skl.mod = data.abilities[skl.ability].mod + Math.floor(skl.value * data.attributes.prof.value);
       // }
-
 
       // Coins
       if (!data.coins) {
