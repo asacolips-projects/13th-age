@@ -918,6 +918,10 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
     let classText = data.data.details.class.value;
+
+    // Exit early if the class text is invalid.
+    if (typeof classText !== 'string') return;
+
     classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
     let matchedClasses = classText.match(classRegex);
 
