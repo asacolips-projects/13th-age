@@ -1,6 +1,6 @@
 name: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
-version: alpha2-1.10.0
+version: beta3-1.10.0
 author: Matt Smith & Cody Swendrowski
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
 minimumCoreVersion: 0.7.5
@@ -139,8 +139,8 @@ languages:
     name: Español
     path: languages/es.json
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
-manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://github.com/Mageflame/Toolkit13/releases/download/1.9.1/system.zip
+manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/beta/raw/system.json?job=build-beta
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/beta/raw/archmage.zip?job=build-beta
 dependencies:
   - name: dlopen
     type: module
