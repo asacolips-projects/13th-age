@@ -121,11 +121,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Enemy: [[(2d8)10+@int.dmg+@atk.a.bonus]], Ally: [[3d8]]'
+    value: 'Enemy: [[(2d8)*10+@int.dmg+@atk.a.bonus]], Ally: [[3d8]]'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Enemy: [[(4d6)10+@int.dmg+@atk.a.bonus]], Ally: [[3d10]]'
+    value: 'Enemy: [[(4d6)*10+@int.dmg+@atk.a.bonus]], Ally: [[3d10]]'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

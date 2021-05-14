@@ -375,6 +375,7 @@ export class ItemArchmage extends Item {
 
     const propKeys = [
       'recharge',
+      'sustainOn',
       'trigger',
       'target',
       'always',
