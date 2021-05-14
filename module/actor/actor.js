@@ -1079,8 +1079,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       let twohanded = false;
       // Pick best weapon (and possibly shield)
       base.mWpn = base.mWpn_1h;
-      if (matchedClasses.includes("monk")
-        || JSON.stringify(matchedClasses) === JSON.stringify(['ranger'])) {
+      if (matchedClasses.includes("monk")) {
         dualwield = true;
       }
       else if (!base.shld_pen) {
