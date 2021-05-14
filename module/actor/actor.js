@@ -323,23 +323,21 @@ export class ActorArchmage extends Actor {
         }
       };
 
-      if (data.attributes.weapon?.jab?.value) monkAttacks.jab = duplicate(data.attributes.weapon.jab.value);
-      if (data.attributes.weapon?.kick?.value) monkAttacks.kick = duplicate(data.attributes.weapon.kick.value);
-      if (data.attributes.weapon?.punch?.value) monkAttacks.punch = duplicate(data.attributes.weapon.punch.value);
+      if (data.attributes.weapon?.jab?.dice) monkAttacks.jab.dice = duplicate(data.attributes.weapon.jab.dice);
+      if (data.attributes.weapon?.kick?.dice) monkAttacks.kick.dice = duplicate(data.attributes.weapon.kick.dice);
+      if (data.attributes.weapon?.punch?.dice) monkAttacks.punch.dice = duplicate(data.attributes.weapon.punch.dice);
 
       for (let [key, value] of Object.entries(monkAttacks)) {
         let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
         data.attributes.attack[key] = data.attributes.attack.melee;
-        if (data.attributes.weapon[key] === undefined) {
-          data.attributes.weapon[key] = mergeObject(value, {
-            miss: true,
-            abil: abil[0],
-            attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
-            value: `${data.attributes.level.value}${value.dice}`,
-            mod: data.abilities[abil[0]].mod,
-            dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
-          });
-        }
+        data.attributes.weapon[key] = mergeObject(value, {
+          miss: true,
+          abil: abil[0],
+          attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
+          value: `${data.attributes.level.value}${value.dice}`,
+          mod: data.abilities[abil[0]].mod,
+          dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
+        });
       }
 
     }
