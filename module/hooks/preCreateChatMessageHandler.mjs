@@ -107,8 +107,10 @@ export default class preCreateChatMessageHandler {
 
                     targets = Targeting.getTargetsFromRowText(row_text, $row_self);
 
-                    var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
-                    $row_self[0].appendChild(text);
+                    if (targets.length > 0) {
+                      var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+                      $row_self[0].appendChild(text);
+                    }
                 }
 
 
