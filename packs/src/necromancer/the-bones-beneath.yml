@@ -121,11 +121,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[(2d6)10+@int.dmg+@atk.a.bonus]] negative energy damage.'
+    value: '[[(2d6)*10+@int.dmg+@atk.a.bonus]] negative energy damage.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[(2d10)10+@int.dmg+@atk.a.bonus]] negative energy damage.'
+    value: '[[(2d10)*10+@int.dmg+@atk.a.bonus]] negative energy damage.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

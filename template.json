@@ -695,6 +695,11 @@
         "label": "Breath Weapon",
         "value": ""
       },
+      "sustainOn": {
+        "type": "Number",
+        "label": "Sustain On",
+        "value": ""
+      },
       "recharge": {
         "type": "Number",
         "label": "Recharge",
