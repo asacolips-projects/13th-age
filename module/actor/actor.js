@@ -245,6 +245,7 @@ export class ActorArchmage extends Actor {
 
       // Calculate the average of the formula.
       let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
+if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
 
       // Calculate the total average recovery.
       data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
