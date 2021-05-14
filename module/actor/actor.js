@@ -310,9 +310,9 @@ export class ActorArchmage extends Actor {
         }
       };
 
-      if (data.attributes.weapon?.jab?.value) monkAttacks.jab = duplicate(data.attributes.weapon.jab.value);
-      if (data.attributes.weapon?.kick?.value) monkAttacks.kick = duplicate(data.attributes.weapon.kick.value);
-      if (data.attributes.weapon?.punch?.value) monkAttacks.punch = duplicate(data.attributes.weapon.punch.value);
+      if (data.attributes.weapon?.jab?.value) monkAttacks.jab = duplicate(data.attributes.weapon.jab);
+      if (data.attributes.weapon?.kick?.value) monkAttacks.kick = duplicate(data.attributes.weapon.kick);
+      if (data.attributes.weapon?.punch?.value) monkAttacks.punch = duplicate(data.attributes.weapon.punch);
 
       for (let [key, value] of Object.entries(monkAttacks)) {
         let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
@@ -326,6 +326,8 @@ export class ActorArchmage extends Actor {
             mod: data.abilities[abil[0]].mod,
             dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
           });
+        } else {
+          data.attributes.weapon[key].value = `${data.attributes.level.value}${value.dice}`;
         }
       }
 
