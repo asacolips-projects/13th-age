@@ -234,14 +234,27 @@ export class ActorArchmage extends Actor {
       if (data.attributes.recoveries.automatic) {
         data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
       }
-      data.attributes.recoveries.avg = Math.floor(data.attributes.level.value * ((Number(data.attributes.recoveries.dice.replace('d', ''))+1) / 2)) + (data.abilities.con.mod * levelMultiplier);
+
+      // Get the recovery level and dice.
+      let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
+      // Fall back to a d8 if the recovery dice is invalid.
+      let recoveryDice = 'd8';
+      if (typeof data.attributes?.recoveries?.dice == 'string') {
+        recoveryDice = data.attributes.recoveries.dice;
+      }
+
+      // Calculate the average of the formula.
+      let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
+      if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
+
+      // Calculate the total average recovery.
+      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
 
       // Skill modifiers
       // for (let skl of Object.values(data.skills)) {
       //   skl.value = parseFloat(skl.value || 0);
       //   skl.mod = data.abilities[skl.ability].mod + Math.floor(skl.value * data.attributes.prof.value);
       // }
-
 
       // Coins
       if (!data.coins) {
@@ -906,6 +919,10 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
     let classText = data.data.details.class.value;
+
+    // Exit early if the class text is invalid.
+    if (typeof classText !== 'string') return;
+
     classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
     let matchedClasses = classText.match(classRegex);
 
