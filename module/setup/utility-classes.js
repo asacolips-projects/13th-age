@@ -139,6 +139,11 @@ export class ArchmageUtility {
                 && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
                 return 'crit';
               }
+              // Natural 2, if dual-wielding.
+              else if (actor && actor.data.data.attributes.weapon.melee.dualwield
+                && r.result === 2 && !r.discarded && !r.rerolled) {
+                return 'reroll';
+              }
               else {
                 return 'normal';
               }

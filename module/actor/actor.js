@@ -413,6 +413,11 @@ export class ActorArchmage extends Actor {
       data.details.detectedClasses = matchedClasses;
     }
 
+    // Fallbacks for missing melee weapon options
+    if (data.attributes.weapon.melee.shield === undefined) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
+    if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
+    if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
+
     // Fallbacks for missing custom resources
     if (!data.resources) data.resources = model.resources;
     if (!data.resources.spendable) data.resources.spendable = model.resources.spendable;
@@ -904,10 +909,76 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
-  if (actor.data.type == 'character'
-    && options.diff
-    && data.data !== undefined
-    && data.data.details !== undefined
+  if (!actor.data.type == 'character'
+    || !options.diff
+    || data.data === undefined) {
+      return;
+  }
+
+  if (data.data.attributes !== undefined
+    && data.data.attributes.weapon !== undefined
+    && data.data.attributes.weapon.melee !== undefined
+    && data.data.attributes.weapon.melee.dice === undefined) {
+    // Here we received an update of the melee weapon checkboxes
+
+    let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
+    let lvl = actor.data.data.attributes.level.value;
+
+    if (data.data.attributes.weapon.melee.shield !== undefined) {
+      // Here we received an update of the shield checkbox
+      if (data.data.attributes.weapon.melee.shield) {
+        data.data.attributes.ac = {base: actor.data.data.attributes.ac.base + 1};
+        if (actor.data.data.attributes.weapon.melee.twohanded) {
+          // Can't wield both a two-handed weapon and a shield
+          mWpn -= 2;
+          data.data.attributes.weapon.melee.twohanded = false;
+        }
+        else if (actor.data.data.attributes.weapon.melee.dualwield) {
+          // Can't dual-wield with a shield
+          data.data.attributes.weapon.melee.dualwield = false;
+        }
+      } else {
+        data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+      }
+    }
+    else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
+      // Here we received an update of the dual wield checkbox
+      if (data.data.attributes.weapon.melee.dualwield) {
+        if (actor.data.data.attributes.weapon.melee.twohanded) {
+          // Can't wield two two-handed weapons
+          mWpn -= 2;
+          data.data.attributes.weapon.melee.twohanded = false;
+        }
+        else if (actor.data.data.attributes.weapon.melee.shield) {
+          // Can't duel-wield with a shield
+          data.data.attributes.weapon.melee.shield = false;
+          data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+        }
+      }
+    }
+    else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
+      // Here we received an update of the two-handed checkbox
+      if (data.data.attributes.weapon.melee.twohanded) {
+        mWpn += 2;
+        if (actor.data.data.attributes.weapon.melee.shield) {
+          // Can't wield both a two-handed weapon and a shield
+          data.data.attributes.weapon.melee.shield = false;
+          data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+        }
+        else if (actor.data.data.attributes.weapon.melee.dualwield) {
+          // Can't wield two two-handed weapons
+          data.data.attributes.weapon.melee.dualwield = false;
+        }
+      } else {
+        mWpn -= 2;
+      }
+    }
+
+    data.data.attributes.weapon.melee.dice = `d${mWpn}`;
+    data.data.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
+  }
+
+  else if (data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
@@ -932,7 +1003,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (actor.data.data.details.matchedClasses !== undefined
         && JSON.stringify(actor.data.data.details.matchedClasses) == JSON.stringify(matchedClasses)
         ) {
-        return
+        return;
       }
 
       // Collect base stats for detected classes
@@ -993,13 +1064,22 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
+      let shield = false;
+      let dualwield = false;
+      let twohanded = false;
       // Pick best weapon (and possibly shield)
-      // if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
-      // else if (!base.mWpn_2h_pen
-        // && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
-        // ) {base.mWpn = base.mWpn_2h;}
-      // else {base.mWpn = base.mWpn_1h;}
       base.mWpn = base.mWpn_1h;
+      if (matchedClasses.includes("monk")) {
+        dualwield = true;
+      }
+      else if (!base.shld_pen) {
+        base.ac += 1;
+        shield = true;
+      }
+      else if (!base.mWpn_2h_pen && base.mWpn_2h > base.mWpn_1h) {
+        base.mWpn = base.mWpn_2h;
+        twohanded = true;
+      }
 
       // Assign computed values
       data.data.attributes = {
@@ -1009,7 +1089,13 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         md: {base: base.md},
         recoveries: {dice: `d${base.rec}`},
         weapon: {
-          melee: {dice: `d${base.mWpn}`, value: `${lvl}d${base.mWpn}`},
+          melee: {
+            dice: `d${base.mWpn}`,
+            value: `${lvl}d${base.mWpn}`,
+            shield: shield,
+            dualwield: dualwield,
+            twohanded: twohanded
+          },
           ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
           jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
           punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},
