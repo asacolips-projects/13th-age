@@ -916,19 +916,38 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
     if (isNaN(mWpn)) mWpn = 8; // Fallback
     let lvl = actor.data.data.attributes.level.value;
+    data.data.attributes.attackMod = {value: actor.data.data.attributes.attackMod.value};
+    let wpn = {shieldPen: 0, twohandedPen: 0};
+    if (actor.data.data.attributes.weapon.melee.twohanded) {
+      wpn.mWpn2h = mWpn;
+      wpn.mWpn1h = Math.max(mWpn - 2, 4);
+    } else {
+      wpn.mWpn2h = Math.min(mWpn + 2, 12);
+      wpn.mWpn1h = mWpn;
+    }
 
     // Compute penalties due to equipment (if classes known)
-    data.data.attributes.attackMod = {value: actor.data.data.attributes.attackMod.value};
-    let atkPen = {shield: 0, twohanded: 0};
     if (actor.data.data.details.detectedClasses) {
-      atkPen.shield = new Array();
-      atkPen.twohanded = new Array();
+      wpn.shieldPen = new Array();
+      wpn.twohandedPen = new Array();
+      wpn.mWpn1h = new Array();
+      wpn.mWpn2h = new Array();
+      let skilledWarrior = new Array();
       actor.data.data.details.detectedClasses.forEach(function(item) {
-        atkPen.shield.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
-        atkPen.twohanded.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+        wpn.shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
+        wpn.twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+        wpn.mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        wpn.mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
+        skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior)
       });
-      atkPen.shield = Math.max.apply(null, atkPen.shield);
-      atkPen.twohanded = Math.max.apply(null, atkPen.twohanded);
+      wpn.shieldPen = Math.max.apply(null, wpn.shieldPen);
+      wpn.twohandedPen = Math.max.apply(null, wpn.twohandedPen);
+      wpn.mWpn1h = Math.max.apply(null, wpn.mWpn1h);
+      wpn.mWpn2h = Math.max.apply(null, wpn.mWpn2h);
+      if (skilledWarrior.length != 1 && !skilledWarrior.every(a => a)) {
+        wpn.mWpn1h = Math.max(wpn.mWpn1h - 2, 4);
+        wpn.mWpn2h = Math.max(wpn.mWpn2h - 2, 4);
+      }
     }
 
     if (data.data.attributes.weapon.melee.shield !== undefined) {
@@ -936,12 +955,12 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (data.data.attributes.weapon.melee.shield) {
         // Adding a shield
         data.data.attributes.ac = {base: actor.data.data.attributes.ac.base + 1};
-        data.data.attributes.attackMod.value += atkPen.shield;
+        data.data.attributes.attackMod.value += wpn.shieldPen;
         if (actor.data.data.attributes.weapon.melee.twohanded) {
           // Can't wield both a two-handed weapon and a shield
-          mWpn -= 2;
+          mWpn = wpn.mWpn1h;
           data.data.attributes.weapon.melee.twohanded = false;
-          data.data.attributes.attackMod.value -= atkPen.twohanded;
+          data.data.attributes.attackMod.value -= wpn.twohandedPen;
         }
         else if (actor.data.data.attributes.weapon.melee.dualwield) {
           // Can't dual-wield with a shield
@@ -949,7 +968,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         }
       } else {
         data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
-        data.data.attributes.attackMod.value -= atkPen.shield;
+        data.data.attributes.attackMod.value -= wpn.shieldPen;
       }
     }
 
@@ -958,15 +977,15 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (data.data.attributes.weapon.melee.dualwield) {
         if (actor.data.data.attributes.weapon.melee.twohanded) {
           // Can't wield two two-handed weapons
-          mWpn -= 2;
+          mWpn = wpn.mWpn1h;
           data.data.attributes.weapon.melee.twohanded = false;
-          data.data.attributes.attackMod.value -= atkPen.twohanded;
+          data.data.attributes.attackMod.value -= wpn.twohandedPen;
         }
         else if (actor.data.data.attributes.weapon.melee.shield) {
           // Can't duel-wield with a shield
           data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
           data.data.attributes.weapon.melee.shield = false;
-          data.data.attributes.attackMod.value -= atkPen.shield;
+          data.data.attributes.attackMod.value -= wpn.shieldPen;
         }
       }
     }
@@ -974,21 +993,21 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
       // Here we received an update of the two-handed checkbox
       if (data.data.attributes.weapon.melee.twohanded) {
-        mWpn += 2;
-        data.data.attributes.attackMod.value += atkPen.twohanded;
+        mWpn = wpn.mWpn2h;
+        data.data.attributes.attackMod.value += wpn.twohandedPen;
         if (actor.data.data.attributes.weapon.melee.shield) {
           // Can't wield both a two-handed weapon and a shield
           data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
           data.data.attributes.weapon.melee.shield = false;
-          data.data.attributes.attackMod.value -= atkPen.shield;
+          data.data.attributes.attackMod.value -= wpn.shieldPen;
         }
         else if (actor.data.data.attributes.weapon.melee.dualwield) {
           // Can't wield two two-handed weapons
           data.data.attributes.weapon.melee.dualwield = false;
         }
       } else {
-        mWpn -= 2;
-        data.data.attributes.attackMod.value -= atkPen.twohanded;
+        mWpn = wpn.mWpn1h;
+        data.data.attributes.attackMod.value -= wpn.twohandedPen;
       }
     }
 
