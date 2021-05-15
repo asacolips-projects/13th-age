@@ -314,7 +314,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    * @param {string} id
    */
   _onItemRoll(id) {
-    let item = this.actor.getOwnedItem(id);
+    let item = this.actor.items.get(id);
     if (item) item.roll();
   }
 

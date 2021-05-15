@@ -17,7 +17,7 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
     return path + "actor-npc-sheet.html";
   }
 
-    getData(options) {
+  getData(options) {
     const sheetData = super.getData();
 
     this._prepareCharacterItems(sheetData.actor);
@@ -48,7 +48,7 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
     for (let i of actorData.items) {
       // i.img = i.img || DEFAULT_TOKEN;
       // Feats
-      if (i.type === 'action') {
+      if (i.data.type === 'action') {
         let action = i;
         let properties = [
           'hit',
@@ -61,20 +61,20 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
         ];
 
         // Parse for simple markdown (italics and bold).
-        for (var prop in i.data) {
-          if (Object.prototype.hasOwnProperty.call(i.data, prop)) {
+        for (var prop in i.data.data) {
+          if (Object.prototype.hasOwnProperty.call(i.data.data, prop)) {
             if (properties.includes(prop)) {
-              action.data[prop].formatted = parseMarkdown(i.data[prop].value);
+              action.data.data[prop].formatted = parseMarkdown(i.data.data[prop].value);
             }
           }
         }
 
         actions.push(action);
       }
-      else if (i.type === 'trait') {
+      else if (i.data.type === 'trait') {
         traits.push(i);
       }
-      else if (i.type === 'nastierSpecial') {
+      else if (i.data.type === 'nastierSpecial') {
         nastierSpecials.push(i);
       }
     }

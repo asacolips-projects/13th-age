@@ -1,5 +1,6 @@
 import { ActorSheetFlags } from './actor-flags.js';
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
+import { ItemArchmage } from "../item/item.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -42,9 +43,9 @@ export class ActorArchmageSheet extends ActorSheet {
     let sheetData = foundry.utils.deepClone(this.object.data);
 
     // Copy and sort Items
-    let items = this.object.items.map(i => foundry.utils.deepClone(i.data));
-    items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-    sheetData.items = items;
+    // let items = this.object.items.map(i => foundry.utils.deepClone(i.data));
+    // items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    // sheetData.items = items;
 
     // Copy Active Effects
     let effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
@@ -140,7 +141,7 @@ export class ActorArchmageSheet extends ActorSheet {
     // let totalWeight = 0;
     for (let i of actorData.items) {
       let item = i.data;
-      i.img = i.img || DEFAULT_TOKEN;
+      i.img = i.img || CONST.DEFAULT_TOKEN;
       // Feats
       if (i.type === 'power') {
         // Add labels.
@@ -733,8 +734,8 @@ export class ActorArchmageSheet extends ActorSheet {
    */
   _onItemRoll(event) {
     event.preventDefault();
-    let itemId = $(event.currentTarget).parents(".item").attr("data-item-id"),
-      item = this.actor.items.get(itemId);
+    let itemId = $(event.currentTarget).parents(".item").attr("data-item-id");
+    let item = this.actor.items.get(itemId);
     item.roll();
   }
 
