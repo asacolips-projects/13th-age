@@ -930,23 +930,34 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     if (actor.data.data.details.detectedClasses) {
       wpn.shieldPen = new Array();
       wpn.twohandedPen = new Array();
-      wpn.mWpn1h = new Array();
-      wpn.mWpn2h = new Array();
+      let mWpn1h = new Array();
+      let mWpn2h = new Array();
       let skilledWarrior = new Array();
       actor.data.data.details.detectedClasses.forEach(function(item) {
         wpn.shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
         wpn.twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
-        wpn.mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
-        wpn.mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
+        mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
         skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior)
       });
       wpn.shieldPen = Math.max.apply(null, wpn.shieldPen);
       wpn.twohandedPen = Math.max.apply(null, wpn.twohandedPen);
-      wpn.mWpn1h = Math.max.apply(null, wpn.mWpn1h);
-      wpn.mWpn2h = Math.max.apply(null, wpn.mWpn2h);
-      if (skilledWarrior.length != 1 && !skilledWarrior.every(a => a)) {
-        wpn.mWpn1h = Math.max(wpn.mWpn1h - 2, 4);
-        wpn.mWpn2h = Math.max(wpn.mWpn2h - 2, 4);
+      mWpn1h = Math.max.apply(null, mWpn1h);
+      mWpn2h = Math.max.apply(null, mWpn2h);
+      if (skilledWarrior.length > 1 && !skilledWarrior.every(a => a)) {
+        mWpn1h = Math.max(mWpn1h - 2, 4);
+        mWpn2h = Math.max(mWpn2h - 2, 4);
+      }
+      // Only use class values if the current values haven't been tampered with
+      if (actor.data.data.attributes.weapon.melee.twohanded && wpn.mWpn2h == mWpn2h) {
+        wpn.mWpn1h = mWpn1h;
+      }
+      else if (!actor.data.data.attributes.weapon.melee.twohanded && wpn.mWpn1h == mWpn1h) {
+        wpn.mWpn2h = mWpn2h;
+      }
+      else { // Values differ from rules, don't do anything
+        wpn.shieldPen = 0;
+        wpn.twohandedPen = 0;
       }
     }
 
