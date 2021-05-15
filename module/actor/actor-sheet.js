@@ -139,8 +139,8 @@ export class ActorArchmageSheet extends ActorSheet {
 
     // // Iterate through items, allocating to containers
     // let totalWeight = 0;
-    for (let i of actorData.items) {
-      let item = i.data;
+    for (let item of actorData.items) {
+      let i = duplicate(item);
       i.img = i.img || CONST.DEFAULT_TOKEN;
       // Feats
       if (i.type === 'power') {

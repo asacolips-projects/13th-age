@@ -41,11 +41,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       data: sheetData.actor.data,
       items: sheetData.items.map(x => x.data)
     };
-    // data.actor.data = sheetData.actor.data.data;
-    // console.log(data);
-    // return data;
-    sheetData.data = sheetData.actor.data.data;
-    console.log(sheetData);
     return data;
   }
 
