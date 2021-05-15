@@ -937,7 +937,8 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
         mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
         mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
-        if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h) {
+        if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
+          && CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
           // Handles special case of monk MC with classes that don't benefit from 2h
           twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
         }
