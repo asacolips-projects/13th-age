@@ -916,7 +916,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     // Compute penalties due to equipment (if classes known)
     data.data.attributes.attackMod = {value: actor.data.data.attributes.attackMod.value};
     let atkPen = {shield: 0, twohanded: 0};
-    if (actor.data.data.details.detectedClasses !== undefined) {
+    if (actor.data.data.details.detectedClasses) {
       atkPen.shield = new Array();
       atkPen.twohanded = new Array();
       actor.data.data.details.detectedClasses.forEach(function(item) {
