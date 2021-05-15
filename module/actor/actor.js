@@ -910,7 +910,11 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
     && data.data.attributes.weapon.melee.dice === undefined) {
     // Here we received an update of the melee weapon checkboxes
 
+    if (typeof actor.data.data.attributes.weapon.melee.dice !== 'string') {
+        actor.data.data.attributes.weapon.melee.dice = "d8"; // Fallback
+    }
     let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
+    if (isNaN(mWpn)) mWpn = 8; // Fallback
     let lvl = actor.data.data.attributes.level.value;
 
     // Compute penalties due to equipment (if classes known)
