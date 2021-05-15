@@ -766,7 +766,7 @@ function uuidv4() {
 /**
  * Parse inline rolls.
  */
-Hooks.on('preCreateChatMessage', (data, options, userId) => {
+Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
   preCreateChatMessageHandler.handle(data, options, userId);
 });
 
