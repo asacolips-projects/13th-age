@@ -27,7 +27,7 @@ Hooks.once('init', async function() {
   if (typeof Dlopen === 'undefined') dependencies = false;
 
   // Enable Vue if the module isn't available.
-  if (typeof modules.dlopen == 'undefined' || typeof modules.vueport == 'undefined') {
+  if (!dependencies) {
     // TODO: Figure out how to get await to work well here, and check to confirm
     // that the 'Vue' class exists before setting this to true.
     // TODO: The fallback does not yet support Vuex, but that's not a
@@ -489,15 +489,34 @@ Hooks.once('ready', () => {
         // Prevent repeated prompts on subsequent loads.
         game.settings.set('archmage', 'dependencyPrompt', false);
       }
+      // Fallback method of loading the Vue components.
+      archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
     }
     else {
       // If Dlopen is present, load the dependencies.
       if (typeof Dlopen !== 'undefined') {
-        // Preload Vue dependencies.
-        Dlopen.loadDependencies([
-          'vue',
-          'actor-sheet'
-        ]);
+        let loadDependencies = async function() {
+          // Preload Vue dependencies via Dlopen.
+          try {
+            await Dlopen.loadDependencies([
+              'vue',
+              'actor-sheet'
+            ]);
+          } catch (error) {
+            console.log('Dlopen was unable to load Vue. Now trying to load locally instead...');
+          }
+
+          // Otherwise, try loading them locally.
+          if (typeof Vue === 'undefined') {
+            await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
+            await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
+            await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+            Dlopen.LOADED_DEPENDENCIES['vue'] = true;
+            Dlopen.LOADED_DEPENDENCIES['vuex'] = true;
+            Dlopen.LOADED_DEPENDENCIES['actor-sheet'] = true;
+          }
+        }
+        loadDependencies();
       }
       // Otherwise, load it via our fallback.
       else {
