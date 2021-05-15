@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You now gain [[1d4]] command points when you hit with a melee attack during your turn instead of 1d3.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
