@@ -39,6 +39,9 @@ export default class preCreateChatMessageHandler {
             else if (result.includes('fail')) {
                 $roll.addClass('dc-fail');
             }
+            else if (result.includes('reroll')) {
+                $roll.addClass('dc-reroll');
+            }
 
             let rollResult = 0;
             // console.log(roll_data);

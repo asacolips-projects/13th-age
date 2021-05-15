@@ -113,9 +113,9 @@ export class ActorArchmage extends Actor {
 
     var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
 
-    var acBonus = missingRecPenalty;
-    var mdBonus = missingRecPenalty;
-    var pdBonus = missingRecPenalty;
+    var acBonus = 0 + missingRecPenalty;
+    var mdBonus = 0 + missingRecPenalty;
+    var pdBonus = 0 + missingRecPenalty;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -347,15 +347,15 @@ export class ActorArchmage extends Actor {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
-    // Penalties to attack rolls
-    data.attributes.atkpen = missingRecPenalty;
-    // TODO: handle dazed, weakened, etc. here
+    // Fallback for attack modifier
+    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
+    data.attributes.attackMod.missingRecPenalty = missingRecPenalty;
 
     if (actorData.type === 'character') {
       // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
       // duplicate code needs to be retired from the utility class if possible.
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
+        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
       };
     }
 
@@ -412,6 +412,11 @@ export class ActorArchmage extends Actor {
       if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
       data.details.detectedClasses = matchedClasses;
     }
+
+    // Fallbacks for missing melee weapon options
+    if (data.attributes.weapon.melee.shield === undefined) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
+    if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
+    if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
 
     // Fallbacks for missing custom resources
     if (!data.resources) data.resources = model.resources;
@@ -904,10 +909,139 @@ export class ActorArchmage extends Actor {
  */
 
 export function archmagePreUpdateCharacterData(actor, data, options, id) {
-  if (actor.data.type == 'character'
-    && options.diff
-    && data.data !== undefined
-    && data.data.details !== undefined
+  if (!actor.data.type == 'character'
+    || !options.diff
+    || data.data === undefined) {
+      return;
+  }
+
+  if (data.data.attributes !== undefined
+    && data.data.attributes.weapon !== undefined
+    && data.data.attributes.weapon.melee !== undefined
+    && data.data.attributes.weapon.melee.dice === undefined) {
+    // Here we received an update of the melee weapon checkboxes
+
+    if (typeof actor.data.data.attributes.weapon.melee.dice !== 'string') {
+        actor.data.data.attributes.weapon.melee.dice = "d8"; // Fallback
+    }
+    let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
+    if (isNaN(mWpn)) mWpn = 8; // Fallback
+    let lvl = actor.data.data.attributes.level.value;
+    data.data.attributes.attackMod = {value: actor.data.data.attributes.attackMod.value};
+    let wpn = {shieldPen: 0, twohandedPen: 0};
+    if (actor.data.data.attributes.weapon.melee.twohanded) {
+      wpn.mWpn2h = mWpn;
+      wpn.mWpn1h = Math.max(mWpn - 2, 4);
+    } else {
+      wpn.mWpn2h = Math.min(mWpn + 2, 12);
+      wpn.mWpn1h = mWpn;
+    }
+
+    // Compute penalties due to equipment (if classes known)
+    if (actor.data.data.details.detectedClasses) {
+      let shieldPen = new Array();
+      let twohandedPen = new Array();
+      let mWpn1h = new Array();
+      let mWpn2h = new Array();
+      let skilledWarrior = new Array();
+      actor.data.data.details.detectedClasses.forEach(function(item) {
+        shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
+        mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+        mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
+        if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
+          && CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
+          // Handles special case of monk MC with classes that don't benefit from 2h
+          twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+        }
+        skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior)
+      });
+      wpn.shieldPen = Math.max.apply(null, shieldPen);
+      if (twohandedPen.length > 0) wpn.twohandedPen = Math.max.apply(null, twohandedPen);
+      mWpn1h = Math.max.apply(null, mWpn1h);
+      mWpn2h = Math.max.apply(null, mWpn2h);
+      if (skilledWarrior.length > 1 && !skilledWarrior.every(a => a)) {
+        mWpn1h = Math.max(mWpn1h - 2, 4);
+        mWpn2h = Math.max(mWpn2h - 2, 4);
+      }
+      // Only use class values if the current values haven't been tampered with
+      if (actor.data.data.attributes.weapon.melee.twohanded && wpn.mWpn2h == mWpn2h) {
+        wpn.mWpn1h = mWpn1h;
+      }
+      else if (!actor.data.data.attributes.weapon.melee.twohanded && wpn.mWpn1h == mWpn1h) {
+        wpn.mWpn2h = mWpn2h;
+      }
+      else { // Values differ from rules, don't do anything
+        wpn.shieldPen = 0;
+        wpn.twohandedPen = 0;
+      }
+    }
+
+    if (data.data.attributes.weapon.melee.shield !== undefined) {
+      // Here we received an update of the shield checkbox
+      if (data.data.attributes.weapon.melee.shield) {
+        // Adding a shield
+        data.data.attributes.ac = {base: actor.data.data.attributes.ac.base + 1};
+        data.data.attributes.attackMod.value += wpn.shieldPen;
+        if (actor.data.data.attributes.weapon.melee.twohanded) {
+          // Can't wield both a two-handed weapon and a shield
+          mWpn = wpn.mWpn1h;
+          data.data.attributes.weapon.melee.twohanded = false;
+          data.data.attributes.attackMod.value -= wpn.twohandedPen;
+        }
+        else if (actor.data.data.attributes.weapon.melee.dualwield) {
+          // Can't dual-wield with a shield
+          data.data.attributes.weapon.melee.dualwield = false;
+        }
+      } else {
+        data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+        data.data.attributes.attackMod.value -= wpn.shieldPen;
+      }
+    }
+
+    else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
+      // Here we received an update of the dual wield checkbox
+      if (data.data.attributes.weapon.melee.dualwield) {
+        if (actor.data.data.attributes.weapon.melee.twohanded) {
+          // Can't wield two two-handed weapons
+          mWpn = wpn.mWpn1h;
+          data.data.attributes.weapon.melee.twohanded = false;
+          data.data.attributes.attackMod.value -= wpn.twohandedPen;
+        }
+        else if (actor.data.data.attributes.weapon.melee.shield) {
+          // Can't duel-wield with a shield
+          data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+          data.data.attributes.weapon.melee.shield = false;
+          data.data.attributes.attackMod.value -= wpn.shieldPen;
+        }
+      }
+    }
+
+    else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
+      // Here we received an update of the two-handed checkbox
+      if (data.data.attributes.weapon.melee.twohanded) {
+        mWpn = wpn.mWpn2h;
+        data.data.attributes.attackMod.value += wpn.twohandedPen;
+        if (actor.data.data.attributes.weapon.melee.shield) {
+          // Can't wield both a two-handed weapon and a shield
+          data.data.attributes.ac = {base: actor.data.data.attributes.ac.base - 1};
+          data.data.attributes.weapon.melee.shield = false;
+          data.data.attributes.attackMod.value -= wpn.shieldPen;
+        }
+        else if (actor.data.data.attributes.weapon.melee.dualwield) {
+          // Can't wield two two-handed weapons
+          data.data.attributes.weapon.melee.dualwield = false;
+        }
+      } else {
+        mWpn = wpn.mWpn1h;
+        data.data.attributes.attackMod.value -= wpn.twohandedPen;
+      }
+    }
+
+    data.data.attributes.weapon.melee.dice = `d${mWpn}`;
+    data.data.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
+  }
+
+  else if (data.data.details !== undefined
     && data.data.details.class !== undefined
     && game.settings.get('archmage', 'automateBaseStatsFromClass')
     ) {
@@ -932,7 +1066,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (actor.data.data.details.matchedClasses !== undefined
         && JSON.stringify(actor.data.data.details.matchedClasses) == JSON.stringify(matchedClasses)
         ) {
-        return
+        return;
       }
 
       // Collect base stats for detected classes
@@ -978,7 +1112,7 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
       if (base.rec.length == 1) base.rec = base.rec[0];
       else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
       base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
-      base.mWpn_2h_pen = base.mWpn_2h.some(a => a < 0);
+      base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
       base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
       base.rWpn = Math.max.apply(null, base.rWpn);
       let jabWpn = 6;
@@ -993,13 +1127,22 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         kickWpn -= 2;
       }
       let lvl = actor.data.data.attributes.level.value;
+      let shield = false;
+      let dualwield = false;
+      let twohanded = false;
       // Pick best weapon (and possibly shield)
-      // if (!base.shld_pen) {base.ac += 1; base.mWpn = base.mWpn_1h;}
-      // else if (!base.mWpn_2h_pen
-        // && JSON.stringify(matchedClasses) != JSON.stringify(['ranger'])
-        // ) {base.mWpn = base.mWpn_2h;}
-      // else {base.mWpn = base.mWpn_1h;}
       base.mWpn = base.mWpn_1h;
+      if (matchedClasses.includes("monk")) {
+        dualwield = true;
+      }
+      else if (!base.shld_pen) {
+        base.ac += 1;
+        shield = true;
+      }
+      else if (!base.mWpn_2h_pen && base.mWpn_2h > base.mWpn_1h) {
+        base.mWpn = base.mWpn_2h;
+        twohanded = true;
+      }
 
       // Assign computed values
       data.data.attributes = {
@@ -1009,7 +1152,13 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
         md: {base: base.md},
         recoveries: {dice: `d${base.rec}`},
         weapon: {
-          melee: {dice: `d${base.mWpn}`, value: `${lvl}d${base.mWpn}`},
+          melee: {
+            dice: `d${base.mWpn}`,
+            value: `${lvl}d${base.mWpn}`,
+            shield: shield,
+            dualwield: dualwield,
+            twohanded: twohanded
+          },
           ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
           jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
           punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},

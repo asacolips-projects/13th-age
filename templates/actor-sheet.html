@@ -888,9 +888,31 @@
               </div>
 
               <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.attackMod'}}</strong>
+                  <input class="attribute-input" name="data.attributes.attackMod.value" type="text" value="{{data.attributes.attackMod.value}}"
+                      data-dtype="{{data.attributes.attackMod.type}}" placeholder="0" />
+              </div>
+
+              <div class="settings-group">
                   <strong class="attribute-name">{{localize 'ARCHMAGE.meleeWeaponDice'}}</strong>
                   <input class="attribute-input" name="data.attributes.weapon.melee.dice" type="text" value="{{data.attributes.weapon.melee.dice}}"
                       data-dtype="String" placeholder="d8" />
+              </div>
+
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTERSETTINGS.shield'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.shield" type="checkbox" value="1" {{checked data.attributes.weapon.melee.shield}}
+                    data-dtype="Boolean"/>
+              </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTERSETTINGS.dualwield'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.dualwield" type="checkbox" value="1" {{checked data.attributes.weapon.melee.dualwield}}
+                    data-dtype="Boolean"/>
+              </div>
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.CHARACTERSETTINGS.twohanded'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.melee.twohanded" type="checkbox" value="1" {{checked data.attributes.weapon.melee.twohanded}}
+                    data-dtype="Boolean"/>
               </div>
 
               <div class="settings-group">

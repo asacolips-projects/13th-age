@@ -53,6 +53,9 @@ ARCHMAGE.CHARACTERSETTINGS.i5: Icon 5
 ARCHMAGE.CHARACTERSETTINGS.custom1: Custom Resource 1
 ARCHMAGE.CHARACTERSETTINGS.custom2: Custom Resource 2
 ARCHMAGE.CHARACTERSETTINGS.custom3: Custom Resource 3
+ARCHMAGE.CHARACTERSETTINGS.shield: Shield
+ARCHMAGE.CHARACTERSETTINGS.dualwield: Dual-Wielding
+ARCHMAGE.CHARACTERSETTINGS.twohanded: Two-handed Weapon
 ARCHMAGE.INCREMENTALS.featName: Feat
 ARCHMAGE.INCREMENTALS.featHint: Choose one feat as if you were the next level
 ARCHMAGE.INCREMENTALS.featureName: Feature
@@ -202,6 +205,7 @@ ARCHMAGE.uses: Uses
 ARCHMAGE.edit: Edit
 # Settings
 ARCHMAGE.specialTraits: Special Traits
+ARCHMAGE.attackMod: Attack Modifier
 ARCHMAGE.baseAC: Base AC
 ARCHMAGE.basePD: Base PD
 ARCHMAGE.baseMD: Base MD
