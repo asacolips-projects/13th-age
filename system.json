@@ -10,6 +10,7 @@
     "module/archmage.js"
   ],
   "scripts": [
+    "scripts/utils/utils.js",
     "scripts/lib/parse-md.js",
     "scripts/migrate/archmage-updates.js",
     "scripts/lib/intro.js",
