@@ -26,6 +26,16 @@ Hooks.once('init', async function() {
   // As a failsafe, determine whether or not Dlopen is available.
   if (typeof Dlopen === 'undefined') dependencies = false;
 
+  // Enable Vue if the module isn't available.
+  if (typeof modules.dlopen == 'undefined' || typeof modules.vueport == 'undefined') {
+    // TODO: Figure out how to get await to work well here, and check to confirm
+    // that the 'Vue' class exists before setting this to true.
+    // TODO: The fallback does not yet support Vuex, but that's not a
+    // requirement for our sheet.
+    archmageLoadJs('/systems/archmage/module/lib/vueport-fallback.js');
+    dependencies = true;
+  }
+
   // CONFIG.debug.hooks = true;
 
   String.prototype.safeCSSId = function() {
@@ -133,6 +143,7 @@ Hooks.once('init', async function() {
       types: ["character"],
       makeDefault: true
     });
+    // TODO: This error/prompt may be obsolete now that we have a Vue fallback.
     // Reset the prompt.
     let prompt = game.settings.get('archmage', 'dependencyPrompt');
     if (!prompt) game.settings.set('archmage', 'dependencyPrompt', true);
@@ -404,10 +415,13 @@ Hooks.once('init', async function() {
   }
 
   if (dependencies) {
-    // Define dependency on our own custom vue components for when we need it
-    Dlopen.register('actor-sheet', {
-      scripts: "/systems/archmage/dist/vue-components.min.js",
-    });
+    // Define dependency on our own custom vue components for when we need it.
+    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
+    if (typeof Dlopen !== 'undefined') {
+      Dlopen.register('actor-sheet', {
+        scripts: "/systems/archmage/dist/vue-components.min.js",
+      });
+    }
   }
 });
 
@@ -443,7 +457,11 @@ Hooks.once('ready', () => {
   modules.dlopen = game.modules.get('dlopen');
   modules.vueport = game.modules.get('vueport');
 
+  // Determine if we need the dependencies installed.
   let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
+
+  // If our fallback loaded, set the dependencies to true.
+  if (typeof Vue !== 'undefined') dependencies = true;
 
   let gm = game.user.isGM;
   let prompt = game.settings.get('archmage', 'dependencyPrompt');
@@ -480,6 +498,10 @@ Hooks.once('ready', () => {
           'vue',
           'actor-sheet'
         ]);
+      }
+      // Otherwise, load it via our fallback.
+      else {
+        archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
       }
     }
   }
