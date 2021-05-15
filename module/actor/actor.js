@@ -928,20 +928,23 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
 
     // Compute penalties due to equipment (if classes known)
     if (actor.data.data.details.detectedClasses) {
-      wpn.shieldPen = new Array();
-      wpn.twohandedPen = new Array();
+      let shieldPen = new Array();
+      let twohandedPen = new Array();
       let mWpn1h = new Array();
       let mWpn2h = new Array();
       let skilledWarrior = new Array();
       actor.data.data.details.detectedClasses.forEach(function(item) {
-        wpn.shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
-        wpn.twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+        shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
         mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
         mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
+        if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h) {
+          // Handles special case of monk MC with classes that don't benefit from 2h
+          twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+        }
         skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior)
       });
-      wpn.shieldPen = Math.max.apply(null, wpn.shieldPen);
-      wpn.twohandedPen = Math.max.apply(null, wpn.twohandedPen);
+      wpn.shieldPen = Math.max.apply(null, shieldPen);
+      if (twohandedPen.length > 0) wpn.twohandedPen = Math.max.apply(null, twohandedPen);
       mWpn1h = Math.max.apply(null, mWpn1h);
       mWpn2h = Math.max.apply(null, mWpn2h);
       if (skilledWarrior.length > 1 && !skilledWarrior.every(a => a)) {
