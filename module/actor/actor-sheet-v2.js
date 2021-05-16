@@ -97,8 +97,14 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   async close(options={}) {
     // Destroy the Vue app.
     if (this._vm) {
+      // Destroy the Vue app using its built in method.
       this._vm.$destroy();
-      this._vm = null;
+      // And then update our property that stores it (requires a short delay).
+      // TODO: If this resolves the issue with fields getting nullified, we
+      // should revisit this and implement it without the timeout.
+      setTimeout(() => {
+        this._vm = null;
+      }, 500);
     }
     console.log('/////////////////////\r\nCLOSING SHEET\r\n/////////////////////');
     return super.close(options);

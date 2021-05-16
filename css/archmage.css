@@ -2360,6 +2360,20 @@ input[type="checkbox"] {
   .message .dc-crit .fas {
     color: #7bff94; }
 
+.chat-card .dc-reroll,
+.message .dc-reroll {
+  color: #ffe741;
+  background: rgba(150, 105, 0, 0.75); }
+  .chat-card .dc-reroll:hover,
+  .message .dc-reroll:hover {
+    text-shadow: 0 0 8px #000; }
+  .chat-card .dc-reroll .die,
+  .message .dc-reroll .die {
+    color: #ffe741; }
+  .chat-card .dc-reroll .fas,
+  .message .dc-reroll .fas {
+    color: #ffe741; }
+
 .chat-card .dc-fail,
 .message .dc-fail {
   color: #ff8484;

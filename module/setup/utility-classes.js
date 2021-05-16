@@ -139,6 +139,12 @@ export class ArchmageUtility {
                 && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
                 return 'crit';
               }
+              // Natural 2, if dual-wielding.
+              else if (actor && actor.data.type === 'character'
+                && actor.data.data.attributes.weapon.melee.dualwield
+                && r.result === 2 && !r.discarded && !r.rerolled) {
+                return 'reroll';
+              }
               else {
                 return 'normal';
               }
@@ -215,8 +221,9 @@ export class ArchmageUtility {
           value: ArchmageUtility.getEscalation(game.combat)
         };
 
+        // Must recompute this here because the e.d. might have changed.
         data.attributes.standardBonuses = {
-          value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.atkpen
+          value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
         };
       }
 

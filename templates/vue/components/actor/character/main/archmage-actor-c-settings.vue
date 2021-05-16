@@ -40,10 +40,26 @@
           <strong class="unit-subtitle">{{localize('ARCHMAGE.recoveryDice')}}</strong>
           <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.attributes.recoveries.dice" placeholder="d8"/>
         </div>
+        <div class="sub-unit sub-unit--attackMod flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.attackMod')}}</strong>
+          <input type="number" name="data.attributes.attackMod.value" v-model="actor.data.attributes.attackMod.value"/>
+        </div>
         <div class="sub-unit sub-unit--melee">
           <div class="sub-unit sub-unit--melee-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.meleeWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.melee.dice" v-model="actor.data.attributes.weapon.melee.dice" placeholder="d8"/>
+          </div>
+          <div class="sub-unit sub-unit--shield flexrow">
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTERSETTINGS.shield')}}</strong>
+            <input type="checkbox" name="data.attributes.weapon.melee.shield" v-model="actor.data.attributes.weapon.melee.shield"/>
+          </div>
+          <div class="sub-unit sub-unit--dualwield flexrow">
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTERSETTINGS.dualwield')}}</strong>
+            <input type="checkbox" name="data.attributes.weapon.melee.dualwield" v-model="actor.data.attributes.weapon.melee.dualwield"/>
+          </div>
+          <div class="sub-unit sub-unit--twohanded flexrow">
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTERSETTINGS.twohanded')}}</strong>
+            <input type="checkbox" name="data.attributes.weapon.melee.twohanded" v-model="actor.data.attributes.weapon.melee.twohanded"/>
           </div>
           <div class="sub-unit sub-unit--ranged-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.rangedWeaponDice')}}</strong>

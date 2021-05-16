@@ -26,6 +26,16 @@ Hooks.once('init', async function() {
   // As a failsafe, determine whether or not Dlopen is available.
   if (typeof Dlopen === 'undefined') dependencies = false;
 
+  // Enable Vue if the module isn't available.
+  if (!dependencies) {
+    // TODO: Figure out how to get await to work well here, and check to confirm
+    // that the 'Vue' class exists before setting this to true.
+    // TODO: The fallback does not yet support Vuex, but that's not a
+    // requirement for our sheet.
+    archmageLoadJs('/systems/archmage/module/lib/vueport-fallback.js');
+    dependencies = true;
+  }
+
   // CONFIG.debug.hooks = true;
 
   String.prototype.safeCSSId = function() {
@@ -133,6 +143,7 @@ Hooks.once('init', async function() {
       types: ["character"],
       makeDefault: true
     });
+    // TODO: This error/prompt may be obsolete now that we have a Vue fallback.
     // Reset the prompt.
     let prompt = game.settings.get('archmage', 'dependencyPrompt');
     if (!prompt) game.settings.set('archmage', 'dependencyPrompt', true);
@@ -404,10 +415,13 @@ Hooks.once('init', async function() {
   }
 
   if (dependencies) {
-    // Define dependency on our own custom vue components for when we need it
-    Dlopen.register('actor-sheet', {
-      scripts: "/systems/archmage/dist/vue-components.min.js",
-    });
+    // Define dependency on our own custom vue components for when we need it.
+    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
+    if (typeof Dlopen !== 'undefined') {
+      Dlopen.register('actor-sheet', {
+        scripts: "/systems/archmage/dist/vue-components.min.js",
+      });
+    }
   }
 });
 
@@ -443,7 +457,11 @@ Hooks.once('ready', () => {
   modules.dlopen = game.modules.get('dlopen');
   modules.vueport = game.modules.get('vueport');
 
+  // Determine if we need the dependencies installed.
   let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
+
+  // If our fallback loaded, set the dependencies to true.
+  if (typeof Vue !== 'undefined') dependencies = true;
 
   let gm = game.user.isGM;
   let prompt = game.settings.get('archmage', 'dependencyPrompt');
@@ -471,15 +489,38 @@ Hooks.once('ready', () => {
         // Prevent repeated prompts on subsequent loads.
         game.settings.set('archmage', 'dependencyPrompt', false);
       }
+      // Fallback method of loading the Vue components.
+      archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
     }
     else {
       // If Dlopen is present, load the dependencies.
       if (typeof Dlopen !== 'undefined') {
-        // Preload Vue dependencies.
-        Dlopen.loadDependencies([
-          'vue',
-          'actor-sheet'
-        ]);
+        let loadDependencies = async function() {
+          // Preload Vue dependencies via Dlopen.
+          try {
+            await Dlopen.loadDependencies([
+              'vue',
+              'actor-sheet'
+            ]);
+          } catch (error) {
+            console.log('Dlopen was unable to load Vue. Now trying to load locally instead...');
+          }
+
+          // Otherwise, try loading them locally.
+          if (typeof Vue === 'undefined') {
+            await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
+            await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
+            await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+            Dlopen.LOADED_DEPENDENCIES['vue'] = true;
+            Dlopen.LOADED_DEPENDENCIES['vuex'] = true;
+            Dlopen.LOADED_DEPENDENCIES['actor-sheet'] = true;
+          }
+        }
+        loadDependencies();
+      }
+      // Otherwise, load it via our fallback.
+      else {
+        archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
       }
     }
   }

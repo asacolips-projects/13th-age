@@ -39,6 +39,9 @@ export default class preCreateChatMessageHandler {
             else if (result.includes('fail')) {
                 $roll.addClass('dc-fail');
             }
+            else if (result.includes('reroll')) {
+                $roll.addClass('dc-reroll');
+            }
 
             let rollResult = 0;
             // console.log(roll_data);
@@ -107,8 +110,10 @@ export default class preCreateChatMessageHandler {
 
                     targets = Targeting.getTargetsFromRowText(row_text, $row_self);
 
-                    var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
-                    $row_self[0].appendChild(text);
+                    if (targets.length > 0) {
+                      var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+                      $row_self[0].appendChild(text);
+                    }
                 }
 
 

@@ -51,6 +51,10 @@
           }
         },
         "attributes": {
+          "attackMod": {
+            "type": "Number",
+            "value": 0
+          },
           "ac": {
             "type": "Number",
             "label": "Armor Class",
@@ -380,7 +384,10 @@
             "type": "String",
             "label": "Melee weapon dice",
             "dice": "d8",
-            "value": "d8"
+            "value": "d8",
+            "shield": false,
+            "dualwield": false,
+            "twohanded": false
           },
           "ranged": {
             "type": "String",
@@ -693,6 +700,11 @@
       "breathWeapon": {
         "type": "String",
         "label": "Breath Weapon",
+        "value": ""
+      },
+      "sustainOn": {
+        "type": "Number",
+        "label": "Sustain On",
         "value": ""
       },
       "recharge": {

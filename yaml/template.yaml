@@ -42,6 +42,9 @@ Actor:
           min: 3
           mod: 0
       attributes:
+        attackMod:
+          type: Number
+          value: 0
         ac:
           type: Number
           label: Armor Class
@@ -291,6 +294,9 @@ Actor:
           label: Melee weapon dice
           dice: d8
           value: d8
+          shield: false
+          dualwield: false
+          twohanded: false
         ranged:
           type: String
           label: Ranged weapon dice
@@ -535,6 +541,10 @@ Item:
     breathWeapon:
       type: String
       label: Breath Weapon
+      value: ''
+    sustainOn:
+      type: Number
+      label: Sustain On
       value: ''
     recharge:
       type: Number
