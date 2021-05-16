@@ -378,3 +378,4 @@ items:
         label: 'Description'
         value: 'When an orc berserker drops to 0 hp, it does not immediately die. Ignore any damage in excess of 0 hp, roll [[2d6]], and give the berserker that many temporary hit points. No other healing can affect the berserker or give it more temporary hit points. When the temporary hp are gone, the berserker dies.'
     sort: 200000
+_id: 'xYqA6xGNg3pxuNL5'
