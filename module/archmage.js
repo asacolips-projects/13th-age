@@ -766,9 +766,9 @@ function uuidv4() {
 /**
  * Parse inline rolls.
  */
-Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
-  preCreateChatMessageHandler.handle(data, options, userId);
-});
+// Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
+//   preCreateChatMessageHandler.handle(data, options, userId);
+// });
 
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
@@ -837,56 +837,26 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     // For inline results expand or collapse the roll details
     if (a.classList.contains("inline-result")) {
       const roll = Roll.fromJSON(unescape(a.dataset.roll));
-      //////////////////////////////////////////////////////////////////////////
-      //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
-      //////////////////////////////////////////////////////////////////////////
-      if (!isNewerVersion(game.data.version, "0.7")) {
-        // Build a die string of the die parts, including whether they're discarded.
-        const dieTotal = roll.parts.reduce((string, r) => {
-          if (typeof string == 'object') {
-            string = '';
-          }
+      // Build a die string of the die parts, including whether they're discarded.
+      const dieTotal = roll.terms.reduce((string, r) => {
+        if (typeof string == 'object') {
+          string = '';
+        }
 
-          if (r.rolls) {
-            string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
-          }
-          else {
-            string = `${string}<span class="mod">${r}</span>`;
-          }
+        if (r.results) {
+          string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
+        }
+        else {
+          string = `${string}<span class="mod">${r.number ?? r.operator}</span>`;
+        }
 
-          return string;
-        }, {});
+        return string;
+      }, {});
 
-        // Replace the html.
-        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
-        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
-        a.classList.toggle("expanded");
-      }
-      //////////////////////////////////////////////////////////////////////////
-      //////////////////////// END OF DEPRECATED CODE //////////////////////////
-      //////////////////////////////////////////////////////////////////////////
-      else {
-        // Build a die string of the die parts, including whether they're discarded.
-        const dieTotal = roll.terms.reduce((string, r) => {
-          if (typeof string == 'object') {
-            string = '';
-          }
-
-          if (r.results) {
-            string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
-          }
-          else {
-            string = `${string}<span class="mod">${r}</span>`;
-          }
-
-          return string;
-        }, {});
-
-        // Replace the html.
-        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
-        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
-        a.classList.toggle("expanded");
-      }
+      // Replace the html.
+      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+      a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+      a.classList.toggle("expanded");
     }
 
     // Otherwise execute the deferred roll
