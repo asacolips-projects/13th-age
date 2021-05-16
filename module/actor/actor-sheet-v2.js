@@ -822,8 +822,10 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   _onFocus(event) {
     let target = event.currentTarget;
     setTimeout(function() {
-      $(target).select();
-    }, 200);
+      if (target == document.activeElement) {
+        $(target).trigger('select');
+      }
+    }, 100);
   }
 
   /* ------------------------------------------------------------------------ */
