@@ -14,6 +14,7 @@ import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
+import { migrateWorld } from "./setup/migration.js";
 
 Hooks.once('init', async function() {
 
@@ -225,6 +226,17 @@ Hooks.once('init', async function() {
     type: Boolean,
     default: false,
     config: true
+  });
+
+  /**
+  * Track the system version upon which point a migration was last applied
+  */
+  game.settings.register("archmage", "systemMigrationVersion", {
+    name: "System Migration Version",
+    scope: "world",
+    config: false,
+    type: String,
+    default: "1.9.1"
   });
 
   game.settings.register('archmage', 'roundUpDamageApplication', {
@@ -483,7 +495,16 @@ Hooks.once('ready', () => {
       }
     }
   }
+  
+  // Determine whether a system migration is required and feasible
+  if ( !game.user.isGM ) return;
+  const currentVersion = game.settings.get("archmage", "systemMigrationVersion");
+  const NEEDS_MIGRATION_VERSION = "1.10.0";
+  const needsMigration = isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  if ( !needsMigration ) return;
 
+  // Perform the migration
+  migrateWorld();
 
 });
 

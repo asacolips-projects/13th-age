@@ -92,7 +92,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       this._vm.$destroy();
       this._vm = null;
     }
-    console.log('/////////////////////\r\nCLOSING SHEET\r\n/////////////////////');
     return super.close(options);
   }
 
