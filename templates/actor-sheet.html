@@ -922,6 +922,24 @@
               </div>
 
               <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.jabWeaponDice'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.jab.dice" type="text" value="{{data.attributes.weapon.jab.dice}}"
+                      data-dtype="String" placeholder="d6" />
+              </div>
+
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.punchWeaponDice'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.punch.dice" type="text" value="{{data.attributes.weapon.punch.dice}}"
+                      data-dtype="String" placeholder="d8" />
+              </div>
+
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.kickWeaponDice'}}</strong>
+                  <input class="attribute-input" name="data.attributes.weapon.kick.dice" type="text" value="{{data.attributes.weapon.kick.dice}}"
+                      data-dtype="String" placeholder="d10" />
+              </div>
+
+              <div class="settings-group">
                   <label for="data.attributes.weapon.melee.abil" class="attribute-name">{{localize 'ARCHMAGE.meleeAbility'}}</label>
                   <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
                       {{#select data.attributes.weapon.melee.abil}}
