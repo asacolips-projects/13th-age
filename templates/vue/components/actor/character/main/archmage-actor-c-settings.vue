@@ -65,19 +65,18 @@
             <strong class="unit-subtitle">{{localize('ARCHMAGE.rangedWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.ranged.dice" v-model="actor.data.attributes.weapon.ranged.dice" placeholder="d8"/>
           </div>
-          <!-- TODO: Add monk dice. -->
-          <!-- <div class="sub-unit sub-unit--jab-dice flexrow">
-            <strong class="unit-subtitle">{{localize('JAB Weapon Die')}}</strong>
+          <div class="sub-unit sub-unit--jab-dice flexrow">
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.jabWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.jab.dice" v-model="actor.data.attributes.weapon.jab.dice" placeholder="d6"/>
           </div>
           <div class="sub-unit sub-unit--punch-dice flexrow">
-            <strong class="unit-subtitle">{{localize('PUNCH Weapon Die')}}</strong>
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.punchWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.punch.dice" v-model="actor.data.attributes.weapon.punch.dice" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--kick-dice flexrow">
-            <strong class="unit-subtitle">{{localize('KICK Weapon Die')}}</strong>
+            <strong class="unit-subtitle">{{localize('ARCHMAGE.kickWeaponDice')}}</strong>
             <input type="text" name="data.attributes.weapon.kick.dice" v-model="actor.data.attributes.weapon.kick.dice" placeholder="d10"/>
-          </div> -->
+          </div>
         </div>
       </div>
       <!-- Flag Settings -->
