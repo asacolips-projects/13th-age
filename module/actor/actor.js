@@ -920,6 +920,7 @@ export class ActorArchmage extends Actor {
       ui.notifications.warn("Level can't increase above 15");
       return;
     }
+    // TODO: replace with explicit coefficients from book?
     let mul = Math.pow(1.25, delta);
     let overrideData = {
       'name': this.data.name+suffix,
@@ -938,6 +939,7 @@ export class ActorArchmage extends Actor {
     let atkFilter = /^\[\[1*d20\s*\+\s*(\d+)([\S\s]*)\]\]([\S\s]*)/;
     let hitFilter = /^(?:\[\[)?([\d+d]?\d+)(?:\]\])?([\S\s]*)/;
     let specialHitFilter = /^([\D]*?)(?:\[\[)?(\d+?d?\d+)(?:\]\])?([\S\s]*)/;
+    let inlineRollFilter = /(\d+?d?\d+)/;
     for (let i = 0; i < actor.data.items.length; i++) {
       let item = this.data.items[i];
       overrideData = {'_id': item._id};
@@ -946,30 +948,39 @@ export class ActorArchmage extends Actor {
         let newAtk = parseInt(atk[1])+delta;
         overrideData['data.attack.value'] = `[[d20+${newAtk}${atk[2]}]]${atk[3]}`;
         for (let key of ["hit", "miss"]) {
+          if (!item.data[key].value) continue;
           let parsed = hitFilter.exec(item.data[key].value);
           if (parsed && parsed[1]) {
             let newDmg = Math.round(parseInt(parsed[1])*mul);
             overrideData[`data.${key}.value`] = `[[${newDmg}]]${parsed[2]}`;
           } else manualCheck = true;
+          // Warn if we may have missed an inline roll
+          if ((item.data[key].value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
         }
         for (let key of ["hit1", "hit2", "hit3"]) {
-          hit = specialHitFilter.exec(item.data[key].value);
-          console.log(specialHitFilter);
-          console.log(item.data[key].value);
-          console.log(hit);
-          if (!hit || !hit[2]) continue;
-          let newDmg = Math.round(parseInt(hit[2])*mul);
-          overrideData[`data.${key}.value`] = `${hit[1]}[[${newDmg}]]${hit[3]}`;
+          if (!item.data[key].value) continue;
+          let parsed = specialHitFilter.exec(item.data[key].value);
+          if (parsed && parsed[2]) {
+            if (parsed[2].includes("d")) {
+              // TODO: handle scaling dice
+              manualCheck = true;
+              continue;
+            }
+            let newDmg = Math.round(parseInt(parsed[2])*mul);
+            overrideData[`data.${key}.value`] = `${parsed[1]}[[${newDmg}]]${parsed[3]}`;
+          } else manualCheck = true;
+          // Warn if we may have missed an inline roll
+          if ((item.data[key].value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
         }
       }
-      else if (item.type == 'trait') {
+      else if (item.type == 'trait') { // TODO: or nastierspecial?
         // TODO
         continue;
       }
       else continue;
       actor.updateOwnedItem(overrideData);
-      if (manualCheck) ui.notifications.warn("Complex NPC, manual check required!");
     }
+    if (manualCheck) ui.notifications.warn("Complex NPC, manual check required!");
   }
 }
 
