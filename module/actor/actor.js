@@ -973,11 +973,23 @@ export class ActorArchmage extends Actor {
           if ((item.data[key].value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
         }
       }
-      else if (item.type == 'trait') { // TODO: or nastierspecial?
-        // TODO
-        continue;
+      else if (item.type == 'trait' || item.type == 'nastierSpecial') {
+        if (!item.data.description.value) continue;
+        let parsed = specialHitFilter.exec(item.data.description.value);
+        if (parsed && parsed[2]) {
+          if (parsed[2].includes("d")) {
+            // TODO: handle scaling dice
+            manualCheck = true;
+            continue;
+          }
+          let newDmg = Math.round(parseInt(parsed[2])*mul);
+          overrideData["data.description.value"] = `${parsed[1]}[[${newDmg}]]${parsed[3]}`;
+        } else manualCheck = true;
+        // Warn if we may have missed an inline roll
+        if ((item.data.description.value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
       }
       else continue;
+console.log(overrideData)
       actor.updateOwnedItem(overrideData);
     }
     if (manualCheck) ui.notifications.warn("Complex NPC, manual check required!");
