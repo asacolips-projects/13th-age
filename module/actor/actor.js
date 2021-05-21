@@ -909,15 +909,17 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc') return;
-    if (Math.abs(delta) > 6) ui.notifications.warn("Changing a monster by more than 6 levels is not recommended.");
+    if (Math.abs(delta) > 6) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
+    }
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (-${delta})`;
     let level = this.data.data.attributes.level.value + delta;
     if (level < 0) {
-      ui.notifications.warn("Level can't decrease below 0");
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.minLevelup"));
       return;
     } else if (level > 15) {
-      ui.notifications.warn("Level can't increase above 15");
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.maxLevelup"));
       return;
     }
     let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
