@@ -952,24 +952,32 @@ export class ActorArchmage extends Actor {
         for (let key of ["hit", "hit1", "hit2", "hit3", "miss", "description"]) {
           if (!item.data[key]?.value) continue;
           let rolls = [...(item.data[key].value.matchAll(inlineRollFilter))]
+          let offset = 0;
           if (rolls.length > 0) {
             let newValue = item.data[key].value;
             rolls.forEach(r => {
               let orig = r[0];
-              let index = r.index;
+              let newDmg = orig;
+              let index = r.index + offset;
               if (orig.includes("d")) {
+                let x = parseInt(orig.split("d")[0]);
+                let y = parseInt(orig.split("d")[1]);
+                let avg = x * (y + 1) / 2;
                 // TODO: handle scaling dice
+                newDmg = Math.round(avg);
+                offset -= 2;
+                index -= 2;
               } else {
-                let newDmg = Math.round(parseInt(orig)*mul);
-                // Replace first instance at or around index, might be imprecise but good enough
-                newValue = newValue.slice(0, index) + newValue.slice(index).replace(orig, newDmg);
+                newDmg = Math.round(parseInt(orig)*mul);
               }
+              // Replace first instance at or around index, might be imprecise but good enough
+              newValue = newValue.slice(0, index) + newValue.slice(index).replace(orig, newDmg);
+              if (delta < 0) offset -= 1; // Just in case
             });
             overrideData[`data.${key}.value`] = newValue;
           }
         }
       }
-      else continue;
       actor.updateOwnedItem(overrideData);
     }
   }
