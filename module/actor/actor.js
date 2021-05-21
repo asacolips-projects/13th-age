@@ -909,17 +909,12 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc') return;
-    if (Math.abs(delta) > 6) {
-      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
-    }
+    if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (-${delta})`;
     let level = this.data.data.attributes.level.value + delta;
-    if (level < 0) {
-      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.minLevelup"));
-      return;
-    } else if (level > 15) {
-      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.maxLevelup"));
+    if (level < 0 || level > 15) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
       return;
     }
     let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
@@ -959,15 +954,11 @@ export class ActorArchmage extends Actor {
               let orig = r[0];
               let newDmg = orig;
               let index = r.index + offset;
-              if (orig.includes("d")) {
-                let x = parseInt(orig.split("d")[0]);
-                let y = parseInt(orig.split("d")[1]);
-                newDmg = _scaleDice(x, y, mul);
-              } else {
-                newDmg = Math.round(parseInt(orig)*mul).toString();
-              }
+              if (orig.includes("d")) newDmg = _scaleDice(parseInt(orig.split("d")[0]), 
+                parseInt(orig.split("d")[1]), mul);
+              else newDmg = Math.round(parseInt(orig)*mul).toString();
               // Replace first instance at or around index, might be imprecise but good enough
-              newValue = newValue.slice(0, index) + newValue.slice(index).replace(orig, newDmg);
+              newValue = newValue.slice(0, index)+newValue.slice(index).replace(orig, newDmg);
               offset -= (newDmg.length - orig.length);
             });
             overrideData[`data.${key}.value`] = newValue;

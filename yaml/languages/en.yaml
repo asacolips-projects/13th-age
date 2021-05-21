@@ -369,8 +369,7 @@ ARCHMAGE.UI.enableDependencies: Enable dependencies?
 ARCHMAGE.UI.dependencyContent: The V2 character sheet requires the VuePort and dlopen modules to be enabled. Would you like to enable them now?
 ARCHMAGE.UI.noToken: No token selected.
 ARCHMAGE.UI.tooManyLevels: Changing a monster by more than 6 levels is not recommended.
-ARCHMAGE.UI.maxLevelup: Level can't increase above 15
-ARCHMAGE.UI.minLevelup: Level can't decrease below 0
+ARCHMAGE.UI.levelLimits: Level can't increase above 15 or decrease below 0.
 # Tours
 ## 1.7.0
 ARCHMAGE.TOURS.170.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.7.0! Here's a quick tour of new features
