@@ -8,18 +8,20 @@ export function archmagePreUpdateCharacterData(actor, data, options, id) {
   if (!actor.data.type == 'character'
     || !options.diff
     || data.data === undefined) {
+      // Nothing to do
       return;
   }
 
-  if (data.data.attributes !== undefined
-    && data.data.attributes.weapon !== undefined
-    && data.data.attributes.weapon.melee !== undefined
-    && data.data.attributes.weapon.melee.dice === undefined) {
+  if (data.data.attributes?.weapon?.melee?.shield !== undefined
+    || data.data.attributes?.weapon?.melee?.dualwield !== undefined
+    || data.data.attributes?.weapon?.melee?.twohanded !== undefined) {
     // Here we received an update of the melee weapon checkboxes
 
+    // Fallback for sheet closure bug
     if (typeof actor.data.data.attributes.weapon.melee.dice !== 'string') {
-        actor.data.data.attributes.weapon.melee.dice = "d8"; // Fallback
+        actor.data.data.attributes.weapon.melee.dice = "d8";
     }
+
     let mWpn = parseInt(actor.data.data.attributes.weapon.melee.dice.substring(1));
     if (isNaN(mWpn)) mWpn = 8; // Fallback
     let lvl = actor.data.data.attributes.level.value;

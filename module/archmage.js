@@ -14,7 +14,7 @@ import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
-import { archmagePreUpdateCharacterData } from './actor/actor.js';
+import { archmagePreUpdateCharacterData } from './hooks/preUpdateCharacterDataHandler.js';
 
 Hooks.once('init', async function() {
 
