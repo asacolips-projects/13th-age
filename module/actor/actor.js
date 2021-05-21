@@ -932,10 +932,12 @@ export class ActorArchmage extends Actor {
       'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
     };
     let actor = await this.clone(overrideData);
+    let manualCheck = false;
 
     // Fix attack and damage
     let atkFilter = /^\[\[1*d20\s*\+\s*(\d+)([\S\s]*)\]\]([\S\s]*)/;
-    let hitFilter = /([\w\s]*)([\[\[]?\d+[\]\]]?)([\w\s]*)/;
+    let hitFilter = /^(?:\[\[)?([\d+d]?\d+)(?:\]\])?([\S\s]*)/;
+    let specialHitFilter = /^([\D]*?)(?:\[\[)?(\d+?d?\d+)(?:\]\])?([\S\s]*)/;
     for (let i = 0; i < actor.data.items.length; i++) {
       let item = this.data.items[i];
       overrideData = {'_id': item._id};
@@ -943,15 +945,30 @@ export class ActorArchmage extends Actor {
         let atk = atkFilter.exec(item.data.attack.value);
         let newAtk = parseInt(atk[1])+delta;
         overrideData['data.attack.value'] = `[[d20+${newAtk}${atk[2]}]]${atk[3]}`;
-        let hit = hitFilter.exec(item.data.hit.value);
-        let newDmg = Math.round(parseInt(hit[2])*mul);
-        overrideData['data.hit.value'] = `${hit[1]}[[${newDmg}]]${hit[3]}`;
+        for (let key of ["hit", "miss"]) {
+          let parsed = hitFilter.exec(item.data[key].value);
+          if (parsed && parsed[1]) {
+            let newDmg = Math.round(parseInt(parsed[1])*mul);
+            overrideData[`data.${key}.value`] = `[[${newDmg}]]${parsed[2]}`;
+          } else manualCheck = true;
+        }
+        for (let key of ["hit1", "hit2", "hit3"]) {
+          hit = specialHitFilter.exec(item.data[key].value);
+          console.log(specialHitFilter);
+          console.log(item.data[key].value);
+          console.log(hit);
+          if (!hit || !hit[2]) continue;
+          let newDmg = Math.round(parseInt(hit[2])*mul);
+          overrideData[`data.${key}.value`] = `${hit[1]}[[${newDmg}]]${hit[3]}`;
+        }
       }
       else if (item.type == 'trait') {
+        // TODO
         continue;
       }
       else continue;
       actor.updateOwnedItem(overrideData);
+      if (manualCheck) ui.notifications.warn("Complex NPC, manual check required!");
     }
   }
 }
