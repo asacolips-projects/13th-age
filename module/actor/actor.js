@@ -937,62 +937,45 @@ export class ActorArchmage extends Actor {
 
     // Fix attack and damage
     let atkFilter = /^\[\[1*d20\s*\+\s*(\d+)([\S\s]*)\]\]([\S\s]*)/;
-    let hitFilter = /^(?:\[\[)?([\d+d]?\d+)(?:\]\])?([\S\s]*)/;
-    let specialHitFilter = /^([\D]*?)(?:\[\[)?(\d+?d?\d+)(?:\]\])?([\S\s]*)/;
-    let inlineRollFilter = /(\d+?d?\d+)/;
+    let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
     for (let i = 0; i < actor.data.items.length; i++) {
       let item = this.data.items[i];
       overrideData = {'_id': item._id};
       if (item.type == 'action') {
+        // Add delta to attack
         let atk = atkFilter.exec(item.data.attack.value);
         let newAtk = parseInt(atk[1])+delta;
         overrideData['data.attack.value'] = `[[d20+${newAtk}${atk[2]}]]${atk[3]}`;
-        for (let key of ["hit", "miss"]) {
-          if (!item.data[key].value) continue;
-          let parsed = hitFilter.exec(item.data[key].value);
-          if (parsed && parsed[1]) {
-            let newDmg = Math.round(parseInt(parsed[1])*mul);
-            overrideData[`data.${key}.value`] = `[[${newDmg}]]${parsed[2]}`;
-          } else manualCheck = true;
-          // Warn if we may have missed an inline roll
-          if ((item.data[key].value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
-        }
-        for (let key of ["hit1", "hit2", "hit3"]) {
-          if (!item.data[key].value) continue;
-          let parsed = specialHitFilter.exec(item.data[key].value);
-          if (parsed && parsed[2]) {
-            if (parsed[2].includes("d")) {
-              // TODO: handle scaling dice
-              manualCheck = true;
-              continue;
-            }
-            let newDmg = Math.round(parseInt(parsed[2])*mul);
-            overrideData[`data.${key}.value`] = `${parsed[1]}[[${newDmg}]]${parsed[3]}`;
-          } else manualCheck = true;
-          // Warn if we may have missed an inline roll
-          if ((item.data[key].value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
-        }
       }
-      else if (item.type == 'trait' || item.type == 'nastierSpecial') {
-        if (!item.data.description.value) continue;
-        let parsed = specialHitFilter.exec(item.data.description.value);
-        if (parsed && parsed[2]) {
-          if (parsed[2].includes("d")) {
-            // TODO: handle scaling dice
-            manualCheck = true;
-            continue;
+      // if (['action', 'trait', 'nastierSpecial'.includes(item.type)) {
+      if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
+        // Multiply damage
+        for (let key of ["hit", "hit1", "hit2", "hit3", "miss", "description"]) {
+          if (!item.data[key]?.value) continue;
+          let rolls = [...(item.data[key].value.matchAll(inlineRollFilter))]
+          if (rolls.length > 0) {
+            let newValue = item.data[key].value;
+            rolls.forEach(r => {
+              let orig = r[0];
+              let index = r.index;
+              if (orig.includes("d")) {
+                // TODO: handle scaling dice
+                manualCheck = true;
+              } else {
+                let newDmg = Math.round(parseInt(orig)*mul);
+                // Replace first instance at or around index, might be imprecise but good enough
+                newValue = newValue.slice(0, index) + newValue.slice(index).replace(orig, newDmg);
+              }
+            });
+            overrideData[`data.${key}.value`] = newValue;
           }
-          let newDmg = Math.round(parseInt(parsed[2])*mul);
-          overrideData["data.description.value"] = `${parsed[1]}[[${newDmg}]]${parsed[3]}`;
-        } else manualCheck = true;
-        // Warn if we may have missed an inline roll
-        if ((item.data.description.value.match(inlineRollFilter) || []).length > 1) manualCheck = true;
+          if (rolls.length > 1) manualCheck = true; // Complex, better check
+        }
       }
       else continue;
-console.log(overrideData)
       actor.updateOwnedItem(overrideData);
     }
-    if (manualCheck) ui.notifications.warn("Complex NPC, manual check required!");
+    if (manualCheck) ui.notifications.warn("Complex NPC, manual check suggested!");
   }
 }
 
