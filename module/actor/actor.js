@@ -962,17 +962,13 @@ export class ActorArchmage extends Actor {
               if (orig.includes("d")) {
                 let x = parseInt(orig.split("d")[0]);
                 let y = parseInt(orig.split("d")[1]);
-                let avg = x * (y + 1) / 2;
-                // TODO: handle scaling dice
-                newDmg = Math.round(avg);
-                offset -= 2;
-                index -= 2;
+                newDmg = _scaleDice(x, y, mul);
               } else {
-                newDmg = Math.round(parseInt(orig)*mul);
+                newDmg = Math.round(parseInt(orig)*mul).toString();
               }
               // Replace first instance at or around index, might be imprecise but good enough
               newValue = newValue.slice(0, index) + newValue.slice(index).replace(orig, newDmg);
-              if (delta < 0) offset -= 1; // Just in case
+              offset -= (newDmg.length - orig.length);
             });
             overrideData[`data.${key}.value`] = newValue;
           }
@@ -981,6 +977,27 @@ export class ActorArchmage extends Actor {
       actor.updateOwnedItem(overrideData);
     }
   }
+}
+
+function _scaleDice(x, y, mul) {
+  let diceCnt = 0;
+  let diceAvg = (y + 1) / 2;
+  let target = Math.round(x * diceAvg * mul);
+  let correctiveDie = 0;
+  while (target > 0) {
+    diceCnt += 1;
+    target -= diceAvg;
+  }
+  if (target < 0) {
+    // We went too far
+    diceCnt -= 1;
+    target += diceAvg;
+    correctiveDie = target * 2 - 1;
+    if (correctiveDie < 1) correctiveDie = 1;
+  }
+  if (!diceCnt) return `1d${correctiveDie}`;
+  else if (!correctiveDie) return `${diceCnt}d${y}`;
+  return `${diceCnt}d${y}+1d${correctiveDie}`;
 }
 
 /**
