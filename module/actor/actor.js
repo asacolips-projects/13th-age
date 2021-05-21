@@ -899,7 +899,63 @@ export class ActorArchmage extends Actor {
       background: bg
     });
   }
+
+  /**
+   * Auto levelup monsters
+   * Creates a copy of an NPC actor with the requested delta in levels
+   *
+   * @return {undefined}
+   */
+
+  async autoLevelActor(delta) {
+    if (!this.data.type == 'npc') return;
+
+    let suffix = ` (+${delta})`;
+    if (delta < 0) suffix = ` (-${delta})`;
+    let level = this.data.data.attributes.level.value + delta;
+    if (level < 0) {
+      ui.notifications.warn("Level can't decrease below 0");
+      return;
+    } else if (level > 15) {
+      ui.notifications.warn("Level can't increase above 15");
+      return;
+    }
+    let mul = Math.pow(1.25, delta);
+    let overrideData = {
+      'name': this.data.name+suffix,
+      'data.attributes.level.value': level,
+      'data.attributes.ac.value': this.data.data.attributes.ac.value + delta,
+      'data.attributes.pd.value': this.data.data.attributes.pd.value + delta,
+      'data.attributes.md.value': this.data.data.attributes.md.value + delta,
+      // Initiative already depends directly on level
+      'data.attributes.hp.value': Math.round(this.data.data.attributes.hp.value * mul),
+      'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
+    };
+    let actor = await this.clone(overrideData);
+
+    // Fix attack and damage
+    let atkFilter = /^\[\[1*d20\s*\+\s*(\d+)([\S\s]*)\]\]([\S\s]*)/;
+    let hitFilter = /([\w\s]*)([\[\[]?\d+[\]\]]?)([\w\s]*)/;
+    for (let i = 0; i < actor.data.items.length; i++) {
+      let item = this.data.items[i];
+      overrideData = {'_id': item._id};
+      if (item.type == 'action') {
+        let atk = atkFilter.exec(item.data.attack.value);
+        let newAtk = parseInt(atk[1])+delta;
+        overrideData['data.attack.value'] = `[[d20+${newAtk}${atk[2]}]]${atk[3]}`;
+        let hit = hitFilter.exec(item.data.hit.value);
+        let newDmg = Math.round(parseInt(hit[2])*mul);
+        overrideData['data.hit.value'] = `${hit[1]}[[${newDmg}]]${hit[3]}`;
+      }
+      else if (item.type == 'trait') {
+        continue;
+      }
+      else continue;
+      actor.updateOwnedItem(overrideData);
+    }
+  }
 }
+
 
 /**
  * Character sheet update hook
