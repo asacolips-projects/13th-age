@@ -909,7 +909,7 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc') return;
-
+    if (Math.abs(delta) > 6) ui.notifications.warn("Changing a monster by more than 6 levels is not recommended.");
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (-${delta})`;
     let level = this.data.data.attributes.level.value + delta;
@@ -920,8 +920,7 @@ export class ActorArchmage extends Actor {
       ui.notifications.warn("Level can't increase above 15");
       return;
     }
-    // TODO: replace with explicit coefficients from book?
-    let mul = Math.pow(1.25, delta);
+    let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
     let overrideData = {
       'name': this.data.name+suffix,
       'data.attributes.level.value': level,
@@ -933,7 +932,6 @@ export class ActorArchmage extends Actor {
       'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
     };
     let actor = await this.clone(overrideData);
-    let manualCheck = false;
 
     // Fix attack and damage
     let atkFilter = /^\[\[1*d20\s*\+\s*(\d+)([\S\s]*)\]\]([\S\s]*)/;
@@ -947,7 +945,6 @@ export class ActorArchmage extends Actor {
         let newAtk = parseInt(atk[1])+delta;
         overrideData['data.attack.value'] = `[[d20+${newAtk}${atk[2]}]]${atk[3]}`;
       }
-      // if (['action', 'trait', 'nastierSpecial'.includes(item.type)) {
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
         // Multiply damage
         for (let key of ["hit", "hit1", "hit2", "hit3", "miss", "description"]) {
@@ -960,7 +957,6 @@ export class ActorArchmage extends Actor {
               let index = r.index;
               if (orig.includes("d")) {
                 // TODO: handle scaling dice
-                manualCheck = true;
               } else {
                 let newDmg = Math.round(parseInt(orig)*mul);
                 // Replace first instance at or around index, might be imprecise but good enough
@@ -969,16 +965,13 @@ export class ActorArchmage extends Actor {
             });
             overrideData[`data.${key}.value`] = newValue;
           }
-          if (rolls.length > 1) manualCheck = true; // Complex, better check
         }
       }
       else continue;
       actor.updateOwnedItem(overrideData);
     }
-    if (manualCheck) ui.notifications.warn("Complex NPC, manual check suggested!");
   }
 }
-
 
 /**
  * Character sheet update hook
