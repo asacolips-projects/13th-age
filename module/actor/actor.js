@@ -908,7 +908,7 @@ export class ActorArchmage extends Actor {
    */
 
   async autoLevelActor(delta) {
-    if (!this.data.type == 'npc') return;
+    if (!this.data.type == 'npc' || delta == 0) return;
     if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (-${delta})`;
@@ -974,19 +974,27 @@ function _scaleDice(x, y, mul) {
   let diceCnt = 0;
   let diceAvg = (y + 1) / 2;
   let target = Math.round(x * diceAvg * mul);
-  let correctiveDie = 0;
-  while (target > 0) {
+  if (target < 1) target = 1;
+  let correction = "";
+  // Use current dice, leave a margin we can handle
+  while (target > 1.5) {
     diceCnt += 1;
     target -= diceAvg;
   }
   if (target < 0) {
-    // We went too far
+    // Went too far
     diceCnt -= 1;
     target += diceAvg;
-    correctiveDie = target * 2 - 1;
-    if (correctiveDie < 1) correctiveDie = 1;
   }
-  if (!diceCnt) return `1d${correctiveDie}`;
-  else if (!correctiveDie) return `${diceCnt}d${y}`;
-  return `${diceCnt}d${y}+1d${correctiveDie}`;
+  if (target == 1) correction = "1"
+  else if (target == 1.5) correction = "1d2";
+  else if (target >= 2){
+    // Use closest die, allow +/- 0.5 tolerance since we are rounding anyway
+    let corrDie = target * 2 - 1;
+    if (corrDie % 2) corrDie -= 1;
+    correction = `1d${corrDie}`;
+  }
+  if (!diceCnt) return correction;
+  else if (!correction) return `${diceCnt}d${y}`;
+  return `${diceCnt}d${y}+`+correction;
 }
