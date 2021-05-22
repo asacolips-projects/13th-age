@@ -932,16 +932,18 @@ export class ActorArchmage extends Actor {
     let actor = await this.clone(overrideData);
 
     // Fix attack and damage
-    let atkFilter = /^\[\[1*d20\s*\+\s*(\d+)([\S\s]*)\]\]([\S\s]*)/;
+    let atkFilter = /\+\s*(\d+)([\S\s]*)/;
     let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
     for (let i = 0; i < actor.data.items.length; i++) {
       let item = this.data.items[i];
       overrideData = {'_id': item._id};
       if (item.type == 'action') {
         // Add delta to attack
-        let atk = atkFilter.exec(item.data.attack.value);
-        let newAtk = parseInt(atk[1])+delta;
-        overrideData['data.attack.value'] = `[[d20+${newAtk}${atk[2]}]]${atk[3]}`;
+        let parsed = atkFilter.exec(item.data.attack.value);
+        if (!parsed) continue;
+        let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
+        if (!parsed[2].match(/^\]\]/)) newAtk += "]]";
+        overrideData['data.attack.value'] = newAtk + parsed[2];
       }
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
         // Multiply damage
