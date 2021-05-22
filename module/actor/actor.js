@@ -903,6 +903,7 @@ export class ActorArchmage extends Actor {
   /**
    * Auto levelup monsters
    * Creates a copy of an NPC actor with the requested delta in levels
+   * @param delta {Integer}    The number of levels to add or remove
    *
    * @return {undefined}
    */
@@ -912,15 +913,15 @@ export class ActorArchmage extends Actor {
     if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (-${delta})`;
-    let level = this.data.data.attributes.level.value + delta;
-    if (level < 0 || level > 15) {
+    let lvl = this.data.data.attributes.level.value + delta;
+    if (lvl < 0 || lvl > 15) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
       return;
     }
     let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
     let overrideData = {
       'name': this.data.name+suffix,
-      'data.attributes.level.value': level,
+      'data.attributes.level.value': lvl,
       'data.attributes.ac.value': this.data.data.attributes.ac.value + delta,
       'data.attributes.pd.value': this.data.data.attributes.pd.value + delta,
       'data.attributes.md.value': this.data.data.attributes.md.value + delta,
@@ -982,7 +983,7 @@ function _scaleDice(exp, mul) {
   }
   // Correct remainder with closest die, +/- 0.5 tolerance due to rounding
   if (target == 1) correction = "1"
-  else if (!((target * 2) % 2)) correction = `${target / 2}d3`;
+  else if (!((target * 2) % 2) && target > 0) correction = `${target / 2}d3`;
   else if (target > 1){
     let corrDie = target * 2 - 1;
     if (corrDie % 2) corrDie -= 1;
