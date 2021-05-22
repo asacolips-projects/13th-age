@@ -1,5 +1,5 @@
 import { ARCHMAGE } from './setup/config.js';
-import { ActorArchmage, archmagePreUpdateCharacterData } from './actor/actor.js';
+import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
 import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
@@ -14,6 +14,7 @@ import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
+import { archmagePreUpdateCharacterData } from './hooks/preUpdateCharacterDataHandler.js';
 
 Hooks.once('init', async function() {
 
