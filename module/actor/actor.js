@@ -973,7 +973,7 @@ export class ActorArchmage extends Actor {
 function _scaleDice(x, y, mul) {
   let diceCnt = 0;
   let diceAvg = (y + 1) / 2;
-  let target = Math.round(x * diceAvg * mul);
+  let target = Math.round(x * diceAvg * mul * 2) / 2;
   if (target < 1) target = 1;
   let correction = "";
   while (target > diceAvg) {
@@ -983,7 +983,8 @@ function _scaleDice(x, y, mul) {
   // Correct remainder with closest die, +/- 0.5 tolerance due to rounding
   if (target == 1) correction = "1"
   else if (target == 1.5) correction = "1d2";
-  else if (target >= 2){
+  else if (target == 2) correction = "1d3";
+  else if (target > 2){
     let corrDie = target * 2 - 1;
     if (corrDie % 2) corrDie -= 1;
     correction = `1d${corrDie}`;
