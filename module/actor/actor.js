@@ -976,20 +976,14 @@ function _scaleDice(x, y, mul) {
   let target = Math.round(x * diceAvg * mul);
   if (target < 1) target = 1;
   let correction = "";
-  // Use current dice, leave a margin we can handle
-  while (target > 1.5) {
+  while (target > diceAvg) {
     diceCnt += 1;
     target -= diceAvg;
   }
-  if (target < 0) {
-    // Went too far
-    diceCnt -= 1;
-    target += diceAvg;
-  }
+  // Correct remainder with closest die, +/- 0.5 tolerance due to rounding
   if (target == 1) correction = "1"
   else if (target == 1.5) correction = "1d2";
   else if (target >= 2){
-    // Use closest die, allow +/- 0.5 tolerance since we are rounding anyway
     let corrDie = target * 2 - 1;
     if (corrDie % 2) corrDie -= 1;
     correction = `1d${corrDie}`;
