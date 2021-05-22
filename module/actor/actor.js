@@ -971,7 +971,8 @@ export class ActorArchmage extends Actor {
 }
 
 function _scaleDice(exp, mul) {
-  let diceAvg = (parseInt(exp.split("d")[1]) + 1) / 2;
+  let y = parseInt(exp.split("d")[1])
+  let diceAvg = (y + 1) / 2;
   let target = Math.max(Math.round(parseInt(exp.split("d")[0]) * diceAvg * mul * 2) / 2, 1);
   let diceCnt = 0;
   let correction = "";
