@@ -36,11 +36,20 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   /** @override */
   getData(options) {
     const sheetData = super.getData(options);
+    let actorData = this.actor.data.toObject(false);
     let data = {
       actor: sheetData.actor.data,
       data: sheetData.actor.data,
-      items: sheetData.items.map(x => x.data)
     };
+
+    // Sort items.
+    data.items = actorData.items;
+    for ( let i of data.items ) {
+      const item = this.actor.items.get(i._id);
+      i.labels = item.labels;
+    }
+    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
     return data;
   }
 
@@ -52,17 +61,16 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   render(force=false, options={}) {
     // Grab the sheetdata for both updates and new apps.
     let sheetData = this.getData();
-    console.log(sheetData);
     // Exit if Vue has already rendered.
     if (this._vm) {
       let states = Application.RENDER_STATES;
-      console.log(this._state);
+      // console.log(this._state);
       if (this._state == states.RENDERING || this._state == states.RENDERED) {
         if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
         if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
         if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
-        console.log("Set VM");
-        console.log(this._vm.actor);
+        // console.log("Set VM");
+        // console.log(this._vm.actor);
         this._updateEditors($(this.form));
         this.activateVueListeners($(this.form), true);
         return;
@@ -647,7 +655,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   async _onRechargeRoll(itemId) {
     let item = this.actor.items.get(itemId);
-    console.log(item);
     if (item) await item.recharge();
   }
 
@@ -815,6 +822,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    */
   _dragHandler(html) {
     let dragHandler = event => this._onDragStart(event);
+    console.log(dragHandler);
     html.find('.item[data-draggable="true"]').each((i, li) => {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);

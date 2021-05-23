@@ -116,7 +116,7 @@ export class ActorArchmageSheet extends ActorSheet {
     sheetData.owner = isOwner;
     sheetData.title = this.title;
 
-    console.log(sheetData);
+    // console.log(sheetData);
 
     return sheetData;
   }

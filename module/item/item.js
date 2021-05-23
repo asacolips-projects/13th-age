@@ -257,13 +257,10 @@ export class ItemArchmage extends Item {
    * @returns {Promise.<Object>}  A promise resolving to an object with roll results.
    */
   async recharge({createMessage=true}={}) {
-    console.log(this);
     let recharge = this.data.data?.recharge?.value ?? null;
     // If a recharge power does not have a recharge value, assume 16+
     if (this.data.data?.powerUsage?.value == 'recharge'
       && !recharge) recharge = 16;
-
-    console.log(recharge);
 
     // Only update for recharge powers/items.
     if (!recharge) return;
@@ -324,7 +321,6 @@ export class ItemArchmage extends Item {
     }
 
     // Update the item.
-    console.log(this);
     if (rechargeSuccessful) {
       await this.update({
         data: {

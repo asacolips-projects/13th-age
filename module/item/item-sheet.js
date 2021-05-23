@@ -83,7 +83,7 @@ export class ItemArchmageSheet extends ItemSheet {
       data['powerLevel'] = powerLevelString;
     }
 
-    console.log(data);
+    // console.log(data);
     data.data = data.data.data;
     return data;
   }

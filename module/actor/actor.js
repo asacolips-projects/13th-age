@@ -702,13 +702,6 @@ export class ActorArchmage extends Actor {
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
-        if (item.data.data.powerUsage.value == 'recharge') {
-          console.log({
-            item: item,
-            rechAttempts: rechAttempts,
-            recharge: rechValue
-          })
-        }
         // Per battle powers.
         if (item.data.data.powerUsage.value == 'once-per-battle'
           && item.data.data.quantity.value < maxQuantity) {
@@ -723,10 +716,8 @@ export class ActorArchmage extends Actor {
         else if ((item.data.data.powerUsage.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
-          console.log('RECHARGING!');
           for (let j = 0; j < rechAttempts; j++) {
             let roll = await this.items.get(item._id).recharge({createMessage: false});
-            console.log(roll);
             if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
@@ -740,7 +731,6 @@ export class ActorArchmage extends Actor {
               });
             }
           }
-          console.log(templateData);
         }
       }
     };

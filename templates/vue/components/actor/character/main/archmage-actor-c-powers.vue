@@ -165,6 +165,9 @@ export default {
         'actionType'
       ];
 
+      // Re-sort the powers.
+      this.getPowers();
+
       // let powers = this.actor.items.filter(i => i.type == 'power');
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
@@ -259,7 +262,7 @@ export default {
           return 0;
         });
       }
-      if (this.sortBy == 'level') {
+      else if (this.sortBy == 'level') {
         powers = powers.sort((a,b) => {
           if (a.data.powerLevel.value < b.data.powerLevel.value) {
             return -1;
@@ -269,6 +272,9 @@ export default {
           }
           return 0;
         });
+      }
+      else {
+        powers = powers.sort((a,b) => (a.sort || 0) - (b.sort || 0));
       }
       powers.forEach(i => {
         if (this.activePowers[i.id] == undefined) {
@@ -338,9 +344,10 @@ export default {
     }
   },
   async mounted() {
-    this.getPowers();
     this.groupBy = this.flags.sheetDisplay.powers.groupBy.value ? this.flags.sheetDisplay.powers.groupBy.value : 'powerType';
     this.sortBy = this.flags.sheetDisplay.powers.sortBy.value ? this.flags.sheetDisplay.powers.sortBy.value : 'custom';
+
+    this.getPowers();
   }
 }
 </script>
