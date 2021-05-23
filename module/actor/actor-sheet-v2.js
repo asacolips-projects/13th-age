@@ -59,10 +59,11 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         this.activateVueListeners($(this.form), true);
         return;
       }
-      else {
-        this._vm.$destroy();
-        this._vm = null;
-      }
+      // TODO: Is destroying the app necessary?
+      // else {
+      //   this._vm.$destroy();
+      //   this._vm = null;
+      // }
     }
     // Run the normal Foundry render once.
     this._render(force, options).catch(err => {
@@ -87,17 +88,18 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   /** @override */
   async close(options={}) {
+    // TODO: Is destroying the app necessary?
     // Destroy the Vue app.
-    if (this._vm) {
+    // if (this._vm) {
       // Destroy the Vue app using its built in method.
-      this._vm.$destroy();
+      // this._vm.$destroy();
       // And then update our property that stores it (requires a short delay).
       // TODO: If this resolves the issue with fields getting nullified, we
       // should revisit this and implement it without the timeout.
-      setTimeout(() => {
-        this._vm = null;
-      }, 500);
-    }
+      // setTimeout(() => {
+        // this._vm = null;
+      // }, 500);
+    // }
     console.log('/////////////////////\r\nCLOSING SHEET\r\n/////////////////////');
     return super.close(options);
   }
