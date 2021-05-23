@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Commander'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -20,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -28,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'
@@ -104,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When you roll initiative, also roll a [[@d4]] and record the result. As a free action, you can add the result to a single attack roll made by one of your nearby allies later this battle. (It&rsquo;s a free action, so you can add the result after seeing the roll.)</p>'
+    value: '<p>When you roll initiative, also roll a [[d4]] and record the result. As a free action, you can add the result to a single attack roll made by one of your nearby allies later this battle. (It&rsquo;s a free action, so you can add the result after seeing the roll.)</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -137,6 +141,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
@@ -151,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Roll a [[@d6]] instead of a d4.</p>'
+        value: '<p>Roll a [[d6]] instead of a d4.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -170,3 +178,4 @@ data:
 flags: {}
 img: 'systems/archmage/assets/icons/spells/beam-royal-3.jpg'
 effects: []
+_id: 'goQMN1sfPNUNBpPp'

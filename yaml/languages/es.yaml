@@ -211,6 +211,12 @@ ARCHMAGE.SAVE.hard: Tirada difícil
 ARCHMAGE.SAVE.disengage: Salir de combate
 ARCHMAGE.SAVE.success: Tuvo éxito
 ARCHMAGE.SAVE.failure: Falló
+ARCHMAGE.CHAT.QuickRest: Descanso rapido
+ARCHMAGE.CHAT.QuickRestBody: Recupera poderes por batalla, tira para recargar los poderes de recarga gastados y tira recuperaciones para curar por encima del 50% de salud.
+ARCHMAGE.CHAT.Rest: Descanso
+ARCHMAGE.CHAT.Cancel: Cancelar
+ARCHMAGE.CHAT.FullHeal: Curación completa
+ARCHMAGE.CHAT.FullHealBody: Recupera todos los usos de salud, recuperaciones y energía.
 # Tours
 ## 1.7.0
 ARCHMAGE.TOURS.170.welcome: Bienvenido a la versión 1.7.0 de Toolkit13 (compatible con 13th Age). Este es un tour rápido por las nuevas características

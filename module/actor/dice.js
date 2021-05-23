@@ -34,11 +34,13 @@ export class DiceArchmage {
     terms,
     data,
     template,
+    abilities,
     backgrounds,
     title,
     alias,
     actor,
     ability,
+    background,
     flavor,
     advantage = true,
     situational = 0,
@@ -109,12 +111,12 @@ export class DiceArchmage {
         actor: actor,
         tokenId: token ? `${token.scene._id}.${token.id}` : null,
         ability: {
-          name: ability.label,
-          bonus: ability.lvl
+          name: data.abilityName ?? null,
+          bonus: data.abil ?? 0
         },
         background: {
           name: data.backgroundName ?? null,
-          bonus: data.background ?? 0
+          bonus: data.bg ?? 0
         },
         data: chatData
       };
@@ -154,9 +156,25 @@ export class DiceArchmage {
     let dialogData = {
       formula: terms.join(' + '),
       data: data,
-      backgrounds: backgrounds ? backgrounds : {},
+      abilityCheck: data.abilityCheck ?? true,
+      backgroundCheck: data.backgroundCheck ?? false,
+      defaultAbility: false,
+      abilities: abilities ?? {},
+      backgrounds: backgrounds ?? {},
       rollModes: CONFIG.Dice.rollModes
     };
+
+    // If this is a background check, default to the highest ability score.
+    if (data.backgroundCheck) {
+      let highestAbility = -5;
+      for (let ability of Object.values(abilities)) {
+        if (Number(ability.mod) > highestAbility) {
+          highestAbility = Number(ability.mod);
+        }
+      }
+      dialogData.defaultAbility = highestAbility;
+    }
+
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: title,
@@ -219,8 +237,14 @@ export class DiceArchmage {
           if (rolled) {
             rollMode = html.find('[name="rollMode"]').val();
             data['bonus'] = html.find('[name="bonus"]').val();
-            data['background'] = html.find('[name="background"]').val();
-            data['backgroundName'] = Number(data['background']) > 0 ? html.find('[name="background"] option:selected').text() : null;
+            if (data.abilityCheck) {
+              data['bg'] = html.find('[name="background"]').val();
+              data['backgroundName'] = Number(data['bg']) > 0 ? html.find('[name="background"] option:selected').text() : null;
+            }
+            if (data.backgroundCheck) {
+              data['abil'] = html.find('[name="ability"]').val();
+              data['abilityName'] = !isNaN(Number(data['abil'])) ? html.find('[name="ability"] option:selected').data('label') : null;
+            }
             roll(html, data);
           }
         }

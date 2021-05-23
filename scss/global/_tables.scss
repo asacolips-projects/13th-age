@@ -11,7 +11,41 @@
 
   tr {
     &:nth-child(even) {
-      background: $ct-black--05;
+      background: $ct-blue--25;
     }
   }
+}
+
+table {
+  font-family: $font-stack-secondary;
+  background: transparent;
+  border: 0;
+  text-align: center;
+
+  thead {
+    background: transparent;
+    color: $c-black;
+    text-shadow: none;
+
+    th {
+      padding: 2px 4px;
+    }
+  }
+
+  tbody {
+    border: 10px solid $c-blue--dark;
+    border-left: 0;
+    border-right: 0;
+    
+    tr {
+      &:nth-child(odd) {
+        background: transparent;
+      }
+  
+      &:nth-child(even) {
+        background: $ct-blue--25;
+      }
+    }
+  }
+
 }

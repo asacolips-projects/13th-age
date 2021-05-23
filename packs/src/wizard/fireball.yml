@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Wizard'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -68,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage. (Reckless Miss: Your allies engaged with the target take [[floor((10d10)/4)]] fire damage.)'
+    value: 'Half damage. (Reckless Miss: Your allies engaged with the target take one fourth fire damage.)'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -137,6 +141,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
@@ -170,3 +178,4 @@ data:
 flags: {}
 img: 'systems/archmage/assets/icons/skills/red_14.jpg'
 effects: []
+_id: '5x3jlbp3zuq4uSry'

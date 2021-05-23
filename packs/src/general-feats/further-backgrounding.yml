@@ -14,6 +14,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'other'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'General'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -138,6 +142,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
   feats:
     adventurer:
       description:
@@ -168,3 +176,4 @@ data:
         value: false
 flags: {}
 img: 'icons/svg/d20.svg'
+_id: 'Z1abSMk1DOdPibEW'

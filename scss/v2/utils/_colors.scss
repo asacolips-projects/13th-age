@@ -1,0 +1,44 @@
+$c-blue: #1776D5;
+$c-red: #E01616;
+$c-black: #000000;
+$c-white: #ffffff;
+$c-gray--25: rgba($c-black, 0.25);
+
+$color-text: $c-black;
+$color-text-night: $c-white;
+
+$c-blue-plus: lighten($c-blue, 25%);
+
+$c-feat-blue: #68d7f194;
+$c-feat-transparent: #ffffff00;
+
+$c-feat: linear-gradient(45deg, $c-feat-blue, $c-feat-transparent);
+
+$c-progress-full: #41c179;
+$c-progress-hurt: #f7d601;
+$c-progress-staggered: #f78c01;
+$c-progress-dire: #ca0000;
+
+$ct-border: rgba($c-black, 0.25);
+$ct-border-night: rgba($c-white, 0.25);
+
+$c-power-will: linear-gradient(45deg, #003c15, #5ee25e);
+$c-power-battle: linear-gradient(45deg, #3c0000, #dc0000);
+$c-power-daily: linear-gradient(45deg, #01003c, #ababab);
+$c-power-recharge: linear-gradient(45deg, #01003c, #71a2ec);
+$c-power-other: linear-gradient(45deg, #25003c, #dc9ff1a6);
+$c-power-equipment: linear-gradient(45deg, #80361a, #efc44aa6);
+
+$cb-rg-power-will: linear-gradient(45deg, #003c15, #087830);
+$cb-rg-power-battle: linear-gradient(45deg, #003854, #89cdef);
+$cb-rg-power-daily: linear-gradient(45deg, #005748, #42ac9a);
+$cb-rg-power-recharge: linear-gradient(45deg, #695702, #decd78);
+$cb-rg-power-other: linear-gradient(45deg, #0d0145, #301c89);
+$cb-rg-power-equipment: linear-gradient(45deg, #80361a, #efc44aa6);
+
+$cb-by-power-will: linear-gradient(45deg, #796501, #efde89);
+$cb-by-power-battle: linear-gradient(45deg, #4e0129, #891c54);
+$cb-by-power-daily: linear-gradient(45deg, #333300, #9a9a30);
+$cb-by-power-recharge: linear-gradient(45deg, #01536e, #66cdef);
+$cb-by-power-other: linear-gradient(45deg, #0d0145, #301c89);
+$cb-by-power-equipment: linear-gradient(45deg, #80361a, #efc44aa6);
