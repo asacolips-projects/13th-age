@@ -912,7 +912,7 @@ export class ActorArchmage extends Actor {
     if (!this.data.type == 'npc' || delta == 0) return;
     if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
     let suffix = ` (+${delta})`;
-    if (delta < 0) suffix = ` (-${delta})`;
+    if (delta < 0) suffix = ` (${delta})`;
     let lvl = this.data.data.attributes.level.value + delta;
     if (lvl < 0 || lvl > 15) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
