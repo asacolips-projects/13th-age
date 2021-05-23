@@ -691,47 +691,59 @@ export class ActorArchmage extends Actor {
     }
 
     // Items (Powers)
-    for (let i = 0; i < this.data.items.length; i++) {
-      let item = this.data.items[i];
-      let maxQuantity = item.data?.maxQuantity?.value ?? 1;
+    let items = this.items.map(i => i);
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      let maxQuantity = item.data.data?.maxQuantity?.value ?? 1;
       if (item.type == "power" && maxQuantity) {
         // Recharge powers.
-        let rechAttempts = maxQuantity - item.data.quantity.value;
+        let rechAttempts = maxQuantity - item.data.data.quantity.value;
+        let rechValue = item.data.data.recharge.value ?? 16;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
-          rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
+          rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
+        }
+        if (item.data.data.powerUsage.value == 'recharge') {
+          console.log({
+            item: item,
+            rechAttempts: rechAttempts,
+            recharge: rechValue
+          })
         }
         // Per battle powers.
-        if (item.data.powerUsage.value == 'once-per-battle'
-          && item.data.quantity.value < maxQuantity) {
-          await this.updateOwnedItem({
-            _id: item._id,
-            data: {quantity: {value: maxQuantity}}
+        if (item.data.data.powerUsage.value == 'once-per-battle'
+          && item.data.data.quantity.value < maxQuantity) {
+          await item.update({
+            'data.quantity': {value: maxQuantity}
           });
           templateData.items.push({
             key: item.name,
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
-        } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
+        }
+        else if ((item.data.data.powerUsage.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
+          console.log('RECHARGING!');
           for (let j = 0; j < rechAttempts; j++) {
             let roll = await this.items.get(item._id).recharge({createMessage: false});
-            if (roll.total >= item.data.recharge.value) {
+            console.log(roll);
+            if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
                 key: item.name,
-                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${item.data.recharge.value})`
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${rechValue})`
               });
             } else {
               templateData.items.push({
                 key: item.name,
-                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${item.data.recharge.value})`
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${rechValue})`
               });
             }
           }
+          console.log(templateData);
         }
       }
-    }
+    };
 
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-short-card.html`
@@ -788,21 +800,19 @@ export class ActorArchmage extends Actor {
     }
 
     // Items (Powers)
-    for (let i = 0; i < this.data.items.length; i++) {
-      let item = this.data.items[i];
+    let items = this.items.map(i => i);
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
 
       if (item.type != 'power') continue;
 
       let usageArray = ['once-per-battle','daily','recharge'];
-      let fallbackQuantity = usageArray.includes(item.data.powerUsage.value) || item.data.quantity.value !== null ? 1 : null;
-      let maxQuantity = item.data?.maxQuantity?.value ?? fallbackQuantity;
-      if (maxQuantity && item.data.quantity.value < maxQuantity) {
-        await this.updateOwnedItem({
-          _id: item._id,
-          data: {
-            quantity: {value: maxQuantity},
-            rechargeAttempts: {value: 0}
-            }
+      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage.value) || item.data.data.quantity.value !== null ? 1 : null;
+      let maxQuantity = item.data.data?.maxQuantity?.value ?? fallbackQuantity;
+      if (maxQuantity && item.data.data.quantity.value < maxQuantity) {
+        await item.update({
+          'data.quantity': {value: maxQuantity},
+          'data.rechargeAttempts': {value: 0}
         });
         templateData.items.push({
           key: item.name,

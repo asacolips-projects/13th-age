@@ -340,8 +340,8 @@ Hooks.once('init', async function() {
    * See Combat._getInitiativeFormula for more detail.
    * @private
    */
-  Combat.prototype._getInitiativeFormula = function(combatant) {
-    const actor = combatant.actor;
+  Combatant.prototype._getInitiativeFormula = function() {
+    const actor = this.actor;
     if (!actor) return "1d20";
     const init = actor.data.data.attributes.init;
     // Init mod includes dex + level + misc bonuses.
@@ -996,13 +996,14 @@ Hooks.on('deleteCombat', (combat) => {
   }
 });
 
-Hooks.on('createCombatant', (combat, combatant, options, id) => {
+Hooks.on('createCombatant', (document, data, options, id) => {
   // Retrieve the actor for this combatant.
-  let tokens = combat.scene.data.tokens;
-  let tokenId = combatant.tokenId;
+  let scene = document.parent?.data?.scene ? game.scenes.get(document.parent.data.scene) : null;
+  let tokens = scene ? scene.data.tokens : [];
+  let tokenId = document?.data?._source?.tokenId;
   if (tokens && tokenId) {
     let token = tokens.find(t => t._id == tokenId);
-    let actor = token ? game.actors.get(token.actorId) : null;
+    let actor = token ? game.actors.get(token.data.actorId) : null;
     // Add command points at start of combat.
     if (actor && actor.data.type == 'character') {
       let updates = {};

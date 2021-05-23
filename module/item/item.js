@@ -62,11 +62,13 @@ export class ItemArchmage extends Item {
         }).render(true);
       } else {
         let rolled = await this._roll();
+        let item = null;
         if (rolled) {
-          updateData._id = this.data._id;
+          // updateData._id = this.data._id;
+          item = this.actor.items.get(this.data._id);
           updateData.data = {'quantity.value': Math.max(uses - 1, 0)};
         }
-        if (!isObjectEmpty(updateData)) this.actor.updateOwnedItem(updateData);
+        if (!isObjectEmpty(updateData)) item.update(updateData, {});
         return rolled;
       }
     }
@@ -255,10 +257,13 @@ export class ItemArchmage extends Item {
    * @returns {Promise.<Object>}  A promise resolving to an object with roll results.
    */
   async recharge({createMessage=true}={}) {
+    console.log(this);
     let recharge = this.data.data?.recharge?.value ?? null;
     // If a recharge power does not have a recharge value, assume 16+
     if (this.data.data?.powerUsage?.value == 'recharge'
       && !recharge) recharge = 16;
+
+    console.log(recharge);
 
     // Only update for recharge powers/items.
     if (!recharge) return;
@@ -266,10 +271,10 @@ export class ItemArchmage extends Item {
     // if (recharge <= 0 || recharge > 20) return;
 
     // Only update for owned items.
-    if (!this.options?.actor) return;
+    if (!this.parent?.data?.actor) return;
 
     // let actor = game.actors.get(this.options.actor.data._id);
-    let actor = this.options.actor;
+    let actor = this.parent.data.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -319,17 +324,16 @@ export class ItemArchmage extends Item {
     }
 
     // Update the item.
+    console.log(this);
     if (rechargeSuccessful) {
-      await actor.updateOwnedItem({
-        _id: this.data._id,
+      await this.update({
         data: {
           'quantity.value': Number(currQuantity) + 1
         }
       });
     } else {
       // Record recharge attempt
-      await actor.updateOwnedItem({
-        _id: this.data._id,
+      await this.update({
         data: {
           'rechargeAttempts.value': Number(rechAttempts) + 1
         }

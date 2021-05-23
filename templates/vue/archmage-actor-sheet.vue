@@ -15,12 +15,12 @@
 
       <!-- Left sidebar -->
       <section class="section section--sidebar flexcol">
-<!--        <archmage-actor-c-initiative :actor="actor"></archmage-actor-c-initiative>-->
+       <archmage-actor-c-initiative :actor="actor"></archmage-actor-c-initiative>
         <archmage-actor-c-abilities :actor="actor"></archmage-actor-c-abilities>
         <archmage-actor-c-backgrounds :actor="actor"></archmage-actor-c-backgrounds>
         <archmage-actor-c-icon-relationships :actor="actor"></archmage-actor-c-icon-relationships>
         <archmage-actor-c-out :actor="actor" :owner="owner"></archmage-actor-c-out>
-<!--        <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals>-->
+       <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals>
       </section>
       <!-- /Left sidebar -->
 

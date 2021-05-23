@@ -229,12 +229,12 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     }
 
     // Create the item.
-    let item = await this.actor.createOwnedItem({
+    let item = await this.actor.createEmbeddedDocuments('Item', [{
       name: 'New ' + game.i18n.localize(`ARCHMAGE.${itemType}`),
       type: itemType,
       img: img,
       data: data
-    });
+    }]);
   }
 
   /**
@@ -252,7 +252,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (!itemId) return;
 
     // Delete the item from the actor object.
-    await this.actor.deleteOwnedItem(itemId);
+    let item = this.actor.items.get(itemId);
+    await item.delete();
   }
 
   _editItem(event) {
@@ -264,7 +265,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     if (!itemId) return;
 
     // Render the edit form.
-    const item =this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
     if (item) item.sheet.render(true);
   }
 
@@ -425,7 +426,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     let combat = game.combat;
     // Check to see if this actor is already in the combat.
     if (!combat) return;
-    let combatant = combat.combatants.find(c => c?.actor?.data?._id == this.actor._id);
+    let combatant = combat.data.combatants.find(c => c?.actor?.data?._id == this.actor._id);
     // Create the combatant if needed.
     if (!combatant) {
       await this.actor.rollInitiative({createCombatants: true});
@@ -645,7 +646,8 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   }
 
   async _onRechargeRoll(itemId) {
-    let item = this.actor.items.find(i => i.data._id == itemId);
+    let item = this.actor.items.get(itemId);
+    console.log(item);
     if (item) await item.recharge();
   }
 
@@ -707,7 +709,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     if (!itemId) return;
 
-    let item = this.actor.items.find(i => i.data._id == itemId);
+    let item = this.actor.items.get(itemId);
     if (item) {
       if (item.data.data?.quantity?.value == null) return;
       // Update the quantity.
@@ -718,12 +720,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
       // has become regularly used.
       let maxQuantity = item.data.data?.maxQuantity?.value ?? 99;
 
-      await this.actor.updateOwnedItem({
-        _id: itemId,
-        data: {
-          'quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)
-        }
-      });
+      await item.update({'data.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
   }
 
@@ -735,19 +732,16 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
     if (!itemId) return;
 
-    let item = this.actor.items.find(i => i.data._id == itemId);
+    let item = this.actor.items.get(itemId);
     if (item) {
       let tier = dataset.tier ?? null;
       if (!tier) return;
 
       let isActive = item.data.data.feats[tier].isActive.value;
       let updateData = {};
-      updateData[`feats.${tier}.isActive.value`] = !isActive;
+      updateData[`data.feats.${tier}.isActive.value`] = !isActive;
 
-      await this.actor.updateOwnedItem({
-        _id: itemId,
-        data: updateData
-      });
+      await item.update(updateData, {});
     }
   }
 
@@ -911,7 +905,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         });
 
       // Create the owned items.
-      actor.createOwnedItem(powers);
+      actor.createEmbeddedDocuments('Item', powers);
     }
   }
 }

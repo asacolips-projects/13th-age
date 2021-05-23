@@ -125,10 +125,10 @@ export class ItemArchmageSheet extends ItemSheet {
         let actor = characters[x];
         let found = actor.data.items.find(x => x._id == itemId);
         if (found) {
-          item = actor.getOwnedItem(itemId);
+          item = actor.items.get(itemId);
           break;
         }
-      }  
+      }
     }
 
     let itemSheet = new ItemArchmageSheet(item, {
