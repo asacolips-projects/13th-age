@@ -899,4 +899,98 @@ export class ActorArchmage extends Actor {
       background: bg
     });
   }
+
+  /**
+   * Auto levelup monsters
+   * Creates a copy of an NPC actor with the requested delta in levels
+   * @param delta {Integer}    The number of levels to add or remove
+   *
+   * @return {undefined}
+   */
+
+  async autoLevelActor(delta) {
+    if (!this.data.type == 'npc' || delta == 0) return;
+    if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
+    let suffix = ` (+${delta})`;
+    if (delta < 0) suffix = ` (${delta})`;
+    let lvl = this.data.data.attributes.level.value + delta;
+    if (lvl < 0 || lvl > 15) {
+      ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
+      return;
+    }
+    let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
+    let overrideData = {
+      'name': this.data.name+suffix,
+      'data.attributes.level.value': lvl,
+      'data.attributes.ac.value': this.data.data.attributes.ac.value + delta,
+      'data.attributes.pd.value': this.data.data.attributes.pd.value + delta,
+      'data.attributes.md.value': this.data.data.attributes.md.value + delta,
+      // Initiative already depends directly on level
+      'data.attributes.hp.value': Math.round(this.data.data.attributes.hp.value * mul),
+      'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
+    };
+    let actor = await this.clone(overrideData);
+
+    // Fix attack and damage
+    let atkFilter = /\+\s*(\d+)([\S\s]*)/;
+    let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
+    for (let i = 0; i < actor.data.items.length; i++) {
+      let item = this.data.items[i];
+      overrideData = {'_id': item._id};
+      if (item.type == 'action') {
+        // Add delta to attack
+        let parsed = atkFilter.exec(item.data.attack.value);
+        if (!parsed) continue;
+        let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
+        if (!parsed[2].match(/^\]\]/)) newAtk += "]]";
+        overrideData['data.attack.value'] = newAtk + parsed[2];
+      }
+      if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
+        // Multiply damage
+        for (let key of ["hit", "hit1", "hit2", "hit3", "miss", "description"]) {
+          if (!item.data[key]?.value) continue;
+          let rolls = [...(item.data[key].value.matchAll(inlineRollFilter))]
+          let offset = 0;
+          if (rolls.length > 0) {
+            let newValue = item.data[key].value;
+            rolls.forEach(r => {
+              let orig = r[0];
+              let newDmg = orig;
+              let index = r.index + offset;
+              if (orig.includes("d")) newDmg = _scaleDice(orig, mul);
+              else newDmg = Math.round(parseInt(orig)*mul).toString();
+              // Replace first instance at or around index, might be imprecise but good enough
+              newValue = newValue.slice(0, index)+newValue.slice(index).replace(orig, newDmg);
+              offset -= (newDmg.length - orig.length);
+            });
+            overrideData[`data.${key}.value`] = newValue;
+          }
+        }
+      }
+      actor.updateOwnedItem(overrideData);
+    }
+  }
+}
+
+function _scaleDice(exp, mul) {
+  let y = parseInt(exp.split("d")[1])
+  let diceAvg = (y + 1) / 2;
+  let target = Math.max(Math.round(parseInt(exp.split("d")[0]) * diceAvg * mul * 2) / 2, 1);
+  let diceCnt = 0;
+  let correction = "";
+  while (target > diceAvg) {
+    diceCnt += 1;
+    target -= diceAvg;
+  }
+  // Correct remainder with closest die, +/- 0.5 tolerance due to rounding
+  if (target == 1) correction = "1";
+  else if (!((target * 2) % 2) && target > 0) correction = `${target / 2}d3`;
+  else if (target > 1){
+    let corrDie = target * 2 - 1;
+    if (corrDie % 2) corrDie -= 1;
+    correction = `1d${corrDie}`;
+  }
+  if (!diceCnt) return correction;
+  else if (!correction) return `${diceCnt}d${y}`;
+  return `${diceCnt}d${y}+`+correction;
 }
