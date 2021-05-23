@@ -139,6 +139,7 @@ languages:
   - lang: es
     name: Español
     path: languages/es.json
+socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/beta/raw/system.json?job=build-beta
 download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/beta/raw/archmage.zip?job=build-beta
