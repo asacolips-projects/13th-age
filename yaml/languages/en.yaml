@@ -398,3 +398,12 @@ ARCHMAGE.TOURS.190.inlineRollDocs: We now have additional documentation for inli
 ARCHMAGE.TOURS.190.systemDocs: Our System documentation has been expanded even further, and is now in Gitbooks for a better experience
 ARCHMAGE.TOURS.190.chatCards: Ability / Background checks now have a new Chat Card layout that includes useful information such as "Background used". The Icon Roll Chat Cards got a makeover as well - roll the dice and see what the Icons bring!
 ARCHMAGE.TOURS.190.end: "There's a variety of bug fixes and minor tweaks as well, such as fixing powers in the Compendiums, adding Weakling / Elite to creature sizes, negative recovery logic, and more. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+## 1.10.0
+ARCHMAGE.TOURS.1100.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.10.0! Here's a quick tour of new features
+ARCHMAGE.TOURS.1100.v2Sheet: We've redesigned the character sheet! The overall structure is the same, but everything that's rollable will now have a blue d20 near it, and the sheet will feel more responsive. If you prefer the original sheet, you can return to the original sheet per character by clicking the "Sheet" settings gear in the header of the sheet window.
+ARCHMAGE.TOURS.1100.nightMode: The new character sheet has a night mode! Click the <i class="fas fa-cogs"></i> tab on the sheet and find it near the bottom of the right sidebar.
+ARCHMAGE.TOURS.1100.rolls: Many more areas of the sheet are now rollable, such as initiative, death saves, icon rolls, and more. Watch out for a blue <i class="fas fa-dice-d20"></i> icon to find rollable links!
+ARCHMAGE.TOURS.1100.iconRolls: Icon rolls are now stored on the sheet! You can also click an icon result icon to cycle through 5, 6, and empty results.
+ARCHMAGE.TOURS.1100.rests: The sheet now supports both quick rests and full heal-ups! Find them in the new resources section of the character sheet directly above powers.
+ARCHMAGE.TOURS.1100.powerImporter: The power importer has been redesigned! The new design is much closer to a character builder, and will pull from any classes and races detected on your character sheet.
+ARCHMAGE.TOURS.1100.end: "There's also a variety of bug fixes and minor tweaks added to the system! Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
