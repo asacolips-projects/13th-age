@@ -211,8 +211,87 @@ input[type="checkbox"] {
 // Actor Sheet
 
 .archmage {
+  .editor-wrapper {
+    display: flex;
+    height: 100%;
+    min-height: 120px;
+  }
+
+  .editor,
+  .editor-content {
+    flex: 1;
+    min-height: 40px;
+  }
+
+  .editor-content {
+    background: rgba($c-black, 0.05);
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  .tox-tinymce,
+  .tox-editor-container,
+  .tox-sidebar-wrap,
+  .tox-edit-area {
+    min-height: 170px;
+    height: 100% !important;
+  }
+
+  .tox-tinymce {
+    height: 100% !important;
+
+    .tox-toolbar-overlord,
+    .tox-toolbar__primary {
+      background: transparent;
+      border-bottom: 1px solid $c-black;
+    }
+
+    button {
+      font-size: 12px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      margin: 0;
+      width: auto;
+      height: auto;
+    }
+
+    button[title="Formats"],
+    button[title="Table"],
+    button[title="Horizontal line"],
+    button[title="Insert/edit link"] {
+      display: none;
+    }
+  }
+
   input[type="checkbox"] {
     transform: scale(1);
+  }
+
+  .tabs-primary-content {
+    position: relative;
+
+    .item-import {
+      flex: 0 0 140px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      padding: 2px 4px;
+      line-height: 1;
+      border-radius: 4px;
+      font-size: 12px;
+      background: #444;
+      color: white;
+      border-color: black;
+      transition: all ease-in-out 0.25s;
+
+      &:hover,
+      &:focus {
+        box-shadow: none;
+        background-color: $c-blue;
+      }
+    }
   }
 
   &.sheet {
@@ -1498,7 +1577,7 @@ input[type="checkbox"] {
     }
 
     .item-controls {
-      flex: 0 0 94px;
+      flex: 0 0 48px;
       justify-content: space-between;
 
       a {
@@ -2316,16 +2395,16 @@ input[type="checkbox"] {
           line-height: 24px;
           padding: 0;
           margin-right: 5px;
-          
+
           &.result-5 {
             background: #8acee4;
           }
-      
+
           &.result-6 {
             background: #93c385;
           }
         }
-    
+
       }
     }
   }
@@ -2397,6 +2476,20 @@ input[type="checkbox"] {
     }
   }
 
+  .dc-reroll {
+    color: $c-reroll;
+    background: rgba(150, 105, 0, 0.75);
+    &:hover {
+      text-shadow: 0 0 8px $c-black;
+    }
+    .die {
+      color: $c-reroll;
+    }
+    .fas {
+      color: $c-reroll;
+    }
+  }
+
   .dc-fail {
     color: $c-fail;
     background: rgba(70, 0, 0, 0.75);
@@ -2438,4 +2531,8 @@ input[type="checkbox"] {
 
 .currencies {
   flex: 0 0 60px !important;
+}
+
+.l-center {
+  margin: 0 40px;
 }

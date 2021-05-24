@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Wizard'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -137,6 +141,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
@@ -170,3 +178,4 @@ data:
 flags: {}
 img: 'systems/archmage/assets/icons/skills/light_01.jpg'
 effects: []
+_id: 'eQhy9pSRAAo6wFup'

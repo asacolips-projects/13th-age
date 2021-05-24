@@ -30,12 +30,13 @@ let system = JSON.parse(systemRaw);
 
 // Calculate the version.
 if (argv.branch && argv.branch == 'beta' && argv.versionpre) {
-  let newVersionSplit = system.version.split('.');
-  // Set the beta version.
-  newVersionSplit[1]++;
-  newVersionSplit[2] = 0;
-  let newVersion = newVersionSplit.join('.');
-  system.version = `beta${argv.versionpre ? argv.versionpre + '-' : ''}${newVersion}`;
+  // TODO: Refactor this.
+  // let newVersionSplit = system.version.split('.');
+  // // Set the beta version.
+  // newVersionSplit[1]++;
+  // newVersionSplit[2] = 0;
+  // let newVersion = newVersionSplit.join('.');
+  // system.version = `beta${argv.versionpre ? argv.versionpre + '-' : ''}${newVersion}`;
 }
 else if (argv.tag) {
   system.version = argv.tag;

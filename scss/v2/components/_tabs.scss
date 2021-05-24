@@ -1,0 +1,49 @@
+.section--tabs {
+  nav.tabs {
+    height: auto;
+    border-top: 0;
+    justify-content: center;
+    margin-top: $padding-lg;
+  }
+
+  .tab-link {
+    text-align: center;
+    padding: $padding-sm;
+    background: $ct-border;
+    font-family: $font-stack-secondary;
+    font-weight: bold;
+    font-size: $font-md;
+    flex: 0 auto;
+    line-height: 1;
+    padding: $padding-sm $padding-md;
+    margin: 0 $padding-sm;
+
+    &:hover {
+      text-shadow: none;
+      background: rgba($c-blue, 0.7);
+      color: $c-white;
+    }
+
+    &.active {
+      background: $c-blue;
+      color: $c-white;
+    }
+  }
+
+  .tab-link--settings {
+    flex: 0 0 44px;
+  }
+}
+
+.section--tabs-content {
+  > .section {
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  }
+}

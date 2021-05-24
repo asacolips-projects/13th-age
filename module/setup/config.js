@@ -20,7 +20,7 @@ ARCHMAGE.powerTypes = {
 
 ARCHMAGE.powerUsages = {
   'at-will': 'At Will',
-  'once-per-battle': 'Once Per Battle',
+  'once-per-battle': 'Per Battle',
   'recharge': 'Recharge',
   'daily': 'Daily',
   'other': 'Other'
@@ -76,14 +76,14 @@ ARCHMAGE.creatureRoles = {
 ARCHMAGE.defaultTokens = {
   'character': 'icons/svg/mystery-man.svg',
   'npc': 'icons/svg/eye.svg',
-  'item': 'icons/svg/d20.svg',
-  'power': 'icons/svg/d20.svg',
+  'item': 'systems/archmage/assets/icons/items/backpack.jpg',
+  'power': 'systems/archmage/assets/icons/skills/weapon_27.jpg',
   'trait': 'icons/svg/regen.svg',
   'action': 'icons/svg/target.svg',
   'nastierSpecial': 'icons/svg/poison.svg',
   'tool': 'icons/svg/anchor.svg',
   'loot': 'icons/svg/daze.svg',
-  'equipment': 'icons/svg/combat.svg'
+  'equipment': 'systems/archmage/assets/icons/items/inventory/backpack.jpg'
 };
 
 ARCHMAGE.classList = {
@@ -241,8 +241,8 @@ ARCHMAGE.classes = {
     skilled_warrior: false
   },
   occultist: {
-    hp: 6,
     ac_lgt: 11,
+    hp: 6,
     ac_hvy: 13,
     ac_hvy_pen: -2,
     shld_pen: -2,

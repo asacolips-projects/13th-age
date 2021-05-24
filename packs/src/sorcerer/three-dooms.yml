@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Sorcerer'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -52,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[2d4*10]] random energy damage, and you take damage of the same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note that there&#039;s no Charisma bonus to damage.)'
+    value: '[[2d4*10]] random energy damage, and you take damage of the same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note that there’s no Charisma bonus to damage.)'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -137,6 +141,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
@@ -164,3 +172,4 @@ data:
         label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
+_id: '9RJGs9vzJC3Hg3yj'

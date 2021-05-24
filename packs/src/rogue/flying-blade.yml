@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Rogue'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -52,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.r.dice+@dex.dmg+@atk.m.bonus]] damage, and if your natural attack roll is even and one of your allies is engaged with the target, you can use your Sneak Attack damage for the round.'
+    value: '[[(@lvl)d4+@dex.dmg+@atk.m.bonus]] damage, and if your natural attack roll is even and one of your allies is engaged with the target, you can use your Sneak Attack damage for the round.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -137,6 +141,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
   feats:
     adventurer:
       description:
@@ -164,3 +172,4 @@ data:
         label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
+_id: 'yEDQPahRVvxuJTqJ'
