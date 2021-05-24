@@ -1,0 +1,576 @@
+name: 'Paladin'
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |
+  <div class="l-center">
+    <h1 class="archmage-class-title">Paladin</h1>
+    <div class="grid grid-2col">
+      <div class="details">
+        <h2 class="archmage-class-heading">Ability Scores</h2>
+        <p>Paladins gain a +2 class bonus to Strength or Charisma, as long as it isn’t the same ability you increase with your +2 racial bonus.</p>
+        <h2 class="archmage-class-heading">Backgrounds</h2>
+        <p>Possible backgrounds include: city guardsman, combat medic, bodyguard, outlaw hunter, and inquisitor.</p>
+        <h2 class="archmage-class-heading">Gear</h2>
+        <p>At 1st level, a paladin starts with a melee weapon or two, a ranged weapon if they want it, armor, a shield, and standard non-magical gear that is suggested by the character’s backgrounds.</p>
+        <h3 class="archmage-class-subheading">Gold Pieces</h3>
+        <p>Paladins may start with either 25 gp or 1d6 x 10 gp.</p>
+      </div>
+      <div class="armor">
+        <h2 class="archmage-class-heading">Armor</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+              <p><strong>Armor Type</strong></p>
+              </td>
+              <td>
+              <p><strong>Base AC</strong></p>
+              </td>
+              <td>
+              <p><strong>Atk Penalty</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>None</strong></p>
+              </td>
+              <td>
+              <p>10</p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Light</strong></p>
+              </td>
+              <td>
+              <p>12</p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong><em>Heavy</em></strong></p>
+              </td>
+              <td>
+              <p><em>16</em></p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong><em>Shield</em></strong></p>
+              </td>
+              <td>
+              <p><em>+1</em></p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="grid grid-2col">
+      <div class="melee-weapons">
+        <h2 class="archmage-class-heading">Melee Weapons</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+              <p>&nbsp;</p>
+              </td>
+              <td>
+              <p><strong>One-Handed</strong></p>
+              </td>
+              <td>
+              <p><strong>Two-Handed</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Small</strong></p>
+              </td>
+              <td>
+              <p>1d4 dagger</p>
+              </td>
+              <td>
+              <p>1d6 club</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Light or Simple</strong></p>
+              </td>
+              <td>
+              <p>1d6 scimitar, shortsword</p>
+              </td>
+              <td>
+              <p>1d8 spear</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Heavy or Martial</strong></p>
+              </td>
+              <td>
+              <p>1d8 longsword, battleaxe</p>
+              </td>
+              <td>
+              <p>1d10 greatsword, halberd</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ranged-weapons">
+        <h2 class="archmage-class-heading">Ranged Weapons</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+              <p>&nbsp;</p>
+              </td>
+              <td>
+              <p><strong>Thrown</strong></p>
+              </td>
+              <td>
+              <p><strong>Crossbow</strong></p>
+              </td>
+              <td>
+              <p><strong>Bow</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Small</strong></p>
+              </td>
+              <td>
+              <p>1d4 dagger</p>
+              </td>
+              <td>
+              <p>1d4 hand crossbow</p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Light or Simple</strong></p>
+              </td>
+              <td>
+              <p>1d6 javelin, axe</p>
+              </td>
+              <td>
+              <p>1d6 light crossbow</p>
+              </td>
+              <td>
+              <p>1d6 shortbow</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              <p><strong>Heavy or Martial</strong></p>
+              </td>
+              <td>
+              <p>—</p>
+              </td>
+              <td>
+              <p>1d8 heavy crossbow</p>
+              </td>
+              <td>
+              <p>1d8 longbow</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h2 class="archmage-class-heading">Level Progression</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+        <p><strong>Paladin</strong></p>
+        </td>
+        <td>
+        <p><strong>Total Hit Points</strong></p>
+        </td>
+        <td>
+        <p><strong>Total Feats</strong></p>
+        </td>
+        <td>
+        <p><strong>Class Talents (M)</strong></p>
+        </td>
+        <td>
+        <p><strong>Level-up Ability Bonuses</strong></p>
+        </td>
+        <td>
+        <p><strong>Damage Bonus From Ability Score</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 1 Multiclass</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>3</strong></p>
+        </td>
+        <td>
+        <p>As 1st level PC</p>
+        </td>
+        <td>
+        <p>1 or 2 (3 total)</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 1</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>3</strong></p>
+        </td>
+        <td>
+        <p>1 adventurer</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 2</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>4</strong></p>
+        </td>
+        <td>
+        <p>2 adventurer</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 3</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>5</strong></p>
+        </td>
+        <td>
+        <p>3 adventurer</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 4</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>6</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+        </td>
+        <td>
+        <p>3</p>
+        </td>
+        <td>
+        <p>+1 to 3 abilities</p>
+        </td>
+        <td>
+        <p>ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 5</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>8</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+
+        <p>1 champion</p>
+        </td>
+        <td>
+        <p>4</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>2 x ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 6</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>10</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+
+        <p>2 champion</p>
+        </td>
+        <td>
+        <p>4</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>2 x ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 7</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>12</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+
+        <p>3 champion</p>
+        </td>
+        <td>
+        <p>4</p>
+        </td>
+        <td>
+        <p>+1 to 3 abilities</p>
+        </td>
+        <td>
+        <p>2 x ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 8</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>16</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+
+        <p>3 champion</p>
+
+        <p>1 epic</p>
+        </td>
+        <td>
+        <p>5</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>3 x ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 9</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>20</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+
+        <p>3 champion</p>
+
+        <p>2 epic</p>
+        </td>
+        <td>
+        <p>5</p>
+        </td>
+        <td>
+        <p>&nbsp;</p>
+        </td>
+        <td>
+        <p>3 x ability modifier</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 10</strong></p>
+        </td>
+        <td>
+        <p>(8 + CON mod) x <strong>24</strong></p>
+        </td>
+        <td>
+        <p>4 adventurer</p>
+
+        <p>3 champion</p>
+
+        <p>3 epic</p>
+        </td>
+        <td>
+        <p>5</p>
+        </td>
+        <td>
+        <p>+1 to 3 abilities</p>
+        </td>
+        <td>
+        <p>3 x ability modifier</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="l-center">
+    <h2 class="archmage-class-heading">Stats</h2>
+    <p>Initiative, AC, PD, MD, Hit Points, Recovery Dice, Feats, and some Talents are level dependent.</p>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+          <p><strong>Ability Bonus</strong></p>
+          </td>
+          <td>
+          <p>+2 Strength or Charisma (different from racial bonus)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Initiative</strong></p>
+          </td>
+          <td>
+          <p>Dex mod + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Armor Class </strong>(heavy armor)</p>
+          </td>
+          <td>
+          <p>16 + middle mod of Con/Dex/Wis + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Armor Class </strong>(shield and heavy armor)</p>
+          </td>
+          <td>
+          <p>17 + middle mod of Con/Dex/Wis + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Physical Defense</strong></p>
+          </td>
+          <td>
+          <p>10 + middle mod of Str/Con/Dex + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Mental Defense</strong></p>
+          </td>
+          <td>
+          <p>12 + middle mod of Int/Wis/Cha + Level</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Hit Points</strong></p>
+          </td>
+          <td>
+          <p>(8 + Con mod) x Level modifier (see level progression chart)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Recoveries</strong></p>
+          </td>
+          <td>
+          <p>8</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Recovery Dice</strong></p>
+          </td>
+          <td>
+          <p>(1d10 x Level) + Con mod</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Backgrounds</strong></p>
+          </td>
+          <td>
+          <p>8 points, max 5 in any one background</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Icon Relationships</strong></p>
+          </td>
+          <td>
+          <p>3 points</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Talents</strong></p>
+          </td>
+          <td>
+          <p>3 (see level progression chart)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p><strong>Feats</strong></p>
+          </td>
+          <td>
+          <p>1 per Level</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+img: 'systems/archmage/assets/icons/skills/light_05.jpg'
+_id: 'uardMBaEYewdT052'

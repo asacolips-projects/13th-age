@@ -13,6 +13,10 @@ data:
     type: 'String'
     label: 'Power Source'
     value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Sorcerer'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -52,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[10d12+@cha.dmg+@atk.a.bonus]] lightning damage, and at the start of the target&#039;s next turn, [[1d6]] of its nearby allies take [[20]] lightning damage.'
+    value: '[[10d12+@cha.dmg+@atk.a.bonus]] lightning damage, and at the start of the target’s next turn, [[1d6]] of its nearby allies take [[20]] lightning damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -137,6 +141,10 @@ data:
     type: 'Number'
     label: 'Uses'
     value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
   feats:
     adventurer:
       description:
@@ -164,3 +172,4 @@ data:
         label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
+_id: 'C1A7i5GAOaSq7r4S'

@@ -1,0 +1,309 @@
+name: 'Monk'
+permission:
+  default: 0
+folder: ''
+flags: {}
+content: |
+  <div class="l-center">
+    <h1 class="archmage-class-title">Monk</h1>
+    <div class="grid grid-2col">
+      <div class="details">
+        <h2 class="archmage-class-heading">Ability Scores</h2>
+        <p>Monks gain a +2 class bonus to two of: Strength, Dexterity, or Wisdom, as long one of them isn’t the same ability you increase with your +2 racial bonus.</p>
+        <h2 class="archmage-class-heading">Backgrounds</h2>
+        <p>Possible backgrounds include: holy acolyte, mountain sanctuary guardsman, traveling circus acrobat, river guide, spider-cult assassin, tunnel vermin exterminator, bodyguard, farmer, hallucinogenic mushroom farmer, wild mountain ginseng harvester, traveling tournament organizer, civil rights organizer.</p>
+        <h2 class="archmage-class-heading">Gear</h2>
+        <p>At 1st level, a monk may start with one or two weapons, a change of clothes, and perhaps a ranged weapon—or none of those.</p>
+        <h3 class="archmage-class-subheading">Gold Pieces</h3>
+        <p>Monks may start with either 25 gp or 1d6 x 10 gp.</p>
+      </div>
+      <div class="melee-weapons">
+        <h2 class="archmage-class-heading">Melee Weapons</h2>
+        <p>A monk usually fights with his hands and feet (JAB, PUNCH, and KICK), though if he has traditional weapons from his training, he can use those. When a monk fights with weapons not from his tradition, he uses the fighter’s weapon chart with a -2 atk penalty.</p>
+        <p>Under normal circumstances, melee weapons that are traditional in a monk’s style function like special effects for monks. Most monk attacks are rated as JAB, PUNCH, or KICK attacks, in the same sense that most fighter attacks are WEAPON attacks.</p>
+        <ul>
+          <li>JAB attacks deal 1d6 damage per level.</li>
+          <li>PUNCH attacks deal 1d8 damage per level.</li>
+          <li>KICK attacks deal 1d10 damage per level.</li>
+        </ul>
+        <p>Monks don’t use weapon damage dice unless they are using a non-traditional weapon or a basic ranged attack that is not part of one of their monk forms.</p>
+        <p>When fighting barehanded, with bracers, or with traditional monk weapons, monks use damage dice based on the form they are attacking with, or PUNCH damage for basic melee attacks. While using a magic weapon, monks add the weapon’s attack and damage bonus to their attacks, and they can use that weapon’s power(s).</p>
+        <p>All monk attacks that use Dexterity as the attack stat use Strength as the ability score that determines damage.</p>
+      </div>
+    </div>
+    <div class="grid grid-2col">
+      <div class="armor">
+        <h2 class="archmage-class-heading">Armor</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Armor Type</th>
+              <th>Base AC</th>
+              <th>Atk Penalty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><em>None</em></th>
+              <td><em>11</em></td>
+              <td><em>—</em></td>
+            </tr>
+            <tr>
+              <th><em>Light</em></th>
+              <td><em>11</em></td>
+              <td><em>—</em></td>
+            </tr>
+            <tr>
+              <th>Heavy</th>
+              <td>12</td>
+              <td>-4</td>
+            </tr>
+            <tr>
+              <th>Shield</th>
+              <td>+1</td>
+              <td>-2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ranged-weapons">
+        <h2 class="archmage-class-heading">Ranged Weapons</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Thrown</th>
+              <th>Crossbow</th>
+              <th>Bow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Small</th>
+              <td>1d4 dagger, star</td>
+              <td>1d4 (-2 atk) hand crossbow</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th>Light or Simple</th>
+              <td>1d6 javelin</td>
+              <td>1d6 (-3 atk) light crossbow</td>
+              <td>1d6 (-2 atk) shortbow</td>
+            </tr>
+            <tr>
+              <th>Heavy or Martial</th>
+              <td>—</td>
+              <td>1d8 (-4 atk) heavy crossbow</td>
+              <td>1d8 (-3 atk) longbow</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h2 class="archmage-class-heading">Level Progression</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Monk</th>
+        <th>Total Hit Points</th>
+        <th>Total Feats</th>
+        <th>Class Talents (M)</th>
+        <th>Forms (M)</th>
+        <th>Ki (M)</th>
+        <th>Level-up Ability Bonuses</th>
+        <th>Damage Bonus From Ability Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        <p><strong>Level 1 Multiclass</strong></p>
+        </td>
+        <td>(Avg. of both classes) x 3</td>
+        <td>As 1st level PC</td>
+        <td>1 or 2 adventurer (3 total)</td>
+        <td>2 adventurer</td>
+        <td>0 + Wis mod</td>
+        <td>Not affected</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 1</strong></p>
+        </td>
+        <td>(7 + CON mod) x 3</td>
+        <td>1 adventurer</td>
+        <td>3 adventurer</td>
+        <td>2 adventurer</td>
+        <td>1 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 2</strong></p>
+        </td>
+        <td>(7 + CON mod) x 4</td>
+        <td>2 adventurer</td>
+        <td>3 adventurer</td>
+        <td>2 adventurer</td>
+        <td>2 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 3</strong></p>
+        </td>
+        <td>(7 + CON mod) x 5</td>
+        <td>3 adventurer</td>
+        <td>3 adventurer</td>
+        <td>3 adventurer</td>
+        <td>2 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 4</strong></p>
+        </td>
+        <td>(7 + CON mod) x 6</td>
+        <td>4 adventurer</td>
+        <td>3 adventurer</td>
+        <td>3 adventurer</td>
+        <td>2 + Wis mod</td>
+        <td>+1 to 3 abilities</td>
+        <td>ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 5</strong></p>
+        </td>
+        <td>(7 + CON mod) x 8</td>
+        <td>4 adventurer; 1 champion</td>
+        <td>3 adventurer</td>
+        <td>3 adventurer,1 champion</td>
+        <td>3 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 6</strong></p>
+        </td>
+        <td>(7 + CON mod) x 10</td>
+        <td>4 adventurer; 2 champion</td>
+        <td>3 adventurer; 1 champion</td>
+        <td>3 adventurer; 1 champion</td>
+        <td>3 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 7</strong></p>
+        </td>
+        <td>(7 + CON mod) x 12</td>
+        <td>4 adventurer; 3 champion</td>
+        <td>3 adventurer; 1 champion</td>
+        <td>2 adventurer; 2 champion</td>
+        <td>3 + Wis mod</td>
+        <td>+1 to 3 abilities</td>
+        <td>2 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 8</strong></p>
+        </td>
+        <td>(7 + CON mod) x 16</td>
+        <td>4 adventurer; 3 champion; 1 epic</td>
+        <td>3 adventurer; 1 champion</td>
+        <td>2 adventurer; 2 champion; 1 epic</td>
+        <td>3 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>3 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 9</strong></p>
+        </td>
+        <td>(7 + CON mod) x 20</td>
+        <td>4 adventurer; 3 champion; 2 epic</td>
+        <td>3 adventurer; 1 champion; 1 epic</td>
+        <td>2 adventurer; 2 champion; 1 epic</td>
+        <td>3 + Wis mod</td>
+        <td>&nbsp;</td>
+        <td>3 x ability modifier</td>
+      </tr>
+      <tr>
+        <td>
+        <p><strong>Level 10</strong></p>
+        </td>
+        <td>(7 + CON mod) x 24</td>
+        <td>4 adventurer; 3 champion; 3 epic</td>
+        <td>3 adventurer; 1 champion; epic</td>
+        <td>2 adventurer; 2 champion; 2 epic</td>
+        <td>3 + Wis mod</td>
+        <td>+1 to 3 abilities</td>
+        <td>3 x ability modifier</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="l-center">
+    <p>(M): Indicates columns in which multiclass characters lag one level behind.</p>
+    <h2 class="archmage-class-heading">Stats</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ability Bonus</th>
+          <td>+2 Strength, Dexterity, or Wisdom in two scores (different from racial bonus)</td>
+        </tr>
+        <tr>
+          <th>Initiative</th>
+          <td>Dex mod + Level</td>
+        </tr>
+        <tr>
+          <th>Armor Class (no/light armor)11 + middle mod of Con/Dex/Wis + Level</th>
+        </tr>
+        <tr>
+          <th>Physical Defense</th>
+          <td>11 + middle mod of Str/Con/Dex + Level</td>
+        </tr>
+        <tr>
+          <th>Mental Defense</th>
+          <td>11 + middle mod of Int/Wis/Cha + Level</td>
+        </tr>
+        <tr>
+          <th>Hit Points</th>
+          <td>(7 + Con mod) x Level modifier (see level progression chart)</td>
+        </tr>
+        <tr>
+          <th>Recoveries</th>
+          <td>8</td>
+        </tr>
+        <tr>
+          <th>Recovery Dice</th>
+          <td>(1d8 x level) + Con mod</td>
+        </tr>
+        <tr>
+          <th>Backgrounds</th>
+          <td>8 points, max 5 in any one background</td>
+        </tr>
+        <tr>
+          <th>Icon Relationships</th>
+          <td>3 points (4 at 5th level; 5 at 8th level)</td>
+        </tr>
+        <tr>
+          <th>Talents</th>
+          <td>3 (see level progression chart)</td>
+        </tr>
+        <tr>
+          <th>Feats</th>
+          <td>1 per Level</td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+img: 'systems/archmage/assets/icons/skills/fire_07.jpg'
+_id: '49jTsBt1tJO5h6ut'

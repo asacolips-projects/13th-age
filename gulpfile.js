@@ -4,6 +4,13 @@ const prefix = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const yaml = require('gulp-yaml');
+const webp = require('gulp-webp');
+const vueComponent = require('gulp-vue-single-file-component');
+const babel = require('gulp-babel');
+const wrap = require('gulp-wrap');
+const declare = require('gulp-declare');
+const concat = require('gulp-concat');
+const minify = require('gulp-minify');
 
 // Dependencies for compendium tasks.
 const through2 = require("through2");
@@ -75,7 +82,7 @@ function cleanPacks() {
  */
 function sanitizePack(pack) {
   let sanitizedPack = JSON.parse(JSON.stringify(pack));
-  delete sanitizedPack._id;
+  // delete sanitizedPack._id;
   sanitizedPack.permission = { default: 0 };
   return sanitizedPack;
 }
@@ -151,6 +158,28 @@ function extractPacks() {
 }
 
 /* ----------------------------------------- */
+/* Convert images
+/* ----------------------------------------- */
+const SYSTEM_IMAGES = [
+  'assets/src/**/*.{png,jpeg,jpg}',
+];
+function compileImages() {
+  return gulp.src(SYSTEM_IMAGES, {base: 'assets/src'})
+    .pipe(webp())
+    .pipe(gulp.dest('./assets/dist'));
+};
+const imageTask = gulp.series(compileImages);
+
+const SYSTEM_SVG = [
+  'assets/src/**/*.svg',
+];
+function compileSvg() {
+  return gulp.src(SYSTEM_SVG, {base: 'assets/src'})
+    .pipe(gulp.dest('./assets/dist'));
+}
+const svgTask = gulp.series(compileSvg);
+
+/* ----------------------------------------- */
 /*  Compile Sass
 /* ----------------------------------------- */
 
@@ -189,6 +218,36 @@ function compileYaml() {
 }
 const yamlTask = gulp.series(compileYaml);
 
+
+/* ----------------------------------------- */
+/*  Compile Vue
+/* ----------------------------------------- */
+
+const VUE_FILES = ["templates/vue/**/*.vue"];
+
+function compileVue() {
+  return gulp.src(VUE_FILES)
+        .pipe(vueComponent({ loadCssMethod: 'VuePort.loadCss' }))
+        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-commonjs'] }))
+        .pipe(wrap('Vue.component(<%= processComponentName(file.relative) %>, (function() {const exports = {}; <%= contents %>; return _default;})())', {}, {
+            imports: {
+                processComponentName: function (fileName) {
+                    // Strip the extension and escape the output with JSON.stringify
+                    return JSON.stringify(path.basename(fileName, '.js'));
+                }
+            }
+        }))
+        .pipe(declare({
+            namespace: 'VuePort.Components',
+            noRedeclare: true, // Avoid duplicate declarations
+        }))
+        .pipe(concat('vue-components.js'))
+
+    .pipe(minify({ noSource: true, ext: ".min.js" }))
+        .pipe(gulp.dest('dist/'));
+}
+const vueTask = gulp.series(compileVue);
+
 /* ----------------------------------------- */
 /*  Watch Updates
 /* ----------------------------------------- */
@@ -196,6 +255,9 @@ const yamlTask = gulp.series(compileYaml);
 function watchUpdates() {
   gulp.watch(SYSTEM_SCSS, css);
   gulp.watch(SYSTEM_YAML, yamlTask);
+  gulp.watch(SYSTEM_IMAGES, imageTask);
+  gulp.watch(SYSTEM_SVG, svgTask);
+  gulp.watch(VUE_FILES, vueTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 
@@ -206,16 +268,25 @@ function watchUpdates() {
 exports.default = gulp.series(
   compileScss,
   compileYaml,
+  compileImages,
+  compileSvg,
+  compileVue,
   watchUpdates
 );
+exports.images = imageTask;
+exports.svg = svgTask;
 exports.css = css;
 exports.yaml = yamlTask;
+exports.vue = vueTask;
 exports.cleanPacks = gulp.series(cleanPacks);
 exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
   compileScss,
   compileYaml,
+  compileImages,
+  compileSvg,
+  compileVue,
   cleanPacks,
   compilePacks
 );
