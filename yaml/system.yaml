@@ -142,7 +142,7 @@ languages:
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://github.com/Mageflame/Toolkit13/releases/download/1.10.0/system.zip
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.10.0/raw/archmage.zip?job=build-prod
 dependencies:
   - name: dlopen
     type: module
