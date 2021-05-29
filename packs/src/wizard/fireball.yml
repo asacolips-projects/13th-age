@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage. (Reckless Miss: Your allies engaged with the target take [[floor((10d10)/4)]] fire damage.)'
+    value: 'Half damage. (Reckless Miss: Your allies engaged with the target take one fourth fire damage.)'
   missEven:
     type: 'String'
     label: 'Even Miss'
