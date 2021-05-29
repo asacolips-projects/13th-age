@@ -1,7 +1,7 @@
 import { ActorArchmageSheet } from './actor-sheet.js';
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 
-export class ActorArchmageSheetV2 extends ActorArchmageSheet {
+export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   constructor(...args) {
     super(...args);
@@ -35,20 +35,35 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
 
   /** @override */
   getData(options) {
-    const sheetData = super.getData(options);
-    let actorData = this.actor.data.toObject(false);
-    let data = {
-      actor: sheetData.actor.data,
-      data: sheetData.actor.data,
+
+    // Basic data
+    let isOwner = this.actor.isOwner;
+    const data = {
+      owner: isOwner,
+      limited: this.actor.limited,
+      options: this.options,
+      editable: this.isEditable,
+      cssClass: isOwner ? "editable" : "locked",
+      isCharacter: this.actor.type === "character",
+      isNPC: this.actor.type === "npc",
+      config: CONFIG.DND5E,
+      rollData: this.actor.getRollData.bind(this.actor)
     };
 
+    // Convert the actor data into a more usable version.
+    let actorData = this.actor.data.toObject(false);
+
+    // Add to our data object that the sheet will use.
+    data.actor = actorData;
+    data.data = actorData.data;
+
     // Sort items.
-    data.items = actorData.items;
-    for ( let i of data.items ) {
+    data.actor.items = actorData.items;
+    for ( let i of data.actor.items ) {
       const item = this.actor.items.get(i._id);
       i.labels = item.labels;
     }
-    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    data.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
     return data;
   }
@@ -64,21 +79,19 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     // Exit if Vue has already rendered.
     if (this._vm) {
       let states = Application.RENDER_STATES;
-      // console.log(this._state);
       if (this._state == states.RENDERING || this._state == states.RENDERED) {
-        if (sheetData.data) Vue.set(this._vm.actor, 'data', sheetData.data);
-        if (sheetData.items) Vue.set(this._vm.actor, 'items', sheetData.items);
-        if (sheetData.actor.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
-        // console.log("Set VM");
-        // console.log(this._vm.actor);
+        // Update the Vue app with our updated actor/item/flag data.
+        if (sheetData?.data?.data) Vue.set(this._vm.actor, 'data', sheetData.data.data);
+        if (sheetData?.actor?.items) Vue.set(this._vm.actor, 'items', sheetData.actor.items);
+        if (sheetData?.actor?.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
         this._updateEditors($(this.form));
         this.activateVueListeners($(this.form), true);
         return;
       }
-      else {
-        this._vm.$destroy();
-        this._vm = null;
-      }
+      // else {
+      //   this._vm.$destroy();
+      //   this._vm = null;
+      // }
     }
     // Run the normal Foundry render once.
     this._render(force, options).catch(err => {
@@ -97,23 +110,28 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
         this.activateVueListeners(html);
       });
     })
+    // Update editable permission
+    options.editable = options.editable ?? this.object.isOwner;
+
+    // Register the active Application with the referenced Documents
+    this.object.apps[this.appId] = this;
     // Return per the overridden method.
     return this;
   }
 
   /** @override */
   async close(options={}) {
-    // Destroy the Vue app.
-    if (this._vm) {
-      // Destroy the Vue app using its built in method.
-      this._vm.$destroy();
-      // And then update our property that stores it (requires a short delay).
-      // TODO: If this resolves the issue with fields getting nullified, we
-      // should revisit this and implement it without the timeout.
-      setTimeout(() => {
-        this._vm = null;
-      }, 500);
-    }
+    // // Destroy the Vue app.
+    // if (this._vm) {
+    //   // Destroy the Vue app using its built in method.
+    //   this._vm.$destroy();
+    //   // And then update our property that stores it (requires a short delay).
+    //   // TODO: If this resolves the issue with fields getting nullified, we
+    //   // should revisit this and implement it without the timeout.
+    //   setTimeout(() => {
+    //     this._vm = null;
+    //   }, 500);
+    // }
     console.log('/////////////////////\r\nCLOSING SHEET\r\n/////////////////////');
     return super.close(options);
   }
@@ -121,7 +139,7 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
   // Update initial content throughout all editors.
   _updateEditors(html) {
     for (let [name, editor] of Object.entries(this.editors)) {
-      const data = this.object instanceof Entity ? this.object.data : this.object;
+      const data = this.object instanceof Document ? this.object.data : this.object;
       const initialContent = getProperty(data, name);
       const div = $(this.form).find(`.editor-content[data-edit="${name}"]`)[0];
       this.editors[name].initial = initialContent;
@@ -237,12 +255,13 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
     }
 
     // Create the item.
-    let item = await this.actor.createEmbeddedDocuments('Item', [{
+    let itemData = {
       name: 'New ' + game.i18n.localize(`ARCHMAGE.${itemType}`),
       type: itemType,
       img: img,
       data: data
-    }]);
+    };
+    await this.actor.createEmbeddedDocuments('Item', [itemData]);
   }
 
   /**
@@ -822,7 +841,6 @@ export class ActorArchmageSheetV2 extends ActorArchmageSheet {
    */
   _dragHandler(html) {
     let dragHandler = event => this._onDragStart(event);
-    console.log(dragHandler);
     html.find('.item[data-draggable="true"]').each((i, li) => {
       li.setAttribute('draggable', true);
       li.addEventListener('dragstart', dragHandler, false);

@@ -41,11 +41,11 @@
         </div>
       </div>
       <ul class="equipment-group-content flexcol">
-        <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment.id)" :data-item-id="equipment.id" :data-draggable="draggable" :draggable="draggable">
+        <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
-            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="equipment.id"><img :src="equipment.img" class="equipment-image"/></archmage-h-rollable>
-            <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment.id">
+            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></archmage-h-rollable>
+            <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
             <div class="equipment-bonus flexrow" v-if="equipment.data.attributes">
@@ -55,16 +55,16 @@
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment.id" :data-quantity="equipment.data.data.quantity.value"><span v-if="equipment.data.data.quantity.value !== null">{{equipment.data.data.quantity.value}}</span></div>
+            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span v-if="equipment.data.quantity.value !== null">{{equipment.data.quantity.value}}</span></div>
             <div class="item-controls">
-              <a class="item-control item-edit" :data-item-id="equipment.id"><i class="fas fa-edit"></i></a>
-              <a class="item-control item-delete" :data-item-id="equipment.id"><i class="fas fa-trash"></i></a>
+              <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>
             </div>
           </div>
           <!-- Expanded equipment content. -->
-          <div :class="concat('equipment-content', (activeEquipment[equipment.id] ? ' active' : ''))" :style="getEquipmentStyle(equipment.id)">
-            <archmage-h-equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment.id)"></archmage-h-equipment>
-            <archmage-h-loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment.id)"></archmage-h-loot>
+          <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))" :style="getEquipmentStyle(equipment._id)">
+            <archmage-h-equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"></archmage-h-equipment>
+            <archmage-h-loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"></archmage-h-loot>
           </div>
         </li>
       </ul>
@@ -179,16 +179,16 @@ export default {
         });
       }
       equipment.forEach(i => {
-        if (this.activeEquipment[i.id] == undefined) {
-          this.$set(this.activeEquipment, i.id, {value: false});
-          this.activeEquipment[i.id] = false;
+        if (this.activeEquipment[i._id] == undefined) {
+          this.$set(this.activeEquipment, i._id, {value: false});
+          this.activeEquipment[i._id] = false;
         }
       });
       this.equipment = equipment;
     },
     getBonuses(equipment) {
       let bonuses = {};
-      for (let [prop, value] of Object.entries(equipment.data.data.attributes)) {
+      for (let [prop, value] of Object.entries(equipment.data.attributes)) {
         if (value.bonus) {
           bonuses[prop] = value.bonus
         }

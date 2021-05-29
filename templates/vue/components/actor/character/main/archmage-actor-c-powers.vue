@@ -171,14 +171,15 @@ export default {
       // let powers = this.actor.items.filter(i => i.type == 'power');
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
+        let powerData = power.data;
 
         // Handle the built-in group types.
         if (sortTypes.includes(this.groupBy)) {
-          group = power.data[this.groupBy].value ? power.data[this.groupBy].value : 'other';
+          group = powerData[this.groupBy] && powerData[this.groupBy].value ? powerData[this.groupBy].value : 'other';
         }
         // Handle custom groups.
         else if (this.groupBy == 'group') {
-          group = power.data.group.value ? this.cleanClassName(power.data.group.value) : 'power';
+          group = powerData.group.value ? this.cleanClassName(powerData.group.value) : 'power';
         }
 
         // Create the group if it doesn't exist.
@@ -243,7 +244,7 @@ export default {
      * powers on the actor. Filters by type and search keys.
      */
     getPowers() {
-      let powers = this.actor.items.filter(i => i.type == 'power').map(x => x.data);
+      let powers = this.actor.items.filter(i => i.type == 'power');
       if (this.searchValue) {
         powers = powers.filter(i => {
           let needle = this.cleanClassName(this.searchValue);
@@ -277,9 +278,9 @@ export default {
         powers = powers.sort((a,b) => (a.sort || 0) - (b.sort || 0));
       }
       powers.forEach(i => {
-        if (this.activePowers[i.id] == undefined) {
-          this.$set(this.activePowers, i.id, {value: false});
-          this.activePowers[i.id] = false;
+        if (this.activePowers[i._id] == undefined) {
+          this.$set(this.activePowers, i._id, {value: false});
+          this.activePowers[i._id] = false;
         }
       });
       this.powers = powers;
