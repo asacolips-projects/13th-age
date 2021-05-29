@@ -129,8 +129,8 @@ export default {
       else if (this.groupBy == 'group'){
         this.powers.forEach(i => {
           groups['power'] = 'Power';
-          if (i.data.data.group.value) {
-            let group = i.data.data.group.value;
+          if (i.data.group.value) {
+            let group = i.data.group.value;
             if (!group || group === undefined) {
               group = 'Power';
             }
