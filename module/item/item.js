@@ -267,11 +267,7 @@ export class ItemArchmage extends Item {
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
-    // Only update for owned items.
-    if (!this.parent?.data?.actor) return;
-
-    // let actor = game.actors.get(this.options.actor.data._id);
-    let actor = this.parent.data.actor;
+    let actor = this.parent;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
