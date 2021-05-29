@@ -81,7 +81,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let states = Application.RENDER_STATES;
       if (this._state == states.RENDERING || this._state == states.RENDERED) {
         // Update the Vue app with our updated actor/item/flag data.
-        if (sheetData?.data?.data) Vue.set(this._vm.actor, 'data', sheetData.data.data);
+        if (sheetData?.data) Vue.set(this._vm.actor, 'data', sheetData.data);
         if (sheetData?.actor?.items) Vue.set(this._vm.actor, 'items', sheetData.actor.items);
         if (sheetData?.actor?.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
         this._updateEditors($(this.form));
