@@ -299,7 +299,7 @@ export class ItemArchmage extends Item {
       const templateData = {
         actor: actor,
         title: this.data.name,
-        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        tokenId: token ? `${token.id}` : null,
         success: rechargeSuccessful,
         data: chatData,
       };
@@ -319,16 +319,12 @@ export class ItemArchmage extends Item {
     // Update the item.
     if (rechargeSuccessful) {
       await this.update({
-        data: {
-          'quantity.value': Number(currQuantity) + 1
-        }
+        data: { quantity: { value: Number(currQuantity) + 1 } }
       });
     } else {
       // Record recharge attempt
       await this.update({
-        data: {
-          'rechargeAttempts.value': Number(rechAttempts) + 1
-        }
+        data: { rechargeAttempts: { value: Number(rechAttempts) + 1 } }
       });
     }
 
