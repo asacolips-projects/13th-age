@@ -647,8 +647,6 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   }
 });
 
-Hooks.on('preUpdateActor', archmagePreUpdateCharacterData);
-
 /* ---------------------------------------------- */
 
 function uuidv4() {
