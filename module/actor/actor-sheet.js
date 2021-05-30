@@ -364,7 +364,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
         const templateData = {
           actor: this.actor,
-          tokenId: token ? `${token.scene._id}.${token.id}` : null,
+          tokenId: token ? `${token.id}` : null,
           icon: icon,
           fives: fives,
           sixes: sixes,
@@ -459,7 +459,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
       const templateData = {
         actor: actor,
-        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        tokenId: token ? `${token.id}` : null,
         saveType: type,
         success: success,
         data: chatData,

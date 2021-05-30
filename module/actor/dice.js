@@ -109,7 +109,7 @@ export class DiceArchmage {
       // Prepare template data.
       const templateData = {
         actor: actor,
-        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        tokenId: token ? `${token.id}` : null,
         ability: {
           name: data.abilityName ?? null,
           bonus: data.abil ?? 0
