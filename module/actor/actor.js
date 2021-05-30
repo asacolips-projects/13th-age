@@ -702,7 +702,8 @@ export class ActorArchmage extends Actor {
           rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
         }
         // Per battle powers.
-        if (item.data.powerUsage.value == 'once-per-battle'
+        if ((item.data.powerUsage.value == 'once-per-battle'
+          || item.data.powerUsage.value == 'at-will')
           && item.data.quantity.value < maxQuantity) {
           await this.updateOwnedItem({
             _id: item._id,
