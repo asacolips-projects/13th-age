@@ -28,11 +28,6 @@ export class ItemArchmage extends Item {
    * @return {Promise}
    */
   async roll() {
-    // Just roll for unlinked tokens
-    if (this.actor.token !== null) {
-      return this._roll();
-    }
-
     // Update uses left
     let uses = this.data.data.quantity?.value;
     let updateData = {};
@@ -64,9 +59,8 @@ export class ItemArchmage extends Item {
         let rolled = await this._roll();
         let item = null;
         if (rolled) {
-          // updateData._id = this.data._id;
           item = this.actor.items.get(this.data._id);
-          updateData.data = {'quantity.value': Math.max(uses - 1, 0)};
+          updateData.data = { quantity: { value: Math.max(uses - 1, 0)} };
         }
         if (!isObjectEmpty(updateData)) item.update(updateData, {});
         return rolled;
