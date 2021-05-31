@@ -38,7 +38,8 @@ export class ItemArchmage extends Item {
     if (uses == null) {
       return this._roll();
     } else {
-      if (uses == 0 && !event.shiftKey) {
+      if (uses == 0 && !event.shiftKey
+        && this.data.data.powerUsage.value != 'at-will') {
         let use = false;
         new Dialog({
           title: game.i18n.localize("ARCHMAGE.CHAT.ConfirmDialog"),
