@@ -414,30 +414,28 @@ export class ActorArchmage extends Actor {
     if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
     if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
 
-    // Fallbacks for missing custom resources
+    // Fallbacks for missing resources
     if (!data.resources) data.resources = model.resources;
+    if (!data.resources.perCombat) data.resources.perCombat = model.resources.perCombat;
+    if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
+    if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
+    if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
     if (!data.resources.spendable) data.resources.spendable = model.resources.spendable;
+    if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
     if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
     if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
     if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
-      if (data.resources.perCombat) {
-        // Momentum
-        if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
-        data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
-        // Command Points
-        if (!data.resources.perCombat.commandPoints) data.resources.perCombat.commandPoints = model.resources.perCombat.commandPoints;
-        data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-        // Focus
-        if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
-        data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
-      }
-      if (data.resources.spendable) {
-        if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
-        data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
-      }
+      // Momentum
+      data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+      // Command Points
+      data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+      // Focus
+      data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
+      // Ki
+      data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
     }
 
     // Handle death saves.
@@ -703,7 +701,8 @@ export class ActorArchmage extends Actor {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
         // Per battle powers.
-        if (item.data.data.powerUsage.value == 'once-per-battle'
+        if ((item.data.data.powerUsage.value == 'once-per-battle'
+          || item.data.data.powerUsage.value == 'at-will')
           && item.data.data.quantity.value < maxQuantity) {
           await item.update({
             'data.quantity': {value: maxQuantity}
@@ -1179,49 +1178,63 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc' || delta == 0) return;
+    // Conver delta back to a number, and handle + characters.
+    delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
+
+    // Warning for out of bounds.
     if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
+
+    // Generate the prefix.
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (${delta})`;
-    let lvl = this.data.data.attributes.level.value + delta;
+
+    // Set the level.
+    let lvl = Number(this.data.data.attributes.level.value || 0) + delta;
     if (lvl < 0 || lvl > 15) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
       return;
     }
+
+    // Set other overrides.
     let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
     let overrideData = {
       'name': this.data.name+suffix,
       'data.attributes.level.value': lvl,
-      'data.attributes.ac.value': this.data.data.attributes.ac.value + delta,
-      'data.attributes.pd.value': this.data.data.attributes.pd.value + delta,
-      'data.attributes.md.value': this.data.data.attributes.md.value + delta,
+      'data.attributes.ac.value': Number(this.data.data.attributes.ac.value || 0) + delta,
+      'data.attributes.pd.value': Number(this.data.data.attributes.pd.value || 0) + delta,
+      'data.attributes.md.value': Number(this.data.data.attributes.md.value || 0) + delta,
       // Initiative already depends directly on level
       'data.attributes.hp.value': Math.round(this.data.data.attributes.hp.value * mul),
       'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
     };
-    let actor = await this.clone(overrideData);
+
+    // Create the new actor and save it.
+    let actor = await this.clone(overrideData, {save: true, keepId: false});
 
     // Fix attack and damage
     let atkFilter = /\+\s*(\d+)([\S\s]*)/;
     let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
-    for (let i = 0; i < actor.data.items.length; i++) {
-      let item = this.data.items[i];
-      overrideData = {'_id': item._id};
+    let itemUpdates = [];
+
+    // Iterate over attacks and actions.
+    for (let item of actor.items) {
+      let itemOverrideData = {'_id': item._id};
       if (item.type == 'action') {
         // Add delta to attack
-        let parsed = atkFilter.exec(item.data.attack.value);
+        let parsed = atkFilter.exec(item.data.data.attack.value);
         if (!parsed) continue;
         let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
         if (!parsed[2].match(/^\]\]/)) newAtk += "]]";
-        overrideData['data.attack.value'] = newAtk + parsed[2];
+        itemOverrideData['data.attack.value'] = newAtk + parsed[2];
       }
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
         // Multiply damage
         for (let key of ["hit", "hit1", "hit2", "hit3", "miss", "description"]) {
-          if (!item.data[key]?.value) continue;
-          let rolls = [...(item.data[key].value.matchAll(inlineRollFilter))]
+          if (!item.data.data[key]?.value) continue;
+          let rolls = [...(item.data.data[key].value.matchAll(inlineRollFilter))]
           let offset = 0;
           if (rolls.length > 0) {
-            let newValue = item.data[key].value;
+            let newValue = item.data.data[key].value;
             rolls.forEach(r => {
               let orig = r[0];
               let newDmg = orig;
@@ -1232,12 +1245,17 @@ export class ActorArchmage extends Actor {
               newValue = newValue.slice(0, index)+newValue.slice(index).replace(orig, newDmg);
               offset -= (newDmg.length - orig.length);
             });
-            overrideData[`data.${key}.value`] = newValue;
+            itemOverrideData[`data.${key}.value`] = newValue;
           }
         }
       }
-      actor.updateOwnedItem(overrideData);
+
+      // Append updates to the item update array for later.
+      itemUpdates.push(itemOverrideData);
     }
+
+    // Apply all item updates to the new actor.
+    actor.updateEmbeddedDocuments('Item', itemUpdates);
   }
 }
 

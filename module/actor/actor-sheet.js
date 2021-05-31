@@ -497,14 +497,14 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-quantity.rollable').click(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
-      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      const item = this.actor.items.get(li.dataset.itemId);
 
       // Update the owned item and rerender.
       let value = Number(item.data.data.quantity.value || 0) + 1;
       if (item.data.data.maxQuantity.value) {
         value = Math.min(value, item.data.data.maxQuantity.value);
       }
-      await this.actor.updateOwnedItem({
+      await this.actor.updateEmbeddedDocuments('Item', {
         _id: item._id,
         data: { quantity: { value: value } }
       });
@@ -515,10 +515,10 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-quantity.rollable').contextmenu(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
-      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      const item = this.actor.items.get(li.dataset.itemId);
 
       // Update the owned item and rerender.
-      await this.actor.updateOwnedItem({
+      await this.actor.updateEmbeddedDocuments('Item', {
         _id: item._id,
         data: {
           quantity: {
@@ -571,7 +571,7 @@ export class ActorArchmageSheet extends ActorSheet {
       else {
         data = dataset;
       }
-      this.actor.createOwnedItem({
+      this.actor.createEmbeddedDocuments('Item', {
         name: 'New ' + type.capitalize(),
         type: type,
         img: img,
@@ -653,7 +653,7 @@ export class ActorArchmageSheet extends ActorSheet {
           });
 
         // Create the owned items.
-        actor.createOwnedItem(powers);
+        actor.createEmbeddedDocuments('Item', powers);
       }
     }
 
@@ -662,7 +662,7 @@ export class ActorArchmageSheet extends ActorSheet {
       let itemId = $(ev.currentTarget).parents('.item').attr('data-item-id');
       let Item = CONFIG.Item.entityClass;
       // const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
-      const item = this.actor.getOwnedItem(itemId);
+      const item = this.actor.items.get(itemId);
       item.sheet.render(true);
     });
 
@@ -670,7 +670,8 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       let li = $(ev.currentTarget).parents('.item');
       let itemId = li.attr('data-item-id');
-      this.actor.deleteOwnedItem(itemId);
+      let item = this.actor.items.get(itemId);
+      item.delete();
       li.slideUp(200, () => this.render(false));
     });
 
