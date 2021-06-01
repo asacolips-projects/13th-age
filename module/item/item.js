@@ -173,7 +173,7 @@ export class ItemArchmage extends Item {
         alias: this.actor.name,
         scene: game.user.viewedScene
       },
-      roll: new Roll("", {}).toJSON()
+      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
 
     // Toggle default roll mode

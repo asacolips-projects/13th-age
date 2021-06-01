@@ -623,7 +623,7 @@ export class ActorArchmage extends Actor {
       const chatData = {
         user: game.user._id, speaker: {actor: this._id, token: this.token,
         alias: this.name, scene: game.user.viewedScene},
-		roll: new Roll("", {}).toJSON()
+		roll: new Roll("") // Needed to silence an error in 0.8.x
       };
 
       // Toggle default roll mode
@@ -741,7 +741,7 @@ export class ActorArchmage extends Actor {
     const chatData = {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
-      roll: new Roll("", {}).toJSON()
+      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
@@ -818,7 +818,7 @@ export class ActorArchmage extends Actor {
     const chatData = {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
-      roll: new Roll("", {}).toJSON()
+      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);

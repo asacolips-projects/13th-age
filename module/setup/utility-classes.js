@@ -247,11 +247,11 @@ export class ArchmageUtility {
 
             case 'weapon':
               data.wpn = {
-                m: v.melee,
-                r: v.ranged,
-                j: v.jab,
-                p: v.punch,
-                k: v.kick
+                m: duplicate(v.melee),
+                r: duplicate(v.ranged),
+                j: duplicate(v.jab),
+                p: duplicate(v.punch),
+                k: duplicate(v.kick)
               };
 
               // Clean up weapon properties.
