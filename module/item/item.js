@@ -172,7 +172,8 @@ export class ItemArchmage extends Item {
         token: this.actor.token,
         alias: this.actor.name,
         scene: game.user.viewedScene
-      }
+      },
+      roll: new Roll("", {}).toJSON()
     };
 
     // Toggle default roll mode

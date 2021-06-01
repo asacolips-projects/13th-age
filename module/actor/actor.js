@@ -622,7 +622,8 @@ export class ActorArchmage extends Actor {
       // Basic chat message data
       const chatData = {
         user: game.user._id, speaker: {actor: this._id, token: this.token,
-        alias: this.name, scene: game.user.viewedScene}
+        alias: this.name, scene: game.user.viewedScene},
+		roll: new Roll("", {}).toJSON()
       };
 
       // Toggle default roll mode
@@ -739,7 +740,8 @@ export class ActorArchmage extends Actor {
     const template = `systems/archmage/templates/chat/rest-short-card.html`
     const chatData = {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
-      alias: this.name, scene: game.user.viewedScene}
+      alias: this.name, scene: game.user.viewedScene},
+      roll: new Roll("", {}).toJSON()
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
@@ -815,7 +817,8 @@ export class ActorArchmage extends Actor {
     const template = `systems/archmage/templates/chat/rest-full-card.html`
     const chatData = {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
-      alias: this.name, scene: game.user.viewedScene}
+      alias: this.name, scene: game.user.viewedScene},
+      roll: new Roll("", {}).toJSON()
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
