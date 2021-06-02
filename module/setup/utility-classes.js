@@ -212,7 +212,8 @@ export class ArchmageUtility {
         actor = token.actor;
       }
 
-      const data = original.call(actor);
+      const origData = original.call(actor);
+      const data = foundry.utils.deepClone(origData);
       const shorthand = game.settings.get("archmage", "macroShorthand");
 
       // Get the escalation die value.
@@ -226,6 +227,9 @@ export class ArchmageUtility {
           value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
         };
       }
+
+      // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
+      const model = game.system.model.Actor.character.attributes.weapon;
 
       // Re-map all attributes onto the base roll data
       if (!!shorthand) {
@@ -247,11 +251,11 @@ export class ArchmageUtility {
 
             case 'weapon':
               data.wpn = {
-                m: duplicate(v.melee),
-                r: duplicate(v.ranged),
-                j: duplicate(v.jab),
-                p: duplicate(v.punch),
-                k: duplicate(v.kick)
+                m: v?.melee ?? model.melee,
+                r: v?.ranged ?? model.ranged,
+                j: v?.jab ?? model.jab,
+                p: v?.punch ?? model.punch,
+                k: v?.kick ?? model.kick
               };
 
               // Clean up weapon properties.

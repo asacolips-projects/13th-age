@@ -130,11 +130,12 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
+  // TODO: We may be able to delete this prompt now that there's a fallback.
   // Register a setting for prompting the GM to enable dependencies.
   game.settings.register('archmage', 'dependencyPrompt', {
     scope: 'world',
     config: false,
-    default: true,
+    default: false,
     type: Boolean
   });
 
@@ -145,10 +146,6 @@ Hooks.once('init', async function() {
       types: ["character"],
       makeDefault: true
     });
-    // TODO: This error/prompt may be obsolete now that we have a Vue fallback.
-    // Reset the prompt.
-    let prompt = game.settings.get('archmage', 'dependencyPrompt');
-    if (!prompt) game.settings.set('archmage', 'dependencyPrompt', true);
   }
 
   /* -------------------------------------------- */
