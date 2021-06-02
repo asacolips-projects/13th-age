@@ -703,7 +703,8 @@ export class ActorArchmage extends Actor {
         }
         // Per battle powers.
         if ((item.data.powerUsage.value == 'once-per-battle'
-          || item.data.powerUsage.value == 'at-will')
+          || (item.data.powerUsage.value == 'at-will'
+          && item.data.quantity.value != null))
           && item.data.quantity.value < maxQuantity) {
           await this.updateOwnedItem({
             _id: item._id,
