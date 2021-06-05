@@ -1,5 +1,160 @@
 export const ARCHMAGE = {};
 
+ARCHMAGE.statusEffects = [
+  {
+    id: "dead",
+    label: "ARCHMAGE.EFFECT.StatusDead",
+    icon: "icons/svg/skull.svg"
+  },
+  {
+    id: "unconscious",
+    label: "ARCHMAGE.EFFECT.StatusUnconscious",
+    icon: "icons/svg/unconscious.svg",
+    changes: [
+      {
+        key: 'data.attributes.ac.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: 2,
+        value: '-4'
+      }
+    ]
+  },
+  {
+    id: "confused",
+    label: "ARCHMAGE.EFFECT.StatusConfused",
+    icon: "icons/svg/stoned.svg"
+  },
+  {
+    id: "dazed",
+    label: "ARCHMAGE.EFFECT.StatusDazed",
+    icon: "icons/svg/sun.svg",
+    changes: [
+      {
+        key: 'data.attributes.attackMod.value',
+        mode: 2,
+        value: '-4'
+      }
+    ]
+  },
+  {
+    id: "fear",
+    label: "ARCHMAGE.EFFECT.StatusFear",
+    icon: "icons/svg/terror.svg",
+    changes: [
+      {
+        key: 'data.attributes.escalation.value',
+        mode: 5,
+        value: '0'
+      },
+      {
+        key: 'data.attributes.attackMod.value',
+        mode: 2,
+        value: '-4'
+      }
+    ]
+  },
+  {
+    id: "hampered",
+    label: "ARCHMAGE.EFFECT.StatusHampered",
+    icon: "icons/svg/net.svg",
+  },
+  {
+    id: "helpless",
+    label: "ARCHMAGE.EFFECT.StatusHelpless",
+    icon: "icons/svg/falling.svg",
+    changes: [
+      {
+        key: 'data.attributes.ac.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: 2,
+        value: '-4'
+      }
+    ]
+  },
+  {
+    id: "shocked",
+    label: "ARCHMAGE.EFFECT.StatusShocked",
+    icon: "icons/svg/lightning.svg"
+  },
+  {
+    id: "stuck",
+    label: "ARCHMAGE.EFFECT.StatusStuck",
+    icon: "icons/svg/paralysis.svg",
+  },
+  {
+    id: "stunned",
+    label: "ARCHMAGE.EFFECT.StatusStunned",
+    icon: "icons/svg/daze.svg",
+    changes: [
+      {
+        key: 'data.attributes.ac.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: 2,
+        value: '-4'
+      }
+    ]
+  },
+  {
+    id: "vulnerable",
+    label: "ARCHMAGE.EFFECT.StatusVulnerable",
+    icon: "icons/svg/target.svg"
+  },
+  {
+    id: "weakened",
+    label: "ARCHMAGE.EFFECT.StatusWeakened",
+    icon: "icons/svg/downgrade.svg",
+    changes: [
+      {
+        key: 'data.attributes.attackMod.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.ac.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: 2,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: 2,
+        value: '-4'
+      }
+    ]
+  },
+];
+
 // Power Settings
 ARCHMAGE.powerSources = {
   'class': 'Class',

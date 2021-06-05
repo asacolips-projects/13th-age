@@ -108,6 +108,9 @@ Hooks.once('init', async function() {
 
   CONFIG.ARCHMAGE = ARCHMAGE;
 
+  // Update status effects.
+  CONFIG.statusEffects = ARCHMAGE.statusEffects;
+
   // Assign the actor class to the CONFIG
   CONFIG.Actor.entityClass = ActorArchmage;
 

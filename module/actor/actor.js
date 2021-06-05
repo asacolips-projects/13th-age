@@ -395,6 +395,7 @@ export class ActorArchmage extends Actor {
 
       if (overrides[change.key]) continue;
 
+      // TODO: Make this more efficient, perhaps by storing the changes in the actor.
       switch (weight) {
         // Handle ability scores and base attributes.
         case 'pre':
@@ -412,7 +413,23 @@ export class ActorArchmage extends Actor {
           }
           break;
 
-        // Handle remaining active effects (standardBonuses).
+        // Handle escalation die.
+        case 'ed':
+          if (change.key == 'data.attributes.escalation.value') {
+            console.log(`2 | ${weight} | ${change.key}`);
+            applyEffect = true;
+          }
+          break;
+
+        // Handle standard bonuses.
+        case 'std':
+          if (change.key == 'data.attributes.standardBonuses.value') {
+            console.log(`2 | ${weight} | ${change.key}`);
+            applyEffect = true;
+          }
+          break;
+
+        // Handle remaining active effects.
         case 'post':
           console.log(`2 | ${weight} | ${change.key}`);
           applyEffect = true;
@@ -460,10 +477,14 @@ export class ActorArchmage extends Actor {
         data.attributes.escalation = { value: 0 };
       }
 
+      this.applyActiveEffects('ed');
+
       // Must recompute this here because the e.d. might have changed.
       data.attributes.standardBonuses = {
         value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
       };
+
+      this.applyActiveEffects('std')
     }
   }
 
@@ -590,6 +611,8 @@ export class ActorArchmage extends Actor {
     // Reapply post active effects.
     this.prepareDerivedData();
     this.applyActiveEffects('post');
+
+    console.log(this.data.data);
 
     // Retrieve the actor data.
     const origData = super.getRollData();
