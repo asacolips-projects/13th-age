@@ -49,16 +49,26 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   prepareData() {
-    super.prepareData();
+    // TODO: This causes double preparation on active effects.
+    // super.prepareData();
 
     // Get the Actor's data object
     const actorData = this.data;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
     if (!actorData.name) actorData.name = "New " + this.entity;
-    this.prepareBaseData();
-    this.prepareEmbeddedEntities();
 
+    console.log(actorData.data.attributes.attackMod.value);
+    // TODO: These are called in super.prepareData(). Remove?
+    this.prepareBaseData();
+
+    // TODO: This has been moved to the end of the method to account for
+    // base stat overrides.
+    // this.prepareEmbeddedEntities();
+
+    // TODO: We need to separate non-base stats into the prepareDerivedData()
+    // method in order to get active effects working.
     this.prepareDerivedData();
+    console.log(actorData.data.attributes.attackMod.value);
 
     const data = actorData.data;
     const flags = actorData.flags;
@@ -358,7 +368,9 @@ export class ActorArchmage extends Actor {
       };
     }
 
-    this.applyActiveEffects();
+    console.log(actorData.data.attributes.attackMod.value);
+    this.prepareEmbeddedEntities();
+    // this.applyActiveEffects();
   }
 
   /* -------------------------------------------- */
