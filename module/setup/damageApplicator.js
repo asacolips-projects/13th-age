@@ -91,7 +91,7 @@ export class DamageApplicator {
         var tokenData = duplicate(token.data);
         var hp = tokenData.actorData.data.attributes["hp"];
         hp.value += toApply;
-        if (hp.value > hp.max) {
+        if (hp.max && hp.value > hp.max) {
           hp.value = hp.max;
         }
         token.update(tokenData);
@@ -100,7 +100,7 @@ export class DamageApplicator {
         var actorData = duplicate(token.actor.data);
         var hp = actorData.data.attributes["hp"];
         hp.value += toApply;
-        if (hp.value > hp.max) {
+        if (hp.max && hp.value > hp.max) {
           hp.value = hp.max;
         }
         token.actor.update(actorData);

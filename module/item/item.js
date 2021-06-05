@@ -1,12 +1,13 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
+import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 /**
  * Override and extend the basic :class:`Item` implementation
  */
 export class ItemArchmage extends Item {
 
-  prepareData() {
-    super.prepareData();
+  prepareDerivedData() {
+    super.prepareDerivedData();
     if (!this.data.img || this.data.img == CONFIG.DEFAULT_TOKEN) {
       if (CONFIG.ARCHMAGE.defaultTokens[this.data.type]) {
         this.data.img = CONFIG.ARCHMAGE.defaultTokens[this.data.type];
@@ -27,11 +28,6 @@ export class ItemArchmage extends Item {
    * @return {Promise}
    */
   async roll() {
-    // Just roll for unlinked tokens
-    if (this.options.actor.token !== null) {
-      return this._roll();
-    }
-
     // Update uses left
     let uses = this.data.data.quantity?.value;
     let updateData = {};
@@ -62,11 +58,12 @@ export class ItemArchmage extends Item {
         }).render(true);
       } else {
         let rolled = await this._roll();
+        let item = null;
         if (rolled) {
-          updateData._id = this.data._id;
-          updateData.data = {'quantity.value': Math.max(uses - 1, 0)};
+          item = this.actor.items.get(this.data._id);
+          updateData.data = { quantity: { value: Math.max(uses - 1, 0)} };
         }
-        if (!isObjectEmpty(updateData)) this.actor.updateOwnedItem(updateData);
+        if (!isObjectEmpty(updateData)) item.update(updateData, {});
         return rolled;
       }
     }
@@ -160,20 +157,23 @@ export class ItemArchmage extends Item {
     const token = this.actor.token;
     const templateData = {
       actor: this.actor,
-      tokenId: token ? `${token.scene._id}.${token.id}` : null,
+      tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
       item: this.data,
       data: this.getChatData()
     };
 
+    //let rollData = await ArchmageRolls.rollItem(this);
+
     // Basic chat message data
     const chatData = {
-      user: game.user._id,
+      user: game.user.id,
       speaker: {
-        actor: this.actor._id,
+        actor: this.actor.id,
         token: this.actor.token,
         alias: this.actor.name,
         scene: game.user.viewedScene
-      }
+      },
+      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
 
     // Toggle default roll mode
@@ -184,13 +184,13 @@ export class ItemArchmage extends Item {
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
 
-    let renderMessage = false;
-    let that = this;
+    // Enrich the message to parse inline rolls.
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
+
+    preCreateChatMessageHandler.handle(chatData, null, null);
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {
-      // Enrich the message to parse inline rolls.
-      chatData.content = TextEditor.enrichHTML(chatData.content, { rollData: that.actor.getRollData() });
       let contentHtml = $(chatData.content);
       let rolls = [];
 
@@ -202,7 +202,6 @@ export class ItemArchmage extends Item {
           $rows.each(function(index) {
             let $row_self = $(this);
             let row_text = $row_self.html();
-            // TODO: Move crit detection here.
             // If this is an attack row, we need to get the roll data.
             if (row_text.includes('Attack:') || row_text.includes('Hit:')) {
               let $roll_html = $row_self.find('.inline-result');
@@ -218,25 +217,12 @@ export class ItemArchmage extends Item {
           for (let r of rolls) {
             await game.dice3d.showForRoll(r, game.user, true);
           }
-
-          return ChatMessage.create(chatData, { displaySheet: false });
-        }
-        else {
-          renderMessage = true;
         }
       }
-      else {
-        renderMessage = true;
-      }
-    }
-    else {
-      renderMessage = true;
     }
 
-    if (renderMessage) {
-      // Create the chat message
-      return ChatMessage.create(chatData, { displaySheet: false });
-    }
+    return ChatMessage.create(chatData, { displaySheet: false });
+
 
   }
 
@@ -258,11 +244,7 @@ export class ItemArchmage extends Item {
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
-    // Only update for owned items.
-    if (!this.options?.actor) return;
-
-    // let actor = game.actors.get(this.options.actor.data._id);
-    let actor = this.options.actor;
+    let actor = this.parent;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -294,7 +276,7 @@ export class ItemArchmage extends Item {
       const templateData = {
         actor: actor,
         title: this.data.name,
-        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        tokenId: token ? `${token.id}` : null,
         success: rechargeSuccessful,
         data: chatData,
       };
@@ -313,19 +295,13 @@ export class ItemArchmage extends Item {
 
     // Update the item.
     if (rechargeSuccessful) {
-      await actor.updateOwnedItem({
-        _id: this.data._id,
-        data: {
-          'quantity.value': Number(currQuantity) + 1
-        }
+      await this.update({
+        data: { quantity: { value: Number(currQuantity) + 1 } }
       });
     } else {
       // Record recharge attempt
-      await actor.updateOwnedItem({
-        _id: this.data._id,
-        data: {
-          'rechargeAttempts.value': Number(rechAttempts) + 1
-        }
+      await this.update({
+        data: { rechargeAttempts: { value: Number(rechAttempts) + 1 } }
       });
     }
 

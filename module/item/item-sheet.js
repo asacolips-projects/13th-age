@@ -7,7 +7,7 @@ export class ItemArchmageSheet extends ItemSheet {
    * Extend and override the default options used by the 5e Actor Sheet
    */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: super.defaultOptions.classes.concat(['archmage', 'item', 'item-sheet']),
       template: 'systems/archmage/templates/item-power-sheet.html',
       height: 550,
@@ -44,8 +44,8 @@ export class ItemArchmageSheet extends ItemSheet {
    *
    * @return {undefined}
    */
-  getData() {
-    const data = super.getData();
+  async getData(options) {
+    const data = super.getData(options);
 
     // Power-specific data
     if (this.item.type === 'power') {
@@ -83,6 +83,8 @@ export class ItemArchmageSheet extends ItemSheet {
       data['powerLevel'] = powerLevelString;
     }
 
+    // console.log(data);
+    data.data = data.data.data;
     return data;
   }
 
@@ -123,10 +125,10 @@ export class ItemArchmageSheet extends ItemSheet {
         let actor = characters[x];
         let found = actor.data.items.find(x => x._id == itemId);
         if (found) {
-          item = actor.getOwnedItem(itemId);
+          item = actor.items.get(itemId);
           break;
         }
-      }  
+      }
     }
 
     let itemSheet = new ItemArchmageSheet(item, {

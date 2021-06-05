@@ -165,17 +165,21 @@ export default {
         'actionType'
       ];
 
+      // Re-sort the powers.
+      this.getPowers();
+
       // let powers = this.actor.items.filter(i => i.type == 'power');
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
+        let powerData = power.data;
 
         // Handle the built-in group types.
         if (sortTypes.includes(this.groupBy)) {
-          group = power.data[this.groupBy].value ? power.data[this.groupBy].value : 'other';
+          group = powerData[this.groupBy] && powerData[this.groupBy].value ? powerData[this.groupBy].value : 'other';
         }
         // Handle custom groups.
         else if (this.groupBy == 'group') {
-          group = power.data.group.value ? this.cleanClassName(power.data.group.value) : 'power';
+          group = powerData.group.value ? this.cleanClassName(powerData.group.value) : 'power';
         }
 
         // Create the group if it doesn't exist.
@@ -202,10 +206,12 @@ export default {
      */
     hasFeats(power) {
       let hasFeats = false;
-      for (let [tier, feat] of Object.entries(power.data.feats)) {
-        if (feat.description.value || feat.isActive.value) {
-          hasFeats = true;
-          break;
+      if (power.data && power.data && power.data.feats) {
+        for (let [tier, feat] of Object.entries(power.data.feats)) {
+          if (feat.description.value || feat.isActive.value) {
+            hasFeats = true;
+            break;
+          }
         }
       }
       return hasFeats;
@@ -257,7 +263,7 @@ export default {
           return 0;
         });
       }
-      if (this.sortBy == 'level') {
+      else if (this.sortBy == 'level') {
         powers = powers.sort((a,b) => {
           if (a.data.powerLevel.value < b.data.powerLevel.value) {
             return -1;
@@ -267,6 +273,9 @@ export default {
           }
           return 0;
         });
+      }
+      else {
+        powers = powers.sort((a,b) => (a.sort || 0) - (b.sort || 0));
       }
       powers.forEach(i => {
         if (this.activePowers[i._id] == undefined) {
@@ -336,9 +345,10 @@ export default {
     }
   },
   async mounted() {
-    this.getPowers();
     this.groupBy = this.flags.sheetDisplay.powers.groupBy.value ? this.flags.sheetDisplay.powers.groupBy.value : 'powerType';
     this.sortBy = this.flags.sheetDisplay.powers.sortBy.value ? this.flags.sheetDisplay.powers.sortBy.value : 'custom';
+
+    this.getPowers();
   }
 }
 </script>
