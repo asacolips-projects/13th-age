@@ -408,7 +408,7 @@ export class ActorArchmage extends Actor {
 
         // Handle the non-special active effects.
         case 'default':
-          if (!change.key.includes('standardBonuses')) {
+          if (!change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
             console.log(`1 | ${weight} | ${change.key}`);
             applyEffect = true;
           }
@@ -424,7 +424,9 @@ export class ActorArchmage extends Actor {
       // If an effect should be applied, handle it.
       if (applyEffect) {
         const result = change.effect.apply(this, change);
-        if ( result !== null ) overrides[change.key] = result;
+        if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
+          overrides[change.key] = result;
+        }
       }
     }
 
@@ -587,25 +589,14 @@ export class ActorArchmage extends Actor {
       actor = token.actor;
     }
 
+    // Reapply post active effects.
+    this.prepareDerivedData();
+    this.applyActiveEffects('post');
+
+    // Retrieve the actor data.
     const origData = super.getRollData();
     const data = foundry.utils.deepClone(origData);
     const shorthand = game.settings.get("archmage", "macroShorthand");
-
-    // Recompute the escalation die. Adjusting the escalation die offset does
-    // not trigger a prepareData() call in the actor.
-    let ed = data.attributes?.escalation?.value ?? 0;
-    if (game.combats !== undefined && game.combat !== null) {
-      data.attributes.escalation = {
-        value: ArchmageUtility.getEscalation(game.combat)
-      };
-    }
-    else {
-      data.attributes.escalation = { value: 0 };
-    }
-
-    // Recompute the standard bonuses if the escalation die changed.
-    let eDiff = data.attributes.escalation.value - ed;
-    data.attributes.standardBonuses.value += eDiff;
 
     // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
     const model = game.system.model.Actor.character.attributes.weapon;
