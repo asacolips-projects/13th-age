@@ -14,7 +14,8 @@ import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
-import { archmagePreUpdateCharacterData } from './hooks/preUpdateCharacterDataHandler.js';
+import { renderCompendium } from './hooks/renderCompendium.js';
+
 
 Hooks.once('init', async function() {
 
@@ -129,11 +130,12 @@ Hooks.once('init', async function() {
     makeDefault: true
   });
 
+  // TODO: We may be able to delete this prompt now that there's a fallback.
   // Register a setting for prompting the GM to enable dependencies.
   game.settings.register('archmage', 'dependencyPrompt', {
     scope: 'world',
     config: false,
-    default: true,
+    default: false,
     type: Boolean
   });
 
@@ -144,10 +146,6 @@ Hooks.once('init', async function() {
       types: ["character"],
       makeDefault: true
     });
-    // TODO: This error/prompt may be obsolete now that we have a Vue fallback.
-    // Reset the prompt.
-    let prompt = game.settings.get('archmage', 'dependencyPrompt');
-    if (!prompt) game.settings.set('archmage', 'dependencyPrompt', true);
   }
 
   /* -------------------------------------------- */
@@ -341,8 +339,8 @@ Hooks.once('init', async function() {
    * See Combat._getInitiativeFormula for more detail.
    * @private
    */
-  Combat.prototype._getInitiativeFormula = function(combatant) {
-    const actor = combatant.actor;
+  Combatant.prototype._getInitiativeFormula = function() {
+    const actor = this.actor;
     if (!actor) return "1d20";
     const init = actor.data.data.attributes.init;
     // Init mod includes dex + level + misc bonuses.
@@ -438,7 +436,7 @@ Hooks.on('createItem', (data, options, id) => {
 
 Hooks.once('ready', () => {
   let escalation = ArchmageUtility.getEscalation();
-  let hide = game.combats.entities.length < 1 || escalation === 0 ? ' hide' : '';
+  let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
   $('body').append('<div class="archmage-preload"></div>');
 
@@ -572,7 +570,7 @@ Hooks.on("renderSettings", (app, html) => {
 });
 
 Hooks.on('diceSoNiceReady', (dice3d) => {
-  dice3d.addSystem({ id: "archmage", name: "Archmage" }, true);
+  dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // dice3d.addDicePreset({
   //   type: "d20",
@@ -621,157 +619,9 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
 
 });
 
-// Hijack compendium search.
-Hooks.on('renderCompendium', async (compendium, html, options) => {
-  let compendiumContent = null;
-  let newOptions = duplicate(options);
-  newOptions.index = {};
-  if (compendium.metadata.entity == 'Item') {
-    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-    classList.push('races');
-    let classRegex = new RegExp(classList.join('|'), 'g');
-    if (compendium.metadata.name.match(classRegex)) {
-      // Hide the original compendium.
-      html.find('.compendium').addClass('overrides');
-      compendiumContent = await compendium.getContent();
-      compendiumContent.forEach(p => {
-        let option = options.index.find(o => o._id == p._id);
-        let data = p.data.data;
-        option.search = {
-          level: data.powerLevel ? data.powerLevel.value : null,
-          usage: data.powerUsage?.value ? data.powerUsage.value : 'other',
-          type: data.powerType ? data.powerType.value : 'other',
-          action: data.actionType ? data.actionType.value : null,
-        };
-      }, {});
-    }
 
-    newOptions.index = duplicate(options).index.reduce((groups, option) => {
-      if (option._id) {
-        let group = option.search.type ? option.search.type : 'other';
-        if (!groups[group]) {
-          groups[group] = [];
-        }
-        groups[group].push(option);
-      }
-      return groups;
-    }, {});
-  }
-  if (compendium.metadata.entity == 'Actor') {
-    // Hide the original compendium.
-    html.find('.compendium').addClass('overrides');
-    // Build a search index.
-    compendiumContent = await compendium.getContent();
-    compendiumContent.forEach(m => {
-      let option = options.index.find(o => o._id == m._id);
-      let data = m.data.data;
-      option.search = {
-        level: data.details.level ? data.details.level.value : null,
-        class: data.details.class.value ? data.details.class.value : null,
-        race: data.details.race.value ? data.details.race.value : null,
-        size: data.details.size ? data.details.size.value : null,
-        role: data.details.role ? data.details.role.value : null,
-        type: data.details.type ? data.details.type.value : 'other',
-      };
-    });
-    newOptions.index = duplicate(options).index.reduce((groups, option) => {
-      if (option._id) {
-        // console.log(option);
-        let group = option.search.type ? option.search.type : 'other';
-        if (!groups[group]) {
-          groups[group] = [];
-        }
-        groups[group].push(option);
-      }
-      return groups;
-    }, {});
-  }
-
-  if (compendiumContent) {
-    // Sort the options.
-    for (let [groupKey, group] of Object.entries(newOptions.index)) {
-      group.sort((a, b) => a.search.level - b.search.level);
-    }
-    // Replace the markup.
-    html.find('.directory-list').remove();
-    let template = 'systems/archmage/templates/sidebar/apps/compendium.html';
-    let content = await renderTemplate(template, newOptions);
-    html.find('.directory-header').after(content);
-
-    // Handle search filtering.
-    html.find('input[name="search"]').off('keyup');
-    html.find('input[name="search"]').on('keyup', event => {
-      // Close all directories.
-      html.find('.entry-group + .directory-list--archmage').addClass('hidden');
-      let searchString = event.target.value
-
-      const query = new RegExp(RegExp.escape(searchString), "i");
-      html.find('li.directory-item').each((i, li) => {
-        // Show the matches, and open their directory.
-        let name = li.getElementsByClassName('entry-name')[0].textContent;
-        if (searchString != '' && query.test(name)) {
-          li.style.display = 'flex';
-          $(li).parents('.directory-list--archmage').removeClass('hidden');
-        }
-        // Hide non-matches.
-        else {
-          li.style.display = 'none';
-        }
-      });
-      options.searchString = searchString;
-    });
-
-    // Handle sheet opening.
-    html.find('.entry-name').click(ev => {
-      let li = ev.currentTarget.parentElement;
-      compendium.getEntity(li.dataset.entryId).then(entity => {
-        entity.sheet.render(true);
-      });
-    });
-
-    // Handle lazy loading images.
-    let lazyCallback = (entries, observer) => {
-      for (let e of entries) {
-        if (!e.isIntersecting) continue;
-        const li = e.target;
-
-        // Background Image
-        if (li.dataset.backgroundImage) {
-          li.style["background-image"] = `url("${li.dataset.backgroundImage}")`;
-          delete li.dataset.backgroundImage;
-        }
-
-        // Avatar image
-        const img = li.querySelector("img");
-        if (img && img.dataset.src) {
-          img.src = img.dataset.src;
-          delete img.dataset.src;
-        }
-
-        // No longer observe the target
-        observer.unobserve(e.target);
-      }
-    }
-
-    const directory = html.find('.directory-list');
-    const entries = directory.find('.directory-item');
-
-    const observer = new IntersectionObserver(lazyCallback, { root: directory[0] });
-    entries.each((i, li) => observer.observe(li));
-
-    // Handle dragdrop.
-    const dragDrop = new DragDrop(compendium.options.dragDrop[0]);
-    dragDrop.bind(html[0]);
-
-    // Handle folder toggles.
-    html.find('.entry-group').on('click', event => {
-      event.preventDefault();
-      let key = $(event.currentTarget).data('key');
-      $(event.currentTarget).toggleClass('hidden');
-      html.find(`.directory-item[data-key="${key}"]`).css('display', $(event.currentTarget).hasClass('hidden') ? 'none' : 'flex');
-      return false;
-    })
-  }
+Hooks.on('renderCompendium', (app, html, data) => {
+  renderCompendium.handle(app, html, data);
 });
 
 /* ---------------------------------------------- */
@@ -794,8 +644,6 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   }
 });
 
-Hooks.on('preUpdateActor', archmagePreUpdateCharacterData);
-
 /* ---------------------------------------------- */
 
 function uuidv4() {
@@ -808,9 +656,9 @@ function uuidv4() {
 /**
  * Parse inline rolls.
  */
-Hooks.on('preCreateChatMessage', (data, options, userId) => {
-  preCreateChatMessageHandler.handle(data, options, userId);
-});
+// Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
+//   preCreateChatMessageHandler.handle(data, options, userId);
+// });
 
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
@@ -879,56 +727,26 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     // For inline results expand or collapse the roll details
     if (a.classList.contains("inline-result")) {
       const roll = Roll.fromJSON(unescape(a.dataset.roll));
-      //////////////////////////////////////////////////////////////////////////
-      //////////////// DEPRECATED CODE - 0.6.X COMPATIBILITY ///////////////////
-      //////////////////////////////////////////////////////////////////////////
-      if (!isNewerVersion(game.data.version, "0.7")) {
-        // Build a die string of the die parts, including whether they're discarded.
-        const dieTotal = roll.parts.reduce((string, r) => {
-          if (typeof string == 'object') {
-            string = '';
-          }
+      // Build a die string of the die parts, including whether they're discarded.
+      const dieTotal = roll.terms.reduce((string, r) => {
+        if (typeof string == 'object') {
+          string = '';
+        }
 
-          if (r.rolls) {
-            string = `${string}${r.rolls.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.roll}</span>`).join('+')}`;
-          }
-          else {
-            string = `${string}<span class="mod">${r}</span>`;
-          }
+        if (r.results) {
+          string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
+        }
+        else {
+          string = `${string}<span class="mod">${r.number ?? r.operator}</span>`;
+        }
 
-          return string;
-        }, {});
+        return string;
+      }, {});
 
-        // Replace the html.
-        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
-        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
-        a.classList.toggle("expanded");
-      }
-      //////////////////////////////////////////////////////////////////////////
-      //////////////////////// END OF DEPRECATED CODE //////////////////////////
-      //////////////////////////////////////////////////////////////////////////
-      else {
-        // Build a die string of the die parts, including whether they're discarded.
-        const dieTotal = roll.terms.reduce((string, r) => {
-          if (typeof string == 'object') {
-            string = '';
-          }
-
-          if (r.results) {
-            string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
-          }
-          else {
-            string = `${string}<span class="mod">${r}</span>`;
-          }
-
-          return string;
-        }, {});
-
-        // Replace the html.
-        const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
-        a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
-        a.classList.toggle("expanded");
-      }
+      // Replace the html.
+      const tooltip = a.classList.contains("expanded") ? roll.total : `${dieTotal} = ${roll._total}`;
+      a.innerHTML = `<i class="fas fa-dice-d20"></i> ${tooltip}`;
+      a.classList.toggle("expanded");
     }
 
     // Otherwise execute the deferred roll
@@ -1027,13 +845,14 @@ Hooks.on('deleteCombat', (combat) => {
   }
 });
 
-Hooks.on('createCombatant', (combat, combatant, options, id) => {
+Hooks.on('createCombatant', (document, data, options, id) => {
   // Retrieve the actor for this combatant.
-  let tokens = combat.scene.data.tokens;
-  let tokenId = combatant.tokenId;
+  let scene = document.parent?.data?.scene ? game.scenes.get(document.parent.data.scene) : null;
+  let tokens = scene ? scene.data.tokens : [];
+  let tokenId = document?.data?._source?.tokenId;
   if (tokens && tokenId) {
     let token = tokens.find(t => t._id == tokenId);
-    let actor = token ? game.actors.get(token.actorId) : null;
+    let actor = token ? game.actors.get(token.data.actorId) : null;
     // Add command points at start of combat.
     if (actor && actor.data.type == 'character') {
       let updates = {};

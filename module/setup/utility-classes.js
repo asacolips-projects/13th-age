@@ -207,12 +207,13 @@ export class ArchmageUtility {
       let actor = this;
 
       // Use the current token if possible.
-      let token = canvas.tokens.controlled.find(t => t.actor.data._id == this.data._id);
+      let token = canvas.tokens?.controlled?.find(t => t.actor.data._id == this.data._id);
       if (token) {
         actor = token.actor;
       }
 
-      const data = original.call(actor);
+      const origData = original.call(actor);
+      const data = foundry.utils.deepClone(origData);
       const shorthand = game.settings.get("archmage", "macroShorthand");
 
       // Get the escalation die value.
@@ -226,6 +227,9 @@ export class ArchmageUtility {
           value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
         };
       }
+
+      // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
+      const model = game.system.model.Actor.character.attributes.weapon;
 
       // Re-map all attributes onto the base roll data
       if (!!shorthand) {
@@ -247,18 +251,20 @@ export class ArchmageUtility {
 
             case 'weapon':
               data.wpn = {
-                m: v.melee,
-                r: v.ranged,
-                j: v.jab,
-                p: v.punch,
-                k: v.kick
+                m: v?.melee ?? model.melee,
+                r: v?.ranged ?? model.ranged,
+                j: v?.jab ?? model.jab,
+                p: v?.punch ?? model.punch,
+                k: v?.kick ?? model.kick
               };
 
               // Clean up weapon properties.
               let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
               wpnTypes.forEach(wpn => {
-                data.wpn[wpn].die = data.wpn[wpn].dice;
-                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+                if (data.wpn[wpn].dice) {
+                  data.wpn[wpn].die = data.wpn[wpn].dice;
+                  data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+                }
                 data.wpn[wpn].dice = data.wpn[wpn].value;
                 data.wpn[wpn].atk = data.wpn[wpn].attack;
                 data.wpn[wpn].dmg = data.wpn[wpn].dmg;

@@ -1,31 +1,83 @@
 export default class ArchmageRolls {
 
   static async rollItem(item) {
-    let attack = item.data.data.attack?.value ?? "";
-    let attackRolls = ArchmageRolls._getInlineRolls(attack, item.actor.getRollData());
-    console.log(attackRolls);
-    if (attackRolls && attackRolls.length > 0) {
-      attackRolls[0].toMessage(item.actor.getRollData());
+    let rollData = {};
+
+    let keys = Object.keys(item.data.data);
+    for ( let x = 0; x < keys.length; x++) {
+      let key = keys[x];
+      let field = item.data.data[key];
+      console.log(field);
+      if (!field?.value) continue;
+
+      let rolls = ArchmageRolls._getInlineRolls(field.value, item.actor.getRollData());
+
+      if (rolls) {
+        console.log(rolls);
+        let promises = [];
+        for ( let x of rolls) {
+          promises.push(x.evaluate({async: true}).then(() => {
+            x.data.inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(x);
+            if (key == "attack") {
+            x.data.critResult = ArchmageRolls._inlineRollCritTest(x, item.actor);
+            }
+          }));
+        };
+        await Promise.all(promises);
+        rollData[key] = rolls;
+      }
     }
+
+    console.log(rollData);
+    return rollData;
   }
 
   static _getInlineRolls(text, data) {
-    const regex = /\[\[(\/[a-zA-Z]+\s)?(.*?)([\]]{2,3})/gi;
-    
-    //if (!regex.test(text)) return undefined;
-    let matches = [...text.matchAll(regex)];
-    if (matches.length == 0) return undefined;
+    try {
+      if (!text) return undefined;
+      const regex = /\[\[(\/[a-zA-Z]+\s)?(.*?)([\]]{2,3})/gi;
 
-    //let matches = regex.exec(text);
-    let rolls = [];
-    for (let x = 0; x < matches.length; x++) {
-      let match = matches[x];
-      console.log(match);
-      let roll = new Roll(match[2], data);
-      //roll.formula = match[2];
-      rolls.push(roll);
+      //if (!regex.test(text)) return undefined;
+      let matches = [...text.matchAll(regex)];
+      if (matches.length == 0) return undefined;
+
+      //let matches = regex.exec(text);
+      let rolls = [];
+      for (let x = 0; x < matches.length; x++) {
+        let match = matches[x];
+        console.log(match);
+        let roll = new Roll(match[2], data);
+        //roll.formula = match[2];
+        rolls.push(roll);
+      }
+      return rolls;
     }
-    return rolls;
+    catch (e) { return undefined; }
+  }
+
+  static _createInlineRollElementFromRoll(roll) {
+    const data = {
+      cls: ["inline-roll"],
+      dataset: {}
+    };
+
+    try {
+      data.cls.push("inline-result");
+      data.label = label ? `${label}: ${roll.total}` : roll.total;
+      data.title = roll.formula;
+      data.dataset.roll = escape(JSON.stringify(roll));
+    }
+    catch(err) { return null; }
+
+    // Construct and return the formed link element
+    const a = document.createElement('a');
+    a.classList.add(...data.cls);
+    a.title = data.title;
+    for (let [k, v] of Object.entries(data.dataset)) {
+      a.dataset[k] = v;
+    }
+    a.innerHTML = `<i class="fas fa-dice-d20"></i> ${data.label}`;
+    return a;
   }
 
   /**

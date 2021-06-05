@@ -1,5 +1,6 @@
 import { ActorSheetFlags } from './actor-flags.js';
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
+import { ItemArchmage } from "../item/item.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -36,35 +37,47 @@ export class ActorArchmageSheet extends ActorSheet {
    *
    * @return {Object} sheetData
    */
-  getData() {
-    const sheetData = super.getData();
+  getData(options) {
+    let isOwner = this.document.isOwner;
+    let isEditable = this.isEditable;
+    let sheetData = foundry.utils.deepClone(this.object.data);
+
+    // Copy and sort Items
+    // let items = this.object.items.map(i => foundry.utils.deepClone(i.data));
+    // items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    // sheetData.items = items;
+
+    // Copy Active Effects
+    let effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
+    sheetData.effects = effects;
+
 
     this._prepareCharacterItems(sheetData);
 
-    let powers = sheetData.actor.powers ?? [];
+    let powers = sheetData.powers ?? [];
 
-    if (sheetData.actor.type == 'character') {
+    if (this.actor.data.type == 'character') {
       // Fallback to grouping by type if not specified.
-      if (!sheetData.actor.data.sheetGrouping) {
-        sheetData.actor.data.sheetGrouping = 'type';
+      if (!sheetData.sheetGrouping) {
+        sheetData.sheetGrouping = 'type';
       }
 
-      if (sheetData.actor.data.sheetGrouping == "type") {
-        sheetData.actor.byType = true;
-        sheetData.actor.features = powers.filter(power => power.data.powerType.value === "feature");
-        sheetData.actor.talents = powers.filter(power => power.data.powerType.value === "talent");
-        sheetData.actor.spells = powers.filter(power => power.data.powerType.value === "spell");
-        sheetData.actor.powers = powers.filter(power => power.data.powerType.value === "power");
-        sheetData.actor.flexible = powers.filter(power => power.data.powerType.value === "maneuver" || power.data.powerType.value === "flexible");
-        sheetData.actor.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
+      if (sheetData.sheetGrouping == "type") {
+        sheetData.byType = true;
+        sheetData.features = powers.filter(power => power.data.powerType.value === "feature");
+        sheetData.talents = powers.filter(power => power.data.powerType.value === "talent");
+        sheetData.spells = powers.filter(power => power.data.powerType.value === "spell");
+        sheetData.powers = powers.filter(power => power.data.powerType.value === "power");
+        sheetData.flexible = powers.filter(power => power.data.powerType.value === "maneuver" || power.data.powerType.value === "flexible");
+        sheetData.other = powers.filter(power => power.data.powerType.value == undefined || power.data.powerType.value === "" || power.data.powerType.value === "other");
       }
-      else if (sheetData.actor.data.sheetGrouping == "action") {
-        sheetData.actor.byAction = true;
-        sheetData.actor.class = powers.filter(power => power.data.actionType.value === "");
-        sheetData.actor.actions = powers.filter(power => power.data.actionType.value !== "");
+      else if (sheetData.sheetGrouping == "action") {
+        sheetData.byAction = true;
+        sheetData.class = powers.filter(power => power.data.actionType.value === "");
+        sheetData.actions = powers.filter(power => power.data.actionType.value !== "");
       }
-      else if (sheetData.actor.data.sheetGrouping == "group") {
-        sheetData.actor.byGroup = true;
+      else if (sheetData.sheetGrouping == "group") {
+        sheetData.byGroup = true;
         let groups = [];
         let powerDict = {};
         powers.forEach(power => {
@@ -80,21 +93,31 @@ export class ActorArchmageSheet extends ActorSheet {
           }
           powerDict[groupValue].push(power);
         });
-        var keys = Object.keys(powerDict);
+        const keys = Object.keys(powerDict);
 
         let namePowerPairs = [];
-        for (var x = 0; x < keys.length; x++) {
+        for (let x = 0; x < keys.length; x++) {
           let key = keys[x];
           namePowerPairs.push({
             name: key,
             powers: powerDict[key]
           });
         }
-        sheetData.actor.namePowerPairs = namePowerPairs;
+        sheetData.namePowerPairs = namePowerPairs;
       }
     }
 
     // Return data to the sheet
+    sheetData.actor = this.object;
+    sheetData.cssClass = isEditable ? "editable" : "locked";
+    sheetData.editable = isEditable;
+    sheetData.limited = this.object.limited;
+    sheetData.options = this.options;
+    sheetData.owner = isOwner;
+    sheetData.title = this.title;
+
+    // console.log(sheetData);
+
     return sheetData;
   }
 
@@ -105,8 +128,7 @@ export class ActorArchmageSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor;
+  _prepareCharacterItems(actorData) {
 
     // Powers
     const powers = [];
@@ -117,9 +139,9 @@ export class ActorArchmageSheet extends ActorSheet {
 
     // // Iterate through items, allocating to containers
     // let totalWeight = 0;
-    for (let i of sheetData.items) {
-      let item = i.data;
-      i.img = i.img || DEFAULT_TOKEN;
+    for (let item of actorData.items) {
+      let i = duplicate(item);
+      i.img = i.img || CONST.DEFAULT_TOKEN;
       // Feats
       if (i.type === 'power') {
         // Add labels.
@@ -262,14 +284,14 @@ export class ActorArchmageSheet extends ActorSheet {
     // Weapon Attacks
     html.find('.weapon.rollable').click(ev => {
       let weapon = $(ev.currentTarget).data();
-      var templateData = {
+      const templateData = {
         actor: this.actor,
-        item: { name: weapon.label },
+        item: {name: weapon.label},
         data: {
-          powerUsage: { value: 'at-will' },
-          attack: { value: `[[d20 + ${weapon.atk} + @attributes.escalation.value]]` },
-          hit: { value: `[[${weapon.dmg}]]` },
-          miss: { value: `${weapon.miss}` }
+          powerUsage: {value: 'at-will'},
+          attack: {value: `[[d20 + ${weapon.atk} + @attributes.escalation.value]]`},
+          hit: {value: `[[${weapon.dmg}]]`},
+          miss: {value: `${weapon.miss}`}
         }
       };
 
@@ -298,7 +320,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
         let fives = 0;
         let sixes = 0;
-        var rollResults;
+        let rollResults;
 
         if (!isNewerVersion(game.data.version, "0.7")) {
           rollResults = result.parts[0].rolls;
@@ -342,7 +364,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
         const templateData = {
           actor: this.actor,
-          tokenId: token ? `${token.scene._id}.${token.id}` : null,
+          tokenId: token ? `${token.id}` : null,
           icon: icon,
           fives: fives,
           sixes: sixes,
@@ -373,7 +395,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
           async function addIconCard(icon, value) {
             let decks = game.decks.decks;
-            for (var deckId in decks) {
+            for (let deckId in decks) {
               let msg = {
                 type: "GETALLCARDSBYDECK",
                 playerID: game.users.find(el => el.isGM && el.active).id,
@@ -437,7 +459,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
       const templateData = {
         actor: actor,
-        tokenId: token ? `${token.scene._id}.${token.id}` : null,
+        tokenId: token ? `${token.id}` : null,
         saveType: type,
         success: success,
         data: chatData,
@@ -475,14 +497,14 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-quantity.rollable').click(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
-      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      const item = this.actor.items.get(li.dataset.itemId);
 
       // Update the owned item and rerender.
       let value = Number(item.data.data.quantity.value || 0) + 1;
       if (item.data.data.maxQuantity.value) {
         value = Math.min(value, item.data.data.maxQuantity.value);
       }
-      await this.actor.updateOwnedItem({
+      await this.actor.updateEmbeddedDocuments('Item', {
         _id: item._id,
         data: { quantity: { value: value } }
       });
@@ -493,10 +515,10 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-quantity.rollable').contextmenu(async (event) => {
       event.preventDefault();
       const li = event.currentTarget.closest(".item");
-      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      const item = this.actor.items.get(li.dataset.itemId);
 
       // Update the owned item and rerender.
-      await this.actor.updateOwnedItem({
+      await this.actor.updateEmbeddedDocuments('Item', {
         _id: item._id,
         data: {
           quantity: {
@@ -549,7 +571,7 @@ export class ActorArchmageSheet extends ActorSheet {
       else {
         data = dataset;
       }
-      this.actor.createOwnedItem({
+      this.actor.createEmbeddedDocuments('Item', {
         name: 'New ' + type.capitalize(),
         type: type,
         img: img,
@@ -631,7 +653,7 @@ export class ActorArchmageSheet extends ActorSheet {
           });
 
         // Create the owned items.
-        actor.createOwnedItem(powers);
+        actor.createEmbeddedDocuments('Item', powers);
       }
     }
 
@@ -640,7 +662,7 @@ export class ActorArchmageSheet extends ActorSheet {
       let itemId = $(ev.currentTarget).parents('.item').attr('data-item-id');
       let Item = CONFIG.Item.entityClass;
       // const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
-      const item = this.actor.getOwnedItem(itemId);
+      const item = this.actor.items.get(itemId);
       item.sheet.render(true);
     });
 
@@ -648,7 +670,8 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       let li = $(ev.currentTarget).parents('.item');
       let itemId = li.attr('data-item-id');
-      this.actor.deleteOwnedItem(itemId);
+      let item = this.actor.items.get(itemId);
+      item.delete();
       li.slideUp(200, () => this.render(false));
     });
 
@@ -658,7 +681,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
     /* Item Dragging */
     // Core handlers from foundry.js
-    var dragHandler;
+    let dragHandler;
     if (!isNewerVersion(game.data.version, "0.7")) {
       dragHandler = ev => this._onDragItemStart(ev);
     }
@@ -712,8 +735,8 @@ export class ActorArchmageSheet extends ActorSheet {
    */
   _onItemRoll(event) {
     event.preventDefault();
-    let itemId = $(event.currentTarget).parents(".item").attr("data-item-id"),
-      item = this.actor.getOwnedItem(itemId);
+    let itemId = $(event.currentTarget).parents(".item").attr("data-item-id");
+    let item = this.actor.items.get(itemId);
     item.roll();
   }
 
@@ -726,8 +749,8 @@ export class ActorArchmageSheet extends ActorSheet {
   _onItemSummary(event) {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
-    let item = this.actor.getOwnedItem(li.attr("data-item-id"));
-    let chatData = item.getChatData({ secrets: this.actor.owner });
+    let item = this.actor.items.get(li.attr("data-item-id"));
+    let chatData = item.getChatData({ secrets: this.actor.isOwner });
 
     // Toggle summary
     if (li.hasClass('item--power')) {

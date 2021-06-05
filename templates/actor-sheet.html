@@ -3,7 +3,7 @@
     <!-- HEADER -->
     <header class="sheet-header">
         <h1 class="charname">
-            <input name="name" type="text" value="{{actor.name}}" placeholder="Character Name" />
+            <input name="name" type="text" value="{{name}}" placeholder="Character Name" />
         </h1>
 
         <div class="charlevel">
@@ -232,7 +232,7 @@
             </div>
             {{/if}}
 
-            {{#if actor.byType}}
+            {{#if byType}}
             <div>
               <h2>{{localize 'ARCHMAGE.features'}}</h2>
               <ol class="feats-list powers-list inventory-list directory-list">
@@ -253,7 +253,7 @@
                     {{/if}}
                 </li>
 
-                {{#each actor.features as |item i|}}
+                {{#each features as |item i|}}
                 <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                     <div class="item-name flexrow rollable">
                         <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -298,7 +298,7 @@
                       {{/if}}
                   </li>
 
-                  {{#each actor.talents as |item i|}}
+                  {{#each talents as |item i|}}
                   <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow rollable">
                           <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -343,7 +343,7 @@
                       {{/if}}
                   </li>
 
-                  {{#each actor.spells as |item i|}}
+                  {{#each spells as |item i|}}
                   <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow rollable">
                           <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -388,7 +388,7 @@
                       {{/if}}
                   </li>
 
-                  {{#each actor.powers as |item i|}}
+                  {{#each powers as |item i|}}
                   <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow rollable">
                           <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -433,7 +433,7 @@
                       {{/if}}
                   </li>
 
-                  {{#each actor.flexible as |item i|}}
+                  {{#each flexible as |item i|}}
                   <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow rollable">
                           <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -478,7 +478,7 @@
                       {{/if}}
                   </li>
 
-                  {{#each actor.other as |item i|}}
+                  {{#each other as |item i|}}
                   <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow rollable">
                           <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -506,7 +506,7 @@
             </div>
             {{/if}}
 
-            {{#if actor.byAction}}
+            {{#if byAction}}
             <div>
                 <h2>{{localize 'ARCHMAGE.class'}}</h2>
                 <ol class="feats-list powers-list inventory-list directory-list">
@@ -524,7 +524,7 @@
                         {{/if}}
                     </li>
 
-                    {{#each actor.class as |item i|}}
+                    {{#each class as |item i|}}
                     <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                         <div class="item-name flexrow rollable">
                             <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -562,7 +562,7 @@
                         {{/if}}
                     </li>
 
-                    {{#each actor.actions as |item i|}}
+                    {{#each actions as |item i|}}
                     <li class="item flexrow item--power" data-item-id="{{item._id}}" data-index="{{i}}">
                         <div class="item-name flexrow rollable">
                             <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -590,8 +590,8 @@
             </div>
             {{/if}}
 
-            {{#if actor.byGroup}}
-                {{#each actor.namePowerPairs as |grouping g|}}
+            {{#if byGroup}}
+                {{#each namePowerPairs as |grouping g|}}
                 <div>
                     <h2>{{grouping.name}}</h2>
                     <ol class="feats-list powers-list inventory-list directory-list">
@@ -724,7 +724,7 @@
                         {{/if}}
                   </li>
 
-                  {{#each actor.equipment as |item i|}}
+                  {{#each equipment as |item i|}}
                   <li class="item flexrow item" data-item-id="{{item._id}}" data-index="{{i}}">
                       <div class="item-name flexrow">
                         <div class="item-image" style="background-image: url({{item.img}})"></div>
@@ -748,7 +748,7 @@
 
     <!-- SIDEBAR -->
     <section class="sheet-sidebar">
-        <img class="sheet-profile" src="{{actor.img}}" title="{{actor.name}}" height="220" width="220" data-edit="img" />
+        <img class="sheet-profile" src="{{img}}" title="{{name}}" height="220" width="220" data-edit="img" />
 
         <nav class="sheet-tabs tabs tabs-sidebar" data-group="sidebar">
             <a class="item" data-tab="abilities">{{localize 'ARCHMAGE.abilities'}}</a>

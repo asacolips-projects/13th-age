@@ -52,15 +52,14 @@ export class ActorArchmage extends Actor {
     super.prepareData();
 
     // Get the Actor's data object
-    this.data = duplicate(this._data);
-    if (!this.data.img) this.data.img = CONST.DEFAULT_TOKEN;
-    if (!this.data.name) this.data.name = "New " + this.entity;
+    const actorData = this.data;
+    if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
+    if (!actorData.name) actorData.name = "New " + this.entity;
     this.prepareBaseData();
     this.prepareEmbeddedEntities();
 
     this.prepareDerivedData();
 
-    const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
 
@@ -286,7 +285,7 @@ export class ActorArchmage extends Actor {
           },
         };
       }
-      // Handle some possibly unitialized variables. These can be tweaked through the sheet settings.
+      // Handle some possibly uninitialized variables. These can be tweaked through the sheet settings.
       data.attributes.weapon.melee.miss = data.attributes.weapon.melee.miss === undefined ? true : data.attributes.weapon.melee.miss;
       data.attributes.weapon.ranged.miss = data.attributes.weapon.ranged.miss === undefined ? false : data.attributes.weapon.ranged.miss;
       data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
@@ -360,9 +359,6 @@ export class ActorArchmage extends Actor {
     }
 
     this.applyActiveEffects();
-
-    // Return the prepared Actor data
-    return actorData;
   }
 
   /* -------------------------------------------- */
@@ -626,7 +622,8 @@ export class ActorArchmage extends Actor {
       // Basic chat message data
       const chatData = {
         user: game.user._id, speaker: {actor: this._id, token: this.token,
-        alias: this.name, scene: game.user.viewedScene}
+        alias: this.name, scene: game.user.viewedScene},
+		roll: new Roll("") // Needed to silence an error in 0.8.x
       };
 
       // Toggle default roll mode
@@ -636,6 +633,7 @@ export class ActorArchmage extends Actor {
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
+      chatData["content"] = TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
       // Create the chat message
       let msg = await ChatMessage.create(chatData, {displaySheet: false});
       // Get the roll from the chat message
@@ -692,54 +690,58 @@ export class ActorArchmage extends Actor {
     }
 
     // Items (Powers)
-    for (let i = 0; i < this.data.items.length; i++) {
-      let item = this.data.items[i];
-      let maxQuantity = item.data?.maxQuantity?.value ?? 1;
+    let items = this.items.map(i => i);
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      let maxQuantity = item.data.data?.maxQuantity?.value ?? 1;
       if (item.type == "power" && maxQuantity) {
         // Recharge powers.
-        let rechAttempts = maxQuantity - item.data.quantity.value;
+        let rechAttempts = maxQuantity - item.data.data.quantity.value;
+        let rechValue = item.data.data.recharge.value ?? 16;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
-          rechAttempts = Math.max(rechAttempts-item.data.rechargeAttempts.value, 0)
+          rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
         // Per battle powers.
-        if ((item.data.powerUsage.value == 'once-per-battle'
-          || item.data.powerUsage.value == 'at-will')
-          && item.data.quantity.value < maxQuantity) {
-          await this.updateOwnedItem({
-            _id: item._id,
-            data: {quantity: {value: maxQuantity}}
+        if ((item.data.data.powerUsage.value == 'once-per-battle'
+          || (item.data.data.powerUsage.value == 'at-will'
+          && item.data.data.quantity.value != null))
+          && item.data.data.quantity.value < maxQuantity) {
+          await item.update({
+            'data.quantity': {value: maxQuantity}
           });
           templateData.items.push({
             key: item.name,
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
-        } else if (item.data.recharge.value > 0 && rechAttempts > 0) {
+        }
+        else if ((item.data.data.powerUsage.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
             let roll = await this.items.get(item._id).recharge({createMessage: false});
-            if (roll.total >= item.data.recharge.value) {
+            if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
                 key: item.name,
-                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${item.data.recharge.value})`
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeSucc")} (${roll.total} >= ${rechValue})`
               });
             } else {
               templateData.items.push({
                 key: item.name,
-                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${item.data.recharge.value})`
+                message: `${game.i18n.localize("ARCHMAGE.CHAT.RechargeFail")} (${roll.total} < ${rechValue})`
               });
             }
           }
         }
       }
-    }
+    };
 
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-short-card.html`
     const chatData = {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
-      alias: this.name, scene: game.user.viewedScene}
+      alias: this.name, scene: game.user.viewedScene},
+      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
@@ -790,21 +792,19 @@ export class ActorArchmage extends Actor {
     }
 
     // Items (Powers)
-    for (let i = 0; i < this.data.items.length; i++) {
-      let item = this.data.items[i];
+    let items = this.items.map(i => i);
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
 
       if (item.type != 'power') continue;
 
       let usageArray = ['once-per-battle','daily','recharge'];
-      let fallbackQuantity = usageArray.includes(item.data.powerUsage.value) || item.data.quantity.value !== null ? 1 : null;
-      let maxQuantity = item.data?.maxQuantity?.value ?? fallbackQuantity;
-      if (maxQuantity && item.data.quantity.value < maxQuantity) {
-        await this.updateOwnedItem({
-          _id: item._id,
-          data: {
-            quantity: {value: maxQuantity},
-            rechargeAttempts: {value: 0}
-            }
+      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage.value) || item.data.data.quantity.value !== null ? 1 : null;
+      let maxQuantity = item.data.data?.maxQuantity?.value ?? fallbackQuantity;
+      if (maxQuantity && item.data.data.quantity.value < maxQuantity) {
+        await item.update({
+          'data.quantity': {value: maxQuantity},
+          'data.rechargeAttempts': {value: 0}
         });
         templateData.items.push({
           key: item.name,
@@ -817,7 +817,8 @@ export class ActorArchmage extends Actor {
     const template = `systems/archmage/templates/chat/rest-full-card.html`
     const chatData = {
       user: game.user._id, speaker: {actor: this._id, token: this.token,
-      alias: this.name, scene: game.user.viewedScene}
+      alias: this.name, scene: game.user.viewedScene},
+      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
@@ -900,6 +901,278 @@ export class ActorArchmage extends Actor {
   }
 
   /**
+   * Actor update hook
+   *
+   * @return {undefined}
+   */
+
+  async _preUpdate(data, options, userId) {
+    await super._preUpdate(data, options, userId);
+    if (!this.data.type == 'character'
+      || !options.diff
+      || data.data === undefined) {
+        // Nothing to do
+        return;
+    }
+
+    if (data.data.attributes?.weapon?.melee?.shield !== undefined
+      || data.data.attributes?.weapon?.melee?.dualwield !== undefined
+      || data.data.attributes?.weapon?.melee?.twohanded !== undefined) {
+      // Here we received an update of the melee weapon checkboxes
+
+      // Fallback for sheet closure bug
+      if (typeof this.data.data.attributes.weapon.melee.dice !== 'string') {
+          this.data.data.attributes.weapon.melee.dice = "d8";
+      }
+
+      let mWpn = parseInt(this.data.data.attributes.weapon.melee.dice.substring(1));
+      if (isNaN(mWpn)) mWpn = 8; // Fallback
+      let lvl = this.data.data.attributes.level.value;
+      data.data.attributes.attackMod = {value: this.data.data.attributes.attackMod.value};
+      let wpn = {shieldPen: 0, twohandedPen: 0};
+      if (this.data.data.attributes.weapon.melee.twohanded) {
+        wpn.mWpn2h = mWpn;
+        wpn.mWpn1h = Math.max(mWpn - 2, 4);
+      } else {
+        wpn.mWpn2h = Math.min(mWpn + 2, 12);
+        wpn.mWpn1h = mWpn;
+      }
+
+      // Compute penalties due to equipment (if classes known)
+      if (this.data.data.details.detectedClasses) {
+        let shieldPen = new Array();
+        let twohandedPen = new Array();
+        let mWpn1h = new Array();
+        let mWpn2h = new Array();
+        let skilledWarrior = new Array();
+        this.data.data.details.detectedClasses.forEach(function(item) {
+          shieldPen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
+          mWpn1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+          mWpn2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);
+          if (CONFIG.ARCHMAGE.classes[item].wpn_2h > CONFIG.ARCHMAGE.classes[item].wpn_1h
+            && CONFIG.ARCHMAGE.classes[item].wpn_2h >= CONFIG.ARCHMAGE.classes.monk.wpn_2h) {
+            // Handles special case of monk MC with classes that don't benefit from 2h
+            twohandedPen.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);
+          }
+          skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior)
+        });
+        wpn.shieldPen = Math.max.apply(null, shieldPen);
+        if (twohandedPen.length > 0) wpn.twohandedPen = Math.max.apply(null, twohandedPen);
+        mWpn1h = Math.max.apply(null, mWpn1h);
+        mWpn2h = Math.max.apply(null, mWpn2h);
+        if (skilledWarrior.length > 1 && !skilledWarrior.every(a => a)) {
+          mWpn1h = Math.max(mWpn1h - 2, 4);
+          mWpn2h = Math.max(mWpn2h - 2, 4);
+        }
+        // Only use class values if the current values haven't been tampered with
+        if (this.data.data.attributes.weapon.melee.twohanded && wpn.mWpn2h == mWpn2h) {
+          wpn.mWpn1h = mWpn1h;
+        }
+        else if (!this.data.data.attributes.weapon.melee.twohanded && wpn.mWpn1h == mWpn1h) {
+          wpn.mWpn2h = mWpn2h;
+        }
+        else { // Values differ from rules, don't do anything
+          wpn.shieldPen = 0;
+          wpn.twohandedPen = 0;
+        }
+      }
+
+      if (data.data.attributes.weapon.melee.shield !== undefined) {
+        // Here we received an update of the shield checkbox
+        if (data.data.attributes.weapon.melee.shield) {
+          // Adding a shield
+          data.data.attributes.ac = {base: this.data.data.attributes.ac.base + 1};
+          data.data.attributes.attackMod.value += wpn.shieldPen;
+          if (this.data.data.attributes.weapon.melee.twohanded) {
+            // Can't wield both a two-handed weapon and a shield
+            mWpn = wpn.mWpn1h;
+            data.data.attributes.weapon.melee.twohanded = false;
+            data.data.attributes.attackMod.value -= wpn.twohandedPen;
+          }
+          else if (this.data.data.attributes.weapon.melee.dualwield) {
+            // Can't dual-wield with a shield
+            data.data.attributes.weapon.melee.dualwield = false;
+          }
+        } else {
+          data.data.attributes.ac = {base: this.data.data.attributes.ac.base - 1};
+          data.data.attributes.attackMod.value -= wpn.shieldPen;
+        }
+      }
+
+      else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
+        // Here we received an update of the dual wield checkbox
+        if (data.data.attributes.weapon.melee.dualwield) {
+          if (this.data.data.attributes.weapon.melee.twohanded) {
+            // Can't wield two two-handed weapons
+            mWpn = wpn.mWpn1h;
+            data.data.attributes.weapon.melee.twohanded = false;
+            data.data.attributes.attackMod.value -= wpn.twohandedPen;
+          }
+          else if (this.data.data.attributes.weapon.melee.shield) {
+            // Can't duel-wield with a shield
+            data.data.attributes.ac = {base: this.data.data.attributes.ac.base - 1};
+            data.data.attributes.weapon.melee.shield = false;
+            data.data.attributes.attackMod.value -= wpn.shieldPen;
+          }
+        }
+      }
+
+      else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
+        // Here we received an update of the two-handed checkbox
+        if (data.data.attributes.weapon.melee.twohanded) {
+          mWpn = wpn.mWpn2h;
+          data.data.attributes.attackMod.value += wpn.twohandedPen;
+          if (this.data.data.attributes.weapon.melee.shield) {
+            // Can't wield both a two-handed weapon and a shield
+            data.data.attributes.ac = {base: this.data.data.attributes.ac.base - 1};
+            data.data.attributes.weapon.melee.shield = false;
+            data.data.attributes.attackMod.value -= wpn.shieldPen;
+          }
+          else if (this.data.data.attributes.weapon.melee.dualwield) {
+            // Can't wield two two-handed weapons
+            data.data.attributes.weapon.melee.dualwield = false;
+          }
+        } else {
+          mWpn = wpn.mWpn1h;
+          data.data.attributes.attackMod.value -= wpn.twohandedPen;
+        }
+      }
+
+      data.data.attributes.weapon.melee.dice = `d${mWpn}`;
+      data.data.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
+    }
+
+    else if (data.data.details !== undefined
+      && data.data.details.class !== undefined
+      && game.settings.get('archmage', 'automateBaseStatsFromClass')
+      ) {
+      // Here we received an update of the class name for a character
+
+      // Find known classes
+      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+      let classRegex = new RegExp(classList.join('|'), 'g');
+      let classText = data.data.details.class.value;
+
+      // Exit early if the class text is invalid.
+      if (typeof classText !== 'string') return;
+
+      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+      let matchedClasses = classText.match(classRegex);
+
+      if (matchedClasses !== null) {
+        // Remove duplicates and Sort to avoid problems with future matches
+        matchedClasses = [...new Set(matchedClasses)].sort();
+
+        // Check that the matched classes actually changed
+        if (this.data.data.details.matchedClasses !== undefined
+          && JSON.stringify(this.data.data.details.matchedClasses) == JSON.stringify(matchedClasses)
+          ) {
+          return;
+        }
+
+        // Collect base stats for detected classes
+        let base = {
+          hp: new Array(),
+          ac: new Array(),
+          ac_hvy: new Array(),
+          shld_pen: new Array(),
+          pd: new Array(),
+          md: new Array(),
+          rec: new Array(),
+          mWpn_1h: new Array(),
+          mWpn_2h: new Array(),
+          rWpn: new Array(),
+          skilledWarrior: new Array()
+        }
+
+        matchedClasses.forEach(function(item) {
+          base.hp.push(CONFIG.ARCHMAGE.classes[item].hp);
+          base.ac.push(CONFIG.ARCHMAGE.classes[item].ac_lgt);
+          if (CONFIG.ARCHMAGE.classes[item].ac_hvy_pen < 0) {base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy_pen);}
+          else {base.ac_hvy.push(CONFIG.ARCHMAGE.classes[item].ac_hvy);}
+          base.shld_pen.push(CONFIG.ARCHMAGE.classes[item].shld_pen);
+          base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
+          base.md.push(CONFIG.ARCHMAGE.classes[item].md);
+          base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
+          base.mWpn_1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
+          if (CONFIG.ARCHMAGE.classes[item].wpn_2h_pen < 0) {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);}
+          else {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);}
+          base.rWpn.push(CONFIG.ARCHMAGE.classes[item].wpn_rngd);
+          base.skilledWarrior.push(CONFIG.ARCHMAGE.classes[item].skilled_warrior);
+        });
+
+        // Combine base stats based on detected classes
+        if (base.skilledWarrior.length == 1) base.skilledWarrior = true;
+        else base.skilledWarrior = base.skilledWarrior.every(a => a);
+        base.hp = (base.hp.reduce((a, b) => a + b, 0) / base.hp.length);
+        base.ac = Math.max.apply(null, base.ac);
+        if (Math.min.apply(null, base.ac_hvy) > 0) base.ac = Math.max.apply(null, base.ac_hvy);
+        base.shld_pen = base.shld_pen.some(a => a < 0);
+        base.pd = Math.max.apply(null, base.pd);
+        base.md = Math.max.apply(null, base.md);
+        if (base.rec.length == 1) base.rec = base.rec[0];
+        else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
+        base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
+        base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
+        base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
+        base.rWpn = Math.max.apply(null, base.rWpn);
+        let jabWpn = 6;
+        let punchWpn = 8;
+        let kickWpn = 10;
+        if (!base.skilledWarrior) {
+          base.mWpn_1h = Math.max(base.mWpn_1h - 2, 4);
+          base.mWpn_2h = Math.max(base.mWpn_2h - 2, 4);
+          base.rWpn = Math.max(base.rWpn - 2, 4);
+          jabWpn -= 2;
+          punchWpn -= 2;
+          kickWpn -= 2;
+        }
+        let lvl = this.data.data.attributes.level.value;
+        let shield = false;
+        let dualwield = false;
+        let twohanded = false;
+        // Pick best weapon (and possibly shield)
+        base.mWpn = base.mWpn_1h;
+        if (matchedClasses.includes("monk")) {
+          dualwield = true;
+        }
+        else if (!base.shld_pen) {
+          base.ac += 1;
+          shield = true;
+        }
+        else if (!base.mWpn_2h_pen && base.mWpn_2h > base.mWpn_1h) {
+          base.mWpn = base.mWpn_2h;
+          twohanded = true;
+        }
+
+        // Assign computed values
+        data.data.attributes = {
+          hp: {base: base.hp},
+          ac: {base: base.ac},
+          pd: {base: base.pd},
+          md: {base: base.md},
+          recoveries: {dice: `d${base.rec}`},
+          weapon: {
+            melee: {
+              dice: `d${base.mWpn}`,
+              value: `${lvl}d${base.mWpn}`,
+              shield: shield,
+              dualwield: dualwield,
+              twohanded: twohanded
+            },
+            ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
+            jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
+            punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},
+            kick: {dice: `d${kickWpn}`, value: `${lvl}d${kickWpn}`}
+          }
+        };
+      }
+      // Store matched classes for future reference
+      data.data.details.detectedClasses = matchedClasses;
+    }
+  }
+
+  /**
    * Auto levelup monsters
    * Creates a copy of an NPC actor with the requested delta in levels
    * @param delta {Integer}    The number of levels to add or remove
@@ -909,49 +1182,63 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc' || delta == 0) return;
+    // Conver delta back to a number, and handle + characters.
+    delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
+
+    // Warning for out of bounds.
     if (Math.abs(delta) > 6) ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.tooManyLevels"));
+
+    // Generate the prefix.
     let suffix = ` (+${delta})`;
     if (delta < 0) suffix = ` (${delta})`;
-    let lvl = this.data.data.attributes.level.value + delta;
+
+    // Set the level.
+    let lvl = Number(this.data.data.attributes.level.value || 0) + delta;
     if (lvl < 0 || lvl > 15) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
       return;
     }
+
+    // Set other overrides.
     let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
     let overrideData = {
       'name': this.data.name+suffix,
       'data.attributes.level.value': lvl,
-      'data.attributes.ac.value': this.data.data.attributes.ac.value + delta,
-      'data.attributes.pd.value': this.data.data.attributes.pd.value + delta,
-      'data.attributes.md.value': this.data.data.attributes.md.value + delta,
+      'data.attributes.ac.value': Number(this.data.data.attributes.ac.value || 0) + delta,
+      'data.attributes.pd.value': Number(this.data.data.attributes.pd.value || 0) + delta,
+      'data.attributes.md.value': Number(this.data.data.attributes.md.value || 0) + delta,
       // Initiative already depends directly on level
       'data.attributes.hp.value': Math.round(this.data.data.attributes.hp.value * mul),
       'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
     };
-    let actor = await this.clone(overrideData);
+
+    // Create the new actor and save it.
+    let actor = await this.clone(overrideData, {save: true, keepId: false});
 
     // Fix attack and damage
     let atkFilter = /\+\s*(\d+)([\S\s]*)/;
     let inlineRollFilter = /(\d+)?d?\d+(?!\+)/g;
-    for (let i = 0; i < actor.data.items.length; i++) {
-      let item = this.data.items[i];
-      overrideData = {'_id': item._id};
+    let itemUpdates = [];
+
+    // Iterate over attacks and actions.
+    for (let item of actor.items) {
+      let itemOverrideData = {'_id': item._id};
       if (item.type == 'action') {
         // Add delta to attack
-        let parsed = atkFilter.exec(item.data.attack.value);
+        let parsed = atkFilter.exec(item.data.data.attack.value);
         if (!parsed) continue;
         let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
         if (!parsed[2].match(/^\]\]/)) newAtk += "]]";
-        overrideData['data.attack.value'] = newAtk + parsed[2];
+        itemOverrideData['data.attack.value'] = newAtk + parsed[2];
       }
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
         // Multiply damage
         for (let key of ["hit", "hit1", "hit2", "hit3", "miss", "description"]) {
-          if (!item.data[key]?.value) continue;
-          let rolls = [...(item.data[key].value.matchAll(inlineRollFilter))]
+          if (!item.data.data[key]?.value) continue;
+          let rolls = [...(item.data.data[key].value.matchAll(inlineRollFilter))]
           let offset = 0;
           if (rolls.length > 0) {
-            let newValue = item.data[key].value;
+            let newValue = item.data.data[key].value;
             rolls.forEach(r => {
               let orig = r[0];
               let newDmg = orig;
@@ -962,12 +1249,17 @@ export class ActorArchmage extends Actor {
               newValue = newValue.slice(0, index)+newValue.slice(index).replace(orig, newDmg);
               offset -= (newDmg.length - orig.length);
             });
-            overrideData[`data.${key}.value`] = newValue;
+            itemOverrideData[`data.${key}.value`] = newValue;
           }
         }
       }
-      actor.updateOwnedItem(overrideData);
+
+      // Append updates to the item update array for later.
+      itemUpdates.push(itemOverrideData);
     }
+
+    // Apply all item updates to the new actor.
+    actor.updateEmbeddedDocuments('Item', itemUpdates);
   }
 }
 
