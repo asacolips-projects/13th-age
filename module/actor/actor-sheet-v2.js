@@ -72,8 +72,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     data.actor.effects = actorData.effects;
     data.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    console.log(data);
-
     return data;
   }
 
@@ -90,7 +88,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let states = Application.RENDER_STATES;
       if (this._state == states.RENDERING || this._state == states.RENDERED) {
         // Update the Vue app with our updated actor/item/flag data.
-        if (sheetData?.data) Vue.set(this._vm.actor, 'data', sheetData.data);
+        if (sheetData?.actor?.data) Vue.set(this._vm.actor, 'data', sheetData.actor.data);
         if (sheetData?.actor?.items) Vue.set(this._vm.actor, 'items', sheetData.actor.items);
         if (sheetData?.actor?.effects) Vue.set(this._vm.actor, 'effects', sheetData.actor.effects);
         if (sheetData?.actor?.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);

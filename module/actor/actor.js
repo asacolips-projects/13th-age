@@ -49,26 +49,33 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   prepareData() {
-    // TODO: This causes double preparation on active effects.
-    // super.prepareData();
+    // Reset all derived and effects data.
+    this.data.reset();
+    this.overrides = {};
 
+    // Apply active effects in group 0 (ability scores, base attributes).
+    this.applyActiveEffects('pre');
+
+    // Prepare data, items, derived data, and effects.
+    this.prepareBaseData();
+    this.prepareEmbeddedEntities();
+
+    // Apply activeEffects in group 1 (most properties).
+    this.applyActiveEffects('default');
+    this.prepareDerivedData();
+
+    // Apply activeEffects to group 2 (standardBonuses).
+    this.applyActiveEffects('post');
+
+    console.log(this.data.data);
+  }
+
+  /** @inheritdoc */
+  prepareBaseData() {
     // Get the Actor's data object
     const actorData = this.data;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
     if (!actorData.name) actorData.name = "New " + this.entity;
-
-    console.log(actorData.data.attributes.attackMod.value);
-    // TODO: These are called in super.prepareData(). Remove?
-    this.prepareBaseData();
-
-    // TODO: This has been moved to the end of the method to account for
-    // base stat overrides.
-    // this.prepareEmbeddedEntities();
-
-    // TODO: We need to separate non-base stats into the prepareDerivedData()
-    // method in order to get active effects working.
-    this.prepareDerivedData();
-    console.log(actorData.data.attributes.attackMod.value);
 
     const data = actorData.data;
     const flags = actorData.flags;
@@ -360,17 +367,104 @@ export class ActorArchmage extends Actor {
     if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
     data.attributes.attackMod.missingRecPenalty = missingRecPenalty;
 
+    // this.prepareEmbeddedEntities();
+    // this.applyActiveEffects();
+  }
+
+  /**
+   * Override applyActiveEffects() to allow staggered updates.
+   *
+   * @param {string} weight Determines which set of effects to apply.
+   */
+  applyActiveEffects(weight = 'default') {
+    const overrides = this.overrides ? foundry.utils.flattenObject(this.overrides): {};
+
+    // Organize non-disabled effects by their application priority
+    const changes = this.effects.reduce((changes, e) => {
+      if ( e.data.disabled ) return changes;
+      return changes.concat(e.data.changes.map(c => {
+        c = foundry.utils.duplicate(c);
+        c.effect = e;
+        c.priority = c.priority ?? (c.mode * 10);
+        return c;
+      }));
+    }, []);
+    changes.sort((a, b) => a.priority - b.priority);
+
+    // Apply all changes
+    for ( let change of changes ) {
+      let applyEffect = false;
+
+      if (overrides[change.key]) continue;
+
+      switch (weight) {
+        // Handle ability scores and base attributes.
+        case 'pre':
+          if (change.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g)) {
+            console.log(`0 | ${weight} | ${change.key}`);
+            applyEffect = true;
+          }
+          break;
+
+        // Handle the non-special active effects.
+        case 'default':
+          if (!change.key.includes('standardBonuses')) {
+            console.log(`1 | ${weight} | ${change.key}`);
+            applyEffect = true;
+          }
+          break;
+
+        // Handle remaining active effects (standardBonuses).
+        case 'post':
+          console.log(`2 | ${weight} | ${change.key}`);
+          applyEffect = true;
+          break;
+      }
+
+      // If an effect should be applied, handle it.
+      if (applyEffect) {
+        const result = change.effect.apply(this, change);
+        if ( result !== null ) overrides[change.key] = result;
+      }
+    }
+
+    // Expand the set of final overrides
+    this.overrides = foundry.utils.expandObject(overrides);
+  }
+
+  /** @inheritdoc */
+  prepareEmbeddedEntities() {
+    const embeddedTypes = this.constructor.metadata.embedded || {};
+    for ( let cls of Object.values(embeddedTypes) ) {
+      const collection = cls.metadata.collection;
+      for ( let e of this[collection] ) {
+        e.prepareData();
+      }
+    }
+  }
+
+  /** @inheritdoc */
+  prepareDerivedData() {
+    // Get the Actor's data object
+    const actorData = this.data;
+    const data = actorData.data;
+
     if (actorData.type === 'character') {
-      // TODO: This also calculated in ArchmageUtility.replaceRollData(). That
-      // duplicate code needs to be retired from the utility class if possible.
+      // Get the escalation die value.
+      if (game.combats !== undefined && game.combat !== null) {
+        data.attributes.escalation = {
+          value: ArchmageUtility.getEscalation(game.combat)
+        };
+      }
+      else {
+        data.attributes.escalation = { value: 0 };
+      }
+
+      // Must recompute this here because the e.d. might have changed.
       data.attributes.standardBonuses = {
         value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
       };
     }
-
-    console.log(actorData.data.attributes.attackMod.value);
-    this.prepareEmbeddedEntities();
-    // this.applyActiveEffects();
   }
 
   /* -------------------------------------------- */
@@ -480,6 +574,109 @@ export class ActorArchmage extends Actor {
    */
   _prepareNPCData(data) {
     let model = game.system.model.Actor.npc;
+  }
+
+  /** @inheritdoc */
+  getRollData() {
+    // Use the actor by default.
+    let actor = this;
+
+    // Use the current token if possible.
+    let token = canvas.tokens?.controlled?.find(t => t.actor.data._id == this.data._id);
+    if (token) {
+      actor = token.actor;
+    }
+
+    const origData = super.getRollData();
+    const data = foundry.utils.deepClone(origData);
+    const shorthand = game.settings.get("archmage", "macroShorthand");
+
+    // Recompute the escalation die. Adjusting the escalation die offset does
+    // not trigger a prepareData() call in the actor.
+    let ed = data.attributes?.escalation?.value ?? 0;
+    if (game.combats !== undefined && game.combat !== null) {
+      data.attributes.escalation = {
+        value: ArchmageUtility.getEscalation(game.combat)
+      };
+    }
+    else {
+      data.attributes.escalation = { value: 0 };
+    }
+
+    // Recompute the standard bonuses if the escalation die changed.
+    let eDiff = data.attributes.escalation.value - ed;
+    data.attributes.standardBonuses.value += eDiff;
+
+    // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
+    const model = game.system.model.Actor.character.attributes.weapon;
+
+    // Re-map all attributes onto the base roll data
+    if (!!shorthand) {
+      let newData = mergeObject(data.attributes, data.abilities);
+      delete data.init;
+      for (let [k, v] of Object.entries(newData)) {
+        switch (k) {
+          case 'escalation':
+            data.ed = v.value;
+            break;
+
+          case 'init':
+            data.init = v.mod;
+            break;
+
+          case 'level':
+            data.lvl = v.value;
+            break;
+
+          case 'weapon':
+            data.wpn = {
+              m: v?.melee ?? model.melee,
+              r: v?.ranged ?? model.ranged,
+              j: v?.jab ?? model.jab,
+              p: v?.punch ?? model.punch,
+              k: v?.kick ?? model.kick
+            };
+
+            // Clean up weapon properties.
+            let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
+            wpnTypes.forEach(wpn => {
+              if (data.wpn[wpn].dice) {
+                data.wpn[wpn].die = data.wpn[wpn].dice;
+                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+              }
+              data.wpn[wpn].dice = data.wpn[wpn].value;
+              data.wpn[wpn].atk = data.wpn[wpn].attack;
+              data.wpn[wpn].dmg = data.wpn[wpn].dmg;
+              delete data.wpn[wpn].value;
+              delete data.wpn[wpn].attack;
+            });
+
+            break;
+
+          case 'attack':
+            data.atk = {
+              m: v.melee,
+              r: v.ranged,
+              a: v.arcane,
+              d: v.divine
+            };
+            break;
+
+          case 'standardBonuses':
+            data.std = v.value;
+            break;
+
+          default:
+            if (!(k in data)) data[k] = v;
+            break;
+        }
+      }
+    }
+
+    // Old syntax shorthand.
+    data.attr = data.attributes;
+    data.abil = data.abilities;
+    return data;
   }
 
   /* -------------------------------------------- */
@@ -644,8 +841,9 @@ export class ActorArchmage extends Actor {
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // Render the template
-      chatData["content"] = await renderTemplate(template, templateData);
-      chatData["content"] = TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
+      chatData.content = await renderTemplate(template, templateData);
+      chatData.content = chatData.content.replace('@std', '@lvl + @ed + @atkMod + @atkPen');
+      chatData.content = TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
       // Create the chat message
       let msg = await ChatMessage.create(chatData, {displaySheet: false});
       // Get the roll from the chat message
