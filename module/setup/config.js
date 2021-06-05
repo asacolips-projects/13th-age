@@ -1,11 +1,13 @@
 export const ARCHMAGE = {};
 
 ARCHMAGE.statusEffects = [
+  // Dead.
   {
     id: "dead",
     label: "ARCHMAGE.EFFECT.StatusDead",
     icon: "icons/svg/skull.svg"
   },
+  // Unconscious.
   {
     id: "unconscious",
     label: "ARCHMAGE.EFFECT.StatusUnconscious",
@@ -28,11 +30,13 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
+  // Confused.
   {
     id: "confused",
     label: "ARCHMAGE.EFFECT.StatusConfused",
     icon: "icons/svg/stoned.svg"
   },
+  // Dazed.
   {
     id: "dazed",
     label: "ARCHMAGE.EFFECT.StatusDazed",
@@ -45,6 +49,7 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
+  // Fear.
   {
     id: "fear",
     label: "ARCHMAGE.EFFECT.StatusFear",
@@ -62,11 +67,13 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
+  // Hampered.
   {
     id: "hampered",
     label: "ARCHMAGE.EFFECT.StatusHampered",
     icon: "icons/svg/net.svg",
   },
+  // Helpless.
   {
     id: "helpless",
     label: "ARCHMAGE.EFFECT.StatusHelpless",
@@ -89,16 +96,19 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
+  // Shocked.
   {
     id: "shocked",
     label: "ARCHMAGE.EFFECT.StatusShocked",
     icon: "icons/svg/lightning.svg"
   },
+  // Stuck.
   {
     id: "stuck",
     label: "ARCHMAGE.EFFECT.StatusStuck",
     icon: "icons/svg/paralysis.svg",
   },
+  // Stunned.
   {
     id: "stunned",
     label: "ARCHMAGE.EFFECT.StatusStunned",
@@ -121,11 +131,13 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
+  // Vulnerable.
   {
     id: "vulnerable",
     label: "ARCHMAGE.EFFECT.StatusVulnerable",
     icon: "icons/svg/target.svg"
   },
+  // Weakened.
   {
     id: "weakened",
     label: "ARCHMAGE.EFFECT.StatusWeakened",
