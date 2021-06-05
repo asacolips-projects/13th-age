@@ -66,8 +66,6 @@ export class ActorArchmage extends Actor {
 
     // Apply activeEffects to group 2 (standardBonuses).
     this.applyActiveEffects('post');
-
-    console.log(this.data.data);
   }
 
   /** @inheritdoc */
@@ -833,7 +831,6 @@ export class ActorArchmage extends Actor {
 
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
-      chatData.content = chatData.content.replace('@std', '@lvl + @ed + @atkMod + @atkPen');
       chatData.content = TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
       // Create the chat message
       let msg = await ChatMessage.create(chatData, {displaySheet: false});
