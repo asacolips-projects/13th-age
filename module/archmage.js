@@ -356,7 +356,9 @@ Hooks.once('init', async function() {
   ArchmageUtility.replaceRollData();
 
   /* --------------------------------------------- */
-  if (CONST.AIP && CONFIG.AIP) {
+  // TODO: Get this working again.
+  const aip = game.modules.get("autocomplete-inline-properties").API;
+  if (aip?.PACKAGE_CONFIG) {
     // Autocomplete Inline Rolls
     const aipKeys = [
       'str',
@@ -406,14 +408,26 @@ Hooks.once('init', async function() {
               selector: '.archmage-aip input[type="text"]',
               showButton: true,
               allowHotkey: true,
-              dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+              dataMode: aip.CONST.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
               filteredKeys: filteredKeys
+            }
+          ]
+        },
+        {
+          name: "ActiveEffectConfig",
+          fieldConfigs: [
+            {
+              selector: '.tab[data-tab="effects"] .key input[type="text"]',
+              showButton: true,
+              allowHotkey: true,
+              dataMode: 'owning-actor',
+              defaultPath: 'data'
             }
           ]
         }
       ]
     };
-    CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
+    aip.PACKAGE_CONFIG.push(AIP);
   }
 
   if (dependencies) {
@@ -458,6 +472,7 @@ Hooks.once('ready', () => {
   let modules = {};
   modules.dlopen = game.modules.get('dlopen');
   modules.vueport = game.modules.get('vueport');
+  modules.aip = game.modules.get('autocomplete-inline-properties');
 
   // Determine if we need the dependencies installed.
   let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
@@ -526,8 +541,6 @@ Hooks.once('ready', () => {
       }
     }
   }
-
-
 });
 
 /* ---------------------------------------------- */
