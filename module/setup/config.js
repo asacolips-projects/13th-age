@@ -15,17 +15,17 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'data.attributes.ac.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.pd.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.md.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
     ]
@@ -44,7 +44,7 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'data.attributes.attackMod.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
     ]
@@ -57,12 +57,12 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'data.attributes.escalation.value',
-        mode: 5,
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
         value: '0'
       },
       {
         key: 'data.attributes.attackMod.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
     ]
@@ -81,17 +81,17 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'data.attributes.ac.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.pd.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.md.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
     ]
@@ -116,17 +116,17 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'data.attributes.ac.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.pd.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.md.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
     ]
@@ -145,22 +145,22 @@ ARCHMAGE.statusEffects = [
     changes: [
       {
         key: 'data.attributes.attackMod.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.ac.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.pd.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
         key: 'data.attributes.md.value',
-        mode: 2,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
     ]
