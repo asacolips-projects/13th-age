@@ -355,8 +355,19 @@ Hooks.once('init', async function() {
 
   ArchmageUtility.replaceRollData();
 
-  /* --------------------------------------------- */
-  // TODO: Get this working again.
+  if (dependencies) {
+    // Define dependency on our own custom vue components for when we need it.
+    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
+    if (typeof Dlopen !== 'undefined') {
+      Dlopen.register('actor-sheet', {
+        scripts: "/systems/archmage/dist/vue-components.min.js",
+      });
+    }
+  }
+});
+
+Hooks.on('setup', (data, options, id) => {
+  // Configure autocomplete inline properties module.
   const aip = game.modules.get("autocomplete-inline-properties")?.API;
   if (aip?.PACKAGE_CONFIG) {
     // Autocomplete Inline Rolls
@@ -428,16 +439,6 @@ Hooks.once('init', async function() {
       ]
     };
     aip.PACKAGE_CONFIG.push(AIP);
-  }
-
-  if (dependencies) {
-    // Define dependency on our own custom vue components for when we need it.
-    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
-    if (typeof Dlopen !== 'undefined') {
-      Dlopen.register('actor-sheet', {
-        scripts: "/systems/archmage/dist/vue-components.min.js",
-      });
-    }
   }
 });
 
