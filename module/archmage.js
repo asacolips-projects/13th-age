@@ -357,7 +357,7 @@ Hooks.once('init', async function() {
 
   /* --------------------------------------------- */
   // TODO: Get this working again.
-  const aip = game.modules.get("autocomplete-inline-properties").API;
+  const aip = game.modules.get("autocomplete-inline-properties")?.API;
   if (aip?.PACKAGE_CONFIG) {
     // Autocomplete Inline Rolls
     const aipKeys = [
