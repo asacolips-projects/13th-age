@@ -179,7 +179,6 @@ export default class preCreateChatMessageHandler {
                                     new_formula = `0`;
                                     $roll_self.addClass('dc-fail');
                                 }
-                                console.log(new_formula);
                                 // Reroll and recalculate.
                                 let new_roll = new Roll(new_formula).roll();
                                 // Update inline roll's markup.
