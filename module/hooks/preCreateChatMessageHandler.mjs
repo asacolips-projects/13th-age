@@ -168,7 +168,11 @@ export default class preCreateChatMessageHandler {
                                 // If there's a crit, double the formula and reroll. If there's a
                                 // fail with no crit, 0 it out.
                                 if (has_crit) {
-                                    new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                                    if (game.settings.get('archmage', 'originalCritDamage')) {
+                                        new_formula = `(${roll_data.formula}) * 2`;
+                                    } else {
+                                        new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                                    }
                                     $roll_self.addClass('dc-crit');
                                 }
                                 else {
