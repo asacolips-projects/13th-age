@@ -1,5 +1,43 @@
 export default class ArchmageRolls {
 
+  static async rollItemTargets(item) {
+    let targets = 1;
+    let targetLine = item.data.data.target.value;
+    let rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+    if (rolls !== undefined) {
+      // Roll the targets now
+      await ArchmageRolls._roll(rolls, item.actor);
+      targets = 0;
+      rolls.forEach(r => targets += r.total);
+    } else {
+      // Try NLP to guess targets
+      let nlpMap = {
+        "two ": 2,
+        "three ": 3,
+        "four ": 4,
+        "five ": 5
+      } // TODO: handle localization?
+      let keys = Object.keys(nlpMap);
+      for ( let x = 0; x < keys.length; x++) {
+        if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+      }
+    }
+
+    console.log(targets);
+    return targets;
+  }
+
+  static async _roll(rolls, actor, key=undefined) {
+    for (let x of rolls) {
+      await x.evaluate({async: true}).then(() => {
+        x.data.inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(x);
+        if (key == "attack") {
+          x.data.critResult = ArchmageRolls._inlineRollCritTest(x, actor);
+        }
+      });
+    }
+  }
+
   static async rollItem(item) {
     let rollData = {};
 
@@ -14,16 +52,7 @@ export default class ArchmageRolls {
 
       if (rolls) {
         console.log(rolls);
-        let promises = [];
-        for ( let x of rolls) {
-          promises.push(x.evaluate({async: true}).then(() => {
-            x.data.inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(x);
-            if (key == "attack") {
-            x.data.critResult = ArchmageRolls._inlineRollCritTest(x, item.actor);
-            }
-          }));
-        };
-        await Promise.all(promises);
+        ArchmageRolls._roll(rolls, item.actor, key);
         rollData[key] = rolls;
       }
     }

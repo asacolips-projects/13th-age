@@ -161,6 +161,8 @@ export class ItemArchmage extends Item {
       item: this.data,
       data: this.getChatData()
     };
+    
+    let numTargets = await ArchmageRolls.rollItemTargets(this);
 
     //let rollData = await ArchmageRolls.rollItem(this);
 
