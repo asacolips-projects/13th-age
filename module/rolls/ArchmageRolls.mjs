@@ -7,7 +7,11 @@ export default class ArchmageRolls {
       "two ": 2,
       "three ": 3,
       "four ": 4,
-      "five ": 5
+      "five ": 5,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5
     }
 
     if (item.data.type == "power") {
@@ -148,6 +152,12 @@ export default class ArchmageRolls {
             else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
               && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
               return 'crit';
+            }
+            // Natural 2, if dual-wielding.
+            else if (actor && actor.data.type === 'character'
+              && actor.data.data.attributes.weapon.melee.dualwield
+              && r.result === 2 && !r.discarded && !r.rerolled) {
+              return 'reroll';
             }
             else {
               return 'normal';
