@@ -2,28 +2,41 @@ export default class ArchmageRolls {
 
   static async rollItemTargets(item) {
     let targets = 1;
-    let targetLine = item.data.data.target.value;
-    let rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
-    if (rolls !== undefined) {
-      // Roll the targets now
-      await ArchmageRolls._roll(rolls, item.actor);
-      targets = 0;
-      rolls.forEach(r => targets += r.total);
-    } else {
-      // Try NLP to guess targets
-      let nlpMap = {
-        "two ": 2,
-        "three ": 3,
-        "four ": 4,
-        "five ": 5
-      } // TODO: handle localization?
-      let keys = Object.keys(nlpMap);
-      for ( let x = 0; x < keys.length; x++) {
-        if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+    // TODO: handle localization?
+    let nlpMap = {
+      "two ": 2,
+      "three ": 3,
+      "four ": 4,
+      "five ": 5
+    }
+
+    if (item.data.type == "power") {
+      let targetLine = item.data.data.target.value;
+      let rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+      if (rolls !== undefined) {
+        // Roll the targets now
+        await ArchmageRolls._roll(rolls, item.actor);
+        targets = 0;
+        rolls.forEach(r => targets += r.total);
+      } else {
+        // Try NLP to guess targets
+        let keys = Object.keys(nlpMap);
+        for (let x = 0; x < keys.length; x++) {
+          if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+        }
+      }
+    }
+    else if (item.data.type == "action") {
+      let targetLine = /(\(.*\))/.exec(item.data.data.attack.value);
+      if (targetLine != null) {
+        targetLine = targetLine[0];
+        let keys = Object.keys(nlpMap);
+        for (let x = 0; x < keys.length; x++) {
+          if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+        }
       }
     }
 
-    console.log(targets);
     return targets;
   }
 
