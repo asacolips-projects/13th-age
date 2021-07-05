@@ -152,6 +152,13 @@ export class ItemArchmage extends Item {
       if (!isObjectEmpty(updateData)) this.actor.update(updateData);
     }
 
+    // Replicate attack rolls as needed
+    let numTargets = await ArchmageRolls.rollItemTargets(this);
+    let newAttackLine = ArchmageRolls.rollItemAdjustAttacks(this, numTargets);
+    // Make a copy of the original attack value
+    let old_attack = duplicate(this.data.data.attack.value);
+    await this.update({"data.attack.value": newAttackLine});
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = this.actor.token;
@@ -161,8 +168,6 @@ export class ItemArchmage extends Item {
       item: this.data,
       data: this.getChatData()
     };
-    
-    let numTargets = await ArchmageRolls.rollItemTargets(this);
 
     //let rollData = await ArchmageRolls.rollItem(this);
 
@@ -190,6 +195,9 @@ export class ItemArchmage extends Item {
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
 
     preCreateChatMessageHandler.handle(chatData, null, null);
+
+    // Revert attack line to original
+    await this.update({"data.attack.value": old_attack});
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {

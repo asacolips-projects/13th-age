@@ -1,5 +1,28 @@
 export default class ArchmageRolls {
 
+  static async rollItem(item) {
+    let rollData = {};
+
+    let keys = Object.keys(item.data.data);
+    for ( let x = 0; x < keys.length; x++) {
+      let key = keys[x];
+      let field = item.data.data[key];
+      console.log(field);
+      if (!field?.value) continue;
+
+      let rolls = ArchmageRolls._getInlineRolls(field.value, item.actor.getRollData());
+
+      if (rolls) {
+        console.log(rolls);
+        ArchmageRolls._roll(rolls, item.actor, key);
+        rollData[key] = rolls;
+      }
+    }
+
+    console.log(rollData);
+    return rollData;
+  }
+
   static async rollItemTargets(item) {
     let targets = 1;
     // TODO: handle localization?
@@ -44,6 +67,22 @@ export default class ArchmageRolls {
     return targets;
   }
 
+  static rollItemAdjustAttacks(item, numTargets) {
+    let newAttackLine = item.data.data.attack.value;
+    // Split string into first inline roll and vs, and repeat roll as needed
+    let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
+    if (match) {
+      let roll = match[1];
+      let vs = match[2];
+      newAttackLine = roll
+      for (let i=1; i<numTargets; i++) {
+        newAttackLine += ", " + roll;
+      }
+      newAttackLine += vs;
+    }
+    return newAttackLine;
+  }
+
   static async _roll(rolls, actor, key=undefined) {
     for (let x of rolls) {
       await x.evaluate({async: true}).then(() => {
@@ -53,29 +92,6 @@ export default class ArchmageRolls {
         }
       });
     }
-  }
-
-  static async rollItem(item) {
-    let rollData = {};
-
-    let keys = Object.keys(item.data.data);
-    for ( let x = 0; x < keys.length; x++) {
-      let key = keys[x];
-      let field = item.data.data[key];
-      console.log(field);
-      if (!field?.value) continue;
-
-      let rolls = ArchmageRolls._getInlineRolls(field.value, item.actor.getRollData());
-
-      if (rolls) {
-        console.log(rolls);
-        ArchmageRolls._roll(rolls, item.actor, key);
-        rollData[key] = rolls;
-      }
-    }
-
-    console.log(rollData);
-    return rollData;
   }
 
   static _getInlineRolls(text, data) {
