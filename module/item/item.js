@@ -154,9 +154,8 @@ export class ItemArchmage extends Item {
 
     // Replicate attack rolls as needed
     let numTargets = await ArchmageRolls.rollItemTargets(this);
+    let oldAttackLine = duplicate(this.data.data.attack.value);
     let newAttackLine = ArchmageRolls.rollItemAdjustAttacks(this, numTargets);
-    // Make a copy of the original attack value
-    let old_attack = duplicate(this.data.data.attack.value);
     await this.update({"data.attack.value": newAttackLine});
 
     // Basic template rendering data
@@ -197,7 +196,7 @@ export class ItemArchmage extends Item {
     preCreateChatMessageHandler.handle(chatData, null, null);
 
     // Revert attack line to original
-    await this.update({"data.attack.value": old_attack});
+    await this.update({"data.attack.value": oldAttackLine});
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {

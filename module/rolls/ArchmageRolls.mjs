@@ -54,12 +54,22 @@ export default class ArchmageRolls {
       }
     }
     else if (item.data.type == "action") {
+      // Get text between brackets, that's where targets are stored
       let targetLine = /(\(.*\))/.exec(item.data.data.attack.value);
       if (targetLine != null) {
         targetLine = targetLine[0];
-        let keys = Object.keys(nlpMap);
-        for (let x = 0; x < keys.length; x++) {
-          if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+        // First check for rolls
+        let rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        if (rolls !== undefined) {
+          // Roll the targets now
+          await ArchmageRolls._roll(rolls, item.actor);
+          targets = 0;
+          rolls.forEach(r => targets += r.total);
+        } else {
+          let keys = Object.keys(nlpMap);
+          for (let x = 0; x < keys.length; x++) {
+            if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+          }
         }
       }
     }
@@ -78,7 +88,7 @@ export default class ArchmageRolls {
       for (let i=1; i<numTargets; i++) {
         newAttackLine += ", " + roll;
       }
-      newAttackLine += vs;
+      newAttackLine += " " + vs;
     }
     return newAttackLine;
   }
