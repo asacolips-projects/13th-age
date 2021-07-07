@@ -20,10 +20,6 @@ export default class preCreateChatMessageHandler {
 
         if (data?.speaker?.actor) {
             actor = game.actors.get(data.speaker.actor);
-        //     if (data.speaker.token) {
-        //         let token = canvas.tokens.get(data.speaker.token);
-        //         actor = token.actor;
-        //     }
         }
 
         // Iterate through inline rolls, add a class to crits/fails.
