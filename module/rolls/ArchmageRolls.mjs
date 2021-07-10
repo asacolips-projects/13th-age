@@ -50,7 +50,7 @@ export default class ArchmageRolls {
         rolls.forEach(r => {
           targets += r.total;
           // Save outcomes in target line string
-          newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.data.inlineRoll.outerHTML)
+          newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
         });
       } else {
         // Try NLP to guess targets
@@ -102,7 +102,7 @@ export default class ArchmageRolls {
         let pre = match[1];
         let roll = match[2];
         let post = match[3];
-        newAttackLine += " " + pre + numTargets.rolls[0].data.inlineRoll.outerHTML + post;
+        newAttackLine += " " + pre + numTargets.rolls[0].inlineRoll.outerHTML + post;
       }
       else newAttackLine += " " + vs;
     }
@@ -110,13 +110,10 @@ export default class ArchmageRolls {
   }
 
   static async _roll(rolls, actor, key=undefined) {
-    for (let x of rolls) {
-      await x.evaluate({async: true}).then(() => {
-        x.data.inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(x);
-        if (key == "attack") {
-          x.data.critResult = ArchmageRolls._inlineRollCritTest(x, actor);
-        }
-      });
+    for (let i=0; i<rolls.length; i++) {
+      rolls[i].evaluate({async: false});
+      rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
+      if (key == "attack") rolls[i].critResult = ArchmageRolls._inlineRollCritTest(rolls[i], actor);
     }
   }
 
@@ -144,7 +141,7 @@ export default class ArchmageRolls {
   }
 
   static _createInlineRollElementFromRoll(roll) {
-    const data = {
+    let data = {
       cls: ["inline-roll"],
       dataset: {}
     };
@@ -159,7 +156,7 @@ export default class ArchmageRolls {
     catch(err) { return null; }
 
     // Construct and return the formed link element
-    const a = document.createElement('a');
+    let a = document.createElement('a');
     a.classList.add(...data.cls);
     a.title = data.title;
     for (let [k, v] of Object.entries(data.dataset)) {
