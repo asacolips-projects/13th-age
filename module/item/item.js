@@ -209,10 +209,11 @@ export class ItemArchmage extends Item {
             let $row_self = $(this);
             let row_text = $row_self.html();
             // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:') || row_text.includes('Hit:')) {
+            if (row_text.includes('Attack:') || row_text.includes('Hit:')
+              || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
-                rolls.push(Roll.fromJSON(unescape($roll_html.data('roll'))));
+                $roll_html.each(function(i, e){rolls.push(Roll.fromJSON(unescape(e.dataset.roll)))});
               }
             }
           });

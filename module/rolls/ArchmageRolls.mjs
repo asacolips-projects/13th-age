@@ -95,7 +95,8 @@ export default class ArchmageRolls {
       for (let i=1; i<numTargets.targets; i++) {
         newAttackLine += ", " + roll;
       }
-      if (item.data.type == "action" && numTargets.rolls.length > 0) {
+      if (item.data.type == "action" && numTargets.rolls
+        && numTargets.rolls.length > 0) {
         // Embed pre-rolled targets
         match = /(.+?)(\[\[.+?\]\])(.+)/.exec(vs);
         let pre = match[1];
