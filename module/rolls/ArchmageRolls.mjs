@@ -95,16 +95,13 @@ export default class ArchmageRolls {
       for (let i=1; i<numTargets.targets; i++) {
         newAttackLine += ", " + roll;
       }
-      if (item.data.type == "action" && numTargets.rolls
-        && numTargets.rolls.length > 0) {
-        // Embed pre-rolled targets
-        match = /(.+?)(\[\[.+?\]\])(.+)/.exec(vs);
-        let pre = match[1];
-        let roll = match[2];
-        let post = match[3];
-        newAttackLine += " " + pre + numTargets.rolls[0].inlineRoll.outerHTML + post;
+      if (item.data.type == "action" && numTargets.rolls) {
+        numTargets.rolls.forEach(r => {
+          // Embed pre-rolled targets
+          vs = vs.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
+        });
       }
-      else newAttackLine += " " + vs;
+      newAttackLine += " " + vs;
     }
     return newAttackLine;
   }
