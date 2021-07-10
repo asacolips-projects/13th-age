@@ -44,7 +44,7 @@ export default class ArchmageRolls {
       rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
       if (rolls !== undefined) {
         // Roll the targets now
-        await ArchmageRolls._roll(rolls, item.actor);
+        ArchmageRolls._roll(rolls, item.actor);
         targets = 0;
         newTargetLine = duplicate(targetLine);
         rolls.forEach(r => {
@@ -69,7 +69,7 @@ export default class ArchmageRolls {
         rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
         if (rolls !== undefined) {
           // Roll the targets now
-          await ArchmageRolls._roll(rolls, item.actor);
+          ArchmageRolls._roll(rolls, item.actor);
           targets = 0;
           rolls.forEach(r => targets += r.total);
         } else {
@@ -106,7 +106,7 @@ export default class ArchmageRolls {
     return newAttackLine;
   }
 
-  static async _roll(rolls, actor, key=undefined) {
+  static _roll(rolls, actor, key=undefined) {
     for (let i=0; i<rolls.length; i++) {
       rolls[i].evaluate({async: false});
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);

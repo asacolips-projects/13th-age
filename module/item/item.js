@@ -158,6 +158,8 @@ export class ItemArchmage extends Item {
     if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
     let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
 
+    //await ArchmageRolls.rollItem(itemToRender);
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = itemToRender.actor.token;
@@ -167,8 +169,6 @@ export class ItemArchmage extends Item {
       item: itemToRender.data,
       data: itemToRender.getChatData()
     };
-
-    //let rollData = await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {
