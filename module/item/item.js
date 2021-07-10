@@ -154,11 +154,9 @@ export class ItemArchmage extends Item {
 
     // Replicate attack rolls as needed
     let numTargets = await ArchmageRolls.rollItemTargets(this);
-    let newTargetline = numTargets.targetLine;
-    let newAttackLine = ArchmageRolls.rollItemAdjustAttacks(this, numTargets);
-    let itemToRender = this.clone({"data.attack.value": newAttackLine,
-                                   "data.attack.target": newTargetline ? newTargetline : undefined}, 
-                                  {"save": false, "keepId": false})
+    let newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
+    if (numTargets.targetLine) newItemData["data.attack.target"] = numTargets.targetLine;
+    let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
 
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
