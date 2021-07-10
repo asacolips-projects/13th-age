@@ -24,6 +24,8 @@ export default class ArchmageRolls {
   }
 
   static async rollItemTargets(item) {
+    let rolls = [];
+    let newTargetLine = undefined;
     let targets = 1;
     // TODO: handle localization?
     let nlpMap = {
@@ -39,12 +41,17 @@ export default class ArchmageRolls {
 
     if (item.data.type == "power") {
       let targetLine = item.data.data.target.value;
-      let rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+      rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
       if (rolls !== undefined) {
         // Roll the targets now
         await ArchmageRolls._roll(rolls, item.actor);
         targets = 0;
         rolls.forEach(r => targets += r.total);
+        // Save outcomes in target line string
+        newTargetLine = "";
+        rolls.forEach(r => {
+          //TODO: embed rolls
+        });
       } else {
         // Try NLP to guess targets
         let keys = Object.keys(nlpMap);
@@ -59,7 +66,7 @@ export default class ArchmageRolls {
       if (targetLine != null) {
         targetLine = targetLine[0];
         // First check for rolls
-        let rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
         if (rolls !== undefined) {
           // Roll the targets now
           await ArchmageRolls._roll(rolls, item.actor);
@@ -74,7 +81,7 @@ export default class ArchmageRolls {
       }
     }
 
-    return targets;
+    return {targets: targets, rolls: rolls, targetLine: newTargetLine};
   }
 
   static rollItemAdjustAttacks(item, numTargets) {
@@ -85,10 +92,18 @@ export default class ArchmageRolls {
       let roll = match[1];
       let vs = match[2];
       newAttackLine = roll
-      for (let i=1; i<numTargets; i++) {
+      for (let i=1; i<numTargets.targets; i++) {
         newAttackLine += ", " + roll;
       }
-      newAttackLine += " " + vs;
+      if (item.data.type == "action" && numTargets.rolls.length > 0) {
+        // Embed pre-rolled targets
+        match = /(.+?)(\[\[.+?\]\])(.+)/.exec(vs);
+        let pre = match[1];
+        let roll = match[2];
+        let post = match[3];
+        newAttackLine += " " + pre + numTargets.rolls[0].data.inlineRoll.outerHTML + post;
+      }
+      else newAttackLine += " " + vs;
     }
     return newAttackLine;
   }
@@ -135,7 +150,8 @@ export default class ArchmageRolls {
 
     try {
       data.cls.push("inline-result");
-      data.label = label ? `${label}: ${roll.total}` : roll.total;
+      // data.label = label ? `${label}: ${roll.total}` : roll.total;
+      data.label = roll.total;
       data.title = roll.formula;
       data.dataset.roll = escape(JSON.stringify(roll));
     }

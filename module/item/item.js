@@ -154,18 +154,20 @@ export class ItemArchmage extends Item {
 
     // Replicate attack rolls as needed
     let numTargets = await ArchmageRolls.rollItemTargets(this);
-    let oldAttackLine = duplicate(this.data.data.attack.value);
+    let newTargetline = numTargets.targetLine;
     let newAttackLine = ArchmageRolls.rollItemAdjustAttacks(this, numTargets);
-    await this.update({"data.attack.value": newAttackLine});
+    let itemToRender = this.clone({"data.attack.value": newAttackLine,
+                                   "data.attack.target": newTargetline ? newTargetline : undefined}, 
+                                  {"save": false, "keepId": false})
 
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
-    const token = this.actor.token;
+    const token = itemToRender.actor.token;
     const templateData = {
-      actor: this.actor,
+      actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
-      item: this.data,
-      data: this.getChatData()
+      item: itemToRender.data,
+      data: itemToRender.getChatData()
     };
 
     //let rollData = await ArchmageRolls.rollItem(this);
@@ -174,9 +176,9 @@ export class ItemArchmage extends Item {
     const chatData = {
       user: game.user.id,
       speaker: {
-        actor: this.actor.id,
-        token: this.actor.token,
-        alias: this.actor.name,
+        actor: itemToRender.actor.id,
+        token: itemToRender.actor.token,
+        alias: itemToRender.actor.name,
         scene: game.user.viewedScene
       },
       roll: new Roll("") // Needed to silence an error in 0.8.x
@@ -191,12 +193,9 @@ export class ItemArchmage extends Item {
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
 
     preCreateChatMessageHandler.handle(chatData, null, null);
-
-    // Revert attack line to original
-    await this.update({"data.attack.value": oldAttackLine});
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {
