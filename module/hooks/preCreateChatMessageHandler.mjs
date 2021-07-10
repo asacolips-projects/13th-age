@@ -5,12 +5,13 @@ import Triggers from "../Triggers/Triggers.mjs";
 
 export default class preCreateChatMessageHandler {
 
-    static handle(data, options, userId) {
+    static handle(data, options={targets: 1}, userId=null) {
         let $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rolls = $content.find('.inline-result');
         let updated_content = null;
         let hitEvaluationResults = undefined;
         let targets = [...game.user.targets.values()];
+        let numTargets = options.targets;
 
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
@@ -40,24 +41,11 @@ export default class preCreateChatMessageHandler {
             }
 
             let rollResult = 0;
-            // console.log(roll_data);
-
-            if (!isNewerVersion(game.data.version, "0.7")) {
-                roll_data.parts.forEach(p => {
-                    if (p.faces === 20) {
-                        rollResult = p.total;
-                    }
-                });
-            }
-            else {
-                roll_data.terms.forEach(p => {
-                    if (p.faces === 20) {
-                        rollResult = p.total;
-                    }
-                });
-            }
-
-
+            roll_data.terms.forEach(p => {
+                if (p.faces === 20) {
+                    rollResult = p.total;
+                }
+            });
 
             // Update the array of roll HTML elements.
             $rolls[i] = $roll[0];
@@ -91,10 +79,10 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text.includes('Attack:')) {
-                    if (row_text.includes('dc-crit')) {
+                    if (row_text.includes('dc-crit') && numTargets == 1) {
                         has_crit = true;
                     }
-                    if (row_text.includes('dc-fail')) {
+                    if (row_text.includes('dc-fail') && numTargets == 1) {
                         has_fail = true;
                     }
 
