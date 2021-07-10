@@ -46,11 +46,11 @@ export default class ArchmageRolls {
         // Roll the targets now
         await ArchmageRolls._roll(rolls, item.actor);
         targets = 0;
-        rolls.forEach(r => targets += r.total);
-        // Save outcomes in target line string
-        newTargetLine = "";
+        newTargetLine = duplicate(targetLine);
         rolls.forEach(r => {
-          //TODO: embed rolls
+          targets += r.total;
+          // Save outcomes in target line string
+          newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.data.inlineRoll.outerHTML)
         });
       } else {
         // Try NLP to guess targets
