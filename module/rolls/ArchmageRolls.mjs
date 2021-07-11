@@ -27,16 +27,13 @@ export default class ArchmageRolls {
     let rolls = [];
     let newTargetLine = undefined;
     let targets = 1;
-    // TODO: handle localization?
-    let nlpMap = {
-      "two ": 2,
-      "three ": 3,
-      "four ": 4,
-      "five ": 5,
-      2: 2,
-      3: 3,
-      4: 4,
-      5: 5
+    let nlpMap = {}
+    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.two")+" "] = 2;
+    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.three")+" "] = 3;
+    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.four")+" "] = 4;
+    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.five")+" "] = 5;
+    for (let i=2; i<5; i++) {
+      nlpMap[i.toString()] = i;
     }
 
     if (item.data.type == "power") {
