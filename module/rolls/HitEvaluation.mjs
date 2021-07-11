@@ -25,6 +25,11 @@ export default class HitEvaluation {
           let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
           let rollTotal = roll_data.total;
 
+          // Skip if not a d20 roll
+          let isD20 = false;
+          roll_data.terms.forEach(p => {if (p.faces === 20) isD20 = true;});
+          if (!isD20) return;
+
           let target = targets[roll_index];
           var targetDefense = HitEvaluation._getTargetDefenseValue(target, defense);
           defenses.push(targetDefense);
