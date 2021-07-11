@@ -76,6 +76,10 @@ export default class ArchmageRolls {
             for (let x = 0; x < keys.length; x++) {
               if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
             }
+            // Handle "each"
+            if (targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.each"))) {
+              targets = Math.max(game.user.targets.size, 1);
+            }
           }
         }
       }
