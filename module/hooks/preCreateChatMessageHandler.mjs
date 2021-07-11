@@ -5,13 +5,14 @@ import Triggers from "../Triggers/Triggers.mjs";
 
 export default class preCreateChatMessageHandler {
 
-    static handle(data, options={targets: 1}, userId=null) {
+    static handle(data, options, userId) {
         let $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rolls = $content.find('.inline-result');
         let updated_content = null;
         let hitEvaluationResults = undefined;
         let targets = [...game.user.targets.values()];
-        let numTargets = options.targets;
+        let numTargets = 1;
+        if (options.targets) numTargets = options.targets;
 
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
@@ -101,8 +102,8 @@ export default class preCreateChatMessageHandler {
                 }
 
 
-                // Append hit targets to text
                 if (hitEvaluationResults) {
+                    // Append hit targets to text
                     if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit.join(", ") + ") </span>")
                     }
@@ -110,6 +111,11 @@ export default class preCreateChatMessageHandler {
                     // Append missed targets to text
                     if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
                         $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed.join(", ") + ") </span>")
+                    }
+
+                    // Append target defenses to text
+                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0) {
+                        $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
                 }
 

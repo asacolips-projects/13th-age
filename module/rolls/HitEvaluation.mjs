@@ -4,10 +4,10 @@ export default class HitEvaluation {
 
     static checkRowText(row_text, targets, $row_self) {
         // If the user currently has Targets selected, try and figure out if we hit or missed said target
-        //console.log(targets);
 
         let targetsHit = [];
         let targetsMissed = [];
+        let defenses = [];
         let hasHit = undefined;
         let hasMissed = undefined;
 
@@ -27,6 +27,7 @@ export default class HitEvaluation {
 
           let target = targets[roll_index];
           var targetDefense = HitEvaluation._getTargetDefenseValue(target, defense);
+          defenses.push(targetDefense);
 
           var hit = rollTotal >= targetDefense;
           if (hit) {
@@ -45,14 +46,14 @@ export default class HitEvaluation {
             targetsHit: targetsHit,
             targetsMissed: targetsMissed,
             hasHit: hasHit,
-            hasMissed: hasMissed
+            hasMissed: hasMissed,
+            defenses: defenses
         };
         
     }
 
     // Get either the Token overridden value or the base sheet value
     static _getTargetDefenseValue(target, defense) {
-        //console.log(target);
         if (target.data?.actorData?.data?.attributes != undefined) {
             // Return token overridden value
             if (target.data.actorData.data.attributes[defense]) {
