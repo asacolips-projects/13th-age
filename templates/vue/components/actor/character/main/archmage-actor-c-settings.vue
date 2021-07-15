@@ -123,9 +123,11 @@ export default {
   data: function() {
     return {
       resourceRestTypes: [
-        { value: 'none', label: 'Never' },
-        { value: 'quick', label: 'Quick Rest' },
-        { value: 'full', label: 'Full Heal-Up' },
+        { value: 'none', label: 'Do nothing' },
+        { value: 'quick', label: 'Refill on Quick Restt' },
+        { value: 'full', label: 'Refill on Full Heal-Up' },
+        { value: 'quickreset', label: 'Reset on Quick Rest' },
+        { value: 'fullreset', label: 'Reset on Full Heal-Up' },
       ],
       resourceRest: 'none'
     }
