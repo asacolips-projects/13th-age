@@ -701,7 +701,8 @@ export class ActorArchmage extends Actor {
           && max && curr < max) {
           updateData[path] = max;
         }
-        else if (this.data.data.resources.spendable[resourcePathName].rest == "quickreset") {
+        else if (this.data.data.resources.spendable[resourcePathName].rest == "quickreset"
+          && curr > 0) {
           updateData[path] = 0;
         }
         if (updateData[path] !== undefined) {
@@ -813,8 +814,9 @@ export class ActorArchmage extends Actor {
           && max && curr < max) {
           updateData[path] = max;
         }
-        else if (this.data.data.resources.spendable[resourcePathName].rest == "fullreset"
-          || this.data.data.resources.spendable[resourcePathName].rest == "quickreset") {
+        else if ((this.data.data.resources.spendable[resourcePathName].rest == "fullreset"
+          || this.data.data.resources.spendable[resourcePathName].rest == "quickreset")
+          && curr > 0) {
           updateData[path] = 0;
         }
         if (updateData[path] !== undefined) {
