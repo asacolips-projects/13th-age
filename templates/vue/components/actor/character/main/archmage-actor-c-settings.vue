@@ -106,7 +106,7 @@
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', r))}}</strong>
           <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
           <br/>
-          {{localize(concat('ARCHMAGE.RESTS.header'))}}:&nbsp;
+          &nbsp;&nbsp;{{localize(concat('ARCHMAGE.RESTS.header'))}}:&nbsp;
           <select :name="concat('data.resources.spendable.', r, '.rest')" v-model="resource.rest">
             <option v-for="(option, index) in resourceRestTypes" :key="index" :value="option.value">
             {{localize(concat('ARCHMAGE.RESTS.',option.value))}}</option>
@@ -128,8 +128,7 @@ export default {
         { value: 'full', label: 'Refill on Full Heal-Up' },
         { value: 'quickreset', label: 'Reset on Quick Rest' },
         { value: 'fullreset', label: 'Reset on Full Heal-Up' },
-      ],
-      resourceRest: 'none'
+      ]
     }
   },
   computed: {
