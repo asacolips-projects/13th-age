@@ -105,6 +105,12 @@
         <div v-for="(resource, r) in resources" :key="r" class="settings-resource" :data-key="r">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', r))}}</strong>
           <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
+          <br/>
+          {{localize(concat('ARCHMAGE.RESTS.header'))}}:&nbsp;
+          <select :name="concat('data.resources.spendable.', r, '.rest')" v-model="resource.rest">
+            <option v-for="(option, index) in resourceRestTypes" :key="index" :value="option.value">
+            {{localize(concat('ARCHMAGE.RESTS.',option.value))}}</option>
+          </select>
         </div>
       </div>
     </section>
@@ -114,7 +120,16 @@
 <script>
 export default {
   props: ['actor', 'owner', 'tab'],
-  data: () => ({}),
+  data: function() {
+    return {
+      resourceRestTypes: [
+        { value: 'none', label: 'Never' },
+        { value: 'quick', label: 'Quick Rest' },
+        { value: 'full', label: 'Full Heal-Up' },
+      ],
+      resourceRest: 'none'
+    }
+  },
   computed: {
     flags() {
       let flags = CONFIG.Actor.characterFlags;
