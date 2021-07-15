@@ -693,24 +693,23 @@ export class ActorArchmage extends Actor {
       let resourcePathName = "custom"+idx;
       let resourceName = this.data.data.resources.spendable[resourcePathName].label;
       let curr = this.data.data.resources.spendable[resourcePathName].current;
-      if (this.data.data.resources.spendable[resourcePathName].enabled) {
+      if (this.data.data.resources.spendable[resourcePathName].enabled
+        && this.data.data.resources.spendable[resourcePathName].rest != "none") {
         let max = this.data.data.resources.spendable[resourcePathName].max;
         let path = `data.resources.spendable.${resourcePathName}.current`;
         if (this.data.data.resources.spendable[resourcePathName].rest == "quick"
           && max && curr < max) {
           updateData[path] = max;
-          templateData.resources.push({
-            key: resourceName,
-            message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${max}`
-          });
         }
         else if (this.data.data.resources.spendable[resourcePathName].rest == "quickreset") {
-            updateData[path] = 0;
-            templateData.resources.push({
-              key: resourceName,
-              message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} 0`
-            });
-          }
+          updateData[path] = 0;
+        }
+        if (updateData[path] !== undefined) {
+          templateData.resources.push({
+            key: resourceName,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${updateData[path]}`
+          });
+        }
       }
     }
 
@@ -805,26 +804,25 @@ export class ActorArchmage extends Actor {
       let resourcePathName = "custom"+idx;
       let resourceName = this.data.data.resources.spendable[resourcePathName].label;
       let curr = this.data.data.resources.spendable[resourcePathName].current;
-      if (this.data.data.resources.spendable[resourcePathName].enabled) {
+      if (this.data.data.resources.spendable[resourcePathName].enabled
+        && this.data.data.resources.spendable[resourcePathName].rest != "none") {
         let max = this.data.data.resources.spendable[resourcePathName].max;
         let path = `data.resources.spendable.${resourcePathName}.current`;
         if ((this.data.data.resources.spendable[resourcePathName].rest == "full"
           || this.data.data.resources.spendable[resourcePathName].rest == "quick")
           && max && curr < max) {
           updateData[path] = max;
+        }
+        else if (this.data.data.resources.spendable[resourcePathName].rest == "fullreset"
+          || this.data.data.resources.spendable[resourcePathName].rest == "quickreset") {
+          updateData[path] = 0;
+        }
+        if (updateData[path] !== undefined) {
           templateData.resources.push({
             key: resourceName,
-            message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${max}`
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${updateData[path]}`
           });
         }
-        else if (this.data.data.resources.spendable[resourcePathName].rest == "fullreset" ||
-          this.data.data.resources.spendable[resourcePathName].rest == "quickreset") {
-            updateData[path] = 0;
-            templateData.resources.push({
-              key: resourceName,
-              message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} 0`
-            });
-          }
       }
     }
 
