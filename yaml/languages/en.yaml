@@ -345,8 +345,10 @@ ARCHMAGE.CHAT.QuickRestHP1: rolled
 ARCHMAGE.CHAT.QuickRestHP2: recoveries healing
 ARCHMAGE.CHAT.FullHealHP: reset to maximum
 ARCHMAGE.CHAT.HP: HP
-ARCHMAGE.CHAT.ConfirmDialog: No uses left, are you sure you want to use this?
+ARCHMAGE.CHAT.NoUses: No uses left
+ARCHMAGE.CHAT.NoUsesMsg: No uses left, are you sure you want to use this?
 ARCHMAGE.CHAT.Use: Use
+ARCHMAGE.CHAT.NoResources: Not enough resources
 # NPC Chat Cards
 ARCHMAGE.CHAT.hit1: Special Hit (1)
 ARCHMAGE.CHAT.hit2: Special Hit (2)
@@ -364,11 +366,12 @@ ARCHMAGE.SAVE.disengage: Disengage
 ARCHMAGE.SAVE.success: Succeeded
 ARCHMAGE.SAVE.failure: Failed
 # UI Messages
-ARCHMAGE.UI.errNotEnoughCP: You don't have enough Command Points to use this command.
-ARCHMAGE.UI.errNotEnoughKi: You don't have enough Ki to use this power.
-ARCHMAGE.UI.errNoMomentum: You need Momentum to use this power.
-ARCHMAGE.UI.errNoFocus: You need Focus to use this power.
+ARCHMAGE.UI.errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
+ARCHMAGE.UI.errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
+ARCHMAGE.UI.errNoMomentum: You need Momentum to use this power. Use anyway?
+ARCHMAGE.UI.errNoFocus: You need Focus to use this power. Use anyway?
 ARCHMAGE.UI.errNoCustomResource: You don't have enough
+ARCHMAGE.UI.errNoCustomResource2: Use anyway?
 ARCHMAGE.UI.errBonus: must be an integer number prepended by either + or -
 ARCHMAGE.UI.errDependency: The <strong>vueport</strong> and <strong>dlopen</strong> modules are required for the V2 character sheet. Return to the Foundry setup page and use the module installer to install both of those modules to allow the V2 character sheet to be available.
 ARCHMAGE.UI.enableDependencies: Enable dependencies?
