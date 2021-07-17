@@ -384,7 +384,7 @@ export class ItemArchmage extends Item {
       };
     });
 
-    const effectKeys = [
+    let effectKeys = [
       'effect',
       'castBroadEffect',
       'castPower',
@@ -398,6 +398,13 @@ export class ItemArchmage extends Item {
       'breathWeapon',
       'special',
     ];
+
+    // Add spell level entries only if the current spell level is high enough
+    [3, 5, 7, 9].forEach(i => {
+      if (Number(data.powerLevel.value) < i) {
+        effectKeys = effectKeys.filter(x => x != `spellLevel${i}`)
+      }
+    })
 
     const effects = effectKeys.map(k => {
       return {
