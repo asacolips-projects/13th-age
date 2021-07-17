@@ -77,7 +77,7 @@ export class ArchmagePrepopulate {
     // Load racial powers
     if (race != '' && this.validRaces.includes(cleanRace)) {
       let racePack = await game.packs.find(p => p.metadata.name == 'races');
-      let pack = await racePack.getContent();
+      let pack = await racePack.getDocuments();
       for (let entry of pack) {
         let sourceName = entry.data.data?.powerSourceName?.value ?? entry.data.data.group.value;
         let raceNamesArray = sourceName.split('/').map(n => this.cleanClassName(n));
@@ -96,7 +96,7 @@ export class ArchmagePrepopulate {
 
     // Load class powers
     for (let i = 0; i < classPacks.length; i++) {
-      let pack = await classPacks[i].getContent();
+      let pack = await classPacks[i].getDocuments();
       content[this.cleanClassName(classPacks[i].metadata.name)] = {
         name: classPacks[i].metadata.label,
         content: pack
@@ -106,7 +106,7 @@ export class ArchmagePrepopulate {
     // Load multiclass powers
     if (classPacks.length > 1) {
       let key = "Multiclass Feats";
-      let pack = await game.packs.find(p => p.metadata.label == key).getContent();
+      let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
       let powers = pack.filter(e => {
         let sourceName = e.data.data?.powerSourceName?.value ?? e.data.data.group.value;
         return classes.includes(this.cleanClassName(sourceName))
@@ -116,7 +116,7 @@ export class ArchmagePrepopulate {
 
     // Load general feats
     let key = "General Feats";
-    let pack = await game.packs.find(p => p.metadata.label == key).getContent();
+    let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
     content[key] = {name: key, content: pack};
 
     return content;
@@ -131,7 +131,7 @@ export class ArchmagePrepopulate {
    */
   async getJournals() {
     let pack = await game.packs.find(p => p.metadata.name == 'classes' && p.metadata.entity == 'JournalEntry');
-    let entries = await pack.getContent();
+    let entries = await pack.getDocuments();
     let content = {};
     for (let i = 0; i < entries.length; i++) {
       content[this.cleanClassName(entries[i].data.name)] = entries[i].data.content;

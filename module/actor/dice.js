@@ -95,11 +95,11 @@ export class DiceArchmage {
 
       // Prepare chat data for the template.
       const chatData = {
-        user: game.user._id,
+        user: game.user.id,
         type: 5,
         roll: roll,
         speaker: {
-          actor: actor._id,
+          actor: actor.id,
           token: actor.token,
           alias: actor.name,
           scene: game.user.viewedScene
@@ -122,7 +122,7 @@ export class DiceArchmage {
       };
 
       // Handle roll visibility.
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // Render the template.

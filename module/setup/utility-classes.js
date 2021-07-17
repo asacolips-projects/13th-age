@@ -173,7 +173,7 @@ export class ArchmageUtility {
     let combatantPlayers = combatant.players.map(c => {
       return c.data._id;
     });
-    if (combatantPlayers.includes(game.user._id)) {
+    if (combatantPlayers.includes(game.user.id)) {
       return true;
     }
     else {
