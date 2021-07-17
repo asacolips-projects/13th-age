@@ -89,14 +89,19 @@ export default class ArchmageRolls {
   }
 
   static rollItemAdjustAttacks(item, numTargets) {
+    // If the user has targeted tokens, limit number of rolls by the lower of
+    // selected targets or number listed on the power. If no targets are
+    // selected, just use the number listed on the power.
+    let selectedTargets = [...game.user.targets];
     let newAttackLine = item.data.data.attack.value;
+    let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
     // Split string into first inline roll and vs, and repeat roll as needed
     let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
     if (match) {
       let roll = match[1];
       let vs = match[2];
       newAttackLine = roll
-      for (let i=1; i<numTargets.targets; i++) {
+      for (let i = 1; i < targetsCount; i++) {
         newAttackLine += ", " + roll;
       }
       if (item.data.type == "action" && numTargets.rolls) {

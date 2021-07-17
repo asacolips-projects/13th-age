@@ -107,7 +107,7 @@ export default class preCreateChatMessageHandler {
                     if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit.join(", ") + ") </span>")
                     }
-    
+
                     // Append missed targets to text
                     if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
                         $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed.join(", ") + ") </span>")
@@ -153,7 +153,7 @@ export default class preCreateChatMessageHandler {
                                 let $roll_self = $(this);
                                 // Retrieve the roll formula.
                                 let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-                                
+
                                 let new_formula = roll_data.formula;
                                 // If there's a crit, double the formula and reroll. If there's a
                                 // fail with no crit, 0 it out.
@@ -171,7 +171,7 @@ export default class preCreateChatMessageHandler {
                                 $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
                                 $roll_self.attr('title', new_roll.formula);
                                 $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
-                            
+
                             });
                         }
                         // Update the row with the new roll(s) markup.
