@@ -1,11 +1,11 @@
 {
   "name": "archmage",
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "author": "Matt Smith & Cody Swendrowski",
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
   "minimumCoreVersion": "0.8.5",
-  "compatibleCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.8",
   "esmodules": [
     "module/archmage.js"
   ],
@@ -198,7 +198,7 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.11.1/raw/archmage.zip?job=build-prod",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.11.2/raw/archmage.zip?job=build-prod",
   "dependencies": [
     {
       "name": "dlopen",
