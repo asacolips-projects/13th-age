@@ -341,16 +341,19 @@ Actor:
           current: 0
           max: 0
           enabled: false
+          rest: "none"
         custom2:
           label: ""
           current: 0
           max: 0
           enabled: false
+          rest: "none"
         custom3:
           label: ""
           current: 0
           max: 0
           enabled: false
+          rest: "none"
     incrementals:
       abilityScoreBonus: false
       extraMagicItem: false
