@@ -48,8 +48,12 @@ let artifactVersion = argv.tag ? argv.tag : argv.branch;
 
 // Update URLs.
 system.url = `https://gitlab.com/${argv.gitlabpath}`;
-system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/system.json?job=${argv.jobname}`;
 system.download = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/archmage.zip?job=${argv.jobname}`;
+
+// Update manifest.
+if (artifactBranch !== 'master') {
+  system.manifest = `https://gitlab.com/${argv.gitlabpath}/-/jobs/artifacts/${artifactVersion}/raw/system.json?job=${argv.jobname}`;
+}
 
 fs.writeFileSync('./system.json', JSON.stringify(system, null, 2));
 console.log(`Build: ${system.version}`);
