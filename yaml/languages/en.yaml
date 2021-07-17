@@ -182,6 +182,12 @@ ARCHMAGE.GROUPS.actionType: Action
 ARCHMAGE.GROUPS.powerUsage: Usage
 ARCHMAGE.GROUPS.powerSource: Class/Race/Item
 ARCHMAGE.GROUPS.group: Custom Groups
+ARCHMAGE.RESTS.none: Do nothing
+ARCHMAGE.RESTS.quick: Refill on Quick Rest
+ARCHMAGE.RESTS.quickreset: Clear on Quick Rest
+ARCHMAGE.RESTS.full: Refill on Full Heal-Up
+ARCHMAGE.RESTS.fullreset: Clear on Full Heal-Up
+ARCHMAGE.RESTS.header: On resting
 ARCHMAGE.filter: Filter
 ARCHMAGE.filterName: Filter by name
 ARCHMAGE.sort: Sort

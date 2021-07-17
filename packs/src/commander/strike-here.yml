@@ -84,7 +84,7 @@ data:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: '4 command points'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
