@@ -171,25 +171,31 @@ export class ItemArchmage extends Item {
   }
 
   async _roll_render(itemUpdateData, actorUpdateData) {
+    // Replicate attack rolls as needed
+    let numTargets = await ArchmageRolls.rollItemTargets(this);
+    let newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
+    if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
+
+    //await ArchmageRolls.rollItem(itemToRender);
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
-    const token = this.actor.token;
+    const token = itemToRender.actor.token;
     const templateData = {
-      actor: this.actor,
+      actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
-      item: this.data,
-      data: this.getChatData()
+      item: itemToRender.data,
+      data: itemToRender.getChatData()
     };
-
-    //let rollData = await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {
       user: game.user.id,
       speaker: {
-        actor: this.actor.id,
-        token: this.actor.token,
-        alias: this.actor.name,
+        actor: itemToRender.actor.id,
+        token: itemToRender.actor.token,
+        alias: itemToRender.actor.name,
         scene: game.user.viewedScene
       },
       roll: new Roll("") // Needed to silence an error in 0.8.x
@@ -204,9 +210,9 @@ export class ItemArchmage extends Item {
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
 
-    preCreateChatMessageHandler.handle(chatData, null, null);
+    preCreateChatMessageHandler.handle(chatData, {targets: numTargets.targets}, null);
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {
@@ -222,10 +228,11 @@ export class ItemArchmage extends Item {
             let $row_self = $(this);
             let row_text = $row_self.html();
             // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:') || row_text.includes('Hit:')) {
+            if (row_text.includes('Attack:') || row_text.includes('Hit:')
+              || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
-                rolls.push(Roll.fromJSON(unescape($roll_html.data('roll'))));
+                $roll_html.each(function(i, e){rolls.push(Roll.fromJSON(unescape(e.dataset.roll)))});
               }
             }
           });
