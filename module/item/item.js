@@ -181,6 +181,7 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
+    // TODO: roll rolls here
     //let rollData = await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
@@ -204,6 +205,8 @@ export class ItemArchmage extends Item {
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
+    // this line causes deprecation warnings due to missing asyinc= for rolls
+    // TODO: remove once rolls are correctly pre-rolled above
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
 
     preCreateChatMessageHandler.handle(chatData, null, null);
