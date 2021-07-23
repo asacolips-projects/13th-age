@@ -228,6 +228,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register("archmage", "multiTargetAttackRolls", {
+    name: "Multi-Target Attack Rolls",
+    hint: "Enable this to automatically duplicate inline attacl rolls for multi-target powers based on the number of targets",
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   game.settings.register("archmage", "hideInsteadOfOpaque", {
     name: "Hide inactive Features / Triggers instead of making them faded-out",
     hint: "Enable this if you prefer not seeing inactive details at all",
