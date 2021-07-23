@@ -171,10 +171,14 @@ export class ItemArchmage extends Item {
   }
 
   async _roll_render(itemUpdateData, actorUpdateData) {
-    // Replicate attack rolls as needed
-    let numTargets = await ArchmageRolls.rollItemTargets(this);
-    let newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
-    if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    let newItemData = {};
+    let numTargets = {targets: 1, rolls: []};
+    // Replicate attack rolls as needed for attacks
+    if (this.data.type == "power" || this.data.type == "action"){
+      numTargets = await ArchmageRolls.rollItemTargets(this);
+      newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
+      if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    }
     let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
 
     //await ArchmageRolls.rollItem(itemToRender);
