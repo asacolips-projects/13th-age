@@ -237,7 +237,15 @@ export class ItemArchmage extends Item {
               || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
-                $roll_html.each(function(i, e){rolls.push(Roll.fromJSON(unescape(e.dataset.roll)))});
+                $roll_html.each(function(i, e){
+                  let roll = Roll.fromJSON(unescape(e.dataset.roll));
+                  if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
+                    // Not an attack roll, usually a target roll, roll first
+                    rolls.unshift(roll);
+                  } else {
+                    rolls.push(roll);
+                  }
+                });
               }
             }
           });
