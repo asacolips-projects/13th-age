@@ -356,21 +356,21 @@ export class ActorArchmage extends Actor {
 
     if (this.items) {
       this.items.forEach(function(item) {
-        if (item.type === 'equipment') {
-          meleeAttackBonus = Math.max(meleeAttackBonus, getBonusOr0(item.data.data.attributes.attack.melee));
-          rangedAttackBonus = Math.max(rangedAttackBonus, getBonusOr0(item.data.data.attributes.attack.ranged));
-          divineAttackBonus = Math.max(divineAttackBonus, getBonusOr0(item.data.data.attributes.attack.divine));
-          arcaneAttackBonus = Math.max(arcaneAttackBonus, getBonusOr0(item.data.data.attributes.attack.arcane));
+        if (item.type === 'equipment' && item.data.data.isActive) {
+          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
+          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
+          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
+          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
 
-          acBonus = Math.max(acBonus, getBonusOr0(item.data.data.attributes.ac));
-          mdBonus = Math.max(mdBonus, getBonusOr0(item.data.data.attributes.md));
-          pdBonus = Math.max(pdBonus, getBonusOr0(item.data.data.attributes.pd));
+          acBonus += getBonusOr0(item.data.data.attributes.ac);
+          mdBonus += getBonusOr0(item.data.data.attributes.md);
+          pdBonus += getBonusOr0(item.data.data.attributes.pd);
 
-          hpBonus = Math.max(hpBonus, getBonusOr0(item.data.data.attributes.hp));
-          recoveriesBonus = Math.max(recoveriesBonus, getBonusOr0(item.data.data.attributes.recoveries));
+          hpBonus += getBonusOr0(item.data.data.attributes.hp);
+          recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          saveBonus = Math.max(saveBonus, getBonusOr0(item.data.data.attributes.save));
-          disengageBonus = Math.max(disengageBonus, getBonusOr0(item.data.data.attributes.disengage));
+          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });
     }
@@ -660,7 +660,7 @@ export class ActorArchmage extends Actor {
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
+    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
 
     if (data.average) {
@@ -680,7 +680,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Half healing for recoveries we do NOT have
-    if (Number(totalRecoveries) <= 0) {
+    if (Number(totalRecoveries) <= 0 && !data.free) {
       formula = `floor((${formula})/2)`;
     }
 
@@ -723,7 +723,8 @@ export class ActorArchmage extends Actor {
     }
 
     // If 3d dice are enabled, handle them
-    if (game.dice3d  && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+    if (game.dice3d  && (!game.settings.get("dice-so-nice", "animateInlineRoll")
+      || !data.createMessage)) {
       await game.dice3d.showForRoll(roll, game.user, true);
     }
 
@@ -748,13 +749,14 @@ export class ActorArchmage extends Actor {
       items: []
     };
     let updateData = {};
+    let rollsToAnimate = [];
 
     // Recoveries & hp
     let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
-      let rec = await this.rollRecovery({apply: false}, false);
+      let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
@@ -793,12 +795,12 @@ export class ActorArchmage extends Actor {
       this.update(updateData);
     }
 
-    // Items (Powers)
+    // Items
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
       let maxQuantity = item.data.data?.maxQuantity?.value ?? 1;
-      if (item.type == "power" && maxQuantity) {
+      if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
         let rechAttempts = maxQuantity - item.data.data.quantity.value;
         let rechValue = item.data.data.recharge.value ?? 16;
@@ -806,8 +808,8 @@ export class ActorArchmage extends Actor {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
         // Per battle powers.
-        if ((item.data.data.powerUsage.value == 'once-per-battle'
-          || (item.data.data.powerUsage.value == 'at-will'
+        if ((item.data.data.powerUsage?.value == 'once-per-battle'
+          || (item.data.data.powerUsage?.value == 'at-will'
           && item.data.data.quantity.value != null))
           && item.data.data.quantity.value < maxQuantity) {
           await item.update({
@@ -818,11 +820,12 @@ export class ActorArchmage extends Actor {
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
         }
-        else if ((item.data.data.powerUsage.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
+        else if ((item.data.data.powerUsage?.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
             let roll = await this.items.get(item.id).recharge({createMessage: false});
+            rollsToAnimate.push(roll.roll);
             if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
@@ -851,6 +854,12 @@ export class ActorArchmage extends Actor {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
+    // If 3d dice are enabled, handle them
+    if (game.dice3d) {
+      for (let roll of rollsToAnimate) {
+        await game.dice3d.showForRoll(roll, game.user, true);
+      }
+    }
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
@@ -907,15 +916,15 @@ export class ActorArchmage extends Actor {
       this.update(updateData);
     }
 
-    // Items (Powers)
+    // Items
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
 
-      if (item.type != 'power') continue;
+      if (item.type != 'power' && item.type != 'equipment') continue;
 
       let usageArray = ['once-per-battle','daily','recharge'];
-      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage.value) || item.data.data.quantity.value !== null ? 1 : null;
+      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage?.value) || item.data.data.quantity.value !== null ? 1 : null;
       let maxQuantity = item.data.data?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && item.data.data.quantity.value < maxQuantity) {
         await item.update({

@@ -93,7 +93,7 @@ export default class ArchmageRolls {
       }
     }
 
-    return {targets: targets, rolls: rolls, targetLine: newTargetLine};
+    return {targets: targets, rolls: rolls, targetLine: newTargetLine, dontChangeDamage: (targets > 1)};
   }
 
   static addAttackMod(item) {
@@ -117,6 +117,15 @@ export default class ArchmageRolls {
     // selected, just use the number listed on the power.
     let selectedTargets = [...game.user.targets];
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
+
+    // Handle the special case of the Crescendo spell
+    if (item.data.data?.special?.value?.toLowerCase().includes(
+      game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
+        newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine);
+        targetsCount = selectedTargets.length;
+        numTargets.dontChangeDamage = true;
+      }
+
     // Split string into first inline roll and vs, and repeat roll as needed
     let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
     if (match) {
@@ -135,6 +144,14 @@ export default class ArchmageRolls {
       newAttackLine += " " + vs;
     }
     return newAttackLine;
+  }
+
+  static _handleCrescendo(newAttackLine) {
+    if (game.user.targets.size <= 1) return newAttackLine;
+    // Special: You can choose more than one target for this spell,
+    // but you take a –2 penalty when attacking two targets, a –3
+    // penalty for three targets, and so on.
+    return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
   }
 
   static _roll(rolls, actor, key=undefined) {

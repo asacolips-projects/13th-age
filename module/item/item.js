@@ -173,7 +173,7 @@ export class ItemArchmage extends Item {
   async _roll_render(itemUpdateData, actorUpdateData) {
     // Replicate attack rolls as needed for attacks
     let overrideData = {};
-    let numTargets = {targets: 1, rolls: []};
+    let numTargets = {targets: 1, rolls: [], dontChangeDamage: false};
     if (this.data.type == "power" || this.data.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
       overrideData = {"data.attack.value": attackLine};
@@ -225,6 +225,7 @@ export class ItemArchmage extends Item {
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
+      dontChangeDamage: numTargets.dontChangeDamage,
       type: this.data.type
     }, null);
 
@@ -302,7 +303,7 @@ export class ItemArchmage extends Item {
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
-    let actor = this.parent;
+    let actor = this.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -343,8 +344,6 @@ export class ItemArchmage extends Item {
       let rollMode = game.settings.get("core", "rollMode");
       if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
-
-      // TODO: Wait for 3d dice.
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);

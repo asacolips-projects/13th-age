@@ -193,6 +193,13 @@ ARCHMAGE.powerUsages = {
   'other': 'Other'
 };
 
+ARCHMAGE.equipUsages = {
+  'daily': 'Daily',
+  'recharge': 'Recharge',
+  'once-per-battle': 'Per Battle',
+  'other': 'Other'
+};
+
 ARCHMAGE.actionTypes = {
   'standard': 'Standard',
   'move': 'Move',
