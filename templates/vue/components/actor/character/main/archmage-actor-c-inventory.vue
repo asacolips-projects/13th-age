@@ -51,12 +51,10 @@
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
-            <div class="equipment-feat-pips">
-
+            <div class="equipment-feat-pips" v-if="groupKey === 'equipment'">
               <ul class="feat-pips">
                 <li :class="concat('feat-pip', (equipment.data.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.data.isActive}}</div></li>
               </ul>
-
             </div>
             <div class="equipment-bonus flexrow" v-if="equipment.data.attributes">
               <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
@@ -65,7 +63,7 @@
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-recharge" v-if="equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
+            <div class="equipment-recharge" v-if="equipment.data.recharge && equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
               <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{equipment.data.recharge.value}}+</archmage-h-rollable>
             </div>
             <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
