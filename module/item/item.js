@@ -217,7 +217,10 @@ export class ItemArchmage extends Item {
     // Enrich the message to parse inline rolls.
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
 
-    preCreateChatMessageHandler.handle(chatData, {targets: numTargets.targets}, null);
+    preCreateChatMessageHandler.handle(chatData, {
+      targets: numTargets.targets,
+      type: this.data.type
+    }, null);
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {
