@@ -38,22 +38,29 @@ export default class ArchmageRolls {
 
     if (item.data.type == "power") {
       let targetLine = item.data.data.target.value;
-      rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
-      if (rolls !== undefined) {
-        // Roll the targets now
-        ArchmageRolls._roll(rolls, item.actor);
-        targets = 0;
-        newTargetLine = duplicate(targetLine);
-        rolls.forEach(r => {
-          targets += r.total;
-          // Save outcomes in target line string
-          newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
-        });
-      } else {
-        // Try NLP to guess targets
-        let keys = Object.keys(nlpMap);
-        for (let x = 0; x < keys.length; x++) {
-          if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+      if (targetLine != null) {
+        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        if (rolls != undefined) {
+          // Roll the targets now
+          ArchmageRolls._roll(rolls, item.actor);
+          targets = 0;
+          newTargetLine = duplicate(targetLine);
+          rolls.forEach(r => {
+            targets += r.total;
+            // Save outcomes in target line string
+            newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
+          });
+        } else {
+          // Try NLP to guess targets
+          let keys = Object.keys(nlpMap);
+          for (let x = 0; x < keys.length; x++) {
+            if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
+          }
+          // Handle "each" or "all"
+          if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            targets = Math.max(game.user.targets.size, 1);
+          }
         }
       }
     }
@@ -74,10 +81,11 @@ export default class ArchmageRolls {
           } else {
             let keys = Object.keys(nlpMap);
             for (let x = 0; x < keys.length; x++) {
-              if (targetLine.includes(keys[x])) targets = nlpMap[keys[x]];
+              if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
             }
-            // Handle "each"
-            if (targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.each"))) {
+            // Handle "each" or "all"
+            if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
+              || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
               targets = Math.max(game.user.targets.size, 1);
             }
           }

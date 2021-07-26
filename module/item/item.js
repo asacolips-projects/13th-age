@@ -171,10 +171,15 @@ export class ItemArchmage extends Item {
   }
 
   async _roll_render(itemUpdateData, actorUpdateData) {
-    // Replicate attack rolls as needed
-    let numTargets = await ArchmageRolls.rollItemTargets(this);
-    let newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
-    if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    // Replicate attack rolls as needed for attacks
+    let newItemData = {};
+    let numTargets = {targets: 1, rolls: []};
+    if (game.settings.get("archmage", "multiTargetAttackRolls") &&
+      (this.data.type == "power" || this.data.type == "action")){
+      numTargets = await ArchmageRolls.rollItemTargets(this);
+      newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
+      if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    }
     let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
 
     //await ArchmageRolls.rollItem(itemToRender);
@@ -212,7 +217,10 @@ export class ItemArchmage extends Item {
     // Enrich the message to parse inline rolls.
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
 
-    preCreateChatMessageHandler.handle(chatData, {targets: numTargets.targets}, null);
+    preCreateChatMessageHandler.handle(chatData, {
+      targets: numTargets.targets,
+      type: this.data.type
+    }, null);
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {
@@ -232,7 +240,15 @@ export class ItemArchmage extends Item {
               || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
-                $roll_html.each(function(i, e){rolls.push(Roll.fromJSON(unescape(e.dataset.roll)))});
+                $roll_html.each(function(i, e){
+                  let roll = Roll.fromJSON(unescape(e.dataset.roll));
+                  if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
+                    // Not an attack roll, usually a target roll, roll first
+                    rolls.unshift(roll);
+                  } else {
+                    rolls.push(roll);
+                  }
+                });
               }
             }
           });
