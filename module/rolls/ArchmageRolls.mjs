@@ -70,7 +70,7 @@ export default class ArchmageRolls {
       if (targetLine != null) {
         targetLine = targetLine[0];
         // Make sure we are asking for multiple targets, not independent attacks
-        if (!targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.attacks"))) {
+        // if (!targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.attacks"))) {
           // First check for rolls
           rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
           if (rolls !== undefined) {
@@ -89,7 +89,7 @@ export default class ArchmageRolls {
               targets = Math.max(game.user.targets.size, 1);
             }
           }
-        }
+        // }
       }
     }
 
