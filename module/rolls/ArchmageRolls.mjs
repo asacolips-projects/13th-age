@@ -32,7 +32,7 @@ export default class ArchmageRolls {
     nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.three")+" "] = 3;
     nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.four")+" "] = 4;
     nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.five")+" "] = 5;
-    for (let i=2; i<5; i++) {
+    for (let i=2; i<=5; i++) {
       nlpMap[i.toString()] = i;
     }
 
