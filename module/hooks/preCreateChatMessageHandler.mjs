@@ -115,7 +115,8 @@ export default class preCreateChatMessageHandler {
                     }
 
                     // Append target defenses to text
-                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0) {
+                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0
+                      && game.settings.get("archmage", "showDefensesInChat")) {
                         $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
                 }

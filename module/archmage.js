@@ -237,6 +237,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register("archmage", "showDefensesInChat", {
+    name: "Display target(s) defense(s) in chat power cards",
+    hint: "Enable this display a list of targeted defenses in the attack line of chat power cards",
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
   game.settings.register("archmage", "hideInsteadOfOpaque", {
     name: "Hide inactive Features / Triggers instead of making them faded-out",
     hint: "Enable this if you prefer not seeing inactive details at all",

@@ -69,27 +69,24 @@ export default class ArchmageRolls {
       let targetLine = /(\(.*\))/.exec(item.data.data.attack.value);
       if (targetLine != null) {
         targetLine = targetLine[0];
-        // Make sure we are asking for multiple targets, not independent attacks
-        // if (!targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.attacks"))) {
-          // First check for rolls
-          rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
-          if (rolls !== undefined) {
-            // Roll the targets now
-            ArchmageRolls._roll(rolls, item.actor);
-            targets = 0;
-            rolls.forEach(r => targets += r.total);
-          } else {
-            let keys = Object.keys(nlpMap);
-            for (let x = 0; x < keys.length; x++) {
-              if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
-            }
-            // Handle "each" or "all"
-            if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-              || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
-              targets = Math.max(game.user.targets.size, 1);
-            }
+        // First check for rolls
+        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        if (rolls !== undefined) {
+          // Roll the targets now
+          ArchmageRolls._roll(rolls, item.actor);
+          targets = 0;
+          rolls.forEach(r => targets += r.total);
+        } else {
+          let keys = Object.keys(nlpMap);
+          for (let x = 0; x < keys.length; x++) {
+            if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
           }
-        // }
+          // Handle "each" or "all"
+          if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            targets = Math.max(game.user.targets.size, 1);
+          }
+        }
       }
     }
 
