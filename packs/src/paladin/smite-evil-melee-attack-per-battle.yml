@@ -1,4 +1,4 @@
-name: '(Smite Evil) Melee attack'
+name: '(Smite Evil) Melee attack (Per-Battle)'
 permission:
   default: 0
 type: 'power'
@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -172,4 +172,4 @@ data:
         label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'MAtgMQMEvqj4Vakh'
+_id: 'jAfppmKgwLQMBnH6'
