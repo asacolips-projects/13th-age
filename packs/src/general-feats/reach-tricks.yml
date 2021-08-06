@@ -25,11 +25,11 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: '1'
   actionType:
     type: 'String'
     label: 'Action'
@@ -141,11 +141,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:

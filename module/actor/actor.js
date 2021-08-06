@@ -1208,6 +1208,13 @@ export class ActorArchmage extends Actor {
             kick: {dice: `d${kickWpn}`, value: `${lvl}d${kickWpn}`}
           }
         };
+
+        // Handle extra recoveries for fighters
+        if (matchedClasses.includes("fighter")) {
+          data.data.attributes.recoveries.base = 9;
+        } else {
+          data.data.attributes.recoveries.base = 8;
+        }
       }
       // Store matched classes for future reference
       data.data.details.detectedClasses = matchedClasses;
