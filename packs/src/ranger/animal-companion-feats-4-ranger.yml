@@ -1,4 +1,4 @@
-name: 'Animal Companion 3 (Ranger)'
+name: 'Animal Companion Feats 4 (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
+        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -174,4 +173,4 @@ data:
         value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'KwRw195stiG577Sy'
+_id: 'OJuNGlgabJGTFLiU'

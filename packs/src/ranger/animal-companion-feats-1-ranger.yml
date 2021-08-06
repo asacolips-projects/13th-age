@@ -1,4 +1,4 @@
-name: 'Animal Companion 2 (Ranger)'
+name: 'Animal Companion Feats 1 (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle, your animal companion can turn a disengage success by an enemy it is engaged with into a failure.</p>'
+        value: '<p>Once per day, your animal companion can attack twice in a round with a standard action.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your Lethal Hunter talent also applies to your animal companion.</p>'
+        value: '<p>Once per day, your animal companion can force an enemy to reroll an attack that hit it.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +168,11 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
+        value: '<p>Increase your animal companion&rsquo;s damage die by one size (for example, from d6s to d8s, or d8s to d10s).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'W7TT80QOywglXUk1'
+_id: 'G9CmPI73At4zqxRU'

@@ -1,4 +1,4 @@
-name: 'Animal Companion 2 (Druid)'
+name: 'Animal Companion Feats 4 (Druid)'
 permission:
   default: 0
 type: 'power'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle, your animal companion can turn a disengage success by an enemy it is engaged with into a failure.</p>'
+        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your Lethal Hunter talent also applies to your animal companion.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +167,10 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'p14p8tgrIydjLxJO'
+_id: 'aE4MffipCwKazVmQ'

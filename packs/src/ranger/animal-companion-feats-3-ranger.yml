@@ -1,4 +1,4 @@
-name: 'Animal Companion 4 (Druid)'
+name: 'Animal Companion Feats 3 (Ranger)'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -140,17 +140,17 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
+        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,6 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -173,4 +174,4 @@ data:
         value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'aE4MffipCwKazVmQ'
+_id: 'KwRw195stiG577Sy'
