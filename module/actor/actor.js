@@ -228,6 +228,8 @@ export class ActorArchmage extends Actor {
         }
 
         data.attributes.hp.max = Math.floor((data.attributes.hp.base + minimumOf0(data.abilities.con.mod)) * hpLevelModifier[level] + hpBonus + toughness);
+        // Since 0.8.x we need to store this, it is needed when applying damage as healing
+        this.update({'data.attributes.hp.max': data.attributes.hp.max});
       }
 
       if (data.attributes.recoveries.automatic) {
