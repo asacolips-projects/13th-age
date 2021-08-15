@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: "One nearby ally that made an attack roll (on that ally's turn)"
+    value: 'One nearby ally that made an attack roll (on that ally''s turn)'
   always:
     type: 'String'
     label: 'Always'
