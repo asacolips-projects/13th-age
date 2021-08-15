@@ -81,279 +81,22 @@ export class ActorArchmage extends Actor {
     // Initialize the model for data calculations.
     let model = game.system.model.Actor[actorData.type];
 
-    // Prepare Character data
-    if (actorData.type === 'character') {
-      this._prepareCharacterData(data);
-    }
-    else if (actorData.type === 'npc') {
-      this._prepareNPCData(data);
-    }
-
-    // Ability modifiers and saves
-    for (let abl of Object.values(data.abilities)) {
-      abl.mod = Math.floor((abl.value - 10) / 2);
-      abl.lvl = Math.floor((abl.value - 10) / 2) + data.attributes.level.value;
-    }
-
-    /**
-     * Determine the median value.
-     * @param {Array} values array of values to tset.
-     *
-     * @return {Int} The median value
-     */
-    function median(values) {
-      values.sort(function(a, b) {
-        return a - b;
-      });
-
-      if (values.length === 0) {
-        return 0;
-      }
-
-      var half = Math.floor(values.length / 2);
-
-      if (values.length % 2) {
-        return values[half];
-      }
-      else {
-        return (values[half - 1] + values[half]) / 2.0;
-      }
-    }
-
-    var meleeAttackBonus = 0;
-    var rangedAttackBonus = 0;
-    var divineAttackBonus = 0;
-    var arcaneAttackBonus = 0;
-
-    var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
-
-    var acBonus = 0 + missingRecPenalty;
-    var mdBonus = 0 + missingRecPenalty;
-    var pdBonus = 0 + missingRecPenalty;
-
-    var hpBonus = 0;
-    var recoveriesBonus = 0;
-
-    var saveBonus = 0;
-    var disengageBonus = 0;
-
-    function getBonusOr0(type) {
-      if (type && type.bonus) {
-        return type.bonus;
-      }
-      return 0;
-    }
-
-    if (this.items) {
-      this.items.forEach(function(item) {
-        if (item.type === 'equipment') {
-          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
-          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
-          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
-          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
-
-          acBonus += getBonusOr0(item.data.data.attributes.ac);
-          mdBonus += getBonusOr0(item.data.data.attributes.md);
-          pdBonus += getBonusOr0(item.data.data.attributes.pd);
-
-          hpBonus += getBonusOr0(item.data.data.attributes.hp);
-          recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
-
-          saveBonus += getBonusOr0(item.data.data.attributes.save);
-          disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
-        }
-      });
-    }
-
-    // Attributes
-    var improvedInit = 0;
-    if (flags.archmage) {
-      improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    }
-    data.attributes.init.mod = data.abilities.dex.mod + (data.attributes.init.value || 0) + improvedInit + (data.attributes.level.value || 0);
-
+    // Level, experience, and proficiency
+    data.attributes.level.value = parseInt(data.attributes.level.value);
     // Set a copy of level in details in order to mimic 5e's data structure.
     data.details.level = data.attributes.level;
 
+    // Initiative
+    var improvedInit = 0;
+    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
+    data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
+
+    // Prepare Character data
     if (actorData.type === 'character') {
-
-      data.attributes.attack = {
-        melee: {
-          bonus: meleeAttackBonus
-        },
-        ranged: {
-          bonus: rangedAttackBonus
-        },
-        divine: {
-          bonus: divineAttackBonus
-        },
-        arcane: {
-          bonus: arcaneAttackBonus
-        }
-      };
-
-      function minimumOf0(num) {
-        if (num < 0) return 0;
-        return num;
-      }
-
-      if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
-
-      data.attributes.saves.easy = minimumOf0(6 - saveBonus);
-      data.attributes.saves.normal = minimumOf0(11 - saveBonus);
-      data.attributes.saves.hard = minimumOf0(16 - saveBonus);
-      data.attributes.disengage = minimumOf0(11 - disengageBonus - (data.attributes?.disengageBonus ?? 0));
-
-      data.attributes.ac.value = Number(data.attributes.ac.base) + Number(median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod])) + Number(data.attributes.level.value) + Number(acBonus);
-      data.attributes.pd.value = Number(data.attributes.pd.base) + Number(median([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod])) + Number(data.attributes.level.value) + Number(pdBonus);
-      data.attributes.md.value = Number(data.attributes.md.base) + Number(median([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod])) + Number(data.attributes.level.value) + Number(mdBonus);
-
-      // Add level ability mods.
-      // Replace the ability attributes in the calculator with custom formulas.
-      let levelMultiplier = 1;
-      if (data.attributes.level.value >= 5) {
-        levelMultiplier = 2;
-      }
-      if (data.attributes.level.value >= 8) {
-        levelMultiplier = 3;
-      }
-
-      if (levelMultiplier > 0) {
-        for (let prop in data.abilities) {
-          data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
-        }
-      }
-
-      data.tier = levelMultiplier
-
-      if (data.attributes.hp.automatic) {
-        let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
-        let level = data.attributes.level.value;
-        if (data.incrementals?.hp) level++;
-
-        let toughness = 0;
-        if (flags.archmage) {
-          toughness = flags.archmage.toughness ? data.attributes.hp.base : 0;
-          if (level <= 4) {
-            toughness /= 2
-            toughness = Math.floor(toughness)
-          } else if (level >= 8) {
-            toughness *= 2
-          }
-        }
-
-        data.attributes.hp.max = Math.floor((data.attributes.hp.base + minimumOf0(data.abilities.con.mod)) * hpLevelModifier[level] + hpBonus + toughness);
-      }
-
-      if (data.attributes.recoveries.automatic) {
-        data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
-      }
-
-      // Get the recovery level and dice.
-      let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
-      // Fall back to a d8 if the recovery dice is invalid.
-      let recoveryDice = 'd8';
-      if (typeof data.attributes?.recoveries?.dice == 'string') {
-        recoveryDice = data.attributes.recoveries.dice;
-      }
-
-      // Calculate the average of the formula.
-      let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
-      if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
-
-      // Calculate the total average recovery.
-      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
-
-      // Skill modifiers
-      // for (let skl of Object.values(data.skills)) {
-      //   skl.value = parseFloat(skl.value || 0);
-      //   skl.mod = data.abilities[skl.ability].mod + Math.floor(skl.value * data.attributes.prof.value);
-      // }
-
-      // Coins
-      if (!data.coins) {
-        data.coins = {
-          showRare: false,
-          platinum: 0,
-          gold: 0,
-          silver: 0,
-          copper: 0
-        }
-      }
-
-      data.coins.showRare = false;
-
-      // Set an attribute for weapon damage.
-      if (data.attributes.weapon === undefined) {
-        data.attributes.weapon = {
-          melee: {
-            dice: 'd8',
-            value: 'd8',
-            abil: 'str',
-            damageAbil: 'str'
-          },
-          ranged: {
-            dice: 'd6',
-            value: 'd6',
-            abil: 'dex',
-            damageAbil: 'dex'
-          },
-        };
-      }
-      // Handle some possibly uninitialized variables. These can be tweaked through the sheet settings.
-      data.attributes.weapon.melee.miss = data.attributes.weapon.melee.miss === undefined ? true : data.attributes.weapon.melee.miss;
-      data.attributes.weapon.ranged.miss = data.attributes.weapon.ranged.miss === undefined ? false : data.attributes.weapon.ranged.miss;
-      data.attributes.weapon.melee.abil = data.attributes.weapon.melee.abil === undefined ? 'str' : data.attributes.weapon.melee.abil;
-      data.attributes.weapon.ranged.abil = data.attributes.weapon.ranged.abil === undefined ? 'dex' : data.attributes.weapon.ranged.abil;
-      data.attributes.weapon.melee.damageAbil = data.attributes.weapon.melee.damageAbil === undefined ? 'str' : data.attributes.weapon.melee.damageAbil;
-      data.attributes.weapon.ranged.damageAbil = data.attributes.weapon.ranged.damageAbil === undefined ? 'dex' : data.attributes.weapon.ranged.damageAbil;
-      // Set calculated values.
-      data.attributes.weapon.melee.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.melee.abil].mod + data.attributes.attack.melee.bonus;
-      data.attributes.weapon.melee.value = `${data.attributes.level.value}${data.attributes.weapon.melee.dice}`;
-      data.attributes.weapon.melee.mod = data.abilities[data.attributes.weapon.melee.abil].mod;
-      data.attributes.weapon.melee.dmg = data.abilities[data.attributes.weapon.melee.damageAbil].dmg + data.attributes.attack.melee.bonus;
-
-      data.attributes.weapon.ranged.attack = data.attributes.level.value + data.abilities[data.attributes.weapon.ranged.abil].mod + data.attributes.attack.ranged.bonus;
-      data.attributes.weapon.ranged.value = `${data.attributes.level.value}${data.attributes.weapon.ranged.dice}`;
-      data.attributes.weapon.ranged.mod = data.abilities[data.attributes.weapon.ranged.abil].mod;
-      data.attributes.weapon.ranged.dmg = data.abilities[data.attributes.weapon.ranged.damageAbil].dmg + data.attributes.attack.ranged.bonus;
-
-      // Handle monk attacks.
-      let monkAttacks = {
-        jab: {
-          dice: 'd6',
-          value: 'd6',
-          abil: 'dex/str'
-        },
-        punch: {
-          dice: 'd8',
-          value: 'd8',
-          abil: 'dex/str'
-        },
-        kick: {
-          dice: 'd10',
-          value: 'd10',
-          abil: 'dex/str'
-        }
-      };
-
-      if (data.attributes.weapon?.jab?.dice) monkAttacks.jab.dice = duplicate(data.attributes.weapon.jab.dice);
-      if (data.attributes.weapon?.kick?.dice) monkAttacks.kick.dice = duplicate(data.attributes.weapon.kick.dice);
-      if (data.attributes.weapon?.punch?.dice) monkAttacks.punch.dice = duplicate(data.attributes.weapon.punch.dice);
-
-      for (let [key, value] of Object.entries(monkAttacks)) {
-        let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
-        data.attributes.attack[key] = data.attributes.attack.melee;
-        data.attributes.weapon[key] = mergeObject(value, {
-          miss: true,
-          abil: abil[0],
-          attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
-          value: `${data.attributes.level.value}${value.dice}`,
-          mod: data.abilities[abil[0]].mod,
-          dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
-        });
-      }
-
+      this._prepareCharacterData(data, model, flags);
+    }
+    else if (actorData.type === 'npc') {
+      this._prepareNPCData(data, model, flags);
     }
 
     // Get the escalation die value.
@@ -361,12 +104,6 @@ export class ActorArchmage extends Actor {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
     };
 
-    // Fallback for attack modifier
-    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
-    data.attributes.attackMod.missingRecPenalty = missingRecPenalty;
-
-    // this.prepareEmbeddedEntities();
-    // this.applyActiveEffects();
   }
 
   /**
@@ -496,11 +233,7 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _prepareCharacterData(data) {
-    let model = game.system.model.Actor.character;
-
-    // Level, experience, and proficiency
-    data.attributes.level.value = parseInt(data.attributes.level.value);
+  _prepareCharacterData(data, model, flags) {
 
     // Build out the icon results structure if it hasn't been
     // previously initialized.
@@ -586,6 +319,152 @@ export class ActorArchmage extends Actor {
     for (let i = 0; i < lastGaspsCount; i++) {
       data.attributes.saves.lastGaspFails.steps[i] = true;
     }
+
+    // Ability modifiers and saves
+    for (let abl of Object.values(data.abilities)) {
+      abl.mod = Math.floor((abl.value - 10) / 2);
+      abl.lvl = Math.floor((abl.value - 10) / 2) + data.attributes.level.value;
+    }
+
+    // Bonuses
+    var meleeAttackBonus = 0;
+    var rangedAttackBonus = 0;
+    var divineAttackBonus = 0;
+    var arcaneAttackBonus = 0;
+
+    var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
+
+    var acBonus = 0 + missingRecPenalty;
+    var mdBonus = 0 + missingRecPenalty;
+    var pdBonus = 0 + missingRecPenalty;
+
+    var hpBonus = 0;
+    var recoveriesBonus = 0;
+
+    var saveBonus = 0;
+    var disengageBonus = 0;
+
+    function getBonusOr0(type) {
+      if (type && type.bonus) return type.bonus;
+      return 0;
+    }
+
+    if (this.items) {
+      this.items.forEach(function(item) {
+        if (item.type === 'equipment') {
+          meleeAttackBonus = Math.max(meleeAttackBonus, getBonusOr0(item.data.data.attributes.attack.melee));
+          rangedAttackBonus = Math.max(rangedAttackBonus, getBonusOr0(item.data.data.attributes.attack.ranged));
+          divineAttackBonus = Math.max(divineAttackBonus, getBonusOr0(item.data.data.attributes.attack.divine));
+          arcaneAttackBonus = Math.max(arcaneAttackBonus, getBonusOr0(item.data.data.attributes.attack.arcane));
+
+          acBonus = Math.max(acBonus, getBonusOr0(item.data.data.attributes.ac));
+          mdBonus = Math.max(mdBonus, getBonusOr0(item.data.data.attributes.md));
+          pdBonus = Math.max(pdBonus, getBonusOr0(item.data.data.attributes.pd));
+
+          hpBonus = Math.max(hpBonus, getBonusOr0(item.data.data.attributes.hp));
+          recoveriesBonus = Math.max(recoveriesBonus, getBonusOr0(item.data.data.attributes.recoveries));
+
+          saveBonus = Math.max(saveBonus, getBonusOr0(item.data.data.attributes.save));
+          disengageBonus = Math.max(disengageBonus, getBonusOr0(item.data.data.attributes.disengage));
+        }
+      });
+    }
+
+    data.attributes.attack = {
+      melee: { bonus: meleeAttackBonus },
+      ranged: { bonus: rangedAttackBonus },
+      divine: { bonus: divineAttackBonus },
+      arcane: { bonus: arcaneAttackBonus }
+    };
+
+    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
+
+    data.attributes.saves.easy = Math.max((6 - saveBonus), 0);
+    data.attributes.saves.normal = Math.max((11 - saveBonus), 0);
+    data.attributes.saves.hard = Math.max((16 - saveBonus), 0);
+    data.attributes.disengage = Math.max((11 - disengageBonus - (data.attributes?.disengageBonus ?? 0)), 0);
+
+    data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(acBonus);
+    data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1]) + Number(data.attributes.level.value) + Number(pdBonus);
+    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(mdBonus);
+
+    // Damage Modifiers
+    let levelMultiplier = 1;
+    if (data.attributes.level.value >= 5) levelMultiplier = 2;
+    if (data.attributes.level.value >= 8) levelMultiplier = 3;
+    for (let prop in data.abilities) {
+      data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
+    }
+    data.tier = levelMultiplier
+
+    // HPs and Recoveries
+    if (data.attributes.hp.automatic) {
+      let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
+      let level = data.attributes.level.value;
+      if (data.incrementals?.hp) level++;
+
+      let toughness = 0;
+      if (flags.archmage) {
+        toughness = flags.archmage.toughness ? data.attributes.hp.base : 0;
+        if (level <= 4) toughness = Math.floor(toughness / 2)
+        else if (level >= 8) toughness = Math.floor(toughness * 2)
+        else toughness = Math.floor(toughness)
+      }
+
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + data.abilities.con.mod) * hpLevelModifier[level] + hpBonus + toughness);
+    }
+
+    if (data.attributes.recoveries.automatic) {
+      data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
+    }
+
+    // Calculate recovery average.
+    let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
+    let recoveryDice = 'd8'; // Fall back
+    if (typeof data.attributes?.recoveries?.dice == 'string') {
+      recoveryDice = data.attributes.recoveries.dice;
+    }
+    let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
+    if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
+    data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
+
+    // Coins
+    if (!data.coins) data.coins = model.coins;
+
+    // Fallbacks for missing weapons
+    if (!data.attributes.weapon) data.attributes.weapon = model.attributes.weapon;
+    if (!data.attributes.weapon.jab) data.attributes.weapon.jab = model.attributes.weapon.jab;
+    if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
+    if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
+
+    // Handle monk attacks.
+    // let monkAttacks = {
+      // jab: { dice: 'd6', value: 'd6', abil: 'dex/str' },
+      // punch: { dice: 'd8', value: 'd8', abil: 'dex/str' },
+      // kick: { dice: 'd10', value: 'd10', abil: 'dex/str' }
+    // };
+
+    // if (data.attributes.weapon?.jab?.dice) monkAttacks.jab.dice = duplicate(data.attributes.weapon.jab.dice);
+    // if (data.attributes.weapon?.kick?.dice) monkAttacks.kick.dice = duplicate(data.attributes.weapon.kick.dice);
+    // if (data.attributes.weapon?.punch?.dice) monkAttacks.punch.dice = duplicate(data.attributes.weapon.punch.dice);
+
+    // for (let [key, value] of Object.entries(monkAttacks)) {
+      // let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
+      // data.attributes.attack[key] = data.attributes.attack.melee;
+      // data.attributes.weapon[key] = mergeObject(value, {
+        // miss: true,
+        // abil: abil[0],
+        // attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
+        // value: `${data.attributes.level.value}${value.dice}`,
+        // mod: data.abilities[abil[0]].mod,
+        // dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
+      // });
+    // }
+
+    // Fallback for attack modifier
+    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
+    data.attributes.attackMod.missingRecPenalty = missingRecPenalty;
+
   }
 
   /* -------------------------------------------- */
@@ -596,8 +475,8 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _prepareNPCData(data) {
-    let model = game.system.model.Actor.npc;
+  _prepareNPCData(data, model, flags) {
+    // Nothing currently
   }
 
   /** @inheritdoc */
