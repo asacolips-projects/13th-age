@@ -13,6 +13,8 @@ export default class preCreateChatMessageHandler {
         let targets = [...game.user.targets.values()];
         let numTargets = 1;
         if (options.targets) numTargets = options.targets;
+        let type = 'power';
+        if (options.type) type = options.type;
 
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
@@ -79,6 +81,17 @@ export default class preCreateChatMessageHandler {
                     return;
                 }
 
+                if ((type == "power" && row_text.includes('Target:')) ||
+                  (type == "action" && row_text.includes('Attack:'))) {
+
+                    targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
+
+                    if (targets.length > 0) {
+                      var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
+                      $row_self[0].appendChild(text);
+                    }
+                }
+
                 if (row_text.includes('Attack:')) {
                     if (row_text.includes('dc-crit') && numTargets == 1) {
                         has_crit = true;
@@ -89,18 +102,6 @@ export default class preCreateChatMessageHandler {
 
                     hitEvaluationResults = HitEvaluation.checkRowText(row_text, targets, $row_self);
                 }
-
-
-                if (row_text.includes('Target:')) {
-
-                    targets = Targeting.getTargetsFromRowText(row_text, $row_self);
-
-                    if (targets.length > 0) {
-                      var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
-                      $row_self[0].appendChild(text);
-                    }
-                }
-
 
                 if (hitEvaluationResults) {
                     // Append hit targets to text
@@ -114,7 +115,8 @@ export default class preCreateChatMessageHandler {
                     }
 
                     // Append target defenses to text
-                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0) {
+                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0
+                      && game.settings.get("archmage", "showDefensesInChat")) {
                         $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
                 }
@@ -170,7 +172,7 @@ export default class preCreateChatMessageHandler {
                                     $roll_self.addClass('dc-fail');
                                 }
                                 // Reroll and recalculate.
-                                let new_roll = new Roll(new_formula).roll();
+                                let new_roll = new Roll(new_formula).roll({async: false});
                                 // Update inline roll's markup.
                                 $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
                                 $roll_self.attr('title', new_roll.formula);

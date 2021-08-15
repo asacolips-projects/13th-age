@@ -1,6 +1,6 @@
 export default class Targeting {
 
-    static getTargetsFromRowText(row_text, $row_self) {
+    static getTargetsFromRowText(row_text, $row_self, numTargets) {
         let targets = [...game.user.targets.values()];
 
         if (targets.length == 0) return [];
@@ -12,8 +12,11 @@ export default class Targeting {
         // If there are 3 targets selected but the attack only can hit 2 (ex: result of 1d3 nearby targets), then we slice to that amount, in order of selection (unless randomized)
 
         // This regex just finds any numbers in the string, and we use the first one
-        var regex = new RegExp("\\d+");
-        var numberOfTargets = regex.exec($row_self[0].innerText);
+        if (!game.settings.get("archmage", "multiTargetAttackRolls")) {
+          var regex = new RegExp("\\d+");
+          var numberOfTargets = regex.exec($row_self[0].innerText);
+        }
+        else var numberOfTargets = [numTargets];
 
         if (numberOfTargets && numberOfTargets.length == 1) {
             var maxTargets = parseInt(numberOfTargets[0]);
