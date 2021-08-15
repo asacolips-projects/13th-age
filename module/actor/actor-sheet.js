@@ -48,8 +48,8 @@ export class ActorArchmageSheet extends ActorSheet {
     // sheetData.items = items;
 
     // Copy Active Effects
-    let effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
-    sheetData.effects = effects;
+    // let effects = this.object.effects.map(e => foundry.utils.deepClone(e.data));
+    // sheetData.effects = effects;
 
 
     this._prepareCharacterItems(sheetData);

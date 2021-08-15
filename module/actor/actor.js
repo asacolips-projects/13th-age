@@ -218,7 +218,7 @@ export class ActorArchmage extends Actor {
 
       // Must recompute this here because the e.d. might have changed.
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
+        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty
       };
 
       this.applyActiveEffects('std')

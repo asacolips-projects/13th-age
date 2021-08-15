@@ -93,12 +93,26 @@ export default class ArchmageRolls {
     return {targets: targets, rolls: rolls, targetLine: newTargetLine};
   }
 
-  static rollItemAdjustAttacks(item, numTargets) {
+  static addAttackMod(item) {
+    // Add +@attackMod.value to all inline rolls if the modifier is not 0
+    let attackLine = item.data.data.attack.value;
+    let atkMod = item.actor.getRollData().attackMod.value;
+    if (atkMod) {
+      let match = /(\[\[.+?\]\])/.exec(attackLine);
+      if (match) {
+        let formula = match[1];
+        let newFormula = formula.replace("]]", "+@attackMod.value]]");
+        attackLine = attackLine.replace(formula, newFormula);
+      }
+    }
+    return attackLine;
+  }
+
+  static rollItemAdjustAttacks(item, newAttackLine, numTargets) {
     // If the user has targeted tokens, limit number of rolls by the lower of
     // selected targets or number listed on the power. If no targets are
     // selected, just use the number listed on the power.
     let selectedTargets = [...game.user.targets];
-    let newAttackLine = item.data.data.attack.value;
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
     // Split string into first inline roll and vs, and repeat roll as needed
     let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);

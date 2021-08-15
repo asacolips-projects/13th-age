@@ -172,12 +172,13 @@ export class ItemArchmage extends Item {
 
   async _roll_render(itemUpdateData, actorUpdateData) {
     // Replicate attack rolls as needed for attacks
-    let newItemData = {};
     let numTargets = {targets: 1, rolls: []};
+    let attackLine = ArchmageRolls.addAttackMod(this);
+    let newItemData = {"data.attack.value": attackLine};
     if (game.settings.get("archmage", "multiTargetAttackRolls") &&
       (this.data.type == "power" || this.data.type == "action")){
       numTargets = await ArchmageRolls.rollItemTargets(this);
-      newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
+      newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
       if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
     }
     let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
@@ -194,12 +195,9 @@ export class ItemArchmage extends Item {
       data: itemToRender.getChatData()
     };
 
-<<<<<<< HEAD
-=======
     // TODO: roll rolls here
     //let rollData = await ArchmageRolls.rollItem(this);
 
->>>>>>> origin/master
     // Basic chat message data
     const chatData = {
       user: game.user.id,
