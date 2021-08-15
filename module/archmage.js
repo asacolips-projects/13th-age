@@ -109,10 +109,10 @@ Hooks.once('init', async function() {
   CONFIG.ARCHMAGE = ARCHMAGE;
 
   // Assign the actor class to the CONFIG
-  CONFIG.Actor.entityClass = ActorArchmage;
+  CONFIG.Actor.documentClass = ActorArchmage;
 
   // Assign ItemArchmage class to CONFIG
-  CONFIG.Item.entityClass = ItemArchmage;
+  CONFIG.Item.documentClass = ItemArchmage;
 
   // Override CONFIG
   CONFIG.Item.sheetClass = ItemArchmageSheet;
@@ -769,7 +769,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
     // Otherwise execute the deferred roll
     else {
-      const cls = CONFIG.ChatMessage.entityClass;
+      const cls = CONFIG.ChatMessage.documentClass;
 
       // Get the "speaker" for the inline roll
       const actor = cls.getSpeakerActor(cls.getSpeaker());
@@ -869,7 +869,7 @@ Hooks.on('createCombatant', (document, data, options, id) => {
   let tokens = scene ? scene.data.tokens : [];
   let tokenId = document?.data?._source?.tokenId;
   if (tokens && tokenId) {
-    let token = tokens.find(t => t._id == tokenId);
+    let token = tokens.find(t => t.id == tokenId);
     let actor = token ? game.actors.get(token.data.actorId) : null;
     // Add command points at start of combat.
     if (actor && actor.data.type == 'character') {

@@ -1,4 +1,4 @@
-name: 'Animal Companion 1 (Ranger)'
+name: 'Animal Companion Feats 3 (Druid)'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Ranger'
+    value: 'Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -140,17 +140,17 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, your animal companion can attack twice in a round with a standard action.</p>'
+        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day, your animal companion can force an enemy to reroll an attack that hit it.</p>'
+        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +168,10 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s damage die by one size (for example, from d6s to d8s, or d8s to d10s).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'G9CmPI73At4zqxRU'
+_id: '8bKaFGjg2oSRYz8V'

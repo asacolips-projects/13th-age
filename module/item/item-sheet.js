@@ -108,7 +108,7 @@ export class ItemArchmageSheet extends ItemSheet {
 
   shareItem() {
     game.socket.emit("system.archmage", {
-      itemId: this.item._id
+      itemId: this.item.id
     });
   }
 
