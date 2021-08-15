@@ -903,46 +903,6 @@
                       data-dtype="String" placeholder="d10" />
               </div>
 
-              <div class="settings-group">
-                  <label for="data.attributes.weapon.melee.abil" class="attribute-name">{{localize 'ARCHMAGE.meleeAbility'}}</label>
-                  <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
-                      {{#select data.attributes.weapon.melee.abil}}
-                      <option value="str">{{localize 'ARCHMAGE.str.key'}}</option>
-                      <option value="dex">{{localize 'ARCHMAGE.dex.key'}}</option>
-                      <option value="con">{{localize 'ARCHMAGE.con.key'}}</option>
-                      <option value="int">{{localize 'ARCHMAGE.int.key'}}</option>
-                      <option value="wis">{{localize 'ARCHMAGE.wis.key'}}</option>
-                      <option value="cha">{{localize 'ARCHMAGE.cha.key'}}</option>
-                      {{/select}}
-                  </select>
-              </div>
-
-              <div class="settings-group">
-                  <label for="data.attributes.weapon.ranged.abil" class="attribute-name">{{localize 'ARCHMAGE.rangedAbility'}}</label>
-                  <select class="attribute-input" name="data.attributes.weapon.ranged.abil" data-type="String">
-                      {{#select data.attributes.weapon.ranged.abil}}
-                      <option value="str">{{localize 'ARCHMAGE.str.key'}}</option>
-                      <option value="dex">{{localize 'ARCHMAGE.dex.key'}}</option>
-                      <option value="con">{{localize 'ARCHMAGE.con.key'}}</option>
-                      <option value="int">{{localize 'ARCHMAGE.int.key'}}</option>
-                      <option value="wis">{{localize 'ARCHMAGE.wis.key'}}</option>
-                      <option value="cha">{{localize 'ARCHMAGE.cha.key'}}</option>
-                      {{/select}}
-                  </select>
-              </div>
-
-              <div class="settings-group">
-                  <strong class="attribute-name">{{localize 'ARCHMAGE.meleeMiss'}}</strong>
-                  <input class="attribute-input" name="data.attributes.weapon.melee.miss" type="checkbox" value="1" {{checked data.attributes.weapon.melee.miss}}
-                      data-dtype="Boolean" />
-              </div>
-
-              <div class="settings-group">
-                  <strong class="attribute-name">{{localize 'ARCHMAGE.rangedMiss'}}</strong>
-                  <input class="attribute-input" name="data.attributes.weapon.ranged.miss" type="checkbox" value="1" {{checked data.attributes.weapon.ranged.miss}}
-                      data-dtype="Boolean" />
-              </div>
-
               <hr>
 
               {{#each data.backgrounds as |background b|}}

@@ -371,8 +371,6 @@ Hooks.once('init', async function() {
     return parts.filter(p => p !== null).join(" + ");
   }
 
-  ArchmageUtility.replaceRollData();
-
   if (dependencies) {
     // Define dependency on our own custom vue components for when we need it.
     // If Dlopen doesn't exist, we load this later in the 'ready' hook.

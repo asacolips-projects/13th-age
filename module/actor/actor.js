@@ -435,29 +435,10 @@ export class ActorArchmage extends Actor {
     if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
     if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
 
-    // Handle monk attacks.
-    // let monkAttacks = {
-      // jab: { dice: 'd6', value: 'd6', abil: 'dex/str' },
-      // punch: { dice: 'd8', value: 'd8', abil: 'dex/str' },
-      // kick: { dice: 'd10', value: 'd10', abil: 'dex/str' }
-    // };
-
-    // if (data.attributes.weapon?.jab?.dice) monkAttacks.jab.dice = duplicate(data.attributes.weapon.jab.dice);
-    // if (data.attributes.weapon?.kick?.dice) monkAttacks.kick.dice = duplicate(data.attributes.weapon.kick.dice);
-    // if (data.attributes.weapon?.punch?.dice) monkAttacks.punch.dice = duplicate(data.attributes.weapon.punch.dice);
-
-    // for (let [key, value] of Object.entries(monkAttacks)) {
-      // let abil = value.abil ? value.abil.split('/') : ['dex', 'str'];
-      // data.attributes.attack[key] = data.attributes.attack.melee;
-      // data.attributes.weapon[key] = mergeObject(value, {
-        // miss: true,
-        // abil: abil[0],
-        // attack: data.attributes.level.value + data.abilities[abil[0]].mod + data.attributes.attack[key].bonus,
-        // value: `${data.attributes.level.value}${value.dice}`,
-        // mod: data.abilities[abil[0]].mod,
-        // dmg: levelMultiplier * Number(data.abilities[abil[1]].mod)
-      // });
-    // }
+    // Weapon dice
+    for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
+      data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
+    }
 
     // Fallback for attack modifier
     if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
