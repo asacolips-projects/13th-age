@@ -114,7 +114,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Prepare the actor data.
       let el = this.element.find('.archmage-vueport');
       // Render Vue and assign it to prevent later rendering.
-      VuePort.render(null, el[0], {data: {actor: sheetData.actor, owner: this.actor.owner}}).then(vm => {
+      VuePort.render(null, el[0], {data: {actor: sheetData.actor, owner: this.actor.isOwner}}).then(vm => {
         this._vm = vm;
         let html = $(this.form);
         this.activateVueListeners(html);
@@ -253,6 +253,17 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Grab the item type from the dataset and then remove it.
     let itemType = dataset.itemType ?? 'power';
     delete dataset.itemType;
+
+    // Handle the power group.
+    if (dataset?.groupType && dataset?.powerType) {
+      let groupType = dataset.groupType;
+      let model = game.system.model.Item[itemType];
+      if (model[groupType] && groupType !== 'powerType') {
+        dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
+        delete dataset.powerType;
+      }
+      delete dataset.groupType;
+    }
 
     // Default image.
     let img = CONFIG.ARCHMAGE.defaultTokens[itemType] ?? CONFIG.DEFAULT_TOKEN;
@@ -440,11 +451,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Basic chat message data
     const chatData = {
-      user: game.user._id,
+      user: game.user.id,
       type: 5,
       roll: roll,
       speaker: {
-        actor: actor._id,
+        actor: actor.id,
         token: actor.token,
         alias: actor.name,
         scene: game.user.viewedScene
@@ -462,7 +473,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
 
     // Render the template
@@ -496,14 +507,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let combat = game.combat;
     // Check to see if this actor is already in the combat.
     if (!combat) return;
-    let combatant = combat.data.combatants.find(c => c?.actor?.data?._id == this.actor._id);
+    let combatant = combat.data.combatants.find(c => c?.actor?.data?._id == this.actor.id);
     // Create the combatant if needed.
     if (!combatant) {
       await this.actor.rollInitiative({createCombatants: true});
     }
     // Otherwise, determine if the existing combatant should roll init.
     else if (!combatant.initiative && combatant.initiative !== 0) {
-      await combat.rollInitiative([combatant._id]);
+      await combat.rollInitiative([combatant.id]);
     }
   }
 
@@ -585,11 +596,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       // Basic chat message data
       const chatData = {
-        user: game.user._id,
+        user: game.user.id,
         type: 5,
         roll: roll,
         speaker: {
-          actor: this.actor._id,
+          actor: this.actor.id,
           token: this.actor.token,
           alias: this.actor.name,
           scene: game.user.viewedScene
@@ -609,7 +620,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // Render the template
@@ -688,11 +699,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Basic chat message data
     const chatData = {
-      user: game.user._id,
+      user: game.user.id,
       type: 5,
       roll: roll,
       speaker: {
-        actor: actor._id,
+        actor: actor.id,
         token: actor.token,
         alias: actor.name,
         scene: game.user.viewedScene
@@ -707,7 +718,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
 
     // Render the template

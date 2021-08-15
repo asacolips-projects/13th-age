@@ -1,4 +1,4 @@
-name: 'Animal Companion 4 (Druid)'
+name: '(Smite Evil) Melee attack (Daily)'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Paladin'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -24,27 +24,27 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: '1'
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: null
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: ''
+    value: null
   target:
     type: 'String'
     label: 'Target'
-    value: ''
+    value: 'One enemy'
   always:
     type: 'String'
     label: 'Always'
@@ -52,11 +52,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: ''
+    value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: ''
+    value: '[[1d12+@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -72,39 +72,39 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: ''
+    value: 'Half damage'
   missEven:
     type: 'String'
     label: 'Even Miss'
-    value: ''
+    value: null
   missOdd:
     type: 'String'
     label: 'Odd Miss'
-    value: ''
+    value: null
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: null
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
-    value: ''
+    value: null
   castPower:
     type: 'String'
     label: 'Cast for Power'
-    value: ''
+    value: null
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: ''
+    value: null
   finalVerse:
     type: 'String'
     label: 'Final Verse'
-    value: ''
+    value: null
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
@@ -112,27 +112,27 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: null
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: null
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: null
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: null
   spellChain:
     type: 'String'
     label: 'Chain Spell'
-    value: ''
+    value: null
   breathWeapon:
     type: 'String'
     label: 'Breath Weapon'
-    value: ''
+    value: null
   recharge:
     type: 'Number'
     label: 'Recharge'
@@ -150,27 +150,26 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: false
     champion:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: false
     epic:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'aE4MffipCwKazVmQ'
+_id: 'MAtgMQMEvqj4Vakh'

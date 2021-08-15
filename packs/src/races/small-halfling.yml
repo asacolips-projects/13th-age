@@ -1,4 +1,4 @@
-name: 'Animal Companion 3 (Ranger)'
+name: 'Small (Halfling)'
 permission:
   default: 0
 type: 'power'
@@ -9,14 +9,15 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
-    value: 'class'
+    value: 'other'
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Ranger'
+    value: 'Halfling'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -28,7 +29,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: '1'
   actionType:
     type: 'String'
     label: 'Action'
@@ -104,11 +105,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Halflings have a +2 AC bonus against opportunity attacks.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,10 +169,11 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
 flags: {}
-img: 'icons/svg/mystery-man.svg'
-_id: 'KwRw195stiG577Sy'
+img: 'icons/svg/d20.svg'
+_id: 'dbdba3YhICE5bqM0'

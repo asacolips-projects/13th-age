@@ -112,10 +112,10 @@ Hooks.once('init', async function() {
   CONFIG.statusEffects = ARCHMAGE.statusEffects;
 
   // Assign the actor class to the CONFIG
-  CONFIG.Actor.entityClass = ActorArchmage;
+  CONFIG.Actor.documentClass = ActorArchmage;
 
   // Assign ItemArchmage class to CONFIG
-  CONFIG.Item.entityClass = ItemArchmage;
+  CONFIG.Item.documentClass = ItemArchmage;
 
   // Override CONFIG
   CONFIG.Item.sheetClass = ItemArchmageSheet;
@@ -228,6 +228,24 @@ Hooks.once('init', async function() {
     scope: "world",
     type: Boolean,
     default: true,
+    config: true
+  });
+
+  game.settings.register("archmage", "multiTargetAttackRolls", {
+    name: "Multi-Target Attack Rolls",
+    hint: "Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets",
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
+  game.settings.register("archmage", "showDefensesInChat", {
+    name: "Display target(s) defense(s) in chat power cards",
+    hint: "Enable this display a list of targeted defenses in the attack line of chat power cards",
+    scope: "world",
+    type: Boolean,
+    default: false,
     config: true
   });
 
@@ -768,7 +786,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
     // Otherwise execute the deferred roll
     else {
-      const cls = CONFIG.ChatMessage.entityClass;
+      const cls = CONFIG.ChatMessage.documentClass;
 
       // Get the "speaker" for the inline roll
       const actor = cls.getSpeakerActor(cls.getSpeaker());
@@ -868,7 +886,7 @@ Hooks.on('createCombatant', (document, data, options, id) => {
   let tokens = scene ? scene.data.tokens : [];
   let tokenId = document?.data?._source?.tokenId;
   if (tokens && tokenId) {
-    let token = tokens.find(t => t._id == tokenId);
+    let token = tokens.find(t => t.id == tokenId);
     let actor = token ? game.actors.get(token.data.actorId) : null;
     // Add command points at start of combat.
     if (actor && actor.data.type == 'character') {

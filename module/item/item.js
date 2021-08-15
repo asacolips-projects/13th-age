@@ -171,25 +171,42 @@ export class ItemArchmage extends Item {
   }
 
   async _roll_render(itemUpdateData, actorUpdateData) {
+    // Replicate attack rolls as needed for attacks
+    let newItemData = {};
+    let numTargets = {targets: 1, rolls: []};
+    if (game.settings.get("archmage", "multiTargetAttackRolls") &&
+      (this.data.type == "power" || this.data.type == "action")){
+      numTargets = await ArchmageRolls.rollItemTargets(this);
+      newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
+      if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    }
+    let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
+
+    //await ArchmageRolls.rollItem(itemToRender);
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
-    const token = this.actor.token;
+    const token = itemToRender.actor.token;
     const templateData = {
-      actor: this.actor,
+      actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
-      item: this.data,
-      data: this.getChatData()
+      item: itemToRender.data,
+      data: itemToRender.getChatData()
     };
 
+<<<<<<< HEAD
+=======
+    // TODO: roll rolls here
     //let rollData = await ArchmageRolls.rollItem(this);
 
+>>>>>>> origin/master
     // Basic chat message data
     const chatData = {
       user: game.user.id,
       speaker: {
-        actor: this.actor.id,
-        token: this.actor.token,
-        alias: this.actor.name,
+        actor: itemToRender.actor.id,
+        token: itemToRender.actor.token,
+        alias: itemToRender.actor.name,
         scene: game.user.viewedScene
       },
       roll: new Roll("") // Needed to silence an error in 0.8.x
@@ -197,16 +214,22 @@ export class ItemArchmage extends Item {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
 
-    preCreateChatMessageHandler.handle(chatData, null, null);
+    // this line causes deprecation warnings due to missing asyinc= for rolls
+    // TODO: remove once rolls are correctly pre-rolled above
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
+
+    preCreateChatMessageHandler.handle(chatData, {
+      targets: numTargets.targets,
+      type: this.data.type
+    }, null);
 
     // If 3d dice are enabled, handle them first.
     if (game.dice3d) {
@@ -222,10 +245,19 @@ export class ItemArchmage extends Item {
             let $row_self = $(this);
             let row_text = $row_self.html();
             // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:') || row_text.includes('Hit:')) {
+            if (row_text.includes('Attack:') || row_text.includes('Hit:')
+              || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
-                rolls.push(Roll.fromJSON(unescape($roll_html.data('roll'))));
+                $roll_html.each(function(i, e){
+                  let roll = Roll.fromJSON(unescape(e.dataset.roll));
+                  if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
+                    // Not an attack roll, usually a target roll, roll first
+                    rolls.unshift(roll);
+                  } else {
+                    rolls.push(roll);
+                  }
+                });
               }
             }
           });
@@ -281,11 +313,11 @@ export class ItemArchmage extends Item {
 
       // Basic chat message data
       const chatData = {
-        user: game.user._id,
+        user: game.user.id,
         type: 5,
         roll: roll,
         speaker: {
-          actor: actor._id,
+          actor: actor.id,
           token: actor.token,
           alias: actor.name,
           scene: game.user.viewedScene
@@ -302,7 +334,7 @@ export class ItemArchmage extends Item {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // TODO: Wait for 3d dice.
@@ -476,11 +508,11 @@ export class ItemArchmage extends Item {
       // Extract card data
       const button = $(ev.currentTarget),
         messageId = button.parents('.message').attr("data-message-id"),
-        senderId = game.messages.get(messageId).user._id,
+        senderId = game.messages.get(messageId).user.id,
         card = button.parents('.chat-card');
 
       // Confirm roll permission
-      if (!game.user.isGM && (game.user._id !== senderId)) return;
+      if (!game.user.isGM && (game.user.id !== senderId)) return;
 
       // Get the Actor from a synthetic Token
       let actor;
@@ -488,7 +520,7 @@ export class ItemArchmage extends Item {
       if (tokenKey) {
         const [sceneId, tokenId] = tokenKey.split(".");
         let token;
-        if (sceneId === canvas.scene._id) token = canvas.tokens.get(tokenId);
+        if (sceneId === canvas.scene.id) token = canvas.tokens.get(tokenId);
         else {
           const scene = game.scenes.get(sceneId);
           if (!scene) return;
@@ -504,7 +536,7 @@ export class ItemArchmage extends Item {
       const itemId = card.attr("data-item-id");
       let itemData = actor.items.find(i => i.id === itemId);
       if (!itemData) return;
-      const item = new CONFIG.Item.entityClass(itemData, { actor: actor });
+      const item = new CONFIG.Item.documentClass(itemData, { actor: actor });
 
       // Get the Action
       const action = button.attr("data-action");
