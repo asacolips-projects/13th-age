@@ -162,7 +162,7 @@
             <ul class="actions-list inventory-list directory-list">
 
                 {{#each actor.actions as |item i|}}
-                <li class="item flexrow item--action" data-item-id="{{item._id}}">
+                <li class="item flexrow item--action" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
                         <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
