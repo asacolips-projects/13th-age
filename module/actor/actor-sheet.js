@@ -571,12 +571,12 @@ export class ActorArchmageSheet extends ActorSheet {
       else {
         data = dataset;
       }
-      this.actor.createEmbeddedDocuments('Item', {
+      this.actor.createEmbeddedDocuments('Item', [{
         name: 'New ' + type.capitalize(),
         type: type,
         img: img,
         data: data
-      });
+      }]);
     });
 
     // html.find('.powers .item-create').on('contextmenu', ev => {

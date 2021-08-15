@@ -552,6 +552,9 @@ export class ActorArchmage extends Actor {
     if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
     if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
     if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
+    if (!data.resources.spendable.custom1.rest) data.resources.spendable.custom1.rest = model.resources.spendable.custom1.rest;
+    if (!data.resources.spendable.custom2.rest) data.resources.spendable.custom2.rest = model.resources.spendable.custom2.rest;
+    if (!data.resources.spendable.custom3.rest) data.resources.spendable.custom3.rest = model.resources.spendable.custom3.rest;
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
@@ -905,6 +908,33 @@ export class ActorArchmage extends Actor {
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
 
+    // Resources
+    // Focus, Momentum and Command Points handled on end combat hook
+    for (let idx of ["1", "2", "3"]) {
+      let resourcePathName = "custom"+idx;
+      let resourceName = this.data.data.resources.spendable[resourcePathName].label;
+      let curr = this.data.data.resources.spendable[resourcePathName].current;
+      if (this.data.data.resources.spendable[resourcePathName].enabled
+        && this.data.data.resources.spendable[resourcePathName].rest != "none") {
+        let max = this.data.data.resources.spendable[resourcePathName].max;
+        let path = `data.resources.spendable.${resourcePathName}.current`;
+        if (this.data.data.resources.spendable[resourcePathName].rest == "quick"
+          && max && curr < max) {
+          updateData[path] = max;
+        }
+        else if (this.data.data.resources.spendable[resourcePathName].rest == "quickreset"
+          && curr > 0) {
+          updateData[path] = 0;
+        }
+        if (updateData[path] !== undefined) {
+          templateData.resources.push({
+            key: resourceName,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${updateData[path]}`
+          });
+        }
+      }
+    }
+
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
       this.update(updateData);
@@ -996,14 +1026,26 @@ export class ActorArchmage extends Actor {
       let resourcePathName = "custom"+idx;
       let resourceName = this.data.data.resources.spendable[resourcePathName].label;
       let curr = this.data.data.resources.spendable[resourcePathName].current;
-      let max = this.data.data.resources.spendable[resourcePathName].max;
-      if (this.data.data.resources.spendable[resourcePathName].enabled && max && max && curr < max) {
+      if (this.data.data.resources.spendable[resourcePathName].enabled
+        && this.data.data.resources.spendable[resourcePathName].rest != "none") {
+        let max = this.data.data.resources.spendable[resourcePathName].max;
         let path = `data.resources.spendable.${resourcePathName}.current`;
-        updateData[path] = max;
-        templateData.resources.push({
-          key: resourceName,
-          message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${max}`
-        });
+        if ((this.data.data.resources.spendable[resourcePathName].rest == "full"
+          || this.data.data.resources.spendable[resourcePathName].rest == "quick")
+          && max && curr < max) {
+          updateData[path] = max;
+        }
+        else if ((this.data.data.resources.spendable[resourcePathName].rest == "fullreset"
+          || this.data.data.resources.spendable[resourcePathName].rest == "quickreset")
+          && curr > 0) {
+          updateData[path] = 0;
+        }
+        if (updateData[path] !== undefined) {
+          templateData.resources.push({
+            key: resourceName,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${updateData[path]}`
+          });
+        }
       }
     }
 
