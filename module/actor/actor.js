@@ -218,7 +218,7 @@ export class ActorArchmage extends Actor {
 
       // Must recompute this here because the e.d. might have changed.
       data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty
+        value: data.attributes.level.value + data.attributes.escalation.value
       };
 
       this.applyActiveEffects('std')
@@ -332,11 +332,9 @@ export class ActorArchmage extends Actor {
     var divineAttackBonus = 0;
     var arcaneAttackBonus = 0;
 
-    var missingRecPenalty = Math.min(data.attributes.recoveries.value, 0)
-
-    var acBonus = 0 + missingRecPenalty;
-    var mdBonus = 0 + missingRecPenalty;
-    var pdBonus = 0 + missingRecPenalty;
+    var acBonus = 0;
+    var mdBonus = 0;
+    var pdBonus = 0;
 
     var hpBonus = 0;
     var recoveriesBonus = 0;
@@ -463,7 +461,6 @@ export class ActorArchmage extends Actor {
 
     // Fallback for attack modifier
     if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
-    data.attributes.attackMod.missingRecPenalty = missingRecPenalty;
 
   }
 
@@ -762,6 +759,7 @@ export class ActorArchmage extends Actor {
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
     });
+
     return {roll: roll, total: roll.total};
   }
 
@@ -1055,6 +1053,31 @@ export class ActorArchmage extends Actor {
       || data.data === undefined) {
         // Nothing to do
         return;
+    }
+
+    if (data.data.attributes?.recoveries?.value) {
+      // Here we received an update involving the number of remaining recoveries
+
+      // Clear previous effect, then recreate it if the at negative recoveries
+      let effectsToDelete = [];
+      this.effects.forEach(x => {
+        if (x.data.label == "Negative Recovery Penalty") effectsToDelete.push(x.id);
+      });
+      await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
+
+      let newRec = data.data.attributes.recoveries.value;
+      if (data.data.attributes.recoveries.value < 0) {
+        const effectData = {
+          label: "Negative Recovery Penalty",
+          changes: [
+            {key: "data.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
+            {key: "data.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
+            {key: "data.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
+            {key: "data.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
+          ]
+        };
+        this.createEmbeddedEntity("ActiveEffect", [effectData]);
+      }
     }
 
     if (data.data.attributes?.weapon?.melee?.shield !== undefined
