@@ -230,7 +230,7 @@ Hooks.once('init', async function() {
 
   game.settings.register("archmage", "multiTargetAttackRolls", {
     name: "Multi-Target Attack Rolls",
-    hint: "Enable this to automatically duplicate inline attacl rolls for multi-target powers based on the number of targets",
+    hint: "Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets",
     scope: "world",
     type: Boolean,
     default: true,
