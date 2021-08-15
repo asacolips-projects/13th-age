@@ -181,6 +181,7 @@ export class ItemArchmage extends Item {
       data: this.getChatData()
     };
 
+    // TODO: roll rolls here
     //let rollData = await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
@@ -197,13 +198,15 @@ export class ItemArchmage extends Item {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
+    // this line causes deprecation warnings due to missing asyinc= for rolls
+    // TODO: remove once rolls are correctly pre-rolled above
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: this.actor.getRollData() });
 
     preCreateChatMessageHandler.handle(chatData, null, null);
@@ -281,11 +284,11 @@ export class ItemArchmage extends Item {
 
       // Basic chat message data
       const chatData = {
-        user: game.user._id,
+        user: game.user.id,
         type: 5,
         roll: roll,
         speaker: {
-          actor: actor._id,
+          actor: actor.id,
           token: actor.token,
           alias: actor.name,
           scene: game.user.viewedScene
@@ -302,7 +305,7 @@ export class ItemArchmage extends Item {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // TODO: Wait for 3d dice.
@@ -476,11 +479,11 @@ export class ItemArchmage extends Item {
       // Extract card data
       const button = $(ev.currentTarget),
         messageId = button.parents('.message').attr("data-message-id"),
-        senderId = game.messages.get(messageId).user._id,
+        senderId = game.messages.get(messageId).user.id,
         card = button.parents('.chat-card');
 
       // Confirm roll permission
-      if (!game.user.isGM && (game.user._id !== senderId)) return;
+      if (!game.user.isGM && (game.user.id !== senderId)) return;
 
       // Get the Actor from a synthetic Token
       let actor;
@@ -488,7 +491,7 @@ export class ItemArchmage extends Item {
       if (tokenKey) {
         const [sceneId, tokenId] = tokenKey.split(".");
         let token;
-        if (sceneId === canvas.scene._id) token = canvas.tokens.get(tokenId);
+        if (sceneId === canvas.scene.id) token = canvas.tokens.get(tokenId);
         else {
           const scene = game.scenes.get(sceneId);
           if (!scene) return;
@@ -504,7 +507,7 @@ export class ItemArchmage extends Item {
       const itemId = card.attr("data-item-id");
       let itemData = actor.items.find(i => i.id === itemId);
       if (!itemData) return;
-      const item = new CONFIG.Item.entityClass(itemData, { actor: actor });
+      const item = new CONFIG.Item.documentClass(itemData, { actor: actor });
 
       // Get the Action
       const action = button.attr("data-action");

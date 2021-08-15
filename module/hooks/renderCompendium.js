@@ -20,7 +20,7 @@ export class renderCompendium {
         html.find('.compendium').addClass('overrides');
         compendiumContent = await compendium.getContent();
         compendiumContent.forEach(p => {
-          let option = data.index.find(o => o._id == p._id);
+          let option = data.index.find(o => o.id == p.id);
           let data = p.data.data;
           option.search = {
             level: data.powerLevel ? data.powerLevel.value : null,
@@ -32,7 +32,7 @@ export class renderCompendium {
       }
 
       newOptions.index = duplicate(data).index.reduce((groups, option) => {
-        if (option._id) {
+        if (option.id) {
           let group = option.search.type ? option.search.type : 'other';
           if (!groups[group]) {
             groups[group] = [];
@@ -49,7 +49,7 @@ export class renderCompendium {
       compendiumContent = await compendium.getContent();
       console.log(compendiumContent);
       compendiumContent.forEach(m => {
-        let option = data.index.find(o => o._id == m._id);
+        let option = data.index.find(o => o.id == m.id);
         let data = m.data.data;
         option.search = {
           level: data.details.level ? data.details.level.value : null,
@@ -61,7 +61,7 @@ export class renderCompendium {
         };
       });
       newOptions.index = duplicate(data).index.reduce((groups, option) => {
-        if (option._id) {
+        if (option.id) {
           // console.log(option);
           let group = option.search.type ? option.search.type : 'other';
           if (!groups[group]) {
