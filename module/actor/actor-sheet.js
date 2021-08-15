@@ -298,7 +298,7 @@ export class ActorArchmageSheet extends ActorSheet {
       let template = 'systems/archmage/templates/chat/action-card.html';
       renderTemplate(template, templateData).then(content => {
         ChatMessage.create({
-          user: game.user._id,
+          user: game.user.id,
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
           content: content
         });
@@ -351,11 +351,11 @@ export class ActorArchmageSheet extends ActorSheet {
 
         // Basic chat message data
         const chatData = {
-          user: game.user._id,
+          user: game.user.id,
           type: 5,
           roll: roll,
           speaker: {
-            actor: this.actor._id,
+            actor: this.actor.id,
             token: this.actor.token,
             alias: this.actor.name,
             scene: game.user.viewedScene
@@ -375,7 +375,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
         // Toggle default roll mode
         let rollMode = game.settings.get("core", "rollMode");
-        if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+        if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
         if (rollMode === "blindroll") chatData["blind"] = true;
 
         // Render the template
@@ -446,11 +446,11 @@ export class ActorArchmageSheet extends ActorSheet {
 
       // Basic chat message data
       const chatData = {
-        user: game.user._id,
+        user: game.user.id,
         type: 5,
         roll: roll,
         speaker: {
-          actor: actor._id,
+          actor: actor.id,
           token: actor.token,
           alias: actor.name,
           scene: game.user.viewedScene
@@ -468,7 +468,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // Render the template
@@ -505,7 +505,7 @@ export class ActorArchmageSheet extends ActorSheet {
         value = Math.min(value, item.data.data.maxQuantity.value);
       }
       await this.actor.updateEmbeddedDocuments('Item', {
-        _id: item._id,
+        _id: item.id,
         data: { quantity: { value: value } }
       });
 
@@ -519,7 +519,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
       // Update the owned item and rerender.
       await this.actor.updateEmbeddedDocuments('Item', {
-        _id: item._id,
+        _id: item.id,
         data: {
           quantity: {
             value: Math.max(0, Number(item.data.data.quantity.value || 0) - 1)
@@ -536,7 +536,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
     // html.find('.item .rollable').click(ev => {
     //   let itemId = Number($(ev.currentTarget).parents('.item').attr('data-item-id'));
-    //   let Item = CONFIG.Item.entityClass;
+    //   let Item = CONFIG.Item.documentClass;
     //   let item = new Item(this.actor.items.find(i => i.id === itemId), this.actor);
     //   item.roll();
     // });
@@ -660,7 +660,7 @@ export class ActorArchmageSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       let itemId = $(ev.currentTarget).parents('.item').attr('data-item-id');
-      let Item = CONFIG.Item.entityClass;
+      let Item = CONFIG.Item.documentClass;
       // const item = new Item(this.actor.items.find(i => i.id === itemId), {actor: this.actor});
       const item = this.actor.items.get(itemId);
       item.sheet.render(true);

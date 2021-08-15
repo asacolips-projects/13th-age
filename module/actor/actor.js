@@ -12,7 +12,7 @@ export class ActorArchmage extends Actor {
     let combat = game.combat;
     if ( !combat ) {
       if ( game.user.isGM && canvas.scene ) {
-        combat = await game.combats.object.create({scene: canvas.scene._id, active: true});
+        combat = await game.combats.object.create({scene: canvas.scene.id, active: true});
       }
       else {
         ui.notifications.warn(game.i18n.localize("COMBAT.NoneActive"));
@@ -28,7 +28,7 @@ export class ActorArchmage extends Actor {
         arr.push({tokenId: t.id, hidden: t.data.hidden});
         return arr;
       }, []);
-      await combat.createEmbeddedEntity("Combatant", createData);
+      await combat.createEmbeddedDocuments("Combatant", createData);
     }
 
     // Iterate over combatants to roll for
@@ -36,7 +36,7 @@ export class ActorArchmage extends Actor {
       if ( !c.actor ) return arr;
       if ( (c.actor.id !== this.id) || (this.isToken && (c.tokenId !== this.token.id)) ) return arr;
       if ( c.initiative && !rerollInitiative ) return arr;
-      arr.push(c._id);
+      arr.push(c.id);
       return arr;
     }, []);
     return combatantIds.length ? combat.rollInitiative(combatantIds, initiativeOptions) : combat;
@@ -624,14 +624,14 @@ export class ActorArchmage extends Actor {
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
       const chatData = {
-        user: game.user._id, speaker: {actor: this._id, token: this.token,
+        user: game.user.id, speaker: {actor: this.id, token: this.token,
         alias: this.name, scene: game.user.viewedScene},
-		roll: new Roll("") // Needed to silence an error in 0.8.x
+        roll: new Roll("") // TODO: Refactor this, needed to silence an error in 0.8.x
       };
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
       // Render the template
@@ -748,7 +748,7 @@ export class ActorArchmage extends Actor {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
-            let roll = await this.items.get(item._id).recharge({createMessage: false});
+            let roll = await this.items.get(item.id).recharge({createMessage: false});
             if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
@@ -769,12 +769,12 @@ export class ActorArchmage extends Actor {
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-short-card.html`
     const chatData = {
-      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      user: game.user.id, speaker: {actor: this.id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
       roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
@@ -858,12 +858,12 @@ export class ActorArchmage extends Actor {
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-full-card.html`
     const chatData = {
-      user: game.user._id, speaker: {actor: this._id, token: this.token,
+      user: game.user.id, speaker: {actor: this.id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
       roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u._id);
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
@@ -1208,6 +1208,13 @@ export class ActorArchmage extends Actor {
             kick: {dice: `d${kickWpn}`, value: `${lvl}d${kickWpn}`}
           }
         };
+
+        // Handle extra recoveries for fighters
+        if (matchedClasses.includes("fighter")) {
+          data.data.attributes.recoveries.base = 9;
+        } else {
+          data.data.attributes.recoveries.base = 8;
+        }
       }
       // Store matched classes for future reference
       data.data.details.detectedClasses = matchedClasses;
@@ -1264,7 +1271,7 @@ export class ActorArchmage extends Actor {
 
     // Iterate over attacks and actions.
     for (let item of actor.items) {
-      let itemOverrideData = {'_id': item._id};
+      let itemOverrideData = {'_id': item.id};
       if (item.type == 'action') {
         // Add delta to attack
         let parsed = atkFilter.exec(item.data.data.attack.value);

@@ -31,7 +31,7 @@
         <div class="power-header-title grid power-grid">
           <h2 class="power-group-title unit-title">{{localize(group)}}</h2>
           <div class="item-controls">
-            <a class="item-control item-create" data-item-type="power" :data-power-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
+            <a class="item-control item-create" data-item-type="power" :data-group-type="groupBy" :data-power-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
         </div>
         <!-- Column labels. -->

@@ -127,6 +127,11 @@ packs:
     name: multiclassfeats
     path: packs/dist/multiclass-feats.db
     system: archmage
+  - label: Animal Companions
+    entity: Actor
+    name: animal-companions
+    path: packs/dist/animal-companions.db
+    system: archmage
   - label: SRD Monsters
     entity: Actor
     name: srd-Monsters
