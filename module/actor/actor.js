@@ -206,26 +206,24 @@ export class ActorArchmage extends Actor {
     const actorData = this.data;
     const data = actorData.data;
 
-    if (actorData.type === 'character') {
-      // Get the escalation die value.
-      if (game.combats !== undefined && game.combat !== null) {
-        data.attributes.escalation = {
-          value: ArchmageUtility.getEscalation(game.combat)
-        };
-      }
-      else {
-        data.attributes.escalation = { value: 0 };
-      }
-
-      this.applyActiveEffects('ed');
-
-      // Must recompute this here because the e.d. might have changed.
-      data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value
+    // Get the escalation die value.
+    if (game.combats !== undefined && game.combat !== null) {
+      data.attributes.escalation = {
+        value: ArchmageUtility.getEscalation(game.combat)
       };
-
-      this.applyActiveEffects('std')
     }
+    else {
+      data.attributes.escalation = { value: 0 };
+    }
+
+    this.applyActiveEffects('ed');
+
+    // Must recompute this here because the e.d. might have changed.
+    data.attributes.standardBonuses = {
+      value: data.attributes.level.value + data.attributes.escalation.value
+    };
+
+    this.applyActiveEffects('std')
   }
 
   /* -------------------------------------------- */
