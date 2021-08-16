@@ -345,7 +345,7 @@ Hooks.once('init', async function() {
 
   // Track whether we overrode DsN's default inline roll parsing
   game.settings.register("archmage", "DsNInlineOverride", {
-    name: "System Migration Version",
+    name: "DsN Override",
     scope: "world",
     config: false,
     type: Boolean,
@@ -607,7 +607,8 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // Disable DsN's automatic parsing of inline rolls - let users enable it
-  if (!game.settings.get("archmage", "DsNInlineOverride")) {
+  if (isNewerVersion(game.modules.get('dice-so-nice')?.data?.version, "4.1.1")
+    && !game.settings.get("archmage", "DsNInlineOverride")) {
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
     game.settings.set("archmage", "DsNInlineOverride", true);
   }
