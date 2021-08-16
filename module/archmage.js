@@ -354,6 +354,19 @@ Hooks.once('init', async function() {
   $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
   /**
+  * Track wheter we disabled DsN's inline roll parsing once
+  */
+  game.settings.register("archmage", "DsNInlineOverride", {
+    name: "System Migration Version",
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: false
+  });
+
+
+
+  /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
    * Apply the dexterity score as a decimal tiebreaker if requested
@@ -605,8 +618,11 @@ Hooks.on("renderSettings", (app, html) => {
 Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
-  // Disable DsN's automatic parsing of inline rolls
-  game.settings.set("dice-so-nice", "animateInlineRoll", false);
+  // Disable DsN's automatic parsing of inline rolls - let users enable it
+  if (!game.settings.get("archmage", "DsNInlineOverride")) {
+    game.settings.set("dice-so-nice", "animateInlineRoll", false);
+    game.settings.set("archmage", "DsNInlineOverride", true);
+  }
 
   // dice3d.addDicePreset({
   //   type: "d20",
