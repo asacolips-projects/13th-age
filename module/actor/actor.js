@@ -91,6 +91,9 @@ export class ActorArchmage extends Actor {
     if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
     data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
 
+    // Fallback for attack modifier and defenses
+    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
+
     // Prepare Character data
     if (actorData.type === 'character') {
       this._prepareCharacterData(data, model, flags);
@@ -137,7 +140,7 @@ export class ActorArchmage extends Actor {
         // Handle ability scores and base attributes.
         case 'pre':
           if (change.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g)) {
-            console.log(`0 | ${weight} | ${change.key}`);
+            // console.log(`0 | ${weight} | ${change.key}`);
             applyEffect = true;
           }
           break;
@@ -145,7 +148,7 @@ export class ActorArchmage extends Actor {
         // Handle the non-special active effects.
         case 'default':
           if (!change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
-            console.log(`1 | ${weight} | ${change.key}`);
+            // console.log(`1 | ${weight} | ${change.key}`);
             applyEffect = true;
           }
           break;
@@ -153,7 +156,7 @@ export class ActorArchmage extends Actor {
         // Handle escalation die.
         case 'ed':
           if (change.key == 'data.attributes.escalation.value') {
-            console.log(`2 | ${weight} | ${change.key}`);
+            // console.log(`2 | ${weight} | ${change.key}`);
             applyEffect = true;
           }
           break;
@@ -161,14 +164,14 @@ export class ActorArchmage extends Actor {
         // Handle standard bonuses.
         case 'std':
           if (change.key == 'data.attributes.standardBonuses.value') {
-            console.log(`2 | ${weight} | ${change.key}`);
+            // console.log(`2 | ${weight} | ${change.key}`);
             applyEffect = true;
           }
           break;
 
         // Handle remaining active effects.
         case 'post':
-          console.log(`2 | ${weight} | ${change.key}`);
+          // console.log(`2 | ${weight} | ${change.key}`);
           applyEffect = true;
           break;
       }
@@ -235,6 +238,19 @@ export class ActorArchmage extends Actor {
    */
   _prepareCharacterData(data, model, flags) {
 
+    // Find known classes
+    if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
+      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+      let classRegex = new RegExp(classList.join('|'), 'g');
+
+      var classText = data.details.class?.value;
+      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+
+      var matchedClasses = classText.match(classRegex);
+      if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
+      data.details.detectedClasses = matchedClasses;
+    }
+
     // Build out the icon results structure if it hasn't been
     // previously initialized.
     if (data?.icons) {
@@ -256,25 +272,19 @@ export class ActorArchmage extends Actor {
       delete data.out;
     }
 
-    // Find known classes
-    if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
-      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-      let classRegex = new RegExp(classList.join('|'), 'g');
-
-      var classText = data.details.class?.value;
-      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-
-      var matchedClasses = classText.match(classRegex);
-      if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
-      data.details.detectedClasses = matchedClasses;
-    }
-
-    // Fallbacks for missing melee weapon options
+    // Fallbacks for potentially missing data
+    // Coins
+    if (!data.coins) data.coins = model.coins;
+    // Weapons
+    if (!data.attributes.weapon) data.attributes.weapon = model.attributes.weapon;
+    if (!data.attributes.weapon.jab) data.attributes.weapon.jab = model.attributes.weapon.jab;
+    if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
+    if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
+    // Weapon options
     if (data.attributes.weapon.melee.shield === undefined) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
     if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
     if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
-
-    // Fallbacks for missing resources
+    // Resources
     if (!data.resources) data.resources = model.resources;
     if (!data.resources.perCombat) data.resources.perCombat = model.resources.perCombat;
     if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
@@ -288,6 +298,10 @@ export class ActorArchmage extends Actor {
     if (!data.resources.spendable.custom1.rest) data.resources.spendable.custom1.rest = model.resources.spendable.custom1.rest;
     if (!data.resources.spendable.custom2.rest) data.resources.spendable.custom2.rest = model.resources.spendable.custom2.rest;
     if (!data.resources.spendable.custom3.rest) data.resources.spendable.custom3.rest = model.resources.spendable.custom3.rest;
+    // Saves
+    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
+    if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
+    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
@@ -300,11 +314,6 @@ export class ActorArchmage extends Actor {
       // Ki
       data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
     }
-
-    // Handle death saves.
-    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
-    if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
-    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
 
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
@@ -320,10 +329,10 @@ export class ActorArchmage extends Actor {
       data.attributes.saves.lastGaspFails.steps[i] = true;
     }
 
-    // Ability modifiers and saves
+    // Ability modifiers
     for (let abl of Object.values(data.abilities)) {
       abl.mod = Math.floor((abl.value - 10) / 2);
-      abl.lvl = Math.floor((abl.value - 10) / 2) + data.attributes.level.value;
+      abl.lvl = abl.mod + data.attributes.level.value;
     }
 
     // Bonuses
@@ -375,27 +384,26 @@ export class ActorArchmage extends Actor {
       arcane: { bonus: arcaneAttackBonus }
     };
 
-    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
-
+    // Saves
     data.attributes.saves.easy = Math.max((6 - saveBonus), 0);
     data.attributes.saves.normal = Math.max((11 - saveBonus), 0);
     data.attributes.saves.hard = Math.max((16 - saveBonus), 0);
     data.attributes.disengage = Math.max((11 - disengageBonus - (data.attributes?.disengageBonus ?? 0)), 0);
 
+    // Defenses (second element of sorted triple equal median)
     data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(acBonus);
     data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1]) + Number(data.attributes.level.value) + Number(pdBonus);
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(mdBonus);
 
     // Damage Modifiers
-    let levelMultiplier = 1;
-    if (data.attributes.level.value >= 5) levelMultiplier = 2;
-    if (data.attributes.level.value >= 8) levelMultiplier = 3;
+    data.tier = 1;
+    if (data.attributes.level.value >= 5) data.tier = 2;
+    if (data.attributes.level.value >= 8) data.tier = 3;
     for (let prop in data.abilities) {
-      data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
+      data.abilities[prop].dmg = data.tier * data.abilities[prop].mod;
     }
-    data.tier = levelMultiplier
 
-    // HPs and Recoveries
+    // HPs
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
@@ -412,10 +420,10 @@ export class ActorArchmage extends Actor {
       data.attributes.hp.max = Math.floor((data.attributes.hp.base + data.abilities.con.mod) * hpLevelModifier[level] + hpBonus + toughness);
     }
 
+    // Recoveries
     if (data.attributes.recoveries.automatic) {
       data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
     }
-
     // Calculate recovery average.
     let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
     let recoveryDice = 'd8'; // Fall back
@@ -424,24 +432,12 @@ export class ActorArchmage extends Actor {
     }
     let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
     if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
-    data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
-
-    // Coins
-    if (!data.coins) data.coins = model.coins;
-
-    // Fallbacks for missing weapons
-    if (!data.attributes.weapon) data.attributes.weapon = model.attributes.weapon;
-    if (!data.attributes.weapon.jab) data.attributes.weapon.jab = model.attributes.weapon.jab;
-    if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
-    if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
+    data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * data.tier);
 
     // Weapon dice
     for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
       data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
     }
-
-    // Fallback for attack modifier
-    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
 
   }
 
@@ -471,8 +467,6 @@ export class ActorArchmage extends Actor {
     // Reapply post active effects.
     this.prepareDerivedData();
     this.applyActiveEffects('post');
-
-    console.log(this.data.data);
 
     // Retrieve the actor data.
     const origData = super.getRollData();
@@ -517,8 +511,8 @@ export class ActorArchmage extends Actor {
                 data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
               }
               data.wpn[wpn].dice = data.wpn[wpn].value;
-              data.wpn[wpn].atk = data.wpn[wpn].attack;
-              data.wpn[wpn].dmg = data.wpn[wpn].dmg;
+              // data.wpn[wpn].atk = data.wpn[wpn].attack;
+              // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
               delete data.wpn[wpn].value;
               delete data.wpn[wpn].attack;
             });
@@ -530,7 +524,8 @@ export class ActorArchmage extends Actor {
               m: v.melee,
               r: v.ranged,
               a: v.arcane,
-              d: v.divine
+              d: v.divine,
+              mod: data.attributes.attackMod.value
             };
             break;
 
