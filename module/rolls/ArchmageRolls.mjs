@@ -94,7 +94,7 @@ export default class ArchmageRolls {
   }
 
   static addAttackMod(item) {
-    // Add @atk.mod modifier to all inline rolls if not 0
+    // Add @atk.mod modifier to the first inline roll, if it isn't 0
     let attackLine = item.data.data.attack.value;
     let atkMod = item.actor.getRollData().attackMod.value;
     if (atkMod) {

@@ -354,7 +354,7 @@ Hooks.once('init', async function() {
   $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
   /**
-  * Track wheter we disabled DsN's inline roll parsing once
+  * Track whether we overrode DsN's default inline roll parsing
   */
   game.settings.register("archmage", "DsNInlineOverride", {
     name: "System Migration Version",
@@ -623,33 +623,6 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
     game.settings.set("archmage", "DsNInlineOverride", true);
   }
-
-  // dice3d.addDicePreset({
-  //   type: "d20",
-  //   labels: [
-  //     "1",
-  //     "2",
-  //     "3",
-  //     "4",
-  //     "5",
-  //     "6",
-  //     "7",
-  //     "8",
-  //     "9",
-  //     "10",
-  //     "11",
-  //     "12",
-  //     "13",
-  //     "14",
-  //     "15",
-  //     "16",
-  //     "17",
-  //     "18",
-  //     "19",
-  //     "20"
-  //   ],
-  //   system: "archmage"
-  // });
 
   dice3d.addTexture("archmagered", {
     name: "Archmage Red",
