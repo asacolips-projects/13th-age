@@ -47,6 +47,9 @@ export class ItemArchmageSheet extends ItemSheet {
   async getData(options) {
     const data = super.getData(options);
 
+    // Sequencer support
+    data.sequencerEnabled = game.modules.get("sequencer")?.active;
+
     // Power-specific data
     if (this.item.type === 'power') {
       data['powerSources'] = CONFIG.ARCHMAGE.powerSources;

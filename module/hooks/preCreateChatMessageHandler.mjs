@@ -16,6 +16,17 @@ export default class preCreateChatMessageHandler {
         let type = 'power';
         if (options.type) type = options.type;
 
+        let powerName = "";
+        let token = data.speaker.token;
+        let tokenItems = token.data.actorData.items;
+        let matchingItem = null;
+
+        // Sequencer support
+        if (game.modules.get("sequencer")?.active) {
+            powerName = $content.find(".ability-usage")[0].innerText;
+            matchingItem = tokenItems.find(i => i.name == powerName);
+        }
+
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
 
@@ -106,12 +117,16 @@ export default class preCreateChatMessageHandler {
                 if (hitEvaluationResults) {
                     // Append hit targets to text
                     if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
-                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit.join(", ") + ") </span>")
+                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit
+                            .map(t => t.data.name)
+                            .join(", ") + ") </span>")
                     }
 
                     // Append missed targets to text
                     if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
-                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed.join(", ") + ") </span>")
+                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed
+                            .map(t => t.data.name)
+                            .join(", ") + ") </span>")
                     }
 
                     // Append target defenses to text
@@ -210,6 +225,29 @@ export default class preCreateChatMessageHandler {
                     }
                 }
             });
+
+            if (hitEvaluationResults) {
+                // Display Sequencer Effects
+                if (game.modules.get("sequencer")?.active && matchingItem) {
+                    console.log(hitEvaluationResults);
+                    const filename = matchingItem.data.sequencer.file;
+                    if (filename) {
+                        function addAttack(sequence, towards, missed) {
+                            return sequence
+                                .effect()
+                                .atLocation(towards)
+                                .file(filename)
+                                .duration(1000)
+                                .missed(missed)
+                        }
+
+                        let sequence = new Sequence();
+                        hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, false));
+                        hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, true));
+                        sequence.play();
+                    }
+                }
+            }
 
             // Update the content
             $content.find('.card-prop').replaceWith($rows);
