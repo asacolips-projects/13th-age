@@ -211,8 +211,8 @@ Hooks.once('init', async function() {
     if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
   game.settings.register('archmage', 'initiativeDexTiebreaker', {
-    name: 'Initiative Dex Tiebreaker',
-    hint: 'Whether or not to break iniative ties with dexterity scores.',
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint"),
     scope: 'world',
     config: true,
     default: true,
@@ -220,19 +220,10 @@ Hooks.once('init', async function() {
     onChange: enable => _setArchmageInitiative(enable)
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
-  // Macro shorthand
-  game.settings.register("archmage", "macroShorthand", {
-    name: "Shortened Macro Syntax",
-    hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
-    scope: "world",
-    type: Boolean,
-    default: true,
-    config: true
-  });
 
   game.settings.register("archmage", "multiTargetAttackRolls", {
-    name: "Multi-Target Attack Rolls",
-    hint: "Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets",
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsHint"),
     scope: "world",
     type: Boolean,
     default: true,
@@ -240,8 +231,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "showDefensesInChat", {
-    name: "Display target(s) defense(s) in chat power cards",
-    hint: "Enable this display a list of targeted defenses in the attack line of chat power cards",
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatHint"),
     scope: "world",
     type: Boolean,
     default: false,
@@ -249,8 +240,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register("archmage", "hideInsteadOfOpaque", {
-    name: "Hide inactive Features / Triggers instead of making them faded-out",
-    hint: "Enable this if you prefer not seeing inactive details at all",
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.hideInsteadOfOpaqueHint"),
     scope: "world",
     type: Boolean,
     default: false,
@@ -285,8 +276,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'originalCritDamage', {
-    name: 'Double damage result on critical hit',
-    hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.originalCritDamageName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.originalCritDamageHint"),
     scope: 'world',
     config: true,
     default: false,
@@ -352,9 +343,7 @@ Hooks.once('init', async function() {
   //Adding the colorblind mode class at startup
   $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
-  /**
-  * Track whether we overrode DsN's default inline roll parsing
-  */
+  // Track whether we overrode DsN's default inline roll parsing
   game.settings.register("archmage", "DsNInlineOverride", {
     name: "System Migration Version",
     scope: "world",

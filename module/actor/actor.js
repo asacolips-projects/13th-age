@@ -471,72 +471,69 @@ export class ActorArchmage extends Actor {
     // Retrieve the actor data.
     const origData = super.getRollData();
     const data = foundry.utils.deepClone(origData);
-    const shorthand = game.settings.get("archmage", "macroShorthand");
 
     // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
     const model = game.system.model.Actor.character.attributes.weapon;
 
     // Re-map all attributes onto the base roll data
-    if (!!shorthand) {
-      let newData = mergeObject(data.attributes, data.abilities);
-      delete data.init;
-      for (let [k, v] of Object.entries(newData)) {
-        switch (k) {
-          case 'escalation':
-            data.ed = v.value;
-            break;
+    let newData = mergeObject(data.attributes, data.abilities);
+    delete data.init;
+    for (let [k, v] of Object.entries(newData)) {
+      switch (k) {
+        case 'escalation':
+          data.ed = v.value;
+          break;
 
-          case 'init':
-            data.init = v.mod;
-            break;
+        case 'init':
+          data.init = v.mod;
+          break;
 
-          case 'level':
-            data.lvl = v.value;
-            break;
+        case 'level':
+          data.lvl = v.value;
+          break;
 
-          case 'weapon':
-            data.wpn = {
-              m: v?.melee ?? model.melee,
-              r: v?.ranged ?? model.ranged,
-              j: v?.jab ?? model.jab,
-              p: v?.punch ?? model.punch,
-              k: v?.kick ?? model.kick
-            };
+        case 'weapon':
+          data.wpn = {
+            m: v?.melee ?? model.melee,
+            r: v?.ranged ?? model.ranged,
+            j: v?.jab ?? model.jab,
+            p: v?.punch ?? model.punch,
+            k: v?.kick ?? model.kick
+          };
 
-            // Clean up weapon properties.
-            let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
-            wpnTypes.forEach(wpn => {
-              if (data.wpn[wpn].dice) {
-                data.wpn[wpn].die = data.wpn[wpn].dice;
-                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
-              }
-              data.wpn[wpn].dice = data.wpn[wpn].value;
-              // data.wpn[wpn].atk = data.wpn[wpn].attack;
-              // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
-              delete data.wpn[wpn].value;
-              delete data.wpn[wpn].attack;
-            });
+          // Clean up weapon properties.
+          let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
+          wpnTypes.forEach(wpn => {
+            if (data.wpn[wpn].dice) {
+              data.wpn[wpn].die = data.wpn[wpn].dice;
+              data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+            }
+            data.wpn[wpn].dice = data.wpn[wpn].value;
+            // data.wpn[wpn].atk = data.wpn[wpn].attack;
+            // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
+            delete data.wpn[wpn].value;
+            delete data.wpn[wpn].attack;
+          });
 
-            break;
+          break;
 
-          case 'attack':
-            data.atk = {
-              m: v.melee,
-              r: v.ranged,
-              a: v.arcane,
-              d: v.divine,
-              mod: data.attributes.attackMod.value
-            };
-            break;
+        case 'attack':
+          data.atk = {
+            m: v.melee,
+            r: v.ranged,
+            a: v.arcane,
+            d: v.divine,
+            mod: data.attributes.attackMod.value
+          };
+          break;
 
-          case 'standardBonuses':
-            data.std = v.value;
-            break;
+        case 'standardBonuses':
+          data.std = v.value;
+          break;
 
-          default:
-            if (!(k in data)) data[k] = v;
-            break;
-        }
+        default:
+          if (!(k in data)) data[k] = v;
+          break;
       }
     }
 
