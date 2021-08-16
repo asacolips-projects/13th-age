@@ -94,14 +94,14 @@ export default class ArchmageRolls {
   }
 
   static addAttackMod(item) {
-    // Add +@attackMod.value to all inline rolls if the modifier is not 0
+    // Add @atk.mod modifier to the first inline roll, if it isn't 0
     let attackLine = item.data.data.attack.value;
     let atkMod = item.actor.getRollData().attackMod.value;
     if (atkMod) {
       let match = /(\[\[.+?\]\])/.exec(attackLine);
       if (match) {
         let formula = match[1];
-        let newFormula = formula.replace("]]", "+@attackMod.value]]");
+        let newFormula = formula.replace("]]", "+@atk.mod]]");
         attackLine = attackLine.replace(formula, newFormula);
       }
     }
@@ -155,7 +155,7 @@ export default class ArchmageRolls {
       let rolls = [];
       for (let x = 0; x < matches.length; x++) {
         let match = matches[x];
-        console.log(match);
+        //console.log(match);
         let roll = new Roll(match[2], data);
         //roll.formula = match[2];
         rolls.push(roll);
