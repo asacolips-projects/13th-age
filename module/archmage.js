@@ -13,7 +13,6 @@ import { DiceArchmage } from './actor/dice.js';
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
-import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
 import { renderCompendium } from './hooks/renderCompendium.js';
 
 
@@ -354,6 +353,19 @@ Hooks.once('init', async function() {
   $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
   /**
+  * Track whether we overrode DsN's default inline roll parsing
+  */
+  game.settings.register("archmage", "DsNInlineOverride", {
+    name: "System Migration Version",
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: false
+  });
+
+
+
+  /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
    * Apply the dexterity score as a decimal tiebreaker if requested
@@ -605,32 +617,11 @@ Hooks.on("renderSettings", (app, html) => {
 Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
-  // dice3d.addDicePreset({
-  //   type: "d20",
-  //   labels: [
-  //     "1",
-  //     "2",
-  //     "3",
-  //     "4",
-  //     "5",
-  //     "6",
-  //     "7",
-  //     "8",
-  //     "9",
-  //     "10",
-  //     "11",
-  //     "12",
-  //     "13",
-  //     "14",
-  //     "15",
-  //     "16",
-  //     "17",
-  //     "18",
-  //     "19",
-  //     "20"
-  //   ],
-  //   system: "archmage"
-  // });
+  // Disable DsN's automatic parsing of inline rolls - let users enable it
+  if (!game.settings.get("archmage", "DsNInlineOverride")) {
+    game.settings.set("dice-so-nice", "animateInlineRoll", false);
+    game.settings.set("archmage", "DsNInlineOverride", true);
+  }
 
   dice3d.addTexture("archmagered", {
     name: "Archmage Red",
@@ -685,13 +676,6 @@ function uuidv4() {
     return v.toString(16);
   });
 }
-
-/**
- * Parse inline rolls.
- */
-// Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
-//   preCreateChatMessageHandler.handle(data, options, userId);
-// });
 
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
