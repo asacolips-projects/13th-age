@@ -108,6 +108,9 @@ Hooks.once('init', async function() {
 
   CONFIG.ARCHMAGE = ARCHMAGE;
 
+  // Update status effects.
+  CONFIG.statusEffects = ARCHMAGE.statusEffects;
+
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
 
@@ -368,10 +371,21 @@ Hooks.once('init', async function() {
     return parts.filter(p => p !== null).join(" + ");
   }
 
-  ArchmageUtility.replaceRollData();
+  if (dependencies) {
+    // Define dependency on our own custom vue components for when we need it.
+    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
+    if (typeof Dlopen !== 'undefined') {
+      Dlopen.register('actor-sheet', {
+        scripts: "/systems/archmage/dist/vue-components.min.js",
+      });
+    }
+  }
+});
 
-  /* --------------------------------------------- */
-  if (CONST.AIP && CONFIG.AIP) {
+Hooks.on('setup', (data, options, id) => {
+  // Configure autocomplete inline properties module.
+  const aip = game.modules.get("autocomplete-inline-properties")?.API;
+  if (aip?.PACKAGE_CONFIG) {
     // Autocomplete Inline Rolls
     const aipKeys = [
       'str',
@@ -421,24 +435,26 @@ Hooks.once('init', async function() {
               selector: '.archmage-aip input[type="text"]',
               showButton: true,
               allowHotkey: true,
-              dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+              dataMode: aip.CONST.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
               filteredKeys: filteredKeys
+            }
+          ]
+        },
+        {
+          name: "ActiveEffectConfig",
+          fieldConfigs: [
+            {
+              selector: '.tab[data-tab="effects"] .key input[type="text"]',
+              showButton: true,
+              allowHotkey: true,
+              dataMode: 'owning-actor',
+              defaultPath: 'data'
             }
           ]
         }
       ]
     };
-    CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
-  }
-
-  if (dependencies) {
-    // Define dependency on our own custom vue components for when we need it.
-    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
-    if (typeof Dlopen !== 'undefined') {
-      Dlopen.register('actor-sheet', {
-        scripts: "/systems/archmage/dist/vue-components.min.js",
-      });
-    }
+    aip.PACKAGE_CONFIG.push(AIP);
   }
 });
 
@@ -473,6 +489,7 @@ Hooks.once('ready', () => {
   let modules = {};
   modules.dlopen = game.modules.get('dlopen');
   modules.vueport = game.modules.get('vueport');
+  modules.aip = game.modules.get('autocomplete-inline-properties');
 
   // Determine if we need the dependencies installed.
   let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
@@ -541,8 +558,6 @@ Hooks.once('ready', () => {
       }
     }
   }
-
-
 });
 
 /* ---------------------------------------------- */

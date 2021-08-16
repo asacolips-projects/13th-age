@@ -1,5 +1,172 @@
 export const ARCHMAGE = {};
 
+ARCHMAGE.statusEffects = [
+  // Dead.
+  {
+    id: "dead",
+    label: "ARCHMAGE.EFFECT.StatusDead",
+    icon: "icons/svg/skull.svg"
+  },
+  // Unconscious.
+  {
+    id: "unconscious",
+    label: "ARCHMAGE.EFFECT.StatusUnconscious",
+    icon: "icons/svg/unconscious.svg",
+    changes: [
+      {
+        key: 'data.attributes.ac.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ]
+  },
+  // Confused.
+  {
+    id: "confused",
+    label: "ARCHMAGE.EFFECT.StatusConfused",
+    icon: "icons/svg/stoned.svg"
+  },
+  // Dazed.
+  {
+    id: "dazed",
+    label: "ARCHMAGE.EFFECT.StatusDazed",
+    icon: "icons/svg/sun.svg",
+    changes: [
+      {
+        key: 'data.attributes.attackMod.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ]
+  },
+  // Fear.
+  {
+    id: "fear",
+    label: "ARCHMAGE.EFFECT.StatusFear",
+    icon: "icons/svg/terror.svg",
+    changes: [
+      {
+        key: 'data.attributes.escalation.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        value: '0'
+      },
+      {
+        key: 'data.attributes.attackMod.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ]
+  },
+  // Hampered.
+  {
+    id: "hampered",
+    label: "ARCHMAGE.EFFECT.StatusHampered",
+    icon: "icons/svg/net.svg",
+  },
+  // Helpless.
+  {
+    id: "helpless",
+    label: "ARCHMAGE.EFFECT.StatusHelpless",
+    icon: "icons/svg/falling.svg",
+    changes: [
+      {
+        key: 'data.attributes.ac.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ]
+  },
+  // Shocked.
+  {
+    id: "shocked",
+    label: "ARCHMAGE.EFFECT.StatusShocked",
+    icon: "icons/svg/lightning.svg"
+  },
+  // Stuck.
+  {
+    id: "stuck",
+    label: "ARCHMAGE.EFFECT.StatusStuck",
+    icon: "icons/svg/paralysis.svg",
+  },
+  // Stunned.
+  {
+    id: "stunned",
+    label: "ARCHMAGE.EFFECT.StatusStunned",
+    icon: "icons/svg/daze.svg",
+    changes: [
+      {
+        key: 'data.attributes.ac.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ]
+  },
+  // Vulnerable.
+  {
+    id: "vulnerable",
+    label: "ARCHMAGE.EFFECT.StatusVulnerable",
+    icon: "icons/svg/target.svg"
+  },
+  // Weakened.
+  {
+    id: "weakened",
+    label: "ARCHMAGE.EFFECT.StatusWeakened",
+    icon: "icons/svg/downgrade.svg",
+    changes: [
+      {
+        key: 'data.attributes.attackMod.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.ac.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.pd.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      },
+      {
+        key: 'data.attributes.md.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ]
+  },
+];
+
 // Power Settings
 ARCHMAGE.powerSources = {
   'class': 'Class',
