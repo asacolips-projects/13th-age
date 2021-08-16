@@ -185,8 +185,6 @@ export class ItemArchmage extends Item {
     }
     let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
 
-    //await ArchmageRolls.rollItem(itemToRender);
-
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = itemToRender.actor.token;
@@ -208,8 +206,7 @@ export class ItemArchmage extends Item {
         token: itemToRender.actor.token,
         alias: itemToRender.actor.name,
         scene: game.user.viewedScene
-      },
-      roll: new Roll("") // Needed to silence an error in 0.8.x
+      }
     };
 
     // Toggle default roll mode
@@ -254,13 +251,11 @@ export class ItemArchmage extends Item {
                   if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
                     // Not an attack roll, usually a target roll, roll first
                     rolls.unshift(roll);
-                  } else {
-                    rolls.push(roll);
-                  }
+                  } else rolls.push(roll);
                 });
               }
             }
-            // Hit and Spell level rows - keep only the last
+            // Hit or Spell level rows - keep only the last
             else if (row_text.includes('Hit:') || row_text.includes('Level Spell:')) {
               damageRolls = []; // Reset for each line
               let $roll_html = $row_self.find('.inline-result');

@@ -155,7 +155,7 @@ export default class ArchmageRolls {
       let rolls = [];
       for (let x = 0; x < matches.length; x++) {
         let match = matches[x];
-        console.log(match);
+        //console.log(match);
         let roll = new Roll(match[2], data);
         //roll.formula = match[2];
         rolls.push(roll);

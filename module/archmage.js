@@ -13,7 +13,6 @@ import { DiceArchmage } from './actor/dice.js';
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
-import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
 import { renderCompendium } from './hooks/renderCompendium.js';
 
 
@@ -677,13 +676,6 @@ function uuidv4() {
     return v.toString(16);
   });
 }
-
-/**
- * Parse inline rolls.
- */
-// Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
-//   preCreateChatMessageHandler.handle(data, options, userId);
-// });
 
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
