@@ -232,9 +232,10 @@ export class ItemArchmage extends Item {
     }, null);
 
     // If 3d dice are enabled, handle them first.
-    if (game.dice3d) {
+    if (game.dice3d && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       let contentHtml = $(chatData.content);
       let rolls = [];
+      let damageRolls = [];
 
       if (contentHtml.length > 0) {
         // Find all property rows.
@@ -244,9 +245,8 @@ export class ItemArchmage extends Item {
           $rows.each(function(index) {
             let $row_self = $(this);
             let row_text = $row_self.html();
-            // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:') || row_text.includes('Hit:')
-              || row_text.includes('Target:')) {
+            // Attack or Target rows - keep all, in right order
+            if (row_text.includes('Attack:') || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
@@ -260,10 +260,22 @@ export class ItemArchmage extends Item {
                 });
               }
             }
+            // Hit and Spell level rows - keep only the last
+            else if (row_text.includes('Hit:') || row_text.includes('Level Spell:')) {
+              damageRolls = []; // Reset for each line
+              let $roll_html = $row_self.find('.inline-result');
+              if ($roll_html.length > 0) {
+                $roll_html.each(function(i, e){
+                  let roll = Roll.fromJSON(unescape(e.dataset.roll));
+                  damageRolls.push(roll);
+                });
+              }
+            }
           });
         }
 
         // If we have roll data, handle a 3d roll.
+        rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
           for (let r of rolls) {
             await game.dice3d.showForRoll(r, game.user, true);

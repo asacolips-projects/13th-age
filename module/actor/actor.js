@@ -723,7 +723,7 @@ export class ActorArchmage extends Actor {
     }
 
     // If 3d dice are enabled, handle them
-    if (game.dice3d) {
+    if (game.dice3d  && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       await game.dice3d.showForRoll(roll, game.user, true);
     }
 
