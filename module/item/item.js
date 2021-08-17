@@ -225,7 +225,8 @@ export class ItemArchmage extends Item {
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
-      type: this.data.type
+      type: this.data.type,
+      sequencerFile: this.data.data.sequencer?.file
     }, null);
 
     // If 3d dice are enabled, handle them first.

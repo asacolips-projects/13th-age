@@ -16,16 +16,6 @@ export default class preCreateChatMessageHandler {
         let type = 'power';
         if (options.type) type = options.type;
 
-        let powerName = "";
-        let token = data.speaker.token;
-        let tokenItems = token.data.actorData.items;
-        let matchingItem = null;
-
-        // Sequencer support
-        if (game.modules.get("sequencer")?.active) {
-            powerName = $content.find(".ability-usage")[0].innerText;
-            matchingItem = tokenItems.find(i => i.name == powerName);
-        }
 
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
@@ -226,27 +216,21 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (hitEvaluationResults) {
+            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile) {
                 // Display Sequencer Effects
-                if (game.modules.get("sequencer")?.active && matchingItem) {
-                    console.log(hitEvaluationResults);
-                    const filename = matchingItem.data.sequencer.file;
-                    if (filename) {
-                        function addAttack(sequence, towards, missed) {
-                            return sequence
-                                .effect()
-                                .atLocation(towards)
-                                .file(filename)
-                                .duration(1000)
-                                .missed(missed)
-                        }
-
-                        let sequence = new Sequence();
-                        hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, false));
-                        hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, true));
-                        sequence.play();
-                    }
+                function addAttack(sequence, towards, missed) {
+                    return sequence
+                        .effect()
+                        .atLocation(towards)
+                        .file(options.sequencerFile)
+                        .duration(1000)
+                        .missed(missed)
                 }
+
+                let sequence = new Sequence();
+                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, false));
+                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, true));
+                sequence.play();
             }
 
             // Update the content
