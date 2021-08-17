@@ -368,7 +368,7 @@ Hooks.once('init', async function() {
     // Init mod includes dex + level + misc bonuses.
     const parts = ["1d20", init.mod];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (CONFIG.Combat.initiative.tiebreaker) parts.push(actor.data.data.abilities.dex.value / 100);
+    if (CONFIG.Combat.initiative.tiebreaker) parts.push((actor.data.data.abilities?.dex.value || 10) / 100);
     return parts.filter(p => p !== null).join(" + ");
   }
 
