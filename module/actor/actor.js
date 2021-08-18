@@ -516,13 +516,18 @@ export class ActorArchmage extends Actor {
           break;
 
         case 'attack':
-          data.atk = {
+          data.atk = mergeObject((data.atk || {}), {
             m: v.melee,
             r: v.ranged,
             a: v.arcane,
             d: v.divine,
-            mod: data.attributes.attackMod.value
-          };
+          });
+          break;
+
+        case 'attackMod':
+          data.atk = mergeObject((data.atk || {}), {
+            mod: v.value
+          });
           break;
 
         case 'standardBonuses':

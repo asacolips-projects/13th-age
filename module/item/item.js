@@ -97,7 +97,7 @@ export class ItemArchmage extends Item {
           }
         }
         // Momentum
-        else if (parsed[3] && res.perCombat.momentum.enabled 
+        else if (parsed[3] && res.perCombat.momentum.enabled
           && (parsed[3].toLowerCase() == "spend momentum"
           || parsed[3].toLowerCase() == "have momentum")) {
           if (!res.perCombat.momentum.current) {
