@@ -86,11 +86,6 @@ export class ActorArchmage extends Actor {
     // Set a copy of level in details in order to mimic 5e's data structure.
     data.details.level = data.attributes.level;
 
-    // Initiative
-    var improvedInit = 0;
-    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
-
     // Fallback for attack modifier and defenses
     if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
 
@@ -101,6 +96,11 @@ export class ActorArchmage extends Actor {
     else if (actorData.type === 'npc') {
       this._prepareNPCData(data, model, flags);
     }
+
+    // Initiative
+    var improvedInit = 0;
+    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
+    data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
 
     // Get the escalation die value.
     data.attributes.escalation = {
