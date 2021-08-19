@@ -649,7 +649,6 @@ Item:
       - standard
       - usable
     properties: {}
-    active: false
     attributes:
       attack:
         melee:
@@ -674,3 +673,4 @@ Item:
         bonus: 0
       disengage:
         bonus: 0
+    isActive: true

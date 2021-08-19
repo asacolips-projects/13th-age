@@ -849,7 +849,6 @@
         "usable"
       ],
       "properties": {},
-      "active": false,
       "attributes": {
         "attack": {
           "melee": {
@@ -886,7 +885,8 @@
         "disengage": {
           "bonus": 0
         }
-      }
+      },
+      "isActive": true
     }
   }
 }

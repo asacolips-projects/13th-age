@@ -24,6 +24,11 @@
                           data-dtype="String" placeholder="1,000gp" />
                   </div>
 
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.active'}}</strong>
+                      <input type="checkbox" name="data.isActive" value="1" data-dtype="Boolean" {{checked data.isActive}} />
+                  </div>
+
                   <div class="settings-group form-group">
                       <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
                   </div>
@@ -140,10 +145,6 @@
                           {{/each}}
                           {{/select}}
                       </select>
-                  </div>
-
-                  <div class="form-group">
-                      <label></label>
                   </div>
 
                   <div class="settings-group">

@@ -356,7 +356,7 @@ export class ActorArchmage extends Actor {
 
     if (this.items) {
       this.items.forEach(function(item) {
-        if (item.type === 'equipment') {
+        if (item.type === 'equipment' && item.data.data.isActive) {
           meleeAttackBonus = Math.max(meleeAttackBonus, getBonusOr0(item.data.data.attributes.attack.melee));
           rangedAttackBonus = Math.max(rangedAttackBonus, getBonusOr0(item.data.data.attributes.attack.ranged));
           divineAttackBonus = Math.max(divineAttackBonus, getBonusOr0(item.data.data.attributes.attack.divine));
