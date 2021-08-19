@@ -131,20 +131,39 @@
                       <label>{{localize 'ARCHMAGE.uses'}}</label>
                   </div>
 
-                  <div class="form-group">
-                      <label>{{localize 'ARCHMAGE.CHAT.recharge'}}</label>
-                      <input type="text" name="data.recharge.value" value="{{data.recharge.value}}" data-dtype="{{data.recharge.type}}" placeholder="Numbers only, such as '16'"/>
+                  <div class="settings-group">
+                    <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.powerUsage'}}</strong>
+                      <select name="data.powerUsage.value" data-dtype="{{data.powerUsage.type}}">
+                          {{#select data.powerUsage.value}}
+                          {{#each equipUsages as |name type|}}
+                          <option value="{{type}}">{{name}}</option>
+                          {{/each}}
+                          {{/select}}
+                      </select>
                   </div>
 
                   <div class="form-group">
-                      <label>Uses Remaining</label>
-                      <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}" placeholder="Number of remaining uses, usually the same as Max Uses"/>
+                      <label></label>
                   </div>
 
-                  <div class="form-group">
-                      <label>Max Uses</label>
-                      <input type="text" name="data.maxQuantity.value" value="{{data.maxQuantity.value}}" data-dtype="{{data.maxQuantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
+                  <div class="settings-group">
+                    <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.recharge'}}</strong>
+                    <input class="attribute-input" name="data.recharge.value" type="text" value="{{data.recharge.value}}"
+                        data-dtype="data.recharge.type" placeholder="Numbers only, such as '16'" />
                   </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">Uses Remaining</strong>
+                    <input class="attribute-input" name="data.quantity.value" type="text" value="{{data.quantity.value}}"
+                        data-dtype="data.quantity.type" placeholder="Number of remaining uses, usually the same as Max Uses" />
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">Max Uses</strong>
+                    <input class="attribute-input" name="data.maxQuantity.value" type="text" value="{{data.maxQuantity.value}}"
+                        data-dtype="data.maxQuantity.type" placeholder="Number of uses per battle/day, usually 1" />
+                  </div>
+
               </div>
             </div>
         </section>

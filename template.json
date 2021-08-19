@@ -543,7 +543,12 @@
           "value": 0
         }
       },
-      "rechargeable": {
+      "usable": {
+        "powerUsage": {
+          "type": "String",
+          "label": "Power Usage",
+          "value": ""
+        },
         "recharge": {
           "type": "Number",
           "label": "Recharge",
@@ -569,7 +574,7 @@
     "power": {
       "templates": [
         "standard",
-        "rechargeable"
+        "usable"
       ],
       "group": {
         "type": "String",
@@ -589,11 +594,6 @@
       "powerType": {
         "type": "String",
         "label": "Power Type",
-        "value": ""
-      },
-      "powerUsage": {
-        "type": "String",
-        "label": "Power Usage",
         "value": ""
       },
       "powerLevel": {
@@ -846,9 +846,10 @@
     "equipment": {
       "templates": [
         "standard",
-        "rechargeable"
+        "usable"
       ],
       "properties": {},
+      "active": false,
       "attributes": {
         "attack": {
           "melee": {

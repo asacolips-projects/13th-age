@@ -416,7 +416,11 @@ Item:
         type: Number
         label: Price
         value: 0
-    rechargeable:
+    usable:
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
       recharge:
         type: Number
         label: Recharge
@@ -436,7 +440,7 @@ Item:
   power:
     templates:
       - standard
-      - rechargeable
+      - usable
     group:
       type: String
       label: Group
@@ -452,10 +456,6 @@ Item:
     powerType:
       type: String
       label: Power Type
-      value: ''
-    powerUsage:
-      type: String
-      label: Power Usage
       value: ''
     powerLevel:
       type: Number
@@ -647,8 +647,9 @@ Item:
   equipment:
     templates:
       - standard
-      - rechargeable
+      - usable
     properties: {}
+    active: false
     attributes:
       attack:
         melee:
