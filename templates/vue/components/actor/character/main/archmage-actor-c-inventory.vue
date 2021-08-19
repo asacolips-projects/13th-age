@@ -36,6 +36,8 @@
           <div class="equipment-name">{{localize('ARCHMAGE.equipmentName')}}</div>
           <div class="equipment-bonus" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.bonuses')}}</div>
           <div class="equipment-chakra" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.chakra')}}</div>
+          <div class="equipment-recharge" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.rchg')}}</div>
+          <div class="equipment-quantity" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.uses')}}</div>
           <div class="equipment-quantity" v-if="groupKey != 'equipment'">{{localize('ARCHMAGE.quantity')}}</div>
           <div class="item-controls">{{localize('ARCHMAGE.edit')}}</div>
         </div>
@@ -55,7 +57,10 @@
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span v-if="equipment.data.quantity.value !== null">{{equipment.data.quantity.value}}</span></div>
+            <div class="equipment-recharge" v-if="equipment.data.recharge.value">
+              <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{equipment.data.recharge.value}}+</archmage-h-rollable>
+            </div>
+            <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>

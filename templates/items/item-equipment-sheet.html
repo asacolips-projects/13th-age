@@ -97,7 +97,6 @@
                     <input class="attribute-input" name="data.attributes.disengage.bonus" type="text" value="{{data.attributes.disengage.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
-                  
 
                   <div class="settings-group form-group" style="padding-top: 10px;">
                       <label>{{localize 'ARCHMAGE.ITEM.chakraSlot'}}</label>
@@ -126,6 +125,25 @@
                           <option value="wondrous">Wondrous item</option>
                           {{/select}}
                       </select>
+                  </div>
+
+                  <div class="settings-group form-group" style="padding-top: 10px;">
+                      <label>{{localize 'ARCHMAGE.uses'}}</label>
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{localize 'ARCHMAGE.CHAT.recharge'}}</label>
+                      <input type="text" name="data.recharge.value" value="{{data.recharge.value}}" data-dtype="{{data.recharge.type}}" placeholder="Numbers only, such as '16'"/>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Uses Remaining</label>
+                      <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}" placeholder="Number of remaining uses, usually the same as Max Uses"/>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Max Uses</label>
+                      <input type="text" name="data.maxQuantity.value" value="{{data.maxQuantity.value}}" data-dtype="{{data.maxQuantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
                   </div>
               </div>
             </div>

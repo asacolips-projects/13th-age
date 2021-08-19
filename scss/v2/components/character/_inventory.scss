@@ -91,7 +91,7 @@
   }
 
   .equipment-grid {
-    grid-template-columns: 32px auto 130px 60px 56px;
+    grid-template-columns: 32px auto 130px 60px 60px 36px 56px;
     gap: 2px;
     font-size: $font-tiny;
     font-family: $font-stack-label;
@@ -180,9 +180,10 @@
 
     .equipment-name { grid-column-start: 2; }
     .equipment-bonus { grid-column-start: 3; }
-    .equipment-chakra,
-    .equipment-quantity { grid-column-start: 4; }
-    .item-controls { grid-column-start: 5; }
+    .equipment-chakra { grid-column-start: 4; }
+    .equipment-recharge { grid-column-start: 5; }
+    .equipment-quantity { grid-column-start: 6; }
+    .item-controls { grid-column-start: 7; }
   }
 
   .item-control {
