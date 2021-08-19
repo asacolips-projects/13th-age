@@ -211,7 +211,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Item listeners.
     html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
     html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
-    html.on('click', '.feat-pip', (event) => this._updateFeat(event));
+    html.on('click', '.feat-pip, .equipment-feat', (event) => this._updatePips(event));
   }
 
   /**
@@ -804,7 +804,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     }
   }
 
-  async _updateFeat(event) {
+  async _updatePips(event) {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
@@ -814,12 +814,18 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     let item = this.actor.items.get(itemId);
     if (item) {
-      let tier = dataset.tier ?? null;
-      if (!tier) return;
-
-      let isActive = item.data.data.feats[tier].isActive.value;
       let updateData = {};
-      updateData[`data.feats.${tier}.isActive.value`] = !isActive;
+
+      if (item.type == "power") {
+        let tier = dataset.tier ?? null;
+        if (!tier) return;
+        let isActive = item.data.data.feats[tier].isActive.value;
+        updateData[`data.feats.${tier}.isActive.value`] = !isActive;
+      }
+      else if (item.type == "equipment") {
+        let isActive = item.data.data.isActive;
+        updateData["item.data.data.isActive"] = !isActive;
+      }
 
       await item.update(updateData, {});
     }

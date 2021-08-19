@@ -34,6 +34,7 @@
         <!-- Column labels. -->
         <div class="equipment-header-labels grid equipment-grid">
           <div class="equipment-name">{{localize('ARCHMAGE.equipmentName')}}</div>
+          <div class="equipment-active" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.ITEM.active')}}</div>
           <div class="equipment-bonus" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.bonuses')}}</div>
           <div class="equipment-chakra" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.chakra')}}</div>
           <div class="equipment-recharge" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.rchg')}}</div>
@@ -50,6 +51,13 @@
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
+            <div class="equipment-active">
+
+              <ul class="equipment-feat-pips">
+                <li :class="concat('equipment-feat', (equipment.data.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.data.isActive}}</div></li>
+              </ul>
+
+            </div>
             <div class="equipment-bonus flexrow" v-if="equipment.data.attributes">
               <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                 <span class="bonus-label">{{bonusProp}} </span>
