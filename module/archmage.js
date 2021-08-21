@@ -366,7 +366,7 @@ Hooks.once('init', async function() {
     if (!actor) return "1d20";
     const init = actor.data.data.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
-    const parts = ["1d1", init];
+    const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
     if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
     else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
