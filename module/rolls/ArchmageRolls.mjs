@@ -39,7 +39,10 @@ export default class ArchmageRolls {
     if (item.data.type == "power") {
       let targetLine = item.data.data.target.value;
       if (targetLine != null) {
-        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        // First cleanup references to target HPs
+        let lineToParse = targetLine.replace(/[0-9]+ hp/g, '');
+        lineToParse = lineToParse.toLowerCase().replace(/\[\[.+?\]\] hp/g, '');
+        rolls = ArchmageRolls._getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
           ArchmageRolls._roll(rolls, item.actor);
@@ -54,7 +57,7 @@ export default class ArchmageRolls {
           // Try NLP to guess targets
           let keys = Object.keys(nlpMap);
           for (let x = 0; x < keys.length; x++) {
-            if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
+            if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
           // Handle "each" or "all"
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
