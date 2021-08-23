@@ -14,6 +14,9 @@ export default class preCreateChatMessageHandler {
         let numTargets = 1;
         if (options.targets) numTargets = options.targets;
         let type = 'power';
+        // TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
+        let damageType = 'basic';
+        let range = "melee";
         if (options.type) type = options.type;
 
 
@@ -216,14 +219,20 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile) {
+            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile != undefined) {
+
+                let sequencerFile = options.sequencerFile;
+                if (sequencerFile === "") {
+                    // TODO: Using the damage type and range, default to various Setting configurable files
+                    sequencerFile = "modules/JB2A_DnD5e/Library/Generic/Impact/Impact_07_Regular_Orange_400x400.webm";
+                }
+
                 // Display Sequencer Effects
                 function addAttack(sequence, towards, missed) {
                     return sequence
                         .effect()
                         .atLocation(towards)
-                        .file(options.sequencerFile)
-                        .duration(1000)
+                        .file(sequencerFile)
                         .missed(missed)
                 }
 
