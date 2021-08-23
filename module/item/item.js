@@ -97,9 +97,9 @@ export class ItemArchmage extends Item {
           }
         }
         // Momentum
-        else if ((parsed[3] && parsed[3].toLowerCase() == "spend momentum"
-            || parsed[3].toLowerCase() == "have momentum")
-            && res.perCombat.momentum.enabled) {
+        else if (parsed[3] && res.perCombat.momentum.enabled
+          && (parsed[3].toLowerCase() == "spend momentum"
+          || parsed[3].toLowerCase() == "have momentum")) {
           if (!res.perCombat.momentum.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
             return this._roll_resDiag(msg, itemUpdateData, updateData);
@@ -127,7 +127,7 @@ export class ItemArchmage extends Item {
           let resourceName = res.spendable[resourcePathName].label;
           if (res.spendable[resourcePathName].enabled && parsed[2] && parsed[1]
             && res.spendable[resourcePathName].current !== null
-            && parsed[2].toLowerCase().includes(resourceName.toLowerCase())) {
+            && resourceName.toLowerCase().includes(parsed[2].toLowerCase())) {
             let numUsed = Number(parsed[1]);
             let path = `data.resources.spendable.${resourcePathName}.current`;
             updateData[path] = res.spendable[resourcePathName].current - numUsed;
