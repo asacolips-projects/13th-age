@@ -660,7 +660,7 @@ export class ActorArchmage extends Actor {
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
+    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
 
     if (data.average) {
@@ -680,7 +680,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Half healing for recoveries we do NOT have
-    if (Number(totalRecoveries) <= 0) {
+    if (Number(totalRecoveries) <= 0 && !data.free) {
       formula = `floor((${formula})/2)`;
     }
 
