@@ -59,10 +59,9 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all" and the special case of Crescendo
+          // Handle "each" or "all"
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
-            || targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoTarget"))) {
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
@@ -119,10 +118,11 @@ export default class ArchmageRolls {
     let selectedTargets = [...game.user.targets];
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
 
-    // Add penalty to Crescendo if needed
-    if (item.data.name == game.i18n.localize("ARCHMAGE.TARGETING.crescendoName")
-      || item.data.data.target.value == game.i18n.localize("ARCHMAGE.TARGETING.crescendoTarget")) {
+    // Handle the special case of the Crescendo spell
+    if (item.data.data.special.value.toLowerCase().includes(
+      game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
         newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine, numTargets);
+        targetsCount = selectedTargets.length;
       }
 
     // Split string into first inline roll and vs, and repeat roll as needed
@@ -145,12 +145,12 @@ export default class ArchmageRolls {
     return newAttackLine;
   }
 
-  static _handleCrescendo(newAttackLine, numTargets) {
-    if (numTargets.targets <= 1) return newAttackLine;
+  static _handleCrescendo(newAttackLine) {
+    if (game.user.targets.size <= 1) return newAttackLine;
     // Special: You can choose more than one target for this spell,
     // but you take a –2 penalty when attacking two targets, a –3
     // penalty for three targets, and so on.
-    return newAttackLine.replace("]]", ` -${numTargets.targets}]]`)
+    return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
   }
 
   static _roll(rolls, actor, key=undefined) {
