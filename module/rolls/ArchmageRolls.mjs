@@ -59,9 +59,10 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all"
+          // Handle "each" or "all" and the special case of Crescendo
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
+            || targetLine.includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoTarget"))) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
@@ -117,6 +118,13 @@ export default class ArchmageRolls {
     // selected, just use the number listed on the power.
     let selectedTargets = [...game.user.targets];
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
+
+    // Add penalty to Crescendo if needed
+    if (item.data.name == game.i18n.localize("ARCHMAGE.TARGETING.crescendoName")
+      || item.data.data.target.value == game.i18n.localize("ARCHMAGE.TARGETING.crescendoTarget")) {
+        newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine, numTargets);
+      }
+
     // Split string into first inline roll and vs, and repeat roll as needed
     let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
     if (match) {
@@ -135,6 +143,14 @@ export default class ArchmageRolls {
       newAttackLine += " " + vs;
     }
     return newAttackLine;
+  }
+
+  static _handleCrescendo(newAttackLine, numTargets) {
+    if (numTargets.targets <= 1) return newAttackLine;
+    // Special: You can choose more than one target for this spell,
+    // but you take a –2 penalty when attacking two targets, a –3
+    // penalty for three targets, and so on.
+    return newAttackLine.replace("]]", ` -${numTargets.targets}]]`)
   }
 
   static _roll(rolls, actor, key=undefined) {
