@@ -660,7 +660,7 @@ export class ActorArchmage extends Actor {
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
+    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
 
     if (data.average) {
@@ -680,7 +680,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Half healing for recoveries we do NOT have
-    if (Number(totalRecoveries) <= 0) {
+    if (Number(totalRecoveries) <= 0 && !data.free) {
       formula = `floor((${formula})/2)`;
     }
 
@@ -723,7 +723,8 @@ export class ActorArchmage extends Actor {
     }
 
     // If 3d dice are enabled, handle them
-    if (game.dice3d  && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+    if (game.dice3d  && (!game.settings.get("dice-so-nice", "animateInlineRoll")
+      || !data.createMessage)) {
       await game.dice3d.showForRoll(roll, game.user, true);
     }
 
@@ -748,13 +749,14 @@ export class ActorArchmage extends Actor {
       items: []
     };
     let updateData = {};
+    let rollsToAnimate = [];
 
     // Recoveries & hp
     let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
-      let rec = await this.rollRecovery({apply: false}, false);
+      let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
@@ -823,6 +825,7 @@ export class ActorArchmage extends Actor {
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
             let roll = await this.items.get(item.id).recharge({createMessage: false});
+            rollsToAnimate.push(roll.roll);
             if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
@@ -851,6 +854,12 @@ export class ActorArchmage extends Actor {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
+    // If 3d dice are enabled, handle them
+    if (game.dice3d) {
+      for (let roll of rollsToAnimate) {
+        await game.dice3d.showForRoll(roll, game.user, true);
+      }
+    }
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
