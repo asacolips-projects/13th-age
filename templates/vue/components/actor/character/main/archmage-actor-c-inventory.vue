@@ -34,7 +34,7 @@
         <!-- Column labels. -->
         <div class="equipment-header-labels grid equipment-grid">
           <div class="equipment-name">{{localize('ARCHMAGE.equipmentName')}}</div>
-          <div class="equipment-active" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.ITEM.active')}}</div>
+          <div class="equipment-feat-pips" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.ITEM.active')}}</div>
           <div class="equipment-bonus" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.bonuses')}}</div>
           <div class="equipment-chakra" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.chakra')}}</div>
           <div class="equipment-recharge" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.rchg')}}</div>
