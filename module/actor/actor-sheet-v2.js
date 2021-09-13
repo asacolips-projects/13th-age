@@ -824,7 +824,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       }
       else if (item.type == "equipment") {
         let isActive = item.data.data.isActive;
-        updateData["item.data.data.isActive"] = !isActive;
+        updateData["data.isActive"] = !isActive;
       }
 
       await item.update(updateData, {});

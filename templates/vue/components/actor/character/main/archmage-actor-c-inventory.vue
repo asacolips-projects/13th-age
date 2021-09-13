@@ -51,10 +51,10 @@
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
-            <div class="equipment-active">
+            <div class="equipment-feat-pips">
 
-              <ul class="equipment-feat-pips">
-                <li :class="concat('equipment-feat', (equipment.data.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.data.isActive}}</div></li>
+              <ul class="feat-pips">
+                <li :class="concat('feat-pip', (equipment.data.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.data.isActive}}</div></li>
               </ul>
 
             </div>
@@ -65,7 +65,7 @@
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-recharge" v-if="equipment.data.powerUsage.value == 'recharge'">
+            <div class="equipment-recharge" v-if="equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
               <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{equipment.data.recharge.value}}+</archmage-h-rollable>
             </div>
             <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
