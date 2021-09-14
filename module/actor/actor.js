@@ -1040,6 +1040,18 @@ export class ActorArchmage extends Actor {
         return;
     }
 
+    if (data.data.attributes?.hp?.value != undefined
+      && data.data.attributes?.hp?.temp == undefined) {
+      // Here we received an update of the total hp but not the temp - not a damage applicator instance
+      let hp = this.data.data.attributes.hp;
+      let delta = Math.min(data.data.attributes.hp.value, hp.max) - hp.value;
+      if (delta < 0 && hp.temp > 0) { // Check for temp hps
+        data.data.attributes.hp.temp = Math.max(0, hp.temp + delta);
+        delta = Math.min(delta + hp.temp, 0);
+      }
+      data.data.attributes.hp.value = hp.value + delta;
+    }
+
     if (data.data.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
 
