@@ -357,20 +357,20 @@ export class ActorArchmage extends Actor {
     if (this.items) {
       this.items.forEach(function(item) {
         if (item.type === 'equipment' && item.data.data.isActive) {
-          meleeAttackBonus = Math.max(meleeAttackBonus, getBonusOr0(item.data.data.attributes.attack.melee));
-          rangedAttackBonus = Math.max(rangedAttackBonus, getBonusOr0(item.data.data.attributes.attack.ranged));
-          divineAttackBonus = Math.max(divineAttackBonus, getBonusOr0(item.data.data.attributes.attack.divine));
-          arcaneAttackBonus = Math.max(arcaneAttackBonus, getBonusOr0(item.data.data.attributes.attack.arcane));
+          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
+          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
+          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
+          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
 
-          acBonus = Math.max(acBonus, getBonusOr0(item.data.data.attributes.ac));
-          mdBonus = Math.max(mdBonus, getBonusOr0(item.data.data.attributes.md));
-          pdBonus = Math.max(pdBonus, getBonusOr0(item.data.data.attributes.pd));
+          acBonus += getBonusOr0(item.data.data.attributes.ac);
+          mdBonus += getBonusOr0(item.data.data.attributes.md);
+          pdBonus += getBonusOr0(item.data.data.attributes.pd);
 
-          hpBonus = Math.max(hpBonus, getBonusOr0(item.data.data.attributes.hp));
-          recoveriesBonus = Math.max(recoveriesBonus, getBonusOr0(item.data.data.attributes.recoveries));
+          hpBonus += getBonusOr0(item.data.data.attributes.hp);
+          recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          saveBonus = Math.max(saveBonus, getBonusOr0(item.data.data.attributes.save));
-          disengageBonus = Math.max(disengageBonus, getBonusOr0(item.data.data.attributes.disengage));
+          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });
     }
