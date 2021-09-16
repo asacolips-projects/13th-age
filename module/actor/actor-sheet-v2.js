@@ -211,7 +211,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Item listeners.
     html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
     html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
-    html.on('click', '.feat-pip, .equipment-feat', (event) => this._updatePips(event));
+    html.on('click', '.feat-pip', (event) => this._updatePips(event));
   }
 
   /**

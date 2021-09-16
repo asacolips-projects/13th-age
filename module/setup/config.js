@@ -194,8 +194,8 @@ ARCHMAGE.powerUsages = {
 };
 
 ARCHMAGE.equipUsages = {
-  'recharge': 'Recharge',
   'daily': 'Daily',
+  'recharge': 'Recharge',
   'once-per-battle': 'Per Battle',
   'other': 'Other'
 };
