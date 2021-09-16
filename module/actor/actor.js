@@ -1035,10 +1035,15 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
-    if (data.data.attributes?.hp?.value != undefined
+    if (data.data.attributes?.hp?.value !== undefined
       && data.data.attributes?.hp?.temp == undefined) {
       // Here we received an update of the total hp but not the temp, check them
       let hp = duplicate(this.data.data.attributes.hp);
+      if (data.data.attributes.hp.value === null
+        || isNaN(data.data.attributes.hp.value)) {
+        //If the update is nonsensical ignore it
+        data.data.attributes.hp.value = hp.value;
+      }
       let delta = data.data.attributes.hp.value - hp.value;
       if (delta < 0) { // Damage, check for temp hps
         let temp = hp.temp || 0;
