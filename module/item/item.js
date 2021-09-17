@@ -173,7 +173,7 @@ export class ItemArchmage extends Item {
   async _roll_render(itemUpdateData, actorUpdateData) {
     // Replicate attack rolls as needed for attacks
     let overrideData = {};
-    let numTargets = {targets: 1, rolls: []};
+    let numTargets = {targets: 1, rolls: [], dontChangeDamage: false};
     if (this.data.type == "power" || this.data.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
       overrideData = {"data.attack.value": attackLine};
@@ -225,6 +225,7 @@ export class ItemArchmage extends Item {
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
+      dontChangeDamage: numTargets.dontChangeDamage,
       type: this.data.type
     }, null);
 

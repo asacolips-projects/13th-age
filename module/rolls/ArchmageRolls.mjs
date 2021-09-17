@@ -93,7 +93,7 @@ export default class ArchmageRolls {
       }
     }
 
-    return {targets: targets, rolls: rolls, targetLine: newTargetLine};
+    return {targets: targets, rolls: rolls, targetLine: newTargetLine, dontChangeDamage: (targets > 1)};
   }
 
   static addAttackMod(item) {
@@ -121,8 +121,9 @@ export default class ArchmageRolls {
     // Handle the special case of the Crescendo spell
     if (item.data.data?.special?.value?.toLowerCase().includes(
       game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
-        newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine, numTargets);
+        newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine);
         targetsCount = selectedTargets.length;
+        numTargets.dontChangeDamage = true;
       }
 
     // Split string into first inline roll and vs, and repeat roll as needed
