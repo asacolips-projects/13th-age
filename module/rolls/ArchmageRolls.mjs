@@ -119,7 +119,7 @@ export default class ArchmageRolls {
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
 
     // Handle the special case of the Crescendo spell
-    if (item.data.data.special.value.toLowerCase().includes(
+    if (item.data.data?.special?.value?.toLowerCase().includes(
       game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
         newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine, numTargets);
         targetsCount = selectedTargets.length;
