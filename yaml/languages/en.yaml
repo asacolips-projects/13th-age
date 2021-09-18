@@ -150,6 +150,8 @@ ARCHMAGE.negative: Negative
 ARCHMAGE.conflicted: Conflicted
 ARCHMAGE.biography: Biography
 ARCHMAGE.equipment: Equipment
+ARCHMAGE.tool: Tool
+ARCHMAGE.loot: Loot
 ARCHMAGE.inventory: Inventory
 ARCHMAGE.effects: Effects
 ARCHMAGE.abilityName: Ability Name
@@ -258,6 +260,7 @@ ARCHMAGE.nastierSpecials: Nastier Specials
 # Item sheets
 ARCHMAGE.description: Description
 ARCHMAGE.ITEM.price: Price
+ARCHMAGE.ITEM.active: Active
 ARCHMAGE.ITEM.attackBonuses: Attack Bonuses
 ARCHMAGE.ITEM.meleeAttackBonus: Melee Attack Bonus
 ARCHMAGE.ITEM.rangedAttackBonus: Ranged Attack Bonus

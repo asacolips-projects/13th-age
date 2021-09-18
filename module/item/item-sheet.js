@@ -54,6 +54,10 @@ export class ItemArchmageSheet extends ItemSheet {
       data['powerUsages'] = CONFIG.ARCHMAGE.powerUsages;
       data['actionTypes'] = CONFIG.ARCHMAGE.actionTypes;
     }
+    // Equipment-specific data
+    else if (this.item.type === 'equipment') {
+      data['equipUsages'] = CONFIG.ARCHMAGE.equipUsages;
+    }
 
     if (this.actor) {
       let powerClass = 'monster';
