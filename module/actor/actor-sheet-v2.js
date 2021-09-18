@@ -56,14 +56,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Add to our data object that the sheet will use.
     data.actor = actorData;
     data.data = actorData.data;
+    data.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
+    data.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
 
     // Sort items.
     data.actor.items = actorData.items;
-    for ( let i of data.actor.items ) {
-      const item = this.actor.items.get(i._id);
-      i.labels = item.labels;
-    }
+    // TODO: Is this necessary?
+    // for ( let i of data.actor.items ) {
+    //   const item = this.actor.items.get(i._id);
+    //   i.labels = item.labels;
+    // }
     data.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
+    // Sort effects.
+    data.actor.effects = actorData.effects;
+    data.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
     return data;
   }
@@ -81,9 +88,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let states = Application.RENDER_STATES;
       if (this._state == states.RENDERING || this._state == states.RENDERED) {
         // Update the Vue app with our updated actor/item/flag data.
-        if (sheetData?.data) Vue.set(this._vm.actor, 'data', sheetData.data);
+        if (sheetData?.actor?.data) Vue.set(this._vm.actor, 'data', sheetData.actor.data);
         if (sheetData?.actor?.items) Vue.set(this._vm.actor, 'items', sheetData.actor.items);
+        if (sheetData?.actor?.effects) Vue.set(this._vm.actor, 'effects', sheetData.actor.effects);
         if (sheetData?.actor?.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
+        if (sheetData?.actor?.overrides) Vue.set(this._vm.actor, 'overrides', sheetData.actor.overrides);
         this._updateEditors($(this.form));
         this.activateVueListeners($(this.form), true);
         return;
@@ -180,6 +189,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     html.on('click', '.item-create', (event) => this._createItem(event));
     html.on('click', '.item-delete', (event) => this._deleteItem(event));
     html.on('click', '.item-edit', (event) => this._editItem(event));
+
+    // Effects.
+    html.on('click', '.effect-control', (event) => this._onManageEffect(event));
 
     // Support Image updates
     if ( this.options.editable ) {
@@ -307,6 +319,35 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Render the edit form.
     const item = this.actor.items.get(itemId);
     if (item) item.sheet.render(true);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /*  Handle effects -------------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  _onManageEffect(event) {
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+    const effect = dataset.itemId ? this.actor.effects.get(dataset.itemId) : null;
+
+    switch (dataset.action) {
+      case 'create':
+        return this.actor.createEmbeddedDocuments('ActiveEffect', [{
+          label: 'New Effect',
+          icon: 'icons/svg/aura.svg',
+          origin: this.actor.uuid,
+          disabled: false
+        }]);
+
+      case 'edit':
+        return effect.sheet.render(true);
+
+      case 'delete':
+        return effect.delete();
+
+      case 'toggle':
+        return effect.update({disabled: !effect.data.disabled});
+    }
+
   }
 
   /* ------------------------------------------------------------------------ */

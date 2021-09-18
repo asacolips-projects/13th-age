@@ -97,9 +97,9 @@ export class ItemArchmage extends Item {
           }
         }
         // Momentum
-        else if ((parsed[3] && parsed[3].toLowerCase() == "spend momentum"
-            || parsed[3].toLowerCase() == "have momentum")
-            && res.perCombat.momentum.enabled) {
+        else if (parsed[3] && res.perCombat.momentum.enabled
+          && (parsed[3].toLowerCase() == "spend momentum"
+          || parsed[3].toLowerCase() == "have momentum")) {
           if (!res.perCombat.momentum.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
             return this._roll_resDiag(msg, itemUpdateData, updateData);
@@ -127,7 +127,7 @@ export class ItemArchmage extends Item {
           let resourceName = res.spendable[resourcePathName].label;
           if (res.spendable[resourcePathName].enabled && parsed[2] && parsed[1]
             && res.spendable[resourcePathName].current !== null
-            && parsed[2].toLowerCase().includes(resourceName.toLowerCase())) {
+            && resourceName.toLowerCase().includes(parsed[2].toLowerCase())) {
             let numUsed = Number(parsed[1]);
             let path = `data.resources.spendable.${resourcePathName}.current`;
             updateData[path] = res.spendable[resourcePathName].current - numUsed;
@@ -172,17 +172,18 @@ export class ItemArchmage extends Item {
 
   async _roll_render(itemUpdateData, actorUpdateData) {
     // Replicate attack rolls as needed for attacks
-    let newItemData = {};
-    let numTargets = {targets: 1, rolls: []};
-    if (game.settings.get("archmage", "multiTargetAttackRolls") &&
-      (this.data.type == "power" || this.data.type == "action")){
-      numTargets = await ArchmageRolls.rollItemTargets(this);
-      newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, numTargets)};
-      if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+    let overrideData = {};
+    let numTargets = {targets: 1, rolls: [], dontChangeDamage: false};
+    if (this.data.type == "power" || this.data.type == "action") {
+      let attackLine = ArchmageRolls.addAttackMod(this);
+      overrideData = {"data.attack.value": attackLine};
+      if (game.settings.get("archmage", "multiTargetAttackRolls")){
+        numTargets = await ArchmageRolls.rollItemTargets(this);
+        overrideData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
+        if (numTargets.targetLine) overrideData["data.target.value"] = numTargets.targetLine;
+      }
     }
-    let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
-
-    //await ArchmageRolls.rollItem(itemToRender);
+    let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
 
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
@@ -194,12 +195,9 @@ export class ItemArchmage extends Item {
       data: itemToRender.getChatData()
     };
 
-<<<<<<< HEAD
-=======
     // TODO: roll rolls here
     //let rollData = await ArchmageRolls.rollItem(this);
 
->>>>>>> origin/master
     // Basic chat message data
     const chatData = {
       user: game.user.id,
@@ -208,8 +206,7 @@ export class ItemArchmage extends Item {
         token: itemToRender.actor.token,
         alias: itemToRender.actor.name,
         scene: game.user.viewedScene
-      },
-      roll: new Roll("") // Needed to silence an error in 0.8.x
+      }
     };
 
     // Toggle default roll mode
@@ -228,13 +225,15 @@ export class ItemArchmage extends Item {
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
+      dontChangeDamage: numTargets.dontChangeDamage,
       type: this.data.type
     }, null);
 
     // If 3d dice are enabled, handle them first.
-    if (game.dice3d) {
+    if (game.dice3d && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       let contentHtml = $(chatData.content);
       let rolls = [];
+      let damageRolls = [];
 
       if (contentHtml.length > 0) {
         // Find all property rows.
@@ -244,9 +243,8 @@ export class ItemArchmage extends Item {
           $rows.each(function(index) {
             let $row_self = $(this);
             let row_text = $row_self.html();
-            // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:') || row_text.includes('Hit:')
-              || row_text.includes('Target:')) {
+            // Attack or Target rows - keep all, in right order
+            if (row_text.includes('Attack:') || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
@@ -254,9 +252,18 @@ export class ItemArchmage extends Item {
                   if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
                     // Not an attack roll, usually a target roll, roll first
                     rolls.unshift(roll);
-                  } else {
-                    rolls.push(roll);
-                  }
+                  } else rolls.push(roll);
+                });
+              }
+            }
+            // Hit or Spell level rows - keep only the last
+            else if (row_text.includes('Hit:') || row_text.includes('Level Spell:')) {
+              damageRolls = []; // Reset for each line
+              let $roll_html = $row_self.find('.inline-result');
+              if ($roll_html.length > 0) {
+                $roll_html.each(function(i, e){
+                  let roll = Roll.fromJSON(unescape(e.dataset.roll));
+                  damageRolls.push(roll);
                 });
               }
             }
@@ -264,6 +271,7 @@ export class ItemArchmage extends Item {
         }
 
         // If we have roll data, handle a 3d roll.
+        rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
           for (let r of rolls) {
             await game.dice3d.showForRoll(r, game.user, true);

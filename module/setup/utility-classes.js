@@ -135,7 +135,9 @@ export class ArchmageUtility {
                 return 'fail';
               }
               // Barbarian crit.
-              else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
+              else if (actor && actor.data.type === 'character'
+                && actor.data.data.details.class.value
+                && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
                 && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
                 return 'crit';
               }
@@ -194,110 +196,6 @@ export class ArchmageUtility {
     else {
       return game.actors.entities.filter(a => a.data.name == name);
     }
-  }
-
-  static replaceRollData() {
-    /**
-     * Override the default getRollData() method to add abbreviations for the
-     * abilities and attributes properties.
-     */
-    const original = Actor.prototype.getRollData;
-    Actor.prototype.getRollData = function() {
-      // Use the actor by default.
-      let actor = this;
-
-      // Use the current token if possible.
-      let token = canvas.tokens?.controlled?.find(t => t.actor.data._id == this.data._id);
-      if (token) {
-        actor = token.actor;
-      }
-
-      const origData = original.call(actor);
-      const data = foundry.utils.deepClone(origData);
-      const shorthand = game.settings.get("archmage", "macroShorthand");
-
-      // Get the escalation die value.
-      if (game.combats !== undefined && game.combat !== null) {
-        data.attributes.escalation = {
-          value: ArchmageUtility.getEscalation(game.combat)
-        };
-
-        // Must recompute this here because the e.d. might have changed.
-        data.attributes.standardBonuses = {
-          value: data.attributes.level.value + data.attributes.escalation.value + data.attributes.attackMod.missingRecPenalty + data.attributes.attackMod.value
-        };
-      }
-
-      // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
-      const model = game.system.model.Actor.character.attributes.weapon;
-
-      // Re-map all attributes onto the base roll data
-      if (!!shorthand) {
-        let newData = mergeObject(data.attributes, data.abilities);
-        delete data.init;
-        for (let [k, v] of Object.entries(newData)) {
-          switch (k) {
-            case 'escalation':
-              data.ed = v.value;
-              break;
-
-            case 'init':
-              data.init = v.mod;
-              break;
-
-            case 'level':
-              data.lvl = v.value;
-              break;
-
-            case 'weapon':
-              data.wpn = {
-                m: v?.melee ?? model.melee,
-                r: v?.ranged ?? model.ranged,
-                j: v?.jab ?? model.jab,
-                p: v?.punch ?? model.punch,
-                k: v?.kick ?? model.kick
-              };
-
-              // Clean up weapon properties.
-              let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
-              wpnTypes.forEach(wpn => {
-                if (data.wpn[wpn].dice) {
-                  data.wpn[wpn].die = data.wpn[wpn].dice;
-                  data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
-                }
-                data.wpn[wpn].dice = data.wpn[wpn].value;
-                data.wpn[wpn].atk = data.wpn[wpn].attack;
-                data.wpn[wpn].dmg = data.wpn[wpn].dmg;
-                delete data.wpn[wpn].value;
-                delete data.wpn[wpn].attack;
-              });
-
-              break;
-
-            case 'attack':
-              data.atk = {
-                m: v.melee,
-                r: v.ranged,
-                a: v.arcane,
-                d: v.divine
-              };
-              break;
-
-            case 'standardBonuses':
-              data.std = v.value;
-
-            default:
-              if (!(k in data)) data[k] = v;
-              break;
-          }
-        }
-      }
-
-      // Old syntax shorthand.
-      data.attr = data.attributes;
-      data.abil = data.abilities;
-      return data;
-    };
   }
 
   static async updateCompendiums() {

@@ -6,50 +6,6 @@
     ],
     "templates": {
       "standard": {
-        "abilities": {
-          "str": {
-            "type": "Number",
-            "label": "Strength",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "dex": {
-            "type": "Number",
-            "label": "Dexterity",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "con": {
-            "type": "Number",
-            "label": "Constitution",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "int": {
-            "type": "Number",
-            "label": "Intelligence",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "wis": {
-            "type": "Number",
-            "label": "Wisdom",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          },
-          "cha": {
-            "type": "Number",
-            "label": "Charisma",
-            "value": 10,
-            "min": 3,
-            "mod": 0
-          }
-        },
         "attributes": {
           "attackMod": {
             "type": "Number",
@@ -87,15 +43,6 @@
             "base": 7,
             "automatic": true
           },
-          "recoveries": {
-            "type": "Number",
-            "label": "Recoveries",
-            "value": 8,
-            "max": 8,
-            "dice": "d8",
-            "base": 8,
-            "automatic": true
-          },
           "init": {
             "type": "Number",
             "label": "Initiative Modifier",
@@ -107,269 +54,6 @@
             "value": 1,
             "min": 0,
             "max": 10
-          },
-          "disengage": 11,
-          "disengageBonus": 0,
-          "saves": {
-            "easy": 6,
-            "normal": 11,
-            "hard": 16,
-            "death": 16,
-            "deathFails": {
-              "value": 0,
-              "max": 4,
-              "steps": [
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            "lastGasp": 16,
-            "lastGaspFails": {
-              "value": 0,
-              "max": 4,
-              "steps": [
-                false,
-                false,
-                false,
-                false
-              ]
-            }
-          }
-        },
-        "details": {
-          "alignment": {
-            "type": "String",
-            "label": "Alignment"
-          },
-          "biography": {
-            "type": "String",
-            "label": "Biography"
-          },
-          "class": {
-            "type": "String",
-            "label": "Class"
-          },
-          "race": {
-            "type": "String",
-            "label": "Race"
-          },
-          "out": {
-            "label": "One Unique Thing",
-            "type": "String",
-            "value": ""
-          }
-        },
-        "backgrounds": {
-          "bg1": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            }
-          },
-          "bg2": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            }
-          },
-          "bg3": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            }
-          },
-          "bg4": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg5": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg6": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg7": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          },
-          "bg8": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            }
-          }
-        },
-        "icons": {
-          "i1": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            },
-            "results": []
-          },
-          "i2": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            },
-            "results": []
-          },
-          "i3": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 1
-            },
-            "results": []
-          },
-          "i4": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            },
-            "results": []
-          },
-          "i5": {
-            "name": {
-              "type": "String",
-              "value": ""
-            },
-            "relationship": {
-              "type": "String",
-              "value": ""
-            },
-            "bonus": {
-              "type": "Number",
-              "value": 0
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": 0
-            },
-            "results": []
           }
         }
       }
@@ -378,7 +62,89 @@
       "templates": [
         "standard"
       ],
+      "abilities": {
+        "str": {
+          "type": "Number",
+          "label": "Strength",
+          "value": 10,
+          "min": 3,
+          "mod": 0
+        },
+        "dex": {
+          "type": "Number",
+          "label": "Dexterity",
+          "value": 10,
+          "min": 3,
+          "mod": 0
+        },
+        "con": {
+          "type": "Number",
+          "label": "Constitution",
+          "value": 10,
+          "min": 3,
+          "mod": 0
+        },
+        "int": {
+          "type": "Number",
+          "label": "Intelligence",
+          "value": 10,
+          "min": 3,
+          "mod": 0
+        },
+        "wis": {
+          "type": "Number",
+          "label": "Wisdom",
+          "value": 10,
+          "min": 3,
+          "mod": 0
+        },
+        "cha": {
+          "type": "Number",
+          "label": "Charisma",
+          "value": 10,
+          "min": 3,
+          "mod": 0
+        }
+      },
       "attributes": {
+        "disengage": 11,
+        "disengageBonus": 0,
+        "recoveries": {
+          "type": "Number",
+          "label": "Recoveries",
+          "value": 8,
+          "max": 8,
+          "dice": "d8",
+          "base": 8,
+          "automatic": true
+        },
+        "saves": {
+          "easy": 6,
+          "normal": 11,
+          "hard": 16,
+          "death": 16,
+          "deathFails": {
+            "value": 0,
+            "max": 4,
+            "steps": [
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          "lastGasp": 16,
+          "lastGaspFails": {
+            "value": 0,
+            "max": 4,
+            "steps": [
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        },
         "weapon": {
           "melee": {
             "type": "String",
@@ -399,23 +165,254 @@
             "type": "String",
             "label": "JAB dice",
             "dice": "d6",
-            "value": "d6",
-            "abil": "dex/str"
+            "value": "d6"
           },
           "punch": {
             "type": "String",
             "label": "PUNCH dice",
             "dice": "d8",
-            "value": "d8",
-            "abil": "dex/str"
+            "value": "d8"
           },
           "kick": {
             "type": "String",
             "label": "KICK dice",
             "dice": "d10",
-            "value": "d10",
-            "abil": "dex/str"
+            "value": "d10"
           }
+        }
+      },
+      "details": {
+        "alignment": {
+          "type": "String",
+          "label": "Alignment"
+        },
+        "biography": {
+          "type": "String",
+          "label": "Biography"
+        },
+        "class": {
+          "type": "String",
+          "label": "Class"
+        },
+        "race": {
+          "type": "String",
+          "label": "Race"
+        },
+        "out": {
+          "label": "One Unique Thing",
+          "type": "String",
+          "value": ""
+        }
+      },
+      "backgrounds": {
+        "bg1": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          }
+        },
+        "bg2": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          }
+        },
+        "bg3": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          }
+        },
+        "bg4": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg5": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg6": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg7": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        },
+        "bg8": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          }
+        }
+      },
+      "icons": {
+        "i1": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          },
+          "results": []
+        },
+        "i2": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          },
+          "results": []
+        },
+        "i3": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 1
+          },
+          "results": []
+        },
+        "i4": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          },
+          "results": []
+        },
+        "i5": {
+          "name": {
+            "type": "String",
+            "value": ""
+          },
+          "relationship": {
+            "type": "String",
+            "value": ""
+          },
+          "bonus": {
+            "type": "Number",
+            "value": 0
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": 0
+          },
+          "results": []
         }
       },
       "resources": {
@@ -474,6 +471,12 @@
         "powerSpell3": false,
         "powerSpell4": false,
         "skills": false
+      },
+      "coins": {
+        "platinum": 0,
+        "gold": 0,
+        "silver": 0,
+        "copper": 0
       }
     },
     "npc": {

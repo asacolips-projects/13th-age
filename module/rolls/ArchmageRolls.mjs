@@ -39,7 +39,10 @@ export default class ArchmageRolls {
     if (item.data.type == "power") {
       let targetLine = item.data.data.target.value;
       if (targetLine != null) {
-        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        // First cleanup references to target HPs
+        let lineToParse = targetLine.replace(/[0-9]+ hp/g, '');
+        lineToParse = lineToParse.toLowerCase().replace(/\[\[.+?\]\] hp/g, '');
+        rolls = ArchmageRolls._getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
           ArchmageRolls._roll(rolls, item.actor);
@@ -54,7 +57,7 @@ export default class ArchmageRolls {
           // Try NLP to guess targets
           let keys = Object.keys(nlpMap);
           for (let x = 0; x < keys.length; x++) {
-            if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
+            if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
           // Handle "each" or "all"
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
@@ -90,16 +93,39 @@ export default class ArchmageRolls {
       }
     }
 
-    return {targets: targets, rolls: rolls, targetLine: newTargetLine};
+    return {targets: targets, rolls: rolls, targetLine: newTargetLine, dontChangeDamage: (targets > 1)};
   }
 
-  static rollItemAdjustAttacks(item, numTargets) {
+  static addAttackMod(item) {
+    // Add @atk.mod modifier to the first inline roll, if it isn't 0
+    let attackLine = item.data.data.attack.value;
+    let atkMod = item.actor.getRollData().atk.mod;
+    if (atkMod) {
+      let match = /(\[\[.+?\]\])/.exec(attackLine);
+      if (match) {
+        let formula = match[1];
+        let newFormula = formula.replace("]]", "+@atk.mod]]");
+        attackLine = attackLine.replace(formula, newFormula);
+      }
+    }
+    return attackLine;
+  }
+
+  static rollItemAdjustAttacks(item, newAttackLine, numTargets) {
     // If the user has targeted tokens, limit number of rolls by the lower of
     // selected targets or number listed on the power. If no targets are
     // selected, just use the number listed on the power.
     let selectedTargets = [...game.user.targets];
-    let newAttackLine = item.data.data.attack.value;
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
+
+    // Handle the special case of the Crescendo spell
+    if (item.data.data?.special?.value?.toLowerCase().includes(
+      game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
+        newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine);
+        targetsCount = selectedTargets.length;
+        numTargets.dontChangeDamage = true;
+      }
+
     // Split string into first inline roll and vs, and repeat roll as needed
     let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
     if (match) {
@@ -118,6 +144,14 @@ export default class ArchmageRolls {
       newAttackLine += " " + vs;
     }
     return newAttackLine;
+  }
+
+  static _handleCrescendo(newAttackLine) {
+    if (game.user.targets.size <= 1) return newAttackLine;
+    // Special: You can choose more than one target for this spell,
+    // but you take a –2 penalty when attacking two targets, a –3
+    // penalty for three targets, and so on.
+    return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
   }
 
   static _roll(rolls, actor, key=undefined) {
@@ -141,7 +175,7 @@ export default class ArchmageRolls {
       let rolls = [];
       for (let x = 0; x < matches.length; x++) {
         let match = matches[x];
-        console.log(match);
+        //console.log(match);
         let roll = new Roll(match[2], data);
         //roll.formula = match[2];
         rolls.push(roll);
