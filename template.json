@@ -542,11 +542,39 @@
           "label": "Price",
           "value": 0
         }
+      },
+      "usable": {
+        "powerUsage": {
+          "type": "String",
+          "label": "Power Usage",
+          "value": ""
+        },
+        "recharge": {
+          "type": "Number",
+          "label": "Recharge",
+          "value": 0
+        },
+        "rechargeAttempts": {
+          "type": "Number",
+          "label": "Number of Recharges Attempted",
+          "value": 0
+        },
+        "quantity": {
+          "type": "Number",
+          "label": "Uses",
+          "value": 1
+        },
+        "maxQuantity": {
+          "type": "Number",
+          "label": "Max Uses",
+          "value": 1
+        }
       }
     },
     "power": {
       "templates": [
-        "standard"
+        "standard",
+        "usable"
       ],
       "group": {
         "type": "String",
@@ -566,11 +594,6 @@
       "powerType": {
         "type": "String",
         "label": "Power Type",
-        "value": ""
-      },
-      "powerUsage": {
-        "type": "String",
-        "label": "Power Usage",
         "value": ""
       },
       "powerLevel": {
@@ -713,26 +736,6 @@
         "label": "Sustain On",
         "value": ""
       },
-      "recharge": {
-        "type": "Number",
-        "label": "Recharge",
-        "value": 0
-      },
-      "rechargeAttempts": {
-        "type": "Number",
-        "label": "Number of Recharges Attempted",
-        "value": 0
-      },
-      "quantity": {
-        "type": "Number",
-        "label": "Uses",
-        "value": null
-      },
-      "maxQuantity": {
-        "type": "Number",
-        "label": "Max Uses",
-        "value": null
-      },
       "feats": {
         "adventurer": {
           "description": {
@@ -842,7 +845,8 @@
     },
     "equipment": {
       "templates": [
-        "standard"
+        "standard",
+        "usable"
       ],
       "properties": {},
       "attributes": {
@@ -881,7 +885,8 @@
         "disengage": {
           "bonus": 0
         }
-      }
+      },
+      "isActive": true
     }
   }
 }

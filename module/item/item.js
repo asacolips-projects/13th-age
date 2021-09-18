@@ -303,7 +303,7 @@ export class ItemArchmage extends Item {
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
-    let actor = this.parent;
+    let actor = this.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -344,8 +344,6 @@ export class ItemArchmage extends Item {
       let rollMode = game.settings.get("core", "rollMode");
       if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
-
-      // TODO: Wait for 3d dice.
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);

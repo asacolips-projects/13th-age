@@ -356,21 +356,21 @@ export class ActorArchmage extends Actor {
 
     if (this.items) {
       this.items.forEach(function(item) {
-        if (item.type === 'equipment') {
-          meleeAttackBonus = Math.max(meleeAttackBonus, getBonusOr0(item.data.data.attributes.attack.melee));
-          rangedAttackBonus = Math.max(rangedAttackBonus, getBonusOr0(item.data.data.attributes.attack.ranged));
-          divineAttackBonus = Math.max(divineAttackBonus, getBonusOr0(item.data.data.attributes.attack.divine));
-          arcaneAttackBonus = Math.max(arcaneAttackBonus, getBonusOr0(item.data.data.attributes.attack.arcane));
+        if (item.type === 'equipment' && item.data.data.isActive) {
+          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
+          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
+          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
+          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
 
-          acBonus = Math.max(acBonus, getBonusOr0(item.data.data.attributes.ac));
-          mdBonus = Math.max(mdBonus, getBonusOr0(item.data.data.attributes.md));
-          pdBonus = Math.max(pdBonus, getBonusOr0(item.data.data.attributes.pd));
+          acBonus += getBonusOr0(item.data.data.attributes.ac);
+          mdBonus += getBonusOr0(item.data.data.attributes.md);
+          pdBonus += getBonusOr0(item.data.data.attributes.pd);
 
-          hpBonus = Math.max(hpBonus, getBonusOr0(item.data.data.attributes.hp));
-          recoveriesBonus = Math.max(recoveriesBonus, getBonusOr0(item.data.data.attributes.recoveries));
+          hpBonus += getBonusOr0(item.data.data.attributes.hp);
+          recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          saveBonus = Math.max(saveBonus, getBonusOr0(item.data.data.attributes.save));
-          disengageBonus = Math.max(disengageBonus, getBonusOr0(item.data.data.attributes.disengage));
+          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });
     }
@@ -795,12 +795,12 @@ export class ActorArchmage extends Actor {
       this.update(updateData);
     }
 
-    // Items (Powers)
+    // Items
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
       let maxQuantity = item.data.data?.maxQuantity?.value ?? 1;
-      if (item.type == "power" && maxQuantity) {
+      if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
         let rechAttempts = maxQuantity - item.data.data.quantity.value;
         let rechValue = item.data.data.recharge.value ?? 16;
@@ -808,8 +808,8 @@ export class ActorArchmage extends Actor {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
         // Per battle powers.
-        if ((item.data.data.powerUsage.value == 'once-per-battle'
-          || (item.data.data.powerUsage.value == 'at-will'
+        if ((item.data.data.powerUsage?.value == 'once-per-battle'
+          || (item.data.data.powerUsage?.value == 'at-will'
           && item.data.data.quantity.value != null))
           && item.data.data.quantity.value < maxQuantity) {
           await item.update({
@@ -820,7 +820,7 @@ export class ActorArchmage extends Actor {
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
         }
-        else if ((item.data.data.powerUsage.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
+        else if ((item.data.data.powerUsage?.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
@@ -916,15 +916,15 @@ export class ActorArchmage extends Actor {
       this.update(updateData);
     }
 
-    // Items (Powers)
+    // Items
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
 
-      if (item.type != 'power') continue;
+      if (item.type != 'power' && item.type != 'equipment') continue;
 
       let usageArray = ['once-per-battle','daily','recharge'];
-      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage.value) || item.data.data.quantity.value !== null ? 1 : null;
+      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage?.value) || item.data.data.quantity.value !== null ? 1 : null;
       let maxQuantity = item.data.data?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && item.data.data.quantity.value < maxQuantity) {
         await item.update({
