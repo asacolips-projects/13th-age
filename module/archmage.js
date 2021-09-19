@@ -207,7 +207,7 @@ Hooks.once('init', async function() {
    */
   function _setArchmageInitiative(tiebreaker) {
     CONFIG.Combat.initiative.tiebreaker = tiebreaker;
-    CONFIG.Combat.initiative.decimals = tiebreaker ? 2 : 0;
+    CONFIG.Combat.initiative.decimals = 0;
     if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
   game.settings.register('archmage', 'initiativeDexTiebreaker', {
@@ -364,11 +364,12 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = function() {
     const actor = this.actor;
     if (!actor) return "1d20";
-    const init = actor.data.data.attributes.init;
+    const init = actor.data.data.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
-    const parts = ["1d20", init.mod];
+    const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (CONFIG.Combat.initiative.tiebreaker) parts.push((actor.data.data.abilities?.dex.value || 10) / 100);
+    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
+    else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
   }
 

@@ -1,7 +1,7 @@
 ARCHMAGE.SETTINGS.ShowDebugLogsName: Show debug logs?
 ARCHMAGE.SETTINGS.ShowDebugLogsHint: Turn this on for bug reports
-ARCHMAGE.SETTINGS.initiativeDexTiebreakerName: Initiative Dex Tiebreaker
-ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint: Whether or not to break iniative ties with dexterity scores.
+ARCHMAGE.SETTINGS.initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
+ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint: If enabled initiative ties will be resolved using the initiative modifier; if not, monsters win by default.
 ARCHMAGE.SETTINGS.multiTargetAttackRollsName: Multi-Target Attack Rolls
 ARCHMAGE.SETTINGS.multiTargetAttackRollsHint: Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets.
 ARCHMAGE.SETTINGS.showDefensesInChatName: Show target(s) defense(s) in chat
