@@ -673,42 +673,6 @@
 
             </div>
 
-            {{#if data.coins.showRare}}
-            <div class="primary-attributes currencies">
-                <div class="attribute attribute--defenses attribute--currencies">
-                    <div class="attribute-value attribute-value--parent">
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.trinesHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.trines' }}</strong>
-                            <input name="data.coins.trines.value" type="text" value="{{data.coins.trines.value}}" data-dtype="{{data.coins.trines.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.impsHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.imps' }}</strong>
-                            <input name="data.coins.imps.value" type="text" value="{{data.coins.imps.value}}" data-dtype="{{data.coins.imps.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.towersHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.towers' }}</strong>
-                            <input name="data.coins.towers.value" type="text" value="{{data.coins.towers.value}}" data-dtype="{{data.coins.towers.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.glitsHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.glits' }}</strong>
-                            <input name="data.coins.glits.value" type="text" value="{{data.coins.glits.value}}" data-dtype="{{data.coins.glits.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.nupesHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.nupes' }}</strong>
-                            <input name="data.coins.nupes.value" type="text" value="{{data.coins.nupes.value}}" data-dtype="{{data.coins.nupes.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.saintsHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.saints' }}</strong>
-                            <input name="data.coins.saints.value" type="text" value="{{data.coins.saints.value}}" data-dtype="{{data.coins.saints.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                        <div class="attribute-sub" title='{{ localize 'ARCHMAGE.COINS.draksHint' }}'>
-                            <strong class="attribute-name">{{ localize 'ARCHMAGE.COINS.draks' }}</strong>
-                            <input name="data.coins.draks.value" type="text" value="{{data.coins.draks.value}}" data-dtype="{{data.coins.draks.type}}" placeholder="0" class="currency-input" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{/if}}
               <ol class="inventory-list directory-list">
                   <li class="item flexrow inventory-header">
                       <div class="item-name flexrow">
@@ -937,46 +901,6 @@
                   <strong class="attribute-name">{{localize 'ARCHMAGE.kickWeaponDice'}}</strong>
                   <input class="attribute-input" name="data.attributes.weapon.kick.dice" type="text" value="{{data.attributes.weapon.kick.dice}}"
                       data-dtype="String" placeholder="d10" />
-              </div>
-
-              <div class="settings-group">
-                  <label for="data.attributes.weapon.melee.abil" class="attribute-name">{{localize 'ARCHMAGE.meleeAbility'}}</label>
-                  <select class="attribute-input" name="data.attributes.weapon.melee.abil" data-type="String">
-                      {{#select data.attributes.weapon.melee.abil}}
-                      <option value="str">{{localize 'ARCHMAGE.str.key'}}</option>
-                      <option value="dex">{{localize 'ARCHMAGE.dex.key'}}</option>
-                      <option value="con">{{localize 'ARCHMAGE.con.key'}}</option>
-                      <option value="int">{{localize 'ARCHMAGE.int.key'}}</option>
-                      <option value="wis">{{localize 'ARCHMAGE.wis.key'}}</option>
-                      <option value="cha">{{localize 'ARCHMAGE.cha.key'}}</option>
-                      {{/select}}
-                  </select>
-              </div>
-
-              <div class="settings-group">
-                  <label for="data.attributes.weapon.ranged.abil" class="attribute-name">{{localize 'ARCHMAGE.rangedAbility'}}</label>
-                  <select class="attribute-input" name="data.attributes.weapon.ranged.abil" data-type="String">
-                      {{#select data.attributes.weapon.ranged.abil}}
-                      <option value="str">{{localize 'ARCHMAGE.str.key'}}</option>
-                      <option value="dex">{{localize 'ARCHMAGE.dex.key'}}</option>
-                      <option value="con">{{localize 'ARCHMAGE.con.key'}}</option>
-                      <option value="int">{{localize 'ARCHMAGE.int.key'}}</option>
-                      <option value="wis">{{localize 'ARCHMAGE.wis.key'}}</option>
-                      <option value="cha">{{localize 'ARCHMAGE.cha.key'}}</option>
-                      {{/select}}
-                  </select>
-              </div>
-
-              <div class="settings-group">
-                  <strong class="attribute-name">{{localize 'ARCHMAGE.meleeMiss'}}</strong>
-                  <input class="attribute-input" name="data.attributes.weapon.melee.miss" type="checkbox" value="1" {{checked data.attributes.weapon.melee.miss}}
-                      data-dtype="Boolean" />
-              </div>
-
-              <div class="settings-group">
-                  <strong class="attribute-name">{{localize 'ARCHMAGE.rangedMiss'}}</strong>
-                  <input class="attribute-input" name="data.attributes.weapon.ranged.miss" type="checkbox" value="1" {{checked data.attributes.weapon.ranged.miss}}
-                      data-dtype="Boolean" />
               </div>
 
               <hr>

@@ -1,10 +1,10 @@
-.section--inventory {
-  .equipment-filters,
-  .equipment-group {
+.section--effects {
+  .effects-filters,
+  .effects-group {
     flex: 0;
   }
 
-  .equipment-filters {
+  .effects-filters {
     font-family: $font-stack-label;
     font-size: $font-tiny;
     padding: $padding-sm 0 $padding-md;
@@ -18,7 +18,7 @@
         margin-left: $padding-sm;
       }
 
-      &.filter-search-equipment {
+      &.filter-search-effects {
         flex: 1;
       }
     }
@@ -37,27 +37,27 @@
     }
   }
 
-  .equipment-group + .equipment-group {
+  .effects-group + .effects-group {
     margin-top: 20px;
   }
 
-  .item-controls {
+  .effect-controls {
     flex: 0 0 64px;
   }
 
-  .equipment-title,
-  .equipment-group-title {
+  .effects-title,
+  .effects-group-title {
     border: 0;
     text-align: left;
   }
 
-  .equipment-group-content {
+  .effects-group-content {
     margin: 0;
     padding: 0;
     list-style-type: none;
   }
 
-  .equipment-header-title {
+  .effects-header-title {
     border-bottom: 2px solid;
 
     h2 {
@@ -65,33 +65,25 @@
     }
   }
 
-  .equipment-title {
+  .effects-title {
     margin: 0;
   }
 
-  .equipment-header-labels {
+  .effects-header-labels {
     text-transform: uppercase;
     font-size: $font-tiny;
 
-    .equipment-name {
+    .effects-name {
       display: none;
     }
   }
 
-  .equipment-currency {
-    margin: $padding-md 0;
-
-    .unit--currency {
-      margin: 0 $padding-md;
-    }
-  }
-
-  .equipment-item {
+  .effects-item {
     position: relative;
   }
 
-  .equipment-grid {
-    grid-template-columns: 32px auto 36px 130px 60px 60px 36px 56px;
+  .effects-grid {
+    grid-template-columns: 32px auto 250px 60px 80px;
     gap: 2px;
     font-size: $font-tiny;
     font-family: $font-stack-label;
@@ -104,29 +96,29 @@
       justify-content: center;
     }
 
-    .equipment-name,
-    .equipment-group-title {
+    .effects-name,
+    .effects-group-title {
       text-align: left;
       justify-content: flex-start;
     }
 
-    .equipment-group-title {
+    .effects-group-title {
       grid-column: 1 / 5;
     }
 
-    .equipment-name {
+    .effects-name {
       font-size: $font-xs;
       font-family: $font-stack-secondary;
       overflow: hidden;
       padding-left: $padding-sm;
 
       &:hover {
-        ~ .equipment-feat-pips,
-        ~ .equipment-action {
+        ~ .effects-feat-pips,
+        ~ .effects-action {
           opacity: 0.25;
         }
 
-        .equipment-title {
+        .effects-title {
           position: absolute;
           overflow: visible;
           padding-right: $padding-md;
@@ -135,7 +127,7 @@
       }
     }
 
-    .equipment-title {
+    .effects-title {
       white-space: nowrap;
       position: relative;
       overflow: hidden;
@@ -143,63 +135,26 @@
       font-size: $font-xs;
     }
 
-    .rollable--item {
-      position: relative;
-
-      &::before {
-        content: fa-content($fa-var-book);
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto;
-        line-height: 1;
-        font-size: $font-lg;
-        width: $font-lg;
-        height: $font-lg;
-        display: block;
-        opacity: 0;
-        transition: all ease-in-out 0.25s;
-      }
-
-      img {
-        transition: all ease-in-out 0.25s;
-      }
-
-      &:hover {
-        &::before {
-          opacity: 1;
-        }
-
-        img {
-          opacity: 0;
-        }
-      }
-    }
-
-    .equipment-name { grid-column-start: 2; }
-    .equipment-feat-pips { grid-column-start: 3; }
-    .equipment-bonus { grid-column-start: 4; }
-    .equipment-chakra { grid-column-start: 5; }
-    .equipment-recharge { grid-column-start: 6; }
-    .equipment-quantity { grid-column-start: 7; }
-    .item-controls { grid-column-start: 8; }
+    .effects-name { grid-column-start: 2; }
+    .effects-bonus { grid-column-start: 3; }
+    .effects-chakra,
+    .effects-quantity { grid-column-start: 4; }
+    .item-controls { grid-column-start: 5; }
   }
 
-  .item-control {
-    width: 28px;
+  .effect-control {
+    width: 36px;
   }
 
-  .item-create {
+  .effect-create {
     width: 100%;
   }
 
-  .equipment-summary {
+  .effects-summary {
     color: $c-white;
     text-shadow: 0 0 10px rgba($c-black, 0.5);
     margin: 0 0 1px 0;
-    background: $c-power-equipment;
+    background: $c-power-other;
 
     .rollable,
     a {
@@ -216,7 +171,13 @@
     }
   }
 
-  .equipment-content {
+  .effects-disabled {
+    .effects-summary {
+      opacity: 0.6;
+    }
+  }
+
+  .effects-content {
     max-height: 0;
     transition: all ease-in-out 0.25s;
     overflow: hidden;
@@ -226,35 +187,38 @@
     }
   }
 
-  .equipment-bonus {
+  .effects-bonus {
     align-items: stretch;
   }
 
-  .equipment-chakra {
+  .effects-chakra {
     text-transform: uppercase;
   }
 
   .bonus {
     background: rgba($c-black, 0.25);
     border-radius: $padding-sm;
-    margin: 4px 2px;
+    margin: 1px 2px;
     font-size: $font-tiny;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  .bonus-mode {
+    margin: 0 $padding-sm;
+  }
+
   .bonus-label {
-    text-transform: uppercase;
     margin-right: 2px;
   }
 }
 
-.equipment-content .equipment {
+.effects-content .effects {
   line-height: 1.3;
   padding: $padding-md 0;
 
-  .equipment-subheader {
+  .effects-subheader {
     justify-content: flex-start;
 
     > * {
@@ -276,8 +240,8 @@
     }
   }
 
-  .equipment-details,
-  .equipment-feats {
+  .effects-details,
+  .effects-feats {
     p {
       margin: 0;
 
@@ -287,19 +251,19 @@
     }
   }
 
-  .equipment-header,
-  .equipment-details {
+  .effects-header,
+  .effects-details {
     margin: $padding-sm $padding-md;
   }
 
-  .equipment-detail-value,
-  .equipment-detail-content {
+  .effects-detail-value,
+  .effects-detail-content {
     > * {
       padding-left: $padding-md;
     }
   }
 
-  .equipment-feat {
+  .effects-feat {
     background: $c-feat;
     margin-bottom: 2px;
     opacity: 0.25;

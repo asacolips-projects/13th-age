@@ -13,7 +13,6 @@ import { DiceArchmage } from './actor/dice.js';
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
-import preCreateChatMessageHandler from "./hooks/preCreateChatMessageHandler.mjs";
 import { renderCompendium } from './hooks/renderCompendium.js';
 
 
@@ -107,6 +106,9 @@ Hooks.once('init', async function() {
   Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
 
   CONFIG.ARCHMAGE = ARCHMAGE;
+
+  // Update status effects.
+  CONFIG.statusEffects = ARCHMAGE.statusEffects;
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
@@ -205,12 +207,12 @@ Hooks.once('init', async function() {
    */
   function _setArchmageInitiative(tiebreaker) {
     CONFIG.Combat.initiative.tiebreaker = tiebreaker;
-    CONFIG.Combat.initiative.decimals = tiebreaker ? 2 : 0;
+    CONFIG.Combat.initiative.decimals = 0;
     if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
   game.settings.register('archmage', 'initiativeDexTiebreaker', {
-    name: 'Initiative Dex Tiebreaker',
-    hint: 'Whether or not to break iniative ties with dexterity scores.',
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint"),
     scope: 'world',
     config: true,
     default: true,
@@ -218,19 +220,28 @@ Hooks.once('init', async function() {
     onChange: enable => _setArchmageInitiative(enable)
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
-  // Macro shorthand
-  game.settings.register("archmage", "macroShorthand", {
-    name: "Shortened Macro Syntax",
-    hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
+
+  game.settings.register("archmage", "multiTargetAttackRolls", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsHint"),
     scope: "world",
     type: Boolean,
     default: true,
     config: true
   });
 
+  game.settings.register("archmage", "showDefensesInChat", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatHint"),
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
   game.settings.register("archmage", "hideInsteadOfOpaque", {
-    name: "Hide inactive Features / Triggers instead of making them faded-out",
-    hint: "Enable this if you prefer not seeing inactive details at all",
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.hideInsteadOfOpaqueHint"),
     scope: "world",
     type: Boolean,
     default: false,
@@ -265,8 +276,8 @@ Hooks.once('init', async function() {
   });
 
   game.settings.register('archmage', 'originalCritDamage', {
-    name: 'Double damage result on critical hit',
-    hint: 'Whether or not to double the damage roll result on critical hit instead of rolling double the number of damage dice.',
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.originalCritDamageName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.originalCritDamageHint"),
     scope: 'world',
     config: true,
     default: false,
@@ -332,6 +343,17 @@ Hooks.once('init', async function() {
   //Adding the colorblind mode class at startup
   $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
 
+  // Track whether we overrode DsN's default inline roll parsing
+  game.settings.register("archmage", "DsNInlineOverride", {
+    name: "DsN Override",
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: false
+  });
+
+
+
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
@@ -342,18 +364,30 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = function() {
     const actor = this.actor;
     if (!actor) return "1d20";
-    const init = actor.data.data.attributes.init;
+    const init = actor.data.data.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
-    const parts = ["1d20", init.mod];
+    const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (CONFIG.Combat.initiative.tiebreaker) parts.push(actor.data.data.abilities.dex.value / 100);
+    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
+    else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
   }
 
-  ArchmageUtility.replaceRollData();
+  if (dependencies) {
+    // Define dependency on our own custom vue components for when we need it.
+    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
+    if (typeof Dlopen !== 'undefined') {
+      Dlopen.register('actor-sheet', {
+        scripts: "/systems/archmage/dist/vue-components.min.js",
+      });
+    }
+  }
+});
 
-  /* --------------------------------------------- */
-  if (CONST.AIP && CONFIG.AIP) {
+Hooks.on('setup', (data, options, id) => {
+  // Configure autocomplete inline properties module.
+  const aip = game.modules.get("autocomplete-inline-properties")?.API;
+  if (aip?.PACKAGE_CONFIG) {
     // Autocomplete Inline Rolls
     const aipKeys = [
       'str',
@@ -403,24 +437,26 @@ Hooks.once('init', async function() {
               selector: '.archmage-aip input[type="text"]',
               showButton: true,
               allowHotkey: true,
-              dataMode: CONST.AIP.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
+              dataMode: aip.CONST.DATA_MODE.OWNING_ACTOR_ROLL_DATA,
               filteredKeys: filteredKeys
+            }
+          ]
+        },
+        {
+          name: "ActiveEffectConfig",
+          fieldConfigs: [
+            {
+              selector: '.tab[data-tab="effects"] .key input[type="text"]',
+              showButton: true,
+              allowHotkey: true,
+              dataMode: 'owning-actor',
+              defaultPath: 'data'
             }
           ]
         }
       ]
     };
-    CONFIG.AIP.PACKAGE_CONFIG.push(AIP);
-  }
-
-  if (dependencies) {
-    // Define dependency on our own custom vue components for when we need it.
-    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
-    if (typeof Dlopen !== 'undefined') {
-      Dlopen.register('actor-sheet', {
-        scripts: "/systems/archmage/dist/vue-components.min.js",
-      });
-    }
+    aip.PACKAGE_CONFIG.push(AIP);
   }
 });
 
@@ -455,6 +491,7 @@ Hooks.once('ready', () => {
   let modules = {};
   modules.dlopen = game.modules.get('dlopen');
   modules.vueport = game.modules.get('vueport');
+  modules.aip = game.modules.get('autocomplete-inline-properties');
 
   // Determine if we need the dependencies installed.
   let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
@@ -523,8 +560,6 @@ Hooks.once('ready', () => {
       }
     }
   }
-
-
 });
 
 /* ---------------------------------------------- */
@@ -572,32 +607,12 @@ Hooks.on("renderSettings", (app, html) => {
 Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
-  // dice3d.addDicePreset({
-  //   type: "d20",
-  //   labels: [
-  //     "1",
-  //     "2",
-  //     "3",
-  //     "4",
-  //     "5",
-  //     "6",
-  //     "7",
-  //     "8",
-  //     "9",
-  //     "10",
-  //     "11",
-  //     "12",
-  //     "13",
-  //     "14",
-  //     "15",
-  //     "16",
-  //     "17",
-  //     "18",
-  //     "19",
-  //     "20"
-  //   ],
-  //   system: "archmage"
-  // });
+  // Disable DsN's automatic parsing of inline rolls - let users enable it
+  if (isNewerVersion(game.modules.get('dice-so-nice')?.data?.version, "4.1.1")
+    && !game.settings.get("archmage", "DsNInlineOverride")) {
+    game.settings.set("dice-so-nice", "animateInlineRoll", false);
+    game.settings.set("archmage", "DsNInlineOverride", true);
+  }
 
   dice3d.addTexture("archmagered", {
     name: "Archmage Red",
@@ -652,13 +667,6 @@ function uuidv4() {
     return v.toString(16);
   });
 }
-
-/**
- * Parse inline rolls.
- */
-// Hooks.on('preCreateChatMessage', (_, data, options, userId) => {
-//   preCreateChatMessageHandler.handle(data, options, userId);
-// });
 
 // Override the inline roll click behavior.
 Hooks.on('renderChatMessage', (chatMessage, html, options) => {
