@@ -59,9 +59,11 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all"
+          // Handle "each" or "all" or the Crescendo spell
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
+            || item.data.data?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
+            ) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
@@ -93,7 +95,7 @@ export default class ArchmageRolls {
       }
     }
 
-    return {targets: targets, rolls: rolls, targetLine: newTargetLine, dontChangeDamage: (targets > 1)};
+    return {targets: targets, rolls: rolls, targetLine: newTargetLine};
   }
 
   static addAttackMod(item) {
@@ -122,8 +124,6 @@ export default class ArchmageRolls {
     if (item.data.data?.special?.value?.toLowerCase().includes(
       game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
         newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine);
-        targetsCount = selectedTargets.length;
-        numTargets.dontChangeDamage = true;
       }
 
     // Split string into first inline roll and vs, and repeat roll as needed
