@@ -13,8 +13,6 @@ export default class preCreateChatMessageHandler {
         let targets = [...game.user.targets.values()];
         let numTargets = 1;
         if (options.targets) numTargets = options.targets;
-        let dontChangeDamage = false;
-        if (options.dontChangeDamage) dontChangeDamage = options.dontChangeDamage;
         let type = 'power';
         if (options.type) type = options.type;
 
@@ -95,10 +93,10 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text.includes('Attack:')) {
-                    if (row_text.includes('dc-crit') && !dontChangeDamage) {
+                    if (row_text.includes('dc-crit') && numTargets <= 1) {
                         has_crit = true;
                     }
-                    if (row_text.includes('dc-fail') && !dontChangeDamage) {
+                    if (row_text.includes('dc-fail') && numTargets <= 1) {
                         has_fail = true;
                     }
 
