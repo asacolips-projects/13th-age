@@ -5,7 +5,6 @@ export class DamageApplicator {
   }
 
   getTokenAttribute(token, attribute) {
-    //console.log(target);
     if (token.data?.actorData?.data?.attributes != undefined) {
       // Return token overridden value
       if (token.data.actorData.data.attributes[attribute]) {
@@ -16,64 +15,36 @@ export class DamageApplicator {
   }
 
   asDamage(inlineRoll, modifier) {
-    var toApply = this.getRollValue(inlineRoll);
+    let toApply = this.getRollValue(inlineRoll);
 
-    if (inlineRoll[0].classList.contains('dc-crit')) {
-
+    // if (inlineRoll[0].classList.contains('dc-crit')) {
       // Crits are pre-doubled, so we gotta math it up a bit
-      if (modifier == 2) {
-        modifier = 1.5;
-      }
-      else if (modifier == 3) {
-        modifier = 2;
-      }
-    }
+      // if (modifier == 2) modifier = 1.5;
+      // else if (modifier == 3) modifier = 2;
+    // }
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
-      toApply = Math.round(toApply * modifier);
+      toApply = Math.ceil(toApply * modifier);
     }
     else {
       toApply = Math.floor(toApply * modifier);
     }
 
-    var selected = canvas.tokens.controlled;
+    let selected = canvas.tokens.controlled;
     if (selected.length === 0) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.noToken"));
       return;
     }
     selected.forEach(token => {
-
+      // Temp hps handled directly by the actor's preUpdate method
       if (token.data?.actorData?.data?.attributes != undefined) {
-        var tokenData = duplicate(token.data);
-        var hp = tokenData.actorData.data.attributes["hp"];
-        var temp = hp.temp ?? 0;
-        if (isNaN(temp)) temp = 0;
-
-        if (toApply > temp) {
-          var overflow = toApply - temp;
-          hp.temp = 0;
-          hp.value -= overflow;
-        }
-        else {
-          hp.temp -= toApply;
-        }
-
+        let tokenData = duplicate(token.data);
+        tokenData.actorData.data.attributes.hp.value -= toApply;
         token.update(tokenData);
       }
       else {
-        var actorData = duplicate(token.actor.data);
-        var hp = actorData.data.attributes["hp"];
-        var temp = hp.temp;
-
-        if (toApply > temp) {
-          var overflow = toApply - temp;
-          hp.temp = 0;
-          hp.value -= overflow;
-        }
-        else {
-          hp.temp -= toApply;
-        }
-
+        let actorData = duplicate(token.actor.data);
+        actorData.data.attributes.hp.value -= toApply;
         token.actor.update(actorData);
       }
     });
@@ -81,50 +52,39 @@ export class DamageApplicator {
   }
 
   asHealing(inlineRoll) {
-    var toApply = this.getRollValue(inlineRoll);
-
-    var selected = canvas.tokens.controlled;
+    let toApply = this.getRollValue(inlineRoll);
+    let selected = canvas.tokens.controlled;
     selected.forEach(token => {
-      // console.log(token);
-
+      // Max and 0 handled directly by the actor's preUpdate method
       if (token.data?.actorData?.data?.attributes != undefined) {
-        var tokenData = duplicate(token.data);
-        var hp = tokenData.actorData.data.attributes["hp"];
-        hp.value += toApply;
-        if (hp.max && hp.value > hp.max) {
-          hp.value = hp.max;
-        }
+        let tokenData = duplicate(token.data);
+        tokenData.actorData.data.attributes.hp.value += toApply;
         token.update(tokenData);
       }
       else {
-        var actorData = duplicate(token.actor.data);
-        var hp = actorData.data.attributes["hp"];
-        hp.value += toApply;
-        if (hp.max && hp.value > hp.max) {
-          hp.value = hp.max;
-        }
+        let actorData = duplicate(token.actor.data);
+        actorData.data.attributes.hp.value += toApply;
         token.actor.update(actorData);
       }
     });
   }
 
   asTempHealth(inlineRoll) {
-    var toApply = this.getRollValue(inlineRoll);
-
-    var selected = canvas.tokens.controlled;
+    let toApply = this.getRollValue(inlineRoll);
+    let selected = canvas.tokens.controlled;
     selected.forEach(token => {
-      // console.log(token);
-
       if (token.data?.actorData?.data?.attributes != undefined) {
-        var tokenData = duplicate(token.data);
-        var hp = tokenData.actorData.data.attributes["hp"];
-        hp.temp += toApply;
+        let tokenData = duplicate(token.data);
+        let hp = tokenData.actorData.data.attributes["hp"];
+        if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
+        hp.temp = Math.max(hp.temp, toApply);
         token.update(tokenData);
       }
       else {
-        var actorData = duplicate(token.actor.data);
-        var hp = actorData.data.attributes["hp"];
-        hp.temp += toApply;
+        let actorData = duplicate(token.actor.data);
+        let hp = actorData.data.attributes["hp"];
+        if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
+        hp.temp = Math.max(hp.temp, toApply);
         token.actor.update(actorData);
       }
     });

@@ -1033,16 +1033,35 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
-    if (!this.data.type == 'character'
-      || !options.diff
-      || data.data === undefined) {
-        // Nothing to do
-        return;
+    if (!options.diff || data.data === undefined) return; // Nothing to do
+
+    if (data.data.attributes?.hp?.value !== undefined
+      && data.data.attributes?.hp?.temp == undefined) {
+      // Here we received an update of the total hp but not the temp, check them
+      let hp = duplicate(this.data.data.attributes.hp);
+      if (data.data.attributes.hp.value === null
+        || isNaN(data.data.attributes.hp.value)) {
+        //If the update is nonsensical ignore it
+        data.data.attributes.hp.value = hp.value;
+      }
+      let delta = data.data.attributes.hp.value - hp.value;
+      if (delta < 0) { // Damage, check for temp hps
+        let temp = hp.temp || 0;
+        if (isNaN(temp)) temp = 0; // Fallback for erroneous data
+        data.data.attributes.hp.temp = Math.max(0, temp + delta);
+        delta = Math.min(delta + temp, 0);
+      }
+      else { // Healing, start from 0 if negative
+        hp.value = Math.max(0, hp.value);
+      }
+      // Do not exceed max hps
+      data.data.attributes.hp.value = Math.min(hp.value + delta, hp.max);
     }
+
+    if (!this.data.type == 'character') return; // Nothing else to do
 
     if (data.data.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
-
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
