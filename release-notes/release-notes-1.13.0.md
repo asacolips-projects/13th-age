@@ -2,7 +2,7 @@
 
 ## Features
 
-* Adds support for active effects. This implementation adds a new **Effects** tab that allows active effects to be manually created, edited, or removed.
+* Adds support for active effects to actors. This implementation adds a new **Effects** tab on character sheets that allows active effects to be manually created, edited, or removed.
 * Removed Foundry core conditions and replaced them with conditions that match the Archmage Engine SRD. The new conditions are pre-configured to include active effects for penalties and bonuses as needed by the rules.
 * Refactor negative recovery penalties to use Active Effects (to bypass `@std`, this works for powers that use `+@lvl+@ed`).
 * Add support for dynamically adding attackMod.value to all attack rolls.
