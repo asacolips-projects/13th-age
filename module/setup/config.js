@@ -223,6 +223,7 @@ ARCHMAGE.creatureTypes = {
   'monstrosity': 'Monstrosity',
   'ooze': 'Ooze',
   'plant': 'Plant',
+  'spirit': 'Spirit',
   'undead': 'Undead'
 };
 
