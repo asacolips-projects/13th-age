@@ -24,6 +24,11 @@
                           data-dtype="String" placeholder="1,000gp" />
                   </div>
 
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.active'}}</strong>
+                      <input type="checkbox" name="data.isActive" value="1" data-dtype="Boolean" {{checked data.isActive}} />
+                  </div>
+
                   <div class="settings-group form-group">
                       <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
                   </div>
@@ -97,7 +102,6 @@
                     <input class="attribute-input" name="data.attributes.disengage.bonus" type="text" value="{{data.attributes.disengage.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
-                  
 
                   <div class="settings-group form-group" style="padding-top: 10px;">
                       <label>{{localize 'ARCHMAGE.ITEM.chakraSlot'}}</label>
@@ -127,6 +131,40 @@
                           {{/select}}
                       </select>
                   </div>
+
+                  <div class="settings-group form-group" style="padding-top: 10px;">
+                      <label>{{localize 'ARCHMAGE.uses'}}</label>
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.powerUsage'}}</strong>
+                      <select name="data.powerUsage.value" data-dtype="{{data.powerUsage.type}}">
+                          {{#select data.powerUsage.value}}
+                          {{#each equipUsages as |name type|}}
+                          <option value="{{type}}">{{name}}</option>
+                          {{/each}}
+                          {{/select}}
+                      </select>
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.recharge'}}</strong>
+                    <input class="attribute-input" name="data.recharge.value" type="text" value="{{data.recharge.value}}"
+                        data-dtype="data.recharge.type" placeholder="Numbers only, such as '16'" />
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">Uses Remaining</strong>
+                    <input class="attribute-input" name="data.quantity.value" type="text" value="{{data.quantity.value}}"
+                        data-dtype="data.quantity.type" placeholder="Number of remaining uses, usually the same as Max Uses" />
+                  </div>
+
+                  <div class="settings-group">
+                    <strong class="attribute-name">Max Uses</strong>
+                    <input class="attribute-input" name="data.maxQuantity.value" type="text" value="{{data.maxQuantity.value}}"
+                        data-dtype="data.maxQuantity.type" placeholder="Number of uses per battle/day, usually 1" />
+                  </div>
+
               </div>
             </div>
         </section>

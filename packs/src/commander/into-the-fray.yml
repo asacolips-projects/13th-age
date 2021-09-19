@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>At the start of each battle before you and your allies roll initiative, roll a [[@d4]]. A number of your allies equal to the roll gain the following benefit of your choice: a +4 bonus to initiative that battle; OR a +2 bonus to AC until the end of the first round.</p>'
+    value: '<p>At the start of each battle before you and your allies roll initiative, roll a [[d4]]. A number of your allies equal to the roll gain the following benefit of your choice: a +4 bonus to initiative that battle; OR a +2 bonus to AC until the end of the first round.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

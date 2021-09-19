@@ -11,6 +11,10 @@ export default class preCreateChatMessageHandler {
         let updated_content = null;
         let hitEvaluationResults = undefined;
         let targets = [...game.user.targets.values()];
+        let numTargets = 1;
+        if (options.targets) numTargets = options.targets;
+        let type = 'power';
+        if (options.type) type = options.type;
 
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
@@ -20,10 +24,6 @@ export default class preCreateChatMessageHandler {
 
         if (data?.speaker?.actor) {
             actor = game.actors.get(data.speaker.actor);
-        //     if (data.speaker.token) {
-        //         let token = canvas.tokens.get(data.speaker.token);
-        //         actor = token.actor;
-        //     }
         }
 
         // Iterate through inline rolls, add a class to crits/fails.
@@ -44,24 +44,11 @@ export default class preCreateChatMessageHandler {
             }
 
             let rollResult = 0;
-            // console.log(roll_data);
-
-            if (!isNewerVersion(game.data.version, "0.7")) {
-                roll_data.parts.forEach(p => {
-                    if (p.faces === 20) {
-                        rollResult = p.total;
-                    }
-                });
-            }
-            else {
-                roll_data.terms.forEach(p => {
-                    if (p.faces === 20) {
-                        rollResult = p.total;
-                    }
-                });
-            }
-
-
+            roll_data.terms.forEach(p => {
+                if (p.faces === 20) {
+                    rollResult = p.total;
+                }
+            });
 
             // Update the array of roll HTML elements.
             $rolls[i] = $roll[0];
@@ -94,21 +81,10 @@ export default class preCreateChatMessageHandler {
                     return;
                 }
 
-                if (row_text.includes('Attack:')) {
-                    if (row_text.includes('dc-crit')) {
-                        has_crit = true;
-                    }
-                    if (row_text.includes('dc-fail')) {
-                        has_fail = true;
-                    }
+                if ((type == "power" && row_text.includes('Target:')) ||
+                  (type == "action" && row_text.includes('Attack:'))) {
 
-                    hitEvaluationResults = HitEvaluation.checkRowText(row_text, targets, $row_self);
-                }
-
-
-                if (row_text.includes('Target:')) {
-
-                    targets = Targeting.getTargetsFromRowText(row_text, $row_self);
+                    targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
 
                     if (targets.length > 0) {
                       var text = document.createTextNode(" (" + targets.map(x => x.name).join(", ") + ")");
@@ -116,16 +92,32 @@ export default class preCreateChatMessageHandler {
                     }
                 }
 
+                if (row_text.includes('Attack:')) {
+                    if (row_text.includes('dc-crit') && numTargets <= 1) {
+                        has_crit = true;
+                    }
+                    if (row_text.includes('dc-fail') && numTargets <= 1) {
+                        has_fail = true;
+                    }
 
-                // Append hit targets to text
+                    hitEvaluationResults = HitEvaluation.checkRowText(row_text, targets, $row_self);
+                }
+
                 if (hitEvaluationResults) {
+                    // Append hit targets to text
                     if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit.join(", ") + ") </span>")
                     }
-    
+
                     // Append missed targets to text
                     if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
                         $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed.join(", ") + ") </span>")
+                    }
+
+                    // Append target defenses to text
+                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0
+                      && game.settings.get("archmage", "showDefensesInChat")) {
+                        $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
                 }
 
@@ -163,12 +155,16 @@ export default class preCreateChatMessageHandler {
                                 let $roll_self = $(this);
                                 // Retrieve the roll formula.
                                 let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-                                
+
                                 let new_formula = roll_data.formula;
                                 // If there's a crit, double the formula and reroll. If there's a
                                 // fail with no crit, 0 it out.
                                 if (has_crit) {
-                                    new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                                    if (game.settings.get('archmage', 'originalCritDamage')) {
+                                        new_formula = `(${roll_data.formula}) * 2`;
+                                    } else {
+                                        new_formula = `${roll_data.formula}+${roll_data.formula}`;
+                                    }
                                     $roll_self.addClass('dc-crit');
                                 }
                                 else {
@@ -181,7 +177,7 @@ export default class preCreateChatMessageHandler {
                                 $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
                                 $roll_self.attr('title', new_roll.formula);
                                 $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
-                            
+
                             });
                         }
                         // Update the row with the new roll(s) markup.
