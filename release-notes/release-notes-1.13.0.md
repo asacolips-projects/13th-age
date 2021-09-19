@@ -7,7 +7,7 @@
 * Refactor negative recovery penalties to use Active Effects (to bypass `@std`, this works for powers that use `+@lvl+@ed`).
 * Add support for dynamically adding attackMod.value to all attack rolls.
 * Add support for the Crescendo spell variable penalty to attacks.
-* Makes equipment rechargeable (with the appropriate options and integration with rests) and adds option to disable a magic item (it's bonuses won't be consideded in prepareData()).
+* Make equipment rechargeable (with appropriate options and integration with rests) and add option to disable a magic item (it's bonuses won't be added to attacks, defences, etc.).
 * Use init mod to resolve initiative ties rather than dexterity score. If this system setting is disabled, monsters will win ties instead (per the rules).
 * Added `Spirit` creature type.
 * Changes related to Dice So Nice:
@@ -26,7 +26,7 @@
 * Changed PC-specific data and processing to actually be PC-specific.
 * Removed obsolete shorthand setting (it's needed elsewhere in the system, no reason not to enable it).
 * Fixed processing powers with numbered custom resource costs.
-* Fixed processing powers with no targeted defense specified with non-zero targets.
+* Fixed processing powers with no targeted defense specified but non-zero selected targets.
 * Some strings moved to localization file.
 * Add missing recharge value to Supreme Tactical Strike.
 * Fix wrong values in Cone of Corruption.
