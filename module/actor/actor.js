@@ -803,7 +803,7 @@ export class ActorArchmage extends Actor {
       if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
         let rechAttempts = maxQuantity - item.data.data.quantity.value;
-        let rechValue = item.data.data.recharge.value || 16;
+        let rechValue = Number(item.data.data.recharge.value) || 16;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
@@ -820,7 +820,7 @@ export class ActorArchmage extends Actor {
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
         }
-        else if ((item.data.data.powerUsage?.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
+        else if ((item.data.data.powerUsage?.value == 'recharge') && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {

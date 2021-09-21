@@ -64,7 +64,7 @@
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
             <div class="equipment-recharge" v-if="equipment.data.recharge && equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
-              <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{equipment.data.recharge.value}}+</archmage-h-rollable>
+              <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.data.recharge.value) || 16}}+</archmage-h-rollable>
             </div>
             <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
             <div class="item-controls">
