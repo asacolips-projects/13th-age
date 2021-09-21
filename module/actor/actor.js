@@ -803,7 +803,7 @@ export class ActorArchmage extends Actor {
       if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
         let rechAttempts = maxQuantity - item.data.data.quantity.value;
-        let rechValue = item.data.data.recharge.value ?? 16;
+        let rechValue = item.data.data.recharge.value || 16;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
