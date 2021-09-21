@@ -1055,7 +1055,8 @@ export class ActorArchmage extends Actor {
         hp.value = Math.max(0, hp.value);
       }
       // Do not exceed max hps
-      data.data.attributes.hp.value = Math.min(hp.value + delta, hp.max);
+      let max = data.data.attributes.hp.max || hp.max;
+      data.data.attributes.hp.value = Math.min(hp.value + delta, max);
     }
 
     if (!this.data.type == 'character') return; // Nothing else to do
