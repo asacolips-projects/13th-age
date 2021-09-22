@@ -1061,11 +1061,15 @@ export class ActorArchmage extends Actor {
       // Handle hp-related conditions
       // Dead
       let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
-      let tokens = this.getActiveTokens();
-      let token = tokens.length > 0 ? tokens[0] : undefined;
-      if (filtered.length == 0 && data.data.attributes.hp.value <= 0 && token) {
-          let effect = CONFIG.statusEffects.find(x => x.id == "dead");
-          await token.toggleEffect(effect, {active: true, overlay: true});
+      if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
+          let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
+          let createData = foundry.utils.deepClone(effectData);
+          createData.label = game.i18n.localize(effectData.label);
+          createData["flags.core.statusId"] = effectData.id;
+          createData["flags.core.overlay"] = true;
+          delete createData.id;
+          const cls = getDocumentClass("ActiveEffect");
+          await cls.create(createData, {parent: this});
       } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
         for (let e of filtered) {
           await this.deleteEmbeddedEntity("ActiveEffect", e.id)
@@ -1074,9 +1078,17 @@ export class ActorArchmage extends Actor {
       // Staggered
       filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
       if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
-        && data.data.attributes.hp.value > 0 && token) {
-          let effect = CONFIG.statusEffects.find(x => x.id == "staggered");
-          await token.toggleEffect(effect, {active: true, overlay: game.settings.get('archmage', 'staggeredOverlay')});
+        && data.data.attributes.hp.value > 0) {
+          let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
+          let createData = foundry.utils.deepClone(effectData);
+          createData.label = game.i18n.localize(effectData.label);
+          createData["flags.core.statusId"] = effectData.id;
+          if (game.settings.get('archmage', 'staggeredOverlay')) {
+            createData["flags.core.overlay"] = true;
+          }
+          delete createData.id;
+          const cls = getDocumentClass("ActiveEffect");
+          await cls.create(createData, {parent: this});
       } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
         || data.data.attributes.hp.value <= 0)) {
         for (let e of filtered) {
