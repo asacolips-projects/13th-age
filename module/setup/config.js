@@ -7,6 +7,12 @@ ARCHMAGE.statusEffects = [
     label: "ARCHMAGE.EFFECT.StatusDead",
     icon: "icons/svg/skull.svg"
   },
+  // Staggered
+  {
+    id: "unconscious",
+    label: "ARCHMAGE.EFFECT.StatusStaggered",
+    icon: "icons/svg/blood.svg",
+  },
   // Unconscious.
   {
     id: "unconscious",
@@ -29,12 +35,6 @@ ARCHMAGE.statusEffects = [
         value: '-4'
       }
     ]
-  },
-  // Staggered
-  {
-    id: "unconscious",
-    label: "ARCHMAGE.EFFECT.StatusUnconscious",
-    icon: "icons/svg/blood.svg",
   },
   // Confused.
   {

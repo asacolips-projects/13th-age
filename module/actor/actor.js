@@ -70,6 +70,7 @@ export class ActorArchmage extends Actor {
 
   /** @inheritdoc */
   prepareBaseData() {
+    console.log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL")
     // Get the Actor's data object
     const actorData = this.data;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
@@ -1057,6 +1058,20 @@ export class ActorArchmage extends Actor {
       // Do not exceed max hps
       let max = data.data.attributes.hp.max || hp.max;
       data.data.attributes.hp.value = Math.min(hp.value + delta, max);
+
+      // Handle hp-related conditions
+      // CONFIG.debug.hooks = true
+      if (data.data.attributes.hp.value <= 0) {
+        // Defeated
+      } else {
+        // Remove Defeated
+      }
+      if (data.data.attributes.hp.value/max <= 0.5) {
+        // Staggered
+      } else {
+        // Remove staggered
+      }
+      
     }
 
     if (!this.data.type == 'character') return; // Nothing else to do
