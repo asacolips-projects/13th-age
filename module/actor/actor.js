@@ -1061,11 +1061,11 @@ export class ActorArchmage extends Actor {
       // Handle hp-related conditions
       // Dead
       let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
-      if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
+      let tokens = this.getActiveTokens();
+      let token = tokens.length > 0 ? tokens[0] : undefined;
+      if (filtered.length == 0 && data.data.attributes.hp.value <= 0 && token) {
           let effect = CONFIG.statusEffects.find(x => x.id == "dead");
-          for (let t of this.getActiveTokens()) {
-            await t.toggleEffect(effect, {active: true, overlay: true});
-          }
+          await token.toggleEffect(effect, {active: true, overlay: true});
       } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
         for (let e of filtered) {
           await this.deleteEmbeddedEntity("ActiveEffect", e.id)
@@ -1074,11 +1074,9 @@ export class ActorArchmage extends Actor {
       // Staggered
       filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
       if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
-        && data.data.attributes.hp.value > 0) {
+        && data.data.attributes.hp.value > 0 && token) {
           let effect = CONFIG.statusEffects.find(x => x.id == "staggered");
-          for (let t of this.getActiveTokens()) {
-            await t.toggleEffect(effect, {active: true, overlay: game.settings.get('archmage', 'staggeredOverlay')});
-          }
+          await token.toggleEffect(effect, {active: true, overlay: game.settings.get('archmage', 'staggeredOverlay')});
       } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
         || data.data.attributes.hp.value <= 0)) {
         for (let e of filtered) {
