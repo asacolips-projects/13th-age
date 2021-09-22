@@ -221,6 +221,15 @@ Hooks.once('init', async function() {
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
 
+  game.settings.register("archmage", "staggeredOverlay", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   game.settings.register("archmage", "multiTargetAttackRolls", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsHint"),

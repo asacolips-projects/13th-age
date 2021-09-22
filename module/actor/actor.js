@@ -1077,7 +1077,7 @@ export class ActorArchmage extends Actor {
         && data.data.attributes.hp.value > 0) {
           let effect = CONFIG.statusEffects.find(x => x.id == "staggered");
           for (let t of this.getActiveTokens()) {
-            await t.toggleEffect(effect, {active: true, overlay: true});
+            await t.toggleEffect(effect, {active: true, overlay: game.settings.get('archmage', 'staggeredOverlay')});
           }
       } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
         || data.data.attributes.hp.value <= 0)) {
