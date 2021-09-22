@@ -70,7 +70,6 @@ export class ActorArchmage extends Actor {
 
   /** @inheritdoc */
   prepareBaseData() {
-    console.log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL")
     // Get the Actor's data object
     const actorData = this.data;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
@@ -1060,18 +1059,32 @@ export class ActorArchmage extends Actor {
       data.data.attributes.hp.value = Math.min(hp.value + delta, max);
 
       // Handle hp-related conditions
-      // CONFIG.debug.hooks = true
-      if (data.data.attributes.hp.value <= 0) {
-        // Defeated
-      } else {
-        // Remove Defeated
+      // Dead
+      let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+      if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
+          let effect = CONFIG.statusEffects.find(x => x.id == "dead");
+          for (let t of this.getActiveTokens()) {
+            await t.toggleEffect(effect, {active: true, overlay: true});
+          }
+      } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
+        for (let e of filtered) {
+          await this.deleteEmbeddedEntity("ActiveEffect", e.id)
+        }
       }
-      if (data.data.attributes.hp.value/max <= 0.5) {
-        // Staggered
-      } else {
-        // Remove staggered
+      // Staggered
+      filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+      if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
+        && data.data.attributes.hp.value > 0) {
+          let effect = CONFIG.statusEffects.find(x => x.id == "staggered");
+          for (let t of this.getActiveTokens()) {
+            await t.toggleEffect(effect, {active: true, overlay: false});
+          }
+      } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
+        || data.data.attributes.hp.value <= 0)) {
+        for (let e of filtered) {
+          await this.deleteEmbeddedEntity("ActiveEffect", e.id)
+        }
       }
-      
     }
 
     if (!this.data.type == 'character') return; // Nothing else to do
