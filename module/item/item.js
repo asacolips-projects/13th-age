@@ -378,6 +378,7 @@ export class ItemArchmage extends Item {
    */
   async _handleMonkAC() {
     if (this.data.type != "power") return;
+    if (!this.actor.data.data.details.detectedClasses?.includes("monk")) return;
 
     let effects = this.actor.effects;
     let group = this.data.data.group.value.toLowerCase();
