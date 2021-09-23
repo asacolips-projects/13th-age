@@ -1059,11 +1059,12 @@ export class ActorArchmage extends Actor {
       data.data.attributes.hp.value = Math.min(hp.value + delta, max);
 
       // Handle hp-related conditions
-      // Dead
-      let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
-      if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
-          let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
-          if (effectData) { //This is defined in-system, but stuff like CUB can override it
+      if (game.settings.get('archmage', 'automateHPConditions')) {
+        // Dead
+        let filtered = this.effects.filter(x =>
+          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
+            let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
             let createData = foundry.utils.deepClone(effectData);
             createData.label = game.i18n.localize(effectData.label);
             createData["flags.core.statusId"] = effectData.id;
@@ -1071,18 +1072,17 @@ export class ActorArchmage extends Actor {
             delete createData.id;
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
+        } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
+          for (let e of filtered) {
+            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
           }
-      } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
-        for (let e of filtered) {
-          await this.deleteEmbeddedEntity("ActiveEffect", e.id)
         }
-      }
-      // Staggered
-      filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
-      if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
-        && data.data.attributes.hp.value > 0) {
-          let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
-          if (effectData) { //This is defined in-system, but stuff like CUB can override it
+        // Staggered
+        filtered = this.effects.filter(x =>
+          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+        if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
+          && data.data.attributes.hp.value > 0) {
+            let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
             let createData = foundry.utils.deepClone(effectData);
             createData.label = game.i18n.localize(effectData.label);
             createData["flags.core.statusId"] = effectData.id;
@@ -1092,11 +1092,11 @@ export class ActorArchmage extends Actor {
             delete createData.id;
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
+        } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
+          || data.data.attributes.hp.value <= 0)) {
+          for (let e of filtered) {
+            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
           }
-      } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
-        || data.data.attributes.hp.value <= 0)) {
-        for (let e of filtered) {
-          await this.deleteEmbeddedEntity("ActiveEffect", e.id)
         }
       }
     }
