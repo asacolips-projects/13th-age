@@ -71,13 +71,13 @@ export default class HitEvaluation {
     }
 
     static _getTargetDefense(row_text) {
-        if (row_text.toLowerCase().includes(" ac")) {
+        if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.ac.key"))) {
             return "ac";
         }
-        else if (row_text.toLowerCase().includes(" pd")) {
+        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.pd.key"))) {
             return "pd";
         }
-        else if (row_text.toLowerCase().includes(" md")) {
+        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.md.key"))) {
             return  "md";
         }
     }
