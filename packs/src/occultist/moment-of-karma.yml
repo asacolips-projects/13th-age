@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Damage equal to spell level'
+    value: '[[@pwrlvl]] damage'
   missEven:
     type: 'String'
     label: 'Even Miss'

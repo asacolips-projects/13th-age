@@ -221,7 +221,7 @@ export class ItemArchmage extends Item {
 
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData(itemToRender) });
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
