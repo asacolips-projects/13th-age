@@ -112,57 +112,6 @@ export class ArchmageUtility {
     }
   }
 
-  /**
-   * Determine if roll includes a d20 crit.
-   *
-   * @param {object} roll
-   *
-   * @return {string} 'crit', 'fail', or 'normal'.
-   */
-  static inlineRollCritTest(roll, actor = null) {
-
-      for (let i = 0; i < roll.terms.length; i++) {
-        var part = roll.terms[i];
-        if (part.results) {
-          let result = part.results.map((r) => {
-            if (part.faces === 20) {
-              // Natural 20.
-              if (r.result === part.faces && !r.discarded) {
-                return 'crit';
-              }
-              // Natural 1.
-              else if (r.result === 1 && !r.discarded && !r.rerolled) {
-                return 'fail';
-              }
-              // Barbarian crit.
-              else if (actor && actor.data.type === 'character'
-                && actor.data.data.details.class.value
-                && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-                && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
-                return 'crit';
-              }
-              // Natural 2, if dual-wielding.
-              else if (actor && actor.data.type === 'character'
-                && actor.data.data.attributes.weapon.melee.dualwield
-                && r.result === 2 && !r.discarded && !r.rerolled) {
-                return 'reroll';
-              }
-              else {
-                return 'normal';
-              }
-            }
-            else {
-              return 'normal';
-            }
-          });
-
-          return result;
-        }
-        else {
-          return 'none';
-        }
-      }
-  }
 
   /**
    * Determines if the player owns a combatant or not.

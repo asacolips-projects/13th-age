@@ -160,7 +160,7 @@ export default class ArchmageRolls {
     for (let i=0; i<rolls.length; i++) {
       rolls[i].evaluate({async: false});
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
-      if (key == "attack") rolls[i].critResult = ArchmageRolls._inlineRollCritTest(rolls[i], actor);
+      if (key == "attack") rolls[i].critResult = ArchmageRolls.inlineRollCritTest(rolls[i], actor);
     }
   }
 
@@ -220,7 +220,7 @@ export default class ArchmageRolls {
    *
    * @return {string} 'crit', 'fail', or 'normal'.
    */
-  static _inlineRollCritTest(roll, actor = null) {
+  static inlineRollCritTest(roll, actor = null) {
 
     for (let i = 0; i < roll.terms.length; i++) {
       var part = roll.terms[i];
