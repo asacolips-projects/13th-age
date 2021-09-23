@@ -672,11 +672,11 @@ export class ActorArchmage extends Actor {
 
     // Add bonus if any
     if (data.bonus !== "") {
-      if (!['+', '-'].includes(data.bonus[0]) || isNaN(parseInt(data.bonus))) {
-        ui.notifications.error('"'+data.bonus+'" '+game.i18n.localize("ARCHMAGE.UI.errBonus"));
+      if (isNaN(parseInt(data.bonus))) {
+        ui.notifications.error('"'+data.bonus+'" '+game.i18n.localize("ARCHMAGE.UI.errNotInteger"));
         return;
       }
-      formula = `${formula}${data.bonus}`;
+      formula = `${formula}+${data.bonus}`;
     }
 
     // Half healing for recoveries we do NOT have
@@ -693,7 +693,7 @@ export class ActorArchmage extends Actor {
 
     if (data.createMessage) {
       // Basic template rendering data
-      const template = `systems/archmage/templates/chat/recovery-card.html`
+      const template = "systems/archmage/templates/chat/recovery-card.html"
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
       const chatData = {

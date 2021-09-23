@@ -87,7 +87,7 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all"
+          // Handle "each" or "all" or "every"
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
             || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
             || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")) {
@@ -236,8 +236,7 @@ export default class ArchmageRolls {
               return 'fail';
             }
             // Barbarian crit.
-            else if (actor && actor.data.data.details.detectedClasses
-              && actor.data.data.details.detectedClasses.includes("barbarian")
+            else if (actor?.data.data.details.detectedClasses?.includes("barbarian")
               && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10
               && part.results[1].result > 10) {
               return 'crit';
