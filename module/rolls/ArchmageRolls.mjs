@@ -236,8 +236,10 @@ export default class ArchmageRolls {
               return 'fail';
             }
             // Barbarian crit.
-            else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
+            else if (actor && actor.data.data.details.detectedClasses
+              && actor.data.data.details.detectedClasses.includes("barbarian")
+              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10
+              && part.results[1].result > 10) {
               return 'crit';
             }
             // Natural 2, if dual-wielding.
