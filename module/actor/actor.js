@@ -452,7 +452,7 @@ export class ActorArchmage extends Actor {
   }
 
   /** @inheritdoc */
-  getRollData(item = null) {
+  getRollData() {
     // Use the actor by default.
     let actor = this;
 
@@ -538,11 +538,6 @@ export class ActorArchmage extends Actor {
           if (!(k in data)) data[k] = v;
           break;
       }
-    }
-
-    // If we got an item passed, add power level if meaningful
-    if(item && item.data.type == "power") {
-      data.pwrlvl = item.data.data.powerLevel.value;
     }
 
     // Old syntax shorthand.

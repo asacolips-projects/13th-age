@@ -220,9 +220,11 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
 
+    let rollData = itemToRender.actor.getRollData();
+    if(this.data.type == "power") rollData.pwrlvl = this.data.data.powerLevel.value;
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData(itemToRender) });
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
