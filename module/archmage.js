@@ -666,11 +666,11 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   // If there's an actor, set the token size.
   if (actor) {
     let size = actor.data.data.details.size?.value;
-    if (size == 'large') {
+    if (size == 'large' && data.height == 1 && data.width == 1) {
       data.height = 2;
       data.width = 2;
     }
-    if (size == 'huge') {
+    if (size == 'huge' && data.height == 1 && data.width == 1) {
       data.height = 3;
       data.width = 3;
     }
