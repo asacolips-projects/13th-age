@@ -1,4 +1,5 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
+import { ArchmageUtility } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 /**
@@ -281,6 +282,10 @@ export class ItemArchmage extends Item {
 
     if (!isObjectEmpty(itemUpdateData)) this.update(itemUpdateData, {});
     if (!isObjectEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+
+    // Handle Monk AC bonus
+    //TODO: remove dependency on times-up once core Foundry handles AE expiry
+    if (game.modules.has("times-up")) await this._handleMonkAC();
     return ChatMessage.create(chatData, { displaySheet: false });
   }
 
@@ -366,6 +371,49 @@ export class ItemArchmage extends Item {
       target: recharge,
       success: rechargeSuccessful
     };
+  }
+
+  /**
+   * Check if we are rolling a monk form, add related AC active effect
+   */
+  async _handleMonkAC() {
+    if (this.data.type != "power") return;
+
+    let effects = this.actor.effects;
+    let group = this.data.data.group.value.toLowerCase();
+    let bonusMagnitudeMap = {};
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.finishing")] = 3;
+    if (!Object.keys(bonusMagnitudeMap).includes(group)) return;
+    let bonusMagnitude = bonusMagnitudeMap[group];
+
+    // Check for other monk AC bonuses
+    let effectsToDelete = [];
+    let alreadyHasBetterBonus = false;
+    effects.forEach(e => {
+      if (e.data.label == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
+        if (Number(e.data.changes[0].value) <= bonusMagnitude) {
+          effectsToDelete.push(e.id);
+        }
+        else alreadyHasBetterBonus = true;
+      }
+    });
+    await this.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+
+    if (alreadyHasBetterBonus) return;
+
+    // Now create new AC bonus effect
+    const effectData = {
+      label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
+      icon: "icons/svg/shield.svg",
+      changes: [{
+        key: "data.attributes.ac.value",
+        value: bonusMagnitude,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD}],
+      duration: ArchmageUtility.makeDuration(CONFIG.ARCHMAGE.effectDurations.STARTOFNEXTTURN)
+    }
+    await this.actor.createEmbeddedEntity("ActiveEffect", [effectData]);
   }
 
   /* -------------------------------------------- */

@@ -328,6 +328,33 @@ export class ArchmageUtility {
       // }
     }
   }
+
+  // Generate durations for active effects
+  // Done here to simplify future compatibility with core support for AE expiry
+  static makeDuration(duration, threshold=0) {
+    let res = {
+      combat: undefined,
+      rounds: undefined,
+      seconds: undefined,
+      startRound: 0,
+      startTime: 0,
+      startTurn: 0,
+      turns: undefined
+    }
+    switch(duration) {
+      case CONFIG.ARCHMAGE.effectDurations.STARTOFNEXTTURN:
+        res.rounds = 1;
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.ENDOFNEXTTURN:
+        res.rounds = 1;
+        res.turns = 1;
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.SAVEENDS:
+        //TODO: not yet supported, roll a save with target threshold
+        break;
+    }
+    return res;
+  }
 }
 
 

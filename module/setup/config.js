@@ -214,6 +214,12 @@ ARCHMAGE.actionTypes = {
   'interrupt': 'Interrupt'
 };
 
+ARCHMAGE.effectDurations = {
+  STARTOFNEXTTURN: 0,
+  ENDOFNEXTTURN: 1,
+  SAVEENDS: 2
+}
+
 ARCHMAGE.creatureTypes = {
   'aberration': 'Aberration',
   'beast': 'Beast',
