@@ -1036,6 +1036,12 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
+    if (data.data.attributes?.hp?.max !== undefined) {
+      // Here we received an update of the max hp, check that the total matches
+      let hp = data.data.attributes.hp.value || this.data.data.attributes.hp.value;
+      data.data.attributes.hp.value = Math.min(hp, data.data.attributes.hp.max);
+    }
+
     if (data.data.attributes?.hp?.value !== undefined
       && data.data.attributes?.hp?.temp == undefined) {
       // Here we received an update of the total hp but not the temp, check them
