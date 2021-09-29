@@ -331,8 +331,10 @@ export class ArchmageUtility {
 
   // Generate durations for active effects
   // Done here to simplify future compatibility with core support for AE expiry
-  static makeDuration(duration, threshold=0) {
-    let res = {
+  // Currently relies on the times-up module
+  // TODO: change to core Foundry when (if) support comes
+  static addDuration(data, duration, options={}) {
+    let d = {
       combat: undefined,
       rounds: undefined,
       seconds: undefined,
@@ -342,18 +344,33 @@ export class ArchmageUtility {
       turns: undefined
     }
     switch(duration) {
-      case CONFIG.ARCHMAGE.effectDurations.STARTOFNEXTTURN:
-        res.rounds = 1;
+      case CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn:
+        d.rounds = 1;
+        data['flags.dae.specialDuration'] = ["turnStart"];
         break;
-      case CONFIG.ARCHMAGE.effectDurations.ENDOFNEXTTURN:
-        res.rounds = 1;
-        res.turns = 1;
+      case CONFIG.ARCHMAGE.effectDurations.EndOfNextTurn:
+        d.rounds = 1;
+        d.turns = 1;
+        data['flags.dae.specialDuration'] = ["turnEnd"];
         break;
-      case CONFIG.ARCHMAGE.effectDurations.SAVEENDS:
+      case CONFIG.ARCHMAGE.effectDurations.StartOfNextSourceTurn:
+        d.rounds = 1;
+        data['flags.dae.specialDuration'] = ["turnStartSource"];
+        data.origin = options.sourceTurnUuid;
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.EndOfNextSourceTurn:
+        d.rounds = 1;
+        d.turns = 1;
+        data['flags.dae.specialDuration'] = ["turnEndSource"];
+        data.origin = options.sourceTurnUuid;
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.SaveEnds:
         //TODO: not yet supported, roll a save with target threshold
+        data['flags.dae.macroRepeat'] = "endEveryTurn";
         break;
     }
-    return res;
+    data.duration = d;
+    return data;
   }
 }
 

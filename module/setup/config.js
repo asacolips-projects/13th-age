@@ -215,9 +215,11 @@ ARCHMAGE.actionTypes = {
 };
 
 ARCHMAGE.effectDurations = {
-  STARTOFNEXTTURN: 0,
-  ENDOFNEXTTURN: 1,
-  SAVEENDS: 2
+  StartOfNextTurn: 0,
+  EndOfNextTurn: 1,
+  StartOfNextSourceTurn: 2,
+  EndOfNextSourceTurn: 3,
+  SaveEnds: 4
 }
 
 ARCHMAGE.creatureTypes = {

@@ -407,15 +407,16 @@ export class ItemArchmage extends Item {
     if (alreadyHasBetterBonus) return;
 
     // Now create new AC bonus effect
-    const effectData = {
+    let effectData = {
       label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
       icon: "icons/svg/shield.svg",
       changes: [{
         key: "data.attributes.ac.value",
         value: bonusMagnitude,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD}],
-      duration: ArchmageUtility.makeDuration(CONFIG.ARCHMAGE.effectDurations.STARTOFNEXTTURN)
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
     }
+    effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
     await this.actor.createEmbeddedEntity("ActiveEffect", [effectData]);
   }
 
