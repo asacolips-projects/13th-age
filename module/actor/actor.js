@@ -1110,6 +1110,12 @@ export class ActorArchmage extends Actor {
 
     if (!this.data.type == 'character') return; // Nothing else to do
 
+    if (data.data.attributes?.level?.value) {
+      // Update of a PC level - make sure it's within [1, 10]
+      if (data.data.attributes.level.value < 1) data.data.attributes.level.value = 1;
+      if (data.data.attributes.level.value > 10) data.data.attributes.level.value = 10;
+    }
+
     if (data.data.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
       // Clear previous effect, then recreate it if the at negative recoveries
