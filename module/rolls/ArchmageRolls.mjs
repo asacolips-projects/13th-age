@@ -28,14 +28,8 @@ export default class ArchmageRolls {
     let newTargetLine = undefined;
     let targets = 1;
     let nlpMap = {}
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.two")+" "] = 2;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.three")+" "] = 3;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.four")+" "] = 4;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.five")+" "] = 5;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.six")+" "] = 6;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.seven")+" "] = 7;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.eight")+" "] = 8;
     for (let i=2; i<=8; i++) {
+      nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
       nlpMap[i.toString()] = i;
     }
 
