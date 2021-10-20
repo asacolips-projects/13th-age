@@ -566,7 +566,6 @@ export class ActorArchmage extends Actor {
     let actorData = this.data.data;
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
-    let strRec = this.getFlag('archmage', 'strongRecovery');
     let data = {bonus: "", average: avg, createMessage: true};
 
     if (event.shiftKey) {
@@ -576,10 +575,7 @@ export class ActorArchmage extends Actor {
 
     // Render modal dialog
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
-    let dialogData = {
-      warning: strRec ? "Will ignore bonus from Strong Recovery." : "",
-      avg: avg ? "checked" : ""
-      };
+    let dialogData = {avg: avg ? "checked" : ""};
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: "Recovery Roll",
