@@ -424,13 +424,21 @@ export class ActorArchmage extends Actor {
     }
     // Calculate recovery average.
     let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
-    let recoveryDice = 'd8'; // Fall back
+    let recoveryDie = 'd8'; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
-      recoveryDice = data.attributes.recoveries.dice;
+      recoveryDie = data.attributes.recoveries.dice;
     }
-    let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
-    if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
-    data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * data.tier);
+    recoveryDie = Number(recoveryDie.replace('d', ''));
+    if (isNaN(recoveryDie)) recoveryDie = 8;  // Fall back
+    let recoveryAvg = (recoveryDie + 1) / 2;
+    if (!this.getFlag('archmage', 'strongRecovery')) {
+      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * data.tier);
+    } else {
+      // Handle Strong Recovery special case
+      // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
+      recoveryAvg = data.tier * (recoveryDie + 1) * (4 * recoveryDie - 1) / (6 * recoveryDie) + (recoveryLevel - data.tier) * recoveryAvg;
+      data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.mod * data.tier);
+    }
 
     // Weapon dice
     for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
