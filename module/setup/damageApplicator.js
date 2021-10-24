@@ -17,11 +17,12 @@ export class DamageApplicator {
   asDamage(inlineRoll, modifier) {
     let toApply = this.getRollValue(inlineRoll);
 
-    // if (inlineRoll[0].classList.contains('dc-crit')) {
+    if (game.settings.get("archmage", "autoAlterCritFumbleDamage")
+        && inlineRoll[0].classList.contains('dc-crit')) {
       // Crits are pre-doubled, so we gotta math it up a bit
-      // if (modifier == 2) modifier = 1.5;
-      // else if (modifier == 3) modifier = 2;
-    // }
+      if (modifier == 2) modifier = 1.5;
+      else if (modifier == 3) modifier = 2;
+    }
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
       toApply = Math.ceil(toApply * modifier);

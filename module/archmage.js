@@ -275,6 +275,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'autoAlterCritFumbleDamage', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'rechargeOncePerDay', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
