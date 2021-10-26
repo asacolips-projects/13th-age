@@ -1,4 +1,4 @@
-name: 'Small (Gnome)'
+name: 'Heritage of the Sword'
 permission:
   default: 0
 type: 'power'
@@ -17,7 +17,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Gnome'
+    value: 'Dark Elf/High Elf/Wood Elf'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Gnomes have a +2 AC bonus against opportunity attacks.</p>'
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: ''
+        value: '<p>If you can already use swords that deal d6 and d8 damage without attack penalties, you gain a +2 damage bonus with them. (This bonus doesn’t increase miss damage.)</p><p>Otherwise, if your class would ordinarily have an attack penalty with such swords, you can now use them without penalties.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -176,4 +176,4 @@ data:
         value: false
 flags: {}
 img: 'icons/svg/d20.svg'
-_id: 'K8FMjrpFrKhdX6q1'
+_id: 'C3vzmtVJ1vc2wh2R'

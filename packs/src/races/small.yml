@@ -1,4 +1,4 @@
-name: 'Small (Halfling)'
+name: 'Small'
 permission:
   default: 0
 type: 'power'
@@ -17,7 +17,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Halfling'
+    value: 'Gnome/Halfling'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Halflings have a +2 AC bonus against opportunity attacks.</p>'
+    value: '<p>You have a +2 AC bonus against opportunity attacks.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -176,4 +176,4 @@ data:
         value: false
 flags: {}
 img: 'icons/svg/d20.svg'
-_id: 'dbdba3YhICE5bqM0'
+_id: 'bSpnbydHMy4Oub3h'
