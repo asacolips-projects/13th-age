@@ -1,4 +1,4 @@
-name: 'Talk to Animals'
+name: 'Melee Attack: Strength or Speed'
 permission:
   default: 0
 type: 'power'
@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You can talk with plants and animals pretty much as often you like, and you gain a +5 bonus to any skill checks involved.</p>'
+    value: '<p>As a druid, you choose whether you want to use Strength or Dexterity as the ability score you will use to determine attack and damage for your basic attacks. Choosing Strength as your melee attack ability score provides one significant benefit: your recovery dice become d10s instead of the d6s used by other druids. Choosing Dexterity as your melee attack ability score works well because Dexterity already boosts your initiative and ranged weapon attacks and might help your AC.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,6 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,6 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -166,10 +168,11 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'IPHBUYHirDAPCONw'
+_id: 'wae08VQQ1jJJ2XmW'
