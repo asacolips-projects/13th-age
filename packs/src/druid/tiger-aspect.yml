@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: Until the end of the battle, you gain the benefits of two-weapon fighting: if your attack roll is a natural 2, you can reroll the attack, but must use the reroll. In addition, the crit range of attacks you reroll this way expands by 4.</p>\n<p>Adept Effect: As the initiate effect, and increase the size of your beast form melee attack damage dice by one size (for example, d6s become d8s, and d10s become 12s).</p>"
+    value: "<p>Initiate Effect: Until the end of the battle, you gain the benefits of two-weapon fighting: if your attack roll is a natural 2, you can reroll the attack, but must use the reroll. In addition, the crit range of attacks you reroll this way expands by 4.</p><p>Adept Effect: As the initiate effect, and increase the size of your beast form melee attack damage dice by one size (for example, d6s become d8s, and d10s become 12s).</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

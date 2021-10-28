@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: Until the end of the battle, when your melee attacks hit an enemy that has more hit points than you, the target takes [[1d6]] extra damage from the hit.</p>\n<p>Adept Effect: As the initiate effect, and you gain a +2 bonus to all defenses. You can also rally once this battle as a quick action instead of a standard action.</p>"
+    value: "<p>Initiate Effect: Until the end of the battle, when your melee attacks hit an enemy that has more hit points than you, the target takes [[1d6]] extra damage from the hit.</p><p>Adept Effect: As the initiate effect, and you gain a +2 bonus to all defenses. You can also rally once this battle as a quick action instead of a standard action.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: "<p>Your extra melee damage while using this aspect increases according to your level:</p>\n<p><strong>2nd level druid</strong>: [[1d8]] damage.</p>\n<p><strong>4th level druid</strong>: [[1d10]] damage.</p>\n<p><strong>6th level druid</strong>: [[2d6]] damage.</p>\n<p><strong>8th level druid</strong>: [[3d6]] damage.</p>\n<p><strong>10th level druid</strong>: [[3d12]] damage.</p>"
+        value: "<p>Your extra melee damage while using this aspect increases according to your level:</p><p><strong>2nd level druid</strong>: [[1d8]] damage.</p><p><strong>4th level druid</strong>: [[1d10]] damage.</p><p><strong>6th level druid</strong>: [[2d6]] damage.</p><p><strong>8th level druid</strong>: [[3d6]] damage.</p><p><strong>10th level druid</strong>: [[3d12]] damage.</p>"
       isActive:
         type: 'Boolean'
         label: 'Active'

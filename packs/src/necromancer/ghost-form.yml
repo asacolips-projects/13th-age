@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Until the end of the battle, the target gains flight and <em>resist damage 16+</em> against all damage except force damage.</p>\n<p>The target also only gains half the normal amount from healing effects, no matter the source.</p>"
+    value: "<p>Until the end of the battle, the target gains flight and <em>resist damage 16+</em> against all damage except force damage.</p><p>The target also only gains half the normal amount from healing effects, no matter the source.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

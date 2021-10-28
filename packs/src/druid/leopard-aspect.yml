@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: Until the end of the battle, when an enemy misses you with a melee attack and rolls a natural 1&ndash;4, you gain an additional standard action during your next turn. You can only gain one additional standard action a turn this way. Powers like elven grace or a command won&rsquo;t stack with this effect either.</p>\n<p>Adept Effect: As the initiate effect, and you gain a +2 bonus to AC. You also gain a +5 bonus to disengage checks and to saves against being stuck, dazed, or stunned.</p>"
+    value: "<p>Initiate Effect: Until the end of the battle, when an enemy misses you with a melee attack and rolls a natural 1&ndash;4, you gain an additional standard action during your next turn. You can only gain one additional standard action a turn this way. Powers like elven grace or a command won&rsquo;t stack with this effect either.</p><p>Adept Effect: As the initiate effect, and you gain a +2 bonus to AC. You also gain a +5 bonus to disengage checks and to saves against being stuck, dazed, or stunned.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

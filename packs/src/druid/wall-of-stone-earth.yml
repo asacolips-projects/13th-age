@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You create a more or less impenetrable wall of stone that&rsquo;s pretty big. You can&rsquo;t drop it on top of enemies or bend it after creating it, but it can form natural flowing shapes like a river of stone that&rsquo;s at most 40 feet high, 120 feet long, and 10 feet thick. If you&rsquo;re straining to come up with nasty ways to use the wall, you&rsquo;re breaking the spirit of the spell, since it&rsquo;s just supposed to be a stone wall that blocks most other creatures&rsquo; movements.</p>\n<p>You, the spellcasting druid, can move through the wall at will, but you can&rsquo;t end your turn inside it.</p>\n<p>The wall isn&rsquo;t permanent: walls of stone generally disappear at sunrise or sunset.</p>"
+    value: "<p>You create a more or less impenetrable wall of stone that&rsquo;s pretty big. You can&rsquo;t drop it on top of enemies or bend it after creating it, but it can form natural flowing shapes like a river of stone that&rsquo;s at most 40 feet high, 120 feet long, and 10 feet thick. If you&rsquo;re straining to come up with nasty ways to use the wall, you&rsquo;re breaking the spirit of the spell, since it&rsquo;s just supposed to be a stone wall that blocks most other creatures&rsquo; movements.</p><p>You, the spellcasting druid, can move through the wall at will, but you can&rsquo;t end your turn inside it.</p><p>The wall isn&rsquo;t permanent: walls of stone generally disappear at sunrise or sunset.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

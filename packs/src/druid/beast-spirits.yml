@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>After the attack, as a free action you can cast one of the four spells listed below this attack: behemoth&rsquo;s endurance, bull&rsquo;s strength, cat&rsquo;s grace, or owl&rsquo;s wisdom. You choose which spell to cast. Using beast spirits is normally the only way to access these spells.</p>\n<p><em>Special</em>: The four beast spirits spells last until the end of the battle or until the target falls unconscious. If the target already has a beast spirits spell effect on it, that spell is cancelled when a new beast spirits spell targets it.</p>"
+    value: "<p>After the attack, as a free action you can cast one of the four spells listed below this attack: behemoth&rsquo;s endurance, bull&rsquo;s strength, cat&rsquo;s grace, or owl&rsquo;s wisdom. You choose which spell to cast. Using beast spirits is normally the only way to access these spells.</p><p><em>Special</em>: The four beast spirits spells last until the end of the battle or until the target falls unconscious. If the target already has a beast spirits spell effect on it, that spell is cancelled when a new beast spirits spell targets it.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

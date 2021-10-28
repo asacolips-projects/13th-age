@@ -105,7 +105,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p><strong>Natural Even Hit</strong> hp thresholds:</p>\n<p><strong>3rd </strong>level monk 72 hp or fewer.</p>\n<p><strong>5th </strong>level monk 108 hp or fewer.</p>\n<p><strong>7th </strong>level monk 180 hp or fewer.</p>\n<p><strong>9th </strong>level monk 300 hp or fewer.</p>"
+    value: "<p><strong>Natural Even Hit</strong> hp thresholds:</p><p><strong>3rd </strong>level monk 72 hp or fewer.</p><p><strong>5th </strong>level monk 108 hp or fewer.</p><p><strong>7th </strong>level monk 180 hp or fewer.</p><p><strong>9th </strong>level monk 300 hp or fewer.</p>"
   effect:
     type: 'String'
     label: 'Effect'

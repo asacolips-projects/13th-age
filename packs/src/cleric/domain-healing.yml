@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>When you cast a spell that lets you or an ally heal using a recovery, the target also adds [[2*@lvl]] hit points to the recovery.</p>\n<p><strong>Invocation of Healing</strong>: This battle, you gain an additional use of the&nbsp;<em>heal</em>&nbsp;spell (see Class Features, left). The first&nbsp;<em>heal</em>&nbsp;spell you cast after using this invocation allows the target to heal using a free recovery instead of spending a recovery.</p>"
+    value: "<p>When you cast a spell that lets you or an ally heal using a recovery, the target also adds [[2*@lvl]] hit points to the recovery.</p><p><strong>Invocation of Healing</strong>: This battle, you gain an additional use of the&nbsp;<em>heal</em>&nbsp;spell (see Class Features, left). The first&nbsp;<em>heal</em>&nbsp;spell you cast after using this invocation allows the target to heal using a free recovery instead of spending a recovery.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

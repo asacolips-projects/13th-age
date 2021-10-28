@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p><em>Roll a d20&nbsp; [[1d20]]</em></p>\n<p><em>1&ndash;10</em>: The target can heal using a recovery.</p>\n<p><em>11&ndash;20</em>: The target can make a basic attack as a free action.</p>"
+    value: "<p><em>Roll a d20&nbsp; [[1d20]]</em></p><p><em>1&ndash;10</em>: The target can heal using a recovery.</p><p><em>11&ndash;20</em>: The target can make a basic attack as a free action.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: Until the end of the battle, your crit range with melee attacks expands by 2.</p>\n<p>Adept Effect: As the initiate effect, and you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>"
+    value: "<p>Initiate Effect: Until the end of the battle, your crit range with melee attacks expands by 2.</p><p>Adept Effect: As the initiate effect, and you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

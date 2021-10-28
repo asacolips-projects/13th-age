@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You gain the Cantrips class feature from the wizard class. The talent functions like the wizard’s class feature with the following exceptions:</p>\n<ul>\n<li>You can’t cast <em>mending</em>.</li>\n<li>Your <em>light </em>cantrip has a sickly flicker or a dark edge. Feel free to call it darklight.</li>\n</ul>"
+    value: "<p>You gain the Cantrips class feature from the wizard class. The talent functions like the wizard’s class feature with the following exceptions:</p><ul><li>You can’t cast <em>mending</em>.</li><li>Your <em>light </em>cantrip has a sickly flicker or a dark edge. Feel free to call it darklight.</li></ul>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

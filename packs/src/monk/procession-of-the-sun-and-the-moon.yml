@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Once per level, while meditating during a quick rest, you can decide that it’s time for the start of a new day. You and each of your willing allies can make a hard save. Each character who succeeds regains all spells, powers, hit points, ki, and recoveries as if they had taken a full heal-up and started a new day.</p>\n<p>The only character element that does not reset as if it was a new day are your icon relationship rolls and any icon relationships.</p>"
+    value: "<p>Once per level, while meditating during a quick rest, you can decide that it’s time for the start of a new day. You and each of your willing allies can make a hard save. Each character who succeeds regains all spells, powers, hit points, ki, and recoveries as if they had taken a full heal-up and started a new day.</p><p>The only character element that does not reset as if it was a new day are your icon relationship rolls and any icon relationships.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

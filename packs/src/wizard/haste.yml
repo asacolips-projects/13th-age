@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>On the target's next turn (not this one, if you cast it on yourself), the target gains an additional standard action.</p>\n<p>In addition, at the start of each of the target's turns this battle, if the escalation die is even, roll a d20 and add the escalation die [[d20+@ed]]; on a 16+, the target gains an additional standard action that turn.</p>"
+    value: "<p>On the target's next turn (not this one, if you cast it on yourself), the target gains an additional standard action.</p><p>In addition, at the start of each of the target's turns this battle, if the escalation die is even, roll a d20 and add the escalation die [[d20+@ed]]; on a 16+, the target gains an additional standard action that turn.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

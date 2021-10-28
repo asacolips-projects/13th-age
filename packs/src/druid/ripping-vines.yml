@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>As a hit, plus ongoing damage equal to your [[@str.mod]] or [[@dex.mod]], whichever is higher.</p>\n<p>Crit: As a hit, plus the target is stuck (save ends).</p>"
+    value: "<p>As a hit, plus ongoing damage equal to your [[@str.mod]] or [[@dex.mod]], whichever is higher.</p><p>Crit: As a hit, plus the target is stuck (save ends).</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

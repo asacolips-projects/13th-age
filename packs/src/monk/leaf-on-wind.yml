@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Once per battle when you use a move action, you can take another move action as a free action.</p>\n<p>In addition, if you fall with a wall, tree, or other physical object next to you, you can fall up to 30 feet per level without taking damage. (You slap the surface, catch handholds, and use other maneuvers to slow your descent.)</p>"
+    value: "<p>Once per battle when you use a move action, you can take another move action as a free action.</p><p>In addition, if you fall with a wall, tree, or other physical object next to you, you can fall up to 30 feet per level without taking damage. (You slap the surface, catch handholds, and use other maneuvers to slow your descent.)</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

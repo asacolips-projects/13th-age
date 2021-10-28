@@ -551,7 +551,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Like a PC sorcerer, a blue sorcerer can use its standard action to gather power in order to cast a double-strength and double-damage spell with its next standard action. When it gathers power, the sorcerer rolls a d6 and gains one of the following chaotic benefits.</p>\n<p>1&ndash;2:&nbsp;The sorcerer gains a +1 bonus to AC until the start of its next turn.</p>\n<p>3&ndash;4:&nbsp;One nearby enemy of the sorcerer&rsquo;s choice takes damage equal to sorcerer&rsquo;s level (3).</p>\n<p>5&ndash;6:&nbsp;Each nearby enemy engaged with the sorcerer&rsquo;s allies takes damage equal to sorcerer&rsquo;s level (3); OR grant one nearby dragon with&nbsp;intermittent breath&nbsp;an additional use of its breath weapon this battle.</p>"
+        value: "<p>Like a PC sorcerer, a blue sorcerer can use its standard action to gather power in order to cast a double-strength and double-damage spell with its next standard action. When it gathers power, the sorcerer rolls a d6 and gains one of the following chaotic benefits.</p><p>1&ndash;2:&nbsp;The sorcerer gains a +1 bonus to AC until the start of its next turn.</p><p>3&ndash;4:&nbsp;One nearby enemy of the sorcerer&rsquo;s choice takes damage equal to sorcerer&rsquo;s level (3).</p><p>5&ndash;6:&nbsp;Each nearby enemy engaged with the sorcerer&rsquo;s allies takes damage equal to sorcerer&rsquo;s level (3); OR grant one nearby dragon with&nbsp;intermittent breath&nbsp;an additional use of its breath weapon this battle.</p>"
       group:
         type: 'String'
         label: 'Group'

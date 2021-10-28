@@ -429,7 +429,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Roll a d6 to determine which demonic ability the ogre gains.</p>\n<ol>\n<li>The ogre gains&nbsp;resist energy 16+</li>\n<li>Once per battle, the ogre can teleport anywhere it can see as a move action.</li>\n<li>The ogre&rsquo;s attacks deal +1d8 damage, hit or miss.</li>\n<li>At the start of the ogre&rsquo;s turn, each enemy engaged with it takes [[2d6]] negative energy damage.</li>\n<li>The ogre gains a +5 bonus to saves this battle.</li>\n<li>The ogre begins making&nbsp;demonic eruption&nbsp;rolls when the escalation die is 4+ instead of 6+.</li>\n</ol>"
+        value: "<p>Roll a d6 to determine which demonic ability the ogre gains.</p><ol><li>The ogre gains&nbsp;resist energy 16+</li><li>Once per battle, the ogre can teleport anywhere it can see as a move action.</li><li>The ogre&rsquo;s attacks deal +1d8 damage, hit or miss.</li><li>At the start of the ogre&rsquo;s turn, each enemy engaged with it takes [[2d6]] negative energy damage.</li><li>The ogre gains a +5 bonus to saves this battle.</li><li>The ogre begins making&nbsp;demonic eruption&nbsp;rolls when the escalation die is 4+ instead of 6+.</li></ol>"
       group:
         type: 'String'
         label: 'Group'
@@ -447,7 +447,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>When the escalation die is 6+, the demonic ogre rolls a normal save at the start of each of its turns. On a success, roll a [[1d6]] and replace the demonic ogre with a new undamaged demon.</p>\n<ul>\n<li>1&ndash;2: Imp;</li>\n<li>3&ndash;4: Despoiler;</li>\n<li>5: Frenzy demon;</li>\n<li>6: Cambion sickle.</li>\n</ul>"
+        value: "<p>When the escalation die is 6+, the demonic ogre rolls a normal save at the start of each of its turns. On a success, roll a [[1d6]] and replace the demonic ogre with a new undamaged demon.</p><ul><li>1&ndash;2: Imp;</li><li>3&ndash;4: Despoiler;</li><li>5: Frenzy demon;</li><li>6: Cambion sickle.</li></ul>"
       group:
         type: 'String'
         label: 'Group'

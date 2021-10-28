@@ -105,11 +105,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p><strong>Ki Power </strong>(<em>Imperial Phoenix Flare</em>): Once per day when you are staggered, you can spend 1 point of ki to heal using a recovery.</p>\n<p>You heal half the hit points you roll for the recovery, and one enemy engaged with you of your choice takes the other half in fire damage.</p>"
+    value: "<p><strong>Ki Power </strong>(<em>Imperial Phoenix Flare</em>): Once per day when you are staggered, you can spend 1 point of ki to heal using a recovery.</p><p>You heal half the hit points you roll for the recovery, and one enemy engaged with you of your choice takes the other half in fire damage.</p>"
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>If you wish, any time an element of the monk class refers to Wisdom, you can replace that element with a reference to Charisma.</p>\n<p>In addition, while you&rsquo;re staggered, when you roll a natural even attack roll, you heal [[max(@str.dmg,@wis.dmg,@cha.dmg)]] damage.</p>"
+    value: "<p>If you wish, any time an element of the monk class refers to Wisdom, you can replace that element with a reference to Charisma.</p><p>In addition, while you&rsquo;re staggered, when you roll a natural even attack roll, you heal [[max(@str.dmg,@wis.dmg,@cha.dmg)]] damage.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

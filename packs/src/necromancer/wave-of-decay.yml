@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Choose a nearby enemy. It takes [[(@ed*2)*d6]] negative energy damage. (For example, if the escalation die is 2 when you cast the spell, you’ll deal 4d6 negative energy damage to the target.)</p>\n<p>Until the end of the battle, as a free action at the start of each of your turns, repeat the effect above, choosing a target and dealing damage based on the escalation die value.</p>\n<p>The effect ends at the end of the battle, when you drop to 0 hp, or when your wave of decay damage drops an enemy to 0 hit points!</p>"
+    value: "<p>Choose a nearby enemy. It takes [[(@ed*2)*d6]] negative energy damage. (For example, if the escalation die is 2 when you cast the spell, you’ll deal 4d6 negative energy damage to the target.)</p><p>Until the end of the battle, as a free action at the start of each of your turns, repeat the effect above, choosing a target and dealing damage based on the escalation die value.</p><p>The effect ends at the end of the battle, when you drop to 0 hp, or when your wave of decay damage drops an enemy to 0 hit points!</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

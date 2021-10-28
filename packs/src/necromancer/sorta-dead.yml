@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>In some ways, you’re dead already. You don’t need to eat or sleep or breathe. You can’t drown in normal water/liquid, though magical gas will still affect you.</p>\n<p>When a spell or effect targets or applies to undead, you can decide whether you want to count as undead for that specific effect. (For example, you could count as undead to take advantage of a target’s vulnerability created by the ripping claws attack of a starving ghoul mook you summoned via summon undead.)</p>\n<p>The first time you die each level, roll a normal save, adding [[d20+@cha.mod]]. If you succeed, you heal using a free recovery instead of dying. If you were dying because of last gasp saves, consider yourself saved from the last gasp problem also.</p>"
+    value: "<p>In some ways, you’re dead already. You don’t need to eat or sleep or breathe. You can’t drown in normal water/liquid, though magical gas will still affect you.</p><p>When a spell or effect targets or applies to undead, you can decide whether you want to count as undead for that specific effect. (For example, you could count as undead to take advantage of a target’s vulnerability created by the ripping claws attack of a starving ghoul mook you summoned via summon undead.)</p><p>The first time you die each level, roll a normal save, adding [[d20+@cha.mod]]. If you succeed, you heal using a free recovery instead of dying. If you were dying because of last gasp saves, consider yourself saved from the last gasp problem also.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
