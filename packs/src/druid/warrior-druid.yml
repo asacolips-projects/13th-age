@@ -108,7 +108,117 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Choose this talent if you want to fight well in melee with your normal weapons and armor.</p>\n<p>Spending a single talent on Warrior Druid lets you choose <em>one</em> of the three following benefits:</p>\n<ul>\n<li>Your AC in light armor is 12 instead of 10 like most other druids.</li>\n<li>You don&rsquo;t take opportunity attacks from enemies engaged with you when you cast ranged druid spells.</li>\n<li>Your base hit points are 7 + CON mod instead of 6 + CON mod.</li>\n</ul>\n<p>If you use two talents to become a Warrior Druid adept, choose <em>three</em> of the following benefits:</p>\n<ul>\n<li>Your base hit points are 7 + CON mod instead of 6 + CON mod.</li>\n<li>Your AC in light armor is 12 instead of 10 like most other druids.</li>\n<li>You don&rsquo;t take opportunity attacks from enemies engaged with you when you cast ranged druid spells.</li>\n<li>You can use one-handed 1d8 martial weapons without taking the &ndash;2 attack penalty that other druids suffer.</li>\n<li>You can use a shield (in human form) without taking an attack penalty like other druids.</li>\n</ul>\n<p>Like the fighter class, you gain access to flexible attacks when you make basic melee attacks during your turn. Roll your attack, then choose one of the flexible attacks you know that can be triggered by your natural attack roll. Unlike the fighter, you can usually use each of your flexible attacks only once per battle.</p>\n<p>If you&rsquo;re also a Shifter initiate, you can use your Warrior Druid flexible attacks while in beast form, but only with your first beast form attack roll each turn. Adepts can use them freely.</p>"
+    value: '<p>Choose this talent if you want to fight well in melee with your normal weapons and armor.</p><p>Spending a single talent on Warrior Druid lets you choose <em>one</em> of the three following benefits:</p><ul><li>Your AC in light armor is 12 instead of 10 like most other druids.</li><li>You don&rsquo;t take opportunity attacks from enemies engaged with you when you cast ranged druid spells.</li><li>Your base hit points are 7 + CON mod instead of 6 + CON mod.</li></ul><p>If you use two talents to become a Warrior Druid adept, choose <em>three</em> of the following benefits:</p><ul><li>Your base hit points are 7 + CON mod instead of 6 + CON mod.</li><li>Your AC in light armor is 12 instead of 10 like most other druids.</li><li>You don&rsquo;t take opportunity attacks from enemies engaged with you when you cast ranged druid spells.</li><li>You can use one-handed 1d8 martial weapons without taking the &ndash;2 attack penalty that other druids suffer.</li><li>You can use a shield (in human form) without taking an attack penalty like other druids.</li></ul><p>Like the fighter class, you gain access to flexible attacks when you make basic melee attacks during your turn. Roll your attack, then choose one of the flexible attacks you know that can be triggered by your natural attack roll. Unlike the fighter, you can usually use each of your flexible attacks only once per battle.</p><p>If you&rsquo;re also a Shifter initiate, you can use your Warrior Druid flexible attacks while in beast form, but only with your first beast form attack roll each turn. Adepts can use them freely.</p>
+    <h3><b>Warrior Druid Initiate Level Progression</b></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Druid Level</th>
+          <th>Daily Spells</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Level 1 Multiclass</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Level 1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Level 2</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Level 3</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Level 4</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Level 5</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Level 6</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Level 7</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Level 8</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Level 9</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Level 10</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3><b>Warrior Druid Adept Level Progression</b></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Druid Level</th>
+          <th>Daily Spells</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Level 1 Multiclass</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Level 1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Level 2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Level 3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Level 4</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Level 5</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Level 6</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Level 7</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Level 8</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Level 9</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Level 10</td>
+          <td>6</td>
+        </tr>
+      </tbody>
+    </table>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -171,6 +281,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Warrior Druid'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'f9Oa0jooQRgk5gv1'
