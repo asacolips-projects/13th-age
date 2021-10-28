@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Until the end of the turn, you can teleport once as a move action by moving into a tree or other large plant and emerging from another plant or tree of the same species you can see or out of your line of sight. If you go beyond your line of sight, the GM chooses how far you can go, up to a mile.</p><p>Once per level when you cast this spell, you also summon a 5th level earth elemental beside one of the trees or plants involved in your teleport. Use the elemental caster&rsquo;s summon earth elemental spell.</p>"
+    value: '<p>Until the end of the turn, you can teleport once as a move action by moving into a tree or other large plant and emerging from another plant or tree of the same species you can see or out of your line of sight. If you go beyond your line of sight, the GM chooses how far you can go, up to a mile.</p><p>Once per level when you cast this spell, you also summon a 5th level earth elemental beside one of the trees or plants involved in your teleport. Use the elemental caster&rsquo;s summon earth elemental spell.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

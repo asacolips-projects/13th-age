@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>The effect depends on the target&rsquo;s status.</p><p>Unstaggered target: The target gains a bonus to its attacks and damage equal to your Strength or Dexterity modifier until the target ends its turn staggered or until the end of the battle.</p><p>Staggered target: The target can heal using a recovery.</p>"
+    value: '<p>The effect depends on the target&rsquo;s status.</p><p>Unstaggered target: The target gains a bonus to its attacks and damage equal to your Strength or Dexterity modifier until the target ends its turn staggered or until the end of the battle.</p><p>Staggered target: The target can heal using a recovery.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

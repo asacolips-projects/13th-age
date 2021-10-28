@@ -105,7 +105,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p>You can cast this spell only once per level.</p><p>To gain the effect, you must succeed on a skill check corresponding to the tier of the structure and the GM’s assessment of the difficulty: normal, hard, or ridiculously hard.</p>"
+    value: '<p>You can cast this spell only once per level.</p><p>To gain the effect, you must succeed on a skill check corresponding to the tier of the structure and the GM’s assessment of the difficulty: normal, hard, or ridiculously hard.</p>'
   effect:
     type: 'String'
     label: 'Effect'

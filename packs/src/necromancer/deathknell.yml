@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>As a quick action, you can drop a nearby enemy that has 5 hp or fewer down to 0 hp. When you drop an enemy using Deathknell, you heal [[1d6]] hit points.</p><p>You can use Deathknell to drop a mook, but only if it’s the last mook in its mob and the mob has 5 hp or fewer left.</p>"
+    value: '<p>As a quick action, you can drop a nearby enemy that has 5 hp or fewer down to 0 hp. When you drop an enemy using Deathknell, you heal [[1d6]] hit points.</p><p>You can use Deathknell to drop a mook, but only if it’s the last mook in its mob and the mob has 5 hp or fewer left.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

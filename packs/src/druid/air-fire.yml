@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>During your next turn, you can cast a 3rd level daily Air or Fire spell from the Elemental Caster’s spell list even if you don’t ordinarily know that spell. The only limitation is that the spell can’t be a summon elemental spell. Casting that spell neither counts against your daily Elemental Caster spell limit if you have that talent, nor does it count against your daily Terrain Caster spell limit.</p><p>If something prevents you from casting the spell during your next turn, you still expend this daily spell.</p>"
+    value: '<p>During your next turn, you can cast a 3rd level daily Air or Fire spell from the Elemental Caster’s spell list even if you don’t ordinarily know that spell. The only limitation is that the spell can’t be a summon elemental spell. Casting that spell neither counts against your daily Elemental Caster spell limit if you have that talent, nor does it count against your daily Terrain Caster spell limit.</p><p>If something prevents you from casting the spell during your next turn, you still expend this daily spell.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

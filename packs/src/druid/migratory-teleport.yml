@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You and up to 4 allies next to you can teleport to the site of any migratory beast herd in the world.</p><p>When you teleport, roll a d20. If you roll a 1, something unusual intervened and you arrive at a different herd site than you had intended (GM’s choice). Otherwise, you and your allies arrive somewhere hear the desired herd. Unlike the wizard’s 9th level teleport spell, this spell doesn’t allow you to choose your precise destination.</p><p>Any effects of spells or items cast/created before teleporting are canceled and no longer function on arrival, so it’s best to wait and use such spells after you arrive.</p>"
+    value: '<p>You and up to 4 allies next to you can teleport to the site of any migratory beast herd in the world.</p><p>When you teleport, roll a d20. If you roll a 1, something unusual intervened and you arrive at a different herd site than you had intended (GM’s choice). Otherwise, you and your allies arrive somewhere hear the desired herd. Unlike the wizard’s 9th level teleport spell, this spell doesn’t allow you to choose your precise destination.</p><p>Any effects of spells or items cast/created before teleporting are canceled and no longer function on arrival, so it’s best to wait and use such spells after you arrive.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

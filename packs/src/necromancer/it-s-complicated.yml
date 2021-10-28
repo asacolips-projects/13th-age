@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>When you roll icon relationship dice, the first 6 you roll is a 5 instead.</p><p>What hasn’t quite killed you has made you stronger: you gain an extra necromancer spell at the highest spell level you can normally cast (as shown under spells known on the necromancer level progression chart). For example, you would gain an extra 3rd level spell if you’re 4th level, or an extra 5th level spell if you’re 5th level.</p>"
+    value: '<p>When you roll icon relationship dice, the first 6 you roll is a 5 instead.</p><p>What hasn’t quite killed you has made you stronger: you gain an extra necromancer spell at the highest spell level you can normally cast (as shown under spells known on the necromancer level progression chart). For example, you would gain an extra 3rd level spell if you’re 4th level, or an extra 5th level spell if you’re 5th level.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

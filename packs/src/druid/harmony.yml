@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Until the end of the battle, when one of the targets takes damage, the target with the most hit points takes that damage instead (your choice on ties).</p><p>The effect doesn’t work while a target is at 0 hit points or below. Temporary hit points also don’t count.</p>"
+    value: '<p>Until the end of the battle, when one of the targets takes damage, the target with the most hit points takes that damage instead (your choice on ties).</p><p>The effect doesn’t work while a target is at 0 hit points or below. Temporary hit points also don’t count.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

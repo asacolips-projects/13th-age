@@ -105,7 +105,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p>The mooks created by each level of the bones beneath appear in the Summoned Creatures compendium. The level or physical nature of the mooks is irrelevant; the magic of the spell turns whatever creatures it’s forced to work with into skeletal mook allies with the listed stats.</p><p>The new mooks take their turn immediately after your turn.</p><p>It’s worth mentioning that the mooks created by this spell don’t count as summoned mooks. This isn’t a summoning spell.</p>"
+    value: '<p>The mooks created by each level of the bones beneath appear in the Summoned Creatures compendium. The level or physical nature of the mooks is irrelevant; the magic of the spell turns whatever creatures it’s forced to work with into skeletal mook allies with the listed stats.</p><p>The new mooks take their turn immediately after your turn.</p><p>It’s worth mentioning that the mooks created by this spell don’t count as summoned mooks. This isn’t a summoning spell.</p>'
   effect:
     type: 'String'
     label: 'Effect'

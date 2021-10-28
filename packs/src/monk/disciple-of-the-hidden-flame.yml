@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>When you gain this talent, choose a class: cleric, sorcerer, or wizard. Each time you take a full heal-up, choose a non-feature spell of your level or lower from that class. You can&rsquo;t choose the same spell twice in a row; you must choose a different option each time you take a full heal-up.</p><p>If the spell is at-will, you can cast it in place of a flow attack. If the spell is limited use, you can cast it in place of a finishing attacks. Use your Wisdom as the ability score that determines attack and damage with the spell.</p>"
+    value: '<p>When you gain this talent, choose a class: cleric, sorcerer, or wizard. Each time you take a full heal-up, choose a non-feature spell of your level or lower from that class. You can&rsquo;t choose the same spell twice in a row; you must choose a different option each time you take a full heal-up.</p><p>If the spell is at-will, you can cast it in place of a flow attack. If the spell is limited use, you can cast it in place of a finishing attacks. Use your Wisdom as the ability score that determines attack and damage with the spell.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

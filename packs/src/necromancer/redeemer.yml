@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Undead you summon release holy energy bursts as they drop to 0 hp, dealing a small amount of damage to each enemy engaged with them.</p><ul><li>Mooks you summon deal [[@cha.dmg]] holy damage.</li><li>Non-mooks you summon deal [[@cha.mod*(1d4)]] holy damage ([[@cha.mod*(1d8)]]) at 5th level; [[@cha.mod*(2d6)]] at 8th level).</li></ul><p>In story terms, you’re not likely to have a positive relationship with any necromantic icons if you take the Redeemer talent.</p>"
+    value: '<p>Undead you summon release holy energy bursts as they drop to 0 hp, dealing a small amount of damage to each enemy engaged with them.</p><ul><li>Mooks you summon deal [[@cha.dmg]] holy damage.</li><li>Non-mooks you summon deal [[@cha.mod*(1d4)]] holy damage ([[@cha.mod*(1d8)]]) at 5th level; [[@cha.mod*(2d6)]] at 8th level).</li></ul><p>In story terms, you’re not likely to have a positive relationship with any necromantic icons if you take the Redeemer talent.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Remove yourself from the battle (you can&rsquo;t be targeted by attacks or effects while in the shadows). At the start of your next turn, return to the battle nearby your previous location and roll a [[d6]] to determine a random benefit you gain from coming out of the shadows.</p><p><em>1&ndash;4</em>: You can heal using a recovery.</p><p><em>5+</em>: You deal double damage to the first target you hit with a chaos mage spell this turn.</p>"
+    value: '<p>Remove yourself from the battle (you can&rsquo;t be targeted by attacks or effects while in the shadows). At the start of your next turn, return to the battle nearby your previous location and roll a [[d6]] to determine a random benefit you gain from coming out of the shadows.</p><p><em>1&ndash;4</em>: You can heal using a recovery.</p><p><em>5+</em>: You deal double damage to the first target you hit with a chaos mage spell this turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

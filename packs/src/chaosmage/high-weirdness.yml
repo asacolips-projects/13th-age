@@ -155,7 +155,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: "<p>If you have one or more Warp talents, whenever you make a d6 roll for one, also roll for a new high weirdness effect. The new effect replaces the weirdness effect currently active, if any.</p><p>If you have no Warp talents, roll for a new high weirdness effect whenever you draw an iconic spell.</p>"
+        value: '<p>If you have one or more Warp talents, whenever you make a d6 roll for one, also roll for a new high weirdness effect. The new effect replaces the weirdness effect currently active, if any.</p><p>If you have no Warp talents, roll for a new high weirdness effect whenever you draw an iconic spell.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
