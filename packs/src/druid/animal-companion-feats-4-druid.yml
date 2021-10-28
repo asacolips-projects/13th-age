@@ -1,4 +1,4 @@
-name: 'Animal Companion Feats 4 (Druid)'
+name: 'Animal Companion: Feats 4 (Druid)'
 permission:
   default: 0
 type: 'power'
@@ -20,7 +20,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -171,6 +171,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'aE4MffipCwKazVmQ'
