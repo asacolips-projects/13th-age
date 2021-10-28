@@ -1,4 +1,4 @@
-name: 'Armor of Shell & Spirits'
+name: 'Animal Companion: Feats 3'
 permission:
   default: 0
 type: 'power'
@@ -16,27 +16,27 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 5
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'One nearby animal companion'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -104,11 +104,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You must spend a recovery to cast this spell.</p>'
+    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, the target gains resist damage 12+ against attacks that target AC.</p>'
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -120,11 +120,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Resistance now includes attacks that target PD.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Resistance increases to resist damage 14+.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -150,6 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,6 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -170,6 +172,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: '4WPbXyrW2Yb7cwGH'
+_id: '8bKaFGjg2oSRYz8V'

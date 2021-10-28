@@ -1,4 +1,4 @@
-name: 'Animal Companion Feats 3 (Ranger)'
+name: 'Animal Companion: Feats 4'
 permission:
   default: 0
 type: 'power'
@@ -16,11 +16,11 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Ranger'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -140,17 +140,17 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
+        value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -172,6 +171,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'KwRw195stiG577Sy'
+_id: 'aE4MffipCwKazVmQ'

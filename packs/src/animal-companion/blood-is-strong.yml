@@ -16,7 +16,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -170,6 +170,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'B3WICVRQAa60EucH'

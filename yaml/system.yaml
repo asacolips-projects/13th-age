@@ -127,6 +127,11 @@ packs:
     name: multiclassfeats
     path: packs/dist/multiclass-feats.db
     system: archmage
+  - label: Animal Companion
+    entity: Item
+    name: animal-companion
+    path: packs/dist/animal-companion.db
+    system: archmage
   - label: Animal Companions
     entity: Actor
     name: animal-companions

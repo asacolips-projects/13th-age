@@ -1,4 +1,4 @@
-name: 'Pack Link'
+name: 'Spirit Guardian'
 permission:
   default: 0
 type: 'power'
@@ -16,7 +16,7 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
@@ -28,11 +28,11 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 9
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'
@@ -40,11 +40,11 @@ data:
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: ''
+    value: 'You drop to 0 hp or below while your animal companion is nearby and still above 0 hp.'
   target:
     type: 'String'
     label: 'Target'
-    value: 'One nearby animal companion'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, when the target attacks an enemy that is engaged with you, increase the target&rsquo;s melee attack damage dice for that attack by one size, up to a maximum of d12.</p>'
+    value: "<p>Your spirit trades places with the spirit of your animal companion. You now occupy the body of your animal companion, using its current hit points, defenses, and attacks (and the effects of any spells cast upon it earlier).</p>\n<p>You can&rsquo;t cast spells or use your normal humanoid powers and class features while in your companion&rsquo;s body. You can either keep fighting as your animal companion or you can roll a normal save as a quick action once during each of your turns; if you succeed, your body and your animal companion&rsquo;s body swap places while your spirits return to their proper bodies. You keep the hit points of the animal companion before you rolled the save, but can heal using a recovery when the swap is complete, if you wish. Returning to your own partially-healed body thanks to the successful save ends the spell&rsquo;s effect.</p>\n<p>While your animal companion is in your body, it can roll death saves and be healed. If it becomes conscious it can attack using its basic melee attacks, but it doesn&rsquo;t have access to any of your spells or powers. Any failed death saves remain with the spirit that failed them, not the body.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,11 +116,11 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'The target’s basic melee attacks now deal half damage on a natural even miss.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'The target’s basic melee attacks now deal half damage on any miss.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
@@ -170,6 +170,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'SHlqrDFKKgJUtdI7'
+_id: '8q5RUM7JejU4mviH'

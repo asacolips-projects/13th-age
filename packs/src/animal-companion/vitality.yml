@@ -1,4 +1,4 @@
-name: 'Animal Companion: Feats 1 (Druid)'
+name: 'Vitality'
 permission:
   default: 0
 type: 'power'
@@ -16,15 +16,15 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,11 +32,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: ''
+    value: 'One nearby animal companion'
   always:
     type: 'String'
     label: 'Always'
@@ -104,27 +104,27 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>The target heals using a free recovery.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: 'In addition, the target heals hit points equal to your Wisdom modifier at the start of each of its turns until the end of the battle or until it drops to 0 hit points.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'The healing the target gains at the start of its turn is now double your Wisdom modifier.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'The healing the target gains at the start of its turn is now triple your Wisdom modifier.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'The first time this battle that the target drops to 0 hit points, you can roll a normal save. If you succeed, the target heals using one of your recoveries.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -150,7 +150,6 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per day, your animal companion can attack twice in a round with a standard action.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +158,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day, your animal companion can force an enemy to reroll an attack that hit it.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,7 +166,6 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s damage die by one size (for example, from d6s to d8s, or d8s to d10s).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -179,4 +176,4 @@ data:
     value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'V6lAPazftyzmgfoY'
+_id: 'iW7Z1JPKLZ866jGn'

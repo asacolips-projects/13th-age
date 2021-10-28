@@ -1,4 +1,4 @@
-name: 'Animal Companion Feats 2 (Ranger)'
+name: 'Pack Link'
 permission:
   default: 0
 type: 'power'
@@ -16,15 +16,15 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Ranger'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,11 +32,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: ''
+    value: 'One nearby animal companion'
   always:
     type: 'String'
     label: 'Always'
@@ -104,11 +104,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Ranger animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Until the end of the battle, when the target attacks an enemy that is engaged with you, increase the target&rsquo;s melee attack damage dice for that attack by one size, up to a maximum of d12.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,11 +116,11 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'The target’s basic melee attacks now deal half damage on a natural even miss.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'The target’s basic melee attacks now deal half damage on any miss.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
@@ -140,17 +140,16 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle, your animal companion can turn a disengage success by an enemy it is engaged with into a failure.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +158,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your Lethal Hunter talent also applies to your animal companion.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +166,14 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'W7TT80QOywglXUk1'
+_id: 'SHlqrDFKKgJUtdI7'

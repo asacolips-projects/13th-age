@@ -102,6 +102,13 @@ export class ArchmagePrepopulate {
         content: pack
       };
     }
+    // Add animal companion to druid and ranger
+    for (let key of ["ranger", "druid"]) {
+      if (classes.includes(key)) {
+        let pack = await game.packs.find(p => p.metadata.label == "Animal Companion").getDocuments();
+        content[key].content = content[key].content.concat(pack);
+      }
+    }
 
     // Load multiclass powers
     if (classPacks.length > 1) {

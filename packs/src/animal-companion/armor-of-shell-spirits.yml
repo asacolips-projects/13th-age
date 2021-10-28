@@ -1,4 +1,4 @@
-name: 'Animal Companion'
+name: 'Armor of Shell & Spirits'
 permission:
   default: 0
 type: 'power'
@@ -16,27 +16,27 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 5
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: ''
+    value: 'One nearby animal companion'
   always:
     type: 'String'
     label: 'Always'
@@ -104,78 +104,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: ''
+    value: '<p>You must spend a recovery to cast this spell.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You have a devoted animal companion who fights alongside you like a member of your adventuring party.</p><p>If you have a single talent invested into Animal Companion, you are an Animal Companion initiate. If you invested two talents into Animal Companion, you are an Animal Companion adept.</p><p>When you roll initiative, you may choose whether you want your animal companion to take part in the battle. You may also call your animal companion during the battle with a quick action.</p><p>Animal Companion initiates may only call their animal companion once every other battle. The animal companion may not fight in two battles in a row&mdash;even between full heal-ups, adventures, or gaining new levels. Animal Companion adepts don&rsquo;t have this limitation; their animal companion can fight in every battle if the adept so chooses.</p>
-    <h3><b>Animal Companion Adept Level Progression</b></h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Druid Level</th>
-          <th>Daily Spells</th>
-          <th>Level the Spells are Cast At</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Level 1 Multiclass</td>
-          <td>1</td>
-          <td>1st level</td>
-        </tr>
-        <tr>
-          <td>Level 1</td>
-          <td>1</td>
-          <td>1st level</td>
-        </tr>
-        <tr>
-          <td>Level 2</td>
-          <td>2</td>
-          <td>1st level</td>
-        </tr>
-        <tr>
-          <td>Level 3</td>
-          <td>2</td>
-          <td>3rd level</td>
-        </tr>
-        <tr>
-          <td>Level 4</td>
-          <td>2</td>
-          <td>3rd level</td>
-        </tr>
-        <tr>
-          <td>Level 5</td>
-          <td>3</td>
-          <td>5th level</td>
-        </tr>
-        <tr>
-          <td>Level 6</td>
-          <td>3</td>
-          <td>5th level</td>
-        </tr>
-        <tr>
-          <td>Level 7</td>
-          <td>3</td>
-          <td>7th level</td>
-        </tr>
-        <tr>
-          <td>Level 8</td>
-          <td>4</td>
-          <td>7th level</td>
-        </tr>
-        <tr>
-          <td>Level 9</td>
-          <td>4</td>
-          <td>9th level</td>
-        </tr>
-        <tr>
-          <td>Level 10</td>
-          <td>4</td>
-          <td>9th level</td>
-        </tr>
-      </tbody>
-    </table>'
+    value: '<p>Until the end of the battle, the target gains resist damage 12+ against attacks that target AC.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -187,11 +120,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'Resistance now includes attacks that target PD.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'Resistance increases to resist damage 14+.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -243,4 +176,4 @@ data:
     value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: '5RL2GmqTHqyYhNHh'
+_id: '4WPbXyrW2Yb7cwGH'

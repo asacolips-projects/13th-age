@@ -1,4 +1,4 @@
-name: 'Animal Companion: Feats 2 (Druid)'
+name: 'Magic Fang'
 permission:
   default: 0
 type: 'power'
@@ -16,27 +16,27 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 3
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged Spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: ''
+    value: 'One nearby animal companion'
   always:
     type: 'String'
     label: 'Always'
@@ -104,11 +104,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>If the target already adds the escalation die to its attacks, it gains a +2 attack bonus until the end of the battle. If not, it now adds the escalation die to its attacks until the end of the battle.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,7 +116,7 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'The target’s crit range expands by 2.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
@@ -124,7 +124,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'The target’s crit range expands by a total of 4.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -150,7 +150,6 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Once per battle, your animal companion can turn a disengage success by an enemy it is engaged with into a failure.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +158,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your Lethal Hunter talent also applies to your animal companion.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,7 +166,6 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -179,4 +176,4 @@ data:
     value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'p14p8tgrIydjLxJO'
+_id: '9UIknBPrGKauOmIo'

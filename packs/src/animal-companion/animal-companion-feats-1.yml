@@ -1,4 +1,4 @@
-name: 'Spirit Guardian'
+name: 'Animal Companion: Feats 1'
 permission:
   default: 0
 type: 'power'
@@ -16,31 +16,31 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Druid'
+    value: 'Ranger/Druid'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 9
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: 'You drop to 0 hp or below while your animal companion is nearby and still above 0 hp.'
+    value: ''
   target:
     type: 'String'
     label: 'Target'
@@ -104,11 +104,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: ''
+    value: '<p>Druid animal companion feats are designed so that they do not build on each other. Unlike other feats, you don&rsquo;t have to take animal companion feats progressively, one after the other as long as you qualify for the correct tier.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Your spirit trades places with the spirit of your animal companion. You now occupy the body of your animal companion, using its current hit points, defenses, and attacks (and the effects of any spells cast upon it earlier).</p>\n<p>You can&rsquo;t cast spells or use your normal humanoid powers and class features while in your companion&rsquo;s body. You can either keep fighting as your animal companion or you can roll a normal save as a quick action once during each of your turns; if you succeed, your body and your animal companion&rsquo;s body swap places while your spirits return to their proper bodies. You keep the hit points of the animal companion before you rolled the save, but can heal using a recovery when the swap is complete, if you wish. Returning to your own partially-healed body thanks to the successful save ends the spell&rsquo;s effect.</p>\n<p>While your animal companion is in your body, it can roll death saves and be healed. If it becomes conscious it can attack using its basic melee attacks, but it doesn&rsquo;t have access to any of your spells or powers. Any failed death saves remain with the spirit that failed them, not the body.</p>"
+    value: ''
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,6 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: '<p>Once per day, your animal companion can attack twice in a round with a standard action.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,6 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: '<p>Once per day, your animal companion can force an enemy to reroll an attack that hit it.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -166,10 +168,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: '<p>Increase your animal companion&rsquo;s damage die by one size (for example, from d6s to d8s, or d8s to d10s).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Animal Companion'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: '8q5RUM7JejU4mviH'
+_id: 'V6lAPazftyzmgfoY'
