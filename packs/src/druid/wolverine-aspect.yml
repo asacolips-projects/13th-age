@@ -173,6 +173,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Shifter'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'QwM8fF9X3ssrgcam'

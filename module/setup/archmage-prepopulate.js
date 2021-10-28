@@ -106,7 +106,7 @@ export class ArchmagePrepopulate {
     for (let key of ["ranger", "druid"]) {
       if (classes.includes(key)) {
         let pack = await game.packs.find(p => p.metadata.label == "Animal Companion").getDocuments();
-        content[key].content = content[key].content.concat(pack);
+        content[key].content = pack.concat(content[key].content);
       }
     }
 

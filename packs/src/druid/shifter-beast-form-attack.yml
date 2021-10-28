@@ -1,4 +1,4 @@
-name: 'Scout Form'
+name: 'Shifter: Beast Form Attack'
 permission:
   default: 0
 type: 'power'
@@ -20,11 +20,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,11 +32,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Melee attack'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -52,7 +52,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: ''
+    value: '[[d20+max(@str.mod,@dex.mod)+@std+@atk.m.bonus]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
@@ -60,11 +60,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: '[[(@lvl)d10+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: ''
+    value: '[[(@lvl)d6+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
   crit:
     type: 'String'
     label: 'Crit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: ''
+    value: 'Repeat the attack against the same or a different target. This second attack has no miss effect.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You only need to take one of the two adventurer-tier feats to access the champion-tier feat. You can also take both adventurer-tier feats, if you wish.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your temporary animal background roll is a 1d6 instead of 1d4 + 1, and count a 1 rolled as a 2.</p>'
+        value: '<p>For both initiates and adepts, your second beast form attack (the one you roll when the first attack misses) now deals [[@lvl]] miss damage. If you are a Shifter adept, you can have two beast aspects active at the same time. If you start using a third aspect, one of the two previous aspects of your choice ends.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Rerolls from your combat recon exploits gain a +2 bonus.</p>'
+        value: '<p>If you are a Shifter initiate, you can now cast spells and use magic item powers while in beast form. If you are a Shifter adept, you can have three beast aspects active at the same time. If you start using a fourth aspect, one of the two previous aspects of your choice ends.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,10 +168,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: '<p>If you are a Shifter adept, your beast form can now be a lycanthropic form when you wish&mdash;furred, deadly, and possessing a new power that you can use only while in lycanthropic form: shake it off.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Shifter'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'REgsoE4h1T2omnT6'
+_id: 'zpVtWTDovejDvKT0'
