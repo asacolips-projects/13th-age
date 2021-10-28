@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -136,7 +136,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: 0
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'
