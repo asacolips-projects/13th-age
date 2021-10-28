@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'

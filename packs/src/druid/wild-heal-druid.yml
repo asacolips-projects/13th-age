@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: ' You or one nearby ally, and one randomly chosen nearby ally that has taken damage'
+    value: 'You or one nearby ally, and one randomly chosen nearby ally that has taken damage'
   always:
     type: 'String'
     label: 'Always'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>See level progression chart for number of uses.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
@@ -170,6 +170,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Wild Healer'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'sYc16sfTfTwul8di'

@@ -1,4 +1,4 @@
-name: 'Behemoth’s Endurance'
+name: 'Regeneration (Per Battle)'
 permission:
   default: 0
 type: 'power'
@@ -9,6 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -24,7 +25,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +33,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -40,11 +41,11 @@ data:
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: ''
+    value: '(for targeted ally) One of your allies starts its turn'
   target:
     type: 'String'
     label: 'Target'
-    value: ' You or one nearby ally'
+    value: 'One nearby ally (with an interrupt action); or you (with a quick action)'
   always:
     type: 'String'
     label: 'Always'
@@ -104,11 +105,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: ''
+    value: '<p>Interrupt action or quick action</p><p><em>Special</em>: The save to continue the regeneration effect becomes a hard save (16+) if the target is at maximum hit points or if the target has dropped to 0 hit points or below while the regeneration is in effect.</p><p><em>Special</em>: You can only have one regeneration or greater regeneration spell on you at a time. A second spell cast on you cancels the first.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle or until targeted with another beast spirits spell, the target gains a +2 bonus to PD and temporary hit points equal to your level + your Wisdom modifier.</p>'
+    value: '<p>The target heals using a recovery, rolling recovery dice as normal, but heals only half (rounding down) the amount of healing rolled.</p><p>At the start of the target&rsquo;s next turn, the target heals using a free recovery, but heals only half (rounding down) the amount rolled&mdash;the first recovery spent continues to fuel the regeneration effect. After the target heals this second time, it rolls a normal save to see if the regeneration spell will continue.</p><p>If the save fails, the regeneration spell ends.</p><p>If the save succeeds, the regeneration spell continues and the target will heal using a free recovery for half hit points again at the start of its next turn, and then roll another save to see if the regeneration continues, and so on.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -140,11 +141,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
@@ -158,7 +159,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: 'The target instead gains a +4 bonus to PD and [[@lvl + @wis.dmg]] temporary hit points'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -174,7 +174,7 @@ data:
   group:
     type: 'String'
     label: 'Group'
-    value: 'Warrior Druid'
+    value: 'Wild Healer'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'iybJ4aKleC1qFbgd'
+_id: 'jZ7DgfBCn1RFKorq'

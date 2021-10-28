@@ -1,4 +1,4 @@
-name: 'Regeneration'
+name: 'Regeneration (Daily)'
 permission:
   default: 0
 type: 'power'
@@ -25,7 +25,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -105,11 +105,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p>See level progression chart for usage per battle/day.</p>\n<p>Interrupt action or quick action</p>\n<p><em>Special</em>: The save to continue the regeneration effect becomes a hard save (16+) if the target is at maximum hit points or if the target has dropped to 0 hit points or below while the regeneration is in effect.</p>\n<p><em>Special</em>: You can only have one regeneration or greater regeneration spell on you at a time. A second spell cast on you cancels the first.</p>"
+    value: '<p>Interrupt action or quick action</p><p><em>Special</em>: The save to continue the regeneration effect becomes a hard save (16+) if the target is at maximum hit points or if the target has dropped to 0 hit points or below while the regeneration is in effect.</p><p><em>Special</em>: You can only have one regeneration or greater regeneration spell on you at a time. A second spell cast on you cancels the first.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>The target heals using a recovery, rolling recovery dice as normal, but heals only half (rounding down) the amount of healing rolled.</p>\n<p>At the start of the target&rsquo;s next turn, the target heals using a free recovery, but heals only half (rounding down) the amount rolled&mdash;the first recovery spent continues to fuel the regeneration effect. After the target heals this second time, it rolls a normal save to see if the regeneration spell will continue.</p>\n<p>If the save fails, the regeneration spell ends.</p>\n<p>If the save succeeds, the regeneration spell continues and the target will heal using a free recovery for half hit points again at the start of its next turn, and then roll another save to see if the regeneration continues, and so on.</p>"
+    value: '<p>The target heals using a recovery, rolling recovery dice as normal, but heals only half (rounding down) the amount of healing rolled.</p><p>At the start of the target&rsquo;s next turn, the target heals using a free recovery, but heals only half (rounding down) the amount rolled&mdash;the first recovery spent continues to fuel the regeneration effect. After the target heals this second time, it rolls a normal save to see if the regeneration spell will continue.</p><p>If the save fails, the regeneration spell ends.</p><p>If the save succeeds, the regeneration spell continues and the target will heal using a free recovery for half hit points again at the start of its next turn, and then roll another save to see if the regeneration continues, and so on.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -171,6 +171,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Wild Healer'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'OpqpENCtr9I861f5'
