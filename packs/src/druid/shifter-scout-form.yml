@@ -104,11 +104,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You only need to take one of the two adventurer-tier feats to access the champion-tier feat. You can also take both adventurer-tier feats, if you wish.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>Scout forms are magical versions of normal, smaller animals that are useful for scouting, such as bobcats, coyotes, owls, lizards, dire rats, giant spiders, and so on. In scout form, you shouldn’t have any problem slipping through the world without being troubled by any but the most serious defenses. However, you don’t look like a natural animal; there’s something extremely magical about you.</p><p>Becoming a small animal isn’t a perfect translation of self. Your humanoid brain doesn’t work the same when you’ve shifted into scout form. You don’t talk. You can’t cast spells. Your magical items and possessions change shape with you, but you don’t get to use them in scout form. You maintain your identity and know who your allies are, but you’re as much an animal as a person while in the form.</p><p>Fighting in scout form should be avoided unless you’re fighting a mundane animal. If you do attempt to fight, your attacker hits you unless he rolls a natural 1, and taking damage this way transforms you back into humanoid form.</p><p>Transforming from humanoid or beast form into scout form requires a standard action. To transform back to human form from scout form requires a quick action. A Shifter adept can transform directly from scout to beast form (as a quick action), but a Shifter initiate must transform to human form first. You can only shift once per round. You can stay in scout form as long as you like, or switch back to humanoid form and then back again the next round.</p><p>Shifting into scout form is a daily, but you can do it at will. You can shift for roleplaying reasons, or for combat reconnaissance. To gain an advantage for an upcoming battle (or one just about to start), using your scout form requires a skill check.</p><p>Before rolling initiative, you expend one daily scout form use and roll a skill check to see how successful you were with your combat recon. Depending on the terrain, the weather, and the particular enemies or dangers, the GM will ask you to use an ability score that makes sense for the situation just like any other check, though Wisdom, Dexterity, and Strength are often common choices.</p><p>You’ll normally roll against the standard difficulty of the current environment. While in scout form in an adventurer-tier area, the normal check starts at DC 15, a hard check is DC 20, and a ridiculously hard check is DC 25. Champion tier increases the DC by 5, and epic tier by 5 more. Note that a successful check that qualifies for a higher DC gains you the information/advantage for that result, plus any lower results. A normal success or better probably negates any chance of an ambush or surprise by the enemy you’ve scouted.</p><p><b>Failure:</b> Nothing came of your scouting.</p><p><b>Normal success:</b> You gain a +4 bonus to initiative this battle.</p><p><b>Hard success:</b> As a free action at some point during the battle, you can grant one of your allies a reroll on an attack roll or save. That ally must take the new result. You must explain how something that happened while you were scouting contributed to this benefit.</p><p><b>Ridiculously hard success:</b> The GM chooses between giving you a reroll at some point during the battle, or giving you a floating story-guide icon relationship result of 6 with a random icon.</p><p>You only need to take one of the two adventurer-tier feats to access the champion-tier feat. You can also take both adventurer-tier feats, if you wish.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Your temporary animal background roll is a 1d6 instead of 1d4 + 1, and count a 1 rolled as a 2.</p>'
+        value: '<p>Your temporary animal background roll is a 1d6 instead of 1d4 + 1, and count a 1 rolled as a 2.</p><p>A normal success with your combat recon skill check also grants your allies a +2 bonus to initiative this battle.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,6 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: '<p>You now get two benefits instead of one when you succeed at a ridiculously hard skill check with your scout form.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
