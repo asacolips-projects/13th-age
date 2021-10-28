@@ -1,4 +1,4 @@
-name: 'Plains, Overworld'
+name: 'Terrain Caster: Mountains'
 permission:
   default: 0
 type: 'power'
@@ -21,7 +21,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the sunbeams spell below.</p>'
+        value: '<p>You gain the spark spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per battle as a free action, you can choose a spell that targets nearby creatures or enemies. That spell can target far away creatures or enemies this battle.</p>'
+        value: '<p>Once per day, you can heal using a second recovery when some other effect has enabled you to heal using a single recovery. This bonus recovery is a free recovery, but it doesn’t benefit from any bonuses the first recovery gains.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You can now cast one bonus daily plains/overworld spell that doesn’t count against your total daily spells, but you still can’t cast a specific daily spell of that type more than once per day.</p>'
+        value: '<p>You can now cast one bonus daily mountains spell that doesn’t count against your total daily spells, but you still can’t cast a specific daily spell of that type more than once per day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Terrain Caster: Mountains'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'ivRqxD69C0NCwcRJ'
+_id: 't56nQSOrTET8dtXg'

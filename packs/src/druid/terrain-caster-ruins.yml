@@ -1,4 +1,4 @@
-name: 'Ice, Tundra, Deep Snow'
+name: 'Terrain Caster: Ruins'
 permission:
   default: 0
 type: 'power'
@@ -21,7 +21,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the frost touch spell below.</p>'
+        value: '<p>You gain the ruination spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You gain resist cold 16+ and your spells ignore the resist cold abilities that the targets of your spells have.</p>'
+        value: '<p> Once per day when you drop to 0 hit points or below, you can roll a normal save. If you succeed, heal using a recovery before going unconscious. If you fail, it counts as a failed death check.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You can now cast one bonus daily ice/tundra/deep snow spell that doesn&rsquo;t count against your total daily spells, but you still can&rsquo;t cast a specific daily spell of that type more than once per day.</p>'
+        value: '<p>You can now cast one bonus daily ruins spell that doesn’t count against your total daily spells, but you still can’t cast a specific daily spell of that type more than once per day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Terrain Caster: Ruins'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: '2mDIrHhCfZUCFarb'
+_id: 'TB3ZJNih7Wse0fhh'

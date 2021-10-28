@@ -1,4 +1,4 @@
-name: 'Ruins'
+name: 'Terrain Caster: Migration Route (Large Herd Animal)'
 permission:
   default: 0
 type: 'power'
@@ -9,7 +9,6 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -21,7 +20,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -151,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the ruination spell below.</p>'
+        value: '<p>You gain the whoomph spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p> Once per day when you drop to 0 hit points or below, you can roll a normal save. If you succeed, heal using a recovery before going unconscious. If you fail, it counts as a failed death check.</p>'
+        value: '<p>When you cast whoomph during a battle, you can cast the beast shrugs later in that battle even if you are not on migration route terrain.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,11 +168,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You can now cast one bonus daily ruins spell that doesn’t count against your total daily spells, but you still can’t cast a specific daily spell of that type more than once per day.</p>'
+        value: '<p>You can now cast one bonus daily migration route spell that doesn&rsquo;t count against your total daily spells, but you still can&rsquo;t cast a specific daily spell of that type more than once per day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Terrain Caster: Migration Route (Large Herd Animal)'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'TB3ZJNih7Wse0fhh'
+_id: 'C6KckGiPbN6eSld1'

@@ -1,4 +1,4 @@
-name: 'Mountains'
+name: 'Terrain Caster: Ice, Tundra, Deep Snow'
 permission:
   default: 0
 type: 'power'
@@ -21,7 +21,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the spark spell below.</p>'
+        value: '<p>You gain the frost touch spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day, you can heal using a second recovery when some other effect has enabled you to heal using a single recovery. This bonus recovery is a free recovery, but it doesn’t benefit from any bonuses the first recovery gains.</p>'
+        value: '<p>You gain resist cold 16+ and your spells ignore the resist cold abilities that the targets of your spells have.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You can now cast one bonus daily mountains spell that doesn’t count against your total daily spells, but you still can’t cast a specific daily spell of that type more than once per day.</p>'
+        value: '<p>You can now cast one bonus daily ice/tundra/deep snow spell that doesn&rsquo;t count against your total daily spells, but you still can&rsquo;t cast a specific daily spell of that type more than once per day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Terrain Caster: Ice, Tundra, Deep Snow'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 't56nQSOrTET8dtXg'
+_id: '2mDIrHhCfZUCFarb'
