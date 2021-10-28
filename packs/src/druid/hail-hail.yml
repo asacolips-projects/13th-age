@@ -1,4 +1,4 @@
-name: 'Earth Mastery'
+name: 'Hail Hail'
 permission:
   default: 0
 type: 'power'
@@ -21,23 +21,23 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: null
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -45,7 +45,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: ''
+    value: 'The nearby or far away enemy you can see that has the most hit points'
   always:
     type: 'String'
     label: 'Always'
@@ -53,7 +53,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: ''
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
   hit:
     type: 'String'
     label: 'Hit'
@@ -61,11 +61,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: ''
+    value: '[[1d6+@wis.dmg+@atk.d.bonus]] cold damage, and a different nearby enemy takes cold [[@lvl]] damage.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: ''
+    value: '[[1d6+@wis.dmg+@atk.d.bonus]] cold damage, and each nearby mook takes [[1d3]] damage.'
   crit:
     type: 'String'
     label: 'Crit'
@@ -73,7 +73,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: ''
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -113,19 +113,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, [[1d6]] mook damage on odd hit.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, [[1d10]] mook damage on odd hit.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage, [[2d8]] mook damage on odd hit.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: '[[7d10+@wis.dmg+@atk.d.bonus]] damage, [[4d6]] mook damage on odd hit.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -141,17 +141,17 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the ripping vines spell below.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Enemies roll two d20 when they attempt to disengage from elementals you summon, and must take the lower result.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The first daily Earth spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Elemental Caster'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'VO5EgBWUoSgFje98'
+_id: '2BDKoZXviyOTtOBc'

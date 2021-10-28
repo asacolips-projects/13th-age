@@ -1,4 +1,4 @@
-name: 'Air Mastery'
+name: 'Elemental Caster: Earth Mastery'
 permission:
   default: 0
 type: 'power'
@@ -9,6 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -20,7 +21,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -28,7 +29,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: null
   actionType:
     type: 'String'
     label: 'Action'
@@ -150,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the hail hail spell below.</p>'
+        value: '<p>You gain the ripping vines spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>All elementals you summon gain a + [[max(@str.mod,@dex.mod)]] bonus to disengage checks.</p>'
+        value: '<p>Enemies roll two d20 when they attempt to disengage from elementals you summon, and must take the lower result.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The first daily Air spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.<span id="Hail_Hail"></span></p>'
+        value: '<p>The first daily Earth spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Elemental Caster'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'r19unP39ugV3KwLK'
+_id: 'eMa4hO6RMP5ftKtW'

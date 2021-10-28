@@ -1,4 +1,4 @@
-name: 'Water Mastery'
+name: 'Elemental Caster: Air Mastery'
 permission:
   default: 0
 type: 'power'
@@ -9,6 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -20,7 +21,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -150,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the deeper waters spell below.</p>'
+        value: '<p>You gain the hail hail spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Each elemental you summon gains [[@lvl]] temporary hit points the first time each turn it rolls a natural even attack roll.</p>'
+        value: '<p>All elementals you summon gain a + [[max(@str.mod,@dex.mod)]] bonus to disengage checks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The first daily Water spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
+        value: '<p>The first daily Air spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.<span id="Hail_Hail"></span></p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Elemental Caster'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'SoZUhz6j4tPBimUr'
+_id: 'r19unP39ugV3KwLK'

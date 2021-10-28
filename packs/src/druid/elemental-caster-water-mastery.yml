@@ -1,4 +1,4 @@
-name: 'Fire Mastery'
+name: 'Elemental Caster: Water Mastery'
 permission:
   default: 0
 type: 'power'
@@ -9,6 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -20,7 +21,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -150,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the flame spear spell below.</p>'
+        value: '<p>You gain the deeper waters spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When an elemental you have summoned drops to 0 hp, one enemy engaged with it takes [[@lvl + (2*@wis.mod)]] damage.</p>'
+        value: '<p>Each elemental you summon gains [[@lvl]] temporary hit points the first time each turn it rolls a natural even attack roll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The first daily Fire spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
+        value: '<p>The first daily Water spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Elemental Caster'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'qdFE7tw6InSoOIz5'
+_id: 'SoZUhz6j4tPBimUr'

@@ -1,4 +1,4 @@
-name: 'Hail'
+name: 'Elemental Caster: Fire Mastery'
 permission:
   default: 0
 type: 'power'
@@ -21,11 +21,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'talent'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: ''
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -33,11 +33,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -45,7 +45,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'The nearby or far away enemy you can see that has the most hit points'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -53,7 +53,7 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
@@ -61,11 +61,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '[[1d6+@wis.dmg+@atk.d.bonus]] cold damage, and a different nearby enemy takes cold [[@lvl]] damage.'
+    value: ''
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: '[[1d6+@wis.dmg+@atk.d.bonus]] cold damage, and each nearby mook takes [[1d3]] damage.'
+    value: ''
   crit:
     type: 'String'
     label: 'Crit'
@@ -73,7 +73,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[@lvl]] damage.'
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -113,19 +113,19 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage, [[1d6]] mook damage on odd hit.'
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, [[1d10]] mook damage on odd hit.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage, [[2d8]] mook damage on odd hit.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[7d10+@wis.dmg+@atk.d.bonus]] damage, [[4d6]] mook damage on odd hit.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -141,17 +141,17 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: ''
+        value: '<p>You gain the flame spear spell below.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: ''
+        value: '<p>When an elemental you have summoned drops to 0 hp, one enemy engaged with it takes [[@lvl + (2*@wis.mod)]] damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,11 +169,15 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: ''
+        value: '<p>The first daily Fire spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Elemental Caster'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: '2BDKoZXviyOTtOBc'
+_id: 'qdFE7tw6InSoOIz5'
