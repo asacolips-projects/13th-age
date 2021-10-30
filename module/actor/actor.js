@@ -123,14 +123,63 @@ export class ActorArchmage extends Actor {
       return changes.concat(e.data.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
+        c.label = e.data.label;
         c.priority = c.priority ?? (c.mode * 10);
         return c;
       }));
     }, []);
-    changes.sort((a, b) => a.priority - b.priority);
+    // changes.sort((a, b) => a.priority - b.priority);
+
+    //TODO: doing this every time is very inefficient, can it be improved?
+    // Apply stacking rules:
+    // - Only worst penalty applies
+    // - Bonuses stack so long as their source is different
+    // - Item bonuses don't stack, but they aren't AEs
+    let uniqueChanges = [];
+    let uniquePenalties = {};
+    let uniqueBonuses = {};
+    let uniqueBonusLabels = {};
+    for ( let change of changes ) {
+      if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
+        // 13A effects should never fall here, but if they do handle them
+        uniqueChanges.push(change);
+        continue;
+      }
+      let chngVal = Number(change.value);
+      let label = change.label;
+      if (chngVal <= 0) { // Penalty, doesn't stack
+        if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+        else { // Check if the new penalty is worse than the earlier one
+          if (chngVal < Number(uniquePenalties[change.key].value)) {
+            uniquePenalties[change.key].value = change.value;
+          }
+        }
+      } else { // Bonus, stacks if label is different
+        if (!uniqueBonuses[change.key]) {
+          uniqueBonuses[change.key] = change;
+          uniqueBonusLabels[change.key] = {};
+          uniqueBonusLabels[change.key][label] = chngVal;
+        } else { // Check if we have other bonuses with the same label
+          if (uniqueBonusLabels[change.key][label]) {
+            // An effect with the same label already exists, use better one
+            chngVal = Math.max(chngVal, uniqueBonusLabels[change.key][label]);
+            uniqueBonuses[change.key].value = chngVal.toString();
+            uniqueBonusLabels[change.key][label] = chngVal;
+          } else {
+            // No other effect with this name exists, stack
+            uniqueBonusLabels[change.key][label] = chngVal;
+            uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a + b)).toString();
+          }
+        }
+      }
+    }
+    uniqueChanges = uniqueChanges.concat(Object.values(uniquePenalties));
+    uniqueChanges = uniqueChanges.concat(Object.values(uniqueBonuses));
+    uniqueChanges.sort((a, b) => a.priority - b.priority);
 
     // Apply all changes
-    for ( let change of changes ) {
+    // for ( let change of changes ) {
+    for ( let change of uniqueChanges ) {
       let applyEffect = false;
 
       if (overrides[change.key]) continue;
