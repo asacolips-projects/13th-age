@@ -204,12 +204,14 @@ export class ActorArchmage extends Actor {
     // Organize changes by their application priority
     uniqueChanges.sort((a, b) => a.priority - b.priority);
 
-    // Apply all changes
+    // Apply all changes of this phase
     for ( let change of uniqueChanges ) {
       // Skip anything we already applied
       if (overrides[change.key]) continue;
 
+      // Apply effect
       const result = change.effect.apply(this, change);
+      // Remember we already applied change for everything but @ed and @std
       if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
         overrides[change.key] = result;
       }
@@ -496,13 +498,10 @@ export class ActorArchmage extends Actor {
 
     // Use the current token if possible.
     let token = canvas.tokens?.controlled?.find(t => t.actor.data._id == this.data._id);
-    if (token) {
-      actor = token.actor;
-    }
+    if (token) actor = token.actor;
 
     // Reapply post active effects.
     this.prepareDerivedData();
-    this.applyActiveEffects('post');
 
     // Retrieve the actor data.
     const origData = super.getRollData();
