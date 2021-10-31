@@ -175,6 +175,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Terrain Caster: Mountains'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: '56nSQN2LxIMdpNzL'

@@ -379,7 +379,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<ul>\n<li>1&ndash;5:&nbsp;The warbanner&rsquo;s bearer can make a basic attack with a +2 attack bonus as a free action.</li>\n<li>6&ndash;10:&nbsp;Each different enemy engaged with a creature in the warbanner&rsquo;s band takes [[1d8]] psychic damage.</li>\n<li>11&ndash;15:&nbsp;Until the end of the battle, each ally in the warbanner&rsquo;s band gains a +2 cumulative bonus to damage on hits with melee attacks.</li>\n<li>16&ndash;20:&nbsp;The warbanner can make a&nbsp;false rally&nbsp;attack as a free action.</li>\n</ul>"
+        value: '<ul><li>1&ndash;5:&nbsp;The warbanner&rsquo;s bearer can make a basic attack with a +2 attack bonus as a free action.</li><li>6&ndash;10:&nbsp;Each different enemy engaged with a creature in the warbanner&rsquo;s band takes [[1d8]] psychic damage.</li><li>11&ndash;15:&nbsp;Until the end of the battle, each ally in the warbanner&rsquo;s band gains a +2 cumulative bonus to damage on hits with melee attacks.</li><li>16&ndash;20:&nbsp;The warbanner can make a&nbsp;false rally&nbsp;attack as a free action.</li></ul>'
       group:
         type: 'String'
         label: 'Group'

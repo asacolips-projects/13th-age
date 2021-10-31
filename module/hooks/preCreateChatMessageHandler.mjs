@@ -1,6 +1,6 @@
 import HitEvaluation from "../rolls/HitEvaluation.mjs";
 import Targeting from "../rolls/Targeting.mjs";
-import { ArchmageUtility } from "../setup/utility-classes.js";
+import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import Triggers from "../Triggers/Triggers.mjs";
 
 export default class preCreateChatMessageHandler {
@@ -35,7 +35,7 @@ export default class preCreateChatMessageHandler {
             let $roll = $($rolls[i]);
 
             let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
-            let result = ArchmageUtility.inlineRollCritTest(roll_data, actor);
+            let result = ArchmageRolls.inlineRollCritTest(roll_data, actor);
 
             if (result.includes('crit')) {
                 $roll.addClass('dc-crit');
@@ -97,11 +97,10 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text.includes('Attack:')) {
-                    if (row_text.includes('dc-crit') && numTargets == 1) {
-                        has_crit = true;
-                    }
-                    if (row_text.includes('dc-fail') && numTargets == 1) {
-                        has_fail = true;
+                    if (game.settings.get("archmage", "autoAlterCritFumbleDamage")
+                    && numTargets <= 1) {
+                      if (row_text.includes('dc-crit')) has_crit = true;
+                      if (row_text.includes('dc-fail')) has_fail = true;
                     }
 
                     hitEvaluationResults = HitEvaluation.checkRowText(row_text, targets, $row_self);

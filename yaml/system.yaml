@@ -1,6 +1,6 @@
 name: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
-version: 1.12.0
+version: 1.13.0
 author: Matt Smith & Cody Swendrowski
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
 minimumCoreVersion: 0.8.5
@@ -127,6 +127,11 @@ packs:
     name: multiclassfeats
     path: packs/dist/multiclass-feats.db
     system: archmage
+  - label: Animal Companion
+    entity: Item
+    name: animal-companion
+    path: packs/dist/animal-companion.db
+    system: archmage
   - label: Animal Companions
     entity: Actor
     name: animal-companions
@@ -147,7 +152,7 @@ languages:
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.12.0/raw/archmage.zip?job=build-prod
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.13.0/raw/archmage.zip?job=build-prod
 dependencies:
   - name: dlopen
     type: module

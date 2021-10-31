@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain a random spell from the necromancer class. Whenever you take a full heal-up, randomly choose a necromancer spell of the highest level you can cast. For the rest of the day, you know this necromancer spell and can cast it according to its normal usage pattern—at-will, once per battle, recharge, or daily—when that option comes up during your chaos mage spellcasting sequence.</p>\n<p>If the necromancer spell refers to Intelligence, you can replace that ability score with references to Charisma.</p>'
+    value: '<p>You gain a random spell from the necromancer class. Whenever you take a full heal-up, randomly choose a necromancer spell of the highest level you can cast. For the rest of the day, you know this necromancer spell and can cast it according to its normal usage pattern—at-will, once per battle, recharge, or daily—when that option comes up during your chaos mage spellcasting sequence.</p><p>If the necromancer spell refers to Intelligence, you can replace that ability score with references to Charisma.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

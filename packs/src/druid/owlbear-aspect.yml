@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: Until the end of the battle, your crit range with melee attacks expands by 2.</p>\n<p>Adept Effect: As the initiate effect, and you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>"
+    value: '<p>Initiate Effect: Until the end of the battle, your crit range with melee attacks expands by 2.</p><p>Adept Effect: As the initiate effect, and you gain a +1 bonus to melee attacks and a +2 bonus to AC and PD.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: 0
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'
@@ -173,6 +173,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Shifter'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: '56hoOScwJqYuZDru'

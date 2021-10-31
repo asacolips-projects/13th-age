@@ -1,4 +1,5 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
+import { ArchmageUtility } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 /**
@@ -219,9 +220,11 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
 
+    let rollData = itemToRender.actor.getRollData();
+    if(this.data.type == "power") rollData.pwrlvl = this.data.data.powerLevel.value;
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     let sequencerFile = this.data.data.sequencer?.file;
     preCreateChatMessageHandler.handle(chatData, {
@@ -283,6 +286,10 @@ export class ItemArchmage extends Item {
 
     if (!isObjectEmpty(itemUpdateData)) this.update(itemUpdateData, {});
     if (!isObjectEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+
+    // Handle Monk AC bonus
+    //TODO: remove dependency on times-up once core Foundry handles AE expiry
+    if (game.modules.has("times-up")) await this._handleMonkAC();
     return ChatMessage.create(chatData, { displaySheet: false });
   }
 
@@ -294,17 +301,16 @@ export class ItemArchmage extends Item {
    * @returns {Promise.<Object>}  A promise resolving to an object with roll results.
    */
   async recharge({createMessage=true}={}) {
-    let recharge = this.data.data?.recharge?.value ?? null;
-    // If a recharge power does not have a recharge value, assume 16+
-    if (this.data.data?.powerUsage?.value == 'recharge'
-      && !recharge) recharge = 16;
-
     // Only update for recharge powers/items.
-    if (!recharge) return;
+    if (!this.data.data?.powerUsage?.value == 'recharge') return;
+
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
-    let actor = this.parent;
+    // If a recharge power does not have a recharge value, assume 16+
+    let recharge = Number(this.data.data?.recharge?.value) || 16;
+
+    let actor = this.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -346,8 +352,6 @@ export class ItemArchmage extends Item {
       if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
-      // TODO: Wait for 3d dice.
-
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
       ChatMessage.create(chatData, { displaySheet: false });
@@ -371,6 +375,51 @@ export class ItemArchmage extends Item {
       target: recharge,
       success: rechargeSuccessful
     };
+  }
+
+  /**
+   * Check if we are rolling a monk form, add related AC active effect
+   */
+  async _handleMonkAC() {
+    if (this.data.type != "power") return;
+    if (!this.actor.data.data.details.detectedClasses?.includes("monk")) return;
+
+    let effects = this.actor.effects;
+    let group = this.data.data.group.value.toLowerCase();
+    let bonusMagnitudeMap = {};
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.finishing")] = 3;
+    if (!Object.keys(bonusMagnitudeMap).includes(group)) return;
+    let bonusMagnitude = bonusMagnitudeMap[group];
+
+    // Check for other monk AC bonuses
+    let effectsToDelete = [];
+    let alreadyHasBetterBonus = false;
+    effects.forEach(e => {
+      if (e.data.label == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
+        if (Number(e.data.changes[0].value) <= bonusMagnitude) {
+          effectsToDelete.push(e.id);
+        }
+        else alreadyHasBetterBonus = true;
+      }
+    });
+    await this.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+
+    if (alreadyHasBetterBonus) return;
+
+    // Now create new AC bonus effect
+    let effectData = {
+      label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
+      icon: "icons/svg/shield.svg",
+      changes: [{
+        key: "data.attributes.ac.value",
+        value: bonusMagnitude,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    }
+    effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    await this.actor.createEmbeddedEntity("ActiveEffect", [effectData]);
   }
 
   /* -------------------------------------------- */

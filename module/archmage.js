@@ -207,7 +207,7 @@ Hooks.once('init', async function() {
    */
   function _setArchmageInitiative(tiebreaker) {
     CONFIG.Combat.initiative.tiebreaker = tiebreaker;
-    CONFIG.Combat.initiative.decimals = tiebreaker ? 2 : 0;
+    CONFIG.Combat.initiative.decimals = 0;
     if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
   game.settings.register('archmage', 'initiativeDexTiebreaker', {
@@ -220,6 +220,24 @@ Hooks.once('init', async function() {
     onChange: enable => _setArchmageInitiative(enable)
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
+
+  game.settings.register("archmage", "automateHPConditions", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateHPConditionsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateHPConditionsHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
+  game.settings.register("archmage", "staggeredOverlay", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
 
   game.settings.register("archmage", "multiTargetAttackRolls", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsName"),
@@ -251,6 +269,15 @@ Hooks.once('init', async function() {
   game.settings.register('archmage', 'roundUpDamageApplication', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
+  game.settings.register('archmage', 'autoAlterCritFumbleDamage', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageHint"),
     scope: 'world',
     config: true,
     default: true,
@@ -364,11 +391,12 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = function() {
     const actor = this.actor;
     if (!actor) return "1d20";
-    const init = actor.data.data.attributes.init;
+    const init = actor.data.data.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
-    const parts = ["1d20", init.mod];
+    const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (CONFIG.Combat.initiative.tiebreaker) parts.push((actor.data.data.abilities?.dex.value || 10) / 100);
+    if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
+    else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
   }
 
@@ -647,11 +675,11 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   // If there's an actor, set the token size.
   if (actor) {
     let size = actor.data.data.details.size?.value;
-    if (size == 'large') {
+    if (size == 'large' && data.height == 1 && data.width == 1) {
       data.height = 2;
       data.width = 2;
     }
-    if (size == 'huge') {
+    if (size == 'huge' && data.height == 1 && data.width == 1) {
       data.height = 3;
       data.width = 3;
     }

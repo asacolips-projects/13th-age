@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You have a skeleton minion the same level as you that acts as a servant, fights alongside you in battle, and is replaced by a new skeletal minion when it inevitably collapses or is destroyed. It is not a summoned creature; summoning rules don’t apply.</p>\n<p>Your skeletal minion fights alongside you, taking a standard action, a move action, and (if possible) a quick action each turn. Your minion acts on your initiative; you decide whether it takes its turn before or after you.</p>\n<p>The listed attack and damage values are for melee attacks. The listed attack and damage values are for melee attacks. Your skeletal minion can’t heal. When it drops to 0 hp, it’s destroyed for that battle. When you take a quick rest, a new (or patched up) skeletal minion will take its place.</p>"
+    value: '<p>You have a skeleton minion the same level as you that acts as a servant, fights alongside you in battle, and is replaced by a new skeletal minion when it inevitably collapses or is destroyed. It is not a summoned creature; summoning rules don’t apply.</p><p>Your skeletal minion fights alongside you, taking a standard action, a move action, and (if possible) a quick action each turn. Your minion acts on your initiative; you decide whether it takes its turn before or after you.</p><p>The listed attack and damage values are for melee attacks. The listed attack and damage values are for melee attacks. Your skeletal minion can’t heal. When it drops to 0 hp, it’s destroyed for that battle. When you take a quick rest, a new (or patched up) skeletal minion will take its place.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: "<p>Like ranger animal companion feats, skeletal minion feats don’t build on each other. You don’t have to take skeletal minion feats in any particular order, you only need to qualify for the tier of the feat you are taking.</p>\n<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p>\n<ul>\n<li>Your skeletal minion now adds the escalation die to its attack rolls.</li>\n<li>When an enemy attempts to disengage from the skeletal minion, it takes a penalty to the check equal to the escalation die.</li>\n<li>As a quick action, you can set your skeletal minion ablaze, or extinguish the blaze. While it’s flaming, your skeleton minion’s damage dice increase by one size, and it deals fire damage with its melee attacks, but it takes damage equal to your level each time its natural attack roll is odd.</li>\n</ul>"
+        value: '<p>Like ranger animal companion feats, skeletal minion feats don’t build on each other. You don’t have to take skeletal minion feats in any particular order, you only need to qualify for the tier of the feat you are taking.</p><p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p><ul><li>Your skeletal minion now adds the escalation die to its attack rolls.</li><li>When an enemy attempts to disengage from the skeletal minion, it takes a penalty to the check equal to the escalation die.</li><li>As a quick action, you can set your skeletal minion ablaze, or extinguish the blaze. While it’s flaming, your skeleton minion’s damage dice increase by one size, and it deals fire damage with its melee attacks, but it takes damage equal to your level each time its natural attack roll is odd.</li></ul>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: "<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p>\n<ul>\n<li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 3d6 becomes 4d6).</li>\n<li>Add [[@cha.dmg]] to your skeletal minion’s hit points.</li>\n</ul>"
+        value: '<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p><ul><li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 3d6 becomes 4d6).</li><li>Add [[@cha.dmg]] to your skeletal minion’s hit points.</li></ul>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,7 +169,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: "<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong>&nbsp;formatting.</p>\n<ul>\n<li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 4d6 becomes 5d6, and this is cumulative with the champion feat).</li>\n<li>Your skeletal minion gains a +2 bonus to all defenses.</li>\n</ul>"
+        value: '<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong>&nbsp;formatting.</p><ul><li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 4d6 becomes 5d6, and this is cumulative with the champion feat).</li><li>Your skeletal minion gains a +2 bonus to all defenses.</li></ul>'
       isActive:
         type: 'Boolean'
         label: 'Active'

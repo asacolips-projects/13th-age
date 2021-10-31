@@ -379,7 +379,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<ul>\n<li>1&ndash;5:&nbsp;The warbanner&rsquo;s bearer can make a basic attack with a +2 attack bonus as a free action.</li>\n<li>6&ndash;10:&nbsp;Add a 3rd level orc mook to the warbanner&rsquo;s band.</li>\n<li>11&ndash;15:&nbsp;The warbanner can make a&nbsp;flagspear&nbsp;attack as a free action.</li>\n<li>16&ndash;20:&nbsp;The warbanner can make a&nbsp;false rally&nbsp;attack as a free action.</li>\n</ul>"
+        value: '<ul><li>1&ndash;5:&nbsp;The warbanner&rsquo;s bearer can make a basic attack with a +2 attack bonus as a free action.</li><li>6&ndash;10:&nbsp;Add a 3rd level orc mook to the warbanner&rsquo;s band.</li><li>11&ndash;15:&nbsp;The warbanner can make a&nbsp;flagspear&nbsp;attack as a free action.</li><li>16&ndash;20:&nbsp;The warbanner can make a&nbsp;false rally&nbsp;attack as a free action.</li></ul>'
       group:
         type: 'String'
         label: 'Group'

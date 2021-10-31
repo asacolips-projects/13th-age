@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p><strong><br />Hit:&nbsp;</strong>The target is dazed until the end of your next turn.</p>\n<p><strong>Hit by 4+</strong>: [[1d10*@lvl]] holy damage, and the target is dazed until end of your next turn.</p>\n<p><strong>Hit by 8+</strong>: Against non-mooks, holy damage equal to half the target's maximum hit points, and the target is dazed (save ends). Against mooks, the +8 result now deals [[4d10*@lvl]] holy damage.</p>\n<p><strong>Hit by 12+ or Natural 20</strong>: Against non-mooks, the target is destroyed. Against mooks, the +12 result now deals [[4d20*@lvl]] holy damage</p>"
+    value: '<p><strong><br />Hit:&nbsp;</strong>The target is dazed until the end of your next turn.</p><p><strong>Hit by 4+</strong>: [[1d10*@lvl]] holy damage, and the target is dazed until end of your next turn.</p><p><strong>Hit by 8+</strong>: Against non-mooks, holy damage equal to half the target''s maximum hit points, and the target is dazed (save ends). Against mooks, the +8 result now deals [[4d10*@lvl]] holy damage.</p><p><strong>Hit by 12+ or Natural 20</strong>: Against non-mooks, the target is destroyed. Against mooks, the +12 result now deals [[4d20*@lvl]] holy damage</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Initiate Effect: You gain a +2 bonus to AC and PD.</p>\n<p>Adept Effect: As the initiate effect, and the first time you become staggered this battle, roll a hard save (16+). If you fail, choose one of the two following benefits. If you succeed, you get both.</p>\n<p>Endurance: You can heal using a recovery.</p>\n<p>Wrath: Begin rolling 2d20 for each of your melee attacks and choose the result you prefer until the end of the battle or until you make both rolls for a melee attack and each roll is a natural 10 or less.</p>"
+    value: '<p>Initiate Effect: You gain a +2 bonus to AC and PD.</p><p>Adept Effect: As the initiate effect, and the first time you become staggered this battle, roll a hard save (16+). If you fail, choose one of the two following benefits. If you succeed, you get both.</p><p>Endurance: You can heal using a recovery.</p><p>Wrath: Begin rolling 2d20 for each of your melee attacks and choose the result you prefer until the end of the battle or until you make both rolls for a melee attack and each roll is a natural 10 or less.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,7 +136,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: 0
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'
@@ -173,6 +173,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Shifter'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'PbKjgtyPG7eG2zwg'

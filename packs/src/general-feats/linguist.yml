@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: "<p>This feat allows you to speak enough arcana, dwarven, elven, gnomish, gnoll, goblin, orcish, and other standard humanoid languages to comprehend enough of what most other humanoids are saying or screaming during battle. You are not fluent in all these languages, no one will mistake you for a native speaker, and your vocabulary is adventurer-centric (heavy on words connected to danger rather than philosophy or emotions).</p>\n<p>You can also read enough to get by in all these languages.</p>"
+        value: '<p>This feat allows you to speak enough arcana, dwarven, elven, gnomish, gnoll, goblin, orcish, and other standard humanoid languages to comprehend enough of what most other humanoids are saying or screaming during battle. You are not fluent in all these languages, no one will mistake you for a native speaker, and your vocabulary is adventurer-centric (heavy on words connected to danger rather than philosophy or emotions).</p><p>You can also read enough to get by in all these languages.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -7,6 +7,12 @@ ARCHMAGE.statusEffects = [
     label: "ARCHMAGE.EFFECT.StatusDead",
     icon: "icons/svg/skull.svg"
   },
+  // Staggered
+  {
+    id: "staggered",
+    label: "ARCHMAGE.EFFECT.StatusStaggered",
+    icon: "icons/svg/blood.svg",
+  },
   // Unconscious.
   {
     id: "unconscious",
@@ -193,6 +199,13 @@ ARCHMAGE.powerUsages = {
   'other': 'Other'
 };
 
+ARCHMAGE.equipUsages = {
+  'daily': 'Daily',
+  'recharge': 'Recharge',
+  'once-per-battle': 'Per Battle',
+  'other': 'Other'
+};
+
 ARCHMAGE.actionTypes = {
   'standard': 'Standard',
   'move': 'Move',
@@ -200,6 +213,14 @@ ARCHMAGE.actionTypes = {
   'free': 'Free',
   'interrupt': 'Interrupt'
 };
+
+ARCHMAGE.effectDurations = {
+  StartOfNextTurn: 0,
+  EndOfNextTurn: 1,
+  StartOfNextSourceTurn: 2,
+  EndOfNextSourceTurn: 3,
+  SaveEnds: 4
+}
 
 ARCHMAGE.creatureTypes = {
   'aberration': 'Aberration',
@@ -216,6 +237,7 @@ ARCHMAGE.creatureTypes = {
   'monstrosity': 'Monstrosity',
   'ooze': 'Ooze',
   'plant': 'Plant',
+  'spirit': 'Spirit',
   'undead': 'Undead'
 };
 

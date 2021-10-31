@@ -32,19 +32,21 @@ export default class HitEvaluation {
 
           let target = targets[roll_index];
           var targetDefense = HitEvaluation._getTargetDefenseValue(target, defense);
+          if (targetDefense != undefined) {
+            var hit = rollTotal >= targetDefense;
+            if (hit) {
+              targetsHit.push(target.data.name);
+              if (hasHit == undefined || !hasHit) hasHit = true;
+              if (hasMissed == undefined) hasMissed = false;
+            }
+            else {
+              targetsMissed.push(target.data.name);
+              if (hasMissed == undefined || !hasMissed) hasMissed = true;
+              if (hasHit == undefined) hasHit = false;
+            }
+          }
           defenses.push(targetDefense);
 
-          var hit = rollTotal >= targetDefense;
-          if (hit) {
-            targetsHit.push(target);
-            if (hasHit == undefined || !hasHit) hasHit = true;
-            if (hasMissed == undefined) hasMissed = false;
-          }
-          else {
-            targetsMissed.push(target);
-            if (hasMissed == undefined || !hasMissed) hasMissed = true;
-            if (hasHit == undefined) hasHit = false;
-          }
         });
 
         return {
@@ -65,17 +67,17 @@ export default class HitEvaluation {
                 return target.data.actorData.data.attributes[defense].value;
             }
         }
-        return target.actor.data.data.attributes[defense].value;
+        return target.actor.data.data.attributes[defense]?.value;
     }
 
     static _getTargetDefense(row_text) {
-        if (row_text.toLowerCase().includes(" ac")) {
+        if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.ac.key"))) {
             return "ac";
         }
-        else if (row_text.toLowerCase().includes(" pd")) {
+        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.pd.key"))) {
             return "pd";
         }
-        else if (row_text.toLowerCase().includes(" md")) {
+        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.md.key"))) {
             return  "md";
         }
     }
