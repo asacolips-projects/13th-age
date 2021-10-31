@@ -117,24 +117,45 @@ export class ActorArchmage extends Actor {
   applyActiveEffects(weight = 'default') {
     const overrides = this.overrides ? foundry.utils.flattenObject(this.overrides): {};
 
-    // Organize non-disabled effects by their application priority
+    // Extract non-disabled and relevant changes
+    let relevant = (c => {return true;});
+    switch (weight) {
+      // Handle ability scores and base attributes.
+      case 'pre':
+        relevant = (c => {return c.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g);});
+        break;
+      // Handle the non-special active effects.
+      case 'default':
+        relevant = (c => {return !c.key.includes('standardBonuses') && !c.key.includes('escalation');});
+        break;
+      // Handle escalation die.
+      case 'ed':
+        relevant = (c => {return c.key == 'data.attributes.escalation.value';});
+        break;
+      // Handle standard bonuses.
+      case 'std':
+        relevant = (c => {return c.key == 'data.attributes.standardBonuses.value';});
+        break;
+      // Handle remaining active effects.
+      case 'post':
+        relevant = (c => {return true;})
+        break;
+    }
     const changes = this.effects.reduce((changes, e) => {
       if ( e.data.disabled ) return changes;
       return changes.concat(e.data.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
-        c.label = e.data.label;
+        c.name = e.data.label;
         c.priority = c.priority ?? (c.mode * 10);
         return c;
-      }));
+      })).filter(relevant);
     }, []);
-    // changes.sort((a, b) => a.priority - b.priority);
 
-    //TODO: doing this every time is very inefficient, can it be improved?
     // Apply stacking rules:
     // - Only worst penalty applies
     // - Bonuses stack so long as their source is different
-    // - Item bonuses don't stack, but they aren't AEs
+    // - Item bonuses don't stack, but they aren't AEs anyway
     let uniqueChanges = [];
     let uniquePenalties = {};
     let uniqueBonuses = {};
@@ -146,7 +167,6 @@ export class ActorArchmage extends Actor {
         continue;
       }
       let chngVal = Number(change.value);
-      let label = change.label;
       if (chngVal <= 0) { // Penalty, doesn't stack
         if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
         else { // Check if the new penalty is worse than the earlier one
@@ -154,83 +174,44 @@ export class ActorArchmage extends Actor {
             uniquePenalties[change.key].value = change.value;
           }
         }
-      } else { // Bonus, stacks if label is different
+      } else { // Bonus, stacks if name is different
         if (!uniqueBonuses[change.key]) {
           uniqueBonuses[change.key] = change;
           uniqueBonusLabels[change.key] = {};
-          uniqueBonusLabels[change.key][label] = chngVal;
-        } else { // Check if we have other bonuses with the same label
-          if (uniqueBonusLabels[change.key][label]) {
-            // An effect with the same label already exists, use better one
-            chngVal = Math.max(chngVal, uniqueBonusLabels[change.key][label]);
+          uniqueBonusLabels[change.key][change.name] = chngVal;
+        } else { // Check if we have other bonuses with the same name
+          if (uniqueBonusLabels[change.key][change.name]) {
+            // An effect with the same name already exists, use better one
+            chngVal = Math.max(chngVal, uniqueBonusLabels[change.key][change.name]);
             uniqueBonuses[change.key].value = chngVal.toString();
-            uniqueBonusLabels[change.key][label] = chngVal;
+            uniqueBonusLabels[change.key][change.name] = chngVal;
           } else {
             // No other effect with this name exists, stack
-            uniqueBonusLabels[change.key][label] = chngVal;
+            uniqueBonusLabels[change.key][change.name] = chngVal;
             uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a + b)).toString();
           }
         }
       }
     }
+    // Merge stacked bonuses into penalties to get overall change
+    for (let change of Object.values(uniqueBonuses)) {
+      if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+      else uniquePenalties[change.key].value = (Number(uniquePenalties[change.key].value) + Number(change.value)).toString();
+    }
+    // Put everything together into an array of changes, once per target value
     uniqueChanges = uniqueChanges.concat(Object.values(uniquePenalties));
-    uniqueChanges = uniqueChanges.concat(Object.values(uniqueBonuses));
+
+    // Organize changes by their application priority
     uniqueChanges.sort((a, b) => a.priority - b.priority);
 
     // Apply all changes
-    // for ( let change of changes ) {
     for ( let change of uniqueChanges ) {
-      let applyEffect = false;
-
+      // Skip anything we already applied
       if (overrides[change.key]) continue;
 
-      // TODO: Make this more efficient, perhaps by storing the changes in the actor.
-      switch (weight) {
-        // Handle ability scores and base attributes.
-        case 'pre':
-          if (change.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g)) {
-            // console.log(`0 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle the non-special active effects.
-        case 'default':
-          if (!change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
-            // console.log(`1 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle escalation die.
-        case 'ed':
-          if (change.key == 'data.attributes.escalation.value') {
-            // console.log(`2 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle standard bonuses.
-        case 'std':
-          if (change.key == 'data.attributes.standardBonuses.value') {
-            // console.log(`2 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle remaining active effects.
-        case 'post':
-          // console.log(`2 | ${weight} | ${change.key}`);
-          applyEffect = true;
-          break;
-      }
-
-      // If an effect should be applied, handle it.
-      if (applyEffect) {
-        const result = change.effect.apply(this, change);
-        if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
-          overrides[change.key] = result;
-        }
+      const result = change.effect.apply(this, change);
+      if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
+        overrides[change.key] = result;
       }
     }
 
