@@ -82,13 +82,6 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('hideBasedOnSystemSetting', () => {
-    if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
-      return "hide";
-    }
-    return "";
-  });
-
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
