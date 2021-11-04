@@ -28,7 +28,7 @@ export default class ArchmageRolls {
     let newTargetLine = undefined;
     let targets = 1;
     let nlpMap = {}
-    for (let i=2; i<=8; i++) {
+    for (let i=2; i<=9; i++) {
       nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
       nlpMap[i.toString()] = i;
     }
