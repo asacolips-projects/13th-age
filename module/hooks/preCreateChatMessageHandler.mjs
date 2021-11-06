@@ -10,11 +10,9 @@ export default class preCreateChatMessageHandler {
         let $rolls = $content.find('.inline-result');
         let updated_content = null;
         let hitEvaluationResults = undefined;
-        let targets = [...game.user.targets.values()];
-        let numTargets = 1;
-        if (options.targets) numTargets = options.targets;
-        let type = 'power';
-        if (options.type) type = options.type;
+        let targets = undefined;
+        let numTargets = options.targets ? options.targets : 1;
+        let type = options.type ? options.type : 'power';
 
         // TODO (#74): All card evaluation needs to load from Localization
         let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
