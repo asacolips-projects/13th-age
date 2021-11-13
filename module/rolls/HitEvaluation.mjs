@@ -11,7 +11,7 @@ export default class HitEvaluation {
         let hasHit = undefined;
         let hasMissed = undefined;
 
-        if (targets.length == 0) return;
+        if (!targets || targets.length == 0) return;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
 
