@@ -1096,7 +1096,13 @@ export class ActorArchmage extends Actor {
       }
       // Do not exceed max hps
       let max = data.data.attributes.hp.max || hp.max;
-      data.data.attributes.hp.value = Math.min(hp.value + delta, max);
+      // If max hp is then assume this is a newly created npc
+      if (max == 10 && this.data.type == 'npc') {
+        data.data.attributes.hp.value = hp.value + delta;
+        data.data.attributes.hp.max = hp.value + delta;
+      } else {
+        data.data.attributes.hp.value = Math.min(hp.value + delta, max);
+      }
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions')) {
