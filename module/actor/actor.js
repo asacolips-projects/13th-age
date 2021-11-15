@@ -269,7 +269,7 @@ export class ActorArchmage extends Actor {
   _prepareCharacterData(data, model, flags) {
 
     // Find known classes
-    if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
+    if (!data.details.detectedClasses && data.details.class?.value) {
       let classList = Object.keys(CONFIG.ARCHMAGE.classList);
       let classRegex = new RegExp(classList.join('|'), 'g');
 
@@ -1096,7 +1096,7 @@ export class ActorArchmage extends Actor {
       }
       // Do not exceed max hps
       let max = data.data.attributes.hp.max || hp.max;
-      // If max hp is then assume this is a newly created npc
+      // If max hp is ten assume this is a newly created npc
       if (max == 10 && this.data.type == 'npc') {
         data.data.attributes.hp.value = hp.value + delta;
         data.data.attributes.hp.max = hp.value + delta;
