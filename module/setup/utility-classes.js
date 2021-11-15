@@ -372,6 +372,16 @@ export class ArchmageUtility {
     data.duration = d;
     return data;
   }
+
+  // Find known classes
+  static detectClasses(className) {
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+    let matchedClasses = className.match(classRegex);
+    if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
+    return matchedClasses;
+  }
 }
 
 

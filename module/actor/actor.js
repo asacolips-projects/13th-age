@@ -270,14 +270,7 @@ export class ActorArchmage extends Actor {
 
     // Find known classes
     if (!data.details.detectedClasses && data.details.class?.value) {
-      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-      let classRegex = new RegExp(classList.join('|'), 'g');
-
-      var classText = data.details.class?.value;
-      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-
-      var matchedClasses = classText.match(classRegex);
-      if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
+      let matchedClasses = ArchmageUtility.detectClasses(data.details.class.value);
       data.details.detectedClasses = matchedClasses;
     }
 
@@ -1307,23 +1300,12 @@ export class ActorArchmage extends Actor {
     }
 
     else if (data.data.details !== undefined
-      && data.data.details.class !== undefined
-      && game.settings.get('archmage', 'automateBaseStatsFromClass')
-      ) {
+      && data.data.details.class !== undefined) {
       // Here we received an update of the class name for a character
 
-      // Find known classes
-      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-      let classRegex = new RegExp(classList.join('|'), 'g');
-      let classText = data.data.details.class.value;
-
-      // Exit early if the class text is invalid.
-      if (typeof classText !== 'string') return;
-
-      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-      let matchedClasses = classText.match(classRegex);
-
-      if (matchedClasses !== null) {
+      let matchedClasses = ArchmageUtility.detectClasses(data.data.details.class.value);
+      if (matchedClasses !== null
+        && game.settings.get('archmage', 'automateBaseStatsFromClass')) {
         // Remove duplicates and Sort to avoid problems with future matches
         matchedClasses = [...new Set(matchedClasses)].sort();
 
