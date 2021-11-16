@@ -186,6 +186,10 @@ export class ItemArchmage extends Item {
     }
     let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
 
+    // Prepare roll data now
+    let rollData = itemToRender.actor.getRollData();
+    if(this.data.type == "power") rollData.pwrlvl = this.data.data.powerLevel.value;
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
     const token = itemToRender.actor.token;
@@ -193,7 +197,7 @@ export class ItemArchmage extends Item {
       actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
       item: itemToRender.data,
-      data: itemToRender.getChatData()
+      data: itemToRender.getChatData({}, false)
     };
 
     // TODO: roll rolls here
@@ -220,8 +224,7 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
 
-    let rollData = itemToRender.actor.getRollData();
-    if(this.data.type == "power") rollData.pwrlvl = this.data.data.powerLevel.value;
+
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
@@ -424,9 +427,11 @@ export class ItemArchmage extends Item {
   /*  Chat Card Data
   /* -------------------------------------------- */
 
-  getChatData(htmlOptions) {
+  getChatData(htmlOptions, createInlineRolls=true) {
     const data = this[`_${this.data.type}ChatData`]();
-    data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
+    if (createInlineRolls) {
+      data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
+    }
     return data;
   }
 

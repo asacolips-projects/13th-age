@@ -222,7 +222,7 @@ export class ArchmagePrepopulate {
     })
     // Return a simplified data object.
     .map(p => {
-      let chatData = p.getChatData();
+      let chatData = p.getChatData({}, false);
       chatData.feats.forEach(f => {
         f.isActive = true;
       });

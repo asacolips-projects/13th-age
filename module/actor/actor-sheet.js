@@ -750,7 +750,10 @@ export class ActorArchmageSheet extends ActorSheet {
     event.preventDefault();
     let li = $(event.currentTarget).parents(".item");
     let item = this.actor.items.get(li.attr("data-item-id"));
-    let chatData = item.getChatData({ secrets: this.actor.isOwner });
+    let chatData = item.getChatData({
+      secrets: this.actor.isOwner,
+      rollData: this.actor.getRollData()
+      });
 
     // Toggle summary
     if (li.hasClass('item--power')) {
