@@ -28,18 +28,18 @@ export default class ArchmageRolls {
     let newTargetLine = undefined;
     let targets = 1;
     let nlpMap = {}
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.two")+" "] = 2;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.three")+" "] = 3;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.four")+" "] = 4;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.five")+" "] = 5;
-    for (let i=2; i<=5; i++) {
+    for (let i=2; i<=9; i++) {
+      nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
       nlpMap[i.toString()] = i;
     }
 
     if (item.data.type == "power") {
       let targetLine = item.data.data.target.value;
       if (targetLine != null) {
-        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        // First cleanup references to target HPs
+        let lineToParse = targetLine.replace(/[0-9]+ hp/g, '');
+        lineToParse = lineToParse.toLowerCase().replace(/\[\[.+?\]\] hp/g, '');
+        rolls = ArchmageRolls._getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
           ArchmageRolls._roll(rolls, item.actor);
@@ -54,11 +54,14 @@ export default class ArchmageRolls {
           // Try NLP to guess targets
           let keys = Object.keys(nlpMap);
           for (let x = 0; x < keys.length; x++) {
-            if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
+            if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all"
+          // Handle "each" or "all" or "every" or the Crescendo spell
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")
+            || item.data.data?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
+            ) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
@@ -81,9 +84,10 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all"
+          // Handle "each" or "all" or "every"
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
@@ -94,14 +98,14 @@ export default class ArchmageRolls {
   }
 
   static addAttackMod(item) {
-    // Add +@attackMod.value to all inline rolls if the modifier is not 0
+    // Add @atk.mod modifier to the first inline roll, if it isn't 0
     let attackLine = item.data.data.attack.value;
-    let atkMod = item.actor.getRollData().attackMod.value;
+    let atkMod = item.actor.getRollData().atk.mod;
     if (atkMod) {
       let match = /(\[\[.+?\]\])/.exec(attackLine);
       if (match) {
         let formula = match[1];
-        let newFormula = formula.replace("]]", "+@attackMod.value]]");
+        let newFormula = formula.replace("]]", "+@atk.mod]]");
         attackLine = attackLine.replace(formula, newFormula);
       }
     }
@@ -114,6 +118,13 @@ export default class ArchmageRolls {
     // selected, just use the number listed on the power.
     let selectedTargets = [...game.user.targets];
     let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
+
+    // Handle the special case of the Crescendo spell
+    if (item.data.data?.special?.value?.toLowerCase().includes(
+      game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
+        newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine);
+      }
+
     // Split string into first inline roll and vs, and repeat roll as needed
     let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
     if (match) {
@@ -134,11 +145,19 @@ export default class ArchmageRolls {
     return newAttackLine;
   }
 
+  static _handleCrescendo(newAttackLine) {
+    if (game.user.targets.size <= 1) return newAttackLine;
+    // Special: You can choose more than one target for this spell,
+    // but you take a –2 penalty when attacking two targets, a –3
+    // penalty for three targets, and so on.
+    return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
+  }
+
   static _roll(rolls, actor, key=undefined) {
     for (let i=0; i<rolls.length; i++) {
       rolls[i].evaluate({async: false});
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
-      if (key == "attack") rolls[i].critResult = ArchmageRolls._inlineRollCritTest(rolls[i], actor);
+      if (key == "attack") rolls[i].critResult = ArchmageRolls.inlineRollCritTest(rolls[i], actor);
     }
   }
 
@@ -155,7 +174,7 @@ export default class ArchmageRolls {
       let rolls = [];
       for (let x = 0; x < matches.length; x++) {
         let match = matches[x];
-        console.log(match);
+        //console.log(match);
         let roll = new Roll(match[2], data);
         //roll.formula = match[2];
         rolls.push(roll);
@@ -198,7 +217,7 @@ export default class ArchmageRolls {
    *
    * @return {string} 'crit', 'fail', or 'normal'.
    */
-  static _inlineRollCritTest(roll, actor = null) {
+  static inlineRollCritTest(roll, actor = null) {
 
     for (let i = 0; i < roll.terms.length; i++) {
       var part = roll.terms[i];
@@ -214,8 +233,9 @@ export default class ArchmageRolls {
               return 'fail';
             }
             // Barbarian crit.
-            else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
+            else if (actor?.data.data.details.detectedClasses?.includes("barbarian")
+              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10
+              && part.results[1].result > 10) {
               return 'crit';
             }
             // Natural 2, if dual-wielding.

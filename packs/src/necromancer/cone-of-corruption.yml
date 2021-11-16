@@ -9,6 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -124,7 +125,7 @@ data:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[(2d8)10+@int.dmg+@atk.a.bonus]]'
+    value: '[[(2d8)*10+@int.dmg+@atk.a.bonus]]'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

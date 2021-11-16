@@ -380,7 +380,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<ol>\n<li>Distilled ankheg spit: The target takes [[3]] ongoing acid damage.</li>\n<li>Reconstituted remorhaz lymph: The target takes [[3]] ongoing fire damage.</li>\n<li>Essence of giant spider web: The target is stuck (save ends).</li>\n<li>Kobold blasting powder: There’s a loud bang and the battlefield is obscured with thick smoke. Each non-kobold creature takes a –2 attack penalty during its next turn.</li>\n</ol>"
+        value: '<ol><li>Distilled ankheg spit: The target takes [[3]] ongoing acid damage.</li><li>Reconstituted remorhaz lymph: The target takes [[3]] ongoing fire damage.</li><li>Essence of giant spider web: The target is stuck (save ends).</li><li>Kobold blasting powder: There’s a loud bang and the battlefield is obscured with thick smoke. Each non-kobold creature takes a –2 attack penalty during its next turn.</li></ol>'
       group:
         type: 'String'
         label: 'Group'
@@ -431,7 +431,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>The kobold flings itself from a trebuchet or ignites an unstable alchemical propellant and lands among its enemies. Each time the kobold uses a move action to fly, roll a [[1d20]].</p>\n<ul>\n<li>1:&nbsp;It crashes and explodes (see&nbsp;mook).</li>\n<li>2&ndash;15:&nbsp;It lands safely.</li>\n<li>16+:&nbsp;It stays aloft and can keep flying.</li>\n</ul>"
+        value: '<p>The kobold flings itself from a trebuchet or ignites an unstable alchemical propellant and lands among its enemies. Each time the kobold uses a move action to fly, roll a [[1d20]].</p><ul><li>1:&nbsp;It crashes and explodes (see&nbsp;mook).</li><li>2&ndash;15:&nbsp;It lands safely.</li><li>16+:&nbsp;It stays aloft and can keep flying.</li></ul>'
       group:
         type: 'String'
         label: 'Group'

@@ -86,10 +86,8 @@ export class ActorArchmage extends Actor {
     // Set a copy of level in details in order to mimic 5e's data structure.
     data.details.level = data.attributes.level;
 
-    // Initiative
-    var improvedInit = 0;
-    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
+    // Fallback for attack modifier and defenses
+    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
 
     // Prepare Character data
     if (actorData.type === 'character') {
@@ -98,6 +96,11 @@ export class ActorArchmage extends Actor {
     else if (actorData.type === 'npc') {
       this._prepareNPCData(data, model, flags);
     }
+
+    // Initiative
+    var improvedInit = 0;
+    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
+    data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
 
     // Get the escalation die value.
     data.attributes.escalation = {
@@ -114,71 +117,103 @@ export class ActorArchmage extends Actor {
   applyActiveEffects(weight = 'default') {
     const overrides = this.overrides ? foundry.utils.flattenObject(this.overrides): {};
 
-    // Organize non-disabled effects by their application priority
+    // Extract non-disabled and relevant changes
+    let relevant = (c => {return true;});
+    switch (weight) {
+      // Handle ability scores and base attributes.
+      case 'pre':
+        relevant = (c => {return c.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g);});
+        break;
+      // Handle the non-special active effects.
+      case 'default':
+        relevant = (c => {return !c.key.includes('standardBonuses') && !c.key.includes('escalation');});
+        break;
+      // Handle escalation die.
+      case 'ed':
+        relevant = (c => {return c.key == 'data.attributes.escalation.value';});
+        break;
+      // Handle standard bonuses.
+      case 'std':
+        relevant = (c => {return c.key == 'data.attributes.standardBonuses.value';});
+        break;
+      // Handle remaining active effects.
+      case 'post':
+        relevant = (c => {return true;})
+        break;
+    }
     const changes = this.effects.reduce((changes, e) => {
       if ( e.data.disabled ) return changes;
       return changes.concat(e.data.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
+        c.name = e.data.label;
         c.priority = c.priority ?? (c.mode * 10);
         return c;
-      }));
+      })).filter(relevant);
     }, []);
-    changes.sort((a, b) => a.priority - b.priority);
 
-    // Apply all changes
+    // Apply stacking rules:
+    // - Only worst penalty applies
+    // - Bonuses stack so long as their source is different
+    // - Item bonuses don't stack, but they aren't AEs anyway
+    let uniqueChanges = [];
+    let uniquePenalties = {};
+    let uniqueBonuses = {};
+    let uniqueBonusLabels = {};
     for ( let change of changes ) {
-      let applyEffect = false;
+      if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
+        // 13A effects should never fall here, but if they do handle them
+        uniqueChanges.push(change);
+        continue;
+      }
+      let chngVal = Number(change.value);
+      if (chngVal <= 0) { // Penalty, doesn't stack
+        if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+        else { // Check if the new penalty is worse than the earlier one
+          if (chngVal < Number(uniquePenalties[change.key].value)) {
+            uniquePenalties[change.key].value = change.value;
+          }
+        }
+      } else { // Bonus, stacks if name is different
+        if (!uniqueBonuses[change.key]) {
+          uniqueBonuses[change.key] = change;
+          uniqueBonusLabels[change.key] = {};
+          uniqueBonusLabels[change.key][change.name] = chngVal;
+        } else { // Check if we have other bonuses with the same name
+          if (uniqueBonusLabels[change.key][change.name]) {
+            // An effect with the same name already exists, use better one
+            chngVal = Math.max(chngVal, uniqueBonusLabels[change.key][change.name]);
+            uniqueBonuses[change.key].value = chngVal.toString();
+            uniqueBonusLabels[change.key][change.name] = chngVal;
+          } else {
+            // No other effect with this name exists, stack
+            uniqueBonusLabels[change.key][change.name] = chngVal;
+            uniqueBonuses[change.key].value = (Object.values(uniqueBonusLabels[change.key]).reduce((a, b) => a + b)).toString();
+          }
+        }
+      }
+    }
+    // Merge stacked bonuses into penalties to get overall change
+    for (let change of Object.values(uniqueBonuses)) {
+      if (!uniquePenalties[change.key]) uniquePenalties[change.key] = change;
+      else uniquePenalties[change.key].value = (Number(uniquePenalties[change.key].value) + Number(change.value)).toString();
+    }
+    // Put everything together into an array of changes, once per target value
+    uniqueChanges = uniqueChanges.concat(Object.values(uniquePenalties));
 
+    // Organize changes by their application priority
+    uniqueChanges.sort((a, b) => a.priority - b.priority);
+
+    // Apply all changes of this phase
+    for ( let change of uniqueChanges ) {
+      // Skip anything we already applied
       if (overrides[change.key]) continue;
 
-      // TODO: Make this more efficient, perhaps by storing the changes in the actor.
-      switch (weight) {
-        // Handle ability scores and base attributes.
-        case 'pre':
-          if (change.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g)) {
-            console.log(`0 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle the non-special active effects.
-        case 'default':
-          if (!change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
-            console.log(`1 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle escalation die.
-        case 'ed':
-          if (change.key == 'data.attributes.escalation.value') {
-            console.log(`2 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle standard bonuses.
-        case 'std':
-          if (change.key == 'data.attributes.standardBonuses.value') {
-            console.log(`2 | ${weight} | ${change.key}`);
-            applyEffect = true;
-          }
-          break;
-
-        // Handle remaining active effects.
-        case 'post':
-          console.log(`2 | ${weight} | ${change.key}`);
-          applyEffect = true;
-          break;
-      }
-
-      // If an effect should be applied, handle it.
-      if (applyEffect) {
-        const result = change.effect.apply(this, change);
-        if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
-          overrides[change.key] = result;
-        }
+      // Apply effect
+      const result = change.effect.apply(this, change);
+      // Remember we already applied change for everything but @ed and @std
+      if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
+        overrides[change.key] = result;
       }
     }
 
@@ -203,26 +238,24 @@ export class ActorArchmage extends Actor {
     const actorData = this.data;
     const data = actorData.data;
 
-    if (actorData.type === 'character') {
-      // Get the escalation die value.
-      if (game.combats !== undefined && game.combat !== null) {
-        data.attributes.escalation = {
-          value: ArchmageUtility.getEscalation(game.combat)
-        };
-      }
-      else {
-        data.attributes.escalation = { value: 0 };
-      }
-
-      this.applyActiveEffects('ed');
-
-      // Must recompute this here because the e.d. might have changed.
-      data.attributes.standardBonuses = {
-        value: data.attributes.level.value + data.attributes.escalation.value
+    // Get the escalation die value.
+    if (game.combats !== undefined && game.combat !== null) {
+      data.attributes.escalation = {
+        value: ArchmageUtility.getEscalation(game.combat)
       };
-
-      this.applyActiveEffects('std')
     }
+    else {
+      data.attributes.escalation = { value: 0 };
+    }
+
+    this.applyActiveEffects('ed');
+
+    // Must recompute this here because the e.d. might have changed.
+    data.attributes.standardBonuses = {
+      value: data.attributes.level.value + data.attributes.escalation.value
+    };
+
+    this.applyActiveEffects('std')
   }
 
   /* -------------------------------------------- */
@@ -234,6 +267,12 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareCharacterData(data, model, flags) {
+
+    // Find known classes
+    if (!data.details.detectedClasses && data.details.class?.value) {
+      let matchedClasses = ArchmageUtility.detectClasses(data.details.class.value);
+      data.details.detectedClasses = matchedClasses;
+    }
 
     // Build out the icon results structure if it hasn't been
     // previously initialized.
@@ -256,25 +295,19 @@ export class ActorArchmage extends Actor {
       delete data.out;
     }
 
-    // Find known classes
-    if (!game.settings.get('archmage', 'automateBaseStatsFromClass')) {
-      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-      let classRegex = new RegExp(classList.join('|'), 'g');
-
-      var classText = data.details.class?.value;
-      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-
-      var matchedClasses = classText.match(classRegex);
-      if (matchedClasses !== null) {matchedClasses = [...new Set(matchedClasses)].sort();}
-      data.details.detectedClasses = matchedClasses;
-    }
-
-    // Fallbacks for missing melee weapon options
+    // Fallbacks for potentially missing data
+    // Coins
+    if (!data.coins) data.coins = model.coins;
+    // Weapons
+    if (!data.attributes.weapon) data.attributes.weapon = model.attributes.weapon;
+    if (!data.attributes.weapon.jab) data.attributes.weapon.jab = model.attributes.weapon.jab;
+    if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
+    if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
+    // Weapon options
     if (data.attributes.weapon.melee.shield === undefined) data.attributes.weapon.melee.shield = model.attributes.weapon.melee.shield;
     if (data.attributes.weapon.melee.dualwield === undefined) data.attributes.weapon.melee.dualwield = model.attributes.weapon.melee.dualwield;
     if (data.attributes.weapon.melee.twohanded === undefined) data.attributes.weapon.melee.twohanded = model.attributes.weapon.melee.twohanded;
-
-    // Fallbacks for missing resources
+    // Resources
     if (!data.resources) data.resources = model.resources;
     if (!data.resources.perCombat) data.resources.perCombat = model.resources.perCombat;
     if (!data.resources.perCombat.momentum) data.resources.perCombat.momentum = model.resources.perCombat.momentum;
@@ -288,6 +321,10 @@ export class ActorArchmage extends Actor {
     if (!data.resources.spendable.custom1.rest) data.resources.spendable.custom1.rest = model.resources.spendable.custom1.rest;
     if (!data.resources.spendable.custom2.rest) data.resources.spendable.custom2.rest = model.resources.spendable.custom2.rest;
     if (!data.resources.spendable.custom3.rest) data.resources.spendable.custom3.rest = model.resources.spendable.custom3.rest;
+    // Saves
+    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
+    if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
+    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
@@ -300,11 +337,6 @@ export class ActorArchmage extends Actor {
       // Ki
       data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
     }
-
-    // Handle death saves.
-    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
-    if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
-    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
 
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
@@ -320,10 +352,10 @@ export class ActorArchmage extends Actor {
       data.attributes.saves.lastGaspFails.steps[i] = true;
     }
 
-    // Ability modifiers and saves
+    // Ability modifiers
     for (let abl of Object.values(data.abilities)) {
       abl.mod = Math.floor((abl.value - 10) / 2);
-      abl.lvl = Math.floor((abl.value - 10) / 2) + data.attributes.level.value;
+      abl.lvl = abl.mod + data.attributes.level.value;
     }
 
     // Bonuses
@@ -349,21 +381,21 @@ export class ActorArchmage extends Actor {
 
     if (this.items) {
       this.items.forEach(function(item) {
-        if (item.type === 'equipment') {
-          meleeAttackBonus = Math.max(meleeAttackBonus, getBonusOr0(item.data.data.attributes.attack.melee));
-          rangedAttackBonus = Math.max(rangedAttackBonus, getBonusOr0(item.data.data.attributes.attack.ranged));
-          divineAttackBonus = Math.max(divineAttackBonus, getBonusOr0(item.data.data.attributes.attack.divine));
-          arcaneAttackBonus = Math.max(arcaneAttackBonus, getBonusOr0(item.data.data.attributes.attack.arcane));
+        if (item.type === 'equipment' && item.data.data.isActive) {
+          meleeAttackBonus += getBonusOr0(item.data.data.attributes.attack.melee);
+          rangedAttackBonus += getBonusOr0(item.data.data.attributes.attack.ranged);
+          divineAttackBonus += getBonusOr0(item.data.data.attributes.attack.divine);
+          arcaneAttackBonus += getBonusOr0(item.data.data.attributes.attack.arcane);
 
-          acBonus = Math.max(acBonus, getBonusOr0(item.data.data.attributes.ac));
-          mdBonus = Math.max(mdBonus, getBonusOr0(item.data.data.attributes.md));
-          pdBonus = Math.max(pdBonus, getBonusOr0(item.data.data.attributes.pd));
+          acBonus += getBonusOr0(item.data.data.attributes.ac);
+          mdBonus += getBonusOr0(item.data.data.attributes.md);
+          pdBonus += getBonusOr0(item.data.data.attributes.pd);
 
-          hpBonus = Math.max(hpBonus, getBonusOr0(item.data.data.attributes.hp));
-          recoveriesBonus = Math.max(recoveriesBonus, getBonusOr0(item.data.data.attributes.recoveries));
+          hpBonus += getBonusOr0(item.data.data.attributes.hp);
+          recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          saveBonus = Math.max(saveBonus, getBonusOr0(item.data.data.attributes.save));
-          disengageBonus = Math.max(disengageBonus, getBonusOr0(item.data.data.attributes.disengage));
+          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });
     }
@@ -375,27 +407,26 @@ export class ActorArchmage extends Actor {
       arcane: { bonus: arcaneAttackBonus }
     };
 
-    if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
-
+    // Saves
     data.attributes.saves.easy = Math.max((6 - saveBonus), 0);
     data.attributes.saves.normal = Math.max((11 - saveBonus), 0);
     data.attributes.saves.hard = Math.max((16 - saveBonus), 0);
     data.attributes.disengage = Math.max((11 - disengageBonus - (data.attributes?.disengageBonus ?? 0)), 0);
 
+    // Defenses (second element of sorted triple equal median)
     data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(acBonus);
     data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1]) + Number(data.attributes.level.value) + Number(pdBonus);
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(mdBonus);
 
     // Damage Modifiers
-    let levelMultiplier = 1;
-    if (data.attributes.level.value >= 5) levelMultiplier = 2;
-    if (data.attributes.level.value >= 8) levelMultiplier = 3;
+    data.tier = 1;
+    if (data.attributes.level.value >= 5) data.tier = 2;
+    if (data.attributes.level.value >= 8) data.tier = 3;
     for (let prop in data.abilities) {
-      data.abilities[prop].dmg = levelMultiplier * data.abilities[prop].mod;
+      data.abilities[prop].dmg = data.tier * data.abilities[prop].mod;
     }
-    data.tier = levelMultiplier
 
-    // HPs and Recoveries
+    // HPs
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
@@ -412,36 +443,32 @@ export class ActorArchmage extends Actor {
       data.attributes.hp.max = Math.floor((data.attributes.hp.base + data.abilities.con.mod) * hpLevelModifier[level] + hpBonus + toughness);
     }
 
+    // Recoveries
     if (data.attributes.recoveries.automatic) {
       data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
     }
-
     // Calculate recovery average.
     let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
-    let recoveryDice = 'd8'; // Fall back
+    let recoveryDie = 'd8'; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
-      recoveryDice = data.attributes.recoveries.dice;
+      recoveryDie = data.attributes.recoveries.dice;
     }
-    let recoveryAvg = (Number(recoveryDice.replace('d', '')) + 1) / 2;
-    if (isNaN(recoveryAvg)) recoveryAvg = 4.5;  // Averaged 1d8
-    data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * levelMultiplier);
-
-    // Coins
-    if (!data.coins) data.coins = model.coins;
-
-    // Fallbacks for missing weapons
-    if (!data.attributes.weapon) data.attributes.weapon = model.attributes.weapon;
-    if (!data.attributes.weapon.jab) data.attributes.weapon.jab = model.attributes.weapon.jab;
-    if (!data.attributes.weapon.punch) data.attributes.weapon.punch = model.attributes.weapon.punch;
-    if (!data.attributes.weapon.kick) data.attributes.weapon.kick = model.attributes.weapon.kick;
+    recoveryDie = Number(recoveryDie.replace('d', ''));
+    if (isNaN(recoveryDie)) recoveryDie = 8;  // Fall back
+    let recoveryAvg = (recoveryDie + 1) / 2;
+    if (!this.getFlag('archmage', 'strongRecovery')) {
+      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * data.tier);
+    } else {
+      // Handle Strong Recovery special case
+      // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
+      recoveryAvg = data.tier * (recoveryDie + 1) * (4 * recoveryDie - 1) / (6 * recoveryDie) + (recoveryLevel - data.tier) * recoveryAvg;
+      data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.mod * data.tier);
+    }
 
     // Weapon dice
     for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
       data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
     }
-
-    // Fallback for attack modifier
-    if (data.attributes.attackMod === undefined) data.attributes.attackMod = model.attributes.attackMod;
 
   }
 
@@ -458,96 +485,101 @@ export class ActorArchmage extends Actor {
   }
 
   /** @inheritdoc */
-  getRollData() {
+  getRollData(item) {
     // Use the actor by default.
     let actor = this;
 
     // Use the current token if possible.
     let token = canvas.tokens?.controlled?.find(t => t.actor.data._id == this.data._id);
-    if (token) {
-      actor = token.actor;
-    }
+    if (token) actor = token.actor;
 
     // Reapply post active effects.
     this.prepareDerivedData();
-    this.applyActiveEffects('post');
-
-    console.log(this.data.data);
 
     // Retrieve the actor data.
     const origData = super.getRollData();
     const data = foundry.utils.deepClone(origData);
-    const shorthand = game.settings.get("archmage", "macroShorthand");
 
     // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
     const model = game.system.model.Actor.character.attributes.weapon;
 
     // Re-map all attributes onto the base roll data
-    if (!!shorthand) {
-      let newData = mergeObject(data.attributes, data.abilities);
-      delete data.init;
-      for (let [k, v] of Object.entries(newData)) {
-        switch (k) {
-          case 'escalation':
-            data.ed = v.value;
-            break;
+    let newData = mergeObject(data.attributes, data.abilities);
+    delete data.init;
+    for (let [k, v] of Object.entries(newData)) {
+      switch (k) {
+        case 'escalation':
+          data.ed = v.value;
+          break;
 
-          case 'init':
-            data.init = v.mod;
-            break;
+        case 'init':
+          data.init = v.mod;
+          break;
 
-          case 'level':
-            data.lvl = v.value;
-            break;
+        case 'level':
+          data.lvl = v.value;
+          break;
 
-          case 'weapon':
-            data.wpn = {
-              m: v?.melee ?? model.melee,
-              r: v?.ranged ?? model.ranged,
-              j: v?.jab ?? model.jab,
-              p: v?.punch ?? model.punch,
-              k: v?.kick ?? model.kick
-            };
+        case 'weapon':
+          data.wpn = {
+            m: v?.melee ?? model.melee,
+            r: v?.ranged ?? model.ranged,
+            j: v?.jab ?? model.jab,
+            p: v?.punch ?? model.punch,
+            k: v?.kick ?? model.kick
+          };
 
-            // Clean up weapon properties.
-            let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
-            wpnTypes.forEach(wpn => {
-              if (data.wpn[wpn].dice) {
-                data.wpn[wpn].die = data.wpn[wpn].dice;
-                data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
-              }
-              data.wpn[wpn].dice = data.wpn[wpn].value;
-              data.wpn[wpn].atk = data.wpn[wpn].attack;
-              data.wpn[wpn].dmg = data.wpn[wpn].dmg;
-              delete data.wpn[wpn].value;
-              delete data.wpn[wpn].attack;
-            });
+          // Clean up weapon properties.
+          let wpnTypes = ['m', 'r', 'j', 'p', 'k'];
+          wpnTypes.forEach(wpn => {
+            if (data.wpn[wpn].dice) {
+              data.wpn[wpn].die = data.wpn[wpn].dice;
+              data.wpn[wpn].dieNum = data.wpn[wpn].dice.replace('d', '');
+            }
+            data.wpn[wpn].dice = data.wpn[wpn].value;
+            // data.wpn[wpn].atk = data.wpn[wpn].attack;
+            // data.wpn[wpn].dmg = data.wpn[wpn].dmg;
+            delete data.wpn[wpn].value;
+            delete data.wpn[wpn].attack;
+          });
 
-            break;
+          break;
 
-          case 'attack':
-            data.atk = {
-              m: v.melee,
-              r: v.ranged,
-              a: v.arcane,
-              d: v.divine
-            };
-            break;
+        case 'attack':
+          data.atk = mergeObject((data.atk || {}), {
+            m: v.melee,
+            r: v.ranged,
+            a: v.arcane,
+            d: v.divine,
+          });
+          break;
 
-          case 'standardBonuses':
-            data.std = v.value;
-            break;
+        case 'attackMod':
+          data.atk = mergeObject((data.atk || {}), {
+            mod: v.value
+          });
+          break;
 
-          default:
-            if (!(k in data)) data[k] = v;
-            break;
-        }
+        case 'standardBonuses':
+          data.std = v.value;
+          break;
+
+        default:
+          if (!(k in data)) data[k] = v;
+          break;
       }
     }
 
     // Old syntax shorthand.
     data.attr = data.attributes;
     data.abil = data.abilities;
+
+    if (item) {
+      if (item.data.data.powerLevel?.value) {
+        data.pwrlvl = item.data.data.powerLevel.value;
+      }
+    }
+
     return data;
   }
 
@@ -562,7 +594,6 @@ export class ActorArchmage extends Actor {
     let actorData = this.data.data;
     let rolled = false;
     let avg = this.getFlag('archmage', 'averageRecoveries');
-    let strRec = this.getFlag('archmage', 'strongRecovery');
     let data = {bonus: "", average: avg, createMessage: true};
 
     if (event.shiftKey) {
@@ -572,10 +603,7 @@ export class ActorArchmage extends Actor {
 
     // Render modal dialog
     let template = 'systems/archmage/templates/chat/recovery-dialog.html';
-    let dialogData = {
-      warning: strRec ? "Will ignore bonus from Strong Recovery." : "",
-      avg: avg ? "checked" : ""
-      };
+    let dialogData = {avg: avg ? "checked" : ""};
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
         title: "Recovery Roll",
@@ -665,7 +693,7 @@ export class ActorArchmage extends Actor {
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) < 1) ? ' (Half)' : ''
+    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
     let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
 
     if (data.average) {
@@ -677,15 +705,15 @@ export class ActorArchmage extends Actor {
 
     // Add bonus if any
     if (data.bonus !== "") {
-      if (!['+', '-'].includes(data.bonus[0]) || isNaN(parseInt(data.bonus))) {
-        ui.notifications.error('"'+data.bonus+'" '+game.i18n.localize("ARCHMAGE.UI.errBonus"));
+      if (isNaN(parseInt(data.bonus))) {
+        ui.notifications.error('"'+data.bonus+'" '+game.i18n.localize("ARCHMAGE.UI.errNotInteger"));
         return;
       }
-      formula = `${formula}${data.bonus}`;
+      formula = `${formula}+${data.bonus}`;
     }
 
     // Half healing for recoveries we do NOT have
-    if (Number(totalRecoveries) <= 0) {
+    if (Number(totalRecoveries) <= 0 && !data.free) {
       formula = `floor((${formula})/2)`;
     }
 
@@ -698,7 +726,7 @@ export class ActorArchmage extends Actor {
 
     if (data.createMessage) {
       // Basic template rendering data
-      const template = `systems/archmage/templates/chat/recovery-card.html`
+      const template = "systems/archmage/templates/chat/recovery-card.html"
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
       const chatData = {
@@ -728,7 +756,8 @@ export class ActorArchmage extends Actor {
     }
 
     // If 3d dice are enabled, handle them
-    if (game.dice3d) {
+    if (game.dice3d  && (!game.settings.get("dice-so-nice", "animateInlineRoll")
+      || !data.createMessage)) {
       await game.dice3d.showForRoll(roll, game.user, true);
     }
 
@@ -753,13 +782,14 @@ export class ActorArchmage extends Actor {
       items: []
     };
     let updateData = {};
+    let rollsToAnimate = [];
 
     // Recoveries & hp
     let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
-      let rec = await this.rollRecovery({apply: false}, false);
+      let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
@@ -798,21 +828,21 @@ export class ActorArchmage extends Actor {
       this.update(updateData);
     }
 
-    // Items (Powers)
+    // Items
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
       let maxQuantity = item.data.data?.maxQuantity?.value ?? 1;
-      if (item.type == "power" && maxQuantity) {
+      if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
         let rechAttempts = maxQuantity - item.data.data.quantity.value;
-        let rechValue = item.data.data.recharge.value ?? 16;
+        let rechValue = Number(item.data.data.recharge.value) || 16;
         if (game.settings.get('archmage', 'rechargeOncePerDay')) {
           rechAttempts = Math.max(rechAttempts - item.data.data.rechargeAttempts.value, 0)
         }
         // Per battle powers.
-        if ((item.data.data.powerUsage.value == 'once-per-battle'
-          || (item.data.data.powerUsage.value == 'at-will'
+        if ((item.data.data.powerUsage?.value == 'once-per-battle'
+          || (item.data.data.powerUsage?.value == 'at-will'
           && item.data.data.quantity.value != null))
           && item.data.data.quantity.value < maxQuantity) {
           await item.update({
@@ -823,11 +853,12 @@ export class ActorArchmage extends Actor {
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
           });
         }
-        else if ((item.data.data.powerUsage.value == 'recharge' || item.data.data.recharge.value > 0) && rechAttempts > 0) {
+        else if ((item.data.data.powerUsage?.value == 'recharge') && rechAttempts > 0) {
           // This captures other as well
           let successes = 0;
           for (let j = 0; j < rechAttempts; j++) {
             let roll = await this.items.get(item.id).recharge({createMessage: false});
+            rollsToAnimate.push(roll.roll);
             if (roll.total >= rechValue) {
               successes++;
               templateData.items.push({
@@ -856,6 +887,12 @@ export class ActorArchmage extends Actor {
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
     if (rollMode === "blindroll") chatData["blind"] = true;
     chatData["content"] = await renderTemplate(template, templateData);
+    // If 3d dice are enabled, handle them
+    if (game.dice3d) {
+      for (let roll of rollsToAnimate) {
+        await game.dice3d.showForRoll(roll, game.user, true);
+      }
+    }
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
 
@@ -912,15 +949,15 @@ export class ActorArchmage extends Actor {
       this.update(updateData);
     }
 
-    // Items (Powers)
+    // Items
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
 
-      if (item.type != 'power') continue;
+      if (item.type != 'power' && item.type != 'equipment') continue;
 
       let usageArray = ['once-per-battle','daily','recharge'];
-      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage.value) || item.data.data.quantity.value !== null ? 1 : null;
+      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage?.value) || item.data.data.quantity.value !== null ? 1 : null;
       let maxQuantity = item.data.data?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && item.data.data.quantity.value < maxQuantity) {
         await item.update({
@@ -1029,16 +1066,96 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
-    if (!this.data.type == 'character'
-      || !options.diff
-      || data.data === undefined) {
-        // Nothing to do
-        return;
+    if (!options.diff || data.data === undefined) return; // Nothing to do
+
+    if (data.data.attributes?.hp?.max !== undefined) {
+      // Here we received an update of the max hp, check that the total matches
+      let hp = data.data.attributes.hp.value || this.data.data.attributes.hp.value;
+      data.data.attributes.hp.value = Math.min(hp, data.data.attributes.hp.max);
     }
+
+    if (data.data.attributes?.hp?.value !== undefined
+      && data.data.attributes?.hp?.temp == undefined) {
+      // Here we received an update of the total hp but not the temp, check them
+      let hp = duplicate(this.data.data.attributes.hp);
+      if (data.data.attributes.hp.value === null
+        || isNaN(data.data.attributes.hp.value)) {
+        //If the update is nonsensical ignore it
+        data.data.attributes.hp.value = hp.value;
+      }
+      let delta = data.data.attributes.hp.value - hp.value;
+      if (delta < 0) { // Damage, check for temp hps
+        let temp = hp.temp || 0;
+        if (isNaN(temp)) temp = 0; // Fallback for erroneous data
+        data.data.attributes.hp.temp = Math.max(0, temp + delta);
+        delta = Math.min(delta + temp, 0);
+      }
+      else { // Healing, start from 0 if negative
+        hp.value = Math.max(0, hp.value);
+      }
+      // Do not exceed max hps
+      let max = data.data.attributes.hp.max || hp.max;
+      // If max hp is ten assume this is a newly created npc
+      if (max == 10 && this.data.type == 'npc') {
+        data.data.attributes.hp.value = hp.value + delta;
+        data.data.attributes.hp.max = hp.value + delta;
+      } else {
+        data.data.attributes.hp.value = Math.min(hp.value + delta, max);
+      }
+
+      // Handle hp-related conditions
+      if (game.settings.get('archmage', 'automateHPConditions')) {
+        // Dead
+        let filtered = this.effects.filter(x =>
+          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
+            let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
+            let createData = foundry.utils.deepClone(effectData);
+            createData.label = game.i18n.localize(effectData.label);
+            createData["flags.core.statusId"] = effectData.id;
+            createData["flags.core.overlay"] = true;
+            delete createData.id;
+            const cls = getDocumentClass("ActiveEffect");
+            await cls.create(createData, {parent: this});
+        } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
+          for (let e of filtered) {
+            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
+          }
+        }
+        // Staggered
+        filtered = this.effects.filter(x =>
+          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+        if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
+          && data.data.attributes.hp.value > 0) {
+            let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
+            let createData = foundry.utils.deepClone(effectData);
+            createData.label = game.i18n.localize(effectData.label);
+            createData["flags.core.statusId"] = effectData.id;
+            if (game.settings.get('archmage', 'staggeredOverlay')) {
+              createData["flags.core.overlay"] = true;
+            }
+            delete createData.id;
+            const cls = getDocumentClass("ActiveEffect");
+            await cls.create(createData, {parent: this});
+        } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
+          || data.data.attributes.hp.value <= 0)) {
+          for (let e of filtered) {
+            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
+          }
+        }
+      }
+    }
+
+    if (!this.data.type == 'character') return; // Nothing else to do
+
+    // if (data.data.attributes?.level?.value) {
+      // Update of a PC level - make sure it's within [1, 10]
+      // if (data.data.attributes.level.value < 1) data.data.attributes.level.value = 1;
+      // if (data.data.attributes.level.value > 10) data.data.attributes.level.value = 10;
+    // }
 
     if (data.data.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
-
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
@@ -1189,23 +1306,12 @@ export class ActorArchmage extends Actor {
     }
 
     else if (data.data.details !== undefined
-      && data.data.details.class !== undefined
-      && game.settings.get('archmage', 'automateBaseStatsFromClass')
-      ) {
+      && data.data.details.class !== undefined) {
       // Here we received an update of the class name for a character
 
-      // Find known classes
-      let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-      let classRegex = new RegExp(classList.join('|'), 'g');
-      let classText = data.data.details.class.value;
-
-      // Exit early if the class text is invalid.
-      if (typeof classText !== 'string') return;
-
-      classText = classText ? classText.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-      let matchedClasses = classText.match(classRegex);
-
-      if (matchedClasses !== null) {
+      let matchedClasses = ArchmageUtility.detectClasses(data.data.details.class.value);
+      if (matchedClasses !== null
+        && game.settings.get('archmage', 'automateBaseStatsFromClass')) {
         // Remove duplicates and Sort to avoid problems with future matches
         matchedClasses = [...new Set(matchedClasses)].sort();
 

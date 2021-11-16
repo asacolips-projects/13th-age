@@ -1,4 +1,5 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
+import { ArchmageUtility } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 /**
@@ -97,9 +98,9 @@ export class ItemArchmage extends Item {
           }
         }
         // Momentum
-        else if ((parsed[3] && parsed[3].toLowerCase() == "spend momentum"
-            || parsed[3].toLowerCase() == "have momentum")
-            && res.perCombat.momentum.enabled) {
+        else if (parsed[3] && res.perCombat.momentum.enabled
+          && (parsed[3].toLowerCase() == "spend momentum"
+          || parsed[3].toLowerCase() == "have momentum")) {
           if (!res.perCombat.momentum.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
             return this._roll_resDiag(msg, itemUpdateData, updateData);
@@ -127,7 +128,7 @@ export class ItemArchmage extends Item {
           let resourceName = res.spendable[resourcePathName].label;
           if (res.spendable[resourcePathName].enabled && parsed[2] && parsed[1]
             && res.spendable[resourcePathName].current !== null
-            && parsed[2].toLowerCase().includes(resourceName.toLowerCase())) {
+            && resourceName.toLowerCase().includes(parsed[2].toLowerCase())) {
             let numUsed = Number(parsed[1]);
             let path = `data.resources.spendable.${resourcePathName}.current`;
             updateData[path] = res.spendable[resourcePathName].current - numUsed;
@@ -172,20 +173,21 @@ export class ItemArchmage extends Item {
 
   async _roll_render(itemUpdateData, actorUpdateData) {
     // Replicate attack rolls as needed for attacks
-    let newItemData = {};
+    let overrideData = {};
     let numTargets = {targets: 1, rolls: []};
     if (this.data.type == "power" || this.data.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
-      newItemData = {"data.attack.value": attackLine};
+      overrideData = {"data.attack.value": attackLine};
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(this);
-        newItemData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
-        if (numTargets.targetLine) newItemData["data.target.value"] = numTargets.targetLine;
+        overrideData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
+        if (numTargets.targetLine) overrideData["data.target.value"] = numTargets.targetLine;
       }
     }
-    let itemToRender = this.clone(newItemData, {"save": false, "keepId": true});
+    let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
 
-    //await ArchmageRolls.rollItem(itemToRender);
+    // Prepare roll data now
+    let rollData = itemToRender.actor.getRollData(this);
 
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
@@ -194,7 +196,7 @@ export class ItemArchmage extends Item {
       actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
       item: itemToRender.data,
-      data: itemToRender.getChatData()
+      data: itemToRender.getChatData({ rollData: rollData }, true)
     };
 
     // TODO: roll rolls here
@@ -208,8 +210,7 @@ export class ItemArchmage extends Item {
         token: itemToRender.actor.token,
         alias: itemToRender.actor.name,
         scene: game.user.viewedScene
-      },
-      roll: new Roll("") // Needed to silence an error in 0.8.x
+      }
     };
 
     // Toggle default roll mode
@@ -222,9 +223,10 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
 
+
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: itemToRender.actor.getRollData() });
+    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
@@ -232,9 +234,10 @@ export class ItemArchmage extends Item {
     }, null);
 
     // If 3d dice are enabled, handle them first.
-    if (game.dice3d) {
+    if (game.dice3d && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       let contentHtml = $(chatData.content);
       let rolls = [];
+      let damageRolls = [];
 
       if (contentHtml.length > 0) {
         // Find all property rows.
@@ -244,9 +247,8 @@ export class ItemArchmage extends Item {
           $rows.each(function(index) {
             let $row_self = $(this);
             let row_text = $row_self.html();
-            // If this is an attack row, we need to get the roll data.
-            if (row_text.includes('Attack:') || row_text.includes('Hit:')
-              || row_text.includes('Target:')) {
+            // Attack or Target rows - keep all, in right order
+            if (row_text.includes('Attack:') || row_text.includes('Target:')) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
@@ -254,9 +256,18 @@ export class ItemArchmage extends Item {
                   if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
                     // Not an attack roll, usually a target roll, roll first
                     rolls.unshift(roll);
-                  } else {
-                    rolls.push(roll);
-                  }
+                  } else rolls.push(roll);
+                });
+              }
+            }
+            // Hit or Spell level rows - keep only the last
+            else if (row_text.includes('Hit:') || row_text.includes('Level Spell:')) {
+              damageRolls = []; // Reset for each line
+              let $roll_html = $row_self.find('.inline-result');
+              if ($roll_html.length > 0) {
+                $roll_html.each(function(i, e){
+                  let roll = Roll.fromJSON(unescape(e.dataset.roll));
+                  damageRolls.push(roll);
                 });
               }
             }
@@ -264,6 +275,7 @@ export class ItemArchmage extends Item {
         }
 
         // If we have roll data, handle a 3d roll.
+        rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
           for (let r of rolls) {
             await game.dice3d.showForRoll(r, game.user, true);
@@ -274,6 +286,10 @@ export class ItemArchmage extends Item {
 
     if (!isObjectEmpty(itemUpdateData)) this.update(itemUpdateData, {});
     if (!isObjectEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+
+    // Handle Monk AC bonus
+    //TODO: remove dependency on times-up once core Foundry handles AE expiry
+    if (game.modules.has("times-up")) await this._handleMonkAC();
     return ChatMessage.create(chatData, { displaySheet: false });
   }
 
@@ -285,17 +301,16 @@ export class ItemArchmage extends Item {
    * @returns {Promise.<Object>}  A promise resolving to an object with roll results.
    */
   async recharge({createMessage=true}={}) {
-    let recharge = this.data.data?.recharge?.value ?? null;
-    // If a recharge power does not have a recharge value, assume 16+
-    if (this.data.data?.powerUsage?.value == 'recharge'
-      && !recharge) recharge = 16;
-
     // Only update for recharge powers/items.
-    if (!recharge) return;
+    if (!this.data.data?.powerUsage?.value == 'recharge') return;
+
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
-    let actor = this.parent;
+    // If a recharge power does not have a recharge value, assume 16+
+    let recharge = Number(this.data.data?.recharge?.value) || 16;
+
+    let actor = this.actor;
     let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
     let currQuantity = this.data.data?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
@@ -337,8 +352,6 @@ export class ItemArchmage extends Item {
       if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
       if (rollMode === "blindroll") chatData["blind"] = true;
 
-      // TODO: Wait for 3d dice.
-
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
       ChatMessage.create(chatData, { displaySheet: false });
@@ -364,13 +377,60 @@ export class ItemArchmage extends Item {
     };
   }
 
+  /**
+   * Check if we are rolling a monk form, add related AC active effect
+   */
+  async _handleMonkAC() {
+    if (this.data.type != "power") return;
+    if (!this.actor.data.data.details.detectedClasses?.includes("monk")) return;
+
+    let effects = this.actor.effects;
+    let group = this.data.data.group.value.toLowerCase();
+    let bonusMagnitudeMap = {};
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.finishing")] = 3;
+    if (!Object.keys(bonusMagnitudeMap).includes(group)) return;
+    let bonusMagnitude = bonusMagnitudeMap[group];
+
+    // Check for other monk AC bonuses
+    let effectsToDelete = [];
+    let alreadyHasBetterBonus = false;
+    effects.forEach(e => {
+      if (e.data.label == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
+        if (Number(e.data.changes[0].value) <= bonusMagnitude) {
+          effectsToDelete.push(e.id);
+        }
+        else alreadyHasBetterBonus = true;
+      }
+    });
+    await this.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+
+    if (alreadyHasBetterBonus) return;
+
+    // Now create new AC bonus effect
+    let effectData = {
+      label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
+      icon: "icons/svg/shield.svg",
+      changes: [{
+        key: "data.attributes.ac.value",
+        value: bonusMagnitude,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    }
+    effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    await this.actor.createEmbeddedEntity("ActiveEffect", [effectData]);
+  }
+
   /* -------------------------------------------- */
   /*  Chat Card Data
   /* -------------------------------------------- */
 
-  getChatData(htmlOptions) {
+  getChatData(htmlOptions, skipInlineRolls) {
     const data = this[`_${this.data.type}ChatData`]();
-    data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
+    if (!skipInlineRolls) {
+      data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
+    }
     return data;
   }
 

@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The damage bonus becomes The damage bonus is [[(max(@lvl,@str.mod))d8]].</p>'
+        value: '<p>The damage bonus becomes [[(max(@lvl,@str.mod))d8]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Once per battle as a quick action, you can pull off an outrageous improvisational stunt that no one else could manage, with the possible exception of a swashbuckling rogue! The stunt is not itself an attack but it might lead to one.</p>\n<p>The outrageous action of your stunt isn&rsquo;t something you have to roll for, even if it would ordinarily require a skill check to pull off, though you&rsquo;ll still have to roll for an attack that follows up your stunt.</p>"
+    value: '<p>Once per battle as a quick action, you can pull off an outrageous improvisational stunt that no one else could manage, with the possible exception of a swashbuckling rogue! The stunt is not itself an attack but it might lead to one.</p><p>The outrageous action of your stunt isn&rsquo;t something you have to roll for, even if it would ordinarily require a skill check to pull off, though you&rsquo;ll still have to roll for an attack that follows up your stunt.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

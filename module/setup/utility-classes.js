@@ -112,55 +112,6 @@ export class ArchmageUtility {
     }
   }
 
-  /**
-   * Determine if roll includes a d20 crit.
-   *
-   * @param {object} roll
-   *
-   * @return {string} 'crit', 'fail', or 'normal'.
-   */
-  static inlineRollCritTest(roll, actor = null) {
-
-      for (let i = 0; i < roll.terms.length; i++) {
-        var part = roll.terms[i];
-        if (part.results) {
-          let result = part.results.map((r) => {
-            if (part.faces === 20) {
-              // Natural 20.
-              if (r.result === part.faces && !r.discarded) {
-                return 'crit';
-              }
-              // Natural 1.
-              else if (r.result === 1 && !r.discarded && !r.rerolled) {
-                return 'fail';
-              }
-              // Barbarian crit.
-              else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-                && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
-                return 'crit';
-              }
-              // Natural 2, if dual-wielding.
-              else if (actor && actor.data.type === 'character'
-                && actor.data.data.attributes.weapon.melee.dualwield
-                && r.result === 2 && !r.discarded && !r.rerolled) {
-                return 'reroll';
-              }
-              else {
-                return 'normal';
-              }
-            }
-            else {
-              return 'normal';
-            }
-          });
-
-          return result;
-        }
-        else {
-          return 'none';
-        }
-      }
-  }
 
   /**
    * Determines if the player owns a combatant or not.
@@ -376,6 +327,60 @@ export class ArchmageUtility {
       //   await pack.importEntity(item);
       // }
     }
+  }
+
+  // Generate durations for active effects
+  // Done here to simplify future compatibility with core support for AE expiry
+  // Currently relies on the times-up module
+  // TODO: change to core Foundry when (if) support comes
+  static addDuration(data, duration, options={}) {
+    let d = {
+      combat: undefined,
+      rounds: undefined,
+      seconds: undefined,
+      startRound: 0,
+      startTime: 0,
+      startTurn: 0,
+      turns: undefined
+    }
+    switch(duration) {
+      case CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn:
+        d.rounds = 1;
+        data['flags.dae.specialDuration'] = ["turnStart"];
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.EndOfNextTurn:
+        d.rounds = 1;
+        d.turns = 1;
+        data['flags.dae.specialDuration'] = ["turnEnd"];
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.StartOfNextSourceTurn:
+        d.rounds = 1;
+        data['flags.dae.specialDuration'] = ["turnStartSource"];
+        data.origin = options.sourceTurnUuid;
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.EndOfNextSourceTurn:
+        d.rounds = 1;
+        d.turns = 1;
+        data['flags.dae.specialDuration'] = ["turnEndSource"];
+        data.origin = options.sourceTurnUuid;
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.SaveEnds:
+        //TODO: not yet supported, roll a save with target threshold
+        data['flags.dae.macroRepeat'] = "endEveryTurn";
+        break;
+    }
+    data.duration = d;
+    return data;
+  }
+
+  // Find known classes
+  static detectClasses(className) {
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+    let matchedClasses = className.match(classRegex);
+    if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
+    return matchedClasses;
   }
 }
 

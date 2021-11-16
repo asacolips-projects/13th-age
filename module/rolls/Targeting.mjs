@@ -5,7 +5,7 @@ export default class Targeting {
 
         if (targets.length == 0) return [];
 
-        if (row_text.toLowerCase().includes("random")) {
+        if (row_text.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.random"))) {
             targets = Targeting._shuffle(targets);
         }
 

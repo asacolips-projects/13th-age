@@ -173,6 +173,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Warrior Druid'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'frHBKxe0AbaLVcE0'

@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You summon a wraith, as per the summoning rules on page 11. This wraith fights for you until the end of the battle or until it drops to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, you summon multiple wraiths. Stats for the two versions of the wraith summoned by the spell are listed in the Summoned Creatures compendium.</p>"
+    value: '<p>You summon a wraith, as per the summoning rules on page 11. This wraith fights for you until the end of the battle or until it drops to 0 hp, whichever comes first.</p><p>As you cast the spell at higher levels, you summon multiple wraiths. Stats for the two versions of the wraith summoned by the spell are listed in the Summoned Creatures compendium.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

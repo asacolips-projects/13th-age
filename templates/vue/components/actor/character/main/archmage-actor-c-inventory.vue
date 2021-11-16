@@ -34,8 +34,11 @@
         <!-- Column labels. -->
         <div class="equipment-header-labels grid equipment-grid">
           <div class="equipment-name">{{localize('ARCHMAGE.equipmentName')}}</div>
+          <div class="equipment-feat-pips" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.ITEM.active')}}</div>
           <div class="equipment-bonus" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.bonuses')}}</div>
           <div class="equipment-chakra" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.chakra')}}</div>
+          <div class="equipment-recharge" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.rchg')}}</div>
+          <div class="equipment-quantity" v-if="groupKey == 'equipment'">{{localize('ARCHMAGE.uses')}}</div>
           <div class="equipment-quantity" v-if="groupKey != 'equipment'">{{localize('ARCHMAGE.quantity')}}</div>
           <div class="item-controls">{{localize('ARCHMAGE.edit')}}</div>
         </div>
@@ -48,6 +51,11 @@
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
+            <div class="equipment-feat-pips" v-if="groupKey === 'equipment'">
+              <ul class="feat-pips">
+                <li :class="concat('feat-pip', (equipment.data.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.data.isActive}}</div></li>
+              </ul>
+            </div>
             <div class="equipment-bonus flexrow" v-if="equipment.data.attributes">
               <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                 <span class="bonus-label">{{bonusProp}} </span>
@@ -55,7 +63,10 @@
               </span>
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-quantity" v-if="equipment.type != 'equipment'" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span v-if="equipment.data.quantity.value !== null">{{equipment.data.quantity.value}}</span></div>
+            <div class="equipment-recharge" v-if="equipment.data.recharge && equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
+              <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.data.recharge.value) || 16}}+</archmage-h-rollable>
+            </div>
+            <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>

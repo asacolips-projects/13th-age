@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: "<p>You must cast this spell outdoors. It enables you and a group of nearby allies to travel to most any location in the world that you can name.</p>\n<p>Travel takes between an hour and a day, depending on distance and the amount of effort exerted.</p>\n<p>The destination can be in the overworld or in the land. It can't be in the underworld.</p>"
+    value: '<p>You must cast this spell outdoors. It enables you and a group of nearby allies to travel to most any location in the world that you can name.</p><p>Travel takes between an hour and a day, depending on distance and the amount of effort exerted.</p><p>The destination can be in the overworld or in the land. It can''t be in the underworld.</p>'
   effect:
     type: 'String'
     label: 'Effect'
