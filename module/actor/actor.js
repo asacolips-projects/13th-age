@@ -485,7 +485,7 @@ export class ActorArchmage extends Actor {
   }
 
   /** @inheritdoc */
-  getRollData() {
+  getRollData(item) {
     // Use the actor by default.
     let actor = this;
 
@@ -573,6 +573,12 @@ export class ActorArchmage extends Actor {
     // Old syntax shorthand.
     data.attr = data.attributes;
     data.abil = data.abilities;
+
+    if (item) {
+      if (item.data.data.powerLevel?.value) {
+        data.pwrlvl = item.data.data.powerLevel.value;
+      }
+    }
 
     return data;
   }

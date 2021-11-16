@@ -752,7 +752,7 @@ export class ActorArchmageSheet extends ActorSheet {
     let item = this.actor.items.get(li.attr("data-item-id"));
     let chatData = item.getChatData({
       secrets: this.actor.isOwner,
-      rollData: this.actor.getRollData()
+      rollData: this.actor.getRollData(item)
       });
 
     // Toggle summary

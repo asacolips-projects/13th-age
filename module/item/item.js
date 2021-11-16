@@ -187,8 +187,7 @@ export class ItemArchmage extends Item {
     let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
 
     // Prepare roll data now
-    let rollData = itemToRender.actor.getRollData();
-    if(this.data.type == "power") rollData.pwrlvl = this.data.data.powerLevel.value;
+    let rollData = itemToRender.actor.getRollData(this);
 
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
@@ -197,7 +196,7 @@ export class ItemArchmage extends Item {
       actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
       item: itemToRender.data,
-      data: itemToRender.getChatData({}, false)
+      data: itemToRender.getChatData({ rollData: rollData }, true)
     };
 
     // TODO: roll rolls here
@@ -427,9 +426,9 @@ export class ItemArchmage extends Item {
   /*  Chat Card Data
   /* -------------------------------------------- */
 
-  getChatData(htmlOptions, createInlineRolls=true) {
+  getChatData(htmlOptions, skipInlineRolls) {
     const data = this[`_${this.data.type}ChatData`]();
-    if (createInlineRolls) {
+    if (!skipInlineRolls) {
       data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
     }
     return data;
