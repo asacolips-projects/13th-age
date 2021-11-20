@@ -215,7 +215,7 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile != undefined) {
+            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile) {
 
                 let sequencerFile = options.sequencerFile;
                 if (sequencerFile === "") {
