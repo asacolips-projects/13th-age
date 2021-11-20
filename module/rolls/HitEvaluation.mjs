@@ -35,12 +35,12 @@ export default class HitEvaluation {
           if (targetDefense != undefined) {
             var hit = rollTotal >= targetDefense;
             if (hit) {
-              targetsHit.push(target.data.name);
+              targetsHit.push(target);
               if (hasHit == undefined || !hasHit) hasHit = true;
               if (hasMissed == undefined) hasMissed = false;
             }
             else {
-              targetsMissed.push(target.data.name);
+              targetsMissed.push(target);
               if (hasMissed == undefined || !hasMissed) hasMissed = true;
               if (hasHit == undefined) hasHit = false;
             }
