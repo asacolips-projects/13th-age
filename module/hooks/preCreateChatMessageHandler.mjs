@@ -10,7 +10,7 @@ export default class preCreateChatMessageHandler {
         let $rolls = $content.find('.inline-result');
         let updated_content = null;
         let hitEvaluationResults = undefined;
-        let targets = undefined;  //[...game.user.targets.values()];
+        let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
         let numTargets = options.targets ? options.targets : 1;
         let type = options.type ? options.type : 'power';
         // TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
