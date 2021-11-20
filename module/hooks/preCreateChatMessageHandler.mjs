@@ -10,7 +10,7 @@ export default class preCreateChatMessageHandler {
         let $rolls = $content.find('.inline-result');
         let updated_content = null;
         let hitEvaluationResults = undefined;
-        let targets = undefined;
+        let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
         let numTargets = options.targets ? options.targets : 1;
         let type = options.type ? options.type : 'power';
 
