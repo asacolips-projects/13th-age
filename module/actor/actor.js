@@ -764,7 +764,8 @@ export class ActorArchmage extends Actor {
     let newHp = this.data.data.attributes.hp.value;
     let newRec = this.data.data.attributes.recoveries.value;
     if (!data.free) {newRec -= 1;}
-    if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, Math.max(newHp, 0) + roll.total);}
+    // Minimum of 0 handled in the actor update hook
+    if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, newHp + roll.total);}
     this.update({
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
