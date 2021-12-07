@@ -794,11 +794,10 @@ export class ActorArchmage extends Actor {
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
-    // Remove any prior negative hps from the amount healing to prevent double application
-    templateData.gainedHp += Math.min(this.data.data.attributes.hp.value, 0);
 
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
-    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
+    // Remove any prior negative hps from the amount healing to prevent double application
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp + Math.min(this.data.data.attributes.hp.value, 0));
 
     // Resources
     // Focus, Momentum and Command Points handled on end combat hook
@@ -1160,6 +1159,10 @@ export class ActorArchmage extends Actor {
 
     if (data.data.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
+      // Make sure we are not exceeding the maximum
+      if (this.data.data.attributes.recoveries.max) {
+        data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.data.data.attributes.recoveries.max);
+      }
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
