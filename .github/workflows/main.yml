@@ -44,14 +44,14 @@ jobs:
       env:
         version: ${{ steps.get_version.outputs.VERSION }}
         manifest: ""
-        download: https://patreon.azurewebsites.net/api/download/toolkit13/${{ steps.get_version.outputs.VERSION }}/system.zip
+        download: https://github.com/Mageflame/Toolkit13/releases/download/${{ steps.get_version.outputs.VERSION }}/system.zip
 
     - run: mkdir release
 
     # create a zip file with all files required by the system to add to the release
     - run: zip -r ./release/system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
 
-    - name: Copy file
+    - name: Copy File
       # You may pin to the exact commit or the version.
       # uses: canastro/copy-action@7ddff6fc153a2ea2cd0fb88ed9750544c051e399
       uses: canastro/copy-action@0.0.2
