@@ -1105,7 +1105,7 @@ export class ActorArchmage extends Actor {
       }
 
       // Handle hp-related conditions
-      if (game.settings.get('archmage', 'automateHPConditions')) {
+      if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
         // Dead
         let filtered = this.effects.filter(x =>
           x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));

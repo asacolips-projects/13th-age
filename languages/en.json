@@ -4,7 +4,7 @@
   "ARCHMAGE.SETTINGS.initiativeDexTiebreakerName": "Initiative Modifier as Tiebreaker",
   "ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint": "If enabled initiative ties will be resolved using the initiative modifier; if not, monsters win by default.",
   "ARCHMAGE.SETTINGS.automateHPConditionsName": "Auto-manage Dead and Staggered",
-  "ARCHMAGE.SETTINGS.automateHPConditionsHint": "If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via e.g. the Combat Utility Belt module.",
+  "ARCHMAGE.SETTINGS.automateHPConditionsHint": "If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.",
   "ARCHMAGE.SETTINGS.staggeredOverlayName": "Staggered as overlay",
   "ARCHMAGE.SETTINGS.staggeredOverlayHint": "If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.",
   "ARCHMAGE.SETTINGS.multiTargetAttackRollsName": "Multi-Target Attack Rolls",
