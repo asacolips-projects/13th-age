@@ -172,6 +172,51 @@ ARCHMAGE.statusEffects = [
     ]
   },
 ];
+// Extended (optional) status effects
+ARCHMAGE.extendedStatusEffects = [
+  // Empowered.
+  {
+    id: "empowered",
+    label: "ARCHMAGE.EFFECT.StatusEmpowered",
+    icon: "icons/svg/upgrade.svg"
+  },
+  // Ongoing Damage.
+  {
+    id: "ongoingDamage",
+    label: "ARCHMAGE.EFFECT.StatusOngoingDamage",
+    icon: "icons/svg/clockwork.svg"
+  },
+  // Flying.
+  {
+    id: "flying",
+    label: "ARCHMAGE.EFFECT.StatusFlying",
+    icon: "icons/svg/wing.svg"
+  },
+  // Bonus defenses.
+  {
+    id: "bonusDefenses",
+    label: "ARCHMAGE.EFFECT.StatusBonusDefenses",
+    icon: "icons/svg/shield.svg"
+  },
+  // Reduced defenses.
+  {
+    id: "reducedDefenses",
+    label: "ARCHMAGE.EFFECT.StatusReducedDefenses",
+    icon: "icons/svg/ruins.svg"
+  },
+  // Debuffed.
+  {
+    id: "debuffed",
+    label: "ARCHMAGE.EFFECT.StatusDebuffed",
+    icon: "icons/svg/direction.svg" //degen
+  },
+  // Buffed.
+  {
+    id: "buffed",
+    label: "ARCHMAGE.EFFECT.StatusBuffed",
+    icon: "icons/svg/up.svg" //regen
+  },
+];
 
 // Power Settings
 ARCHMAGE.powerSources = {

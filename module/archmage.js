@@ -101,7 +101,21 @@ Hooks.once('init', async function() {
   CONFIG.ARCHMAGE = ARCHMAGE;
 
   // Update status effects.
-  CONFIG.statusEffects = ARCHMAGE.statusEffects;
+  function _setArchmageStatusEffects(extended) {
+    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
+    else CONFIG.statusEffects = ARCHMAGE.statusEffects;
+  }
+  game.settings.register('archmage', 'extendedStatusEffects', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean,
+    onChange: enable => _setArchmageStatusEffects(enable)
+  });
+  _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
