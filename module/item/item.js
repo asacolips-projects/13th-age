@@ -223,7 +223,6 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
 
-
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });

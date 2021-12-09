@@ -162,7 +162,6 @@ export class ActorArchmage extends Actor {
     let uniqueBonusLabels = {};
     for ( let change of changes ) {
       if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
-        // 13A effects should never fall here, but if they do handle them
         uniqueChanges.push(change);
         continue;
       }
@@ -268,7 +267,7 @@ export class ActorArchmage extends Actor {
    */
   _prepareCharacterData(data, model, flags) {
 
-    // Find known classes
+    // Find known classes if not already detected - fixes older characters
     if (!data.details.detectedClasses && data.details.class?.value) {
       let matchedClasses = ArchmageUtility.detectClasses(data.details.class.value);
       data.details.detectedClasses = matchedClasses;
@@ -764,7 +763,8 @@ export class ActorArchmage extends Actor {
     let newHp = this.data.data.attributes.hp.value;
     let newRec = this.data.data.attributes.recoveries.value;
     if (!data.free) {newRec -= 1;}
-    // Minimum of 0 handled in the actor update hook
+    // Starting from 0 if at negative hp is handled in the actor update hook
+    // just pass along the heal amount here
     if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, newHp + roll.total);}
     this.update({
       'data.attributes.recoveries.value': newRec,
@@ -777,7 +777,6 @@ export class ActorArchmage extends Actor {
   async restQuick() {
     let templateData = {
       actor: this,
-      usedRecoveries: 0,
       gainedHp: 0,
       resources: [],
       items: []
@@ -790,12 +789,10 @@ export class ActorArchmage extends Actor {
 
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
-      let rec = await this.rollRecovery({apply: false, free: true});
+      let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
-      templateData.usedRecoveries += 1;
     }
 
-    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
     // Remove any prior negative hps from the amount healing to prevent double application
     updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp + Math.min(this.data.data.attributes.hp.value, 0));
 
@@ -1072,7 +1069,8 @@ export class ActorArchmage extends Actor {
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
     if (data.data.attributes?.hp?.max !== undefined) {
-      // Here we received an update of the max hp, check that the total matches
+      // Here we received an update of the max hp
+      // Check that the current value does not exceed it
       let hp = data.data.attributes.hp.value || this.data.data.attributes.hp.value;
       data.data.attributes.hp.value = Math.min(hp, data.data.attributes.hp.max);
     }
@@ -1098,7 +1096,7 @@ export class ActorArchmage extends Actor {
       }
       // Do not exceed max hps
       let max = data.data.attributes.hp.max || hp.max;
-      // If max hp is ten assume this is a newly created npc
+      // If max hp is 10 assume this is a newly created npc, simplify update
       if (max == 10 && this.data.type == 'npc') {
         data.data.attributes.hp.value = hp.value + delta;
         data.data.attributes.hp.max = hp.value + delta;
@@ -1171,7 +1169,7 @@ export class ActorArchmage extends Actor {
       await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
 
       let newRec = data.data.attributes.recoveries.value;
-      if (data.data.attributes.recoveries.value < 0) {
+      if (newRec < 0) {
         const effectData = {
           label: "Negative Recovery Penalty",
           changes: [
@@ -1279,7 +1277,7 @@ export class ActorArchmage extends Actor {
             data.data.attributes.attackMod.value -= wpn.twohandedPen;
           }
           else if (this.data.data.attributes.weapon.melee.shield) {
-            // Can't duel-wield with a shield
+            // Can't dual-wield with a shield
             data.data.attributes.ac = {base: this.data.data.attributes.ac.base - 1};
             data.data.attributes.weapon.melee.shield = false;
             data.data.attributes.attackMod.value -= wpn.shieldPen;

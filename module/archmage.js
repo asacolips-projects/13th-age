@@ -110,7 +110,7 @@ Hooks.once('init', async function() {
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsHint"),
     scope: 'world',
     config: true,
-    default: true,
+    default: false,
     type: Boolean,
     onChange: enable => _setArchmageStatusEffects(enable)
   });
