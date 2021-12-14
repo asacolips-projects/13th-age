@@ -184,13 +184,13 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "ongoingDamage",
     label: "ARCHMAGE.EFFECT.StatusOngoingDamage",
-    icon: "icons/svg/clockwork.svg"
+    icon: "icons/svg/degen.svg"
   },
-  // Flying.
+  // Regen.
   {
-    id: "flying",
-    label: "ARCHMAGE.EFFECT.StatusFlying",
-    icon: "icons/svg/wing.svg"
+    id: "regen",
+    label: "ARCHMAGE.EFFECT.StatusRegen",
+    icon: "icons/svg/regen.svg"
   },
   // Bonus defenses.
   {
@@ -202,20 +202,68 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "reducedDefenses",
     label: "ARCHMAGE.EFFECT.StatusReducedDefenses",
-    icon: "icons/svg/ruins.svg"
+    icon: "icons/svg/acid.svg" //ruins
+  },
+  // Blessed.
+  {
+    id: "blessed",
+    label: "ARCHMAGE.EFFECT.StatusBlessed",
+    icon: "icons/svg/angel.svg"
+  },
+  // Cursed.
+  {
+    id: "cursed",
+    label: "ARCHMAGE.EFFECT.StatusCursed",
+    icon: "icons/svg/dice-target.svg"
+  },
+  // Flying.
+  {
+    id: "flying",
+    label: "ARCHMAGE.EFFECT.StatusFlying",
+    icon: "icons/svg/wing.svg"
+  },
+  // Grabbed.
+  {
+    id: "grabbed",
+    label: "ARCHMAGE.EFFECT.StatusGrabbed",
+    icon: "icons/svg/item-bag.svg"
   },
   // Debuffed.
   {
     id: "debuffed",
     label: "ARCHMAGE.EFFECT.StatusDebuffed",
-    icon: "icons/svg/direction.svg" //degen
+    icon: "icons/svg/direction.svg"
   },
   // Buffed.
   {
     id: "buffed",
     label: "ARCHMAGE.EFFECT.StatusBuffed",
-    icon: "icons/svg/up.svg" //regen
+    icon: "icons/svg/up.svg"
   },
+  // Holy Shield.
+  // {
+    // id: "holyshield",
+    // label: "ARCHMAGE.EFFECT.StatusHolyShield",
+    // icon: "icons/svg/holy-shield.svg"
+  // },
+  // Fire Shield.
+  // {
+    // id: "fireshield",
+    // label: "ARCHMAGE.EFFECT.StatusFireShield",
+    // icon: "icons/svg/fire-shield.svg"
+  // },
+  // Ice Shield.
+  // {
+    // id: "iceshield",
+    // label: "ARCHMAGE.EFFECT.StatusIceShield",
+    // icon: "icons/svg/ice-shield.svg"
+  // },
+  // Mage Shield.
+  // {
+    // id: "mageshield",
+    // label: "ARCHMAGE.EFFECT.StatusMageShield",
+    // icon: "icons/svg/mage-shield.svg"
+  // },
 ];
 
 // Power Settings
