@@ -228,18 +228,30 @@ ARCHMAGE.extendedStatusEffects = [
     label: "ARCHMAGE.EFFECT.StatusGrabbed",
     icon: "icons/svg/item-bag.svg"
   },
+  // Asleep.
+  {
+    id: "asleep",
+    label: "ARCHMAGE.EFFECT.StatusAsleep",
+    icon: "icons/svg/sleep.svg"
+  },
+  // Last Gasps.
+  {
+    id: "lastgasps",
+    label: "ARCHMAGE.EFFECT.StatusLastGasps",
+    icon: "icons/svg/clockwork.svg"
+  },
   // Debuffed.
-  {
-    id: "debuffed",
-    label: "ARCHMAGE.EFFECT.StatusDebuffed",
-    icon: "icons/svg/direction.svg"
-  },
+  // {
+    // id: "debuffed",
+    // label: "ARCHMAGE.EFFECT.StatusDebuffed",
+    // icon: "icons/svg/direction.svg"
+  // },
   // Buffed.
-  {
-    id: "buffed",
-    label: "ARCHMAGE.EFFECT.StatusBuffed",
-    icon: "icons/svg/up.svg"
-  },
+  // {
+    // id: "buffed",
+    // label: "ARCHMAGE.EFFECT.StatusBuffed",
+    // icon: "icons/svg/up.svg"
+  // },
   // Holy Shield.
   // {
     // id: "holyshield",
