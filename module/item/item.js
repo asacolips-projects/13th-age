@@ -288,7 +288,9 @@ export class ItemArchmage extends Item {
 
     // Handle Monk AC bonus
     //TODO: remove dependency on times-up once core Foundry handles AE expiry
-    if (game.modules.has("times-up")) await this._handleMonkAC();
+    if (game.modules.get("times-up")?.active) {
+      await this._handleMonkAC();
+    }
     return ChatMessage.create(chatData, { displaySheet: false });
   }
 
