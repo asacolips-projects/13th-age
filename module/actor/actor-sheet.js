@@ -1,4 +1,4 @@
-import { ActorSheetFlags } from './actor-flags.js';
+// import { ActorSheetFlags } from './actor-flags.js';
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 import { ItemArchmage } from "../item/item.js";
 
@@ -724,7 +724,7 @@ export class ActorArchmageSheet extends ActorSheet {
    */
   _onConfigureFlags(event) {
     event.preventDefault();
-    new ActorSheetFlags(this.actor).render(true);
+    // new ActorSheetFlags(this.actor).render(true);
   }
 
   /* -------------------------------------------- */
