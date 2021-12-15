@@ -751,7 +751,7 @@ export class ActorArchmage extends Actor {
       roll = Roll.fromJSON(unescape(roll_html.data('roll')));
     } else {
       // Perform the roll ourselves
-      roll.roll();
+      roll.roll({async: false});
     }
 
     // If 3d dice are enabled, handle them
@@ -766,7 +766,7 @@ export class ActorArchmage extends Actor {
     // Starting from 0 if at negative hp is handled in the actor update hook
     // just pass along the heal amount here
     if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, newHp + roll.total);}
-    this.update({
+    await this.update({
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
     });
@@ -825,7 +825,7 @@ export class ActorArchmage extends Actor {
 
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
-      this.update(updateData);
+      await this.update(updateData);
     }
 
     // Items
@@ -946,7 +946,7 @@ export class ActorArchmage extends Actor {
 
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
-      this.update(updateData);
+      await this.update(updateData);
     }
 
     // Items
@@ -1120,7 +1120,7 @@ export class ActorArchmage extends Actor {
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
           for (let e of filtered) {
-            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
+            await this.deleteEmbeddedDocuments("ActiveEffect", e.id)
           }
         }
         // Staggered
@@ -1141,7 +1141,7 @@ export class ActorArchmage extends Actor {
         } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
           || data.data.attributes.hp.value <= 0)) {
           for (let e of filtered) {
-            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
+            await this.deleteEmbeddedDocuments("ActiveEffect", e.id)
           }
         }
       }
@@ -1179,7 +1179,7 @@ export class ActorArchmage extends Actor {
             {key: "data.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
           ]
         };
-        this.createEmbeddedEntity("ActiveEffect", [effectData]);
+        this.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
 

@@ -420,7 +420,7 @@ export class ItemArchmage extends Item {
       }]
     }
     effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
-    await this.actor.createEmbeddedEntity("ActiveEffect", [effectData]);
+    await this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   /* -------------------------------------------- */
