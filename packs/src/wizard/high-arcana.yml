@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>Your study of the highest orders of magic gives you options that lesser wizards cannot match: Memorization and a bonus spell: counter-magic</p>\n<h2>Memorization</h2>\n<p>When you pick your spells, you can choose any daily wizard spell twice (instead of once). This doesn't apply to spells that start as recharge spells. For example, at 7th level when you have five 7th level spells and four 5th level spells, you could choose fireball twice as a 7th level spell, or once as a 7th level spell and once as a 5th level spell. (Your 3rd level spell slot can't be used for fireball because fireball starts as a 5th level spell.)</p>\n<p><h2>Counter-magic</h2>: As a wizard with the High Arcana talent, you gain a bonus spell, counter-magic.</p>"
+    value: '<p>Your study of the highest orders of magic gives you options that lesser wizards cannot match: Memorization and a bonus spell: counter-magic</p><h2>Memorization</h2><p>When you pick your spells, you can choose any daily wizard spell twice (instead of once). This doesn''t apply to spells that start as recharge spells. For example, at 7th level when you have five 7th level spells and four 5th level spells, you could choose fireball twice as a 7th level spell, or once as a 7th level spell and once as a 5th level spell. (Your 3rd level spell slot can''t be used for fireball because fireball starts as a 5th level spell.)</p><p><h2>Counter-magic</h2>: As a wizard with the High Arcana talent, you gain a bonus spell, counter-magic.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

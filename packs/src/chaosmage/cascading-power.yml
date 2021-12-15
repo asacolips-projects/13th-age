@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>The targets are embroiled in silver fire! Each targeted ally can roll an immediate easy save (6+); if that ally succeeds, they regain one daily or recharge power of their choice. Then each targeted enemy takes damage equal to [[d10*@ed]].</p>\n<p>After the damage, roll the escalation die and use the new result.</p>"
+    value: '<p>The targets are embroiled in silver fire! Each targeted ally can roll an immediate easy save (6+); if that ally succeeds, they regain one daily or recharge power of their choice. Then each targeted enemy takes damage equal to [[d10*@ed]].</p><p>After the damage, roll the escalation die and use the new result.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

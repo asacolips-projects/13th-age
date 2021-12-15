@@ -424,7 +424,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Acts: After ranger</p>\n<p>Advantage: The bear gains temporary hit points equal to its level ([[@lvl]]) each time it hits with an attack.</p>\n<p>Champion Feat: The temporary hit points increase to double its level ([[2*@lvl]]).</p>"
+        value: '<p>Acts: After ranger</p><p>Advantage: The bear gains temporary hit points equal to its level ([[@lvl]]) each time it hits with an attack.</p><p>Champion Feat: The temporary hit points increase to double its level ([[2*@lvl]]).</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -436,7 +436,7 @@ items:
       default: 0
       aoopYJqvrhUZTLgf: 3
     flags: {}
-    mce_13: "<p>Acts: After ranger</p>\n<p>Advantage: The bear gains temporary hit points equal to its level ([[@lvl]]) each time it hits with an attack.</p>\n<p>Champion Feat: The temporary hit points increase to double its level ([[2*@lvl]]).</p>"
+    mce_13: '<p>Acts: After ranger</p><p>Advantage: The bear gains temporary hit points equal to its level ([[@lvl]]) each time it hits with an attack.</p><p>Champion Feat: The temporary hit points increase to double its level ([[2*@lvl]]).</p>'
   - _id: '4Km3ZAYWmAxf5IZF'
     name: 'Boar (also Spiky Lizard)'
     type: 'trait'
@@ -448,7 +448,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Acts: Before ranger</p>\n<p>Advantage: The boar gains a +1 attack bonus when it moves before its attack during the same turn.</p>"
+        value: '<p>Acts: Before ranger</p><p>Advantage: The boar gains a +1 attack bonus when it moves before its attack during the same turn.</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -471,7 +471,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Acts: Before ranger</p>\n<p>Advantage: It flies! Its melee damage die is dropped by one size (d6 at level 0).</p>"
+        value: '<p>Acts: Before ranger</p><p>Advantage: It flies! Its melee damage die is dropped by one size (d6 at level 0).</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -494,7 +494,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Acts: Before ranger</p>\n<p>Advantage: The panther&rsquo;s crit range expands by 2 against enemies with lower initiative.</p>"
+        value: '<p>Acts: Before ranger</p><p>Advantage: The panther&rsquo;s crit range expands by 2 against enemies with lower initiative.</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -517,7 +517,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Acts: After ranger</p>\n<p>Advantage: The snake also deals ongoing poison damage equal to twice your level ([[2*@lvl]]) on a natural attack roll of 18+.</p>\n<p>Champion Feat: The ongoing damage is three times your level ([[3*@lvl]]) instead.</p>\n<p>Epic Feat: The ongoing damage is four times your level ([[4*@lvl]]) instead.</p>"
+        value: '<p>Acts: After ranger</p><p>Advantage: The snake also deals ongoing poison damage equal to twice your level ([[2*@lvl]]) on a natural attack roll of 18+.</p><p>Champion Feat: The ongoing damage is three times your level ([[3*@lvl]]) instead.</p><p>Epic Feat: The ongoing damage is four times your level ([[4*@lvl]]) instead.</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -540,7 +540,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Acts: After ranger</p>\n<p>Advantage: The wolf gains a +1 attack bonus against enemies its master attacked the same turn, or against enemies engaged with its master.</p>"
+        value: '<p>Acts: After ranger</p><p>Advantage: The wolf gains a +1 attack bonus against enemies its master attacked the same turn, or against enemies engaged with its master.</p>'
       group:
         type: 'String'
         label: 'Group'

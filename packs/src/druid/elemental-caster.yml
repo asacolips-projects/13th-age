@@ -1,0 +1,179 @@
+name: 'Elemental Caster'
+permission:
+  default: 0
+type: 'power'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+  powerSource:
+    type: 'String'
+    label: 'Power Source'
+    value: 'class'
+  powerSourceName:
+    type: 'String'
+    label: 'Power Source'
+    value: 'Druid'
+  powerType:
+    type: 'String'
+    label: 'Power Type'
+    value: 'talent'
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: ''
+  powerLevel:
+    type: 'Number'
+    label: 'Level'
+    value: 1
+  actionType:
+    type: 'String'
+    label: 'Action'
+    value: ''
+  range:
+    type: 'String'
+    label: 'Range'
+    value: ''
+  trigger:
+    type: 'String'
+    label: 'Trigger'
+    value: ''
+  target:
+    type: 'String'
+    label: 'Target'
+    value: ''
+  always:
+    type: 'String'
+    label: 'Always'
+    value: ''
+  attack:
+    type: 'String'
+    label: 'Attack'
+    value: ''
+  hit:
+    type: 'String'
+    label: 'Hit'
+    value: ''
+  hitEven:
+    type: 'String'
+    label: 'Natural Even Hit'
+    value: ''
+  hitOdd:
+    type: 'String'
+    label: 'Natural Odd Hit'
+    value: ''
+  crit:
+    type: 'String'
+    label: 'Crit'
+    value: ''
+  miss:
+    type: 'String'
+    label: 'Miss'
+    value: ''
+  missEven:
+    type: 'String'
+    label: 'Even Miss'
+    value: ''
+  missOdd:
+    type: 'String'
+    label: 'Odd Miss'
+    value: ''
+  cost:
+    type: 'String'
+    label: 'Cost'
+    value: ''
+  castBroadEffect:
+    type: 'String'
+    label: 'Cast for Broad Effect'
+    value: ''
+  castPower:
+    type: 'String'
+    label: 'Cast for Power'
+    value: ''
+  sustainedEffect:
+    type: 'String'
+    label: 'Opening and Sustained Effect'
+    value: ''
+  finalVerse:
+    type: 'String'
+    label: 'Final Verse'
+    value: ''
+  special:
+    type: 'String'
+    label: 'Special'
+    value: ''
+  effect:
+    type: 'String'
+    label: 'Effect'
+    value: '<p>As an elemental caster, you can summon elementals and draw on the raw magic of nature, providing many powerful daily spells. Like a wizard or cleric, you choose the Elemental Caster spells you will be able to cast after each full heal-up.</p><p>You can choose as many feats as you wish from feat trees related to mastering the four elements: air, earth, fire and water. The adventurer-tier feats for the elemental masteries provide access to at-will attack spells. You cast these at-will spells at your current level or one level below (when you’re at even levels).</p><p>Elemental caster initiates can cast fewer daily spells than adepts. Adepts are also able to use two different summon elemental spells each day, to the initiate’s one.</p> <h2><b>Elemental Caster Initiate Level Progression</b></h3> <table> <thead> <tr> <th>Druid Level</th> <th>1st level</th> <th>3rd level</th> <th>5th level</th> <th>7th level</th> <th>9th level</th> </tr> </thead> <tbody> <tr> <td>Level 1 Multiclass</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 1</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 2</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 3</td> <td>—</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 4</td> <td>1</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 5</td> <td>—</td> <td>1</td> <td>1</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 6</td> <td>—</td> <td>—</td> <td>2</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 7</td> <td>—</td> <td>—</td> <td>1</td> <td>1</td> <td>—</td> </tr> <tr> <td>Level 8</td> <td>—</td> <td>—</td> <td>1</td> <td>2</td> <td></td> </tr> <tr> <td>Level 9</td> <td>—</td> <td>—</td> <td>—</td> <td>2</td> <td>1</td> </tr> <tr> <td>Level 10</td> <td>—</td> <td>—</td> <td>—</td> <td>1</td> <td>2</td> </tr> </tbody> </table> <h2><b>Elemental Caster Adept Level Progression</b></h3> <table> <thead> <tr> <th>Druid Level</th> <th>1st level</th> <th>3rd level</th> <th>5th level</th> <th>7th level</th> <th>9th level</th> </tr> </thead> <tbody> <tr> <td>Level 1 Multiclass</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 1</td> <td>1</td> <td>—</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 2</td> <td>2</td> <td>—</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 3</td> <td>1</td> <td>2</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 4</td> <td>—</td> <td>3</td> <td>—</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 5</td> <td>—</td> <td>2</td> <td>2</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 6</td> <td>—</td> <td>1</td> <td>3</td> <td>—</td> <td>—</td> </tr> <tr> <td>Level 7</td> <td>—</td> <td>—</td> <td>3</td> <td>2</td> <td>—</td> </tr> <tr> <td>Level 8</td> <td>—</td> <td>—</td> <td>1</td> <td>4</td> <td></td> </tr> <tr> <td>Level 9</td> <td>—</td> <td>—</td> <td>—</td> <td>3</td> <td>3</td> </tr> <tr> <td>Level 10</td> <td>—</td> <td>—</td> <td>—</td> <td>2</td> <td>4</td> </tr> </tbody> </table>'
+  spellLevel3:
+    type: 'String'
+    label: '3rd Level Spell'
+    value: ''
+  spellLevel5:
+    type: 'String'
+    label: '5th Level Spell'
+    value: ''
+  spellLevel7:
+    type: 'String'
+    label: '7th Level Spell'
+    value: ''
+  spellLevel9:
+    type: 'String'
+    label: '9th Level Spell'
+    value: ''
+  spellChain:
+    type: 'String'
+    label: 'Chain Spell'
+    value: ''
+  breathWeapon:
+    type: 'String'
+    label: 'Breath Weapon'
+    value: ''
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  maxQuantity:
+    type: 'Number'
+    label: 'Uses'
+    value: 1
+  feats:
+    adventurer:
+      description:
+        type: 'String'
+        label: 'Adventurer Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    champion:
+      description:
+        type: 'String'
+        label: 'Champion Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+    epic:
+      description:
+        type: 'String'
+        label: 'Epic Feat'
+      isActive:
+        type: 'Boolean'
+        label: 'Active'
+        value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Elemental Caster'
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+_id: '5Qd5FOiORgugJvM0'

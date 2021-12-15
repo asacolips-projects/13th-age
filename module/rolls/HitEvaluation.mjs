@@ -11,7 +11,7 @@ export default class HitEvaluation {
         let hasHit = undefined;
         let hasMissed = undefined;
 
-        if (targets.length == 0) return;
+        if (!targets || targets.length == 0) return;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
 
@@ -71,13 +71,13 @@ export default class HitEvaluation {
     }
 
     static _getTargetDefense(row_text) {
-        if (row_text.toLowerCase().includes(" ac")) {
+        if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.ac.key"))) {
             return "ac";
         }
-        else if (row_text.toLowerCase().includes(" pd")) {
+        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.pd.key"))) {
             return "pd";
         }
-        else if (row_text.toLowerCase().includes(" md")) {
+        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.md.key"))) {
             return  "md";
         }
     }

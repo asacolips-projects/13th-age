@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>For the rest of the battle (or for five minutes), the target gains resist damage 16+. Enemies who can see invisible creatures ignore this resistance.</p>\n<p>Whenever the target uses a move action, there is a 50% chance ([[1d100]]%) that it can teleport somewhere nearby instead of physically moving.</p>"
+    value: '<p>For the rest of the battle (or for five minutes), the target gains resist damage 16+. Enemies who can see invisible creatures ignore this resistance.</p><p>Whenever the target uses a move action, there is a 50% chance ([[1d100]]%) that it can teleport somewhere nearby instead of physically moving.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

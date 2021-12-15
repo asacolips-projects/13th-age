@@ -82,13 +82,6 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('hideBasedOnSystemSetting', () => {
-    if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
-      return "hide";
-    }
-    return "";
-  });
-
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheet,
@@ -108,7 +101,21 @@ Hooks.once('init', async function() {
   CONFIG.ARCHMAGE = ARCHMAGE;
 
   // Update status effects.
-  CONFIG.statusEffects = ARCHMAGE.statusEffects;
+  function _setArchmageStatusEffects(extended) {
+    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
+    else CONFIG.statusEffects = ARCHMAGE.statusEffects;
+  }
+  game.settings.register('archmage', 'extendedStatusEffects', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: enable => _setArchmageStatusEffects(enable)
+  });
+  _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
@@ -221,6 +228,24 @@ Hooks.once('init', async function() {
   });
   _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
 
+  game.settings.register("archmage", "automateHPConditions", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.automateHPConditionsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateHPConditionsHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
+  game.settings.register("archmage", "staggeredOverlay", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.staggeredOverlayHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   game.settings.register("archmage", "multiTargetAttackRolls", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.multiTargetAttackRollsHint"),
@@ -251,6 +276,15 @@ Hooks.once('init', async function() {
   game.settings.register('archmage', 'roundUpDamageApplication', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
+    scope: 'world',
+    config: true,
+    default: true,
+    type: Boolean
+  });
+
+  game.settings.register('archmage', 'autoAlterCritFumbleDamage', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageHint"),
     scope: 'world',
     config: true,
     default: true,
@@ -648,11 +682,11 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   // If there's an actor, set the token size.
   if (actor) {
     let size = actor.data.data.details.size?.value;
-    if (size == 'large') {
+    if (size == 'large' && data.height == 1 && data.width == 1) {
       data.height = 2;
       data.width = 2;
     }
-    if (size == 'huge') {
+    if (size == 'huge' && data.height == 1 && data.width == 1) {
       data.height = 3;
       data.width = 3;
     }

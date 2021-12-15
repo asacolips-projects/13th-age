@@ -536,7 +536,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: "<p>Increased trauma:&nbsp;Add the following extra effect trigger to the intellect devourer&rsquo;s&nbsp;recall trauma&nbsp;attack.</p>\n<p>Natural 5, 10, 15, 20:&nbsp;The target can&rsquo;t cast spells until the end of its next turn.</p>"
+        value: '<p>Increased trauma:&nbsp;Add the following extra effect trigger to the intellect devourer&rsquo;s&nbsp;recall trauma&nbsp;attack.</p><p>Natural 5, 10, 15, 20:&nbsp;The target can&rsquo;t cast spells until the end of its next turn.</p>'
       group:
         type: 'String'
         label: 'Group'
