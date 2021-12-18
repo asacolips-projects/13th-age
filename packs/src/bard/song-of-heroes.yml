@@ -136,7 +136,7 @@ data:
   sustainOn:
     type: 'Number'
     label: 'Sustain On'
-    value: 6
+    value: 11
   recharge:
     type: 'Number'
     label: 'Recharge'

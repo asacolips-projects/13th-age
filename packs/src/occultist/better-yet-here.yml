@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'The target takes extra damage from the hit equal to the spell level.'
+    value: 'The target takes [[@pwrlvl]] extra damage from the hit.'
   missEven:
     type: 'String'
     label: 'Even Miss'

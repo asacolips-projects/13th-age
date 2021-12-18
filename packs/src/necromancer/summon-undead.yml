@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You summon a mob of [[1d3+1]] crumbling skeleton mooks, as per the summoning rules on page 11. These skeletons fight for you until the end of the battle or until they drop to 0 hp, whichever comes first.</p>\n<p>As you cast the spell at higher levels, the mooks you summon vary, as shown below.</p>\n<p><em>Summoned mob stats are in the Summoned Creatures compendium.</em></p>"
+    value: '<p>You summon a mob of [[1d3+1]] crumbling skeleton mooks, as per the summoning rules on page 11. These skeletons fight for you until the end of the battle or until they drop to 0 hp, whichever comes first.</p><p>As you cast the spell at higher levels, the mooks you summon vary, as shown below.</p><p><em>Summoned mob stats are in the Summoned Creatures compendium.</em></p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

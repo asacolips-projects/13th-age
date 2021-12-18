@@ -28,11 +28,8 @@ export default class ArchmageRolls {
     let newTargetLine = undefined;
     let targets = 1;
     let nlpMap = {}
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.two")+" "] = 2;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.three")+" "] = 3;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.four")+" "] = 4;
-    nlpMap[game.i18n.localize("ARCHMAGE.TARGETING.five")+" "] = 5;
-    for (let i=2; i<=5; i++) {
+    for (let i=2; i<=9; i++) {
+      nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
       nlpMap[i.toString()] = i;
     }
 
@@ -59,9 +56,10 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all" or the Crescendo spell
+          // Handle "each" or "all" or "every" or the Crescendo spell
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
             || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")
             || item.data.data?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
             ) {
             targets = Math.max(game.user.targets.size, 1);
@@ -86,9 +84,10 @@ export default class ArchmageRolls {
           for (let x = 0; x < keys.length; x++) {
             if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
           }
-          // Handle "each" or "all"
+          // Handle "each" or "all" or "every"
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")) {
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
+            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
@@ -158,7 +157,7 @@ export default class ArchmageRolls {
     for (let i=0; i<rolls.length; i++) {
       rolls[i].evaluate({async: false});
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
-      if (key == "attack") rolls[i].critResult = ArchmageRolls._inlineRollCritTest(rolls[i], actor);
+      if (key == "attack") rolls[i].critResult = ArchmageRolls.inlineRollCritTest(rolls[i], actor);
     }
   }
 
@@ -218,7 +217,7 @@ export default class ArchmageRolls {
    *
    * @return {string} 'crit', 'fail', or 'normal'.
    */
-  static _inlineRollCritTest(roll, actor = null) {
+  static inlineRollCritTest(roll, actor = null) {
 
     for (let i = 0; i < roll.terms.length; i++) {
       var part = roll.terms[i];
@@ -234,8 +233,9 @@ export default class ArchmageRolls {
               return 'fail';
             }
             // Barbarian crit.
-            else if (actor && actor.data.data.details.class.value && actor.data.data.details.class.value.toLowerCase().match(/barbarian/g)
-              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10 && part.results[1].result > 10) {
+            else if (actor?.data.data.details.detectedClasses?.includes("barbarian")
+              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10
+              && part.results[1].result > 10) {
               return 'crit';
             }
             // Natural 2, if dual-wielding.
