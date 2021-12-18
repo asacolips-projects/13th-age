@@ -37,17 +37,9 @@ export class DamageApplicator {
       return;
     }
     selected.forEach(token => {
-      // Temp hps handled directly by the actor's preUpdate method
-      if (token.data?.actorData?.data?.attributes != undefined) {
-        let tokenData = duplicate(token.data);
-        tokenData.actorData.data.attributes.hp.value -= toApply;
-        token.update(tokenData);
-      }
-      else {
-        let actorData = duplicate(token.actor.data);
-        actorData.data.attributes.hp.value -= toApply;
-        token.actor.update(actorData);
-      }
+      let actorData = duplicate(token.actor.data);
+      actorData.data.attributes.hp.value -= toApply;
+      token.actor.update(actorData);
     });
 
   }
@@ -56,17 +48,9 @@ export class DamageApplicator {
     let toApply = this.getRollValue(inlineRoll);
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
-      // Max and 0 handled directly by the actor's preUpdate method
-      if (token.data?.actorData?.data?.attributes != undefined) {
-        let tokenData = duplicate(token.data);
-        tokenData.actorData.data.attributes.hp.value += toApply;
-        token.update(tokenData);
-      }
-      else {
-        let actorData = duplicate(token.actor.data);
-        actorData.data.attributes.hp.value += toApply;
-        token.actor.update(actorData);
-      }
+      let actorData = duplicate(token.actor.data);
+      actorData.data.attributes.hp.value += toApply;
+      token.actor.update(actorData);
     });
   }
 
@@ -74,20 +58,11 @@ export class DamageApplicator {
     let toApply = this.getRollValue(inlineRoll);
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
-      if (token.data?.actorData?.data?.attributes != undefined) {
-        let tokenData = duplicate(token.data);
-        let hp = tokenData.actorData.data.attributes["hp"];
-        if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
-        hp.temp = Math.max(hp.temp, toApply);
-        token.update(tokenData);
-      }
-      else {
-        let actorData = duplicate(token.actor.data);
-        let hp = actorData.data.attributes["hp"];
-        if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
-        hp.temp = Math.max(hp.temp, toApply);
-        token.actor.update(actorData);
-      }
+      let actorData = duplicate(token.actor.data);
+      let hp = actorData.data.attributes["hp"];
+      if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
+      hp.temp = Math.max(hp.temp, toApply);
+      token.actor.update(actorData);
     });
   }
 }
