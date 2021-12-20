@@ -57,5 +57,5 @@ class VuePort {
 
 VuePort.VueComponents = {};
 
-Hooks.on('init', () => VuePort.init());
+// Hooks.on('init', () => VuePort.init());
 Hooks.on('setup', () => VuePort.setup());

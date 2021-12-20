@@ -590,7 +590,16 @@ Hooks.once('ready', () => {
       }
       // Otherwise, load it via our fallback.
       else {
-        archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+        let loadFallbacks = async function() {
+          // If Vue is still undefined, load it manually.
+          if (typeof Vue === 'undefined') {
+            await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
+            await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
+          }
+
+          await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+        }
+        loadFallbacks();
       }
     }
   }
