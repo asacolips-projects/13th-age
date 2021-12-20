@@ -1,3 +1,4 @@
+// @todo Remove this file, it's no longer used.
 export class ActorSheetFlags extends BaseEntitySheet {
   static get defaultOptions() {
     const options = super.defaultOptions;

@@ -175,7 +175,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 1
+          value: true
       bg2:
         name:
           type: String
@@ -185,7 +185,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 1
+          value: true
       bg3:
         name:
           type: String
@@ -195,7 +195,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 1
+          value: true
       bg4:
         name:
           type: String
@@ -205,7 +205,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
       bg5:
         name:
           type: String
@@ -215,7 +215,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
       bg6:
         name:
           type: String
@@ -225,7 +225,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
       bg7:
         name:
           type: String
@@ -235,7 +235,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
       bg8:
         name:
           type: String
@@ -245,7 +245,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
     icons:
       i1:
         name:
@@ -259,7 +259,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 1
+          value: true
         results: []
       i2:
         name:
@@ -273,7 +273,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 1
+          value: true
         results: []
       i3:
         name:
@@ -287,7 +287,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 1
+          value: true
         results: []
       i4:
         name:
@@ -301,7 +301,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
         results: []
       i5:
         name:
@@ -315,7 +315,7 @@ Actor:
           value: 0
         isActive:
           type: Boolean
-          value: 0
+          value: false
         results: []
     resources:
       perCombat:
