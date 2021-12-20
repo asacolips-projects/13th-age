@@ -66,7 +66,6 @@ export default {
         'angle-double-up',
         'undo'
       ]
-      console.log(effect.changes);
       effect.changes.forEach(c => {
         if (c.key && c.value) {
           changes.push({

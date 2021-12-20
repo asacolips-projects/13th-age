@@ -99,17 +99,7 @@ export default {
       return mergeObject(baseFlags, flags);
     }
   },
-  watch: {
-    // actor: {
-    //   deep: true,
-    //   handler() {
-    //     console.log('Vue Sheet Updated')
-    //     // This method abstracts the prepare data call that the actor class
-    //     // itself would normally call.
-    //     game.archmage.ActorHelpersV2.prepareData(this.actor);
-    //   }
-    // }
-  },
+  watch: {},
   async created() {
     console.log("Creating Sheet");
     for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {

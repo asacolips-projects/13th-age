@@ -127,11 +127,6 @@ Hooks.once('init', async function() {
   CONFIG.Item.sheetClass = ItemArchmageSheet;
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('archmage', ActorArchmageSheet, {
-    label: "V1 Character Sheet",
-    types: ["character"],
-    makeDefault: !dependencies ? true : false
-  });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
     label: "NPC Sheet",
@@ -148,14 +143,12 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
-  if (dependencies) {
-    // V2 actor sheet (See issue #118).
-    Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-      label: "V2 Character Sheet",
-      types: ["character"],
-      makeDefault: true
-    });
-  }
+  // V2 actor sheet (See issue #118).
+  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+    label: "Character Sheet",
+    types: ["character"],
+    makeDefault: true
+  });
 
   /* -------------------------------------------- */
   CONFIG.Actor.characterFlags = {
