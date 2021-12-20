@@ -1,9 +1,11 @@
 ARCHMAGE.SETTINGS.ShowDebugLogsName: Show debug logs?
 ARCHMAGE.SETTINGS.ShowDebugLogsHint: Turn this on for bug reports
+ARCHMAGE.SETTINGS.extendedStatusEffectsName: Extended Status Effects List
+ARCHMAGE.SETTINGS.extendedStatusEffectsHint: If enabled extends the official status list with a handful of useful token markers.
 ARCHMAGE.SETTINGS.initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
 ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint: If enabled initiative ties will be resolved using the initiative modifier; if not, monsters win by default.
 ARCHMAGE.SETTINGS.automateHPConditionsName: Auto-manage Dead and Staggered
-ARCHMAGE.SETTINGS.automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via e.g. the Combat Utility Belt module.
+ARCHMAGE.SETTINGS.automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
 ARCHMAGE.SETTINGS.staggeredOverlayName: Staggered as overlay
 ARCHMAGE.SETTINGS.staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
 ARCHMAGE.SETTINGS.multiTargetAttackRollsName: Multi-Target Attack Rolls
@@ -417,6 +419,24 @@ ARCHMAGE.EFFECT.StatusStunned: Stunned
 ARCHMAGE.EFFECT.StatusUnconscious: Unconscious
 ARCHMAGE.EFFECT.StatusVulnerable: Vulnerable
 ARCHMAGE.EFFECT.StatusWeakened: Weakened
+# Additional conditions
+ARCHMAGE.EFFECT.StatusEmpowered: Empowered
+ARCHMAGE.EFFECT.StatusOngoingDamage: Ongoing Damage
+ARCHMAGE.EFFECT.StatusRegen: Regeneration
+ARCHMAGE.EFFECT.StatusBonusDefenses: Bonus Defenses
+ARCHMAGE.EFFECT.StatusDebuffed: Debuffed
+ARCHMAGE.EFFECT.StatusBuffed: Buffed
+ARCHMAGE.EFFECT.StatusFlying: Flying
+ARCHMAGE.EFFECT.StatusGrabbed: Grabbed
+ARCHMAGE.EFFECT.StatusAsleep: Asleep
+ARCHMAGE.EFFECT.StatusLastGasps: Last Gasps
+ARCHMAGE.EFFECT.StatusBlessed: Blessed
+ARCHMAGE.EFFECT.StatusCursed: Cursed
+ARCHMAGE.EFFECT.StatusReducedDefenses: Reduced Defenses
+ARCHMAGE.EFFECT.StatusHolyShield: Holy Shield
+ARCHMAGE.EFFECT.StatusFireShield: Fire Shield
+ARCHMAGE.EFFECT.StatusIceShield: Ice Shield
+ARCHMAGE.EFFECT.StatusMageShield: Mage Shield
 # UI Messages
 ARCHMAGE.UI.errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
 ARCHMAGE.UI.errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?

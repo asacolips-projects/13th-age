@@ -172,6 +172,111 @@ ARCHMAGE.statusEffects = [
     ]
   },
 ];
+// Extended (optional) status effects
+ARCHMAGE.extendedStatusEffects = [
+  // Empowered.
+  {
+    id: "empowered",
+    label: "ARCHMAGE.EFFECT.StatusEmpowered",
+    icon: "icons/svg/upgrade.svg"
+  },
+  // Ongoing Damage.
+  {
+    id: "ongoingDamage",
+    label: "ARCHMAGE.EFFECT.StatusOngoingDamage",
+    icon: "icons/svg/degen.svg"
+  },
+  // Regen.
+  {
+    id: "regen",
+    label: "ARCHMAGE.EFFECT.StatusRegen",
+    icon: "icons/svg/regen.svg"
+  },
+  // Bonus defenses.
+  {
+    id: "bonusDefenses",
+    label: "ARCHMAGE.EFFECT.StatusBonusDefenses",
+    icon: "icons/svg/shield.svg"
+  },
+  // Reduced defenses.
+  {
+    id: "reducedDefenses",
+    label: "ARCHMAGE.EFFECT.StatusReducedDefenses",
+    icon: "icons/svg/acid.svg" //ruins
+  },
+  // Blessed.
+  {
+    id: "blessed",
+    label: "ARCHMAGE.EFFECT.StatusBlessed",
+    icon: "icons/svg/angel.svg"
+  },
+  // Cursed.
+  {
+    id: "cursed",
+    label: "ARCHMAGE.EFFECT.StatusCursed",
+    icon: "icons/svg/dice-target.svg"
+  },
+  // Flying.
+  {
+    id: "flying",
+    label: "ARCHMAGE.EFFECT.StatusFlying",
+    icon: "icons/svg/wing.svg"
+  },
+  // Grabbed.
+  {
+    id: "grabbed",
+    label: "ARCHMAGE.EFFECT.StatusGrabbed",
+    icon: "icons/svg/item-bag.svg"
+  },
+  // Asleep.
+  {
+    id: "asleep",
+    label: "ARCHMAGE.EFFECT.StatusAsleep",
+    icon: "icons/svg/sleep.svg"
+  },
+  // Last Gasps.
+  {
+    id: "lastgasps",
+    label: "ARCHMAGE.EFFECT.StatusLastGasps",
+    icon: "icons/svg/clockwork.svg"
+  },
+  // Debuffed.
+  // {
+    // id: "debuffed",
+    // label: "ARCHMAGE.EFFECT.StatusDebuffed",
+    // icon: "icons/svg/direction.svg"
+  // },
+  // Buffed.
+  // {
+    // id: "buffed",
+    // label: "ARCHMAGE.EFFECT.StatusBuffed",
+    // icon: "icons/svg/up.svg"
+  // },
+  // Holy Shield.
+  // {
+    // id: "holyshield",
+    // label: "ARCHMAGE.EFFECT.StatusHolyShield",
+    // icon: "icons/svg/holy-shield.svg"
+  // },
+  // Fire Shield.
+  // {
+    // id: "fireshield",
+    // label: "ARCHMAGE.EFFECT.StatusFireShield",
+    // icon: "icons/svg/fire-shield.svg"
+  // },
+  // Ice Shield.
+  // {
+    // id: "iceshield",
+    // label: "ARCHMAGE.EFFECT.StatusIceShield",
+    // icon: "icons/svg/ice-shield.svg"
+  // },
+  // Mage Shield.
+  // {
+    // id: "mageshield",
+    // label: "ARCHMAGE.EFFECT.StatusMageShield",
+    // icon: "icons/svg/mage-shield.svg"
+  // },
+];
 
 // Power Settings
 ARCHMAGE.powerSources = {

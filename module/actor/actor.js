@@ -162,7 +162,6 @@ export class ActorArchmage extends Actor {
     let uniqueBonusLabels = {};
     for ( let change of changes ) {
       if (change.mode != CONST.ACTIVE_EFFECT_MODES.ADD) {
-        // 13A effects should never fall here, but if they do handle them
         uniqueChanges.push(change);
         continue;
       }
@@ -268,7 +267,7 @@ export class ActorArchmage extends Actor {
    */
   _prepareCharacterData(data, model, flags) {
 
-    // Find known classes
+    // Find known classes if not already detected - fixes older characters
     if (!data.details.detectedClasses && data.details.class?.value) {
       let matchedClasses = ArchmageUtility.detectClasses(data.details.class.value);
       data.details.detectedClasses = matchedClasses;
@@ -752,7 +751,7 @@ export class ActorArchmage extends Actor {
       roll = Roll.fromJSON(unescape(roll_html.data('roll')));
     } else {
       // Perform the roll ourselves
-      roll.roll();
+      roll.roll({async: false});
     }
 
     // If 3d dice are enabled, handle them
@@ -764,9 +763,10 @@ export class ActorArchmage extends Actor {
     let newHp = this.data.data.attributes.hp.value;
     let newRec = this.data.data.attributes.recoveries.value;
     if (!data.free) {newRec -= 1;}
-    // Minimum of 0 handled in the actor update hook
+    // Starting from 0 if at negative hp is handled in the actor update hook
+    // just pass along the heal amount here
     if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, newHp + roll.total);}
-    this.update({
+    await this.update({
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
     });
@@ -777,7 +777,6 @@ export class ActorArchmage extends Actor {
   async restQuick() {
     let templateData = {
       actor: this,
-      usedRecoveries: 0,
       gainedHp: 0,
       resources: [],
       items: []
@@ -792,10 +791,10 @@ export class ActorArchmage extends Actor {
       // Roll recoveries until we are above staggered
       let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
-      templateData.usedRecoveries += 1;
     }
-    updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.value - templateData.usedRecoveries;
-    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
+
+    // Remove any prior negative hps from the amount healing to prevent double application
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp + Math.min(this.data.data.attributes.hp.value, 0));
 
     // Resources
     // Focus, Momentum and Command Points handled on end combat hook
@@ -826,7 +825,7 @@ export class ActorArchmage extends Actor {
 
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
-      this.update(updateData);
+      await this.update(updateData);
     }
 
     // Items
@@ -947,7 +946,7 @@ export class ActorArchmage extends Actor {
 
     // Update actor at this point (items are updated separately)
     if ( !isObjectEmpty(updateData) ) {
-      this.update(updateData);
+      await this.update(updateData);
     }
 
     // Items
@@ -1070,7 +1069,8 @@ export class ActorArchmage extends Actor {
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
     if (data.data.attributes?.hp?.max !== undefined) {
-      // Here we received an update of the max hp, check that the total matches
+      // Here we received an update of the max hp
+      // Check that the current value does not exceed it
       let hp = data.data.attributes.hp.value || this.data.data.attributes.hp.value;
       data.data.attributes.hp.value = Math.min(hp, data.data.attributes.hp.max);
     }
@@ -1096,7 +1096,7 @@ export class ActorArchmage extends Actor {
       }
       // Do not exceed max hps
       let max = data.data.attributes.hp.max || hp.max;
-      // If max hp is ten assume this is a newly created npc
+      // If max hp is 10 assume this is a newly created npc, simplify update
       if (max == 10 && this.data.type == 'npc') {
         data.data.attributes.hp.value = hp.value + delta;
         data.data.attributes.hp.max = hp.value + delta;
@@ -1105,7 +1105,7 @@ export class ActorArchmage extends Actor {
       }
 
       // Handle hp-related conditions
-      if (game.settings.get('archmage', 'automateHPConditions')) {
+      if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
         // Dead
         let filtered = this.effects.filter(x =>
           x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
@@ -1119,9 +1119,7 @@ export class ActorArchmage extends Actor {
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
-          for (let e of filtered) {
-            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
-          }
+          await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
         }
         // Staggered
         filtered = this.effects.filter(x =>
@@ -1140,9 +1138,7 @@ export class ActorArchmage extends Actor {
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
           || data.data.attributes.hp.value <= 0)) {
-          for (let e of filtered) {
-            await this.deleteEmbeddedEntity("ActiveEffect", e.id)
-          }
+          await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
         }
       }
     }
@@ -1157,6 +1153,10 @@ export class ActorArchmage extends Actor {
 
     if (data.data.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
+      // Make sure we are not exceeding the maximum
+      if (this.data.data.attributes.recoveries.max) {
+        data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.data.data.attributes.recoveries.max);
+      }
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
@@ -1165,7 +1165,7 @@ export class ActorArchmage extends Actor {
       await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
 
       let newRec = data.data.attributes.recoveries.value;
-      if (data.data.attributes.recoveries.value < 0) {
+      if (newRec < 0) {
         const effectData = {
           label: "Negative Recovery Penalty",
           changes: [
@@ -1175,7 +1175,7 @@ export class ActorArchmage extends Actor {
             {key: "data.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
           ]
         };
-        this.createEmbeddedEntity("ActiveEffect", [effectData]);
+        this.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
 
@@ -1273,7 +1273,7 @@ export class ActorArchmage extends Actor {
             data.data.attributes.attackMod.value -= wpn.twohandedPen;
           }
           else if (this.data.data.attributes.weapon.melee.shield) {
-            // Can't duel-wield with a shield
+            // Can't dual-wield with a shield
             data.data.attributes.ac = {base: this.data.data.attributes.ac.base - 1};
             data.data.attributes.weapon.melee.shield = false;
             data.data.attributes.attackMod.value -= wpn.shieldPen;

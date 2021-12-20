@@ -1,4 +1,3 @@
-import { ActorSheetFlags } from './actor-flags.js';
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 import { ItemArchmage } from "../item/item.js";
 
@@ -322,28 +321,15 @@ export class ActorArchmageSheet extends ActorSheet {
         let sixes = 0;
         let rollResults;
 
-        if (!isNewerVersion(game.data.version, "0.7")) {
-          rollResults = result.parts[0].rolls;
-          rollResults.forEach(rollResult => {
-            if (rollResult.roll == 5) {
-              fives++;
-            }
-            else if (rollResult.roll == 6) {
-              sixes++;
-            }
-          });
-        }
-        else {
-          rollResults = result.terms[0].results;
-          rollResults.forEach(rollResult => {
-            if (rollResult.result == 5) {
-              fives++;
-            }
-            else if (rollResult.result == 6) {
-              sixes++;
-            }
-          });
-        }
+        rollResults = result.terms[0].results;
+        rollResults.forEach(rollResult => {
+          if (rollResult.result == 5) {
+            fives++;
+          }
+          else if (rollResult.result == 6) {
+            sixes++;
+          }
+        });
 
         // Basic template rendering data
         const template = `systems/archmage/templates/chat/icon-relationship-card.html`
@@ -682,12 +668,8 @@ export class ActorArchmageSheet extends ActorSheet {
     /* Item Dragging */
     // Core handlers from foundry.js
     let dragHandler;
-    if (!isNewerVersion(game.data.version, "0.7")) {
-      dragHandler = ev => this._onDragItemStart(ev);
-    }
-    else {
-      dragHandler = ev => this._onDragStart(ev);
-    }
+    dragHandler = ev => this._onDragStart(ev);
+
     // Custom handlers.
     // let dragHandlerArchmage = ev => this._onDragItemStartArchmage(ev);
     // let dragOverHandlerArchmage = ev => this._onDragOverArchmage(ev);
@@ -724,7 +706,6 @@ export class ActorArchmageSheet extends ActorSheet {
    */
   _onConfigureFlags(event) {
     event.preventDefault();
-    new ActorSheetFlags(this.actor).render(true);
   }
 
   /* -------------------------------------------- */

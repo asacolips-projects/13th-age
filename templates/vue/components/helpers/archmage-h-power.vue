@@ -40,6 +40,7 @@ export default {
     powerDetailFields() {
       let powerFields = [
         'trigger',
+        'sustainOn',
         'target',
         'always',
         'attack',

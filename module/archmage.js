@@ -101,7 +101,21 @@ Hooks.once('init', async function() {
   CONFIG.ARCHMAGE = ARCHMAGE;
 
   // Update status effects.
-  CONFIG.statusEffects = ARCHMAGE.statusEffects;
+  function _setArchmageStatusEffects(extended) {
+    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
+    else CONFIG.statusEffects = ARCHMAGE.statusEffects;
+  }
+  game.settings.register('archmage', 'extendedStatusEffects', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean,
+    onChange: enable => _setArchmageStatusEffects(enable)
+  });
+  _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
@@ -113,11 +127,6 @@ Hooks.once('init', async function() {
   CONFIG.Item.sheetClass = ItemArchmageSheet;
 
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('archmage', ActorArchmageSheet, {
-    label: "V1 Character Sheet",
-    types: ["character"],
-    makeDefault: !dependencies ? true : false
-  });
 
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
     label: "NPC Sheet",
@@ -134,14 +143,12 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
-  if (dependencies) {
-    // V2 actor sheet (See issue #118).
-    Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-      label: "V2 Character Sheet",
-      types: ["character"],
-      makeDefault: true
-    });
-  }
+  // V2 actor sheet (See issue #118).
+  Actors.registerSheet("archmage", ActorArchmageSheetV2, {
+    label: "Character Sheet",
+    types: ["character"],
+    makeDefault: true
+  });
 
   /* -------------------------------------------- */
   CONFIG.Actor.characterFlags = {
@@ -576,7 +583,16 @@ Hooks.once('ready', () => {
       }
       // Otherwise, load it via our fallback.
       else {
-        archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+        let loadFallbacks = async function() {
+          // If Vue is still undefined, load it manually.
+          if (typeof Vue === 'undefined') {
+            await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
+            await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
+          }
+
+          await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+        }
+        loadFallbacks();
       }
     }
   }
@@ -985,7 +1001,7 @@ async function createArchmageMacro(data, slot) {
 
   // Create the macro command
   const command = `game.archmage.rollItemMacro("${item.name}");`;
-  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
       name: item.name,

@@ -140,10 +140,10 @@ export class ArchmageUtility {
    */
   static getActorsByName(name) {
     if (Array.isArray(name)) {
-      return game.actors.entities.filter(a => name.includes(a.data.name));
+      return game.actors.filter(a => name.includes(a.data.name));
     }
     else {
-      return game.actors.entities.filter(a => a.data.name == name);
+      return game.actors.filter(a => a.data.name == name);
     }
   }
 

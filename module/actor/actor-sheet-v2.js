@@ -552,38 +552,20 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       let actorIconResults = [];
 
-      if (!isNewerVersion(game.data.version, "0.7")) {
-        rollResults = result.parts[0].rolls;
-        rollResults.forEach(rollResult => {
-          if (rollResult.roll == 5) {
-            fives++;
-            actorIconResults.push(5);
-          }
-          else if (rollResult.roll == 6) {
-            sixes++;
-            actorIconResults.push(6);
-          }
-          else {
-            actorIconResults.push(0);
-          }
-        });
-      }
-      else {
-        rollResults = result.terms[0].results;
-        rollResults.forEach(rollResult => {
-          if (rollResult.result == 5) {
-            fives++;
-            actorIconResults.push(5);
-          }
-          else if (rollResult.result == 6) {
-            sixes++;
-            actorIconResults.push(6);
-          }
-          else {
-            actorIconResults.push(0);
-          }
-        });
-      }
+      rollResults = result.terms[0].results;
+      rollResults.forEach(rollResult => {
+        if (rollResult.result == 5) {
+          fives++;
+          actorIconResults.push(5);
+        }
+        else if (rollResult.result == 6) {
+          sixes++;
+          actorIconResults.push(6);
+        }
+        else {
+          actorIconResults.push(0);
+        }
+      });
 
       // Update actor.
       let updateData = {};

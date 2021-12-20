@@ -223,7 +223,6 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
 
-
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
@@ -291,7 +290,9 @@ export class ItemArchmage extends Item {
 
     // Handle Monk AC bonus
     //TODO: remove dependency on times-up once core Foundry handles AE expiry
-    if (game.modules.has("times-up")) await this._handleMonkAC();
+    if (game.modules.get("times-up")?.active) {
+      await this._handleMonkAC();
+    }
     return ChatMessage.create(chatData, { displaySheet: false });
   }
 
@@ -421,7 +422,7 @@ export class ItemArchmage extends Item {
       }]
     }
     effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
-    await this.actor.createEmbeddedEntity("ActiveEffect", [effectData]);
+    await this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   /* -------------------------------------------- */
