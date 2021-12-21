@@ -357,7 +357,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /**
    * Handle rollable clicks.
    */
-  _onRollable(event) {
+  async _onRollable(event) {
     event.preventDefault;
     let target = event.currentTarget;
     let dataset = target.dataset;
@@ -377,7 +377,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else if (type == 'recharge') this._onRechargeRoll(opt);
 
     // Fallback to a plain formula roll.
-    else if (opt) this._onFormulaRoll(opt);
+    else if (opt) await this._onFormulaRoll(opt);
   }
 
   /**
@@ -385,9 +385,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    *
    * @param {string} formula
    */
-  _onFormulaRoll(formula) {
+  async _onFormulaRoll(formula) {
     let roll = new Roll(formula, this.actor.getRollData());
-    roll.roll();
+    await roll.roll();
     roll.toMessage();
   }
 
@@ -418,7 +418,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onSaveRoll(difficulty) {
     // Initialize the roll and our values.
     let actor = this.actor;
-    let roll = new Roll(`d20`);
+    let roll = await new Roll(`d20`);
     let result = roll.roll();
     let dc = 'normal';
 
@@ -544,7 +544,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (actorData.icons[iconIndex]) {
       let icon = actorData.icons[iconIndex];
       let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = roll.roll();
+      let result = await roll.roll();
 
       let fives = 0;
       let sixes = 0;
@@ -668,7 +668,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onCommandRoll(dice) {
     let actor = this.actor;
     let roll = new Roll(dice, this.actor.getRollData());
-    roll.roll();
+    await roll.roll();
 
     let pointsOld = actor.data.data.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;

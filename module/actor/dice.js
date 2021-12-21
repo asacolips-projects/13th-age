@@ -87,7 +87,8 @@ export class DiceArchmage {
       rollMode = form ? form.rollMode.value : rollMode;
 
       // Execute the roll and send it to chat
-      let roll = new Roll(terms.join('+'), data).roll();
+      // TODO: this must be awaited for V10
+      let roll = new Roll(terms.join('+'), data).roll({async: false});
 
       // Grab the template.
       const template = `systems/archmage/templates/chat/skill-check-card.html`;
