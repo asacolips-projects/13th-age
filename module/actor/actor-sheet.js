@@ -315,7 +315,7 @@ export class ActorArchmageSheet extends ActorSheet {
       if (actorData.icons[iconIndex]) {
         let icon = actorData.icons[iconIndex];
         let roll = new Roll(`${icon.bonus.value}d6`);
-        let result = roll.roll();
+        let result = await roll.roll();
 
         let fives = 0;
         let sixes = 0;
@@ -420,7 +420,7 @@ export class ActorArchmageSheet extends ActorSheet {
 
     async function rollSave(type, target, actor) {
       let roll = new Roll(`d20`);
-      let result = roll.roll();
+      let result = await roll.roll();
 
       let rollResult = result.total;
 

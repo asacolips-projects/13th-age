@@ -176,6 +176,7 @@ export default class preCreateChatMessageHandler {
                                     $roll_self.addClass('dc-fail');
                                 }
                                 // Reroll and recalculate.
+                                // TODO: this must be awaited for V10
                                 let new_roll = new Roll(new_formula).roll({async: false});
                                 // Update inline roll's markup.
                                 $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
@@ -204,7 +205,8 @@ export default class preCreateChatMessageHandler {
                                     $roll_self.addClass('dc-fail');
                                 }
                                 // Reroll and recalculate.
-                                let new_roll = new Roll(new_formula).roll();
+                                // TODO: this must be awaited for V10
+                                let new_roll = new Roll(new_formula).roll({async: false});
                                 // Update inline roll's markup.
                                 $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
                                 $roll_self.attr('title', new_roll.formula);

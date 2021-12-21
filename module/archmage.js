@@ -764,7 +764,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       }
     ]);
   });
-  html.find('a.inline-roll--archmage').on('click', event => {
+  html.find('a.inline-roll--archmage').on('click', async event => {
     event.preventDefault();
     const a = event.currentTarget;
 
@@ -802,7 +802,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       const rollData = actor ? actor.getRollData() : {};
 
       // Execute the roll
-      const roll = new Roll(a.dataset.formula, rollData).roll();
+      const roll = await new Roll(a.dataset.formula, rollData).roll();
       var message = roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
       $('.message').off("contextmenu");
       return message;

@@ -751,7 +751,7 @@ export class ActorArchmage extends Actor {
       roll = Roll.fromJSON(unescape(roll_html.data('roll')));
     } else {
       // Perform the roll ourselves
-      roll.roll({async: false});
+      await roll.roll();
     }
 
     // If 3d dice are enabled, handle them

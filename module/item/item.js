@@ -320,7 +320,7 @@ export class ItemArchmage extends Item {
     let rechAttempts = this.data.data?.rechargeAttempts?.value ?? 0;
 
     let roll = new Roll('d20');
-    roll.roll();
+    await roll.roll();
 
     let rechargeSuccessful = roll.total >= Number(recharge);
 
