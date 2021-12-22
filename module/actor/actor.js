@@ -1068,6 +1068,16 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
+    // Deltas for actual and temp hp, needed for scrolling text later
+    let deltaActual = 0;
+    let deltaTemp = 0;
+    const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
+
+    if (data.data.attributes?.hp?.temp !== undefined) {
+      // Store for later display
+      deltaTemp = data.data.attributes.hp.temp - this.data.data.attributes.hp.temp;
+    }
+
     if (data.data.attributes?.hp?.max !== undefined) {
       // Here we received an update of the max hp
       // Check that the current value does not exceed it
@@ -1084,24 +1094,28 @@ export class ActorArchmage extends Actor {
         //If the update is nonsensical ignore it
         data.data.attributes.hp.value = hp.value;
       }
-      let delta = data.data.attributes.hp.value - hp.value;
-      if (delta < 0) { // Damage, check for temp hps
+
+      deltaActual = data.data.attributes.hp.value - hp.value;
+      if (deltaActual < 0) {
+        // Damage, check for temp hps first
         let temp = hp.temp || 0;
         if (isNaN(temp)) temp = 0; // Fallback for erroneous data
-        data.data.attributes.hp.temp = Math.max(0, temp + delta);
-        delta = Math.min(delta + temp, 0);
+        deltaTemp = -1 * Math.min(temp, Math.abs(deltaActual));
+        data.data.attributes.hp.temp = Math.max(0, temp + deltaActual);
+        deltaActual = Math.min(deltaActual + temp, 0);
       }
       else { // Healing, start from 0 if negative
         hp.value = Math.max(0, hp.value);
       }
       // Do not exceed max hps
-      let max = data.data.attributes.hp.max || hp.max;
-      // If max hp is 10 assume this is a newly created npc, simplify update
-      if (max == 10 && this.data.type == 'npc') {
-        data.data.attributes.hp.value = hp.value + delta;
-        data.data.attributes.hp.max = hp.value + delta;
+      if (maxHp == 10 && this.data.type == 'npc') {
+        // If max hp is 10 assume this is a newly created npc, simplify update
+        data.data.attributes.hp.value = hp.value + deltaActual;
+        data.data.attributes.hp.max = hp.value + deltaActual;
       } else {
-        data.data.attributes.hp.value = Math.min(hp.value + delta, max);
+        // Normal actor hp update, do not exceed maximum
+        deltaActual = Math.min(deltaActual, maxHp - hp.value);
+        data.data.attributes.hp.value = hp.value + deltaActual;
       }
 
       // Handle hp-related conditions
@@ -1109,6 +1123,7 @@ export class ActorArchmage extends Actor {
         // Dead
         let filtered = this.effects.filter(x =>
           x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        filtered = filtered.map(e => e.id);
         if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
             let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
             let createData = foundry.utils.deepClone(effectData);
@@ -1119,12 +1134,16 @@ export class ActorArchmage extends Actor {
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
+          for ( let id of filtered ) {
+            data.effects = data.effects.filter(e => e._id != id);
+          }
+          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
         }
         // Staggered
         filtered = this.effects.filter(x =>
           x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
-        if (filtered.length == 0 && data.data.attributes.hp.value/max <= 0.5
+        filtered = filtered.map(e => e.id);
+        if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= 0.5
           && data.data.attributes.hp.value > 0) {
             let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
             let createData = foundry.utils.deepClone(effectData);
@@ -1136,10 +1155,31 @@ export class ActorArchmage extends Actor {
             delete createData.id;
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
-        } else if (filtered.length > 0 && (data.data.attributes.hp.value/max > 0.5
+        } else if (filtered.length > 0 && (data.data.attributes.hp.value/maxHp > 0.5
           || data.data.attributes.hp.value <= 0)) {
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
+          for ( let id of filtered ) {
+            data.effects = data.effects.filter(e => e._id != id);
+          }
+          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
         }
+      }
+    }
+
+    // Show scrolling text of hp update
+    const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
+    let delta = deltaActual + deltaTemp;
+    if (delta != 0 && tokens.length > 0) {
+      let color = delta < 0 ? 0xcc0000 : 0x00cc00;
+      for ( let token of tokens ) {
+        const pct = Math.clamped(Math.abs(delta) / maxHp, 0, 1);
+        token.hud.createScrollingText(delta.signedString(), {
+          anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
+          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fill: color,
+          stroke: 0x000000,
+          strokeThickness: 4,
+          jitter: 0.25
+        });
       }
     }
 
