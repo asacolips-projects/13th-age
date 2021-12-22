@@ -1071,7 +1071,7 @@ export class ActorArchmage extends Actor {
     // Deltas for actual and temp hp, needed for scrolling text later
     let deltaActual = 0;
     let deltaTemp = 0;
-    const maxHp = data.data.attributes.hp.max || this.data.data.attributes.hp.max;
+    const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
 
     if (data.data.attributes?.hp?.temp !== undefined) {
       // Store for later display
