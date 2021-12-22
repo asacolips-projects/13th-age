@@ -1133,6 +1133,9 @@ export class ActorArchmage extends Actor {
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
+          for ( let id of filtered.map(e => e.id) ) {
+            data.effects = data.effects.filter(e => e._id != id);
+          }
           await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
         }
         // Staggered
@@ -1152,6 +1155,9 @@ export class ActorArchmage extends Actor {
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && (data.data.attributes.hp.value/maxHp > 0.5
           || data.data.attributes.hp.value <= 0)) {
+          for ( let id of filtered.map(e => e.id) ) {
+            data.effects = data.effects.filter(e => e._id != id);
+          }
           await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
         }
       }
