@@ -418,8 +418,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onSaveRoll(difficulty) {
     // Initialize the roll and our values.
     let actor = this.actor;
-    let roll = await new Roll(`d20`);
-    let result = roll.roll();
+    let roll = new Roll(`d20`);
+    let result = await roll.roll();
     let dc = 'normal';
 
     // Skip death saves when NOT dying
