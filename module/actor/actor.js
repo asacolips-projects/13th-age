@@ -1123,6 +1123,7 @@ export class ActorArchmage extends Actor {
         // Dead
         let filtered = this.effects.filter(x =>
           x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        filtered = filtered.map(e => e.id);
         if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
             let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
             let createData = foundry.utils.deepClone(effectData);
@@ -1133,14 +1134,15 @@ export class ActorArchmage extends Actor {
             const cls = getDocumentClass("ActiveEffect");
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
-          for ( let id of filtered.map(e => e.id) ) {
+          for ( let id of filtered ) {
             data.effects = data.effects.filter(e => e._id != id);
           }
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
+          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
         }
         // Staggered
         filtered = this.effects.filter(x =>
           x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+        filtered = filtered.map(e => e.id);
         if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= 0.5
           && data.data.attributes.hp.value > 0) {
             let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
@@ -1155,10 +1157,10 @@ export class ActorArchmage extends Actor {
             await cls.create(createData, {parent: this});
         } else if (filtered.length > 0 && (data.data.attributes.hp.value/maxHp > 0.5
           || data.data.attributes.hp.value <= 0)) {
-          for ( let id of filtered.map(e => e.id) ) {
+          for ( let id of filtered ) {
             data.effects = data.effects.filter(e => e._id != id);
           }
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered.map(e => e.id))
+          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
         }
       }
     }
