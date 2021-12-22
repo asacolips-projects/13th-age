@@ -1104,6 +1104,23 @@ export class ActorArchmage extends Actor {
         data.data.attributes.hp.value = Math.min(hp.value + delta, max);
       }
 
+      // Show scrolling text of hp update
+      const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
+      if (delta != 0 && tokens.length > 0) {
+        let color = delta < 0 ? 0xcc0000 : 0x00cc00;
+        for ( let token of tokens ) {
+          const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
+          token.hud.createScrollingText(delta.signedString(), {
+            anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
+            fontSize: 16 + (32 * pct), // Range between [16, 48]
+            fill: color,
+            stroke: 0x000000,
+            strokeThickness: 4,
+            jitter: 0.25
+          });
+        }
+      }
+
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
         // Dead
