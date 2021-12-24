@@ -77,7 +77,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "hampered",
     label: "ARCHMAGE.EFFECT.StatusHampered",
-    icon: "icons/svg/net.svg",
+    icon: "icons/svg/paralysis.svg",
   },
   // Helpless.
   {
@@ -112,7 +112,7 @@ ARCHMAGE.statusEffects = [
   {
     id: "stuck",
     label: "ARCHMAGE.EFFECT.StatusStuck",
-    icon: "icons/svg/paralysis.svg",
+    icon: "icons/svg/net.svg",
   },
   // Stunned.
   {
@@ -216,6 +216,18 @@ ARCHMAGE.extendedStatusEffects = [
     label: "ARCHMAGE.EFFECT.StatusCursed",
     icon: "icons/svg/dice-target.svg"
   },
+  // Shining.
+  // {
+    // id: "shining",
+    // label: "ARCHMAGE.EFFECT.StatusShining",
+    // icon: "icons/svg/aura.svg"
+  // },
+  // Hidden.
+  {
+    id: "hidden",
+    label: "ARCHMAGE.EFFECT.StatusHidden",
+    icon: "icons/svg/mystery-man.svg"
+  },
   // Flying.
   {
     id: "flying",
@@ -229,11 +241,11 @@ ARCHMAGE.extendedStatusEffects = [
     icon: "icons/svg/item-bag.svg"
   },
   // Asleep.
-  {
-    id: "asleep",
-    label: "ARCHMAGE.EFFECT.StatusAsleep",
-    icon: "icons/svg/sleep.svg"
-  },
+  // {
+    // id: "asleep",
+    // label: "ARCHMAGE.EFFECT.StatusAsleep",
+    // icon: "icons/svg/sleep.svg"
+  // },
   // Last Gasps.
   {
     id: "lastgasps",
