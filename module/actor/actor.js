@@ -1091,21 +1091,24 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _showScrollingText(delta, max, suffix="") {
+  _showScrollingText(delta, max, suffix="", overrideOptions={}) {
     // Show scrolling text of hp update
     const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
     if (delta != 0 && tokens.length > 0) {
       let color = delta < 0 ? 0xcc0000 : 0x00cc00;
       for ( let token of tokens ) {
         const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
-        token.hud.createScrollingText(delta.signedString()+" "+suffix, {
-          anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
+        let textOptions = {
+          anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
+          direction: CONST.TEXT_ANCHOR_POINTS.TOP,
           fontSize: 16 + (32 * pct), // Range between [16, 48]
           fill: color,
           stroke: 0x000000,
           strokeThickness: 4,
-          jitter: 1
-        });
+          // jitter: 1,
+          duration: 3000
+        };
+        token.hud.createScrollingText(delta.signedString()+" "+suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
       }
     }
   }
@@ -1182,8 +1185,8 @@ export class ActorArchmage extends Actor {
     }
 
     // Show scrolling text of hp update
-    this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"));
-    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hitPoints"));
+    this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"), {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER});
+    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hitPoints"), {anchor: CONST.TEXT_ANCHOR_POINTS.TOP});
 
     if (!this.data.type == 'character') return; // Nothing else to do
 
@@ -1202,7 +1205,7 @@ export class ActorArchmage extends Actor {
 
       // Show scrolling text of updated recoveries
       this._showScrollingText(data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value,
-        this.data.data.attributes.recoveries.max, game.i18n.localize("ARCHMAGE.recoveries"));
+        this.data.data.attributes.recoveries.max, game.i18n.localize("ARCHMAGE.recoveries"), {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM});
 
       // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
