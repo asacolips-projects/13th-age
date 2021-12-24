@@ -8,6 +8,13 @@ cache:
   paths:
     - node_modules/
 
+test-build:
+  stage: test
+  script:
+    - export
+    - npm ci
+    - npm run build
+
 build-beta:
   stage: build
   script:
