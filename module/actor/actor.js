@@ -1104,7 +1104,7 @@ export class ActorArchmage extends Actor {
           fill: color,
           stroke: 0x000000,
           strokeThickness: 4,
-          jitter: 0.75
+          jitter: 1
         });
       }
     }
@@ -1183,7 +1183,7 @@ export class ActorArchmage extends Actor {
 
     // Show scrolling text of hp update
     this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"));
-    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hps"));
+    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hitPoints"));
 
     if (!this.data.type == 'character') return; // Nothing else to do
 
@@ -1199,6 +1199,12 @@ export class ActorArchmage extends Actor {
       if (this.data.data.attributes.recoveries.max) {
         data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.data.data.attributes.recoveries.max);
       }
+
+      // Show scrolling text of updated recoveries
+      this._showScrollingText(data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value,
+        this.data.data.attributes.recoveries.max, game.i18n.localize("ARCHMAGE.recoveries"));
+
+      // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
