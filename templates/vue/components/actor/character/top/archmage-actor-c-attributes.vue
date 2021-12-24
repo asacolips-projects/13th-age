@@ -1,7 +1,7 @@
 <template>
   <section class="section section--attributes flexrow">
     <!-- Actor image -->
-    <div class="unit unit--img">
+    <div class="unit unit--img profile-img">
       <img :src="actor.img" ref="avatar" :alt="localize('ARCHMAGE.avatarAlt')" :width="avatarWidth" :height="avatarHeight" :class="avatarClass" data-edit="img"/>
     </div>
     <div class="unit unit--attributes grid grid-5col border-both">
