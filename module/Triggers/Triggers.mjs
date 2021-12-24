@@ -38,7 +38,7 @@ export default class Triggers {
 
         if (trigger.isActive(triggerText, rollResult, hitEvaluationResults)) {
             // console.log(triggerText);
-            console.log(trigger);
+            // console.log(trigger);
             return true;
         }
       }

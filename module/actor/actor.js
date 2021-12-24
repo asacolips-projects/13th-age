@@ -1059,6 +1059,61 @@ export class ActorArchmage extends Actor {
   }
 
   /**
+   * HP conditions helper method
+   *
+   * @return {undefined}
+   */
+  async _updateHpCondition(data, id, thres, maxHp, label) {
+    let filtered = this.effects.filter(x => x.data.label === label);
+    filtered = filtered.map(e => e.id);
+    if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= thres) {
+        let effectData = CONFIG.statusEffects.find(x => x.id == id);
+        let createData = foundry.utils.deepClone(effectData);
+        createData.label = game.i18n.localize(effectData.label);
+        createData["flags.core.statusId"] = effectData.id;
+        createData["flags.core.overlay"] = true;
+        delete createData.id;
+        const cls = getDocumentClass("ActiveEffect");
+        await cls.create(createData, {parent: this});
+    } else if (filtered.length > 0 && data.data.attributes.hp.value/maxHp > thres) {
+      // Clear effect from update data if it exists or it will be recreated
+      if (data.effects != undefined) {
+        for ( let effId of filtered ) {
+          data.effects = data.effects.filter(e => e._id != effId);
+        }
+      }
+      await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
+    }
+  }
+
+  /**
+   * Scrolling text helper method
+   *
+   * @return {undefined}
+   */
+  _showScrollingText(delta, max, suffix="", overrideOptions={}) {
+    // Show scrolling text of hp update
+    const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
+    if (delta != 0 && tokens.length > 0) {
+      let color = delta < 0 ? 0xcc0000 : 0x00cc00;
+      for ( let token of tokens ) {
+        const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
+        let textOptions = {
+          anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
+          direction: CONST.TEXT_ANCHOR_POINTS.TOP,
+          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fill: color,
+          stroke: 0x000000,
+          strokeThickness: 4,
+          // jitter: 1,
+          duration: 3000
+        };
+        token.hud.createScrollingText(delta.signedString()+" "+suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
+      }
+    }
+  }
+
+  /**
    * Actor update hook
    *
    * @return {undefined}
@@ -1121,67 +1176,17 @@ export class ActorArchmage extends Actor {
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
         // Dead
-        let filtered = this.effects.filter(x =>
-          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
-        filtered = filtered.map(e => e.id);
-        if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
-            let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
-            let createData = foundry.utils.deepClone(effectData);
-            createData.label = game.i18n.localize(effectData.label);
-            createData["flags.core.statusId"] = effectData.id;
-            createData["flags.core.overlay"] = true;
-            delete createData.id;
-            const cls = getDocumentClass("ActiveEffect");
-            await cls.create(createData, {parent: this});
-        } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
-          for ( let id of filtered ) {
-            data.effects = data.effects.filter(e => e._id != id);
-          }
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
-        }
+        await this._updateHpCondition(data, "dead", 0, maxHp,
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
         // Staggered
-        filtered = this.effects.filter(x =>
-          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
-        filtered = filtered.map(e => e.id);
-        if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= 0.5
-          && data.data.attributes.hp.value > 0) {
-            let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
-            let createData = foundry.utils.deepClone(effectData);
-            createData.label = game.i18n.localize(effectData.label);
-            createData["flags.core.statusId"] = effectData.id;
-            if (game.settings.get('archmage', 'staggeredOverlay')) {
-              createData["flags.core.overlay"] = true;
-            }
-            delete createData.id;
-            const cls = getDocumentClass("ActiveEffect");
-            await cls.create(createData, {parent: this});
-        } else if (filtered.length > 0 && (data.data.attributes.hp.value/maxHp > 0.5
-          || data.data.attributes.hp.value <= 0)) {
-          for ( let id of filtered ) {
-            data.effects = data.effects.filter(e => e._id != id);
-          }
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
-        }
+        await this._updateHpCondition(data, "staggered", 0.5, maxHp,
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
       }
     }
 
     // Show scrolling text of hp update
-    const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
-    let delta = deltaActual + deltaTemp;
-    if (delta != 0 && tokens.length > 0) {
-      let color = delta < 0 ? 0xcc0000 : 0x00cc00;
-      for ( let token of tokens ) {
-        const pct = Math.clamped(Math.abs(delta) / maxHp, 0, 1);
-        token.hud.createScrollingText(delta.signedString(), {
-          anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
-          fontSize: 16 + (32 * pct), // Range between [16, 48]
-          fill: color,
-          stroke: 0x000000,
-          strokeThickness: 4,
-          jitter: 0.25
-        });
-      }
-    }
+    this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"), {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER});
+    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hitPoints"), {anchor: CONST.TEXT_ANCHOR_POINTS.TOP});
 
     if (!this.data.type == 'character') return; // Nothing else to do
 
@@ -1197,6 +1202,12 @@ export class ActorArchmage extends Actor {
       if (this.data.data.attributes.recoveries.max) {
         data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.data.data.attributes.recoveries.max);
       }
+
+      // Show scrolling text of updated recoveries
+      this._showScrollingText(data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value,
+        this.data.data.attributes.recoveries.max, game.i18n.localize("ARCHMAGE.recoveries"), {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM});
+
+      // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
