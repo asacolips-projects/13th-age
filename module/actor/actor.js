@@ -1059,6 +1059,58 @@ export class ActorArchmage extends Actor {
   }
 
   /**
+   * HP conditions helper method
+   *
+   * @return {undefined}
+   */
+  async _updateHpCondition(data, id, thres, maxHp, label) {
+    let filtered = this.effects.filter(x => x.data.label === label);
+    filtered = filtered.map(e => e.id);
+    if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= thres) {
+        let effectData = CONFIG.statusEffects.find(x => x.id == id);
+        let createData = foundry.utils.deepClone(effectData);
+        createData.label = game.i18n.localize(effectData.label);
+        createData["flags.core.statusId"] = effectData.id;
+        createData["flags.core.overlay"] = true;
+        delete createData.id;
+        const cls = getDocumentClass("ActiveEffect");
+        await cls.create(createData, {parent: this});
+    } else if (filtered.length > 0 && data.data.attributes.hp.value/maxHp > thres) {
+      // Clear effect from update data if it exists or it will be recreated
+      if (data.effects != undefined) {
+        for ( let effId of filtered ) {
+          data.effects = data.effects.filter(e => e._id != effId);
+        }
+      }
+      await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
+    }
+  }
+
+  /**
+   * Scrolling text helper method
+   *
+   * @return {undefined}
+   */
+  _showScrollingText(delta, max, suffix="") {
+    // Show scrolling text of hp update
+    const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
+    if (delta != 0 && tokens.length > 0) {
+      let color = delta < 0 ? 0xcc0000 : 0x00cc00;
+      for ( let token of tokens ) {
+        const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
+        token.hud.createScrollingText(delta.signedString()+" "+suffix, {
+          anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
+          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fill: color,
+          stroke: 0x000000,
+          strokeThickness: 4,
+          jitter: 0.75
+        });
+      }
+    }
+  }
+
+  /**
    * Actor update hook
    *
    * @return {undefined}
@@ -1121,67 +1173,17 @@ export class ActorArchmage extends Actor {
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
         // Dead
-        let filtered = this.effects.filter(x =>
-          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
-        filtered = filtered.map(e => e.id);
-        if (filtered.length == 0 && data.data.attributes.hp.value <= 0) {
-            let effectData = CONFIG.statusEffects.find(x => x.id == "dead");
-            let createData = foundry.utils.deepClone(effectData);
-            createData.label = game.i18n.localize(effectData.label);
-            createData["flags.core.statusId"] = effectData.id;
-            createData["flags.core.overlay"] = true;
-            delete createData.id;
-            const cls = getDocumentClass("ActiveEffect");
-            await cls.create(createData, {parent: this});
-        } else if (filtered.length > 0 && data.data.attributes.hp.value > 0) {
-          for ( let id of filtered ) {
-            data.effects = data.effects.filter(e => e._id != id);
-          }
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
-        }
+        await this._updateHpCondition(data, "dead", 0, maxHp,
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
         // Staggered
-        filtered = this.effects.filter(x =>
-          x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
-        filtered = filtered.map(e => e.id);
-        if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= 0.5
-          && data.data.attributes.hp.value > 0) {
-            let effectData = CONFIG.statusEffects.find(x => x.id == "staggered");
-            let createData = foundry.utils.deepClone(effectData);
-            createData.label = game.i18n.localize(effectData.label);
-            createData["flags.core.statusId"] = effectData.id;
-            if (game.settings.get('archmage', 'staggeredOverlay')) {
-              createData["flags.core.overlay"] = true;
-            }
-            delete createData.id;
-            const cls = getDocumentClass("ActiveEffect");
-            await cls.create(createData, {parent: this});
-        } else if (filtered.length > 0 && (data.data.attributes.hp.value/maxHp > 0.5
-          || data.data.attributes.hp.value <= 0)) {
-          for ( let id of filtered ) {
-            data.effects = data.effects.filter(e => e._id != id);
-          }
-          await this.deleteEmbeddedDocuments("ActiveEffect", filtered);
-        }
+        await this._updateHpCondition(data, "staggered", 0.5, maxHp,
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
       }
     }
 
     // Show scrolling text of hp update
-    const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
-    let delta = deltaActual + deltaTemp;
-    if (delta != 0 && tokens.length > 0) {
-      let color = delta < 0 ? 0xcc0000 : 0x00cc00;
-      for ( let token of tokens ) {
-        const pct = Math.clamped(Math.abs(delta) / maxHp, 0, 1);
-        token.hud.createScrollingText(delta.signedString(), {
-          anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
-          fontSize: 16 + (32 * pct), // Range between [16, 48]
-          fill: color,
-          stroke: 0x000000,
-          strokeThickness: 4,
-          jitter: 0.25
-        });
-      }
-    }
+    this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"));
+    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hps"));
 
     if (!this.data.type == 'character') return; // Nothing else to do
 
