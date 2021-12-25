@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The spell also deals +[[(@tier)d6]] damage against an undamaged target.</p>'
+        value: '<p>The spell also deals +[[(round(@tier*1.2))d6]] damage against an undamaged target.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
