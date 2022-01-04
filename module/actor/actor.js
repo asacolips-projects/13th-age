@@ -1482,13 +1482,14 @@ export class ActorArchmage extends Actor {
 
   /** @override */
   async _onUpdate(data, options, userId) {
-    // Scrolling text for Temp hps
+    await super._onUpdate(data, options, userId);
+
+    // Scrolling text for temp hps
     this._showScrollingText(
       options.fromPreUpdate.temp,
       game.i18n.localize("ARCHMAGE.tempHp"),
       {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
     );
-
     // Scrolling text for hps
     this._showScrollingText(
       options.fromPreUpdate.hp,
