@@ -1091,21 +1091,19 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _showScrollingText(delta, max, suffix="", overrideOptions={}) {
+  _showScrollingText(delta, suffix="", overrideOptions={}) {
     // Show scrolling text of hp update
     const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
     if (delta != 0 && tokens.length > 0) {
       let color = delta < 0 ? 0xcc0000 : 0x00cc00;
       for ( let token of tokens ) {
-        const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
         let textOptions = {
           anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
           direction: CONST.TEXT_ANCHOR_POINTS.TOP,
-          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fontSize: 32,
           fill: color,
           stroke: 0x000000,
           strokeThickness: 4,
-          // jitter: 1,
           duration: 3000
         };
         token.hud.createScrollingText(delta.signedString()+" "+suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
@@ -1487,7 +1485,6 @@ export class ActorArchmage extends Actor {
     // Scrolling text for Temp hps
     this._showScrollingText(
       options.fromPreUpdate.temp,
-      this.data.data.attributes.hp.max,
       game.i18n.localize("ARCHMAGE.tempHp"),
       {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
     );
@@ -1495,14 +1492,12 @@ export class ActorArchmage extends Actor {
     // Scrolling text for hps
     this._showScrollingText(
       options.fromPreUpdate.hp,
-      this.data.data.attributes.hp.max,
       game.i18n.localize("ARCHMAGE.hitPoints"),
       {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
     );
     // Scrolling text for recoveries
     this._showScrollingText(
       options.fromPreUpdate.rec,
-      this.data.data.attributes.recoveries.max || 10,
       game.i18n.localize("ARCHMAGE.recoveries"),
       {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
     );
