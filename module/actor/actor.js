@@ -1490,6 +1490,15 @@ export class ActorArchmage extends Actor {
         } else {
           data.data.attributes.recoveries.base = 8;
         }
+
+        // Set Key Modifier for multiclasses
+        if (matchedClasses.length == 2) {
+          // Assumes matchedClasses are sorted in alphabetical order
+          data.data.attributes.keyModifier = {
+            mod1: CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]][0],
+            mod2: CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]][1],
+          }
+        }
       }
       // Store matched classes for future reference
       data.data.details.detectedClasses = matchedClasses;
