@@ -393,7 +393,11 @@ export class ActorArchmage extends Actor {
           hpBonus += getBonusOr0(item.data.data.attributes.hp);
           recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          if (!item.data.data.attributes.save.threshold) {
+            saveBonus += getBonusOr0(item.data.data.attributes.save);
+          } else if (data.attributes.hp.value <= item.data.data.attributes.save.threshold) {
+            saveBonus += getBonusOr0(item.data.data.attributes.save);
+          }
           disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });

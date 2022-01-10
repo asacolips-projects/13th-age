@@ -671,6 +671,7 @@ Item:
         bonus: 0
       save:
         bonus: 0
+        threshold: 0
       disengage:
         bonus: 0
     isActive: true
