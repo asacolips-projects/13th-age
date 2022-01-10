@@ -423,7 +423,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let dc = 'normal';
 
     // Skip death saves when NOT dying
-    if (difficulty == 'death' && actor.data.data.attributes.hp.value > 0) return;
+    // if (difficulty == 'death' && actor.data.data.attributes.hp.value > 0) return;
 
     // Determine the roll type.
     if (difficulty == 'easy') {
