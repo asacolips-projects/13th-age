@@ -454,6 +454,7 @@ ARCHMAGE.UI.dependencyContent: The V2 character sheet requires the VuePort and d
 ARCHMAGE.UI.noToken: No token selected.
 ARCHMAGE.UI.tooManyLevels: Changing a monster by more than 6 levels is not recommended.
 ARCHMAGE.UI.levelLimits: Level can't increase above 15 or decrease below 0.
+ARCHMAGE.UI.classChange: Class change detected, base stats adjusted.
 # Tours
 ## 1.7.0
 ARCHMAGE.TOURS.170.welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.7.0! Here's a quick tour of new features

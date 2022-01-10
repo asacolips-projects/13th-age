@@ -1386,6 +1386,9 @@ export class ActorArchmage extends Actor {
           return;
         }
 
+        // Class changed, alert the user we're about to muck with the base stats
+        ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.classChange"));
+
         // Collect base stats for detected classes
         let base = {
           hp: new Array(),
