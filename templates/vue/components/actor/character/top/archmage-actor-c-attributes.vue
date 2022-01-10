@@ -56,9 +56,9 @@
       <div class="unit unit--saves flexcol">
         <h2 class="unit-title">{{localize('ARCHMAGE.saves')}}</h2>
         <div class="saves flexcol">
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">{{actor.data.attributes.saves.easy}}+ ({{localize('ARCHMAGE.SAVE.easyShort')}})</a>
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="normal">{{actor.data.attributes.saves.normal}}+ ({{localize('ARCHMAGE.SAVE.normalShort')}})</a>
-          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="hard">{{actor.data.attributes.saves.hard}}+ ({{localize('ARCHMAGE.SAVE.hardShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">6+ ({{localize('ARCHMAGE.SAVE.easyShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="normal">11+ ({{localize('ARCHMAGE.SAVE.normalShort')}})</a>
+          <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="hard">16+ ({{localize('ARCHMAGE.SAVE.hardShort')}})</a>
         </div>
       </div>
       <!-- Init / Death Saves -->

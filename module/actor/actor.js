@@ -323,7 +323,8 @@ export class ActorArchmage extends Actor {
     // Saves
     if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
     if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
-    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
+    if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
+    if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
@@ -413,10 +414,6 @@ export class ActorArchmage extends Actor {
     // Saves
     data.attributes.saves.bonus = saveBonus;
     data.attributes.saves.disengageBonus = disengageBonus;
-    data.attributes.saves.easy = Math.max((6 - saveBonus), 0);
-    data.attributes.saves.normal = Math.max((11 - saveBonus), 0);
-    data.attributes.saves.hard = Math.max((16 - saveBonus), 0);
-    data.attributes.disengage = Math.max((11 - disengageBonus - (data.attributes?.disengageBonus ?? 0)), 0);
 
     // Defenses (second element of sorted triple equal median)
     data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(acBonus);
@@ -593,11 +590,13 @@ export class ActorArchmage extends Actor {
     if (difficulty == 'easy') target = 6;
     else if (['hard', 'death', 'lastGasp'].includes(difficulty)) target = 16;
 
+    let formula = 'd20';
     // Add bonuses, if any
     let bonus = this.data.data.attributes.saves.bonus;
-    if (difficulty == 'disengage') bonus = data.attributes.saves.disengage.bonus;
-
-    let formula = 'd20';
+    if (difficulty == 'disengage') {
+      bonus = data.attributes.saves.disengage.bonus;
+      bonus += (this.data.data.attributes?.disengageBonus || 0);
+    }
     if (bonus != 0) formula = formula + "+" + bonus.toString();
     let roll = new Roll(formula);
     let result = await roll.roll();
