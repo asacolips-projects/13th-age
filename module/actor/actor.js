@@ -642,23 +642,29 @@ export class ActorArchmage extends Actor {
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
-      if (success) {
-        actor.rollRecovery({}, true);
+      if (success && this.data.data.attributes.hp.value <= 0) {
+        this.rollRecovery({}, true);
       }
-      else {
-        await actor.update({
-          'data.attributes.saves.deathFails.value': Math.min(4, Number(actor.data.data.attributes.saves.deathFails.value) + 1)
-        });
-      }
+      else await this.update({'data.attributes.saves.deathFails.value': Math.min(4, Number(this.data.data.attributes.saves.deathFails.value) + 1)});
     }
 
     // Handle failures of last gasp saves.
     if (difficulty == 'lastGasp' && !success) {
-      await actor.update({
-        'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(actor.data.data.attributes.saves.lastGaspFails.value) + 1)
+      await this.update({
+        'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(this.data.data.attributes.saves.lastGaspFails.value) + 1)
       });
+      // If this is the first failed last gasps save, add helpless
+      let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
+      if (filtered.length == 0 && this.data.data.attributes.saves.lastGaspFails.value == 1) {
+        let effectData = CONFIG.statusEffects.find(x => x.id == "helpless");
+        let createData = foundry.utils.deepClone(effectData);
+        createData.label = game.i18n.localize(effectData.label);
+        createData["flags.core.statusId"] = effectData.id;
+        delete createData.id;
+        const cls = getDocumentClass("ActiveEffect");
+        await cls.create(createData, {parent: this});
+      }
     }
-    //TODO: add status after first failure
   }
 
   /* -------------------------------------------- */
