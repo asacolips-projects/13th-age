@@ -664,6 +664,9 @@ export class ActorArchmage extends Actor {
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});
       }
+    } else if (difficulty == 'lastGasp' && success) {
+      // Condition shaken off, clear all last gasp saves
+      await this.update({ 'data.attributes.saves.lastGaspFails.value': 0 });
     }
   }
 
@@ -992,6 +995,8 @@ export class ActorArchmage extends Actor {
     // Recoveries & hp
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
+    updateData['data.attributes.saves.deathFails.value'] = 0;
+    updateData['data.attributes.saves.lastGaspFails.value'] = 0;
 
     // Resources
     if (this.data.data.resources.spendable.ki.enabled
