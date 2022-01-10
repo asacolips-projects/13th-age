@@ -407,6 +407,8 @@ export class ActorArchmage extends Actor {
     };
 
     // Saves
+    data.attributes.saves.bonus = saveBonus;
+    data.attributes.saves.disengageBonus = disengageBonus;
     data.attributes.saves.easy = Math.max((6 - saveBonus), 0);
     data.attributes.saves.normal = Math.max((11 - saveBonus), 0);
     data.attributes.saves.hard = Math.max((16 - saveBonus), 0);
@@ -580,6 +582,83 @@ export class ActorArchmage extends Actor {
     }
 
     return data;
+  }
+
+  async rollSave(difficulty, target=11) {
+    // Determine target dc
+    if (difficulty == 'easy') target = 6;
+    else if (['hard', 'death', 'lastGasp'].includes(difficulty)) target = 16;
+
+    // Add bonuses, if any
+    let bonus = this.data.data.attributes.saves.bonus;
+    if (difficulty == 'disengage') bonus = data.attributes.saves.disengage.bonus;
+
+    let formula = 'd20';
+    if (bonus != 0) formula = formula + "+" + bonus.toString();
+    let roll = new Roll(formula);
+    let result = await roll.roll();
+
+    // Create the chat message title.
+    let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
+
+    // Determine the roll result.
+    let rollResult = result.total;
+    let success = rollResult >= target;
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/save-card.html`;
+    const token = this.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      type: 5,
+      roll: roll,
+      speaker: {
+        actor: this.id,
+        token: token,
+        alias: this.name,
+        scene: game.user.viewedScene
+      }
+    };
+
+    const templateData = {
+      actor: this,
+      tokenId: token ? `${token.id}` : null,
+      saveType: label,
+      success: success,
+      data: chatData,
+      target
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+    ChatMessage.create(chatData, { displaySheet: false });
+
+    // Handle recoveries or failures on death saves.
+    if (difficulty == 'death') {
+      if (success) {
+        actor.rollRecovery({}, true);
+      }
+      else {
+        await actor.update({
+          'data.attributes.saves.deathFails.value': Math.min(4, Number(actor.data.data.attributes.saves.deathFails.value) + 1)
+        });
+      }
+    }
+
+    // Handle failures of last gasp saves.
+    if (difficulty == 'lastGasp' && !success) {
+      await actor.update({
+        'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(actor.data.data.attributes.saves.lastGaspFails.value) + 1)
+      });
+    }
+    //TODO: add status after first failure
   }
 
   /* -------------------------------------------- */
