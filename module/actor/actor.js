@@ -1492,11 +1492,15 @@ export class ActorArchmage extends Actor {
 
         // Set Key Modifier for multiclasses
         if (matchedClasses.length == 2) {
-          // Assumes matchedClasses are sorted in alphabetical order
-          data.data.attributes.keyModifier = {
-            mod1: CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]][0],
-            mod2: CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]][1],
-          }
+          // Check that we have the data stored - just in case
+          if (CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]]
+            && CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]]) {
+            let km = CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]];
+            data.data.attributes.keyModifier = { mod1: km[0], mod2: km[1] };
+          } else console.log("Unknown Key Modifier for "+matchedClasses.toString());
+        } else {
+          // Just set Str/Str, equivalent to disabling the Key Modifier
+          data.data.attributes.keyModifier = { mod1: 'str', mod2: 'str' };
         }
       }
       // Store matched classes for future reference

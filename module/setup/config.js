@@ -639,6 +639,8 @@ ARCHMAGE.classes = {
 };
 
 ARCHMAGE.keyModifiers = {
+  // Symmetrical dense matrix, store only lower triangle
+  // Assumption: classes are stored in actors sorted in alphabetical order
   'barbarian': {
     'bard': ['str', 'cha'],
     'chaosmage': ['str', 'cha'],
