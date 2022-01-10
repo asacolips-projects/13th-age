@@ -323,6 +323,7 @@ export class ActorArchmage extends Actor {
     // Saves
     if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
     if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
+    if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
     if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
     if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
 
@@ -394,9 +395,8 @@ export class ActorArchmage extends Actor {
           hpBonus += getBonusOr0(item.data.data.attributes.hp);
           recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          if (!item.data.data.attributes.save.threshold) {
-            saveBonus += getBonusOr0(item.data.data.attributes.save);
-          } else if (data.attributes.hp.value <= item.data.data.attributes.save.threshold) {
+          if (!item.data.data.attributes.save.threshold
+            || data.attributes.hp.value <= item.data.data.attributes.save.threshold) {
             saveBonus += getBonusOr0(item.data.data.attributes.save);
           }
           disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
