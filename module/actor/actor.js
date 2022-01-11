@@ -1219,7 +1219,7 @@ export class ActorArchmage extends Actor {
     // Deltas for actual and temp hp, needed for scrolling text later
     let deltaActual = 0;
     let deltaTemp = 0;
-    const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
+    let maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
 
     if (data.data.attributes?.hp?.temp !== undefined) {
       // Store for later display
@@ -1260,6 +1260,7 @@ export class ActorArchmage extends Actor {
         // If max hp is 10 assume this is a newly created npc, simplify update
         data.data.attributes.hp.value = hp.value + deltaActual;
         data.data.attributes.hp.max = hp.value + deltaActual;
+        maxHp += deltaActual;
       } else {
         // Normal actor hp update, do not exceed maximum
         deltaActual = Math.min(deltaActual, maxHp - hp.value);
@@ -1268,12 +1269,12 @@ export class ActorArchmage extends Actor {
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
-        // Dead
-        await this._updateHpCondition(data, "dead", 0, maxHp,
-          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
         // Staggered
         await this._updateHpCondition(data, "staggered", 0.5, maxHp,
           game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+        // Dead
+        await this._updateHpCondition(data, "dead", 0, maxHp,
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
       }
     }
 
