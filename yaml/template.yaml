@@ -98,10 +98,8 @@ Actor:
         base: 8
         automatic: true
       saves:
-        easy: 6
-        normal: 11
-        hard: 16
-        death: 16
+        bonus: 0
+        disengageBonus: 0
         deathFails:
           value: 0
           max: 4
@@ -110,7 +108,6 @@ Actor:
             - false
             - false
             - false
-        lastGasp: 16
         lastGaspFails:
           value: 0
           max: 4
@@ -671,6 +668,7 @@ Item:
         bonus: 0
       save:
         bonus: 0
+        threshold: 0
       disengage:
         bonus: 0
     isActive: true
