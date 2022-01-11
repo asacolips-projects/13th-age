@@ -1184,21 +1184,19 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _showScrollingText(delta, max, suffix="", overrideOptions={}) {
+  _showScrollingText(delta, suffix="", overrideOptions={}) {
     // Show scrolling text of hp update
     const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
     if (delta != 0 && tokens.length > 0) {
       let color = delta < 0 ? 0xcc0000 : 0x00cc00;
       for ( let token of tokens ) {
-        const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
         let textOptions = {
           anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
           direction: CONST.TEXT_ANCHOR_POINTS.TOP,
-          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fontSize: 32,
           fill: color,
           stroke: 0x000000,
           strokeThickness: 4,
-          // jitter: 1,
           duration: 3000
         };
         token.hud.createScrollingText(delta.signedString()+" "+suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
@@ -1216,9 +1214,10 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
-    // Deltas for actual and temp hp, needed for scrolling text later
+    // Deltas, needed for scrolling text later
     let deltaActual = 0;
     let deltaTemp = 0;
+    let deltaRec = 0;
     let maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
 
     if (data.data.attributes?.hp?.temp !== undefined) {
@@ -1256,6 +1255,7 @@ export class ActorArchmage extends Actor {
         hp.value = Math.max(0, hp.value);
       }
       // Do not exceed max hps
+      const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
       if (maxHp == 10 && this.data.type == 'npc') {
         // If max hp is 10 assume this is a newly created npc, simplify update
         data.data.attributes.hp.value = hp.value + deltaActual;
@@ -1278,10 +1278,6 @@ export class ActorArchmage extends Actor {
       }
     }
 
-    // Show scrolling text of hp update
-    this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"), {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER});
-    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hitPoints"), {anchor: CONST.TEXT_ANCHOR_POINTS.TOP});
-
     if (!this.data.type == 'character') return; // Nothing else to do
 
     // if (data.data.attributes?.level?.value) {
@@ -1297,9 +1293,8 @@ export class ActorArchmage extends Actor {
         data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.data.data.attributes.recoveries.max);
       }
 
-      // Show scrolling text of updated recoveries
-      this._showScrollingText(data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value,
-        this.data.data.attributes.recoveries.max, game.i18n.localize("ARCHMAGE.recoveries"), {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM});
+      // Record updated recoveries
+      deltaRec = data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value;
 
       // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
@@ -1323,6 +1318,9 @@ export class ActorArchmage extends Actor {
         this.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
+    // Record deltas to show scrolling text in onUpdate
+    // Done there since it fires on all clients, letting everyone see the text
+    options.fromPreUpdate = {temp: deltaTemp, hp: deltaActual, rec: deltaRec};
 
     if (data.data.attributes?.weapon?.melee?.shield !== undefined
       || data.data.attributes?.weapon?.melee?.dualwield !== undefined
@@ -1577,6 +1575,30 @@ export class ActorArchmage extends Actor {
     }
   }
 
+  /** @override */
+  async _onUpdate(data, options, userId) {
+    await super._onUpdate(data, options, userId);
+
+    // Scrolling text for temp hps
+    this._showScrollingText(
+      options.fromPreUpdate.temp,
+      game.i18n.localize("ARCHMAGE.tempHp"),
+      {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
+    );
+    // Scrolling text for hps
+    this._showScrollingText(
+      options.fromPreUpdate.hp,
+      game.i18n.localize("ARCHMAGE.hitPoints"),
+      {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
+    );
+    // Scrolling text for recoveries
+    this._showScrollingText(
+      options.fromPreUpdate.rec,
+      game.i18n.localize("ARCHMAGE.recoveries"),
+      {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
+    );
+  }
+
   /**
    * Auto levelup monsters
    * Creates a copy of an NPC actor with the requested delta in levels
@@ -1587,7 +1609,7 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc' || delta == 0) return;
-    // Conver delta back to a number, and handle + characters.
+    // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 
     // Warning for out of bounds.
