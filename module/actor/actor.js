@@ -100,7 +100,7 @@ export class ActorArchmage extends Actor {
     // Initiative
     var improvedInit = 0;
     if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
+    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
 
     // Get the escalation die value.
     data.attributes.escalation = {
@@ -324,6 +324,8 @@ export class ActorArchmage extends Actor {
     if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
     if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
     if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
+    // Key Modifiers
+    if (!data.attributes.keyModifier) data.attributes.keyModifier = model.attributes.keyModifier;
     if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
     if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
 
@@ -357,6 +359,15 @@ export class ActorArchmage extends Actor {
     for (let abl of Object.values(data.abilities)) {
       abl.mod = Math.floor((abl.value - 10) / 2);
       abl.lvl = abl.mod + data.attributes.level.value;
+      abl.nonKey = {mod: duplicate(abl.mod), lvlmod: duplicate(abl.lvl)};
+    }
+    // Non nonKey modifiers are affected by the Key Modifier
+    let keyMod = data.attributes.keyModifier;
+    if (keyMod.mod1 && keyMod.mod2) {
+      data.abilities[keyMod.mod1].mod = Math.min(data.abilities[keyMod.mod1].mod, data.abilities[keyMod.mod2].mod);
+      data.abilities[keyMod.mod2].mod = Math.min(data.abilities[keyMod.mod1].mod, data.abilities[keyMod.mod2].mod);
+      data.abilities[keyMod.mod1].lvl = Math.min(data.abilities[keyMod.mod1].lvl, data.abilities[keyMod.mod2].lvl);
+      data.abilities[keyMod.mod2].lvl = Math.min(data.abilities[keyMod.mod1].lvl, data.abilities[keyMod.mod2].lvl);
     }
 
     // Bonuses
@@ -416,9 +427,9 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.disengageBonus = disengageBonus;
 
     // Defenses (second element of sorted triple equal median)
-    data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(acBonus);
-    data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.mod, data.abilities.con.mod, data.abilities.str.mod].sort()[1]) + Number(data.attributes.level.value) + Number(pdBonus);
-    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.mod, data.abilities.cha.mod, data.abilities.wis.mod].sort()[1]) + Number(data.attributes.level.value) + Number(mdBonus);
+    data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort()[1]) + Number(acBonus);
+    data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort()[1]) + Number(pdBonus);
+    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort()[1]) + Number(mdBonus);
 
     // Damage Modifiers
     data.tier = 1;
@@ -426,6 +437,7 @@ export class ActorArchmage extends Actor {
     if (data.attributes.level.value >= 8) data.tier = 3;
     for (let prop in data.abilities) {
       data.abilities[prop].dmg = data.tier * data.abilities[prop].mod;
+      data.abilities[prop].nonKey.dmg = data.tier * data.abilities[prop].nonKey.mod;
     }
 
     // HPs
@@ -442,7 +454,7 @@ export class ActorArchmage extends Actor {
         else toughness = Math.floor(toughness)
       }
 
-      data.attributes.hp.max = Math.floor((data.attributes.hp.base + data.abilities.con.mod) * hpLevelModifier[level] + hpBonus + toughness);
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + data.abilities.con.nonKey.mod) * hpLevelModifier[level] + hpBonus + toughness);
     }
 
     // Recoveries
@@ -459,12 +471,12 @@ export class ActorArchmage extends Actor {
     if (isNaN(recoveryDie)) recoveryDie = 8;  // Fall back
     let recoveryAvg = (recoveryDie + 1) / 2;
     if (!this.getFlag('archmage', 'strongRecovery')) {
-      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.mod * data.tier);
+      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.nonKey.dmg);
     } else {
       // Handle Strong Recovery special case
       // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
       recoveryAvg = data.tier * (recoveryDie + 1) * (4 * recoveryDie - 1) / (6 * recoveryDie) + (recoveryLevel - data.tier) * recoveryAvg;
-      data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.mod * data.tier);
+      data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.nonKey.dmg);
     }
 
     // Weapon dice
@@ -784,13 +796,13 @@ export class ActorArchmage extends Actor {
     let actorData = this.data.data;
     let totalRecoveries = actorData.attributes.recoveries.value;
     data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
-    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.dmg.toString();
+    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.nonKey.dmg.toString();
 
     if (data.average) {
       formula = this.data.data.attributes.recoveries.avg;
     } else if (this.getFlag('archmage', 'strongRecovery')) {
       // Handle strong recovery.
-      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.dmg.toString();
+      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.nonKey.dmg.toString();
     }
 
     // Add bonus if any
@@ -1133,7 +1145,7 @@ export class ActorArchmage extends Actor {
       event: event,
       terms: terms,
       data: {
-        abil: abl ? abl.mod : 0,
+        abil: abl ? abl.nonKey.mod : 0,
         lvl: this.data.data.attributes.level.value + (this.data.data.incrementals?.skills ? 1 : 0),
         bg: bg ? bg[1].bonus.value : 0,
         abilityName: abilityName,
@@ -1466,6 +1478,9 @@ export class ActorArchmage extends Actor {
           return;
         }
 
+        // Class changed, alert the user we're about to muck with the base stats
+        ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.classChange"));
+
         // Collect base stats for detected classes
         let base = {
           hp: new Array(),
@@ -1569,6 +1584,19 @@ export class ActorArchmage extends Actor {
         } else {
           data.data.attributes.recoveries.base = 8;
         }
+
+        // Set Key Modifier for multiclasses
+        if (matchedClasses.length == 2) {
+          // Check that we have the data stored - just in case
+          if (CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]]
+            && CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]]) {
+            let km = CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]];
+            data.data.attributes.keyModifier = { mod1: km[0], mod2: km[1] };
+          } else console.log("Unknown Key Modifier for "+matchedClasses.toString());
+        } else {
+          // Just set Str/Str, equivalent to disabling the Key Modifier
+          data.data.attributes.keyModifier = { mod1: 'str', mod2: 'str' };
+        }
       }
       // Store matched classes for future reference
       data.data.details.detectedClasses = matchedClasses;
@@ -1580,23 +1608,29 @@ export class ActorArchmage extends Actor {
     await super._onUpdate(data, options, userId);
 
     // Scrolling text for temp hps
-    this._showScrollingText(
-      options.fromPreUpdate.temp,
-      game.i18n.localize("ARCHMAGE.tempHp"),
-      {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
-    );
+    if (options?.fromPreUpdate?.temp) {
+      this._showScrollingText(
+        options.fromPreUpdate.temp,
+        game.i18n.localize("ARCHMAGE.tempHp"),
+        {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
+      );
+    }
     // Scrolling text for hps
-    this._showScrollingText(
-      options.fromPreUpdate.hp,
-      game.i18n.localize("ARCHMAGE.hitPoints"),
-      {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
-    );
+    if (options?.fromPreUpdate?.hp) {
+      this._showScrollingText(
+        options.fromPreUpdate.hp,
+        game.i18n.localize("ARCHMAGE.hitPoints"),
+        {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
+      );
+    }
     // Scrolling text for recoveries
-    this._showScrollingText(
-      options.fromPreUpdate.rec,
-      game.i18n.localize("ARCHMAGE.recoveries"),
-      {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
-    );
+    if (options?.fromPreUpdate?.rec) {
+      this._showScrollingText(
+        options.fromPreUpdate.rec,
+        game.i18n.localize("ARCHMAGE.recoveries"),
+        {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
+      );
+    }
   }
 
   /**
