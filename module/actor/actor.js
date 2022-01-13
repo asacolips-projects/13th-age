@@ -326,6 +326,8 @@ export class ActorArchmage extends Actor {
     if (!data.attributes.saves.lastGaspFails) data.attributes.saves.lastGaspFails = model.attributes.saves.lastGaspFails;
     // Key Modifiers
     if (!data.attributes.keyModifier) data.attributes.keyModifier = model.attributes.keyModifier;
+    if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
+    if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
@@ -404,7 +406,10 @@ export class ActorArchmage extends Actor {
           hpBonus += getBonusOr0(item.data.data.attributes.hp);
           recoveriesBonus += getBonusOr0(item.data.data.attributes.recoveries);
 
-          saveBonus += getBonusOr0(item.data.data.attributes.save);
+          if (!item.data.data.attributes.save.threshold
+            || data.attributes.hp.value <= item.data.data.attributes.save.threshold) {
+            saveBonus += getBonusOr0(item.data.data.attributes.save);
+          }
           disengageBonus += getBonusOr0(item.data.data.attributes.disengage);
         }
       });
@@ -418,10 +423,8 @@ export class ActorArchmage extends Actor {
     };
 
     // Saves
-    data.attributes.saves.easy = Math.max((6 - saveBonus), 0);
-    data.attributes.saves.normal = Math.max((11 - saveBonus), 0);
-    data.attributes.saves.hard = Math.max((16 - saveBonus), 0);
-    data.attributes.disengage = Math.max((11 - disengageBonus - (data.attributes?.disengageBonus ?? 0)), 0);
+    data.attributes.saves.bonus = saveBonus;
+    data.attributes.saves.disengageBonus = disengageBonus;
 
     // Defenses (second element of sorted triple equal median)
     data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort()[1]) + Number(acBonus);
@@ -592,6 +595,94 @@ export class ActorArchmage extends Actor {
     }
 
     return data;
+  }
+
+  async rollSave(difficulty, target=11) {
+    // Determine target dc
+    if (difficulty == 'easy') target = 6;
+    else if (['hard', 'death', 'lastGasp'].includes(difficulty)) target = 16;
+
+    let formula = 'd20';
+    // Add bonuses, if any
+    let bonus = this.data.data.attributes.saves.bonus;
+    if (difficulty == 'disengage') {
+      bonus = data.attributes.saves.disengage.bonus;
+      bonus += (this.data.data.attributes?.disengageBonus || 0);
+    }
+    if (bonus != 0) formula = formula + "+" + bonus.toString();
+    let roll = new Roll(formula);
+    let result = await roll.roll();
+
+    // Create the chat message title.
+    let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
+
+    // Determine the roll result.
+    let rollResult = result.total;
+    let success = rollResult >= target;
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/save-card.html`;
+    const token = this.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      type: 5,
+      roll: roll,
+      speaker: {
+        actor: this.id,
+        token: token,
+        alias: this.name,
+        scene: game.user.viewedScene
+      }
+    };
+
+    const templateData = {
+      actor: this,
+      tokenId: token ? `${token.id}` : null,
+      saveType: label,
+      success: success,
+      data: chatData,
+      target
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
+    if (rollMode === "blindroll") chatData["blind"] = true;
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+    ChatMessage.create(chatData, { displaySheet: false });
+
+    // Handle recoveries or failures on death saves.
+    if (difficulty == 'death') {
+      if (success && this.data.data.attributes.hp.value <= 0) {
+        this.rollRecovery({}, true);
+      }
+      else await this.update({'data.attributes.saves.deathFails.value': Math.min(4, Number(this.data.data.attributes.saves.deathFails.value) + 1)});
+    }
+
+    // Handle failures of last gasp saves.
+    if (difficulty == 'lastGasp' && !success) {
+      await this.update({
+        'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(this.data.data.attributes.saves.lastGaspFails.value) + 1)
+      });
+      // If this is the first failed last gasps save, add helpless
+      let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
+      if (filtered.length == 0 && this.data.data.attributes.saves.lastGaspFails.value == 1) {
+        let effectData = CONFIG.statusEffects.find(x => x.id == "helpless");
+        let createData = foundry.utils.deepClone(effectData);
+        createData.label = game.i18n.localize(effectData.label);
+        createData["flags.core.statusId"] = effectData.id;
+        delete createData.id;
+        const cls = getDocumentClass("ActiveEffect");
+        await cls.create(createData, {parent: this});
+      }
+    } else if (difficulty == 'lastGasp' && success) {
+      // Condition shaken off, clear all last gasp saves
+      await this.update({ 'data.attributes.saves.lastGaspFails.value': 0 });
+    }
   }
 
   /* -------------------------------------------- */
@@ -919,6 +1010,8 @@ export class ActorArchmage extends Actor {
     // Recoveries & hp
     updateData['data.attributes.recoveries.value'] = this.data.data.attributes.recoveries.max;
     updateData['data.attributes.hp.value'] = this.data.data.attributes.hp.max;
+    updateData['data.attributes.saves.deathFails.value'] = 0;
+    updateData['data.attributes.saves.lastGaspFails.value'] = 0;
 
     // Resources
     if (this.data.data.resources.spendable.ki.enabled
@@ -1103,21 +1196,19 @@ export class ActorArchmage extends Actor {
    *
    * @return {undefined}
    */
-  _showScrollingText(delta, max, suffix="", overrideOptions={}) {
+  _showScrollingText(delta, suffix="", overrideOptions={}) {
     // Show scrolling text of hp update
     const tokens = this.isToken ? [this.token?.object] : this.getActiveTokens(true);
     if (delta != 0 && tokens.length > 0) {
       let color = delta < 0 ? 0xcc0000 : 0x00cc00;
       for ( let token of tokens ) {
-        const pct = Math.clamped(Math.abs(delta) / max, 0, 1);
         let textOptions = {
           anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
           direction: CONST.TEXT_ANCHOR_POINTS.TOP,
-          fontSize: 16 + (32 * pct), // Range between [16, 48]
+          fontSize: 32,
           fill: color,
           stroke: 0x000000,
           strokeThickness: 4,
-          // jitter: 1,
           duration: 3000
         };
         token.hud.createScrollingText(delta.signedString()+" "+suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
@@ -1135,10 +1226,11 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
-    // Deltas for actual and temp hp, needed for scrolling text later
+    // Deltas, needed for scrolling text later
     let deltaActual = 0;
     let deltaTemp = 0;
-    const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
+    let deltaRec = 0;
+    let maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
 
     if (data.data.attributes?.hp?.temp !== undefined) {
       // Store for later display
@@ -1175,10 +1267,12 @@ export class ActorArchmage extends Actor {
         hp.value = Math.max(0, hp.value);
       }
       // Do not exceed max hps
+      const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
       if (maxHp == 10 && this.data.type == 'npc') {
         // If max hp is 10 assume this is a newly created npc, simplify update
         data.data.attributes.hp.value = hp.value + deltaActual;
         data.data.attributes.hp.max = hp.value + deltaActual;
+        maxHp += deltaActual;
       } else {
         // Normal actor hp update, do not exceed maximum
         deltaActual = Math.min(deltaActual, maxHp - hp.value);
@@ -1187,18 +1281,14 @@ export class ActorArchmage extends Actor {
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
-        // Dead
-        await this._updateHpCondition(data, "dead", 0, maxHp,
-          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
         // Staggered
         await this._updateHpCondition(data, "staggered", 0.5, maxHp,
           game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
+        // Dead
+        await this._updateHpCondition(data, "dead", 0, maxHp,
+          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
       }
     }
-
-    // Show scrolling text of hp update
-    this._showScrollingText(deltaTemp, maxHp, game.i18n.localize("ARCHMAGE.tempHp"), {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER});
-    this._showScrollingText(deltaActual, maxHp, game.i18n.localize("ARCHMAGE.hitPoints"), {anchor: CONST.TEXT_ANCHOR_POINTS.TOP});
 
     if (!this.data.type == 'character') return; // Nothing else to do
 
@@ -1215,9 +1305,8 @@ export class ActorArchmage extends Actor {
         data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.data.data.attributes.recoveries.max);
       }
 
-      // Show scrolling text of updated recoveries
-      this._showScrollingText(data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value,
-        this.data.data.attributes.recoveries.max, game.i18n.localize("ARCHMAGE.recoveries"), {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM});
+      // Record updated recoveries
+      deltaRec = data.data.attributes.recoveries.value-this.data.data.attributes.recoveries.value;
 
       // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
@@ -1241,6 +1330,9 @@ export class ActorArchmage extends Actor {
         this.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
+    // Record deltas to show scrolling text in onUpdate
+    // Done there since it fires on all clients, letting everyone see the text
+    options.fromPreUpdate = {temp: deltaTemp, hp: deltaActual, rec: deltaRec};
 
     if (data.data.attributes?.weapon?.melee?.shield !== undefined
       || data.data.attributes?.weapon?.melee?.dualwield !== undefined
@@ -1511,6 +1603,30 @@ export class ActorArchmage extends Actor {
     }
   }
 
+  /** @override */
+  async _onUpdate(data, options, userId) {
+    await super._onUpdate(data, options, userId);
+
+    // Scrolling text for temp hps
+    this._showScrollingText(
+      options.fromPreUpdate.temp,
+      game.i18n.localize("ARCHMAGE.tempHp"),
+      {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
+    );
+    // Scrolling text for hps
+    this._showScrollingText(
+      options.fromPreUpdate.hp,
+      game.i18n.localize("ARCHMAGE.hitPoints"),
+      {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
+    );
+    // Scrolling text for recoveries
+    this._showScrollingText(
+      options.fromPreUpdate.rec,
+      game.i18n.localize("ARCHMAGE.recoveries"),
+      {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
+    );
+  }
+
   /**
    * Auto levelup monsters
    * Creates a copy of an NPC actor with the requested delta in levels
@@ -1521,7 +1637,7 @@ export class ActorArchmage extends Actor {
 
   async autoLevelActor(delta) {
     if (!this.data.type == 'npc' || delta == 0) return;
-    // Conver delta back to a number, and handle + characters.
+    // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 
     // Warning for out of bounds.
