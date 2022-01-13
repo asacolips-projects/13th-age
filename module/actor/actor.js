@@ -1608,23 +1608,29 @@ export class ActorArchmage extends Actor {
     await super._onUpdate(data, options, userId);
 
     // Scrolling text for temp hps
-    this._showScrollingText(
-      options.fromPreUpdate.temp,
-      game.i18n.localize("ARCHMAGE.tempHp"),
-      {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
-    );
+    if (options?.fromPreUpdate?.temp) {
+      this._showScrollingText(
+        options.fromPreUpdate.temp,
+        game.i18n.localize("ARCHMAGE.tempHp"),
+        {anchor: CONST.TEXT_ANCHOR_POINTS.TOP}
+      );
+    }
     // Scrolling text for hps
-    this._showScrollingText(
-      options.fromPreUpdate.hp,
-      game.i18n.localize("ARCHMAGE.hitPoints"),
-      {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
-    );
+    if (options?.fromPreUpdate?.hp) {
+      this._showScrollingText(
+        options.fromPreUpdate.hp,
+        game.i18n.localize("ARCHMAGE.hitPoints"),
+        {anchor: CONST.TEXT_ANCHOR_POINTS.CENTER}
+      );
+    }
     // Scrolling text for recoveries
-    this._showScrollingText(
-      options.fromPreUpdate.rec,
-      game.i18n.localize("ARCHMAGE.recoveries"),
-      {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
-    );
+    if (options?.fromPreUpdate?.rec) {
+      this._showScrollingText(
+        options.fromPreUpdate.rec,
+        game.i18n.localize("ARCHMAGE.recoveries"),
+        {anchor: CONST.TEXT_ANCHOR_POINTS.BOTTOM}
+      );
+    }
   }
 
   /**
