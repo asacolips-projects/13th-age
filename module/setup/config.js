@@ -729,8 +729,8 @@ ARCHMAGE.keyModifiers = {
     'paladin': ['str', 'cha'],
     'ranger': ['str', 'dex'],
     'rogue': ['str', 'dex'],
-    'sorcerer': ['dex', 'cha'],
-    'wizard': ['dex', 'int'],
+    'sorcerer': ['str', 'cha'],
+    'wizard': ['str', 'int'],
   },
   'monk': {
     'necromancer': ['dex', 'int'],
