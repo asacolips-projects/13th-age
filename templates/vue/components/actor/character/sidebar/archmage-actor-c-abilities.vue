@@ -10,7 +10,7 @@
         <input type="number" v-bind:name="concat('data.abilities.', index, '.value')" class="ability-score" v-model="item.value"/>
         <a class="ability-name rollable rollable--ability" data-roll-type="ability" :data-roll-opt="index">{{localize(concat('ARCHMAGE.', index, '.label'))}}</a>
         <div class="ability-mod" :style="concat('color:', modColor(item))" :title="modTitle(item, actor)">{{numberFormat(item.nonKey.mod, 0, true)}}</div>
-        <div class="ability-lvl">{{numberFormat(item.nonKey.lvlmod, 0, true)}}</div>
+        <div class="ability-lvl" :style="concat('color:', modColor(item))">{{numberFormat(item.nonKey.lvlmod, 0, true)}}</div>
       </li>
     </ul>
   </section>
@@ -29,7 +29,7 @@ export default {
       if (abil.mod && abil.nonKey.mod) {
         if (abil.mod < abil.nonKey.mod) {
           console.log(abil.label);
-          return 'red';
+          return '#E01616';
         }
       }
       return 'inherit';
