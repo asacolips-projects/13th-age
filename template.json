@@ -119,10 +119,8 @@
           "automatic": true
         },
         "saves": {
-          "easy": 6,
-          "normal": 11,
-          "hard": 16,
-          "death": 16,
+          "bonus": 0,
+          "disengageBonus": 0,
           "deathFails": {
             "value": 0,
             "max": 4,
@@ -133,7 +131,6 @@
               false
             ]
           },
-          "lastGasp": 16,
           "lastGaspFails": {
             "value": 0,
             "max": 4,
@@ -880,7 +877,8 @@
           "bonus": 0
         },
         "save": {
-          "bonus": 0
+          "bonus": 0,
+          "threshold": 0
         },
         "disengage": {
           "bonus": 0
