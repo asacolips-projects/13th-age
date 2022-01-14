@@ -89,6 +89,9 @@ Actor:
     attributes:
       disengage: 11
       disengageBonus: 0
+      keyModifier:
+        mod1: str
+        mod2: str
       recoveries:
         type: Number
         label: Recoveries

@@ -24,6 +24,10 @@
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseRecoveries')}}</strong>
           <input type="number" name="data.attributes.recoveries.base" v-model="actor.data.attributes.recoveries.base" :disabled="overrides.includes('data.attributes.recoveries.base')"/>
         </div>
+        <div class="sub-unit sub-unit--recovery-dice flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.recoveryDice')}}</strong>
+          <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.attributes.recoveries.dice" :disabled="overrides.includes('data.attributes.recoveries.dice')" placeholder="d8"/>
+        </div>
         <div class="sub-unit sub-unit--calculate-max-hp flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateHP')}}</strong>
           <input type="checkbox" name="data.attributes.hp.automatic" v-model="actor.data.attributes.hp.automatic"/>
@@ -36,13 +40,18 @@
           <strong class="unit-subtitle">{{localize('ARCHMAGE.initAdjustment')}}</strong>
           <input type="number" name="data.attributes.init.value" v-model="actor.data.attributes.init.value" :disabled="overrides.includes('data.attributes.init.value')" placeholder="0"/>
         </div>
-        <div class="sub-unit sub-unit--recovery-dice flexrow">
-          <strong class="unit-subtitle">{{localize('ARCHMAGE.recoveryDice')}}</strong>
-          <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.attributes.recoveries.dice" :disabled="overrides.includes('data.attributes.recoveries.dice')" placeholder="d8"/>
-        </div>
         <div class="sub-unit sub-unit--attackMod flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.attackMod')}}</strong>
           <input type="number" name="data.attributes.attackMod.value" v-model="actor.data.attributes.attackMod.value" :disabled="overrides.includes('data.attributes.attackMod.value')"/>
+        </div>
+        <div class="sub-unit sub-unit--keyMod flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.keyMod')}}</strong>
+          <select name="data.attributes.keyModifier.mod1" v-model="actor.data.attributes.keyModifier.mod1">
+            <option v-for="(option, index) in abilities" :key="index" :value="option.value">{{option.label}}</option>
+          </select> /
+          <select name="data.attributes.keyModifier.mod2" v-model="actor.data.attributes.keyModifier.mod2">
+            <option v-for="(option, index) in abilities" :key="index" :value="option.value">{{option.label}}</option>
+          </select>
         </div>
         <div class="sub-unit sub-unit--melee">
           <div class="sub-unit sub-unit--melee-dice flexrow">
@@ -128,6 +137,14 @@ export default {
         { value: 'fullreset', label: 'Clear on Full Heal-Up' },
         { value: 'quick', label: 'Refill on Quick Rest' },
         { value: 'full', label: 'Refill on Full Heal-Up' },
+      ],
+      abilities: [
+        { value: 'str', label: "Str"},
+        { value: 'con', label: "Con"},
+        { value: 'dex', label: "Dex"},
+        { value: 'int', label: "Int"},
+        { value: 'wis', label: "Wis"},
+        { value: 'cha', label: "Cha"},
       ]
     }
   },

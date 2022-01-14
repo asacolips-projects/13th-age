@@ -6,7 +6,6 @@
     <h3>Ability Modifiers</h3>
     <ol class="hotkey-list">
       <li>
-        {{!-- <h4>Ability modifiers</h4> --}}
         <div class="keys">
           <span class="key">@str.mod</span>
           <span class="key">@dex.mod</span>
@@ -21,7 +20,6 @@
     <h3>Ability Modifiers (x1 Adventurer, x2 Champion, x3 Epic)</h3>
     <ol class="hotkey-list">
       <li>
-        {{!-- <h4>Ability modifiers (x2 Champion, x3 Epic)</h4> --}}
         <div class="keys">
           <span class="key">@str.dmg</span>
           <span class="key">@dex.dmg</span>
@@ -32,6 +30,8 @@
         </div>
       </li>
     </ol>
+
+    <p class="notes">Note: for multiclass characters the above are affected by the Key Modifier. For class powers that's fine, but should you need to access the unaltered modifiers you can use e.g. <span class="key">@str.nonKey.mod</span> or <span class="key">@str.nonKey.dmg</span>.</p>
 
     <h3>Common Attributes</h3>
     <ol class="hotkey-list">
