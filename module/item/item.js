@@ -69,7 +69,7 @@ export class ItemArchmage extends Item {
     let cost = this.data.data.cost?.value;
     let updateData = {}
     if (cost && game.settings.get("archmage", "automatePowerCost")) {
-      let filter = /^([0-9]*) ([a-zA-Z ]+)|([a-zA-Z ]+)$/;
+      let filter = /^(-*[0-9]*) ([a-zA-Z ]+)|([a-zA-Z ]+)$/;
       let parsed = filter.exec(cost);
       let res = this.actor.data.data.resources;
       if (parsed) {
@@ -132,11 +132,15 @@ export class ItemArchmage extends Item {
             let numUsed = Number(parsed[1]);
             let path = `data.resources.spendable.${resourcePathName}.current`;
             updateData[path] = res.spendable[resourcePathName].current - numUsed;
-            if (numUsed > res.spendable[resourcePathName].current) {
+            if (updateData[path] < 0) {
               let msg = game.i18n.localize("ARCHMAGE.UI.errNoCustomResource") + " ";
               msg += resourceName + ". " + game.i18n.localize("ARCHMAGE.UI.errNoCustomResource2");
               updateData[path] = 0;
               return this._roll_resDiag(msg, itemUpdateData, updateData);
+            }
+            let resMax = res.spendable[resourcePathName].max;
+            if (resMax && updateData[path] > resMax) {
+              updateData[path] = resMax;
             }
           }
         }
