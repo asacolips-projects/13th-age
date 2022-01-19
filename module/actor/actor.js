@@ -606,8 +606,8 @@ export class ActorArchmage extends Actor {
     // Add bonuses, if any
     let bonus = this.data.data.attributes.saves.bonus;
     if (difficulty == 'disengage') {
-      bonus = data.attributes.saves.disengage.bonus;
-      bonus += (this.data.data.attributes?.disengageBonus || 0);
+      bonus = this.data.data.attributes.saves.disengageBonus; // From items
+      bonus += (this.data.data.attributes?.disengageBonus || 0); // From sheet
     }
     if (bonus != 0) formula = formula + "+" + bonus.toString();
     let roll = new Roll(formula);
