@@ -23,4 +23,3 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 - Allow to gate save bonuses from items below hp treshold.
 - Fixed staggered/dead application order, and staggered being applied to low max hp npcs incorrectly.
 - Handle negative custom resource costs to automate gaining a resource.
-- Fixed an issue with disengage rolls.
