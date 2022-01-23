@@ -1,4 +1,4 @@
-name: 'Call of Doom'
+name: 'Gather Focus'
 permission:
   default: 0
 type: 'power'
@@ -20,7 +20,7 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'feature'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -28,23 +28,23 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 5
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Close-quarters spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: 'You drop to 0 hp or below or roll a death save'
+    value: ''
   target:
     type: 'String'
     label: 'Target'
-    value: 'The closest random nearby enemy'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -52,11 +52,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@int.mod+@std+@atk.a.bonus]] vs. MD'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[7d6+@wis.dmg+@atk.a.bonus]] psychic damage'
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -84,7 +84,7 @@ data:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: 'Gain Focus'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You can cast this spell without having your focus. If the trigger is you dropping, you cast it before you drop. If the trigger is a death save, you cast it while unconscious; even in that state you still can assert your will upon reality.</p>'
+    value: 'This action draws opportunity attacks as if it was a ranged spell.'
   effect:
     type: 'String'
     label: 'Effect'
@@ -120,11 +120,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: '[[6d10+@wis.dmg+@atk.a.bonus]] damage'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: '[[10d10+@wis.dmg+@atk.a.bonus]] damage'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -150,6 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -158,6 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -166,10 +168,14 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'af4Ntu5EwjJiJudg'
+effects: []
+_id: 'oMcpjmiMY8kPx0vo'
