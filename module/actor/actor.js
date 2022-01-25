@@ -881,6 +881,7 @@ export class ActorArchmage extends Actor {
     let templateData = {
       actor: this,
       gainedHp: 0,
+      usedRecoveries: 0,
       resources: [],
       items: []
     };
@@ -894,6 +895,7 @@ export class ActorArchmage extends Actor {
       // Roll recoveries until we are above staggered
       let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
+      templateData.usedRecoveries += 1;
     }
 
     // Remove any prior negative hps from the amount healing to prevent double application
@@ -984,7 +986,6 @@ export class ActorArchmage extends Actor {
     const chatData = {
       user: game.user.id, speaker: {actor: this.id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
-      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
@@ -1081,7 +1082,6 @@ export class ActorArchmage extends Actor {
     const chatData = {
       user: game.user.id, speaker: {actor: this.id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
-      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
