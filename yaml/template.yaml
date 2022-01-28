@@ -29,9 +29,9 @@ Actor:
         hp:
           type: Number
           label: Hit Points
-          value: 10
+          value: 1
           min: 0
-          max: 10
+          max: 1
           temp: 0
           tempmax: 0
           base: 7
