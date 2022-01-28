@@ -1271,7 +1271,7 @@ export class ActorArchmage extends Actor {
       if (maxHp == 1 && this.data.type == 'npc') {
         // If max hp is 1 assume this is a newly created npc, simplify update
         data.data.attributes.hp.value = hp.value + deltaActual;
-        data.data.attributes.hp.max = hp.value + deltaActual;
+        data.data.attributes.hp.max = Math.max(hp.value + deltaActual, 1);
         maxHp += deltaActual;
       } else {
         // Normal actor hp update, do not exceed maximum
