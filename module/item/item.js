@@ -98,28 +98,34 @@ export class ItemArchmage extends Item {
           }
         }
         // Momentum
-        else if (parsed[3] && res.perCombat.momentum.enabled
-          && (parsed[3].toLowerCase() == "spend momentum"
-          || parsed[3].toLowerCase() == "have momentum")) {
-          if (!res.perCombat.momentum.current) {
-            let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
-            return this._roll_resDiag(msg, itemUpdateData, updateData);
-          } else {
-            if (parsed[3].toLowerCase() == "spend momentum") {
-              let path = 'data.resources.perCombat.momentum.current';
-              updateData[path] = false;
+        else if (parsed[3] && res.perCombat.momentum.enabled) {
+          let path = 'data.resources.perCombat.momentum.current';
+          if (parsed[3].toLowerCase() == "gain momentum") {
+            updateData[path] = true;
+          } else if (parsed[3].toLowerCase() == "spend momentum"
+          || parsed[3].toLowerCase() == "have momentum") {
+            if (!res.perCombat.momentum.current) {
+              let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
+              return this._roll_resDiag(msg, itemUpdateData, updateData);
+            } else {
+              if (parsed[3].toLowerCase() == "spend momentum") {
+                updateData[path] = false;
+              }
             }
           }
         }
         // Focus
-        else if (parsed[3] && parsed[3].toLowerCase() == "focus"
-            && res.perCombat.focus.enabled) {
-          if (!res.perCombat.focus.current) {
-            let msg = game.i18n.localize("ARCHMAGE.UI.errNoFocus");
-            return this._roll_resDiag(msg, itemUpdateData, updateData);
-          } else {
-            let path = 'data.resources.perCombat.focus.current';
-            updateData[path] = false;
+        else if (parsed[3] && res.perCombat.focus.enabled) {
+          let path = 'data.resources.perCombat.focus.current';
+          if (parsed[3].toLowerCase() == "gain focus") {
+            updateData[path] = true;
+          } else if (parsed[3].toLowerCase() == "focus") {
+            if (!res.perCombat.focus.current) {
+              let msg = game.i18n.localize("ARCHMAGE.UI.errNoFocus");
+              return this._roll_resDiag(msg, itemUpdateData, updateData);
+            } else {
+              updateData[path] = false;
+            }
           }
         }
         // Custom resources

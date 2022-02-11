@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You can cast this spell without having your focus. If<br />the trigger is you dropping, you cast it before you drop. If the<br />trigger is a death save, you cast it while unconscious; even in<br />that state you still can assert your will upon reality.</p>'
+    value: '<p>You can cast this spell without having your focus. If the trigger is you dropping, you cast it before you drop. If the trigger is a death save, you cast it while unconscious; even in that state you still can assert your will upon reality.</p>'
   effect:
     type: 'String'
     label: 'Effect'
