@@ -328,6 +328,12 @@ export class ActorArchmage extends Actor {
     if (!data.attributes.keyModifier) data.attributes.keyModifier = model.attributes.keyModifier;
     if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
     if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
+    // Incrementals
+    if (!('talent' in data.incrementals)) data.incrementals.talent = model.incrementals.talent;
+    if ('feature' in data.incrementals) {
+      data.incrementals.talent = duplicate(data.incrementals.feature);
+      delete data.incrementals.feature;
+    }
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {

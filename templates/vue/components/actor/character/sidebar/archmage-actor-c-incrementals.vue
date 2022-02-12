@@ -21,7 +21,7 @@ export default {
   computed: {},
   methods: {
     getOrderedIncrementals(actor) {
-      let incrementalKeys = ['abilityScoreBonus', 'skills', 'extraMagicItem', 'feat', 'feature', 'hp', 'iconRelationshipPoint', 'powerSpell1', 'powerSpell2', 'powerSpell3', 'powerSpell4'];
+      let incrementalKeys = ['abilityScoreBonus', 'skills', 'extraMagicItem', 'feat', 'talent', 'hp', 'iconRelationshipPoint', 'powerSpell1', 'powerSpell2', 'powerSpell3', 'powerSpell4'];
       let newIncrementalArray = {};
       incrementalKeys.forEach(e => newIncrementalArray[e] = actor.data.incrementals[e]);
       return newIncrementalArray;
