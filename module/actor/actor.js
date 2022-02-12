@@ -1246,8 +1246,9 @@ export class ActorArchmage extends Actor {
     if (data.data.attributes?.hp?.max !== undefined) {
       // Here we received an update of the max hp
       // Check that the current value does not exceed it
+      let deltaMax = maxHp - this.data.data.attributes.hp.max;
       let hp = data.data.attributes.hp.value || this.data.data.attributes.hp.value;
-      data.data.attributes.hp.value = Math.min(hp, data.data.attributes.hp.max);
+      data.data.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
     }
 
     if (data.data.attributes?.hp?.value !== undefined
@@ -1273,17 +1274,8 @@ export class ActorArchmage extends Actor {
         hp.value = Math.max(0, hp.value);
       }
       // Do not exceed max hps
-      let maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
-      if (maxHp == 1 && this.data.type == 'npc') {
-        // If max hp is 1 assume this is a newly created npc, simplify update
-        data.data.attributes.hp.value = hp.value + deltaActual;
-        data.data.attributes.hp.max = Math.max(hp.value + deltaActual, 1);
-        maxHp += deltaActual;
-      } else {
-        // Normal actor hp update, do not exceed maximum
-        deltaActual = Math.min(deltaActual, maxHp - hp.value);
-        data.data.attributes.hp.value = hp.value + deltaActual;
-      }
+      deltaActual = Math.min(deltaActual, maxHp - hp.value);
+      data.data.attributes.hp.value = hp.value + deltaActual;
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
