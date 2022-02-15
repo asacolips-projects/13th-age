@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: ''
+    value: '<p>You can only use this tactic if the E.D. is 2+</p>'
   effect:
     type: 'String'
     label: 'Effect'

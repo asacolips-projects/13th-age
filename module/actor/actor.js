@@ -328,6 +328,12 @@ export class ActorArchmage extends Actor {
     if (!data.attributes.keyModifier) data.attributes.keyModifier = model.attributes.keyModifier;
     if (!data.attributes.saves.bonus) data.attributes.saves.bonus = model.attributes.saves.bonus;
     if (!data.attributes.saves.disengageBonus) data.attributes.saves.disengageBonus = model.attributes.saves.disengageBonus;
+    // Incrementals
+    if (!('talent' in data.incrementals)) data.incrementals.talent = model.incrementals.talent;
+    if ('feature' in data.incrementals) {
+      data.incrementals.talent = duplicate(data.incrementals.feature);
+      delete data.incrementals.feature;
+    }
 
     // Enable resources based on detected classes
     if (data.details.detectedClasses) {
@@ -881,6 +887,7 @@ export class ActorArchmage extends Actor {
     let templateData = {
       actor: this,
       gainedHp: 0,
+      usedRecoveries: 0,
       resources: [],
       items: []
     };
@@ -894,6 +901,7 @@ export class ActorArchmage extends Actor {
       // Roll recoveries until we are above staggered
       let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
+      templateData.usedRecoveries += 1;
     }
 
     // Remove any prior negative hps from the amount healing to prevent double application
@@ -984,7 +992,6 @@ export class ActorArchmage extends Actor {
     const chatData = {
       user: game.user.id, speaker: {actor: this.id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
-      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
@@ -1081,7 +1088,6 @@ export class ActorArchmage extends Actor {
     const chatData = {
       user: game.user.id, speaker: {actor: this.id, token: this.token,
       alias: this.name, scene: game.user.viewedScene},
-      roll: new Roll("") // Needed to silence an error in 0.8.x
     };
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
@@ -1240,8 +1246,9 @@ export class ActorArchmage extends Actor {
     if (data.data.attributes?.hp?.max !== undefined) {
       // Here we received an update of the max hp
       // Check that the current value does not exceed it
+      let deltaMax = maxHp - this.data.data.attributes.hp.max;
       let hp = data.data.attributes.hp.value || this.data.data.attributes.hp.value;
-      data.data.attributes.hp.value = Math.min(hp, data.data.attributes.hp.max);
+      data.data.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
     }
 
     if (data.data.attributes?.hp?.value !== undefined
@@ -1267,17 +1274,8 @@ export class ActorArchmage extends Actor {
         hp.value = Math.max(0, hp.value);
       }
       // Do not exceed max hps
-      const maxHp = data.data.attributes?.hp?.max || this.data.data.attributes.hp.max;
-      if (maxHp == 10 && this.data.type == 'npc') {
-        // If max hp is 10 assume this is a newly created npc, simplify update
-        data.data.attributes.hp.value = hp.value + deltaActual;
-        data.data.attributes.hp.max = hp.value + deltaActual;
-        maxHp += deltaActual;
-      } else {
-        // Normal actor hp update, do not exceed maximum
-        deltaActual = Math.min(deltaActual, maxHp - hp.value);
-        data.data.attributes.hp.value = hp.value + deltaActual;
-      }
+      deltaActual = Math.min(deltaActual, maxHp - hp.value);
+      data.data.attributes.hp.value = hp.value + deltaActual;
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
