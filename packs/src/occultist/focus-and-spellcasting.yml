@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'at-will'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'other'
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
@@ -84,7 +84,7 @@ data:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: 'Gain Focus'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
