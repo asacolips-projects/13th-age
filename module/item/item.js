@@ -226,6 +226,7 @@ export class ItemArchmage extends Item {
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
     if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
+    if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
     if (rollMode === "blindroll") chatData["blind"] = true;
 
     // Render the template
@@ -289,7 +290,9 @@ export class ItemArchmage extends Item {
         rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
           for (let r of rolls) {
-            await game.dice3d.showForRoll(r, game.user, true);
+            await game.dice3d.showForRoll(r, game.user, true,
+              chatData["whisper"] ? chatData["whisper"] : null,
+              chatData["blind"] && !game.user.isGM ? true : false);
           }
         }
       }
