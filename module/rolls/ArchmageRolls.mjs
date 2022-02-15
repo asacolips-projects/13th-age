@@ -116,8 +116,11 @@ export default class ArchmageRolls {
     // If the user has targeted tokens, limit number of rolls by the lower of
     // selected targets or number listed on the power. If no targets are
     // selected, just use the number listed on the power.
-    let selectedTargets = [...game.user.targets];
-    let targetsCount = selectedTargets.length > 0 ? Math.min(numTargets.targets, selectedTargets.length) : numTargets.targets;
+    let targetsCount = numTargets.targets;
+    if (game.settings.get("archmage", "hideExtraRolls")){
+      let selectedTargets = [...game.user.targets];
+      if (selectedTargets.length > 0) targetsCount = Math.min(numTargets.targets, selectedTargets.length);
+    }
 
     // Handle the special case of the Crescendo spell
     if (item.data.data?.special?.value?.toLowerCase().includes(
