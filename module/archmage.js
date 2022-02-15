@@ -248,6 +248,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register("archmage", "hideExtraRolls", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.hideExtraRollsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.hideExtraRollsHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   game.settings.register("archmage", "showDefensesInChat", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.showDefensesInChatHint"),

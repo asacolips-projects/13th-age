@@ -11,6 +11,8 @@
   "ARCHMAGE.SETTINGS.staggeredOverlayHint": "If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.",
   "ARCHMAGE.SETTINGS.multiTargetAttackRollsName": "Multi-Target Attack Rolls",
   "ARCHMAGE.SETTINGS.multiTargetAttackRollsHint": "Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets.",
+  "ARCHMAGE.SETTINGS.hideExtraRollsName": "Limit extra rolls to targeted tokens",
+  "ARCHMAGE.SETTINGS.hideExtraRollsHint": "If enabled, powers with multiple attack rolls will display at most one attack per targeted token if any is targeted.",
   "ARCHMAGE.SETTINGS.showDefensesInChatName": "Show target(s) defense(s) in chat",
   "ARCHMAGE.SETTINGS.showDefensesInChatHint": "Enable this display a list of targeted defenses in the attack line of chat power cards.",
   "ARCHMAGE.SETTINGS.hideInsteadOfOpaqueName": "Hide inactive Features / Triggers instead of making them faded-out",
