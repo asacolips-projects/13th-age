@@ -872,9 +872,10 @@ export class ActorArchmage extends Actor {
     let newHp = this.data.data.attributes.hp.value;
     let newRec = this.data.data.attributes.recoveries.value;
     if (!data.free) {newRec -= 1;}
-    // Starting from 0 if at negative hp is handled in the actor update hook
-    // just pass along the heal amount here
-    if (data.apply) {newHp = Math.min(this.data.data.attributes.hp.max, newHp + roll.total);}
+    if (data.apply) {
+      // Starting from 0 if at negative hp is handled in the actor update hook
+      newHp = Math.min(this.data.data.attributes.hp.max, Math.max(0, newHp) + roll.total);
+    }
     await this.update({
       'data.attributes.recoveries.value': newRec,
       'data.attributes.hp.value': newHp
@@ -896,16 +897,13 @@ export class ActorArchmage extends Actor {
 
     // Recoveries & hp
     let baseHp = Math.max(this.data.data.attributes.hp.value, 0);
-
     while (baseHp + templateData.gainedHp < this.data.data.attributes.hp.max/2) {
       // Roll recoveries until we are above staggered
       let rec = await this.rollRecovery({apply: false});
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
-
-    // Remove any prior negative hps from the amount healing to prevent double application
-    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp + Math.min(this.data.data.attributes.hp.value, 0));
+    updateData['data.attributes.hp.value'] = Math.min(this.data.data.attributes.hp.max, Math.max(this.data.data.attributes.hp.value, 0) + templateData.gainedHp);
 
     // Resources
     // Focus, Momentum and Command Points handled on end combat hook
@@ -1173,7 +1171,12 @@ export class ActorArchmage extends Actor {
    * Override default method to avoid clamping when isBar=true
    */
   async modifyTokenAttribute(attribute, value, isDelta=false, isBar=true) {
-   super.modifyTokenAttribute(attribute, value, isDelta, false);
+    // TODO: sometimes destroying actor data!
+    if (attribute === "attributes.hp") {
+      const current = foundry.utils.getProperty(this.data.data, attribute);
+      if (current < 0) value -= current;
+    }
+    super.modifyTokenAttribute(attribute, value, isDelta, false);
   }
 
   /**
@@ -1277,9 +1280,9 @@ export class ActorArchmage extends Actor {
         data.data.attributes.hp.temp = Math.max(0, temp + deltaActual);
         deltaActual = Math.min(deltaActual + temp, 0);
       }
-      else { // Healing, start from 0 if negative
-        hp.value = Math.max(0, hp.value);
-      }
+
+      // healing from negative hp handled elsewhere to maintain direct sheet inputs
+
       // Do not exceed max hps
       deltaActual = Math.min(deltaActual, maxHp - hp.value);
       data.data.attributes.hp.value = hp.value + deltaActual;
