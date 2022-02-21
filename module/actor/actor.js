@@ -1170,6 +1170,13 @@ export class ActorArchmage extends Actor {
   }
 
   /**
+   * Override default method to avoid clamping when isBar=true
+   */
+  async modifyTokenAttribute(attribute, value, isDelta=false, isBar=true) {
+   super.modifyTokenAttribute(attribute, value, isDelta, false);
+  }
+
+  /**
    * HP conditions helper method
    *
    * @return {undefined}
