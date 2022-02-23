@@ -335,18 +335,6 @@ export class ActorArchmage extends Actor {
       delete data.incrementals.feature;
     }
 
-    // Enable resources based on detected classes
-    if (data.details.detectedClasses) {
-      // Momentum
-      data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
-      // Command Points
-      data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-      // Focus
-      data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
-      // Ki
-      data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
-    }
-
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
     data.attributes.saves.deathFails.steps = [false, false, false, false];
@@ -1595,6 +1583,12 @@ export class ActorArchmage extends Actor {
           // Just set Str/Str, equivalent to disabling the Key Modifier
           data.data.attributes.keyModifier = { mod1: 'str', mod2: 'str' };
         }
+
+        // Enable resources based on detected classes
+        data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
+        data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
+        data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
+        data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
       }
       // Store matched classes for future reference
       data.data.details.detectedClasses = matchedClasses;

@@ -111,8 +111,9 @@
       </div>
       <!-- Resource Settings -->
       <div class="unit unit--resources">
-        <div v-for="(resource, r) in resources" :key="r" class="settings-resource" :data-key="r">
-          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', r))}}</strong>
+        <!-- Custom -->
+        <div v-for="(resource, r) in resourcesCustom" :key="r" class="settings-resource" :data-key="r">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
           <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
           <br/>
           {{localize(concat('ARCHMAGE.RESTS.header'))}}:&nbsp;
@@ -120,6 +121,16 @@
             <option v-for="(option, index) in resourceRestTypes" :key="index" :value="option.value">
             {{localize(concat('ARCHMAGE.RESTS.',option.value))}}</option>
           </select>
+        </div>
+        <!-- Momentum, Command Points and Focus -->
+        <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="settings-resource" :data-key="r">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
+          <input type="checkbox" :name="concat('data.resources.perCombat.', r, '.enabled')" v-model="resource.enabled">
+        </div>
+        <!-- Ki -->
+        <div v-for="(resource, r) in resourcesSpendable" :key="r" class="settings-resource" :data-key="r">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
+          <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
         </div>
       </div>
     </section>
@@ -161,12 +172,24 @@ export default {
     classes() {
       return `section section--settings flexcol${this.tab.active ? ' active' : ''}`;
     },
-    resources() {
+    resourcesCustom() {
       let resources = {};
       for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
-        if (k.includes('custom')) {
-          resources[k] = v;
-        }
+        if (k.includes('custom')) resources[k] = v;
+      }
+      return resources;
+    },
+    resourcesPerCombat() {
+      let resources = {};
+      for (let [k,v] of Object.entries(this.actor.data.resources.perCombat)) {
+        resources[k] = v;
+      }
+      return resources;
+    },
+    resourcesSpendable() {
+      let resources = {};
+      for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
+        if (!k.includes('custom')) resources[k] = v;
       }
       return resources;
     },
