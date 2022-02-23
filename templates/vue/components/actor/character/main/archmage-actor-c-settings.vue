@@ -98,23 +98,23 @@
       <!-- Background Settings -->
       <div class="unit unit--backgrounds">
         <div v-for="(background, b) in actor.data.backgrounds" :key="b" class="settings-background" :data-key="b">
-          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', b))}}</strong>
           <input type="checkbox" :name="concat('data.backgrounds.', b, '.isActive.value')" v-model="background.isActive.value">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', b))}}</strong>
         </div>
       </div>
       <!-- Icon Settings -->
       <div class="unit unit--icons">
         <div v-for="(icon, i) in actor.data.icons" :key="i" class="settings-icon" :data-key="i">
-          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', i))}}</strong>
           <input type="checkbox" :name="concat('data.icons.', i, '.isActive.value')" v-model="icon.isActive.value">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', i))}}</strong>
         </div>
       </div>
       <!-- Resource Settings -->
       <div class="unit unit--resources">
         <!-- Custom -->
         <div v-for="(resource, r) in resourcesCustom" :key="r" class="settings-resource" :data-key="r">
-          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
           <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
           <br/>
           {{localize(concat('ARCHMAGE.RESTS.header'))}}:&nbsp;
           <select :name="concat('data.resources.spendable.', r, '.rest')" v-model="resource.rest">
@@ -124,13 +124,13 @@
         </div>
         <!-- Momentum, Command Points and Focus -->
         <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="settings-resource" :data-key="r">
-          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
           <input type="checkbox" :name="concat('data.resources.perCombat.', r, '.enabled')" v-model="resource.enabled">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
         </div>
         <!-- Ki -->
         <div v-for="(resource, r) in resourcesSpendable" :key="r" class="settings-resource" :data-key="r">
-          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
           <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
+          <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
         </div>
       </div>
     </section>
