@@ -241,6 +241,8 @@ ARCHMAGE.keyReduced: Reduced to {mod} due to {kmod1}/{kmod2} key modifier
 # Settings
 ARCHMAGE.specialTraits: Special Traits
 ARCHMAGE.attackMod: Attack Modifier
+ARCHMAGE.critModAtk: Crit Modifier (Attack)
+ARCHMAGE.critModDef: Crit Modifier (Defense)
 ARCHMAGE.keyMod: Key Modifier
 ARCHMAGE.baseAC: Base AC
 ARCHMAGE.basePD: Base PD
