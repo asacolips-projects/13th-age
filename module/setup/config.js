@@ -146,7 +146,7 @@ ARCHMAGE.statusEffects = [
       {
         key: 'data.attributes.critMod.def.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        value: '-2'
+        value: '2'
       }
     ]
   },
