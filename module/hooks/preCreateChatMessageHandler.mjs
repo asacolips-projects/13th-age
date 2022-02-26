@@ -32,9 +32,6 @@ export default class preCreateChatMessageHandler {
         let $rows = $content.find('.card-prop');
 
         if ($rows.length > 0) {
-            // Assume no crit or fail.
-            let has_crit = false;
-            let has_fail = false;
 
             // Iterate through each of the card properties/rows.
             $rows.each(function (index) {
@@ -46,8 +43,8 @@ export default class preCreateChatMessageHandler {
                     return;
                 }
 
-                if ((type == "power" && row_text.includes('Target:')) ||
-                  (type == "action" && row_text.includes('Attack:'))) {
+                if ((type == "power" && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.target")+':')) ||
+                  (type == "action" && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack")+':'))) {
 
                     targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
 
@@ -57,25 +54,25 @@ export default class preCreateChatMessageHandler {
                     }
                 }
 
-                if (row_text.includes('Attack:')) {
+                if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack")+':')) {
                     hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor);
                 }
 
                 if (hitEvaluationResults) {
                     // Append hit targets to text
-                    if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
+                    if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.hit")+':') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
                           hitEvaluationResults.targetsHit,
                           hitEvaluationResults.targetsCrit) + ") </span>")
                     }
                     // Append missed targets to text
-                    if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
+                    if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.miss")+':') && hitEvaluationResults.targetsMissed.length > 0) {
                         $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
                           hitEvaluationResults.targetsMissed,
                           hitEvaluationResults.targetsFumbled) + ") </span>")
                     }
                     // Append target defenses to text
-                    if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0
+                    if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack")+':') && hitEvaluationResults.defenses.length > 0
                       && game.settings.get("archmage", "showDefensesInChat")) {
                         $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
