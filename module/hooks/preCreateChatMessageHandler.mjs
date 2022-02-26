@@ -27,42 +27,6 @@ export default class preCreateChatMessageHandler {
             actor = game.actors.get(data.speaker.actor);
         }
 
-        // Iterate through inline rolls, add a class to crits/fails.
-        for (let i = 0; i < $rolls.length; i++) {
-            let $roll = $($rolls[i]);
-
-            let roll_data = Roll.fromJSON(unescape($roll.data('roll')));
-            let result = ArchmageRolls.inlineRollCritTest(roll_data, actor);
-
-            if (result.includes('crit')) {
-                $roll.addClass('dc-crit');
-            }
-            else if (result.includes('fail')) {
-                $roll.addClass('dc-fail');
-            }
-            else if (result.includes('reroll')) {
-                $roll.addClass('dc-reroll');
-            }
-
-            let rollResult = 0;
-            roll_data.terms.forEach(p => {
-                if (p.faces === 20) {
-                    rollResult = p.total;
-                }
-            });
-
-            // Update the array of roll HTML elements.
-            $rolls[i] = $roll[0];
-            $rolls[i].d20result = rollResult;
-        }
-
-        // Now that we know which rolls were crits, update the content string.
-        $content.find('.inline-result').replaceWith($rolls);
-        updated_content = $content.html();
-        if (updated_content != null) {
-            data.content = updated_content;
-        }
-
         // Next, let's see if any of the crits were on attack lines.
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');
@@ -94,30 +58,22 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text.includes('Attack:')) {
-                    if (game.settings.get("archmage", "autoAlterCritFumbleDamage")
-                    && numTargets <= 1) {
-                      if (row_text.includes('dc-crit')) has_crit = true;
-                      if (row_text.includes('dc-fail')) has_fail = true;
-                    }
-
-                    hitEvaluationResults = HitEvaluation.checkRowText(row_text, targets, $row_self);
+                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor);
                 }
 
                 if (hitEvaluationResults) {
                     // Append hit targets to text
                     if (row_text.includes('Hit:') && hitEvaluationResults.targetsHit.length > 0) {
-                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsHit
-                            .map(t => t.data.name)
-                            .join(", ") + ") </span>")
+                        $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
+                          hitEvaluationResults.targetsHit,
+                          hitEvaluationResults.targetsCrit) + ") </span>")
                     }
-
                     // Append missed targets to text
                     if (row_text.includes('Miss:') && hitEvaluationResults.targetsMissed.length > 0) {
-                        $row_self.find('strong').after("<span> (" + hitEvaluationResults.targetsMissed
-                            .map(t => t.data.name)
-                            .join(", ") + ") </span>")
+                        $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
+                          hitEvaluationResults.targetsMissed,
+                          hitEvaluationResults.targetsFumbled) + ") </span>")
                     }
-
                     // Append target defenses to text
                     if (row_text.includes('Attack:') && hitEvaluationResults.defenses.length > 0
                       && game.settings.get("archmage", "showDefensesInChat")) {
@@ -125,12 +81,10 @@ export default class preCreateChatMessageHandler {
                     }
                 }
 
-
                 // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
                 var triggerText = row_text.toLowerCase();
                 //console.log(triggerText);
                 if (triggerText.includes("natural") || triggerText.includes("miss:") || triggerText.includes("hit:") || triggerText.includes("crit:")) {
-
                     let triggers = new Triggers();
                     let active = triggers.evaluateRow(row_text, $rolls, hitEvaluationResults);
 
@@ -144,74 +98,6 @@ export default class preCreateChatMessageHandler {
                         $row_self.addClass("trigger-inactive");
                         if (game.settings.get("archmage", "hideInsteadOfOpaque")) {
                             $row_self.addClass("hide");
-                        }
-                    }
-                }
-
-                // If so, determine if the current row (next iteration, usually) is a hit.
-                if (has_crit || has_fail) {
-                    if (row_text.includes('Hit:')) {
-                        // If the hit row includes inline results, we need to reroll them.
-                        let $roll = $row_self.find('.inline-result');
-                        if ($roll.length > 0) {
-                            // Iterate through the inline rolls on the hit row.
-                            $roll.each(function (roll_index) {
-                                let $roll_self = $(this);
-                                // Retrieve the roll formula.
-                                let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-
-                                let new_formula = roll_data.formula;
-                                // If there's a crit, double the formula and reroll. If there's a
-                                // fail with no crit, 0 it out.
-                                if (has_crit) {
-                                    if (game.settings.get('archmage', 'originalCritDamage')) {
-                                        new_formula = `(${roll_data.formula}) * 2`;
-                                    } else {
-                                        new_formula = `${roll_data.formula}+${roll_data.formula}`;
-                                    }
-                                    $roll_self.addClass('dc-crit');
-                                }
-                                else {
-                                    new_formula = `0`;
-                                    $roll_self.addClass('dc-fail');
-                                }
-                                // Reroll and recalculate.
-                                // TODO: this must be awaited for V10
-                                let new_roll = new Roll(new_formula).roll({async: false});
-                                // Update inline roll's markup.
-                                $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
-                                $roll_self.attr('title', new_roll.formula);
-                                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
-
-                            });
-                        }
-                        // Update the row with the new roll(s) markup.
-                        $row_self.find('.inline-result').replaceWith($roll);
-                    }
-                    if (row_text.includes('Miss:')) {
-                        let $roll = $row_self.find('.inline-result');
-                        if ($roll.length > 0) {
-                            // Iterate through the inline rolls on the hit row.
-                            $roll.each(function (roll_index) {
-                                let $roll_self = $(this);
-                                // Retrieve the roll formula.
-                                let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
-
-                                let new_formula = roll_data.formula;
-                                // If there's a crit, double the formula and reroll. If there's a
-                                // fail with no crit, 0 it out.
-                                if (has_fail) {
-                                    new_formula = `0`;
-                                    $roll_self.addClass('dc-fail');
-                                }
-                                // Reroll and recalculate.
-                                // TODO: this must be awaited for V10
-                                let new_roll = new Roll(new_formula).roll({async: false});
-                                // Update inline roll's markup.
-                                $roll_self.attr('data-roll', escape(JSON.stringify(new_roll)));
-                                $roll_self.attr('title', new_roll.formula);
-                                $roll_self.html(`<i class="fas fa-dice-d20"></i> ${new_roll.total}`);
-                            });
                         }
                     }
                 }

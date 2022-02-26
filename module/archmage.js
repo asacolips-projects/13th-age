@@ -284,15 +284,6 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
-  game.settings.register('archmage', 'autoAlterCritFumbleDamage', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.autoAlterCritFumbleDamageHint"),
-    scope: 'world',
-    config: true,
-    default: true,
-    type: Boolean
-  });
-
   game.settings.register('archmage', 'rechargeOncePerDay', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
@@ -308,15 +299,6 @@ Hooks.once('init', async function() {
     scope: 'world',
     config: true,
     default: true,
-    type: Boolean
-  });
-
-  game.settings.register('archmage', 'originalCritDamage', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.originalCritDamageName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.originalCritDamageHint"),
-    scope: 'world',
-    config: true,
-    default: false,
     type: Boolean
   });
 
