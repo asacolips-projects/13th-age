@@ -33,7 +33,7 @@ export default class HitEvaluation {
           // Crit/fumble check
           let hasCrit = false;
           let hasFumbled = false;
-          let target = undefined;
+          let target = (roll_index < targetsToProcess) ? targets[roll_index]: undefined;
           let critRangeMinTarget = critRangeMin + HitEvaluation._getTargetCritDefenseValue(target);
           for (let i = 0; i < roll_data.terms.length; i++) {
             var part = roll_data.terms[i];
@@ -71,7 +71,6 @@ export default class HitEvaluation {
 
           // Target analysis, only perform if we actually have targets
           if (roll_index >= targetsToProcess) return;
-          target = targets[roll_index];
           var targetDefense = HitEvaluation._getTargetDefenseValue(target, defense);
           if (targetDefense != undefined) {
             var hit = rollTotal >= targetDefense;
@@ -119,10 +118,10 @@ export default class HitEvaluation {
 
     static _getTargetCritDefenseValue(target) {
       if (!target) return 0;
-      if (target.data?.actorData?.data?.attributes != undefined) {
+/*       if (target.data?.actorData?.data?.attributes != undefined) {
         // Return token overridden value
         return target.data.actorData.data.attributes.critMod.def.value;
-      }
+      } */
       return target.actor.data.data.attributes.critMod.def.value;
     }
 

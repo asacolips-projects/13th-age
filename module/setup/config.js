@@ -141,7 +141,14 @@ ARCHMAGE.statusEffects = [
   {
     id: "vulnerable",
     label: "ARCHMAGE.EFFECT.StatusVulnerable",
-    icon: "icons/svg/target.svg"
+    icon: "icons/svg/target.svg",
+    changes: [
+      {
+        key: 'data.attributes.critMod.def.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-2'
+      }
+    ]
   },
   // Weakened.
   {
