@@ -242,6 +242,7 @@ export class ItemArchmage extends Item {
     preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
       type: this.data.type,
+      actor: itemToRender.actor,
       sequencerFile: sequencerFile
     }, null);
 

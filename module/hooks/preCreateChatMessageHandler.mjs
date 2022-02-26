@@ -22,10 +22,10 @@ export default class preCreateChatMessageHandler {
 
         let tokens = canvas.tokens.controlled;
         let actor = tokens ? tokens[0] : null;
-
-        if (data?.speaker?.actor) {
-            actor = game.actors.get(data.speaker.actor);
-        }
+        // if (data?.speaker?.actor) {
+            // actor = game.actors.get(data.speaker.actor);
+        // }
+        if (options.actor) actor = options.actor;
 
         // Next, let's see if any of the crits were on attack lines.
         $content = $(`<div class="wrapper">${data.content}</div>`);
