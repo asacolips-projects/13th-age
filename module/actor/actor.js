@@ -1585,10 +1585,14 @@ export class ActorArchmage extends Actor {
         }
 
         // Enable resources based on detected classes
-        data.resources.perCombat.momentum.enabled = data.details.detectedClasses.includes("rogue");
-        data.resources.perCombat.commandPoints.enabled = data.details.detectedClasses.includes("commander");
-        data.resources.perCombat.focus.enabled = data.details.detectedClasses.includes("occultist");
-        data.resources.spendable.ki.enabled = data.details.detectedClasses.includes("monk");
+        data.data.resources = {
+          perCombat: {
+            momentum: {enabled: matchedClasses.includes("rogue")},
+            commandPoints: {enabled: matchedClasses.includes("commander")},
+            focus: {enabled: matchedClasses.includes("occultist")},
+          },
+          spendable: {ki: {enabled: matchedClasses.includes("monk")}}
+        };
       }
       // Store matched classes for future reference
       data.data.details.detectedClasses = matchedClasses;
