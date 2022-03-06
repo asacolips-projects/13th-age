@@ -22,12 +22,9 @@ export default class preCreateChatMessageHandler {
 
         let tokens = canvas.tokens.controlled;
         let actor = tokens ? tokens[0] : null;
-        // if (data?.speaker?.actor) {
-            // actor = game.actors.get(data.speaker.actor);
-        // }
+
         if (options.actor) actor = options.actor;
 
-        // Next, let's see if any of the crits were on attack lines.
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');
 
@@ -59,6 +56,8 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (hitEvaluationResults) {
+                    $rolls = hitEvaluationResults.$rolls;
+
                     // Append hit targets to text
                     if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.hit")+':') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(

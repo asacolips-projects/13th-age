@@ -31,6 +31,7 @@ export default class HitEvaluation {
           if (!isD20) return;
 
           // Crit/fumble check
+          let rollResult = 0;
           let hasCrit = false;
           let hasFumbled = false;
           let target = (roll_index < targetsToProcess) ? targets[roll_index]: undefined;
@@ -40,6 +41,7 @@ export default class HitEvaluation {
             if (part.results) {
               let result = part.results.map((r) => {
                 if (part.faces === 20) {
+                  rollResult = part.total;
                   // Crit
                   if (r.result >= critRangeMinTarget && !r.discarded) {
                     $roll_self.addClass('dc-crit');
@@ -68,6 +70,7 @@ export default class HitEvaluation {
             }
           }
           $rolls[roll_index] = $roll_self[0];
+          $rolls[roll_index].d20result = rollResult;
 
           // Target analysis, only perform if we actually have targets
           if (roll_index >= targetsToProcess) return;
@@ -100,19 +103,14 @@ export default class HitEvaluation {
             targetsFumbled: targetsFumbled,
             hasHit: hasHit,
             hasMissed: hasMissed,
-            defenses: defenses
+            defenses: defenses,
+            $rolls: $rolls
         };
         
     }
 
     // Get either the Token overridden value or the base sheet value
     static _getTargetDefenseValue(target, defense) {
-        if (target.data?.actorData?.data?.attributes != undefined) {
-            // Return token overridden value
-            if (target.data.actorData.data.attributes[defense]) {
-                return target.data.actorData.data.attributes[defense].value;
-            }
-        }
         return target.actor.data.data.attributes[defense]?.value;
     }
 
