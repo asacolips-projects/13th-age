@@ -50,27 +50,27 @@ data:
     ac:
       type: 'Number'
       label: 'Armor Class'
-      value: 10
+      value: 20
       base: 10
       min: 0
     pd:
       type: 'Number'
       label: 'Physical Defense'
-      value: 10
+      value: 18
       base: 10
       min: 0
     md:
       type: 'Number'
       label: 'Mental Defense'
-      value: 10
+      value: 12
       base: 10
       min: 0
     hp:
       type: 'Number'
       label: 'Hit Points'
-      value: 10
+      value: 90
       min: 0
-      max: 10
+      max: 90
       temp: 0
       tempmax: 0
       base: 7
