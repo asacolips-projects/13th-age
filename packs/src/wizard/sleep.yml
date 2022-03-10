@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'Before making the attack, roll [[3d20 + 45]] to determine the maximum number of hit points of enemies you can target with the spell. The spell can affect multiple enemies. You must target nearby enemies with the current lowest hit points first, and you don&#039;t get to choose the exact targets (except in the case of ties). If adding a creature would exceed the spell&#039;s hit point maximum, that enemy can&#039;t be a target.'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: ''
+    value: 'Before making the attack, roll [[3d20 + 45]] to determine the maximum number of hit points of enemies you can target with the spell. The spell can affect multiple enemies. You must target nearby enemies with the current lowest hit points first, and you don&#039;t get to choose the exact targets (except in the case of ties). If adding a creature would exceed the spell&#039;s hit point maximum, that enemy can&#039;t be a target.'
   effect:
     type: 'String'
     label: 'Effect'
