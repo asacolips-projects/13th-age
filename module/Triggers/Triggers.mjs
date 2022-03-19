@@ -43,6 +43,5 @@ export default class Triggers {
         }
       }
     }
-    return false;
   }
 }
