@@ -163,6 +163,12 @@ export class ContextMenu2 {
       // Determine whether to expand down or expand up
       const bottomHalf = targetRect.bottom > (window.innerHeight / 2);
       this._expandUp = bottomHalf && ((parentRect.bottom - targetRect.bottom) < contextRect.height);
+
+      // Shift left if needed to avoid overflowing
+      const horizontalOverflow = parentRect.right - contextRect.right;
+      if (horizontalOverflow < 0) {
+        html.css("left", Math.floor(horizontalOverflow));
+      }
   
       // Display the menu
       html.addClass(this._expandUp ? "expand-up" : "expand-down");
