@@ -1191,7 +1191,7 @@ export class ActorArchmage extends Actor {
         createData["flags.core.overlay"] = true;
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
-        await cls.create(createData, {data: this});
+        await cls.create(createData, {parent: this});
     } else if (filtered.length > 0 && data.system.attributes.hp.value/maxHp > thres) {
       // Clear effect from update data if it exists or it will be recreated
       if (data.effects != undefined) {
@@ -1254,7 +1254,7 @@ export class ActorArchmage extends Actor {
       // Check that the current value does not exceed it
       let deltaMax = maxHp - this.system.attributes.hp.max;
       let hp = data.system.attributes.hp.value || this.system.attributes.hp.value;
-     data.system.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
+      data.system.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
     }
 
     if (data.system.attributes?.hp?.value !== undefined
@@ -1264,7 +1264,7 @@ export class ActorArchmage extends Actor {
       if (data.system.attributes.hp.value === null
         || isNaN(data.system.attributes.hp.value)) {
         //If the update is nonsensical ignore it
-       data.system.attributes.hp.value = hp.value;
+        data.system.attributes.hp.value = hp.value;
       }
 
       deltaActual = data.system.attributes.hp.value - hp.value;
@@ -1273,7 +1273,7 @@ export class ActorArchmage extends Actor {
         let temp = hp.temp || 0;
         if (isNaN(temp)) temp = 0; // Fallback for erroneous data
         deltaTemp = -1 * Math.min(temp, Math.abs(deltaActual));
-       data.system.attributes.hp.temp = Math.max(0, temp + deltaActual);
+        data.system.attributes.hp.temp = Math.max(0, temp + deltaActual);
         deltaActual = Math.min(deltaActual + temp, 0);
       }
 
@@ -1281,7 +1281,7 @@ export class ActorArchmage extends Actor {
 
       // Do not exceed max hps
       deltaActual = Math.min(deltaActual, maxHp - hp.value);
-     data.system.attributes.hp.value = hp.value + deltaActual;
+      data.system.attributes.hp.value = hp.value + deltaActual;
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
@@ -1300,7 +1300,7 @@ export class ActorArchmage extends Actor {
       // Here we received an update involving the number of remaining recoveries
       // Make sure we are not exceeding the maximum
       if (this.system.attributes.recoveries.max) {
-       data.system.attributes.recoveries.value = Math.min(data.system.attributes.recoveries.value, this.system.attributes.recoveries.max);
+        data.system.attributes.recoveries.value = Math.min(data.system.attributes.recoveries.value, this.system.attributes.recoveries.max);
       }
 
       // Record updated recoveries
@@ -1345,7 +1345,7 @@ export class ActorArchmage extends Actor {
       let mWpn = parseInt(this.system.attributes.weapon.melee.dice.substring(1));
       if (isNaN(mWpn)) mWpn = 8; // Fallback
       let lvl = this.system.attributes.level.value;
-     data.system.attributes.attackMod = {value: this.system.attributes.attackMod.value};
+      data.system.attributes.attackMod = {value: this.system.attributes.attackMod.value};
       let wpn = {shieldPen: 0, twohandedPen: 0};
       if (this.system.attributes.weapon.melee.twohanded) {
         wpn.mWpn2h = mWpn;
@@ -1398,8 +1398,8 @@ export class ActorArchmage extends Actor {
         // Here we received an update of the shield checkbox
         if (data.system.attributes.weapon.melee.shield) {
           // Adding a shield
-         data.system.attributes.ac = {base: this.system.attributes.ac.base + 1};
-         data.system.attributes.attackMod.value += wpn.shieldPen;
+          data.system.attributes.ac = {base: this.system.attributes.ac.base + 1};
+          data.system.attributes.attackMod.value += wpn.shieldPen;
           if (this.system.attributes.weapon.melee.twohanded) {
             // Can't wield both a two-handed weapon and a shield
             mWpn = wpn.mWpn1h;
@@ -1408,11 +1408,11 @@ export class ActorArchmage extends Actor {
           }
           else if (this.system.attributes.weapon.melee.dualwield) {
             // Can't dual-wield with a shield
-           data.system.attributes.weapon.melee.dualwield = false;
+            data.system.attributes.weapon.melee.dualwield = false;
           }
         } else {
-         data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
-         data.system.attributes.attackMod.value -= wpn.shieldPen;
+          data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
+          data.system.attributes.attackMod.value -= wpn.shieldPen;
         }
       }
 
@@ -1422,14 +1422,14 @@ export class ActorArchmage extends Actor {
           if (this.system.attributes.weapon.melee.twohanded) {
             // Can't wield two two-handed weapons
             mWpn = wpn.mWpn1h;
-           data.system.attributes.weapon.melee.twohanded = false;
-           data.system.attributes.attackMod.value -= wpn.twohandedPen;
+            data.system.attributes.weapon.melee.twohanded = false;
+            data.system.attributes.attackMod.value -= wpn.twohandedPen;
           }
           else if (this.system.attributes.weapon.melee.shield) {
             // Can't dual-wield with a shield
-           data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
-           data.system.attributes.weapon.melee.shield = false;
-           data.system.attributes.attackMod.value -= wpn.shieldPen;
+            data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
+            data.system.attributes.weapon.melee.shield = false;
+            data.system.attributes.attackMod.value -= wpn.shieldPen;
           }
         }
       }
@@ -1441,13 +1441,13 @@ export class ActorArchmage extends Actor {
           data.system.attributes.attackMod.value += wpn.twohandedPen;
           if (this.system.attributes.weapon.melee.shield) {
             // Can't wield both a two-handed weapon and a shield
-           data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
-           data.system.attributes.weapon.melee.shield = false;
-           data.system.attributes.attackMod.value -= wpn.shieldPen;
+            data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
+            data.system.attributes.weapon.melee.shield = false;
+            data.system.attributes.attackMod.value -= wpn.shieldPen;
           }
           else if (this.system.attributes.weapon.melee.dualwield) {
             // Can't wield two two-handed weapons
-           data.system.attributes.weapon.melee.dualwield = false;
+            data.system.attributes.weapon.melee.dualwield = false;
           }
         } else {
           mWpn = wpn.mWpn1h;
@@ -1671,14 +1671,14 @@ export class ActorArchmage extends Actor {
     // Set other overrides.
     let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
     let overrideData = {
-      'name': this.data.name+suffix,
-      'data.attributes.level.value': lvl,
-      'data.attributes.ac.value': Number(this.system.attributes.ac.value || 0) + delta,
-      'data.attributes.pd.value': Number(this.system.attributes.pd.value || 0) + delta,
-      'data.attributes.md.value': Number(this.system.attributes.md.value || 0) + delta,
+      'name': this.name+suffix,
+      'system.attributes.level.value': lvl,
+      'system.attributes.ac.value': Number(this.system.attributes.ac.value || 0) + delta,
+      'system.attributes.pd.value': Number(this.system.attributes.pd.value || 0) + delta,
+      'system.attributes.md.value': Number(this.system.attributes.md.value || 0) + delta,
       // Initiative already depends directly on level
-      'data.attributes.hp.value': Math.round(this.system.attributes.hp.value * mul),
-      'data.attributes.hp.max': Math.round(this.system.attributes.hp.max * mul),
+      'system.attributes.hp.value': Math.round(this.system.attributes.hp.value * mul),
+      'system.attributes.hp.max': Math.round(this.system.attributes.hp.max * mul),
     };
 
     // Create the new actor and save it.

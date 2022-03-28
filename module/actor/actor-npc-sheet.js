@@ -62,7 +62,7 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
 
         // Parse for simple markdown (italics and bold).
         for (var prop in i.system) {
-          if (Object.prototype.hasOwnProperty.call(i.system. prop)) {
+          if (Object.prototype.hasOwnProperty.call(i.system, prop)) {
             if (properties.includes(prop)) {
               action.system[prop].formatted = parseMarkdown(i.system[prop].value);
             }
