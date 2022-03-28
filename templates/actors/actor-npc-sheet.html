@@ -165,10 +165,10 @@
                 <li class="item flexrow item--action" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
-                        <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
+                        <h4>{{#if item.system.group.value}}[{{item.system.group.value}}] {{/if}}{{item.name}}</h4>
                     </div>
 
-                    {{!-- <div class="ability-usage ability-usage--{{item.data.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.data.powerUsage.label}}</span></div> --}}
+                    {{!-- <div class="ability-usage ability-usage--{{item.system.powerUsage.value}}"><span class="visually-hidden">{{item.system.powerUsage.label}}</span></div> --}}
 
                     {{#if ../owner}}
                     <div class="item-controls">
@@ -178,21 +178,21 @@
                     {{/if}}
 
                     <div class="item-description">
-                        <p class="hit"><strong class="attack">{{{item.data.data.attack.value}}}</strong>{{#if item.data.data.attack.value}}{{#if item.data.data.hit.value}} — {{/if}}{{/if}}{{{item.data.data.hit.value}}}</p>
-                        {{#if item.data.data.hit1.value}}
-                            <p class="hit1"><em>{{{item.data.data.hit1.name}}}:</em> {{{item.data.data.hit1.formatted}}}</p>
+                        <p class="hit"><strong class="attack">{{{item.system.attack.value}}}</strong>{{#if item.system.attack.value}}{{#if item.system.hit.value}} — {{/if}}{{/if}}{{{item.system.hit.value}}}</p>
+                        {{#if item.system.hit1.value}}
+                            <p class="hit1"><em>{{{item.system.hit1.name}}}:</em> {{{item.system.hit1.formatted}}}</p>
                         {{/if}}
-                        {{#if item.data.data.hit2.value}}
-                            <p class="hit2"><em>{{{item.data.data.hit2.name}}}:</em> {{{item.data.data.hit2.formatted}}}</p>
+                        {{#if item.system.hit2.value}}
+                            <p class="hit2"><em>{{{item.system.hit2.name}}}:</em> {{{item.system.hit2.formatted}}}</p>
                         {{/if}}
-                        {{#if item.data.data.hit3.value}}
-                            <p class="hit3"><em>{{{item.data.data.hit3.name}}}:</em> {{{item.data.data.hit3.formatted}}}</p>
+                        {{#if item.system.hit3.value}}
+                            <p class="hit3"><em>{{{item.system.hit3.name}}}:</em> {{{item.system.hit3.formatted}}}</p>
                         {{/if}}
-                        {{#if item.data.data.miss.value}}
-                            <p class="miss"><em>Miss:</em> {{{item.data.data.miss.formatted}}}</p>
+                        {{#if item.system.miss.value}}
+                            <p class="miss"><em>Miss:</em> {{{item.system.miss.formatted}}}</p>
                         {{/if}}
-                        {{#if item.data.data.description.value}}
-                            <div class="description">{{{item.data.data.description.value}}}</div>
+                        {{#if item.system.description.value}}
+                            <div class="description">{{{item.system.description.value}}}</div>
                         {{/if}}
                     </div>
                 </li>
@@ -217,10 +217,10 @@
                 <li class="item flexrow item--trait" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
-                        <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
+                        <h4>{{#if item.system.group.value}}[{{item.system.group.value}}] {{/if}}{{item.name}}</h4>
                     </div>
 
-                    {{!-- <div class="ability-usage ability-usage--{{item.data.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.data.powerUsage.label}}</span></div> --}}
+                    {{!-- <div class="ability-usage ability-usage--{{item.system.powerUsage.value}}"><span class="visually-hidden">{{item.system.powerUsage.label}}</span></div> --}}
 
                     {{#if ../owner}}
                     <div class="item-controls">
@@ -230,8 +230,8 @@
                     {{/if}}
 
                     <div class="item-description">
-                        {{#if item.data.data.description.value}}
-                            <div class="description">{{{item.data.data.description.value}}}</div>
+                        {{#if item.system.description.value}}
+                            <div class="description">{{{item.system.description.value}}}</div>
                         {{/if}}
                     </div>
                 </li>
@@ -256,10 +256,10 @@
                 <li class="item flexrow item--nastier-special" data-item-id="{{item.id}}">
                     <div class="item-name rollable">
                         {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
-                        <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
+                        <h4>{{#if item.system.group.value}}[{{item.system.group.value}}] {{/if}}{{item.name}}</h4>
                     </div>
 
-                    {{!-- <div class="ability-usage ability-usage--{{item.data.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.data.powerUsage.label}}</span></div> --}}
+                    {{!-- <div class="ability-usage ability-usage--{{item.system.powerUsage.value}}"><span class="visually-hidden">{{item.system.powerUsage.label}}</span></div> --}}
 
                     {{#if ../owner}}
                     <div class="item-controls">
@@ -269,8 +269,8 @@
                     {{/if}}
 
                     <div class="item-description">
-                        {{#if item.data.data.description.value}}
-                            <div class="description">{{{item.data.data.description.value}}}</div>
+                        {{#if item.system.description.value}}
+                            <div class="description">{{{item.system.description.value}}}</div>
                         {{/if}}
                     </div>
                 </li>

@@ -6,19 +6,19 @@
       <div class="unit unit--base-settings">
         <div class="sub-unit sub-unit--base-ac flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseAC')}}</strong>
-          <input type="number" name="data.attributes.ac.base" v-model="actor.data.attributes.ac.base" :disabled="overrides.includes('data.attributes.ac.base')"/>
+          <input type="number" name="data.attributes.ac.base" v-model="actor.system.attributes.ac.base" :disabled="overrides.includes('system.attributes.ac.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-pd flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.basePD')}}</strong>
-          <input type="number" name="data.attributes.pd.base" v-model="actor.data.attributes.pd.base" :disabled="overrides.includes('data.data.attributes.pd.base')"/>
+          <input type="number" name="data.attributes.pd.base" v-model="actor.system.attributes.pd.base" :disabled="overrides.includes('system.attributes.pd.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-md flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseMD')}}</strong>
-          <input type="number" name="data.attributes.md.base" v-model="actor.data.attributes.md.base" :disabled="overrides.includes('data.data.attributes.md.base')"/>
+          <input type="number" name="data.attributes.md.base" v-model="actor.system.attributes.md.base" :disabled="overrides.includes('system.attributes.md.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-hp flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseHP')}}</strong>
-          <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.attributes.hp.base" :disabled="overrides.includes('data.data.attributes.hp.base')"/>
+          <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.attributes.hp.base" :disabled="overrides.includes('system.attributes.hp.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-recoveries flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseRecoveries')}}</strong>
