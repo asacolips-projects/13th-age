@@ -21,7 +21,7 @@ export class renderCompendium {
     //     compendiumContent = await compendium.getContent();
     //     compendiumContent.forEach(p => {
     //       let option = data.index.find(o => o.id == p.id);
-    //       let data = p.data.data;
+    //       let data = p.system.
     //       option.search = {
     //         level: data.powerLevel ? data.powerLevel.value : null,
     //         usage: data.powerUsage?.value ? data.powerUsage.value : 'other',
@@ -50,7 +50,7 @@ export class renderCompendium {
     //   console.log(compendiumContent);
     //   compendiumContent.forEach(m => {
     //     let option = data.index.find(o => o.id == m.id);
-    //     let data = m.data.data;
+    //     let data = m.system.
     //     option.search = {
     //       level: data.details.level ? data.details.level.value : null,
     //       class: data.details.class.value ? data.details.class.value : null,

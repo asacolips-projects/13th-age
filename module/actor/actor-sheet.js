@@ -308,7 +308,7 @@ export class ActorArchmageSheet extends ActorSheet {
     html.find('.recovery-roll.rollable').click(ev => this.actor.rollRecoveryDialog(ev));
 
     html.find('.icon__item.rollable').click(async ev => {
-      let actorData = this.actor.data.data;
+      let actorData = this.actor.system;
       let item = $(ev.currentTarget).parents('.icon');
       let iconIndex = item.data('icon');
 
@@ -465,19 +465,19 @@ export class ActorArchmageSheet extends ActorSheet {
     }
 
     html.find('.easy-save.rollable').click(async ev => {
-      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.easy"), this.actor.data.data.attributes.saves.easy, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.easy"), this.actor.system.attributes.saves.easy, this.actor);
     });
 
     html.find('.normal-save.rollable').click(async ev => {
-      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.normal"), this.actor.data.data.attributes.saves.normal, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.normal"), this.actor.system.attributes.saves.normal, this.actor);
     });
 
     html.find('.hard-save.rollable').click(async ev => {
-      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.hard"), this.actor.data.data.attributes.saves.hard, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.hard"), this.actor.system.attributes.saves.hard, this.actor);
     });
 
     html.find('.disengage.rollable').click(async ev => {
-      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.disengage"), this.actor.data.data.attributes.disengage, this.actor);
+      return await rollSave(game.i18n.localize("ARCHMAGE.SAVE.disengage"), this.actor.system.attributes.disengage, this.actor);
     });
 
     html.find('.item-quantity.rollable').click(async (event) => {
@@ -486,9 +486,9 @@ export class ActorArchmageSheet extends ActorSheet {
       const item = this.actor.items.get(li.dataset.itemId);
 
       // Update the owned item and rerender.
-      let value = Number(item.data.data.quantity.value || 0) + 1;
-      if (item.data.data.maxQuantity.value) {
-        value = Math.min(value, item.data.data.maxQuantity.value);
+      let value = Number(item.system.quantity.value || 0) + 1;
+      if (item.system.maxQuantity.value) {
+        value = Math.min(value, item.system.maxQuantity.value);
       }
       await this.actor.updateEmbeddedDocuments('Item', {
         _id: item.id,
@@ -508,7 +508,7 @@ export class ActorArchmageSheet extends ActorSheet {
         _id: item.id,
         data: {
           quantity: {
-            value: Math.max(0, Number(item.data.data.quantity.value || 0) - 1)
+            value: Math.max(0, Number(item.system.quantity.value || 0) - 1)
           }
         }
       });
@@ -567,9 +567,9 @@ export class ActorArchmageSheet extends ActorSheet {
 
     // html.find('.powers .item-create').on('contextmenu', ev => {
     html.find('.item-import').click(async ev => {
-      let characterRace = this.actor.data.data.details.race.value;
+      let characterRace = this.actor.system.details.race.value;
 
-      let characterClasses = this.actor.data.data.details.detectedClasses ?? [];
+      let characterClasses = this.actor.system.details.detectedClasses ?? [];
       let prepop = new ArchmagePrepopulate();
       let classResults = await prepop.renderDialog(characterClasses, characterRace);
       if (!classResults) {

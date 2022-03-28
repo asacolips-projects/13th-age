@@ -48,7 +48,7 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
     for (let i of actorData.items) {
       // i.img = i.img || DEFAULT_TOKEN;
       // Feats
-      if (i.data.type === 'action') {
+      if (i.type === 'action') {
         let action = i;
         let properties = [
           'hit',
@@ -61,10 +61,10 @@ export class ActorArchmageNPCSheet extends ActorArchmageSheet {
         ];
 
         // Parse for simple markdown (italics and bold).
-        for (var prop in i.data.data) {
-          if (Object.prototype.hasOwnProperty.call(i.data.data, prop)) {
+        for (var prop in i.system) {
+          if (Object.prototype.hasOwnProperty.call(i.system. prop)) {
             if (properties.includes(prop)) {
-              action.data.data[prop].formatted = parseMarkdown(i.data.data[prop].value);
+              action.system[prop].formatted = parseMarkdown(i.system[prop].value);
             }
           }
         }

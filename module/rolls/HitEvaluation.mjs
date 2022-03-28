@@ -66,7 +66,7 @@ export default class HitEvaluation {
                 return target.data.actorData.data.attributes[defense].value;
             }
         }
-        return target.actor.data.data.attributes[defense]?.value;
+        return target.actor.system.attributes[defense]?.value;
     }
 
     static _getTargetDefense(row_text) {

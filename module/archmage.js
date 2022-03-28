@@ -400,7 +400,7 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = function() {
     const actor = this.actor;
     if (!actor) return "1d20";
-    const init = actor.data.data.attributes.init.mod;
+    const init = actor.system.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
     const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
@@ -692,7 +692,7 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
   // If there's an actor, set the token size.
   if (actor) {
-    let size = actor.data.data.details.size?.value;
+    let size = actor.system.details.size?.value;
     if (size == 'large' && data.height == 1 && data.width == 1) {
       data.height = 2;
       data.width = 2;
@@ -887,7 +887,7 @@ Hooks.on('deleteCombat', (combat) => {
           let updates = {};
           updates['data.attributes.saves.deathFails.value'] = 0;
           updates['data.attributes.hp.temp'] = 0;
-          for (let k of Object.keys(actor.data.data.resources.perCombat)) {
+          for (let k of Object.keys(actor.system.resources.perCombat)) {
             updates[`data.resources.perCombat.${k}.current`] = 0;
           }
           await actor.update(updates);
@@ -945,7 +945,7 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
         levelHalf: {
           label: 'level_half',
           name: '1/2 Level',
-          formula: actor.data.data.attributes.level !== undefined ? Math.floor(actor.data.data.attributes.level.value / 2) : 0
+          formula: actor.system.attributes.level !== undefined ? Math.floor(actor.system.attributes.level.value / 2) : 0
         },
         escalation: {
           label: 'escalation',
@@ -974,10 +974,10 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
 
   // Replace the ability attributes in the calculator with custom formulas.
   let levelMultiplier = 1;
-  if (actor.data.data.attributes.level.value >= 5) {
+  if (actor.system.attributes.level.value >= 5) {
     levelMultiplier = 2;
   }
-  if (actor.data.data.attributes.level.value >= 8) {
+  if (actor.system.attributes.level.value >= 8) {
     levelMultiplier = 3;
   }
 
