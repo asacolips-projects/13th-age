@@ -8,18 +8,18 @@
     </div>
     <!-- Race -->
     <div class="unit unit--abs-label unit--race">
-      <label for="data.details.race.value">{{localize("ARCHMAGE.race")}}</label>
-      <input type="text" name="data.details.race.value" class="input-secondary" v-model="actor.data.details.race.value">
+      <label for="system.details.race.value">{{localize("ARCHMAGE.race")}}</label>
+      <input type="text" name="system.details.race.value" class="input-secondary" v-model="actor.system.details.race.value">
     </div>
     <!-- Class -->
     <div class="unit unit--abs-label unit--class">
-      <label for="data.details.class.value">{{localize("ARCHMAGE.class")}}</label>
-      <input type="text" name="data.details.class.value" class="input-secondary" v-model="actor.data.details.class.value">
+      <label for="system.details.class.value">{{localize("ARCHMAGE.class")}}</label>
+      <input type="text" name="system.details.class.value" class="input-secondary" v-model="actor.system.details.class.value">
     </div>
     <!-- Level -->
     <div class="unit unit--abs-label unit--level">
-      <label for="data.attributes.level.value">{{localize("ARCHMAGE.level")}}</label>
-      <input type="number" name="data.attributes.level.value" class="input-secondary" v-model="actor.data.attributes.level.value" min="0">
+      <label for="system.attributes.level.value">{{localize("ARCHMAGE.level")}}</label>
+      <input type="number" name="system.attributes.level.value" class="input-secondary" v-model="actor.system.attributes.level.value" min="0">
     </div>
   </header>
 </template>
@@ -40,7 +40,7 @@ export default {
     }
   },
   async mounted() {
-    this.level = this.actor.data.attributes.level;
+    this.level = this.actor.system.attributes.level;
   }
 }
 </script>
