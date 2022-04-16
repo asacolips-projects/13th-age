@@ -16,7 +16,7 @@ scripts:
 styles:
   - css/archmage.css
   - css/v2/archmage-v2.css
-  - css/introjs.css
+  - css/lib/introjs.css
 packs:
   - label: Classes
     entity: JournalEntry
@@ -152,7 +152,7 @@ languages:
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.16.1/raw/archmage.zip?job=build-prod
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.16.2/raw/archmage.zip?job=build-prod
 dependencies:
   - name: dlopen
     type: module

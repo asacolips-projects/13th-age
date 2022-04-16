@@ -255,13 +255,6 @@ input[type="checkbox"] {
       width: auto;
       height: auto;
     }
-
-    button[title="Formats"],
-    button[title="Table"],
-    button[title="Horizontal line"],
-    button[title="Insert/edit link"] {
-      display: none;
-    }
   }
 
   input[type="checkbox"] {
@@ -403,7 +396,7 @@ input[type="checkbox"] {
         flex: 1;
         flex-direction: column;
         flex-wrap: nowrap;
-        height: calc(100% - 44px);
+        height: calc(100% - 20px);
         order: 3;
         // overflow: hidden;
       }
@@ -961,17 +954,37 @@ input[type="checkbox"] {
   &.npc-sheet,
   &.item-sheet {
     .item-sheet {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      flex-wrap: nowrap;
+
       .sheet-header {
         height: 44px;
+        flex: 0 44px;
         order: 0;
 
         img {
           flex: 0 0 44px;
-          // flex: 0;
           width: 44px;
           height: 44px;
           max-height: 100%;
         }
+      }
+
+      .sheet-content {
+        flex: 1;
+        overflow: hidden;
+      }
+
+      .sheet-tabs-content {
+        height: 100%;
+        overflow: auto;
+      }
+
+      .tab.active,
+      .tab.archmage-aip {
+        height: 100%;
       }
     }
 
@@ -989,9 +1002,6 @@ input[type="checkbox"] {
   }
 
   &.item-sheet {
-    .editor {
-      height: 200px;
-    }
 
     .editor-content {
       background-color: $ct-white--45;

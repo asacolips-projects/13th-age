@@ -42,7 +42,7 @@ export class DamageApplicator {
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
       let actorData = duplicate(token.actor.data);
-      actorData.data.attributes.hp.value += toApply;
+      actorData.data.attributes.hp.value = Math.max(0, actorData.data.attributes.hp.value) + toApply;
       token.actor.update(actorData);
     });
   }
