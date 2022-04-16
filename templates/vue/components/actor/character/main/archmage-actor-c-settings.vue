@@ -44,6 +44,14 @@
           <strong class="unit-subtitle">{{localize('ARCHMAGE.attackMod')}}</strong>
           <input type="number" name="data.attributes.attackMod.value" v-model="actor.data.attributes.attackMod.value" :disabled="overrides.includes('data.attributes.attackMod.value')"/>
         </div>
+        <div class="sub-unit sub-unit--critModAtk flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.critModAtk')}}</strong>
+          <input type="number" name="data.attributes.critMod.atk.value" v-model="actor.data.attributes.critMod.atk.value" :disabled="overrides.includes('data.attributes.critMod.atk.value')"/>
+        </div>
+        <div class="sub-unit sub-unit--critModDef flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.critModDef')}}</strong>
+          <input type="number" name="data.attributes.critMod.def.value" v-model="actor.data.attributes.critMod.def.value" :disabled="overrides.includes('data.attributes.critMod.def.value')"/>
+        </div>
         <div class="sub-unit sub-unit--keyMod flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.keyMod')}}</strong>
           <select name="data.attributes.keyModifier.mod1" v-model="actor.data.attributes.keyModifier.mod1">

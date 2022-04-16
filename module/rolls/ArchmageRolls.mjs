@@ -1,28 +1,5 @@
 export default class ArchmageRolls {
 
-  static async rollItem(item) {
-    let rollData = {};
-
-    let keys = Object.keys(item.data.data);
-    for ( let x = 0; x < keys.length; x++) {
-      let key = keys[x];
-      let field = item.data.data[key];
-      console.log(field);
-      if (!field?.value) continue;
-
-      let rolls = ArchmageRolls._getInlineRolls(field.value, item.actor.getRollData());
-
-      if (rolls) {
-        console.log(rolls);
-        ArchmageRolls._roll(rolls, item.actor, key);
-        rollData[key] = rolls;
-      }
-    }
-
-    console.log(rollData);
-    return rollData;
-  }
-
   static async rollItemTargets(item) {
     let rolls = [];
     let newTargetLine = undefined;
@@ -160,7 +137,6 @@ export default class ArchmageRolls {
     for (let i=0; i<rolls.length; i++) {
       rolls[i].evaluate({async: false});
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
-      if (key == "attack") rolls[i].critResult = ArchmageRolls.inlineRollCritTest(rolls[i], actor);
     }
   }
 
@@ -213,54 +189,4 @@ export default class ArchmageRolls {
     return a;
   }
 
-  /**
-   * Determine if roll includes a d20 crit.
-   *
-   * @param {object} roll
-   *
-   * @return {string} 'crit', 'fail', or 'normal'.
-   */
-  static inlineRollCritTest(roll, actor = null) {
-
-    for (let i = 0; i < roll.terms.length; i++) {
-      var part = roll.terms[i];
-      if (part.results) {
-        let result = part.results.map((r) => {
-          if (part.faces === 20) {
-            // Natural 20.
-            if (r.result === part.faces && !r.discarded) {
-              return 'crit';
-            }
-            // Natural 1.
-            else if (r.result === 1 && !r.discarded && !r.rerolled) {
-              return 'fail';
-            }
-            // Barbarian crit.
-            else if (actor?.data.data.details.detectedClasses?.includes("barbarian")
-              && roll.formula.match(/^2d20kh/g) && part.results[0].result > 10
-              && part.results[1].result > 10) {
-              return 'crit';
-            }
-            // Natural 2, if dual-wielding.
-            else if (actor && actor.data.type === 'character'
-              && actor.data.data.attributes.weapon.melee.dualwield
-              && r.result === 2 && !r.discarded && !r.rerolled) {
-              return 'reroll';
-            }
-            else {
-              return 'normal';
-            }
-          }
-          else {
-            return 'normal';
-          }
-        });
-
-        return result;
-      }
-      else {
-        return 'none';
-      }
-    }
-}
 }
