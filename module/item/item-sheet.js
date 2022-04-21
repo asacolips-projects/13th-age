@@ -67,10 +67,10 @@ export class ItemArchmageSheet extends ItemSheet {
 
       if (this.actor.type === 'character') {
         // Pass general character data.
-        powerClass = this.actor.data.data.details.class.value.toLowerCase();
+        powerClass = this.actor.system.details.class.value.toLowerCase();
       }
 
-      let powerLevel = this.actor.data.data.details.level.value;
+      let powerLevel = this.actor.system.details.level.value;
       let powerLevelString = '';
 
       for (let i = 1; i <= powerLevel; i++) {

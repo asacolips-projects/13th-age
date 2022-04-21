@@ -6,85 +6,85 @@
       <div class="unit unit--base-settings">
         <div class="sub-unit sub-unit--base-ac flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseAC')}}</strong>
-          <input type="number" name="data.attributes.ac.base" v-model="actor.data.attributes.ac.base" :disabled="overrides.includes('data.attributes.ac.base')"/>
+          <input type="number" name="system.attributes.ac.base" v-model="actor.system.attributes.ac.base" :disabled="overrides.includes('system.attributes.ac.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-pd flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.basePD')}}</strong>
-          <input type="number" name="data.attributes.pd.base" v-model="actor.data.attributes.pd.base" :disabled="overrides.includes('data.data.attributes.pd.base')"/>
+          <input type="number" name="system.attributes.pd.base" v-model="actor.system.attributes.pd.base" :disabled="overrides.includes('system.attributes.pd.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-md flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseMD')}}</strong>
-          <input type="number" name="data.attributes.md.base" v-model="actor.data.attributes.md.base" :disabled="overrides.includes('data.data.attributes.md.base')"/>
+          <input type="number" name="system.attributes.md.base" v-model="actor.system.attributes.md.base" :disabled="overrides.includes('system.attributes.md.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-hp flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseHP')}}</strong>
-          <input type="number" name="data.attributes.hp.base" step=".1" v-model="actor.data.attributes.hp.base" :disabled="overrides.includes('data.data.attributes.hp.base')"/>
+          <input type="number" name="system.attributes.hp.base" step=".1" v-model="actor.system.attributes.hp.base" :disabled="overrides.includes('system.attributes.hp.base')"/>
         </div>
         <div class="sub-unit sub-unit--base-recoveries flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.baseRecoveries')}}</strong>
-          <input type="number" name="data.attributes.recoveries.base" v-model="actor.data.attributes.recoveries.base" :disabled="overrides.includes('data.attributes.recoveries.base')"/>
+          <input type="number" name="system.attributes.recoveries.base" v-model="actor.system.attributes.recoveries.base" :disabled="overrides.includes('system.attributes.recoveries.base')"/>
         </div>
         <div class="sub-unit sub-unit--recovery-dice flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.recoveryDice')}}</strong>
-          <input type="text" name="data.attributes.recoveries.dice" v-model="actor.data.attributes.recoveries.dice" :disabled="overrides.includes('data.attributes.recoveries.dice')" placeholder="d8"/>
+          <input type="text" name="system.attributes.recoveries.dice" v-model="actor.system.attributes.recoveries.dice" :disabled="overrides.includes('system.attributes.recoveries.dice')" placeholder="d8"/>
         </div>
         <div class="sub-unit sub-unit--calculate-max-hp flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateHP')}}</strong>
-          <input type="checkbox" name="data.attributes.hp.automatic" v-model="actor.data.attributes.hp.automatic"/>
+          <input type="checkbox" name="system.attributes.hp.automatic" v-model="actor.system.attributes.hp.automatic"/>
         </div>
         <div class="sub-unit sub-unit--calculate-max-recoveries flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.calculateRecoveries')}}</strong>
-          <input type="checkbox" name="data.attributes.recoveries.automatic" v-model="actor.data.attributes.recoveries.automatic"/>
+          <input type="checkbox" name="system.attributes.recoveries.automatic" v-model="actor.system.attributes.recoveries.automatic"/>
         </div>
         <div class="sub-unit sub-unit--initiative-adjustment flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.initAdjustment')}}</strong>
-          <input type="number" name="data.attributes.init.value" v-model="actor.data.attributes.init.value" :disabled="overrides.includes('data.attributes.init.value')" placeholder="0"/>
+          <input type="number" name="system.attributes.init.value" v-model="actor.system.attributes.init.value" :disabled="overrides.includes('system.attributes.init.value')" placeholder="0"/>
         </div>
         <div class="sub-unit sub-unit--attackMod flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.attackMod')}}</strong>
-          <input type="number" name="data.attributes.attackMod.value" v-model="actor.data.attributes.attackMod.value" :disabled="overrides.includes('data.attributes.attackMod.value')"/>
+          <input type="number" name="system.attributes.attackMod.value" v-model="actor.system.attributes.attackMod.value" :disabled="overrides.includes('system.attributes.attackMod.value')"/>
         </div>
         <div class="sub-unit sub-unit--keyMod flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.keyMod')}}</strong>
-          <select name="data.attributes.keyModifier.mod1" v-model="actor.data.attributes.keyModifier.mod1">
+          <select name="system.attributes.keyModifier.mod1" v-model="actor.system.attributes.keyModifier.mod1">
             <option v-for="(option, index) in abilities" :key="index" :value="option.value">{{option.label}}</option>
           </select> /
-          <select name="data.attributes.keyModifier.mod2" v-model="actor.data.attributes.keyModifier.mod2">
+          <select name="system.attributes.keyModifier.mod2" v-model="actor.system.attributes.keyModifier.mod2">
             <option v-for="(option, index) in abilities" :key="index" :value="option.value">{{option.label}}</option>
           </select>
         </div>
         <div class="sub-unit sub-unit--melee">
           <div class="sub-unit sub-unit--melee-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.meleeWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.melee.dice" v-model="actor.data.attributes.weapon.melee.dice" :disabled="overrides.includes('data.attributes.weapon.melee.dice')" placeholder="d8"/>
+            <input type="text" name="system.attributes.weapon.melee.dice" v-model="actor.system.attributes.weapon.melee.dice" :disabled="overrides.includes('system.attributes.weapon.melee.dice')" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--shield flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTERSETTINGS.shield')}}</strong>
-            <input type="checkbox" name="data.attributes.weapon.melee.shield" v-model="actor.data.attributes.weapon.melee.shield"/>
+            <input type="checkbox" name="system.attributes.weapon.melee.shield" v-model="actor.system.attributes.weapon.melee.shield"/>
           </div>
           <div class="sub-unit sub-unit--dualwield flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTERSETTINGS.dualwield')}}</strong>
-            <input type="checkbox" name="data.attributes.weapon.melee.dualwield" v-model="actor.data.attributes.weapon.melee.dualwield"/>
+            <input type="checkbox" name="system.attributes.weapon.melee.dualwield" v-model="actor.system.attributes.weapon.melee.dualwield"/>
           </div>
           <div class="sub-unit sub-unit--twohanded flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.CHARACTERSETTINGS.twohanded')}}</strong>
-            <input type="checkbox" name="data.attributes.weapon.melee.twohanded" v-model="actor.data.attributes.weapon.melee.twohanded"/>
+            <input type="checkbox" name="system.attributes.weapon.melee.twohanded" v-model="actor.system.attributes.weapon.melee.twohanded"/>
           </div>
           <div class="sub-unit sub-unit--ranged-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.rangedWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.ranged.dice" v-model="actor.data.attributes.weapon.ranged.dice" :disabled="overrides.includes('data.attributes.weapon.ranged.dice')" placeholder="d8"/>
+            <input type="text" name="system.attributes.weapon.ranged.dice" v-model="actor.system.attributes.weapon.ranged.dice" :disabled="overrides.includes('system.attributes.weapon.ranged.dice')" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--jab-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.jabWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.jab.dice" v-model="actor.data.attributes.weapon.jab.dice" :disabled="overrides.includes('data.attributes.weapon.jab.dice')" placeholder="d6"/>
+            <input type="text" name="system.attributes.weapon.jab.dice" v-model="actor.system.attributes.weapon.jab.dice" :disabled="overrides.includes('system.attributes.weapon.jab.dice')" placeholder="d6"/>
           </div>
           <div class="sub-unit sub-unit--punch-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.punchWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.punch.dice" v-model="actor.data.attributes.weapon.punch.dice" :disabled="overrides.includes('data.attributes.weapon.punch.dice')" placeholder="d8"/>
+            <input type="text" name="system.attributes.weapon.punch.dice" v-model="actor.system.attributes.weapon.punch.dice" :disabled="overrides.includes('system.attributes.weapon.punch.dice')" placeholder="d8"/>
           </div>
           <div class="sub-unit sub-unit--kick-dice flexrow">
             <strong class="unit-subtitle">{{localize('ARCHMAGE.kickWeaponDice')}}</strong>
-            <input type="text" name="data.attributes.weapon.kick.dice" v-model="actor.data.attributes.weapon.kick.dice" :disabled="overrides.includes('data.attributes.weapon.kick.dice')" placeholder="d10"/>
+            <input type="text" name="system.attributes.weapon.kick.dice" v-model="actor.system.attributes.weapon.kick.dice" :disabled="overrides.includes('system.attributes.weapon.kick.dice')" placeholder="d10"/>
           </div>
         </div>
       </div>
@@ -97,15 +97,15 @@
       </div>
       <!-- Background Settings -->
       <div class="unit unit--backgrounds">
-        <div v-for="(background, b) in actor.data.backgrounds" :key="b" class="settings-background" :data-key="b">
-          <input type="checkbox" :name="concat('data.backgrounds.', b, '.isActive.value')" v-model="background.isActive.value">
+        <div v-for="(background, b) in actor.system.backgrounds" :key="b" class="settings-background" :data-key="b">
+          <input type="checkbox" :name="concat('system.backgrounds.', b, '.isActive.value')" v-model="background.isActive.value">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', b))}}</strong>
         </div>
       </div>
       <!-- Icon Settings -->
       <div class="unit unit--icons">
-        <div v-for="(icon, i) in actor.data.icons" :key="i" class="settings-icon" :data-key="i">
-          <input type="checkbox" :name="concat('data.icons.', i, '.isActive.value')" v-model="icon.isActive.value">
+        <div v-for="(icon, i) in actor.system.icons" :key="i" class="settings-icon" :data-key="i">
+          <input type="checkbox" :name="concat('system.icons.', i, '.isActive.value')" v-model="icon.isActive.value">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTERSETTINGS.', i))}}</strong>
         </div>
       </div>
@@ -113,23 +113,23 @@
       <div class="unit unit--resources">
         <!-- Custom -->
         <div v-for="(resource, r) in resourcesCustom" :key="r" class="settings-resource" :data-key="r">
-          <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
+          <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
           <br/>
           {{localize(concat('ARCHMAGE.RESTS.header'))}}:&nbsp;
-          <select :name="concat('data.resources.spendable.', r, '.rest')" v-model="resource.rest">
+          <select :name="concat('system.resources.spendable.', r, '.rest')" v-model="resource.rest">
             <option v-for="(option, index) in resourceRestTypes" :key="index" :value="option.value">
             {{localize(concat('ARCHMAGE.RESTS.',option.value))}}</option>
           </select>
         </div>
         <!-- Momentum, Command Points and Focus -->
         <div v-for="(resource, r) in resourcesPerCombat" :key="r" class="settings-resource" :data-key="r">
-          <input type="checkbox" :name="concat('data.resources.perCombat.', r, '.enabled')" v-model="resource.enabled">
+          <input type="checkbox" :name="concat('system.resources.perCombat.', r, '.enabled')" v-model="resource.enabled">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
         </div>
         <!-- Ki -->
         <div v-for="(resource, r) in resourcesSpendable" :key="r" class="settings-resource" :data-key="r">
-          <input type="checkbox" :name="concat('data.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
+          <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
         </div>
       </div>
@@ -174,21 +174,21 @@ export default {
     },
     resourcesCustom() {
       let resources = {};
-      for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
+      for (let [k,v] of Object.entries(this.actor.system.resources.spendable)) {
         if (k.includes('custom')) resources[k] = v;
       }
       return resources;
     },
     resourcesPerCombat() {
       let resources = {};
-      for (let [k,v] of Object.entries(this.actor.data.resources.perCombat)) {
+      for (let [k,v] of Object.entries(this.actor.system.resources.perCombat)) {
         resources[k] = v;
       }
       return resources;
     },
     resourcesSpendable() {
       let resources = {};
-      for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
+      for (let [k,v] of Object.entries(this.actor.system.resources.spendable)) {
         if (!k.includes('custom')) resources[k] = v;
       }
       return resources;

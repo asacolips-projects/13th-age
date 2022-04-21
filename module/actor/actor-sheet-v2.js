@@ -29,7 +29,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /** @override */
   get template() {
-    const type = this.actor.data.type;
+    const type = this.actor.type;
     return `systems/archmage/templates/actors/actor-${type}-sheet-v2.html`;
   }
 
@@ -51,12 +51,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     };
 
     // Convert the actor data into a more usable version.
-    let actorData = this.actor.data.toObject(false);
+    let actorData = this.actor.toObject(false);
 
     // Add to our data object that the sheet will use.
     data.actor = actorData;
-    data.data = actorData.data;
-    data.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
+    data.data = actorData.system;
+    data.actor._source = foundry.utils.deepClone(this.actor._source);
     data.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
 
     // Sort items.
@@ -458,7 +458,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * @returns object | Chat message
    */
   async _onIconRoll(iconIndex) {
-    let actorData = this.actor.data.data;
+    let actorData = this.actor.system;
 
     if (actorData.icons[iconIndex]) {
       let icon = actorData.icons[iconIndex];
@@ -589,7 +589,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let roll = new Roll(dice, this.actor.getRollData());
     await roll.roll();
 
-    let pointsOld = actor.data.data.resources.perCombat.commandPoints.current;
+    let pointsOld = actor.system.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;
 
     await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
@@ -642,7 +642,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (dataset.opt) {
       let count = Number(dataset.opt);
-      if (count == this.actor.data.data.attributes.saves[saveType].value) {
+      if (count == this.actor.system.attributes.saves[saveType].value) {
         count = Math.max(0, count - 1);
       }
       let updateData = {};
@@ -672,7 +672,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       }
 
       // Retrieve the original results array, replace this die result.
-      let results = this.actor.data.data.icons[iconIndex].results;
+      let results = this.actor.system.icons[iconIndex].results;
       results[resultIndex] = value;
 
       // Execute the update.
@@ -692,14 +692,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     let item = this.actor.items.get(itemId);
     if (item) {
-      if (item.data.data?.quantity?.value == null) return;
+      if (item.system?.quantity?.value == null) return;
       // Update the quantity.
-      let newQuantity = Number(item.data.data.quantity.value) ?? 0;
+      let newQuantity = Number(item.system.quantity.value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
       // TODO: Refactor the fallback to not be absurdly high after maxQuantity
       // has become regularly used.
-      let maxQuantity = item.data.data?.maxQuantity?.value ?? 99;
+      let maxQuantity = item.system?.maxQuantity?.value ?? 99;
 
       await item.update({'data.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
@@ -720,11 +720,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       if (item.type == "power") {
         let tier = dataset.tier ?? null;
         if (!tier) return;
-        let isActive = item.data.data.feats[tier].isActive.value;
+        let isActive = item.system.feats[tier].isActive.value;
         updateData[`data.feats.${tier}.isActive.value`] = !isActive;
       }
       else if (item.type == "equipment") {
-        let isActive = item.data.data.isActive;
+        let isActive = item.system.isActive;
         updateData["data.isActive"] = !isActive;
       }
 
@@ -821,8 +821,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /*  Import Powers --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
   async _importPowers(event) {
-    let characterRace = this.actor.data.data.details.race.value;
-    let characterClasses = this.actor.data.data.details.detectedClasses ?? [];
+    let characterRace = this.actor.system.details.race.value;
+    let characterClasses = this.actor.system.details.detectedClasses ?? [];
     let prepop = new ArchmagePrepopulate();
     let classResults = await prepop.renderDialog(characterClasses, characterRace);
     if (!classResults) {
