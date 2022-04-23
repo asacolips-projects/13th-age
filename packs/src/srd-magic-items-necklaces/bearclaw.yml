@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 11+) When you hit with a melee attack while you&rsquo;re staggered, gain 10 temporary hit points (champion: 25 temporary hp; epic: 50 temporary hp).</p>\n<p>Quirk: Swaggers even when overmatched.</p>"
+    value: "<p>(Recharge 11+) When you hit with a melee attack while you&rsquo;re staggered, gain [[10]] temporary hit points (champion: [[25]] temporary hp; epic: [[50]] temporary hp).</p>\n<p>Quirk: Swaggers even when overmatched.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 16+) When an enemy misses you with an attack that targets Mental Defense, deal 10 psychic damage to that enemy (champion: 25 damage; epic: 60 damage).</p>\n<p>Quirk: Stares into space often.</p>"
+    value: "<p>(Recharge 16+) When an enemy misses you with an attack that targets Mental Defense, deal [[10]] psychic damage to that enemy (champion: [[25]] damage; epic: [[60]] damage).</p>\n<p>Quirk: Stares into space often.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 16+) You deal +1d8 damage with two-handed weapons until the end of the battle (champion: +2d8; epic: +4d10).</p>\n<p>Quirk: Clobber first, talk later.</p>"
+    value: "<p>(Recharge 16+) You deal +[[1d8]] damage with two-handed weapons until the end of the battle (champion: +[[2d8]]; epic: +[[4d10]]).</p>\n<p>Quirk: Clobber first, talk later.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

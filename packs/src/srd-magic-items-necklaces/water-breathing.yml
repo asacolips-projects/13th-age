@@ -17,7 +17,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: '16'
+    value: '6'
   rechargeAttempts:
     type: 'Number'
     label: 'Number of Recharges Attempted'

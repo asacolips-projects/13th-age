@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When you take damage from an attack, prevent 10 of that damage (champion: prevent 20; epic: prevent 40).</p>\n<p>Quirk: Stubborn.</p>"
+    value: "<p>(Recharge 6+) When you take damage from an attack, prevent [[10]] of that damage (champion: prevent [[20]]; epic: prevent [[40]]).</p>\n<p>Quirk: Stubborn.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

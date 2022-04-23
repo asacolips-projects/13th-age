@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When you hit one or more foes with an arcane spell attack, deal +1d10 psychic damage to one target of the attack (champion: +2d10; epic: +5d10).</p>\n<p>Quirk: The texture of your skin seems wrong to everyone else, but you know it&rsquo;s all in their minds and often explain that to them.</p>"
+    value: "<p>(Recharge 6+) When you hit one or more foes with an arcane spell attack, deal +[[1d10]] psychic damage to one target of the attack (champion: +[[2d10]]; epic: +[[5d10]]).</p>\n<p>Quirk: The texture of your skin seems wrong to everyone else, but you know it&rsquo;s all in their minds and often explain that to them.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
