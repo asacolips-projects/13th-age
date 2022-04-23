@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Quick action &ndash; recharge 16+) You heal using a recovery and add +4 hp to the total (champion: +10 hp; epic: +25 hp).</p>\n<p>Quirk: You grow small extra appendages that slowly wither away over days or weeks.</p>"
+    value: "<p>(Quick action &ndash; recharge 16+) You heal using a recovery and add +[[4]] hp to the total (champion: +[[10]] hp; epic: +[[25]] hp).</p>\n<p>Quirk: You grow small extra appendages that slowly wither away over days or weeks.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

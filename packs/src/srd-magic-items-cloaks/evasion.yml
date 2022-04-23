@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When you take damage from an opportunity attack, take 20 less damage from it (champion: 40; epic: 100)</p>\n<p>Quirk: You can&rsquo;t answer a question directly even if you want to.</p>"
+    value: "<p>(Recharge 6+) When you take damage from an opportunity attack, take [[20]] less damage from it (champion: [[40]]; epic: [[100]])</p>\n<p>Quirk: You can&rsquo;t answer a question directly even if you want to.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

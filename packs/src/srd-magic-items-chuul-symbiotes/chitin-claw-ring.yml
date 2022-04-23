@@ -16,7 +16,7 @@ data:
     value: 'daily'
   recharge:
     type: 'Number'
-    label: 'Recharge'
+    label: 'Other'
     value: '0'
   rechargeAttempts:
     type: 'Number'
@@ -25,11 +25,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: '1'
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Max Uses'
-    value: '1'
+    value: null
   properties: {}
   attributes:
     attack:

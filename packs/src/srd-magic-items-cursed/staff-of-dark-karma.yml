@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>(3/day) When you hit with a spell attack, deal extra damage to one target. If the spell targets one enemy, deal +4d10 damage. Otherwise, deal +2d10 damage. In addition, the first time you take damage each battle, you lose 20 hp.</p>'
+    value: '<p>(3/day) When you hit with a spell attack, deal extra damage to one target. If the spell targets one enemy, deal +[[4d10]] damage. Otherwise, deal +[[2d10]] damage. In addition, the first time you take damage each battle, you lose [[20]] hp.</p>'
   powerUsage:
     type: 'String'
     label: 'Power Usage'

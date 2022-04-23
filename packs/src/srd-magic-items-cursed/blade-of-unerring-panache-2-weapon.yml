@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you attack with this weapon and miss, you lose 4 hp (champion: 10 hp; epic: 25 hp).</p>\n<p>Quirk: Tells the same stories over and over.</p>"
+    value: "<p>When you attack with this weapon and miss, you lose [[4]] hp (champion: [[10]] hp; epic: [[25]] hp).</p>\n<p>Quirk: Tells the same stories over and over.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>A carapace covers each of your legs and has an unblinking armored eye on the knee. Unfolding blade-like appendages whip out at those engaged with you.</p>\n<p>Always: When you make an opportunity attack, the target takes +1d6 extra damage on a hit (champion: +2d8; epic: +4d10).</p>\n<p>Quirk: A billow-like lung inside each greave makes a breathing sound.</p>"
+    value: "<p>A carapace covers each of your legs and has an unblinking armored eye on the knee. Unfolding blade-like appendages whip out at those engaged with you.</p>\n<p>Always: When you make an opportunity attack, the target takes +[[1d6]] extra damage on a hit (champion: +[[2d8]]; epic: +[[4d10]]).</p>\n<p>Quirk: A billow-like lung inside each greave makes a breathing sound.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

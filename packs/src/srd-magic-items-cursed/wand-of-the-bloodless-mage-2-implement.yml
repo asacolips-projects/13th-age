@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you attack using this wand, you lose 1 hp (champion: 3 hp; epic: 6 hp).</p>\n<p>Quirk: Laughs turn hollow or spectral.</p>"
+    value: "<p>When you attack using this wand, you lose [[1]] hp (champion: [[3]] hp; epic: [[6]] hp).</p>\n<p>Quirk: Laughs turn hollow or spectral.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
