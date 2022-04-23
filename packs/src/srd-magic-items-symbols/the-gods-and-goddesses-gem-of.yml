@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When you cast a daily divine spell on an ally, that ally also heals 10 hit points.</p>\n<p>Quirk: Insists on courtesy even in situations where none should be required.</p>"
+    value: "<p>(Recharge 6+) When you cast a daily divine spell on an ally, that ally also heals [[10]] hit points.</p>\n<p>Quirk: Insists on courtesy even in situations where none should be required.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

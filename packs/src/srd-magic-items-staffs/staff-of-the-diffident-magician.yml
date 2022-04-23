@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) The first time an enemy engages you, make an opportunity attack against that enemy. On a hit, you deal +2d8 damage with that attack (epic: +4d10) and daze the foe until the end of its turn, if the creature is large or smaller (epic: any size).</p>\n<p>Quirk: Doesn&rsquo;t like to be touched.</p>"
+    value: "<p>(Recharge 6+) The first time an enemy engages you, make an opportunity attack against that enemy. On a hit, you deal +[[2d8]] damage with that attack (epic: +[[4d10]]) and daze the foe until the end of its turn, if the creature is large or smaller (epic: any size).</p>\n<p>Quirk: Doesn&rsquo;t like to be touched.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -34,7 +34,7 @@ data:
   attributes:
     attack:
       melee:
-        bonus: 0
+        bonus: 2
       ranged:
         bonus: 0
       divine:

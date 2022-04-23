@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 11+) This spiked shield sports a massive dragon fang that wounds enemies. When an enemy engaged with you misses you with a melee attack, make a basic melee attack against the enemy as a free action, with a +2 attack bonus per tier of the shield (adventurer: +2, champion: +4, epic: +6). On a hit, the attack deals 2d6 damage; on a miss, it deals 2 damage (champion: 4d8 damage, or 5 on a miss; epic: 8d10 damage, or 12 on miss).</p>\n<p>Quirk: Compares everything to dragons or to draconic things, and judges actions by how they stack up to draconic expectations.</p>"
+    value: "<p>(Recharge 11+) This spiked shield sports a massive dragon fang that wounds enemies. When an enemy engaged with you misses you with a melee attack, make a basic melee attack against the enemy as a free action, with a +2 attack bonus per tier of the shield (adventurer: +2, champion: +4, epic: +6). On a hit, the attack deals [[2d6]] damage; on a miss, it deals [[2]] damage (champion: [[4d8]] damage, or [[5]] on a miss; epic: [[8d10]] damage, or [[12]] on miss).</p>\n<p>Quirk: Compares everything to dragons or to draconic things, and judges actions by how they stack up to draconic expectations.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you cast spells that heal or provide temporary hit points, add 4 to the total (epic: 8).</p>\n<p>Quirk: The diseased of nearly every population center somehow know to seek you out for healing.</p>"
+    value: "<p>When you cast spells that heal or provide temporary hit points, add [[4]] to the total (epic: [[8]]).</p>\n<p>Quirk: The diseased of nearly every population center somehow know to seek you out for healing.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -34,7 +34,7 @@ data:
   attributes:
     attack:
       melee:
-        bonus: 0
+        bonus: 2
       ranged:
         bonus: 0
       divine:

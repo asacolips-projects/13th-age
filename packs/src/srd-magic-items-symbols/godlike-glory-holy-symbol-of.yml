@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you cast a daily spell, you gain 2d4 temporary hit points (champion: 4d6 temp hp, epic: 7d10 temp hp).</p>\n<p>Quirk: Dispenses pithy observations.</p>"
+    value: "<p>When you cast a daily spell, you gain [[2d4]] temporary hit points (champion: [[4d6]] temp hp, epic: [[7d10]] temp hp).</p>\n<p>Quirk: Dispenses pithy observations.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
