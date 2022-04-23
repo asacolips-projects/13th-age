@@ -1,5 +1,5 @@
-_id: 'QLhQczGkiYKUhSB9'
-name: 'Glory'
+_id: 'y9MWqwB5WDql7xMZ'
+name: 'Protection'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
 data:
@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>This brilliant, gem-encrusted ring gives you an aura of status (and whatever that entails). Everyone can see it, even if they don&rsquo;t know why.</p>\n<p>Quirk: Becomes more and more obsessed with the idea that all their accomplishments are undeserved and that they themselves are frauds. This obsession often drives them to heroic acts.</p>"
+    value: "<p>Enemies engaged with you take a &ndash;1 attack penalty against your allies.</p>\n<p>Quirk: Tends to others with too much familiarity.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -48,7 +48,7 @@ data:
     pd:
       bonus: 0
     hp:
-      bonus: 0
+      bonus: 4
     recoveries:
       bonus: 0
     save:
@@ -59,7 +59,7 @@ data:
   isActive: true
   price:
     value: ''
-  chackra: 'ring'
+  chackra: 'shield'
 effects: []
 folder: null
 sort: 0

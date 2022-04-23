@@ -1,5 +1,5 @@
-_id: 'uYH55zFAb1KQWpm6'
-name: 'Defense'
+_id: 'FbE191uTB9jUhviP'
+name: 'Bashing'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
 data:
@@ -9,15 +9,15 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When you take damage from an attack, prevent 10 of that damage (champion: prevent 20; epic: prevent 40).</p>\n<p>Quirk: Stubborn.</p>"
+    value: "<p>When you move to engage an enemy while using this shield, you can use the shield to push that enemy away from one of your allies engaged with it. That ally can make a disengage check as a free action.</p>\n<p>Quirk: Can&rsquo;t pass up an opportunity to sing.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'recharge'
+    value: 'other'
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: '6'
+    value: '0'
   rechargeAttempts:
     type: 'Number'
     label: 'Number of Recharges Attempted'
@@ -25,11 +25,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: '1'
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Max Uses'
-    value: '1'
+    value: null
   properties: {}
   attributes:
     attack:
@@ -59,7 +59,7 @@ data:
   isActive: true
   price:
     value: ''
-  chackra: 'ring'
+  chackra: 'shield'
 effects: []
 folder: null
 sort: 0

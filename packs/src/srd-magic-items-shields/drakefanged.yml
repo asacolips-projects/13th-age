@@ -1,5 +1,5 @@
-_id: 'Uc6O9Z5qqRMSi5N9'
-name: 'Instant Vengeance'
+_id: 'jAtYKx4uwWypFcZu'
+name: 'Drakefanged'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
 data:
@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 16+) When you take damage from an enemy&rsquo;s attack, choose one ally you can see. That ally can make a basic attack (melee or ranged) against the attacker as a free action.</p>\n<p>Quirk: Sticks close to their friends, real close.</p>"
+    value: "<p>(Recharge 11+) This spiked shield sports a massive dragon fang that wounds enemies. When an enemy engaged with you misses you with a melee attack, make a basic melee attack against the enemy as a free action, with a +2 attack bonus per tier of the shield (adventurer: +2, champion: +4, epic: +6). On a hit, the attack deals 2d6 damage; on a miss, it deals 2 damage (champion: 4d8 damage, or 5 on a miss; epic: 8d10 damage, or 12 on miss).</p>\n<p>Quirk: Compares everything to dragons or to draconic things, and judges actions by how they stack up to draconic expectations.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -17,7 +17,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: '16'
+    value: '11'
   rechargeAttempts:
     type: 'Number'
     label: 'Number of Recharges Attempted'
@@ -36,7 +36,7 @@ data:
       melee:
         bonus: 0
       ranged:
-        bonus: 0
+        bonus: 4
       divine:
         bonus: 0
       arcane:
@@ -59,7 +59,7 @@ data:
   isActive: true
   price:
     value: ''
-  chackra: 'ring'
+  chackra: 'shield'
 effects: []
 folder: null
 sort: 0

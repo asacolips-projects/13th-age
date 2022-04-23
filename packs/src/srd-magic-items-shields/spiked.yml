@@ -1,5 +1,5 @@
-_id: 'OK5eLBvzdg1oVfYc'
-name: 'Skin of Your Teeth'
+_id: 'Fl4mZ3UolfbPoQKQ'
+name: 'Spiked'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
 data:
@@ -9,15 +9,15 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When an enemy attacks you, subtract 1 from the natural attack roll after seeing it.</p>\n<p>Quirk: Regularly finds copper pieces and other minor valuables on the ground.</p>"
+    value: "<p>When you roll a natural 2 with a melee attack while using the shield, you can make a basic melee attack with the shield as a free action as if it were an off-hand weapon (use d6 damage dice).</p>\n<p>Quirk: Has shifty eyes.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'recharge'
+    value: 'other'
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: '6'
+    value: '0'
   rechargeAttempts:
     type: 'Number'
     label: 'Number of Recharges Attempted'
@@ -25,11 +25,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: '1'
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Max Uses'
-    value: '1'
+    value: null
   properties: {}
   attributes:
     attack:
@@ -48,7 +48,7 @@ data:
     pd:
       bonus: 0
     hp:
-      bonus: 0
+      bonus: 4
     recoveries:
       bonus: 0
     save:
@@ -59,7 +59,7 @@ data:
   isActive: true
   price:
     value: ''
-  chackra: 'ring'
+  chackra: 'shield'
 effects: []
 folder: null
 sort: 0

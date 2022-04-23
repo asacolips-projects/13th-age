@@ -1,5 +1,5 @@
-_id: 'bc9Lppf4f7uDNeZM'
-name: 'Iron Grip'
+_id: 'cGrhSqK6MTlBfVNF'
+name: 'Puissance'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
 data:
@@ -9,15 +9,15 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you make a skill check involving climbing, holding something, or otherwise using your hands to grip things, you can use +10 as your bonus in place of your normal bonus (level + ability mod + background; other magic item bonuses still count) (champion: +15; epic: +20).</p>\n<p>Quirk: Loves to arm wrestle, thumb wrestle, drum fingers on tables, etc.</p>"
+    value: "<p>(Recharge 6+) When you make a basic melee attack, make a recharge roll for one expended power.</p>\n<p>Quirk: Tremendous appetite for meat.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'recharge'
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: '0'
+    value: '6'
   rechargeAttempts:
     type: 'Number'
     label: 'Number of Recharges Attempted'
@@ -25,11 +25,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: '1'
   maxQuantity:
     type: 'Number'
     label: 'Max Uses'
-    value: null
+    value: '1'
   properties: {}
   attributes:
     attack:
@@ -48,7 +48,7 @@ data:
     pd:
       bonus: 0
     hp:
-      bonus: 0
+      bonus: 4
     recoveries:
       bonus: 0
     save:
@@ -59,7 +59,7 @@ data:
   isActive: true
   price:
     value: ''
-  chackra: 'ring'
+  chackra: 'shield'
 effects: []
 folder: null
 sort: 0

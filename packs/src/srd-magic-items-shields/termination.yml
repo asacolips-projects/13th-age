@@ -1,5 +1,5 @@
-_id: 'kTXudRremDOw0GCL'
-name: 'Wild Heart'
+_id: 'zYDTOaKQX3zz5evr'
+name: 'Termination'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
 data:
@@ -9,15 +9,15 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>Animals accept you and may even show you affection. The animals, however, still react normally if you threaten them, and well-trained guard animals are especially wary of you.</p>\n<p>Quirk: Seems out of place in civilization.</p>"
+    value: "<p>(Recharge 6+) When you make a basic melee attack, roll a save against one ongoing damage effect.</p>\n<p>Quirk: Continually fails to finish sentences, stopping in mid-thoug&hellip;.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'recharge'
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: '0'
+    value: '6'
   rechargeAttempts:
     type: 'Number'
     label: 'Number of Recharges Attempted'
@@ -25,11 +25,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: '1'
   maxQuantity:
     type: 'Number'
     label: 'Max Uses'
-    value: null
+    value: '1'
   properties: {}
   attributes:
     attack:
@@ -48,7 +48,7 @@ data:
     pd:
       bonus: 0
     hp:
-      bonus: 0
+      bonus: 4
     recoveries:
       bonus: 0
     save:
@@ -59,7 +59,7 @@ data:
   isActive: true
   price:
     value: ''
-  chackra: 'ring'
+  chackra: 'shield'
 effects: []
 folder: null
 sort: 0
