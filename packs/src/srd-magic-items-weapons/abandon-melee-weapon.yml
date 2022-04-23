@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>You deal +2d6 damage with your first attack each battle using this weapon (champion: +4d6; epic: +4d12).</p>\n<p>Quirk: Blurts out obscenities. (For decorum&rsquo;s sake, use euphemisms when speaking in character.)</p>"
+    value: "<p>You deal +[[2d6]] damage with your first attack each battle using this weapon (champion: +[[4d6]]; epic: +[[4d12]]).</p>\n<p>Quirk: Blurts out obscenities. (For decorum&rsquo;s sake, use euphemisms when speaking in character.)</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

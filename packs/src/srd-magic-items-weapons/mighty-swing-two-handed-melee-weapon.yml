@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Move action) You deal +1d8 damage with your next melee attack with this weapon that hits this turn (champion: +2d8; epic: +4d8). If you miss, you take that damage instead.</p>\n<p>Quirk: Tends to break things.</p>"
+    value: "<p>(Move action) You deal +[[1d8]] damage with your next melee attack with this weapon that hits this turn (champion: +[[2d8]]; epic: +[[4d8]]). If you miss, you take that damage instead.</p>\n<p>Quirk: Tends to break things.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

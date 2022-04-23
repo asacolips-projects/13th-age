@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When the escalation die is 3+ and you hit with an attack using this weapon, the target takes 10 extra damage (champion: 25 damage; epic: 60 damage).</p>\n<p>Quirk: Can&rsquo;t stop checking the weapon and its ammunition.</p>"
+    value: "<p>(Recharge 6+) When the escalation die is 3+ and you hit with an attack using this weapon, the target takes [[10]] extra damage (champion: [[25]] damage; epic: [[60]] damage).</p>\n<p>Quirk: Can&rsquo;t stop checking the weapon and its ammunition.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

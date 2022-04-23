@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>Whenever you attack a dragon with the axe, you deal +40 damage, hit or miss. The GM determines just how broadly the term &ldquo;dragon&rdquo; applies.</p>\n<p>Quirk: Speaks in Draconic, first just curses, but then more and more elements of speech.</p>"
+    value: "<p>Whenever you attack a dragon with the axe, you deal +[[40]] damage, hit or miss. The GM determines just how broadly the term &ldquo;dragon&rdquo; applies.</p>\n<p>Quirk: Speaks in Draconic, first just curses, but then more and more elements of speech.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

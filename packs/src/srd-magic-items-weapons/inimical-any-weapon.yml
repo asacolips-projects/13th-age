@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you hit with this weapon, you can deal +1d10 damage to that enemy (champion: +2d10; epic: +4d10). If you do, you also take that extra damage.</p>\n<p>Quirk: Bites nails, or a similar darker habit.</p>"
+    value: "<p>When you hit with this weapon, you can deal +[[1d10]] damage to that enemy (champion: +[[2d10]]; epic: +[[4d10]]). If you do, you also take that extra damage.</p>\n<p>Quirk: Bites nails, or a similar darker habit.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

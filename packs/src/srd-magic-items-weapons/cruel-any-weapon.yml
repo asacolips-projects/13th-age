@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 11+) When damage from this weapon leaves an enemy with 20 hit points or fewer, you deal 5 ongoing damage to it (champion: 40 hp/10 ongoing damage; epic: 80 hp/20 ongoing damage).</p>\n<p>Quirk: Tortures flies.</p>"
+    value: "<p>(Recharge 11+) When damage from this weapon leaves an enemy with 20 hit points or fewer, you deal [[5]] ongoing damage to it (champion: 40 hp/[[10]] ongoing damage; epic: 80 hp/[[20]] ongoing damage).</p>\n<p>Quirk: Tortures flies.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

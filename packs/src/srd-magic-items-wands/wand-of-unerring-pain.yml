@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(See below &ndash; recharge 16+): When you miss with a spell that targets a single enemy, as a quick action immediately afterward, fire a magical missile that automatically hits that creature for 4d10 force damage.</p>\n<p>Quirk: Stares intently, often at nothing.</p>"
+    value: "<p>(See below &ndash; recharge 16+): When you miss with a spell that targets a single enemy, as a quick action immediately afterward, fire a magical missile that automatically hits that creature for [[4d10]] force damage.</p>\n<p>Quirk: Stares intently, often at nothing.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

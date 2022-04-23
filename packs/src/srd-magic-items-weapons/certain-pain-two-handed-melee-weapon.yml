@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 11+) Before making an attack with this weapon, designate it as a &ldquo;pain&rdquo; attack. On a hit with that attack, one target takes 10 extra damage. On a miss, you take 10 damage (champion: 25 damage; epic: 60 damage).</p>\n<p>Quirk: Fond of gambling.</p>"
+    value: "<p>(Recharge 11+) Before making an attack with this weapon, designate it as a &ldquo;pain&rdquo; attack. On a hit with that attack, one target takes [[10]] extra damage. On a miss, you take [[10]] damage (champion: [[25]] damage; epic: [[60]] damage).</p>\n<p>Quirk: Fond of gambling.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

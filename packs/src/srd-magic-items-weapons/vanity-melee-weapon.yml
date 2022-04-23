@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you hit with this weapon, deal +1d6 damage to that enemy if you are the only one engaged with it (champion: +2d6; epic: +4d6).</p>\n<p>Quirk: Tells their name (their real one) to everyone.</p>"
+    value: "<p>When you hit with this weapon, deal +[[1d6]] damage to that enemy if you are the only one engaged with it (champion: +[[2d6]]; epic: +[[4d6]]).</p>\n<p>Quirk: Tells their name (their real one) to everyone.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

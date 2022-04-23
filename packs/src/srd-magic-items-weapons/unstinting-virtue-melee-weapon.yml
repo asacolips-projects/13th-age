@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 11+)13th Age Archmage Engine, version 3.0. Copyright &copy; 2013-2016 Fire Opal Media. All Rights Reserved. Licensed under the Open Game License. When you make a basic attack with this weapon, roll a save against a save ends effect.</p>\n<p>Quirk: Insists that all weakness is an illusion.</p>"
+    value: "<p>(Recharge 11+) When you make a basic attack with this weapon, roll a save against a save ends effect.</p>\n<p>Quirk: Insists that all weakness is an illusion.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

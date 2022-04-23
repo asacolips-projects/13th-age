@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>While the escalation die is 3+, you deal +1d8 damage whenever you hit with this weapon (champion: +2d8; epic: +4d8).</p>\n<p>Quirk: Favors iron and steel, seeing little beauty in gold or gems.</p>"
+    value: "<p>While the escalation die is 3+, you deal +[[1d8]] damage whenever you hit with this weapon (champion: +[[2d8]]; epic: +[[4d8]]).</p>\n<p>Quirk: Favors iron and steel, seeing little beauty in gold or gems.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

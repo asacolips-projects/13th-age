@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you hit with an attack using this weapon, if that enemy is the most dangerous foe in the battle (or tied for most dangerous, GM&rsquo;s assessment), you deal +1d4 per tier damage to it (champion: +1d8 per tier; epic: +1d10 per tier).</p>\n<p>Quirk: Challenges others to improvised contests.</p>"
+    value: "<p>When you hit with an attack using this weapon, if that enemy is the most dangerous foe in the battle (or tied for most dangerous, GM&rsquo;s assessment), you deal +1d4 per tier ([[(@tier)d4]]) damage to it (champion: +1d8 per tier ([[(@tier)d8]]); epic: +1d10 per tier ([[(@tier)d10]])).</p>\n<p>Quirk: Challenges others to improvised contests.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'
