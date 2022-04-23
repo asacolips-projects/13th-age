@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>When you rally, you gain 4 temporary hit points that last until the end of your next turn (champion: 10 temp hp; epic: 25 temp hp).</p>'
+    value: '<p>When you rally, you gain [[4]] temporary hit points that last until the end of your next turn (champion: [[10]] temp hp; epic: [[25]] temp hp).</p>'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
@@ -48,9 +48,9 @@ data:
     pd:
       bonus: 0
     hp:
-      bonus: 1
-    recoveries:
       bonus: 0
+    recoveries:
+      bonus: 1
     save:
       bonus: 0
       threshold: 0

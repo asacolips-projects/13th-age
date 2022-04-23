@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you heal using your last remaining recovery, you heal 30 additional hit points (champion 75 hp; epic: 200 hp).</p>\n<p>Quirk: Stubbornly independent.</p>"
+    value: "<p>When you heal using your last remaining recovery, you heal [[30]] additional hit points (champion [[75]] hp; epic: [[200]] hp).</p>\n<p>Quirk: Stubbornly independent.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

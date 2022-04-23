@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 16+) When you cast a divine spell, heal using a recovery and add +1d6 hit points to the total (champion: +2d8 hp; epic: +4d10 hp).</p>\n<p>Quirk: Sees the hands of the gods operating subtly through the natural and social world, and makes others aware of it.</p>"
+    value: "<p>(Recharge 16+) When you cast a divine spell, heal using a recovery and add +[[1d6]] hit points to the total (champion: +[[2d8]] hp; epic: +[[4d10]] hp).</p>\n<p>Quirk: Sees the hands of the gods operating subtly through the natural and social world, and makes others aware of it.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

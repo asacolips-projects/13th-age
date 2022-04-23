@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>Bursts into fire as it flies. You deal 8 extra ongoing fire damage on a hit (epic: 20 ongoing fire).</p>'
+    value: '<p>Bursts into fire as it flies. You deal [[8]] extra ongoing fire damage on a hit (epic: [[20]] ongoing fire).</p>'
   powerUsage:
     type: 'String'
     label: 'Power Usage'

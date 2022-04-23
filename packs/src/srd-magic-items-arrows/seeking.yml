@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>You deal +4 damage on a miss (champion: +10; epic: +25).</p>'
+    value: '<p>You deal +[[4]] damage on a miss (champion: +[[10]]; epic: +[[25]]).</p>'
   powerUsage:
     type: 'String'
     label: 'Power Usage'

@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>You deal +1d10 damage on a hit (champion: +2d10; epic: +4d10).</p>'
+    value: '<p>You deal +[[1d10]] damage on a hit (champion: +[[2d10]]; epic: +[[4d10]]).</p>'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
