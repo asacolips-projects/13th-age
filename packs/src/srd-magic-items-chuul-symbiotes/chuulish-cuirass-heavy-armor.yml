@@ -1,0 +1,68 @@
+_id: 'CP40DPoP3oBeiurI'
+name: 'Chuulish Cuirass (heavy armor)'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>The many eyes and symbiotic nervous system in this torso armor give you warning of danger.</p>\n<p>Always: +1 AC (adventurer); +2 AC (champion); +3 AC (epic).</p>\n<p>Chuulish recharge: You gain a +4 bonus to all defenses against ranged attacks until the end of the battle.</p>\n<p>Quirk: Over-large protruding ribs.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '16'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: '1'
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 1
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'armor'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}

@@ -1,0 +1,68 @@
+_id: 'k1FFWRS8vqFtD5Ug'
+name: 'Diabolical Staff'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>(Recharge: 16+) You can evoke the power of the staff to gain additional attention and power from the spirits of darkness. When you roll relationship dice with a villainous icon, treat a single 4 as a 5. If you don&rsquo;t roll a 4, the staff recharges automatically during your next quick rest.</p>\n<p>Quirk: Exaggerates a chaotic or destructive trait that is already there.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '16'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: '1'
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 2
+      arcane:
+        bonus: 2
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'staff'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}

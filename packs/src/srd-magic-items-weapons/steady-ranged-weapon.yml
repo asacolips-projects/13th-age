@@ -1,0 +1,68 @@
+_id: 'Xf5toqsIdqHuc7kj'
+name: 'Steady (Ranged weapon)'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>(Recharge 11+) Before rolling a ranged attack with this weapon, choose 10 as the natural roll for that attack.</p>\n<p>Quirk: Talks too much about the weather.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '11'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: '1'
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 1
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'ranged'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
