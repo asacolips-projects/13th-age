@@ -90,7 +90,7 @@ export class ItemArchmage extends Item {
             && this.actor.data.data.resources.spendable.ki.enabled) {
           let costNum = Number(parsed[1]);
           let path = 'data.resources.spendable.ki.current';
-          updateData[path] = res.perCombat.commandPoints.current - costNum;
+          updateData[path] = res.spendable.ki.current - costNum;
           if (costNum > res.spendable.ki.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi");
             updateData[path] = 0;
