@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per level, you can generate a one-point conflicted relationship with a heroic or ambiguous icon you do not already have a relationship with. The relationship point remains with you until you gain a level, and then it''s time for another one-level relationship.</p><p><strong>Invocation of Love/Beauty</strong>: As a free action, at some dramatic moment, you or an ally of your choice can roll for one icon relationship that might have an effect on the battle. Rolls of 5 and 6 are beneficial as usual, though the GM will have to improvise what that means in the middle of combat. The invocation''s advantage does not occur the moment you roll initiative; wait for a dramatic moment instead.</p>'
+    value: '<p>Once per level, you can generate a one-point conflicted relationship with a heroic or ambiguous icon you do not already have a relationship with. The relationship point remains with you until you gain a level, and then it''s time for another one-level relationship.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

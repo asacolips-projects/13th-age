@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain 4 additional background points that must be used somehow in relation to knowledge or lore.</p><p><strong>Invocation of Knowledge/Lore</strong>: You must use this invocation during your first round of a battle. When you do, you get a quick glimpse of the battle’s future. Roll a [[d6]]; as a free action at any point after the escalation die equals the number you rolled, you can allow one of your allies to reroll a single attack roll with a +2 bonus thanks to your vision of this future.</p>'
+    value: '<p>You gain 4 additional background points that must be used somehow in relation to knowledge or lore.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -140,11 +140,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:

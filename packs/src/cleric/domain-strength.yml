@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You can wield heavy/martial weapons without an attack penalty.</p><p><strong>Invocation of Strength</strong>: This battle, you and your nearby allies deal triple damage instead of double damage on critical hits with melee attacks.</p>'
+    value: '<p>You can wield heavy/martial weapons without an attack penalty.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -140,11 +140,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Once per day, the damage bonus becomes The damage bonus is [[(max(@lvl,@str.mod))d20]].</p>'
+        value: '<p>Once per day, the damage bonus becomes [[(max(@lvl,@str.mod))d20]].</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
