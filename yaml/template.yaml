@@ -8,6 +8,13 @@ Actor:
         attackMod:
           type: Number
           value: 0
+        critMod:
+          atk:
+            type: Number
+            value: 0
+          def:
+            type: Number
+            value: 0
         ac:
           type: Number
           label: Armor Class
