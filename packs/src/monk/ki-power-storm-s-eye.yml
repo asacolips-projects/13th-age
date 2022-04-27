@@ -1,7 +1,6 @@
-name: 'Overworld Lineage / Phoenix Touched'
-permission:
-  default: 0
+name: '(Ki Power) Storm’s Eye'
 type: 'power'
+img: 'systems/archmage/assets/icons/skills/beast_02.jpg'
 data:
   name:
     type: 'String'
@@ -9,27 +8,46 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: ''
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: 0
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: null
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Ki Power'
   powerSource:
     type: 'String'
     label: 'Power Source'
     value: 'class'
   powerSourceName:
     type: 'String'
-    label: 'Power Source'
+    label: 'Power Source Name'
     value: 'Monk'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
-  powerUsage:
-    type: 'String'
-    label: 'Power Usage'
-    value: ''
+    value: 'power'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 5
   actionType:
     type: 'String'
     label: 'Action'
@@ -41,7 +59,7 @@ data:
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: ''
+    value: 'An enemy misses you with an attack that deals cold, lightning, or thunder damage.'
   target:
     type: 'String'
     label: 'Target'
@@ -85,7 +103,7 @@ data:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: '1 Ki'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -105,11 +123,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p><strong>Ki Power </strong>(<em>Imperial Phoenix Flare</em>): Once per day when you are staggered, you can spend 1 point of ki to heal using a recovery.</p><p>You heal half the hit points you roll for the recovery, and one enemy engaged with you of your choice takes the other half in fire damage.</p>'
+    value: '<p>You must have the champion feat of <em>Striped Lightning Roars (Tiger in Storm)</em> to use this power.</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>If you wish, any time an element of the monk class refers to Wisdom, you can replace that element with a reference to Charisma.</p><p>In addition, while you&rsquo;re staggered, when you roll a natural even attack roll, you heal [[max(@str.dmg,@wis.dmg,@cha.dmg)]] damage.</p>'
+    value: '<p>When an enemy misses you with an attack that deals cold, lightning, or thunder damage, you can spend 1 point of ki to heal using a recovery.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -134,24 +152,15 @@ data:
     type: 'String'
     label: 'Breath Weapon'
     value: ''
-  recharge:
+  sustainOn:
     type: 'Number'
-    label: 'Recharge'
-    value: 0
-  quantity:
-    type: 'Number'
-    label: 'Uses'
-    value: null
-  maxQuantity:
-    type: 'Number'
-    label: 'Uses'
+    label: 'Sustain On'
     value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You can now use this ki power twice per day.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -160,7 +169,6 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per day after rolling a death save, you can gain +4 bonus to the roll.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,16 +177,13 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The first time you die after taking this feat, you are resurrected at a place of power like your home monastery or other sanctum between one and four days later, assuming another resurrection doesn’t find you first. (This counts against your resurrection limit, as normal.)</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
-  group:
-    type: 'String'
-    label: 'Group'
-    value: ''
-flags: {}
-img: 'systems/archmage/assets/icons/skills/fire_11.jpg'
 effects: []
-_id: 'FjDYHCeNeIwU9qu7'
+folder: null
+sort: 0
+permission:
+  default: 0
+_id: '7LNbOFLdt3s5RiZp'
