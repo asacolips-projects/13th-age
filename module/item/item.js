@@ -129,7 +129,7 @@ export class ItemArchmage extends Item {
           }
         }
         // Custom resources
-        for (let idx of ["1", "2", "3"]) {
+        for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
           let resourcePathName = "custom"+idx;
           let resourceName = res.spendable[resourcePathName].label;
           if (res.spendable[resourcePathName].enabled && parsed[2] && parsed[1]
