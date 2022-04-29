@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'once-per-battle'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per battle, you can affect two additional allies when you cast a spell for broad effect.</p><p><strong>Invocation of Protection/Community</strong>: This battle, critical hits against you and your nearby allies deal normal damage instead of critical damage.</p>'
+    value: '<p>Once per battle, you can affect two additional allies when you cast a spell for broad effect.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

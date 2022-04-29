@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,7 +32,7 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: ''
   range:
     type: 'String'
     label: 'Range'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You and your nearby allies gain a +1 bonus to death saves.</p><p><strong>Invocation of Life/Death</strong>: This battle, you and each of your allies can each separately add the escalation die to a single save made by that character. In addition, you and your allies do not die from hit point damage when your negative hit points equal half your normal hit points. Instead, you die when your negative hit points equal your full hit points.</p>'
+    value: '<p>You and your nearby allies gain a +1 bonus to death saves.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -140,11 +140,11 @@ data:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
