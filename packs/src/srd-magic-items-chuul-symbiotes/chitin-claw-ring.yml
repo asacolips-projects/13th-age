@@ -13,7 +13,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   recharge:
     type: 'Number'
     label: 'Other'
