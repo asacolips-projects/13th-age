@@ -314,12 +314,10 @@ export class ActorArchmage extends Actor {
     if (!data.resources.perCombat.focus) data.resources.perCombat.focus = model.resources.perCombat.focus;
     if (!data.resources.spendable) data.resources.spendable = model.resources.spendable;
     if (!data.resources.spendable.ki) data.resources.spendable.ki = model.resources.spendable.ki;
-    if (!data.resources.spendable.custom1) data.resources.spendable.custom1 = model.resources.spendable.custom1;
-    if (!data.resources.spendable.custom2) data.resources.spendable.custom2 = model.resources.spendable.custom2;
-    if (!data.resources.spendable.custom3) data.resources.spendable.custom3 = model.resources.spendable.custom3;
-    if (!data.resources.spendable.custom1.rest) data.resources.spendable.custom1.rest = model.resources.spendable.custom1.rest;
-    if (!data.resources.spendable.custom2.rest) data.resources.spendable.custom2.rest = model.resources.spendable.custom2.rest;
-    if (!data.resources.spendable.custom3.rest) data.resources.spendable.custom3.rest = model.resources.spendable.custom3.rest;
+    for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
+      if (!(data.resources.spendable["custom"+idx])) data.resources.spendable["custom"+idx] = model.resources.spendable["custom"+idx];
+      if (!data.resources.spendable["custom"+idx].rest) data.resources.spendable["custom"+idx].rest = model.resources.spendable["custom"+idx].rest;
+    }
     // Saves
     if (!data.attributes.saves) data.attributes.saves = model.attributes.saves;
     if (!data.attributes.saves.deathFails) data.attributes.saves.deathFails = model.attributes.saves.deathFails;
@@ -895,7 +893,7 @@ export class ActorArchmage extends Actor {
 
     // Resources
     // Focus, Momentum and Command Points handled on end combat hook
-    for (let idx of ["1", "2", "3"]) {
+    for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
       let resourcePathName = "custom"+idx;
       let resourceName = this.data.data.resources.spendable[resourcePathName].label;
       let curr = this.data.data.resources.spendable[resourcePathName].current;
@@ -1015,7 +1013,7 @@ export class ActorArchmage extends Actor {
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.data.data.resources.spendable.ki.max}`
       });
     }
-    for (let idx of ["1", "2", "3"]) {
+    for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
       let resourcePathName = "custom"+idx;
       let resourceName = this.data.data.resources.spendable[resourcePathName].label;
       let curr = this.data.data.resources.spendable[resourcePathName].current;
