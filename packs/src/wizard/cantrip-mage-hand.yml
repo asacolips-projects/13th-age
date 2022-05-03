@@ -1,4 +1,4 @@
-name: 'Knock'
+name: '(Cantrip) Mage Hand'
 permission:
   default: 0
 type: 'power'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This cantrip summons a magical servitor three to four times as big as your closed fist that swarms around the door and attempts to punch or push it open (depending on whether you want to be quiet or announce your presence). Success is determined with an Intelligence check against the environment''s DC using an appropriate magical background. This cantrip does nothing to avoid any traps that might exist.</p>'
+    value: '<p>This cantrip creates a small telekinetic effect that lasts a round at most. At best it''s about half as strong as the wizard''s own strongest hand. At worst it''s half as strong as the wizard when they''re weak from a bad fever.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/blood_11.jpg'
+img: 'systems/archmage/assets/icons/skills/violet_28.jpg'
 effects: []
-_id: 'hS8cWa2bLyY4etvK'
+_id: 'cW0ORlmw9BDNTIM0'

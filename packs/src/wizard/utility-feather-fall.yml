@@ -1,4 +1,4 @@
-name: 'Speak with Item'
+name: '(Utility) Feather Fall'
 permission:
   default: 0
 type: 'power'
@@ -28,11 +28,11 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 3
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Speak briefly, mind-to-mind, with a magic item you are touching that is owned by you or one of your allies. The item''s owner gets a free power recharge roll if that item''s power has been expended.</p>'
+    value: '<p>When you cast this spell, it arrests your fall, letting you glide down the ground over a round or two.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: 'You can now target a nearby ally with the spell.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'You no longer need to be touching the item; it only has to be nearby.'
+    value: 'You can now target up to two nearby creatures with the spell.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'The item&#039;s owner gains a +2 bonus to the item recharge roll.'
+    value: 'You can now target up to five nearby creatures with the spell.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'If the item recharge roll fails, you keep this spell, but the item won&#039;t talk to you until after your next full heal-up.'
+    value: 'You gain some control over where a target falls, like a quickly gliding feather.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/green_18.jpg'
+img: 'systems/archmage/assets/icons/items/inventory/feather-green.jpg'
 effects: []
-_id: 'lqYNLFXU6J6EokZ8'
+_id: '4T6ZX1vrodiD7rUy'

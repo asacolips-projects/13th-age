@@ -1,4 +1,4 @@
-name: 'Ghost Sound'
+name: '(Utility) Scrying'
 permission:
   default: 0
 type: 'power'
@@ -24,11 +24,11 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 7
   actionType:
     type: 'String'
     label: 'Action'
@@ -36,7 +36,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This spell creates false noises emanating from somewhere nearby. The effect is like an exceptionally good version of throwing your voice, if your voice could create a wide variety of sounds. Attempted distractions with the cantrip are DC 15 challenges in adventurer environments, higher as you move into champion and epic environments. If someone is using ghost sound against the PCs, a Wisdom-based skill check can identify the sound as a magical fake.</p>'
+    value: "<p>You can use this spell to get information you shouldn't be able to get, peering in on other people's lives for a short period of time, usually no more than ten minutes at a time. Some areas may be warded at the GM's discretion. You must have touched the person you wish to spy on in the last month, or, at 9th\_level, within the last a year.</p><p>Scrying as a single standard action won't yield much. Concentrating on the spell for a while with props like a scrying pool or a crystal ball will work better.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Cantrip'
+    value: 'Utility'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/affliction_08.jpg'
+img: 'systems/archmage/assets/icons/skills/emerald_02.jpg'
 effects: []
-_id: 'RV1u2Pm0SamXmpOr'
+_id: 'kuKmrcwyen3qNJHL'

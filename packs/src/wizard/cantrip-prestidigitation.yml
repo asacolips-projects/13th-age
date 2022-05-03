@@ -1,4 +1,4 @@
-name: 'Spark'
+name: '(Cantrip) Prestidigitation'
 permission:
   default: 0
 type: 'power'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This is a minor fire creation spell, enough to light a pipe, or a campfire, or even a page or two of an unprotected spellbook. It doesn''t work against living beings or against things that couldn''t easily be set on fire with a few seconds of steady application of a candle. The target of the spark has to be nearby and in sight.</p>'
+    value: '<p>This cantrip produces magic tricks and small illusions. One casting usually gives you a minute of fun. The magic has nowhere near as much real world force as mage hand.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/mech_14.jpg'
+img: 'systems/archmage/assets/icons/skills/violet_17.jpg'
 effects: []
-_id: 'UmEtIfe1TSxLt0a1'
+_id: 'JbZWOD3FxONAoIjt'

@@ -1,4 +1,4 @@
-name: 'Light (standard duration)'
+name: '(Cantrip) Ghost Sound'
 permission:
   default: 0
 type: 'power'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This cantrip creates a fairly wide and consistent field of light, up to 30 feet in diameter, though it isn''t bright enough to dazzle.</p>'
+    value: '<p>This spell creates false noises emanating from somewhere nearby. The effect is like an exceptionally good version of throwing your voice, if your voice could create a wide variety of sounds. Attempted distractions with the cantrip are DC 15 challenges in adventurer environments, higher as you move into champion and epic environments. If someone is using ghost sound against the PCs, a Wisdom-based skill check can identify the sound as a magical fake.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/mech_13.jpg'
+img: 'systems/archmage/assets/icons/skills/affliction_08.jpg'
 effects: []
-_id: 'Fx8tKgeWGrXKEaCA'
+_id: 'RV1u2Pm0SamXmpOr'

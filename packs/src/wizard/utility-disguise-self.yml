@@ -1,4 +1,4 @@
-name: 'Mending'
+name: '(Utility) Disguise Self'
 permission:
   default: 0
 type: 'power'
@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -36,7 +36,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Close-quarters spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This cantrip summons a variety of tiny (hand-sized and smaller) magical sprites who swarm over a chosen broken object attempting to mend it (over the course of 1–6 rounds). Small-scale repairs like torn wineskins, muddy clothing, a broken handgrip on a sword, and similar repairs that anyone could fix with two to four hours of devoted work gets handled in seconds. More elaborate repairs to complicated objects might require an Intelligence check, or at the GM''s discretion could only be possible if the wizard has taken the Cantrip Mastery talent.</p>'
+    value: '<p>This spell provides you with an effective magical disguise that lasts about ten minutes, making the skill check to avoid unmasking one step easier: easy if it would have been a normal task, normal if it would have been a hard task, and hard if it would have been a ridiculously hard task. The spell only affects your general appearance, not your size. It can be used to hide your features behind the generic features of another person or race. Using it to impersonate a specific creature makes it less effective as a disguise (-2 to -5 penalty).</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: 'The spell lasts for 1 hour.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'The spell also provides smell; +2 bonus to any checks.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'The spell also handles correct-sounding vocal patterns and rough mannerisms; +4 bonus to any checks.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'You can now target an ally with the spell; you can also now use it on up to two creatures at once.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Cantrip'
+    value: 'Utility'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/yellow_21.jpg'
+img: 'systems/archmage/assets/icons/skills/blue_35.jpg'
 effects: []
-_id: 'yq31NuitFLbKrnhM'
+_id: 'KHGhu7Xl6bo1IfS3'
