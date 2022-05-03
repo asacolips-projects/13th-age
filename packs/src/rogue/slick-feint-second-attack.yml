@@ -1,4 +1,4 @@
-name: 'Slick Feint'
+name: 'Slick Feint (Second Attack)'
 permission:
   default: 0
 type: 'power'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'One enemy engaged with you'
+    value: 'A different enemy from the first target that is engaged with you'
   always:
     type: 'String'
     label: 'Always'
@@ -52,11 +52,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD'
+    value: '[[d20+@dex.mod+@std+@atk.m.bonus+2]] vs. AC'
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is dazed until the end of your next turn, and you can make an improved attack against a second target.'
+    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Your attack action is over; the feint was a screw-up.'
+    value: '[[@lvl]] damage.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -172,4 +172,4 @@ data:
         label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'rW4rqU3y7UTxEvzS'
+_id: 'ileicnlIMJES6PTI'
