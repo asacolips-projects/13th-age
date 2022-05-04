@@ -309,7 +309,6 @@ ARCHMAGE.powerTypes = {
   'power': 'Power',
   'feature': 'Feature',
   'talent': 'Talent',
-  'maneuver': 'Maneuver', //TODO: delete
   'flexible': 'Flexible Attack',
   'spell': 'Spell',
   'other': 'Other'
