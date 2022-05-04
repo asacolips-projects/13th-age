@@ -1,0 +1,68 @@
+_id: 'GVEuF1RV9fSxe7ot'
+name: 'Victory by Inches'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>You must carry a single magic melee weapon that you keep attached to this item for it to manifest its power. When using that weapon, apply the weapon&rsquo;s magic bonus to miss damage.</p>\n<p>Quirk: Have a hard time taking no for an answer.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '0'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 1
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'belt'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
