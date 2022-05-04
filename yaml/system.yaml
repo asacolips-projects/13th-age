@@ -163,6 +163,12 @@ packs:
     path: packs/dist/srd-magic-items-books.db
     system: archmage
   - label: SRD Magic Items - Chuul Symbiotes
+  - label: SRD Magic Items - Boots
+    entity: Item
+    name: srd-magic-items-boots
+    path: packs/dist/srd-magic-items-boots.db
+    system: archmage
+  - label: SRD Magic Items - Chuul Symbiotes
     entity: Item
     name: srd-magic-items-chuul-symbiotes
     path: packs/dist/srd-magic-items-chuul-symbiotes.db
