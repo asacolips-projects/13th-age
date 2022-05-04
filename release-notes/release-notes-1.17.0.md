@@ -1,0 +1,39 @@
+# Release Notes 1.17.0
+
+## Downloads
+
+Manifest URL: TODO
+
+## Features
+
+- Add offensive and defensive crit modifiers to actors and the PC sheet options
+    - Add logic to highlight crit based on the thusly modified crit range
+    - Add Active Eeffect to the Vulnerable condition to automate its effect
+    - Bold critted/fumbled target names in hit/miss line
+    - **Remove auto-doubling/zeroing of damage** (and related settings), use the damage applicator menu instead
+- Add several new compendia with pre-entered magic items from the official SRD
+- Expand custom resources up to 9
+
+## Bug Fixes
+
+
+- Display improvements
+    - Shift inline roll context menu left to avoid horizontal overflow.
+    - Highlight high level spell lines matching the current power level
+    - Removed customizations to TinyMCE that hid useful controls
+    - Updated the item sheet's form input labels to be 170px wide for a more consistent presentation
+    - Remove 'maneuver' power type, display legacy maneuver powers as flexible instead
+- Fix Ki resource update
+- Powers improvements
+    - Clarify Thief's Strike, prevent non-integer damage rolls
+    - Move Sleep target line to special to avoid unwanted interaction with the multi-target automation
+    - Create separate powers for Ki powers
+    - Separate cleric invocations from domain powers, clean up the latter
+    - Add missing `Overworld Advantage` wizard feature
+    - Fix `Procession of the Sun and Moon`'s epic feat
+    - Fix `Assassin's Gambit` power
+    - Split `Slick Feint` into separate powers
+    - Fix wizard's `Ranged Basic Attack`
+    - Clean up `Wizard's Familiar` and `Cantrips`
+    - Mark cantrips and utility spells more clearly
+    - Fix `Three Dooms` spell
