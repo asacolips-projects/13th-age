@@ -17,12 +17,12 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 ## Bug Fixes
 
 - Display improvements
-    - Dynamically shift inline roll context menu left to avoid horizontal overflow.
+    - Dynamically shift inline roll context menu left to avoid horizontal overflow
     - Highlight high level spell lines matching the current power level
     - Removed customizations to TinyMCE that hid useful controls
     - Updated the item sheet's form input labels to be 170px wide for a more consistent presentation
     - Remove 'maneuver' power type, display legacy maneuver powers as flexible instead
-- Powers improvements
+- Items improvements
     - Clarify `Thief's Strike`, prevent non-integer damage rolls
     - Move `Sleep`'s target line to special to avoid unwanted interaction with the multi-target automation
     - Fix Ki resource update
@@ -36,3 +36,4 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - Clean up `Wizard's Familiar` and `Cantrips`
     - Mark cantrips and utility spells more clearly
     - Fix `Three Dooms` spell
+    - Fix full heal ups resetting uses of items with 'other' usage
