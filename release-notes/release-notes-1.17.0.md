@@ -12,6 +12,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - Bold critted/fumbled target names in hit/miss line
     - **Remove auto-doubling/zeroing of damage** (and related settings), use the damage applicator menu instead
 - Add several new compendia with pre-entered magic items from the official SRD
+- Add confirmation dialog to item deletion in V2 sheet
 - Expand custom resources up to 9
 
 ## Bug Fixes
@@ -37,3 +38,5 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - Mark cantrips and utility spells more clearly
     - Fix `Three Dooms` spell
     - Fix full heal ups resetting uses of items with 'other' usage
+    - Merge tool and loot groups in PC sheet
+    - Fix sending tool and loot items to chat
