@@ -394,7 +394,7 @@ ARCHMAGE.defaultTokens = {
   'trait': 'icons/svg/regen.svg',
   'action': 'icons/svg/target.svg',
   'nastierSpecial': 'icons/svg/poison.svg',
-  'tool': 'icons/svg/anchor.svg',
+  'tool': 'icons/svg/anchor.svg', //TODO: delete after migrations
   'loot': 'icons/svg/daze.svg',
   'equipment': 'systems/archmage/assets/icons/items/inventory/backpack.jpg'
 };
