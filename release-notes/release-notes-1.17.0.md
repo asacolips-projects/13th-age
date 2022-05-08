@@ -20,23 +20,23 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 - Display improvements
     - Dynamically shift inline roll context menu left to avoid horizontal overflow
     - Highlight high level spell lines matching the current power level
-    - Removed customizations to TinyMCE that hid useful controls
-    - Updated the item sheet's form input labels to be 170px wide for a more consistent presentation
-    - Remove 'maneuver' power type, display legacy maneuver powers as flexible instead
+    - Remove customizations to TinyMCE that hid useful controls
+    - Update the item sheet's form input labels to be 170px wide for a more consistent presentation
+    - Remove `maneuver` power type, display legacy maneuver powers as `flexible` instead
+    - Merge `tool` and `loot` groups in PC sheet
 - Items improvements
-    - Clarify `Thief's Strike`, prevent non-integer damage rolls
-    - Move `Sleep`'s target line to special to avoid unwanted interaction with the multi-target automation
+    - Fix sending tool and loot items to chat
+    - Fix full heal ups resetting uses of items with `other` usage
     - Fix Ki resource update
     - Create separate powers for Ki powers
     - Separate cleric invocations from domain powers, clean up the latter
-    - Add missing `Overworld Advantage` wizard feature
+    - Clarify `Thief's Strike`, prevent non-integer damage rolls
+    - Split `Slick Feint` into separate powers
     - Fix `Procession of the Sun and Moon`'s epic feat
     - Fix `Assassin's Gambit` power
-    - Split `Slick Feint` into separate powers
+    - Fix `Three Dooms` spell
     - Fix wizard's `Ranged Basic Attack`
     - Clean up `Wizard's Familiar` and `Cantrips`
     - Mark cantrips and utility spells more clearly
-    - Fix `Three Dooms` spell
-    - Fix full heal ups resetting uses of items with 'other' usage
-    - Merge tool and loot groups in PC sheet
-    - Fix sending tool and loot items to chat
+    - Move `Sleep`'s target line to special to avoid unwanted interaction with the multi-target automation
+    - Add missing `Overworld Advantage` wizard feature
