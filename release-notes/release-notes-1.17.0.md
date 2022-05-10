@@ -34,6 +34,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - Split `Slick Feint` into separate powers
     - Fix `Procession of the Sun and Moon`'s epic feat
     - Fix `Assassin's Gambit` power
+    - Fix `Swordwork` recharge value
     - Fix `Three Dooms` spell
     - Fix wizard's `Ranged Basic Attack`
     - Clean up `Wizard's Familiar` and `Cantrips`
