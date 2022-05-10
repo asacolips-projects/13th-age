@@ -1,4 +1,4 @@
-name: 'Sword Work'
+name: 'Swordwork'
 permission:
   default: 0
 type: 'power'
@@ -136,7 +136,7 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: null
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'
