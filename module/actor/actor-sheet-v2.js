@@ -304,8 +304,28 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (!itemId) return;
 
     // Delete the item from the actor object.
-    let item = this.actor.items.get(itemId);
-    await item.delete();
+    let del = false;
+    new Dialog({
+      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+      buttons: {
+        del: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+          callback: () => {del = true;}
+        },
+        cancel: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+          callback: () => {}
+        }
+      },
+      default: 'cancel',
+      close: html => {
+        if (del) {
+          let item = this.actor.items.get(itemId);
+          // await item.delete();
+          item.delete();
+        }
+      }
+    }).render(true);
   }
 
   _editItem(event) {
@@ -342,7 +362,23 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         return effect.sheet.render(true);
 
       case 'delete':
-        return effect.delete();
+        let del = false;
+        new Dialog({
+          title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+          buttons: {
+            del: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+              callback: () => {del = true;}
+            },
+            cancel: {
+              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+              callback: () => {}
+            }
+          },
+          default: 'cancel',
+          close: html => { if (del) return effect.delete(); }
+        }).render(true);
+        break;
 
       case 'toggle':
         return effect.update({disabled: !effect.data.disabled});
