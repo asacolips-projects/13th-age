@@ -1,4 +1,4 @@
-name: 'Water Breathing'
+name: '(Utility) Levitate'
 permission:
   default: 0
 type: 'power'
@@ -28,15 +28,15 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 5
+    value: 3
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Close-quarters spell'
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You can breathe underwater for the rest of the battle (or about five minutes). You become aware a couple of rounds ahead of when the magic of the spell is about to end.</p>'
+    value: '<p>Until the end of the battle, you can use a move action to rise straight up into the air or descend straight down. The spell itself won''t move you horizontally. The up-or-down movement is about half as fast as your normal movement. While levitating, you take a –2 penalty to your attacks and are vulnerable to attacks against you.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,15 +116,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'You can now cast the spell on a nearby willing ally instead of yourself.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'You and [[1d4+2]] nearby allies can breathe underwater this battle.'
+    value: 'You can now cast the spell as a quick action, and the spell can now affect two targets.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'The spell affects you and [[1d6+2]] nearby allies for [[4d6]] hours.'
+    value: 'The spell can now affect five targets.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/items/inventory/element-water.jpg'
+img: 'systems/archmage/assets/icons/skills/blue_25.jpg'
 effects: []
-_id: 'RyIsBF4AiacLxdoo'
+_id: 'jkcJIDSjKulW8mSi'

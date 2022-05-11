@@ -1,4 +1,4 @@
-name: 'Ranged Attack (Wizard)'
+name: '(Utility) Feather Fall'
 permission:
   default: 0
 type: 'power'
@@ -20,11 +20,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,11 +32,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Close-quarters spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'One enemy'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -52,11 +52,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]]'
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '—'
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>When you cast this spell, it arrests your fall, letting you glide down the ground over a round or two.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: 'You can now target a nearby ally with the spell.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'You can now target up to two nearby creatures with the spell.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'You can now target up to five nearby creatures with the spell.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'You gain some control over where a target falls, like a quickly gliding feather.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,8 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Utility'
+    type: 'String'
+    label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/items/weapons/crossbow-heavy.jpg'
+img: 'systems/archmage/assets/icons/items/inventory/feather-green.jpg'
 effects: []
-_id: 'HiLc6Mnb52axOAlB'
+_id: '4T6ZX1vrodiD7rUy'

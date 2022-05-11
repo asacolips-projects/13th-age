@@ -1,4 +1,4 @@
-name: 'Ranged Attack (Wizard)'
+name: '(Cantrip) Prestidigitation'
 permission:
   default: 0
 type: 'power'
@@ -20,11 +20,11 @@ data:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'feature'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'at-will'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'One enemy'
+    value: ''
   always:
     type: 'String'
     label: 'Always'
@@ -52,11 +52,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+    value: ''
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]]'
+    value: ''
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '—'
+    value: ''
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>This cantrip produces magic tricks and small illusions. One casting usually gives you a minute of fun. The magic has nowhere near as much real world force as mage hand.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -174,8 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: null
+    value: 'Cantrip'
+    type: 'String'
+    label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/items/weapons/crossbow-heavy.jpg'
+img: 'systems/archmage/assets/icons/skills/violet_17.jpg'
 effects: []
-_id: 'HiLc6Mnb52axOAlB'
+_id: 'JbZWOD3FxONAoIjt'

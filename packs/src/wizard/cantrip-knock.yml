@@ -1,4 +1,4 @@
-name: 'Feather Fall'
+name: '(Cantrip) Knock'
 permission:
   default: 0
 type: 'power'
@@ -24,7 +24,7 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,11 +32,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Close-quarters spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When you cast this spell, it arrests your fall, letting you glide down the ground over a round or two.</p>'
+    value: '<p>This cantrip summons a magical servitor three to four times as big as your closed fist that swarms around the door and attempts to punch or push it open (depending on whether you want to be quiet or announce your presence). Success is determined with an Intelligence check against the environment''s DC using an appropriate magical background. This cantrip does nothing to avoid any traps that might exist.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: 'You can now target a nearby ally with the spell.'
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'You can now target up to two nearby creatures with the spell.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'You can now target up to five nearby creatures with the spell.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'You gain some control over where a target falls, like a quickly gliding feather.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Utility'
+    value: 'Cantrip'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/items/inventory/feather-green.jpg'
+img: 'systems/archmage/assets/icons/skills/blood_11.jpg'
 effects: []
-_id: '4T6ZX1vrodiD7rUy'
+_id: 'hS8cWa2bLyY4etvK'

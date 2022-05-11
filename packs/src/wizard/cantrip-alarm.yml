@@ -1,4 +1,4 @@
-name: 'Arcane Mark (standard duration)'
+name: '(Cantrip) Alarm'
 permission:
   default: 0
 type: 'power'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The cantrip creates a magical sigil on an object or person. These sigils are usually plain to see, though a deliberately invisible mark can be made. It takes a difficult perception or magic check to notice.</p>'
+    value: '<p>The cantrip creates a minor watch-sprite that can be instructed to scream if someone comes through an area or touches an object. Watch-sprites are notoriously stupid and sleepy, but with the right talking-to they might stay focused for the duration of the spell. At higher levels, the spell might summon little fanged spirits buzzing back and forth serving as both visual and actual deterrents.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/blue_03.jpg'
+img: 'systems/archmage/assets/icons/skills/blue_17.jpg'
 effects: []
-_id: '6hcBlFzLWhdxtAjw'
+_id: 'h4QndyKufg5K67E6'

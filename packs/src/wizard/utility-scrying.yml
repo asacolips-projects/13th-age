@@ -1,4 +1,4 @@
-name: 'Disguise Self'
+name: '(Utility) Scrying'
 permission:
   default: 0
 type: 'power'
@@ -28,7 +28,7 @@ data:
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 7
   actionType:
     type: 'String'
     label: 'Action'
@@ -36,7 +36,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: 'Close-quarters spell'
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This spell provides you with an effective magical disguise that lasts about ten minutes, making the skill check to avoid unmasking one step easier: easy if it would have been a normal task, normal if it would have been a hard task, and hard if it would have been a ridiculously hard task. The spell only affects your general appearance, not your size. It can be used to hide your features behind the generic features of another person or race. Using it to impersonate a specific creature makes it less effective as a disguise (-2 to -5 penalty).</p>'
+    value: "<p>You can use this spell to get information you shouldn't be able to get, peering in on other people's lives for a short period of time, usually no more than ten minutes at a time. Some areas may be warded at the GM's discretion. You must have touched the person you wish to spy on in the last month, or, at 9th\_level, within the last a year.</p><p>Scrying as a single standard action won't yield much. Concentrating on the spell for a while with props like a scrying pool or a crystal ball will work better.</p>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: 'The spell lasts for 1 hour.'
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'The spell also provides smell; +2 bonus to any checks.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'The spell also handles correct-sounding vocal patterns and rough mannerisms; +4 bonus to any checks.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'You can now target an ally with the spell; you can also now use it on up to two creatures at once.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/blue_35.jpg'
+img: 'systems/archmage/assets/icons/skills/emerald_02.jpg'
 effects: []
-_id: 'KHGhu7Xl6bo1IfS3'
+_id: 'kuKmrcwyen3qNJHL'

@@ -1,4 +1,4 @@
-name: 'Message'
+name: '(Cantrip) Spark'
 permission:
   default: 0
 type: 'power'
@@ -24,19 +24,19 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 3
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'quick'
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Close-quarters spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You send a one to two sentence message to another person you know and have touched in the last week. Sending a message to a person you can see is always easy. Sending a message to a person you can''t see requires a skill check using Intelligence against the highest-tier environment that you or the sender are occupying.</p><p>The maximum distance you can send a message depends on the spell''s level.</p>'
+    value: '<p>This is a minor fire creation spell, enough to light a pipe, or a campfire, or even a page or two of an unprotected spellbook. It doesn''t work against living beings or against things that couldn''t easily be set on fire with a few seconds of steady application of a candle. The target of the spark has to be nearby and in sight.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: 'Across half a city, at most.'
+    value: ''
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'Across the entire city and a bit into the countryside.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'Between cities near to each other.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'From any city to any other city, or across a sea.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Utility'
+    value: 'Cantrip'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/yellow_41.jpg'
+img: 'systems/archmage/assets/icons/skills/mech_14.jpg'
 effects: []
-_id: 'VTWsVSkMbDSaKROz'
+_id: 'UmEtIfe1TSxLt0a1'

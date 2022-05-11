@@ -1,4 +1,4 @@
-name: 'Ghost Sound'
+name: 'Swordwork'
 permission:
   default: 0
 type: 'power'
@@ -16,27 +16,27 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Wizard'
+    value: 'Commander'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'spell'
+    value: 'power'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'recharge'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 3
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'free'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Tactic'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This spell creates false noises emanating from somewhere nearby. The effect is like an exceptionally good version of throwing your voice, if your voice could create a wide variety of sounds. Attempted distractions with the cantrip are DC 15 challenges in adventurer environments, higher as you move into champion and epic environments. If someone is using ghost sound against the PCs, a Wisdom-based skill check can identify the sound as a magical fake.</p>'
+    value: '<p>You can make a basic melee attack as a quick action once each turn until the end of the battle. You can’t gain command points from your Fight from the Front class feature using swordwork attacks.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -136,21 +136,21 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: 0
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: null
+        value: '<p>You can now use this tactic when the escalation die is 3+.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: null
+        value: '<p>You can now gain command points from your Fight from the Front class feature using swordwork attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,16 +168,16 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: null
+        value: '<p>The recharge roll is now 11+.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
   group:
-    value: 'Cantrip'
+    value: 'Tactic'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/affliction_08.jpg'
+img: 'systems/archmage/assets/icons/skills/yellow_37.jpg'
 effects: []
-_id: 'RV1u2Pm0SamXmpOr'
+_id: 'AvXhdViMlMI8ssDy'

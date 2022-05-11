@@ -1,4 +1,4 @@
-name: 'Knock'
+name: '(Utility) Water Breathing'
 permission:
   default: 0
 type: 'power'
@@ -24,19 +24,19 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 5
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Close-quarters spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This cantrip summons a magical servitor three to four times as big as your closed fist that swarms around the door and attempts to punch or push it open (depending on whether you want to be quiet or announce your presence). Success is determined with an Intelligence check against the environment''s DC using an appropriate magical background. This cantrip does nothing to avoid any traps that might exist.</p>'
+    value: '<p>You can breathe underwater for the rest of the battle (or about five minutes). You become aware a couple of rounds ahead of when the magic of the spell is about to end.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -120,11 +120,11 @@ data:
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'You and [[1d4+2]] nearby allies can breathe underwater this battle.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'The spell affects you and [[1d6+2]] nearby allies for [[4d6]] hours.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Cantrip'
+    value: 'Utility'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/blood_11.jpg'
+img: 'systems/archmage/assets/icons/items/inventory/element-water.jpg'
 effects: []
-_id: 'hS8cWa2bLyY4etvK'
+_id: 'RyIsBF4AiacLxdoo'

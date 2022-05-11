@@ -1,4 +1,4 @@
-name: 'Levitate'
+name: '(Cantrip) Light'
 permission:
   default: 0
 type: 'power'
@@ -24,11 +24,11 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'daily'
+    value: 'other'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 3
+    value: 1
   actionType:
     type: 'String'
     label: 'Action'
@@ -36,7 +36,7 @@ data:
   range:
     type: 'String'
     label: 'Range'
-    value: 'Ranged spell'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, you can use a move action to rise straight up into the air or descend straight down. The spell itself won''t move you horizontally. The up-or-down movement is about half as fast as your normal movement. While levitating, you take a –2 penalty to your attacks and are vulnerable to attacks against you.</p>'
+    value: '<p>This cantrip creates a fairly wide and consistent field of light, up to 30 feet in diameter, though it isn''t bright enough to dazzle.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,15 +116,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: 'You can now cast the spell on a nearby willing ally instead of yourself.'
+    value: ''
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: 'You can now cast the spell as a quick action, and the spell can now affect two targets.'
+    value: ''
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'The spell can now affect five targets.'
+    value: ''
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Utility'
+    value: 'Cantrip'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/blue_25.jpg'
+img: 'systems/archmage/assets/icons/skills/mech_13.jpg'
 effects: []
-_id: 'jkcJIDSjKulW8mSi'
+_id: 'Fx8tKgeWGrXKEaCA'

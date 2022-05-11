@@ -1053,9 +1053,10 @@ export class ActorArchmage extends Actor {
       if (item.type != 'power' && item.type != 'equipment') continue;
 
       let usageArray = ['once-per-battle','daily','recharge'];
-      let fallbackQuantity = usageArray.includes(item.data.data.powerUsage?.value) || item.data.data.quantity.value !== null ? 1 : null;
+      let fallbackQuantity = item.data.data.quantity.value !== null ? 1 : null;
       let maxQuantity = item.data.data?.maxQuantity?.value ?? fallbackQuantity;
-      if (maxQuantity && item.data.data.quantity.value < maxQuantity) {
+      if (maxQuantity && item.data.data.quantity.value < maxQuantity
+        && usageArray.includes(item.data.data.powerUsage?.value)) {
         await item.update({
           'data.quantity': {value: maxQuantity},
           'data.rechargeAttempts': {value: 0}

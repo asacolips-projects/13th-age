@@ -1,4 +1,4 @@
-name: 'Spark'
+name: '(Cantrip) Arcane Mark'
 permission:
   default: 0
 type: 'power'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This is a minor fire creation spell, enough to light a pipe, or a campfire, or even a page or two of an unprotected spellbook. It doesn''t work against living beings or against things that couldn''t easily be set on fire with a few seconds of steady application of a candle. The target of the spark has to be nearby and in sight.</p>'
+    value: '<p>The cantrip creates a magical sigil on an object or person. These sigils are usually plain to see, though a deliberately invisible mark can be made. It takes a difficult perception or magic check to notice.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/mech_14.jpg'
+img: 'systems/archmage/assets/icons/skills/blue_03.jpg'
 effects: []
-_id: 'UmEtIfe1TSxLt0a1'
+_id: '6hcBlFzLWhdxtAjw'

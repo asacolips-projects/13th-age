@@ -169,7 +169,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You and each of your allies gain a +[[max(@str.mod,@wis.mod]] bonus to the save.</p>'
+        value: '<p>You and each of your allies gain a +[[max(@str.mod,@wis.mod)]] bonus to the save.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
