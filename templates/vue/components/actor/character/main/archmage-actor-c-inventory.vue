@@ -116,7 +116,6 @@ export default {
       let groups = {};
       let sortTypes = [
         'equipment',
-        'tool',
         'loot',
       ];
       // Handle the built-in sort types.
@@ -127,14 +126,10 @@ export default {
       return groups;
     },
     equipmentGroups() {
-      let sortTypes = [
-        'equipment',
-        'tool',
-        'loot',
-      ];
-
       let equipmentByGroup = this.equipment.reduce((equipmentGroup, equipment) => {
         let group = equipment.type ? equipment.type : 'equipment';
+        // Override legacy 'tool' with 'loot'
+        group = group == 'tool' ? 'loot' : group;
 
         // Create the group if it doesn't exist.
         if (!equipmentGroup[group]) {
