@@ -195,6 +195,135 @@
       "name": "srd-Monsters",
       "path": "packs/dist/srd-monsters.db",
       "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Armors",
+      "entity": "Item",
+      "name": "srd-magic-items-armors",
+      "path": "packs/dist/srd-magic-items-armors.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Arrows",
+      "entity": "Item",
+      "name": "srd-magic-items-arrows",
+      "path": "packs/dist/srd-magic-items-arrows.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Belts",
+      "entity": "Item",
+      "name": "srd-magic-items-belts",
+      "path": "packs/dist/srd-magic-items-belts.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Books",
+      "entity": "Item",
+      "name": "srd-magic-items-books",
+      "path": "packs/dist/srd-magic-items-books.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Chuul Symbiotes"
+    },
+    {
+      "label": "SRD Magic Items - Boots",
+      "entity": "Item",
+      "name": "srd-magic-items-boots",
+      "path": "packs/dist/srd-magic-items-boots.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Chuul Symbiotes",
+      "entity": "Item",
+      "name": "srd-magic-items-chuul-symbiotes",
+      "path": "packs/dist/srd-magic-items-chuul-symbiotes.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Cloaks",
+      "entity": "Item",
+      "name": "srd-magic-items-cloaks",
+      "path": "packs/dist/srd-magic-items-cloaks.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Cursed",
+      "entity": "Item",
+      "name": "srd-magic-items-cursed",
+      "path": "packs/dist/srd-magic-items-cursed.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Gloves",
+      "entity": "Item",
+      "name": "srd-magic-items-gloves",
+      "path": "packs/dist/srd-magic-items-gloves.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Helmets",
+      "entity": "Item",
+      "name": "srd-magic-items-helmets",
+      "path": "packs/dist/srd-magic-items-helmets.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Necklaces",
+      "entity": "Item",
+      "name": "srd-magic-items-necklaces",
+      "path": "packs/dist/srd-magic-items-necklaces.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Rings",
+      "entity": "Item",
+      "name": "srd-magic-items-rings",
+      "path": "packs/dist/srd-magic-items-rings.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Shields",
+      "entity": "Item",
+      "name": "srd-magic-items-shields",
+      "path": "packs/dist/srd-magic-items-shields.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Staffs",
+      "entity": "Item",
+      "name": "srd-magic-items-staffs",
+      "path": "packs/dist/srd-magic-items-staffs.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Symbols",
+      "entity": "Item",
+      "name": "srd-magic-items-symbols",
+      "path": "packs/dist/srd-magic-items-symbols.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Wands",
+      "entity": "Item",
+      "name": "srd-magic-items-wands",
+      "path": "packs/dist/srd-magic-items-wands.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Weapons",
+      "entity": "Item",
+      "name": "srd-magic-items-weapons",
+      "path": "packs/dist/srd-magic-items-weapons.db",
+      "system": "archmage"
+    },
+    {
+      "label": "SRD Magic Items - Wondrous Items",
+      "entity": "Item",
+      "name": "srd-magic-items-wondrous-items",
+      "path": "packs/dist/srd-magic-items-wondrous-items.db",
+      "system": "archmage"
     }
   ],
   "languages": [

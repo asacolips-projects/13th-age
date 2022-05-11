@@ -1,0 +1,68 @@
+_id: 'UIQr8utaVUcq4RaF'
+name: 'Rasping Greaves (boots)'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>A carapace covers each of your legs and has an unblinking armored eye on the knee. Unfolding blade-like appendages whip out at those engaged with you.</p>\n<p>Always: When you make an opportunity attack, the target takes +[[1d6]] extra damage on a hit (champion: +[[2d8]]; epic: +[[4d10]]).</p>\n<p>Quirk: A billow-like lung inside each greave makes a breathing sound.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '0'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'boots'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
