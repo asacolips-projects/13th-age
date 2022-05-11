@@ -1,4 +1,4 @@
-name: 'Mage Hand'
+name: '(Utility) Message'
 permission:
   default: 0
 type: 'power'
@@ -24,19 +24,19 @@ data:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 3
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'standard'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Close-quarters spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,23 +108,23 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>This cantrip creates a small telekinetic effect that lasts a round at most. At best it''s about half as strong as the wizard''s own strongest hand. At worst it''s half as strong as the wizard when they''re weak from a bad fever.</p>'
+    value: '<p>You send a one to two sentence message to another person you know and have touched in the last week. Sending a message to a person you can see is always easy. Sending a message to a person you can''t see requires a skill check using Intelligence against the highest-tier environment that you or the sender are occupying.</p><p>The maximum distance you can send a message depends on the spell''s level.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: ''
+    value: 'Across half a city, at most.'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'Across the entire city and a bit into the countryside.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'Between cities near to each other.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'From any city to any other city, or across a sea.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -174,10 +174,10 @@ data:
         label: 'Active'
         value: false
   group:
-    value: 'Cantrip'
+    value: 'Utility'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/violet_28.jpg'
+img: 'systems/archmage/assets/icons/skills/yellow_41.jpg'
 effects: []
-_id: 'cW0ORlmw9BDNTIM0'
+_id: 'VTWsVSkMbDSaKROz'

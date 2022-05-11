@@ -1,4 +1,4 @@
-name: 'Alarm (standard duration)'
+name: '(Cantrip) Mending'
 permission:
   default: 0
 type: 'power'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The cantrip creates a minor watch-sprite that can be instructed to scream if someone comes through an area or touches an object. Watch-sprites are notoriously stupid and sleepy, but with the right talking-to they might stay focused for the duration of the spell. At higher levels, the spell might summon little fanged spirits buzzing back and forth serving as both visual and actual deterrents.</p>'
+    value: '<p>This cantrip summons a variety of tiny (hand-sized and smaller) magical sprites who swarm over a chosen broken object attempting to mend it (over the course of 1–6 rounds). Small-scale repairs like torn wineskins, muddy clothing, a broken handgrip on a sword, and similar repairs that anyone could fix with two to four hours of devoted work gets handled in seconds. More elaborate repairs to complicated objects might require an Intelligence check, or at the GM''s discretion could only be possible if the wizard has taken the Cantrip Mastery talent.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -178,6 +178,6 @@ data:
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/blue_17.jpg'
+img: 'systems/archmage/assets/icons/skills/yellow_21.jpg'
 effects: []
-_id: 'h4QndyKufg5K67E6'
+_id: 'yq31NuitFLbKrnhM'

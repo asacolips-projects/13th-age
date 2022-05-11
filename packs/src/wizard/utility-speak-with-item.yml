@@ -1,4 +1,4 @@
-name: 'Sword Work'
+name: '(Utility) Speak with Item'
 permission:
   default: 0
 type: 'power'
@@ -16,15 +16,15 @@ data:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Commander'
+    value: 'Wizard'
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'power'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'recharge'
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -32,11 +32,11 @@ data:
   actionType:
     type: 'String'
     label: 'Action'
-    value: 'free'
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
-    value: 'Tactic'
+    value: 'Close-quarters spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You can make a basic melee attack as a quick action once each turn until the end of the battle. You can’t gain command points from your Fight from the Front class feature using swordwork attacks.</p>'
+    value: '<p>Speak briefly, mind-to-mind, with a magic item you are touching that is owned by you or one of your allies. The item''s owner gets a free power recharge roll if that item''s power has been expended.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -116,15 +116,15 @@ data:
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
-    value: ''
+    value: 'You no longer need to be touching the item; it only has to be nearby.'
   spellLevel7:
     type: 'String'
     label: '7th Level Spell'
-    value: ''
+    value: 'The item&#039;s owner gains a +2 bonus to the item recharge roll.'
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: ''
+    value: 'If the item recharge roll fails, you keep this spell, but the item won&#039;t talk to you until after your next full heal-up.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
@@ -136,21 +136,21 @@ data:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: null
+    value: 0
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You can now use this tactic when the escalation die is 3+.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>You can now gain command points from your Fight from the Front class feature using swordwork attacks.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -168,16 +168,16 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The recharge roll is now 11+.</p>'
+        value: null
       isActive:
         type: 'Boolean'
         label: 'Active'
         value: false
   group:
-    value: 'Tactic'
+    value: 'Utility'
     type: 'String'
     label: 'Group'
 flags: {}
-img: 'systems/archmage/assets/icons/skills/yellow_37.jpg'
+img: 'systems/archmage/assets/icons/skills/green_18.jpg'
 effects: []
-_id: 'AvXhdViMlMI8ssDy'
+_id: 'lqYNLFXU6J6EokZ8'
