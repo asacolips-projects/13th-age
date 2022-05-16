@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: ''
+    value: 'On a miss, the spell is not detectible by most others unless you miss by 4+ or roll a natural 1, in which case the target and its allies knows what you tried to do and will usually be angry about it.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>This spell cannot be cast during combat or on a target that has rolled initiative to fight.</p><p>On a miss, the spell is not detectible by most others unless you miss by 4+ or roll a natural 1, in which case the target and its allies knows what you tried to do and will usually be angry about it.</p>'
+    value: '<p>This spell cannot be cast during combat or on a target that has rolled initiative to fight.</p>'
   effect:
     type: 'String'
     label: 'Effect'
