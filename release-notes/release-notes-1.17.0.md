@@ -36,6 +36,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - Fix `Assassin's Gambit` power
     - Fix `Swordwork` recharge value
     - Fix `Three Dooms` spell
+    - Fix missing text in `Charm Person` spell
     - Fix wizard's `Ranged Basic Attack`
     - Clean up `Wizard's Familiar` and `Cantrips`
     - Mark cantrips and utility spells more clearly
