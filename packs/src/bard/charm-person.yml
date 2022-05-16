@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target believes you are their friend until you or your allies take hostile action against them. (Attacking their normal allies is okay.) If you or your allies attack the target or order the target to attack its normal allies, the target can roll a nor'
+    value: 'The target believes you are their friend until you or your allies take hostile action against them. (Attacking their normal allies is okay.) If you or your allies attack the target or order the target to attack its normal allies, the target can roll a normal save to break the charm effect during its turn each round.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
