@@ -1,0 +1,68 @@
+_id: 'FTar5bTTguz1MGmI'
+name: 'Longbow of Fallen Grace (+3 longbow)'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>(Recharge 16+) If your elven grace racial ability roll failed this turn, use the natural result of this bow&rsquo;s attack roll as another elven grace roll, after you see the roll.</p>\n<p>Quirk: Complains too often that the glorious centuries of old are gone forever.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '16'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: '1'
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 3
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'ranged'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}

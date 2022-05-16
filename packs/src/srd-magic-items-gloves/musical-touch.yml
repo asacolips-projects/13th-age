@@ -1,0 +1,68 @@
+_id: 'm3eqWW8okprDlYqu'
+name: 'Musical Touch'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>While you wear these fine silk gloves, you can play any musical instrument without instruction. The gloves, however, don&rsquo;t make you any more of a musician than you already are.</p>\n<p>Quirk: Hums and picks up tunes easily.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'other'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '0'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: null
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'glove'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}

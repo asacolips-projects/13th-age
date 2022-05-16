@@ -35,7 +35,7 @@ export class ItemArchmage extends Item {
       return this._roll_resource_check({});
     } else {
       let updateData = {"data.quantity.value": Math.max(uses - 1, 0)};
-      if (uses == 0 && !event.shiftKey
+      if (uses == 0 && !event.shiftKey && this.type == "power"
         && this.data.data.powerUsage.value != 'at-will') {
         let use = false;
         new Dialog({
@@ -573,6 +573,16 @@ export class ItemArchmage extends Item {
   }
 
   _nastierSpecialChatData() {
+    const data = duplicate(this.data.data);
+    return data;
+  }
+
+  _toolChatData() {
+    const data = duplicate(this.data.data);
+    return data;
+  }
+
+  _lootChatData() {
     const data = duplicate(this.data.data);
     return data;
   }
