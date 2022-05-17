@@ -2004,6 +2004,15 @@ input[type="checkbox"] {
   }
 }
 
+// Lootsheet hotfix.
+.archmage.sheet {
+  form {
+    .item-details {
+      flex: 0 1 auto;
+    }
+  }
+}
+
 .archmage.actor-sheet.npc-sheet {
   .charlevel {
     .initiative {
