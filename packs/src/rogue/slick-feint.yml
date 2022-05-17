@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: null
+    value: 'One enemy engaged with you'
   always:
     type: 'String'
     label: 'Always'
@@ -52,11 +52,11 @@ data:
   attack:
     type: 'String'
     label: 'Attack'
-    value: null
+    value: '[[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD'
   hit:
     type: 'String'
     label: 'Hit'
-    value: null
+    value: 'The target is dazed until the end of your next turn, and you can make an improved attack against a second target.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: null
+    value: 'Your attack action is over; the feint was a screw-up.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p><strong>First</strong> <strong>Target</strong>: One enemy engaged with you</p><p><strong>Attack</strong>: [[d20+@cha.mod+@std+@atk.m.bonus]] vs. MD</p><p><strong>Hit</strong>: The target is dazed until the end of your next turn, and you can make an improved attack against a second target.</p><p>Miss (First Target): Your attack action is over; the feint was a screw-up.</p><p><strong>Second</strong> <strong>Target</strong>: A different enemy from the first target that is engaged with you</p><p><strong>Attack</strong>: [[d20+2+@dex.mod+@std+@atk.m.bonus]] vs. AC</p><p><strong>Hit</strong>: [[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.</p><p>Miss (Second Target): [[@lvl]] damage.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'

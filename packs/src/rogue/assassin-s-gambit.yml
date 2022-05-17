@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage (including Sneak Attack damage if any), and if you drop a non-mook target to 0 hp, you can take another standard action this turn.'
+    value: 'Half of [[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage (including Sneak Attack damage if any), and if you drop a non-mook target to 0 hp, you can take another standard action this turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

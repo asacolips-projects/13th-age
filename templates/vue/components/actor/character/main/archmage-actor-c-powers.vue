@@ -176,6 +176,8 @@ export default {
         // Handle the built-in group types.
         if (sortTypes.includes(this.groupBy)) {
           group = powerData[this.groupBy] && powerData[this.groupBy].value ? powerData[this.groupBy].value : 'other';
+          // Override legacy 'maneuver' with 'flexible'
+          group = group == 'maneuver' ? 'flexible' : group;
         }
         // Handle custom groups.
         else if (this.groupBy == 'group') {
