@@ -2,6 +2,7 @@ import { OneDotSevenTour } from './1_7_tour.js';
 import { OneDotEightTour } from './1_8_tour.js';
 import { OneDotNineTour } from './1_9_tour.js';
 import { OneDotTenTour } from './1_10_tour.js';
+import { OneDotSeventeenTour } from './1_17_tour.js';
 
 export class TourGuide {
 
@@ -19,6 +20,9 @@ export class TourGuide {
         }
         else if (isNewerVersion("1.10.0", lastTourVersion)) {
             new OneDotTenTour().start();
+        }
+        else if (isNewerVersion("1.17.0", lastTourVersion)) {
+            new OneDotSeventeenTour().start();
         }
     }
 }
