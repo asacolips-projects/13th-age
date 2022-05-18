@@ -483,5 +483,9 @@
   "ARCHMAGE.TOURS.1100.iconRolls": "Icon rolls are now stored on the sheet! You can also click an icon result icon to cycle through 5, 6, and empty results.",
   "ARCHMAGE.TOURS.1100.rests": "The sheet now supports both quick rests and full heal-ups! Find them in the new resources section of the character sheet directly above powers.",
   "ARCHMAGE.TOURS.1100.powerImporter": "The power importer has been redesigned! The new design is much closer to a character builder, and will pull from any classes and races detected on your character sheet.",
-  "ARCHMAGE.TOURS.1100.end": "There's also a variety of bug fixes and minor tweaks added to the system! Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+  "ARCHMAGE.TOURS.1100.end": "There's also a variety of bug fixes and minor tweaks added to the system! Come join us in the Foundry Discord #13th-age channel for questions and feedback!",
+  "ARCHMAGE.TOURS.1170.welcome": "Welcome to Toolkit13 (13th Age Compatible) version 1.17.0! We have some important changes for critical hits in this release.",
+  "ARCHMAGE.TOURS.1170.crits": "<strong>Crits no longer double damage automatically.</strong>. Instead, each target that was critted against will be <strong>bold</strong> in the chat card. We've also added offensive and defensive crit modifiers as new settings within character sheets, and we've added an Active Effect to the vulnerable condition.",
+  "ARCHMAGE.TOURS.1170.compendia": "We have several corrections to existing compendia entries, and we've added <strong>magic items</strong> from the SRD!",
+  "ARCHMAGE.TOURS.1170.end": "There's also a variety of bug fixes and minor tweaks added to the system! You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.17.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
 }

@@ -3,7 +3,7 @@ export class OneDotTenTour {
         let tour = introJs()
 
         tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.10.0");
+          game.settings.set("archmage", "lastTourVersion", "1.17.0");
         });
         tour.oncomplete(function() {
           game.settings.set("archmage", "lastTourVersion", "1.10.0");
