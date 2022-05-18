@@ -341,7 +341,7 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.16.2/raw/archmage.zip?job=build-prod",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.17.0/raw/archmage.zip?job=build-prod",
   "dependencies": [
     {
       "name": "dlopen",

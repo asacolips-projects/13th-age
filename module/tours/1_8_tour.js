@@ -3,7 +3,7 @@ export class OneDotEightTour {
         let tour = introJs()
 
         tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.8.0");
+          game.settings.set("archmage", "lastTourVersion", "1.17.0");
         });
         tour.oncomplete(function() {
           game.settings.set("archmage", "lastTourVersion", "1.8.0");
@@ -15,7 +15,7 @@ export class OneDotEightTour {
 
         tour.setOptions({
             steps: [
-              { 
+              {
                 intro: game.i18n.localize("ARCHMAGE.TOURS.180.welcome")
               },
               {
@@ -28,12 +28,12 @@ export class OneDotEightTour {
                 intro: game.i18n.localize("ARCHMAGE.TOURS.180.escalationDie"),
                 position: 'bottom'
               },
-              { 
+              {
                 element: document.querySelector('.fa-cogs'),
                 intro: game.i18n.localize("ARCHMAGE.TOURS.180.tierShorthand"),
                 position: 'bottom'
               },
-              { 
+              {
                 intro: game.i18n.localize("ARCHMAGE.TOURS.180.end")
               },
             ]

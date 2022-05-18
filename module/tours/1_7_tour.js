@@ -3,7 +3,7 @@ export class OneDotSevenTour {
         let tour = introJs()
 
         tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.7.0");
+          game.settings.set("archmage", "lastTourVersion", "1.17.0");
         });
         tour.oncomplete(function() {
           game.settings.set("archmage", "lastTourVersion", "1.7.0");
@@ -25,20 +25,20 @@ export class OneDotSevenTour {
 
         tour.setOptions({
             steps: [
-              { 
+              {
                 intro: game.i18n.localize("ARCHMAGE.TOURS.170.welcome")
               },
-              { 
+              {
                 element: document.querySelector('.fa-cogs'),
                 intro: game.i18n.localize("ARCHMAGE.TOURS.170.documentation"),
                 position: 'bottom'
               },
-              { 
+              {
                 element: document.querySelector('[data-action="userguide]"'),
                 intro: game.i18n.localize("ARCHMAGE.TOURS.170.cards"),
                 position: 'bottom'
               },
-              { 
+              {
                 element: document.querySelector('.fa-users'),
                 intro: game.i18n.localize("ARCHMAGE.TOURS.170.sheets"),
                 position: 'bottom'
@@ -63,7 +63,7 @@ export class OneDotSevenTour {
                 intro: game.i18n.localize("ARCHMAGE.TOURS.170.generalFeats"),
                 position: 'bottom'
               },
-              { 
+              {
                 intro: game.i18n.localize("ARCHMAGE.TOURS.170.end")
               },
             ]
