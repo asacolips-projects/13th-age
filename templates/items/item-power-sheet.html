@@ -272,6 +272,13 @@
                           </details>
                       </div>
                   </details>
+
+                  {{#if sequencerEnabled }}
+                  <div class="form-group">
+                      <label>{{localize 'ARCHMAGE.CHAT.sequencerFile'}}</label>
+                      <input type="text" name="data.sequencer.file" value="{{data.sequencer.file}}" data-dtype="String" placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Creature/Claws_01_Regular_Red_200x200.webm"/>
+                  </div>
+                  {{/if}}
               </div>
             </div>
         </section>
