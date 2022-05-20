@@ -239,7 +239,7 @@ export class ItemArchmage extends Item {
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     let sequencerFile = this.data.data.sequencer?.file;
-    preCreateChatMessageHandler.handle(chatData, {
+    let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
       type: this.data.type,
       actor: this.actor,
@@ -298,6 +298,11 @@ export class ItemArchmage extends Item {
           }
         }
       }
+    }
+
+    // Play sequencer animation after the dice, if we got any
+    if(sequencerAnim) {
+      sequencerAnim.play();
     }
 
     if (!isObjectEmpty(itemUpdateData)) this.update(itemUpdateData, {});

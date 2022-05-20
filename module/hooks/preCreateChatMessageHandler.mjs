@@ -28,6 +28,8 @@ export default class preCreateChatMessageHandler {
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');
 
+        let sequence = undefined;
+
         if ($rows.length > 0) {
 
             // Iterate through each of the card properties/rows.
@@ -124,10 +126,9 @@ export default class preCreateChatMessageHandler {
                         .missed(missed)
                 }
 
-                let sequence = new Sequence();
+                sequence = new Sequence();
                 hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, false));
                 hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, true));
-                sequence.play();
             }
 
             // Update the content
@@ -137,5 +138,6 @@ export default class preCreateChatMessageHandler {
                 data.content = updated_content;
             }
         }
+    return sequence;
     }
 }
