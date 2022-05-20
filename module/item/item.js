@@ -238,13 +238,14 @@ export class ItemArchmage extends Item {
     // TODO: remove once rolls are correctly pre-rolled above
     chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
-    let sequencerFile = this.data.data.sequencer?.file;
     let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
       type: this.data.type,
       actor: this.actor,
+      token: token,
       powerLevel: this.data.data.powerLevel?.value,
-      sequencerFile: sequencerFile
+      sequencerFile: this.data.data.sequencer?.file,
+      sequencerStretch: this.data.data.sequencer?.stretch,
     }, null);
 
     // If 3d dice are enabled, handle them first.

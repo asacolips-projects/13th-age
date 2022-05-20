@@ -54,6 +54,10 @@
             <label>{{localize 'ARCHMAGE.CHAT.sequencerFile'}}</label>
             <input type="text" name="data.sequencer.file" value="{{data.sequencer.file}}" data-dtype="String" placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Creature/Claws_01_Regular_Red_200x200.webm"/>
         </div>
+        <div class="form-group">
+            <label>{{localize 'ARCHMAGE.CHAT.sequencerStretch'}}</label>
+            <input type="checkbox" name="data.sequencer.stretch" value="1" data-dtype="Boolean" {{checked data.sequencer.stretch}}/>
+        </div>
         {{/if}}
 
         {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
