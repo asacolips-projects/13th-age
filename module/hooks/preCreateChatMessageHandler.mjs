@@ -123,6 +123,7 @@ export default class preCreateChatMessageHandler {
                 // Display Sequencer Effects
                 function addAttack(sequence, source, towards, stretch, missed) {
                   if (stretch) {
+                    if (!source) return sequence;
                     return sequence
                         .effect()
                         .atLocation(source)
