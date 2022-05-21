@@ -31,6 +31,9 @@ export default class preCreateChatMessageHandler {
         let $rows = $content.find('.card-prop');
 
         let sequence = undefined;
+        let sequencerFile = options.sequencer?.file;
+        let sequencerStretch = options.sequencer?.stretch;
+        let sequencerPersonal = options.sequencer?.personal;
 
         if ($rows.length > 0) {
 
@@ -111,13 +114,15 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile) {
-
-                let sequencerFile = options.sequencerFile;
-                let stretch = options.sequencerStretch;
+            if (game.modules.get("sequencer")?.active && sequencerFile && sequencerPersonal && token) {
+              sequence = new Sequence();
+              sequence.effect().atLocation(token).file(sequencerFile);
+            }
+            else if (hitEvaluationResults && game.modules.get("sequencer")?.active && sequencerFile) {
                 if (sequencerFile === "") {
                     // TODO: Using the damage type and range, default to various Setting configurable files
                     sequencerFile = "modules/JB2A_DnD5e/Library/Generic/Impact/Impact_07_Regular_Orange_400x400.webm";
+                    stretch = false;
                 }
 
                 // Display Sequencer Effects

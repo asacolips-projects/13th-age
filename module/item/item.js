@@ -244,8 +244,7 @@ export class ItemArchmage extends Item {
       actor: this.actor,
       token: token,
       powerLevel: this.data.data.powerLevel?.value,
-      sequencerFile: this.data.data.sequencer?.file,
-      sequencerStretch: this.data.data.sequencer?.stretch,
+      sequencer: this.data.data.sequencer
     }, null);
 
     // If 3d dice are enabled, handle them first.
