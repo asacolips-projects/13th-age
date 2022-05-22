@@ -122,7 +122,7 @@ export default class preCreateChatMessageHandler {
                 if (sequencerFile === "") {
                     // TODO: Using the damage type and range, default to various Setting configurable files
                     sequencerFile = "modules/JB2A_DnD5e/Library/Generic/Impact/Impact_07_Regular_Orange_400x400.webm";
-                    stretch = false;
+                    sequencerStretch = false;
                 }
 
                 // Display Sequencer Effects
@@ -146,8 +146,8 @@ export default class preCreateChatMessageHandler {
                 }
 
                 sequence = new Sequence();
-                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, stretch, false));
-                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, stretch, true));
+                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, sequencerStretch, false));
+                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, sequencerStretch, true));
             }
 
             // Update the content
