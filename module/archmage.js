@@ -166,7 +166,7 @@ Hooks.once('init', async function() {
     },
     "strongRecovery": {
       name: "Strong Recovery",
-      hint: "General feat to reroll some of your recovery die, keeping highest. Doesn't apply when taking average recoveries.",
+      hint: "General feat to reroll some of your recovery die, keeping highest.",
       section: "Feats",
       type: Boolean
     },
