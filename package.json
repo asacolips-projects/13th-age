@@ -2,22 +2,37 @@
   "name": "archmage",
   "version": "1.0.0",
   "description": "CSS compiler for the Archmage system",
+  "module": "./dist/components.vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/components.vue.es.js"
+    }
+  },
   "scripts": {
     "build": "gulp build",
     "compile": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
+    "vue": "gulp vue",
     "yaml": "gulp yaml",
     "compilePacks": "gulp compilePacks",
-    "extractPacks": "gulp extractPacks"
+    "extractPacks": "gulp extractPacks",
+    "vite:watch": "vite build --watch",
+    "vite:build": "vite build"
   },
   "browserslist": [
-    "last 3 versions"
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
   ],
   "author": "Asacolips",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "gulp": "^4.0.2",
@@ -40,9 +55,26 @@
     "path": "^0.12.7",
     "sass": "^1.52.3",
     "through2": "^4.0.2",
-    "vue-numeric-input": "^2.0.0",
-    "vue-select": "^3.18.3",
-    "vue-wysiwyg": "^1.7.2",
-    "yargs": "^17.5.1"
+    "yargs": "^17.5.1",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "eslint": "^8.17.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "vite": "^2.9.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+      "vue/no-mutating-props": 0
+    }
   }
 }

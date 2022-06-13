@@ -1,0 +1,98 @@
+<div>
+    <p class="notes">The following stats can all be used in inline or regular dice rolls.</p>
+    <p class="notes">Example attack: <span class="key">[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC</span></p>
+    <p class="notes">Example damage: <span class="key">[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] slashing damage</span></p>
+
+    <h3>Ability Modifiers</h3>
+    <ol class="hotkey-list">
+      <li>
+        <div class="keys">
+          <span class="key">@str.mod</span>
+          <span class="key">@dex.mod</span>
+          <span class="key">@con.mod</span>
+          <span class="key">@int.mod</span>
+          <span class="key">@wis.mod</span>
+          <span class="key">@cha.mod</span>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Ability Modifiers (x1 Adventurer, x2 Champion, x3 Epic)</h3>
+    <ol class="hotkey-list">
+      <li>
+        <div class="keys">
+          <span class="key">@str.dmg</span>
+          <span class="key">@dex.dmg</span>
+          <span class="key">@con.dmg</span>
+          <span class="key">@int.dmg</span>
+          <span class="key">@wis.dmg</span>
+          <span class="key">@cha.dmg</span>
+        </div>
+      </li>
+    </ol>
+
+    <p class="notes">Note: for multiclass characters the above are affected by the Key Modifier. For class powers that's fine, but should you need to access the unaltered modifiers you can use e.g. <span class="key">@str.nonKey.mod</span> or <span class="key">@str.nonKey.dmg</span>.</p>
+
+    <h3>Common Attributes</h3>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Escalation Die</h4>
+        <div class="keys"><span class="key">@ed</span></div>
+      </li>
+      <li>
+        <h4>Level</h4>
+        <div class="keys"><span class="key">@lvl</span></div>
+      </li>
+      <li>
+        <h4>Initiative</h4>
+        <div class="keys"><span class="key">@init</span></div>
+      </li>
+      <li>
+        <h4>Standard Attack Bonuses (Level + Escalation Die)</h4>
+        <div class="keys"><span class="key">@std</span></div>
+      </li>
+      <li>
+        <h4>Tier modifier (x1 Adventurer, x2 Champion, x3 Epic)</h4>
+        <div class="keys"><span class="key">@tier</span></div>
+      </li>
+    </ol>
+
+    <h3>Item Attack / Damage Bonuses</h3>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Melee, Ranged, Arcane, Divine</h4>
+        <div class="keys">
+          <span class="key">@atk.m.bonus</span>
+          <span class="key">@atk.r.bonus</span>
+          <span class="key">@atk.a.bonus</span>
+          <span class="key">@atk.d.bonus</span>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Weapons</h3>
+    <p>Weapons are broken down into melee (@wpn.m), ranged (@wpn.r), JAB (@wpn.j), PUNCH (@wpn.p), and KICK (@wpn.k). JAB, PUNCH, and KICK are intended for monks, and will use the monk damage die (d6, d8, d10, respectively) and will use Dexterity for attacks and Strength for damage.</p>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Weapon Damage Die (single)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.die</span>
+          <span class="key">@wpn.r.die</span>
+          <span class="key">@wpn.j.die</span>
+          <span class="key">@wpn.p.die</span>
+          <span class="key">@wpn.k.die</span>
+        </div>
+      </li>
+      <li>
+        <h4>Weapon Damage Dice (per level)</h4>
+        <div class="keys">
+          <span class="key">@wpn.m.dice</span>
+          <span class="key">@wpn.r.dice</span>
+          <span class="key">@wpn.j.dice</span>
+          <span class="key">@wpn.p.dice</span>
+          <span class="key">@wpn.k.dice</span>
+        </div>
+      </li>
+    </ol>
+
+</div>

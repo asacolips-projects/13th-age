@@ -1,0 +1,31 @@
+<div class="archmage chat-card icon-roll">
+  <header class="card-header flexrow">
+    <img src="{{actor.img}}" title="{{actor.name}}" width="36" height="36"/>
+    <h3 class="ability-usage ability-usage--recharge">{{icon.name.value}}: +{{icon.bonus.value}} {{icon.relationship.value}}</h3>
+  </header>
+  <div class="card-content">
+    <div class="dice-tooltip">
+      <section class="tooltip-part">
+        <div class="dice">
+            <header class="part-header flexrow">
+                <span class="part-formula">{{data.roll.formula}}</span>             
+                <span class="part-total">{{data.roll.total}}</span>
+            </header>
+            <ol class="dice-rolls">
+              {{#each data.roll.terms as |term i|}}
+                {{#each term.results as |result r|}}
+                <li class="roll die d{{term.faces}} result-{{result.result}}">{{result.result}}</li>
+                {{/each}}
+              {{/each}}
+            </ol>
+        </div>
+      </section>
+    </div>
+    <div class="card-row">
+      <div class="card-prop">
+        <span {{#if hasSixes}}style="color: green;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.unambiguousAdvantages' }}: </b> {{sixes}}</span><br />
+        <span {{#if hasFives}}style="color: orange;"{{/if}}><b>{{ localize 'ARCHMAGE.CHAT.complicatedAdvantages'}}: </b> {{fives}}</span>
+      </div>
+    </div>
+  </div>
+</div>

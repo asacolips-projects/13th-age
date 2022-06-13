@@ -22,8 +22,8 @@ const path = require("path");
 const clean = require("gulp-clean");
 
 // Constants.
-const PACK_SRC = "packs/src";
-const PACK_DEST = "packs/dist";
+const PACK_SRC = "src/packs/src";
+const PACK_DEST = "dist/packs";
 
 /* ----------------------------------------- */
 /*  Compile Compendia
@@ -161,21 +161,21 @@ function extractPacks() {
 /* Convert images
 /* ----------------------------------------- */
 const SYSTEM_IMAGES = [
-  'assets/src/**/*.{png,jpeg,jpg}',
+  'src/assets/src/**/*.{png,jpeg,jpg}',
 ];
 function compileImages() {
-  return gulp.src(SYSTEM_IMAGES, {base: 'assets/src'})
+  return gulp.src(SYSTEM_IMAGES, {base: 'src/assets/src'})
     .pipe(webp())
-    .pipe(gulp.dest('./assets/dist'));
+    .pipe(gulp.dest('./dist/assets'));
 };
 const imageTask = gulp.series(compileImages);
 
 const SYSTEM_SVG = [
-  'assets/src/**/*.svg',
+  'src/assets/src/**/*.svg',
 ];
 function compileSvg() {
-  return gulp.src(SYSTEM_SVG, {base: 'assets/src'})
-    .pipe(gulp.dest('./assets/dist'));
+  return gulp.src(SYSTEM_SVG, {base: 'src/assets/src'})
+    .pipe(gulp.dest('./dist/assets'));
 }
 const svgTask = gulp.series(compileSvg);
 
@@ -189,7 +189,7 @@ function handleError(err) {
   this.emit('end');
 }
 
-const SYSTEM_SCSS = ["scss/**/*.scss"];
+const SYSTEM_SCSS = ["src/scss/**/*.scss"];
 function compileScss() {
   // Configure options for sass output. For example, 'expanded' or 'nested'
   let options = {
@@ -203,27 +203,54 @@ function compileScss() {
     .pipe(prefix({
       cascade: false
     }))
-    .pipe(gulp.dest("./css"))
+    .pipe(gulp.dest("./dist/css"))
 }
 const css = gulp.series(compileScss);
 
 /* ----------------------------------------- */
 /*  Compile YAML
 /* ----------------------------------------- */
-const SYSTEM_YAML = ['./yaml/**/*.yml', './yaml/**/*.yaml'];
+const SYSTEM_YAML = [
+  './src/**/*.{yaml,yml}',
+  '!./src/packs/**/*.{yaml,yml}'
+  // './src/system.{yaml,yml}',
+  // './src/template.{yaml,yml}'
+];
 function compileYaml() {
   return gulp.src(SYSTEM_YAML)
     .pipe(yaml({ space: 2 }))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./dist'))
 }
 const yamlTask = gulp.series(compileYaml);
 
+/* ----------------------------------------- */
+/* Copy files
+/* ----------------------------------------- */
+const SYSTEM_COPY = [
+  'src/assets/**/*',
+  '!src/assets/src/**/*.{png,jpeg,jpg}',
+  'src/condition-maps/**/*',
+  'src/images/**/*',
+  'src/module/**/*',
+  'src/scripts/**/*',
+  'src/templates/**/*'
+];
+function copyFiles() {
+  return gulp.src(SYSTEM_COPY, {base: 'src'})
+    .pipe(gulp.dest('./dist'))
+}
+function copyManifest() {
+  return gulp.src('./dist/system.json')
+    .pipe(gulp.dest('./'))
+}
+const copyTask = gulp.series(copyFiles, copyManifest);
+
 
 /* ----------------------------------------- */
-/*  Compile Vue
+/*  Compile Vue 2
 /* ----------------------------------------- */
 
-const VUE_FILES = ["templates/vue/**/*.vue"];
+const VUE_FILES = ["src/templates/vue/**/*.vue"];
 
 function compileVue() {
   return gulp.src(VUE_FILES)
@@ -244,9 +271,23 @@ function compileVue() {
         .pipe(concat('vue-components.js'))
 
     .pipe(minify({ noSource: true, ext: ".min.js" }))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('./dist/vue2'));
 }
 const vueTask = gulp.series(compileVue);
+
+/* ----------------------------------------- */
+/*  Compile Vue 3                            */
+/* ----------------------------------------- */
+const exec = require('child_process').exec;
+const VITE_FILES = ['src/vue/**/*.{js,vue}']
+function viteBuild(cb) {
+  return exec('npm run vite:build', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+}
+const viteTask = gulp.series(viteBuild);
 
 /* ----------------------------------------- */
 /*  Watch Updates
@@ -258,6 +299,7 @@ function watchUpdates() {
   gulp.watch(SYSTEM_IMAGES, imageTask);
   gulp.watch(SYSTEM_SVG, svgTask);
   gulp.watch(VUE_FILES, vueTask);
+  gulp.watch(VITE_FILES, viteTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 
@@ -270,13 +312,15 @@ exports.default = gulp.series(
   compileYaml,
   compileImages,
   compileSvg,
-  compileVue,
+  copyTask,
+  viteTask,
   watchUpdates
 );
 exports.images = imageTask;
 exports.svg = svgTask;
 exports.css = css;
 exports.yaml = yamlTask;
+exports.files = copyTask;
 exports.vue = vueTask;
 exports.cleanPacks = gulp.series(cleanPacks);
 exports.compilePacks = gulp.series(cleanPacks, compilePacks);
@@ -286,7 +330,9 @@ exports.build = gulp.series(
   compileYaml,
   compileImages,
   compileSvg,
-  compileVue,
+  copyTask,
+  // compileVue, // vue 2 is deprecated for this project
   cleanPacks,
-  compilePacks
+  compilePacks,
+  viteTask // vue 3 task
 );
