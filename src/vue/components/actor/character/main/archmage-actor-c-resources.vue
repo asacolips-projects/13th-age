@@ -74,7 +74,7 @@
 <script>
 export default {
   props: ['actor'],
-  data: function() {
+  data() {
     return {
       commandPoints: 0,
       momentum: false,

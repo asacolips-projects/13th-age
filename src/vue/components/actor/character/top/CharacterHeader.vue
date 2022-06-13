@@ -25,20 +25,22 @@
 </template>
 
 <script>
+import { localize } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharacterHeader',
   props: ['actor'],
-  data: function() {
+  setup() {
+    return {
+      localize
+    }
+  },
+  data() {
     return {
       level: {}
     }
   },
   computed: {},
   methods: { /* See created. */},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {
     this.level = this.actor.data.attributes.level;
   }

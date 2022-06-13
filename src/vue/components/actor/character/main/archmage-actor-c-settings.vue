@@ -148,7 +148,7 @@
 <script>
 export default {
   props: ['actor', 'owner', 'tab'],
-  data: function() {
+  data() {
     return {
       resourceRestTypes: [
         { value: 'none', label: 'Do nothing' },

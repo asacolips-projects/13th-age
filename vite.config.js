@@ -15,7 +15,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        'vue'
+        'vue',
       ],
       output: {
         // Provide global variables to use in the UMD build

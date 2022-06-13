@@ -91,7 +91,7 @@
 <script>
 export default {
   props: ['actor'],
-  data: function() {
+  data() {
     return {
       avatarClass: 'avatar',
       avatarWidth: 105,

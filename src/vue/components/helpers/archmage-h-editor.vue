@@ -10,7 +10,7 @@
 <script>
 export default {
   props: ['owner', 'target', 'content', 'button', 'editable'],
-  data: function() {
+  data() {
     return {
       canEdit: false
     }

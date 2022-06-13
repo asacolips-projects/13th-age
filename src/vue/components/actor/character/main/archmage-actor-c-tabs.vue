@@ -10,7 +10,7 @@
 <script>
 export default {
   props: ['actor', 'group', 'tabs', 'flags'],
-  data: function () {
+  data() {
     return {
       currentTab: 'details'
     }

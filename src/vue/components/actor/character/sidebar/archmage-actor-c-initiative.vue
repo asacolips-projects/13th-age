@@ -7,7 +7,7 @@
 <script>
 export default {
   props: ['actor'],
-  data: function () {
+  data() {
     return {}
   },
   computed: {},

@@ -81,7 +81,7 @@
 <script>
 export default {
   props: ['actor', 'tab', 'flags'],
-  data: function() {
+  data() {
     return {
       powers: [],
       groupOptions: [
