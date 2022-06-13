@@ -15,7 +15,9 @@
 <script>
 export default {
   props: ['actor'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {
     backgrounds() {
       let filteredBackgrounds = {};

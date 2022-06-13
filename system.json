@@ -17,8 +17,8 @@
   ],
   "styles": [
     "css/archmage.css",
-    "dist/styles.vue.css",
     "css/v2/archmage-v2.css",
+    "vue/styles.vue.css",
     "css/lib/introjs.css"
   ],
   "packs": [

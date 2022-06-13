@@ -544,7 +544,7 @@ Hooks.once('ready', () => {
         game.settings.set('archmage', 'dependencyPrompt', false);
       }
       // Fallback method of loading the Vue components.
-      archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+      // archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
     }
     else {
       // If Dlopen is present, load the dependencies.
@@ -562,9 +562,9 @@ Hooks.once('ready', () => {
 
           // Otherwise, try loading them locally.
           if (typeof Vue === 'undefined') {
-            await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
-            await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
-            await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+            // await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
+            // await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
+            // await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
             Dlopen.LOADED_DEPENDENCIES['vue'] = true;
             Dlopen.LOADED_DEPENDENCIES['vuex'] = true;
             Dlopen.LOADED_DEPENDENCIES['actor-sheet'] = true;
@@ -577,11 +577,11 @@ Hooks.once('ready', () => {
         let loadFallbacks = async function() {
           // If Vue is still undefined, load it manually.
           if (typeof Vue === 'undefined') {
-            await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
-            await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
+            // await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
+            // await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
           }
 
-          await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
+          // await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
         }
         loadFallbacks();
       }

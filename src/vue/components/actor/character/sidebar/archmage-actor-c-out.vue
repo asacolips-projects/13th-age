@@ -10,7 +10,9 @@
 <script>
 export default {
   props: ['actor', 'owner'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {},
   methods: { /* See created. */},
   async created() {

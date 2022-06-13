@@ -1,16 +1,15 @@
-import { ActorArchmageSheet } from './actor-sheet.js';
+import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
+import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
 
 export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   constructor(...args) {
     super(...args);
 
-    /**
-     * If this Actor Sheet represents a synthetic Token actor, reference the active Token
-     * @type {Token}
-     */
-    this._vm = null;
+    // this._vm = null;
+    this.vueApp = null;
+    this.vueRoot = null;
   }
 
   /** @override */
@@ -30,7 +29,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   get template() {
     const type = this.actor.data.type;
-    return `systems/archmage/templates/actors/actor-${type}-sheet-v2.html`;
+    return `systems/archmage/templates/actors/actor-${type}-sheet-vue.html`;
   }
 
   /** @override */
@@ -38,7 +37,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Basic data
     let isOwner = this.actor.isOwner;
-    const data = {
+    const context = {
       owner: isOwner,
       limited: this.actor.limited,
       options: this.options,
@@ -54,98 +53,154 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let actorData = this.actor.data.toObject(false);
 
     // Add to our data object that the sheet will use.
-    data.actor = actorData;
-    data.data = actorData.data;
-    data.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
-    data.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
+    context.actor = actorData;
+    context.data = actorData.data;
+    context.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
+    context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
 
     // Sort items.
-    data.actor.items = actorData.items;
+    context.actor.items = actorData.items;
     // TODO: Is this necessary?
     // for ( let i of data.actor.items ) {
     //   const item = this.actor.items.get(i._id);
     //   i.labels = item.labels;
     // }
-    data.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
     // Sort effects.
-    data.actor.effects = actorData.effects;
-    data.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.actor.effects = actorData.effects;
+    context.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    return data;
+    return context;
   }
 
   /* ------------------------------------------------------------------------ */
   /*  Vue Rendering --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
 
-  /** @override */
   render(force=false, options={}) {
-    // Grab the sheetdata for both updates and new apps.
-    let sheetData = this.getData();
-    // Exit if Vue has already rendered.
-    if (this._vm) {
-      let states = Application.RENDER_STATES;
-      if (this._state == states.RENDERING || this._state == states.RENDERED) {
-        // Update the Vue app with our updated actor/item/flag data.
-        if (sheetData?.actor?.data) Vue.set(this._vm.actor, 'data', sheetData.actor.data);
-        if (sheetData?.actor?.items) Vue.set(this._vm.actor, 'items', sheetData.actor.items);
-        if (sheetData?.actor?.effects) Vue.set(this._vm.actor, 'effects', sheetData.actor.effects);
-        if (sheetData?.actor?.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
-        if (sheetData?.actor?.overrides) Vue.set(this._vm.actor, 'overrides', sheetData.actor.overrides);
-        this._updateEditors($(this.form));
-        this.activateVueListeners($(this.form), true);
-        return;
-      }
-      // TODO: Is destroying the app necessary?
-      // else {
-      //   this._vm.$destroy();
-      //   this._vm = null;
-      // }
+    const context = this.getData();
+
+    // Render the vue application after loading. We'll need to destroy this
+    // later in the this.close() method for the sheet.
+    if (!this.vueApp) {
+      this.vueApp = createApp({
+        data() {
+          return {
+            context: context,
+          }
+        },
+        components: {
+          'character-sheet': ArchmageCharacterSheet
+        },
+        methods: {
+          updateContext(newContext) {
+            // We can't just replace the object outright without destroying the
+            // reactivity, so this instead updates the keys individually.
+            for (let key of Object.keys(this.context)) {
+              this.context[key] = newContext[key];
+            }
+          }
+        }
+      });
     }
-    // Run the normal Foundry render once.
+    // Otherwise, perform update routines on the app.
+    else {
+      // Pass new values from this.getData() into the app.
+      this.vueRoot.updateContext(context);
+      this.activateVueListeners($(this.form), true);
+      return;
+    }
+
     this._render(force, options).catch(err => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
-	    console.error(err);
-	    this._state = Application.RENDER_STATES.ERROR;
+      console.error(err);
+      this._state = Application.RENDER_STATES.ERROR;
     })
     // Run Vue's render, assign it to our prop for tracking.
     .then(rendered => {
-      // Prepare the actor data.
-      let el = this.element.find('.archmage-vueport');
-      // Render Vue and assign it to prevent later rendering.
-      VuePort.render(null, el[0], {data: {actor: sheetData.actor, owner: this.actor.isOwner}}).then(vm => {
-        this._vm = vm;
-        let html = $(this.form);
-        this.activateVueListeners(html);
-      });
-    })
-    // Update editable permission
-    options.editable = options.editable ?? this.object.isOwner;
+      this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
+      // this.activateVueListeners($(this.form), false);
+    });
 
-    // Register the active Application with the referenced Documents
     this.object.apps[this.appId] = this;
-    // Return per the overridden method.
     return this;
   }
 
-  /** @override */
   async close(options={}) {
-    // TODO: Is destroying the app necessary?
-    // Destroy the Vue app.
-    // if (this._vm) {
-      // Destroy the Vue app using its built in method.
-      // this._vm.$destroy();
-      // And then update our property that stores it (requires a short delay).
-      // TODO: If this resolves the issue with fields getting nullified, we
-      // should revisit this and implement it without the timeout.
-      // setTimeout(() => {
-        // this._vm = null;
-      // }, 500);
-    // }
-    console.log('/////////////////////\r\nCLOSING SHEET\r\n/////////////////////');
+    this.vueApp.unmount();
+    this.vueApp = null;
+    this.vueRoot = null;
     return super.close(options);
   }
+
+  // /** @override */
+  // render(force=false, options={}) {
+  //   // Grab the sheetdata for both updates and new apps.
+  //   let sheetData = this.getData();
+  //   // Exit if Vue has already rendered.
+  //   if (this._vm) {
+  //     let states = Application.RENDER_STATES;
+  //     if (this._state == states.RENDERING || this._state == states.RENDERED) {
+  //       // Update the Vue app with our updated actor/item/flag data.
+  //       if (sheetData?.actor?.data) Vue.set(this._vm.actor, 'data', sheetData.actor.data);
+  //       if (sheetData?.actor?.items) Vue.set(this._vm.actor, 'items', sheetData.actor.items);
+  //       if (sheetData?.actor?.effects) Vue.set(this._vm.actor, 'effects', sheetData.actor.effects);
+  //       if (sheetData?.actor?.flags) Vue.set(this._vm.actor, 'flags', sheetData.actor.flags);
+  //       if (sheetData?.actor?.overrides) Vue.set(this._vm.actor, 'overrides', sheetData.actor.overrides);
+  //       this._updateEditors($(this.form));
+  //       this.activateVueListeners($(this.form), true);
+  //       return;
+  //     }
+  //     // TODO: Is destroying the app necessary?
+  //     // else {
+  //     //   this._vm.$destroy();
+  //     //   this._vm = null;
+  //     // }
+  //   }
+  //   // Run the normal Foundry render once.
+  //   this._render(force, options).catch(err => {
+  //     err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
+	//     console.error(err);
+	//     this._state = Application.RENDER_STATES.ERROR;
+  //   })
+  //   // Run Vue's render, assign it to our prop for tracking.
+  //   .then(rendered => {
+  //     // Prepare the actor data.
+  //     let el = this.element.find('.archmage-vueport');
+  //     // Render Vue and assign it to prevent later rendering.
+  //     VuePort.render(null, el[0], {data: {actor: sheetData.actor, owner: this.actor.isOwner}}).then(vm => {
+  //       this._vm = vm;
+  //       let html = $(this.form);
+  //       this.activateVueListeners(html);
+  //     });
+  //   })
+  //   // Update editable permission
+  //   options.editable = options.editable ?? this.object.isOwner;
+
+  //   // Register the active Application with the referenced Documents
+  //   this.object.apps[this.appId] = this;
+  //   // Return per the overridden method.
+  //   return this;
+  // }
+
+  // /** @override */
+  // async close(options={}) {
+  //   // TODO: Is destroying the app necessary?
+  //   // Destroy the Vue app.
+  //   // if (this._vm) {
+  //     // Destroy the Vue app using its built in method.
+  //     // this._vm.$destroy();
+  //     // And then update our property that stores it (requires a short delay).
+  //     // TODO: If this resolves the issue with fields getting nullified, we
+  //     // should revisit this and implement it without the timeout.
+  //     // setTimeout(() => {
+  //       // this._vm = null;
+  //     // }, 500);
+  //   // }
+  //   console.log('/////////////////////\r\nCLOSING SHEET\r\n/////////////////////');
+  //   return super.close(options);
+  // }
 
   // Update initial content throughout all editors.
   _updateEditors(html) {

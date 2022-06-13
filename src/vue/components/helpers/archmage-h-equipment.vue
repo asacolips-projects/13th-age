@@ -23,7 +23,9 @@
 <script>
 export default {
   props: ['equipment', 'bonuses'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {
     constants() {
       return CONFIG.ARCHMAGE;

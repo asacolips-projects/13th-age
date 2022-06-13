@@ -5,7 +5,9 @@
 <script>
 export default {
   props: ['name', 'hide-icon', 'type', 'opt'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {},
   methods: {
     getClass() {

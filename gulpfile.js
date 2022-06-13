@@ -300,6 +300,7 @@ function watchUpdates() {
   gulp.watch(SYSTEM_SVG, svgTask);
   gulp.watch(VUE_FILES, vueTask);
   gulp.watch(VITE_FILES, viteTask);
+  gulp.watch(SYSTEM_COPY, copyTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 

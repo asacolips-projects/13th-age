@@ -32,7 +32,9 @@
 <script>
 export default {
   props: ['power'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {
     constants() {
       return CONFIG.ARCHMAGE;

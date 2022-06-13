@@ -4,9 +4,9 @@
     <!-- Top group -->
     <section class="container container--top flexcol">
       <!-- Header -->
-      <CharacterHeader :actor="actor"></CharacterHeader>
+      <CharHeader :actor="actor"></CharHeader>
       <!-- Attributes section -->
-      <!-- <archmage-actor-c-attributes :actor="actor"></archmage-actor-c-attributes> -->
+      <CharAttributes :actor="actor"></CharAttributes>
     </section>
     <!-- /Top group -->
 
@@ -59,10 +59,11 @@
 
 <script>
 import { concat } from './methods/Helpers';
-import { default as CharacterHeader } from './components/actor/character/top/CharacterHeader.vue';
+import { default as CharHeader } from './components/actor/character/top/CharHeader.vue';
+import { default as CharAttributes } from './components/actor/character/top/CharAttributes.vue';
 export default {
   name: 'ArchmageCharacterSheet',
-  props: ['actor', 'owner'],
+  props: ['context', 'actor', 'owner'],
   setup() {
     return {
       concat
@@ -83,7 +84,8 @@ export default {
     }
   },
   components: {
-    CharacterHeader
+    CharHeader,
+    CharAttributes
   },
   methods: {},
   computed: {

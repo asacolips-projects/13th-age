@@ -7,7 +7,9 @@
 <script>
 export default {
   props: ['actor', 'owner', 'tab'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {
     classes() {
       return `section section--details flexcol${this.tab.active ? ' active' : ''}`;

@@ -12,7 +12,9 @@
 <script>
 export default {
   props: ['equipment'],
-  data: () => ({}),
+  data() {
+    return {}
+  },
   computed: {
     constants() {
       return CONFIG.ARCHMAGE;

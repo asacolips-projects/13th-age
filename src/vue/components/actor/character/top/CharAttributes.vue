@@ -8,7 +8,7 @@
       <!-- HP -->
       <div class="unit unit--has-max unit--hp">
         <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
-        <archmage-h-progress name="hp" :current="actor.data.attributes.hp.value" :temp="actor.data.attributes.hp.temp" :max="actor.data.attributes.hp.max"/>
+        <Progress name="hp" :current="actor.data.attributes.hp.value" :temp="actor.data.attributes.hp.temp" :max="actor.data.attributes.hp.max"/>
         <div class="resource flexrow">
           <input type="number" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
           <span class="resource-separator">/</span>
@@ -41,7 +41,7 @@
       <!-- Recoveries -->
       <div class="unit unit--has-max unit--recoveries">
         <h2 class="unit-title">{{localize('ARCHMAGE.recoveries')}}</h2>
-        <archmage-h-progress name="recoveries" :current="actor.data.attributes.recoveries.value" :max="actor.data.attributes.recoveries.max"/>
+        <Progress name="recoveries" :current="actor.data.attributes.recoveries.value" :max="actor.data.attributes.recoveries.max"/>
         <div class="resource flexrow">
           <input type="number" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
           <span class="resource-separator">/</span>
@@ -89,14 +89,26 @@
 </template>
 
 <script>
+import { concat, localize } from '/src/vue/methods/Helpers';
+import { default as Progress } from '/src/vue/components/parts/Progress.vue';
 export default {
+  name: 'CharAttributes',
   props: ['actor'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
   data() {
     return {
       avatarClass: 'avatar',
       avatarWidth: 105,
       avatarHeight: 105
     }
+  },
+  components: {
+    Progress
   },
   computed: {},
   methods: {
@@ -153,11 +165,6 @@ export default {
       handler() {
         this.getAvatarDimensions();
       }
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {

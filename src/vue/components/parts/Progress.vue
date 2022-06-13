@@ -7,9 +7,18 @@
 </template>
 
 <script>
+import { concat } from '/src/vue/methods/Helpers.js';
 export default {
+  name: 'Progress',
   props: ['current', 'temp', 'max', 'name'],
-  data: () => ({}),
+  setup() {
+    return {
+      concat
+    }
+  },
+  data() {
+    return {}
+  },
   computed: {
     realMax() {
       let temp = this.temp ? this.temp : 0;
@@ -44,12 +53,6 @@ export default {
 
       return includeSign ? `${percent}%` : percent;
     }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
-  async mounted() {}
+  }
 }
 </script>
