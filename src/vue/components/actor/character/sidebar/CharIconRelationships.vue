@@ -28,8 +28,16 @@
 </template>
 
 <script>
+import { localize, concat } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharIconRelationships',
   props: ['actor'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
   data: () => ({
     editArray: [],
     changeKey: 0
@@ -84,11 +92,6 @@ export default {
     }
   },
   watch: {
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
   },
   async mounted() {
   }

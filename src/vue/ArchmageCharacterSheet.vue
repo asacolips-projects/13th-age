@@ -15,12 +15,12 @@
 
       <!-- Left sidebar -->
       <section class="section section--sidebar flexcol">
-       <!-- <archmage-actor-c-initiative :actor="actor"></archmage-actor-c-initiative>
-        <archmage-actor-c-abilities :actor="actor"></archmage-actor-c-abilities>
-        <archmage-actor-c-backgrounds :actor="actor"></archmage-actor-c-backgrounds>
-        <archmage-actor-c-icon-relationships :actor="actor"></archmage-actor-c-icon-relationships>
-        <archmage-actor-c-out :actor="actor" :owner="owner"></archmage-actor-c-out>
-       <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals> -->
+        <CharInitiative :actor="actor"></CharInitiative>
+        <CharAbilities :actor="actor"></CharAbilities>
+        <CharBackgrounds :actor="actor"></CharBackgrounds>
+        <CharIconRelationships :actor="actor"></CharIconRelationships>
+        <!-- <archmage-actor-c-out :actor="actor" :owner="owner"></archmage-actor-c-out> -->
+        <!-- <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals> -->
       </section>
       <!-- /Left sidebar -->
 
@@ -58,12 +58,28 @@
 
 
 <script>
+
 import { concat } from './methods/Helpers';
-import { default as CharHeader } from './components/actor/character/top/CharHeader.vue';
-import { default as CharAttributes } from './components/actor/character/top/CharAttributes.vue';
+import {
+  // Top
+  CharHeader, CharAttributes,
+  // Sidebar
+  CharInitiative, CharAbilities, CharBackgrounds, CharIconRelationships
+  // Main
+  // CharDetails, CharEffects, CharInventory, CharPowers, CharResources, CharSettings, CharTabs
+} from './components/actor/character/index.js';
+
 export default {
   name: 'ArchmageCharacterSheet',
   props: ['context', 'actor', 'owner'],
+  components: {
+    CharHeader,
+    CharAttributes,
+    CharInitiative,
+    CharAbilities,
+    CharBackgrounds,
+    CharIconRelationships
+  },
   setup() {
     return {
       concat
@@ -82,10 +98,6 @@ export default {
         }
       }
     }
-  },
-  components: {
-    CharHeader,
-    CharAttributes
   },
   methods: {},
   computed: {

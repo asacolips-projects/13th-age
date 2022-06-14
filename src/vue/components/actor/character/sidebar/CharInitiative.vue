@@ -5,19 +5,22 @@
 </template>
 
 <script>
+import { numberFormat, localize } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharIniative',
   props: ['actor'],
+  setup() {
+    return {
+      numberFormat,
+      localize
+    }
+  },
   data() {
     return {}
   },
   computed: {},
   methods: {},
   watch: {},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {}
 }
 </script>

@@ -13,8 +13,16 @@
 </template>
 
 <script>
+import { localize, concat } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharBackgrounds',
   props: ['actor'],
+  setup() {
+    return {
+      localize,
+      concat
+    }
+  },
   data() {
     return {}
   },
@@ -28,11 +36,6 @@ export default {
     }
   },
   methods: { /* See created. */},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {}
 }
 </script>

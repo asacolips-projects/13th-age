@@ -17,8 +17,17 @@
 </template>
 
 <script>
+import { numberFormat, localize, concat } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharAbilities',
   props: ['actor'],
+  setup() {
+    return {
+      numberFormat,
+      localize,
+      concat
+    }
+  },
   data() {
     return {}
   },
@@ -48,11 +57,6 @@ export default {
     }
   },
   watch: {},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {}
 }
 </script>
