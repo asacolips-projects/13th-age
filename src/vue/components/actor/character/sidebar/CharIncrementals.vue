@@ -13,8 +13,16 @@
 </template>
 
 <script>
+import { localize, concat } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharIncrementals',
   props: ['actor'],
+  setup() {
+    return {
+      localize,
+      concat
+    }
+  },
   data() {
     return {}
   },
@@ -25,11 +33,6 @@ export default {
       let newIncrementalArray = {};
       incrementalKeys.forEach(e => newIncrementalArray[e] = actor.data.incrementals[e]);
       return newIncrementalArray;
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {}

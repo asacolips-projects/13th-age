@@ -17,7 +17,7 @@
     <!-- Ki -->
     <section v-if="actor.data.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.ki')}}</h2>
-      <archmage-h-progress name="ki" :current="actor.data.resources.spendable.ki.current" :max="actor.data.resources.spendable.ki.max"/>
+      <Progress name="ki" :current="actor.data.resources.spendable.ki.current" :max="actor.data.resources.spendable.ki.max"/>
       <div class="resource flexrow">
         <input type="number" name="data.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
         <span class="resource-separator">/</span>
@@ -61,7 +61,7 @@
     <!-- Custom Resouces -->
     <section v-for="(resource, index) in customResources" :key="index" class="unit unit--custom">
       <input type="text" :name="concat('data.resources.spendable.', index, '.label')" class="resource-title-input" v-model="resource.label"/>
-      <archmage-h-progress :name="index" :current="resource.current" :max="resource.max"/>
+      <Progress :name="index" :current="resource.current" :max="resource.max"/>
       <div class="resource flexrow">
         <input type="number" :name="concat('data.resources.spendable.', index, '.current')" class="resource-current" v-model="resource.current">
         <span class="resource-separator">/</span>
@@ -72,8 +72,20 @@
 </template>
 
 <script>
+import { concat, localize } from '/src/vue/methods/Helpers';
+import { default as Progress } from '/src/vue/components/parts/Progress.vue';
 export default {
+  name: 'CharResources',
   props: ['actor'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
+  components: {
+    Progress
+  },
   data() {
     return {
       commandPoints: 0,
@@ -134,11 +146,6 @@ export default {
       handler() {
         this.updateResourceProps();
       }
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {

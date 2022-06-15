@@ -4,9 +4,9 @@
     <!-- Top group -->
     <section class="container container--top flexcol">
       <!-- Header -->
-      <CharHeader :actor="actor"></CharHeader>
+      <CharHeader :actor="actor"/>
       <!-- Attributes section -->
-      <CharAttributes :actor="actor"></CharAttributes>
+      <CharAttributes :actor="actor"/>
     </section>
     <!-- /Top group -->
 
@@ -15,12 +15,12 @@
 
       <!-- Left sidebar -->
       <section class="section section--sidebar flexcol">
-        <CharInitiative :actor="actor"></CharInitiative>
-        <CharAbilities :actor="actor"></CharAbilities>
-        <CharBackgrounds :actor="actor"></CharBackgrounds>
-        <CharIconRelationships :actor="actor"></CharIconRelationships>
-        <!-- <archmage-actor-c-out :actor="actor" :owner="owner"></archmage-actor-c-out> -->
-        <!-- <archmage-actor-c-incrementals :actor="actor"></archmage-actor-c-incrementals> -->
+        <CharInitiative :actor="actor"/>
+        <CharAbilities :actor="actor"/>
+        <CharBackgrounds :actor="actor"/>
+        <CharIconRelationships :actor="actor"/>
+        <CharOut :actor="actor" :owner="owner"/>
+        <CharIncrementals :actor="actor"/>
       </section>
       <!-- /Left sidebar -->
 
@@ -28,16 +28,16 @@
       <section class="section section--main flexcol">
 
         <!-- Class resources -->
-        <!-- <archmage-actor-c-resources :actor="actor"></archmage-actor-c-resources> -->
+        <CharResources :actor="actor"/>
         <!-- Tabs -->
-        <!-- <archmage-actor-c-tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"></archmage-actor-c-tabs> -->
+        <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
 
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
           <!-- <archmage-actor-c-details :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"></archmage-actor-c-details> -->
           <!-- Powers tab -->
-          <!-- <archmage-actor-c-powers :actor="actor" :tab="tabs.primary.powers" :flags="flags"></archmage-actor-c-powers> -->
+          <CharPowers :actor="actor" :tab="tabs.primary.powers" :flags="flags"/>
           <!-- Inventory tab -->
           <!-- <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"></archmage-actor-c-inventory> -->
           <!-- Effects tab -->
@@ -59,26 +59,33 @@
 
 <script>
 
-import { concat } from './methods/Helpers';
+import { concat, localize } from './methods/Helpers';
+import { default as Tabs } from './components/parts/Tabs.vue';
 import {
   // Top
   CharHeader, CharAttributes,
   // Sidebar
-  CharInitiative, CharAbilities, CharBackgrounds, CharIconRelationships
+  CharInitiative, CharAbilities, CharBackgrounds, CharIconRelationships, CharOut, CharIncrementals,
   // Main
-  // CharDetails, CharEffects, CharInventory, CharPowers, CharResources, CharSettings, CharTabs
+  CharResources, CharPowers
+  // CharDetails, CharEffects, CharInventory, CharSettings, CharTabs
 } from './components/actor/character/index.js';
 
 export default {
   name: 'ArchmageCharacterSheet',
   props: ['context', 'actor', 'owner'],
   components: {
+    Tabs,
     CharHeader,
     CharAttributes,
     CharInitiative,
     CharAbilities,
     CharBackgrounds,
-    CharIconRelationships
+    CharIconRelationships,
+    CharOut,
+    CharIncrementals,
+    CharResources,
+    CharPowers
   },
   setup() {
     return {
@@ -90,11 +97,28 @@ export default {
       actorData: {},
       tabs: {
         primary: {
-          details: {active: false},
-          powers: {active: true},
-          inventory: {active: false},
-          effects: {active: false},
-          settings: {active: false, icon: 'fa-cogs', hideLabel: true}
+          details: {
+            label: localize('ARCHMAGE.details'),
+            active: false
+          },
+          powers: {
+            label: localize('ARCHMAGE.powers'),
+            active: true
+          },
+          inventory: {
+            label: localize('ARCHMAGE.inventory'),
+            active: false
+          },
+          effects: {
+            label: localize('ARCHMAGE.effects'),
+            active: false
+          },
+          settings: {
+            label: localize('ARCHMAGE.settings'),
+            active: false,
+            icon: 'fa-cogs',
+            hideLabel: true
+          }
         }
       }
     }

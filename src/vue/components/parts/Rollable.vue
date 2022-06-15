@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'Rollable',
   props: ['name', 'hide-icon', 'type', 'opt'],
   data() {
     return {}
@@ -12,11 +13,6 @@ export default {
   methods: {
     getClass() {
       return `rollable${this.hideIcon ? ' hide-icon' : ''}${this.name ? ' rollable--' + this.name : ''}`;
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {}

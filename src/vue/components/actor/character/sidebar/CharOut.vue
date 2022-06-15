@@ -2,24 +2,28 @@
   <section class="section section--out flexcol">
     <h2 class="unit-title">{{localize('ARCHMAGE.oneUniqueThing')}}</h2>
     <div class="out">
-      <archmage-h-editor :owner="owner" target='data.details.out.value' button="true" editable="true" :content="actor.data.details.out.value"/>
+      <Editor :owner="owner" target='data.details.out.value' button="true" editable="true" :content="actor.data.details.out.value"/>
     </div>
   </section>
 </template>
 
 <script>
+import { localize } from '/src/vue/methods/Helpers';
+import { default as Editor } from '/src/vue/components/parts/Editor.vue';
 export default {
+  name: 'CharOut',
   props: ['actor', 'owner'],
+  setup() {
+    return { localize }
+  },
   data() {
     return {}
   },
+  components: {
+    Editor
+  },
   computed: {},
   methods: { /* See created. */},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {
   }
 }

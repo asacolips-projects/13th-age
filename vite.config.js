@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const { defineConfig } = require('vite');
 const vue = require('@vitejs/plugin-vue');

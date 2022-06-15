@@ -30,8 +30,16 @@
 </template>
 
 <script>
+import { concat, localize } from '/src/vue/methods/Helpers';
 export default {
+  name: 'Power',
   props: ['power'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
   data() {
     return {}
   },
@@ -84,11 +92,6 @@ export default {
         if (feat.description.value) res[tier] = feat;
       }
       return res;
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {}

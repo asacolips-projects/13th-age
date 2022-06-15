@@ -48,7 +48,7 @@
         <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable power header. -->
           <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'), (power.data.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
-            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></archmage-h-rollable>
+            <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
             <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
               <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
             </a>
@@ -59,7 +59,7 @@
             </div>
             <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
             <div class="power-recharge" v-if="power.data.recharge.value && power.data.powerUsage.value == 'recharge'">
-              <archmage-h-rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.data.recharge.value) || 16}}+</archmage-h-rollable>
+              <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.data.recharge.value) || 16}}+</Rollable>
             </div>
             <div class="power-uses" :data-item-id="power._id" :data-quantity="power.data.quantity.value"><span v-if="power.data.quantity.value !== null">{{power.data.quantity.value}}</span></div>
             <div class="item-controls">
@@ -70,7 +70,7 @@
           </div>
           <!-- Expanded power content. -->
           <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
-            <archmage-h-power :power="power" :ref="concat('power--', power._id)"></archmage-h-power>
+            <Power :power="power" :ref="concat('power--', power._id)"/>
           </div>
         </li>
       </ul>
@@ -79,8 +79,22 @@
 </template>
 
 <script>
+import { concat, localize } from '/src/vue/methods/Helpers';
+import { default as Power } from '/src/vue/components/parts/Power.vue';
+import { default as Rollable } from '/src/vue/components/parts/Rollable.vue';
 export default {
+  name: 'CharPowers',
   props: ['actor', 'tab', 'flags'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
+  components: {
+    Power,
+    Rollable
+  },
   data() {
     return {
       powers: [],
@@ -281,7 +295,7 @@ export default {
       }
       powers.forEach(i => {
         if (this.activePowers[i._id] == undefined) {
-          this.$set(this.activePowers, i._id, {value: false});
+          // this.activePowers[i._id] = {value: false};
           this.activePowers[i._id] = false;
         }
       });
@@ -297,11 +311,11 @@ export default {
       if (id) {
         // Toggle the state if the power is currently being tracked.
         if (this.activePowers[id] !== undefined) {
-          this.$set(this.activePowers, id, !this.activePowers[id]);
+          this.activePowers[id] = !this.activePowers[id];
         }
         // Otherwise, assume it should be open since this was click event.
         else {
-          this.$set(this.activePowers, id, true);
+          this.activePowers[id] = true;
         }
       }
     },
@@ -315,7 +329,8 @@ export default {
 
       // Set the height if there's a ref.
       if (power) {
-        height = this.activePowers[powerId] ? `${power[0].$el.clientHeight}px` : `0px`;
+        const element = this.$el.querySelector(`.power-item--${powerId} .power-content .power`);
+        height = this.activePowers[powerId] ? `${element.offsetHeight}px` : `0px`;
       }
 
       // Return CSS style object.
@@ -339,11 +354,6 @@ export default {
       handler() {
         this.getPowers();
       }
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {

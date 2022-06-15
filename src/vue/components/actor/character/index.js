@@ -6,3 +6,11 @@ export { default as CharAbilities } from './sidebar/CharAbilities.vue';
 export { default as CharBackgrounds } from './sidebar/CharBackgrounds.vue';
 export { default as CharInitiative } from './sidebar/CharInitiative.vue';
 export { default as CharIconRelationships } from './sidebar/CharIconRelationships.vue';
+export { default as CharOut } from './sidebar/CharOut.vue';
+export { default as CharIncrementals } from './sidebar/CharIncrementals.vue';
+
+export { default as CharResources } from './main/CharResources.vue';
+export { default as CharPowers } from './main/CharPowers.vue';
+
+export { default as Power } from '../../parts/Power.vue';
+export { default as Rollable } from '../../parts/Rollable.vue';
