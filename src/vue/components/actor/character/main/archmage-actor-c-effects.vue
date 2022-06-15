@@ -87,11 +87,6 @@ export default {
       }
     }
   },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {
     this.getEffects();
   }

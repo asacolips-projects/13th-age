@@ -36,11 +36,6 @@ export default {
       return `tab-link tab-link--${index}${tab.active ? ' active' : ''}`;
     }
   },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {
     this.currentTab = this.flags.sheetDisplay.tabs[this.group].value ? this.flags.sheetDisplay.tabs[this.group].value : 'details';
     this.changeTab(false);

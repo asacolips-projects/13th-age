@@ -10,8 +10,16 @@
 </template>
 
 <script>
+import { concat, localize } from '/src/vue/methods/Helpers';
 export default {
+  name: 'Loot',
   props: ['equipment'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
   data() {
     return {}
   },
@@ -21,11 +29,6 @@ export default {
     },
   },
   methods: {},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {}
 }
 </script>

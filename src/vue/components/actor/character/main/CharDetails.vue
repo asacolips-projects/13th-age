@@ -1,14 +1,18 @@
 <template>
   <section :class="classes" data-tab="details">
-    <archmage-h-editor :owner="owner" target='data.details.biography.value' button="true" editable="true" :content="actor.data.details.biography.value"></archmage-h-editor>
+    <Editor :owner="owner" target='data.details.biography.value' button="true" editable="true" :content="actor.data.details.biography.value"/>
   </section>
 </template>
 
 <script>
+import { default as Editor } from '/src/vue/components/parts/Editor.vue';
 export default {
   props: ['actor', 'owner', 'tab'],
   data() {
     return {}
+  },
+  components: {
+    Editor
   },
   computed: {
     classes() {
@@ -16,11 +20,6 @@ export default {
     }
   },
   methods: { /* See created. */},
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
-    }
-  },
   async mounted() {}
 }
 </script>

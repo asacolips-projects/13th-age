@@ -2,7 +2,7 @@
   <section :class="classes" data-tab="inventory">
     <!-- Currency. -->
     <section class="equipment-currency flexrow">
-      <div v-for="type in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
+      <div v-for="(type) in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
         <h2 class="unit-title">{{localize(concat('ARCHMAGE.COINS.', type))}}</h2>
         <input type="number" :name="concat('data.coins.', type, '.value')" class="currency-input" v-model="actor.data.coins[type].value" placeholder="0">
       </div>
@@ -47,7 +47,7 @@
         <li v-for="(equipment, equipmentKey) in equipmentGroups[groupKey]" :key="equipmentKey" :class="concat('item equipment-item equipment-item--', equipment._id)" :data-item-id="equipment._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable equipment header. -->
           <div class="equipment-summary grid equipment-grid equipment">
-            <archmage-h-rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></archmage-h-rollable>
+            <Rollable name="item" :hide-icon="true" type="item" :opt="equipment._id"><img :src="equipment.img" class="equipment-image"/></Rollable>
             <a class="equipment-name" v-on:click="toggleEquipment" :data-item-id="equipment._id">
               <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
             </a>
@@ -64,7 +64,7 @@
             </div>
             <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
             <div class="equipment-recharge" v-if="equipment.data.recharge && equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
-              <archmage-h-rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.data.recharge.value) || 16}}+</archmage-h-rollable>
+              <Rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.data.recharge.value) || 16}}+</Rollable>
             </div>
             <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
             <div class="item-controls">
@@ -74,8 +74,8 @@
           </div>
           <!-- Expanded equipment content. -->
           <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))" :style="getEquipmentStyle(equipment._id)">
-            <archmage-h-equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"></archmage-h-equipment>
-            <archmage-h-loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"></archmage-h-loot>
+            <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
+            <Loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
           </div>
         </li>
       </ul>
@@ -84,6 +84,10 @@
 </template>
 
 <script>
+import { concat, localize, numberFormat } from '/src/vue/methods/Helpers';
+import { default as Equipment } from '/src/vue/components/parts/Equipment.vue';
+import { default as Loot } from '/src/vue/components/parts/Loot.vue';
+import { default as Rollable } from '/src/vue/components/parts/Rollable.vue';
 export default {
   props: ['actor', 'tab', 'flags'],
   data() {
@@ -94,6 +98,7 @@ export default {
         { value: 'name', label: 'Name' },
         // { value: 'chakra', label: 'Chakra' } // TODO: Add this after fixing the typo in the template.
       ],
+      groupBy: 'equipment',
       sortBy: 'custom',
       searchValue: null,
       activeEquipment: {},
@@ -104,6 +109,18 @@ export default {
         'copper'
       ]
     }
+  },
+  setup() {
+    return {
+      concat,
+      localize,
+      numberFormat
+    }
+  },
+  components: {
+    Equipment,
+    Loot,
+    Rollable
   },
   computed: {
     draggable() {
@@ -186,7 +203,7 @@ export default {
       }
       equipment.forEach(i => {
         if (this.activeEquipment[i._id] == undefined) {
-          this.$set(this.activeEquipment, i._id, {value: false});
+          // this.$set(this.activeEquipment, i._id, {value: false});
           this.activeEquipment[i._id] = false;
         }
       });
@@ -218,11 +235,11 @@ export default {
       if (id) {
         // Toggle the state if the equipment is currently being tracked.
         if (this.activeEquipment[id] !== undefined) {
-          this.$set(this.activeEquipment, id, !this.activeEquipment[id]);
+          this.activeEquipment[id] = !this.activeEquipment[id];
         }
         // Otherwise, assume it should be open since this was click event.
         else {
-          this.$set(this.activeEquipment, id, true);
+          this.activeEquipment[id] = true;
         }
       }
     },
@@ -236,7 +253,8 @@ export default {
 
       // Set the height if there's a ref.
       if (equipment) {
-        height = this.activeEquipment[equipmentId] ? `${equipment[0].$el.clientHeight}px` : `0px`;
+        const element = this.$el.querySelector(`.equipment-item--${equipmentId} .equipment-content .equipment`);
+        height = this.activeEquipment[equipmentId] ? `${element.offsetHeight}px` : `0px`;
       }
 
       // Return CSS style object.
@@ -257,11 +275,6 @@ export default {
       handler() {
         this.getEquipment();
       }
-    }
-  },
-  async created() {
-    for (let [k,v] of Object.entries(window.archmageVueMethods.methods)) {
-      this[k] = v;
     }
   },
   async mounted() {

@@ -47,7 +47,7 @@ export default {
       if (abil.mod && abil.nonKey.mod) {
         if (abil.mod < abil.nonKey.mod) {
           return game.i18n.format('ARCHMAGE.keyReduced', {
-            mod: window.archmageVueMethods.methods.numberFormat(abil.mod, 0, true),
+            mod: numberFormat(abil.mod, 0, true),
             kmod1: actor.data.attributes.keyModifier.mod1,
             kmod2: actor.data.attributes.keyModifier.mod2
           });

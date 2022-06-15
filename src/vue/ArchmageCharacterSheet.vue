@@ -35,11 +35,11 @@
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
-          <!-- <archmage-actor-c-details :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"></archmage-actor-c-details> -->
+          <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
           <!-- Powers tab -->
           <CharPowers :actor="actor" :tab="tabs.primary.powers" :flags="flags"/>
           <!-- Inventory tab -->
-          <!-- <archmage-actor-c-inventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"></archmage-actor-c-inventory> -->
+          <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
           <!-- Effects tab -->
           <!-- <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects" :flags="flags"></archmage-actor-c-effects> -->
           <!-- Settings tab -->
@@ -67,8 +67,8 @@ import {
   // Sidebar
   CharInitiative, CharAbilities, CharBackgrounds, CharIconRelationships, CharOut, CharIncrementals,
   // Main
-  CharResources, CharPowers
-  // CharDetails, CharEffects, CharInventory, CharSettings, CharTabs
+  CharResources, CharDetails, CharPowers, CharInventory
+  // CharEffects,  CharSettings, CharTabs
 } from './components/actor/character/index.js';
 
 export default {
@@ -85,7 +85,9 @@ export default {
     CharOut,
     CharIncrementals,
     CharResources,
-    CharPowers
+    CharDetails,
+    CharPowers,
+    CharInventory
   },
   setup() {
     return {
