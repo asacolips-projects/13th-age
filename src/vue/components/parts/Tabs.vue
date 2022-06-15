@@ -1,6 +1,6 @@
 <template>
   <section class="section section--tabs flexshrink">
-    <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/>
+    <!-- <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/> -->
     <nav :class="'sheet-tabs tabs tabs--' + group" :data-group="group">
       <a v-for="(tab, tabKey) in tabs" :key="'tab-' + group + '-' + tabKey" @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey"><i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i><span v-if="!tab.hideLabel">{{tab.label}}</span></a>
     </nav>
@@ -35,6 +35,10 @@ export default {
 
       // Update the active tab display.
       this.tabs[this.currentTab].active = true;
+
+      // Update the flag.
+      const actor = game.actors.get(this.actor._id) ?? false;
+      if (actor) actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
     },
     getTabClass(tab, index) {
       return `tab-link tab-link--${index}${tab.active ? ' active': ''}`;

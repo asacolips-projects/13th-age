@@ -83,7 +83,7 @@ export class DiceArchmage {
         flav = `${title} (${situational > 0 ? '+' + situational : situational})`;
       }
 
-      let form = html.find('form')[0];
+      let form = html ? html.find('form')[0] : null;
       rollMode = form ? form.rollMode.value : rollMode;
 
       // Execute the roll and send it to chat
@@ -137,15 +137,15 @@ export class DiceArchmage {
     let adv = 0;
     terms = ['1d20'].concat(terms);
     if (event.shiftKey) {
-      return roll();
+      return roll(null, data);
     }
     else if (event.altKey) {
       adv = 1;
-      return roll();
+      return roll(null, data);
     }
     else if (event.ctrlKey || event.metaKey) {
       adv = -1;
-      return roll();
+      return roll(null, data);
     }
     else {
       terms = terms.concat(['@bonus']);

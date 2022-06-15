@@ -1,5 +1,5 @@
 <template>
-  <section :class="classes" data-tab="powers">
+  <section :class="classes">
     <!-- Sorts and filters. -->
     <header class="power-filters flexrow">
       <div class="group-powers">
@@ -165,7 +165,7 @@ export default {
      * Computed class string for the main powers section element.
      */
     classes() {
-      return `section section--powers flexcol${this.tab.active ? ' active' : ''}`;
+      return `section section--powers flexcol`;
     },
     /**
      * Computed power groups. Takes the entire powers item array and reduces it

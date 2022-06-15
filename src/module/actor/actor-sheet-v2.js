@@ -108,7 +108,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else {
       // Pass new values from this.getData() into the app.
       this.vueRoot.updateContext(context);
-      this.activateVueListeners($(this.form), true);
+      // @todo is this necessary?
+      // this.activateVueListeners($(this.form), true);
       return;
     }
 
@@ -120,7 +121,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Run Vue's render, assign it to our prop for tracking.
     .then(rendered => {
       this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
-      // this.activateVueListeners($(this.form), false);
+      this.activateVueListeners($(this.form), false);
     });
 
     this.object.apps[this.appId] = this;

@@ -35,15 +35,25 @@
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
-          <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
+          <Tab group="primary" :tab="tabs.primary.details">
+            <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
+          </Tab>
           <!-- Powers tab -->
-          <CharPowers :actor="actor" :tab="tabs.primary.powers" :flags="flags"/>
+          <Tab group="primary" :tab="tabs.primary.powers">
+            <CharPowers :actor="actor" :tab="tabs.primary.powers" :flags="flags"/>
+          </Tab>
           <!-- Inventory tab -->
-          <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
+          <Tab group="primary" :tab="tabs.primary.inventory">
+            <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
+          </Tab>
           <!-- Effects tab -->
-          <!-- <archmage-actor-c-effects :actor="actor" :tab="tabs.primary.effects" :flags="flags"></archmage-actor-c-effects> -->
+          <Tab group="primary" :tab="tabs.primary.effects">
+            <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
+          </Tab>
           <!-- Settings tab -->
-          <!-- <archmage-actor-c-settings :actor="actor" :tab="tabs.primary.settings"></archmage-actor-c-settings> -->
+          <Tab group="primary" :tab="tabs.primary.settings">
+            <CharSettings :actor="actor" :tab="tabs.primary.settings"/>
+          </Tab>
         </section>
         <!-- /Tabs content -->
 
@@ -61,14 +71,14 @@
 
 import { concat, localize } from './methods/Helpers';
 import { default as Tabs } from './components/parts/Tabs.vue';
+import { default as Tab } from './components/parts/Tab.vue';
 import {
   // Top
   CharHeader, CharAttributes,
   // Sidebar
   CharInitiative, CharAbilities, CharBackgrounds, CharIconRelationships, CharOut, CharIncrementals,
   // Main
-  CharResources, CharDetails, CharPowers, CharInventory
-  // CharEffects,  CharSettings, CharTabs
+  CharResources, CharDetails, CharPowers, CharInventory, CharEffects, CharSettings
 } from './components/actor/character/index.js';
 
 export default {
@@ -76,6 +86,7 @@ export default {
   props: ['context', 'actor', 'owner'],
   components: {
     Tabs,
+    Tab,
     CharHeader,
     CharAttributes,
     CharInitiative,
@@ -87,7 +98,9 @@ export default {
     CharResources,
     CharDetails,
     CharPowers,
-    CharInventory
+    CharInventory,
+    CharEffects,
+    CharSettings
   },
   setup() {
     return {
@@ -100,22 +113,27 @@ export default {
       tabs: {
         primary: {
           details: {
+            key: 'details',
             label: localize('ARCHMAGE.details'),
             active: false
           },
           powers: {
+            key: 'powers',
             label: localize('ARCHMAGE.powers'),
             active: true
           },
           inventory: {
+            key: 'inventory',
             label: localize('ARCHMAGE.inventory'),
             active: false
           },
           effects: {
+            key: 'effects',
             label: localize('ARCHMAGE.effects'),
             active: false
           },
           settings: {
+            key: 'settings',
             label: localize('ARCHMAGE.settings'),
             active: false,
             icon: 'fa-cogs',

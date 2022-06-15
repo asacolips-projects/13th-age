@@ -1,5 +1,5 @@
 <template>
-  <section :class="classes" data-tab="settings">
+  <section :class="classes">
     <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTERSETTINGS.settings')}}</h2>
     <section class="sheet-settings grid grid-6col">
       <!-- Main Settings -->
@@ -146,8 +146,16 @@
 </template>
 
 <script>
+import { concat, localize } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharSettings',
   props: ['actor', 'owner', 'tab'],
+  setup() {
+    return {
+      concat,
+      localize
+    }
+  },
   data() {
     return {
       resourceRestTypes: [
@@ -178,7 +186,7 @@ export default {
       return flags;
     },
     classes() {
-      return `section section--settings flexcol${this.tab.active ? ' active' : ''}`;
+      return `section section--settings flexcol`;
     },
     resourcesCustom() {
       let resources = {};

@@ -1,5 +1,5 @@
 <template>
-  <section :class="classes" data-tab="effects">
+  <section :class="classes">
     <section class="effects-group">
       <div class="effects-group-header">
         <div class="effects-header-title grid effects-grid">
@@ -38,8 +38,17 @@
 </template>
 
 <script>
+import { concat, localize, numberFormat } from '/src/vue/methods/Helpers';
 export default {
+  name: 'CharEffects',
   props: ['actor', 'tab', 'flags'],
+  setup() {
+    return {
+      concat,
+      localize,
+      numberFormat
+    }
+  },
   data() {
     return {
       effects: []
@@ -47,7 +56,7 @@ export default {
   },
   computed: {
     classes() {
-      return `section section--effects flexcol${this.tab.active ? ' active' : ''}`;
+      return `section section--effects flexcol`;
     }
   },
   methods: {

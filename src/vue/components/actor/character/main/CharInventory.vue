@@ -1,5 +1,5 @@
 <template>
-  <section :class="classes" data-tab="inventory">
+  <section :class="classes">
     <!-- Currency. -->
     <section class="equipment-currency flexrow">
       <div v-for="(type) in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
@@ -127,7 +127,7 @@ export default {
       return this.sortBy == 'custom' ? true : false;
     },
     classes() {
-      return `section section--inventory flexcol${this.tab.active ? ' active' : ''}`;
+      return `section section--inventory flexcol`;
     },
     groups() {
       let groups = {};
