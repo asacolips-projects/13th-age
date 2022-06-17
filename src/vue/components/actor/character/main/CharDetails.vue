@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Editor } from '@/components';
+import Editor from '@/components/parts/Editor.vue';
 export default {
   props: ['actor', 'owner', 'tab', 'flags'],
   data() {

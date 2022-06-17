@@ -9,7 +9,7 @@
 
 <script>
 import { localize } from '@/methods/Helpers';
-import { default as Editor } from '@/components/parts/Editor.vue';
+import Editor from '@/components/parts/Editor.vue';
 export default {
   name: 'CharOut',
   props: ['actor', 'owner'],

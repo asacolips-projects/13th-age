@@ -80,8 +80,8 @@
 
 <script>
 import { concat, localize } from '@/methods/Helpers';
-import { default as Power } from '@/components/parts/Power.vue';
-import { default as Rollable } from '@/components/parts/Rollable.vue';
+import Power from '@/components/parts/Power.vue';
+import Rollable from '@/components/parts/Rollable.vue';
 export default {
   name: 'CharPowers',
   props: ['actor', 'tab', 'flags'],
