@@ -79,9 +79,9 @@
 </template>
 
 <script>
-import { concat, localize } from '/src/vue/methods/Helpers';
-import { default as Power } from '/src/vue/components/parts/Power.vue';
-import { default as Rollable } from '/src/vue/components/parts/Rollable.vue';
+import { concat, localize } from '@/methods/Helpers';
+import { default as Power } from '@/components/parts/Power.vue';
+import { default as Rollable } from '@/components/parts/Rollable.vue';
 export default {
   name: 'CharPowers',
   props: ['actor', 'tab', 'flags'],

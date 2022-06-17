@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { numberFormat, localize, concat } from '/src/vue/methods/Helpers';
+import { numberFormat, localize, concat } from '@/methods/Helpers';
 export default {
   name: 'CharAbilities',
   props: ['actor'],

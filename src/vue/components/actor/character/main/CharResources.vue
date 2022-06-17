@@ -72,8 +72,8 @@
 </template>
 
 <script>
-import { concat, localize } from '/src/vue/methods/Helpers';
-import { default as Progress } from '/src/vue/components/parts/Progress.vue';
+import { concat, localize } from '@/methods/Helpers';
+import { default as Progress } from '@/components/parts/Progress.vue';
 export default {
   name: 'CharResources',
   props: ['actor'],

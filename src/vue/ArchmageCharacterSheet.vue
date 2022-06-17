@@ -69,17 +69,25 @@
 
 <script>
 
-import { concat, localize } from './methods/Helpers';
-import { default as Tabs } from './components/parts/Tabs.vue';
-import { default as Tab } from './components/parts/Tab.vue';
+import { concat, localize } from '@/methods/Helpers';
 import {
-  // Top
-  CharHeader, CharAttributes,
-  // Sidebar
-  CharInitiative, CharAbilities, CharBackgrounds, CharIconRelationships, CharOut, CharIncrementals,
-  // Main
-  CharResources, CharDetails, CharPowers, CharInventory, CharEffects, CharSettings
-} from './components/actor/character/index.js';
+  Tabs,
+  Tab,
+  CharHeader,
+  CharAttributes,
+  CharInitiative,
+  CharAbilities,
+  CharBackgrounds,
+  CharIconRelationships,
+  CharOut,
+  CharIncrementals,
+  CharResources,
+  CharDetails,
+  CharPowers,
+  CharInventory,
+  CharEffects,
+  CharSettings
+} from '@/components';
 
 export default {
   name: 'ArchmageCharacterSheet',

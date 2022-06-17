@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { localize, concat } from '/src/vue/methods/Helpers';
+import { localize, concat } from '@/methods/Helpers';
 export default {
   name: 'CharIncrementals',
   props: ['actor'],

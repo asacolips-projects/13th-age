@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { numberFormat, localize } from '/src/vue/methods/Helpers';
+import { numberFormat, localize } from '@/methods/Helpers';
 export default {
   name: 'CharIniative',
   props: ['actor'],

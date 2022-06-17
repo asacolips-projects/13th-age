@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { concat, localize, numberFormat } from '/src/vue/methods/Helpers';
+import { concat, localize, numberFormat } from '@/methods/Helpers';
 export default {
   name: 'CharEffects',
   props: ['actor', 'tab', 'flags'],

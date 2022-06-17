@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { concat } from '/src/vue/methods/Helpers';
+import { concat } from '@/methods/Helpers';
 export default {
   name: 'Tabs',
   props: ['context', 'actor', 'group', 'tabs', 'flags'],

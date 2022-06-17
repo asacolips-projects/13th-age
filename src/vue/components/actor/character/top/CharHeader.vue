@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { localize } from '/src/vue/methods/Helpers';
+import { localize } from '@/methods/Helpers';
 export default {
   name: 'CharacterHeader',
   props: ['actor'],

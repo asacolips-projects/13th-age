@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { concat } from '/src/vue/methods/Helpers.js';
+import { concat } from '@/methods/Helpers.js';
 export default {
   name: 'Progress',
   props: ['current', 'temp', 'max', 'name'],

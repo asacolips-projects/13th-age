@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { concat, localize } from '/src/vue/methods/Helpers';
+import { concat, localize } from '@/methods/Helpers';
 export default {
   name: 'Equipment',
   props: ['equipment', 'bonuses'],

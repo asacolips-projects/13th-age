@@ -84,10 +84,10 @@
 </template>
 
 <script>
-import { concat, localize, numberFormat } from '/src/vue/methods/Helpers';
-import { default as Equipment } from '/src/vue/components/parts/Equipment.vue';
-import { default as Loot } from '/src/vue/components/parts/Loot.vue';
-import { default as Rollable } from '/src/vue/components/parts/Rollable.vue';
+import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { default as Equipment } from '@/components/parts/Equipment.vue';
+import { default as Loot } from '@/components/parts/Loot.vue';
+import { default as Rollable } from '@/components/parts/Rollable.vue';
 export default {
   props: ['actor', 'tab', 'flags'],
   data() {

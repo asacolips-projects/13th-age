@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { localize } from '/src/vue/methods/Helpers';
-import { default as Editor } from '/src/vue/components/parts/Editor.vue';
+import { localize } from '@/methods/Helpers';
+import { default as Editor } from '@/components/parts/Editor.vue';
 export default {
   name: 'CharOut',
   props: ['actor', 'owner'],
