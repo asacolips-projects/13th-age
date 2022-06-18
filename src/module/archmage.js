@@ -18,27 +18,6 @@ import { renderCompendium } from './hooks/renderCompendium.js';
 
 Hooks.once('init', async function() {
 
-  // First, determine if the dependency modules are enabled.
-  let modules = {};
-  modules.dlopen = game.modules.get('dlopen');
-  modules.vueport = game.modules.get('vueport');
-  let dependencies = Boolean(modules.dlopen && modules.dlopen.active) && Boolean(modules.vueport && modules.vueport.active);
-
-  // As a failsafe, determine whether or not Dlopen is available.
-  if (typeof Dlopen === 'undefined') dependencies = false;
-
-  // Enable Vue if the module isn't available.
-  if (!dependencies) {
-    // TODO: Figure out how to get await to work well here, and check to confirm
-    // that the 'Vue' class exists before setting this to true.
-    // TODO: The fallback does not yet support Vuex, but that's not a
-    // requirement for our sheet.
-    archmageLoadJs('/systems/archmage/module/lib/vueport-fallback.js');
-    dependencies = true;
-  }
-
-  // CONFIG.debug.hooks = true;
-
   String.prototype.safeCSSId = function() {
     return encodeURIComponent(
       this.toLowerCase()
@@ -116,7 +95,6 @@ Hooks.once('init', async function() {
   });
   _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
 
-
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
 
@@ -132,15 +110,6 @@ Hooks.once('init', async function() {
     label: "NPC Sheet",
     types: ["npc"],
     makeDefault: true
-  });
-
-  // TODO: We may be able to delete this prompt now that there's a fallback.
-  // Register a setting for prompting the GM to enable dependencies.
-  game.settings.register('archmage', 'dependencyPrompt', {
-    scope: 'world',
-    config: false,
-    default: false,
-    type: Boolean
   });
 
   // V2 actor sheet (See issue #118).
@@ -370,8 +339,6 @@ Hooks.once('init', async function() {
     default: false
   });
 
-
-
   /**
    * Override the default Initiative formula to customize special behaviors of the D&D5e system.
    * Apply advantage, proficiency, or bonuses where appropriate
@@ -389,16 +356,6 @@ Hooks.once('init', async function() {
     if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
     else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
-  }
-
-  if (dependencies) {
-    // Define dependency on our own custom vue components for when we need it.
-    // If Dlopen doesn't exist, we load this later in the 'ready' hook.
-    if (typeof Dlopen !== 'undefined') {
-      Dlopen.register('actor-sheet', {
-        scripts: "/systems/archmage/dist/vue-components.min.js",
-      });
-    }
   }
 });
 
@@ -478,14 +435,6 @@ Hooks.on('setup', (data, options, id) => {
   }
 });
 
-Hooks.on('createItem', (data, options, id) => {
-  // TODO: create default images.
-  // let item = data;
-  // let type = item.data.type;
-  // let img = CONFIG.ARCHMAGE.defaultTokens[type] ? CONFIG.ARCHMAGE.defaultTokens[type] : CONFIG.DEFAULT_TOKEN;
-  // item.data.img = img;
-});
-
 /* ---------------------------------------------- */
 
 Hooks.once('ready', () => {
@@ -505,88 +454,6 @@ Hooks.once('ready', () => {
   Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
 
   $('.message').off("contextmenu");
-
-  let modules = {};
-  modules.dlopen = game.modules.get('dlopen');
-  modules.vueport = game.modules.get('vueport');
-  modules.aip = game.modules.get('autocomplete-inline-properties');
-
-  // Determine if we need the dependencies installed.
-  let dependencies = Boolean(modules.dlopen) && Boolean(modules.vueport);
-
-  // If our fallback loaded, set the dependencies to true.
-  if (typeof Vue !== 'undefined') dependencies = true;
-
-  let gm = game.user.isGM;
-  let prompt = game.settings.get('archmage', 'dependencyPrompt');
-
-  // If the modules don't exist, warn the user.
-  if (!dependencies) {
-    if (gm) {
-      ui.notifications.error(game.i18n.localize('ARCHMAGE.UI.errDependency'));
-    }
-  }
-  else {
-    // If the modules exist but aren't enabled, prompt the user.
-    if ((modules.dlopen && !modules.dlopen.active) || (modules.vueport && !modules.vueport.active)) {
-      if (prompt && gm) {
-        Dialog.confirm({
-          title: game.i18n.format('ARCHMAGE.UI.enableDependencies'),
-          content: game.i18n.format('ARCHMAGE.UI.dependencyContent'),
-          yes: () => {
-            let moduleSettings = game.settings.get('core', 'moduleConfiguration');
-            moduleSettings['dlopen'] = true;
-            moduleSettings['vueport'] = true;
-            game.settings.set('core', 'moduleConfiguration', moduleSettings);
-          }
-        });
-        // Prevent repeated prompts on subsequent loads.
-        game.settings.set('archmage', 'dependencyPrompt', false);
-      }
-      // Fallback method of loading the Vue components.
-      // archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
-    }
-    else {
-      // If Dlopen is present, load the dependencies.
-      if (typeof Dlopen !== 'undefined') {
-        let loadDependencies = async function() {
-          // Preload Vue dependencies via Dlopen.
-          try {
-            await Dlopen.loadDependencies([
-              'vue',
-              'actor-sheet'
-            ]);
-          } catch (error) {
-            console.log('Dlopen was unable to load Vue. Now trying to load locally instead...');
-          }
-
-          // Otherwise, try loading them locally.
-          if (typeof Vue === 'undefined') {
-            // await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
-            // await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
-            // await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
-            Dlopen.LOADED_DEPENDENCIES['vue'] = true;
-            Dlopen.LOADED_DEPENDENCIES['vuex'] = true;
-            Dlopen.LOADED_DEPENDENCIES['actor-sheet'] = true;
-          }
-        }
-        loadDependencies();
-      }
-      // Otherwise, load it via our fallback.
-      else {
-        let loadFallbacks = async function() {
-          // If Vue is still undefined, load it manually.
-          if (typeof Vue === 'undefined') {
-            // await archmageLoadJs('/systems/archmage/scripts/lib/vue.min.js');
-            // await archmageLoadJs('/systems/archmage/scripts/lib/vuex.min.js');
-          }
-
-          // await archmageLoadJs('/systems/archmage/dist/vue-components.min.js');
-        }
-        loadFallbacks();
-      }
-    }
-  }
 });
 
 /* ---------------------------------------------- */
