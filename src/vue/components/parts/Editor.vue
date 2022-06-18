@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Edtior',
+  name: 'Editor',
   props: ['owner', 'target', 'content', 'button', 'editable', 'documents', 'links', 'rolls', 'rollData'],
   data() {
     return {

@@ -89,6 +89,7 @@ import Equipment from '@/components/parts/Equipment.vue';
 import Loot from '@/components/parts/Loot.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
+  name: 'CharInventory',
   props: ['actor', 'tab', 'flags'],
   data() {
     return {

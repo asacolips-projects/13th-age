@@ -7,19 +7,16 @@
 <script>
 import Editor from '@/components/parts/Editor.vue';
 export default {
+  name: 'CharDetails',
   props: ['actor', 'owner', 'tab', 'flags'],
-  data() {
-    return {}
+  setup(props) {
+    const classes = `section section--details flexcol`;
+    return {
+      classes
+    }
   },
   components: {
     Editor
-  },
-  computed: {
-    classes() {
-      return `section section--details flexcol`;
-    }
-  },
-  methods: { /* See created. */},
-  async mounted() {}
+  }
 }
 </script>

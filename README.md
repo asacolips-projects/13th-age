@@ -13,6 +13,45 @@ Create characters in this FoundryVTT character sheet that is compatible with the
 
 All powers and monster actions require usage of inline dice rolls, such as `[[d20+@str+@lvl+@ed+2]]` to function with automation and dice rolls in chat messages. Many of the compendium entries for powers come preformatted using this syntax, but some are still in progress. For a full reference of how to use inline rolls, go to the settings tab of the right sidebar and click the "Archmage Inline Rolls" button.
 
+# Contributing
+
+Contributions are accepted and encouraged! To contribute to the project, fork this repository and then submit your changes as a pull request against the `master` branch.
+
+## Building locally
+
+This project uses **gulp** for the majority of its build tasks, but it also uses **vite** to compile its Vue components for usage in character sheets. Source files are located in the `src/` directory and are compiled to the `dist/` directory. To use the locally built system in Foundry, symlink your `dist/` directory to `systems/archmage` in your Foundry data directory.
+
+To run a build, you'll need node 16 installed. Once you have node and npm, install the project
+dependencies:
+
+```
+npm install
+```
+The following commands can be used for various versions of build tasks:
+
+```bash
+# One time build
+npm run build
+# Watch for changes and build automatically
+npm run watch
+# Compile CSS only
+npm run css
+# Compile manifests and language files only
+npm run yaml
+# Compile compendium databases only
+npm run compilePacks
+# Extract compendium databases to yaml files
+npm run extractPacks
+# Compile vue components only
+npm run vite:build
+# Watch for changes in vue only
+npm run vite:watch
+```
+
+## Working with Vue
+
+This system uses Vue for character sheets and will eventually use it for other sheet types as well. For more information on how to work with the Vue components, see the README.md in `src/vue/README.md`.
+
 ---
 
 # Licenses

@@ -70,6 +70,7 @@
 <script>
 
 import { concat, localize } from '@/methods/Helpers';
+import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import {
   Tabs,
   Tab,
@@ -82,7 +83,7 @@ import {
   CharOut,
   CharIncrementals,
   CharResources,
-  CharDetails,
+  // CharDetails,
   CharPowers,
   CharInventory,
   CharEffects,
@@ -108,7 +109,7 @@ export default {
     CharPowers,
     CharInventory,
     CharEffects,
-    CharSettings
+    CharSettings,
   },
   setup() {
     return {

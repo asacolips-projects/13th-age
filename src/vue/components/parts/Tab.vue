@@ -4,13 +4,11 @@
   </div>
 </template>
 
-<script setup>
-  defineProps({
-    context: Object,
-    actor: Object,
-    tab: Object,
-    group: String
-  });
+<script>
+  export default {
+    name: 'Tab',
+    props: ['context', 'actor', 'tab', 'group']
+  }
 </script>
 
 <style scoped>

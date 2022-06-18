@@ -39,33 +39,25 @@
 
 <script>
 import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { reactive, computed, toRefs } from 'vue';
+// This component includes an example of using the composition API
+// https://www.vuemastery.com/pdf/Vue-3-Cheat-Sheet.pdf
+// https://vuejs.org/api/composition-api-setup.html
 export default {
   name: 'CharEffects',
   props: ['actor', 'tab', 'flags'],
   setup() {
-    return {
-      concat,
-      localize,
-      numberFormat
-    }
-  },
-  data() {
-    return {
-      effects: []
-    }
-  },
-  computed: {
-    classes() {
-      return `section section--effects flexcol`;
-    }
-  },
-  methods: {
-    getEffects() {
-      // TODO: Expand this with filtering/grouping.
+    // Equivalent to data: and computed:
+    const componentData = reactive({
+      effects: [],
+      classes: computed(() => `section section--effects flexcol`)
+    });
+    // Define methods.
+    function getEffects() {
       let effects = this.actor.effects;
       this.effects = effects;
-    },
-    getChanges(effect) {
+    }
+    function getChanges(effect) {
       let changes = [];
       let modes = [
         'question',
@@ -84,18 +76,20 @@ export default {
           });
         }
       })
-
       return changes;
     }
-  },
-  watch: {
-    'actor.effects': {
-      deep: true,
-      handler() {
-        this.getEffects();
-      }
+
+    // Return our custom data, methods, and any imported methods.
+    return {
+      ...toRefs(componentData),
+      concat,
+      localize,
+      numberFormat,
+      getEffects,
+      getChanges
     }
   },
+  // Execute getEffects as soon as we're mounted.
   async mounted() {
     this.getEffects();
   }

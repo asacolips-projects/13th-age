@@ -10,10 +10,9 @@
   },
   "scripts": {
     "build": "gulp build",
-    "compile": "gulp css",
+    "css": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
-    "vue": "gulp vue",
     "yaml": "gulp yaml",
     "compilePacks": "gulp compilePacks",
     "extractPacks": "gulp extractPacks",
