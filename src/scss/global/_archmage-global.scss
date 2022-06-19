@@ -155,6 +155,10 @@ input[type="checkbox"] {
       color: $c-black;
     }
   }
+
+  .effect-link {
+    padding: 0px 4px;
+  }
 }
 
 .ability-usage {
@@ -952,6 +956,7 @@ input[type="checkbox"] {
   &.sheet,
   &.actor-sheet,
   &.npc-sheet,
+  &.active-effect-sheet,
   &.item-sheet {
     .item-sheet {
       display: flex;
@@ -2072,7 +2077,8 @@ input[type="checkbox"] {
 
   .actions,
   .traits,
-  .nastier-specials {
+  .nastier-specials,
+  .effects {
     .item-name,
     .item-description {
       padding: 0 8px;
@@ -2093,7 +2099,8 @@ input[type="checkbox"] {
   .actions-header,
   .traits-header,
   .nastier-specials-header,
-  .npc-details-header {
+  .npc-details-header,
+  .effects-header {
     .item-name,
     .item-controls {
       background: $ct-black--75;
@@ -2113,7 +2120,8 @@ input[type="checkbox"] {
 
   .actions-list,
   .traits-list,
-  .nastier-specials-list {
+  .nastier-specials-list,
+  .effects-list {
     .item-name,
     .item-description {
       p {
@@ -2555,3 +2563,23 @@ input[type="checkbox"] {
 .l-center {
   margin: 0 40px;
 }
+
+a.effect-link {
+  background: #DDD;
+  padding: 1px 4px;
+  border: 1px solid #4b4a44;
+  border-radius: 2px;
+  white-space: nowrap;
+  word-break: break-all;
+  i {
+    color: #7a7971;
+  }
+  .effects-icon {
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: relative;
+    top: 7px;
+  }
+}
+

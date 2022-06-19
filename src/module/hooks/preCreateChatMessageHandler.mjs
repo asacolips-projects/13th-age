@@ -5,6 +5,26 @@ import Triggers from "../Triggers/Triggers.mjs";
 
 export default class preCreateChatMessageHandler {
 
+    static replaceEffectAndConditionReferences(actorDocument, $rows) {
+        let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
+        const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.label)));
+
+        function generateConditionLink(name) {
+            const condition = conditions.find(x => game.i18n.localize(x.label) === name);
+            return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
+                    <img class="effects-icon" src="${condition.icon}" />
+                    ${name}</a>`;
+        }
+
+        for ( const row of $rows ) {
+            for ( const name of conditionNames ) {
+                const link = generateConditionLink(name);
+                const regex = new RegExp(`\\*${name}\\*`, "ig");
+                row.innerHTML = row.innerHTML.replace(regex, link);
+            }
+        }
+    }
+
     static handle(data, options, userId) {
         let $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rolls = $content.find('.inline-result');
@@ -13,6 +33,7 @@ export default class preCreateChatMessageHandler {
         let targets = [...game.user.targets.values()]; // needed to checkRowText of npcs
         let numTargets = options.targets ? options.targets : 1;
         let type = options.type ? options.type : 'power';
+        let actorDocument = data.speaker?.actor ? game.actors.get(data.speaker.actor) : null;
         // TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
         let damageType = 'basic';
         let range = "melee";
@@ -29,6 +50,8 @@ export default class preCreateChatMessageHandler {
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');
+
+        preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
 
         let sequence = undefined;
         let sequencerFile = options.sequencer?.file;
@@ -107,7 +130,7 @@ export default class preCreateChatMessageHandler {
 
                 // Highlight lines for higher level effects
                 for (let x of [3, 5, 7, 9]) {
-                  if (x == options.powerLevel && 
+                  if (x == options.powerLevel &&
                   row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.spellLevel"+x)+':')) {
                     $row_self.addClass("trigger-active");
                   }
