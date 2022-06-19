@@ -13,7 +13,7 @@
     "css": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
-    "files": "files",
+    "files": "gulp files",
     "yaml": "gulp yaml",
     "compilePacks": "gulp compilePacks",
     "extractPacks": "gulp extractPacks",
