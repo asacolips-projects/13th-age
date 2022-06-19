@@ -11,6 +11,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Properties that we'll use for the Vue app.
     this.vueApp = null;
     this.vueRoot = null;
+    this.vueComponents = {
+      'character-sheet': ArchmageCharacterSheet
+    };
   }
 
   /** @override */
@@ -89,9 +92,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
           }
         },
         // Define our character sheet component.
-        components: {
-          'character-sheet': ArchmageCharacterSheet
-        },
+        components: this.vueComponents,
         // Create a method to the update the data while retaining reactivity.
         methods: {
           updateContext(newContext) {
