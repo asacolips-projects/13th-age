@@ -1,0 +1,308 @@
+name: archmage
+title: Toolkit13 Character Sheet (13th Age Compatible)
+version: 1.17.0
+author: Matt Smith, Cody Swendrowski & Federico Pederzolli
+description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
+minimumCoreVersion: 9
+compatibleCoreVersion: 9
+
+esmodules:
+  - module/archmage.js
+  # Vue is included in the actor sheet class. To download new copies, go to
+  # https://unpkg.com/browse/vue@3/dist/
+
+scripts:
+  - scripts/utils/utils.js
+  - scripts/lib/parse-md.js
+  - scripts/migrate/archmage-updates.js
+  - scripts/lib/intro.js
+  # - scripts/vue/archmage-methods.js
+
+styles:
+  - css/archmage.css
+  - css/v2/archmage-v2.css
+  - vue/styles.vue.css
+  - css/lib/introjs.css
+
+packs:
+  - label: Classes
+    type: JournalEntry
+    name: classes
+    path: packs/classes.db
+    system: archmage
+
+  - label: Races
+    type: Item
+    name: races
+    path: packs/races.db
+    system: archmage
+
+  - label: Barbarian
+    type: Item
+    name: barbarian
+    path: packs/barbarian.db
+    system: archmage
+
+  - label: Bard
+    type: Item
+    name: bard
+    path: packs/bard.db
+    system: archmage
+
+  - label: Cleric
+    type: Item
+    name: cleric
+    path: packs/cleric.db
+    system: archmage
+
+  - label: Fighter
+    type: Item
+    name: fighter
+    path: packs/fighter.db
+    system: archmage
+
+  - label: Paladin
+    type: Item
+    name: paladin
+    path: packs/paladin.db
+    system: archmage
+
+  - label: Ranger
+    type: Item
+    name: ranger
+    path: packs/ranger.db
+    system: archmage
+
+  - label: Rogue
+    type: Item
+    name: rogue
+    path: packs/rogue.db
+    system: archmage
+
+  - label: Sorcerer
+    type: Item
+    name: sorcerer
+    path: packs/sorcerer.db
+
+  - label: Sorcerer Tables
+    type: RollTable
+    name: sorcerer-tables
+    path: packs/sorcerer-tables.db
+    system: archmage
+
+  - label: Wizard
+    type: Item
+    name: wizard
+    path: packs/wizard.db
+    system: archmage
+
+  - label: Chaos Mage
+    type: Item
+    name: chaosmage
+    path: packs/chaosmage.db
+    system: archmage
+
+  - label: Chaos Mage Tables
+    type: RollTable
+    name: chaosmage-tables
+    path: packs/chaosmage-tables.db
+    system: archmage
+
+  - label: Commander
+    type: Item
+    name: commander
+    path: packs/commander.db
+    system: archmage
+
+  - label: Druid
+    type: Item
+    name: druid
+    path: packs/druid.db
+    system: archmage
+
+  - label: Monk
+    type: Item
+    name: monk
+    path: packs/monk.db
+    system: archmage
+
+  - label: Necromancer
+    type: Item
+    name: necromancer
+    path: packs/necromancer.db
+    system: archmage
+
+  - label: Necromancer (Summons)
+    type: Actor
+    name: necromancer-summons
+    path: packs/necromancer-summons.db
+    system: archmage
+
+  - label: Occultist
+    type: Item
+    name: occultist
+    path: packs/occultist.db
+    system: archmage
+
+  - label: General Feats
+    type: Item
+    name: generalfeats
+    path: packs/general-feats.db
+    system: archmage
+
+  - label: Multiclass Feats
+    type: Item
+    name: multiclassfeats
+    path: packs/multiclass-feats.db
+    system: archmage
+
+  - label: Animal Companion
+    type: Item
+    name: animal-companion
+    path: packs/animal-companion.db
+    system: archmage
+
+  - label: Animal Companions
+    type: Actor
+    name: animal-companions
+    path: packs/animal-companions.db
+    system: archmage
+
+  - label: SRD Monsters
+    type: Actor
+    name: srd-Monsters
+    path: packs/srd-monsters.db
+    system: archmage
+
+  - label: SRD Magic Items - Armors
+    type: Item
+    name: srd-magic-items-armors
+    path: packs/srd-magic-items-armors.db
+    system: archmage
+
+  - label: SRD Magic Items - Arrows
+    type: Item
+    name: srd-magic-items-arrows
+    path: packs/srd-magic-items-arrows.db
+    system: archmage
+
+  - label: SRD Magic Items - Belts
+    type: Item
+    name: srd-magic-items-belts
+    path: packs/srd-magic-items-belts.db
+    system: archmage
+
+  - label: SRD Magic Items - Books
+    type: Item
+    name: srd-magic-items-books
+    path: packs/srd-magic-items-books.db
+    system: archmage
+
+  - label: SRD Magic Items - Boots
+    type: Item
+    name: srd-magic-items-boots
+    path: packs/srd-magic-items-boots.db
+    system: archmage
+
+  - label: SRD Magic Items - Chuul Symbiotes
+    type: Item
+    name: srd-magic-items-chuul-symbiotes
+    path: packs/srd-magic-items-chuul-symbiotes.db
+    system: archmage
+
+  - label: SRD Magic Items - Cloaks
+    type: Item
+    name: srd-magic-items-cloaks
+    path: packs/srd-magic-items-cloaks.db
+    system: archmage
+
+  - label: SRD Magic Items - Cursed
+    type: Item
+    name: srd-magic-items-cursed
+    path: packs/srd-magic-items-cursed.db
+    system: archmage
+
+  - label: SRD Magic Items - Gloves
+    type: Item
+    name: srd-magic-items-gloves
+    path: packs/srd-magic-items-gloves.db
+    system: archmage
+
+  - label: SRD Magic Items - Helmets
+    type: Item
+    name: srd-magic-items-helmets
+    path: packs/srd-magic-items-helmets.db
+    system: archmage
+
+  - label: SRD Magic Items - Necklaces
+    type: Item
+    name: srd-magic-items-necklaces
+    path: packs/srd-magic-items-necklaces.db
+    system: archmage
+
+  - label: SRD Magic Items - Rings
+    type: Item
+    name: srd-magic-items-rings
+    path: packs/srd-magic-items-rings.db
+    system: archmage
+
+  - label: SRD Magic Items - Shields
+    type: Item
+    name: srd-magic-items-shields
+    path: packs/srd-magic-items-shields.db
+    system: archmage
+
+  - label: SRD Magic Items - Staffs
+    type: Item
+    name: srd-magic-items-staffs
+    path: packs/srd-magic-items-staffs.db
+    system: archmage
+
+  - label: SRD Magic Items - Symbols
+    type: Item
+    name: srd-magic-items-symbols
+    path: packs/srd-magic-items-symbols.db
+    system: archmage
+
+  - label: SRD Magic Items - Wands
+    type: Item
+    name: srd-magic-items-wands
+    path: packs/srd-magic-items-wands.db
+    system: archmage
+
+  - label: SRD Magic Items - Weapons
+    type: Item
+    name: srd-magic-items-weapons
+    path: packs/srd-magic-items-weapons.db
+    system: archmage
+
+  - label: SRD Magic Items - Wondrous Items
+    type: Item
+    name: srd-magic-items-wondrous-items
+    path: packs/srd-magic-items-wondrous-items.db
+    system: archmage
+
+languages:
+  - lang: en
+    name: English
+    path: languages/en.json
+
+  - lang: es
+    name: Español
+    path: languages/es.json
+
+socket: true
+url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
+manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.17.0/raw/archmage.zip?job=build-prod
+dependencies: []
+initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
+gridDistance: 1
+gridUnits: ''
+primaryTokenAttribute: attributes.hp
+
+# Manifest+ Props
+manifestPlusVersion: 1.1.0
+media:
+  - type: cover
+    url: https://mattsmithin-files.s3.amazonaws.com/toolkit13.png

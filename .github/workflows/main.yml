@@ -1,6 +1,6 @@
 name: Release Creation
 
-on: 
+on:
   push:
     tags:
     - '*' # Push events to matching v*, i.e. v1.0, v20.15.10
@@ -11,30 +11,40 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run Gulp YAML
-      uses: elstudio/actions-js-build/build@v2
-      with:
-        args: yaml
-        
-    - name: Run Gulp CSS
-      uses: elstudio/actions-js-build/build@v2
-      with:
-        args: css
+    # - name: Run Gulp YAML
+    #   uses: elstudio/actions-js-build/build@v2
+    #   with:
+    #     args: yaml
 
-    - name: Run Gulp Compile Packs
-      uses: elstudio/actions-js-build/build@v2
-      with:
-        args: compilePacks
+    # - name: Run Gulp CSS
+    #   uses: elstudio/actions-js-build/build@v2
+    #   with:
+    #     args: css
 
-    - name: Run Gulp Compile Vue
+    # - name: Run Gulp Compile Packs
+    #   uses: elstudio/actions-js-build/build@v2
+    #   with:
+    #     args: compilePacks
+
+    # - name: Run Gulp Compile Vue (vite)
+    #   uses: elstudio/actions-js-build/build@v2
+    #   with:
+    #     args: vite:build
+
+    # - name: Run Gulp copy files
+    #   uses: elstudio/actions-js-build/build@v2
+    #   with:
+    #     args: files
+
+    - name: Run Gulp production build
       uses: elstudio/actions-js-build/build@v2
       with:
-        args: vue
+        args: build:prod
 
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-  
+
     #Substitute the Manifest and Download URLs in the system.json
     - name: Substitute Manifest and Download Links For Versioned Ones
       id: sub_manifest_link_version
@@ -49,7 +59,7 @@ jobs:
     - run: mkdir release
 
     # create a zip file with all files required by the system to add to the release
-    - run: zip -r ./release/system.zip system.json template.json assets/ condition-maps/ css/ images/ languages/ licenses/ module/ packs/ scripts/ styles/ templates/ dist/
+    - run: zip -r ./release/system.zip dist
 
     - name: Copy File
       # You may pin to the exact commit or the version.
@@ -72,7 +82,7 @@ jobs:
         prerelease: false
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './release/system.json,./release/system.zip'
-        
+
     # - name: azure-blob-copy-action
       # You may pin to the exact commit or the version.
       # uses: ulaval/azure-blob-copy-action@a5589c66042be9a15da7cc2a28e63adc3a42af3a
