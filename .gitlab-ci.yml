@@ -13,14 +13,14 @@ test-build:
   script:
     - export
     - npm ci
-    - npm run build
+    - npm run build:prod
 
 build-beta:
   stage: build
   script:
     - export
     - npm ci
-    - npm run build
+    - npm run build:prod
     - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME --versionpre=$CI_PIPELINE_IID
     - zip -q archmage.zip -r dist
   artifacts:
@@ -35,7 +35,7 @@ build-prod:
   script:
     - export
     - npm ci
-    - npm run build
+    - npm run build:prod
     - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME  --tag=$CI_COMMIT_TAG
     - zip -q archmage.zip -r dist
   artifacts:
