@@ -11,7 +11,7 @@ export class renderCompendium {
 
     // let compendium = data.collection;
 
-    // if (compendium.metadata.entity == 'Item') {
+    // if (compendium.documentName == 'Item') {
     //   let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     //   classList.push('races');
     //   let classRegex = new RegExp(classList.join('|'), 'g');
@@ -42,7 +42,7 @@ export class renderCompendium {
     //     return groups;
     //   }, {});
     // }
-    // if (compendium.metadata.entity == 'Actor') {
+    // if (compendium.documentName == 'Actor') {
     //   // Hide the original compendium.
     //   html.find('.compendium').addClass('overrides');
     //   // Build a search index.

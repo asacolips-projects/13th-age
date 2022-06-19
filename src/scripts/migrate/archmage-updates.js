@@ -126,7 +126,7 @@ class ArchmageUpdateHandler {
 
     // // Update compendium entities.
     // for (let c of game.packs) {
-    //   if (c.metadata.entity && c.metadata.entity == 'Actor') {
+    //   if (c.documentName && c.documentName == 'Actor') {
     //     let entities = await c.getDocuments();
     //     for (let a of entities) {
     //       if (!a.data.type) {

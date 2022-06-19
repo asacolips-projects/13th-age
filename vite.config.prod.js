@@ -31,7 +31,7 @@ export default defineConfig({
         },
         // Map the external dependency to a local copy of Vue 3 esm.
         paths: {
-          vue: `../scripts/lib/vue.esm-browser.js`
+          vue: `../scripts/lib/vue.esm-browser.prod.js`
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name == 'style.css')

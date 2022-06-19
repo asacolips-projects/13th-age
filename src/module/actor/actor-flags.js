@@ -48,7 +48,7 @@ export class ActorSheetFlags extends BaseEntitySheet {
       flag.type = v.type.name;
       flag.isCheckbox = v.type === Boolean;
       flag.isSelect = v.hasOwnProperty('choices');
-      flag.value = this.entity.getFlag("archmage", k);
+      flag.value = this.document.getFlag("archmage", k);
       flags[v.section][k] = flag;
     }
     return flags;

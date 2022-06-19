@@ -11,6 +11,7 @@ const wrap = require('gulp-wrap');
 const declare = require('gulp-declare');
 const concat = require('gulp-concat');
 const minify = require('gulp-minify');
+const replace = require('gulp-replace');
 
 // Dependencies for compendium tasks.
 const through2 = require("through2");
@@ -239,47 +240,24 @@ function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})
     .pipe(gulp.dest('./dist'))
 }
+function copyFilesProd() {
+  return gulp.src(SYSTEM_COPY, {base: 'src'})
+    .pipe(replace('vue.esm-browser.js', 'vue.esm-browser.prod.js'))
+    .pipe(gulp.dest('./dist'))
+}
 function copyManifest() {
   return gulp.src('./dist/system.json')
     .pipe(gulp.dest('./'))
 }
 const copyTask = gulp.series(copyFiles, copyManifest);
-
-
-/* ----------------------------------------- */
-/*  Compile Vue 2
-/* ----------------------------------------- */
-
-const VUE_FILES = ["src/templates/vue/**/*.vue"];
-
-function compileVue() {
-  return gulp.src(VUE_FILES)
-        .pipe(vueComponent({ loadCssMethod: 'VuePort.loadCss' }))
-        .pipe(babel({ plugins: ['@babel/plugin-transform-modules-commonjs'] }))
-        .pipe(wrap('Vue.component(<%= processComponentName(file.relative) %>, (function() {const exports = {}; <%= contents %>; return _default;})())', {}, {
-            imports: {
-                processComponentName: function (fileName) {
-                    // Strip the extension and escape the output with JSON.stringify
-                    return JSON.stringify(path.basename(fileName, '.js'));
-                }
-            }
-        }))
-        .pipe(declare({
-            namespace: 'VuePort.Components',
-            noRedeclare: true, // Avoid duplicate declarations
-        }))
-        .pipe(concat('vue-components.js'))
-
-    .pipe(minify({ noSource: true, ext: ".min.js" }))
-        .pipe(gulp.dest('./dist/vue2'));
-}
-const vueTask = gulp.series(compileVue);
+const copyTaskProd = gulp.series(copyFilesProd, copyManifest);
 
 /* ----------------------------------------- */
 /*  Compile Vue 3                            */
 /* ----------------------------------------- */
 const exec = require('child_process').exec;
 const VITE_FILES = ['src/vue/**/*.{js,vue}']
+// Local builds.
 function viteBuild(cb) {
   return exec('npm run vite:build', function(err, stdout, stderr) {
     console.log(stdout);
@@ -288,6 +266,15 @@ function viteBuild(cb) {
   });
 }
 const viteTask = gulp.series(viteBuild);
+// Prod builds.
+function viteProd(cb) {
+  return exec('npm run vite:build:prod', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+}
+const viteProdTask = gulp.series(viteProd);
 
 /* ----------------------------------------- */
 /*  Watch Updates
@@ -298,7 +285,6 @@ function watchUpdates() {
   gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, imageTask);
   gulp.watch(SYSTEM_SVG, svgTask);
-  gulp.watch(VUE_FILES, vueTask);
   gulp.watch(VITE_FILES, viteTask);
   gulp.watch(SYSTEM_COPY, copyTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
@@ -322,7 +308,6 @@ exports.svg = svgTask;
 exports.css = css;
 exports.yaml = yamlTask;
 exports.files = copyTask;
-exports.vue = vueTask;
 exports.cleanPacks = gulp.series(cleanPacks);
 exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
@@ -332,8 +317,17 @@ exports.build = gulp.series(
   compileImages,
   compileSvg,
   copyTask,
-  // compileVue, // vue 2 is deprecated for this project
   cleanPacks,
   compilePacks,
   viteTask // vue 3 task
+);
+exports.prod = gulp.series(
+  compileScss,
+  compileYaml,
+  compileImages,
+  compileSvg,
+  copyTaskProd,
+  cleanPacks,
+  compilePacks,
+  viteProdTask // vue 3 task
 );

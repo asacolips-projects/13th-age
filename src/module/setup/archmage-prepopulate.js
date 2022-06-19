@@ -137,7 +137,7 @@ export class ArchmagePrepopulate {
    *   pack content.
    */
   async getJournals() {
-    let pack = await game.packs.find(p => p.metadata.name == 'classes' && p.metadata.entity == 'JournalEntry');
+    let pack = await game.packs.find(p => p.metadata.name == 'classes' && p.documentName == 'JournalEntry');
     let entries = await pack.getDocuments();
     let content = {};
     for (let i = 0; i < entries.length; i++) {
