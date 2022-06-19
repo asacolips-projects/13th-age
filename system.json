@@ -30,6 +30,13 @@
       "system": "archmage"
     },
     {
+      "label": "Conditions",
+      "type": "JournalEntry",
+      "name": "conditions",
+      "path": "packs/conditions.db",
+      "system": "archmage"
+    },
+    {
       "label": "Races",
       "type": "Item",
       "name": "races",
