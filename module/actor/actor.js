@@ -363,10 +363,10 @@ export class ActorArchmage extends Actor {
     }
 
     // Bonuses
-    var meleeAttackBonus = 0;
-    var rangedAttackBonus = 0;
-    var divineAttackBonus = 0;
-    var arcaneAttackBonus = 0;
+    var meleeAttackBonus = data.attributes.attack?.melee?.bonus ?? 0;
+    var rangedAttackBonus = data.attributes.attack?.ranged?.bonus ?? 0;
+    var divineAttackBonus = data.attributes.attack?.divine?.bonus ?? 0;
+    var arcaneAttackBonus = data.attributes.attack?.arcane?.bonus ?? 0;
 
     var acBonus = 0;
     var mdBonus = 0;

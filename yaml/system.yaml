@@ -23,6 +23,11 @@ packs:
     name: classes
     path: packs/dist/classes.db
     system: archmage
+  - label: Conditions
+    entity: JournalEntry
+    name: conditions
+    path: packs/dist/conditions.db
+    system: archmage
   - label: Races
     entity: Item
     name: races
