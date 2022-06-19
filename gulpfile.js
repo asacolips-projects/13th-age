@@ -295,12 +295,14 @@ function watchUpdates() {
 /* ----------------------------------------- */
 
 exports.default = gulp.series(
-  compileScss,
-  compileYaml,
-  compileImages,
-  compileSvg,
-  copyTask,
-  viteTask,
+  gulp.parallel(
+    compileScss,
+    compileYaml,
+    compileImages,
+    compileSvg,
+    copyTask,
+    viteTask,
+  ),
   watchUpdates
 );
 exports.images = imageTask;
@@ -312,22 +314,26 @@ exports.cleanPacks = gulp.series(cleanPacks);
 exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
-  compileScss,
-  compileYaml,
-  compileImages,
-  compileSvg,
-  copyTask,
   cleanPacks,
-  compilePacks,
-  viteTask // vue 3 task
+  gulp.parallel(
+    compileScss,
+    compileYaml,
+    compileImages,
+    compileSvg,
+    compilePacks,
+    copyTask,
+    viteTask // vue 3 task
+  ),
 );
 exports.prod = gulp.series(
-  compileScss,
-  compileYaml,
-  compileImages,
-  compileSvg,
-  copyTaskProd,
   cleanPacks,
-  compilePacks,
-  viteProdTask // vue 3 task
+  gulp.parallel(
+    compileScss,
+    compileYaml,
+    compileImages,
+    compileSvg,
+    copyTaskProd,
+    compilePacks,
+    viteProdTask // vue 3 task
+  )
 );
