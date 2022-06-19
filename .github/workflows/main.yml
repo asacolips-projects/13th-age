@@ -59,7 +59,7 @@ jobs:
     - run: mkdir release
 
     # create a zip file with all files required by the system to add to the release
-    - run: zip -r ./release/system.zip dist
+    - run: cd dist && zip -r ../release/system.zip . && cd ../
 
     - name: Copy File
       # You may pin to the exact commit or the version.
