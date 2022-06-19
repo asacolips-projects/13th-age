@@ -22,7 +22,7 @@ build-beta:
     - npm ci
     - npm run build:prod
     - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME --versionpre=$CI_PIPELINE_IID
-    - zip -q archmage.zip -r dist
+    - cd dist && zip -q ../archmage.zip -r . && cd ../
   artifacts:
     paths:
       - archmage.zip
@@ -37,7 +37,7 @@ build-prod:
     - npm ci
     - npm run build:prod
     - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME  --tag=$CI_COMMIT_TAG
-    - zip -q archmage.zip -r dist
+    - cd dist && zip -q ../archmage.zip -r . && cd ../
   artifacts:
     paths:
       - archmage.zip
