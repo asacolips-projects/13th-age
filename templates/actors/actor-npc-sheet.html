@@ -277,6 +277,37 @@
                 {{/each}}
             </ul>
         </div>
+
+        <div class="effects">
+            <div class="effects-header item flexrow">
+                <div class="item-name">{{localize 'ARCHMAGE.effects'}}</div>
+                {{#if owner}}
+                <div class="item-controls">
+                    <a class="item-control effect-create" title="Create Effect">
+                        <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                </div>
+                {{/if}}
+            </div>
+
+            <ul class="effects-list inventory-list directory-list">
+
+                {{#each actor.effects as |effect e|}}
+                <li class="item flexrow item--effect" data-effect-id="{{effect.id}}">
+                    <div class="item-name rollable">
+                        <div class="item-image" style="background-image: url({{effect.data.icon}})"></div>
+                        <h4>{{effect.data.label}}</h4>
+                    </div>
+
+                    {{#if ../owner}}
+                    <div class="item-controls">
+                        <a class="item-control effect-edit" title="Edit Effect"><i class="fas fa-edit"></i></a>
+                        <a class="item-control effect-delete" title="Delete Effect"><i class="fas fa-trash"></i></a>
+                    </div>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
     </section>
 </form>
 

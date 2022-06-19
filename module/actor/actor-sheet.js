@@ -565,6 +565,16 @@ export class ActorArchmageSheet extends ActorSheet {
       }]);
     });
 
+    // Create New Effect
+    html.find('.effect-create').click(ev => {
+      this.actor.createEmbeddedDocuments('ActiveEffect', [{
+        label: 'New Effect',
+        icon: 'icons/svg/aura.svg',
+        origin: this.actor.uuid,
+        disabled: false
+      }]);
+    });
+
     // html.find('.powers .item-create').on('contextmenu', ev => {
     html.find('.item-import').click(async ev => {
       let characterRace = this.actor.data.data.details.race.value;
@@ -658,6 +668,22 @@ export class ActorArchmageSheet extends ActorSheet {
       let itemId = li.attr('data-item-id');
       let item = this.actor.items.get(itemId);
       item.delete();
+      li.slideUp(200, () => this.render(false));
+    });
+
+    // Update Effect
+    html.find('.effect-edit').click(ev => {
+      let effectId = $(ev.currentTarget).parents('.item').attr('data-effect-id');
+      const effect = this.actor.effects.get(effectId);
+      effect.sheet.render(true);
+    });
+
+    // Delete Effect
+    html.find('.effect-delete').click(ev => {
+      let li = $(ev.currentTarget).parents('.item');
+      let effectId = li.attr('data-effect-id');
+      let effect = this.actor.effects.get(effectId)
+      effect.delete();
       li.slideUp(200, () => this.render(false));
     });
 
