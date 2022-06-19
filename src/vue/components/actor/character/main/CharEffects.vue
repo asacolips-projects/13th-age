@@ -89,6 +89,14 @@ export default {
       getChanges
     }
   },
+  watch: {
+    'actor.effects': {
+      deep: true,
+      handler() {
+        this.getEffects()
+      }
+    }
+  },
   // Execute getEffects as soon as we're mounted.
   async mounted() {
     this.getEffects();
