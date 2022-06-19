@@ -22,11 +22,18 @@ export default class preCreateChatMessageHandler {
 
         let tokens = canvas.tokens.controlled;
         let actor = tokens ? tokens[0] : null;
+        let token = tokens ? tokens[0] : null;
 
         if (options.actor) actor = options.actor;
+        if (options.token) token = options.token;
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');
+
+        let sequence = undefined;
+        let sequencerFile = options.sequencer?.file;
+        let sequencerStretch = options.sequencer?.stretch;
+        let sequencerPersonal = options.sequencer?.personal;
 
         if ($rows.length > 0) {
 
@@ -107,27 +114,40 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (hitEvaluationResults && game.modules.get("sequencer")?.active && options?.sequencerFile) {
-
-                let sequencerFile = options.sequencerFile;
+            if (game.modules.get("sequencer")?.active && sequencerFile && sequencerPersonal && token) {
+              sequence = new Sequence();
+              sequence.effect().atLocation(token).file(sequencerFile);
+            }
+            else if (hitEvaluationResults && game.modules.get("sequencer")?.active && sequencerFile) {
                 if (sequencerFile === "") {
                     // TODO: Using the damage type and range, default to various Setting configurable files
                     sequencerFile = "modules/JB2A_DnD5e/Library/Generic/Impact/Impact_07_Regular_Orange_400x400.webm";
+                    sequencerStretch = false;
                 }
 
                 // Display Sequencer Effects
-                function addAttack(sequence, towards, missed) {
+                function addAttack(sequence, source, towards, stretch, missed) {
+                  if (stretch) {
+                    if (!source) return sequence;
+                    return sequence
+                        .effect()
+                        .atLocation(source)
+                        .stretchTo(towards)
+                        .file(sequencerFile)
+                        .missed(missed)
+                  }
+                  else {
                     return sequence
                         .effect()
                         .atLocation(towards)
                         .file(sequencerFile)
                         .missed(missed)
+                  }
                 }
 
-                let sequence = new Sequence();
-                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, false));
-                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, true));
-                sequence.play();
+                sequence = new Sequence();
+                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, sequencerStretch, false));
+                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, sequencerStretch, true));
             }
 
             // Update the content
@@ -137,5 +157,6 @@ export default class preCreateChatMessageHandler {
                 data.content = updated_content;
             }
         }
+    return sequence;
     }
 }
