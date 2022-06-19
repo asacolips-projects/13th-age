@@ -110,6 +110,13 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
+  // Shocked.
+  {
+    id: "shocked",
+    label: "ARCHMAGE.EFFECT.StatusShocked",
+    icon: "icons/svg/lightning.svg",
+    journal: "m78aw2gepbc5ccgm"
+  },
   // Stuck.
   {
     id: "stuck",

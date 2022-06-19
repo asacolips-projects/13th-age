@@ -123,7 +123,7 @@ export default class preCreateChatMessageHandler {
 
                 // Highlight lines for higher level effects
                 for (let x of [3, 5, 7, 9]) {
-                  if (x == options.powerLevel && 
+                  if (x == options.powerLevel &&
                   row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.spellLevel"+x)+':')) {
                     $row_self.addClass("trigger-active");
                   }

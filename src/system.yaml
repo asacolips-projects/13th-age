@@ -32,9 +32,9 @@ packs:
     system: archmage
 
   - label: Conditions
-    entity: JournalEntry
+    type: JournalEntry
     name: conditions
-    path: packs/dist/conditions.db
+    path: packs/conditions.db
     system: archmage
 
   - label: Races
