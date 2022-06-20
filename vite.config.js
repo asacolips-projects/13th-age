@@ -10,6 +10,13 @@ export default defineConfig({
       '@/': `${path.resolve(__dirname, 'src/vue')}/`
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "src/scss/v2/_init.scss";'
+      }
+    },
+  },
   build: {
     sourcemap: true,
     outDir: './dist/vue',

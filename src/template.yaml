@@ -53,6 +53,34 @@ Actor:
           value: 1
           min: 0
           max: 10
+        disengage: 11
+        disengageBonus: 0
+        saves:
+          bonus: 0
+          disengageBonus: 0
+          deathFails:
+            value: 0
+            max: 4
+            steps:
+              - false
+              - false
+              - false
+              - false
+          lastGaspFails:
+            value: 0
+            max: 4
+            steps:
+              - false
+              - false
+              - false
+              - false
+      details:
+        alignment:
+          type: String
+          label: Alignment
+        biography:
+          type: String
+          label: Biography
   character:
     templates:
       - standard
@@ -94,8 +122,6 @@ Actor:
         min: 3
         mod: 0
     attributes:
-      disengage: 11
-      disengageBonus: 0
       keyModifier:
         mod1: str
         mod2: str
@@ -107,25 +133,6 @@ Actor:
         dice: d8
         base: 8
         automatic: true
-      saves:
-        bonus: 0
-        disengageBonus: 0
-        deathFails:
-          value: 0
-          max: 4
-          steps:
-            - false
-            - false
-            - false
-            - false
-        lastGaspFails:
-          value: 0
-          max: 4
-          steps:
-            - false
-            - false
-            - false
-            - false
       weapon:
         melee:
           type: String
@@ -159,9 +166,6 @@ Actor:
       alignment:
         type: String
         label: Alignment
-      biography:
-        type: String
-        label: Biography
       class:
         type: String
         label: Class
@@ -415,24 +419,18 @@ Actor:
     templates:
       - standard
     details:
+      flavor:
+        value: ''
       role:
         value: ''
-        type: String
-        label: Role
       size:
         value: Normal
-        type: String
-        label: Size
       type:
         value: ''
-        type: String
-        label: Type
       resistance:
-        type: String
-        label: Resistance
+        value: ''
       vulnerability:
-        type: String
-        label: Vulnerability
+        value: ''
 Item:
   types:
     - power

@@ -4,52 +4,37 @@
     <!-- Top group -->
     <section class="container container--top flexcol">
       <!-- Header -->
-      <CharHeader :actor="actor"/>
+      <NpcHeader :actor="actor"/>
+      <!-- Tabs -->
+        <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
       <!-- Attributes section -->
       <!-- <CharAttributes :actor="actor"/> -->
     </section>
     <!-- /Top group -->
 
     <!-- Bottom group -->
-    <section class="container container--bottom flexrow">
-
-      <!-- Left sidebar -->
-      <section class="section section--sidebar flexcol">
-        <!-- <CharInitiative :actor="actor"/>
-        <CharAbilities :actor="actor"/>
-        <CharBackgrounds :actor="actor"/>
-        <CharIconRelationships :actor="actor"/>
-        <CharOut :actor="actor" :owner="owner"/>
-        <CharIncrementals :actor="actor"/> -->
-      </section>
-      <!-- /Left sidebar -->
+    <section class="container container--bottom flexcol">
 
       <!-- Main content -->
       <section class="section section--main flexcol">
 
         <!-- Class resources -->
         <!-- <CharResources :actor="actor"/> -->
-        <!-- Tabs -->
-        <!-- <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/> -->
 
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
-          <!-- <Tab group="primary" :tab="tabs.primary.details">
+          <Tab group="primary" :tab="tabs.primary.details">
             <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
-          </Tab> -->
-          <!-- Powers tab -->
-          <!-- <Tab group="primary" :tab="tabs.primary.powers">
-            <CharPowers :actor="actor" :tab="tabs.primary.powers" :flags="flags"/>
-          </Tab> -->
-          <!-- Inventory tab -->
-          <!-- <Tab group="primary" :tab="tabs.primary.inventory">
-            <CharInventory :actor="actor" :tab="tabs.primary.inventory" :flags="flags"/>
-          </Tab> -->
+          </Tab>
+          <!-- Actions tab -->
+          <Tab group="primary" :tab="tabs.primary.actions">
+            <NpcActions :actor="actor" :tab="tabs.primary.actions" :flags="flags"/>
+          </Tab>
           <!-- Effects tab -->
-          <!-- <Tab group="primary" :tab="tabs.primary.effects">
+          <Tab group="primary" :tab="tabs.primary.effects">
             <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
-          </Tab> -->
+          </Tab>
           <!-- Settings tab -->
           <!-- <Tab group="primary" :tab="tabs.primary.settings">
             <CharSettings :actor="actor" :tab="tabs.primary.settings"/>
@@ -59,6 +44,17 @@
 
       </section>
       <!-- /Main content -->
+
+      <!-- Bottom content -->
+      <!-- <section class="section section--bottom flexcol"> -->
+        <!-- <CharInitiative :actor="actor"/> -->
+        <!-- <CharAbilities :actor="actor"/> -->
+        <!-- <CharBackgrounds :actor="actor"/> -->
+        <!-- <CharIconRelationships :actor="actor"/> -->
+        <!-- <CharOut :actor="actor" :owner="owner"/> -->
+        <!-- <CharIncrementals :actor="actor"/> -->
+      <!-- </section> -->
+      <!-- /Bottom content -->
 
     </section>
     <!-- /Bottom group -->
@@ -71,45 +67,52 @@
 
 import { concat, localize } from '@/methods/Helpers';
 import CharDetails from '@/components/actor/character/main/CharDetails.vue';
-import {
-  Tabs,
-  Tab,
-  CharHeader,
-  CharAttributes,
-  CharInitiative,
-  CharAbilities,
-  CharBackgrounds,
-  CharIconRelationships,
-  CharOut,
-  CharIncrementals,
-  CharResources,
-  // CharDetails,
-  CharPowers,
-  CharInventory,
-  CharEffects,
-  CharSettings
-} from '@/components';
+import CharEffects from '@/components/actor/character/main/CharEffects.vue';
+import NpcHeader from '@/components/actor/npc/NpcHeader.vue';
+import NpcActions from '@/components/actor/npc/NpcActions.vue';
+import Tabs from '@/components/parts/Tabs.vue';
+import Tab from '@/components/parts/Tab.vue';
+// import {
+//   Tabs,
+//   Tab,
+//   CharHeader,
+//   CharAttributes,
+//   CharInitiative,
+//   CharAbilities,
+//   CharBackgrounds,
+//   CharIconRelationships,
+//   CharOut,
+//   CharIncrementals,
+//   CharResources,
+//   // CharDetails,
+//   CharPowers,
+//   CharInventory,
+//   CharEffects,
+//   CharSettings
+// } from '@/components';
 
 export default {
-  name: 'ArchmageCharacterSheet',
+  name: 'ArchmageNpcSheet',
   props: ['context', 'actor', 'owner'],
   components: {
+    NpcHeader,
     Tabs,
     Tab,
-    CharHeader,
-    CharAttributes,
-    CharInitiative,
-    CharAbilities,
-    CharBackgrounds,
-    CharIconRelationships,
-    CharOut,
-    CharIncrementals,
-    CharResources,
+    NpcActions,
+    // CharHeader,
+    // CharAttributes,
+    // CharInitiative,
+    // CharAbilities,
+    // CharBackgrounds,
+    // CharIconRelationships,
+    // CharOut,
+    // CharIncrementals,
+    // CharResources,
     CharDetails,
-    CharPowers,
-    CharInventory,
+    // CharPowers,
+    // CharInventory,
     CharEffects,
-    CharSettings,
+    // CharSettings,
   },
   setup() {
     return {
@@ -126,15 +129,10 @@ export default {
             label: localize('ARCHMAGE.details'),
             active: false
           },
-          powers: {
-            key: 'powers',
-            label: localize('ARCHMAGE.powers'),
+          actions: {
+            key: 'actions',
+            label: localize('ARCHMAGE.actions'),
             active: true
-          },
-          inventory: {
-            key: 'inventory',
-            label: localize('ARCHMAGE.inventory'),
-            active: false
           },
           effects: {
             key: 'effects',
