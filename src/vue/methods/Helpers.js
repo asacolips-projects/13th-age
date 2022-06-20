@@ -39,3 +39,28 @@ export function ordinalSuffix(number) {
   }
   return number + "th";
 }
+
+export function wrapRolls(text, replacements = {}) {
+  // Build a map of string replacements.
+  const replaceMap = mergeObject({
+    '[[': '<span class="expression">',
+    ']]': '</span>',
+    '@ed': 'ED',
+    '@lvl': 'LVL',
+    '@std': 'STD',
+    '@atk.mod': 'ATK',
+    '@wpn.m.dice': 'WPN',
+    '@wpn.r.dice': 'WPN',
+  }, replacements);
+  // Remove whitespace from inline rolls.
+  let clean = text;
+  text.replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+    clean = clean.replace(match, match.replaceAll(' ', ''));
+  });
+  // Replace special keys in inline rolls.
+  for (let [needle, replacement] of Object.entries(replaceMap)) {
+    clean = clean.replaceAll(needle, replacement);
+  }
+  // Return the revised text and convert markdown to HTML.
+  return parseMarkdown(clean);
+}

@@ -28,20 +28,20 @@
       <ul class="action-group-content flexcol">
         <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable action header. -->
-          <div class="action-summary flexrow action">
-            <!-- <Rollable name="item" :hide-icon="false" type="item" :opt="action._id"><img :src="action.img" class="action-image"/></Rollable> -->
-            <a class="rollable" data-roll-type="item" :data-roll-opt="action._id"></a>
-            <a class="action-name" v-on:click="toggleAction" :data-item-id="action._id">
-              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.data?.attack?.value" class="action-roll">{{action.data.attack.value}}<span v-if="action.data?.hit?.value" class="action-damage"> — {{action.data.hit.value}}</span></span>
+          <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
+            <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '')" data-roll-type="item" :data-roll-opt="action._id"></a>
+            <a class="hanging-indent action-name" @click="toggleAction" :data-item-id="action._id">
+              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.data?.attack?.value" class="action-roll" v-html="wrapRolls(action.data.attack.value, attackReplacer)"></span><span v-if="action.data?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.data.hit.value)"></span>
             </a>
             <div class="item-controls">
+              <a class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
               <a class="item-control item-edit" :data-item-id="action._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="action._id"><i class="fas fa-trash"></i></a>
             </div>
           </div>
           <!-- Expanded action content. -->
           <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))" :style="getActionStyle(action._id)">
-            <Action v-if="action.type == 'action'" :action="action" :ref="concat('action--', action._id)"/>
+            <Action :action="action" :ref="concat('action--', action._id)"/>
           </div>
         </li>
       </ul>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { concat, localize, numberFormat, wrapRolls } from '@/methods/Helpers';
 import Action from '@/components/parts/Action.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
@@ -71,10 +71,17 @@ export default {
     }
   },
   setup() {
+    const attackReplacer = {
+      '2d20kh': 'ADV',
+      '2d20kl': 'DIS',
+      'd20': ''
+    };
     return {
       concat,
       localize,
-      numberFormat
+      numberFormat,
+      wrapRolls,
+      attackReplacer
     }
   },
   components: {
@@ -250,11 +257,44 @@ export default {
   margin: 0;
 }
 
+.action-group {
+  padding-bottom: $padding-md;
+  border-bottom: 2px solid #0000002e;
+
+  + .action-group {
+    padding-top: $padding-md;
+  }
+}
+
+.action-group-header {
+  .item-controls {
+    flex: 0 auto;
+  }
+}
+
 .action-summary {
   .rollable,
   .item-controls {
     flex: 0 auto;
     color: #666;
+
+    a {
+      padding: 0 4px;
+    }
+  }
+
+  .rollable {
+    width: 22px;
+  }
+
+  .fa-chevron {
+    transition: all ease-in-out 0.25s;
+  }
+
+  &.active {
+    .fa-chevron {
+      transform: rotate(180deg);
+    }
   }
 }
 

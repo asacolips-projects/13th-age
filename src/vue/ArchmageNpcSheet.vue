@@ -5,9 +5,10 @@
     <section class="container container--top flexcol">
       <!-- Header -->
       <NpcHeader :actor="actor"/>
-      <!-- Tabs -->
-        <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
       <!-- Attributes section -->
+      <NpcAttributes :actor="actor"/>
+      <!-- Tabs -->
+      <Tabs :actor="actor" group="primary" :tabs="tabs.primary" :flags="flags"/>
       <!-- <CharAttributes :actor="actor"/> -->
     </section>
     <!-- /Top group -->
@@ -24,7 +25,7 @@
         <!-- Tabs content -->
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
-          <Tab group="primary" :tab="tabs.primary.details">
+          <Tab group="primary" :tab="tabs.primary.details" classes="flexcol">
             <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
           </Tab>
           <!-- Actions tab -->
@@ -46,16 +47,16 @@
       <!-- /Main content -->
 
       <!-- Bottom content -->
-      <section class="section section--bottom flexcol">
+      <!-- <section class="section section--bottom flexcol"> -->
         <!-- Attributes section -->
-        <NpcAttributes :actor="actor"/>
+        <!-- <NpcAttributes :actor="actor"/> -->
         <!-- <CharInitiative :actor="actor"/> -->
         <!-- <CharAbilities :actor="actor"/> -->
         <!-- <CharBackgrounds :actor="actor"/> -->
         <!-- <CharIconRelationships :actor="actor"/> -->
         <!-- <CharOut :actor="actor" :owner="owner"/> -->
         <!-- <CharIncrementals :actor="actor"/> -->
-      </section>
+      <!-- </section> -->
       <!-- /Bottom content -->
 
     </section>

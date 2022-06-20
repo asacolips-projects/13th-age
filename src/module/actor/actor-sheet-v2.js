@@ -70,6 +70,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     context.actor.effects = actorData.effects;
     context.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
+    // Retrieve a list of locked fields due to AEs.
+    context.actor.lockedFields = [];
+    this.actor.effects.forEach(ae => {
+      const changes = ae.data.changes.map(c => c.key);
+      context.actor.lockedFields = context.actor.lockedFields.concat(changes);
+    });
+
     return context;
   }
 
@@ -215,6 +222,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     this._dragHandler(html);
 
+    this._lockEffectsFields(html);
+
     // Place one-time executions after this line.
     if (repeat) return;
 
@@ -223,6 +232,20 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';
     html.on('focus', inputs, (event) => this._onFocus(event));
+  }
+
+  /*
+   * Prevent Effects Editing
+   */
+  _lockEffectsFields(html) {
+    const context = this.getData();
+    html.find('input[name]').each((i, el) => {
+      const name = el.name;
+      // @todo improve this
+      if (context.actor.lockedFields.includes(name)) {
+        el.readOnly = true;
+      }
+    })
   }
 
   /* ------------------------------------------------------------------------ */

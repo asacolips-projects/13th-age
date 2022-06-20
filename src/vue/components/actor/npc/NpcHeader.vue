@@ -170,13 +170,13 @@
   max-width: 100%;
   width: auto;
   height: auto;
-  max-width: 115px;
-  max-height: 115px;
+  max-width: 150px;
+  max-height: 150px;
   border: 0;
 
   &.avatar--square {
-    width: 115px;
-    height: 115px;
+    width: 150px;
+    height: 150px;
   }
 
   &.avatar--frame {
