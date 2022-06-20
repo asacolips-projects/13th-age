@@ -159,6 +159,7 @@
   input {
     font-family: $font-stack-secondary;
     font-weight: normal;
+    font-size: 36px;
     border: none;
   }
 }

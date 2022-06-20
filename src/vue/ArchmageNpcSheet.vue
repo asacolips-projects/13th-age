@@ -46,14 +46,16 @@
       <!-- /Main content -->
 
       <!-- Bottom content -->
-      <!-- <section class="section section--bottom flexcol"> -->
+      <section class="section section--bottom flexcol">
+        <!-- Attributes section -->
+        <NpcAttributes :actor="actor"/>
         <!-- <CharInitiative :actor="actor"/> -->
         <!-- <CharAbilities :actor="actor"/> -->
         <!-- <CharBackgrounds :actor="actor"/> -->
         <!-- <CharIconRelationships :actor="actor"/> -->
         <!-- <CharOut :actor="actor" :owner="owner"/> -->
         <!-- <CharIncrementals :actor="actor"/> -->
-      <!-- </section> -->
+      </section>
       <!-- /Bottom content -->
 
     </section>
@@ -70,6 +72,7 @@ import CharDetails from '@/components/actor/character/main/CharDetails.vue';
 import CharEffects from '@/components/actor/character/main/CharEffects.vue';
 import NpcHeader from '@/components/actor/npc/NpcHeader.vue';
 import NpcActions from '@/components/actor/npc/NpcActions.vue';
+import NpcAttributes from '@/components/actor/npc/NpcAttributes.vue';
 import Tabs from '@/components/parts/Tabs.vue';
 import Tab from '@/components/parts/Tab.vue';
 // import {
@@ -99,6 +102,7 @@ export default {
     Tabs,
     Tab,
     NpcActions,
+    NpcAttributes,
     // CharHeader,
     // CharAttributes,
     // CharInitiative,
@@ -184,3 +188,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.section--bottom {
+  flex: 0 auto;
+}
+</style>
