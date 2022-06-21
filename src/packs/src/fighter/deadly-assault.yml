@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Reroll any 1s from your damage roll. You''re *stuck* with the rerolls.</p>'
+    value: '<p>Reroll any 1s from your damage roll. You''re stuck with the rerolls.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

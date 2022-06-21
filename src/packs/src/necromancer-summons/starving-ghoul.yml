@@ -337,7 +337,7 @@ items:
         type: 'String'
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is *vulnerable* (attacks vs. it have crit range expanded by 2) to attacks by undead until the end of the ghoul’s next turn.'
+        value: 'The target is *vulnerable* to attacks by undead until the end of the ghoul’s next turn.'
       hit2:
         type: 'String'
         label: 'Hit'
