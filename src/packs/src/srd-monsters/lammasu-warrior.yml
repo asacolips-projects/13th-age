@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss while the warrior is staggered'
-        value: 'The target is hampered (save ends).'
+        value: 'The target is *hampered* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'

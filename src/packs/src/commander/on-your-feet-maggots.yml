@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The target can heal using two recoveries but is dazed until the end of its next turn.</p>'
+    value: '<p>The target can heal using two recoveries but is *dazed* until the end of its next turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>If the escalation die is 3+, there is no dazed effect.</p>'
+        value: '<p>If the escalation die is 3+, there is no *dazed* effect.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

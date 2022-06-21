@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Once per battle when you hit an enemy that&rsquo;s a beast with rain of acorns, the target is also confused until the end of your next turn.</p>'
+        value: '<p>Once per battle when you hit an enemy that&rsquo;s a beast with rain of acorns, the target is also *confused* until the end of your next turn.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

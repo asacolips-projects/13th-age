@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 4, 8, 12, 16, or 20'
-        value: 'The target is stuck (save ends).'
+        value: 'The target is *stuck* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -364,7 +364,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with the lich flower, non-undead and non-plant creatures are dazed (–4 attacks).'
+        value: 'While engaged with the lich flower, non-undead and non-plant creatures are *dazed* (–4 attacks).'
     sort: 100000
   - _id: 'lTlCqWOxeZSqpv3i'
     flags: {}

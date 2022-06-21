@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target is stuck until the end of its next turn.'
+        value: 'The target is *stuck* until the end of its next turn.'
       hit2:
         type: ''
         label: 'Hit'

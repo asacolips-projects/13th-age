@@ -394,7 +394,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: 'The target is stuck and hampered (save ends both).'
+        value: 'The target is *stuck* and *hampered* (save ends both).'
     sort: 100000
   - _id: 'oCVSqCBcH2IUMM2m'
     flags: {}

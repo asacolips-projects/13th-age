@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 fire damage, and 20 ongoing fire damage to a random nearby enemy (including an unconscious one)'
+        value: '40 fire damage, and 20 ongoing fire damage to a random nearby enemy (including an *unconscious* one)'
       hit1:
         type: 'String'
         label: 'Hit'

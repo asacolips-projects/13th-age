@@ -364,7 +364,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Roll a [[d8]] at the start of each of the water elemental’s turns. If you roll less than or equal to the escalation die, it shifts into great wave form until the end of the battle. While in this form, each enemy engaged with the elemental is hampered (and you stop rolling great wave transformation checks).'
+        value: 'Roll a [[d8]] at the start of each of the water elemental’s turns. If you roll less than or equal to the escalation die, it shifts into great wave form until the end of the battle. While in this form, each enemy engaged with the elemental is *hampered* (and you stop rolling great wave transformation checks).'
     sort: 100000
   - _id: 'YLGrCrd5RIPlORGR'
     flags: {}

@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '45 damage; OR 22 damage, and the target is stunned (save ends)'
+        value: '45 damage; OR 22 damage, and the target is *stunned* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

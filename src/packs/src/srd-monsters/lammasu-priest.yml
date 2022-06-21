@@ -488,7 +488,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Once per battle, the lammasu priest can make this invocation as a quick action. At the start of each of the lammasu priest’s turns until the roll succeeds, roll a [[d4]]. If the roll is less than or equal to the escalation die, each nearby enemy is hampered (easy save ends, 6+).'
+        value: 'Once per battle, the lammasu priest can make this invocation as a quick action. At the start of each of the lammasu priest’s turns until the roll succeeds, roll a [[d4]]. If the roll is less than or equal to the escalation die, each nearby enemy is *hampered* (easy save ends, 6+).'
     sort: 400000
   - _id: '5gM1X1tFcqeu4zHD'
     flags: {}

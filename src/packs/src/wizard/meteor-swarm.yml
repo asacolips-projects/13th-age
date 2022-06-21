@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You summon a meteor swarm. If you''re underground, you get the ur-dark stalactite equivalent! Nothing more happens this round, but roll [[1d3 + 1]] to determine how many meteors you have summoned.</p><p>At the start of your next turn, even if you are unconscious or dead or have left the area, the meteors arrive one per turn at the start of each of your turns and slam into the combat area.</p>'
+    value: '<p>You summon a meteor swarm. If you''re underground, you get the ur-dark stalactite equivalent! Nothing more happens this round, but roll [[1d3 + 1]] to determine how many meteors you have summoned.</p><p>At the start of your next turn, even if you are *unconscious* or dead or have left the area, the meteors arrive one per turn at the start of each of your turns and slam into the combat area.</p>'
   effect:
     type: 'String'
     label: 'Effect'

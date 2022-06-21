@@ -61,7 +61,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus if the target has 180 hp or fewer after the attack, it’s hampered until the end of your next turn. If it has more than 180 hp, it takes [[20]] ongoing poison damage instead.'
+    value: 'As a hit, plus if the target has 180 hp or fewer after the attack, it’s *hampered* until the end of your next turn. If it has more than 180 hp, it takes [[20]] ongoing poison damage instead.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'

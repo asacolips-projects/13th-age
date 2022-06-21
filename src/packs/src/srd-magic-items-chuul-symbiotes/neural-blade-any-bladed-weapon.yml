@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>A boney blade with a spine and brain.</p>\n<p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3 (epic); and the weapon deals psychic damage.</p>\n<p>Chuulish recharge: Choose a nearby enemy. That enemy is now vulnerable to psychic damage until the end of the battle.</p>\n<p>Quirk: Large sphincters on arm where the ganglia-tentacles from the blade&rsquo;s hilt insert themselves.</p>"
+    value: "<p>A boney blade with a spine and brain.</p>\n<p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3 (epic); and the weapon deals psychic damage.</p>\n<p>Chuulish recharge: Choose a nearby enemy. That enemy is now *vulnerable* to psychic damage until the end of the battle.</p>\n<p>Quirk: Large sphincters on arm where the ganglia-tentacles from the blade&rsquo;s hilt insert themselves.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

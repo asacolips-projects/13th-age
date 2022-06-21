@@ -169,7 +169,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>If you don&rsquo;t like the first random sorcerer spell you select for the day, you can determine another random sorcerer spell. You&rsquo;re stuck with the second one.</p>'
+        value: '<p>If you don&rsquo;t like the first random sorcerer spell you select for the day, you can determine another random sorcerer spell. You&rsquo;re *stuck* with the second one.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

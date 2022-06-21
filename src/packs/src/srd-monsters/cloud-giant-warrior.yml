@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'or [[1d3]] nearby enemies in a group if the escalation die is 3+);20 psychic damage, and if the target has 50 hp or fewer after the attack, it falls unconscious (hard save ends, 16+; it also ends if the target takes 10 or more damage)'
+        value: 'or [[1d3]] nearby enemies in a group if the escalation die is 3+);20 psychic damage, and if the target has 50 hp or fewer after the attack, it falls *unconscious* (hard save ends, 16+; it also ends if the target takes 10 or more damage)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -444,6 +444,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'A cloud giant gains a +4 attack bonus against any enemy taking ongoing damage or that has an ongoing condition (unconscious sleep, for instance).'
+        value: 'A cloud giant gains a +4 attack bonus against any enemy taking ongoing damage or that has an ongoing condition (*unconscious* sleep, for instance).'
     sort: 300000
 _id: 'zCM6En98e0rcKNSw'

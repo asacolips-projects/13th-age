@@ -362,7 +362,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'As a standard action, an ettercap acolyte can deal [[2d6]] poison damage to one dazed, hampered, or stuck enemy engaged with it. The ettercap acolyte also takes 7 damage from this kamikaze action, killing it.'
+        value: 'As a standard action, an ettercap acolyte can deal [[2d6]] poison damage to one *dazed*, *hampered*, or *stuck* enemy engaged with it. The ettercap acolyte also takes 7 damage from this kamikaze action, killing it.'
     sort: 100000
   - _id: 'TzkdbB7MtKgzK3WX'
     flags: {}
@@ -376,6 +376,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy of level 3 or lower rolls a natural 1–5 with a melee attack against an ettercap acolyte, that enemy is dazed (save ends).'
+        value: 'When an enemy of level 3 or lower rolls a natural 1–5 with a melee attack against an ettercap acolyte, that enemy is *dazed* (save ends).'
     sort: 200000
 _id: 'zu2F2IjGPGL3jObN'

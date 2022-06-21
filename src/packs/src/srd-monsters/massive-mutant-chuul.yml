@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is weakened (hard save ends, 16+)'
+        value: 'The target is *weakened* (hard save ends, 16+)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -458,7 +458,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is hampered and weakened (hard save ends both, 16+).'
+        value: 'The target is *hampered* and *weakened* (hard save ends both, 16+).'
     sort: 400000
   - _id: 'iQS292TJXetwrZDX'
     flags: {}
@@ -472,7 +472,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is instead helpless (hard save ends, 16+).'
+        value: 'The target is instead *helpless* (hard save ends, 16+).'
     sort: 500000
   - _id: 'nxCP00Jk5HpBlwAm'
     flags: {}
@@ -542,7 +542,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy is engaged with the chuul at the start of its turn, that creature must roll a normal save; on a failure, it’s hampered (easy save ends, 6+).'
+        value: 'When an enemy is engaged with the chuul at the start of its turn, that creature must roll a normal save; on a failure, it’s *hampered* (easy save ends, 6+).'
     sort: 1000000
   - _id: 'kDmkJcn0rUyFl955'
     flags: {}

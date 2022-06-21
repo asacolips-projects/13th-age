@@ -454,7 +454,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'the target is hampered (save ends)'
+        value: 'the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

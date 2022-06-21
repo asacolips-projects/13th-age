@@ -412,7 +412,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'the target is weakened until the end of its next turn'
+        value: 'the target is *weakened* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

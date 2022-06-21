@@ -375,12 +375,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16–17'
-        value: 'The target is hampered (easy save ends, 6+).'
+        value: 'The target is *hampered* (easy save ends, 6+).'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural 18–19'
-        value: 'The target is weakened instead of hampered (easy save ends, 6+).'
+        value: 'The target is *weakened* instead of *hampered* (easy save ends, 6+).'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -397,7 +397,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 20'
-        value: 'The target is confused instead of weakened (easy save ends, 6+).'
+        value: 'The target is *confused* instead of *weakened* (easy save ends, 6+).'
     sort: 100000
   - _id: 'EfScosyvhVSY2ECJ'
     flags: {}

@@ -420,6 +420,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a creature is engaged with the hagunemnon at the start of its turn, it takes [[4d10]] psychic damage. If it takes 31 or more damage this way during a single turn, it’s also confused until the start of its next turn.'
+        value: 'When a creature is engaged with the hagunemnon at the start of its turn, it takes [[4d10]] psychic damage. If it takes 31 or more damage this way during a single turn, it’s also *confused* until the start of its next turn.'
     sort: 500000
 _id: 'ep3ZLwDJtMSfLqyZ'

@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is weakened until the end of its next turn. On its next turn, if it&#039;s unengaged, it does not attack and moves away from you. If it&#039;s engaged, the target attempts to disengage as its first action, and moves away if it succeeds. If it fails, it moves away as its second action (drawing opportunity attacks). In either case, it will not attack unless it has no options for escape.'
+    value: 'The target is *weakened* until the end of its next turn. On its next turn, if it&#039;s unengaged, it does not attack and moves away from you. If it&#039;s engaged, the target attempts to disengage as its first action, and moves away if it succeeds. If it fails, it moves away as its second action (drawing opportunity attacks). In either case, it will not attack unless it has no options for escape.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

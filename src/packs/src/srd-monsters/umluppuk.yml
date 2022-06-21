@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is stuck (easy save ends, 6+).'
+        value: 'The target is *stuck* (easy save ends, 6+).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -374,7 +374,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 ongoing psychic damage, and the target is confused (save ends both)'
+        value: '10 ongoing psychic damage, and the target is *confused* (save ends both)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -410,11 +410,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 18]] vs. PD (one stuck enemy)'
+        value: '[[d20 + 18]] vs. PD (one *stuck* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '50 damage, and the target takes 10 ongoing acid damage and is absorbed into the umluppuk (hard save ends both, 16+); while inside the umluppuk, the target is vulnerable to the umluppuk’s pods of mouths and eyes attacks (attacks vs. it have crit range expanded by 2), and it’s stuck.'
+        value: '50 damage, and the target takes 10 ongoing acid damage and is absorbed into the umluppuk (hard save ends both, 16+); while inside the umluppuk, the target is *vulnerable* to the umluppuk’s pods of mouths and eyes attacks (attacks vs. it have crit range expanded by 2), and it’s *stuck*.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -474,6 +474,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Once per round during its turn, the umluppuk can make a consume attack against a stuck enemy as a quick action. The umluppuk can only one target consumed at a time.'
+        value: 'Once per round during its turn, the umluppuk can make a consume attack against a *stuck* enemy as a quick action. The umluppuk can only one target consumed at a time.'
     sort: 500000
 _id: '26AsMqRWb4hhU1uR'

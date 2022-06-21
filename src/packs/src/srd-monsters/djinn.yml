@@ -397,7 +397,7 @@ items:
         type: 'String'
         label: 'Hit'
         name: 'Natural 5, 10, 15, 20'
-        value: 'The target is hampered until the end of its next turn'
+        value: 'The target is *hampered* until the end of its next turn'
       hit2:
         type: 'String'
         label: 'Hit'

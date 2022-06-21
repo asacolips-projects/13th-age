@@ -109,7 +109,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Roll a normal save [[1d20]] if you have a recovery available. On an 11+, instead of falling unconscious, you stay on your feet and can heal using a recovery. Add the recovery hit points to 0 hp to determine your hp total.</p>'
+    value: '<p>Roll a normal save [[1d20]] if you have a recovery available. On an 11+, instead of falling *unconscious*, you stay on your feet and can heal using a recovery. Add the recovery hit points to 0 hp to determine your hp total.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

@@ -376,6 +376,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a nearby enemy drops to 0 hit points or below in the battle, the hook scuttler will ignore other enemies and move to attack that unconscious enemy until that enemy is dead.'
+        value: 'When a nearby enemy drops to 0 hit points or below in the battle, the hook scuttler will ignore other enemies and move to attack that *unconscious* enemy until that enemy is dead.'
     sort: 200000
 _id: 'cYucX28Rm9i86R9j'

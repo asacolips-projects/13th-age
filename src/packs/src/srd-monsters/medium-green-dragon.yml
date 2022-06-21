@@ -416,7 +416,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 poison damage, and the target is hampered (save ends)'
+        value: '7 poison damage, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -392,17 +392,17 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[10]] ongoing damage, and the target is vulnerable (save ends both)'
+        value: '[[10]] ongoing damage, and the target is *vulnerable* (save ends both)'
       hit1:
         type: 'String'
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is hampered (save ends).'
+        value: 'The target is *hampered* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target is dazed (save ends)'
+        value: 'The target is *dazed* (save ends)'
       hit3:
         type: 'String'
         label: 'Hit'

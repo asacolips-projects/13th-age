@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 6+) When you make a basic attack with this weapon, gain a +4 bonus to all defenses until the end of your next turn (champion: +5; epic: +6).</p>\n<p>Quirk: Has urges to watch over the helpless or innocent.</p>"
+    value: "<p>(Recharge 6+) When you make a basic attack with this weapon, gain a +4 bonus to all defenses until the end of your next turn (champion: +5; epic: +6).</p>\n<p>Quirk: Has urges to watch over the *helpless* or innocent.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

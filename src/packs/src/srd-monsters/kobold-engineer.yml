@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is vulnerable to non-magical attacks (easy save ends, 6+)'
+        value: 'The target is *vulnerable* to non-magical attacks (easy save ends, 6+)'
       hit1:
         type: ''
         label: 'Hit'

@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The mantikumhar pulls its target under the soil/ground. The target is stuck, hampered, and takes 5 ongoing damage from suffocation (save ends all)'
+        value: 'The mantikumhar pulls its target under the soil/ground. The target is *stuck*, *hampered*, and takes 5 ongoing damage from suffocation (save ends all)'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -352,7 +352,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: 'The target must roll an immediate save; on a failure, it’s dazed until the end of its next turn from dirt or sand thrown in its face'
+        value: 'The target must roll an immediate save; on a failure, it’s *dazed* until the end of its next turn from dirt or sand thrown in its face'
     sort: 0
   - _id: 'SXY2k31H1Y6GHCYP'
     flags: {}

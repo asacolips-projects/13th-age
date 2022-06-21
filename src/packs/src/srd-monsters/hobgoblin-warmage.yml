@@ -415,7 +415,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 20'
-        value: 'The target is also dazed (save ends).'
+        value: 'The target is also *dazed* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'

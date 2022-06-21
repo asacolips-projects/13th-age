@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target is hampered until the end of its next turn.'
+        value: 'The target is *hampered* until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -379,7 +379,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target is confused until the end of its next turn.'
+        value: 'The target is *confused* until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -436,7 +436,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Once during its turn, the warped beast can teleport anywhere nearby it can see as a move action. Each enemy engaged with it when it teleports is confused until the end of its next turn.'
+        value: 'Once during its turn, the warped beast can teleport anywhere nearby it can see as a move action. Each enemy engaged with it when it teleports is *confused* until the end of its next turn.'
     sort: 400000
   - _id: '1NtW5ZRHcmYAuIsP'
     flags: {}
@@ -450,7 +450,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with the warped beast, enemies that have 24 hp or fewer are dazed (–4 attack) and do not add the escalation die to their attacks.'
+        value: 'While engaged with the warped beast, enemies that have 24 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks.'
     sort: 500000
   - _id: 'o4shP5Usq0AVd464'
     flags: {}
@@ -464,7 +464,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy ends its turn engaged with the warped beast, it’s confused until the end of its next turn.'
+        value: 'When an enemy ends its turn engaged with the warped beast, it’s *confused* until the end of its next turn.'
     sort: 600000
   - _id: 'I0YG74xGa3PN4GwL'
     flags: {}

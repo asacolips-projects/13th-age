@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 11+'
-        value: 'The target is also weakened until the end of its next turn (–4 attacks and defenses). In addition, the target expends one unused limited trait (a spell, power, or talent with a once-per-battle or daily use, but not magic item powers) of its choice.'
+        value: 'The target is also *weakened* until the end of its next turn (–4 attacks and defenses). In addition, the target expends one unused limited trait (a spell, power, or talent with a once-per-battle or daily use, but not magic item powers) of its choice.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'the target is confused and vulnerable (save ends)'
+        value: 'the target is *confused* and *vulnerable* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

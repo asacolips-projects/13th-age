@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p> Once per day when you drop to 0 hit points or below, you can roll a normal save. If you succeed, heal using a recovery before going unconscious. If you fail, it counts as a failed death check.</p>'
+        value: '<p> Once per day when you drop to 0 hit points or below, you can roll a normal save. If you succeed, heal using a recovery before going *unconscious*. If you fail, it counts as a failed death check.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Until the end of the battle, you can use a move action to rise straight up into the air or descend straight down. The spell itself won''t move you horizontally. The up-or-down movement is about half as fast as your normal movement. While levitating, you take a –2 penalty to your attacks and are vulnerable to attacks against you.</p>'
+    value: '<p>Until the end of the battle, you can use a move action to rise straight up into the air or descend straight down. The spell itself won''t move you horizontally. The up-or-down movement is about half as fast as your normal movement. While levitating, you take a –2 penalty to your attacks and are *vulnerable* to attacks against you.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

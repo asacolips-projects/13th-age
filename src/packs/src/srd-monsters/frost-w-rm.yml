@@ -374,7 +374,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is stunned (save ends)'
+        value: 'The target is *stunned* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage, and the target is vulnerable (save ends)'
+        value: '6 damage, and the target is *vulnerable* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -362,7 +362,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Until the target saves against the vulnerable effect, it also takes [[2d6]] ongoing damage each turn.'
+        value: 'Until the target saves against the *vulnerable* effect, it also takes [[2d6]] ongoing damage each turn.'
     sort: 100000
   - _id: '9rqMRg8y9jEAYNnB'
     flags: {}

@@ -415,7 +415,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is hampered (save ends).'
+        value: 'The target is *hampered* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -444,6 +444,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy of level 5 or lower rolls a natural 1–5 with a melee attack against an ettercap supplicant, that enemy is dazed (save ends).'
+        value: 'When an enemy of level 5 or lower rolls a natural 1–5 with a melee attack against an ettercap supplicant, that enemy is *dazed* (save ends).'
     sort: 300000
 _id: 'nCvgaEGi9l1w6jfD'

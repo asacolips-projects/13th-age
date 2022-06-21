@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '32 lightning damage, and the closest target hit is dazed (save ends)'
+        value: '32 lightning damage, and the closest target hit is *dazed* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

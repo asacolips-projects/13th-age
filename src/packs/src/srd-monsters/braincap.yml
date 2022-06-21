@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is confused (easy save ends, 6+) and vulnerable to psychic damage until the end of the battle'
+        value: 'The target is *confused* (easy save ends, 6+) and *vulnerable* to psychic damage until the end of the battle'
       hit1:
         type: 'String'
         label: 'Hit'

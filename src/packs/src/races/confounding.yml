@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Instead of being dazed, the target of your confounding ability is weakened until the end of your next turn.</p>'
+        value: '<p>Instead of being *dazed*, the target of your confounding ability is *weakened* until the end of your next turn.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

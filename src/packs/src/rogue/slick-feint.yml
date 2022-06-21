@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is dazed until the end of your next turn, and you can make an improved attack against a second target.'
+    value: 'The target is *dazed* until the end of your next turn, and you can make an improved attack against a second target.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

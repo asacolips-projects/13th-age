@@ -368,7 +368,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. PD (one staggered or unconscious enemy)'
+        value: '[[d20 + 8]] vs. PD (one staggered or *unconscious* enemy)'
       hit:
         type: ''
         label: 'Hit'

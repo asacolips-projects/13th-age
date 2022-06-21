@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '75 (90/25) damage, and the target pops free from the cavalry and is weakened (save ends)'
+        value: '75 (90/25) damage, and the target pops free from the cavalry and is *weakened* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

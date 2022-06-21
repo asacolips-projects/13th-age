@@ -390,7 +390,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a lemure is targeted by an attack against MD, it ignores any effects of the attack and only takes damage from it. In addition, lemures fight in a straightforward way, without tactics. They never disengage willingly, and they’re not coordinated enough to concentrate attacks on a vulnerable target.'
+        value: 'When a lemure is targeted by an attack against MD, it ignores any effects of the attack and only takes damage from it. In addition, lemures fight in a straightforward way, without tactics. They never disengage willingly, and they’re not coordinated enough to concentrate attacks on a *vulnerable* target.'
     sort: 300000
   - _id: 'RJBnU2YdTRNAuPFS'
     flags: {}

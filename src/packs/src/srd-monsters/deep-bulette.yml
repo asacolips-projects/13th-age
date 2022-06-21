@@ -392,7 +392,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the bulette hits an enemy engaged with it with an attack, that target pops free from it and is hampered (save ends).'
+        value: 'When the bulette hits an enemy engaged with it with an attack, that target pops free from it and is *hampered* (save ends).'
     sort: 300000
   - _id: 'dHcjJkSRQgoAxUnk'
     flags: {}

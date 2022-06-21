@@ -380,7 +380,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<ol><li>Distilled ankheg spit: The target takes [[3]] ongoing acid damage.</li><li>Reconstituted remorhaz lymph: The target takes [[3]] ongoing fire damage.</li><li>Essence of giant spider web: The target is stuck (save ends).</li><li>Kobold blasting powder: There’s a loud bang and the battlefield is obscured with thick smoke. Each non-kobold creature takes a –2 attack penalty during its next turn.</li></ol>'
+        value: '<ol><li>Distilled ankheg spit: The target takes [[3]] ongoing acid damage.</li><li>Reconstituted remorhaz lymph: The target takes [[3]] ongoing fire damage.</li><li>Essence of giant spider web: The target is *stuck* (save ends).</li><li>Kobold blasting powder: There’s a loud bang and the battlefield is obscured with thick smoke. Each non-kobold creature takes a –2 attack penalty during its next turn.</li></ol>'
       group:
         type: 'String'
         label: 'Group'

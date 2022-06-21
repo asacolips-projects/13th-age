@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is stunned until the start of the dragon’s next turn'
+        value: 'The target is *stunned* until the start of the dragon’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -460,7 +460,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Once per battle as a free action at the start of its turn, the dragon can cancel all effects and conditions on it, including ongoing damage. It can cancel these effects even if it’s prevented from taking actions, such as by being stunned.'
+        value: 'Once per battle as a free action at the start of its turn, the dragon can cancel all effects and conditions on it, including ongoing damage. It can cancel these effects even if it’s prevented from taking actions, such as by being *stunned*.'
     sort: 400000
   - _id: 'U0w3x7CTXGwWe1b5'
     flags: {}

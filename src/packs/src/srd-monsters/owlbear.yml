@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and until the end of the owlbear’s next turn, the target is hampered (makes only basic attacks) while engaged with the owlbear'
+        value: '15 damage, and until the end of the owlbear’s next turn, the target is *hampered* (makes only basic attacks) while engaged with the owlbear'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -376,7 +376,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'An owlbear that scores a critical hit against a hampered enemy tears a piece of the creature off (GM chooses a limb) and will subsequently attempt to retreat with the prize to feed its cubs. The torn-up enemy is stunned until the end of its next turn.'
+        value: 'An owlbear that scores a critical hit against a *hampered* enemy tears a piece of the creature off (GM chooses a limb) and will subsequently attempt to retreat with the prize to feed its cubs. The torn-up enemy is *stunned* until the end of its next turn.'
     sort: 200000
   - _id: 'msLNm8TIYDKk9pv7'
     flags: {}

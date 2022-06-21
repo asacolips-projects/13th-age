@@ -366,7 +366,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'confused, dazed, hampered, stunned, or weakened.'
+        value: '*confused*, *dazed*, *hampered*, *stunned*, or *weakened*.'
     sort: 100000
   - _id: 'iDAQIa5xTiHQlVY3'
     flags: {}

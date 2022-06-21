@@ -57,7 +57,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: ' [[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and the target is vulnerable (hard save ends, 16+).'
+    value: ' [[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and the target is *vulnerable* (hard save ends, 16+).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -73,7 +73,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage, and the target is vulnerable until the end of your next turn.'
+    value: 'Half damage, and the target is *vulnerable* until the end of your next turn.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -113,7 +113,7 @@ data:
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
-    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage, and in addition to being vulnerable, the target can’t turn invisible or hide from you or your allies (save ends both).'
+    value: '[[6d6+@wis.dmg+@atk.d.bonus]] damage, and in addition to being *vulnerable*, the target can’t turn invisible or hide from you or your allies (save ends both).'
   spellLevel5:
     type: 'String'
     label: '5th Level Spell'
