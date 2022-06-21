@@ -114,6 +114,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else {
       // Pass new values from this.getData() into the app.
       this.vueRoot.updateContext(context);
+      this._lockEffectsFields($(this.form));
       return;
     }
 
@@ -238,14 +239,17 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * Prevent Effects Editing
    */
   _lockEffectsFields(html) {
-    const context = this.getData();
-    html.find('input[name]').each((i, el) => {
-      const name = el.name;
-      // @todo improve this
-      if (context.actor.lockedFields.includes(name)) {
-        el.readOnly = true;
-      }
-    })
+    // const context = this.getData();
+    // html.find('input[name]').each((i, el) => {
+    //   const name = el.name;
+    //   // @todo improve this
+    //   if (context.actor.lockedFields.includes(name)) {
+    //     el.readOnly = true;
+    //   }
+    //   else {
+    //     el.readonly = false;
+    //   }
+    // })
   }
 
   /* ------------------------------------------------------------------------ */
