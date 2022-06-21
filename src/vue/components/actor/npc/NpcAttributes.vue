@@ -28,11 +28,11 @@
           <Input type="number" name="data.attributes.hp.value" class="resource-current" :actor="actor" reactive="true"/>
           <span class="resource-separator">/</span>
           <div v-if="actor.data.attributes.hp.automatic" class="resource-max">{{actor.data.attributes.hp.max}}</div>
-          <input v-else type="number" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
+          <Input v-else type="number" name="data.attributes.hp.max" class="resource-max" :actor="actor"/>
         </div>
         <div class="labeled-input flexrow">
           <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
-          <input type="number" name="data.attributes.hp.temp" class="temp-hp" v-model="actor.data.attributes.hp.temp">
+          <Input type="number" name="data.attributes.hp.temp" class="temp-hp" :actor="actor"/>
         </div>
       </div>
       <!-- Saving Throws -->
@@ -51,7 +51,7 @@
           <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
           <div class="disengage-bonus flexrow">
             <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
-            <input type="number" name="data.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
+            <Input type="number" name="data.attributes.disengageBonus" class="disengage-bonus" :actor="actor"/>
           </div>
         </div>
       </section>

@@ -57,6 +57,16 @@
         }
       }
     }
+
+    input[type="text"],
+    input[type="number"] {
+      border-bottom: 2px solid $c-black;
+
+      &[readonly] {
+        color: $c-gray--75;
+        border-bottom-color: $c-gray--25;
+      }
+    }
   }
 
   .unit--hp {
@@ -91,7 +101,6 @@
       justify-content: center;
       text-align: center;
       width: 100%;
-      border-bottom: 2px solid $ct-border;
     }
 
     .unit-subtitle {
