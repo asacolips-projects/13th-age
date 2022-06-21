@@ -67,6 +67,11 @@
         border-bottom-color: $c-gray--25;
       }
     }
+
+    span.defense-value,
+    div.resource-max {
+      border-bottom: 2px solid $c-gray--25;
+    }
   }
 
   .unit--hp {
