@@ -434,7 +434,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'At the start of a hooded devil’s turn, it can roll a save against each save ends effect affecting it if it doesn’t attack that turn (so it could successfully save against confused or stunned conditions and still move that turn, for example.)'
+        value: 'At the start of a hooded devil’s turn, it can roll a save against each save ends effect affecting it if it doesn’t attack that turn (so it could successfully save against *confused* or *stunned* conditions and still move that turn, for example.)'
     sort: 400000
   - _id: 'KleathgH9sqpSl2S'
     flags: {}

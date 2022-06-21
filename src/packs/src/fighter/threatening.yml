@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Whenever an enemy attempts to disengage from you, it takes a penalty to its check equal to your Dexterity or Constitution modifier, whichever is higher.</p><p>The penalty doesn''t apply if you are stunned, grabbed, or otherwise incapable of making an opportunity attack.</p>'
+    value: '<p>Whenever an enemy attempts to disengage from you, it takes a penalty to its check equal to your Dexterity or Constitution modifier, whichever is higher.</p><p>The penalty doesn''t apply if you are *stunned*, grabbed, or otherwise incapable of making an opportunity attack.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Whenever a non-mook enemy fails to disengage from you, it''s vulnerable to your attacks for the rest of the battle.</p>'
+        value: '<p>Whenever a non-mook enemy fails to disengage from you, it''s *vulnerable* to your attacks for the rest of the battle.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

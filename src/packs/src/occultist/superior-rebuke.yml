@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>One battle per day as a free action, you can enhance your karmic rebuke. When you enhance it, enemies are vulnerable (crit range expands by 2) to your karmic rebuke attacks until the end of the battle or until you score a critical hit with the attack.</p>'
+        value: '<p>One battle per day as a free action, you can enhance your karmic rebuke. When you enhance it, enemies are *vulnerable* (crit range expands by 2) to your karmic rebuke attacks until the end of the battle or until you score a critical hit with the attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

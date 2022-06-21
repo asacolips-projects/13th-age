@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is hampered until the start of the mummy’s next turn'
+        value: 'The target is *hampered* until the start of the mummy’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -412,7 +412,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is hampered until the end of its next turn'
+        value: 'The target is *hampered* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -472,7 +472,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The presence of a mummy unnerves opponents, giving it an unusual fear aura. While engaged with this creature, enemies that have 200 hp or fewer are dazed (–4 attack) and do not add the escalation die to their attacks. Each time an enemy with 200 hp or fewer attacks the mummy, hit or miss, it must roll a save. On a success, it’s no longer affected by the fear aura effects of any mummy in the battle.'
+        value: 'The presence of a mummy unnerves opponents, giving it an unusual *fear* aura. While engaged with this creature, enemies that have 200 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks. Each time an enemy with 200 hp or fewer attacks the mummy, hit or miss, it must roll a save. On a success, it’s no longer affected by the fear aura effects of any mummy in the battle.'
     sort: 500000
   - _id: 'Ucocggx8AJDRoo7Q'
     flags: {}

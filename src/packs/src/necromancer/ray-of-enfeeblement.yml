@@ -57,7 +57,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[4d12+@int.dmg+@atk.a.bonus]] negative energy damage and the target is weakened (save ends).'
+    value: '[[4d12+@int.dmg+@atk.a.bonus]] negative energy damage and the target is *weakened* (save ends).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The save against&nbsp;<em>weakened</em> is now a hard save (16+).</p>'
+        value: '<p>The save against&nbsp;<em>*weakened*</em> is now a hard save (16+).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,7 +169,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>On a miss, the target is also&nbsp;<em>dazed</em> (save ends).</p>'
+        value: '<p>On a miss, the target is also&nbsp;<em>*dazed*</em> (save ends).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

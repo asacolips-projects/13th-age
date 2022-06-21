@@ -57,7 +57,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and [[10]] ongoing fire damage and dazed (save ends both).'
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] fire damage, and [[10]] ongoing fire damage and *dazed* (save ends both).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'

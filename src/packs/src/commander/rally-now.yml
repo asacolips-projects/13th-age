@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>If you spend an additional command point on this command, you can target an unconscious ally with it.</p>'
+    value: '<p>If you spend an additional command point on this command, you can target an *unconscious* ally with it.</p>'
   effect:
     type: 'String'
     label: 'Effect'

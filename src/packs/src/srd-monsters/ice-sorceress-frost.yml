@@ -484,7 +484,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'confused (hard save ends, 16+); OR stunned (save ends). After saving, the creature rerolls its initiative.'
+        value: '*confused* (hard save ends, 16+); OR *stunned* (save ends). After saving, the creature rerolls its initiative.'
     sort: 400000
   - _id: 'A2H0EbKghQJvBOn0'
     flags: {}

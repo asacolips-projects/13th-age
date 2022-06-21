@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When you hit an enemy with a melee attack, you can choose to challenge that enemy as a free action. Until the end of the battle, provided that both you and the enemy you''ve challenged are conscious and capable of making an attack, you each take a –4 attack penalty against all other creatures and a –4 penalty to disengage checks from each other.</p><p>The attack penalty temporarily deactivates for the attacker when they make an attack roll against their rival, but only until the end of the attacker''s turn. For example, if a creature with more than one attack attacks you first, its subsequent attacks against your allies are without the challenge penalty. However, the attack penalty resets at the end of its turn, so it does not help with opportunity attacks against your allies later in the round.</p><p>You can only have one enemy challenged at a time.</p><p>Your Paladin''s Challenge ends when…</p><ul><li>…you or the creature you are challenging falls unconscious or drops to 0 hp.</li><li>…you hit a different enemy with an attack (assuming you hit with the –4 penalty).</li><li>…the creature flees far away and you choose to end the challenge.</li></ul><p>An enemy can only be the subject of one Paladin''s Challenge at a time; a new challenge overrides the previous one.</p><p>In the unlikely case in which two paladins fight each other, any use of Paladin''s Challenge locks them into a challenge that only ends when one of them drops.</p>'
+    value: '<p>When you hit an enemy with a melee attack, you can choose to challenge that enemy as a free action. Until the end of the battle, provided that both you and the enemy you''ve challenged are conscious and capable of making an attack, you each take a –4 attack penalty against all other creatures and a –4 penalty to disengage checks from each other.</p><p>The attack penalty temporarily deactivates for the attacker when they make an attack roll against their rival, but only until the end of the attacker''s turn. For example, if a creature with more than one attack attacks you first, its subsequent attacks against your allies are without the challenge penalty. However, the attack penalty resets at the end of its turn, so it does not help with opportunity attacks against your allies later in the round.</p><p>You can only have one enemy challenged at a time.</p><p>Your Paladin''s Challenge ends when…</p><ul><li>…you or the creature you are challenging falls *unconscious* or drops to 0 hp.</li><li>…you hit a different enemy with an attack (assuming you hit with the –4 penalty).</li><li>…the creature flees far away and you choose to end the challenge.</li></ul><p>An enemy can only be the subject of one Paladin''s Challenge at a time; a new challenge overrides the previous one.</p><p>In the unlikely case in which two paladins fight each other, any use of Paladin''s Challenge locks them into a challenge that only ends when one of them drops.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -166,7 +166,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Enemies you challenge are vulnerable to your attacks.</p>'
+        value: '<p>Enemies you challenge are *vulnerable* to your attacks.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

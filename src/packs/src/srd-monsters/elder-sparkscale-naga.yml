@@ -418,7 +418,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'or one nearby enemy per point of esc. die if supreme mystic escalator benefit is active);40 lightning damage, and the target is vulnerable (save ends)'
+        value: 'or one nearby enemy per point of esc. die if supreme mystic escalator benefit is active);40 lightning damage, and the target is *vulnerable* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[2d8+@atk.a.bonus]] psychic damage, and if the target has 10 hp or fewer after the damage, it is weakened until the end of your next turn.'
+    value: '[[2d8+@atk.a.bonus]] psychic damage, and if the target has 10 hp or fewer after the damage, it is *weakened* until the end of your next turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>Increase the hit point threshold of the weakened effect by [[5]] hp.</p>'
+        value: '<p>Increase the hit point threshold of the *weakened* effect by [[5]] hp.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

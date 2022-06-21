@@ -374,7 +374,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is stunned until the start of the dragon’s next turn'
+        value: 'The target is *stunned* until the start of the dragon’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -419,7 +419,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target takes 40 ongoing fire damage and is dazed (save ends both).'
+        value: 'The target takes 40 ongoing fire damage and is *dazed* (save ends both).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -478,7 +478,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Once per battle as a free action at the start of its turn, the dragon can heal 300 hp and cancel all effects and conditions on it, including ongoing damage. It can heal and cancel these effects even if it’s prevented from taking actions, such as by being stunned.'
+        value: 'Once per battle as a free action at the start of its turn, the dragon can heal 300 hp and cancel all effects and conditions on it, including ongoing damage. It can heal and cancel these effects even if it’s prevented from taking actions, such as by being *stunned*.'
     sort: 500000
   - _id: 'S8Jy3Sf1ijux3DOz'
     flags: {}

@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'If the target is staggered, it is also hampered (makes only basic attacks) until the end of its next turn.'
+        value: 'If the target is staggered, it is also *hampered* (makes only basic attacks) until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'

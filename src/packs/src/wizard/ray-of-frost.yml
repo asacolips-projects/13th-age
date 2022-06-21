@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: "<p>When your\_<em>ray of frost</em>\_attack roll is a natural even hit, if the target is staggered after taking the damage, it is also dazed until the end of your next turn.</p>"
+        value: "<p>When your\_<em>ray of frost</em>\_attack roll is a natural even hit, if the target is staggered after taking the damage, it is also *dazed* until the end of your next turn.</p>"
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When targets of this command are stuck, that condition ends on them.</p>'
+        value: '<p>When targets of this command are *stuck*, that condition ends on them.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

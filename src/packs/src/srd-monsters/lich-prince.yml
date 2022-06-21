@@ -330,12 +330,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage, 60 negative energy damage, and the target is dazed (hard save ends, 16+)'
+        value: '40 damage, 60 negative energy damage, and the target is *dazed* (hard save ends, 16+)'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is weakened instead of dazed (hard save ends, 16+).'
+        value: 'The target is *weakened* instead of *dazed* (hard save ends, 16+).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -456,7 +456,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The lich gains a fear aura against the target until the end of the battle'
+        value: 'The lich gains a *fear* aura against the target until the end of the battle'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -516,7 +516,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the lich prince scores a critical hit, if after taking damage the target still has hit points, it drops to 0 hp, falls unconscious, and begins making death saves. When the target saves against this effect, it regains hit points equal to the amount it had before dropping to 0 hp (after the crit damage). In addition, the crit range of attacks by the lich against the target expands by an amount equal to the escalation die and the lich heals 60 hit points.'
+        value: 'When the lich prince scores a critical hit, if after taking damage the target still has hit points, it drops to 0 hp, falls *unconscious*, and begins making death saves. When the target saves against this effect, it regains hit points equal to the amount it had before dropping to 0 hp (after the crit damage). In addition, the crit range of attacks by the lich against the target expands by an amount equal to the escalation die and the lich heals 60 hit points.'
     sort: 600000
   - _id: 'nCSE1l0XS9A9WFyG'
     flags: {}
@@ -544,6 +544,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, if the target has 120 hp or fewer, it’s dazed (–4 attack) and does not add the escalation die to its attacks.'
+        value: 'While engaged with this creature, if the target has 120 hp or fewer, it’s *dazed* (–4 attack) and does not add the escalation die to its attacks.'
     sort: 800000
 _id: 'eOzmybMMK6tezfyO'

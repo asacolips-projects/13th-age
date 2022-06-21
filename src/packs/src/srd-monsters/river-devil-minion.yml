@@ -340,7 +340,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target is vulnerable (save ends).'
+        value: 'The target is *vulnerable* (save ends).'
       hit3:
         type: 'String'
         label: 'Hit'

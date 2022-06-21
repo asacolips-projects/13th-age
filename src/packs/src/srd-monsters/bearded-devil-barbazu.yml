@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is weakened until the end of its next turn (–4 attacks and defenses)'
+        value: 'The target is *weakened* until the end of its next turn (–4 attacks and defenses)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -474,6 +474,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target of the bearded devil’s filthy beard attack now takes 10 ongoing poison damage and is weakened (save ends both) instead.'
+        value: 'The target of the bearded devil’s filthy beard attack now takes 10 ongoing poison damage and is *weakened* (save ends both) instead.'
     sort: 700000
 _id: '9eFvIDQYNWJY8o0r'

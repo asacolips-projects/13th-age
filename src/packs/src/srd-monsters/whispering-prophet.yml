@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 damage, and the target is vulnerable to psychic damage (save ends)'
+        value: '12 damage, and the target is *vulnerable* to psychic damage (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -375,12 +375,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is confused until the end of its next turn as it sees a foe from its past.'
+        value: 'The target is *confused* until the end of its next turn as it sees a foe from its past.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target is weakened until the end of its next turn as it remembers a past failure.'
+        value: 'The target is *weakened* until the end of its next turn as it remembers a past failure.'
       hit3:
         type: 'String'
         label: 'Hit'

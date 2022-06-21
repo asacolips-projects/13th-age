@@ -354,7 +354,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 damage, and the target is hampered until the end of its next turn.'
+        value: '10 damage, and the target is *hampered* until the end of its next turn.'
     sort: 0
   - _id: '9pwM832PoSmnAlEH'
     flags: {}

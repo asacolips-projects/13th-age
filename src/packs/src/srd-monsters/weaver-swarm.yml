@@ -335,12 +335,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is hampered until the end of its next turn.'
+        value: 'The target is *hampered* until the end of its next turn.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'As above, and the target is also stuck until the end of its next turn.'
+        value: 'As above, and the target is also *stuck* until the end of its next turn.'
       hit3:
         type: 'String'
         label: 'Hit'

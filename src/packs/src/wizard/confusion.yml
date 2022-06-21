@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is confused (save ends).'
+    value: 'The target is *confused* (save ends).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The save against confused is now a difficult save (16+).</p>'
+        value: '<p>The save against *confused* is now a difficult save (16+).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

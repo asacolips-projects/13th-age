@@ -448,7 +448,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When you choose to add the escalation die to an attack against a horned devil, you are weakened until the end of your next turn after you make the attack.'
+        value: 'When you choose to add the escalation die to an attack against a horned devil, you are *weakened* until the end of your next turn after you make the attack.'
     sort: 300000
   - _id: 'eDqLF0IyV7rtuP0k'
     flags: {}

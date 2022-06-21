@@ -414,7 +414,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 damage, and if the target has 40 HP or fewer after being hit, it’s weakened until the end of its next turn'
+        value: '14 damage, and if the target has 40 HP or fewer after being hit, it’s *weakened* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

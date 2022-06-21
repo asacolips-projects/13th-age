@@ -44,7 +44,7 @@ data:
   target:
     type: 'String'
     label: 'Target'
-    value: 'One nearby confused, dazed, or weakened ally (at the start of the ally''s turn)'
+    value: 'One nearby *confused*, *dazed*, or *weakened* ally (at the start of the ally''s turn)'
   always:
     type: 'String'
     label: 'Always'
@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Roll a d20 [[d20]]]. On a 11+, the target ignores the effects of one of those conditions (confused, dazed, weakened) this turn. On a 16+, the condition ends instead.</p>'
+    value: '<p>Roll a d20 [[d20]]]. On a 11+, the target ignores the effects of one of those conditions (*confused*, *dazed*, *weakened*) this turn. On a 16+, the condition ends instead.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Add hampered and stunned to the list of conditions the effect includes.</p>'
+        value: '<p>Add *hampered* and *stunned* to the list of conditions the effect includes.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

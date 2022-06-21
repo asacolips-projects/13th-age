@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>When the target is staggered before the attack, it&rsquo;s vulnerable to this attack.</p>'
+        value: '<p>When the target is staggered before the attack, it&rsquo;s *vulnerable* to this attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

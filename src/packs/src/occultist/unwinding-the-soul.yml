@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When you cast a spell and roll a natural 11+ with the attack, after the attack you can “unwind” the target as a free action, making it vulnerable to your attacks until the end of the battle. You can unwind only one enemy at a time, so if you choose to unwind a different enemy, the previous foe is no longer vulnerable to your attacks.</p>'
+    value: '<p>When you cast a spell and roll a natural 11+ with the attack, after the attack you can “unwind” the target as a free action, making it *vulnerable* to your attacks until the end of the battle. You can unwind only one enemy at a time, so if you choose to unwind a different enemy, the previous foe is no longer vulnerable to your attacks.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You can now unwind a second enemy, but if you unwind a third, the first enemy is no longer vulnerable. You can also take this feat multiple times, allowing you to unwind another enemy each time you select it.</p>'
+        value: '<p>You can now unwind a second enemy, but if you unwind a third, the first enemy is no longer *vulnerable*. You can also take this feat multiple times, allowing you to unwind another enemy each time you select it.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

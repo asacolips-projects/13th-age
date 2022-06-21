@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '13 damage, and the target is vulnerable until the start of its next turn'
+        value: '13 damage, and the target is *vulnerable* until the start of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

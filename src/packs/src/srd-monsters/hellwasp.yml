@@ -364,7 +364,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '1. confused; 2. weakened; 3. dazed; 4. vulnerable.'
+        value: '1. *confused*; 2. *weakened*; 3. *dazed*; 4. *vulnerable*.'
     sort: 100000
   - _id: 'ytO767YJ8Phe99Qu'
     flags: {}

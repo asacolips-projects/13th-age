@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[9d10+@atk.a.bonus]] psychic damage, and the target is hampered until the end of your next turn.'
+    value: '[[9d10+@atk.a.bonus]] psychic damage, and the target is *hampered* until the end of your next turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When you roll a natural even miss with the spell, the target is also hampered until the end of your next turn.</p>'
+        value: '<p>When you roll a natural even miss with the spell, the target is also *hampered* until the end of your next turn.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

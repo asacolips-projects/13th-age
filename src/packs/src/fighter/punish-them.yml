@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The target is dazed until the end of its turn.</p>'
+    value: '<p>The target is *dazed* until the end of its turn.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>The dazed effect is now save ends.</p>'
+        value: '<p>The *dazed* effect is now save ends.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -166,7 +166,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The target is now weakened (save ends) instead of dazed.</p>'
+        value: '<p>The target is now *weakened* (save ends) instead of *dazed*.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

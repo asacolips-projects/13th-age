@@ -390,7 +390,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, enemies with 84 hp or fewer are dazed (–4 attack) and do not add the escalation die to their attacks.'
+        value: 'While engaged with this creature, enemies with 84 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks.'
     sort: 300000
   - _id: '69dzmEdzlbxC1TxX'
     flags: {}

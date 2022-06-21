@@ -392,7 +392,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[10]] psychic damage, and the target is confused (save ends)'
+        value: '[[10]] psychic damage, and the target is *confused* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -536,7 +536,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>The connection of a hoardsong dragon to its hoard imparts the dragon&rsquo;s magic upon the hoard. Before battle, if the PCs are able to see the hoard while the dragon speaks to them, each PC that can hear the dragon must roll a Wisdom check. On a result of 24 or less, that PC is charmed as per the charm person spell and considers the dragon a friend. On a result of 25&ndash;29, the PC is lulled by the dragon&rsquo;s words and the sight of the hoard; if combat occurs, the PC will be stunned during their first round. The dragon will make a suggestion to charmed PCs to leave and bring it more treasure for its hoard (while it prepares surprises for their return). Charmed PCs won&rsquo;t attack the dragon, but can make a normal save each round in battle to break the charm effect (or every day outside of combat).</p>'
+        value: '<p>The connection of a hoardsong dragon to its hoard imparts the dragon&rsquo;s magic upon the hoard. Before battle, if the PCs are able to see the hoard while the dragon speaks to them, each PC that can hear the dragon must roll a Wisdom check. On a result of 24 or less, that PC is charmed as per the charm person spell and considers the dragon a friend. On a result of 25&ndash;29, the PC is lulled by the dragon&rsquo;s words and the sight of the hoard; if combat occurs, the PC will be *stunned* during their first round. The dragon will make a suggestion to charmed PCs to leave and bring it more treasure for its hoard (while it prepares surprises for their return). Charmed PCs won&rsquo;t attack the dragon, but can make a normal save each round in battle to break the charm effect (or every day outside of combat).</p>'
       group:
         type: 'String'
         label: 'Group'

@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, and if the target has 80 hp or fewer after the damage, it’s stuck (save ends).'
+    value: '[[5d6+@wis.dmg+@atk.d.bonus]] damage, and if the target has 80 hp or fewer after the damage, it’s *stuck* (save ends).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[@lvl]] damage, if the target has 80 hp or fewer after the damage, it’s stuck (easy save ends, 6+).'
+    value: '[[@lvl]] damage, if the target has 80 hp or fewer after the damage, it’s *stuck* (easy save ends, 6+).'
   missEven:
     type: 'String'
     label: 'Even Miss'

@@ -406,11 +406,11 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+16]] vs. MD (the nearby non-confused enemy with de most true magic items)'
+        value: '[[d20+16]] vs. MD (the nearby non-*confused* enemy with de most true magic items)'
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[30]] psychic damage, and the target is confused (save ends)'
+        value: '[[30]] psychic damage, and the target is *confused* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

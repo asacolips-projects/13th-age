@@ -377,12 +377,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16–18'
-        value: 'While the target is taking the ongoing psychic damage, it is dazed (–4 attacks).'
+        value: 'While the target is taking the ongoing psychic damage, it is *dazed* (–4 attacks).'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural 19–20'
-        value: 'While the target is taking the ongoing psychic damage, it is confused instead of dazed.'
+        value: 'While the target is taking the ongoing psychic damage, it is *confused* instead of *dazed*.'
       hit3:
         type: 'String'
         label: 'Hit'

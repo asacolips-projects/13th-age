@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You go all-out to hurt anyone who tries to get a piece of you. For the rest of the battle, while you''re conscious, using at least one bladed weapon, and are not staggered or stunned, you deal [[10]] damage to each enemy that makes a melee attack against you and rolls a natural odd attack roll. The damage hits the enemy before their attack damages you.</p>'
+    value: '<p>You go all-out to hurt anyone who tries to get a piece of you. For the rest of the battle, while you''re conscious, using at least one bladed weapon, and are not staggered or *stunned*, you deal [[10]] damage to each enemy that makes a melee attack against you and rolls a natural odd attack roll. The damage hits the enemy before their attack damages you.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: "<p><em>Spiky bastard</em>\_damage now applies when you are staggered, though obviously not while you are unconscious.</p>"
+        value: "<p><em>Spiky bastard</em>\_damage now applies when you are staggered, though obviously not while you are *unconscious*.</p>"
       isActive:
         type: 'Boolean'
         label: 'Active'

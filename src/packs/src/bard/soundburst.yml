@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[5d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the target is dazed until end of your next turn.'
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the target is *dazed* until end of your next turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>On a natural even hit, the dazed effect is now save ends.</p>'
+        value: '<p>On a natural even hit, the *dazed* effect is now save ends.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

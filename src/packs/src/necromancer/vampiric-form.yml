@@ -61,11 +61,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'The target is confused until the end of its next turn.'
+    value: 'The target is *confused* until the end of its next turn.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: 'The target is weakened until the end of its next turn.'
+    value: 'The target is *weakened* until the end of its next turn.'
   crit:
     type: 'String'
     label: 'Crit'

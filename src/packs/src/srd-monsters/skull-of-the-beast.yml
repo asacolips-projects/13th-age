@@ -377,7 +377,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target is stuck (save ends) from looking into the void within it.'
+        value: 'The target is *stuck* (save ends) from looking into the void within it.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -406,6 +406,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, enemies that have 60 hp or fewer are dazed (–4 attack) and do not add the escalation die to their attacks.'
+        value: 'While engaged with this creature, enemies that have 60 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks.'
     sort: 200000
 _id: 'OQA8kLmcql25PYm9'

@@ -366,11 +366,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. PD (one staggered or unconscious enemy)'
+        value: '[[d20 + 11]] vs. PD (one staggered or *unconscious* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage, and the target is hampered (save ends)'
+        value: '20 damage, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

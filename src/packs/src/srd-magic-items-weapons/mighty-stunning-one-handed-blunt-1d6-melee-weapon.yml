@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 16+) When you roll a natural even hit with this weapon and have more hit points than the target, that creature is also stunned until the end of its next turn.</p>\n<p>Quirk: Warns of impending doom.</p>"
+    value: "<p>(Recharge 16+) When you roll a natural even hit with this weapon and have more hit points than the target, that creature is also *stunned* until the end of its next turn.</p>\n<p>Quirk: Warns of impending doom.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

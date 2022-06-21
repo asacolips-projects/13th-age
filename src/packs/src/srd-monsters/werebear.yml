@@ -414,7 +414,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '70 damage, and the target is weakened until it regains maximum hit points'
+        value: '70 damage, and the target is *weakened* until it regains maximum hit points'
       hit1:
         type: 'String'
         label: 'Hit'

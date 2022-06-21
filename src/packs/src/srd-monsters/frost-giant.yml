@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 cold damage, and the target is hampered (makes only basic attacks) until the end of its next turn'
+        value: '10 cold damage, and the target is *hampered* (makes only basic attacks) until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[3d6+@wis.dmg+@atk.a.bonus]] psychic damage, and the target is vulnerable (save ends).'
+    value: '[[3d6+@wis.dmg+@atk.a.bonus]] psychic damage, and the target is *vulnerable* (save ends).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>The spell can now trigger when an ally is dazed, weakened, or stunned by an enemy&rsquo;s attack</p>'
+        value: '<p>The spell can now trigger when an ally is *dazed*, *weakened*, or *stunned* by an enemy&rsquo;s attack</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -159,7 +159,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>On a hit, the target is now vulnerable until the end of battle.</p>'
+        value: '<p>On a hit, the target is now *vulnerable* until the end of battle.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
