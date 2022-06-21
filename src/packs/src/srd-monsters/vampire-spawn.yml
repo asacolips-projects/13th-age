@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage, and a humanoid target is weakened (–4 attack and defenses) until the end of the vampire spawn’s next turn'
+        value: '7 damage, and a humanoid target is *weakened* (–4 attack and defenses) until the end of the vampire spawn’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'

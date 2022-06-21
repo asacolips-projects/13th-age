@@ -402,7 +402,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is confused (easy save ends, 6+).'
+        value: 'The target is *confused* (easy save ends, 6+).'
     sort: 200000
   - _id: 'ORaJhNSnr8vx5J4S'
     flags: {}

@@ -414,12 +414,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage, and the target is hampered until the end of its next turn'
+        value: '8 damage, and the target is *hampered* until the end of its next turn'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target is stuck (save ends) instead of hampered.'
+        value: 'The target is *stuck* (save ends) instead of *hampered*.'
       hit2:
         type: 'String'
         label: 'Hit'

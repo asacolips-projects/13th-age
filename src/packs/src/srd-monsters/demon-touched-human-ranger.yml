@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and the target is dazed (–4 attack) until it pulls the arrow out using a quick action, which deals 10 ongoing damage'
+        value: '15 damage, and the target is *dazed* (–4 attack) until it pulls the arrow out using a quick action, which deals 10 ongoing damage'
       hit1:
         type: ''
         label: 'Hit'

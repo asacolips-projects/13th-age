@@ -340,7 +340,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target is stuck (save ends).'
+        value: 'The target is *stuck* (save ends).'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -368,7 +368,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When you choose to add the escalation die to an attack against an ice devil, you are stuck (save ends).'
+        value: 'When you choose to add the escalation die to an attack against an ice devil, you are *stuck* (save ends).'
     sort: 100000
   - _id: 'ZJAsp4zudLGM6bBA'
     flags: {}
@@ -382,7 +382,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a lower level nearby ally of the ice devil attacks a creature that’s stuck, the crit range of that attack expands by the escalation die.'
+        value: 'When a lower level nearby ally of the ice devil attacks a creature that’s *stuck*, the crit range of that attack expands by the escalation die.'
     sort: 200000
   - _id: 'HXse9Dxiuy9eyk8d'
     flags: {}

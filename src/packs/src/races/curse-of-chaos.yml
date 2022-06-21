@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: '<p>A curse should have about the same impact as a typical once-per-battle ability. For example, a typical curse might lead to the cursed attacker dealing half damage to themself with their fumbled attack and being dazed until the end of their next turn. The GM may reward storytelling flair and/or limit the suggested effects of the curse.</p>'
+    value: '<p>A curse should have about the same impact as a typical once-per-battle ability. For example, a typical curse might lead to the cursed attacker dealing half damage to themself with their fumbled attack and being *dazed* until the end of their next turn. The GM may reward storytelling flair and/or limit the suggested effects of the curse.</p>'
   powerSource:
     type: 'String'
     label: 'Power Source'

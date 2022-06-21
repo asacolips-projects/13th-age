@@ -377,7 +377,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is confused until the end of its next turn, or if the cambion was cloaked when it attacked, the confusion is save ends.'
+        value: 'The target is *confused* until the end of its next turn, or if the cambion was cloaked when it attacked, the confusion is save ends.'
       hit2:
         type: 'String'
         label: 'Hit'

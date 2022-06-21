@@ -61,7 +61,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus [[10]] ongoing poison damage, and if the target has 45 hp points or fewer, it’s hampered (save ends both). (The hp threshold also goes up automatically based on your level.)'
+    value: 'As a hit, plus [[10]] ongoing poison damage, and if the target has 45 hp points or fewer, it’s *hampered* (save ends both). (The hp threshold also goes up automatically based on your level.)'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'

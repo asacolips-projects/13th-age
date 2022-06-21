@@ -375,7 +375,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 3 extra acid damage and is stuck (hard save ends, 16+).'
+        value: 'The target takes 3 extra acid damage and is *stuck* (hard save ends, 16+).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -404,7 +404,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a creature is engaged with the slime-skull or stuck from its grasping slime tendrils attack at the start of its turn, it takes 3 acid damage.'
+        value: 'When a creature is engaged with the slime-skull or *stuck* from its grasping slime tendrils attack at the start of its turn, it takes 3 acid damage.'
     sort: 200000
   - _id: 'VX8JTR9VxfNKjndz'
     flags: {}

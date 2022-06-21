@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is weakened (save ends)'
+        value: 'The target is *weakened* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -416,7 +416,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is hampered and weakened (save ends both).'
+        value: 'The target is *hampered* and *weakened* (save ends both).'
     sort: 300000
   - _id: 'eVaqcBIQnXzj4amT'
     flags: {}
@@ -430,7 +430,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is instead helpless (hard save ends, 16+).'
+        value: 'The target is instead *helpless* (hard save ends, 16+).'
     sort: 400000
   - _id: 'UxtMeA7zjh9o9YyK'
     flags: {}
@@ -486,7 +486,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the chuul scores a critical hit against a weakened or helpless foe, it bites off one of that enemy’s hands. An adventurer with no hands might have trouble casting spells or holding weapons. (A cleric might be able to restore the missing appendage with a ritual.)'
+        value: 'When the chuul scores a critical hit against a *weakened* or *helpless* foe, it bites off one of that enemy’s hands. An adventurer with no hands might have trouble casting spells or holding weapons. (A cleric might be able to restore the missing appendage with a ritual.)'
     sort: 800000
   - _id: 'zlhfeu3hOU7OaX9w'
     flags: {}

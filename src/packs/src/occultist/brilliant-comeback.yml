@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The target of the triggering ally&rsquo;s attack is vulnerable to that attack.</p>'
+        value: '<p>The target of the triggering ally&rsquo;s attack is *vulnerable* to that attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -337,7 +337,7 @@ items:
         type: 'String'
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is also weakened until the end of its next turn.'
+        value: 'The target is also *weakened* until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'

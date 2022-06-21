@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is hampered until the end of its next turn'
+        value: 'The target is *hampered* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is hampered from burning eyes and gases in its lungs until the end of its next turn.'
+        value: 'The target is *hampered* from burning eyes and gases in its lungs until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'

@@ -514,7 +514,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The empyrean dragon can make two gleaming bite attacks as a single standard action, one each from two heads. The third head is assumed to be maneuvering the body around. It can choose not to make one of those attacks to end any condition affecting it except for ongoing damage (this includes the stunned condition, even though it technically doesn’t get an action when stunned).'
+        value: 'The empyrean dragon can make two gleaming bite attacks as a single standard action, one each from two heads. The third head is assumed to be maneuvering the body around. It can choose not to make one of those attacks to end any condition affecting it except for ongoing damage (this includes the *stunned* condition, even though it technically doesn’t get an action when stunned).'
     sort: 800000
   - _id: 'ifzyMvtsTrYZDyTr'
     flags: {}

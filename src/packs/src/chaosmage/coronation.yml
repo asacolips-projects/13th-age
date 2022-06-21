@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is confused until the end of its next turn.'
+    value: 'The target is *confused* until the end of its next turn.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -167,7 +167,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>When you make a natural even roll with a <em>coronation</em> attack, you can have the target become confused (save ends) instead of taking damage.</p>'
+        value: '<p>When you make a natural even roll with a <em>coronation</em> attack, you can have the target become *confused* (save ends) instead of taking damage.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

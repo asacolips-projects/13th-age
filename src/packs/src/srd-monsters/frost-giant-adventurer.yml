@@ -378,7 +378,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy the frost giant adventurer is engaged with scores a critical hit against the giant, that enemy is hampered (hard save ends, 16+).'
+        value: 'When an enemy the frost giant adventurer is engaged with scores a critical hit against the giant, that enemy is *hampered* (hard save ends, 16+).'
     sort: 200000
   - _id: 'Q3WUO6JRA8HVDuWc'
     flags: {}

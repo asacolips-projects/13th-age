@@ -410,7 +410,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target chooses one: it takes [[6d6]] psychic damage; OR it’s stuck (save ends)'
+        value: 'The target chooses one: it takes [[6d6]] psychic damage; OR it’s *stuck* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -456,6 +456,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the doxy drops an enemy to 0 hit points or lower, she will move next to that creature and attempt to remove the target’s heart. The creature must begin making last gasp saves as she cuts their chest open. On the fourth failure, the doxy takes the heart and the target dies and becomes undead under her control. If the bride is stunned or moved away from the creature and can’t return to it on her turn, the creature doesn’t have to make a last gasp save that turn.'
+        value: 'When the doxy drops an enemy to 0 hit points or lower, she will move next to that creature and attempt to remove the target’s heart. The creature must begin making last gasp saves as she cuts their chest open. On the fourth failure, the doxy takes the heart and the target dies and becomes undead under her control. If the bride is *stunned* or moved away from the creature and can’t return to it on her turn, the creature doesn’t have to make a last gasp save that turn.'
     sort: 400000
 _id: 'bkgnATNLIDFvsIEA'

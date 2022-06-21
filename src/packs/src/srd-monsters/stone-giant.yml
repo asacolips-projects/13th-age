@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage, and the target is dazed (save ends)'
+        value: '30 damage, and the target is *dazed* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -60,7 +60,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus if the target is staggered after the attack, it’s also stunned until the end of its next turn.'
+    value: 'As a hit, plus if the target is staggered after the attack, it’s also *stunned* until the end of its next turn.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'

@@ -96,7 +96,7 @@ data:
   sustainedEffect:
     type: 'String'
     label: 'Opening and Sustained Effect'
-    value: '<p>Each nearby enemy that has fewer hit points than you is dazed until the end of your next turn.</p>'
+    value: '<p>Each nearby enemy that has fewer hit points than you is *dazed* until the end of your next turn.</p>'
   finalVerse:
     type: 'String'
     label: 'Final Verse'

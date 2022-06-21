@@ -419,7 +419,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 20 poison damage and is hampered until the end of its next turn as it chokes on sulphurous fumes.'
+        value: 'The target also takes 20 poison damage and is *hampered* until the end of its next turn as it chokes on sulphurous fumes.'
       hit2:
         type: 'String'
         label: 'Hit'

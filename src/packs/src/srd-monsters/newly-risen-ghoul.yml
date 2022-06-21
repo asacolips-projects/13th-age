@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is vulnerable (attacks vs. it have crit range expanded by 2) to attacks by undead until the end of the ghoul’s next turn.'
+        value: 'The target is *vulnerable* (attacks vs. it have crit range expanded by 2) to attacks by undead until the end of the ghoul’s next turn.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -364,6 +364,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The newly-risen ghoul’s scrabbling claws attack deals +2 damage against vulnerable targets.'
+        value: 'The newly-risen ghoul’s scrabbling claws attack deals +2 damage against *vulnerable* targets.'
     sort: 100000
 _id: 'WYBGeQDA3qCLyh30'

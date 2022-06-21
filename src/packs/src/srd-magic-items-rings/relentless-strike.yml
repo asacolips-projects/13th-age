@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Standard action &ndash; recharge 16+) Make a basic attack ignoring any effects that give you an attack penalty, prevent you from attacking, keep you from taking actions, or force you to reroll the attack. You can also use this ring&rsquo;s power while you&rsquo;re stunned, even though you couldn&rsquo;t normally take an action.</p>\n<p>Quirk: Has near-constant insomnia.</p>"
+    value: "<p>(Standard action &ndash; recharge 16+) Make a basic attack ignoring any effects that give you an attack penalty, prevent you from attacking, keep you from taking actions, or force you to reroll the attack. You can also use this ring&rsquo;s power while you&rsquo;re *stunned*, even though you couldn&rsquo;t normally take an action.</p>\n<p>Quirk: Has near-constant insomnia.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

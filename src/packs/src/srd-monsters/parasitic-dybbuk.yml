@@ -454,7 +454,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is weakened (save ends).'
+        value: 'The target is *weakened* (save ends).'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -494,7 +494,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is confused (save ends).'
+        value: 'The target is *confused* (save ends).'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -540,7 +540,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy makes a spell attack or magic weapon attack against the parasitic dybbuk that deals holy damage and rolls a natural 18+, the dybbuk leaves the host body. The body drops in place (unconscious) and the parasitic dybbuk becomes an undamaged ethereal dybbuk (see that entry). If the escalation die is 3+, reset the escalation die to 2.'
+        value: 'When an enemy makes a spell attack or magic weapon attack against the parasitic dybbuk that deals holy damage and rolls a natural 18+, the dybbuk leaves the host body. The body drops in place (*unconscious*) and the parasitic dybbuk becomes an undamaged ethereal dybbuk (see that entry). If the escalation die is 3+, reset the escalation die to 2.'
     sort: 600000
   - _id: 'PfVt0kMtaMnzTFnm'
     flags: {}

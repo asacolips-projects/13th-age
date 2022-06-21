@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 14–15'
-        value: 'The target is dazed until the end of the chimera’s next turn from a headbutt.'
+        value: 'The target is *dazed* until the end of the chimera’s next turn from a headbutt.'
       hit2:
         type: ''
         label: 'Hit'
@@ -605,7 +605,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Enemies engaged with the chimera who are below 48 hit points are dazed and can’t use the escalation die.'
+        value: 'Enemies engaged with the chimera who are below 48 hit points are *dazed* and can’t use the escalation die.'
     sort: 1400000
   - _id: '37ynlZlE3GHW49lt'
     flags: {}
@@ -689,7 +689,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy rolls a natural even miss with a melee attack against the chimera, the weapon temporarily loses all its bonuses and powers and the wielder is weakened (save ends both).'
+        value: 'When an enemy rolls a natural even miss with a melee attack against the chimera, the weapon temporarily loses all its bonuses and powers and the wielder is *weakened* (save ends both).'
     sort: 2000000
   - _id: 'R4EtK1OBUQvXpRL2'
     flags: {}

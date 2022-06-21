@@ -166,7 +166,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Your Ancestral Warband spirits are always raging, even if you are not, and continue to fight for a single round while you are unconscious.</p>'
+        value: '<p>Your Ancestral Warband spirits are always raging, even if you are not, and continue to fight for a single round while you are *unconscious*.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

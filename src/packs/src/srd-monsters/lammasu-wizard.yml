@@ -454,7 +454,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage, the triggering attack misses and has no effect against the lammasu wizard, and the target is hampered (save ends)'
+        value: '30 damage, the triggering attack misses and has no effect against the lammasu wizard, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

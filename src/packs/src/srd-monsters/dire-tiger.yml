@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '38 damage, and the target is hampered while it’s engaged with the tiger'
+        value: '38 damage, and the target is *hampered* while it’s engaged with the tiger'
       hit1:
         type: 'String'
         label: 'Hit'

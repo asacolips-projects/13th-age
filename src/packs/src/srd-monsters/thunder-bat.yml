@@ -334,7 +334,7 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural even hit against a dazed enemy'
+        name: 'Natural even hit against a *dazed* enemy'
         value: 'The target takes 20 ongoing thunder damage.'
       hit2:
         type: 'String'
@@ -377,7 +377,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is dazed (save ends).'
+        value: 'The target is *dazed* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'

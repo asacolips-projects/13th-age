@@ -500,7 +500,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '50 damage, and the target is confused (save ends).'
+        value: '50 damage, and the target is *confused* (save ends).'
     sort: 500000
   - _id: 'NvlQNOQeSQARtMZ9'
     flags: {}
@@ -556,7 +556,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is stunned (save ends).'
+        value: 'The target is *stunned* (save ends).'
     sort: 900000
   - _id: 'wgMQOItvSbPMOKnV'
     flags: {}
@@ -570,7 +570,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is dazed and confused (save ends both). When the target saves, it takes 40 psychic damage.'
+        value: 'The target is *dazed* and *confused* (save ends both). When the target saves, it takes 40 psychic damage.'
     sort: 1000000
   - _id: '1Vf6mYwQVlQ4KWD4'
     flags: {}

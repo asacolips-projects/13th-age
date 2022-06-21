@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'or one enemy);60 fire damage, and 15 ongoing fire damage; OR 180 fire damage, and 30 ongoing fire damage and the target is weakened (save ends both) if used against a single enemy'
+        value: 'or one enemy);60 fire damage, and 15 ongoing fire damage; OR 180 fire damage, and 30 ongoing fire damage and the target is *weakened* (save ends both) if used against a single enemy'
       hit1:
         type: ''
         label: 'Hit'
@@ -464,7 +464,7 @@ items:
     sort: 400000
   - _id: '792IKkmLbQD4PTx0'
     flags: {}
-    name: 'Wyrm of fear and flame'
+    name: 'Wyrm of *fear* and flame'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:
@@ -474,7 +474,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, enemies with 120 hp or fewer are dazed (–4 attacks), do not add the escalation die to their attacks, and take [[4d20]] fire damage at the start of their turn.'
+        value: 'While engaged with this creature, enemies with 120 hp or fewer are *dazed* (–4 attacks), do not add the escalation die to their attacks, and take [[4d20]] fire damage at the start of their turn.'
     sort: 500000
   - _id: 'NMqK1B7aTsLp6o4j'
     flags: {}

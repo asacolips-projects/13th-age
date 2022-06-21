@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>When you hit a demon with this spell, it&rsquo;s also hampered (save ends).</p>'
+        value: '<p>When you hit a demon with this spell, it&rsquo;s also *hampered* (save ends).</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

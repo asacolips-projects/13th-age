@@ -463,7 +463,7 @@ items:
         type: 'String'
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is stunned (save ends).'
+        value: 'The target is *stunned* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -483,7 +483,7 @@ items:
       miss:
         type: 'String'
         label: 'Miss'
-        value: 'The target is dazed (save ends).'
+        value: 'The target is *dazed* (save ends).'
     sort: 400000
   - _id: 'qyKrPyraMaovy3HF'
     flags: {}
@@ -513,7 +513,7 @@ items:
         type: 'String'
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is vulnerable (save ends).'
+        value: 'The target is *vulnerable* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -533,7 +533,7 @@ items:
       miss:
         type: 'String'
         label: 'Miss'
-        value: 'The target is dazed until the end of its next turn.'
+        value: 'The target is *dazed* until the end of its next turn.'
     sort: 500000
   - _id: 'u1lTY3GoWStcenUX'
     flags: {}
@@ -630,7 +630,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[130]] damage, the target pops free of the tarrasque, and the target is hampered (save ends)'
+        value: '[[130]] damage, the target pops free of the tarrasque, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -669,7 +669,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>The tarrasque is immune to normal conditions and effects (stunned, weakened, etc.), but it isn&rsquo;t completely impervious. Bypassing its resistances requires icon-supported effort. A PC can use one 5 or 6 they acquired from icon relationship dice rolls to overcome the resistance each time they use an attack or power that would apply a condition or effect upon the tarrasque. Of course, they must also provide a story to go along with the reason the tarrasque is affected.</p>'
+        value: '<p>The tarrasque is immune to normal conditions and effects (*stunned*, *weakened*, etc.), but it isn&rsquo;t completely impervious. Bypassing its resistances requires icon-supported effort. A PC can use one 5 or 6 they acquired from icon relationship dice rolls to overcome the resistance each time they use an attack or power that would apply a condition or effect upon the tarrasque. Of course, they must also provide a story to go along with the reason the tarrasque is affected.</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -716,7 +716,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[90]] damage, and the target is stuck and takes [[20]] ongoing damage (hard save ends both, 16+)'
+        value: '[[90]] damage, and the target is *stuck* and takes [[20]] ongoing damage (hard save ends both, 16+)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -841,7 +841,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>While engaged with the tarrasque, enemies that have 216 hp or fewer are dazed (&ndash;4 attack) and do not add the escalation die to their attacks.</p>'
+        value: '<p>While engaged with the tarrasque, enemies that have 216 hp or fewer are *dazed* (&ndash;4 attack) and do not add the escalation die to their attacks.</p>'
       group:
         type: 'String'
         label: 'Group'

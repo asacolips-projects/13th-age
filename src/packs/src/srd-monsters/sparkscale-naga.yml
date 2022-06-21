@@ -441,7 +441,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[20]] lightning damage, an the target is vulnerable (save ends).'
+        value: '[[20]] lightning damage, an the target is *vulnerable* (save ends).'
       hit1:
         type: 'String'
         label: 'Hit'

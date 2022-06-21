@@ -432,7 +432,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target makes a basic attack against its nearest or most vulnerable ally (moving to that target if necessary).'
+        value: 'The target makes a basic attack against its nearest or most *vulnerable* ally (moving to that target if necessary).'
     sort: 400000
   - _id: 'sf30onW4s9FqTqCy'
     flags: {}

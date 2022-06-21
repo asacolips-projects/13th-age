@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Your Sneak Attack feature also works against enemies who are confused, dazed, stunned, vulnerable to your attack, or weakened.</p>'
+        value: '<p>Your Sneak Attack feature also works against enemies who are *confused*, *dazed*, *stunned*, *vulnerable* to your attack, or *weakened*.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

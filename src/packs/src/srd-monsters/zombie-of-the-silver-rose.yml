@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is weakened until the start of the zombie’s next turn.'
+        value: 'The target is *weakened* until the start of the zombie’s next turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -404,7 +404,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a melee attack drops one or more Silver Rose mooks, the hand of one of those zombies ends up severed from its owner and latched onto a nearby enemy. The afflicted creature is vulnerable to all attacks until the hand is removed, which takes a standard action by that creature or an ally next to them.'
+        value: 'When a melee attack drops one or more Silver Rose mooks, the hand of one of those zombies ends up severed from its owner and latched onto a nearby enemy. The afflicted creature is *vulnerable* to all attacks until the hand is removed, which takes a standard action by that creature or an ally next to them.'
     sort: 200000
   - _id: 'zOU687bzDJsagU51'
     flags: {}

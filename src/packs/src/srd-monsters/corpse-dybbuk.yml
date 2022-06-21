@@ -335,12 +335,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is vulnerable to the dybbuk’s attacks until the end of the battle.'
+        value: 'The target is *vulnerable* to the dybbuk’s attacks until the end of the battle.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The dybbuk gains a fear aura against the target (save ends) as the dybbuk warps its corpse-flesh into a horrifying form. While engaged with the dybbuk, if the scared target has 30 hp or fewer, it’s dazed (–4 attack) and does not add the escalation die to its attacks.'
+        value: 'The dybbuk gains a *fear* aura against the target (save ends) as the dybbuk warps its corpse-flesh into a horrifying form. While engaged with the dybbuk, if the scared target has 30 hp or fewer, it’s *dazed* (–4 attack) and does not add the escalation die to its attacks.'
       hit3:
         type: 'String'
         label: 'Hit'

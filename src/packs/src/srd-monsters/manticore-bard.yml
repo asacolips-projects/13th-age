@@ -412,7 +412,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 psychic damage, and the target is dazed (hard save ends, 16+)'
+        value: '20 psychic damage, and the target is *dazed* (hard save ends, 16+)'
       hit1:
         type: ''
         label: 'Hit'
@@ -556,7 +556,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Furioso—The target is confused instead of dazed.'
+        value: 'Furioso—The target is *confused* instead of *dazed*.'
     sort: 900000
   - _id: 'Hf9qT1146Lhn3dDZ'
     flags: {}

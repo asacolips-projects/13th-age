@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: "45 psychic damage, and the target is confused (save ends); OR the target can choose to avoid the confusion effect by taking [[10d10]] psychic damage to clear their head .\_.\_."
+        value: "45 psychic damage, and the target is *confused* (save ends); OR the target can choose to avoid the confusion effect by taking [[10d10]] psychic damage to clear their head .\_.\_."
       hit1:
         type: 'String'
         label: 'Hit'

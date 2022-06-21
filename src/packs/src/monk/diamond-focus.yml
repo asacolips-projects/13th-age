@@ -105,11 +105,11 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p><strong>Ki Power</strong> <em>(Diamond Soul)</em>: When you are dazed, weakened, or stunned, you can spend 1 point of ki to make an immediate normal save (11+). If you succeed, the effect ends. If you fail, the condition affects you normally. (This power also works on effects that aren&rsquo;t save ends. It also breaks the stunned rule by letting you use a free action to spend ki.)</p>'
+    value: '<p><strong>Ki Power</strong> <em>(Diamond Soul)</em>: When you are *dazed*, *weakened*, or *stunned*, you can spend 1 point of ki to make an immediate normal save (11+). If you succeed, the effect ends. If you fail, the condition affects you normally. (This power also works on effects that aren&rsquo;t save ends. It also breaks the stunned rule by letting you use a free action to spend ki.)</p>'
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You gain a +2 bonus to saves while you&rsquo;re not staggered.</p><p>In addition, you can go one round without using a monk attack form and still maintain your place in the attack form progression. For example, if you made an opening attack last round but don&rsquo;t attack this round (or with your next standard action) for any reason, even being stunned or unconscious, you can still use a flow attack with your next standard action.</p>'
+    value: '<p>You gain a +2 bonus to saves while you&rsquo;re not staggered.</p><p>In addition, you can go one round without using a monk attack form and still maintain your place in the attack form progression. For example, if you made an opening attack last round but don&rsquo;t attack this round (or with your next standard action) for any reason, even being *stunned* or *unconscious*, you can still use a flow attack with your next standard action.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -151,7 +151,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You can also use the ki power to save when you’re confused or hampered.</p>'
+        value: '<p>You can also use the ki power to save when you’re *confused* or *hampered*.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
