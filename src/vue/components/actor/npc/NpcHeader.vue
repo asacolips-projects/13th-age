@@ -25,7 +25,21 @@
         <!-- Creature details -->
         <div class="unit unit--roles">
           <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
-          <span class="details"> | {{actor.data.details.size.value}} {{levelFormatted}} {{actor.data.details.role.value}} [{{actor.data.details.type.value}}]</span>
+          <ToggleInput>
+            <template v-slot:display>
+              <ul>
+                <li class="details">{{actor.data.details.size.value}}</li>
+                <li class="level">{{levelFormatted}}</li>
+                <li class="role">{{actor.data.details.role.value}}</li>
+                <li class="type">[{{actor.data.details.type.value}}]</li>
+              </ul>
+            </template>
+            <template v-slot:edit>
+              <Select name="data.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
+              <Select name="data.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
+              <Select name="data.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
+            </template>
+          </ToggleInput>
         </div>
         <!-- Resistance -->
         <div class="unit unit--resistance flexrow">
@@ -53,11 +67,12 @@
   import { localize, ordinalSuffix, numberFormat } from '@/methods/Helpers';
   import ToggleInput from '@/components/parts/ToggleInput.vue';
   import Input from '@/components/parts/Input.vue';
+  import Select from '@/components/parts/Select.vue';
   import Editor from '@/components/parts/Editor.vue';
   export default {
     name: 'NpcHeader',
     props: ['actor', 'flags'],
-    components: { ToggleInput, Input, Editor },
+    components: { ToggleInput, Input, Select, Editor },
     setup() {
       return {
         localize,
@@ -123,6 +138,9 @@
         // Set a flag.
         const actor = game.actors.get(this.actor._id) ?? false;
         if (actor) actor.setFlag('archmage', `sheetDisplay.header.collapsed`, this.headerCollapsed);
+      },
+      getOptions(key) {
+        return CONFIG.ARCHMAGE[key] ?? [];
       }
     },
     watch: {
@@ -226,6 +244,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.unit--roles {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .rollable--init {
+    flex: 0 auto;
+    margin: 0;
+  }
+
+  .edit-wrapper {
+    display: inline-block;
+    flex: 1;
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      flex: 0 auto;
+      list-style-type: none;
+      margin-left: 14px;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -4px;
+        bottom: 0;
+        left: -9px;
+        margin: auto;
+        width: 5px;
+        height: 5px;
+        background: $c-black;
+        border-radius: 100%;
+      }
+    }
+  }
 }
 
 .unit--resistance,

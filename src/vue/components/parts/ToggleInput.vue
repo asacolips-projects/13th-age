@@ -49,7 +49,7 @@ export default {
   background: $c-white;
   box-shadow: 0 0 15px 5px $c-gray--50;
   padding: 13px;
-  height: 50px;
+  // height: 50px;
   border-radius: 8px;
   top: 0;
   left: 0;
