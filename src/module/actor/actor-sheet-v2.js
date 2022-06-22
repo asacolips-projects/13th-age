@@ -59,6 +59,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Add to our data object that the sheet will use.
     context.actor = actorData;
     context.data = actorData.data;
+    context.actor.owner = context.owner;
     context.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
     context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
 

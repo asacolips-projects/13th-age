@@ -5,7 +5,10 @@
       <!-- Name -->
       <div class="unit unit--hide-label unit--name">
         <label for="name">{{localize("ARCHMAGE.name")}}</label>
-        <input type="text" name="name" class="input-secondary" v-model="actor.name">
+        <ToggleInput>
+          <template v-slot:display><h1 class="actor-name">{{actor.name}}</h1></template>
+          <template v-slot:edit><Input type="text" name="name" class="input-secondary" :actor="actor" reactive="false"/></template>
+        </ToggleInput>
       </div>
     </section>
     <section class="section section--header-bottom flexrow">
@@ -13,7 +16,11 @@
         <!-- Flavor text -->
         <div class="unit unit--hide-label unit--flavor">
           <label for="data.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
-          <em>{{actor.data.details.flavor.value}}</em>
+          <Editor :owner="actor.owner" target='data.details.flavor.value' button="true" editable="true" :content="actor.data.details.flavor.value"/>
+          <!-- <ToggleInput>
+            <template v-slot:display><em>{{actor.data.details.flavor.value}}</em></template>
+            <template v-slot:edit><Input type="text" name="data.details.flavor.value" :actor="actor"/></template>
+          </ToggleInput> -->
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">
@@ -43,9 +50,13 @@
 
 <script>
   import { localize, ordinalSuffix, numberFormat } from '@/methods/Helpers';
+  import ToggleInput from '@/components/parts/ToggleInput.vue';
+  import Input from '@/components/parts/Input.vue';
+  import Editor from '@/components/parts/Editor.vue';
   export default {
     name: 'NpcHeader',
     props: ['actor'],
+    components: { ToggleInput, Input, Editor },
     setup() {
       return {
         localize,
@@ -160,11 +171,12 @@
 .unit--name {
   margin: $padding-sm 0;
 
-  input {
+  h1 {
     font-family: $font-stack-secondary;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 38px;
     border: none;
+    line-height: 0.8;
   }
 }
 
@@ -211,7 +223,19 @@
   }
 }
 
-.unit--flavor {
-  margin: $padding-sm 0;
+.section--details {
+  .editor-wrapper {
+    min-height: 0;
+  }
+  :deep(.editor-content) {
+    padding: 0;
+    background: transparent;
+  }
+
+  .unit--flavor {
+    font-style: italic;
+    margin: $padding-sm 0;
+  }
+
 }
 </style>
