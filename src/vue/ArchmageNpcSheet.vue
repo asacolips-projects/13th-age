@@ -195,3 +195,13 @@ export default {
   flex: 0 auto;
 }
 </style>
+
+<style lang="scss">
+.archmage-v2.npc-sheet {
+  .section--tabs {
+    nav.tabs {
+      margin-top: 0;
+    }
+  }
+}
+</style>
