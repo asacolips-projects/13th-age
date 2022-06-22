@@ -1,6 +1,6 @@
 <template>
   <!-- HEADER -->
-  <header class="header npc-header flexcol">
+  <header :class="'header npc-header flexcol' + (headerCollapsed ? ' collapsed' : '')">
     <section class="section section--header-top">
       <!-- Name -->
       <div class="unit unit--hide-label unit--name">
@@ -45,6 +45,7 @@
         </div>
       </section>
     </section>
+    <a class="toggle-header" @click="toggleHeader"><i class="fas fa-chevron-up"></i></a>
   </header>
 </template>
 
@@ -55,7 +56,7 @@
   import Editor from '@/components/parts/Editor.vue';
   export default {
     name: 'NpcHeader',
-    props: ['actor'],
+    props: ['actor', 'flags'],
     components: { ToggleInput, Input, Editor },
     setup() {
       return {
@@ -68,7 +69,8 @@
       return {
         avatarClass: 'avatar',
         avatarWidth: 105,
-        avatarHeight: 105
+        avatarHeight: 105,
+        headerCollapsed: this.flags?.sheetDisplay?.header?.collapsed ?? false
       }
     },
     computed: {
@@ -114,6 +116,13 @@
             this.getAvatarDimensions();
           });
         }
+      },
+      toggleHeader(event) {
+        // Update the state.
+        this.headerCollapsed = !this.headerCollapsed;
+        // Set a flag.
+        const actor = game.actors.get(this.actor._id) ?? false;
+        if (actor) actor.setFlag('archmage', `sheetDisplay.header.collapsed`, this.headerCollapsed);
       }
     },
     watch: {
@@ -141,6 +150,10 @@
 </script>
 
 <style lang="scss" scoped>
+.npc-header {
+  position: relative;
+}
+
 .section--details,
 .section--header-top {
   input {
@@ -237,5 +250,29 @@
     margin: $padding-sm 0;
   }
 
+}
+
+.toggle-header {
+  transition: all ease-in-out 0.25s;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 12px;
+}
+
+.collapsed {
+  .unit--flavor,
+  .unit--img {
+    display: none;
+  }
+
+  .unit--name h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .toggle-header {
+    transform: rotate(180deg);
+  }
 }
 </style>

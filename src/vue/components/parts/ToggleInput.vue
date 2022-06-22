@@ -29,6 +29,7 @@ export default {
       }
     },
     methods: {
+      // @todo also add a tab/enter event to toggle this.
       toggleEdit(event) {
         this.active = !this.active;
       }

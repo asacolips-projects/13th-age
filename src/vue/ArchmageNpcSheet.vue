@@ -4,7 +4,7 @@
     <!-- Top group -->
     <section class="container container--top flexcol">
       <!-- Header -->
-      <NpcHeader :actor="actor"/>
+      <NpcHeader :actor="actor" :flags="flags"/>
       <!-- Attributes section -->
       <NpcAttributes :actor="actor"/>
       <!-- Tabs -->
@@ -36,10 +36,14 @@
           <Tab group="primary" :tab="tabs.primary.effects">
             <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
           </Tab>
+          <!-- Modify Level tab -->
+          <Tab group="primary" :tab="tabs.primary.modifyLevel">
+            <!-- <NpcLevel/> -->
+          </Tab>
           <!-- Settings tab -->
-          <!-- <Tab group="primary" :tab="tabs.primary.settings">
-            <CharSettings :actor="actor" :tab="tabs.primary.settings"/>
-          </Tab> -->
+          <Tab group="primary" :tab="tabs.primary.settings">
+            <!-- <NpcSettings :actor="actor" :tab="tabs.primary.settings"/> -->
+          </Tab>
         </section>
         <!-- /Tabs content -->
 
@@ -144,6 +148,11 @@ export default {
             label: localize('ARCHMAGE.effects'),
             active: false
           },
+          modifyLevel: {
+            key: 'modifyLevel',
+            label: localize('ARCHMAGE.modifyLevel'),
+            active: false,
+          },
           settings: {
             key: 'settings',
             label: localize('ARCHMAGE.settings'),
@@ -165,12 +174,12 @@ export default {
       let flags = this.actor.flags ? this.actor.flags.archmage : {};
       let baseFlags = {
         'sheetDisplay': {
-          'powers': {
+          'actions': {
             'groupBy': {'value': 'powerType'},
             'sortBy': {'value': 'custom'}
           },
-          'inventory': {
-            'sortBy': {'value': 'custom'}
+          'header': {
+            'collapsed': false
           },
           'tabs': {
             'primary': {'value': 'powers'}
