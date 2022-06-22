@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'The target is dazed until the end of your next turn.'
+    value: 'The target is *dazed* until the end of your next turn.'
   missEven:
     type: 'String'
     label: 'Even Miss'

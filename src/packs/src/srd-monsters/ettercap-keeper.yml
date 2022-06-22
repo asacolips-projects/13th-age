@@ -500,6 +500,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy of level 6 or lower rolls a natural 1–5 with a melee attack against an ettercap keeper, that enemy is dazed (save ends).'
+        value: 'When an enemy of level 6 or lower rolls a natural 1–5 with a melee attack against an ettercap keeper, that enemy is *dazed* (save ends).'
     sort: 500000
 _id: 'vGoKjhVw0YbIBRGC'

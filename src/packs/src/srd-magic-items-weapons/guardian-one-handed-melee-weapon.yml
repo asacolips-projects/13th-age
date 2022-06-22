@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>When you hit with an opportunity attack using this weapon, the target is weakened until the end of that turn (&ndash;4 attacks and defenses).</p>\n<p>Quirk: Looks serious all the time.</p>"
+    value: "<p>When you hit with an opportunity attack using this weapon, the target is *weakened* until the end of that turn (&ndash;4 attacks and defenses).</p>\n<p>Quirk: Looks serious all the time.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

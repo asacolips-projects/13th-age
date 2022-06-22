@@ -108,7 +108,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>You are immune to fear abilities and to any non-damage effects of attacks named or described as fear attacks.</p><p>In addition, you gain a +1 melee attack bonus against enemies that are not engaged by any of your allies. The bonus increases to +2 against enemies with fear abilities.</p>'
+    value: '<p>You are immune to *fear* abilities and to any non-damage effects of attacks named or described as fear attacks.</p><p>In addition, you gain a +1 melee attack bonus against enemies that are not engaged by any of your allies. The bonus increases to +2 against enemies with fear abilities.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

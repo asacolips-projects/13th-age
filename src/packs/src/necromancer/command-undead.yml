@@ -57,7 +57,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: 'The target is confused (hard save ends, 16+).'
+    value: 'The target is *confused* (hard save ends, 16+).'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -160,7 +160,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>If you wish, the target doesn’t make any attacks while confused. Instead it becomes compliant, answers short questions if possible, and follows other suggestions that don’t lead directly to damaging itself or other creatures. Basically, while confused it becomes a slightly puzzled friend, which may wonder why your other friends are hurting it while it’s trying to be helpful.</p>'
+        value: '<p>If you wish, the target doesn’t make any attacks while *confused*. Instead it becomes compliant, answers short questions if possible, and follows other suggestions that don’t lead directly to damaging itself or other creatures. Basically, while confused it becomes a slightly puzzled friend, which may wonder why your other friends are hurting it while it’s trying to be helpful.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -169,7 +169,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>The target now adds the escalation die ([[@ed]]) to its attacks while confused by this spell.</p>'
+        value: '<p>The target now adds the escalation die ([[@ed]]) to its attacks while *confused* by this spell.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

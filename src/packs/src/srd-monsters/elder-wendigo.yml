@@ -375,7 +375,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is hampered until the end of its next turn.'
+        value: 'The target is *hampered* until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -412,7 +412,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '120 psychic damage, and the target is confused (save ends)'
+        value: '120 psychic damage, and the target is *confused* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

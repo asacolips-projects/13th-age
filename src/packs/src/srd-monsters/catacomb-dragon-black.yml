@@ -406,7 +406,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While in the haze, the target is dazed from choking or blinding.'
+        value: 'While in the haze, the target is *dazed* from choking or blinding.'
     sort: 200000
   - _id: 'rJXucYjUdo3p7yJZ'
     flags: {}

@@ -378,7 +378,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Although its podlings occasionally pick up and move it around out of combat, in battle the pixie pod can’t move and is stuck except for its teleport ability.'
+        value: 'Although its podlings occasionally pick up and move it around out of combat, in battle the pixie pod can’t move and is *stuck* except for its teleport ability.'
     sort: 200000
   - _id: 'inrBc4ADNIS9Zy5Q'
     flags: {}

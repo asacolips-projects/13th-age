@@ -60,11 +60,11 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '[[5d10+@wis.dmg+@atk.d.bonus]] cold damage, and the target is hampered (easy save ends, 6+).'
+    value: '[[5d10+@wis.dmg+@atk.d.bonus]] cold damage, and the target is *hampered* (easy save ends, 6+).'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: '[[5d10+@wis.dmg+@atk.d.bonus]] cold damage, and the target is stuck (easy save ends, 6+).'
+    value: '[[5d10+@wis.dmg+@atk.d.bonus]] cold damage, and the target is *stuck* (easy save ends, 6+).'
   crit:
     type: 'String'
     label: 'Crit'
@@ -72,7 +72,7 @@ data:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage, and the target is stuck until the end of its next turn.'
+    value: 'Half damage, and the target is *stuck* until the end of its next turn.'
   missEven:
     type: 'String'
     label: 'Even Miss'

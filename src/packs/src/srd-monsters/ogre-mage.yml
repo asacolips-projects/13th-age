@@ -412,7 +412,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'the target is confused until the end of the ogre mage’s next turn'
+        value: 'the target is *confused* until the end of the ogre mage’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'

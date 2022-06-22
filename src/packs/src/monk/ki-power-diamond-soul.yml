@@ -59,7 +59,7 @@ data:
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: 'You are dazed, weakened, or stunned.'
+    value: 'You are *dazed*, *weakened*, or *stunned*.'
   target:
     type: 'String'
     label: 'Target'
@@ -127,7 +127,7 @@ data:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>When you are dazed, weakened, or stunned, you can spend 1 point of ki to make an immediate normal save (11+). If you succeed, the effect ends. If you fail, the condition affects you normally. (This power also works on effects that aren&rsquo;t save ends. It also breaks the stunned rule by letting you use a free action to spend ki.)</p>'
+    value: '<p>When you are *dazed*, *weakened*, or *stunned*, you can spend 1 point of ki to make an immediate normal save (11+). If you succeed, the effect ends. If you fail, the condition affects you normally. (This power also works on effects that aren&rsquo;t save ends. It also breaks the stunned rule by letting you use a free action to spend ki.)</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

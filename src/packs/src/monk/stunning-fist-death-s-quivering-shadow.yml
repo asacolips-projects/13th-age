@@ -60,7 +60,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus if the target has 180 hp or fewer after the attack, it’s stunned until the end of your next turn.'
+    value: 'As a hit, plus if the target has 180 hp or fewer after the attack, it’s *stunned* until the end of your next turn.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'

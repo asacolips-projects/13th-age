@@ -5,19 +5,22 @@ ARCHMAGE.statusEffects = [
   {
     id: "dead",
     label: "ARCHMAGE.EFFECT.StatusDead",
-    icon: "icons/svg/skull.svg"
+    icon: "icons/svg/skull.svg",
+    journal: "ig1kzvpojsk20dbt"
   },
   // Staggered
   {
     id: "staggered",
     label: "ARCHMAGE.EFFECT.StatusStaggered",
     icon: "icons/svg/blood.svg",
+    journal: "oqkyq1xn6xi2ajmi"
   },
   // Unconscious.
   {
     id: "unconscious",
     label: "ARCHMAGE.EFFECT.StatusUnconscious",
     icon: "icons/svg/unconscious.svg",
+    journal: "21cEqzk92tflpW7N",
     changes: [
       {
         key: 'data.attributes.ac.value',
@@ -40,13 +43,15 @@ ARCHMAGE.statusEffects = [
   {
     id: "confused",
     label: "ARCHMAGE.EFFECT.StatusConfused",
-    icon: "icons/svg/stoned.svg"
+    icon: "icons/svg/stoned.svg",
+    journal: "21cEqzk92tflpW7N"
   },
   // Dazed.
   {
     id: "dazed",
     label: "ARCHMAGE.EFFECT.StatusDazed",
     icon: "icons/svg/sun.svg",
+    journal: "dk4ua6smvjafdrqm",
     changes: [
       {
         key: 'data.attributes.attackMod.value',
@@ -60,6 +65,7 @@ ARCHMAGE.statusEffects = [
     id: "fear",
     label: "ARCHMAGE.EFFECT.StatusFear",
     icon: "icons/svg/terror.svg",
+    journal: "gy68o7eat5p6bpgq",
     changes: [
       {
         key: 'data.attributes.escalation.value',
@@ -78,12 +84,14 @@ ARCHMAGE.statusEffects = [
     id: "hampered",
     label: "ARCHMAGE.EFFECT.StatusHampered",
     icon: "icons/svg/paralysis.svg",
+    journal: "mk69wxlsqwnydwip"
   },
   // Helpless.
   {
     id: "helpless",
     label: "ARCHMAGE.EFFECT.StatusHelpless",
     icon: "icons/svg/falling.svg",
+    journal: "g20s05odo7v5mw2q",
     changes: [
       {
         key: 'data.attributes.ac.value',
@@ -106,19 +114,22 @@ ARCHMAGE.statusEffects = [
   {
     id: "shocked",
     label: "ARCHMAGE.EFFECT.StatusShocked",
-    icon: "icons/svg/lightning.svg"
+    icon: "icons/svg/lightning.svg",
+    journal: "m78aw2gepbc5ccgm"
   },
   // Stuck.
   {
     id: "stuck",
     label: "ARCHMAGE.EFFECT.StatusStuck",
     icon: "icons/svg/net.svg",
+    journal: "ti7104njam2n18a5"
   },
   // Stunned.
   {
     id: "stunned",
     label: "ARCHMAGE.EFFECT.StatusStunned",
     icon: "icons/svg/daze.svg",
+    journal: "2rxwthymp5rl1dqe",
     changes: [
       {
         key: 'data.attributes.ac.value',
@@ -142,6 +153,7 @@ ARCHMAGE.statusEffects = [
     id: "vulnerable",
     label: "ARCHMAGE.EFFECT.StatusVulnerable",
     icon: "icons/svg/target.svg",
+    journal: "bi9ye2usgfsdpubs",
     changes: [
       {
         key: 'data.attributes.critMod.def.value',
@@ -155,6 +167,7 @@ ARCHMAGE.statusEffects = [
     id: "weakened",
     label: "ARCHMAGE.EFFECT.StatusWeakened",
     icon: "icons/svg/downgrade.svg",
+    journal: "3r2jt3c6skn7gw7d",
     changes: [
       {
         key: 'data.attributes.attackMod.value',

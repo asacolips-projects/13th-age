@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is weakened (–4 to attacks and defenses) until the end of the boar’s next turn'
+        value: 'The target is *weakened* (–4 to attacks and defenses) until the end of the boar’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'

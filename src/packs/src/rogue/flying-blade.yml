@@ -150,7 +150,7 @@ data:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>If you score a critical hit with <em>flying blade</em>, the target is also dazed (–4 attack) until the end of your next turn.</p>'
+        value: '<p>If you score a critical hit with <em>flying blade</em>, the target is also *dazed* (–4 attack) until the end of your next turn.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

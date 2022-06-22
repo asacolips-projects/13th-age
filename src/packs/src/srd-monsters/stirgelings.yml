@@ -394,7 +394,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 3 damage and is stuck until end of its next turn.'
+        value: 'The target takes 3 damage and is *stuck* until end of its next turn.'
     sort: 300000
   - _id: 'n8mAFdYzvEI788Uk'
     flags: {}

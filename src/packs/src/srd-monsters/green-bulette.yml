@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: 'The target pops free from all enemies engaged with it and is vulnerable to all attacks (save ends).'
+        value: 'The target pops free from all enemies engaged with it and is *vulnerable* to all attacks (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -392,7 +392,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While at least one creature in the battle is staggered or unconscious, the bulette gains a bonus to its attacks and damage equal to the escalation die but can’t use into the earth. Creatures that have no blood (constructs, oozes, plant creatures, etc.) don’t trigger this ability.'
+        value: 'While at least one creature in the battle is staggered or *unconscious*, the bulette gains a bonus to its attacks and damage equal to the escalation die but can’t use into the earth. Creatures that have no blood (constructs, oozes, plant creatures, etc.) don’t trigger this ability.'
     sort: 300000
   - _id: 'wj75oqOdz68H6qCE'
     flags: {}

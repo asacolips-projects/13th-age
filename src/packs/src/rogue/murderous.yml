@@ -166,7 +166,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>Whenever a staggered enemy misses you with a melee attack, it''s vulnerable to your attacks for the rest of the battle.</p>'
+        value: '<p>Whenever a staggered enemy misses you with a melee attack, it''s *vulnerable* to your attacks for the rest of the battle.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

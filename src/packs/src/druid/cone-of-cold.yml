@@ -60,7 +60,7 @@ data:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'As a hit, plus the target is stuck (save ends).'
+    value: 'As a hit, plus the target is *stuck* (save ends).'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'

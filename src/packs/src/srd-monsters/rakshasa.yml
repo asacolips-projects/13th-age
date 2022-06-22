@@ -414,7 +414,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 psychic damage, and the target is confused (make a basic or at-will attack vs. ally) until the end of the rakshasa’s next turn'
+        value: '15 psychic damage, and the target is *confused* (make a basic or at-will attack vs. ally) until the end of the rakshasa’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -460,7 +460,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The rakshasa gains a bonus to all defenses equal to the current number of confused enemies in the battle.'
+        value: 'The rakshasa gains a bonus to all defenses equal to the current number of *confused* enemies in the battle.'
     sort: 400000
   - _id: 'NjYMYlXSy63b4tme'
     flags: {}

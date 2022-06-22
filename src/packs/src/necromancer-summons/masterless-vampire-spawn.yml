@@ -325,7 +325,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p><em>Special Trigger (Claw). </em><strong>Fangs </strong>[[d20+15]] vs. AC—[[7]] damage, and a humanoid target is weakened (–4 attack and defenses) until the end of the masterless vampire spawn’s next turn</p>'
+        value: '<p><em>Special Trigger (Claw). </em><strong>Fangs </strong>[[d20+15]] vs. AC—[[7]] damage, and a humanoid target is *weakened* (–4 attack and defenses) until the end of the masterless vampire spawn’s next turn</p>'
       attack:
         type: 'String'
         label: 'Attack Roll'

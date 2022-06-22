@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>The parasite sits along your spine, feeding off your life force but also dampening your reactions to extreme stimuli and pain.</p>\n<p>Always: +1 PD (adventurer); +2 PD (champion); +3 PD (epic).</p>\n<p>Chuulish recharge: You are immune to fear effects until the end of the battle or for five minutes.</p>\n<p>Quirk: Strangely pronounced spine.</p>"
+    value: "<p>The parasite sits along your spine, feeding off your life force but also dampening your reactions to extreme stimuli and pain.</p>\n<p>Always: +1 PD (adventurer); +2 PD (champion); +3 PD (epic).</p>\n<p>Chuulish recharge: You are immune to *fear* effects until the end of the battle or for five minutes.</p>\n<p>Quirk: Strangely pronounced spine.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

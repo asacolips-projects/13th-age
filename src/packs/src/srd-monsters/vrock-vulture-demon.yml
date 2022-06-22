@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage, and the target is vulnerable (attacks vs. it have crit range expanded by 2) until the end of the battle'
+        value: '5 psychic damage, and the target is *vulnerable* (attacks vs. it have crit range expanded by 2) until the end of the battle'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -404,6 +404,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Creatures hit by the vrock’s demonic screech attack that are already vulnerable are also hampered (save ends).'
+        value: 'Creatures hit by the vrock’s demonic screech attack that are already *vulnerable* are also *hampered* (save ends).'
     sort: 200000
 _id: 'LfZDqEaXQbpXw4lM'

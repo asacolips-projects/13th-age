@@ -334,7 +334,7 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural even hit against a stuck or hampered enemy'
+        name: 'Natural even hit against a *stuck* or *hampered* enemy'
         value: 'The target takes [[1d6]] extra damage.'
       hit2:
         type: 'String'
@@ -377,12 +377,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is hampered (save ends).'
+        value: 'The target is *hampered* (save ends).'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target is stuck (save ends).'
+        value: 'The target is *stuck* (save ends).'
       hit3:
         type: 'String'
         label: 'Hit'

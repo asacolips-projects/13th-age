@@ -341,7 +341,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[8]] psychic damage, and the target is hampered until the end of its next turn'
+        value: '[[8]] psychic damage, and the target is *hampered* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -392,7 +392,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: '[[8]] ongoing poison damage and the target is weakened (save ends both)'
+        value: '[[8]] ongoing poison damage and the target is *weakened* (save ends both)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -503,7 +503,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>The&nbsp;stinging tail&nbsp;attack deals [[3]] extra ongoing poison damage ([[11]] total), but the target must succeed on two saves (one for ongoing and one for weakened).</p>'
+        value: '<p>The&nbsp;stinging tail&nbsp;attack deals [[3]] extra ongoing poison damage ([[11]] total), but the target must succeed on two saves (one for ongoing and one for *weakened*).</p>'
       group:
         type: 'String'
         label: 'Group'

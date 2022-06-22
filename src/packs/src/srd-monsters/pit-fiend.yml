@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage, and the target is hampered until the end of its next turn or until the pit fiend makes another entangling tail attack.'
+        value: '40 damage, and the target is *hampered* until the end of its next turn or until the pit fiend makes another entangling tail attack.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -454,7 +454,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is hampered until the end of its next turn'
+        value: 'The target is *hampered* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

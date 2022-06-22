@@ -168,7 +168,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>This turn, if the target moves to attack an enemy you are also engaged with, that enemy is vulnerable to the attack.</p>'
+        value: '<p>This turn, if the target moves to attack an enemy you are also engaged with, that enemy is *vulnerable* to the attack.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

@@ -414,7 +414,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is hampered (save ends)'
+        value: 'The target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -486,6 +486,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the binding bride drops an enemy to 0 hit points or lower, she will move next to that creature as a free action and attempt to remove the target’s heart. The creature must begin making last gasp saves as she cuts its chest open. On the fourth failed save, the bride takes the heart and the target dies and becomes undead under her control. If the bride is stunned or moved away from the creature and can’t return to it on her turn, the creature doesn’t have to make a last gasp save that turn.'
+        value: 'When the binding bride drops an enemy to 0 hit points or lower, she will move next to that creature as a free action and attempt to remove the target’s heart. The creature must begin making last gasp saves as she cuts its chest open. On the fourth failed save, the bride takes the heart and the target dies and becomes undead under her control. If the bride is *stunned* or moved away from the creature and can’t return to it on her turn, the creature doesn’t have to make a last gasp save that turn.'
     sort: 400000
 _id: '1efai4ra5C5OQl7c'

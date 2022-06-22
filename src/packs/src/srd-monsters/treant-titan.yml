@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '80 damage, and the target is dazed (save ends). If the treant starts its turn grabbing a dazed enemy, it can make a titanic rend attack against that target as a standard action that turn.'
+        value: '80 damage, and the target is *dazed* (save ends). If the treant starts its turn grabbing a dazed enemy, it can make a titanic rend attack against that target as a standard action that turn.'
       hit1:
         type: 'String'
         label: 'Hit'

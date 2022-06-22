@@ -169,7 +169,7 @@ data:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>If you don’t like the first random necromancer spell you select for the day, you can determine another random necromancer spell. You’re stuck with the second one.</p>'
+        value: '<p>If you don’t like the first random necromancer spell you select for the day, you can determine another random necromancer spell. You’re *stuck* with the second one.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

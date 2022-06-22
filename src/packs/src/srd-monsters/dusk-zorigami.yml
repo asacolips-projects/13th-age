@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is hampered (save ends).'
+        value: 'The target is *hampered* (save ends).'
       hit2:
         type: ''
         label: 'Hit'
@@ -379,7 +379,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 psychic damage, and the target is vulnerable (save ends)'
+        value: '20 psychic damage, and the target is *vulnerable* (save ends)'
       hit1:
         type: ''
         label: 'Hit'

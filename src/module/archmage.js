@@ -15,6 +15,7 @@ import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { renderCompendium } from './hooks/renderCompendium.js';
+import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 
 
 Hooks.once('init', async function() {
@@ -69,6 +70,7 @@ Hooks.once('init', async function() {
     DiceArchmage,
     ItemArchmage,
     ItemArchmageSheet,
+    EffectArchmageSheet,
     ArchmageUtility,
     rollItemMacro,
     ActorHelpersV2
@@ -77,6 +79,11 @@ Hooks.once('init', async function() {
   // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
+
+  DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
+    label: "Toolkit13 Active Effect Sheet",
+    makeDefault: true
+  });
 
   CONFIG.ARCHMAGE = ARCHMAGE;
 
@@ -445,6 +452,7 @@ Hooks.on('setup', (data, options, id) => {
 /* ---------------------------------------------- */
 
 Hooks.once('ready', () => {
+
   let escalation = ArchmageUtility.getEscalation();
   let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
@@ -455,6 +463,39 @@ Hooks.once('ready', () => {
     let $self = $(event.currentTarget);
     let isIncrease = $self.hasClass('ed-plus');
     ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
+  });
+
+  // Add click events for effect links
+  $('body').on("click", "a.effect-link", async (event) => {
+    event.preventDefault();
+    const a = event.currentTarget;
+    let doc = null;
+    let id = a.dataset.id;
+
+    switch (a.dataset.type) {
+      case "condition":
+        const journalId = CONFIG.ARCHMAGE.statusEffects.find(x => x.id === id).journal;
+        doc = await game.packs.get("archmage.conditions").getDocument(journalId);
+        break;
+      case "effect":
+        console.warn("Effects not currently supported");
+        break;
+    }
+    if ( !doc ) return;
+
+    return doc.sheet.render(true);
+  });
+
+  // Add effect link drag data
+  document.addEventListener("dragstart", event => {
+    console.log(event);
+    if ( !event.target.classList.contains("effect-link") ) return;
+    let data = {
+      type: event.target.dataset.type,
+      id: event.target.dataset.id
+    };
+    if ( event.target.dataset.actorId ) data.actorId = event.target.dataset.actorId;
+    event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
   // Wait to register the hotbar macros until ready.
@@ -557,6 +598,35 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
       data.height = 3;
       data.width = 3;
     }
+  }
+});
+
+/* -------------------------------------------- */
+
+// TODO: When we expand to support Duration, this probably will be more complicated
+Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
+  if ( actor.type === "npc" ) {
+    console.log("NPCs don't currently support Active Effects");
+    return;
+  }
+  if ( data.type === "condition" ) {
+    const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
+
+    // If we have a Token, just toggle the effect
+    const token = canvas.scene.tokens.find(t => t.data.actorId === actor.id);
+    if ( token ) return token._object.toggleEffect(statusEffect);
+
+    // Otherwise, create the AE
+    statusEffect.label = game.i18n.localize(statusEffect.label);
+    return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+  }
+  else if ( data.type === "effect" ) {
+    const actorId = data.actorId;
+    const sourceActor = game.actors.get(actorId);
+    const effect = sourceActor.effects.get(data.id);
+    let effectData = foundry.utils.duplicate(effect);
+    console.dir(effectData);
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 });
 

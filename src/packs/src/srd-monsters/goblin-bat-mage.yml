@@ -377,7 +377,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'If target is staggered after taking the damage, it’s also hampered until the end of its next turn.'
+        value: 'If target is staggered after taking the damage, it’s also *hampered* until the end of its next turn.'
       hit2:
         type: ''
         label: 'Hit'

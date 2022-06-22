@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The shadow thief “crawls inside” the target. The target is confused (save ends), and the shadow thief can’t be the target of an attack or effect until it’s forced from the target’s body when that creature saves against the confusion effect.'
+        value: 'The shadow thief “crawls inside” the target. The target is *confused* (save ends), and the shadow thief can’t be the target of an attack or effect until it’s forced from the target’s body when that creature saves against the confusion effect.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -422,7 +422,7 @@ items:
     sort: 300000
   - _id: 'JX8X8PQ2JG3pQXG6'
     flags: {}
-    name: 'Stop…thief! When a shadow thief steals an item, the creature it steals from can choose to prevent the theft, but at a cost. If the natural d20 thievery roll was odd, the target of the thievery attempt can choose to keep the item but become hampered (save ends) as they wrestle with the shadow. If the natural thievery roll was even, the target has the same choice, but it’s a hard save (16+) to end the hampered effect.'
+    name: 'Stop…thief! When a shadow thief steals an item, the creature it steals from can choose to prevent the theft, but at a cost. If the natural d20 thievery roll was odd, the target of the thievery attempt can choose to keep the item but become *hampered* (save ends) as they wrestle with the shadow. If the natural thievery roll was even, the target has the same choice, but it’s a hard save (16+) to end the hampered effect.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:
@@ -432,6 +432,6 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Stop…thief! When a shadow thief steals an item, the creature it steals from can choose to prevent the theft, but at a cost. If the natural [[d20]] thievery roll was odd, the target of the thievery attempt can choose to keep the item but become hampered (save ends) as they wrestle with the shadow. If the natural thievery roll was even, the target has the same choice, but it’s a hard save (16+) to end the hampered effect.'
+        value: 'Stop…thief! When a shadow thief steals an item, the creature it steals from can choose to prevent the theft, but at a cost. If the natural [[d20]] thievery roll was odd, the target of the thievery attempt can choose to keep the item but become *hampered* (save ends) as they wrestle with the shadow. If the natural thievery roll was even, the target has the same choice, but it’s a hard save (16+) to end the hampered effect.'
     sort: 400000
 _id: 'iUm1b4A0ImYbnjV9'

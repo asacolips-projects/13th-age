@@ -441,7 +441,7 @@ items:
       hit:
         type: 'String'
         label: 'Hit'
-        value: 'The target is confused (hard save ends, 16+)'
+        value: 'The target is *confused* (hard save ends, 16+)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -498,7 +498,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>While the warbanner has a bearer it moves with the bearer and is engaged by enemies that engage the bearer. The bearer is vulnerable to all attacks but it can use the escalation die.</p>'
+        value: '<p>While the warbanner has a bearer it moves with the bearer and is engaged by enemies that engage the bearer. The bearer is *vulnerable* to all attacks but it can use the escalation die.</p>'
       group:
         type: 'String'
         label: 'Group'

@@ -19,11 +19,11 @@
               <h3 class="effects-title unit-subtitle">{{effect.label}}</h3>
             </a>
             <div class="effects-bonus flexrow">
-              <span class="bonus" v-for="(bonus, bonusKey) in getChanges(effect)" :key="bonusKey">
+              <div class="bonus" v-for="(bonus, bonusKey) in getChanges(effect)" :key="bonusKey">
                 <span class="bonus-label">{{bonus.label}} </span>
                 <span class="bonus-mode"><i :class="concat('fas fa-', bonus.mode)"></i> </span>
                 <span class="bonus-value">{{numberFormat(bonus.value, 0, false)}}</span>
-              </span>
+              </div>
             </div>
             <div class="item-controls effect-controls">
               <a class="effect-control" :data-item-id="effect._id" data-action="toggle" :title="localize('Toggle Effect')"><i :class="concat('fas fa-', effect.disabled ? 'check' : 'times')"></i></a>
@@ -56,7 +56,27 @@ export default {
     function getEffects() {
       let effects = this.actor.effects;
       this.effects = effects;
-    }
+    };
+    function cleanLabel(label) {
+      // TODO: Localize
+      return label
+          .replace("data.attributes", "")
+          .replace("attack", "Attack")
+          .replace("arcane", "Arcane")
+          .replace("divine", "Divine")
+          .replace("ranged", "Ranged")
+          .replace("melee", "Melee")
+          .replace("bonus", "Bonus")
+          .replace("md", "Mental Defense")
+          .replace("pd", "Physical Defense")
+          .replace("hp", "Health")
+          .replace("save", "Save Bonus")
+          .replace("disengage", "Disengage Bonus")
+          .replace("recoveries", "Recoveries")
+          .replace("value", "")
+          .replaceAll(".", " ")
+          .replace("ac ", "Armor Class");
+    };
     function getChanges(effect) {
       let changes = [];
       let modes = [
@@ -70,7 +90,7 @@ export default {
       effect.changes.forEach(c => {
         if (c.key && c.value) {
           changes.push({
-            label: c.key,
+            label: this.cleanLabel(c.key),
             mode: modes[c.mode],
             value: c.value
           });
@@ -86,7 +106,16 @@ export default {
       localize,
       numberFormat,
       getEffects,
-      getChanges
+      getChanges,
+      cleanLabel
+    }
+  },
+  watch: {
+    'actor.effects': {
+      deep: true,
+      handler() {
+        this.getEffects()
+      }
     }
   },
   watch: {

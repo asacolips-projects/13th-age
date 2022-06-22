@@ -377,12 +377,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: '4 psychic damage, and the target is confused until end of its next turn.'
+        value: '4 psychic damage, and the target is *confused* until end of its next turn.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '3 psychic damage, and the target is stuck until end of its next turn.'
+        value: '3 psychic damage, and the target is *stuck* until end of its next turn.'
       hit3:
         type: 'String'
         label: 'Hit'

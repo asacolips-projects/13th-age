@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is confused (save ends).'
+        value: 'The target is *confused* (save ends).'
       hit1:
         type: 'String'
         label: 'Hit'

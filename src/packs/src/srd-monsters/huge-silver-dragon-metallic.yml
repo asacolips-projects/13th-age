@@ -372,7 +372,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target must roll an immediate save. On a failure, the target can’t take any actions and is helpless until the start of the dragon’s next turn as its limbs become paralyzed. On a success, the target is dazed until the end of its next turn.'
+        value: 'The target must roll an immediate save. On a failure, the target can’t take any actions and is *helpless* until the start of the dragon’s next turn as its limbs become paralyzed. On a success, the target is *dazed* until the end of its next turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -412,7 +412,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '160 cold damage, and the closest target hit is dazed until the start of the dragon’s next turn'
+        value: '160 cold damage, and the closest target hit is *dazed* until the start of the dragon’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'

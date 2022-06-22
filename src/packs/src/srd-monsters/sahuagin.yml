@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 20'
-        value: 'Increase the escalation die by 1, and the target is hampered (makes only basic attacks) until the end of its next turn.'
+        value: 'Increase the escalation die by 1, and the target is *hampered* (makes only basic attacks) until the end of its next turn.'
       hit2:
         type: 'String'
         label: 'Hit'

@@ -9,7 +9,7 @@ data:
   description:
     type: 'String'
     label: 'Description'
-    value: "<p>(Recharge 16+) When you drop to 0 hit points or lower, heal using a recovery before falling unconscious.</p>\n<p>Quirk: Bursts forth with wildly optimistic comments from time to time.</p>"
+    value: "<p>(Recharge 16+) When you drop to 0 hit points or lower, heal using a recovery before falling *unconscious*.</p>\n<p>Quirk: Bursts forth with wildly optimistic comments from time to time.</p>"
   powerUsage:
     type: 'String'
     label: 'Power Usage'

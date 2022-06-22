@@ -480,7 +480,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When you choose to add the escalation die to an attack against Fang Devil, you are hampered until the end of your next turn after you make the attack.'
+        value: 'When you choose to add the escalation die to an attack against Fang Devil, you are *hampered* until the end of your next turn after you make the attack.'
     sort: 500000
   - _id: 'rZuFTrok2qH40tLU'
     flags: {}

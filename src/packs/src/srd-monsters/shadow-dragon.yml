@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is confused (hard save ends, 16+).'
+        value: 'The target is *confused* (hard save ends, 16+).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -418,7 +418,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The shadow dragon perceives the invisible, is unaffected by the blur spell, and ignores illusions. Rogues attempting to shadow walk near a shadow dragon end up in the dragon’s belly (save ends). While there, they are helpless and take [[2d12]] damage at the start of each of their turns until they save and fall back out of shadow.'
+        value: 'The shadow dragon perceives the invisible, is unaffected by the blur spell, and ignores illusions. Rogues attempting to shadow walk near a shadow dragon end up in the dragon’s belly (save ends). While there, they are *helpless* and take [[2d12]] damage at the start of each of their turns until they save and fall back out of shadow.'
     sort: 300000
   - _id: 'dYhXvbO56WM1pWUY'
     flags: {}

@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage, and the target is dazed (save ends)'
+        value: '7 damage, and the target is *dazed* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -402,7 +402,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'the target is weakened instead of dazed; OR the imp can make a blight jet attack against a different target as a free action.'
+        value: 'the target is *weakened* instead of *dazed*; OR the imp can make a blight jet attack against a different target as a free action.'
     sort: 200000
   - _id: 'HuKMSTXUTOg9WFZK'
     flags: {}

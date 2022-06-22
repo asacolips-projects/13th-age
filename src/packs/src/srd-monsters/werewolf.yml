@@ -378,7 +378,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the werewolf attacks a creature that is engaged with one of its allies, the target is vulnerable to that attack.'
+        value: 'When the werewolf attacks a creature that is engaged with one of its allies, the target is *vulnerable* to that attack.'
     sort: 200000
   - _id: 'vbM9ef6lsePWGCq6'
     flags: {}

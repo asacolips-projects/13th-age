@@ -459,7 +459,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target is dazed until the end of its next turn.'
+        value: 'The target is *dazed* until the end of its next turn.'
       hit2:
         type: ''
         label: 'Hit'

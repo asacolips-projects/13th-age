@@ -335,7 +335,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 4, 8, 12, 16, or 20'
-        value: 'The target is weakened (save ends).'
+        value: 'The target is *weakened* (save ends).'
       hit2:
         type: 'String'
         label: 'Hit'
