@@ -35,6 +35,15 @@
               </ul>
             </template>
             <template v-slot:edit>
+              <span class="unit unit--input">
+                <label for="data.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
+                <Input type="number" name="data.attributes.level.value" :actor="actor" reactive="false"/>
+              </span>
+              <!-- @todo write a migration to let this become a flat value -->
+              <span class="unit unit--input">
+                <label for="data.attributes.init.value">{{localize('ARCHMAGE.initiative')}}</label>
+                <Input type="number" name="data.attributes.init.value" :actor="actor" reactive="false"/>
+              </span>
               <Select name="data.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
               <Select name="data.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
               <Select name="data.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
@@ -189,7 +198,13 @@
     font-family: $font-stack-base;
     font-size: $font-xs;
     font-weight: normal;
-    border: none;
+    border-color: transparent;
+  }
+
+  input:hover,
+  input:focus,
+  .edit-wrapper input {
+    border-bottom: 2px solid;
   }
 }
 
@@ -298,6 +313,11 @@
     font-weight: bold;
     flex: 0 auto;
   }
+}
+
+.unit--input {
+  display: flex;
+  flex-direction: row;
 }
 
 .section--details {

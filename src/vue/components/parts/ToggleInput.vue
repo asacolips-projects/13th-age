@@ -37,41 +37,50 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.edit-wrapper {
-  position: relative;
-}
+<style lang="scss">
+.archmage-vue {
+  .edit-wrapper {
+    position: relative;
 
-.input-edit {
-  position: absolute;
-  width: auto;
-  min-width: 100%;
-  background: $c-white;
-  box-shadow: 0 0 15px 5px $c-gray--50;
-  padding: 13px;
-  // height: 50px;
-  border-radius: 8px;
-  top: 0;
-  left: 0;
-  z-index: $z-higher;
-}
-
-.icon-edit-toggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: $z-overlay;
-  display: none;
-  padding: 6px;
-
-  &:hover,
-  &:focus {
-    color: $c-blue;
-    display: block;
+    &:hover,
+    &:focus {
+      .icon-edit-toggle {
+        color: $c-blue;
+        display: block;
+      }
+    }
   }
 
-  .edit-wrapper:hover & {
-    display: block;
+  .input-edit {
+    position: absolute;
+    width: auto;
+    min-width: 100%;
+    background: $c-white;
+    box-shadow: 0 0 15px 5px $c-gray--50;
+    padding: 13px;
+    // height: 50px;
+    border-radius: 8px;
+    top: 0;
+    left: 0;
+    z-index: $z-higher;
+
+    input,
+    select {
+      margin: 0 $padding-sm $padding-sm 0;
+    }
+  }
+
+  .icon-edit-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: $z-overlay;
+    display: none;
+    padding: 6px;
+
+    .edit-wrapper:hover & {
+      display: block;
+    }
   }
 }
 </style>
