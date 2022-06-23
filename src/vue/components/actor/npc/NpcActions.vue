@@ -220,7 +220,7 @@ export default {
       // Set the height if there's a ref.
       if (actions) {
         const element = this.$el.querySelector(`.action-item--${actionsId} .action-content .action`);
-        height = this.activeActions[actionsId] ? `${element.offsetHeight}px` : `0px`;
+        height = this.activeActions[actionsId] ? `${element.offsetHeight + 2}px` : `0px`;
       }
 
       // Return CSS style object.

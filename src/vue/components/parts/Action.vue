@@ -42,8 +42,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.archmage-vue {
   .action {
     padding-left: 22px;
   }
+
+  .action-detail {
+    border: 1px solid $c-gray--25;
+    border-radius: 4px;
+  }
+
+  .action-detail-value {
+    display: block;
+    padding: 0 4px 0 8px;
+  }
+}
 </style>
