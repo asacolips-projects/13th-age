@@ -42,7 +42,7 @@
           </Tab>
           <!-- Settings tab -->
           <Tab group="primary" :tab="tabs.primary.settings">
-            <!-- <NpcSettings :actor="actor" :tab="tabs.primary.settings"/> -->
+            <NpcSettings :actor="actor" :tab="tabs.primary.settings"/>
           </Tab>
         </section>
         <!-- /Tabs content -->
@@ -78,6 +78,7 @@ import CharEffects from '@/components/actor/character/main/CharEffects.vue';
 import NpcHeader from '@/components/actor/npc/NpcHeader.vue';
 import NpcActions from '@/components/actor/npc/NpcActions.vue';
 import NpcAttributes from '@/components/actor/npc/NpcAttributes.vue';
+import NpcSettings from '@/components/actor/npc/NpcSettings.vue';
 import Tabs from '@/components/parts/Tabs.vue';
 import Tab from '@/components/parts/Tab.vue';
 // import {
@@ -108,6 +109,7 @@ export default {
     Tab,
     NpcActions,
     NpcAttributes,
+    NpcSettings,
     // CharHeader,
     // CharAttributes,
     // CharInitiative,

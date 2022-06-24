@@ -302,6 +302,10 @@
         height: 5px;
         background: $c-black;
         border-radius: 100%;
+
+        .nightmode & {
+          background: $c-white;
+        }
       }
     }
   }

@@ -185,6 +185,27 @@ Hooks.once('init', async function() {
     }
   };
 
+  CONFIG.Actor.npcFlags = {
+    "portraitRound": {
+      name: "Round Portrait",
+      hint: "Whether or not the character portrait is rounded on the V2 sheet.",
+      section: "Sheet",
+      type: Boolean
+    },
+    "portraitFrame": {
+      name: "Portrait Frame",
+      hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
+      section: "Sheet",
+      type: Boolean
+    },
+    "nightmode": {
+      name: "Night Mode",
+      hint: "Reverse the sheet color scheme into a darkened night mode.",
+      section: "Sheet",
+      type: Boolean
+    }
+  };
+
   /**
    * Register Initiative formula setting
    */
