@@ -481,13 +481,12 @@ Hooks.once('ready', () => {
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
-    console.log(event);
     if ( !event.target.classList.contains("effect-link") ) return;
     let data = {
       type: event.target.dataset.type,
-      id: event.target.dataset.id
+      id: event.target.dataset.id,
+      actorId: event.target.dataset.actorId
     };
-    if ( event.target.dataset.actorId ) data.actorId = event.target.dataset.actorId;
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
@@ -598,12 +597,27 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 // TODO: When we expand to support Duration, this probably will be more complicated
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  if ( actor.type === "npc" ) {
-    console.log("NPCs don't currently support Active Effects");
-    return;
+
+  const actorId = data.actorId;
+  const sourceActor = game.actors.get(actorId);
+
+  function addDurationStartingData(effect) {
+    if ( !game.combat ) return;
+
+    effect.duration = {
+      combat: game.combat.id,
+      startRound: game.combat.round,
+      startTurn: game.combat.turns.indexOf(c => c.actorId === actorId),
+      lastsUntil: CONFIG.ARCHMAGE.effectDurationChoices.unset,
+    }
+
+    if ( effect.duration.startTurn === -1 ) effect.duration.startTurn = game.combat.turn;
   }
+
   if ( data.type === "condition" ) {
-    const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
+    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
+    statusEffect.origin = actorId;
+    addDurationStartingData(statusEffect);
 
     // If we have a Token, just toggle the effect
     const token = canvas.scene.tokens.find(t => t.data.actorId === actor.id);
@@ -614,11 +628,10 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
   }
   else if ( data.type === "effect" ) {
-    const actorId = data.actorId;
-    const sourceActor = game.actors.get(actorId);
     const effect = sourceActor.effects.get(data.id);
     let effectData = foundry.utils.duplicate(effect);
-    console.dir(effectData);
+    effectData.data.origin = actorId;
+    addDurationStartingData(effectData);
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 });

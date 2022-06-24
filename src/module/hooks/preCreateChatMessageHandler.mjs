@@ -11,7 +11,9 @@ export default class preCreateChatMessageHandler {
 
         function generateConditionLink(name) {
             const condition = conditions.find(x => game.i18n.localize(x.label) === name);
-            return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
+            return `<a class="effect-link" draggable="true" 
+                        data-type="condition" data-id="${condition.id}" data-actor-id="${actorDocument.id}" 
+                        title="">
                     <img class="effects-icon" src="${condition.icon}" />
                     ${name}</a>`;
         }

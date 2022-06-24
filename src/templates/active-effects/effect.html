@@ -11,6 +11,7 @@
             <!-- Effect Configuration Tabs -->
             <nav class="sheet-tabs tabs">
                 <a class="item" data-tab="details"><i class="fas fa-book"></i> {{localize "EFFECT.TabDetails"}}</a>
+                <a class="item" data-tab="duration"><i class="fas fa-hourglass"></i> {{localize "EFFECT.TabDuration"}}</a>
                 <a class="item" data-tab="effects"><i class="fas fa-cogs"></i> {{localize "EFFECT.TabEffects"}}</a>
             </nav>
 
@@ -30,11 +31,11 @@
                         <input type="checkbox" name="disabled" {{ checked data.disabled }}/>
                     </div>
 
-                    {{#if isActorEffect}}
+                    {{#if hasOrigin}}
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Origin" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="origin" value="{{ data.origin }}" disabled/>
+                            <p>{{ originActor }}</p>
                         </div>
                     </div>
                     {{/if}}
@@ -52,31 +53,9 @@
                 <!-- Duration Tab -->
                 <section class="tab" data-tab="duration">
                     <div class="form-group">
-                        <label>{{ localize "EFFECT.DurationSecs" }}</label>
-                        <div class="form-fields">
-                            <input type="number" name="duration.seconds" value="{{ data.duration.seconds }}"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.StartTime" }}</label>
-                        <div class="form-fields">
-                            <input type="number" name="duration.startTime" value="{{ data.duration.startTime }}"/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.DurationTurns" }}</label>
-                        <div class="form-fields">
-                            <label>{{ localize "COMBAT.Rounds" }}</label>
-                            <input type="number" name="duration.rounds" value="{{ data.duration.rounds }}"/>
-                            <label>{{ localize "COMBAT.Turns" }}</label>
-                            <input type="number" name="duration.turns" value="{{ data.duration.turns }}"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label>{{ localize "EFFECT.Combat" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="duration.combat" value="{{ data.duration.combat }}" disabled/>
+                            <p>{{ combatLabel }}</p>
                         </div>
                     </div>
 
@@ -84,11 +63,30 @@
                         <label>{{ localize "EFFECT.StartTurns" }}</label>
                         <div class="form-fields">
                             <label>{{ localize "COMBAT.Round" }}</label>
-                            <input type="number" name="duration.startRound" value="{{ data.duration.startRound }}"/>
+                            <p>{{ data.duration.startRound }}</p>
                             <label>{{ localize "COMBAT.Turn" }}</label>
-                            <input type="number" name="duration.startTurn" value="{{ data.duration.startTurn }}"/>
+                            <p>{{ data.duration.startTurn }}</p>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label>Lasts Until</label>
+                        <div class="form-fields">
+                            <select name="data.duration.lastsUntil">
+                                {{selectOptions effectDurations selected=data.duration.lastsUntil localize=true}}
+                            </select>
+                        </div>
+                    </div>
+                    {{#if hasSaveEnds}}
+                    <div class="form-group">
+                        <label>Save</label>
+                        <div class="form-fields">
+                            <select name="data.duration.save">
+                                {{selectOptions saveTypes selected=data.duration.save localize=true}}
+                            </select>
+                        </div>
+                    </div>
+                    {{/if}}
                 </section>
 
                 <!-- Effects Tab -->
@@ -167,9 +165,18 @@
                                data-dtype="Number" placeholder="0" />
                     </div>
 
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>Penalties</label>
+                    </div>
+
                     <div class="settings-group">
                         <strong class="attribute-name">Denies usage of Escalation Die</strong>
                         <input type="checkbox" name="data.blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked data.blockedFromEscalationDie}} />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">Ongoing Damage</strong>
+                        <input class="attribute-input" type="text" name="data.ongoingDamage" value="{{data.ongoingDamage}}" data-dtype="Number" placeholder="0"/>
                     </div>
                 </section>
             </div>

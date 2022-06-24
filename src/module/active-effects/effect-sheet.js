@@ -40,6 +40,23 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     const edChange = effect.data.changes.find(x => x.key === "data.attributes.escalation.value");
     effect.data.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
+    const combat = game.combats.get(effect.data.duration?.combat);
+    effect.combatLabel = `${game.i18n.localize("COMBAT.Encounter")} ${game.combats.combats.findIndex(c => c === combat) + 1}`;
+
+    if ( effect.data.origin ) {
+      effect.hasOrigin = true;
+      effect.originActor = game.actors.get(effect.data.origin)?.data?.name;
+    }
+
+    effect.effectDurations = CONFIG.ARCHMAGE.effectDurationChoices;
+    effect.saveTypes = CONFIG.ARCHMAGE.saveTypes;
+
+    effect.data.duration.lastsUntil = effect.data.flags.archmage?.lastsUntil ?? CONFIG.ARCHMAGE.effectDurationChoices.unset;
+    if ( effect.data.duration.lastsUntil === "saveEnds" ) {
+      effect.hasSaveEnds = true;
+      effect.data.duration.save = effect.data.flags.archmage?.save ?? CONFIG.ARCHMAGE.saveTypes.normal;
+    }
+
     return effect;
   }
 
@@ -111,6 +128,11 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         value: formData.data.attributes.disengage,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
+      {
+        key: "data.ongoingDamage",
+        value: formData.data.ongoingDamage,
+        mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM
+      }
     ];
 
     if ( formData.data.blockedFromEscalationDie ) {
@@ -120,6 +142,11 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         value: '0'
       });
     }
+
+    ae.flags.archmage = {
+      lastsUntil: formData.data.duration.lastsUntil,
+      save: formData.data.duration.save
+    };
 
     return this.object.update(ae);
   }

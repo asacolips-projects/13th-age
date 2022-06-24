@@ -358,6 +358,21 @@ ARCHMAGE.effectDurations = {
   SaveEnds: 4
 }
 
+ARCHMAGE.effectDurationChoices = {
+  unset: "No value set",
+  startOfNextTurn: "Start of next turn",
+  endOfNextTurn: "End of next turn",
+  startOfNextSourceTurn: "Start of Caster's next turn",
+  endOfNextSourceTurn: "End of Caster's next turn",
+  saveEnds: "Save ends"
+}
+
+ARCHMAGE.saveTypes = {
+  easy: 'Easy',
+  normal: "Normal",
+  hard: "Hard",
+}
+
 ARCHMAGE.creatureTypes = {
   'aberration': 'Aberration',
   'beast': 'Beast',
