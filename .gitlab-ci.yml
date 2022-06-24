@@ -13,9 +13,13 @@ test-build:
   script:
     - export
     - npm ci
-    - npm run build:prod
+    - npm run build:preview
+  artifacts:
+    paths:
+      - dist
   except:
     - beta
+    - tags
 
 build-beta:
   stage: build

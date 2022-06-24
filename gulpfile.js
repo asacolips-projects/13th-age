@@ -267,20 +267,28 @@ function viteBuild(cb) {
     cb(err);
   });
 }
+function viteBuildPreview(cb) {
+  return exec('npm run vite:build:preview', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+}
 function copyFilesVite() {
   return gulp.src('./dist/assets/**/*', {base: 'dist'})
     .pipe(gulp.dest('./systems/archmage'))
 }
-const viteTask = gulp.series(viteBuild, copyFilesVite);
+const viteBuildTask = gulp.series(viteBuild, copyFilesVite);
+const viteBuildPreviewTask = gulp.series(viteBuildPreview, copyFilesVite);
 // Prod builds.
-function viteProd(cb) {
+function viteBuildProd(cb) {
   return exec('npm run vite:build:prod', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
   });
 }
-const viteProdTask = gulp.series(viteProd);
+const viteBuildProdTask = gulp.series(viteBuildProd);
 
 /* ----------------------------------------- */
 /*  Watch Updates
@@ -291,7 +299,7 @@ function watchUpdates() {
   gulp.watch(SYSTEM_YAML, yamlTask);
   gulp.watch(SYSTEM_IMAGES, imageTask);
   gulp.watch(SYSTEM_SVG, svgTask);
-  gulp.watch(VITE_FILES, viteTask);
+  gulp.watch(VITE_FILES, viteBuildTask);
   gulp.watch(SYSTEM_COPY, copyTask);
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
@@ -307,7 +315,7 @@ exports.default = gulp.series(
     compileImages,
     compileSvg,
     copyTask,
-    viteTask,
+    viteBuildTask,
   ),
   watchUpdates
 );
@@ -328,7 +336,7 @@ exports.build = gulp.series(
     compileSvg,
     compilePacks,
     copyTask,
-    viteTask // vue 3 task
+    viteBuildTask // vue 3 task
   ),
 );
 exports.prod = gulp.series(
@@ -340,6 +348,18 @@ exports.prod = gulp.series(
     compileSvg,
     copyTaskProd,
     compilePacks,
-    viteProdTask // vue 3 task
+    viteBuildProdTask // vue 3 task
+  )
+);
+exports.preview = gulp.series(
+  cleanPacks,
+  gulp.parallel(
+    compileScss,
+    compileYaml,
+    compileImages,
+    compileSvg,
+    copyTaskProd,
+    // compilePacks,
+    viteBuildPreviewTask // vue 3 task
   )
 );

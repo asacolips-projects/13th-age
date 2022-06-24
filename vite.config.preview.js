@@ -30,6 +30,9 @@ export default defineConfig({
       external: [
         'vue',
       ],
+      input: {
+        main: resolve(__dirname, 'index.html')
+      },
       output: {
         // Provide global variables to use in the UMD build
         // Add external deps here

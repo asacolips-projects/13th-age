@@ -37,6 +37,7 @@ export class Actor {
       this.actors[type] = {
         name: type,
         _id: 'foobar',
+        img: 'https://picsum.photos/105/105',
         data: actor,
         flags: {},
         lockedFields: [],
