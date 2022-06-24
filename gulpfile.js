@@ -267,19 +267,11 @@ function viteBuild(cb) {
     cb(err);
   });
 }
-function viteBuildPreview(cb) {
-  return exec('npm run vite:build:preview', function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
-}
 function copyFilesVite() {
   return gulp.src('./dist/assets/**/*', {base: 'dist'})
     .pipe(gulp.dest('./systems/archmage'))
 }
 const viteBuildTask = gulp.series(viteBuild, copyFilesVite);
-const viteBuildPreviewTask = gulp.series(viteBuildPreview, copyFilesVite);
 // Prod builds.
 function viteBuildProd(cb) {
   return exec('npm run vite:build:prod', function(err, stdout, stderr) {
@@ -351,7 +343,7 @@ exports.prod = gulp.series(
     viteBuildProdTask // vue 3 task
   )
 );
-exports.preview = gulp.series(
+exports.noVite = gulp.series(
   cleanPacks,
   gulp.parallel(
     compileScss,
@@ -359,7 +351,6 @@ exports.preview = gulp.series(
     compileImages,
     compileSvg,
     copyTaskProd,
-    // compilePacks,
-    viteBuildPreviewTask // vue 3 task
+    copyFilesVite
   )
 );

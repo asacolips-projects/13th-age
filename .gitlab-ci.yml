@@ -13,7 +13,8 @@ test-build:
   script:
     - export
     - npm ci
-    - npm run build:preview
+    - npm run build:noVite
+    - npm run vite:build:preview
   artifacts:
     paths:
       - dist
