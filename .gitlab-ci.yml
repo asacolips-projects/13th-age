@@ -25,7 +25,7 @@ test-build:
       - public
   environment:
     name: 'Preview'
-    url: "https://asacolips-projects.gitlab.io/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public/vue/index.html"
+    url: "https://asacolips-projects.gitlab.io/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public/index.html"
   variables:
     PUBLIC_URL: "/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public"
   except:
