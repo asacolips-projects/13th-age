@@ -15,9 +15,18 @@ test-build:
     - npm ci
     - npm run build:noVite
     - npm run vite:build:preview
+    - rm -rf public
+    - mkdir public
+    - cp -r dist/* public
   artifacts:
+    expire_in: 7 days
     paths:
-      - dist
+      - public
+  environment:
+    name: 'Preview'
+    url: "https://asacolips-projects.gitlab.io/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public/vue/index.html"
+  variables:
+    PUBLIC_URL: "/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public"
   except:
     - beta
     - tags
