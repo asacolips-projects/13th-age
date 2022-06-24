@@ -17,6 +17,7 @@ test-build:
     - npm run vite:build:preview
     - rm -rf public
     - mkdir public
+    - cp -r dist/vue/* dist
     - cp -r dist/* public
   artifacts:
     expire_in: 7 days

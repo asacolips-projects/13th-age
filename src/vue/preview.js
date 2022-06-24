@@ -18,7 +18,7 @@ const context = {
   rollData: {}
 }
 
-fetch('/template.json')
+fetch('./template.json')
   .then(response => response.json())
   .then(async (data) => {
 
