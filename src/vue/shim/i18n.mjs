@@ -4,12 +4,10 @@ export class Localization {
 
     this.translations = {};
     this._fallback = {};
-
-    this.initialize();
   }
 
   async initialize() {
-    const langFile = await fetch('/dist/languages/en.json');
+    const langFile = await fetch('./languages/en.json');
     this.translations = await langFile.json();
     this._fallback = this.translations;
   }

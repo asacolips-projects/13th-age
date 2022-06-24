@@ -3,8 +3,8 @@ import { Actor } from '@/shim/Actor.js';
 export * from '@/shim/common/module.mjs';
 import { Localization } from '@/shim/i18n.mjs';
 import { Collection } from '@/shim/common/utils/collection.mjs';
-import { ARCHMAGE, FLAGS } from '/src/module/setup/config.js';
-import ArchmageNpcSheet from '/src/vue/ArchmageNpcSheet.vue';
+import { ARCHMAGE, FLAGS } from '@src/module/setup/config.js';
+import ArchmageNpcSheet from '@src/vue/ArchmageNpcSheet.vue';
 
 const context = {
   owner: true,
