@@ -267,7 +267,11 @@ function viteBuild(cb) {
     cb(err);
   });
 }
-const viteTask = gulp.series(viteBuild);
+function copyFilesVite() {
+  return gulp.src('./dist/assets/**/*', {base: 'dist'})
+    .pipe(gulp.dest('./systems/archmage'))
+}
+const viteTask = gulp.series(viteBuild, copyFilesVite);
 // Prod builds.
 function viteProd(cb) {
   return exec('npm run vite:build:prod', function(err, stdout, stderr) {

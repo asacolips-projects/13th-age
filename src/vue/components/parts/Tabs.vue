@@ -17,15 +17,14 @@ export default {
   },
   data() {
     return {
-      currentTab: 'powers'
+      currentTab: 'details'
     }
   },
   methods: {
     changeTab(event) {
       // If this was a click, update the default tab.
       if (event && event.currentTarget) {
-        let $target = $(event.currentTarget);
-        this.currentTab = $target.data('tab');
+        this.currentTab = event.currentTarget.dataset.tab;
       }
 
       // Update the tab displays.
@@ -34,7 +33,9 @@ export default {
       }
 
       // Update the active tab display.
-      this.tabs[this.currentTab].active = true;
+      if (this.tabs[this.currentTab]) {
+        this.tabs[this.currentTab].active = true;
+      }
 
       // Update the flag.
       const actor = game.actors.get(this.actor._id) ?? false;
