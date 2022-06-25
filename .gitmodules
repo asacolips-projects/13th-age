@@ -1,0 +1,3 @@
+[submodule "src/vue/foundry-shim"]
+	path = src/vue/foundry-shim
+	url = git@gitlab.com:asacolips-private-projects/foundry-shim.git

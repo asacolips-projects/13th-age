@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
-import { Actor } from '@/shim/Actor.js';
-export * from '@/shim/common/module.mjs';
-import { Localization } from '@/shim/i18n.mjs';
-import { Collection } from '@/shim/common/utils/collection.mjs';
+import { Actor } from '@/foundry-shim/Actor.js';
+export * from '@/foundry-shim/common/module.mjs';
+import { Localization } from '@/foundry-shim/i18n.mjs';
+import { Collection } from '@/foundry-shim/common/utils/collection.mjs';
 import { ARCHMAGE, FLAGS } from '@src/module/setup/config.js';
 import ArchmageNpcSheet from '@src/vue/ArchmageNpcSheet.vue';
 

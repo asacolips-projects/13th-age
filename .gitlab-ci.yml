@@ -28,6 +28,7 @@ test-build:
     url: "https://asacolips-projects.gitlab.io/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public/index.html"
   variables:
     PUBLIC_URL: "/-/foundry-mods/archmage/-/jobs/$CI_JOB_ID/artifacts/public"
+    GIT_SUBMODULE_STRATEGY: recursive
   except:
     - beta
     - tags
