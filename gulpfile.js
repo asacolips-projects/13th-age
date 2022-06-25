@@ -271,6 +271,10 @@ function copyFilesVite() {
   return gulp.src('./dist/assets/**/*', {base: 'dist'})
     .pipe(gulp.dest('./systems/archmage'))
 }
+function copyFoundryVite() {
+  return gulp.src('./src/vue/foundry-shim/foundry-ui/**/*', {base: 'src/vue/foundry-shim/foundry-ui'})
+    .pipe(gulp.dest('./dist/'));
+}
 const viteBuildTask = gulp.series(viteBuild, copyFilesVite);
 // Prod builds.
 function viteBuildProd(cb) {
@@ -351,6 +355,7 @@ exports.noVite = gulp.series(
     compileImages,
     compileSvg,
     copyTaskProd,
-    copyFilesVite
+    copyFilesVite,
+    copyFoundryVite
   )
 );

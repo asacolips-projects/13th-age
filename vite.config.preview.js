@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   base: '',
+  publicDir: './dist',
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, 'src/vue')}/`,
@@ -21,7 +22,8 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
-    outDir: './dist/vue',
+    outDir: './public',
+    emptyOutDir: false,
     lib: {
       entry: path.resolve(__dirname, 'src/vue/index.js'),
       name: 'v3boilerplateVueComponents',

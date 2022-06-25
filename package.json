@@ -19,7 +19,7 @@
     "yaml": "gulp yaml",
     "compilePacks": "gulp compilePacks",
     "extractPacks": "gulp extractPacks",
-    "vite:dev": "vite",
+    "vite:dev": "vite --config vite.config.preview.js",
     "vite:watch": "vite build --watch",
     "vite:build": "vite build",
     "vite:build:preview": "vite build --config vite.config.preview.js",

@@ -22,10 +22,15 @@ fetch('./template.json')
   .then(response => response.json())
   .then(async (data) => {
 
-    const actor = new Actor(data);
+    // Initialize the empty actor.
+    const actorTemplates = new Actor(data);
 
-    context.actor = actor.actors.npc;
-    context.data = {};
+    // Add the sample actor data.
+    const npcJson = await fetch('./sample-npc.json');
+    const npcActor = await npcJson.json();
+
+    context.actor = mergeObject(actorTemplates.actors.npc, npcActor);
+    context.data = context.actor.data;
 
     const hp = foundry.utils.getProperty(context.actor, 'data.attributes.hp.value');
     console.log(hp);
