@@ -4,6 +4,7 @@ export function getSafeValue(property, defaultValue) {
 }
 
 export function localize(key) {
+  console.log(game.i18n.localize(key));
   return game.i18n.localize(key);
 }
 
