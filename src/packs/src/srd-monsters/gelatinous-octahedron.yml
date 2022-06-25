@@ -1,0 +1,713 @@
+name: 'Gelatinous Octahedron'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 6
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 6
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 6
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 6
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 6
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 6
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 280
+      min: 0
+      max: 280
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: -1
+      mod: 5
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 6
+      min: 0
+      max: 10
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    role:
+      value: 'blocker'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'huge'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'ooze'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 6
+      min: 0
+      max: 10
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Gelatinous Octahedron'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'TILoDxXqZ8WezZEv'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: 'UzpIUyquPSE9Opvp'
+    flags: {}
+    name: 'Shlup''n''shlorp'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+11]] vs. PD'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[38]] acid damage, and the cube engulfs the target (functions like a grabb, see below) if it''s smaller than the cube'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: 'The cube can make a spasms attack as a free action.'
+    sort: 100000
+  - _id: 't125vKMD33hRZ2bP'
+    flags: {}
+    name: '(Special trigger) C: Spasms'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+11]] vs. AC (up to 2 attacks, each against a different nearby enemy)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[19]] damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 200000
+  - _id: 'BNnojc6cITZsS0UP'
+    flags: {}
+    name: 'Engulf and dissolve.'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Targets engulfed/grabbed by the cube take 38 acid damage at the start of the cube&rsquo;s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously.</p><p>Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 300000
+  - _id: 'DYMLfSO76xrdLcD9'
+    flags: {}
+    name: 'Instictive actions'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Gelatinous creatures have no brains, sometimes they just&nbsp;do things. When the escalation die is odd, instead of making an attack or moving, roll a [[1d8]] to see what the octahedron does. If an option is not viable (you roll a 3 but there are no nearby targets), reroll until you get a valid option.</p><ol><li>C: Acid splash</li><li>The octahedron grows an orifice that gushes out a liquid glue that floods the area. Each enemy engaged with the octahedron is *stuck* (hard save ends, 16+). Each nearby enemy not engaged with the octahedron is stuck (save ends). Each far away enemy is stuck (easy save ends, 6+). The glue has no effect on creatures who are flying or that have some way of avoiding it.</li><li>The octahedron squirts a slick slime that targets [[1d3]] nearby enemies. Until the end of the battle, each target must roll an easy save each time it moves; on a failure, it&rsquo;s *hampered* until the end of its next turn.</li><li>The octahedron makes a fire gout attack as it splashes out a gel that ignites in the air and sticks to skin and clothing. - Fire gout.</li><li>&nbsp;The octahedron sweats acid. Each enemy engaged with the octahedron must roll a normal save; on a failure, it takes [[40]] acid damage. On a success it takes [[20[[ acid damage.</li><li>C: Acid jet</li><li>C: Acid geyser</li><li>The octahedron splits into two tetrahedrons, and each one can act this turn (roll a [[1d4]] for the instinctive actions of each one). Divide the octahedron&rsquo;s current hit points equally between the two new creatures.</li></ol>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+    sort: 400000
+  - _id: 'rUw9Ey0D50CvGeK9'
+    flags: {}
+    name: '1. C: Acid splash'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Each failed save:&nbsp;Acid destroys one of the target&rsquo;s non-magical items. The target takes a cumulative &ndash;1 attack penalty until the end of the battle (boots fall apart, shield straps snap, etc.).</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+11] vs. PD ([[1d3]] nearby or far away enemis in a group)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[8]] ongoing acid damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: '[[5]] ongoing acid damage'
+    sort: 500000
+  - _id: 'uWkvFoKIO3bF9Jnu'
+    flags: {}
+    name: '4. FIRED gout'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: '<p>Each failed save:&nbsp;Acid destroys one of the target’s non-magical items. The target takes a cumulative –1 attack penalty until the end of the battle (boots fall apart, shield straps snap, etc.).</p>'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemis in a group)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[8]] ongoing fire damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: '[[5]] ongoing acid damage'
+    sort: 600000
+  - _id: 'VUzgHDqR5N6zGxJZ'
+    flags: {}
+    name: '6. C: Acid Jet'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+11]] vs. PD (one nearby or far away enemy'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[45]] acid damage'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: '[[8]] ongoing acid damage'
+    sort: 700000
+  - _id: 'Dh9cXbmkbbKn4qAh'
+    flags: {}
+    name: '7. C: Acid geyser'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+11]] vs. PD (1d3 nearby or far away enemis)'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[30]] acid damage, and the octahedron is propelled uncontrollably about the area, passing next to each of its enemies. Unlike normal, each enemy can make an opportunity attack against the ooze as it moves this way, but the ooze can make a glomp attack against those who do as a free action as it passes. (Tell the PCs that the ooze will get a counter-attack.)'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 800000
+  - _id: 'HyuudrUzF7AopdAZ'
+    flags: {}
+    name: '7. Glomp'
+    type: 'action'
+    img: 'icons/svg/target.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: 'String'
+        label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+9]] vs. PD'
+      hit:
+        type: 'String'
+        label: 'Hit'
+        value: '[[10]] acid damage, and the cube engulfs the target if it''s smaller than the cube'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit2:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit3:
+        type: 'String'
+        label: 'Hit'
+        name: ''
+        value: ''
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+        value: ''
+    sort: 900000
+_id: 'FMx0i9N4bOVCJOmW'

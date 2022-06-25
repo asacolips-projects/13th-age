@@ -1,0 +1,68 @@
+_id: 'ERnn1vdP1oQUU2KN'
+name: 'Glandular Parasite (cloak/mantle)'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>The parasite sits along your spine, feeding off your life force but also dampening your reactions to extreme stimuli and pain.</p>\n<p>Always: +1 PD (adventurer); +2 PD (champion); +3 PD (epic).</p>\n<p>Chuulish recharge: You are immune to *fear* effects until the end of the battle or for five minutes.</p>\n<p>Quirk: Strangely pronounced spine.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '16'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: '1'
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 1
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'cloak'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}

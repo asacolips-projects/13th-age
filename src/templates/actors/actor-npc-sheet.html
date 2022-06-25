@@ -1,0 +1,313 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    <!-- HEADER -->
+    <header class="sheet-header">
+        <h1 class="charname">
+            <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ARCHMAGE.name'}}" />
+        </h1>
+
+        <div class="charlevel">
+            <div class="level">
+                <label>{{localize 'ARCHMAGE.level'}}</label>
+                <input name="data.attributes.level.value" type="text" value="{{data.attributes.level.value}}" data-dtype="Number"
+                    placeholder="1" />
+            </div>
+
+            <div class="initiative">
+                <label>{{localize 'ARCHMAGE.initiative'}}</label>
+                <span>{{numberFormat data.attributes.init.mod decimals=0 sign=true}}</span>
+            </div>
+        </div>
+
+
+    </header>
+
+    <!-- SIDEBAR -->
+    <section class="sheet-sidebar">
+        <img class="sheet-profile" src="{{actor.img}}" title="{{actor.name}}" height="220" width="220" data-edit="img" />
+
+        <nav class="sheet-tabs tabs tabs-sidebar" data-group="sidebar">
+            <a class="item" data-tab="attributes">{{localize 'ARCHMAGE.attributes'}}</a>
+            <a class="item" data-tab="misc">{{localize 'ARCHMAGE.misc'}}.</a>
+        </nav>
+
+        <div class="tabs-sidebar-content">
+
+          <!-- ATTRIBUTES -->
+          <div class="tab attributes" data-group="sidebar" data-tab="attributes">
+
+              <div class="primary-attributes">
+              <div class="attribute attribute--health">
+                  <h4 class="attribute-name">{{localize 'ARCHMAGE.health'}}</h4>
+                  <div class="attribute-value">
+                      <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" data-dtype="{{data.attributes.hp.type}}"
+                          placeholder="10" />
+                      <span class="flex0"> / </span>
+                      <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" data-dtype="{{data.attributes.hp.type}}"
+                          placeholder="10" />
+                  </div>
+                  <footer class="attribute-footer attribute-footer--temp-hp">
+                      <span class="attribute-subname">{{localize 'ARCHMAGE.tempHp'}}</span>
+                      <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="0" value="{{data.attributes.hp.temp}}"
+                          data-dtype="{{data.attributes.hp.type}}" />
+                  </footer>
+              </div>
+
+              <div class="attribute attribute--defenses">
+                  <h4 class="attribute-name">{{localize 'ARCHMAGE.defenses'}}</h4>
+                  <div class="attribute-value attribute-value--parent">
+                      <div class="attribute-sub">
+                          <strong class="attribute-name">{{localize 'ARCHMAGE.ac.key'}}</strong>
+                          <input class="attribute-display" name="data.attributes.ac.value" type="text" value="{{data.attributes.ac.value}}" data-dtype="{{data.attributes.ac.type}}"
+                              placeholder="10" />
+                      </div>
+                      <div class="attribute-sub">
+                          <strong class="attribute-name">{{localize 'ARCHMAGE.pd.key'}}</strong>
+                          <input class="attribute-display" name="data.attributes.pd.value" type="text" value="{{data.attributes.pd.value}}"
+                              data-dtype="{{data.attributes.pd.type}}" placeholder="10" />
+                      </div>
+                      <div class="attribute-sub">
+                          <strong class="attribute-name">{{localize 'ARCHMAGE.md.key'}}</strong>
+                          <input class="attribute-display" name="data.attributes.md.value" type="text" value="{{data.attributes.md.value}}"
+                              data-dtype="{{data.attributes.md.type}}" placeholder="10" />
+                      </div>
+                  </div>
+              </div>
+
+              <div class="attribute attribute--resistance">
+                  <span class="attribute-name">{{localize 'ARCHMAGE.resistance'}}</span>
+                  <textarea class="attribute-value resistance" name="data.details.resistance.value" rows="5" title="For example: Fire 16+, Cold 18+"
+                      data-dtype="{{data.details.resistance.type}}">{{#if data.details.resistance.value}}{{data.details.resistance.value}}{{/if}}</textarea>
+              </div>
+
+              <div class="attribute attribute--vulnerability">
+                  <span class="attribute-name">{{localize 'ARCHMAGE.vulnerability'}}</span>
+                  <textarea class="attribute-value vulnerability" name="data.details.vulnerability.value" rows="5" title="For example: Fire, Cold"
+                      data-dtype="{{data.details.vulnerability.type}}">{{#if data.details.vulnerability.value}}{{data.details.vulnerability.value}}{{/if}}</textarea>
+              </div>
+          </div>
+
+          </div>
+
+          <!-- SETTINGS -->
+          <div class="tab misc" data-group="sidebar" data-tab="misc">
+              <div class="settings-group form-group configure-flags">
+                  <label>{{localize 'ARCHMAGE.specialTraits'}}</label>
+                  <i class="fas fa-cog"></i>
+              </div>
+
+              <div class="settings-group">
+                  <strong class="attribute-name">{{localize 'ARCHMAGE.initiative'}}</strong>
+                  <input name="data.attributes.init.value" type="text" value="{{data.attributes.init.value}}"
+                      data-dtype="{{data.attributes.init.type}}" placeholder="0" />
+              </div>
+          </div>
+
+        </div>
+    </section>
+
+    <section class="sheet-body">
+        <div class="npc-details">
+            <div class="npc-details-header item flexrow" style="width: 100%;">
+                <div class="item-name">{{localize 'ARCHMAGE.details'}}</div>
+            </div>
+            <div class="npc-details-content flexrow">
+                <div class="resource">
+                    <label for="data.details.size.value">{{localize 'ARCHMAGE.size'}}</label>
+                    <select name="data.details.size.value">
+                        <option value="">—</option>
+                        {{#select data.details.size.value }}
+                            {{#each sizes as |size key|}}
+                            <option value="{{key}}">{{size}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="resource">
+                    <label for="data.details.role.value">{{localize 'ARCHMAGE.role'}}</label>
+                    <select name="data.details.role.value">
+                        <option value="">—</option>
+                        {{#select data.details.role.value }}
+                            {{#each roles as |role key|}}
+                            <option value="{{key}}">{{role}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="resource">
+                    <label for="data.details.type.value">{{localize 'ARCHMAGE.type'}}</label>
+                    <select name="data.details.type.value">
+                        <option value="">—</option>
+                        {{#select data.details.type.value }}
+                            {{#each types as |type key|}}
+                            <option value="{{key}}">{{type}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="actions-header item flexrow">
+                <div class="item-name">{{localize 'ARCHMAGE.actions'}}</div>
+                {{#if owner}}
+                <div class="item-controls">
+                    <a class="item-control item-create" title="Create Action" data-item-type="action" data-type="action">
+                        <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                </div>
+                {{/if}}
+            </div>
+
+            <ul class="actions-list inventory-list directory-list">
+
+                {{#each actor.actions as |item i|}}
+                <li class="item flexrow item--action" data-item-id="{{item.id}}">
+                    <div class="item-name rollable">
+                        {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
+                        <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
+                    </div>
+
+                    {{!-- <div class="ability-usage ability-usage--{{item.data.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.data.powerUsage.label}}</span></div> --}}
+
+                    {{#if ../owner}}
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Ability"><i class="fas fa-trash"></i></a>
+                    </div>
+                    {{/if}}
+
+                    <div class="item-description">
+                        <p class="hit"><strong class="attack">{{{item.data.data.attack.value}}}</strong>{{#if item.data.data.attack.value}}{{#if item.data.data.hit.value}} — {{/if}}{{/if}}{{{item.data.data.hit.value}}}</p>
+                        {{#if item.data.data.hit1.value}}
+                            <p class="hit1"><em>{{{item.data.data.hit1.name}}}:</em> {{{item.data.data.hit1.formatted}}}</p>
+                        {{/if}}
+                        {{#if item.data.data.hit2.value}}
+                            <p class="hit2"><em>{{{item.data.data.hit2.name}}}:</em> {{{item.data.data.hit2.formatted}}}</p>
+                        {{/if}}
+                        {{#if item.data.data.hit3.value}}
+                            <p class="hit3"><em>{{{item.data.data.hit3.name}}}:</em> {{{item.data.data.hit3.formatted}}}</p>
+                        {{/if}}
+                        {{#if item.data.data.miss.value}}
+                            <p class="miss"><em>Miss:</em> {{{item.data.data.miss.formatted}}}</p>
+                        {{/if}}
+                        {{#if item.data.data.description.value}}
+                            <div class="description">{{{item.data.data.description.value}}}</div>
+                        {{/if}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="traits">
+            <div class="traits-header item flexrow">
+                <div class="item-name">{{localize 'ARCHMAGE.traits'}}</div>
+                {{#if owner}}
+                <div class="item-controls">
+                    <a class="item-control item-create" title="Create Trait" data-item-type="trait" data-type="trait">
+                        <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                </div>
+                {{/if}}
+            </div>
+
+            <ul class="traits-list inventory-list directory-list">
+
+                {{#each actor.traits as |item i|}}
+                <li class="item flexrow item--trait" data-item-id="{{item.id}}">
+                    <div class="item-name rollable">
+                        {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
+                        <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
+                    </div>
+
+                    {{!-- <div class="ability-usage ability-usage--{{item.data.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.data.powerUsage.label}}</span></div> --}}
+
+                    {{#if ../owner}}
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Ability"><i class="fas fa-trash"></i></a>
+                    </div>
+                    {{/if}}
+
+                    <div class="item-description">
+                        {{#if item.data.data.description.value}}
+                            <div class="description">{{{item.data.data.description.value}}}</div>
+                        {{/if}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="nastier-specials">
+            <div class="nastier-specials-header item flexrow">
+                <div class="item-name">{{localize 'ARCHMAGE.nastierSpecials'}}</div>
+                {{#if owner}}
+                <div class="item-controls">
+                    <a class="item-control item-create" title="Create Nastier Special" data-item-type="nastierSpecial" data-type="nastierSpecial">
+                        <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                </div>
+                {{/if}}
+            </div>
+
+            <ul class="nastier-specials-list inventory-list directory-list">
+
+                {{#each actor.nastierSpecials as |item i|}}
+                <li class="item flexrow item--nastier-special" data-item-id="{{item.id}}">
+                    <div class="item-name rollable">
+                        {{!-- <div class="item-image" style="background-image: url({{item.img}})"></div> --}}
+                        <h4>{{#if item.data.data.group.value}}[{{item.data.data.group.value}}] {{/if}}{{item.name}}</h4>
+                    </div>
+
+                    {{!-- <div class="ability-usage ability-usage--{{item.data.data.powerUsage.value}}"><span class="visually-hidden">{{item.data.data.powerUsage.label}}</span></div> --}}
+
+                    {{#if ../owner}}
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Ability"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Ability"><i class="fas fa-trash"></i></a>
+                    </div>
+                    {{/if}}
+
+                    <div class="item-description">
+                        {{#if item.data.data.description.value}}
+                            <div class="description">{{{item.data.data.description.value}}}</div>
+                        {{/if}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="effects">
+            <div class="effects-header item flexrow">
+                <div class="item-name">{{localize 'ARCHMAGE.effects'}}</div>
+                {{#if owner}}
+                <div class="item-controls">
+                    <a class="item-control effect-create" title="Create Effect">
+                        <i class="fas fa-plus"></i> {{localize 'ARCHMAGE.add'}}</a>
+                </div>
+                {{/if}}
+            </div>
+
+            <ul class="effects-list inventory-list directory-list">
+
+                {{#each actor.effects as |effect e|}}
+                <li class="item flexrow item--effect" data-effect-id="{{effect.id}}">
+                    <div class="item-name rollable">
+                        <div class="item-image" style="background-image: url({{effect.data.icon}})"></div>
+                        <h4>{{effect.data.label}}</h4>
+                    </div>
+
+                    {{#if ../owner}}
+                    <div class="item-controls">
+                        <a class="item-control effect-edit" title="Edit Effect"><i class="fas fa-edit"></i></a>
+                        <a class="item-control effect-delete" title="Delete Effect"><i class="fas fa-trash"></i></a>
+                    </div>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+</form>
+

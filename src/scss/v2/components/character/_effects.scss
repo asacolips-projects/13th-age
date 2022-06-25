@@ -1,0 +1,277 @@
+.section--effects {
+  .effects-filters,
+  .effects-group {
+    flex: 0;
+  }
+
+  .effects-filters {
+    font-family: $font-stack-label;
+    font-size: $font-tiny;
+    padding: $padding-sm 0 $padding-md;
+    border-bottom: 1px dashed $ct-border;
+
+    > div {
+      flex: 0 auto;
+
+      + div {
+        padding-left: $padding-sm;
+        margin-left: $padding-sm;
+      }
+
+      &.filter-search-effects {
+        flex: 1;
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      font-size: $font-tiny;
+      font-family: $font-stack-label;
+      text-align: left;
+      font-weight: normal;
+    }
+  }
+
+  .effects-group + .effects-group {
+    margin-top: 20px;
+  }
+
+  .effect-controls {
+    flex: 0 0 64px;
+  }
+
+  .effects-title,
+  .effects-group-title {
+    border: 0;
+    text-align: left;
+  }
+
+  .effects-group-content {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .effects-header-title {
+    border-bottom: 2px solid;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .effects-title {
+    margin: 0;
+  }
+
+  .effects-header-labels {
+    text-transform: uppercase;
+    font-size: $font-tiny;
+
+    .effects-name {
+      display: none;
+    }
+  }
+
+  .effects-item {
+    position: relative;
+  }
+
+  .effects-grid {
+    grid-template-columns: 32px auto 250px 60px 80px;
+    gap: 2px;
+    font-size: $font-tiny;
+    font-family: $font-stack-label;
+    text-align: center;
+
+    > * {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .effects-name,
+    .effects-group-title {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .effects-group-title {
+      grid-column: 1 / 5;
+    }
+
+    .effects-name {
+      font-size: $font-xs;
+      font-family: $font-stack-secondary;
+      overflow: hidden;
+      padding-left: $padding-sm;
+
+      &:hover {
+        ~ .effects-feat-pips,
+        ~ .effects-action {
+          opacity: 0.25;
+        }
+
+        .effects-title {
+          position: absolute;
+          overflow: visible;
+          padding-right: $padding-md;
+          z-index: 10;
+        }
+      }
+    }
+
+    .effects-title {
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $font-xs;
+    }
+
+    .effects-name { grid-column-start: 2; }
+    .effects-bonus { grid-column-start: 3; }
+    .effects-chakra,
+    .effects-quantity { grid-column-start: 4; }
+    .item-controls { grid-column-start: 5; }
+  }
+
+  .effect-control {
+    width: 36px;
+  }
+
+  .effect-create {
+    width: 100%;
+  }
+
+  .effects-summary {
+    color: $c-white;
+    text-shadow: 0 0 10px rgba($c-black, 0.5);
+    margin: 0 0 1px 0;
+    background: $c-power-other;
+
+    .rollable,
+    a {
+      color: $c-white;
+
+      &:hover {
+        color: $c-white;
+        text-shadow: 0 0 10px $c-white;
+      }
+
+      &::before {
+        color: $c-white;
+      }
+    }
+  }
+
+  .effects-disabled {
+    .effects-summary {
+      opacity: 0.6;
+    }
+  }
+
+  .effects-content {
+    max-height: 0;
+    transition: all ease-in-out 0.25s;
+    overflow: hidden;
+
+    &.active {
+      max-height: none;
+    }
+  }
+
+  .effects-bonus {
+    align-items: stretch;
+  }
+
+  .effects-chakra {
+    text-transform: uppercase;
+  }
+
+  .bonus {
+    background: rgba($c-black, 0.25);
+    border-radius: $padding-sm;
+    margin: 1px 2px;
+    font-size: $font-tiny;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: auto;
+  }
+
+  .bonus-mode {
+    margin: 0 $padding-sm;
+  }
+
+  .bonus-label {
+    margin-right: 2px;
+  }
+}
+
+.effects-content .effects {
+  line-height: 1.3;
+  padding: $padding-md 0;
+
+  .effects-subheader {
+    justify-content: flex-start;
+
+    > * {
+      flex: 0 1 auto;
+      padding-right: 12px;
+      position: relative;
+
+      + * {
+        &::before {
+          display: block;
+          content: '·';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -8px;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .effects-details,
+  .effects-feats {
+    p {
+      margin: 0;
+
+      + p {
+        margin-top: $padding-md;
+      }
+    }
+  }
+
+  .effects-header,
+  .effects-details {
+    margin: $padding-sm $padding-md;
+  }
+
+  .effects-detail-value,
+  .effects-detail-content {
+    > * {
+      padding-left: $padding-md;
+    }
+  }
+
+  .effects-feat {
+    background: $c-feat;
+    margin-bottom: 2px;
+    opacity: 0.25;
+    padding: $padding-sm $padding-md;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
