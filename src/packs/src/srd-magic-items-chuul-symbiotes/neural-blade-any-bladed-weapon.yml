@@ -1,0 +1,68 @@
+_id: 'TS3tYiqUBrh2mkvp'
+name: 'Neural Blade (any bladed weapon)'
+type: 'equipment'
+img: 'icons/svg/item-bag.svg'
+data:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>A boney blade with a spine and brain.</p>\n<p>Always: Bonus to attacks and damage: +1 (adventurer); +2 (champion); +3 (epic); and the weapon deals psychic damage.</p>\n<p>Chuulish recharge: Choose a nearby enemy. That enemy is now *vulnerable* to psychic damage until the end of the battle.</p>\n<p>Quirk: Large sphincters on arm where the ganglia-tentacles from the blade&rsquo;s hilt insert themselves.</p>"
+  powerUsage:
+    type: 'String'
+    label: 'Power Usage'
+    value: 'recharge'
+  recharge:
+    type: 'Number'
+    label: 'Recharge'
+    value: '16'
+  rechargeAttempts:
+    type: 'Number'
+    label: 'Number of Recharges Attempted'
+    value: 0
+  quantity:
+    type: 'Number'
+    label: 'Uses'
+    value: '1'
+  maxQuantity:
+    type: 'Number'
+    label: 'Max Uses'
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 1
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: 'melee'
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}

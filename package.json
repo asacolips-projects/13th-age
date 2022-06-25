@@ -2,24 +2,44 @@
   "name": "archmage",
   "version": "1.0.0",
   "description": "CSS compiler for the Archmage system",
+  "module": "./dist/components.vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/components.vue.es.js"
+    }
+  },
   "scripts": {
     "build": "gulp build",
-    "compile": "gulp css",
+    "build:prod": "gulp prod",
+    "css": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
+    "files": "gulp files",
     "yaml": "gulp yaml",
     "compilePacks": "gulp compilePacks",
-    "extractPacks": "gulp extractPacks"
+    "extractPacks": "gulp extractPacks",
+    "vite:watch": "vite build --watch",
+    "vite:build": "vite build",
+    "vite:build:prod": "vite build --config vite.config.prod.js"
   },
   "browserslist": [
-    "last 3 versions"
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
   ],
   "author": "Asacolips",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "eslint": "^8.17.0",
+    "eslint-plugin-vue": "^9.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
@@ -27,6 +47,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-declare": "^0.3.0",
     "gulp-minify": "^3.1.0",
+    "gulp-replace": "^1.1.3",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-vue-single-file-component": "^1.2.4",
@@ -40,9 +61,23 @@
     "path": "^0.12.7",
     "sass": "^1.52.3",
     "through2": "^4.0.2",
-    "vue-numeric-input": "^2.0.0",
-    "vue-select": "^3.18.3",
-    "vue-wysiwyg": "^1.7.2",
+    "vite": "^2.9.12",
     "yargs": "^17.5.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+      "vue/no-mutating-props": 0
+    }
   }
 }

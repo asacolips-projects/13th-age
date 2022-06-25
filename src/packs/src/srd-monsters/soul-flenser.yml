@@ -1,0 +1,476 @@
+name: 'Soul Flenser'
+permission:
+  default: 0
+type: 'npc'
+data:
+  abilities:
+    str:
+      type: 'Number'
+      label: 'Strength'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    dex:
+      type: 'Number'
+      label: 'Dexterity'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    con:
+      type: 'Number'
+      label: 'Constitution'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    int:
+      type: 'Number'
+      label: 'Intelligence'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    wis:
+      type: 'Number'
+      label: 'Wisdom'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+    cha:
+      type: 'Number'
+      label: 'Charisma'
+      value: 10
+      min: 3
+      mod: 0
+      lvl: 9
+  attributes:
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 23
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 180
+      min: 0
+      max: 180
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 6
+      mod: 15
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 9
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    role:
+      type: 'String'
+      label: 'Role'
+      value: 'Spoiler'
+    size:
+      type: 'String'
+      label: 'Size'
+      value: 'Normal'
+    type:
+      type: 'String'
+      label: 'Type'
+      value: 'Aberration'
+    resistance:
+      type: 'String'
+      label: 'Resistance'
+      value: ''
+    vulnerability:
+      type: 'String'
+      label: 'Vulnerability'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 9
+      min: 0
+      max: 12
+  backgrounds:
+    bg1:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg2:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg3:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    bg4:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg5:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg6:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg7:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    bg8:
+      name:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+  icons:
+    i1:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i2:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i3:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 1
+    i4:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+    i5:
+      name:
+        type: 'String'
+        value: ''
+      relationship:
+        type: 'String'
+        value: ''
+      bonus:
+        type: 'Number'
+        value: 0
+      isActive:
+        type: 'Boolean'
+        value: 0
+sort: 100001
+flags:
+  archmage: {}
+img: 'icons/svg/mystery-man.svg'
+token:
+  flags: {}
+  name: 'Soul Flenser'
+  displayName: 0
+  img: 'icons/svg/mystery-man.svg'
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 'oG5IPnhAJ6OHjzk5'
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: '5Vp6dMSsHITkWs1a'
+    flags: {}
+    name: 'Soul flensing tentacles'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 14]] vs. PD'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '30 damage'
+      hit1:
+        type: ''
+        label: 'Hit'
+        name: 'Natural even hit, or any hit against a *weakened*, *stunned*, or *confused* target'
+        value: 'Randomly select one of the target’s limited-use powers or spells. The soul flenser flenses it away, removing it from the target until that creature regains it via a successful connection to the oversoul (see below).'
+      hit2:
+        type: ''
+        label: 'Hit'
+        name: 'Natural 3, 6, or 9'
+        value: 'The target is *confused* (save ends).'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+    sort: 0
+  - _id: 'h3ee7KdPAxfhFvA2'
+    flags: {}
+    name: 'C: Soul blast'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 14]] vs. MD ([[1d4]] nearby enemies in a group)'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: '35 psychic damage'
+      hit1:
+        type: ''
+        label: 'Hit'
+        name: 'Natural even hit'
+        value: 'The target is *weakened* (save ends).'
+      hit2:
+        type: ''
+        label: 'Hit'
+        name: 'Natural odd hit'
+        value: 'If the target is already *weakened*, it’s also *stunned* until end of its next turn.'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
+      hitt3:
+        type: ''
+        label: 'Hit'
+        name: 'Natural 3, 6, or 9'
+        value: 'The target is *confused* (save ends).'
+    sort: 100000
+  - _id: 'lZvRafmYhc3db0sT'
+    flags: {}
+    name: 'Connection to the Oversoul'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When a creature slays a soul flenser, it can roll a hard save (16+). If it succeeds, the creature regains one power it has had flensed away.'
+    sort: 200000
+  - _id: 'tS9bOfjmizjct98O'
+    flags: {}
+    name: 'Intellect fortress'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'When an enemy misses the soul flenser with an attack against MD, that attacker takes half the miss damage, if any.'
+    sort: 300000
+  - _id: 'VUj4Y9GjzQYW2Ki6'
+    flags: {}
+    name: 'Underkraken teleport'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'A soul flenser that has successfully flensed at least once can (and usually will, provided some of its enemies are *confused*, *weakened*, or *stunned*) use a standard action to prepare itself to teleport. Once it does this, during its next turn it can use a move action to teleport back to its home underkraken, no matter how distant, leaving the battle behind. Soul flensers fighting beside or within their underkraken can’t use this ability; they’re already home.'
+    sort: 400000
+  - _id: 'ae6HPcVT132DqyJh'
+    flags: {}
+    name: 'Flensing escalator'
+    type: 'nastierSpecial'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'The soul flenser gains an attack bonus equal to the escalation die against creatures that have had one or more powers flensed away.'
+    sort: 500000
+  - _id: 'NmMiaXwyreVka1bI'
+    flags: {}
+    name: 'Oversoul control'
+    type: 'nastierSpecial'
+    img: 'icons/svg/mystery-man.svg'
+    data:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
+        value: 'While *confused* by a soul flenser’s effect, a creature that has had a power flensed away can use and re-use that limited power against their erstwhile allies, if the GM sees how to use the power in a useful way.'
+    sort: 600000
+_id: '7aZQJ3hIvQT276zZ'
