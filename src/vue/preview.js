@@ -26,7 +26,7 @@ fetch('./template.json')
     const actorTemplates = new Actor(data);
 
     // Add the sample actor data.
-    const npcJson = await fetch('./sample-npc.json');
+    const npcJson = await fetch('./vue/content/sample-npc.json');
     const npcActor = await npcJson.json();
 
     context.actor = mergeObject(actorTemplates.actors.npc, npcActor);
