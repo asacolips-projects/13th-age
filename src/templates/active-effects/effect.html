@@ -81,9 +81,7 @@
                     <div class="form-group">
                         <label>Save</label>
                         <div class="form-fields">
-                            <select name="data.duration.save">
-                                {{selectOptions saveTypes selected=data.duration.save localize=true}}
-                            </select>
+                            <input class="attribute-input" type="text" name="data.duration.save" value="{{data.duration.save}}" data-dtype="Number" placeholder="11"/>
                         </div>
                     </div>
                     {{/if}}

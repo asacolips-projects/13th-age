@@ -367,12 +367,6 @@ ARCHMAGE.effectDurationChoices = {
   saveEnds: "Save ends"
 }
 
-ARCHMAGE.saveTypes = {
-  easy: 'Easy',
-  normal: "Normal",
-  hard: "Hard",
-}
-
 ARCHMAGE.creatureTypes = {
   'aberration': 'Aberration',
   'beast': 'Beast',

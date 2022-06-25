@@ -9,18 +9,35 @@ export default class preCreateChatMessageHandler {
         let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
         const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.label)));
 
-        function generateConditionLink(name) {
+        function generateConditionLink(name, rowText) {
             const condition = conditions.find(x => game.i18n.localize(x.label) === name);
+
+            let lastsUntil = CONFIG.ARCHMAGE.effectDurationChoices.unset;
+            let save = 11;
+
+            const textChunks = rowText.toLowerCase().split(name.toLowerCase());
+            let text = textChunks[textChunks.length - 1];
+
+            if ( text.includes("save ends") ) {
+                lastsUntil = "saveEnds";
+                const saveEndsRegex = /save ends, (\d{1,2})/;
+                if ( saveEndsRegex.test(text) ) {
+                    save = parseInt(saveEndsRegex.exec(text)[1]);
+                }
+            }
+
             return `<a class="effect-link" draggable="true" 
                         data-type="condition" data-id="${condition.id}" data-actor-id="${actorDocument.id}" 
+                        data-lasts-until="${lastsUntil}" data-save="${save}"
                         title="">
                     <img class="effects-icon" src="${condition.icon}" />
                     ${name}</a>`;
         }
 
         for ( const row of $rows ) {
+            const rowText = row.innerText;
             for ( const name of conditionNames ) {
-                const link = generateConditionLink(name);
+                const link = generateConditionLink(name, rowText);
                 const regex = new RegExp(`\\*${name}\\*`, "ig");
                 row.innerHTML = row.innerHTML.replace(regex, link);
             }

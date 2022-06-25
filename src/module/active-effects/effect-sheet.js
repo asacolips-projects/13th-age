@@ -49,12 +49,11 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     }
 
     effect.effectDurations = CONFIG.ARCHMAGE.effectDurationChoices;
-    effect.saveTypes = CONFIG.ARCHMAGE.saveTypes;
 
     effect.data.duration.lastsUntil = effect.data.flags.archmage?.lastsUntil ?? CONFIG.ARCHMAGE.effectDurationChoices.unset;
     if ( effect.data.duration.lastsUntil === "saveEnds" ) {
       effect.hasSaveEnds = true;
-      effect.data.duration.save = effect.data.flags.archmage?.save ?? CONFIG.ARCHMAGE.saveTypes.normal;
+      effect.data.duration.save = effect.data.flags.archmage?.save ?? 11;
     }
 
     return effect;
