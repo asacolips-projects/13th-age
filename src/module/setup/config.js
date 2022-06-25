@@ -364,6 +364,7 @@ ARCHMAGE.effectDurationChoices = {
   endOfNextTurn: "End of next turn",
   startOfNextSourceTurn: "Start of Caster's next turn",
   endOfNextSourceTurn: "End of Caster's next turn",
+  endOfBattle: "End of Battle",
   saveEnds: "Save ends"
 }
 

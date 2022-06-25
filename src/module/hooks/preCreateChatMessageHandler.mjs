@@ -25,6 +25,21 @@ export default class preCreateChatMessageHandler {
                     save = parseInt(saveEndsRegex.exec(text)[1]);
                 }
             }
+            else if ( text.includes("until the start of its next turn") ) {
+                lastsUntil = "startOfNextTurn";
+            }
+            else if ( text.includes("until the end of its next turn") ) {
+                lastsUntil = "endOfNextTurn";
+            }
+            else if ( text.includes("until the end of the battle") ) {
+                lastsUntil = "endOfBattle";
+            }
+            else if ( text.includes("until the start of the ") ) {
+                lastsUntil = "startOfNextSourceTurn";
+            }
+            else if ( text.includes("until the end of the ") ) {
+                lastsUntil = "endOfNextSourceTurn";
+            }
 
             return `<a class="effect-link" draggable="true" 
                         data-type="condition" data-id="${condition.id}" data-actor-id="${actorDocument.id}" 
