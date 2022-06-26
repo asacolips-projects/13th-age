@@ -1,10 +1,8 @@
-name: Confused
+name: 'Confused'
 permission:
   default: 0
 folder: ''
 flags: {}
-content: "<p>You can&rsquo;t make opportunity attacks or use your limited powers.
-      Your next attack action will be a basic or at-will attack against any nearby
-      ally, determined randomly.</p>"
+content: '<p>You can&rsquo;t make opportunity attacks or use your limited powers. Your next attack action will be a basic or at-will attack against any nearby ally, determined randomly.</p>'
 img: ''
 _id: '21cEqzk92tflpW7N'
