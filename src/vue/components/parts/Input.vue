@@ -13,6 +13,7 @@ export default {
       },
       set(value) {
         if (this.reactive) {
+          console.log(value);
           setProperty(this.actor, this.name, value);
         }
         else {

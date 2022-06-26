@@ -52,7 +52,7 @@ class ArchmageUpdateHandler {
           if (result !== false) {
             // eslint-disable-next-line no-console
             console.log(`Completed archmage update ${currentUpdate}`);
-            game.settings.set('archmage', 'schemaVersion', this.schema);
+            // game.settings.set('archmage', 'schemaVersion', this.schema);
           }
           // Otherwise, note the failure and break from the loop.
           else {
@@ -175,6 +175,60 @@ class ArchmageUpdateHandler {
     //     await a.update({items: items});
     //   }
     // }
+  }
+
+  // @todo: finish refactoring this.
+  // async update1003() {
+  //   // Query for actor NPCs.
+  //   const actors = this.queryActors(a => a.type == 'npc');
+  //   console.log(actors);
+
+  //   // Iterate through scenes, querying unlinked NPC tokens for each.
+  //   game.scenes.forEach(s => {
+  //     const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
+  //     console.log(tokens);
+  //   });
+
+  //   this.queryCompendiumActors();
+  //   this.queryCompendiumScenes();
+  // }
+
+  /**
+   * Query the world for actors.
+   *
+   * @param {function} callbackFilter Callback filter to apply, using the same
+   *   format as an array filter such as game.actors.filter();
+   * @returns
+   *   Collection of actors.
+   */
+  queryActors(callbackFilter = null) {
+    return callbackFilter ? game.actors.filter(a => callbackFilter(a)) : game.actors;
+  }
+
+  /**
+   * Query a  scene for unlinked tokens.
+   *
+   * @param {object} scene Scene to query for tokens from.
+   * @param {function} callbackFilter Callback filter to apply, using the same
+   *   format as an array filter such as scene.tokens.filter();
+   * @returns
+   *   Collection of tokens for the scene.
+   */
+  queryTokens(scene, callbackFilter = null) {
+    const tokens = scene.tokens.filter(t => {
+      if (t.data.actorLink && t.data.actorId && game.actors.has(t.data.actorId)) return false;
+      return true;
+    })
+
+    return callbackFilter ? tokens.filter(t => callbackFilter(t)) : tokens;
+  }
+
+  queryCompendiumActors(callbackFilter = null) {
+    console.log('World foobar');
+  }
+
+  queryCompendiumScenes(callbackFilter = null) {
+    console.log('Scene foobar');
   }
 }
 
