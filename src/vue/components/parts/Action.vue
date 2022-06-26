@@ -6,7 +6,7 @@
       <div v-if="action.data?.hit2?.value" class="hanging-indent action-hit2"><em v-html="getLabel(action.data?.hit2?.name)"></em><span v-html="wrapRolls(action.data.hit2.value)"></span></div>
       <div v-if="action.data?.hit3?.value" class="hanging-indent action-hit3"><em v-html="getLabel(action.data?.hit3?.name)"></em><span v-html="wrapRolls(action.data.hit3.value)"></span></div>
       <div v-if="action.data?.miss?.value" class="hanging-indent action-miss"><em>Miss:</em> <span v-html="wrapRolls(action.data.miss.value)"></span></div>
-      <div v-if="action.data.description.value" class="hanging-indent action-detail">
+      <div v-if="action.data?.description?.value" class="hanging-indent action-detail">
         <span class="action-detail-value" v-html="action.data.description.value"></span>
       </div>
     </section>
