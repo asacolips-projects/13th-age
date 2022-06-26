@@ -184,13 +184,22 @@ class ArchmageUpdateHandler {
   //   console.log(actors);
 
   //   // Iterate through scenes, querying unlinked NPC tokens for each.
-  //   game.scenes.forEach(s => {
+  //   game.scenes.forEach(async s => {
   //     const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
   //     console.log(tokens);
+
+  //     const updates = [];
+  //     tokens.forEach(token => {
+  //       const update = token.toObject();
+  //       mergeObject(update.actorData, this.migrateActor(token.actor));
+  //       updates.push(update);
+  //     });
+
+  //     // await s.update(updates, {enforceTypes: false});
+  //     console.log(updates);
   //   });
 
-  //   this.queryCompendiumActors();
-  //   this.queryCompendiumScenes();
+  //   // this.queryCompendiums();
   // }
 
   /**
@@ -201,7 +210,7 @@ class ArchmageUpdateHandler {
    * @returns
    *   Collection of actors.
    */
-  queryActors(callbackFilter = null) {
+  async queryActors(callbackFilter = null) {
     return callbackFilter ? game.actors.filter(a => callbackFilter(a)) : game.actors;
   }
 
@@ -223,12 +232,82 @@ class ArchmageUpdateHandler {
     return callbackFilter ? tokens.filter(t => callbackFilter(t)) : tokens;
   }
 
-  queryCompendiumActors(callbackFilter = null) {
-    console.log('World foobar');
+  queryCompendiums() {
+    for ( let p of game.packs ) {
+      if ( p.metadata.package !== "world" ) continue;
+      if ( !["Actor", "Item", "Scene"].includes(p.documentName) ) continue;
+
+      if (p.documentName == 'Actor') {
+        this.queryCompendiumActors(p, a => a.type == 'npc');
+      }
+      else if (p.documentName == 'Scene') {
+        this.queryCompendiumScenes(p, t => t.data.type == 'npc');
+      }
+    }
   }
 
-  queryCompendiumScenes(callbackFilter = null) {
+  async queryCompendiumActors(pack, callbackFilter = null) {
+    // Unlock pack.
+    const wasLocked = pack.locked;
+    await pack.configure({locked: false});
+
+    console.log('World foobar');
+
+    // Retrieve documents.
+    // await pack.migrate();
+    const documents = await pack.getDocuments();
+
+    // Retrieve actros.
+    const actors = callbackFilter ? documents.filter(a => callbackFilter(a)) : documents;
+
+    console.log(actors);
+
+    // Lock pack.
+    await pack.configure({locked: wasLocked});
+  }
+
+  async queryCompendiumScenes(pack, callbackFilter = null) {
+    // Unlock pack.
+    const wasLocked = pack.locked;
+    await pack.configure({locked: false});
+
     console.log('Scene foobar');
+
+    // Retrieve documents.
+    // await pack.migrate();
+    const documents = await pack.getDocuments();
+
+    // Retrieve actros.
+    documents.forEach(async s => {
+      const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
+      console.log(tokens);
+      const updates = [];
+      tokens.forEach(token => {
+        updates.push({
+          '_id': token.data._id,
+          actorData: this.migrateActor(token.actor)
+        });
+      });
+      // await s.update(updates);
+      console.log(updates);
+    });
+
+    // Lock pack.
+    await pack.configure({locked: wasLocked});
+  }
+
+  migrateActor(actor) {
+    const actorData = actor.data.data;
+    const updateData = {
+      'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
+      // 'data.attributes.init.-=mod': null
+    };
+    return updateData;
+  }
+
+  migrateToken(token) {
+    const update = this.migrateActor(token.actor);
+    console.log(update);
   }
 }
 

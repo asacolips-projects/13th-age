@@ -97,11 +97,6 @@ export class ActorArchmage extends Actor {
       this._prepareNPCData(data, model, flags);
     }
 
-    // Initiative
-    var improvedInit = 0;
-    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
-
     // Get the escalation die value.
     data.attributes.escalation = {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
@@ -476,6 +471,10 @@ export class ActorArchmage extends Actor {
       data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
     }
 
+    // Initiative
+    var improvedInit = 0;
+    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
+    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
   }
 
   /* -------------------------------------------- */

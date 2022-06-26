@@ -24,7 +24,7 @@
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">
-          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.mod, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
+          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.value, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
           <ToggleInput>
             <template v-slot:display>
               <ul>
