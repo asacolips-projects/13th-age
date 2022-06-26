@@ -53,6 +53,10 @@ export default class preCreateChatMessageHandler {
 
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
 
+        // Handle conditions in feats as well
+        let $featRows = $content.find('.description');
+        preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $featRows);
+
         let sequence = undefined;
         let sequencerFile = options.sequencer?.file;
         let sequencerStretch = options.sequencer?.stretch;
