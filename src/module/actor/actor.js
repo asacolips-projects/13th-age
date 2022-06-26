@@ -1651,11 +1651,12 @@ export class ActorArchmage extends Actor {
    * Creates a copy of an NPC actor with the requested delta in levels
    * @param delta {Integer}    The number of levels to add or remove
    *
-   * @return {undefined}
+   * @return mixed
+   *   Actor object if actor was duplicated, false otherwise.
    */
 
   async autoLevelActor(delta) {
-    if (!this.data.type == 'npc' || delta == 0) return;
+    if (!this.data.type == 'npc' || delta == 0) return false;
     // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 
@@ -1670,7 +1671,7 @@ export class ActorArchmage extends Actor {
     let lvl = Number(this.data.data.attributes.level.value || 0) + delta;
     if (lvl < 0 || lvl > 15) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
-      return;
+      return false;
     }
 
     // Set other overrides.
@@ -1734,6 +1735,8 @@ export class ActorArchmage extends Actor {
 
     // Apply all item updates to the new actor.
     actor.updateEmbeddedDocuments('Item', itemUpdates);
+
+    return actor;
   }
 }
 

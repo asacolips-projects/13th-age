@@ -35,7 +35,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.archmage-v2.npc-sheet {
   .sheet {
     .editor-wrapper,
     .editor,
@@ -63,4 +64,5 @@ export default {
       }
     }
   }
+}
 </style>

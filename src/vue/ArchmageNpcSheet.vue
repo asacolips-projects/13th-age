@@ -26,23 +26,23 @@
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
           <Tab group="primary" :tab="tabs.primary.details" classes="flexcol">
-            <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
+            <CharDetails :actor="actor" :owner="owner" :flags="flags"/>
           </Tab>
           <!-- Actions tab -->
           <Tab group="primary" :tab="tabs.primary.actions">
-            <NpcActions :actor="actor" :tab="tabs.primary.actions" :flags="flags"/>
+            <NpcActions :actor="actor" :flags="flags"/>
           </Tab>
           <!-- Effects tab -->
           <Tab group="primary" :tab="tabs.primary.effects">
-            <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
+            <CharEffects :actor="actor" :flags="flags"/>
           </Tab>
           <!-- Modify Level tab -->
           <Tab group="primary" :tab="tabs.primary.modifyLevel">
-            <!-- <NpcLevel/> -->
+            <NpcModifyLevel :actor="actor" />
           </Tab>
           <!-- Settings tab -->
           <Tab group="primary" :tab="tabs.primary.settings">
-            <NpcSettings :actor="actor" :tab="tabs.primary.settings"/>
+            <NpcSettings :actor="actor"/>
           </Tab>
         </section>
         <!-- /Tabs content -->
@@ -79,26 +79,9 @@ import NpcHeader from '@/components/actor/npc/NpcHeader.vue';
 import NpcActions from '@/components/actor/npc/NpcActions.vue';
 import NpcAttributes from '@/components/actor/npc/NpcAttributes.vue';
 import NpcSettings from '@/components/actor/npc/NpcSettings.vue';
+import NpcModifyLevel from '@/components/actor/npc/NpcModifyLevel.vue';
 import Tabs from '@/components/parts/Tabs.vue';
 import Tab from '@/components/parts/Tab.vue';
-// import {
-//   Tabs,
-//   Tab,
-//   CharHeader,
-//   CharAttributes,
-//   CharInitiative,
-//   CharAbilities,
-//   CharBackgrounds,
-//   CharIconRelationships,
-//   CharOut,
-//   CharIncrementals,
-//   CharResources,
-//   // CharDetails,
-//   CharPowers,
-//   CharInventory,
-//   CharEffects,
-//   CharSettings
-// } from '@/components';
 
 export default {
   name: 'ArchmageNpcSheet',
@@ -110,20 +93,9 @@ export default {
     NpcActions,
     NpcAttributes,
     NpcSettings,
-    // CharHeader,
-    // CharAttributes,
-    // CharInitiative,
-    // CharAbilities,
-    // CharBackgrounds,
-    // CharIconRelationships,
-    // CharOut,
-    // CharIncrementals,
-    // CharResources,
+    NpcModifyLevel,
     CharDetails,
-    // CharPowers,
-    // CharInventory,
     CharEffects,
-    // CharSettings,
   },
   setup() {
     return {
@@ -201,14 +173,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.section--bottom {
-  flex: 0 auto;
-}
-</style>
-
 <style lang="scss">
 .archmage-v2.npc-sheet {
+  .section--bottom {
+    flex: 0 auto;
+  }
+
   .section--tabs {
     nav.tabs {
       margin-top: 0;

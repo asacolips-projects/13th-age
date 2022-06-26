@@ -91,7 +91,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Render the vue application after loading. We'll need to destroy this
     // later in the this.close() method for the sheet.
-    if (!this.vueApp) {
+    if (!this.vueApp || !this.vueRoot) {
+      this.vueRoot = null;
       this.vueApp = createApp({
         // Initialize data.
         data() {
@@ -119,7 +120,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       return;
     }
 
-    // Execute Foundry's render.
+    // If we don't have an active vueRoot, run Foundry's render and then mount
+    // the Vue application to the form.
     this._render(force, options).catch(err => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
       console.error(err);

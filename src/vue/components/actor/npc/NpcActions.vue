@@ -250,66 +250,68 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.action-group-content {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.action-group {
-  padding-bottom: $padding-md;
-  border-bottom: 2px solid #0000002e;
-
-  + .action-group {
-    padding-top: $padding-md;
+<style lang="scss">
+.archmage-v2.npc-sheet {
+  .action-group-content {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
-}
 
-.action-group-header {
-  .item-controls {
-    flex: 0 auto;
-  }
-}
+  .action-group {
+    padding-bottom: $padding-md;
+    border-bottom: 2px solid #0000002e;
 
-.action-summary {
-  .rollable,
-  .item-controls {
-    flex: 0 auto;
-    color: #666;
-
-    a {
-      padding: 0 4px;
+    + .action-group {
+      padding-top: $padding-md;
     }
   }
 
-  .rollable {
-    width: 22px;
+  .action-group-header {
+    .item-controls {
+      flex: 0 auto;
+    }
   }
 
-  .fa-chevron {
+  .action-summary {
+    .rollable,
+    .item-controls {
+      flex: 0 auto;
+      color: #666;
+
+      a {
+        padding: 0 4px;
+      }
+    }
+
+    .rollable {
+      width: 22px;
+    }
+
+    .fa-chevron {
+      transition: all ease-in-out 0.25s;
+    }
+
+    &.active {
+      .fa-chevron {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .action-header-title {
+    .action-group-title {
+      text-align: left;
+    }
+
+    .item-controls {
+      text-align: right;
+    }
+  }
+
+  .action-content {
+    overflow: hidden;
     transition: all ease-in-out 0.25s;
   }
-
-  &.active {
-    .fa-chevron {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.action-header-title {
-  .action-group-title {
-    text-align: left;
-  }
-
-  .item-controls {
-    text-align: right;
-  }
-}
-
-.action-content {
-  overflow: hidden;
-  transition: all ease-in-out 0.25s;
 }
 </style>

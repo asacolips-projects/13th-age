@@ -27,8 +27,7 @@
         <div class="resource flexrow">
           <Input type="number" name="data.attributes.hp.value" class="resource-current" :actor="actor" reactive="true"/>
           <span class="resource-separator">/</span>
-          <div v-if="actor.data.attributes.hp.automatic" class="resource-max">{{actor.data.attributes.hp.max}}</div>
-          <Input v-else type="number" name="data.attributes.hp.max" class="resource-max" :actor="actor"/>
+          <Input type="number" name="data.attributes.hp.max" class="resource-max" :actor="actor"/>
         </div>
         <div class="labeled-input flexrow">
           <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
@@ -90,12 +89,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.section--attributes {
-  padding-bottom: 0;
+<style lang="scss">
+.archmage-v2.npc-sheet {
+  .section--attributes {
+    padding-bottom: 0;
 
-  .unit--attributes {
-    margin-bottom: 0;
+    .unit--attributes {
+      margin-bottom: 0;
+    }
   }
 }
 </style>
