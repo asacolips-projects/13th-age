@@ -2,7 +2,9 @@ class ArchmageUpdateHandler {
   // Call hooks in the constructor.
   constructor() {
     Hooks.once('init', this.init.bind(this));
-    Hooks.once('ready', this.runUpdates.bind(this));
+    Hooks.once('ready', this.executeMigration.bind(this));
+    // @deprecated: Remove this in a future version.
+    // Hooks.once('ready', this.runUpdates.bind(this));
   }
 
   // Register a hidden setting that we can use to track the version. In this
@@ -10,6 +12,7 @@ class ArchmageUpdateHandler {
   // first number of the version should match the current major version of the
   // system/module to make it more clear which version the update is for.
   init() {
+    // @deprecated: Remove this in a future version.
     game.settings.register('archmage', 'schemaVersion', {
       name: 'Current schema version for system updates.',
       hint: 'This schema version is separate from the system version and can be used to run sequential updates.',
@@ -18,10 +21,21 @@ class ArchmageUpdateHandler {
       default: 1000,
       type: Number,
     });
+
+    // Added in version 1.19.0
+    game.settings.register('archmage', 'systemMigrationVersion', {
+      name: 'Current version of the system prior to migration.',
+      hint: 'This version is updated to the current system version upon loading a world.',
+      scope: 'world',
+      config: false,
+      default: '1.17.0',
+      type: String,
+    });
   }
 
   /**
    * Update runner.
+   * @deprecated
    *
    * This method is called once in the ready hook and it gets the current
    * schema version and attempts to run the next one, if it exists.
@@ -71,6 +85,7 @@ class ArchmageUpdateHandler {
 
   /**
    * Update untyped characters.
+   * @deprecated
    *
    * In this example, we're looping through untyped characters and compendium
    * entries and making sure they have a type.
@@ -148,6 +163,7 @@ class ArchmageUpdateHandler {
 
   /**
    * Update items on actors to have missing object keys.
+   * @deprecated
    *
    * New keys have been added to actor items as of 1.0.6, so this update hook
    * ensures that all active actors have updated items.
@@ -179,18 +195,93 @@ class ArchmageUpdateHandler {
 
   /* -------------------------------------------*/
 
-  // @todo: finish refactoring this.
-  async executeMigration(updates) {
+  /**
+   * Prepare update data for an unlinked token actor.
+   *
+   * @param {object} token Token document.
+   * @returns
+   *   Update object compatible with scene.updateEmbeddedDocuments('Token', updateData)
+   */
+   prepareMigrateTokenData(token) {
+    return {
+      '_id': token.data._id,
+      'actorData': this.prepareMigrateActorData(token.actor)
+    }
+  }
+
+  /* -------------------------------------------*/
+
+  /**
+   * Prepare update data for an actor.
+   *
+   * @param {object} actor Actor document
+   * @returns
+   *   Update object compatible with actor.update()
+   */
+   prepareMigrateActorData(actor) {
+    // Initialize with an empty update.
+    let updateData = {};
+
+    // Append NPC migration for version 1.19.0.
+    if (this.versionBelow('1.19.0')) {
+      updateData = this.__migrateNpcInit(actor, updateData);
+    }
+
+    // Future updates will go here.
+
+    // Return the final update object.
+    return updateData;
+  }
+
+  /* -------------------------------------------*/
+
+  /**
+   * Update NPC initiative to use value instead of mod.
+   *
+   * @param {object} actor Actor document to update.
+   * @param {object} updateData Update data object to merge changes into.
+   * @returns
+   *   Update object.
+   */
+  __migrateNpcInit(actor, updateData={}) {
+    const actorData = actor.data.data;
+    return mergeObject(updateData, {
+      'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
+      'data.attributes.init.-=mod': null
+    });
+  }
+
+  /* -------------------------------------------*/
+
+  /**
+   * Main entrypoint to execute migrations.
+   */
+  async executeMigration() {
+    // Exit early if the version matches.
+    if (!this.versionBelow('1.19.0')) {
+      return;
+    }
+
+    // Set a message.
+    const version = game.system.data.version;
+    ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.start', {version}), {permanent: false});
+
+    if (this.versionBelow('1.19.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_19_0'), {permanent: true});
+    }
+
     // @todo: This will need to be expanded to support other actor types.
 
     // 1. Update world actors.
     const actors = this.queryActors(actor => actor.type == 'npc');
+    console.log('TOOLKIT13: UPDATING ACTORS');
     actors.forEach(async actor => {
       // @todo: Uncomment this to enable migration.
       // await actor.update(this.prepareMigrateActorData(actor));
     });
 
     // 2. Update unlinked tokens in scenes.
+    console.log('TOOLKIT13: UPDATING TOKENS');
     game.scenes.forEach(async scene => {
       const tokens = this.queryTokens(scene, token => token.actor.type == 'npc');
       const updates = [];
@@ -203,7 +294,13 @@ class ArchmageUpdateHandler {
     });
 
     // 3. Update world compendiums (Actors, Scenes).
-    this.queryCompendiums();
+    await this.queryCompendiums();
+
+    // 4. Update the migration version setting.
+    //@todo: Uncomment this to enable migration.
+    console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.data.version}`);
+    // game.settings.set('archmage', 'systemMigrationVersion', game.system.data.version);
+    ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.complete', {version}), {permanent: true});
   }
 
   /* -------------------------------------------*/
@@ -243,16 +340,18 @@ class ArchmageUpdateHandler {
 
   /* -------------------------------------------*/
 
-  queryCompendiums() {
+  async queryCompendiums() {
     for ( let pack of game.packs ) {
       if ( pack.metadata.package !== "world" ) continue;
       if ( !["Actor", "Item", "Scene"].includes(pack.documentName) ) continue;
 
       if (pack.documentName == 'Actor') {
-        this.queryCompendiumActors(pack, actor => actor.type == 'npc');
+        console.log('TOOLKIT13: UPDATING COMPENDIUM ACTORS');
+        await this.queryCompendiumActors(pack, actor => actor.type == 'npc');
       }
       else if (pack.documentName == 'Scene') {
-        this.queryCompendiumScenes(pack, token => token.data.type == 'npc');
+        console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
+        await this.queryCompendiumScenes(pack, token => token.actor.type == 'npc');
       }
     }
   }
@@ -308,6 +407,7 @@ class ArchmageUpdateHandler {
     scenes.forEach(async scene => {
       const tokens = this.queryTokens(scene, token => callbackFilter(token));
       const updates = [];
+      console.log(tokens);
       tokens.forEach(token => {
         updates.push(this.prepareMigrateTokenData(token));
       });
@@ -322,34 +422,17 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
-   * Prepare update data for an actor.
+   * Determine if the provided version is newer than the world's version.
    *
-   * @param {object} actor Actor document
+   * @param {string} version Version of the system to compare the world's
+   *   system version against.
    * @returns
-   *   Update object compatible with actor.update()
+   *   True if the version is greater than the world's current version, false
+   *   otherwise.
    */
-  prepareMigrateActorData(actor) {
-    const actorData = actor.data.data;
-    return updateData = {
-      'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
-      'data.attributes.init.-=mod': null
-    };
-  }
-
-  /* -------------------------------------------*/
-
-  /**
-   * Prepare update data for an unlinked token actor.
-   *
-   * @param {object} token Token document.
-   * @returns
-   *   Update object compatible with scene.updateEmbeddedDocuments('Token', updateData)
-   */
-  prepareMigrateTokenData(token) {
-    return {
-      '_id': token.data._id,
-      'actorData': this.prepareMigrateActorData(token.actor)
-    }
+  versionBelow(version) {
+    const worldVersion = game.settings.get('archmage', 'systemMigrationVersion') ?? '1.17.0';
+    return isNewerVersion(version, worldVersion);
   }
 }
 

@@ -488,6 +488,10 @@ ARCHMAGE:
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
     classChange: Class change detected, base stats adjusted.
+  MIGRATIONS:
+    start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
+    complete: "Toolkit13 System Migration to version {version} completed!"
+    '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
 # Tours
   TOURS:
     '170':
