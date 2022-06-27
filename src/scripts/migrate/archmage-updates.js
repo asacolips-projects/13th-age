@@ -178,29 +178,32 @@ class ArchmageUpdateHandler {
   }
 
   // @todo: finish refactoring this.
-  // async update1003() {
-  //   // Query for actor NPCs.
-  //   const actors = this.queryActors(a => a.type == 'npc');
-  //   console.log(actors);
+  async update1003() {
+    // Query for actor NPCs.
+    const actors = this.queryActors(a => a.type == 'npc');
+    console.log(actors);
 
-  //   // Iterate through scenes, querying unlinked NPC tokens for each.
-  //   game.scenes.forEach(async s => {
-  //     const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
-  //     console.log(tokens);
+    // Iterate through scenes, querying unlinked NPC tokens for each.
+    game.scenes.forEach(async s => {
+      const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
+      console.log(tokens);
 
-  //     const updates = [];
-  //     tokens.forEach(token => {
-  //       const update = token.toObject();
-  //       mergeObject(update.actorData, this.migrateActor(token.actor));
-  //       updates.push(update);
-  //     });
+      const updates = [];
+      tokens.forEach(token => {
+        const update = {
+          '_id': token.data._id,
+          'actorData': this.migrateActor(token.actor)
+        };
+        updates.push(update);
+      });
 
-  //     // await s.update(updates, {enforceTypes: false});
-  //     console.log(updates);
-  //   });
+      // @todo: Uncomment this to enable migration.
+      // await s.updateEmbeddedDocuments('Token', updates);
+      console.log(updates);
+    });
 
-  //   // this.queryCompendiums();
-  // }
+    this.queryCompendiums();
+  }
 
   /**
    * Query the world for actors.
@@ -288,7 +291,8 @@ class ArchmageUpdateHandler {
           actorData: this.migrateActor(token.actor)
         });
       });
-      // await s.update(updates);
+      // @todo Uncomment to enable migrations
+      // await s.updateEmbeddedDocuments('Token', updates);
       console.log(updates);
     });
 
