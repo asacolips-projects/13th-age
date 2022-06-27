@@ -181,6 +181,10 @@ class ArchmageUpdateHandler {
   async update1003() {
     // Query for actor NPCs.
     const actors = this.queryActors(a => a.type == 'npc');
+    actors.forEach(async actor => {
+      // @todo: Uncomment this to enable migration.
+      // await actor.update(this.migrateActor(actor));
+    });
     console.log(actors);
 
     // Iterate through scenes, querying unlinked NPC tokens for each.
@@ -213,7 +217,7 @@ class ArchmageUpdateHandler {
    * @returns
    *   Collection of actors.
    */
-  async queryActors(callbackFilter = null) {
+  queryActors(callbackFilter = null) {
     return callbackFilter ? game.actors.filter(a => callbackFilter(a)) : game.actors;
   }
 
@@ -262,6 +266,10 @@ class ArchmageUpdateHandler {
 
     // Retrieve actros.
     const actors = callbackFilter ? documents.filter(a => callbackFilter(a)) : documents;
+    actors.forEach(async actor => {
+      // @todo: Uncomment this to enable migration.
+      // actor.update(this.migrateActor(actor));
+    });
 
     console.log(actors);
 
@@ -291,7 +299,7 @@ class ArchmageUpdateHandler {
           actorData: this.migrateActor(token.actor)
         });
       });
-      // @todo Uncomment to enable migrations
+      // @todo: Uncomment this to enable migration.
       // await s.updateEmbeddedDocuments('Token', updates);
       console.log(updates);
     });
