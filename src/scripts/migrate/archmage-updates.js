@@ -177,37 +177,36 @@ class ArchmageUpdateHandler {
     // }
   }
 
+  /* -------------------------------------------*/
+
   // @todo: finish refactoring this.
-  async update1003() {
-    // Query for actor NPCs.
-    const actors = this.queryActors(a => a.type == 'npc');
+  async executeMigration(updates) {
+    // @todo: This will need to be expanded to support other actor types.
+
+    // 1. Update world actors.
+    const actors = this.queryActors(actor => actor.type == 'npc');
     actors.forEach(async actor => {
       // @todo: Uncomment this to enable migration.
-      // await actor.update(this.migrateActor(actor));
+      // await actor.update(this.prepareMigrateActorData(actor));
     });
-    console.log(actors);
 
-    // Iterate through scenes, querying unlinked NPC tokens for each.
-    game.scenes.forEach(async s => {
-      const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
-      console.log(tokens);
-
+    // 2. Update unlinked tokens in scenes.
+    game.scenes.forEach(async scene => {
+      const tokens = this.queryTokens(scene, token => token.actor.type == 'npc');
       const updates = [];
       tokens.forEach(token => {
-        const update = {
-          '_id': token.data._id,
-          'actorData': this.migrateActor(token.actor)
-        };
-        updates.push(update);
+        updates.push(this.prepareMigrateTokenData(token));
       });
 
       // @todo: Uncomment this to enable migration.
       // await s.updateEmbeddedDocuments('Token', updates);
-      console.log(updates);
     });
 
+    // 3. Update world compendiums (Actors, Scenes).
     this.queryCompendiums();
   }
+
+  /* -------------------------------------------*/
 
   /**
    * Query the world for actors.
@@ -218,8 +217,10 @@ class ArchmageUpdateHandler {
    *   Collection of actors.
    */
   queryActors(callbackFilter = null) {
-    return callbackFilter ? game.actors.filter(a => callbackFilter(a)) : game.actors;
+    return callbackFilter ? game.actors.filter(actor => callbackFilter(actor)) : game.actors;
   }
+
+  /* -------------------------------------------*/
 
   /**
    * Query a  scene for unlinked tokens.
@@ -231,95 +232,124 @@ class ArchmageUpdateHandler {
    *   Collection of tokens for the scene.
    */
   queryTokens(scene, callbackFilter = null) {
-    const tokens = scene.tokens.filter(t => {
-      if (t.data.actorLink && t.data.actorId && game.actors.has(t.data.actorId)) return false;
+    // Filter for tokens that are unlinked only.
+    const tokens = scene.tokens.filter(token => {
+      if (token.data.actorLink && token.data.actorId && game.actors.has(token.data.actorId)) return false;
       return true;
     })
 
-    return callbackFilter ? tokens.filter(t => callbackFilter(t)) : tokens;
+    return callbackFilter ? tokens.filter(token => callbackFilter(token)) : tokens;
   }
 
-  queryCompendiums() {
-    for ( let p of game.packs ) {
-      if ( p.metadata.package !== "world" ) continue;
-      if ( !["Actor", "Item", "Scene"].includes(p.documentName) ) continue;
+  /* -------------------------------------------*/
 
-      if (p.documentName == 'Actor') {
-        this.queryCompendiumActors(p, a => a.type == 'npc');
+  queryCompendiums() {
+    for ( let pack of game.packs ) {
+      if ( pack.metadata.package !== "world" ) continue;
+      if ( !["Actor", "Item", "Scene"].includes(pack.documentName) ) continue;
+
+      if (pack.documentName == 'Actor') {
+        this.queryCompendiumActors(pack, actor => actor.type == 'npc');
       }
-      else if (p.documentName == 'Scene') {
-        this.queryCompendiumScenes(p, t => t.data.type == 'npc');
+      else if (pack.documentName == 'Scene') {
+        this.queryCompendiumScenes(pack, token => token.data.type == 'npc');
       }
     }
   }
 
+  /* -------------------------------------------*/
+
+  /**
+   * Update actors in world compendiums.
+   *
+   * @param {object} pack Compendium pack to migrate
+   * @param {function} callbackFilter Optional callback filter to apply, using
+   *   the same format as an array filter such as scene.tokens.filter();
+   */
   async queryCompendiumActors(pack, callbackFilter = null) {
     // Unlock pack.
     const wasLocked = pack.locked;
     await pack.configure({locked: false});
 
-    console.log('World foobar');
-
     // Retrieve documents.
     // await pack.migrate();
     const documents = await pack.getDocuments();
 
     // Retrieve actros.
-    const actors = callbackFilter ? documents.filter(a => callbackFilter(a)) : documents;
+    const actors = callbackFilter ? documents.filter(actor => callbackFilter(actor)) : documents;
     actors.forEach(async actor => {
       // @todo: Uncomment this to enable migration.
-      // actor.update(this.migrateActor(actor));
+      // actor.update(this.prepareMigrateActorData(actor));
     });
-
-    console.log(actors);
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
   }
 
+  /* -------------------------------------------*/
+
+  /**
+   * Update scenes in world compendiums.
+   *
+   * @param {object} pack Compendium pack to migrate
+   * @param {function} callbackFilter Optional callback filter to apply, using
+   *   the same format as an array filter such as scene.tokens.filter();
+   */
   async queryCompendiumScenes(pack, callbackFilter = null) {
     // Unlock pack.
     const wasLocked = pack.locked;
     await pack.configure({locked: false});
 
-    console.log('Scene foobar');
-
     // Retrieve documents.
     // await pack.migrate();
-    const documents = await pack.getDocuments();
+    const scenes = await pack.getDocuments();
 
     // Retrieve actros.
-    documents.forEach(async s => {
-      const tokens = this.queryTokens(s, t => t.actor.type == 'npc');
-      console.log(tokens);
+    scenes.forEach(async scene => {
+      const tokens = this.queryTokens(scene, token => callbackFilter(token));
       const updates = [];
       tokens.forEach(token => {
-        updates.push({
-          '_id': token.data._id,
-          actorData: this.migrateActor(token.actor)
-        });
+        updates.push(this.prepareMigrateTokenData(token));
       });
       // @todo: Uncomment this to enable migration.
       // await s.updateEmbeddedDocuments('Token', updates);
-      console.log(updates);
     });
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
   }
 
-  migrateActor(actor) {
+  /* -------------------------------------------*/
+
+  /**
+   * Prepare update data for an actor.
+   *
+   * @param {object} actor Actor document
+   * @returns
+   *   Update object compatible with actor.update()
+   */
+  prepareMigrateActorData(actor) {
     const actorData = actor.data.data;
-    const updateData = {
+    return updateData = {
       'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
-      // 'data.attributes.init.-=mod': null
+      'data.attributes.init.-=mod': null
     };
-    return updateData;
   }
 
-  migrateToken(token) {
-    const update = this.migrateActor(token.actor);
-    console.log(update);
+  /* -------------------------------------------*/
+
+  /**
+   * Prepare update data for an unlinked token actor.
+   *
+   * @param {object} token Token document.
+   * @returns
+   *   Update object compatible with scene.updateEmbeddedDocuments('Token', updateData)
+   */
+  prepareMigrateTokenData(token) {
+    return {
+      '_id': token.data._id,
+      'actorData': this.prepareMigrateActorData(token.actor)
+    }
   }
 }
 
