@@ -343,10 +343,10 @@
       "system": "archmage"
     },
     {
-      "label": "Archmage Macros",
+      "label": "System Macros",
       "type": "Macro",
-      "name": "archmage-macros",
-      "path": "packs/archmage-macros.db",
+      "name": "system-macros",
+      "path": "packs/system-macros.db",
       "system": "archmage"
     }
   ],
