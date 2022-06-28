@@ -1,5 +1,5 @@
 <template>
-  <section class="section section--attributes flexrow">
+  <section :class="'section section--attributes flexrow' + (headerCollapsed ? ' collapsed' : '')">
     <div class="unit unit--attributes grid grid-4col border-both">
       <!-- Defenses -->
       <div class="unit unit--defenses">
@@ -83,7 +83,11 @@ export default {
     Progress,
     Input
   },
-  computed: {},
+  computed: {
+    headerCollapsed() {
+      return this.actor.flags?.archmage?.sheetDisplay?.header?.collapsed ?? false;
+    }
+  },
   methods: {},
   async mounted() {}
 }
@@ -96,6 +100,50 @@ export default {
 
     .unit--attributes {
       margin-bottom: 0;
+    }
+
+    &.collapsed {
+      padding-top: 0;
+
+      .unit--attributes {
+        padding: 6px 0;
+        margin-top: 0;
+
+        &::before {
+          top: -4px;
+          height: 3px;
+          background-size: cover;
+          background-position: 0;
+        }
+
+        &::after {
+          bottom: -3px;
+          height: 4px;
+          background-size: cover;
+          background-position: 0;
+        }
+
+        .unit-title {
+          height: auto;
+          margin-bottom: 0;
+        }
+
+        .grid {
+          margin: auto;
+        }
+
+        .flexrow {
+          margin: auto;
+        }
+
+        .progress-bar {
+          margin: 2px 0;
+        }
+
+        .rollable {
+          line-height: 1.4;
+        }
+      }
     }
   }
 }

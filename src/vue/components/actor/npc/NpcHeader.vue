@@ -17,15 +17,12 @@
         <div class="unit unit--hide-label unit--flavor">
           <label for="data.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
           <Editor :owner="actor.owner" target='data.details.flavor.value' button="true" editable="true" :content="actor.data.details.flavor.value"/>
-          <!-- <ToggleInput>
-            <template v-slot:display><em>{{actor.data.details.flavor.value}}</em></template>
-            <template v-slot:edit><Input type="text" name="data.details.flavor.value" :actor="actor"/></template>
-          </ToggleInput> -->
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">
           <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.value, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
           <ToggleInput>
+            <!-- Display version of creature details. -->
             <template v-slot:display>
               <ul>
                 <li class="details">{{CONFIG.ARCHMAGE.creatureSizes[actor.data.details.size.value]}}</li>
@@ -34,6 +31,7 @@
                 <li class="type">[{{CONFIG.ARCHMAGE.creatureTypes[actor.data.details.type.value].toUpperCase()}}]</li>
               </ul>
             </template>
+            <!-- Form inputs for creature details. -->
             <template v-slot:edit>
               <span class="unit unit--input">
                 <label for="data.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
