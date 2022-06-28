@@ -258,7 +258,8 @@ class ArchmageUpdateHandler {
    */
   async executeMigration() {
     // Exit early if the version matches.
-    if (!this.versionBelow('1.19.0')) {
+    // @todo Update this to 1.19.0 to enable migrations.
+    if (!this.versionBelow('1.17.0')) {
       return;
     }
 

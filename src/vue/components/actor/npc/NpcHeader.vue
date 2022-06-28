@@ -28,10 +28,10 @@
           <ToggleInput>
             <template v-slot:display>
               <ul>
-                <li class="details">{{actor.data.details.size.value}}</li>
+                <li class="details">{{CONFIG.ARCHMAGE.creatureSizes[actor.data.details.size.value]}}</li>
                 <li class="level">{{levelFormatted}}</li>
-                <li class="role">{{actor.data.details.role.value}}</li>
-                <li class="type">[{{actor.data.details.type.value}}]</li>
+                <li class="role">{{CONFIG.ARCHMAGE.creatureRoles[actor.data.details.role.value]}}</li>
+                <li class="type">[{{CONFIG.ARCHMAGE.creatureTypes[actor.data.details.type.value].toUpperCase()}}]</li>
               </ul>
             </template>
             <template v-slot:edit>
@@ -86,7 +86,9 @@
       return {
         localize,
         ordinalSuffix,
-        numberFormat
+        numberFormat,
+        CONFIG,
+        game
       }
     },
     data() {
