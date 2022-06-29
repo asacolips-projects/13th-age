@@ -625,6 +625,37 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
 
 /* ---------------------------------------------- */
 
+Hooks.on('dropCanvasData', (canvas, data) => {
+
+  // Only process conditions for now
+  if (data.type != 'condition') return;
+
+  // Get the token at the drop point, if any
+  const x = data.x;
+  const y = data.y;
+  const gridSize = canvas.scene.data.size;  //Or .grid?
+  // Get the set of targeted tokens
+  const targets = Array.from(canvas.scene.data.tokens.values()).filter(t => {
+    if ( !t.visible ) return false;
+    return (t.data.x <= x
+            && (t.data.x + t.data.width * gridSize) >= x
+            && t.data.y <= y
+            && (t.data.y + t.data.height * gridSize) >= y);
+  });
+  if (targets.length == 0) return;
+  // TODO: select "best" (smallest) token, or apply to all?
+  if (targets.length > 1) console.log("Dropping condition on stacked tokens, using only one");
+
+  let token = targets[0];
+  let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
+
+  // For conditions just toggle the effect
+  return token._object.toggleEffect(statusEffect);
+
+});
+
+/* ---------------------------------------------- */
+
 function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
