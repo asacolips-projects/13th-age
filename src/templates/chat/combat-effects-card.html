@@ -1,0 +1,48 @@
+<div class="archmage chat-card">
+  <header class="card-header">
+    <h2>{{title}}</h2>
+  </header>
+  <div class="card-content">
+      {{#if showActive}}
+      <h3>Currently Active</h3>
+      {{#each combatantEffects as |effect e|}}
+      <div class="card-row">
+          <div class="card-prop">
+              <span><b>{{effect.data.label}}</b></span>
+          </div>
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if hasExpiredEffects}}
+      <h3>Expired</h3>
+      {{#each expiredEffects as |effect e|}}
+      <div class="card-row">
+          <div class="card-prop">
+              <span>{{effect.actorLink}} - <b>{{effect.data.label}}</b> - {{effect.reason}}</span>
+              <button data-action="expired" class="expired">
+                  <i class="fas fa-eraser"></i> Remove
+              </button>
+          </div>
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if hasSaveEnds}}
+      <h3>Save Ends</h3>
+      {{#each saveEndEffects as |effect e|}}
+      <div class="card-row">
+          <div class="card-prop">
+              <span><b>{{effect.data.label}}</b></span>
+              {{#if hasDamage}}
+              <p>{{effect.damageString}}</p>
+              {{/if}}
+              <button data-action="save" class="save-ends">
+                  <i class="fas fa-fire"></i> Save Ends ({{ effect.save }}+)
+              </button>
+          </div>
+      </div>
+      {{/each}}
+      {{/if}}
+  </div>
+</div>

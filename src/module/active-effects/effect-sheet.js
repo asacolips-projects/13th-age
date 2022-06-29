@@ -9,7 +9,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       height: 550,
       tabs: [{navSelector: ".tabs", contentSelector: "form", initial: "effects"}],
       submitOnClose: true,
-      submitOnChange: true
+      submitOnChange: false
     });
   }
 
@@ -55,6 +55,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       effect.hasSaveEnds = true;
       effect.data.duration.save = effect.data.flags.archmage?.save ?? 11;
     }
+    effect.data.ongoingDamageType = effect.data.flags.archmage?.ongoingDamageType ?? "poison";
 
     return effect;
   }
@@ -144,7 +145,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     ae.flags.archmage = {
       lastsUntil: formData.data.duration.lastsUntil,
-      save: formData.data.duration.save
+      save: formData.data.duration.save,
+      ongoingDamageType: formData.data.ongoingDamageType,
     };
 
     return this.object.update(ae);

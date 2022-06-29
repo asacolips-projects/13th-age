@@ -15,6 +15,8 @@ import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
+import dropActorSheetDataHandler from "./hooks/dropActorSheetDataHandler.mjs";
+import updateCombatHandler from "./hooks/updateCombatHandler.mjs";
 
 
 Hooks.once('init', async function() {
@@ -597,51 +599,7 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 /* -------------------------------------------- */
 
-Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-
-  const actorId = data.actorId;
-  const sourceActor = game.actors.get(actorId);
-
-  function _enhanceData(effect) {
-    if ( !game.combat ) return;
-
-    effect.duration = {
-      combat: game.combat.id,
-      startRound: game.combat.round,
-      startTurn: game.combat.turns.indexOf(c => c.actorId === actorId)
-    }
-
-    effect.flags = {
-      archmage: {
-        lastsUntil: data.lastsUntil ?? CONFIG.ARCHMAGE.effectDurationChoices.unset,
-        save: data.save ?? 11
-      }
-    }
-
-    effect.origin = actorId;
-
-    if ( effect.duration.startTurn === -1 ) effect.duration.startTurn = game.combat.turn;
-  }
-
-  if ( data.type === "condition" ) {
-    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
-    _enhanceData(statusEffect);
-
-    // If we have a Token, just toggle the effect
-    const token = canvas.scene.tokens.find(t => t.data.actorId === actor.id);
-    if ( token ) return token._object.toggleEffect(statusEffect);
-
-    // Otherwise, create the AE
-    statusEffect.label = game.i18n.localize(statusEffect.label);
-    return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
-  }
-  else if ( data.type === "effect" ) {
-    const effect = sourceActor.effects.get(data.id);
-    let effectData = foundry.utils.duplicate(effect);
-    _enhanceData(effectData);
-    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
-  }
-});
+Hooks.on('dropActorSheetData', dropActorSheetDataHandler.handle);
 
 /* ---------------------------------------------- */
 
@@ -761,24 +719,10 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
 /* ---------------------------------------------- */
 
-// Update the escalation die tracker. Character values for the escalation die
-// are updated in their prepareData() and getRollData() functions.
-Hooks.on('updateCombat', (async (combat, update) => {
-  // Handle non-gm users.
-  if (combat.current === undefined) {
-    combat = game.combat;
-  }
 
-  if (combat.current.round !== combat.previous.round) {
-    let escalation = ArchmageUtility.getEscalation(combat);
+Hooks.on('updateCombat', updateCombatHandler.handle);
 
-    // Update the escalation die tracker.
-    let $escalationDiv = $('.archmage-escalation');
-    $escalationDiv.attr('data-value', escalation);
-    $escalationDiv.removeClass('hide');
-    $escalationDiv.find('.ed-number').text(escalation);
-  }
-}));
+Hooks.on('preUpdateCombat', updateCombatHandler.handlePre);
 
 /* ---------------------------------------------- */
 
