@@ -72,9 +72,9 @@ export default {
   },
   setup() {
     const attackReplacer = {
-      '2d20kh': 'ADV',
-      '2d20kl': 'DIS',
-      'd20': ''
+      'd20': '',
+      '2kh': '2d20kh',
+      '2kl': '2d20kl',
     };
     return {
       concat,

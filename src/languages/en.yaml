@@ -164,6 +164,10 @@ ARCHMAGE:
     tourVisibilityOff: Tours are disabled
     UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
     UnboundEscDieName: Unlimited Escalation Die
+  AUTOLEVEL:
+    confirm: Confirm (create duplicate)
+    help: Use this form to create a copy of this actor with its stats adjusted to the new level.
+    newLevel: New Level
   # Characters
   CHARACTER:
     RESOURCES:

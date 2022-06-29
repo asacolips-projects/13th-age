@@ -1,25 +1,32 @@
 <template>
-  <div class="unit unit--modify-level flexrow">
-    <!-- @todo localize this -->
-    <label><strong>{{localize('New Level')}}: </strong></label>
-    <input type="number" v-model="newLevel" />
-  </div>
-  <section class="section section--level-preview">
-    <div>
-      <strong>HP: </strong><span>{{preview.data.attributes.hp.max}}</span>
+  <section class="section section--level-edit flexrow">
+    <div class="unit unit--modify-level">
+      <!-- @todo localize this -->
+      <label><strong>{{localize('ARCHMAGE.AUTOLEVEL.newLevel')}}: </strong></label>
+      <input type="number" v-model="newLevel" />
     </div>
-    <div>
-      <strong>AC: </strong><span>{{preview.data.attributes.ac.value}}</span>
-    </div>
-    <div>
-      <strong>PD: </strong><span>{{preview.data.attributes.pd.value}}</span>
-    </div>
-    <div>
-      <strong>MD: </strong><span>{{preview.data.attributes.md.value}}</span>
+    <div class="unit unit--confirm">
+      <button class="button button--confirm" @click="autoLevelConfirm">{{localize('ARCHMAGE.AUTOLEVEL.confirm')}}</button>
     </div>
   </section>
-  <section class="section section--confirm">
-    <button class="button button--confirm" @click="autoLevelConfirm">{{localize('Confirm (Create Duplicate)')}}</button>
+  <section class="section section--level-preview grid grid-3col">
+    <div class="preview-rows flexcol">
+      <div>
+        <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.data.attributes.hp.value}} / {{preview.data.attributes.hp.max}}</span>
+      </div>
+      <div>
+        <strong>{{localize('ARCHMAGE.ac.key')}}: </strong><span>{{preview.data.attributes.ac.value}}</span>
+      </div>
+      <div>
+        <strong>{{localize('ARCHMAGE.pd.key')}}: </strong><span>{{preview.data.attributes.pd.value}}</span>
+      </div>
+      <div>
+        <strong>{{localize('ARCHMAGE.md.key')}}: </strong><span>{{preview.data.attributes.md.value}}</span>
+      </div>
+    </div>
+    <div class="help-text">
+      <p>{{localize('ARCHMAGE.AUTOLEVEL.help')}}</p>
+    </div>
   </section>
 </template>
 
@@ -100,4 +107,44 @@
 </script>
 
 <style lang="scss">
+.archmage-v2.npc-sheet {
+  .section--level-edit {
+    margin: $padding-lg;
+    align-items: center;
+  }
+
+  .unit--modify-level {
+    margin-right: $padding-md;
+    flex: 0 auto;
+
+    label,
+    input {
+      display: inline-block;
+      width: auto;
+    }
+
+    input {
+      border-bottom: 2px solid;
+      width: 44px;
+    }
+  }
+
+  .section--level-preview {
+    padding: $padding-md;
+    margin: $padding-md 0;
+    border: 1px solid $c-gray--25;
+    border-radius: 8px;
+
+    .help-text {
+      grid-column: span 2;
+    }
+  }
+
+  .button {
+    font-family: $font-stack-secondary;
+    font-size: 18px;
+    line-height: 2;
+  }
+}
+
 </style>
