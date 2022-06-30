@@ -20,7 +20,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
     mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'npc-sheet']).filter(c => c !== 'archmage'),
       width: 640,
-      height: 1024,
+      height: 800,
     });
     return options;
   }

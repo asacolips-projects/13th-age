@@ -84,6 +84,7 @@ ARCHMAGE:
   modifyLevel: Modify Level
   move: Move Action
   name: Name
+  nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
   negative: Negative
   once-per-battle: Per Battle
@@ -120,6 +121,7 @@ ARCHMAGE:
   talents: Talents
   tempHp: Temp HP
   tool: Tool
+  trait: Trait
   traits: Traits
   type: Type
   uses: Uses
