@@ -25,10 +25,10 @@
             <!-- Display version of creature details. -->
             <template v-slot:display>
               <ul>
-                <li class="details">{{CONFIG.ARCHMAGE.creatureSizes[actor.data.details.size.value]}}</li>
+                <li v-if="sizeFormatted" class="details">{{sizeFormatted}}</li>
                 <li class="level">{{levelFormatted}}</li>
-                <li class="role">{{CONFIG.ARCHMAGE.creatureRoles[actor.data.details.role.value]}}</li>
-                <li class="type">[{{CONFIG.ARCHMAGE.creatureTypes[actor.data.details.type.value].toUpperCase()}}]</li>
+                <li v-if="roleFormatted" class="role">{{roleFormatted}}</li>
+                <li v-if="typeFormatted" class="type">[{{typeFormatted}}]</li>
               </ul>
             </template>
             <!-- Form inputs for creature details. -->
@@ -99,8 +99,18 @@
     },
     computed: {
       levelFormatted() {
-        return `${ordinalSuffix(this.actor.data.attributes.level.value)} level`;
-      }
+        return `${ordinalSuffix(this.actor.data.attributes.level.value ?? 0)} level`;
+      },
+      sizeFormatted() {
+        return CONFIG.ARCHMAGE.creatureSizes[this.actor.data.details?.size?.value] ?? this.actor.data.details?.size?.value;
+      },
+      roleFormatted() {
+        return CONFIG.ARCHMAGE.creatureRoles[this.actor.data.details?.role?.value] ?? this.actor.data.details?.role?.value;
+      },
+      typeFormatted() {
+        let type = CONFIG.ARCHMAGE.creatureTypes[this.actor.data.details?.type?.value] ?? this.actor.data.details?.type?.value;
+        return typeof type == 'string' ? type.toUpperCase() : '';
+      },
     },
     methods: {
       getAvatarDimensions() {

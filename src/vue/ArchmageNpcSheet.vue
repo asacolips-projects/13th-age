@@ -156,7 +156,7 @@ export default {
             'collapsed': false
           },
           'tabs': {
-            'primary': {'value': 'powers'}
+            'primary': {'value': 'actions'}
           },
         }
       }

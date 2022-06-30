@@ -2,8 +2,8 @@
   <section class="section section--level-edit flexrow">
     <div class="unit unit--modify-level">
       <!-- @todo localize this -->
-      <label><strong>{{localize('ARCHMAGE.AUTOLEVEL.newLevel')}}: </strong></label>
-      <input type="number" v-model="newLevel" />
+      <label><strong>{{localize('ARCHMAGE.AUTOLEVEL.newLevel')}}: {{newLevel}}</strong></label>
+      <input type="range" step="1" :min="levelRestraints.min" :max="levelRestraints.max" v-model="newLevel" />
     </div>
     <div class="unit unit--confirm">
       <button class="button button--confirm" @click="autoLevelConfirm">{{localize('ARCHMAGE.AUTOLEVEL.confirm')}}</button>
@@ -89,6 +89,12 @@
 
         return previewActor;
       },
+      levelRestraints() {
+        return {
+          min: Math.max(1, this.actor.data.attributes.level.value - 6),
+          max: Math.min(15, this.actor.data.attributes.level.value + 6)
+        }
+      }
     },
     methods: {
       autoLevelConfirm(event) {
@@ -114,8 +120,10 @@
   }
 
   .unit--modify-level {
+    display: flex;
+    align-items: center;
     margin-right: $padding-md;
-    flex: 0 auto;
+    flex: 1;
 
     label,
     input {
@@ -123,9 +131,19 @@
       width: auto;
     }
 
+    label {
+      margin-right: $padding-md;
+      flex: 0 auto;
+      width: 100px;
+    }
+
     input {
-      border-bottom: 2px solid;
-      width: 44px;
+      width: auto;
+
+      &:hover,
+      &:focus {
+        border: none;
+      }
     }
   }
 
