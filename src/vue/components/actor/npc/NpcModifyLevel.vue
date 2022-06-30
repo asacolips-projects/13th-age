@@ -10,20 +10,20 @@
     </div>
   </section>
   <section class="section section--level-preview grid grid-3col">
-    <div class="preview-rows flexcol">
-      <div>
+    <ul class="preview-rows flexcol">
+      <li>
         <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.data.attributes.hp.value}} / {{preview.data.attributes.hp.max}}</span>
-      </div>
-      <div>
+      </li>
+      <li>
         <strong>{{localize('ARCHMAGE.ac.key')}}: </strong><span>{{preview.data.attributes.ac.value}}</span>
-      </div>
-      <div>
+      </li>
+      <li>
         <strong>{{localize('ARCHMAGE.pd.key')}}: </strong><span>{{preview.data.attributes.pd.value}}</span>
-      </div>
-      <div>
+      </li>
+      <li>
         <strong>{{localize('ARCHMAGE.md.key')}}: </strong><span>{{preview.data.attributes.md.value}}</span>
-      </div>
-    </div>
+      </li>
+    </ul>
     <div class="help-text">
       <p>{{localize('ARCHMAGE.AUTOLEVEL.help')}}</p>
     </div>
@@ -155,6 +155,15 @@
 
     .help-text {
       grid-column: span 2;
+    }
+  }
+
+  .preview-rows {
+    list-style-type: none;
+    padding: 0;
+
+    li + li {
+      border-top: 1px solid $c-gray--25;
     }
   }
 

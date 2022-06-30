@@ -168,7 +168,7 @@ ARCHMAGE:
     UnboundEscDieName: Unlimited Escalation Die
   AUTOLEVEL:
     confirm: Confirm (create duplicate)
-    help: Use this form to create a copy of this actor with its stats adjusted to the new level.
+    help: Use this form to create a copy of this actor with its stats (including attacks) adjusted to the new level.
     newLevel: New Level
   # Characters
   CHARACTER:
