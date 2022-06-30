@@ -109,15 +109,15 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Caster'
+      value: 'caster'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Normal'
+      value: 'normal'
     type:
       type: 'String'
       label: 'Type'
-      value: 'Undead'
+      value: 'undead'
     resistance:
       type: 'String'
       label: 'Resistance'

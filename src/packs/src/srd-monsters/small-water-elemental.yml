@@ -109,11 +109,11 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Blocker'
+      value: 'blocker'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Normal'
+      value: 'normal'
     type:
       type: 'String'
       label: 'Type'

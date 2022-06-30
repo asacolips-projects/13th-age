@@ -109,7 +109,7 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Wrecker'
+      value: 'wrecker'
     size:
       type: 'String'
       label: 'Size'
@@ -117,7 +117,7 @@ data:
     type:
       type: 'String'
       label: 'Type'
-      value: 'Plant'
+      value: 'plant'
     resistance:
       type: 'String'
       label: 'Resistance'

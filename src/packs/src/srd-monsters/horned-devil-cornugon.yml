@@ -109,15 +109,15 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Troop'
+      value: 'troop'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Large'
+      value: 'large'
     type:
       type: 'String'
       label: 'Type'
-      value: 'Devil'
+      value: 'devil'
     resistance:
       type: 'String'
       label: 'Resistance'

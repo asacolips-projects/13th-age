@@ -109,15 +109,15 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Caster'
+      value: 'caster'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Large'
+      value: 'large'
     type:
       type: 'String'
       label: 'Type'
-      value: 'Dragon'
+      value: 'dragon'
     resistance:
       type: 'String'
       label: 'Resistance'

@@ -109,15 +109,15 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Wrecker'
+      value: 'wrecker'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Huge'
+      value: 'huge'
     type:
       type: 'String'
       label: 'Type'
-      value: 'Ooze'
+      value: 'ooze'
     resistance:
       type: 'String'
       label: 'Resistance'

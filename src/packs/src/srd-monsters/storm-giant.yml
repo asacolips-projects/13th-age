@@ -109,15 +109,15 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Archer'
+      value: 'archer'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Huge'
+      value: 'huge'
     type:
       type: 'String'
       label: 'Type'
-      value: 'Giant'
+      value: 'giant'
     resistance:
       type: 'String'
       label: 'Resistance'

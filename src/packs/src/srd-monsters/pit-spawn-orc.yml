@@ -109,7 +109,7 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Mook'
+      value: 'mook'
     size:
       type: 'String'
       label: 'Size'
@@ -117,7 +117,7 @@ data:
     type:
       type: 'String'
       label: 'Type'
-      value: 'Humanoid'
+      value: 'humanoid'
     resistance:
       type: 'String'
       label: 'Resistance'

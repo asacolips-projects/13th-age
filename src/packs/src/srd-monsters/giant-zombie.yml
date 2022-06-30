@@ -109,15 +109,15 @@ data:
     role:
       type: 'String'
       label: 'Role'
-      value: 'Mook'
+      value: 'mook'
     size:
       type: 'String'
       label: 'Size'
-      value: 'Large'
+      value: 'large'
     type:
       type: 'String'
       label: 'Type'
-      value: 'Undead'
+      value: 'undead'
     resistance:
       type: 'String'
       label: 'Resistance'
