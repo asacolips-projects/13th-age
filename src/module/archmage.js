@@ -643,10 +643,21 @@ Hooks.on('dropCanvasData', (canvas, data) => {
             && (t.data.y + t.data.height * gridSize) >= y);
   });
   if (targets.length == 0) return;
-  // TODO: select "best" (smallest) token, or apply to all?
-  if (targets.length > 1) console.log("Dropping condition on stacked tokens, using only one");
 
   let token = targets[0];
+  if (targets.length > 1) {
+    // Select closest to center
+    token =  targets.reduce((a, b) => {
+      const cntr_x_a = a.data.x + a.data.width * gridSize / 2;
+      const cntr_y_a = a.data.y + a.data.height * gridSize / 2;
+      const dist_a = Math.sqrt(Math.pow(x - cntr_x_a, 2) + Math.pow(y - cntr_y_a, 2));
+      const cntr_x_b = b.data.x + b.data.width * gridSize / 2;
+      const cntr_y_b = b.data.y + b.data.height * gridSize / 2;
+      const dist_b = Math.sqrt(Math.pow(x - cntr_x_b, 2) + Math.pow(y - cntr_y_b, 2));
+      return ( dist_a < dist_b ? a : b );
+    });
+  }
+
   let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
 
   // For conditions just toggle the effect
