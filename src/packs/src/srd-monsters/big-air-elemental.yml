@@ -117,7 +117,7 @@ data:
     type:
       type: 'String'
       label: 'Type'
-      value: 'Elemental'
+      value: 'elemental'
     resistance:
       type: 'String'
       label: 'Resistance'
