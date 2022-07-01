@@ -15,6 +15,9 @@ export default class ArchmageRolls {
       if (targetLine != null) {
         // First cleanup references to target HPs
         let lineToParse = targetLine.replace(/[0-9]+ hp/g, '');
+        // Then remove negative numbers
+        lineToParse = targetLine.replace(/-[0-9]+/g, '');
+
         lineToParse = lineToParse.toLowerCase().replace(/\[\[.+?\]\] hp/g, '');
         rolls = ArchmageRolls._getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {

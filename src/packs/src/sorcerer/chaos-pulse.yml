@@ -56,7 +56,7 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[3d10+@cha.dmg+@atk.a.bonus]] random energy damage.'
+    value: '[[3d10+@cha.dmg+@atk.a.bonus]] @Compendium[archmage.system-macros.wpAqDyhVStW9Q594]{random energy} damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
