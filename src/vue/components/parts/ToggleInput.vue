@@ -7,38 +7,76 @@
     </ToggleInput>
    -->
   <div class="edit-wrapper">
-    <div v-if="active" class="input-edit">
+    <div :class="'input-edit' + (active ? ' active' : '')" @click="toggleEdit" :ref="'toggle-input'">
       <slot name="edit"></slot>
     </div>
-    <div class="input-display">
+    <div class="input-display" @click="toggleEdit">
       <slot name="display"></slot>
     </div>
-    <span :class="'icon-edit-toggle fas ' + (active ? 'fa-check' : 'fa-edit')" v-on:click="toggleEdit"></span>
+    <a :class="'icon-edit-toggle fas ' + (active ? 'fa-check' : 'fa-edit')" @click="toggleExternal" @focus="toggleEdit" tabindex="0"></a>
   </div>
 </template>
 
 <script>
 import Input from '@/components/parts/Input.vue';
 export default {
-    name: 'ToggleInput',
-    props: [],
-    components: { Input },
-    data() {
-      return {
-        active: false
+  name: 'ToggleInput',
+  props: ['closeInputs'],
+  components: { Input },
+  data() {
+    return {
+      active: false
+    }
+  },
+  computed: {},
+  methods: {
+    toggleEdit(event) {
+      // Determine if this is an input or not.
+      const isInput = ['INPUT','SELECT'].includes(event.target.tagName);
+
+      // Toggle the state if this isn't an input, otherwise persist it.
+      this.active = !isInput ? !this.active : this.active;
+
+      // If we're active, select the first input.
+      if (this.active && !isInput) {
+        const $parent = $(event.target).parents('.edit-wrapper');
+        const $el = $parent.find('input,select').first()
+        if ($el.length > 0) {
+          setTimeout(() => {
+            $el.focus().trigger('select');
+          }, 100);
+        }
       }
     },
-    methods: {
-      // @todo also add a tab/enter event to toggle this.
-      toggleEdit(event) {
-        this.active = !this.active;
+    // Method used to toggle the state when triggered by an external update.
+    watchForToggle() {
+      if (this.active && this.closeInputs) {
+        this.active = false;
       }
     }
+  },
+  watch: {
+    'closeInputs': {
+      handler() {
+        this.watchForToggle();
+      }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
 .archmage-vue {
+  .icon-edit-toggle {
+    position: absolute;
+    top: 0;
+    right: auto;
+    left: -9999px;
+    z-index: $z-overlay;
+    display: block;
+    padding: 6px;
+  }
+
   .edit-wrapper {
     position: relative;
 
@@ -46,7 +84,17 @@ export default {
     &:focus {
       .icon-edit-toggle {
         color: $c-blue;
-        display: block;
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .icon-edit-toggle {
+      &:hover,
+      &:focus {
+        color: $c-blue;
+        left: auto;
+        right: 0;
       }
     }
   }
@@ -63,23 +111,15 @@ export default {
     top: 0;
     left: 0;
     z-index: $z-higher;
+    display: none;
+
+    &.active {
+      display: block;
+    }
 
     input,
     select {
       margin: 0 $padding-sm $padding-sm 0;
-    }
-  }
-
-  .icon-edit-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: $z-overlay;
-    display: none;
-    padding: 6px;
-
-    .edit-wrapper:hover & {
-      display: block;
     }
   }
 }

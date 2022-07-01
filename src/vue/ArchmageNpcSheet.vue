@@ -1,10 +1,10 @@
 <template>
-  <div :class="concat('archmage-v2-vue flexcol ', nightmode)">
+  <div :class="concat('archmage-v2-vue flexcol ', nightmode)" @click="toggleEditWrappers">
 
     <!-- Top group -->
     <section class="container container--top flexcol">
       <!-- Header -->
-      <NpcHeader :actor="actor" :flags="flags"/>
+      <NpcHeader :actor="actor" :flags="flags" :closeInputs="closeInputs"/>
       <!-- Attributes section -->
       <NpcAttributes :actor="actor"/>
       <!-- Tabs -->
@@ -104,6 +104,7 @@ export default {
   },
   data() {
     return {
+      closeInputs: false,
       actorData: {},
       tabs: {
         primary: {
@@ -138,7 +139,28 @@ export default {
       }
     }
   },
-  methods: {},
+  methods: {
+    toggleEditWrappers(event) {
+      const $el = $(event.target);
+      // Exit early for edit wrappers.
+      if ($el.hasClass('edit-wrapper')) {
+        return;
+      }
+      else {
+        // Exit early if there's an edit wrapper parent.
+        if ($el.parents('.edit-wrapper').length > 0) {
+          return;
+        }
+        // Otherwise, we clicked outside of a toggle input. Close it in that scenario.
+        else {
+          this.closeInputs = true;
+          setTimeout(() => {
+            this.closeInputs = false;
+          }, 100);
+        }
+      }
+    }
+  },
   computed: {
     nightmode() {
       let flags = this.actor.flags ? this.actor.flags.archmage : null;

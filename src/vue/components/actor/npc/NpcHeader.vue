@@ -5,7 +5,7 @@
       <!-- Name -->
       <div class="unit unit--hide-label unit--name">
         <label for="name">{{localize("ARCHMAGE.name")}}</label>
-        <ToggleInput>
+        <ToggleInput :closeInputs="closeInputs">
           <template v-slot:display><h1 class="actor-name">{{actor.name}}</h1></template>
           <template v-slot:edit><Input type="text" name="name" class="input-secondary" :actor="actor" reactive="false"/></template>
         </ToggleInput>
@@ -21,7 +21,7 @@
         <!-- Creature details -->
         <div class="unit unit--roles">
           <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.value, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
-          <ToggleInput>
+          <ToggleInput :closeInputs="closeInputs">
             <!-- Display version of creature details. -->
             <template v-slot:display>
               <ul>
@@ -78,7 +78,7 @@
   import Editor from '@/components/parts/Editor.vue';
   export default {
     name: 'NpcHeader',
-    props: ['actor', 'flags'],
+    props: ['actor', 'flags', 'closeInputs'],
     components: { ToggleInput, Input, Select, Editor },
     setup() {
       return {
