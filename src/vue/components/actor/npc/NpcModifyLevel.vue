@@ -91,7 +91,7 @@
       },
       levelRestraints() {
         return {
-          min: Math.max(1, this.actor.data.attributes.level.value - 6),
+          min: Math.max(0, this.actor.data.attributes.level.value - 6),
           max: Math.min(15, this.actor.data.attributes.level.value + 6)
         }
       }
