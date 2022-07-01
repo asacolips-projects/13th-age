@@ -45,7 +45,7 @@ export default {
 <style lang="scss">
 .archmage-vue {
   .action {
-    padding-left: 22px;
+    padding-left: 25px;
   }
 
   .action-detail {

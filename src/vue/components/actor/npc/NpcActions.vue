@@ -29,7 +29,9 @@
         <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable action header. -->
           <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
-            <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '')" data-roll-type="item" :data-roll-opt="action._id"></a>
+            <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
+              <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
+            </a>
             <a class="hanging-indent action-name" @click="toggleAction" :data-item-id="action._id">
               <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.data?.attack?.value" class="action-roll" v-html="wrapRolls(action.data.attack.value, attackReplacer)"></span><span v-if="action.data?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.data.hit.value)"></span>
             </a>
@@ -227,6 +229,9 @@ export default {
       return {
         maxHeight: height
       };
+    },
+    imageNotEmpty(action) {
+      return action?.img && action.img !== 'icons/svg/mystery-man.svg' && action.img !== CONFIG.ARCHMAGE.defaultTokens[action.type];
     }
   },
   watch: {
@@ -285,7 +290,44 @@ export default {
     }
 
     .rollable {
-      width: 22px;
+      width: 25px;
+      height: 25px;
+      margin-right: 4px;
+      margin-left: -25px;
+      position: relative;
+      transition: all ease-in-out 0.25s;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &.has-image {
+        &::before {
+          color: $c-white !important;
+          text-shadow: 0 0 10px $c-white;
+          box-shadow: inset 0 0 0 10px $c-gray--75;
+          opacity: 0;
+          transition: all ease-in-out 0.25s;
+        }
+
+        &:hover,
+        &:focus {
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
     }
 
     .fa-chevron {
