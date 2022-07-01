@@ -54,7 +54,7 @@ export default class preCreateChatMessageHandler {
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
 
         // Handle conditions in feats as well
-        let $featRows = $content.find('.description');
+        let $featRows = $content.find('.tag--feat .description');
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $featRows);
 
         let sequence = undefined;
