@@ -1702,7 +1702,7 @@ export class ActorArchmage extends Actor {
         let parsed = atkFilter.exec(item.data.data.attack.value);
         if (!parsed) continue;
         let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
-        if (!parsed[2].match(/^\]\]/)) newAtk += "]]";
+        if (!parsed[2].includes("]]")) newAtk += "]]";
         itemOverrideData['data.attack.value'] = newAtk + parsed[2];
       }
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
