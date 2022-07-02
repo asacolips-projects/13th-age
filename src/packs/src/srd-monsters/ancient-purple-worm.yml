@@ -113,16 +113,6 @@ data:
       value: ''
       type: 'String'
       label: 'Vulnerability'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    out:
-      label: 'One Unique Thing'
-      type: 'String'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
