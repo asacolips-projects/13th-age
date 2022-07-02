@@ -173,7 +173,7 @@ class ArchmageUpdateHandler {
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this to 1.19.0 to enable migrations.
-    if (!this.versionBelow('1.17.0')) {
+    if (!this.versionBelow('1.19.0')) {
       return;
     }
 
@@ -200,7 +200,7 @@ class ArchmageUpdateHandler {
       // Attempt actor updates.
       try {
         // @todo: Uncomment this to enable migration.
-        // await actor.update(this.prepareMigrateActorData(actor));
+        await actor.update(this.prepareMigrateActorData(actor));
       } catch (error) {
         error.message = `Failed Toolkit13 system migration for world actor ${actor.name}: ${error.message}`;
         console.error(error);
@@ -211,7 +211,7 @@ class ArchmageUpdateHandler {
     console.log('TOOLKIT13: UPDATING TOKENS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateTokens'));
     game.scenes.forEach(async scene => {
-      const tokens = this.queryTokens(scene, token => token.actor.type == 'npc');
+      const tokens = this.queryTokens(scene, token => token?.actor?.type == 'npc'); //ERROR actor is null
       const updates = [];
       tokens.forEach(token => {
         updates.push(this.prepareMigrateTokenData(token));
@@ -220,9 +220,9 @@ class ArchmageUpdateHandler {
       // Attempt scene updates.
       try {
         // @todo: Uncomment this to enable migration.
-        // await s.updateEmbeddedDocuments('Token', updates);
+        await scene.updateEmbeddedDocuments('Token', updates);
       } catch (error) {
-        error.message = `Failed Toolkit13 system migration for world scene ${s.name}: ${error.message}`;
+        error.message = `Failed Toolkit13 system migration for world scene ${scene.name}: ${error.message}`; //ERROR s is not defined
         console.error(error);
       }
     });
@@ -233,7 +233,7 @@ class ArchmageUpdateHandler {
     // 4. Update the migration version setting.
     //@todo: Uncomment this to enable migration.
     console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.data.version}`);
-    // game.settings.set('archmage', 'systemMigrationVersion', game.system.data.version);
+    game.settings.set('archmage', 'systemMigrationVersion', game.system.data.version);
     ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.complete', {version}), {permanent: true});
   }
 
@@ -269,7 +269,7 @@ class ArchmageUpdateHandler {
       return true;
     })
 
-    return callbackFilter ? tokens.filter(token => callbackFilter(token)) : tokens;
+    return callbackFilter && tokens.length > 0 ? tokens.filter(token => callbackFilter(token)) : tokens;
   }
 
   /* -------------------------------------------*/
@@ -323,7 +323,7 @@ class ArchmageUpdateHandler {
         SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: progress});
         try {
           // @todo: Uncomment this to enable migration.
-          // await actor.update(this.prepareMigrateActorData(actor));
+          await actor.update(this.prepareMigrateActorData(actor));
         } catch (error) {
           error.message = `Failed Toolkit13 system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
@@ -377,9 +377,9 @@ class ArchmageUpdateHandler {
 
         try {
           // @todo: Uncomment this to enable migration.
-          // await s.updateEmbeddedDocuments('Token', updates);
+          await scene.updateEmbeddedDocuments('Token', updates);
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for scene ${s.name} in compendium ${packLabel}: ${error.message}`;
+          error.message = `Failed Toolkit13 system migration for scene ${scene.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
         }
       });
