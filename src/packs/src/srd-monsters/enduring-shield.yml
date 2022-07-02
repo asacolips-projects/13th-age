@@ -251,7 +251,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The enduring shield takes a –5 penalty to saving throws.'
+        value: 'The enduring shield takes a -5 penalty to saving throws.'
       group:
         type: 'String'
         label: 'Group'

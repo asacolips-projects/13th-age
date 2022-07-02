@@ -297,7 +297,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Whenever a creature attacks the imp and rolls a natural 1–5, that creature takes [[1d10]] psychic damage.'
+        value: 'Whenever a creature attacks the imp and rolls a natural 1-5, that creature takes [[1d10]] psychic damage.'
       group:
         type: 'String'
         label: 'Group'

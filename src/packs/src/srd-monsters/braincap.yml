@@ -261,7 +261,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: 'The target sees odd colors at the corners of its vision until it has taken a full heal-up (–2 penalty to skill checks to see things).'
+        value: 'The target sees odd colors at the corners of its vision until it has taken a full heal-up (-2 penalty to skill checks to see things).'
     sort: 100000
     effects: []
     folder: null

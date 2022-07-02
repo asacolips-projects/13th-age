@@ -191,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '[[50]] damage, and the target takes a –5 penalty to disengage checks until the end of its next turn'
+        value: '[[50]] damage, and the target takes a -5 penalty to disengage checks until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -237,7 +237,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. AC ([[one]] nearby enemy or far away enemy at –2 atk)'
+        value: '[[d20 + 13]] vs. AC ([[one]] nearby enemy or far away enemy at -2 atk)'
       hit:
         type: ''
         label: 'Hit'

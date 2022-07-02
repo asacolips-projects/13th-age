@@ -277,7 +277,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The destroying sword takes a –5 penalty to saving throws.'
+        value: 'The destroying sword takes a -5 penalty to saving throws.'
       group:
         type: 'String'
         label: 'Group'

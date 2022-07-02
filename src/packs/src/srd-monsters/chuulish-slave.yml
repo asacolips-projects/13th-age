@@ -363,7 +363,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The slave is a large blob-like mess. It has 72 HP but takes a –2 penalty to all defenses.'
+        value: 'The slave is a large blob-like mess. It has 72 HP but takes a -2 penalty to all defenses.'
       group:
         type: 'String'
         label: 'Group'

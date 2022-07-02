@@ -195,7 +195,7 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 1–5'
+        name: 'Natural 1-5'
         value: 'The jotun auroch can make a fiery or frosty breath attack as a free action.'
       hit2:
         type: 'String'

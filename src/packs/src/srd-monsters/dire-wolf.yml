@@ -249,7 +249,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Whenever a dire wolf’s attack drops an enemy to 0 hp or below, all dire wolves in the battle can howl as a free action. When the wolves howl, each enemy in the battle takes a penalty to its attacks and all defenses equal to the number of living dire wolves in the battle (max –5) until the end of the attacking wolf’s next turn. New howls extend the duration of the current howl rather than downgrading the howl’s effect if dire wolves have been slain in the meantime.'
+        value: 'Whenever a dire wolf’s attack drops an enemy to 0 hp or below, all dire wolves in the battle can howl as a free action. When the wolves howl, each enemy in the battle takes a penalty to its attacks and all defenses equal to the number of living dire wolves in the battle (max -5) until the end of the attacking wolf’s next turn. New howls extend the duration of the current howl rather than downgrading the howl’s effect if dire wolves have been slain in the meantime.'
       group:
         type: 'String'
         label: 'Group'

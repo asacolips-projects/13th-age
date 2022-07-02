@@ -425,7 +425,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, if the target has 48 hp or fewer, it’s *dazed* (–4 attack) and does not add the escalation die to its attacks.'
+        value: 'While engaged with this creature, if the target has 48 hp or fewer, it’s *dazed* (-4 attack) and does not add the escalation die to its attacks.'
       group:
         type: 'String'
         label: 'Group'

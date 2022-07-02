@@ -231,7 +231,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Enemies take a –5 penalty to disengage checks against the swarm.'
+        value: 'Enemies take a -5 penalty to disengage checks against the swarm.'
       group:
         type: 'String'
         label: 'Group'

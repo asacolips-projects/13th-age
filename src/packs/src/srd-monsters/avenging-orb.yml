@@ -279,7 +279,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The avenging orb takes a –5 penalty to saving throws.'
+        value: 'The avenging orb takes a -5 penalty to saving throws.'
       group:
         type: 'String'
         label: 'Group'

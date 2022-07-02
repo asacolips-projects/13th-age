@@ -301,7 +301,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While in the haze, the target takes a –5 penalty to all saves against acid damage.'
+        value: 'While in the haze, the target takes a -5 penalty to all saves against acid damage.'
       group:
         type: 'String'
         label: 'Group'

@@ -271,7 +271,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Owlbears are nearly silent until they strike. Checks to hear them approaching take a –5 penalty.'
+        value: 'Owlbears are nearly silent until they strike. Checks to hear them approaching take a -5 penalty.'
       group:
         type: 'String'
         label: 'Group'

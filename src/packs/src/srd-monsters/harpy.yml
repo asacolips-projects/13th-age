@@ -243,12 +243,12 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 16–17'
+        name: 'Natural 16-17'
         value: 'The target is *hampered* (easy save ends, 6+).'
       hit2:
         type: ''
         label: 'Hit'
-        name: 'Natural 18–19'
+        name: 'Natural 18-19'
         value: 'The target is *weakened* instead of *hampered* (easy save ends, 6+).'
       hit3:
         type: 'String'

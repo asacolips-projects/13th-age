@@ -391,7 +391,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>Each failed save:&nbsp;Acid destroys one of the target’s non-magical items. The target takes a cumulative –1 attack penalty until the end of the battle (boots fall apart, shield straps snap, etc.).</p>'
+        value: '<p>Each failed save:&nbsp;Acid destroys one of the target’s non-magical items. The target takes a cumulative -1 attack penalty until the end of the battle (boots fall apart, shield straps snap, etc.).</p>'
       group:
         type: 'String'
         label: 'Group'

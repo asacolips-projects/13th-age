@@ -299,7 +299,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The first time each round an attack hits the dirt-fisher, it can hunker down and pull the lid on its pit shut. If it does, it gains a +3 bonus to all defenses until the start of its next turn, and any creature in the pit takes a –5 penalty to checks to climb out of the pit. Force attacks and opportunity attacks don’t trigger this ability.'
+        value: 'The first time each round an attack hits the dirt-fisher, it can hunker down and pull the lid on its pit shut. If it does, it gains a +3 bonus to all defenses until the start of its next turn, and any creature in the pit takes a -5 penalty to checks to climb out of the pit. Force attacks and opportunity attacks don’t trigger this ability.'
       group:
         type: 'String'
         label: 'Group'

@@ -321,7 +321,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Attacks against a fury devil take a –4 penalty unless the devil is hellbent against that attacker.'
+        value: 'Attacks against a fury devil take a -4 penalty unless the devil is hellbent against that attacker.'
       group:
         type: 'String'
         label: 'Group'

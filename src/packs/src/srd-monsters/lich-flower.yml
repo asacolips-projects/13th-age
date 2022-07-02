@@ -229,7 +229,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with the lich flower, non-undead and non-plant creatures are *dazed* (–4 attacks).'
+        value: 'While engaged with the lich flower, non-undead and non-plant creatures are *dazed* (-4 attacks).'
       group:
         type: 'String'
         label: 'Group'

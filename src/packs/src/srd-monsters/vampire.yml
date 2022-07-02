@@ -196,7 +196,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 11+'
-        value: 'The target is also *weakened* until the end of its next turn (–4 attacks and defenses). In addition, the target expends one unused limited trait (a spell, power, or talent with a once-per-battle or daily use, but not magic item powers) of its choice.'
+        value: 'The target is also *weakened* until the end of its next turn (-4 attacks and defenses). In addition, the target expends one unused limited trait (a spell, power, or talent with a once-per-battle or daily use, but not magic item powers) of its choice.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -229,7 +229,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Limited use: The vampire can use vampiric compulsion as a free action only when a nearby enemy attacks the vampire and misses with a natural attack roll of 1–5.'
+        value: 'Limited use: The vampire can use vampiric compulsion as a free action only when a nearby enemy attacks the vampire and misses with a natural attack roll of 1-5.'
       group:
         type: 'String'
         label: 'Group'

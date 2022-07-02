@@ -285,7 +285,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. PD ([[1]] nearby enemy or far away enemy at –2 atk)'
+        value: '[[d20 + 11]] vs. PD ([[1]] nearby enemy or far away enemy at -2 atk)'
       hit:
         type: ''
         label: 'Hit'

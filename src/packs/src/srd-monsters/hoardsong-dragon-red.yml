@@ -347,7 +347,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>The dragon knows where every treasure in its hoard is located, allowing it to detect any movement or shifting of the coins and valuables. While in its lair with its hoard, the hoardsong dragon is immune to invisibility and ignores illusions, and creatures attempting to hide from it take a –5 penalty to their checks.</p>'
+        value: '<p>The dragon knows where every treasure in its hoard is located, allowing it to detect any movement or shifting of the coins and valuables. While in its lair with its hoard, the hoardsong dragon is immune to invisibility and ignores illusions, and creatures attempting to hide from it take a -5 penalty to their checks.</p>'
       group:
         type: 'String'
         label: 'Group'

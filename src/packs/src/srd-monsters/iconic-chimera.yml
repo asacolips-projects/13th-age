@@ -195,12 +195,12 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 14–15'
+        name: 'Natural 14-15'
         value: 'The target is *dazed* until the end of the chimera’s next turn from a headbutt.'
       hit2:
         type: ''
         label: 'Hit'
-        name: 'Natural 16–17'
+        name: 'Natural 16-17'
         value: 'The target takes [[20]] ongoing damage from raking claws.'
       hit3:
         type: 'String'
@@ -217,7 +217,7 @@ items:
       hitt3:
         type: ''
         label: 'Hit'
-        name: 'Natural 18–20'
+        name: 'Natural 18-20'
         value: 'The chimera can make a fiery breath attack as a free action.'
     sort: 0
     effects: []
@@ -464,7 +464,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Each time the chimera scores a critical hit, it takes a cumulative –2 penalty to all defenses.'
+        value: 'Each time the chimera scores a critical hit, it takes a cumulative -2 penalty to all defenses.'
       group:
         type: 'String'
         label: 'Group'
@@ -662,7 +662,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The chimera is constantly evolving and changing. When an enemy rolls a natural 1–5 on an attack roll against it, the chimera adds the escalation die to its attack rolls until the end of its next turn.'
+        value: 'The chimera is constantly evolving and changing. When an enemy rolls a natural 1-5 on an attack roll against it, the chimera adds the escalation die to its attack rolls until the end of its next turn.'
       group:
         type: 'String'
         label: 'Group'
@@ -772,7 +772,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The horns and tusks of the chimera lock together at inopportune moments. When it rolls a natural 1–5 with an attack against multiple targets, it loses any further attacks that turn.'
+        value: 'The horns and tusks of the chimera lock together at inopportune moments. When it rolls a natural 1-5 with an attack against multiple targets, it loses any further attacks that turn.'
       group:
         type: 'String'
         label: 'Group'
@@ -838,7 +838,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the chimera rolls a natural 1–5 with an attack and misses, the target takes [[20]] ongoing poison damage.'
+        value: 'When the chimera rolls a natural 1-5 with an attack and misses, the target takes [[20]] ongoing poison damage.'
       group:
         type: 'String'
         label: 'Group'

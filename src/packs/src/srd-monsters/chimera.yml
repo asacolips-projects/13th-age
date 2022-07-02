@@ -195,12 +195,12 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 14–15'
+        name: 'Natural 14-15'
         value: 'The target is *dazed* until the end of the chimera’s next turn from a headbutt.'
       hit2:
         type: ''
         label: 'Hit'
-        name: 'Natural 16–17'
+        name: 'Natural 16-17'
         value: 'The target takes [[20]] ongoing damage from raking claws.'
       hit3:
         type: 'String'
@@ -217,7 +217,7 @@ items:
       hitt3:
         type: ''
         label: 'Hit'
-        name: 'Natural 18–20'
+        name: 'Natural 18-20'
         value: 'The chimera makes a fiery breath attack as a free action.'
     sort: 0
     effects: []

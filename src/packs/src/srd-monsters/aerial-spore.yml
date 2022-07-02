@@ -227,7 +227,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The first time each round an aerial spore in the battle drops to 0 hp, it explodes and [[1d3]] nearby non-fungus non-construct creatures are covered in spores and begin to choke. Until the end of the battle, when a choking creature rolls a natural 1–5 on an attack roll, it takes damage equal to the natural roll. If a creature is affected twice by this attack, the damage it takes on a natural 1–5 doubles; if affected three times, it triples, etc.'
+        value: 'The first time each round an aerial spore in the battle drops to 0 hp, it explodes and [[1d3]] nearby non-fungus non-construct creatures are covered in spores and begin to choke. Until the end of the battle, when a choking creature rolls a natural 1-5 on an attack roll, it takes damage equal to the natural roll. If a creature is affected twice by this attack, the damage it takes on a natural 1-5 doubles; if affected three times, it triples, etc.'
       group:
         type: 'String'
         label: 'Group'

@@ -301,7 +301,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Twice per battle as a free action, the prophet can try to avoid a non-critical attack that hits it. The attacker must reroll the attack roll with a –4 penalty.'
+        value: 'Twice per battle as a free action, the prophet can try to avoid a non-critical attack that hits it. The attacker must reroll the attack roll with a -4 penalty.'
       group:
         type: 'String'
         label: 'Group'

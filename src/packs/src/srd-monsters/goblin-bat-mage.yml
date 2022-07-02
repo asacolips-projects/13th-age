@@ -195,7 +195,7 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 2–5'
+        name: 'Natural 2-5'
         value: 'The goblin bat mage pops free from the target and can move as a free action.'
       hit2:
         type: 'String'

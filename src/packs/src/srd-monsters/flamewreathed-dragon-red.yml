@@ -371,7 +371,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, enemies with 120 hp or fewer are *dazed* (–4 attacks), do not add the escalation die to their attacks, and take [[4d20]] fire damage at the start of their turn.'
+        value: 'While engaged with this creature, enemies with 120 hp or fewer are *dazed* (-4 attacks), do not add the escalation die to their attacks, and take [[4d20]] fire damage at the start of their turn.'
       group:
         type: 'String'
         label: 'Group'

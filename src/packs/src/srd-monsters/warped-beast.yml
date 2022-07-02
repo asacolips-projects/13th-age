@@ -347,7 +347,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with the warped beast, enemies that have 24 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks.'
+        value: 'While engaged with the warped beast, enemies that have 24 hp or fewer are *dazed* (-4 attack) and do not add the escalation die to their attacks.'
       group:
         type: 'String'
         label: 'Group'
@@ -413,7 +413,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the warped beast hits a creature with a tentacle maw attack, the target also takes [[5]] ongoing psychic damage and a –2 penalty to saves (save ends both).'
+        value: 'When the warped beast hits a creature with a tentacle maw attack, the target also takes [[5]] ongoing psychic damage and a -2 penalty to saves (save ends both).'
       group:
         type: 'String'
         label: 'Group'

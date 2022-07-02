@@ -243,8 +243,8 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 1–5'
-        value: 'Reroll the attack against a random nearby creature. If the rerolled attack is also a natural 1–5, the orcish archer takes [[3]] damage from sheer agonized frustration, but it doesn’t get to make another attack.'
+        name: 'Natural 1-5'
+        value: 'Reroll the attack against a random nearby creature. If the rerolled attack is also a natural 1-5, the orcish archer takes [[3]] damage from sheer agonized frustration, but it doesn’t get to make another attack.'
       hit2:
         type: 'String'
         label: 'Hit'

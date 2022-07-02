@@ -195,7 +195,7 @@ items:
       hit1:
         type: ''
         label: 'Hit'
-        name: 'Natural 1–5'
+        name: 'Natural 1-5'
         value: 'The claw flower takes [[1d4]] damage from burst roots.'
       hit2:
         type: 'String'

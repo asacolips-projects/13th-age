@@ -239,7 +239,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '[[5]] damage, and the target takes a –1 penalty to attacks until the end of its next turn'
+        value: '[[5]] damage, and the target takes a -1 penalty to attacks until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

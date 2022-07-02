@@ -293,7 +293,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a creature makes a non-spell attack against a wibble and rolls a natural 1–2, [[1d3]] new wibbles are created in the same area. These new wibbles typically melt back into their “parent” at the end of a battle if not destroyed, but sometimes they remain separate and drift off on their own.'
+        value: 'When a creature makes a non-spell attack against a wibble and rolls a natural 1-2, [[1d3]] new wibbles are created in the same area. These new wibbles typically melt back into their “parent” at the end of a battle if not destroyed, but sometimes they remain separate and drift off on their own.'
       group:
         type: 'String'
         label: 'Group'

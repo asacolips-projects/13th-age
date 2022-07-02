@@ -331,7 +331,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While an enemy has 24 hp or fewer, it takes a –4 penalty to limited attacks against the dragon.'
+        value: 'While an enemy has 24 hp or fewer, it takes a -4 penalty to limited attacks against the dragon.'
       group:
         type: 'String'
         label: 'Group'

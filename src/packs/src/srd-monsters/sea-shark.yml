@@ -251,7 +251,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy misses with a melee attack against an iron sea shark and rolls a natural 1–5, the attacker takes [[2d6]] damage.'
+        value: 'When an enemy misses with a melee attack against an iron sea shark and rolls a natural 1-5, the attacker takes [[2d6]] damage.'
       group:
         type: 'String'
         label: 'Group'

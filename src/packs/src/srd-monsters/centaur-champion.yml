@@ -275,7 +275,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'If the centaur champion scores a crit against the target, it can challenge that enemy. If it does, until the end of the battle the champion and the target each take a –4 attack penalty against any target except the other. If the centaur champion dies or challenges a new foe, the old challenge is canceled.'
+        value: 'If the centaur champion scores a crit against the target, it can challenge that enemy. If it does, until the end of the battle the champion and the target each take a -4 attack penalty against any target except the other. If the centaur champion dies or challenges a new foe, the old challenge is canceled.'
       group:
         type: 'String'
         label: 'Group'
@@ -363,7 +363,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the champion issues a champion’s challenge, it only takes a –2 attack penalty against other enemies than its chosen foe, but that enemy still takes the –4 attack penalty. In addition, the champion can use champion’s challenge as a free action when it becomes staggered.'
+        value: 'When the champion issues a champion’s challenge, it only takes a -2 attack penalty against other enemies than its chosen foe, but that enemy still takes the -4 attack penalty. In addition, the champion can use champion’s challenge as a free action when it becomes staggered.'
       group:
         type: 'String'
         label: 'Group'

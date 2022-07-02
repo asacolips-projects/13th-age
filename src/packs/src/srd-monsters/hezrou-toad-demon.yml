@@ -227,7 +227,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The demon can grab the target if it isn’t already grabbing a creature. The grabbed foe can’t move except to teleport, pop free, or attempt to disengage, and disengage attempts take a –5 penalty unless the creature hit the hezrou with an attack that turn.'
+        value: 'The demon can grab the target if it isn’t already grabbing a creature. The grabbed foe can’t move except to teleport, pop free, or attempt to disengage, and disengage attempts take a -5 penalty unless the creature hit the hezrou with an attack that turn.'
       group:
         type: 'String'
         label: 'Group'
@@ -271,7 +271,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While engaged with this creature, enemies with 84 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks.'
+        value: 'While engaged with this creature, enemies with 84 hp or fewer are *dazed* (-4 attack) and do not add the escalation die to their attacks.'
       group:
         type: 'String'
         label: 'Group'

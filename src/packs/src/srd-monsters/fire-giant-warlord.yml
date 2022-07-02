@@ -343,7 +343,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Enemies engaged with the fire giant warlord take a –5 penalty to saves against ongoing fire damage.'
+        value: 'Enemies engaged with the fire giant warlord take a -5 penalty to saves against ongoing fire damage.'
       group:
         type: 'String'
         label: 'Group'

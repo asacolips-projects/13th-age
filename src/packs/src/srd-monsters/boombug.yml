@@ -301,7 +301,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the boombug hits with gnawing teeth, the target takes a –5 penalty to disengage checks until it’s no longer engaged with the boombug.'
+        value: 'When the boombug hits with gnawing teeth, the target takes a -5 penalty to disengage checks until it’s no longer engaged with the boombug.'
       group:
         type: 'String'
         label: 'Group'

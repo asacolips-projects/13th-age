@@ -329,7 +329,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Whenever a nearby enemy attacks the medusa noble and rolls a natural 1–5, the medusa can make a petrifying gaze attack against that attacker as a free action.'
+        value: 'Whenever a nearby enemy attacks the medusa noble and rolls a natural 1-5, the medusa can make a petrifying gaze attack against that attacker as a free action.'
       group:
         type: 'String'
         label: 'Group'
@@ -373,7 +373,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'If lightning isn’t working against her target, the medusa noble can take a –2 attack penalty to change the energy type of her ranged attack to fire or thunder.'
+        value: 'If lightning isn’t working against her target, the medusa noble can take a -2 attack penalty to change the energy type of her ranged attack to fire or thunder.'
       group:
         type: 'String'
         label: 'Group'

@@ -279,7 +279,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'While an enemy has 72 hp or fewer, it takes a –4 penalty to limited attacks against the dragon.'
+        value: 'While an enemy has 72 hp or fewer, it takes a -4 penalty to limited attacks against the dragon.'
       group:
         type: 'String'
         label: 'Group'
@@ -323,7 +323,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Once per battle as an interrupt action when an enemy targets it with an attack, the dragon can make a lightning breath against that attacker (and yes, if the dragon hits, the interrupted attack takes the –4 penalty due to *dazed*).'
+        value: 'Once per battle as an interrupt action when an enemy targets it with an attack, the dragon can make a lightning breath against that attacker (and yes, if the dragon hits, the interrupted attack takes the -4 penalty due to *dazed*).'
       group:
         type: 'String'
         label: 'Group'

@@ -267,7 +267,7 @@ items:
       default: 0
   - _id: 'HPRX7DToK39lUWPe'
     flags: {}
-    name: '1–2 (Hymn of hate)'
+    name: '1-2 (Hymn of hate)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:
@@ -289,7 +289,7 @@ items:
       default: 0
   - _id: 'yMDtEdyxTIVPlToR'
     flags: {}
-    name: '3–4 (Curse of despair)'
+    name: '3-4 (Curse of despair)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:
@@ -299,7 +299,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Each target that was hit takes a –2 penalty (non-cumulative) to all saves until the end of the battle.'
+        value: 'Each target that was hit takes a -2 penalty (non-cumulative) to all saves until the end of the battle.'
       group:
         type: 'String'
         label: 'Group'
@@ -311,7 +311,7 @@ items:
       default: 0
   - _id: 'bA1fiNGpJwMT5x1G'
     flags: {}
-    name: '5–6 (Scream of victory)'
+    name: '5-6 (Scream of victory)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:
@@ -333,7 +333,7 @@ items:
       default: 0
   - _id: 'bCq5O9eM0hBFVciC'
     flags: {}
-    name: '7–8 (Word of refuge)'
+    name: '7-8 (Word of refuge)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:

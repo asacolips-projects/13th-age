@@ -241,7 +241,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'or a far away enemy at –2 atk);10 damage, and the target is again affected by trog stench if it had saved against the effect'
+        value: 'or a far away enemy at -2 atk);10 damage, and the target is again affected by trog stench if it had saved against the effect'
       hit1:
         type: ''
         label: 'Hit'
@@ -279,7 +279,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Underground, or in swamps and rivers, attacks against troglodytes by enemies who aren’t engaged with them take a –4 penalty.'
+        value: 'Underground, or in swamps and rivers, attacks against troglodytes by enemies who aren’t engaged with them take a -4 penalty.'
       group:
         type: 'String'
         label: 'Group'

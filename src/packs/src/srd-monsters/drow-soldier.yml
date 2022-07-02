@@ -239,7 +239,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'or a far away enemy at –2 atk);7 damage'
+        value: 'or a far away enemy at -2 atk);7 damage'
       hit1:
         type: 'String'
         label: 'Hit'

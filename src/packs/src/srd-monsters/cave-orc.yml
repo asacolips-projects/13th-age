@@ -297,7 +297,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'If the battle is at night (or in darkness), the orc gains a +2 attack bonus. If the battle is during the day (or in daylight) it takes a –2 penalty to all defenses.'
+        value: 'If the battle is at night (or in darkness), the orc gains a +2 attack bonus. If the battle is during the day (or in daylight) it takes a -2 penalty to all defenses.'
       group:
         type: 'String'
         label: 'Group'

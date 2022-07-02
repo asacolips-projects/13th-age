@@ -275,7 +275,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Gnoll shredders gain a +2 bonus to opportunity attacks, and enemies take a –8 penalty to disengage checks against them.'
+        value: 'Gnoll shredders gain a +2 bonus to opportunity attacks, and enemies take a -8 penalty to disengage checks against them.'
       group:
         type: 'String'
         label: 'Group'

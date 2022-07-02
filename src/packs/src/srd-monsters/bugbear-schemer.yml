@@ -281,7 +281,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Limited use: 1/round as an interrupt action, when a nearby enemy rolls a natural 1–5 with an attack against it.'
+        value: 'Limited use: 1/round as an interrupt action, when a nearby enemy rolls a natural 1-5 with an attack against it.'
       group:
         type: 'String'
         label: 'Group'

@@ -327,7 +327,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'A creature that is swallowed whole must start making last gasp saves during its next turn. An ally can assist with the save as normal, but the save remains hard (16+) in that case. A roll of 16–19 causes the creature to be regurgitated from the dragon’s gut, while a 20 means that the creature cuts/rips a hole through the dragon’s flesh to escape (dealing basic attack damage automatically).'
+        value: 'A creature that is swallowed whole must start making last gasp saves during its next turn. An ally can assist with the save as normal, but the save remains hard (16+) in that case. A roll of 16-19 causes the creature to be regurgitated from the dragon’s gut, while a 20 means that the creature cuts/rips a hole through the dragon’s flesh to escape (dealing basic attack damage automatically).'
       group:
         type: 'String'
         label: 'Group'

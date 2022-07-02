@@ -196,7 +196,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The demon can grab the target as long as it isn’t already grabbing a creature. The grabbed foe can’t move except to teleport, pop free, or attempt to disengage, and disengage attempts take a –5 penalty unless the creature hit the glabrezou with an attack that turn.'
+        value: 'The demon can grab the target as long as it isn’t already grabbing a creature. The grabbed foe can’t move except to teleport, pop free, or attempt to disengage, and disengage attempts take a -5 penalty unless the creature hit the glabrezou with an attack that turn.'
       hit2:
         type: 'String'
         label: 'Hit'

@@ -277,7 +277,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Underground, or in swamps and rivers, attacks against troglodytes by enemies who aren’t engaged with them take a –4 penalty.'
+        value: 'Underground, or in swamps and rivers, attacks against troglodytes by enemies who aren’t engaged with them take a -4 penalty.'
       group:
         type: 'String'
         label: 'Group'

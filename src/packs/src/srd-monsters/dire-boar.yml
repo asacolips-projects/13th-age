@@ -241,7 +241,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is *weakened* (–4 to attacks and defenses) until the end of the boar’s next turn'
+        value: 'The target is *weakened* (-4 to attacks and defenses) until the end of the boar’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -299,7 +299,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'pile on damage to drop it to –60 hp, or trust the save roll to go their way.)'
+        value: 'pile on damage to drop it to -60 hp, or trust the save roll to go their way.)'
       group:
         type: 'String'
         label: 'Group'
