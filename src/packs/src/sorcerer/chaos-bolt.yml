@@ -56,11 +56,11 @@ data:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[1d8+@cha.dmg+@atk.a.bonus]] random energy damage.'
+    value: '[[1d8+@cha.dmg+@atk.a.bonus]] @Compendium[archmage.system-macros.wpAqDyhVStW9Q594]{random energy} damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: 'You gain a chaotic benefit as if you had gathered power'
+    value: 'You gain a @Compendium[archmage.system-macros.k7nFrgoSgocyOMbd]{chaotic benefit} as if you had gathered power'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
@@ -104,7 +104,7 @@ data:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>The first time you use <em>chaos bolt</em> each battle, determine a random energy type. The spell deals that type of damage each time you use it that battle.</p>'
+    value: '<p>The first time you use <em>chaos bolt</em> each battle, determine a @Compendium[archmage.system-macros.wpAqDyhVStW9Q594]{random energy} type. The spell deals that type of damage each time you use it that battle.</p>'
   effect:
     type: 'String'
     label: 'Effect'
@@ -158,7 +158,7 @@ data:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>If you are a champion-tier sorcerer, roll any chaotic benefit gained with this spell on the epic chaotic benefits table. If you are an epic-tier sorcerer, choose the epic chaotic benefit you want instead of rolling.</p>'
+        value: '<p>If you are a champion-tier sorcerer, roll any chaotic benefit gained with this spell on the @Compendium[archmage.sorcerer-tables.hojV2urxFb1cjgWJ]{epic chaotic benefits table}. If you are an epic-tier sorcerer, choose the epic chaotic benefit you want instead of rolling.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'

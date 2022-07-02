@@ -1,8 +1,8 @@
-name: Fear
+name: 'Fear'
 permission:
   default: 0
 folder: ''
 flags: {}
-content: "<p>Fear *dazes* you and prevents you from using the escalation die.</p>"
+content: '<p>Fear *dazes* you and prevents you from using the escalation die.</p>'
 img: ''
 _id: 'gy68o7eat5p6bpgq'

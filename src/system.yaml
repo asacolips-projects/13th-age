@@ -295,6 +295,12 @@ packs:
     path: packs/srd-magic-items-wondrous-items.db
     system: archmage
 
+  - label: System Macros
+    type: Macro
+    name: system-macros
+    path: packs/system-macros.db
+    system: archmage
+
 languages:
   - lang: en
     name: English
