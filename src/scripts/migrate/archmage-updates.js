@@ -150,7 +150,7 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
-   * Update NPC initiative to use value instead of mod.
+   * 1.19.0: Update NPC initiative to use value instead of mod.
    *
    * @param {object} actor Actor document to update.
    * @param {object} updateData Update data object to merge changes into.
@@ -177,6 +177,11 @@ class ArchmageUpdateHandler {
       return;
     }
 
+    // Only run for GMs.
+    if (!game.user.isGM) {
+      return;
+    }
+
     // Set a message.
     const version = game.system.data.version;
     ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.start', {version}), {permanent: false});
@@ -190,13 +195,21 @@ class ArchmageUpdateHandler {
     // 1. Update world actors.
     const actors = this.queryActors(actor => actor.type == 'npc');
     console.log('TOOLKIT13: UPDATING ACTORS');
+    ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateActors'));
     actors.forEach(async actor => {
-      // @todo: Uncomment this to enable migration.
-      // await actor.update(this.prepareMigrateActorData(actor));
+      // Attempt actor updates.
+      try {
+        // @todo: Uncomment this to enable migration.
+        // await actor.update(this.prepareMigrateActorData(actor));
+      } catch (error) {
+        error.message = `Failed Toolkit13 system migration for world actor ${actor.name}: ${error.message}`;
+        console.error(error);
+      }
     });
 
     // 2. Update unlinked tokens in scenes.
     console.log('TOOLKIT13: UPDATING TOKENS');
+    ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateTokens'));
     game.scenes.forEach(async scene => {
       const tokens = this.queryTokens(scene, token => token.actor.type == 'npc');
       const updates = [];
@@ -204,8 +217,14 @@ class ArchmageUpdateHandler {
         updates.push(this.prepareMigrateTokenData(token));
       });
 
-      // @todo: Uncomment this to enable migration.
-      // await s.updateEmbeddedDocuments('Token', updates);
+      // Attempt scene updates.
+      try {
+        // @todo: Uncomment this to enable migration.
+        // await s.updateEmbeddedDocuments('Token', updates);
+      } catch (error) {
+        error.message = `Failed Toolkit13 system migration for world scene ${s.name}: ${error.message}`;
+        console.error(error);
+      }
     });
 
     // 3. Update world compendiums (Actors, Scenes).
@@ -292,9 +311,7 @@ class ArchmageUpdateHandler {
     let count = 0;
 
     const packLabel = pack?.metadata?.label ? `: ${pack.metadata.label}` : '';
-    console.log(pack);
-
-    SceneNavigation.displayProgressBar({label: 'Updating compendium actors' . packLabel, pct: 0});
+    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: 0});
 
     // Retrieve actros.
     const actors = callbackFilter ? documents.filter(actor => callbackFilter(actor)) : documents;
@@ -303,13 +320,18 @@ class ArchmageUpdateHandler {
       actors.forEach(async actor => {
         count++;
         progress = Math.ceil(count / total * 100);
-        SceneNavigation.displayProgressBar({label: 'Updating compendium actors' . packLabel, pct: progress});
-        // @todo: Uncomment this to enable migration.
-        // await actor.update(this.prepareMigrateActorData(actor));
+        SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: progress});
+        try {
+          // @todo: Uncomment this to enable migration.
+          // await actor.update(this.prepareMigrateActorData(actor));
+        } catch (error) {
+          error.message = `Failed Toolkit13 system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
+          console.error(error);
+        }
       });
     }
 
-    SceneNavigation.displayProgressBar({label: 'Updating compendium actors' . packLabel, pct: 100});
+    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: 100});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
@@ -332,18 +354,38 @@ class ArchmageUpdateHandler {
     // Retrieve documents.
     // await pack.migrate();
     const scenes = await pack.getDocuments();
+    const total = scenes.length;
+    let progress = 0;
+    let count = 0;
+
+    const packLabel = pack?.metadata?.label ? `: ${pack.metadata.label}` : '';
+    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: 0});
 
     // Retrieve actros.
-    scenes.forEach(async scene => {
-      const tokens = this.queryTokens(scene, token => callbackFilter(token));
-      const updates = [];
-      console.log(tokens);
-      tokens.forEach(token => {
-        updates.push(this.prepareMigrateTokenData(token));
+    if (total > 0) {
+      scenes.forEach(async scene => {
+        count++;
+        progress = Math.ceil(count / total * 100);
+        SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: progress});
+
+        const tokens = this.queryTokens(scene, token => callbackFilter(token));
+        const updates = [];
+
+        tokens.forEach(token => {
+          updates.push(this.prepareMigrateTokenData(token));
+        });
+
+        try {
+          // @todo: Uncomment this to enable migration.
+          // await s.updateEmbeddedDocuments('Token', updates);
+        } catch (error) {
+          error.message = `Failed Toolkit13 system migration for scene ${s.name} in compendium ${packLabel}: ${error.message}`;
+          console.error(error);
+        }
       });
-      // @todo: Uncomment this to enable migration.
-      // await s.updateEmbeddedDocuments('Token', updates);
-    });
+    }
+
+    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: 100});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});

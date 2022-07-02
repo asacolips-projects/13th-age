@@ -497,6 +497,10 @@ ARCHMAGE:
   MIGRATIONS:
     start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "Toolkit13 System Migration to version {version} completed!"
+    updateActors: 'Updating world actors'
+    updateTokens: 'Updating world tokens'
+    updateCompendiumActors: 'Updating compendium actors: {pack}'
+    updateCompendiumScenes: 'Updating compendium scenes: {pack}'
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
 # Tours
   TOURS:
