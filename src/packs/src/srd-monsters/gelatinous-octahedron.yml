@@ -445,7 +445,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. AC (up to 2 attacks, each against a different nearby enemy)'
+        value: '[[d20+11]] vs. AC (up to [[2]] attacks, each against a different nearby enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -492,7 +492,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>Targets engulfed/grabbed by the cube take 38 acid damage at the start of the cube&rsquo;s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously.</p><p>Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>'
+        value: '<p>Targets engulfed/grabbed by the cube take [[38]] acid damage at the start of the cube&rsquo;s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously.</p><p>Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>'
       group:
         type: 'String'
         label: 'Group'
@@ -544,7 +544,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11] vs. PD ([[1d3]] nearby or far away enemis in a group)'
+        value: '[[d20+11] vs. PD ([[1d3]] nearby or far away enemies in a group)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -599,7 +599,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemis in a group)'
+        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -654,7 +654,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. PD (one nearby or far away enemy'
+        value: '[[d20+11]] vs. PD ([[1]] nearby or far away enemy'
       hit:
         type: 'String'
         label: 'Hit'
@@ -709,7 +709,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. PD (1d3 nearby or far away enemis)'
+        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemies)'
       hit:
         type: 'String'
         label: 'Hit'

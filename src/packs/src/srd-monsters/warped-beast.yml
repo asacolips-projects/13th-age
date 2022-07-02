@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '16 damage'
+        value: '[[16]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 psychic damage'
+        value: '[[8]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -609,7 +609,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the warped beast hits a creature with a tentacle maw attack, the target also takes 5 ongoing psychic damage and a –2 penalty to saves (save ends both).'
+        value: 'When the warped beast hits a creature with a tentacle maw attack, the target also takes [[5]] ongoing psychic damage and a –2 penalty to saves (save ends both).'
       group:
         type: 'String'
         label: 'Group'

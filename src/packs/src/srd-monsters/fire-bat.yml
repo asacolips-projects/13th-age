@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '2 damage, and 2 fire damage'
+        value: '[[2]] damage, and [[2]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 fire damage'
+        value: '[[5]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -493,7 +493,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy engaged with the fire bat attacks it, that enemy takes 2 fire damage.'
+        value: 'When an enemy engaged with the fire bat attacks it, that enemy takes [[2]] fire damage.'
       group:
         type: 'String'
         label: 'Group'

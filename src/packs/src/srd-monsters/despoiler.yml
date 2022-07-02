@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. AC (2 attacks)'
+        value: '[[d20 + 8]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. MD (one nearby or far away enemy)'
+        value: '[[d20 + 9]] vs. MD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '15 psychic damage, and the target is *confused* (save ends); OR the target can choose to avoid the confusion effect by taking [[6d6]] psychic damage.'
+        value: '[[15]] psychic damage, and the target is *confused* (save ends); OR the target can choose to avoid the confusion effect by taking [[6d6]] psychic damage.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -481,7 +481,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. MD (2 nearby enemies engaged with the same creature or with each other)'
+        value: '[[d20 + 9]] vs. MD ([[2]] nearby enemies engaged with the same creature or with each other)'
       hit:
         type: ''
         label: 'Hit'

@@ -383,16 +383,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. AC (2 attacks)'
+        value: '[[d20 + 13]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '35 damage'
+        value: '[[35]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: 'The target also takes 10 ongoing fire damage.'
+        value: 'The target also takes [[10]] ongoing fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,12 +437,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage'
+        value: '[[40]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: 'The target also takes 10 ongoing fire damage.'
+        value: 'The target also takes [[10]] ongoing fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -483,11 +483,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. PD (one enemy smaller than it)'
+        value: '[[d20 + 12]] vs. PD ([[1]] enemy smaller than it)'
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, the target pops free from the giant, and the target loses its next move action.'
+        value: '[[10]] damage, the target pops free from the giant, and the target loses its next move action.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -567,7 +567,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a fire giant becomes staggered, it deals 10 ongoing fire damage to each enemy engaged with it.'
+        value: 'When a fire giant becomes staggered, it deals [[10]] ongoing fire damage to each enemy engaged with it.'
       group:
         type: 'String'
         label: 'Group'

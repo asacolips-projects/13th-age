@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '16 negative energy damage'
+        value: '[[16]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '24 negative energy damage'
+        value: '[[24]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'

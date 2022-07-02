@@ -392,7 +392,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: '3 ongoing acid damage.'
+        value: '[[3]] ongoing acid damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -425,7 +425,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The first time an ochre jelly takes 20 or more damage from a single attack, it splits into two normal-size ochre jellies, each with half the original’s current hit points plus [[2d6]] hp. Treat the new jellies as undamaged jellies at their new hit point totals without the splitter ability.'
+        value: 'The first time an ochre jelly takes [[20]] or more damage from a single attack, it splits into two normal-size ochre jellies, each with half the original’s current hit points plus [[2d6]] hp. Treat the new jellies as undamaged jellies at their new hit point totals without the splitter ability.'
       group:
         type: 'String'
         label: 'Group'

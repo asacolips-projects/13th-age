@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '2 damage, and the stirge can make a draining probe attack against the target during its next turn if it’s still engaged with the target'
+        value: '[[2]] damage, and the stirge can make a draining probe attack against the target during its next turn if it’s still engaged with the target'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -366,11 +366,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs. AC (one enemy hit by claws last turn)'
+        value: '[[d20 + 7]] vs. AC ([[1]] enemy hit by claws last turn)'
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage, and 5 ongoing damage'
+        value: '[[5]] damage, and [[5]] ongoing damage'
       hit1:
         type: 'String'
         label: 'Hit'

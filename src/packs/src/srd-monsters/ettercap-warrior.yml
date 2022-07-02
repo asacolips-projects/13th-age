@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage'
+        value: '[[8]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -397,7 +397,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: '4 damage.'
+        value: '[[4]] damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage, and 4 ongoing poison damage'
+        value: '[[6]] damage, and [[4]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -459,7 +459,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: 'If the target is *dazed*, *hampered*, or *stuck*, it takes 4 damage.'
+        value: 'If the target is *dazed*, *hampered*, or *stuck*, it takes [[4]] damage.'
     sort: 100000
     effects: []
     folder: null
@@ -489,7 +489,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 damage'
+        value: '[[4]] damage'
       hit1:
         type: ''
         label: 'Hit'

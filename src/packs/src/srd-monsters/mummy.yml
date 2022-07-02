@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 ongoing negative energy damage and the target is affected by mummy rot (save ends both)'
+        value: '[[40]] ongoing negative energy damage and the target is affected by mummy rot (save ends both)'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 20 damage.'
+        value: 'The target also takes [[20]] damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,7 +433,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -543,7 +543,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'If the target is already affected by mummy rot, increase the ongoing negative energy damage by 40. If the target isn’t affected by mummy rot already, it takes 40 ongoing negative energy damage and is affected by mummy rot (save ends both)'
+        value: 'If the target is already affected by mummy rot, increase the ongoing negative energy damage by 40. If the target isn’t affected by mummy rot already, it takes [[40]] ongoing negative energy damage and is affected by mummy rot (save ends both)'
       group:
         type: 'String'
         label: 'Group'
@@ -587,7 +587,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the mummy takes 20 damage or less from a non-fire attack, it takes no damage instead.'
+        value: 'When the mummy takes [[20]] damage or less from a non-fire attack, it takes no damage instead.'
       group:
         type: 'String'
         label: 'Group'

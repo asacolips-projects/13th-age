@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage'
+        value: '[[5]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'

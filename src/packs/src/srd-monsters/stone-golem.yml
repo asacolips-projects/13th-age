@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '35 damage'
+        value: '[[35]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '15 damage.'
+        value: '[[15]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -433,21 +433,21 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. AC (one staggered enemy)'
+        value: '[[d20 + 14]] vs. AC ([[1]] staggered enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '80 damage, and the golem pops the target off it and moves it a short distance away from the golem'
+        value: '[[80]] damage, and the golem pops the target off it and moves it a short distance away from the golem'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: '20 damage, and the target is *hampered* (save ends).'
+        value: '[[20]] damage, and the target is *hampered* (save ends).'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit or miss'
-        value: '20 damage, and the target is *dazed* (save ends).'
+        value: '[[20]] damage, and the target is *dazed* (save ends).'
       hit3:
         type: 'String'
         label: 'Hit'

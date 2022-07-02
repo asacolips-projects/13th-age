@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '60 damage'
+        value: '[[60]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target also takes 20 ongoing damage.'
+        value: 'The target also takes [[20]] ongoing damage.'
       hit2:
         type: ''
         label: 'Hit'

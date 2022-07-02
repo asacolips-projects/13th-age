@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '80 damage, and the bone devil can make a doom venom sting attack as a free action.'
+        value: '[[80]] damage, and the bone devil can make a doom venom sting attack as a free action.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage, and the target can’t use recoveries, even involuntarily (save ends)'
+        value: '[[20]] damage, and the target can’t use recoveries, even involuntarily (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -483,7 +483,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 damage'
+        value: '[[50]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

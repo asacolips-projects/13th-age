@@ -335,12 +335,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '2 damage.'
+        value: '[[2]] damage.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'Choose one effect, and then the stirgeling mob takes 4 damage (killing this creature first).'
+        value: 'Choose one effect, and then the stirgeling mob takes [[4]] damage (killing this creature first).'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -366,7 +366,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 3 damage, and 3 ongoing damage.'
+        value: 'The target takes [[3]] damage, and [[3]] ongoing damage.'
     sort: 100000
   - _id: 'WuD7bGoZZfymgsuN'
     flags: {}
@@ -380,7 +380,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 6 damage.'
+        value: 'The target takes [[6]] damage.'
     sort: 200000
   - _id: 't06pM4PTJrlOD4l5'
     flags: {}
@@ -394,7 +394,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 3 damage and is *stuck* until end of its next turn.'
+        value: 'The target takes [[3]] damage and is *stuck* until end of its next turn.'
     sort: 300000
   - _id: 'n8mAFdYzvEI788Uk'
     flags: {}

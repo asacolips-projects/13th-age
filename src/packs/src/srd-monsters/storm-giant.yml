@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '120 damage'
+        value: '[[120]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '40 damage OR the giant can make a release the thunder attack as a free action.'
+        value: '[[40]] damage OR the giant can make a release the thunder attack as a free action.'
     sort: 0
     effects: []
     folder: null
@@ -435,11 +435,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. AC (2 attacks vs. nearby or far away enemies)'
+        value: '[[d20 + 14]] vs. AC ([[2]] attacks vs. nearby or far away enemies)'
       hit:
         type: ''
         label: 'Hit'
-        value: '60 damage'
+        value: '[[60]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -485,11 +485,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. PD (one random nearby enemy)'
+        value: '[[d20 + 15]] vs. PD ([[1]] random nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '[[2d6]] x 10 lightning damage'
+        value: '[[2d6]] x [[10]] lightning damage'
       hit1:
         type: 'String'
         label: 'Hit'

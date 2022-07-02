@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '3 ongoing damage, or 10 damage if the target is already taking ongoing damage'
+        value: '[[3]] ongoing damage, or [[10]] damage if the target is already taking ongoing damage'
       hit1:
         type: 'String'
         label: 'Hit'

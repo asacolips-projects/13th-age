@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '36 psychic damage, and the target is affected by wendigo’s hunger (save ends)'
+        value: '[[36]] psychic damage, and the target is affected by wendigo’s hunger (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. PD (2 attacks)'
+        value: '[[d20 + 10]] vs. PD ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -495,7 +495,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 10 damage as it bites itself.'
+        value: 'The target takes [[10]] damage as it bites itself.'
       group:
         type: 'String'
         label: 'Group'

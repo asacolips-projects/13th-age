@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 damage'
+        value: '[[4]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. AC (one nearby enemy)'
+        value: '[[d20 + 9]] vs. AC ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage, and 3 ongoing damage'
+        value: '[[3]] damage, and [[3]] ongoing damage'
       hit1:
         type: ''
         label: 'Hit'

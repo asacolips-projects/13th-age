@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 damage, and willing–underling triggers'
+        value: '[[14]] damage, and willing–underling triggers'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

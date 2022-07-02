@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 19]] vs. AC (3 attacks)'
+        value: '[[d20 + 19]] vs. AC ([[3]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '70 damage'
+        value: '[[70]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '80 fire damage'
+        value: '[[80]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'

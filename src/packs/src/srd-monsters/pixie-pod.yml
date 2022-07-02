@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. MD (one random nearby enemy)'
+        value: '[[d20 + 8]] vs. MD ([[1]] random nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '8 psychic damage'
+        value: '[[8]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'

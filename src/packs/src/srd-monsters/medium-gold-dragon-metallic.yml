@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,7 +433,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. MD (one enemy engaged with the dragon)'
+        value: '[[d20 + 13]] vs. MD ([[1]] enemy engaged with the dragon)'
       hit:
         type: ''
         label: 'Hit'
@@ -481,11 +481,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. PD (up to 5 nearby enemies in a group)'
+        value: '[[d20 + 13]] vs. PD (up to [[5]] nearby enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
-        value: '14 fire damage'
+        value: '[[14]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'

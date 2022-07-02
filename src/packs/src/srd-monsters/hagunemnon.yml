@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '110 damage, and the hagunemnon can make a spontaneous metamorphosing limbs attack against a different target as a free action'
+        value: '[[110]] damage, and the hagunemnon can make a spontaneous metamorphosing limbs attack against a different target as a free action'
       hit1:
         type: ''
         label: 'Hit'
@@ -425,7 +425,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'With each subsequent hit after the first, spontaneous metamorphosing limbs deals 20 less damage. The hagunemnon also doesn’t gain any extra attacks when it makes a basic attack.'
+        value: 'With each subsequent hit after the first, spontaneous metamorphosing limbs deals [[20]] less damage. The hagunemnon also doesn’t gain any extra attacks when it makes a basic attack.'
       group:
         type: 'String'
         label: 'Group'
@@ -513,7 +513,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a creature is engaged with the hagunemnon at the start of its turn, it takes [[4d10]] psychic damage. If it takes 31 or more damage this way during a single turn, it’s also *confused* until the start of its next turn.'
+        value: 'When a creature is engaged with the hagunemnon at the start of its turn, it takes [[4d10]] psychic damage. If it takes [[31]] or more damage this way during a single turn, it’s also *confused* until the start of its next turn.'
       group:
         type: 'String'
         label: 'Group'

@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. AC (2 attacks)'
+        value: '[[d20 + 9]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage'
+        value: '[[7]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -515,7 +515,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The writhing tentacles attack also deals 10 acid damage on a hit.'
+        value: 'The writhing tentacles attack also deals [[10]] acid damage on a hit.'
       group:
         type: 'String'
         label: 'Group'
@@ -537,7 +537,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a melee attack hits the chuulish slave, the attacker takes 10 poison damage.'
+        value: 'When a melee attack hits the chuulish slave, the attacker takes [[10]] poison damage.'
       group:
         type: 'String'
         label: 'Group'

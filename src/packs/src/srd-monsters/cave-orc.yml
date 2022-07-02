@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 damage, and +[[1d4]] damage for each other orc engaged with the target (max +[[4d4]])'
+        value: '[[4]] damage, and +[[1d4]] damage for each other orc engaged with the target (max +[[4d4]])'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

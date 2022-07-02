@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, and the couatl must pop free from the target'
+        value: '[[10]] damage, and the couatl must pop free from the target'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. AC (one *dazed*, *confused*, staggered, or *stunned* enemy)'
+        value: '[[d20 + 13]] vs. AC ([[1]] *dazed*, *confused*, staggered, or *stunned* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '60 damage, and 20 ongoing poison damage'
+        value: '[[60]] damage, and [[20]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -479,11 +479,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. PD (one nearby or far away enemy)'
+        value: '[[d20 + 13]] vs. PD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '50 damage of the following type (couatl’s choice): fire, holy, or lightning'
+        value: '[[50]] damage of the following type (couatl’s choice): fire, holy, or lightning'
       hit1:
         type: ''
         label: 'Hit'

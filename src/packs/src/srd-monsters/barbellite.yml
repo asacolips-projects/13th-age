@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 cold damage'
+        value: '[[7]] cold damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -445,7 +445,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Death can cause fluid-filled sacks inside the barbellite to explode. When the attack roll that kills the barbellite is a natural even roll, each nearby creature takes 10 cold damage.'
+        value: 'Death can cause fluid-filled sacks inside the barbellite to explode. When the attack roll that kills the barbellite is a natural even roll, each nearby creature takes [[10]] cold damage.'
       group:
         type: 'String'
         label: 'Group'

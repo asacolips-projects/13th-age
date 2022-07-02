@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and the target pops free from the centaur'
+        value: '[[15]] damage, and the target pops free from the centaur'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '13 damage'
+        value: '[[13]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -487,7 +487,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target takes 5 damage and pops free from the centaur.'
+        value: 'The target takes [[5]] damage and pops free from the centaur.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -523,7 +523,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The crit range of the attack expands by 2 and instead deals 20 damage on a hit if the centaur first moves before attacking an enemy it wasn’t engaged with at the start of its turn.'
+        value: 'The crit range of the attack expands by 2 and instead deals [[20]] damage on a hit if the centaur first moves before attacking an enemy it wasn’t engaged with at the start of its turn.'
       group:
         type: 'String'
         label: 'Group'

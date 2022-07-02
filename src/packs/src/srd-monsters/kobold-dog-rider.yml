@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage, and 3 ongoing fire damage'
+        value: '[[6]] damage, and [[3]] ongoing fire damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '9 damage, and the kobold and its steed can move as a free action.'
+        value: '[[9]] damage, and the kobold and its steed can move as a free action.'
       hit1:
         type: ''
         label: 'Hit'

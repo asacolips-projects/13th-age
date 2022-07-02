@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 damage'
+        value: '[[14]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -397,7 +397,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

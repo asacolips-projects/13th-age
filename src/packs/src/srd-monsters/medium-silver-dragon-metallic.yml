@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 cold damage, and the closest target hit is *dazed* until the start of the dragon’s next turn'
+        value: '[[10]] cold damage, and the closest target hit is *dazed* until the start of the dragon’s next turn'
       hit1:
         type: 'String'
         label: 'Hit'

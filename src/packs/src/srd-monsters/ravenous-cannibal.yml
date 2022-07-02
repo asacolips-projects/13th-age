@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 damage, and 4 ongoing damage'
+        value: '[[4]] damage, and [[4]] ongoing damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,7 +431,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. AC (one staggered enemy'
+        value: '[[d20 + 9]] vs. AC ([[1]] staggered enemy'
       hit:
         type: ''
         label: 'Hit'

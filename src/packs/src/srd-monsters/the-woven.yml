@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage'
+        value: '[[7]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage as the target’s mind reels against the horror of the truth'
+        value: '[[5]] psychic damage as the target’s mind reels against the horror of the truth'
       hit1:
         type: 'String'
         label: 'Hit'

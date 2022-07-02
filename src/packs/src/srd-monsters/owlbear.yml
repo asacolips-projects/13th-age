@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and until the end of the owlbear’s next turn, the target is *hampered* (makes only basic attacks) while engaged with the owlbear'
+        value: '[[15]] damage, and until the end of the owlbear’s next turn, the target is *hampered* (makes only basic attacks) while engaged with the owlbear'
       hit1:
         type: 'String'
         label: 'Hit'

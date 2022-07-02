@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '27 damage'
+        value: '[[27]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -425,7 +425,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Whenever the hooked demon hits a creature with hooks and barbs, that creature takes 10 damage each time it makes a non-basic attack (save ends).'
+        value: 'Whenever the hooked demon hits a creature with hooks and barbs, that creature takes [[10]] damage each time it makes a non-basic attack (save ends).'
       group:
         type: 'String'
         label: 'Group'

@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage'
+        value: '[[8]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: '2 damage.'
+        value: '[[2]] damage.'
       hit2:
         type: 'String'
         label: 'Hit'

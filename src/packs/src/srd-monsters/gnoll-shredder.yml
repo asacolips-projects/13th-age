@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 damage, and one of the shredder’s allies engaged with the target can pop free'
+        value: '[[25]] damage, and one of the shredder’s allies engaged with the target can pop free'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,7 +431,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs. PD (one enemy it hits with an opportunity attack)'
+        value: '[[d20 + 17]] vs. PD ([[1]] enemy it hits with an opportunity attack)'
       hit:
         type: ''
         label: 'Hit'

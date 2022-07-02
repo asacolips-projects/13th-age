@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -397,7 +397,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit against a target in light armor or no armor'
-        value: 'The target takes 10 extra damage.'
+        value: 'The target takes [[10]] extra damage.'
       hit3:
         type: 'String'
         label: 'Hit'

@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage, 60 negative energy damage, and the target is *dazed* (hard save ends, 16+)'
+        value: '[[40]] damage, [[60]] negative energy damage, and the target is *dazed* (hard save ends, 16+)'
       hit1:
         type: ''
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '40 damage.'
+        value: '[[40]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 force damage, and the target must roll a normal save; on a failure, it loses its next move action'
+        value: '[[50]] force damage, and the target must roll a normal save; on a failure, it loses its next move action'
       hit1:
         type: ''
         label: 'Hit'
@@ -489,7 +489,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 negative energy damage, and ghostly hands reach up from the ground and grab the target (as they try to pull the target’s spirit out of its body)'
+        value: '[[30]] negative energy damage, and ghostly hands reach up from the ground and grab the target (as they try to pull the target’s spirit out of its body)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -573,7 +573,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a creature is being grabbed by the ghostly hands, it takes 30 negative energy damage at the start of its turn and must make a last gasp save. On the fourth failed last gasp save, the creature’s soul is torn from it and it dies. Unconscious creatures take a –4 penalty to their last gasp saves. Note, grabbed creatures take a –5 penalty to disengage checks.'
+        value: 'When a creature is being grabbed by the ghostly hands, it takes [[30]] negative energy damage at the start of its turn and must make a last gasp save. On the fourth failed last gasp save, the creature’s soul is torn from it and it dies. Unconscious creatures take a –4 penalty to their last gasp saves. Note, grabbed creatures take a –5 penalty to disengage checks.'
       group:
         type: 'String'
         label: 'Group'

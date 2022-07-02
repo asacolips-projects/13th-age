@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 damage'
+        value: '[[14]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

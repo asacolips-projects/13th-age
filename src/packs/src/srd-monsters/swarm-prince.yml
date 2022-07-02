@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, and 10 ongoing poison damage'
+        value: '[[10]] damage, and [[10]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 negative energy damage, and if one or more Woven have been slain this battle, return one Woven to life in the location where it died'
+        value: '[[15]] negative energy damage, and if one or more Woven have been slain this battle, return one Woven to life in the location where it died'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage, and the target is *unconscious* (hard save ends, 16+; it also ends if the target takes 15 damage)'
+        value: '[[5]] psychic damage, and the target is *unconscious* (hard save ends, 16+; it also ends if the target takes [[15]] damage)'
       hit1:
         type: 'String'
         label: 'Hit'

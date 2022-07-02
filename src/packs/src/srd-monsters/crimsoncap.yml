@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '13 damage, and the crimsoncap can pop free from the target'
+        value: '[[13]] damage, and the crimsoncap can pop free from the target'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. PD (one staggered or *unconscious* enemy)'
+        value: '[[d20 + 11]] vs. PD ([[1]] staggered or *unconscious* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage, and the target is *hampered* (save ends)'
+        value: '[[20]] damage, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -455,7 +455,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
     sort: 100000
     effects: []
     folder: null
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and 5 ongoing damage'
+        value: '[[15]] damage, and [[5]] ongoing damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -505,7 +505,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 damage.'
+        value: '[[10]] damage.'
     sort: 200000
     effects: []
     folder: null

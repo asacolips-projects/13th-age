@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage'
+        value: '[[7]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '4 damage, and the orc tusker pops free from all enemies.'
+        value: '[[4]] damage, and the orc tusker pops free from all enemies.'
     sort: 0
     effects: []
     folder: null
@@ -425,7 +425,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The attack instead deals 12 damage on a hit if the orc tusker first moves before attacking an enemy it was not engaged with at the start of its turn.'
+        value: 'The attack instead deals [[12]] damage on a hit if the orc tusker first moves before attacking an enemy it was not engaged with at the start of its turn.'
       group:
         type: 'String'
         label: 'Group'

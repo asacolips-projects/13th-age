@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 psychic damage'
+        value: '[[20]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 20 negative energy damage, and the shadow thief can make a shadow possession attack as a free action (but see group ability).'
+        value: 'The target takes [[20]] negative energy damage, and the shadow thief can make a shadow possession attack as a free action (but see group ability).'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,7 +433,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. MD (one enemy hit by shadow strangulation)'
+        value: '[[d20 + 13]] vs. MD ([[1]] enemy hit by shadow strangulation)'
       hit:
         type: ''
         label: 'Hit'

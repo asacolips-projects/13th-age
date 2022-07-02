@@ -444,7 +444,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[1d4]] nearby or far away enemis'
+        value: '[[1d4]] nearby or far away enemies'
       hit:
         type: 'String'
         label: 'Hit'
@@ -498,7 +498,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+12]] vs. MD (one nearby enemy, or one nearby enemy per point of es. die if mystic escalator benefit is active)'
+        value: '[[d20+12]] vs. MD ([[1]] nearby enemy, or [[1]] nearby enemy per point of es. die if mystic escalator benefit is active)'
       hit:
         type: 'String'
         label: 'Hit'

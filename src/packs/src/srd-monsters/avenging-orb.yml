@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage'
+        value: '[[3]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 5, 10, 15, 20'
-        value: 'The target also takes 3 ongoing psychic damage.'
+        value: 'The target also takes [[3]] ongoing psychic damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,16 +433,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs. MD (one or more nearby or far away enemies; see history of abuse)'
+        value: '[[d20 + 7]] vs. MD ([[1]] or more nearby or far away enemies; see history of abuse)'
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage'
+        value: '[[5]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 5, 10, 15, 20'
-        value: 'The target also takes 3 ongoing psychic damage.'
+        value: 'The target also takes [[3]] ongoing psychic damage.'
       hit2:
         type: 'String'
         label: 'Hit'

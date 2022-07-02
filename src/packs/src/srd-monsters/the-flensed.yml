@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage, or 40 damage against a target that currently has one more powers flensed away.'
+        value: '[[20]] damage, or [[40]] damage against a target that currently has one more powers flensed away.'
       hit1:
         type: 'String'
         label: 'Hit'

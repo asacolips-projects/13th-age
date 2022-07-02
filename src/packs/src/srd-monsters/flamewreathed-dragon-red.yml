@@ -383,16 +383,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs. AC (3 attacks)'
+        value: '[[d20 + 17]] vs. AC ([[3]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '75 damage'
+        value: '[[75]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 20 ongoing fire damage.'
+        value: 'The target takes [[20]] ongoing fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,16 +433,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs. PD ([[1d4]] + 1 nearby enemies'
+        value: '[[d20 + 17]] vs. PD ([[1d4 + 1]] nearby enemies'
       hit:
         type: ''
         label: 'Hit'
-        value: 'or one enemy);60 fire damage, and 15 ongoing fire damage; OR 180 fire damage, and 30 ongoing fire damage and the target is *weakened* (save ends both) if used against a single enemy'
+        value: 'or one enemy);60 fire damage, and [[15]] ongoing fire damage; OR [[180]] fire damage, and [[30]] ongoing fire damage and the target is *weakened* (save ends both) if used against a single enemy'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'If the breath targeted multiple enemies, the target takes 25 ongoing fire damage instead of 15. If the breath targeted a single enemy, the target takes 60 ongoing fire damage instead of 30.'
+        value: 'If the breath targeted multiple enemies, the target takes [[25]] ongoing fire damage instead of 15. If the breath targeted a single enemy, the target takes [[60]] ongoing fire damage instead of 30.'
       hit2:
         type: 'String'
         label: 'Hit'

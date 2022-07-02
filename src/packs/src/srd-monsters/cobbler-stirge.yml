@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage'
+        value: '[[6]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -445,7 +445,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit or miss'
-        value: 'The cobbler stirge takes 3 damage.'
+        value: 'The cobbler stirge takes [[3]] damage.'
       hit3:
         type: 'String'
         label: 'Hit'

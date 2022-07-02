@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage'
+        value: '[[3]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -423,7 +423,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'As a standard action, an ettercap acolyte can deal [[2d6]] poison damage to one *dazed*, *hampered*, or *stuck* enemy engaged with it. The ettercap acolyte also takes 7 damage from this kamikaze action, killing it.'
+        value: 'As a standard action, an ettercap acolyte can deal [[2d6]] poison damage to one *dazed*, *hampered*, or *stuck* enemy engaged with it. The ettercap acolyte also takes [[7]] damage from this kamikaze action, killing it.'
       group:
         type: 'String'
         label: 'Group'

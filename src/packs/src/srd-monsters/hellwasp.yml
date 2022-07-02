@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: '5 ongoing acid damage (easy save ends, 6+), and the hellwasp can pop free from the target.'
+        value: '[[5]] ongoing acid damage (easy save ends, 6+), and the hellwasp can pop free from the target.'
       hit2:
         type: 'String'
         label: 'Hit'

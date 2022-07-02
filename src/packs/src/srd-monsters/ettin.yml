@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 damage, and the target pops free from the ettin; then as a free action, the ettin can move (or choose not to move) and make a second swing attack.'
+        value: '[[25]] damage, and the target pops free from the ettin; then as a free action, the ettin can move (or choose not to move) and make a second swing attack.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

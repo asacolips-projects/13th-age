@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

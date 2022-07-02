@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '3x'
+      value: 'triple'
       type: 'String'
       label: 'Size'
     type:
@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '110 negative energy damage'
+        value: '[[110]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: 'Each enemy engaged with the specter (including the target) takes 20 negative energy damage.'
+        value: 'Each enemy engaged with the specter (including the target) takes [[20]] negative energy damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. MD (up to 2 nearby enemies)'
+        value: '[[d20 + 12]] vs. MD (up to [[2]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'
-        value: '75 negative energy damage'
+        value: '[[75]] negative energy damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -481,11 +481,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. MD (one nearby enemy with 60 hp or fewer)'
+        value: '[[d20 + 14]] vs. MD ([[1]] nearby enemy with 60 hp or fewer)'
       hit:
         type: ''
         label: 'Hit'
-        value: '60 negative energy damage'
+        value: '[[60]] negative energy damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -543,7 +543,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy attacks the specter and misses, it takes 24 negative energy damage.'
+        value: 'When an enemy attacks the specter and misses, it takes [[24]] negative energy damage.'
       group:
         type: 'String'
         label: 'Group'

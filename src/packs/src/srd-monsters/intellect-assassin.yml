@@ -390,7 +390,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+9]] vs. PD (one enemy)'
+        value: '[[d20+9]] vs. PD ([[1]] enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -445,7 +445,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. MD (one enemy)'
+        value: '[[d20+11]] vs. MD ([[1]] enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -500,7 +500,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs. MD (one *confused* enemy)'
+        value: '[[d20+10]] vs. MD ([[1]] *confused* enemy)'
       hit:
         type: 'String'
         label: 'Hit'

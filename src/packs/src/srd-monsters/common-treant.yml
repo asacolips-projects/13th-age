@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '9 damage, and the treant grabs the target. When the treant starts its turn grabbing an enemy, it can make a twist and snap attack against that target as a standard action that turn.'
+        value: '[[9]] damage, and the treant grabs the target. When the treant starts its turn grabbing an enemy, it can make a twist and snap attack against that target as a standard action that turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '27 damage'
+        value: '[[27]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -471,7 +471,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the treant takes 15 or more fire damage from a single attack, it releases all grabbed creatures.'
+        value: 'When the treant takes [[15]] or more fire damage from a single attack, it releases all grabbed creatures.'
       group:
         type: 'String'
         label: 'Group'
@@ -515,7 +515,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The treant exudes a toxic cloud of pollen. When an enemy engages the treant or starts its turn engaged with the treant, it takes 4 poison damage.'
+        value: 'The treant exudes a toxic cloud of pollen. When an enemy engages the treant or starts its turn engaged with the treant, it takes [[4]] poison damage.'
       group:
         type: 'String'
         label: 'Group'

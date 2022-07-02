@@ -392,12 +392,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: '7 damage, and the chaos beast can make another bestial chaos attack as a free action.'
+        value: '[[7]] damage, and the chaos beast can make another bestial chaos attack as a free action.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '15 ongoing damage.'
+        value: '[[15]] ongoing damage.'
       hit3:
         type: 'String'
         label: 'Hit'

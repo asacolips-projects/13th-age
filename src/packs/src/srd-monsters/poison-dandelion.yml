@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -383,16 +383,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: 'The target takes 10 ongoing poison damage.'
+        value: 'The target takes [[10]] ongoing poison damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 ongoing poison damage, and undead creatures and plant creatures in the battle add the escalation die to their attacks against the target (save ends both)'
+        value: '[[15]] ongoing poison damage, and undead creatures and plant creatures in the battle add the escalation die to their attacks against the target (save ends both)'
       hit1:
         type: 'String'
         label: 'Hit'

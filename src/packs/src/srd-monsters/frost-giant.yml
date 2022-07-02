@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '45 damage'
+        value: '[[45]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 cold damage, and the target is *hampered* (makes only basic attacks) until the end of its next turn'
+        value: '[[10]] cold damage, and the target is *hampered* (makes only basic attacks) until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -481,11 +481,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. PD (one nearby enemy or far away enemy at –2 atk)'
+        value: '[[d20 + 11]] vs. PD ([[1]] nearby enemy or far away enemy at –2 atk)'
       hit:
         type: ''
         label: 'Hit'
-        value: '35 damage'
+        value: '[[35]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -529,11 +529,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. PD (one enemy smaller than it)'
+        value: '[[d20 + 10]] vs. PD ([[1]] enemy smaller than it)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage, the target pops free from the giant, and the target loses its next move action.'
+        value: '[[20]] damage, the target pops free from the giant, and the target loses its next move action.'
       hit1:
         type: 'String'
         label: 'Hit'

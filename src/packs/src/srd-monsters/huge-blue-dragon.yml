@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 16]] vs. AC (2 attacks)'
+        value: '[[d20 + 16]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '50 damage'
+        value: '[[50]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '60 damage, and [[4d10]] lightning damage to the target and to one other nearby enemy of the dragon’s choice'
+        value: '[[60]] damage, and [[4d10]] lightning damage to the target and to one other nearby enemy of the dragon’s choice'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '80 lightning damage'
+        value: '[[80]] lightning damage'
       hit1:
         type: ''
         label: 'Hit'

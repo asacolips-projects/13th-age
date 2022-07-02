@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 fire damage'
+        value: '[[10]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. PD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '14 fire damage, and each time the target fails a save this battle, it bursts into flames and takes 5 ongoing fire damage'
+        value: '[[14]] fire damage, and each time the target fails a save this battle, it bursts into flames and takes [[5]] ongoing fire damage'
       hit1:
         type: 'String'
         label: 'Hit'

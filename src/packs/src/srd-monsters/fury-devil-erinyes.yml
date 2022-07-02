@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '24 damage'
+        value: '[[24]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss while hellbent'
-        value: '4 psychic damage.'
+        value: '[[4]] psychic damage.'
     sort: 0
     effects: []
     folder: null
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 psychic damage'
+        value: '[[15]] psychic damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -473,7 +473,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target also takes 8 psychic damage and 8 ongoing psychic damage (that feels like a terminal case of guilt).'
+        value: 'The target also takes [[8]] psychic damage and [[8]] ongoing psychic damage (that feels like a terminal case of guilt).'
       group:
         type: 'String'
         label: 'Group'
@@ -495,7 +495,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 30 psychic damage instead.'
+        value: 'The target takes [[30]] psychic damage instead.'
       group:
         type: 'String'
         label: 'Group'

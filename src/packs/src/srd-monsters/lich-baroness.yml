@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 damage'
+        value: '[[12]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 negative energy damage, and 5 ongoing psychic damage (hard save ends, 16+)'
+        value: '[[10]] negative energy damage, and [[5]] ongoing psychic damage (hard save ends, 16+)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage, and the target takes 10 psychic damage each time it attacks the baroness (save ends)'
+        value: '[[5]] psychic damage, and the target takes [[10]] psychic damage each time it attacks the baroness (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

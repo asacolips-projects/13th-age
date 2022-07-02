@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '1 damage, and the scorpion gains a +2 attack bonus against the same target this turn with its stinger attack.'
+        value: '[[1]] damage, and the scorpion gains a +2 attack bonus against the same target this turn with its stinger attack.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage, and 3 ongoing poison damage'
+        value: '[[3]] damage, and [[3]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'

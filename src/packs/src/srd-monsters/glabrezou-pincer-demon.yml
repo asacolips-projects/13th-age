@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '45 damage'
+        value: '[[45]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. MD (one nearby or far away creature)'
+        value: '[[d20 + 13]] vs. MD ([[1]] nearby or far away creature)'
       hit:
         type: ''
         label: 'Hit'
-        value: '70 psychic damage'
+        value: '[[70]] psychic damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 fire damage'
+        value: '[[50]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'

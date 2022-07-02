@@ -392,12 +392,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: '25 damage.'
+        value: '[[25]] damage.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '15 ongoing damage.'
+        value: '[[15]] ongoing damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -411,7 +411,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '[[1d3]] random nearby enemies each take 10 psychic damage.'
+        value: '[[1d3]] random nearby enemies each take [[10]] psychic damage.'
     sort: 0
     effects: []
     folder: null

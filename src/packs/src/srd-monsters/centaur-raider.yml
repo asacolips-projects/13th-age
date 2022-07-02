@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -487,7 +487,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and the target loses its next move action.'
+        value: '[[15]] damage, and the target loses its next move action.'
       hit1:
         type: 'String'
         label: 'Hit'

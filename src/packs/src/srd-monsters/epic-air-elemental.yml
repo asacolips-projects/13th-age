@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage'
+        value: '[[40]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage'
+        value: '[[40]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -481,11 +481,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. PD (each enemy engaged with it and one nearby enemy)'
+        value: '[[d20 + 15]] vs. PD (each enemy engaged with it and [[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage'
+        value: '[[40]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -531,11 +531,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. PD (one nearby or far away enemy)'
+        value: '[[d20 + 15]] vs. PD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage'
+        value: '[[40]] damage'
       hit1:
         type: ''
         label: 'Hit'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage, or 6 damage if the target is *vulnerable*'
+        value: '[[3]] damage, or [[6]] damage if the target is *vulnerable*'
       hit1:
         type: ''
         label: 'Hit'

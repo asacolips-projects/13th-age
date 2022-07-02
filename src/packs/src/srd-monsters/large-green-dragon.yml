@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 damage'
+        value: '[[25]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -439,12 +439,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '38 damage'
+        value: '[[38]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 10 ongoing poison damage.'
+        value: 'The target also takes [[10]] ongoing poison damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -489,7 +489,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 poison damage, and the target is *hampered* (save ends)'
+        value: '[[25]] poison damage, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

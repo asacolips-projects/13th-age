@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage, and the ettercap supplicant can use the web that burns an additional time this battle.'
+        value: '[[8]] damage, and the ettercap supplicant can use the web that burns an additional time this battle.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 psychic damage, and until the end of the battle, the target takes [[1d6]] psychic damage each time it fails a save.'
+        value: '[[10]] psychic damage, and until the end of the battle, the target takes [[1d6]] psychic damage each time it fails a save.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -483,7 +483,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 ongoing acid damage'
+        value: '[[6]] ongoing acid damage'
       hit1:
         type: ''
         label: 'Hit'

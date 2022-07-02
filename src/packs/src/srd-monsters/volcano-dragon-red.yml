@@ -383,21 +383,21 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. AC (2 attacks)'
+        value: '[[d20 + 12]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 5 extra damage from a wing buffet.'
+        value: 'The target takes [[5]] extra damage from a wing buffet.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target takes 10 extra damage from a claw strike.'
+        value: 'The target takes [[10]] extra damage from a claw strike.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -435,11 +435,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 12]] vs. PD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -459,7 +459,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '9 damage.'
+        value: '[[9]] damage.'
     sort: 100000
     effects: []
     folder: null
@@ -489,12 +489,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 fire damage, and 5 ongoing fire damage'
+        value: '[[20]] fire damage, and [[5]] ongoing fire damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target takes 10 ongoing fire damage instead of 5.'
+        value: 'The target takes [[10]] ongoing fire damage instead of 5.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -527,7 +527,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy is engaged with the volcanic dragon at the start of its turn, it takes 5 fire damage.'
+        value: 'When an enemy is engaged with the volcanic dragon at the start of its turn, it takes [[5]] fire damage.'
       group:
         type: 'String'
         label: 'Group'

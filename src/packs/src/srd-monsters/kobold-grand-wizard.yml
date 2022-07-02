@@ -330,7 +330,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '2 lightning damage'
+        value: '[[2]] lightning damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -370,7 +370,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 poison damage, or 6 poison damage against dwarves'
+        value: '[[4]] poison damage, or [[6]] poison damage against dwarves'
       hit1:
         type: 'String'
         label: 'Hit'

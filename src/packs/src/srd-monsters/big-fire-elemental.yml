@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '22 fire damage, and 11 ongoing fire damage to a random nearby enemy (including an *unconscious* one)'
+        value: '[[22]] fire damage, and [[11]] ongoing fire damage to a random nearby enemy (including an *unconscious* one)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. PD (one nearby enemy OR each nearby enemy taking ongoing fire damage)'
+        value: '[[d20 + 12]] vs. PD ([[1]] nearby enemy OR each nearby enemy taking ongoing fire damage)'
       hit:
         type: ''
         label: 'Hit'
-        value: '30 fire damage, and 11 ongoing fire damage'
+        value: '[[30]] fire damage, and [[11]] ongoing fire damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -455,7 +455,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '11 ongoing fire damage.'
+        value: '[[11]] ongoing fire damage.'
     sort: 100000
     effects: []
     folder: null

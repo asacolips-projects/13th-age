@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 10 ongoing poison damage.'
+        value: 'The target takes [[10]] ongoing poison damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -483,7 +483,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. PD (up to 2 enemies in a group)'
+        value: '[[d20 + 10]] vs. PD (up to [[2]] enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
@@ -535,7 +535,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target takes 18 psychic damage each time it attacks the binding bride (save ends)'
+        value: 'The target takes [[18]] psychic damage each time it attacks the binding bride (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, and target is infatuated (save ends)'
+        value: '[[10]] damage, and target is infatuated (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,7 +431,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. MD (one infatuated enemy)'
+        value: '[[d20 + 8]] vs. MD ([[1]] infatuated enemy)'
       hit:
         type: ''
         label: 'Hit'

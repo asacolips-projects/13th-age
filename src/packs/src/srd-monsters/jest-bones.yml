@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage, plus [[1d6]] ongoing psychic damage if the GM makes a horrible pun while rolling the attacks'
+        value: '[[5]] psychic damage, plus [[1d6]] ongoing psychic damage if the GM makes a horrible pun while rolling the attacks'
       hit1:
         type: 'String'
         label: 'Hit'

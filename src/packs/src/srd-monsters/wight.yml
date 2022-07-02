@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: 'Unless the wight is staggered, the attack also deals 8 ongoing negative energy damage.'
+        value: 'Unless the wight is staggered, the attack also deals [[8]] ongoing negative energy damage.'
       hit2:
         type: 'String'
         label: 'Hit'

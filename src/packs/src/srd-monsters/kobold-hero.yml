@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage, and each nearby non-leader kobold deals +3 damage with its next attack this battle that hits'
+        value: '[[6]] damage, and each nearby non-leader kobold deals +3 damage with its next attack this battle that hits'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: '3 damage.'
+        value: '[[3]] damage.'
       hit2:
         type: 'String'
         label: 'Hit'

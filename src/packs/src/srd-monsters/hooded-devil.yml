@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 12]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target takes 30 psychic damage each time it makes a non-basic attack (save ends). The target silently hears a terribly hurtful statement, in the voice of the person who would hurt them the most by saying it.'
+        value: 'The target takes [[30]] psychic damage each time it makes a non-basic attack (save ends). The target silently hears a terribly hurtful statement, in the voice of the person who would hurt them the most by saying it.'
       hit1:
         type: ''
         label: 'Hit'

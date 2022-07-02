@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 acid damage, and the cube engulfs the target (functions like a grab) if it’s smaller than the cube'
+        value: '[[30]] acid damage, and the cube engulfs the target (functions like a grab) if it’s smaller than the cube'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -433,7 +433,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (up to 2 attacks'
+        value: '[[d20 + 10]] vs. AC (up to [[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -473,7 +473,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Targets engulfed/grabbed by the cube take 30 acid damage at the start of the cube’s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously. Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube’s toxins overwhelm it.'
+        value: 'Targets engulfed/grabbed by the cube take [[30]] acid damage at the start of the cube’s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously. Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube’s toxins overwhelm it.'
       group:
         type: 'String'
         label: 'Group'

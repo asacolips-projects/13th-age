@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 cold damage, and the target is *dazed* (hard save ends, 16+)'
+        value: '[[50]] cold damage, and the target is *dazed* (hard save ends, 16+)'
       hit1:
         type: ''
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '25 cold damage.'
+        value: '[[25]] cold damage.'
     sort: 0
     effects: []
     folder: null
@@ -435,16 +435,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. PD (2 attacks)'
+        value: '[[d20 + 12]] vs. PD ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '35 negative energy damage'
+        value: '[[35]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is encased in shadows (save ends). While under the effect, it’s *weakened* and takes 10 ongoing cold damage.'
+        value: 'The target is encased in shadows (save ends). While under the effect, it’s *weakened* and takes [[10]] ongoing cold damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -489,12 +489,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '35 fire damage, and 10 ongoing fire damage'
+        value: '[[35]] fire damage, and [[10]] ongoing fire damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target takes 20 ongoing fire damage instead of 10.'
+        value: 'The target takes [[20]] ongoing fire damage instead of 10.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -511,7 +511,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '15 fire damage, and 5 ongoing fire damage.'
+        value: '[[15]] fire damage, and [[5]] ongoing fire damage.'
     sort: 200000
     effects: []
     folder: null
@@ -537,7 +537,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. MD (up to 3 nearby enemies)'
+        value: '[[d20 + 13]] vs. MD (up to [[3]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'

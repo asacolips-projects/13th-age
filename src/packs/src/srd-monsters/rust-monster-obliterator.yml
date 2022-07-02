@@ -389,7 +389,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs. AC (one creature wearing light armor or no armor)'
+        value: '[[d20+10]] vs. AC ([[1]] creature wearing light armor or no armor)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -444,7 +444,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs. PD (one creature wearing heavy armor)'
+        value: '[[d20+10]] vs. PD ([[1]] creature wearing heavy armor)'
       hit:
         type: 'String'
         label: 'Hit'

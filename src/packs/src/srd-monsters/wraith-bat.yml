@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 negative energy damage, and the target takes +[[1d8]] negative energy damage for each relationship point it has with the bat’s associated icon.'
+        value: '[[25]] negative energy damage, and the target takes +[[1d8]] negative energy damage for each relationship point it has with the bat’s associated icon.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '22 negative energy damage, and after the attack the wraith bat teleports to and engages with one target it hit.'
+        value: '[[22]] negative energy damage, and after the attack the wraith bat teleports to and engages with one target it hit.'
       hit1:
         type: 'String'
         label: 'Hit'

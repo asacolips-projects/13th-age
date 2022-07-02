@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 negative energy damage'
+        value: '[[14]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 negative energy damage, and after the attack the wraith teleports to and engages with one target it hit'
+        value: '[[10]] negative energy damage, and after the attack the wraith teleports to and engages with one target it hit'
       hit1:
         type: 'String'
         label: 'Hit'

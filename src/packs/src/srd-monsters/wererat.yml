@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '2 damage and 2 ongoing damage, and the crit range for each wererat in the battle against the target expands by 1 (cumulative)'
+        value: '[[2]] damage and [[2]] ongoing damage, and the crit range for each wererat in the battle against the target expands by 1 (cumulative)'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 damage'
+        value: '[[4]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -457,7 +457,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '2 damage.'
+        value: '[[2]] damage.'
     sort: 100000
     effects: []
     folder: null

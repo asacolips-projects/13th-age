@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage, and the target is *vulnerable* (save ends)'
+        value: '[[8]] damage, and the target is *vulnerable* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. AC (one *vulnerable* enemy)'
+        value: '[[d20 + 11]] vs. AC ([[1]] *vulnerable* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '12 damage, and the target is *stunned* (save ends)'
+        value: '[[12]] damage, and the target is *stunned* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -483,7 +483,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target must choose one: 15 psychic damage; OR 5 psychic damage and the target is *vulnerable* (save ends)'
+        value: 'The target must choose one: [[15]] psychic damage; OR [[5]] psychic damage and the target is *vulnerable* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

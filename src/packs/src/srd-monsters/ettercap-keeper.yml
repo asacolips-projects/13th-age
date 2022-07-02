@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: '5 ongoing poison damage.'
+        value: '[[5]] ongoing poison damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. MD (one nearby or far away enemy)'
+        value: '[[d20 + 9]] vs. MD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '15 psychic damage, and the target can’t cast spells or speak (save ends)'
+        value: '[[15]] psychic damage, and the target can’t cast spells or speak (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 ongoing psychic damage'
+        value: '[[10]] ongoing psychic damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -529,11 +529,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. MD (one nearby enemy per point on esc. die)'
+        value: '[[d20 + 9]] vs. MD ([[1]] nearby enemy per point on esc. die)'
       hit:
         type: ''
         label: 'Hit'
-        value: '13 psychic damage'
+        value: '[[13]] psychic damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -553,7 +553,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '7 psychic damage.'
+        value: '[[7]] psychic damage.'
     sort: 300000
     effects: []
     folder: null

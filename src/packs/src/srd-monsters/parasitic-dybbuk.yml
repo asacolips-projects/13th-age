@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 poison damage'
+        value: '[[40]] poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 10]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '30 psychic damage'
+        value: '[[30]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -483,7 +483,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -685,7 +685,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the target is engaged with the dybbuk at the start of its turn, it takes 20 damage.'
+        value: 'When the target is engaged with the dybbuk at the start of its turn, it takes [[20]] damage.'
       group:
         type: 'String'
         label: 'Group'

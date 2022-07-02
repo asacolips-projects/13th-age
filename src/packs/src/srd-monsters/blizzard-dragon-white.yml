@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (2 attacks)'
+        value: '[[d20 + 10]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,12 +437,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 cold damage, and 5 ongoing cold damage'
+        value: '[[20]] cold damage, and [[5]] ongoing cold damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 18+'
-        value: 'The target takes 10 ongoing cold damage instead of 5.'
+        value: 'The target takes [[10]] ongoing cold damage instead of 5.'
       hit2:
         type: ''
         label: 'Hit'
@@ -521,7 +521,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy is engaged with the blizzard dragon at the start of its turn, it takes 5 cold damage.'
+        value: 'When an enemy is engaged with the blizzard dragon at the start of its turn, it takes [[5]] cold damage.'
       group:
         type: 'String'
         label: 'Group'

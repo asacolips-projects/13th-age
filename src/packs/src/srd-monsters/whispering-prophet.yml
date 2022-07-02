@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 damage, and the target is *vulnerable* to psychic damage (save ends)'
+        value: '[[12]] damage, and the target is *vulnerable* to psychic damage (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 psychic damage, and the target’s mind is filled with a delusional scene from its past that depends on the roll'
+        value: '[[5]] psychic damage, and the target’s mind is filled with a delusional scene from its past that depends on the roll'
       hit1:
         type: ''
         label: 'Hit'
@@ -563,7 +563,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the prophet makes a whispered secrets attack, it can choose to target only one nearby enemy. If it does, it gains a +4 attack bonus against that enemy and the hit effects are save ends.'
+        value: 'When the prophet makes a whispered secrets attack, it can choose to target only [[1]] nearby enemy. If it does, it gains a +4 attack bonus against that enemy and the hit effects are save ends.'
       group:
         type: 'String'
         label: 'Group'

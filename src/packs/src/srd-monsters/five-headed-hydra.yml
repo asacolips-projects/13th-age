@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (5 attacks)'
+        value: '[[d20 + 10]] vs. AC ([[5]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
     sort: 0
     effects: []
     folder: null

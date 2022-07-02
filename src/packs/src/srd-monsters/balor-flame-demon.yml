@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '160 damage'
+        value: '[[160]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -397,7 +397,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: '80 damage.'
+        value: '[[80]] damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -435,16 +435,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 18]] vs. PD (one nearby enemy)'
+        value: '[[d20 + 18]] vs. PD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '50 fire damage, and the target is pulled to the balor, who engages it.'
+        value: '[[50]] fire damage, and the target is pulled to the balor, who engages it.'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even miss'
-        value: '25 fire damage.'
+        value: '[[25]] fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'

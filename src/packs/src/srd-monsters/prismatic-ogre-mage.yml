@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '75 damage'
+        value: '[[75]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 force damage, and the target pops free from the ogre mage'
+        value: '[[10]] force damage, and the target pops free from the ogre mage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -490,7 +490,7 @@ items:
         type: ''
         label: 'Hit'
         name: '1. Red'
-        value: '40 fire damage.'
+        value: '[[40]] fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -531,11 +531,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. PD (one enemy near the target)'
+        value: '[[d20 + 15]] vs. PD ([[1]] enemy near the target)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 lightning damage.'
+        value: '[[20]] lightning damage.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -593,7 +593,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '50 damage, and the target is *confused* (save ends).'
+        value: '[[50]] damage, and the target is *confused* (save ends).'
       group:
         type: 'String'
         label: 'Group'
@@ -615,7 +615,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '40 ongoing poison damage.'
+        value: '[[40]] ongoing poison damage.'
       group:
         type: 'String'
         label: 'Group'
@@ -703,7 +703,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target is *dazed* and *confused* (save ends both). When the target saves, it takes 40 psychic damage.'
+        value: 'The target is *dazed* and *confused* (save ends both). When the target saves, it takes [[40]] psychic damage.'
       group:
         type: 'String'
         label: 'Group'

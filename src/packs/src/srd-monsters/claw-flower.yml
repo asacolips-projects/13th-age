@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage'
+        value: '[[8]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -442,12 +442,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: '4 psychic damage, and the target is *confused* until end of its next turn.'
+        value: '[[4]] psychic damage, and the target is *confused* until end of its next turn.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '3 psychic damage, and the target is *stuck* until end of its next turn.'
+        value: '[[3]] psychic damage, and the target is *stuck* until end of its next turn.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -461,7 +461,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '2 psychic damage.'
+        value: '[[2]] psychic damage.'
     sort: 100000
     effects: []
     folder: null
@@ -479,7 +479,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The claw flower has roots and normally can’t move, but when it takes 10 or more damage from a single attack it can move normally during its next turn.'
+        value: 'The claw flower has roots and normally can’t move, but when it takes [[10]] or more damage from a single attack it can move normally during its next turn.'
       group:
         type: 'String'
         label: 'Group'

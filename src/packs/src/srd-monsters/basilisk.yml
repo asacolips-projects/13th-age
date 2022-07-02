@@ -383,7 +383,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. AC (3 attacks'
+        value: '[[d20 + 8]] vs. AC ([[3]] attacks'
       hit:
         type: ''
         label: 'Hit'
@@ -392,7 +392,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 5 ongoing poison damage.'
+        value: 'The target takes [[5]] ongoing poison damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 ongoing poison damage, and the target must start making last gasp saves depending on the basilisk’s type (see below) as it accidentally takes a full look at the basilisk. Constructs and undead are immune to this effect.'
+        value: '[[5]] ongoing poison damage, and the target must start making last gasp saves depending on the basilisk’s type (see below) as it accidentally takes a full look at the basilisk. Constructs and undead are immune to this effect.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -495,7 +495,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 25 poison damage as its blood turns to poison.'
+        value: 'The target takes [[25]] poison damage as its blood turns to poison.'
       group:
         type: 'String'
         label: 'Group'
@@ -539,7 +539,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 15 fire damage, and each of the target’s nearby allies takes 5 fire damage as the target’s blood boils under their skin and sprays outward in gouts of liquid fire.'
+        value: 'The target takes [[15]] fire damage, and each of the target’s nearby allies takes [[5]] fire damage as the target’s blood boils under their skin and sprays outward in gouts of liquid fire.'
       group:
         type: 'String'
         label: 'Group'
@@ -715,7 +715,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Each creature engaged with the basilisk at the end of the basilisk’s turn takes 10 poison damage.'
+        value: 'Each creature engaged with the basilisk at the end of the basilisk’s turn takes [[10]] poison damage.'
       group:
         type: 'String'
         label: 'Group'

@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '17 damage'
+        value: '[[17]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target also takes 8 ongoing acid damage.'
+        value: 'The target also takes [[8]] ongoing acid damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 fire damage'
+        value: '[[18]] fire damage'
       hit1:
         type: ''
         label: 'Hit'

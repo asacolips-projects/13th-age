@@ -383,21 +383,21 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. AC (2 attacks)'
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target also takes 10 ongoing damage.'
+        value: 'The target also takes [[10]] ongoing damage.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd miss'
-        value: '10 ongoing damage.'
+        value: '[[10]] ongoing damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'

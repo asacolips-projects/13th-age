@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage, and 5 ongoing damage'
+        value: '[[3]] damage, and [[5]] ongoing damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage, and the target is *dazed* (save ends)'
+        value: '[[7]] damage, and the target is *dazed* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

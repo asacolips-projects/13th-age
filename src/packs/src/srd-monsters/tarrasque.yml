@@ -860,7 +860,7 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>Once a creature is swallowed, it goes inside one of the tarrasque&rsquo;s gigantic stomachs. It can still act while inside the tarrasque, but it will have to deal with the beast&rsquo;s stomach acid that is splashing around. A swallowed creature must deal 400 damage to the tarrasque to force it to disgorge the contents of its gullet, freeing the creature. During the tarrasque&rsquo;s turn, it can make a&nbsp;gullet digestion&nbsp;attack against the target as a free action.</p>'
+        value: '<p>Once a creature is swallowed, it goes inside one of the tarrasque&rsquo;s gigantic stomachs. It can still act while inside the tarrasque, but it will have to deal with the beast&rsquo;s stomach acid that is splashing around. A swallowed creature must deal [[400]] damage to the tarrasque to force it to disgorge the contents of its gullet, freeing the creature. During the tarrasque&rsquo;s turn, it can make a&nbsp;gullet digestion&nbsp;attack against the target as a free action.</p>'
       group:
         type: 'String'
         label: 'Group'

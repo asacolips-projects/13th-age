@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '24 damage'
+        value: '[[24]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 15 ongoing poison damage.'
+        value: 'The target also takes [[15]] ongoing poison damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '12 damage.'
+        value: '[[12]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 psychic damage'
+        value: '[[25]] psychic damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -461,7 +461,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 psychic damage.'
+        value: '[[10]] psychic damage.'
     sort: 100000
     effects: []
     folder: null
@@ -487,11 +487,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. MD (one nearby enemy'
+        value: '[[d20 + 10]] vs. MD ([[1]] nearby enemy'
       hit:
         type: ''
         label: 'Hit'
-        value: 'or one nearby enemy per point of esc. die if mystic escalator benefit is active);10 psychic damage, and the target is *hampered* (save ends)'
+        value: 'or [[1]] nearby enemy per point of esc. die if mystic escalator benefit is active);10 psychic damage, and the target is *hampered* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

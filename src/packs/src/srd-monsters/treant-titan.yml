@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. AC (2 attacks)'
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage, and the treant grabs the target. When the treant starts its turn grabbing an enemy, it can make a twist and snap attack against that target as a standard action that turn.'
+        value: '[[30]] damage, and the treant grabs the target. When the treant starts its turn grabbing an enemy, it can make a twist and snap attack against that target as a standard action that turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '80 damage, and the target is *dazed* (save ends). If the treant starts its turn grabbing a dazed enemy, it can make a titanic rend attack against that target as a standard action that turn.'
+        value: '[[80]] damage, and the target is *dazed* (save ends). If the treant starts its turn grabbing a dazed enemy, it can make a titanic rend attack against that target as a standard action that turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -455,7 +455,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '40 damage.'
+        value: '[[40]] damage.'
     sort: 100000
     effects: []
     folder: null
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '160 damage, and the treant titan can continue making titanic rend attacks against the target until it escapes the grab, at which point the treant will have to use a grasping branches attack against it again.'
+        value: '[[160]] damage, and the treant titan can continue making titanic rend attacks against the target until it escapes the grab, at which point the treant will have to use a grasping branches attack against it again.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -505,7 +505,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '60 damage.'
+        value: '[[60]] damage.'
     sort: 200000
     effects: []
     folder: null
@@ -523,7 +523,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the treant takes 35 or more fire damage from a single attack, it releases all grabbed creatures.'
+        value: 'When the treant takes [[35]] or more fire damage from a single attack, it releases all grabbed creatures.'
       group:
         type: 'String'
         label: 'Group'
@@ -589,7 +589,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Countless smaller branches whip through the air around the treant titan. When a creature engaged with the treant misses it with an attack, that creature takes 12 damage from the whipping branches.'
+        value: 'Countless smaller branches whip through the air around the treant titan. When a creature engaged with the treant misses it with an attack, that creature takes [[12]] damage from the whipping branches.'
       group:
         type: 'String'
         label: 'Group'

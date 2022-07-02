@@ -383,16 +383,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. AC (2 attacks)'
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 10 ongoing acid damage.'
+        value: 'The target also takes [[10]] ongoing acid damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 acid damage, and 10 ongoing acid damage'
+        value: '[[20]] acid damage, and [[10]] ongoing acid damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -457,7 +457,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 acid damage.'
+        value: '[[10]] acid damage.'
     sort: 100000
     effects: []
     folder: null

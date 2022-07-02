@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 poison damage'
+        value: '[[15]] poison damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, and 5 ongoing poison damage'
+        value: '[[10]] damage, and [[5]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -563,7 +563,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an attacker misses the swarm with a melee attack, that enemy takes 10 ongoing damage.'
+        value: 'When an attacker misses the swarm with a melee attack, that enemy takes [[10]] ongoing damage.'
       group:
         type: 'String'
         label: 'Group'

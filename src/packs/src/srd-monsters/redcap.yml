@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. AC (2 attacks)'
+        value: '[[d20 + 8]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage'
+        value: '[[6]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. PD (one staggered or *unconscious* enemy)'
+        value: '[[d20 + 8]] vs. PD ([[1]] staggered or *unconscious* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '12 damage'
+        value: '[[12]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -457,7 +457,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
     sort: 100000
     effects: []
     folder: null
@@ -483,11 +483,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (one nearby enemy)'
+        value: '[[d20 + 10]] vs. AC ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, and 5 ongoing damage'
+        value: '[[10]] damage, and [[5]] ongoing damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -507,7 +507,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
     sort: 200000
     effects: []
     folder: null

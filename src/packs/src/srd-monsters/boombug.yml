@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '2 damage.'
+        value: '[[2]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 thunder damage'
+        value: '[[12]] thunder damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -457,7 +457,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 thunder damage.'
+        value: '[[5]] thunder damage.'
     sort: 100000
     effects: []
     folder: null

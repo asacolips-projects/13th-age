@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage'
+        value: '[[8]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit or miss'
-        value: '4 ongoing fire damage.'
+        value: '[[4]] ongoing fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '7 damage'
+        value: '[[7]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -473,7 +473,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy engaged with the azer attacks it, that enemy takes 2 fire damage.'
+        value: 'When an enemy engaged with the azer attacks it, that enemy takes [[2]] fire damage.'
       group:
         type: 'String'
         label: 'Group'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 poison damage, and 10 ongoing poison damage'
+        value: '[[10]] poison damage, and [[10]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 lightning damage'
+        value: '[[30]] lightning damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -531,7 +531,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. PD (up to 2 nearby enemies in a group)'
+        value: '[[d20 + 11]] vs. PD (up to [[2]] nearby enemies in a group)'
       hit:
         type: ''
         label: 'Hit'

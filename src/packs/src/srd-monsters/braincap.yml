@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. PD (1 nearby or far away staggered enemy)'
+        value: '[[d20 + 8]] vs. PD ([[1]] nearby or far away staggered enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '21 force damage'
+        value: '[[21]] force damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 psychic damage.'
+        value: '[[5]] psychic damage.'
     sort: 0
     effects: []
     folder: null
@@ -487,7 +487,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 psychic damage'
+        value: '[[15]] psychic damage'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -180,7 +180,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '45 damage; OR 22 damage, and the target is *stunned* (save ends)'
+        value: '[[45]] damage; OR [[22]] damage, and the target is *stunned* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -200,7 +200,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '15 damage.'
+        value: '[[15]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -230,7 +230,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 damage, 20 fire damage, and the remorhaz grabs the target if it’s not already grabbing a creature'
+        value: '[[50]] damage, [[20]] fire damage, and the remorhaz grabs the target if it’s not already grabbing a creature'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -250,7 +250,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '15 fire damage.'
+        value: '[[15]] fire damage.'
     sort: 100000
     effects: []
     folder: null
@@ -312,7 +312,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'It takes 10 fire damage; OR one piece of its non-magical equipment (something useful, but player’s choice) melts or burns up. Adjust skill checks or stats accordingly.'
+        value: 'It takes [[10]] fire damage; OR one piece of its non-magical equipment (something useful, but player’s choice) melts or burns up. Adjust skill checks or stats accordingly.'
       group:
         type: 'String'
         label: 'Group'
@@ -356,7 +356,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The remorhaz is covered in red-hot spines. When a nearby enemy rolls a natural 1–5 with an attack roll, it takes 20 fire damage unless it has somehow protected itself from the heat.'
+        value: 'The remorhaz is covered in red-hot spines. When a nearby enemy rolls a natural 1–5 with an attack roll, it takes [[20]] fire damage unless it has somehow protected itself from the heat.'
       group:
         type: 'String'
         label: 'Group'

@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. AC (2 attacks)'
+        value: '[[d20 + 9]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '16 damage'
+        value: '[[16]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,12 +437,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 cold damage'
+        value: '[[14]] cold damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target also takes 7 ongoing holy damage.'
+        value: 'The target also takes [[7]] ongoing holy damage.'
       hit2:
         type: ''
         label: 'Hit'
@@ -477,7 +477,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy is engaged with the dragon at the start of its turn, it takes 5 holy damage.'
+        value: 'When an enemy is engaged with the dragon at the start of its turn, it takes [[5]] holy damage.'
       group:
         type: 'String'
         label: 'Group'

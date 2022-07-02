@@ -390,7 +390,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+8]] vs. MD (one neraby enemy)'
+        value: '[[d20+8]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -445,7 +445,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+8]] vs. MD (one nearby or far away enemy)'
+        value: '[[d20+8]] vs. MD ([[1]] nearby or far away enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -500,7 +500,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+10]] vs. MD (one nearby enemy per point on esc. die)'
+        value: '[[d20+10]] vs. MD ([[1]] nearby enemy per point on esc. die)'
       hit:
         type: 'String'
         label: 'Hit'

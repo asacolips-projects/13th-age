@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '25 damage'
+        value: '[[25]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -442,7 +442,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 20 psychic damage.'
+        value: 'The target takes [[20]] psychic damage.'
       hit2:
         type: 'String'
         label: 'Hit'

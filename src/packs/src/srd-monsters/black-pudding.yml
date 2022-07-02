@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. PD (up to 4 attacks'
+        value: '[[d20 + 14]] vs. PD (up to [[4]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: 'each against a different nearby enemy);30 acid damage, and 10 ongoing acid damage'
+        value: 'each against a different nearby enemy); [[30]] acid damage, and [[10]] ongoing acid damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -407,7 +407,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 acid damage.'
+        value: '[[10]] acid damage.'
     sort: 0
     effects: []
     folder: null

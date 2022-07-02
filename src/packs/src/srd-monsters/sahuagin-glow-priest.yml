@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 damage'
+        value: '[[12]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 psychic damage, and if the attack hits 2 or more targets, roll [[1d8]] after the attack for the prayer’s effect'
+        value: '[[12]] psychic damage, and if the attack hits 2 or more targets, roll [[1d8]] after the attack for the prayer’s effect'
       hit1:
         type: 'String'
         label: 'Hit'

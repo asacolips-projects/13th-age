@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage'
+        value: '[[30]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -435,11 +435,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (one nearby or far away enemy)'
+        value: '[[d20 + 10]] vs. AC ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '26 damage'
+        value: '[[26]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -459,7 +459,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 damage.'
+        value: '[[10]] damage.'
     sort: 100000
     effects: []
     folder: null

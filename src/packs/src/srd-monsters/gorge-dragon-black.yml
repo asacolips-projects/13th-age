@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage, and the dragon grabs the target; while grabbed, the target takes 9 damage at the start of each of its turns'
+        value: '[[18]] damage, and the dragon grabs the target; while grabbed, the target takes [[9]] damage at the start of each of its turns'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. AC (one enemy it’s grabbing)'
+        value: '[[d20 + 13]] vs. AC ([[1]] enemy it’s grabbing)'
       hit:
         type: ''
         label: 'Hit'
-        value: '25 damage'
+        value: '[[25]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -487,7 +487,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '14 damage, and if the target has 40 HP or fewer after being hit, it’s *weakened* until the end of its next turn'
+        value: '[[14]] damage, and if the target has 40 HP or fewer after being hit, it’s *weakened* until the end of its next turn'
       hit1:
         type: 'String'
         label: 'Hit'

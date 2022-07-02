@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '18 damage'
+        value: '[[18]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target and one other nearby enemy takes 18 cold damage as the area freezes over.'
+        value: 'The target and one other nearby enemy takes [[18]] cold damage as the area freezes over.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: 'The target and one other nearby enemy takes 6 cold damage.'
+        value: 'The target and one other nearby enemy takes [[6]] cold damage.'
     sort: 0
     effects: []
     folder: null
@@ -519,7 +519,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Death can cause fluid-filled sacks inside the frost-würm to explode. When the attack roll that kills the frost-würm is a natural even roll, each nearby creature takes 20 cold damage.'
+        value: 'Death can cause fluid-filled sacks inside the frost-würm to explode. When the attack roll that kills the frost-würm is a natural even roll, each nearby creature takes [[20]] cold damage.'
       group:
         type: 'String'
         label: 'Group'

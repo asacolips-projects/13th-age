@@ -383,16 +383,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. AC (2 attacks)'
+        value: '[[d20 + 8]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage'
+        value: '[[6]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target takes 6 extra fire damage.'
+        value: 'The target takes [[6]] extra fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs. PD ([[1d2]] + 1 enemies engaged with the brute)'
+        value: '[[d20 + 7]] vs. PD ([[1d2 + 1]] enemies engaged with the brute)'
       hit:
         type: ''
         label: 'Hit'
-        value: '8 fire damage, and the brute loses 12 hit points.'
+        value: '[[8]] fire damage, and the brute loses 12 hit points.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -473,7 +473,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy engaged with the brute attacks it, that enemy takes 2 fire damage.'
+        value: 'When an enemy engaged with the brute attacks it, that enemy takes [[2]] fire damage.'
       group:
         type: 'String'
         label: 'Group'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage, and 5 ongoing poison damage'
+        value: '[[5]] damage, and [[5]] ongoing poison damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs. PD (up to 2 nearby enemies in a group)'
+        value: '[[d20 + 7]] vs. PD (up to [[2]] nearby enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
-        value: '3 damage, and the target is *dazed* until the end of the spider’s next turn'
+        value: '[[3]] damage, and the target is *dazed* until the end of the spider’s next turn'
       hit1:
         type: ''
         label: 'Hit'

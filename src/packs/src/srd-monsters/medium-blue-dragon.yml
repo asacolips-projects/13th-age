@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage, and [[2d6]] lightning damage'
+        value: '[[10]] damage, and [[2d6]] lightning damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 lightning damage'
+        value: '[[8]] lightning damage'
       hit1:
         type: ''
         label: 'Hit'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage, and 6 ongoing damage'
+        value: '[[6]] damage, and [[6]] ongoing damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 negative energy damage'
+        value: '[[8]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -521,7 +521,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the goblin bat mage is staggered, it must roll an immediate save. On a failure, it loses its ability to fly until the end of its next turn. If flying near the ground, it lands immediately. If flying far away from the ground, it lands badly and takes 15 damage.'
+        value: 'When the goblin bat mage is staggered, it must roll an immediate save. On a failure, it loses its ability to fly until the end of its next turn. If flying near the ground, it lands immediately. If flying far away from the ground, it lands badly and takes [[15]] damage.'
       group:
         type: 'String'
         label: 'Group'

@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -493,7 +493,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the wereboar takes 8 damage or less from any source, it takes no damage instead.'
+        value: 'When the wereboar takes [[8]] damage or less from any source, it takes no damage instead.'
       group:
         type: 'String'
         label: 'Group'

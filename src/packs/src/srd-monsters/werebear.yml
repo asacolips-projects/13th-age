@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. AC (one enemy it’s grabbing)'
+        value: '[[d20 + 14]] vs. AC ([[1]] enemy it’s grabbing)'
       hit:
         type: ''
         label: 'Hit'
-        value: '70 damage'
+        value: '[[70]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -457,7 +457,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '20 damage.'
+        value: '[[20]] damage.'
     sort: 100000
     effects: []
     folder: null
@@ -487,7 +487,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '70 damage, and the target is *weakened* until it regains maximum hit points'
+        value: '[[70]] damage, and the target is *weakened* until it regains maximum hit points'
       hit1:
         type: 'String'
         label: 'Hit'

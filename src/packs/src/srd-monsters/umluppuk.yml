@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. AC (4 attacks)'
+        value: '[[d20 + 12]] vs. AC ([[4]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 damage.'
+        value: '[[10]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -435,11 +435,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. MD (up to 3 random nearby creatures)'
+        value: '[[d20 + 12]] vs. MD (up to [[3]] random nearby creatures)'
       hit:
         type: ''
         label: 'Hit'
-        value: '10 ongoing psychic damage, and the target is *confused* (save ends both)'
+        value: '[[10]] ongoing psychic damage, and the target is *confused* (save ends both)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -483,11 +483,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 18]] vs. PD (one *stuck* enemy)'
+        value: '[[d20 + 18]] vs. PD ([[1]] *stuck* enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '50 damage, and the target takes 10 ongoing acid damage and is absorbed into the umluppuk (hard save ends both, 16+); while inside the umluppuk, the target is *vulnerable* to the umluppuk’s pods of mouths and eyes attacks (attacks vs. it have crit range expanded by 2), and it’s *stuck*.'
+        value: '[[50]] damage, and the target takes [[10]] ongoing acid damage and is absorbed into the umluppuk (hard save ends both, 16+); while inside the umluppuk, the target is *vulnerable* to the umluppuk’s pods of mouths and eyes attacks (attacks vs. it have crit range expanded by 2), and it’s *stuck*.'
       hit1:
         type: 'String'
         label: 'Hit'

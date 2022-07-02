@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '17 damage'
+        value: '[[17]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 negative energy damage'
+        value: '[[10]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'

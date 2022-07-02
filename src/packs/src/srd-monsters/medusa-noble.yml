@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs. AC (3 attacks)'
+        value: '[[d20 + 17]] vs. AC ([[3]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage, and 15 ongoing poison damage'
+        value: '[[30]] damage, and [[15]] ongoing poison damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,16 +433,16 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs. PD (one nearby or far away enemy)'
+        value: '[[d20 + 17]] vs. PD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '80 lightning damage'
+        value: '[[80]] lightning damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit or miss'
-        value: 'The medusa deals [[1d6]] x 10 lightning damage to all nearby enemies.'
+        value: 'The medusa deals [[1d6]] x [[10]] lightning damage to all nearby enemies.'
       hit2:
         type: ''
         label: 'Hit'
@@ -485,11 +485,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 17]] vs. MD (one enemy)'
+        value: '[[d20 + 17]] vs. MD ([[1]] enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '70 psychic damage, and the target must start making last gasp saves as it turns to stone'
+        value: '[[70]] psychic damage, and the target must start making last gasp saves as it turns to stone'
       hit1:
         type: 'String'
         label: 'Hit'

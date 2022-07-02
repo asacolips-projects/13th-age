@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit against a *dazed* enemy'
-        value: 'The target takes 20 ongoing thunder damage.'
+        value: 'The target takes [[20]] ongoing thunder damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 thunder damage'
+        value: '[[12]] thunder damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -519,7 +519,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the thunder bat is staggered, it must roll an immediate save. On a failure, it loses its ability to fly until the end of its next turn. If flying near the ground, it lands immediately. If flying far away from the ground, it lands badly and takes 25 damage.'
+        value: 'When the thunder bat is staggered, it must roll an immediate save. On a failure, it loses its ability to fly until the end of its next turn. If flying near the ground, it lands immediately. If flying far away from the ground, it lands badly and takes [[25]] damage.'
       group:
         type: 'String'
         label: 'Group'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '12 cold damage'
+        value: '[[12]] cold damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '9 cold damage, and the target is *vulnerable* to cold attacks (save ends)'
+        value: '[[9]] cold damage, and the target is *vulnerable* to cold attacks (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'

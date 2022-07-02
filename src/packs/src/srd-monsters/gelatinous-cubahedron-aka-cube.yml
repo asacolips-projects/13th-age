@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 acid damage, and the cube engulfs the target (functions like a grab<SEMICOLON> see below) if it’s smaller than the cube'
+        value: '[[30]] acid damage, and the cube engulfs the target (functions like a grab<SEMICOLON> see below) if it’s smaller than the cube'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -433,7 +433,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (up to 2 attacks'
+        value: '[[d20 + 10]] vs. AC (up to [[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and the cube engulfs the target if it’s smaller than the cube'
+        value: '[[15]] damage, and the cube engulfs the target if it’s smaller than the cube'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -521,7 +521,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Targets engulfed/grabbed by the cube take 30 acid damage at the start of the cube’s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously. Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube’s toxins overwhelm it.'
+        value: 'Targets engulfed/grabbed by the cube take [[30]] acid damage at the start of the cube’s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously. Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube’s toxins overwhelm it.'
       group:
         type: 'String'
         label: 'Group'
@@ -565,7 +565,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '1. The cubahedron jiggles in place. Each nearby enemy takes 5 acid damage. Each creature engulfed by the cube takes a –4 penalty to its saves until the end of its next turn.'
+        value: '1. The cubahedron jiggles in place. Each nearby enemy takes [[5]] acid damage. Each creature engulfed by the cube takes a –4 penalty to its saves until the end of its next turn.'
       group:
         type: 'String'
         label: 'Group'
@@ -621,7 +621,7 @@ items:
       default: 0
   - _id: 'yOwx6b0v0DI0fWGR'
     flags: {}
-    name: '4. The cubahedron flattens itself slightly and crawls up a wall and possibly across the ceiling. The cube falls at the end of its turn. Each creature engulfed by the cube takes 30 damage, and it makes a gel drop attack against enemies below it.'
+    name: '4. The cubahedron flattens itself slightly and crawls up a wall and possibly across the ceiling. The cube falls at the end of its turn. Each creature engulfed by the cube takes [[30]] damage, and it makes a gel drop attack against enemies below it.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
     data:
@@ -631,7 +631,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '4. The cubahedron flattens itself slightly and crawls up a wall and possibly across the ceiling. The cube falls at the end of its turn. Each creature engulfed by the cube takes 30 damage, and it makes a gel drop attack against enemies below it.'
+        value: '4. The cubahedron flattens itself slightly and crawls up a wall and possibly across the ceiling. The cube falls at the end of its turn. Each creature engulfed by the cube takes [[30]] damage, and it makes a gel drop attack against enemies below it.'
       group:
         type: 'String'
         label: 'Group'
@@ -675,7 +675,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: '6. The cubahedron spits out each enemy engulfed by it with great force in different directions; each of those creatures takes 50 damage.'
+        value: '6. The cubahedron spits out each enemy engulfed by it with great force in different directions; each of those creatures takes [[50]] damage.'
       group:
         type: 'String'
         label: 'Group'

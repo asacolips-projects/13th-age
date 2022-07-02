@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage, and the zombie can only attack using gutburst during its next turn'
+        value: '[[20]] damage, and the zombie can only attack using gutburst during its next turn'
       hit1:
         type: ''
         label: 'Hit'
@@ -433,11 +433,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 6]] vs. PD (up to 2 nearby enemies)'
+        value: '[[d20 + 6]] vs. PD (up to [[2]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target takes 3 ongoing acid damage from a spray of stinking zombified gut juice. The zombie takes [[1d6]] damage.'
+        value: 'The target takes [[3]] ongoing acid damage from a spray of stinking zombified gut juice. The zombie takes [[1d6]] damage.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

@@ -387,12 +387,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage'
+        value: '[[30]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target takes 20 ongoing fire damage.'
+        value: 'The target takes [[20]] ongoing fire damage.'
       hit2:
         type: ''
         label: 'Hit'
@@ -439,17 +439,17 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '20 fire damage'
+        value: '[[20]] fire damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit against an ally'
-        value: 'The target takes 10 ongoing fire damage instead of 20 fire damage, and until that ally saves against that damage, it adds the escalation die to its attacks.'
+        value: 'The target takes [[10]] ongoing fire damage instead of [[20]] fire damage, and until that ally saves against that damage, it adds the escalation die to its attacks.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural even hit against an enemy'
-        value: 'The target also takes 15 ongoing fire damage.'
+        value: 'The target also takes [[15]] ongoing fire damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -487,11 +487,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 12]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target takes 10 ongoing negative energy damage each time the fallen lammasu hits it with an attack (hard save ends, 16+)'
+        value: 'The target takes [[10]] ongoing negative energy damage each time the fallen lammasu hits it with an attack (hard save ends, 16+)'
       hit1:
         type: 'String'
         label: 'Hit'

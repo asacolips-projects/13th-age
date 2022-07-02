@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '150 damage, and until the end of the battle against the target, the devil gains a +1 bonus to attacks and its crit range expands by 1 (cumulative)'
+        value: '[[150]] damage, and until the end of the battle against the target, the devil gains a +1 bonus to attacks and its crit range expands by 1 (cumulative)'
       hit1:
         type: ''
         label: 'Hit'
@@ -439,7 +439,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '35 ongoing damage from a bleeding wound'
+        value: '[[35]] ongoing damage from a bleeding wound'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -487,12 +487,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '60 damage, and 30 fire damage'
+        value: '[[60]] damage, and [[30]] fire damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 30 ongoing fire damage.'
+        value: 'The target also takes [[30]] ongoing fire damage.'
       hit2:
         type: 'String'
         label: 'Hit'

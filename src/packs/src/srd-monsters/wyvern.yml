@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '35 damage'
+        value: '[[35]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage, and the target takes 10 ongoing poison damage (difficult save ends, 16+)'
+        value: '[[15]] damage, and the target takes [[10]] ongoing poison damage (difficult save ends, 16+)'
       hit1:
         type: 'String'
         label: 'Hit'

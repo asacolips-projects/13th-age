@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 damage'
+        value: '[[15]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -485,7 +485,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '15 fire damage, or 20 fire damage against a *dazed*, *weakened*, or *stunned* target'
+        value: '[[15]] fire damage, or [[20]] fire damage against a *dazed*, *weakened*, or *stunned* target'
       hit1:
         type: ''
         label: 'Hit'

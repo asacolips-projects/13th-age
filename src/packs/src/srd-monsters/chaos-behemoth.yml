@@ -392,12 +392,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: '30 damage, and the chaos behemoth can make a mewhowlwail attack as a free action.'
+        value: '[[30]] damage, and the chaos behemoth can make a mewhowlwail attack as a free action.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '25 ongoing damage.'
+        value: '[[25]] ongoing damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -411,7 +411,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '10 damage, and the target is *hampered* until the end of its next turn.'
+        value: '[[10]] damage, and the target is *hampered* until the end of its next turn.'
     sort: 0
     effects: []
     folder: null
@@ -441,7 +441,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 psychic damage, and if the target is taking ongoing damage, saves against that ongoing damage become hard saves (16+)'
+        value: '[[10]] psychic damage, and if the target is taking ongoing damage, saves against that ongoing damage become hard saves (16+)'
       hit1:
         type: 'String'
         label: 'Hit'

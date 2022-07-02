@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. AC (2 attacks)'
+        value: '[[d20 + 13]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage, and if the target’s initiative bonus is +10 or less, the target is grabbed until it disengages or until the mantis makes a jagged claws attack against a different target'
+        value: '[[30]] damage, and if the target’s initiative bonus is +10 or less, the target is grabbed until it disengages or until the mantis makes a jagged claws attack against a different target'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -435,7 +435,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage'
+        value: '[[40]] damage'
       hit1:
         type: 'String'
         label: 'Hit'

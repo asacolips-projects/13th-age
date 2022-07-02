@@ -96,7 +96,7 @@ data:
       type: 'String'
       label: 'Role'
     size:
-      value: '2x'
+      value: 'double'
       type: 'String'
       label: 'Size'
     type:
@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -445,7 +445,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When an enemy engaged with the orc hits it with an attack, the enemy takes 4 damage as the orc bites and claws it back.'
+        value: 'When an enemy engaged with the orc hits it with an attack, the enemy takes [[4]] damage as the orc bites and claws it back.'
       group:
         type: 'String'
         label: 'Group'

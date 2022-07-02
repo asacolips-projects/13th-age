@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,11 +431,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. PD (one nearby or far away enemy)'
+        value: '[[d20 + 8]] vs. PD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage, and the target is *weakened* (save ends)'
+        value: '[[8]] damage, and the target is *weakened* (save ends)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -479,11 +479,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 8]] vs. PD (up to 2 nearby enemies in a group)'
+        value: '[[d20 + 8]] vs. PD (up to [[2]] nearby enemies in a group)'
       hit:
         type: ''
         label: 'Hit'
-        value: 'The target is *stuck* (save ends), and takes 5 damage each time it fails the save'
+        value: 'The target is *stuck* (save ends), and takes [[5]] damage each time it fails the save'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -541,7 +541,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The first time each battle an enemy hits the spider-mage with a melee attack, that attacker takes 8 ongoing poison damage from her familiar.'
+        value: 'The first time each battle an enemy hits the spider-mage with a melee attack, that attacker takes [[8]] ongoing poison damage from her familiar.'
       group:
         type: 'String'
         label: 'Group'

@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 damage'
+        value: '[[5]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -409,7 +409,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '3 damage.'
+        value: '[[3]] damage.'
     sort: 0
     effects: []
     folder: null
@@ -487,7 +487,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '5 fire damage, or 7 fire damage against a *dazed*, *weakened*, or *stunned* target'
+        value: '[[5]] fire damage, or [[7]] fire damage against a *dazed*, *weakened*, or *stunned* target'
       hit1:
         type: ''
         label: 'Hit'

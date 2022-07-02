@@ -383,11 +383,11 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. MD (up to 2 nearby or far away enemies)'
+        value: '[[d20 + 11]] vs. MD (up to [[2]] nearby or far away enemies)'
       hit:
         type: ''
         label: 'Hit'
-        value: '6 psychic damage, and the target takes [[2d6]] psychic damage the first time it succeeds at a save before the end of its next turn.'
+        value: '[[6]] psychic damage, and the target takes [[2d6]] psychic damage the first time it succeeds at a save before the end of its next turn.'
       hit1:
         type: 'String'
         label: 'Hit'

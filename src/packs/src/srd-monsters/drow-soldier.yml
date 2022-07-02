@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage'
+        value: '[[6]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -431,7 +431,7 @@ items:
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. AC (one nearby enemy'
+        value: '[[d20 + 9]] vs. AC ([[1]] nearby enemy'
       hit:
         type: ''
         label: 'Hit'
@@ -471,7 +471,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the drow soldier drops to 0 hp, one enemy engaged with it takes 2 poison damage before the drow soldier dies.'
+        value: 'When the drow soldier drops to 0 hp, one enemy engaged with it takes [[2]] poison damage before the drow soldier dies.'
       group:
         type: 'String'
         label: 'Group'

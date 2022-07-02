@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -437,7 +437,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 psychic damage and the target is *hampered* until the end of the battle or until it takes one turn as if it were *confused*.'
+        value: '[[10]] psychic damage and the target is *hampered* until the end of the battle or until it takes one turn as if it were *confused*.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -457,7 +457,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 ongoing psychic damage.'
+        value: '[[5]] ongoing psychic damage.'
     sort: 100000
     effects: []
     folder: null

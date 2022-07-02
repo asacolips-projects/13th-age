@@ -387,7 +387,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage, and 5 ongoing poison damage'
+        value: '[[8]] damage, and [[5]] ongoing poison damage'
       hit1:
         type: 'String'
         label: 'Hit'
