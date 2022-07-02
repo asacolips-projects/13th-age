@@ -1,52 +1,19 @@
+_id: 'ZEpelUvJiCTTrnau'
 name: 'Five-Headed Hydra'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 5
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 4
+      value: 9
       mod: 9
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 5
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'wrecker'
       type: 'String'
       label: 'Role'
-      value: 'wrecker'
     size:
+      value: 'huge'
       type: 'String'
       label: 'Size'
-      value: 'huge'
     type:
+      value: 'beast'
       type: 'String'
       label: 'Type'
-      value: 'beast'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 5
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Five-Headed Hydra'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: '7g8j3DFzbkiom4zH'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'DtEADxe15QjVwjil'
     flags: {}
@@ -323,14 +180,18 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 10]] vs. AC (5 attacks)'
+        value: '[[d20 + 10]] vs. AC ([[5]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '10 damage'
+        value: '[[10]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -352,8 +213,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '5 damage.'
+        value: '[[5]] damage.'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ubSb0GQ4CaN5jBP4'
     flags: {}
     name: 'Too tough to trick'
@@ -367,7 +232,15 @@ items:
         type: ''
         label: 'Description'
         value: '*confused*, *dazed*, *hampered*, *stunned*, or *weakened*.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'iDAQIa5xTiHQlVY3'
     flags: {}
     name: 'Roiling swirl'
@@ -381,7 +254,15 @@ items:
         type: ''
         label: 'Description'
         value: 'If the hydra has at least two gnashing teeth attacks left during a turn, it can expend one of those attacks to move to engage a nearby enemy as a free action (but it will take opportunity attacks for doing so).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '8CbrbfhJtzIIZTdb'
     flags: {}
     name: 'Sprout sixth head'
@@ -395,7 +276,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The first time the hydra is staggered, as a free action it gains 40 hit points and a sixth gnashing teeth attack, and is considered undamaged at its new hit point total. Using the hydra’s current hit points as a new baseline, the hydra will be staggered again when it drops below 50% of that total.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'qu9NhKORpBy7KjJ5'
     flags: {}
     name: 'Sprout seventh head'
@@ -409,7 +298,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The second time the hydra is staggered, as a free action it gains 40 hit points and a seventh gnashing teeth attack, etc. Use a new hit point baseline as before, but there is no eighth head waiting to sprout.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'mafofVA7oaWboqi8'
     flags: {}
     name: 'Sprout eighth head'
@@ -423,5 +320,19 @@ items:
         type: ''
         label: 'Description'
         value: 'You know the drill.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
-_id: 'ZEpelUvJiCTTrnau'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

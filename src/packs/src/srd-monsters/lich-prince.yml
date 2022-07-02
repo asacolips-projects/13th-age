@@ -1,52 +1,19 @@
+_id: 'eOzmybMMK6tezfyO'
 name: 'Lich Prince'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 12
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 12
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 12
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 12
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 12
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 12
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 5
+      value: 17
       mod: 17
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 12
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'spoiler'
       type: 'String'
       label: 'Role'
-      value: 'spoiler'
     size:
+      value: 'double'
       type: 'String'
       label: 'Size'
-      value: '2x'
     type:
+      value: 'undead'
       type: 'String'
       label: 'Type'
-      value: 'undead'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 12
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Lich Prince'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'bFe2LceC2lKXW1SG'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: '3lvmRdlHfxvuzFIg'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 damage, 60 negative energy damage, and the target is *dazed* (hard save ends, 16+)'
+        value: '[[40]] damage, [[60]] negative energy damage, and the target is *dazed* (hard save ends, 16+)'
       hit1:
         type: ''
         label: 'Hit'
@@ -352,8 +213,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '40 damage.'
+        value: '[[40]] damage.'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '1vWV3L05Iz0vW5GN'
     flags: {}
     name: 'R: Arcane blast'
@@ -367,6 +232,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -374,7 +243,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 force damage, and the target must roll a normal save; on a failure, it loses its next move action'
+        value: '[[50]] force damage, and the target must roll a normal save; on a failure, it loses its next move action'
       hit1:
         type: ''
         label: 'Hit'
@@ -396,6 +265,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'wvifmmKgei9dcnQL'
     flags: {}
     name: 'C: Soul rend'
@@ -409,6 +282,10 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 2/battle.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -416,7 +293,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '30 negative energy damage, and ghostly hands reach up from the ground and grab the target (as they try to pull the target’s spirit out of its body)'
+        value: '[[30]] negative energy damage, and ghostly hands reach up from the ground and grab the target (as they try to pull the target’s spirit out of its body)'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -436,6 +313,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '76mxpjB8LSqNMMx8'
     flags: {}
     name: 'C: Look upon your doom'
@@ -448,6 +329,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -476,6 +361,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'DjWvPA9BG955OGfk'
     flags: {}
     name: 'Ghostly grasping hands'
@@ -488,8 +377,16 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When a creature is being grabbed by the ghostly hands, it takes 30 negative energy damage at the start of its turn and must make a last gasp save. On the fourth failed last gasp save, the creature’s soul is torn from it and it dies. Unconscious creatures take a –4 penalty to their last gasp saves. Note, grabbed creatures take a –5 penalty to disengage checks.'
+        value: 'When a creature is being grabbed by the ghostly hands, it takes [[30]] negative energy damage at the start of its turn and must make a last gasp save. On the fourth failed last gasp save, the creature’s soul is torn from it and it dies. Unconscious creatures take a –4 penalty to their last gasp saves. Note, grabbed creatures take a –5 penalty to disengage checks.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '1eFQa7Gx5UN3iFC6'
     flags: {}
     name: 'Blink and you missed it'
@@ -503,7 +400,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per battle when an attack would hit the lich prince, the attack misses instead and the lich teleports to a nearby location it can see as a free action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'CKkV1q5rhOrNzDNw'
     flags: {}
     name: 'Heartstopper'
@@ -517,7 +422,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the lich prince scores a critical hit, if after taking damage the target still has hit points, it drops to 0 hp, falls *unconscious*, and begins making death saves. When the target saves against this effect, it regains hit points equal to the amount it had before dropping to 0 hp (after the crit damage). In addition, the crit range of attacks by the lich against the target expands by an amount equal to the escalation die and the lich heals 60 hit points.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'nCSE1l0XS9A9WFyG'
     flags: {}
     name: 'Immortality'
@@ -531,7 +444,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the lich drops to 0 hit points, it crumbles to dust but does not die. It begins to reform near its phylactery, taking a number of days to regain its full strength equal to its level. If the phylactery has been destroyed, the lich dies when it drops to 0 hit points.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'JYzmENOctI8iVJpA'
     flags: {}
     name: 'Fear aura'
@@ -545,5 +466,19 @@ items:
         type: ''
         label: 'Description'
         value: 'While engaged with this creature, if the target has 120 hp or fewer, it’s *dazed* (–4 attack) and does not add the escalation die to its attacks.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
-_id: 'eOzmybMMK6tezfyO'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

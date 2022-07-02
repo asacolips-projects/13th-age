@@ -1,52 +1,19 @@
+_id: 'RRNgcogkrNvkqDdD'
 name: 'Lich Count'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 3
+      value: 11
       mod: 11
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 8
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'spoiler'
       type: 'String'
       label: 'Role'
-      value: 'spoiler'
     size:
+      value: 'double'
       type: 'String'
       label: 'Size'
-      value: '2x'
     type:
+      value: 'undead'
       type: 'String'
       label: 'Type'
-      value: 'undead'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 8
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Lich Count'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'PGnytad3mf1dd2PV'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: '0vCniOrQymrGo276'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 cold damage, and the target is *dazed* (hard save ends, 16+)'
+        value: '[[50]] cold damage, and the target is *dazed* (hard save ends, 16+)'
       hit1:
         type: ''
         label: 'Hit'
@@ -352,8 +213,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '25 cold damage.'
+        value: '[[25]] cold damage.'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '4xFcs7rlu4zBwkUe'
     flags: {}
     name: 'R: Shadow rays'
@@ -367,19 +232,23 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 12]] vs. PD (2 attacks)'
+        value: '[[d20 + 12]] vs. PD ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '35 negative energy damage'
+        value: '[[35]] negative energy damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target is encased in shadows (save ends). While under the effect, it’s *weakened* and takes 10 ongoing cold damage.'
+        value: 'The target is encased in shadows (save ends). While under the effect, it’s *weakened* and takes [[10]] ongoing cold damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -396,6 +265,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'kOZ28rPnJ90cYGHP'
     flags: {}
     name: 'R: Empowered fireball'
@@ -409,6 +282,10 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 2/battle.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -416,12 +293,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '35 fire damage, and 10 ongoing fire damage'
+        value: '[[35]] fire damage, and [[10]] ongoing fire damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The target takes 20 ongoing fire damage instead of 10.'
+        value: 'The target takes [[20]] ongoing fire damage instead of 10.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -438,8 +315,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '15 fire damage, and 5 ongoing fire damage.'
+        value: '[[15]] fire damage, and [[5]] ongoing fire damage.'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '8OHwYQZBMp5tWHJ1'
     flags: {}
     name: 'C: Look upon your doom'
@@ -453,10 +334,14 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. MD (up to 3 nearby enemies)'
+        value: '[[d20 + 13]] vs. MD (up to [[3]] nearby enemies)'
       hit:
         type: ''
         label: 'Hit'
@@ -480,6 +365,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'XXV6oGLkjYbt2ALz'
     flags: {}
     name: 'Thank you for the best ten years of your life'
@@ -493,7 +382,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the lich count scores a critical hit, the target loses a death save until the end of the battle (effectively, it now dies after failing three death saves, and the effect is cumulative). In addition, the crit range of attacks by the lich against the target expands by the escalation die and the lich heals 40 hit points.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'yMBHRKpfQucn2wDm'
     flags: {}
     name: 'Immortality'
@@ -507,7 +404,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the lich drops to 0 hit points, it crumbles to dust but does not die. It begins to reform near its phylactery, taking a number of days to regain its full strength equal to its level. If the phylactery has been destroyed, the lich dies when it drops to 0 hit points.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '7KQxEy6Hbu90lI0v'
     flags: {}
     name: 'Fear aura'
@@ -521,5 +426,19 @@ items:
         type: ''
         label: 'Description'
         value: 'While engaged with this creature, if the target has 48 hp or fewer, it’s *dazed* (–4 attack) and does not add the escalation die to its attacks.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
-_id: 'RRNgcogkrNvkqDdD'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

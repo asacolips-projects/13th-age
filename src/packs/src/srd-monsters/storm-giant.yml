@@ -1,52 +1,19 @@
+_id: 'uxjA1AhJuPrRN8GD'
 name: 'Storm Giant'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 6
+      value: 16
       mod: 16
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 10
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'archer'
       type: 'String'
       label: 'Role'
-      value: 'archer'
     size:
+      value: 'huge'
       type: 'String'
       label: 'Size'
-      value: 'huge'
     type:
+      value: 'giant'
       type: 'String'
       label: 'Type'
-      value: 'giant'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 10
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Storm Giant'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'duUah3ux6laiCd63'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'p6IsPWpsJlD2VaUC'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '120 damage'
+        value: '[[120]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -352,8 +213,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '40 damage OR the giant can make a release the thunder attack as a free action.'
+        value: '[[40]] damage OR the giant can make a release the thunder attack as a free action.'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '4ZTkv83NREpUnwIh'
     flags: {}
     name: 'R: Giant longbow'
@@ -367,14 +232,18 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. AC (2 attacks vs. nearby or far away enemies)'
+        value: '[[d20 + 14]] vs. AC ([[2]] attacks vs. nearby or far away enemies)'
       hit:
         type: ''
         label: 'Hit'
-        value: '60 damage'
+        value: '[[60]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -396,6 +265,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'N5Z1WQtVk7TgsjvI'
     flags: {}
     name: '[Special trigger] C: Lightning bolt'
@@ -409,14 +282,18 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. PD (one random nearby enemy)'
+        value: '[[d20 + 15]] vs. PD ([[1]] random nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '[[2d6]] x 10 lightning damage'
+        value: '[[2d6]] x [[10]] lightning damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -438,6 +315,10 @@ items:
         name: 'Miss'
         value: 'Half damage.'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '5UfqUG1jXIlDkW4g'
     flags: {}
     name: '[Special trigger] C: Release the thunder'
@@ -450,6 +331,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -480,6 +365,10 @@ items:
         name: 'Miss'
         value: 'Half damage.'
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'FHrsgD4eQhXsHA2t'
     flags: {}
     name: 'Building thunder'
@@ -493,7 +382,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Keep count of the number of times the storm giant uses its lightning bolt attack during the battle. Add that number to the escalation die to get the current building thunder value.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'KDkRsOodprtMAsu7'
     flags: {}
     name: 'Skystep'
@@ -507,7 +404,15 @@ items:
         type: ''
         label: 'Description'
         value: 'A storm giant can use its standard action to walk or run through the air, using move actions to continue. If the storm giant makes a standard action attack, it settles back to the ground below it without falling.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'cIuCeRK3uwtb4lEk'
     flags: {}
     name: 'Storm born'
@@ -521,5 +426,19 @@ items:
         type: ''
         label: 'Description'
         value: 'The storm giant has resist thunder 16+ and resist lightning 16+.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
-_id: 'uxjA1AhJuPrRN8GD'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

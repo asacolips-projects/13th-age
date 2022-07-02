@@ -1,52 +1,19 @@
+_id: 'Vfu1rIzPcWUzV48h'
 name: 'Bugbear Schemer'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 3
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 3
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 3
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 3
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 3
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 3
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 4
+      value: 7
       mod: 7
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 3
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'leader'
       type: 'String'
       label: 'Role'
-      value: 'leader'
     size:
+      value: 'normal'
       type: 'String'
       label: 'Size'
-      value: 'normal'
     type:
+      value: 'humanoid'
       type: 'String'
       label: 'Type'
-      value: 'humanoid'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 3
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Bugbear Schemer'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'yc14nB7ohkBNMtoE'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'sr9wtZ55sagqzCnT'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '8 damage'
+        value: '[[8]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -340,7 +201,7 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd miss'
-        value: '4 damage.'
+        value: '[[4]] damage.'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -354,6 +215,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'P0TkguEhEMY5pwjw'
     flags: {}
     name: 'R: Ridiculously heavy crossbow'
@@ -367,14 +232,18 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 1/battle.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 7]] vs. AC (one nearby or far away enemy)'
+        value: '[[d20 + 7]] vs. AC ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
-        value: '14 damage'
+        value: '[[14]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -396,6 +265,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '8lJBWuxITCz8z2c1'
     flags: {}
     name: '[Special trigger] C: Rebuke to fools'
@@ -409,10 +282,14 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 1/round as an interrupt action, when a nearby enemy rolls a natural 1–5 with an attack against it.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 9]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 9]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -436,6 +313,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'gkYG2vkLXZUEghhT'
     flags: {}
     name: 'Combat reload'
@@ -449,7 +330,15 @@ items:
         type: ''
         label: 'Description'
         value: 'During the bugbear schemer’s turn, if it doesn’t engage an enemy or move, it regains a use of ridiculously heavy crossbow if it’s expended as it reloads the crossbow.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '7lOkFMq0ymefwdlv'
     flags: {}
     name: 'Fighting withdrawal'
@@ -463,7 +352,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the bugbear schemer successfully disengages, one of the enemies engaged with it takes [[1d6]] damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'da6rUrwMf9OC2qlq'
     flags: {}
     name: 'Flee is a four-letter word'
@@ -477,5 +374,19 @@ items:
         type: ''
         label: 'Description'
         value: 'When the bugbear schemer thinks the battle is out of reach and it isn’t engaged, it can try to flee once per battle. As a move action, roll a hard save. On a success, the bugbear schemer had a bolt-hole or escape plan ready and it gets away (though it’s probably just getting more troops).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
-_id: 'Vfu1rIzPcWUzV48h'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

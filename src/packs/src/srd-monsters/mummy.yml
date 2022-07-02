@@ -1,52 +1,19 @@
+_id: '937WjQgmUUQA5NS1'
 name: 'Mummy'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 1
+      value: 9
       mod: 9
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 8
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'wrecker'
       type: 'String'
       label: 'Role'
-      value: 'wrecker'
     size:
+      value: 'double'
       type: 'String'
       label: 'Size'
-      value: '2x'
     type:
+      value: 'humanoid'
       type: 'String'
       label: 'Type'
-      value: 'humanoid'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: 'fire'
       type: 'String'
       label: 'Vulnerability'
-      value: 'fire'
     level:
       type: 'Number'
       label: 'Level'
       value: 8
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Mummy'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'tpZ1wwESQJ72NllH'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'ZIatJFomkVBPjKj3'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,12 +191,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '40 ongoing negative energy damage and the target is affected by mummy rot (save ends both)'
+        value: '[[40]] ongoing negative energy damage and the target is affected by mummy rot (save ends both)'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural 16+'
-        value: 'The target also takes 20 damage.'
+        value: 'The target also takes [[20]] damage.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -352,6 +213,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '1gLrlLVI2G9WxhV2'
     flags: {}
     name: 'C: Sepulchral glare'
@@ -365,10 +230,14 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 1/round, as a quick action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 11]] vs. MD (one nearby enemy)'
+        value: '[[d20 + 11]] vs. MD ([[1]] nearby enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -392,6 +261,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'S7U1sHfEX45uLoE0'
     flags: {}
     name: 'C: Call of the sarcophagus'
@@ -404,6 +277,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -432,6 +309,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'tHxjqOzMttcK4h3y'
     flags: {}
     name: 'Each failed save (mummy rot)'
@@ -445,7 +326,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The target’s flesh begins to rot and the ongoing damage increases by +40 (cumulative). Saves granted by special powers don’t increase this damage if they fail, only end of turn failures.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'VR0uCHxT2i37nKwr'
     flags: {}
     name: 'Crit'
@@ -458,8 +347,16 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'If the target is already affected by mummy rot, increase the ongoing negative energy damage by 40. If the target isn’t affected by mummy rot already, it takes 40 ongoing negative energy damage and is affected by mummy rot (save ends both)'
+        value: 'If the target is already affected by mummy rot, increase the ongoing negative energy damage by 40. If the target isn’t affected by mummy rot already, it takes [[40]] ongoing negative energy damage and is affected by mummy rot (save ends both)'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'N2nNURhtAaUgkhW7'
     flags: {}
     name: 'Mortal terror'
@@ -473,7 +370,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The presence of a mummy unnerves opponents, giving it an unusual *fear* aura. While engaged with this creature, enemies that have 200 hp or fewer are *dazed* (–4 attack) and do not add the escalation die to their attacks. Each time an enemy with 200 hp or fewer attacks the mummy, hit or miss, it must roll a save. On a success, it’s no longer affected by the fear aura effects of any mummy in the battle.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Ucocggx8AJDRoo7Q'
     flags: {}
     name: 'Spiritual grit'
@@ -486,8 +391,16 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the mummy takes 20 damage or less from a non-fire attack, it takes no damage instead.'
+        value: 'When the mummy takes [[20]] damage or less from a non-fire attack, it takes no damage instead.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'dGFt4qVEfRx1XapQ'
     flags: {}
     name: 'Blessing of preservation'
@@ -501,7 +414,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The mummy has a +4 bonus to all defenses until it takes damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '6WVgc3F9382YDktQ'
     flags: {}
     name: 'Bone-chilling cry'
@@ -515,5 +436,19 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per battle as a quick action, the mummy can issue a bone-chilling cry that seems to echo from some unseen tomb or portal and it makes a call of the sarcophagus attack.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
-_id: '937WjQgmUUQA5NS1'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
