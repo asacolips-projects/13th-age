@@ -1,52 +1,19 @@
+_id: 'ek0KnUuduPgaNsZ5'
 name: 'Treant Titan'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 10
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: -1
+      value: 9
       mod: 9
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 10
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'spoiler'
       type: 'String'
       label: 'Role'
-      value: 'spoiler'
     size:
+      value: 'large'
       type: 'String'
       label: 'Size'
-      value: 'large'
     type:
+      value: 'plant'
       type: 'String'
       label: 'Type'
-      value: 'plant'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: 'fire'
       type: 'String'
       label: 'Vulnerability'
-      value: 'fire'
     level:
       type: 'Number'
       label: 'Level'
       value: 10
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Treant Titan'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'fPFw3VzI5TbbeqTF'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'KsAtrwVcjAn6ptdY'
     flags: {}
@@ -323,14 +180,18 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. AC (2 attacks)'
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '30 damage, and the treant grabs the target. When the treant starts its turn grabbing an enemy, it can make a twist and snap attack against that target as a standard action that turn.'
+        value: '[[30]] damage, and the treant grabs the target. When the treant starts its turn grabbing an enemy, it can make a twist and snap attack against that target as a standard action that turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -350,6 +211,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'YBbHOSuWD8IMbJA7'
     flags: {}
     name: '[Special trigger] Twist and snap'
@@ -363,6 +228,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -370,7 +239,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '80 damage, and the target is *dazed* (save ends). If the treant starts its turn grabbing a dazed enemy, it can make a titanic rend attack against that target as a standard action that turn.'
+        value: '[[80]] damage, and the target is *dazed* (save ends). If the treant starts its turn grabbing a dazed enemy, it can make a titanic rend attack against that target as a standard action that turn.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -390,8 +259,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '40 damage.'
+        value: '[[40]] damage.'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '8xwJu0Z0qP7DtTEc'
     flags: {}
     name: '[Special trigger] Titanic rend'
@@ -405,6 +278,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -412,7 +289,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '160 damage, and the treant titan can continue making titanic rend attacks against the target until it escapes the grab, at which point the treant will have to use a grasping branches attack against it again.'
+        value: '[[160]] damage, and the treant titan can continue making titanic rend attacks against the target until it escapes the grab, at which point the treant will have to use a grasping branches attack against it again.'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -432,8 +309,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Miss'
-        value: '60 damage.'
+        value: '[[60]] damage.'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'BAbIdKmgTzIj5Y3J'
     flags: {}
     name: 'Fire fire fire!'
@@ -446,8 +327,16 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'When the treant takes 35 or more fire damage from a single attack, it releases all grabbed creatures.'
+        value: 'When the treant takes [[35]] or more fire damage from a single attack, it releases all grabbed creatures.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'BS7sblSjZ1JmU9a1'
     flags: {}
     name: 'Hardwood resistance'
@@ -461,7 +350,15 @@ items:
         type: ''
         label: 'Description'
         value: 'This creature has resist damage 18+ to all damage except fire damage and melee weapon damage, which damages it normally.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'IiAQKU6VWzyKavxD'
     flags: {}
     name: 'Coffin of living wood'
@@ -475,7 +372,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the treant titan hits with a titanic rend attack, the target is pulled into a hollow chamber within the treant. While grabbed by the treant this way, the target can’t be the target of its allies’ powers or spells.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'gFoQwkZltvTUQbmv'
     flags: {}
     name: 'Gauntlet of branches'
@@ -488,6 +393,20 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'Countless smaller branches whip through the air around the treant titan. When a creature engaged with the treant misses it with an attack, that creature takes 12 damage from the whipping branches.'
+        value: 'Countless smaller branches whip through the air around the treant titan. When a creature engaged with the treant misses it with an attack, that creature takes [[12]] damage from the whipping branches.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
-_id: 'ek0KnUuduPgaNsZ5'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

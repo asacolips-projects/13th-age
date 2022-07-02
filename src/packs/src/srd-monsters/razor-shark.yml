@@ -1,52 +1,19 @@
+_id: 'sCzeJP0e5jLCiZ6h'
 name: 'Razor Shark'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 2
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 2
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 2
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 2
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 2
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 2
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 4
+      value: 6
       mod: 6
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 2
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'mook'
       type: 'String'
       label: 'Role'
-      value: 'mook'
     size:
+      value: 'normal'
       type: 'String'
       label: 'Size'
-      value: 'normal'
     type:
+      value: 'beast'
       type: 'String'
       label: 'Type'
-      value: 'beast'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 2
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Razor Shark'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'FDEZiMzxahq59BC0'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: '1QzOBS520O5Nztto'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '4 damage'
+        value: '[[4]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -354,6 +215,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'RgeKBmjvvKfiD2yM'
     flags: {}
     name: 'Frenzy (group)'
@@ -367,7 +232,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When two or more razor sharks in the same mob are dropped to 0 hp by an attack, as a free action each dropped razor shark attacks one random nearby non-razor shark creature before it dies. That creature takes [[1d8]] damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ToKY7MlwOvyzozHr'
     flags: {}
     name: 'Water breather'
@@ -381,5 +254,19 @@ items:
         type: ''
         label: 'Description'
         value: 'Sharks breathe underwater and swim very well. They’re not so good out of sea water (even if they jump), so treat them as semi-hazardous terrain while they’re busy thrashing to death outside the water.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 200000
-_id: 'sCzeJP0e5jLCiZ6h'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

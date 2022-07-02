@@ -1,52 +1,19 @@
+_id: 'FMx0i9N4bOVCJOmW'
 name: 'Gelatinous Octahedron'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 6
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 6
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 6
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 6
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 6
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 6
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -75,6 +42,38 @@ data:
       tempmax: 0
       base: 7
       automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 5
+      mod: 5
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
     recoveries:
       type: 'Number'
       label: 'Recoveries'
@@ -83,17 +82,6 @@ data:
       dice: 'd8'
       base: 8
       automatic: true
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: -1
-      mod: 5
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 6
-      min: 0
-      max: 10
     escalation:
       value: 0
   details:
@@ -103,15 +91,7 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    out:
-      label: 'One Unique Thing'
-      type: 'String'
+    flavor:
       value: ''
     role:
       value: 'blocker'
@@ -126,169 +106,19 @@ data:
       type: 'String'
       label: 'Type'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 6
       min: 0
       max: 10
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Gelatinous Octahedron'
@@ -305,7 +135,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'TILoDxXqZ8WezZEv'
@@ -313,9 +143,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'UzpIUyquPSE9Opvp'
     flags: {}
@@ -368,6 +221,10 @@ items:
         label: 'Miss'
         value: 'The cube can make a spasms attack as a free action.'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 't125vKMD33hRZ2bP'
     flags: {}
     name: '(Special trigger) C: Spasms'
@@ -388,7 +245,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. AC (up to 2 attacks, each against a different nearby enemy)'
+        value: '[[d20+11]] vs. AC (up to [[2]] attacks, each against a different nearby enemy)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -419,6 +276,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'BNnojc6cITZsS0UP'
     flags: {}
     name: 'Engulf and dissolve.'
@@ -431,12 +292,16 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>Targets engulfed/grabbed by the cube take 38 acid damage at the start of the cube&rsquo;s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously.</p><p>Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>'
+        value: '<p>Targets engulfed/grabbed by the cube take [[38]] acid damage at the start of the cube&rsquo;s turn but are not viable targets for additional attacks by the cube. Multiple targets can be held within the cube simultaneously.</p><p>Any engulfed creature that is also staggered must begin making last gasp saves or become paralyzed as the cube&rsquo;s toxins overwhelm it.</p>'
       group:
         type: 'String'
         label: 'Group'
         value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'DYMLfSO76xrdLcD9'
     flags: {}
     name: 'Instictive actions'
@@ -455,6 +320,10 @@ items:
         label: 'Group'
         value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'rUw9Ey0D50CvGeK9'
     flags: {}
     name: '1. C: Acid splash'
@@ -475,7 +344,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11] vs. PD ([[1d3]] nearby or far away enemis in a group)'
+        value: '[[d20+11] vs. PD ([[1d3]] nearby or far away enemies in a group)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -506,6 +375,10 @@ items:
         label: 'Miss'
         value: '[[5]] ongoing acid damage'
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'uWkvFoKIO3bF9Jnu'
     flags: {}
     name: '4. FIRED gout'
@@ -526,7 +399,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemis in a group)'
+        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -557,6 +430,10 @@ items:
         label: 'Miss'
         value: '[[5]] ongoing acid damage'
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'VUzgHDqR5N6zGxJZ'
     flags: {}
     name: '6. C: Acid Jet'
@@ -577,7 +454,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. PD (one nearby or far away enemy'
+        value: '[[d20+11]] vs. PD ([[1]] nearby or far away enemy'
       hit:
         type: 'String'
         label: 'Hit'
@@ -608,6 +485,10 @@ items:
         label: 'Miss'
         value: '[[8]] ongoing acid damage'
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Dh9cXbmkbbKn4qAh'
     flags: {}
     name: '7. C: Acid geyser'
@@ -628,7 +509,7 @@ items:
       attack:
         type: 'String'
         label: 'Attack Roll'
-        value: '[[d20+11]] vs. PD (1d3 nearby or far away enemis)'
+        value: '[[d20+11]] vs. PD ([[1d3]] nearby or far away enemies)'
       hit:
         type: 'String'
         label: 'Hit'
@@ -659,6 +540,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'HyuudrUzF7AopdAZ'
     flags: {}
     name: '7. Glomp'
@@ -710,4 +595,13 @@ items:
         label: 'Miss'
         value: ''
     sort: 900000
-_id: 'FMx0i9N4bOVCJOmW'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}

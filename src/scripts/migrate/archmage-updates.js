@@ -94,71 +94,6 @@ class ArchmageUpdateHandler {
     // This is just an example of how to update actor data that was resolved
     // in a previous version of the system, so let's exit early.
     return true;
-
-    // var archmageType;
-    // // Example array of actors to convert into characters.
-    // let namesArray = [
-    //   'Dumathoin',
-    //   'Hussanma',
-    //   'Respen',
-    //   'Seidhr',
-    //   'Vaghn'
-    // ];
-    // // Update active entities.
-    // for (let a of game.actors) {
-    //   if (!a.data.type) {
-    //     if (namesArray.includes(a.name)) {
-    //       archmageType = 'character';
-    //     }
-    //     else {
-    //       archmageType = 'npc';
-    //     }
-    //     console.log(`Updating ${a.name} to ${archmageType}`);
-    //     await a.update({ "type": archmageType });
-    //   }
-    //   else {
-    //     // Some new schema types aren't automatically converted.
-    //     if (a.data.type === 'npc') {
-    //       let update = false;
-    //       if (!a.data.data.details.resistance || !a.data.data.details.resistance.label) {
-    //         await a.update({ 'data.details.resistance.type': 'String' });
-    //         await a.update({ 'data.details.resistance.label': 'Resistance' });
-    //         update = true;
-    //       }
-
-    //       if (!a.data.data.details.vulnerability || !a.data.data.details.vulnerability.label) {
-    //         update = true;
-    //         await a.update({ 'data.details.vulnerability.type': 'String' });
-    //         await a.update({ 'data.details.vulnerability.label': 'Vulnerability' });
-    //       }
-
-    //       if (update) {
-    //         console.log(`Updating NPC labels for ${a.name}`);
-    //       }
-    //     }
-    //   }
-    // }
-
-    // // Update compendium entities.
-    // for (let c of game.packs) {
-    //   if (c.documentName && c.documentName == 'Actor') {
-    //     let entities = await c.getDocuments();
-    //     for (let a of entities) {
-    //       if (!a.data.type) {
-    //         if (namesArray.includes(a.name)) {
-    //           archmageType = 'character';
-    //         }
-    //         else {
-    //           archmageType = 'npc';
-    //         }
-    //         a.data.type = archmageType;
-
-    //         console.log(`Updating [compendium] ${a.name} to ${archmageType}`);
-    //         await c.updateEntity(a.data);
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   /**
@@ -169,28 +104,7 @@ class ArchmageUpdateHandler {
    * ensures that all active actors have updated items.
    */
   async update1002() {
-    // Define merge options.
-    // let insertKeys, insertValues, overwrite, inplace;
-    // var mergeOptions = {insertKeys=true, insertValues=false, overwrite=false, inplace=false}={};
-    // // Update active entities.
-    // for (let a of game.actors) {
-    //   if (a.data.type == 'character') {
-    //     // Update each item with the new model.
-    //     let items = [];
-    //     items = duplicate(a.data.items);
-    //     for (let i = 0; i < items.length; i++) {
-    //       if (items[i].type == 'power') {
-    //         // Duplicate the item and update it with the template structure.
-    //         let item = items[i].data;
-    //         let powerTemplate = duplicate(game.system.template.item.power);
-    //         items[i].data = mergeObject(powerTemplate, item, mergeOptions);
-    //       }
-    //     }
-    //     // Update the actor entity.
-    //     console.log(`Updated items for ${a.name}`)
-    //     await a.update({items: items});
-    //   }
-    // }
+    return true;
   }
 
   /* -------------------------------------------*/
@@ -295,7 +209,7 @@ class ArchmageUpdateHandler {
     });
 
     // 3. Update world compendiums (Actors, Scenes).
-    await this.queryCompendiums();
+    await this.migrateCompendiums();
 
     // 4. Update the migration version setting.
     //@todo: Uncomment this to enable migration.
@@ -341,18 +255,18 @@ class ArchmageUpdateHandler {
 
   /* -------------------------------------------*/
 
-  async queryCompendiums() {
+  async migrateCompendiums() {
     for ( let pack of game.packs ) {
       if ( pack.metadata.package !== "world" ) continue;
-      if ( !["Actor", "Item", "Scene"].includes(pack.documentName) ) continue;
+      if ( !["Actor", "Scene"].includes(pack.documentName) ) continue;
 
       if (pack.documentName == 'Actor') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM ACTORS');
-        await this.queryCompendiumActors(pack, actor => actor.type == 'npc');
+        await this.migrateCompendiumActors(pack, actor => actor.type == 'npc');
       }
       else if (pack.documentName == 'Scene') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
-        await this.queryCompendiumScenes(pack, token => token.actor.type == 'npc');
+        await this.migrateCompendiumScenes(pack, token => token.actor.type == 'npc');
       }
     }
   }
@@ -366,7 +280,7 @@ class ArchmageUpdateHandler {
    * @param {function} callbackFilter Optional callback filter to apply, using
    *   the same format as an array filter such as scene.tokens.filter();
    */
-  async queryCompendiumActors(pack, callbackFilter = null) {
+  async migrateCompendiumActors(pack, callbackFilter = null) {
     // Unlock pack.
     const wasLocked = pack.locked;
     await pack.configure({locked: false});
@@ -374,13 +288,28 @@ class ArchmageUpdateHandler {
     // Retrieve documents.
     // await pack.migrate();
     const documents = await pack.getDocuments();
+    let progress = 0;
+    let count = 0;
+
+    const packLabel = pack?.metadata?.label ? `: ${pack.metadata.label}` : '';
+    console.log(pack);
+
+    SceneNavigation.displayProgressBar({label: 'Updating compendium actors' . packLabel, pct: 0});
 
     // Retrieve actros.
     const actors = callbackFilter ? documents.filter(actor => callbackFilter(actor)) : documents;
-    actors.forEach(async actor => {
-      // @todo: Uncomment this to enable migration.
-      // actor.update(this.prepareMigrateActorData(actor));
-    });
+    const total = actors.length;
+    if (total > 0) {
+      actors.forEach(async actor => {
+        count++;
+        progress = Math.ceil(count / total * 100);
+        SceneNavigation.displayProgressBar({label: 'Updating compendium actors' . packLabel, pct: progress});
+        // @todo: Uncomment this to enable migration.
+        // await actor.update(this.prepareMigrateActorData(actor));
+      });
+    }
+
+    SceneNavigation.displayProgressBar({label: 'Updating compendium actors' . packLabel, pct: 100});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
@@ -395,7 +324,7 @@ class ArchmageUpdateHandler {
    * @param {function} callbackFilter Optional callback filter to apply, using
    *   the same format as an array filter such as scene.tokens.filter();
    */
-  async queryCompendiumScenes(pack, callbackFilter = null) {
+  async migrateCompendiumScenes(pack, callbackFilter = null) {
     // Unlock pack.
     const wasLocked = pack.locked;
     await pack.configure({locked: false});

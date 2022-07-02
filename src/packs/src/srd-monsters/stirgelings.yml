@@ -3,49 +3,6 @@ permission:
   default: 0
 type: 'npc'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 0
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 0
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 0
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 0
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 0
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 0
   attributes:
     ac:
       type: 'Number'
@@ -100,12 +57,6 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
     role:
       type: 'String'
       label: 'Role'
@@ -132,153 +83,6 @@ data:
       value: 0
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
 sort: 100001
 flags:
   archmage: {}
@@ -335,12 +139,12 @@ items:
         type: ''
         label: 'Hit'
         name: 'Natural odd hit'
-        value: '2 damage.'
+        value: '[[2]] damage.'
       hit2:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'Choose one effect, and then the stirgeling mob takes 4 damage (killing this creature first).'
+        value: 'Choose one effect, and then the stirgeling mob takes [[4]] damage (killing this creature first).'
       hit3:
         type: 'String'
         label: 'Hit'
@@ -366,7 +170,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 3 damage, and 3 ongoing damage.'
+        value: 'The target takes [[3]] damage, and [[3]] ongoing damage.'
     sort: 100000
   - _id: 'WuD7bGoZZfymgsuN'
     flags: {}
@@ -380,7 +184,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 6 damage.'
+        value: 'The target takes [[6]] damage.'
     sort: 200000
   - _id: 't06pM4PTJrlOD4l5'
     flags: {}
@@ -394,7 +198,7 @@ items:
       description:
         type: ''
         label: 'Description'
-        value: 'The target takes 3 damage and is *stuck* until end of its next turn.'
+        value: 'The target takes [[3]] damage and is *stuck* until end of its next turn.'
     sort: 300000
   - _id: 'n8mAFdYzvEI788Uk'
     flags: {}
