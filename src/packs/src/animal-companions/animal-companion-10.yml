@@ -82,7 +82,7 @@ data:
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 0
+      value: 10
     level:
       type: 'Number'
       label: 'Level'

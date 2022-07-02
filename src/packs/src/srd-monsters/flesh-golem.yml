@@ -1,8 +1,128 @@
+_id: 'UA5DfEwzN2BrPIfW'
 name: 'Flesh Golem'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 100
+      min: 0
+      max: 100
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 5
+      mod: 5
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 4
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'blocker'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'large'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'construct'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 4
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 4
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 18
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 16
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 14
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 100
-      min: 0
-      max: 100
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 1
-      mod: 5
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 4
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'blocker'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: 'large'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'construct'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 4
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Flesh Golem'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'i5eVBQmlxdOh6gJC'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'F4ZqpRoEjTXh4hOD'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -350,6 +407,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'WAeu89MYXqijhgoG'
     flags: {}
     name: 'Maddened battlefield repairs'
@@ -363,6 +424,10 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: The flesh golem can only use this attack while it’s staggered.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -392,6 +457,10 @@ items:
         name: 'Miss'
         value: '10 damage, and the flesh golem heals [[1d10]] hit points.'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'xqdzBmRCehTuotun'
     flags: {}
     name: 'Energy magnet'
@@ -405,7 +474,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Whenever a spell that causes cold, fire, force, lightning, or negative energy damage targets one of the flesh golem’s nearby allies, the flesh golem has a 50% chance of becoming the main target instead. Therefore, spells that affect groups would spread out from the flesh golem.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'CnIEAdZuZ59qtyF8'
     flags: {}
     name: 'Weakness of the flesh'
@@ -419,5 +496,19 @@ items:
         type: ''
         label: 'Description'
         value: 'Flesh golems are not immune to effects.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
-_id: 'UA5DfEwzN2BrPIfW'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

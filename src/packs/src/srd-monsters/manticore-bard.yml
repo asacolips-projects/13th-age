@@ -1,8 +1,128 @@
+_id: '0CzjRDh40QJASsYY'
 name: 'Manticore Bard'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 150
+      min: 0
+      max: 150
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 12
+      mod: 12
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'caster'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'large'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'beast'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 5
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 21
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 15
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 150
-      min: 0
-      max: 150
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 7
-      mod: 12
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 5
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'caster'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: 'large'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'beast'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 5
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Manticore Bard'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'EU3tbsWuxBimewvC'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'z1G53h1QTdH28IO5'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -352,6 +409,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'LcxFi36nEg6s2uuX'
     flags: {}
     name: 'Crushing leonine jaws'
@@ -364,6 +425,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -392,6 +457,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'wcq7EybDojkmnwsP'
     flags: {}
     name: 'C: Musical voice'
@@ -404,6 +473,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -434,6 +507,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'dh7JVdXN77aTlM08'
     flags: {}
     name: 'R: Volley of tail spikes'
@@ -446,6 +523,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -474,6 +555,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'vsgG6OIv7xkoB96k'
     flags: {}
     name: 'Intermittent song'
@@ -487,7 +572,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The manticore can use musical voice only [[1d4]] times during the battle, and never two turns in a row.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'djA8RmdyVnGMn3te'
     flags: {}
     name: 'Poison reservoirs'
@@ -501,7 +594,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Each time the manticore uses its volley of tail spikes attack, it takes [[1d6]] damage, or [[2d6]] damage if it’s staggered.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ZtrPuEfutpBRr05y'
     flags: {}
     name: 'Battle music'
@@ -515,7 +616,15 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'jDzK8hSKrJJ6KOrS'
     flags: {}
     name: '1'
@@ -529,7 +638,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Fortissimo—Each of the manticore’s allies gains a +[[2d6]] damage bonus with attacks that hit until the end of the battle (non-cumulative).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'bDC8TQpdql24Hpmc'
     flags: {}
     name: '2'
@@ -543,7 +660,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Profundo—The manticore’s musical voice attack now deals 40 psychic damage instead of 20 until the end of the battle.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'fqVvKVcoHTnacIjg'
     flags: {}
     name: '3'
@@ -557,7 +682,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Furioso—The target is *confused* instead of *dazed*.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Hf9qT1146Lhn3dDZ'
     flags: {}
     name: '4'
@@ -571,5 +704,19 @@ items:
         type: ''
         label: 'Description'
         value: 'Largo—The manticore can make a musical voice attack during its next turn as a free action, but with a +3 attack bonus. This free attack won’t trigger another battle music effect.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1000000
-_id: '0CzjRDh40QJASsYY'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

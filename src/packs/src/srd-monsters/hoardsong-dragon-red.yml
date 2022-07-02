@@ -1,8 +1,134 @@
+_id: '6t1WceFl0n8rOgYp'
 name: 'Hoardsong Dragon (Red)'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 360
+      min: 0
+      max: 360
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 13
+      mod: 13
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 9
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'spoiler'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'large'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'dragon'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: 'Fire 16+'
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: 'Cold'
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 9
+      min: 0
+      max: 10
   abilities:
     str:
       type: 'Number'
@@ -46,99 +172,6 @@ data:
       min: 3
       mod: 0
       lvl: 9
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 25
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 24
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 18
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 360
-      min: 0
-      max: 360
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-      base: 8
-      automatic: true
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 4
-      mod: 13
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 9
-      min: 0
-      max: 10
-    escalation:
-      value: 0
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    out:
-      label: 'One Unique Thing'
-      type: 'String'
-      value: ''
-    role:
-      value: 'spoiler'
-      type: 'String'
-      label: 'Role'
-    size:
-      value: 'large'
-      type: 'String'
-      label: 'Size'
-    type:
-      value: 'dragon'
-      type: 'String'
-      label: 'Type'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: 'Fire 16+'
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: 'Cold'
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 9
-      min: 0
-      max: 10
   backgrounds:
     bg1:
       name:
@@ -286,9 +319,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Hoardsong Dragon'
@@ -305,7 +335,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'QPcP47zEcUqZ4e3O'
@@ -313,9 +343,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: '3tExos08lleUG9Nh'
     flags: {}
@@ -368,6 +421,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'isQZ3YM08Sy0ZQCU'
     flags: {}
     name: 'C: Hoardsong'
@@ -419,6 +476,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '60zA9an1tJHDCr9C'
     flags: {}
     name: 'C: Precise breath'
@@ -470,6 +531,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'GXAS23NzUEg0jOED'
     flags: {}
     name: 'Known to an ounce'
@@ -488,6 +553,10 @@ items:
         label: 'Group'
         value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '0gb3G2FIoPJRhLcA'
     flags: {}
     name: 'Lair'
@@ -506,6 +575,10 @@ items:
         label: 'Group'
         value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'CdCIbqatGzCBK6e0'
     flags: {}
     name: 'Hoard minions'
@@ -524,6 +597,10 @@ items:
         label: 'Group'
         value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'CCcS0rebhTcInK5z'
     flags: {}
     name: 'The call of the hoard'
@@ -542,4 +619,13 @@ items:
         label: 'Group'
         value: ''
     sort: 700000
-_id: '6t1WceFl0n8rOgYp'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}

@@ -1,8 +1,128 @@
+_id: 'GgZFSyhhq261c4Uh'
 name: 'Massive Mutant Chuul'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 27
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 25
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 450
+      min: 0
+      max: 450
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 15
+      mod: 15
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 10
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'wrecker'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'huge'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'aberration'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 10
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 10
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 27
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 25
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 22
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 450
-      min: 0
-      max: 450
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 5
-      mod: 15
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 10
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'wrecker'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: 'huge'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'aberration'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 10
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Massive Mutant Chuul'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'fJMuObZcZWRCT6c6'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'frHs8dje9uxdncfw'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -352,6 +409,10 @@ items:
         name: 'Miss'
         value: '35 damage.'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'VDFcekoFrMHF15OX'
     flags: {}
     name: 'Crippling tentacles'
@@ -364,6 +425,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -392,6 +457,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'DsaamDQHnyDFKFKP'
     flags: {}
     name: 'R: Venom spit'
@@ -404,6 +473,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -432,6 +505,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'pRzXJBbH3IcfvJC6'
     flags: {}
     name: 'Both attacks hit the same target'
@@ -445,7 +522,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The chuul grabs the target.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'HugBmSvgFYZGQE88'
     flags: {}
     name: 'First failed save'
@@ -459,7 +544,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The target is *hampered* and *weakened* (hard save ends both, 16+).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'iQS292TJXetwrZDX'
     flags: {}
     name: 'Second failed save'
@@ -473,7 +566,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The target is instead *helpless* (hard save ends, 16+).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'nxCP00Jk5HpBlwAm'
     flags: {}
     name: 'Quick use'
@@ -487,7 +588,15 @@ items:
         type: ''
         label: 'Description'
         value: 'This attack only requires a quick action when used against an enemy the chuul is grabbing.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'QvFhMr6JxPiSzVTz'
     flags: {}
     name: 'I hate you all'
@@ -501,7 +610,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per round when the chuul is engaged with one or more enemies and is the target of an attack, it can try to interpose one of those enemies between itself and the attack as a free action after seeing the attack roll. That enemy rolls a normal save; on a failure, it becomes the target of the attack instead of the chuul. If the chuul tries to interpose an enemy it’s grabbing, the save is hard (16+) instead.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'uGbf7mQHHIthacbm'
     flags: {}
     name: 'Resist psychic 16+'
@@ -515,7 +632,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When a psychic attack targets this creature, the attacker must roll a natural 16+ on the attack roll or it only deals half damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'LSx0cJbu7m7n5kCk'
     flags: {}
     name: 'Water-breathing'
@@ -529,7 +654,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Chuuls swim well and can breathe underwater, though they prefer not to.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'd1Kmj4f4nq0615Ta'
     flags: {}
     name: 'Exposed brain nightmare aura'
@@ -543,7 +676,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When an enemy is engaged with the chuul at the start of its turn, that creature must roll a normal save; on a failure, it’s *hampered* (easy save ends, 6+).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1000000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'kDmkJcn0rUyFl955'
     flags: {}
     name: 'Extra claw'
@@ -557,7 +698,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The mutant chuul can make three crushing claws attacks instead of two. If two of the attacks hit the same target, the chuul grabs it.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'wGBBLemS6sJDoiRi'
     flags: {}
     name: 'Oversized claw'
@@ -571,7 +720,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the chuul rolls a natural even hit with crushing claws, it deals 120 damage instead of 70.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'diU0Nn1Spjtzhhx9'
     flags: {}
     name: 'Venom spit'
@@ -585,7 +742,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The chuul gains a venom spit attack.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Fs4Xe58xASlKFUuR'
     flags: {}
     name: 'First attack is a natural even roll'
@@ -599,7 +764,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The chuul can make a second venom spit attack against the same group as a free action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'YwsqZ90m84AmCb0t'
     flags: {}
     name: 'Whipping tentacles'
@@ -613,5 +786,19 @@ items:
         type: ''
         label: 'Description'
         value: 'The crippling tentacles attack is now a close attack against [[1d3]] enemies in a group.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1500000
-_id: 'GgZFSyhhq261c4Uh'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

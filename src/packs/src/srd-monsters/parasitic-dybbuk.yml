@@ -1,8 +1,128 @@
+_id: 'zT1X4CLaTCmxo8pn'
 name: 'Parasitic Dybbuk'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 180
+      min: 0
+      max: 180
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 13
+      mod: 13
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 6
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'spoiler'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: '2x'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'demon'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 6
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 6
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 22
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 16
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 20
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 180
-      min: 0
-      max: 180
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 7
-      mod: 13
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 6
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'spoiler'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: '2x'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'demon'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 6
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Parasitic Dybbuk'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: '0Ny8PiAJE3kZRWGO'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'IuCS8eXxEZ3LBreA'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -352,6 +409,10 @@ items:
         name: 'Miss'
         value: '[[3d10]] poison damage.'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'mwgL98C2EndolBLQ'
     flags: {}
     name: 'C: Unearthly glare'
@@ -364,6 +425,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -394,6 +459,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'F1WGa73tPMxCIBFb'
     flags: {}
     name: 'C: Visage of innocence'
@@ -406,6 +475,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -434,6 +507,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'pzwXFTrgb878jmEj'
     flags: {}
     name: 'C: Horrific visage'
@@ -446,6 +523,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -474,6 +555,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'wcRJourl6J5joZ1b'
     flags: {}
     name: 'C: Puppet strings'
@@ -486,6 +571,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -514,6 +603,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 's6lOI0a9stCa9IVb'
     flags: {}
     name: 'Shapechange'
@@ -527,7 +620,15 @@ items:
         type: ''
         label: 'Description'
         value: 'As a standard action, the dybbuk can change its host’s form to that of another humanoid, or back to its own shape. Seeing through the shapechange requires a DC 25 skill check. When the dybbuk is driven out of the host body, the body reverts to its original form.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'P6QzIkucYVktQ9Ii'
     flags: {}
     name: 'Unholy aversion'
@@ -541,7 +642,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When an enemy makes a spell attack or magic weapon attack against the parasitic dybbuk that deals holy damage and rolls a natural 18+, the dybbuk leaves the host body. The body drops in place (*unconscious*) and the parasitic dybbuk becomes an undamaged ethereal dybbuk (see that entry). If the escalation die is 3+, reset the escalation die to 2.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'PfVt0kMtaMnzTFnm'
     flags: {}
     name: 'Wall-crawler'
@@ -555,7 +664,15 @@ items:
         type: ''
         label: 'Description'
         value: 'A dybbuk can climb on ceilings and walls as easily as it moves on the ground.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'h4px1FdTKZ07PqAQ'
     flags: {}
     name: 'Scratching nails'
@@ -569,7 +686,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the target is engaged with the dybbuk at the start of its turn, it takes 20 damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'dhbSgfzSiDGNdg3l'
     flags: {}
     name: 'Warped flesh'
@@ -583,7 +708,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The dybbuk heals 30 hp.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'CPYduk0IjWN07f04'
     flags: {}
     name: 'Experienced possessor'
@@ -597,7 +730,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the dybbuk rolls a natural odd hit or miss with unearthly glare, one special dybbuk ability triggers.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1000000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Vav6Q3uibGkjXU5I'
     flags: {}
     name: 'Flight'
@@ -611,5 +752,19 @@ items:
         type: ''
         label: 'Description'
         value: 'The dybbuk can hover 6 feet off the ground and make boneless flea-like leaps.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 1100000
-_id: 'zT1X4CLaTCmxo8pn'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

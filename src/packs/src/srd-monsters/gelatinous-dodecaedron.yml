@@ -1,8 +1,134 @@
+_id: 'XnKTLcGHCMtS2OLr'
 name: 'Gelatinous Dodecaedron'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 550
+      min: 0
+      max: 550
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 5
+      mod: 5
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'blocker'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'huge'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'ooze'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 10
   abilities:
     str:
       type: 'Number'
@@ -46,99 +172,6 @@ data:
       min: 3
       mod: 0
       lvl: 7
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 21
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 16
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 550
-      min: 0
-      max: 550
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-      base: 8
-      automatic: true
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: -2
-      mod: 5
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 7
-      min: 0
-      max: 10
-    escalation:
-      value: 0
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    out:
-      label: 'One Unique Thing'
-      type: 'String'
-      value: ''
-    role:
-      value: 'blocker'
-      type: 'String'
-      label: 'Role'
-    size:
-      value: 'huge'
-      type: 'String'
-      label: 'Size'
-    type:
-      value: 'ooze'
-      type: 'String'
-      label: 'Type'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 7
-      min: 0
-      max: 10
   backgrounds:
     bg1:
       name:
@@ -286,9 +319,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Gelatinous Dodecaedron'
@@ -305,7 +335,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'ixxp1yU5WxtbU9J6'
@@ -313,9 +343,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: '5KxMDtbWyJmI0fSz'
     flags: {}
@@ -368,6 +421,10 @@ items:
         label: 'Miss'
         value: 'The cube can make a spasms attack as a free action'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'PaY3wgIviPt7Dsfm'
     flags: {}
     name: '[Special trigger] C: Spasms'
@@ -419,6 +476,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'NZQEHnMchPcE9jC6'
     flags: {}
     name: 'Engulf and dissolve'
@@ -437,6 +498,10 @@ items:
         label: 'Group'
         value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ljyeULegGpI8gHi3'
     flags: {}
     name: 'Instinctive actions'
@@ -455,6 +520,10 @@ items:
         label: 'Group'
         value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'aGVxHLwPr3Ch5jGb'
     flags: {}
     name: '1. Squash'
@@ -506,6 +575,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'kL1JWnQPntvh24fs'
     flags: {}
     name: '2. Sudden orifice'
@@ -557,6 +630,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'yP5XEVGwuNFSvYd3'
     flags: {}
     name: '7. C: Stretch and engulf'
@@ -608,6 +685,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ALPLW4dydU8kVDdd'
     flags: {}
     name: '8. C: Pesudopod slaps'
@@ -659,4 +740,13 @@ items:
         label: 'Miss'
         value: ''
     sort: 800000
-_id: 'XnKTLcGHCMtS2OLr'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}

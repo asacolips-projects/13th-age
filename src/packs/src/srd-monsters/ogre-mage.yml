@@ -1,8 +1,128 @@
+_id: 'CPFyQu2s90q5oGsp'
 name: 'Ogre Mage'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 170
+      min: 0
+      max: 170
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 14
+      mod: 14
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'caster'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'large'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'giant'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 7
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 7
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 23
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 19
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 21
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 170
-      min: 0
-      max: 170
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 7
-      mod: 14
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 7
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'caster'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: 'large'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'giant'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 7
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Ogre Mage'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'QcQrm9XwlgGOcqn1'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'M2b92l8KVrAojdVP'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -352,6 +409,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'nHrGWgW557WkRc1d'
     flags: {}
     name: 'C: Cone of cold'
@@ -365,6 +426,10 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 1/day, and the attack affects the ogre’s allies engaged with or between enemy targets.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -392,6 +457,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'tyd7paVZfg6nWtGX'
     flags: {}
     name: '[Special trigger] C: Aura of treachery'
@@ -404,6 +473,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -432,6 +505,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '5XB52dwq3jwaWK46'
     flags: {}
     name: 'Aura of treachery'
@@ -445,7 +522,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per round when a nearby enemy misses the ogre mage with an attack, the ogre mage can make an aura of treachery attack against it as a free action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'GUc53lX3RGQQk6Se'
     flags: {}
     name: 'Flight'
@@ -459,7 +544,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The ogre mage flies using the sheer power of its superior mind.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'N9oZAcHAjNQOxP73'
     flags: {}
     name: 'Invisibility'
@@ -473,7 +566,15 @@ items:
         type: ''
         label: 'Description'
         value: 'If the ogre mage is not engaged, it can turn invisible as an at-will standard action. It becomes visible when it attacks. The ogre mage takes [[1d10]] damage each time it uses invisibility while it’s staggered.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'FhDvsJfMtRb8LXLH'
     flags: {}
     name: 'Resist exceptional attacks 16+'
@@ -487,7 +588,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When a limited attack (not an at-will attack) targets this creature, the attacker must roll a natural 16+ on the attack roll or it only deals half damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'V3wv0L02IVacgX82'
     flags: {}
     name: 'Trollish regeneration 20'
@@ -501,7 +610,15 @@ items:
         type: ''
         label: 'Description'
         value: 'While an ogre mage is damaged, its uncanny flesh heals 20 hit points at the start of the ogre mage’s turn. It can regenerate five times per battle. If it heals to its maximum hit points, then that use of regeneration doesn’t count against the five-use limit.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'uFrpQbxUe1zFgx3d'
     flags: {}
     name: 'When the ogre mage is hit by an attack that deals fire or acid damage, it loses one use of its regeneration, and it can’t regenerate during its next turn.'
@@ -515,7 +632,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the ogre mage is hit by an attack that deals fire or acid damage, it loses one use of its regeneration, and it can’t regenerate during its next turn.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '7Jpf0ziB8xeaaPvl'
     flags: {}
     name: 'Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of regeneration left.'
@@ -529,5 +654,19 @@ items:
         type: ''
         label: 'Description'
         value: 'Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of regeneration left.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 900000
-_id: 'CPFyQu2s90q5oGsp'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

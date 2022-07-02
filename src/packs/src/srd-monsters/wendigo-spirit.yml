@@ -1,8 +1,128 @@
+_id: 'ffHA1fJWGbIB44Kz'
 name: 'Wendigo Spirit'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 100
+      min: 0
+      max: 100
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 12
+      mod: 12
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'wrecker'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'large'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'undead'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 5
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 5
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 20
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 15
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 19
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 100
-      min: 0
-      max: 100
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 7
-      mod: 12
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 5
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'wrecker'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: 'large'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'undead'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 5
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Wendigo Spirit'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'hPi4q8YeFEOcLoHc'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'rFMViy8N6UaidC4V'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -350,6 +407,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'awl9lIHrZJ5z4aQ7'
     flags: {}
     name: 'Wind claw'
@@ -362,6 +423,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -392,6 +457,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'YG9wLm0HA5aRlxqi'
     flags: {}
     name: 'Wendigo’s hunger'
@@ -405,7 +474,15 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '2DOm6VRjSXQxc6SA'
     flags: {}
     name: '1–2'
@@ -419,7 +496,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The target takes 10 damage as it bites itself.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'aqss1zFshW9MAe6T'
     flags: {}
     name: '3–4'
@@ -433,7 +518,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The target makes a basic attack against its nearest or most *vulnerable* ally (moving to that target if necessary).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'sf30onW4s9FqTqCy'
     flags: {}
     name: '5–6'
@@ -447,7 +540,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The target attacks the wendigo if it can; otherwise, it does nothing.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ERD1uCyvWhxkKKn2'
     flags: {}
     name: 'Flight'
@@ -461,7 +562,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The wendigo can walk on the wind. It is not a graceful flyer, but it moves as fast as the wind that carries it. Nearby creatures can see its feet blazing with fire as it runs.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'WUevVUN1SDqOSgl5'
     flags: {}
     name: 'Spirit form'
@@ -475,7 +584,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The wendigo has resist damage 16+ to all damage except thunder damage. A wendigo spirit can move through solid objects but it can’t end its movement inside them.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'pJXpPBCjq3qHl7jM'
     flags: {}
     name: 'Unseen horror'
@@ -489,7 +606,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The wendigo is invisible to far away creatures. When the wendigo attacks, if its target couldn’t see it at the start of its turn, the wendigo gains a +2 attack bonus that turn.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'w4EihLlQsad0M7nX'
     flags: {}
     name: 'Curse of the wendigo'
@@ -503,5 +628,19 @@ items:
         type: ''
         label: 'Description'
         value: 'If a creature subject to wendigo’s hunger drops itself (through biting) or an ally (with a basic attack) to 0 hp or lower, that creature also begins making last gasp saves. Failing the fourth last gasp save turns the creature into a raving cannibal; it loses all its normal abilities and becomes an NPC until the PCs find a way to restore their ally (at GM’s discretion).'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 900000
-_id: 'ffHA1fJWGbIB44Kz'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

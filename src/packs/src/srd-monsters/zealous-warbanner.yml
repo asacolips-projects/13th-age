@@ -1,8 +1,134 @@
+_id: 'YWUMZ29u82zpOHMi'
 name: 'Zealous Warbanner'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 86
+      min: 0
+      max: 86
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 8
+      mod: 8
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'caster'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: 'double'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'construct'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    out:
+      label: 'One Unique Thing'
+      type: 'String'
+      value: ''
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 10
   abilities:
     str:
       type: 'Number'
@@ -46,99 +172,6 @@ data:
       min: 3
       mod: 0
       lvl: 3
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 19
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 15
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 15
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 86
-      min: 0
-      max: 86
-      temp: 0
-      tempmax: 0
-      base: 7
-      automatic: true
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-      base: 8
-      automatic: true
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 5
-      mod: 8
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 3
-      min: 0
-      max: 10
-    escalation:
-      value: 0
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    out:
-      label: 'One Unique Thing'
-      type: 'String'
-      value: ''
-    role:
-      value: 'caster'
-      type: 'String'
-      label: 'Role'
-    size:
-      value: 'double'
-      type: 'String'
-      label: 'Size'
-    type:
-      value: 'construct'
-      type: 'String'
-      label: 'Type'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 3
-      min: 0
-      max: 10
   backgrounds:
     bg1:
       name:
@@ -286,9 +319,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Vicious Warbanner'
@@ -305,7 +335,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'jA9L9C1xWVFxdrK5'
@@ -313,9 +343,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'VKWQBZXlbynLcWnp'
     flags: {}
@@ -367,6 +420,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'tzTUph3dfEGRz2tZ'
     flags: {}
     name: 'Banner magic'
@@ -418,6 +475,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'EmA4YzPbzIRAezBj'
     flags: {}
     name: 'False rally'
@@ -468,6 +529,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'hcAStbTNapnkkSek'
     flags: {}
     name: 'Designated bearer'
@@ -486,6 +551,10 @@ items:
         label: 'Group'
         value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'loPz9DAC3Y3bPwvB'
     flags: {}
     name: 'Bearer beware'
@@ -504,6 +573,10 @@ items:
         label: 'Group'
         value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '0cBLgHZ6Qm3HRtFE'
     flags: {}
     name: 'Conditional resist damage 16+'
@@ -522,6 +595,10 @@ items:
         label: 'Group'
         value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'gkEoGqQ7PSN0UBRg'
     flags: {}
     name: 'Flight'
@@ -540,6 +617,10 @@ items:
         label: 'Group'
         value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'j9tZRZCXSP4KARSI'
     flags: {}
     name: 'Mook morale'
@@ -558,4 +639,13 @@ items:
         label: 'Group'
         value: ''
     sort: 800000
-_id: 'YWUMZ29u82zpOHMi'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}

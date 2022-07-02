@@ -1,8 +1,128 @@
+_id: 'RyzWdFRVyrDvHDWG'
 name: 'Pixie Pod'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
+  attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
+    ac:
+      type: 'Number'
+      label: 'Armor Class'
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: 'Number'
+      label: 'Physical Defense'
+      value: 13
+      base: 10
+      min: 0
+    md:
+      type: 'Number'
+      label: 'Mental Defense'
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: 'Number'
+      label: 'Hit Points'
+      value: 40
+      min: 0
+      max: 40
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 7
+      mod: 7
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: 'String'
+      label: 'Alignment'
+    biography:
+      type: 'String'
+      label: 'Biography'
+    flavor:
+      value: ''
+    role:
+      value: 'leader'
+      type: 'String'
+      label: 'Role'
+    size:
+      value: '2x'
+      type: 'String'
+      label: 'Size'
+    type:
+      value: 'plant'
+      type: 'String'
+      label: 'Type'
+    resistance:
+      value: ''
+      type: 'String'
+      label: 'Resistance'
+    vulnerability:
+      value: ''
+      type: 'String'
+      label: 'Vulnerability'
+    class:
+      type: 'String'
+      label: 'Class'
+    race:
+      type: 'String'
+      label: 'Race'
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 3
+      min: 0
+      max: 12
   abilities:
     str:
       type: 'Number'
@@ -46,92 +166,6 @@ data:
       min: 3
       mod: 0
       lvl: 3
-  attributes:
-    ac:
-      type: 'Number'
-      label: 'Armor Class'
-      value: 17
-      base: 10
-      min: 0
-    pd:
-      type: 'Number'
-      label: 'Physical Defense'
-      value: 13
-      base: 10
-      min: 0
-    md:
-      type: 'Number'
-      label: 'Mental Defense'
-      value: 16
-      base: 10
-      min: 0
-    hp:
-      type: 'Number'
-      label: 'Hit Points'
-      value: 40
-      min: 0
-      max: 40
-      temp: 0
-      tempmax: 0
-      base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 4
-      mod: 7
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 3
-      min: 0
-      max: 12
-    escalation:
-      value: 6
-  details:
-    alignment:
-      type: 'String'
-      label: 'Alignment'
-    biography:
-      type: 'String'
-      label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    role:
-      type: 'String'
-      label: 'Role'
-      value: 'leader'
-    size:
-      type: 'String'
-      label: 'Size'
-      value: '2x'
-    type:
-      type: 'String'
-      label: 'Type'
-      value: 'plant'
-    resistance:
-      type: 'String'
-      label: 'Resistance'
-      value: ''
-    vulnerability:
-      type: 'String'
-      label: 'Vulnerability'
-      value: ''
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 3
-      min: 0
-      max: 12
   backgrounds:
     bg1:
       name:
@@ -279,10 +313,6 @@ data:
       isActive:
         type: 'Boolean'
         value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Pixie Pod'
@@ -298,7 +328,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'YXT6DEgMbB2LAdn3'
@@ -306,9 +336,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'CdatyCpcn0vcwNCa'
     flags: {}
@@ -322,6 +375,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -352,6 +409,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'VToKd6nUMRuHrIyr'
     flags: {}
     name: 'Release the pods'
@@ -365,7 +426,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per battle when the pixie pod rolls a natural even hit with peripheral summoning, it adds a number of podlings into the battle equal to the escalation die instead of only one.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'TUfhJ37xGW8HKeHo'
     flags: {}
     name: 'Immobile'
@@ -379,7 +448,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Although its podlings occasionally pick up and move it around out of combat, in battle the pixie pod can’t move and is *stuck* except for its teleport ability.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'inrBc4ADNIS9Zy5Q'
     flags: {}
     name: 'Lost opportunity'
@@ -393,7 +470,15 @@ items:
         type: ''
         label: 'Description'
         value: 'This creature can’t make opportunity attacks.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'jz2NGlzbRFMxIXZ1'
     flags: {}
     name: 'Lurching teleport'
@@ -407,7 +492,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per battle as a move action, the pixie-pod can teleport to a nearby location. But its control sucks. The teleport goes in a random direction. Roll it using a [[d8]] for direction.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'JV2rREz423igxM8V'
     flags: {}
     name: 'Magical concealment'
@@ -421,7 +514,15 @@ items:
         type: ''
         label: 'Description'
         value: 'As long as one or more of its podlings are nearby, the pixie pod is invisible and extremely difficult to even detect. A PC who wants to locate the pixie-pod must spend a standard action searching and succeed at a DC 25 skill check using Wisdom. Backgrounds connected to plants and the wilderness help normally, and general searching skills and magic talents might help a bit but not at full strength. Once located, the plant can be attacked like a normal invisible creature. When it teleports, however, it must be located all over again.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'RpHbTwRrZ5SFYkW2'
     flags: {}
     name: 'Start with mooks'
@@ -435,5 +536,19 @@ items:
         type: ''
         label: 'Description'
         value: 'The pixie pod is normally accompanied by five active podlings that don’t count toward the total when building a battle with the pod. Additional podlings do count, however.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
-_id: 'RyzWdFRVyrDvHDWG'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
