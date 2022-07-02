@@ -1,7 +1,7 @@
 import { ARCHMAGE, FLAGS } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
-import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
+import { ActorArchmageNPCSheetLegacy } from './actor/actor-npc-sheet.js';
 import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
@@ -65,8 +65,8 @@ Hooks.once('init', async function() {
 
   game.archmage = {
     ActorArchmage,
-    ActorArchmageSheet,
-    ActorArchmageNPCSheet,
+    ActorArchmageSheetV2,
+    ActorArchmageNpcSheetV2,
     DiceArchmage,
     ItemArchmage,
     ItemArchmageSheet,
@@ -114,16 +114,16 @@ Hooks.once('init', async function() {
 
   Actors.unregisterSheet('core', ActorSheet);
 
-  Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
-    label: "NPC Sheet",
-    types: ["npc"],
-    makeDefault: false
-  });
-
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
     label: "V2 NPC Sheet",
     types: ["npc"],
     makeDefault: true
+  });
+
+  Actors.registerSheet("archmage", ActorArchmageNPCSheetLegacy, {
+    label: "Legacy NPC Sheet",
+    types: ["npc"],
+    makeDefault: false
   });
 
   // V2 actor sheet (See issue #118).
