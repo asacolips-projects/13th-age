@@ -117,13 +117,13 @@ Hooks.once('init', async function() {
   Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
     label: "NPC Sheet",
     types: ["npc"],
-    makeDefault: true
+    makeDefault: false
   });
 
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
     label: "V2 NPC Sheet",
     types: ["npc"],
-    makeDefault: false
+    makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
@@ -440,7 +440,6 @@ Hooks.once('ready', () => {
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
-    console.log(event);
     if ( !event.target.classList.contains("effect-link") ) return;
     let data = {
       type: event.target.dataset.type,

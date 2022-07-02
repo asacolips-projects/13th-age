@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { concat } from '@/methods/Helpers';
+import { concat, getActor } from '@/methods/Helpers';
 export default {
   name: 'Tabs',
   props: ['context', 'actor', 'group', 'tabs', 'flags'],
@@ -38,7 +38,7 @@ export default {
       }
 
       // Update the flag.
-      const actor = game.actors.get(this.actor._id) ?? false;
+      const actor = !this.actor.pack ? getActor(this.actor) : false;
       if (actor) actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
     },
     getTabClass(tab, index) {

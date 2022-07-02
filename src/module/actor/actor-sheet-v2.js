@@ -71,6 +71,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       }
     }
 
+    // Add pack info if needed.
+    if (this.actor?.pack) {
+      context.actor.pack = this.actor.pack;
+    }
+
     // Sort items.
     context.actor.items = actorData.items;
     context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));

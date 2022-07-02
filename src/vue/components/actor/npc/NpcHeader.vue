@@ -71,7 +71,7 @@
 </template>
 
 <script>
-  import { localize, ordinalSuffix, numberFormat } from '@/methods/Helpers';
+  import { localize, ordinalSuffix, numberFormat, getActor } from '@/methods/Helpers';
   import ToggleInput from '@/components/parts/ToggleInput.vue';
   import Input from '@/components/parts/Input.vue';
   import Select from '@/components/parts/Select.vue';
@@ -155,7 +155,7 @@
         // Update the state.
         this.headerCollapsed = !this.headerCollapsed;
         // Set a flag.
-        const actor = game.actors.get(this.actor._id) ?? false;
+        const actor = !this.actor.pack ? getActor(this.actor) : false;
         if (actor) actor.setFlag('archmage', `sheetDisplay.header.collapsed`, this.headerCollapsed);
       },
       getOptions(key) {

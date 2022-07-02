@@ -66,13 +66,18 @@ export function wrapRolls(text, replacements = {}) {
 }
 
 export function getActor(actorData) {
-  if (actorData.token.actorLink) {
+  if (actorData.token.actorLink || !actorData?.token?.sceneId) {
     return game.actors.get(actorData._id);
   }
   else if (actorData.token?.id && actorData.token?.sceneId) {
     const scene = game.scenes.get(actorData.token.sceneId);
     const token = scene ? scene.tokens.get(actorData.token.id) : false;
     return token?.actor ?? false;
+  }
+  else if (actorData?.pack) {
+    const pack = game.packs.get(actorData.pack);
+    const actor = pack.getDocument(actorData._id);
+    return actor;
   }
   return false;
 }

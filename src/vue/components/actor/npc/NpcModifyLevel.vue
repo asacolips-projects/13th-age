@@ -34,6 +34,7 @@
   import Input from '@/components/parts/Input.vue'
   import { ref } from 'vue';
   import { localize, getActor } from '@/methods/Helpers';
+import { Actor } from '@/foundry-shim/Actor';
   export default {
     name: 'NpcModifyLevel',
     props: ['actor'],
@@ -101,15 +102,34 @@
     },
     methods: {
       autoLevelConfirm(event) {
-        let actor = getActor(this.actor);
-        if (!actor) return;
-        let delta = this.newLevel - this.actor.data.attributes.level.value;
-        if (delta !== 0) {
-          actor.autoLevelActor(delta).then(newActor => {
-            newActor.setFlag('archmage', 'sheetDisplay.tabs.primary.value', 'actions').then(() => {
-              newActor.sheet.render(true);
-            });
+        if (this.actor?.pack) {
+          getActor(this.actor).then(actor => {
+            console.log(actor);
+            if (!actor) return;
+            // Prepare the delta and run the method.
+            let delta = this.newLevel - this.actor.data.attributes.level.value;
+            if (delta !== 0) {
+              actor.autoLevelActor(delta).then(newActor => {
+                newActor.setFlag('archmage', 'sheetDisplay.tabs.primary.value', 'actions').then(() => {
+                  newActor.sheet.render(true);
+                });
+              });
+            }
           });
+        }
+        else {
+          const actor = getActor(this.actor);
+          console.log(actor);
+          if (!actor) return;
+          // Prepare the delta and run the method.
+          let delta = this.newLevel - this.actor.data.attributes.level.value;
+          if (delta !== 0) {
+            actor.autoLevelActor(delta).then(newActor => {
+              newActor.setFlag('archmage', 'sheetDisplay.tabs.primary.value', 'actions').then(() => {
+                newActor.sheet.render(true);
+              });
+            });
+          }
         }
       }
     }

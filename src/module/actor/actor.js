@@ -1690,7 +1690,7 @@ export class ActorArchmage extends Actor {
     // Create the new actor and save it.
     let actor = false;
     // Standalone actors.
-    if (!this.parent) {
+    if (!this.parent && !this.pack) {
       actor = await this.clone(overrideData, {save: true, keepId: false});
     }
     // Unlinked tokens.
