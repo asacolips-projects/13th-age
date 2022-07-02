@@ -14,6 +14,7 @@
     "build:noVite": "gulp noVite",
     "css": "gulp css",
     "watch": "gulp",
+    "watch:noVite": "gulp noViteWatch",
     "gulp": "gulp",
     "files": "gulp files",
     "yaml": "gulp yaml",

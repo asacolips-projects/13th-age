@@ -300,6 +300,15 @@ function watchUpdates() {
   // gulp.watch(SYSTEM_SCRIPTS, scripts);
 }
 
+function watchUpdatesNoVite() {
+  gulp.watch(SYSTEM_SCSS, css);
+  gulp.watch(SYSTEM_YAML, yamlTask);
+  gulp.watch(SYSTEM_IMAGES, imageTask);
+  gulp.watch(SYSTEM_SVG, svgTask);
+  gulp.watch(SYSTEM_COPY, copyTask);
+  // gulp.watch(SYSTEM_SCRIPTS, scripts);
+}
+
 /* ----------------------------------------- */
 /*  Export Tasks
 /* ----------------------------------------- */
@@ -358,4 +367,14 @@ exports.noVite = gulp.series(
     copyFilesVite,
     copyFoundryVite
   )
+);
+exports.noViteWatch = gulp.series(
+  gulp.parallel(
+    compileScss,
+    compileYaml,
+    compileImages,
+    compileSvg,
+    copyTask,
+  ),
+  watchUpdatesNoVite
 );
