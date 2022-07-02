@@ -486,7 +486,8 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareNPCData(data, model, flags) {
-    // Nothing currently
+    // init.mod is used for rolls, while value is used on the sheet.
+    data.attributes.init.mod = data.attributes.init.value;
   }
 
   /** @inheritdoc */
@@ -1687,7 +1688,15 @@ export class ActorArchmage extends Actor {
     };
 
     // Create the new actor and save it.
-    let actor = await this.clone(overrideData, {save: true, keepId: false});
+    let actor = false;
+    // Standalone actors.
+    if (!this.parent) {
+      actor = await this.clone(overrideData, {save: true, keepId: false});
+    }
+    // Unlinked tokens.
+    else {
+      actor = await Actor.create(mergeObject(this.toObject(false), overrideData));
+    }
 
     // Fix attack and damage
     let atkFilter = /\+\s*(\d+)([\S\s]*)/;

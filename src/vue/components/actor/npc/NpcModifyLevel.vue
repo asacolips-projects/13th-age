@@ -33,7 +33,7 @@
 <script>
   import Input from '@/components/parts/Input.vue'
   import { ref } from 'vue';
-  import { localize } from '@/methods/Helpers';
+  import { localize, getActor } from '@/methods/Helpers';
   export default {
     name: 'NpcModifyLevel',
     props: ['actor'],
@@ -101,7 +101,8 @@
     },
     methods: {
       autoLevelConfirm(event) {
-        let actor = game.actors.get(this.actor._id);
+        let actor = getActor(this.actor);
+        if (!actor) return;
         let delta = this.newLevel - this.actor.data.attributes.level.value;
         if (delta !== 0) {
           actor.autoLevelActor(delta).then(newActor => {

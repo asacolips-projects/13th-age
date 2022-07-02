@@ -63,6 +63,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     context.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
     context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
 
+    // Add token info if needed.
+    if (this.actor?.token?.id) {
+      if (!this.actor.token.actorLink && this.actor?.token?.id) {
+        context.actor.token.id = this.actor.token.id;
+        context.actor.token.sceneId = this.actor.token?.parent?.id;
+      }
+    }
+
     // Sort items.
     context.actor.items = actorData.items;
     context.actor.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));

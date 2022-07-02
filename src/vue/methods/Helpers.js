@@ -64,3 +64,15 @@ export function wrapRolls(text, replacements = {}) {
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
+
+export function getActor(actorData) {
+  if (actorData.token.actorLink) {
+    return game.actors.get(actorData._id);
+  }
+  else if (actorData.token?.id && actorData.token?.sceneId) {
+    const scene = game.scenes.get(actorData.token.sceneId);
+    const token = scene ? scene.tokens.get(actorData.token.id) : false;
+    return token?.actor ?? false;
+  }
+  return false;
+}
