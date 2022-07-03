@@ -34,7 +34,6 @@
   import Input from '@/components/parts/Input.vue'
   import { ref } from 'vue';
   import { localize, getActor } from '@/methods/Helpers';
-import { Actor } from '@/foundry-shim/Actor';
   export default {
     name: 'NpcModifyLevel',
     props: ['actor'],
