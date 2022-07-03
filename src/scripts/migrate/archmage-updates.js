@@ -289,7 +289,7 @@ class ArchmageUpdateHandler {
       }
       else if (pack.documentName == 'Scene') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
-        await this.migrateCompendiumScenes(pack, token => token.actor.type == 'npc');
+        await this.migrateCompendiumScenes(pack, token => token.actor?.type == 'npc');
       }
     }
   }
