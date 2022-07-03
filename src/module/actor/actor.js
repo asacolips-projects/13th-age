@@ -1682,7 +1682,7 @@ export class ActorArchmage extends Actor {
       'data.attributes.ac.value': Number(this.data.data.attributes.ac.value || 0) + delta,
       'data.attributes.pd.value': Number(this.data.data.attributes.pd.value || 0) + delta,
       'data.attributes.md.value': Number(this.data.data.attributes.md.value || 0) + delta,
-      // Initiative already depends directly on level
+      'data.attributes.init.value': Number(this.data.data.attributes.init.value || 0) + delta,
       'data.attributes.hp.value': Math.round(this.data.data.attributes.hp.value * mul),
       'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
     };
