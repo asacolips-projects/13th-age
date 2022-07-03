@@ -556,10 +556,6 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 // TODO: When we expand to support Duration, this probably will be more complicated
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  if ( actor.type === "npc" ) {
-    console.log("NPCs don't currently support Active Effects");
-    return;
-  }
   if ( data.type === "condition" ) {
     const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
 
