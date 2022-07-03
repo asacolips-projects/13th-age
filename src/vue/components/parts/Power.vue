@@ -23,7 +23,7 @@
     <section class="power-feats flexcol">
       <div v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', tier))}}:</strong>
-        <div class="power-detail-content" v-html="feat.description.value"></div>
+        <div class="power-detail-content" v-html="wrapRolls(feat.description.value)"></div>
       </div>
     </section>
   </section>
