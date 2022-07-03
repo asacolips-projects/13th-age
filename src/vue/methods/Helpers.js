@@ -43,11 +43,13 @@ export function ordinalSuffix(number) {
 export function wrapRolls(text, replacements = []) {
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
-    ['[[', '<span class="expression">'],
-    [']]', '</span>'],
     // Put these at the top for higher replacement priority
+    ['[[/r', '<span class="expression">'],
     ['(@lvl)d(@wpn.m.dieNum-2)', '(WPN-2)'],
     ['(@lvl)d(@wpn.r.dieNum-2)', '(WPN-2)'],
+    // Common replacements
+    ['[[', '<span class="expression">'],
+    [']]', '</span>'],
     ['@ed', 'ED'],
     ['@lvl', 'LVL'],
     ['@std', 'LVL+ED'], //STD
