@@ -73,11 +73,11 @@ export default {
     }
   },
   setup() {
-    const attackReplacer = {
-      'd20': '',
-      '2kh': '2d20kh',
-      '2kl': '2d20kl',
-    };
+    const attackReplacer = [
+      ['d20', ''],
+      ['2kh', '2d20kh'],
+      ['2kl', '2d20kl'],
+    ];
     return {
       concat,
       localize,

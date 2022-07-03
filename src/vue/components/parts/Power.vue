@@ -16,7 +16,7 @@
         <span class="power-detail-value" v-html="power.data.description.value"></span>
       </div>
       <div class="power-detail" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{power.data[field].label}}:</strong> <span class="power-detail-value" v-html="power.data[field].value"></span>
+        <strong class="power-detail-label">{{power.data[field].label}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.data[field].value)"></span>
       </div>
     </section>
     <!-- Feats. -->
@@ -30,14 +30,15 @@
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
+import { concat, localize, wrapRolls } from '@/methods/Helpers';
 export default {
   name: 'Power',
   props: ['power'],
   setup() {
     return {
       concat,
-      localize
+      localize,
+      wrapRolls
     }
   },
   data() {
