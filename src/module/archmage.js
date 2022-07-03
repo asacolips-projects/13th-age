@@ -560,7 +560,12 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
 
     // If we have a Token, just toggle the effect
-    const token = canvas.scene.tokens.find(t => t.data.actorId === actor.id);
+    // First load the token from a token actor (is null for linked)
+    let token = actor.token;
+    // If not, look for linked tokens in the scene
+    if ( !token ) token = canvas.scene.tokens.find(
+        t => (t.data.actorId === actor.id && t.isLinked)
+      );
     if ( token ) return token._object.toggleEffect(statusEffect);
 
     // Otherwise, create the AE
