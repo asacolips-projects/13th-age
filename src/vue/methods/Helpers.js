@@ -45,6 +45,9 @@ export function wrapRolls(text, replacements = []) {
   let replaceMap = replacements.concat([
     ['[[', '<span class="expression">'],
     [']]', '</span>'],
+    // Put these at the top for higher replacement priority
+    ['(@lvl)d(@wpn.m.dieNum-2)', '(WPN-2)'],
+    ['(@lvl)d(@wpn.r.dieNum-2)', '(WPN-2)'],
     ['@ed', 'ED'],
     ['@lvl', 'LVL'],
     ['@std', 'LVL+ED'], //STD
