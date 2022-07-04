@@ -12,16 +12,16 @@
   <section class="section section--level-preview grid grid-3col">
     <ul class="preview-rows flexcol">
       <li>
-        <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.data.attributes.hp.value}} / {{preview.data.attributes.hp.max}}</span>
+        <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.data.attributes.hp.value}} / {{preview.data.attributes.hp.max}} ({{numberFormat(preview.data.attributes.hp.max - actor.data.attributes.hp.max, 0, true)}})</span>
       </li>
       <li>
-        <strong>{{localize('ARCHMAGE.ac.key')}}: </strong><span>{{preview.data.attributes.ac.value}}</span>
+        <strong>{{localize('ARCHMAGE.ac.key')}}: </strong><span>{{preview.data.attributes.ac.value}} ({{numberFormat(preview.data.attributes.ac.value - actor.data.attributes.ac.value, 0, true)}})</span>
       </li>
       <li>
-        <strong>{{localize('ARCHMAGE.pd.key')}}: </strong><span>{{preview.data.attributes.pd.value}}</span>
+        <strong>{{localize('ARCHMAGE.pd.key')}}: </strong><span>{{preview.data.attributes.pd.value}} ({{numberFormat(preview.data.attributes.pd.value - actor.data.attributes.pd.value, 0, true)}})</span>
       </li>
       <li>
-        <strong>{{localize('ARCHMAGE.md.key')}}: </strong><span>{{preview.data.attributes.md.value}}</span>
+        <strong>{{localize('ARCHMAGE.md.key')}}: </strong><span>{{preview.data.attributes.md.value}} ({{numberFormat(preview.data.attributes.md.value - actor.data.attributes.md.value, 0, true)}})</span>
       </li>
     </ul>
     <div class="help-text">
@@ -33,7 +33,7 @@
 <script>
   import Input from '@/components/parts/Input.vue'
   import { ref } from 'vue';
-  import { localize, getActor } from '@/methods/Helpers';
+  import { localize, getActor, numberFormat } from '@/methods/Helpers';
   export default {
     name: 'NpcModifyLevel',
     props: ['actor'],
@@ -44,7 +44,8 @@
       const newLevel = ref(props.actor.data.attributes.level.value);
       return {
         newLevel,
-        localize
+        localize,
+        numberFormat
       }
     },
     computed: {
