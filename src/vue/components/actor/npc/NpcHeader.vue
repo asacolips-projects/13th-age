@@ -248,7 +248,7 @@
     border: 0;
 
     &.avatar--square {
-      width: 105px;
+      width: auto;
       height: 105px;
     }
 
@@ -313,10 +313,6 @@
           height: 5px;
           background: $c-black;
           border-radius: 100%;
-
-          .nightmode & {
-            background: $c-white;
-          }
         }
       }
     }
@@ -361,17 +357,40 @@
   }
 
   .collapsed {
-    .unit--flavor,
-    .unit--img {
+    .unit--flavor {
       display: none;
     }
+    .section--header-top {
+      padding-right: 85px;
+    }
+    .unit--img {
+      width: 65px;
 
+      .avatar {
+        width: auto;
+        height: 65px;
+        margin-top: -25px;
+        margin-right: -35px;
+      }
+    }
     .unit--name h1 {
       font-size: 24px;
       font-weight: bold;
     }
     .toggle-header {
       transform: rotate(180deg);
+    }
+  }
+
+  & .nightmode {
+    .unit--roles {
+      .edit-wrapper {
+        li {
+          &::before {
+            background-color: $c-white;
+          }
+        }
+      }
     }
   }
 }

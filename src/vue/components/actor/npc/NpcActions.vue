@@ -32,11 +32,13 @@
             <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
               <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
             </a>
-            <a class="hanging-indent action-name" @click="toggleAction" :data-item-id="action._id">
-              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.data?.attack?.value" class="action-roll" v-html="wrapRolls(action.data.attack.value, attackReplacer)"></span><span v-if="action.data?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.data.hit.value)"></span>
-            </a>
+            <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
+              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.data?.attack?.value" class="action-roll" v-html="wrapRolls(action.data.attack.value, attackReplacer)"></span>
+              <span v-if="action.data?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.data.hit.value)"></span>
+              <span v-if="action.type !== 'action' && action.data?.description?.value" v-html="action.data.description.value"></span>
+            </span>
             <div class="item-controls">
-              <a class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
+              <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
               <a class="item-control item-edit" :data-item-id="action._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="action._id"><i class="fas fa-trash"></i></a>
             </div>
@@ -135,6 +137,18 @@ export default {
      */
     cleanClassName(string) {
       return string ? string.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+    },
+    canExpand(action) {
+      let result = false;
+      if (action.type == 'action') {
+        const fields = ['hit1', 'hit2', 'hit3', 'miss', 'description'];
+        for (let field of fields) {
+          if (action.data[field]?.value) {
+            result = true;
+          }
+        }
+      }
+      return result;
     },
     /**
      * Update the `actions` prop to be equal to a filtered version of the current
@@ -262,6 +276,16 @@ export default {
     list-style-type: none;
     padding: 0;
     margin: 0;
+  }
+
+  .action-name {
+    &.is-action {
+      &:hover,
+      &:focus {
+        color: $c-blue;
+        cursor: pointer;
+      }
+    }
   }
 
   .action-group {
