@@ -142,8 +142,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     })
     // Run Vue's render, assign it to our prop for tracking.
     .then(rendered => {
-      this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
-      this.activateVueListeners($(this.form), false);
+      // @todo Determine why this is necessary to avoid warnings during
+      // actor/token migrations.
+      let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
+      if ($selector.length > 0) {
+        this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
+        this.activateVueListeners($(this.form), false);
+      }
     });
 
     // Store our app for later.
