@@ -78,8 +78,8 @@ export function wrapRolls(text, replacements = []) {
     ['@atk.d.bonus', 'ITM'], //ITM_DIV
   ]);
   // Remove whitespace from inline rolls.
-  let clean = text;
-  text.replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+  let clean = text.toString();  // cast to string, could be e.g. number
+  text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
     clean = clean.replace(match, match.replaceAll(' ', ''));
   });
   // Replace special keys in inline rolls.
