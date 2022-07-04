@@ -1,7 +1,14 @@
 name: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
 version: 1.19.0
-author: Matt Smith, Cody Swendrowski & Federico Pederzolli
+authors:
+  - name: Matt Smith
+    discord: asacolips#1867
+  - name: Cody Swendrowski
+    discord: cswendrowski#9701
+  - name: Federico Pederzolli
+    discord: Legofed3#6471
+
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
 minimumCoreVersion: 9
 compatibleCoreVersion: 9
@@ -286,6 +293,12 @@ packs:
     type: Item
     name: srd-magic-items-wondrous-items
     path: packs/srd-magic-items-wondrous-items.db
+    system: archmage
+
+  - label: System Macros
+    type: Macro
+    name: system-macros
+    path: packs/system-macros.db
     system: archmage
 
 languages:

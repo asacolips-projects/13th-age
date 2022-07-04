@@ -1,9 +1,7 @@
-name: 'Gather Power (A)'
+name: 'Chaotic Benefit (A)'
 permission:
   default: 0
-flags:
-  core:
-    sourceId: 'RollTable.OtJHwbNDc0SiE3fI'
+flags: {}
 img: 'icons/svg/d20-grey.svg'
 description: ''
 results:
