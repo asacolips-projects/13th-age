@@ -16,28 +16,29 @@
         <span class="power-detail-value" v-html="power.data.description.value"></span>
       </div>
       <div class="power-detail" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{power.data[field].label}}:</strong> <span class="power-detail-value" v-html="power.data[field].value"></span>
+        <strong class="power-detail-label">{{power.data[field].label}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.data[field].value)"></span>
       </div>
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
       <div v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', tier))}}:</strong>
-        <div class="power-detail-content" v-html="feat.description.value"></div>
+        <div class="power-detail-content" v-html="wrapRolls(feat.description.value)"></div>
       </div>
     </section>
   </section>
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
+import { concat, localize, wrapRolls } from '@/methods/Helpers';
 export default {
   name: 'Power',
   props: ['power'],
   setup() {
     return {
       concat,
-      localize
+      localize,
+      wrapRolls
     }
   },
   data() {

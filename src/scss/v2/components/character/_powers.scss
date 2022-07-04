@@ -334,6 +334,15 @@
     > * {
       padding-left: $padding-md;
     }
+
+    > ul {
+      padding: 0 0 0 1.5em;
+      margin-left: 1em;
+    }
+
+    > .expression {
+      padding-left: 0;
+    }
   }
 
   .power-detail--description {
