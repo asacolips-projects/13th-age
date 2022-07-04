@@ -11,6 +11,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Properties that we'll use for the Vue app.
     this.vueApp = null;
     this.vueRoot = null;
+    this.vueComponents = {
+      'character-sheet': ArchmageCharacterSheet
+    };
   }
 
   /** @override */
@@ -56,8 +59,22 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Add to our data object that the sheet will use.
     context.actor = actorData;
     context.data = actorData.data;
+    context.actor.owner = context.owner;
     context.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
     context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
+
+    // Add token info if needed.
+    if (this.actor?.token?.id) {
+      if (!this.actor.token.actorLink && this.actor?.token?.id) {
+        context.actor.token.id = this.actor.token.id;
+        context.actor.token.sceneId = this.actor.token?.parent?.id;
+      }
+    }
+
+    // Add pack info if needed.
+    if (this.actor?.pack) {
+      context.actor.pack = this.actor.pack;
+    }
 
     // Sort items.
     context.actor.items = actorData.items;
@@ -66,6 +83,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Sort effects.
     context.actor.effects = actorData.effects;
     context.actor.effects.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
+    // Retrieve a list of locked fields due to AEs.
+    context.actor.lockedFields = [];
+    this.actor.effects.forEach(ae => {
+      const changes = ae.data.changes.map(c => c.key);
+      context.actor.lockedFields = context.actor.lockedFields.concat(changes);
+    });
 
     return context;
   }
@@ -80,7 +104,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Render the vue application after loading. We'll need to destroy this
     // later in the this.close() method for the sheet.
-    if (!this.vueApp) {
+    if (!this.vueApp || !this.vueRoot) {
+      this.vueRoot = null;
       this.vueApp = createApp({
         // Initialize data.
         data() {
@@ -89,9 +114,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
           }
         },
         // Define our character sheet component.
-        components: {
-          'character-sheet': ArchmageCharacterSheet
-        },
+        components: this.vueComponents,
         // Create a method to the update the data while retaining reactivity.
         methods: {
           updateContext(newContext) {
@@ -106,10 +129,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else {
       // Pass new values from this.getData() into the app.
       this.vueRoot.updateContext(context);
+      this._lockEffectsFields($(this.form));
       return;
     }
 
-    // Execute Foundry's render.
+    // If we don't have an active vueRoot, run Foundry's render and then mount
+    // the Vue application to the form.
     this._render(force, options).catch(err => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
       console.error(err);
@@ -117,8 +142,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     })
     // Run Vue's render, assign it to our prop for tracking.
     .then(rendered => {
-      this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
-      this.activateVueListeners($(this.form), false);
+      // @todo Determine why this is necessary to avoid warnings during
+      // actor/token migrations.
+      let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
+      if ($selector.length > 0) {
+        this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
+        this.activateVueListeners($(this.form), false);
+      }
     });
 
     // Store our app for later.
@@ -214,6 +244,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     this._dragHandler(html);
 
+    this._lockEffectsFields(html);
+
     // Place one-time executions after this line.
     if (repeat) return;
 
@@ -222,6 +254,23 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';
     html.on('focus', inputs, (event) => this._onFocus(event));
+  }
+
+  /*
+   * Prevent Effects Editing
+   */
+  _lockEffectsFields(html) {
+    // const context = this.getData();
+    // html.find('input[name]').each((i, el) => {
+    //   const name = el.name;
+    //   // @todo improve this
+    //   if (context.actor.lockedFields.includes(name)) {
+    //     el.readOnly = true;
+    //   }
+    //   else {
+    //     el.readonly = false;
+    //   }
+    // })
   }
 
   /* ------------------------------------------------------------------------ */

@@ -97,11 +97,6 @@ export class ActorArchmage extends Actor {
       this._prepareNPCData(data, model, flags);
     }
 
-    // Initiative
-    var improvedInit = 0;
-    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
-
     // Get the escalation die value.
     data.attributes.escalation = {
       value: (game.combats != undefined && game.combat != null) ? ArchmageUtility.getEscalation(game.combat) : 0,
@@ -476,6 +471,10 @@ export class ActorArchmage extends Actor {
       data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
     }
 
+    // Initiative
+    var improvedInit = 0;
+    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
+    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
   }
 
   /* -------------------------------------------- */
@@ -487,7 +486,8 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareNPCData(data, model, flags) {
-    // Nothing currently
+    // init.mod is used for rolls, while value is used on the sheet.
+    data.attributes.init.mod = data.attributes.init.value;
   }
 
   /** @inheritdoc */
@@ -1651,11 +1651,12 @@ export class ActorArchmage extends Actor {
    * Creates a copy of an NPC actor with the requested delta in levels
    * @param delta {Integer}    The number of levels to add or remove
    *
-   * @return {undefined}
+   * @return mixed
+   *   Actor object if actor was duplicated, false otherwise.
    */
 
   async autoLevelActor(delta) {
-    if (!this.data.type == 'npc' || delta == 0) return;
+    if (!this.data.type == 'npc' || delta == 0) return false;
     // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 
@@ -1670,24 +1671,48 @@ export class ActorArchmage extends Actor {
     let lvl = Number(this.data.data.attributes.level.value || 0) + delta;
     if (lvl < 0 || lvl > 15) {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.levelLimits"));
-      return;
+      return false;
     }
 
     // Set other overrides.
-    let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
+    // Explicit multipliers from 13TW
+    let multipliers = {
+      '1': 1.25,
+      '2': 1.6,
+      '3': 2.0,
+      '4': 2.5,
+      '5': 3.2,
+      '6': 4.0,
+      '-1': 1/1.25,
+      '-2': 1/1.6,
+      '-3': 1/2.0,
+      '-4': 1/2.5,
+      '-5': 1/3.2,
+      '-6': 1/4.0,
+    };
+    let mul = multipliers[delta.toString()];
+    if (!mul) mul = Math.pow(1.25, delta);
     let overrideData = {
       'name': this.data.name+suffix,
       'data.attributes.level.value': lvl,
       'data.attributes.ac.value': Number(this.data.data.attributes.ac.value || 0) + delta,
       'data.attributes.pd.value': Number(this.data.data.attributes.pd.value || 0) + delta,
       'data.attributes.md.value': Number(this.data.data.attributes.md.value || 0) + delta,
-      // Initiative already depends directly on level
+      'data.attributes.init.value': Number(this.data.data.attributes.init.value || 0) + delta,
       'data.attributes.hp.value': Math.round(this.data.data.attributes.hp.value * mul),
       'data.attributes.hp.max': Math.round(this.data.data.attributes.hp.max * mul),
     };
 
     // Create the new actor and save it.
-    let actor = await this.clone(overrideData, {save: true, keepId: false});
+    let actor = false;
+    // Standalone actors.
+    if (!this.parent && !this.pack) {
+      actor = await this.clone(overrideData, {save: true, keepId: false});
+    }
+    // Unlinked tokens.
+    else {
+      actor = await Actor.create(mergeObject(this.toObject(false), overrideData));
+    }
 
     // Fix attack and damage
     let atkFilter = /\+\s*(\d+)([\S\s]*)/;
@@ -1702,7 +1727,7 @@ export class ActorArchmage extends Actor {
         let parsed = atkFilter.exec(item.data.data.attack.value);
         if (!parsed) continue;
         let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
-        if (!parsed[2].match(/^\]\]/)) newAtk += "]]";
+        if (!parsed[2].includes("]]")) newAtk += "]]";
         itemOverrideData['data.attack.value'] = newAtk + parsed[2];
       }
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
@@ -1734,6 +1759,8 @@ export class ActorArchmage extends Actor {
 
     // Apply all item updates to the new actor.
     actor.updateEmbeddedDocuments('Item', itemUpdates);
+
+    return actor;
   }
 }
 

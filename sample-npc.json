@@ -1,0 +1,889 @@
+{
+  "name": "Sample NPC",
+  "_id": "eoBihoWTxkTSKOol",
+  "type": "npc",
+  "img": "https://fvtt-matt.s3.amazonaws.com/foundryvtt/custom-assets/tokens/monsters/dragon-ancient-void.png",
+  "data": {
+    "attributes": {
+      "attackMod": {
+        "type": "Number",
+        "value": 0
+      },
+      "critMod": {
+        "atk": {
+          "type": "Number",
+          "value": 0
+        },
+        "def": {
+          "type": "Number",
+          "value": 0
+        }
+      },
+      "ac": {
+        "type": "Number",
+        "label": "Armor Class",
+        "value": 12,
+        "base": 10,
+        "min": 0
+      },
+      "pd": {
+        "type": "Number",
+        "label": "Physical Defense",
+        "value": 10,
+        "base": 10,
+        "min": 0
+      },
+      "md": {
+        "type": "Number",
+        "label": "Mental Defense",
+        "value": 11,
+        "base": 10,
+        "min": 0
+      },
+      "hp": {
+        "type": "Number",
+        "label": "Hit Points",
+        "value": 170,
+        "min": 0,
+        "max": 170,
+        "temp": 0,
+        "tempmax": 0,
+        "base": 10,
+        "automatic": true
+      },
+      "init": {
+        "type": "Number",
+        "label": "Initiative Modifier",
+        "value": 2,
+        "mod": 7
+      },
+      "level": {
+        "type": "Number",
+        "label": "Level",
+        "value": 7,
+        "min": 0,
+        "max": 12
+      },
+      "disengage": 11,
+      "disengageBonus": 0,
+      "saves": {
+        "bonus": 0,
+        "disengageBonus": 0,
+        "deathFails": {
+          "value": 0,
+          "max": 4,
+          "steps": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "lastGaspFails": {
+          "value": 0,
+          "max": 4,
+          "steps": [
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "recoveries": {
+        "type": "Number",
+        "label": "Recoveries",
+        "value": 8,
+        "max": 8,
+        "dice": "d8"
+      },
+      "escalation": {
+        "value": 6
+      }
+    },
+    "details": {
+      "alignment": {
+        "type": "String",
+        "label": "Alignment"
+      },
+      "biography": {
+        "type": "String",
+        "label": "Biography",
+        "value": "<p>Ultricies orci dis sagittis rhoncus magnis tempus maximus habitant erat. Pretium eget etiam sollicitudin gravida urna fringilla dictum. Curae augue et hendrerit dapibus venenatis ante natoque. Vehicula morbi placerat dolor taciti arcu vestibulum diam tellus. Sagittis netus vehicula senectus vivamus tellus luctus placerat litora. Conubia et magnis donec litora nisi. Arcu euismod cras class sem odio justo.</p>\n<p>&nbsp;</p>\n<p>Commodo suscipit lacus pede pharetra enim vitae mauris ligula ultricies fermentum. Primis maximus mi neque eros porttitor donec diam leo. Arcu ipsum luctus quam curae tincidunt lacus dis letius felis tristique feugiat. Massa diam dolor egestas accumsan pede. Donec eros netus sodales mus sed. At id nisl eget euismod mollis.</p>\n<p>Ultricies orci dis sagittis rhoncus magnis tempus maximus habitant erat. Pretium eget etiam sollicitudin gravida urna fringilla dictum. Curae augue et hendrerit dapibus venenatis ante natoque. Vehicula morbi placerat dolor taciti arcu vestibulum diam tellus. Sagittis netus vehicula senectus vivamus tellus luctus placerat litora. Conubia et magnis donec litora nisi. Arcu euismod cras class sem odio justo.</p>\n<p>&nbsp;</p>\n<p>Commodo suscipit lacus pede pharetra enim vitae mauris ligula ultricies fermentum. Primis maximus mi neque eros porttitor donec diam leo. Arcu ipsum luctus quam curae tincidunt lacus dis letius felis tristique feugiat. Massa diam dolor egestas accumsan pede. Donec eros netus sodales mus sed. At id nisl eget euismod mollis.</p>\n<p>Ultricies orci dis sagittis rhoncus magnis tempus maximus habitant erat. Pretium eget etiam sollicitudin gravida urna fringilla dictum. Curae augue et hendrerit dapibus venenatis ante natoque. Vehicula morbi placerat dolor taciti arcu vestibulum diam tellus. Sagittis netus vehicula senectus vivamus tellus luctus placerat litora. Conubia et magnis donec litora nisi. Arcu euismod cras class sem odio justo.</p>\n<p>&nbsp;</p>\n<p>Commodo suscipit lacus pede pharetra enim vitae mauris ligula ultricies fermentum. Primis maximus mi neque eros porttitor donec diam leo. Arcu ipsum luctus quam curae tincidunt lacus dis letius felis tristique feugiat. Massa diam dolor egestas accumsan pede. Donec eros netus sodales mus sed. At id nisl eget euismod mollis.</p>"
+      },
+      "flavor": {
+        "value": "<p>Pretium <strong>integer potenti suspendisse</strong> purus senectus inceptos hendrerit ad aliquet. Ridiculus augue interdum nisl maecenas efficitur arcu integer consectetur.&nbsp;&nbsp;</p>"
+      },
+      "role": {
+        "value": "wrecker",
+        "type": "String",
+        "label": "Role"
+      },
+      "size": {
+        "value": "large",
+        "type": "String",
+        "label": "Size"
+      },
+      "type": {
+        "value": "beast",
+        "type": "String",
+        "label": "Type"
+      },
+      "resistance": {
+        "value": "Fire 16+",
+        "type": "String",
+        "label": "Resistance"
+      },
+      "vulnerability": {
+        "value": "Cold, Thunder",
+        "type": "String",
+        "label": "Vulnerability"
+      },
+      "class": {
+        "type": "String",
+        "label": "Class"
+      },
+      "race": {
+        "type": "String",
+        "label": "Race"
+      },
+      "level": {
+        "type": "Number",
+        "label": "Level",
+        "value": 5,
+        "min": 0,
+        "max": 12
+      }
+    },
+    "abilities": {
+      "str": {
+        "type": "Number",
+        "label": "Strength",
+        "value": 10,
+        "min": 3,
+        "mod": 0,
+        "lvl": 5
+      },
+      "dex": {
+        "type": "Number",
+        "label": "Dexterity",
+        "value": 10,
+        "min": 3,
+        "mod": 0,
+        "lvl": 5
+      },
+      "con": {
+        "type": "Number",
+        "label": "Constitution",
+        "value": 10,
+        "min": 3,
+        "mod": 0,
+        "lvl": 5
+      },
+      "int": {
+        "type": "Number",
+        "label": "Intelligence",
+        "value": 10,
+        "min": 3,
+        "mod": 0,
+        "lvl": 5
+      },
+      "wis": {
+        "type": "Number",
+        "label": "Wisdom",
+        "value": 10,
+        "min": 3,
+        "mod": 0,
+        "lvl": 5
+      },
+      "cha": {
+        "type": "Number",
+        "label": "Charisma",
+        "value": 10,
+        "min": 3,
+        "mod": 0,
+        "lvl": 5
+      }
+    },
+    "backgrounds": {
+      "bg1": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 1
+        }
+      },
+      "bg2": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 1
+        }
+      },
+      "bg3": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 1
+        }
+      },
+      "bg4": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      },
+      "bg5": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      },
+      "bg6": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      },
+      "bg7": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      },
+      "bg8": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      }
+    },
+    "icons": {
+      "i1": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "relationship": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 1
+        }
+      },
+      "i2": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "relationship": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 1
+        }
+      },
+      "i3": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "relationship": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 1
+        }
+      },
+      "i4": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "relationship": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      },
+      "i5": {
+        "name": {
+          "type": "String",
+          "value": ""
+        },
+        "relationship": {
+          "type": "String",
+          "value": ""
+        },
+        "bonus": {
+          "type": "Number",
+          "value": 0
+        },
+        "isActive": {
+          "type": "Boolean",
+          "value": 0
+        }
+      }
+    }
+  },
+  "token": {
+    "flags": {},
+    "name": "v2bulette",
+    "displayName": 50,
+    "img": "https://fvtt-matt.s3.amazonaws.com/foundryvtt/custom-assets/tokens/monsters/dragon-ancient-void.png",
+    "width": 2,
+    "height": 2,
+    "scale": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "vision": false,
+    "dimSight": 0,
+    "brightSight": 0,
+    "dimLight": 0,
+    "brightLight": 0,
+    "sightAngle": 0,
+    "lightAngle": 360,
+    "lightAlpha": 1,
+    "actorId": "h9ZbFARhOuA75oTS",
+    "actorLink": true,
+    "actorData": {},
+    "disposition": -1,
+    "displayBars": 30,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": ""
+    },
+    "randomImg": false,
+    "mirrorX": false,
+    "mirrorY": false,
+    "alpha": 1,
+    "light": {
+      "alpha": 0.5,
+      "angle": 0,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "gradual": true,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "color": null
+    },
+    "tint": null
+  },
+  "items": [
+    {
+      "_id": "kvQ4NnAXCHixpD3P",
+      "flags": {},
+      "name": "Gigantic claws",
+      "type": "action",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "",
+          "label": "Description",
+          "value": ""
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        },
+        "attack": {
+          "type": "",
+          "label": "Attack Roll",
+          "value": "[[d20 + 12]] vs. AC (2 attacks)"
+        },
+        "hit": {
+          "type": "",
+          "label": "Hit",
+          "value": "[[15]] damage"
+        },
+        "hit1": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit2": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit3": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit4": {
+          "type": "String",
+          "label": "Hit"
+        },
+        "hit5": {
+          "type": "String",
+          "label": "Hit"
+        },
+        "miss": {
+          "type": "String",
+          "label": "Miss",
+          "value": "[[3]] damage"
+        }
+      },
+      "sort": 0,
+      "effects": [],
+      "folder": null,
+      "permission": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "4mgCdZTJ4cZnfDEi",
+      "flags": {},
+      "name": "[Special trigger] Terrible bite",
+      "type": "action",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "",
+          "label": "Description",
+          "value": "<p>Facilisis porttitor fusce magnis nulla eros commodo primis mattis vel mi. Placerat erat maecenas facilisis tempor etiam posuere viverra sed. In litora inceptos nunc vestibulum conubia convallis vel.</p>"
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        },
+        "attack": {
+          "type": "",
+          "label": "Attack Roll",
+          "value": "[[d20 + 4 + @lvl + @ed]] vs. AC ([[2d3]] nearby enemies)"
+        },
+        "hit": {
+          "type": "",
+          "label": "Hit",
+          "value": "[[45]] damage, and the target is *stunned*"
+        },
+        "hit1": {
+          "type": "String",
+          "label": "Hit",
+          "name": "Natural even hit",
+          "value": "The target is *weakened*"
+        },
+        "hit2": {
+          "type": "String",
+          "label": "Hit",
+          "name": "Natural 18+",
+          "value": "[[10]] damage"
+        },
+        "hit3": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit4": {
+          "type": "String",
+          "label": "Hit"
+        },
+        "hit5": {
+          "type": "String",
+          "label": "Hit"
+        },
+        "miss": {
+          "type": "",
+          "label": "Hit",
+          "name": "Miss",
+          "value": "[[22]] damage."
+        }
+      },
+      "sort": 100000,
+      "effects": [],
+      "folder": null,
+      "permission": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "hSIpi0BjNJIFeq9L",
+      "flags": {},
+      "name": "Dual hit",
+      "type": "trait",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "",
+          "label": "Description",
+          "value": "If both claws hit during the same turn, the bulette can make a terrible bite attack during its next turn as a standard action."
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        }
+      },
+      "sort": 200000,
+      "effects": [],
+      "folder": null,
+      "permission": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "Pbuw9CCJeaFB7bo2",
+      "flags": {},
+      "name": "Blood frenzy",
+      "type": "trait",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "",
+          "label": "Description",
+          "value": "The bulette’s crit range expands to 16+ while the escalation die is 4+."
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        }
+      },
+      "sort": 300000,
+      "effects": [],
+      "folder": null,
+      "permission": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5CaT3idcy1nWQkGr",
+      "flags": {},
+      "name": "Serious burrower",
+      "type": "trait",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "",
+          "label": "Description",
+          "value": "A bulette can burrow incredibly quickly for short distances. They’re renowned for the mounds of dirt and rock they push above them as they surge through the ground like land torpedoes."
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        }
+      },
+      "sort": 400000,
+      "effects": [],
+      "folder": null,
+      "permission": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "SLNxi2MUsYF05mkS",
+      "flags": {},
+      "name": "Savage response",
+      "type": "nastierSpecial",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "",
+          "label": "Description",
+          "value": "When an attacker scores a critical hit against the bulette and it survives, the bulette can make a terrible bite attack as a free action against one target engaged with it."
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        }
+      },
+      "sort": 500000,
+      "effects": [],
+      "folder": null,
+      "permission": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "4awhxd9miRoeyzJC",
+      "name": "New Action",
+      "type": "action",
+      "img": "icons/svg/target.svg",
+      "data": {
+        "name": {
+          "type": "String",
+          "label": "Name"
+        },
+        "description": {
+          "type": "String",
+          "label": "Description"
+        },
+        "group": {
+          "type": "String",
+          "label": "Group",
+          "value": ""
+        },
+        "attack": {
+          "type": "String",
+          "label": "Attack Roll",
+          "value": "[[2d20kh+3]] vs AC"
+        },
+        "hit": {
+          "type": "String",
+          "label": "Hit",
+          "value": ""
+        },
+        "hit1": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit2": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit3": {
+          "type": "String",
+          "label": "Hit",
+          "name": "",
+          "value": ""
+        },
+        "hit4": {
+          "type": "String",
+          "label": "Hit"
+        },
+        "hit5": {
+          "type": "String",
+          "label": "Hit"
+        },
+        "miss": {
+          "type": "String",
+          "label": "Miss",
+          "value": ""
+        },
+        "v-7130f39a": {
+          "value": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "vUnUQUGKz9puxgcT": 3
+      },
+      "flags": {}
+    }
+  ],
+  "effects": [
+    {
+      "_id": "ypfqDlPvsphLIH9u",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": 0
+      },
+      "icon": "icons/svg/paralysis.svg",
+      "label": "Hampered",
+      "transfer": false,
+      "flags": {
+        "core": {
+          "statusId": "hampered"
+        }
+      }
+    },
+    {
+      "_id": "EbgcLOD473VyJvqj",
+      "changes": [
+        {
+          "key": "data.attributes.escalation.value",
+          "mode": 5,
+          "value": "0"
+        },
+        {
+          "key": "data.attributes.attackMod.value",
+          "mode": 2,
+          "value": "-4"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": 0
+      },
+      "icon": "icons/svg/terror.svg",
+      "label": "Fear",
+      "transfer": false,
+      "flags": {
+        "core": {
+          "statusId": "fear"
+        }
+      }
+    }
+  ],
+  "flags": {
+    "archmage": {
+      "sheetDisplay": {
+        "tabs": {
+          "primary": {
+            "value": "actions"
+          }
+        },
+        "powers": {
+          "groupBy": {
+            "value": "powerType"
+          },
+          "sortBy": {
+            "value": "custom"
+          }
+        },
+        "header": {
+          "collapsed": false
+        }
+      },
+      "initiativeAdv": false,
+      "improvedIniative": false,
+      "strongRecovery": false,
+      "toughness": false,
+      "averageRecoveries": false,
+      "portraitRound": false,
+      "portraitFrame": false,
+      "nightmode": false
+    },
+    "core": {
+      "sourceId": "Compendium.archmage.srd-Monsters.F0sQyvqvg3Sv5iy7",
+      "sheetClass": "archmage.ActorArchmageNpcSheetV2"
+    },
+    "exportSource": {
+      "world": "archmage-test",
+      "system": "archmage",
+      "coreVersion": "9.269",
+      "systemVersion": "1.18.0"
+    }
+  }
+}

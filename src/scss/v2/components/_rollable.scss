@@ -20,6 +20,12 @@
       display: none;
     }
   }
+
+  &.rollable--message {
+    &::before {
+      content: fa-content($fa-var-comment);
+    }
+  }
 }
 
 .rollable--init {

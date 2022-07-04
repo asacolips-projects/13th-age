@@ -19,7 +19,7 @@
         <CharAbilities :actor="actor"/>
         <CharBackgrounds :actor="actor"/>
         <CharIconRelationships :actor="actor"/>
-        <CharOut :actor="actor" :owner="owner"/>
+        <CharOut :actor="actor" :owner="context.owner"/>
         <CharIncrementals :actor="actor"/>
       </section>
       <!-- /Left sidebar -->
@@ -36,7 +36,7 @@
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
           <Tab group="primary" :tab="tabs.primary.details">
-            <CharDetails :actor="actor" :owner="owner" :tab="tabs.primary.details" :flags="flags"/>
+            <CharDetails :actor="actor" :owner="context.owner" :tab="tabs.primary.details" :flags="flags"/>
           </Tab>
           <!-- Powers tab -->
           <Tab group="primary" :tab="tabs.primary.powers">
