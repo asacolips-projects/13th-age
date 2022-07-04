@@ -40,27 +40,52 @@ export function ordinalSuffix(number) {
   return number + "th";
 }
 
-export function wrapRolls(text, replacements = {}) {
+export function wrapRolls(text, replacements = []) {
   // Build a map of string replacements.
-  const replaceMap = mergeObject({
-    '[[': '<span class="expression">',
-    ']]': '</span>',
-    '@ed': 'ED',
-    '@lvl': 'LVL',
-    '@std': 'STD',
-    '@atk.mod': 'ATK',
-    '@wpn.m.dice': 'WPN',
-    '@wpn.r.dice': 'WPN',
-  }, replacements);
+  let replaceMap = replacements.concat([
+    // Put these at the top for higher replacement priority
+    ['[[/r', '<span class="expression">'],
+    ['(@lvl)d(@wpn.m.dieNum-2)', '(WPN-2)'],
+    ['(@lvl)d(@wpn.r.dieNum-2)', '(WPN-2)'],
+    // Common replacements
+    ['[[', '<span class="expression">'],
+    [']]', '</span>'],
+    ['@ed', 'ED'],
+    ['@lvl', 'LVL'],
+    ['@std', 'LVL+ED'], //STD
+    ['@tier', 'TIER'],
+    ['@str.mod', 'STR'],
+    ['@str.dmg', 'STR×TIER'],
+    ['@con.mod', 'CON'],
+    ['@con.dmg', 'CON×TIER'],
+    ['@dex.mod', 'DEX'],
+    ['@dex.dmg', 'DEX×TIER'],
+    ['@int.mod', 'INT'],
+    ['@int.dmg', 'INT×TIER'],
+    ['@wis.mod', 'WIS'],
+    ['@wis.dmg', 'WIS×TIER'],
+    ['@cha.mod', 'CHA'],
+    ['@cha.dmg', 'CHA×TIER'],
+    ['@atk.mod', 'ATK'],
+    ['@wpn.m.dice', 'WPN'],
+    ['@wpn.r.dice', 'WPN'],
+    ['@wpn.j.dice', 'JAB'],
+    ['@wpn.p.dice', 'PUNCH'],
+    ['@wpn.k.dice', 'KICK'],
+    ['@atk.m.bonus', 'ITM'], //ITM_MLE
+    ['@atk.r.bonus', 'ITM'], //ITM_RNG
+    ['@atk.a.bonus', 'ITM'], //ITM_ARC
+    ['@atk.d.bonus', 'ITM'], //ITM_DIV
+  ]);
   // Remove whitespace from inline rolls.
-  let clean = text;
-  text.replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+  let clean = text.toString();  // cast to string, could be e.g. number
+  text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
     clean = clean.replace(match, match.replaceAll(' ', ''));
   });
   // Replace special keys in inline rolls.
-  for (let [needle, replacement] of Object.entries(replaceMap)) {
-    clean = clean.replaceAll(needle, replacement);
-  }
+  for (let [needle, replacement] of replaceMap) {
+    clean = clean.replaceAll(needle, replacement)
+  };
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
