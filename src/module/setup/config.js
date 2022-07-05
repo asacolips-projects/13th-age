@@ -1,4 +1,5 @@
 export const ARCHMAGE = {};
+export const FLAGS = {};
 
 ARCHMAGE.statusEffects = [
   // Dead.
@@ -794,4 +795,76 @@ ARCHMAGE.keyModifiers = {
     'wizard': ['int', 'cha'],
   },
   // 'wizard': ,
+};
+
+FLAGS.characterFlags = {
+  "initiativeAdv": {
+    name: "Quick to Fight",
+    hint: "Human racial feat to roll 2d20 for initiative and keep the higher roll.",
+    section: "Feats",
+    type: Boolean
+  },
+  "improvedIniative": {
+    name: "Improved Initiative",
+    hint: "General feat to increase initiative by +4.",
+    section: "Feats",
+    type: Boolean
+  },
+  "strongRecovery": {
+    name: "Strong Recovery",
+    hint: "General feat to reroll some of your recovery die, keeping highest.",
+    section: "Feats",
+    type: Boolean
+  },
+  "toughness": {
+    name: "Toughness",
+    hint: "General feat to increase your max HP based on your base HP",
+    section: "Feats",
+    type: Boolean
+  },
+  "averageRecoveries": {
+    name: "Average Recovery Rolls",
+    hint: "Average results for recovery rolls instead of rolling them.",
+    section: "Dice",
+    type: Boolean
+  },
+  "portraitRound": {
+    name: "Round Portrait",
+    hint: "Whether or not the character portrait is rounded on the V2 sheet.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "portraitFrame": {
+    name: "Portrait Frame",
+    hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "nightmode": {
+    name: "Night Mode",
+    hint: "Reverse the sheet color scheme into a darkened night mode.",
+    section: "Sheet",
+    type: Boolean
+  }
+};
+
+FLAGS.npcFlags = {
+  "portraitRound": {
+    name: "Round Portrait",
+    hint: "Whether or not the character portrait is rounded on the V2 sheet.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "portraitFrame": {
+    name: "Portrait Frame",
+    hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "nightmode": {
+    name: "Night Mode",
+    hint: "Reverse the sheet color scheme into a darkened night mode.",
+    section: "Sheet",
+    type: Boolean
+  }
 };

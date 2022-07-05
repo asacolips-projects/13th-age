@@ -1,52 +1,19 @@
+_id: 'nCYamGsCRPItZSI1'
 name: 'Despoiler Mage'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 9
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 9
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 9
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 9
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 9
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 9
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 5
+      value: 14
       mod: 14
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 9
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'caster'
       type: 'String'
       label: 'Role'
-      value: 'Caster'
     size:
+      value: 'normal'
       type: 'String'
       label: 'Size'
-      value: 'Normal'
     type:
+      value: 'demon'
       type: 'String'
       label: 'Type'
-      value: 'Demon'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 9
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Despoiler Mage'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'aMDIMhJXoqCBSGO2'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: '8Esb7fdwVOQmyoMr'
     flags: {}
@@ -323,14 +180,18 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. AC (2 attacks)'
+        value: '[[d20 + 13]] vs. AC ([[2]] attacks)'
       hit:
         type: ''
         label: 'Hit'
-        value: '20 damage'
+        value: '[[20]] damage'
       hit1:
         type: ''
         label: 'Hit'
@@ -352,6 +213,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'ZPXTLnjJZRFa8bdf'
     flags: {}
     name: 'R: Abyssal whispers'
@@ -365,10 +230,14 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. MD (one nearby or far away enemy)'
+        value: '[[d20 + 14]] vs. MD ([[1]] nearby or far away enemy)'
       hit:
         type: ''
         label: 'Hit'
@@ -392,6 +261,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '43RLn6GkEqtFzQqD'
     flags: {}
     name: 'R: Magic missile'
@@ -405,6 +278,10 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 1/round, as a quick action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -412,7 +289,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '10 automatic force damage'
+        value: '[[10]] automatic force damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -432,6 +309,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'RddNR9m9tzUX8qkw'
     flags: {}
     name: 'C: Sow discord'
@@ -445,10 +326,14 @@ items:
         type: ''
         label: 'Description'
         value: 'Limited use: 1/battle, as quick action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 14]] vs. MD (2 nearby enemies engaged with the same creature or with each other)'
+        value: '[[d20 + 14]] vs. MD ([[2]] nearby enemies engaged with the same creature or with each other)'
       hit:
         type: ''
         label: 'Hit'
@@ -472,6 +357,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'MD2IezG1YvGUmLnb'
     flags: {}
     name: 'Aura of betrayal'
@@ -485,5 +374,19 @@ items:
         type: ''
         label: 'Description'
         value: 'At the start of each of the despoiler mage’s turns, choose a random nearby enemy. Until the start of the despoiler mage’s next turn, that creature’s allies no longer consider it an ally, though its enemies’ powers can still target it as an enemy. The creature isn’t compelled to attack its former friends.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
-_id: 'nCYamGsCRPItZSI1'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

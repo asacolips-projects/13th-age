@@ -55,3 +55,13 @@
     flex: 0;
   }
 }
+
+.hanging-indent {
+  padding-left: $padding-md;
+  text-indent: -$padding-md;
+}
+
+.expression {
+  color: #671212;
+  font-weight: bold;
+}

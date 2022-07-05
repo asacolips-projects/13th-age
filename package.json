@@ -11,15 +11,19 @@
   "scripts": {
     "build": "gulp build",
     "build:prod": "gulp prod",
+    "build:noVite": "gulp noVite",
     "css": "gulp css",
     "watch": "gulp",
+    "watch:noVite": "gulp noViteWatch",
     "gulp": "gulp",
     "files": "gulp files",
     "yaml": "gulp yaml",
     "compilePacks": "gulp compilePacks",
     "extractPacks": "gulp extractPacks",
+    "vite:dev": "vite --config vite.config.preview.js",
     "vite:watch": "vite build --watch",
     "vite:build": "vite build",
+    "vite:build:preview": "vite build --config vite.config.preview.js",
     "vite:build:prod": "vite build --config vite.config.prod.js"
   },
   "browserslist": [

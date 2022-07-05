@@ -2,10 +2,13 @@
 ._*
 /node_modules
 /dist
+/public
+/systems
 /packs/dist/*
 /css/*
 /archmage/
 /archmage.zip
+.vscode/*
 dist/vue-components.min.js
 foundry.js
 jsconfig.json

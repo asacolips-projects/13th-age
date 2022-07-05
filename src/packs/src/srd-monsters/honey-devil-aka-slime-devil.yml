@@ -1,52 +1,19 @@
+_id: 'hEGryxs5FdeTMVsH'
 name: 'Honey Devil, aka Slime Devil'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 4
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 4
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 4
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 4
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 4
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 4
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 2
+      value: 6
       mod: 6
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 4
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'troop'
       type: 'String'
       label: 'Role'
-      value: 'Troop'
     size:
+      value: 'normal'
       type: 'String'
       label: 'Size'
-      value: 'Normal'
     type:
+      value: 'devil'
       type: 'String'
       label: 'Type'
-      value: 'Devil'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 4
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Honey Devil, aka Slime Devil'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: 'niiGIz9LLIcIGY3T'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'IcZUwnKIrzDv4Az6'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,7 +191,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '6 damage'
+        value: '[[6]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -350,6 +211,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Qxpze4uLwGrncHuH'
     flags: {}
     name: 'Confusing plea'
@@ -362,6 +227,10 @@ items:
       description:
         type: ''
         label: 'Description'
+        value: ''
+      group:
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
         type: ''
@@ -390,6 +259,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'siaQpmYn7koMMP04'
     flags: {}
     name: 'The target has MD 15 or lower'
@@ -403,7 +276,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The honey devil can make a disengage check this turn as a free action.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'TnQYAmuXQw0vfDud'
     flags: {}
     name: 'Desperate plea'
@@ -417,7 +298,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When the honey devil is staggered by an attack, it makes a confusing plea attack against the attacker as a free action after the attack.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '3NvN6p4QcWPGnOny'
     flags: {}
     name: 'Glamour of innocence'
@@ -431,7 +320,15 @@ items:
         type: ''
         label: 'Description'
         value: 'This creature seems innocent, not someone a hero should hurt. At worst, it’s ugly, but is that a crime? When an enemy rolls a natural odd attack roll against a honey devil, the attack misses and has no effect.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Pv1A02dAqcGNfiUQ'
     flags: {}
     name: 'Resist fire 13+'
@@ -445,7 +342,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When a fire attack targets this creature, the attacker must roll a natural 13+ on the attack roll or it only deals half damage.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'Hm7zsVfp13mqM9bV'
     flags: {}
     name: 'Weakling'
@@ -459,7 +364,15 @@ items:
         type: ''
         label: 'Description'
         value: 'When building battles using this monster, it only counts as half a normal monster.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '1A5WVqfReM6cUQVj'
     flags: {}
     name: 'Free-form covert ability—Slimy'
@@ -473,5 +386,19 @@ items:
         type: ''
         label: 'Description'
         value: 'In any non-combat struggles with a honey devil, it excels at being too slippery for the PCs, both personally and through its underground network of minions. In an indirect contest, the PCs might try to talk sense to one of the devil’s dupes or to discern suspicious activity while staking out the devil’s secret network. The honey devil is an expert at what it does, so use DC 25 for any such skill checks. Assume that the devil is competent at slipping its influence through the network unnoticed. Failure might mean that the PC has succeeded in gaining information, which in turn sends them down a dead end or into a trap. In a direct confrontation, the devil is likewise hard to pin down, see through, or otherwise get the better of.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 700000
-_id: 'hEGryxs5FdeTMVsH'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

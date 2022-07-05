@@ -1,7 +1,8 @@
-import { ARCHMAGE } from './setup/config.js';
+import { ARCHMAGE, FLAGS } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
 import { ActorArchmageSheet } from './actor/actor-sheet.js';
-import { ActorArchmageNPCSheet } from './actor/actor-npc-sheet.js';
+import { ActorArchmageNPCSheetLegacy } from './actor/actor-npc-sheet.js';
+import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
@@ -64,8 +65,8 @@ Hooks.once('init', async function() {
 
   game.archmage = {
     ActorArchmage,
-    ActorArchmageSheet,
-    ActorArchmageNPCSheet,
+    ActorArchmageSheetV2,
+    ActorArchmageNpcSheetV2,
     DiceArchmage,
     ItemArchmage,
     ItemArchmageSheet,
@@ -113,10 +114,16 @@ Hooks.once('init', async function() {
 
   Actors.unregisterSheet('core', ActorSheet);
 
-  Actors.registerSheet("archmage", ActorArchmageNPCSheet, {
-    label: "NPC Sheet",
+  Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
+    label: "V2 NPC Sheet",
     types: ["npc"],
     makeDefault: true
+  });
+
+  Actors.registerSheet("archmage", ActorArchmageNPCSheetLegacy, {
+    label: "Legacy NPC Sheet",
+    types: ["npc"],
+    makeDefault: false
   });
 
   // V2 actor sheet (See issue #118).
@@ -127,56 +134,8 @@ Hooks.once('init', async function() {
   });
 
   /* -------------------------------------------- */
-  CONFIG.Actor.characterFlags = {
-    "initiativeAdv": {
-      name: "Quick to Fight",
-      hint: "Human racial feat to roll 2d20 for initiative and keep the higher roll.",
-      section: "Feats",
-      type: Boolean
-    },
-    "improvedIniative": {
-      name: "Improved Initiative",
-      hint: "General feat to increase initiative by +4.",
-      section: "Feats",
-      type: Boolean
-    },
-    "strongRecovery": {
-      name: "Strong Recovery",
-      hint: "General feat to reroll some of your recovery die, keeping highest.",
-      section: "Feats",
-      type: Boolean
-    },
-    "toughness": {
-      name: "Toughness",
-      hint: "General feat to increase your max HP based on your base HP",
-      section: "Feats",
-      type: Boolean
-    },
-    "averageRecoveries": {
-      name: "Average Recovery Rolls",
-      hint: "Average results for recovery rolls instead of rolling them.",
-      section: "Dice",
-      type: Boolean
-    },
-    "portraitRound": {
-      name: "Round Portrait",
-      hint: "Whether or not the character portrait is rounded on the V2 sheet.",
-      section: "Sheet",
-      type: Boolean
-    },
-    "portraitFrame": {
-      name: "Portrait Frame",
-      hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
-      section: "Sheet",
-      type: Boolean
-    },
-    "nightmode": {
-      name: "Night Mode",
-      hint: "Reverse the sheet color scheme into a darkened night mode.",
-      section: "Sheet",
-      type: Boolean
-    }
-  };
+  CONFIG.Actor.characterFlags = FLAGS.characterFlags;
+  CONFIG.Actor.npcFlags = FLAGS.npcFlags;
 
   /**
    * Register Initiative formula setting
@@ -481,7 +440,6 @@ Hooks.once('ready', () => {
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
-    console.log(event);
     if ( !event.target.classList.contains("effect-link") ) return;
     let data = {
       type: event.target.dataset.type,
@@ -598,15 +556,16 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
 // TODO: When we expand to support Duration, this probably will be more complicated
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  if ( actor.type === "npc" ) {
-    console.log("NPCs don't currently support Active Effects");
-    return;
-  }
   if ( data.type === "condition" ) {
     const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
 
     // If we have a Token, just toggle the effect
-    const token = canvas.scene.tokens.find(t => t.data.actorId === actor.id);
+    // First load the token from a token actor (is null for linked)
+    let token = actor.token;
+    // If not, look for linked tokens in the scene
+    if ( !token ) token = canvas.scene.tokens.find(
+        t => (t.data.actorId === actor.id && t.isLinked)
+      );
     if ( token ) return token._object.toggleEffect(statusEffect);
 
     // Otherwise, create the AE
