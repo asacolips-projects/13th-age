@@ -37,7 +37,6 @@ export default {
     modColor(abil) {
       if (abil.mod && abil.nonKey.mod) {
         if (abil.mod < abil.nonKey.mod) {
-          console.log(abil.label);
           return '#E01616';
         }
       }

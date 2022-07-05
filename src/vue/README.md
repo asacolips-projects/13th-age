@@ -91,7 +91,7 @@ Vue files should be structured as follows:
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .my-component {
     strong {
       color: #6e6e6e;

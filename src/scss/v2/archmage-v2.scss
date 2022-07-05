@@ -46,6 +46,22 @@
   .message {
     @import 'components/message';
   }
+
+  .introjs-overlay {
+    opacity: 0.5 !important;
+  }
+
+  .introjs-tooltip {
+    max-width: 400px;
+    width: 400px;
+    font-size: 16px;
+    font-family: $font-stack-base;
+
+    .introjs-button {
+      font-size: 16px;
+      font-family: $font-stack-base;
+    }
+  }
 }
 
 @import 'theme/nightmode';

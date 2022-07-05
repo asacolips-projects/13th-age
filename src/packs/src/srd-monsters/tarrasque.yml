@@ -1,52 +1,19 @@
+_id: 'zLKJGIgmDtRCCVvo'
 name: 'Tarrasque'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 15
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 15
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 15
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 15
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 15
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 15
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -75,6 +42,38 @@ data:
       tempmax: 0
       base: 7
       automatic: true
+    init:
+      type: 'Number'
+      label: 'Initiative Modifier'
+      value: 20
+      mod: 20
+    level:
+      type: 'Number'
+      label: 'Level'
+      value: 15
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
     recoveries:
       type: 'Number'
       label: 'Recoveries'
@@ -83,17 +82,6 @@ data:
       dice: 'd8'
       base: 8
       automatic: true
-    init:
-      type: 'Number'
-      label: 'Initiative Modifier'
-      value: 5
-      mod: 20
-    level:
-      type: 'Number'
-      label: 'Level'
-      value: 15
-      min: 0
-      max: 10
     escalation:
       value: 0
   details:
@@ -103,15 +91,7 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
-    out:
-      label: 'One Unique Thing'
-      type: 'String'
+    flavor:
       value: ''
     role:
       value: 'wrecker'
@@ -126,169 +106,19 @@ data:
       type: 'String'
       label: 'Type'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 15
       min: 0
       max: 10
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Tarrasque'
@@ -305,7 +135,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: '7dD7gKzlCUPUv14a'
@@ -313,9 +143,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'xBYwbGZvZMBqdfYX'
     flags: {}
@@ -335,6 +188,10 @@ items:
         label: 'Group'
         value: ''
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'T0TqFN0XAhSlLKyZ'
     flags: {}
     name: 'All-enveloping toothy maw'
@@ -385,6 +242,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'PqXCHbOTgNqCXRtR'
     flags: {}
     name: 'Immense spike, horn, or tusk'
@@ -435,6 +296,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'BiMgv7heBd7fk8Oq'
     flags: {}
     name: 'Earth-shaking, taloned claw'
@@ -485,6 +350,10 @@ items:
         label: 'Miss'
         value: 'The target is *dazed* (save ends).'
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'qyKrPyraMaovy3HF'
     flags: {}
     name: 'Cataclysmic tail slam'
@@ -535,6 +404,10 @@ items:
         label: 'Miss'
         value: 'The target is *dazed* until the end of its next turn.'
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'u1lTY3GoWStcenUX'
     flags: {}
     name: 'Amphibious'
@@ -553,6 +426,10 @@ items:
         label: 'Group'
         value: ''
     sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'J5rb34UlQaBl89X3'
     flags: {}
     name: 'Enormously bulky'
@@ -571,6 +448,10 @@ items:
         label: 'Group'
         value: ''
     sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'BzjSBhx11SwQbpyg'
     flags: {}
     name: 'Inmortal'
@@ -589,6 +470,10 @@ items:
         label: 'Group'
         value: ''
     sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'F88rsynPSMSQatSf'
     flags: {}
     name: 'Inflexible'
@@ -607,6 +492,10 @@ items:
         label: 'Group'
         value: ''
     sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: '71NNnol3kVk2kcfd'
     flags: {}
     name: 'Drag'
@@ -657,6 +546,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 1000000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'mpMxqbmnmPEA6TpC'
     flags: {}
     name: 'Legendary Resistance'
@@ -675,6 +568,10 @@ items:
         label: 'Group'
         value: ''
     sort: 1100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'dOOJgcvto5X1r0jb'
     flags: {}
     name: 'Leveler'
@@ -693,6 +590,10 @@ items:
         label: 'Group'
         value: ''
     sort: 1200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'M6JkPU25gvWAHzsL'
     flags: {}
     name: 'Collapse'
@@ -743,6 +644,10 @@ items:
         label: 'Miss'
         value: ''
     sort: 1300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'dbb1NyXKV0ULWTJj'
     flags: {}
     name: 'Swallow Whole'
@@ -755,12 +660,16 @@ items:
       description:
         type: 'String'
         label: 'Description'
-        value: '<p>Once a creature is swallowed, it goes inside one of the tarrasque&rsquo;s gigantic stomachs. It can still act while inside the tarrasque, but it will have to deal with the beast&rsquo;s stomach acid that is splashing around. A swallowed creature must deal 400 damage to the tarrasque to force it to disgorge the contents of its gullet, freeing the creature. During the tarrasque&rsquo;s turn, it can make a&nbsp;gullet digestion&nbsp;attack against the target as a free action.</p>'
+        value: '<p>Once a creature is swallowed, it goes inside one of the tarrasque&rsquo;s gigantic stomachs. It can still act while inside the tarrasque, but it will have to deal with the beast&rsquo;s stomach acid that is splashing around. A swallowed creature must deal [[400]] damage to the tarrasque to force it to disgorge the contents of its gullet, freeing the creature. During the tarrasque&rsquo;s turn, it can make a&nbsp;gullet digestion&nbsp;attack against the target as a free action.</p>'
       group:
         type: 'String'
         label: 'Group'
         value: ''
     sort: 1400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'fXCuatACU3jrvstg'
     flags: {}
     name: 'Gullet Digestion'
@@ -811,6 +720,10 @@ items:
         label: 'Miss'
         value: '[[5d12]] acid damage'
     sort: 1500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'VPmlnQcKwZw2j08K'
     flags: {}
     name: 'Soft-ish innerbelly'
@@ -829,6 +742,10 @@ items:
         label: 'Group'
         value: ''
     sort: 1600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'mBcWFXpFTmW3o8q3'
     flags: {}
     name: 'Fear'
@@ -847,6 +764,10 @@ items:
         label: 'Group'
         value: ''
     sort: 1700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'EPWoJpvAuWOOdZBx'
     flags: {}
     name: 'Regeneration 230'
@@ -865,4 +786,13 @@ items:
         label: 'Group'
         value: ''
     sort: 1800000
-_id: 'zLKJGIgmDtRCCVvo'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}

@@ -1,52 +1,19 @@
+_id: 'pmT7vKf1VxHXoxA8'
 name: 'Glabrezou (pincer demon)'
-permission:
-  default: 0
 type: 'npc'
+img: 'icons/svg/mystery-man.svg'
 data:
-  abilities:
-    str:
-      type: 'Number'
-      label: 'Strength'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    dex:
-      type: 'Number'
-      label: 'Dexterity'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    con:
-      type: 'Number'
-      label: 'Constitution'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    int:
-      type: 'Number'
-      label: 'Intelligence'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    wis:
-      type: 'Number'
-      label: 'Wisdom'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
-    cha:
-      type: 'Number'
-      label: 'Charisma'
-      value: 10
-      min: 3
-      mod: 0
-      lvl: 8
   attributes:
+    attackMod:
+      type: 'Number'
+      value: 0
+    critMod:
+      atk:
+        type: 'Number'
+        value: 0
+      def:
+        type: 'Number'
+        value: 0
     ac:
       type: 'Number'
       label: 'Armor Class'
@@ -74,16 +41,11 @@ data:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: 'Number'
-      label: 'Recoveries'
-      value: 8
-      max: 8
-      dice: 'd8'
+      automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 8
+      value: 16
       mod: 16
     level:
       type: 'Number'
@@ -91,6 +53,33 @@ data:
       value: 8
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: 'Number'
+      label: 'Recoveries'
+      value: 8
+      max: 8
+      dice: 'd8'
     escalation:
       value: 6
   details:
@@ -100,189 +89,34 @@ data:
     biography:
       type: 'String'
       label: 'Biography'
-    class:
-      type: 'String'
-      label: 'Class'
-    race:
-      type: 'String'
-      label: 'Race'
+    flavor:
+      value: ''
     role:
+      value: 'caster'
       type: 'String'
       label: 'Role'
-      value: 'Caster'
     size:
+      value: 'large'
       type: 'String'
       label: 'Size'
-      value: 'Large'
     type:
+      value: 'demon'
       type: 'String'
       label: 'Type'
-      value: 'Demon'
     resistance:
+      value: ''
       type: 'String'
       label: 'Resistance'
-      value: ''
     vulnerability:
+      value: ''
       type: 'String'
       label: 'Vulnerability'
-      value: ''
     level:
       type: 'Number'
       label: 'Level'
       value: 8
       min: 0
       max: 12
-  backgrounds:
-    bg1:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg2:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg3:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    bg4:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg5:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg6:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg7:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    bg8:
-      name:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-  icons:
-    i1:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i2:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i3:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 1
-    i4:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-    i5:
-      name:
-        type: 'String'
-        value: ''
-      relationship:
-        type: 'String'
-        value: ''
-      bonus:
-        type: 'Number'
-        value: 0
-      isActive:
-        type: 'Boolean'
-        value: 0
-sort: 100001
-flags:
-  archmage: {}
-img: 'icons/svg/mystery-man.svg'
 token:
   flags: {}
   name: 'Glabrezou (pincer demon)'
@@ -298,7 +132,7 @@ token:
   brightSight: 0
   dimLight: 0
   brightLight: 0
-  sightAngle: 360
+  sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
   actorId: '0S4olAiI54Cxk6MS'
@@ -306,9 +140,32 @@ token:
   actorData: {}
   disposition: -1
   displayBars: 0
-  bar1: {}
-  bar2: {}
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
   randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
 items:
   - _id: 'MyO1RxGydpNWDFBB'
     flags: {}
@@ -323,6 +180,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -330,12 +191,12 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '45 damage'
+        value: '[[45]] damage'
       hit1:
         type: ''
         label: 'Hit'
         name: 'Natural even hit'
-        value: 'The demon can grab the target as long as it isn’t already grabbing a creature. The grabbed foe can’t move except to teleport, pop free, or attempt to disengage, and disengage attempts take a –5 penalty unless the creature hit the glabrezou with an attack that turn.'
+        value: 'The demon can grab the target as long as it isn’t already grabbing a creature. The grabbed foe can’t move except to teleport, pop free, or attempt to disengage, and disengage attempts take a -5 penalty unless the creature hit the glabrezou with an attack that turn.'
       hit2:
         type: 'String'
         label: 'Hit'
@@ -352,6 +213,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'KY6XjhQ1basJgMaq'
     flags: {}
     name: 'R: Painbolt'
@@ -365,14 +230,18 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
-        value: '[[d20 + 13]] vs. MD (one nearby or far away creature)'
+        value: '[[d20 + 13]] vs. MD ([[1]] nearby or far away creature)'
       hit:
         type: ''
         label: 'Hit'
-        value: '70 psychic damage'
+        value: '[[70]] psychic damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -392,6 +261,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'cDOIi0yE6GfilVgz'
     flags: {}
     name: 'C: Hellfire'
@@ -405,6 +278,10 @@ items:
         type: ''
         label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
       attack:
         type: ''
         label: 'Attack Roll'
@@ -412,7 +289,7 @@ items:
       hit:
         type: ''
         label: 'Hit'
-        value: '50 fire damage'
+        value: '[[50]] fire damage'
       hit1:
         type: 'String'
         label: 'Hit'
@@ -432,6 +309,10 @@ items:
         type: 'String'
         label: 'Miss'
     sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'n8mvnOeVUMjdnBMs'
     flags: {}
     name: 'Strong grasp'
@@ -445,7 +326,15 @@ items:
         type: ''
         label: 'Description'
         value: 'The glabrezou gains a +4 attack bonus against any enemy it is grabbing.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'CdVkFMsbVXdt282H'
     flags: {}
     name: 'Mirror images'
@@ -459,7 +348,15 @@ items:
         type: ''
         label: 'Description'
         value: 'success indicates a hit; failure is a miss that hits one of the mirror images instead, dealing no miss damage to the glabrezou but dispelling all the images.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'PLnrIdSeIeEd6R4r'
     flags: {}
     name: 'Once the glabrezou is staggered, it takes 2d10 damage whenever it uses mirror image, so movement or escape start registering as alternatives.'
@@ -473,7 +370,15 @@ items:
         type: ''
         label: 'Description'
         value: 'Once the glabrezou is staggered, it takes [[2d10]] damage whenever it uses mirror image, so movement or escape start registering as alternatives.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
   - _id: 'eFwsQvp3dWsaGV7a'
     flags: {}
     name: 'Power word stun'
@@ -487,5 +392,19 @@ items:
         type: ''
         label: 'Description'
         value: 'Once per day as a free action, the glabrezou can utter a word of power, canceling a single action just taken by a nearby creature with fewer hit points than the glabrezou—whether it was casting a spell, healing an ally, or whatever. The GM can see the results of the action, such as a die roll, before deciding whether to use the power word.'
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
     sort: 600000
-_id: 'pmT7vKf1VxHXoxA8'
+    effects: []
+    folder: null
+    permission:
+      default: 0
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}

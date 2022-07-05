@@ -1,4 +1,4 @@
-$assets: '/systems/archmage/assets';
+$assets: '../../assets';
 
 // Small.
 // $padding-sm: 4px;
@@ -9,3 +9,9 @@ $assets: '/systems/archmage/assets';
 $padding-sm: 6px;
 $padding-md: 12px;
 $padding-lg: 24px;
+
+$z-negative: -1;
+$z-normal: 1;
+$z-high: 10;
+$z-higher: 20;
+$z-overlay: 9999;

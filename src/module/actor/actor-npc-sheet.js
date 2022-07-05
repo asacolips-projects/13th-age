@@ -1,6 +1,6 @@
 import { ActorArchmageSheet } from './actor-sheet.js';
 
-export class ActorArchmageNPCSheet extends ActorArchmageSheet {
+export class ActorArchmageNPCSheetLegacy extends ActorArchmageSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     mergeObject(options, {

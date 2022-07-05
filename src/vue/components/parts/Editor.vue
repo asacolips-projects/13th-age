@@ -35,12 +35,34 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.archmage-v2.npc-sheet {
   .sheet {
     .editor-wrapper,
     .editor,
     .editor-content {
       height: 100%;
+
+      &:hover {
+        .editor-edit {
+          opacity: 1;
+        }
+      }
+    }
+
+    .editor-edit {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0;
+      z-index: $z-overlay;
+      margin-top: -8px;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
     }
   }
+}
 </style>
