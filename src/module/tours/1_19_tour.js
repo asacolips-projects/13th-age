@@ -22,7 +22,8 @@ export class OneDotNineteenTour {
       });
 
       tour.onbeforeexit(() => {
-        document.querySelector('.npc-sheet .archmage-vue .toggle-header').click();
+        let el = document.querySelector('.npc-sheet .archmage-vue .toggle-header');
+        if (el) el.click();
         if (this.actor?.sheet) this.actor.sheet.close();
       });
 

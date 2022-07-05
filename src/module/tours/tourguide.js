@@ -26,7 +26,10 @@ export class TourGuide {
             new OneDotSeventeenTour().start();
         }
         else if (isNewerVersion("1.19.0", lastTourVersion)) {
-            new OneDotNineteenTour().start();
+            // This release is NPC focused, so only show it to GMs.
+            if (game.user.isGM()) {
+                new OneDotNineteenTour().start();
+            }
         }
     }
 }
