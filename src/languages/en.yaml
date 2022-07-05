@@ -545,3 +545,27 @@ ARCHMAGE:
       crits: <strong>Crits no longer double damage automatically.</strong>. Instead, each target that was critted against will be <strong>bold</strong> in the chat card. We've also added offensive and defensive crit modifiers as new settings within character sheets, and we've added an Active Effect to the vulnerable condition.
       compendia: We have several corrections to existing compendia entries, and we've added <strong>magic items</strong> from the SRD!
       end: "There's also a variety of bug fixes and minor tweaks added to the system! You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.17.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+    '1190':
+      welcome: Welcom to Toolkit13 (13th Age Compatible) version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
+      end: "You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.19.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
+      npc:
+        welcome: We've updated the NPC sheet to a new design! The original NPC sheet is still available and can be switched to by setting the sheet to the "Legacy NPC Sheet".
+        init: NPC initiative no longer includes the NPC's level. Now, NPC initiative will use the exact value you enter, and we've included a migration to update all of your actors, tokens, and compendiums to account for it.
+        header: The header now includes flavor text and a cleaner presentation for its fields. Some fields in the header have to be clicked to edit them.
+        attributes: Attributes are now in a row directly below the header and above the NPC sheet tabs. These include defenses and hit points as before, but now there are two new columns for Saves and Disengage checks that work the same as they do on the PC character sheet.
+        compact: There's also a small arrow in the bottom right corner of the NPC sheet header (just below the NPC's avatar) that puts the sheet into a compact mode by reducing the size of the header and attributes and hiding some items less important for play such as flavor text. This is handled as a flag per actor, so it will persist between page reloads.
+        details: The NPC's biography! This field always existed, but we never had a place for it before. We're likely going to expand this section to include other long text fields like battle tactics, story hooks, and icons.
+        actions: |
+          <div>Actions, Traits, and Nastier Specials now work similar to how Powers work on character sheets.</div>
+          <ul>
+            <li>All three types support avatars (including chat)!</li>
+            <li>Actions are summarized and can be expanded on click.</li>
+            <li>Inline rolls display in a new summarized format, such as <strong style="color:#671212;">+8+LVL+ED</strong>.</li>
+          </ul>
+        effects: These work exactly like they do for character sheets! Conditions and custom effects will show up here and can be created, edited, or removed right from the sheet.
+        modifyLevel: |
+          <p>The modify level tab includes a slider that lets you adjust the level of the monster within the constraints allowed by the core rules (+/- 6, min 0, max 15). Clicking confirm will create a copy of the monster, and the new monster will appear in your world's actor directory. The system will make a best effort calculation to change the NPC's stats, attacks, and damage.</p>
+          <p>This feature is experimental, and we're looking forward to improving it with feedback on what works and what doesn't!</p>
+        settings: As with the character sheet, settings have been moved into their own tab. This currently only includes visual information such as the avatar settings and the ability to switch the NPC sheet to night mode, but we'll likely expand this in the future with additional settings!
+      compendiums: |
+        <strong>SRD Monster Compendiums</strong> have been updated to include inline rolls for <em>most</em> use cases. There have been a few outliers that slipped through the cracks, but virtually every monster in the SRD compendium was updated to have inline rolls added for their targeting lines and their damage. This only applies to monsters in the compendium.
