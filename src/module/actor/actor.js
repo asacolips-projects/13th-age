@@ -835,7 +835,7 @@ export class ActorArchmage extends Actor {
 
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
-      chatData.content = TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
+      chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData(), async: true });
       // Create the chat message
       let msg = await ChatMessage.create(chatData, {displaySheet: false});
       // Get the roll from the chat message

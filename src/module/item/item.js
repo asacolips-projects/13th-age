@@ -236,7 +236,7 @@ export class ItemArchmage extends Item {
 
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
+    chatData.content =await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
 
     let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
@@ -452,6 +452,7 @@ export class ItemArchmage extends Item {
   getChatData(htmlOptions, skipInlineRolls) {
     const data = this[`_${this.data.type}ChatData`]();
     if (!skipInlineRolls) {
+      htmlOptions = foundry.utils.mergeObject(htmlOptions, { async: false});
       data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
     }
     return data;

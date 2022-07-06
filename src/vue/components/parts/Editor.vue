@@ -27,7 +27,8 @@ export default {
         documents: this.documents ?? true,
         links: this.links ?? true,
         rolls: this.rolls ?? true,
-        rollData: this.rollData ?? {}
+        rollData: this.rollData ?? {},
+        async: false
       });
       return editor;
     }
