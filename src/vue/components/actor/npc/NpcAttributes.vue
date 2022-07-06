@@ -7,15 +7,15 @@
         <div class="defenses grid grid-3col">
           <div class="defense defense--ac flexcol">
             <!-- Custom <Input> component that can lock the field if an AE is applied. -->
-            <Input type="number" name="data.attributes.ac.value" class="defense-value" :actor="actor"/>
+            <Input type="number" name="system.attributes.ac.value" class="defense-value" :actor="actor"/>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.ac.label'), ' (', localize('ARCHMAGE.ac.stats'), ')')">{{localize('ARCHMAGE.ac.key')}}</h3>
           </div>
           <div class="defense defense--pd flexcol">
-            <Input type="number" name="data.attributes.pd.value" class="defense-value" :actor="actor"/>
+            <Input type="number" name="system.attributes.pd.value" class="defense-value" :actor="actor"/>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.pd.label'), ' (', localize('ARCHMAGE.pd.stats'), ')')">{{localize('ARCHMAGE.pd.key')}}</h3>
           </div>
           <div class="defense defense--md flexcol">
-            <Input type="number" name="data.attributes.md.value" class="defense-value" :actor="actor"/>
+            <Input type="number" name="system.attributes.md.value" class="defense-value" :actor="actor"/>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.md.label'), ' (', localize('ARCHMAGE.md.stats'), ')')">{{localize('ARCHMAGE.md.key')}}</h3>
           </div>
         </div>
@@ -23,15 +23,15 @@
       <!-- HP -->
       <div class="unit unit--has-max unit--hp">
         <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
-        <Progress name="hp" :current="actor.data.attributes.hp.value" :temp="actor.data.attributes.hp.temp" :max="actor.data.attributes.hp.max"/>
+        <Progress name="hp" :current="actor.system.attributes.hp.value" :temp="actor.system.attributes.hp.temp" :max="actor.system.attributes.hp.max"/>
         <div class="resource flexrow">
-          <Input type="number" name="data.attributes.hp.value" class="resource-current" :actor="actor" reactive="true"/>
+          <Input type="number" name="system.attributes.hp.value" class="resource-current" :actor="actor" reactive="true"/>
           <span class="resource-separator">/</span>
-          <Input type="number" name="data.attributes.hp.max" class="resource-max" :actor="actor"/>
+          <Input type="number" name="system.attributes.hp.max" class="resource-max" :actor="actor"/>
         </div>
         <div class="labeled-input flexrow">
           <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
-          <Input type="number" name="data.attributes.hp.temp" class="temp-hp" :actor="actor"/>
+          <Input type="number" name="system.attributes.hp.temp" class="temp-hp" :actor="actor"/>
         </div>
       </div>
       <!-- Saving Throws -->
@@ -50,7 +50,7 @@
           <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
           <div class="disengage-bonus flexrow">
             <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
-            <Input type="number" name="data.attributes.disengageBonus" class="disengage-bonus" :actor="actor"/>
+            <Input type="number" name="system.attributes.disengageBonus" class="disengage-bonus" :actor="actor"/>
           </div>
         </div>
       </section>

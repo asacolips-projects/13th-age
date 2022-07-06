@@ -2,7 +2,7 @@
   <section class="section section--out flexcol">
     <h2 class="unit-title">{{localize('ARCHMAGE.oneUniqueThing')}}</h2>
     <div class="out">
-      <Editor :owner="actor.owner" target='data.details.out.value' button="true" editable="true" :content="actor.data.details.out.value"/>
+      <Editor :owner="actor.owner" target='data.details.out.value' button="true" editable="true" :content="actor.system.details.out.value"/>
     </div>
   </section>
 </template>

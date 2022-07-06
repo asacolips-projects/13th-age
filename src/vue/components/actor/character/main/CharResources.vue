@@ -1,11 +1,11 @@
 <template>
   <section class="section section--resources flexrow flexshrink" :data-resource-count="resourceCount" :data-custom-count="customResourceCount">
     <!-- Command Points -->
-    <section v-if="actor.data.resources.perCombat.commandPoints.enabled" class="unit unit--command-points">
+    <section v-if="actor.system.resources.perCombat.commandPoints.enabled" class="unit unit--command-points">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints')}}</h2>
       <div class="resource flexrow">
         <div class="resource--left">
-          <input type="number" name="data.resources.perCombat.commandPoints.current" v-model="commandPoints">
+          <input type="number" name="system.resources.perCombat.commandPoints.current" v-model="commandPoints">
         </div>
         <div class="resource--right flexcol">
           <!-- TODO: Add support for epic feat to bump to d6. -->
@@ -15,27 +15,27 @@
       </div>
     </section>
     <!-- Ki -->
-    <section v-if="actor.data.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki">
+    <section v-if="actor.system.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.ki')}}</h2>
-      <Progress name="ki" :current="actor.data.resources.spendable.ki.current" :max="actor.data.resources.spendable.ki.max"/>
+      <Progress name="ki" :current="actor.system.resources.spendable.ki.current" :max="actor.system.resources.spendable.ki.max"/>
       <div class="resource flexrow">
-        <input type="number" name="data.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
+        <input type="number" name="system.resources.spendable.ki.current" class="resource-current" v-model="ki.current">
         <span class="resource-separator">/</span>
-        <input type="number" name="data.resources.spendable.ki.max" class="resource-max" v-model="ki.max">
+        <input type="number" name="system.resources.spendable.ki.max" class="resource-max" v-model="ki.max">
       </div>
     </section>
     <!-- Focus -->
-    <section v-if="actor.data.resources.perCombat.focus.enabled" class="unit unit--focus">
+    <section v-if="actor.system.resources.perCombat.focus.enabled" class="unit unit--focus">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.focus')}}</h2>
       <div class="resource flexrow">
-        <input type="checkbox" name="data.resources.perCombat.focus.current" v-model="focus">
+        <input type="checkbox" name="system.resources.perCombat.focus.current" v-model="focus">
       </div>
     </section>
     <!-- Momentum -->
-    <section v-if="actor.data.resources.perCombat.momentum.enabled" class="unit unit--momentum">
+    <section v-if="actor.system.resources.perCombat.momentum.enabled" class="unit unit--momentum">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.momentum')}}</h2>
       <div class="resource flexrow">
-        <input type="checkbox" name="data.resources.perCombat.momentum.current" v-model="momentum">
+        <input type="checkbox" name="system.resources.perCombat.momentum.current" v-model="momentum">
       </div>
     </section>
     <!-- Disengage -->
@@ -45,7 +45,7 @@
         <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
         <div class="disengage-bonus flexrow">
           <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
-          <input type="number" name="data.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
+          <input type="number" name="system.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
         </div>
       </div>
     </section>
@@ -104,17 +104,17 @@ export default {
   computed: {
     customResources() {
       let resources = {};
-      for (let [k,v] of Object.entries(this.actor.data.resources.spendable)) {
+      for (let [k,v] of Object.entries(this.actor.system.resources.spendable)) {
         if (k.includes('custom') && v.enabled) resources[k] = v;
       }
       return resources;
     },
     resourceCount() {
       let count = 0;
-      if (this.actor.data.resources.perCombat.commandPoints.enabled) count++;
-      if (this.actor.data.resources.spendable.ki.enabled) count++;
-      if (this.actor.data.resources.perCombat.focus.enabled) count++;
-      if (this.actor.data.resources.perCombat.momentum.enabled) count++;
+      if (this.actor.system.resources.perCombat.commandPoints.enabled) count++;
+      if (this.actor.system.resources.spendable.ki.enabled) count++;
+      if (this.actor.system.resources.perCombat.focus.enabled) count++;
+      if (this.actor.system.resources.perCombat.momentum.enabled) count++;
       return count;
     },
     customResourceCount() {
@@ -124,24 +124,24 @@ export default {
   },
   methods: {
     updateResourceProps() {
-      this.commandPoints = this.actor.data.resources.perCombat.commandPoints.current;
-      this.momentum = this.actor.data.resources.perCombat.momentum.current;
-      this.focus = this.actor.data.resources.perCombat.focus.current;
-      this.ki = this.actor.data.resources.spendable.ki;
+      this.commandPoints = this.actor.system.resources.perCombat.commandPoints.current;
+      this.momentum = this.actor.system.resources.perCombat.momentum.current;
+      this.focus = this.actor.system.resources.perCombat.focus.current;
+      this.ki = this.actor.system.resources.spendable.ki;
       this.disengage = {
-        value: this.actor.data.attributes.disengage,
-        bonus: this.actor.data.attributes.disengageBonus
+        value: this.actor.system.attributes.disengage,
+        bonus: this.actor.system.attributes.disengageBonus
       };
     }
   },
   watch: {
-    'actor.data.resources': {
+    'actor.system.resources': {
       deep: true,
       handler() {
         this.updateResourceProps();
       }
     },
-    'actor.data.attributes': {
+    'actor.system.attributes': {
       deep: true,
       handler() {
         this.updateResourceProps();

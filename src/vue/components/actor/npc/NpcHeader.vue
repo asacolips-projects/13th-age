@@ -16,11 +16,11 @@
         <!-- Flavor text -->
         <div class="unit unit--hide-label unit--flavor">
           <label for="data.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
-          <Editor :owner="actor.owner" target='data.details.flavor.value' button="true" editable="true" :content="actor.data.details.flavor.value"/>
+          <Editor :owner="actor.owner" target='data.details.flavor.value' button="true" editable="true" :content="actor.system.details.flavor.value"/>
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">
-          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.data.attributes.init.value, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
+          <a class="rollable rollable--init" data-roll-type="init">{{numberFormat(actor.system.attributes.init.value, 0, true)}} {{localize('ARCHMAGE.initiative')}}</a>
           <ToggleInput :closeInputs="closeInputs">
             <!-- Display version of creature details. -->
             <template v-slot:display>
@@ -35,28 +35,28 @@
             <template v-slot:edit>
               <span class="unit unit--input">
                 <label for="data.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
-                <Input type="number" name="data.attributes.level.value" :actor="actor" reactive="false"/>
+                <Input type="number" name="system.attributes.level.value" :actor="actor" reactive="false"/>
               </span>
               <!-- @todo write a migration to let this become a flat value -->
               <span class="unit unit--input">
                 <label for="data.attributes.init.value">{{localize('ARCHMAGE.initiative')}}</label>
-                <Input type="number" name="data.attributes.init.value" :actor="actor" reactive="false"/>
+                <Input type="number" name="system.attributes.init.value" :actor="actor" reactive="false"/>
               </span>
-              <Select name="data.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
-              <Select name="data.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
-              <Select name="data.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
+              <Select name="system.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
+              <Select name="system.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
+              <Select name="system.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
             </template>
           </ToggleInput>
         </div>
         <!-- Resistance -->
         <div class="unit unit--resistance flexrow">
           <label for="data.details.resistance.value">{{localize('ARCHMAGE.resistance')}}: </label>
-          <input type="text" name="data.details.resistance.value" v-model="actor.data.details.resistance.value"/>
+          <input type="text" name="system.details.resistance.value" v-model="actor.system.details.resistance.value"/>
         </div>
         <!-- Vulnerability -->
         <div class="unit unit--vulnerability flexrow">
           <label for="data.details.vulnerability.value">{{localize('ARCHMAGE.vulnerability')}}: </label>
-          <input type="text" name="data.details.vulnerability.value" v-model="actor.data.details.vulnerability.value"/>
+          <input type="text" name="system.details.vulnerability.value" v-model="actor.system.details.vulnerability.value"/>
         </div>
       </section>
       <section class="section section--avatar">
@@ -99,16 +99,16 @@
     },
     computed: {
       levelFormatted() {
-        return `${ordinalSuffix(this.actor.data.attributes.level.value ?? 0)} level`;
+        return `${ordinalSuffix(this.actor.system.attributes.level.value ?? 0)} level`;
       },
       sizeFormatted() {
-        return CONFIG.ARCHMAGE.creatureSizes[this.actor.data.details?.size?.value] ?? this.actor.data.details?.size?.value;
+        return CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value] ?? this.actor.system.details?.size?.value;
       },
       roleFormatted() {
-        return CONFIG.ARCHMAGE.creatureRoles[this.actor.data.details?.role?.value] ?? this.actor.data.details?.role?.value;
+        return CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.role?.value] ?? this.actor.system.details?.role?.value;
       },
       typeFormatted() {
-        let type = CONFIG.ARCHMAGE.creatureTypes[this.actor.data.details?.type?.value] ?? this.actor.data.details?.type?.value;
+        let type = CONFIG.ARCHMAGE.creatureTypes[this.actor.system.details?.type?.value] ?? this.actor.system.details?.type?.value;
         return typeof type == 'string' ? type.toUpperCase() : '';
       },
     },

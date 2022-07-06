@@ -1181,7 +1181,7 @@ export class ActorArchmage extends Actor {
   async _updateHpCondition(data, id, thres, maxHp, label) {
     let filtered = this.effects.filter(x => x.data.label === label);
     filtered = filtered.map(e => e.id);
-    if (filtered.length == 0 && data.data.attributes.hp.value/maxHp <= thres) {
+    if (filtered.length == 0 && data.system.attributes.hp.value/maxHp <= thres) {
         let effectData = CONFIG.statusEffects.find(x => x.id == id);
         let createData = foundry.utils.deepClone(effectData);
         createData.label = game.i18n.localize(effectData.label);
@@ -1190,7 +1190,7 @@ export class ActorArchmage extends Actor {
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});
-    } else if (filtered.length > 0 && data.data.attributes.hp.value/maxHp > thres) {
+    } else if (filtered.length > 0 && data.system.attributes.hp.value/maxHp > thres) {
       // Clear effect from update data if it exists or it will be recreated
       if (data.effects != undefined) {
         for ( let effId of filtered ) {
@@ -1234,44 +1234,44 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
-    if (!options.diff || data.data === undefined) return; // Nothing to do
+    if (!options.diff || data.system === undefined) return; // Nothing to do
 
     // Deltas, needed for scrolling text later
     let deltaActual = 0;
     let deltaTemp = 0;
     let deltaRec = 0;
-    let maxHp = data.data.attributes?.hp?.max || this.system.attributes.hp.max;
+    let maxHp = data.system.attributes?.hp?.max || this.system.attributes.hp.max;
 
-    if (data.data.attributes?.hp?.temp !== undefined) {
+    if (data.system.attributes?.hp?.temp !== undefined) {
       // Store for later display
       deltaTemp = data.data.attributes.hp.temp - this.system.attributes.hp.temp;
     }
 
-    if (data.data.attributes?.hp?.max !== undefined) {
+    if (data.system.attributes?.hp?.max !== undefined) {
       // Here we received an update of the max hp
       // Check that the current value does not exceed it
       let deltaMax = maxHp - this.system.attributes.hp.max;
-      let hp = data.data.attributes.hp.value || this.system.attributes.hp.value;
-      data.data.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
+      let hp = data.system.attributes.hp.value || this.system.attributes.hp.value;
+      data.system.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
     }
 
-    if (data.data.attributes?.hp?.value !== undefined
-      && data.data.attributes?.hp?.temp == undefined) {
+    if (data.system.attributes?.hp?.value !== undefined
+      && data.system.attributes?.hp?.temp == undefined) {
       // Here we received an update of the total hp but not the temp, check them
       let hp = duplicate(this.system.attributes.hp);
-      if (data.data.attributes.hp.value === null
-        || isNaN(data.data.attributes.hp.value)) {
+      if (data.system.attributes.hp.value === null
+        || isNaN(data.system.attributes.hp.value)) {
         //If the update is nonsensical ignore it
-        data.data.attributes.hp.value = hp.value;
+        data.system.attributes.hp.value = hp.value;
       }
 
-      deltaActual = data.data.attributes.hp.value - hp.value;
+      deltaActual = data.system.attributes.hp.value - hp.value;
       if (deltaActual < 0) {
         // Damage, check for temp hps first
         let temp = hp.temp || 0;
         if (isNaN(temp)) temp = 0; // Fallback for erroneous data
         deltaTemp = -1 * Math.min(temp, Math.abs(deltaActual));
-        data.data.attributes.hp.temp = Math.max(0, temp + deltaActual);
+        data.system.attributes.hp.temp = Math.max(0, temp + deltaActual);
         deltaActual = Math.min(deltaActual + temp, 0);
       }
 
@@ -1279,7 +1279,7 @@ export class ActorArchmage extends Actor {
 
       // Do not exceed max hps
       deltaActual = Math.min(deltaActual, maxHp - hp.value);
-      data.data.attributes.hp.value = hp.value + deltaActual;
+      data.system.attributes.hp.value = hp.value + deltaActual;
 
       // Handle hp-related conditions
       if (game.settings.get('archmage', 'automateHPConditions') && !game.modules.get("combat-utility-belt")?.active) {
@@ -1300,15 +1300,15 @@ export class ActorArchmage extends Actor {
       // if (data.data.attributes.level.value > 10) data.data.attributes.level.value = 10;
     // }
 
-    if (data.data.attributes?.recoveries?.value) {
+    if (data.system.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
       // Make sure we are not exceeding the maximum
       if (this.system.attributes.recoveries.max) {
-        data.data.attributes.recoveries.value = Math.min(data.data.attributes.recoveries.value, this.system.attributes.recoveries.max);
+        data.system.attributes.recoveries.value = Math.min(data.system.attributes.recoveries.value, this.system.attributes.recoveries.max);
       }
 
       // Record updated recoveries
-      deltaRec = data.data.attributes.recoveries.value-this.system.attributes.recoveries.value;
+      deltaRec = data.system.attributes.recoveries.value-this.system.attributes.recoveries.value;
 
       // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
@@ -1336,9 +1336,9 @@ export class ActorArchmage extends Actor {
     // Done there since it fires on all clients, letting everyone see the text
     options.fromPreUpdate = {temp: deltaTemp, hp: deltaActual, rec: deltaRec};
 
-    if (data.data.attributes?.weapon?.melee?.shield !== undefined
-      || data.data.attributes?.weapon?.melee?.dualwield !== undefined
-      || data.data.attributes?.weapon?.melee?.twohanded !== undefined) {
+    if (data.system.attributes?.weapon?.melee?.shield !== undefined
+      || data.system.attributes?.weapon?.melee?.dualwield !== undefined
+      || data.system.attributes?.weapon?.melee?.twohanded !== undefined) {
       // Here we received an update of the melee weapon checkboxes
 
       // Fallback for sheet closure bug
@@ -1349,7 +1349,7 @@ export class ActorArchmage extends Actor {
       let mWpn = parseInt(this.system.attributes.weapon.melee.dice.substring(1));
       if (isNaN(mWpn)) mWpn = 8; // Fallback
       let lvl = this.system.attributes.level.value;
-      data.data.attributes.attackMod = {value: this.system.attributes.attackMod.value};
+      data.system.attributes.attackMod = {value: this.system.attributes.attackMod.value};
       let wpn = {shieldPen: 0, twohandedPen: 0};
       if (this.system.attributes.weapon.melee.twohanded) {
         wpn.mWpn2h = mWpn;
@@ -1398,76 +1398,76 @@ export class ActorArchmage extends Actor {
         }
       }
 
-      if (data.data.attributes.weapon.melee.shield !== undefined) {
+      if (data.system.attributes.weapon.melee.shield !== undefined) {
         // Here we received an update of the shield checkbox
-        if (data.data.attributes.weapon.melee.shield) {
+        if (data.system.attributes.weapon.melee.shield) {
           // Adding a shield
-          data.data.attributes.ac = {base: this.system.attributes.ac.base + 1};
-          data.data.attributes.attackMod.value += wpn.shieldPen;
+          data.system.attributes.ac = {base: this.system.attributes.ac.base + 1};
+          data.system.attributes.attackMod.value += wpn.shieldPen;
           if (this.system.attributes.weapon.melee.twohanded) {
             // Can't wield both a two-handed weapon and a shield
             mWpn = wpn.mWpn1h;
-            data.data.attributes.weapon.melee.twohanded = false;
-            data.data.attributes.attackMod.value -= wpn.twohandedPen;
+            data.system.attributes.weapon.melee.twohanded = false;
+            data.system.attributes.attackMod.value -= wpn.twohandedPen;
           }
           else if (this.system.attributes.weapon.melee.dualwield) {
             // Can't dual-wield with a shield
-            data.data.attributes.weapon.melee.dualwield = false;
+            data.system.attributes.weapon.melee.dualwield = false;
           }
         } else {
-          data.data.attributes.ac = {base: this.system.attributes.ac.base - 1};
-          data.data.attributes.attackMod.value -= wpn.shieldPen;
+          data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
+          data.system.attributes.attackMod.value -= wpn.shieldPen;
         }
       }
 
-      else if (data.data.attributes.weapon.melee.dualwield !== undefined) {
+      else if (data.system.attributes.weapon.melee.dualwield !== undefined) {
         // Here we received an update of the dual wield checkbox
-        if (data.data.attributes.weapon.melee.dualwield) {
+        if (data.system.attributes.weapon.melee.dualwield) {
           if (this.system.attributes.weapon.melee.twohanded) {
             // Can't wield two two-handed weapons
             mWpn = wpn.mWpn1h;
-            data.data.attributes.weapon.melee.twohanded = false;
-            data.data.attributes.attackMod.value -= wpn.twohandedPen;
+            data.system.attributes.weapon.melee.twohanded = false;
+            data.system.attributes.attackMod.value -= wpn.twohandedPen;
           }
           else if (this.system.attributes.weapon.melee.shield) {
             // Can't dual-wield with a shield
-            data.data.attributes.ac = {base: this.system.attributes.ac.base - 1};
-            data.data.attributes.weapon.melee.shield = false;
-            data.data.attributes.attackMod.value -= wpn.shieldPen;
+            data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
+            data.system.attributes.weapon.melee.shield = false;
+            data.system.attributes.attackMod.value -= wpn.shieldPen;
           }
         }
       }
 
-      else if (data.data.attributes.weapon.melee.twohanded !== undefined) {
+      else if (data.system.attributes.weapon.melee.twohanded !== undefined) {
         // Here we received an update of the two-handed checkbox
-        if (data.data.attributes.weapon.melee.twohanded) {
+        if (data.system.attributes.weapon.melee.twohanded) {
           mWpn = wpn.mWpn2h;
-          data.data.attributes.attackMod.value += wpn.twohandedPen;
+          data.system.attributes.attackMod.value += wpn.twohandedPen;
           if (this.system.attributes.weapon.melee.shield) {
             // Can't wield both a two-handed weapon and a shield
-            data.data.attributes.ac = {base: this.system.attributes.ac.base - 1};
-            data.data.attributes.weapon.melee.shield = false;
-            data.data.attributes.attackMod.value -= wpn.shieldPen;
+            data.system.attributes.ac = {base: this.system.attributes.ac.base - 1};
+            data.system.attributes.weapon.melee.shield = false;
+            data.system.attributes.attackMod.value -= wpn.shieldPen;
           }
           else if (this.system.attributes.weapon.melee.dualwield) {
             // Can't wield two two-handed weapons
-            data.data.attributes.weapon.melee.dualwield = false;
+            data.system.attributes.weapon.melee.dualwield = false;
           }
         } else {
           mWpn = wpn.mWpn1h;
-          data.data.attributes.attackMod.value -= wpn.twohandedPen;
+          data.system.attributes.attackMod.value -= wpn.twohandedPen;
         }
       }
 
-      data.data.attributes.weapon.melee.dice = `d${mWpn}`;
-      data.data.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
+      data.system.attributes.weapon.melee.dice = `d${mWpn}`;
+      data.system.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
     }
 
-    else if (data.data.details !== undefined
-      && data.data.details.class !== undefined) {
+    else if (data.system.details !== undefined
+      && data.system.details.class !== undefined) {
       // Here we received an update of the class name for a character
 
-      let matchedClasses = ArchmageUtility.detectClasses(data.data.details.class.value);
+      let matchedClasses = ArchmageUtility.detectClasses(data.system.details.class.value);
       if (matchedClasses !== null
         && game.settings.get('archmage', 'automateBaseStatsFromClass')) {
         // Remove duplicates and Sort to avoid problems with future matches
@@ -1559,7 +1559,7 @@ export class ActorArchmage extends Actor {
         }
 
         // Assign computed values
-        data.data.attributes = {
+        data.system.attributes = {
           hp: {base: base.hp},
           ac: {base: base.ac},
           pd: {base: base.pd},
@@ -1582,9 +1582,9 @@ export class ActorArchmage extends Actor {
 
         // Handle extra recoveries for fighters
         if (matchedClasses.includes("fighter")) {
-          data.data.attributes.recoveries.base = 9;
+          data.system.attributes.recoveries.base = 9;
         } else {
-          data.data.attributes.recoveries.base = 8;
+          data.system.attributes.recoveries.base = 8;
         }
 
         // Set Key Modifier for multiclasses
@@ -1601,7 +1601,7 @@ export class ActorArchmage extends Actor {
         }
 
         // Enable resources based on detected classes
-        data.data.resources = {
+        data.system.resources = {
           perCombat: {
             momentum: {enabled: matchedClasses.includes("rogue")},
             commandPoints: {enabled: matchedClasses.includes("commander")},
@@ -1611,7 +1611,7 @@ export class ActorArchmage extends Actor {
         };
       }
       // Store matched classes for future reference
-      data.data.details.detectedClasses = matchedClasses;
+      data.system.details.detectedClasses = matchedClasses;
     }
   }
 
