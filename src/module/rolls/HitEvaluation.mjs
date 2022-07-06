@@ -111,12 +111,12 @@ export default class HitEvaluation {
 
     // Get either the Token overridden value or the base sheet value
     static _getTargetDefenseValue(target, defense) {
-        return target.actor.data.data.attributes[defense]?.value;
+        return target.actor.system.attributes[defense]?.value;
     }
 
     static _getTargetCritDefenseValue(target) {
       if (!target) return 0;
-      return target.actor.data.data.attributes.critMod.def.value;
+      return target.actor.system.attributes.critMod.def.value;
     }
 
     static _getTargetDefense(row_text) {

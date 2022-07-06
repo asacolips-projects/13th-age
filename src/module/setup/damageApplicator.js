@@ -11,7 +11,7 @@ export class DamageApplicator {
         return token.data.actorData.data.attributes[attribute];
       }
     }
-    return token.actor.data.data.attributes[attribute];
+    return token.actor.system.attributes[attribute];
   }
 
   asDamage(inlineRoll, modifier) {

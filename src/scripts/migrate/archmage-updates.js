@@ -158,7 +158,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migrateNpcInit(actor, updateData={}) {
-    const actorData = actor.data.data;
+    const actorData = actor.system;
     return mergeObject(updateData, {
       'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
       'data.attributes.init.-=mod': null
