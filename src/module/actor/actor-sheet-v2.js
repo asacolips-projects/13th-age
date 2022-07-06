@@ -129,7 +129,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else {
       // Pass new values from this.getData() into the app.
       this.vueRoot.updateContext(context);
-      this._lockEffectsFields($(this.form));
+      setTimeout(() => {
+        this.activateVueListeners($(this.form), true);
+      }, 250);
       return;
     }
 
@@ -147,7 +149,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
       if ($selector.length > 0) {
         this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
-        this.activateVueListeners($(this.form), false);
+        setTimeout(() => {
+          this.activateVueListeners($(this.form), false);
+        }, 250);
       }
     });
 
