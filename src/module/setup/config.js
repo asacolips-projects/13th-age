@@ -797,6 +797,22 @@ ARCHMAGE.keyModifiers = {
   // 'wizard': ,
 };
 
+// Explicit multipliers from 13TW
+ARCHMAGE.npcLevelupMultipliers = {
+  '1': 1.25,
+  '2': 1.6,
+  '3': 2.0,
+  '4': 2.5,
+  '5': 3.2,
+  '6': 4.0,
+  '-1': 1/1.25,
+  '-2': 1/1.6,
+  '-3': 1/2.0,
+  '-4': 1/2.5,
+  '-5': 1/3.2,
+  '-6': 1/4.0,
+};
+
 FLAGS.characterFlags = {
   "initiativeAdv": {
     name: "Quick to Fight",
