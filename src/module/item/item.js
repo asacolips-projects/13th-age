@@ -9,17 +9,17 @@ export class ItemArchmage extends Item {
 
   prepareDerivedData() {
     super.prepareDerivedData();
-    if (!this.data.img || this.data.img == CONFIG.DEFAULT_TOKEN) {
-      if (CONFIG.ARCHMAGE.defaultTokens[this.data.type]) {
-        this.data.img = CONFIG.ARCHMAGE.defaultTokens[this.data.type];
+    if (!this.img || this.img == CONFIG.DEFAULT_TOKEN) {
+      if (CONFIG.ARCHMAGE.defaultTokens[this.type]) {
+        this.img = CONFIG.ARCHMAGE.defaultTokens[this.type];
       }
       else {
-        this.data.img = CONST.DEFAULT_TOKEN;
+        this.img = CONST.DEFAULT_TOKEN;
       }
     }
 
-    if (this.data.type == 'loot' || this.data.type == 'tool') {
-      let model = game.system.model.Item[this.data.type];
+    if (this.type == 'loot' || this.type == 'tool') {
+      let model = game.system.model.Item[this.type];
       if (!this.system.quantity) this.system.quantity = model.quantity;
     }
   }
@@ -185,7 +185,7 @@ export class ItemArchmage extends Item {
     // Replicate attack rolls as needed for attacks
     let overrideData = {};
     let numTargets = {targets: 1, rolls: []};
-    if (this.data.type == "power" || this.data.type == "action") {
+    if (this.type == "power" || this.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
       overrideData = {"data.attack.value": attackLine};
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
@@ -200,7 +200,7 @@ export class ItemArchmage extends Item {
     let rollData = itemToRender.actor.getRollData(this);
 
     // Basic template rendering data
-    const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
+    const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const token = itemToRender.actor.token;
     const templateData = {
       actor: itemToRender.actor,
@@ -240,7 +240,7 @@ export class ItemArchmage extends Item {
 
     let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
-      type: this.data.type,
+      type: this.type,
       actor: this.actor,
       token: token,
       powerLevel: this.system.powerLevel?.value,
@@ -305,8 +305,8 @@ export class ItemArchmage extends Item {
       sequencerAnim.play();
     }
 
-    if (!isObjectEmpty(itemUpdateData)) this.update(itemUpdateData, {});
-    if (!isObjectEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+    if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
+    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
 
     // Handle Monk AC bonus
     //TODO: remove dependency on times-up once core Foundry handles AE expiry
@@ -364,7 +364,7 @@ export class ItemArchmage extends Item {
 
       const templateData = {
         actor: actor,
-        title: this.data.name,
+        title: this.name,
         tokenId: token ? `${token.id}` : null,
         success: rechargeSuccessful,
         data: chatData,
@@ -404,7 +404,7 @@ export class ItemArchmage extends Item {
    * Check if we are rolling a monk form, add related AC active effect
    */
   async _handleMonkAC() {
-    if (this.data.type != "power") return;
+    if (this.type != "power") return;
     if (!this.actor.system.details.detectedClasses?.includes("monk")) return;
 
     let effects = this.actor.effects;

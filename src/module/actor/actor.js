@@ -25,7 +25,7 @@ export class ActorArchmage extends Actor {
       const tokens = this.isToken ? [this.token] : this.getActiveTokens();
       const createData = tokens.reduce((arr, t) => {
         if ( t.inCombat ) return arr;
-        arr.push({tokenId: t.id, hidden: t.data.hidden});
+        arr.push({tokenId: t.id, hidden: t.hidden});
         return arr;
       }, []);
       await combat.createEmbeddedDocuments("Combatant", createData);
@@ -50,7 +50,7 @@ export class ActorArchmage extends Actor {
    */
   prepareData() {
     // Reset all derived and effects data.
-    this.reset();
+    //this.reset();
     this.overrides = {};
 
     // Apply active effects in group 0 (ability scores, base attributes).
@@ -117,7 +117,7 @@ export class ActorArchmage extends Actor {
     switch (weight) {
       // Handle ability scores and base attributes.
       case 'pre':
-        relevant = (c => {return c.key.match(/data\.(abilities\..*\.value|attributes\..*\.base)/g);});
+        relevant = (c => {return c.key.match(/(abilities\..*\.value|attributes\..*\.base)/g);});
         break;
       // Handle the non-special active effects.
       case 'default':
@@ -125,11 +125,11 @@ export class ActorArchmage extends Actor {
         break;
       // Handle escalation die.
       case 'ed':
-        relevant = (c => {return c.key == 'data.attributes.escalation.value';});
+        relevant = (c => {return c.key == 'attributes.escalation.value';});
         break;
       // Handle standard bonuses.
       case 'std':
-        relevant = (c => {return c.key == 'data.attributes.standardBonuses.value';});
+        relevant = (c => {return c.key == 'attributes.standardBonuses.value';});
         break;
       // Handle remaining active effects.
       case 'post':
@@ -137,11 +137,11 @@ export class ActorArchmage extends Actor {
         break;
     }
     const changes = this.effects.reduce((changes, e) => {
-      if ( e.data.disabled ) return changes;
-      return changes.concat(e.data.changes.map(c => {
+      if ( e.disabled ) return changes;
+      return changes.concat(e.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
-        c.name = e.data.label;
+        c.name = e.label;
         c.priority = c.priority ?? (c.mode * 10);
         return c;
       })).filter(relevant);
@@ -496,7 +496,7 @@ export class ActorArchmage extends Actor {
     let actor = this;
 
     // Use the current token if possible.
-    let token = canvas.tokens?.controlled?.find(t => t.actor.data._id == this.data._id);
+    let token = canvas.tokens?.controlled?.find(t => t.actor._id == this._id);
     if (token) actor = token.actor;
 
     // Reapply post active effects.
@@ -661,7 +661,7 @@ export class ActorArchmage extends Actor {
         'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(this.system.attributes.saves.lastGaspFails.value) + 1)
       });
       // If this is the first failed last gasps save, add helpless
-      let filtered = this.effects.filter(x => x.data.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
+      let filtered = this.effects.filter(x => x.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
       if (filtered.length == 0 && this.system.attributes.saves.lastGaspFails.value == 1) {
         let effectData = CONFIG.statusEffects.find(x => x.id == "helpless");
         let createData = foundry.utils.deepClone(effectData);
@@ -918,7 +918,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Update actor at this point (items are updated separately)
-    if ( !isObjectEmpty(updateData) ) {
+    if ( !foundry.utils.isEmpty(updateData) ) {
       await this.update(updateData);
     }
 
@@ -1040,7 +1040,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Update actor at this point (items are updated separately)
-    if ( !isObjectEmpty(updateData) ) {
+    if ( !foundry.utils.isEmpty(updateData) ) {
       await this.update(updateData);
     }
 
@@ -1146,7 +1146,7 @@ export class ActorArchmage extends Actor {
       abilities: this.system.abilities,
       backgrounds: this.system.backgrounds,
       title: flavor,
-      alias: this.data.name,
+      alias: this.name,
       actor: this,
       ability: abl,
       background: bg
@@ -1179,7 +1179,7 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   async _updateHpCondition(data, id, thres, maxHp, label) {
-    let filtered = this.effects.filter(x => x.data.label === label);
+    let filtered = this.effects.filter(x => x.label === label);
     filtered = filtered.map(e => e.id);
     if (filtered.length == 0 && data.system.attributes.hp.value/maxHp <= thres) {
         let effectData = CONFIG.statusEffects.find(x => x.id == id);
@@ -1244,7 +1244,7 @@ export class ActorArchmage extends Actor {
 
     if (data.system.attributes?.hp?.temp !== undefined) {
       // Store for later display
-      deltaTemp = data.data.attributes.hp.temp - this.system.attributes.hp.temp;
+      deltaTemp = data.system.attributes.hp.temp - this.system.attributes.hp.temp;
     }
 
     if (data.system.attributes?.hp?.max !== undefined) {
@@ -1292,7 +1292,7 @@ export class ActorArchmage extends Actor {
       }
     }
 
-    if (!this.data.type == 'character') return; // Nothing else to do
+    if (!this.type === 'character') return; // Nothing else to do
 
     // if (data.data.attributes?.level?.value) {
       // Update of a PC level - make sure it's within [1, 10]
@@ -1314,11 +1314,11 @@ export class ActorArchmage extends Actor {
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
       this.effects.forEach(x => {
-        if (x.data.label == "Negative Recovery Penalty") effectsToDelete.push(x.id);
+        if (x.label == "Negative Recovery Penalty") effectsToDelete.push(x.id);
       });
       await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
 
-      let newRec = data.data.attributes.recoveries.value;
+      let newRec = data.system.attributes.recoveries.value;
       if (newRec < 0) {
         const effectData = {
           label: "Negative Recovery Penalty",
@@ -1593,11 +1593,11 @@ export class ActorArchmage extends Actor {
           if (CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]]
             && CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]]) {
             let km = CONFIG.ARCHMAGE.keyModifiers[matchedClasses[0]][matchedClasses[1]];
-            data.data.attributes.keyModifier = { mod1: km[0], mod2: km[1] };
+            data.system.attributes.keyModifier = { mod1: km[0], mod2: km[1] };
           } else console.log("Unknown Key Modifier for "+matchedClasses.toString());
         } else {
           // Just set Str/Str, equivalent to disabling the Key Modifier
-          data.data.attributes.keyModifier = { mod1: 'str', mod2: 'str' };
+          data.system.attributes.keyModifier = { mod1: 'str', mod2: 'str' };
         }
 
         // Enable resources based on detected classes
@@ -1655,7 +1655,7 @@ export class ActorArchmage extends Actor {
    */
 
   async autoLevelActor(delta) {
-    if (!this.data.type == 'npc' || delta == 0) return false;
+    if (!this.type == 'npc' || delta == 0) return false;
     // Convert delta back to a number, and handle + characters.
     delta = typeof delta == 'string' ? Number(delta.replace('+', '')) : delta;
 
@@ -1692,7 +1692,7 @@ export class ActorArchmage extends Actor {
     let mul = multipliers[delta.toString()];
     if (!mul) mul = Math.pow(1.25, delta);
     let overrideData = {
-      'name': this.data.name+suffix,
+      'name': this.name+suffix,
       'data.attributes.level.value': lvl,
       'data.attributes.ac.value': Number(this.system.attributes.ac.value || 0) + delta,
       'data.attributes.pd.value': Number(this.system.attributes.pd.value || 0) + delta,
