@@ -46,13 +46,18 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
   /* -------------------------------------------- */
 
   async _updateObject(event, formData) {
-    console.dir(formData);
+    // console.dir(formData);
 
     let ae = foundry.utils.duplicate(this.object);
     ae.label = formData.label;
     ae.icon = formData.icon;
 
-    ae.changes = [
+    // Retrieve the existing effects.
+    const effectData = this.getData();
+    let changes = effectData?.data?.changes ? effectData.data.changes.map(c => c.toObject(false)) : [];
+
+    // Build an array of effects from the form data.
+    let newChanges = [
       // Attacks
       {
         key: "data.attributes.attack.melee.bonus",
@@ -112,6 +117,19 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
     ];
+
+    // Update the existing changes to replace duplicates.
+    for (let change of changes) {
+      const newChange = newChanges.find(c => c.key == change.key);
+      if (newChange) {
+        // Replace with the new change and update the array to prevent duplicates.
+        change = newChange;
+        newChanges = newChanges.filter(c => c.key != change.key);
+      }
+    }
+
+    // Apply the combined effect changes.
+    ae.changes = changes.concat(newChanges);
 
     if ( formData.data.blockedFromEscalationDie ) {
       ae.changes.push({
