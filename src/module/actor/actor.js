@@ -1675,22 +1675,7 @@ export class ActorArchmage extends Actor {
     }
 
     // Set other overrides.
-    // Explicit multipliers from 13TW
-    let multipliers = {
-      '1': 1.25,
-      '2': 1.6,
-      '3': 2.0,
-      '4': 2.5,
-      '5': 3.2,
-      '6': 4.0,
-      '-1': 1/1.25,
-      '-2': 1/1.6,
-      '-3': 1/2.0,
-      '-4': 1/2.5,
-      '-5': 1/3.2,
-      '-6': 1/4.0,
-    };
-    let mul = multipliers[delta.toString()];
+    let mul = CONFIG.ARCHMAGE.npcLevelupMultipliers[delta.toString()];
     if (!mul) mul = Math.pow(1.25, delta);
     let overrideData = {
       'name': this.data.name+suffix,
