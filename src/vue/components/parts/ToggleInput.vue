@@ -13,7 +13,7 @@
     <div class="input-display" @click="toggleEdit">
       <slot name="display"></slot>
     </div>
-    <a :class="'icon-edit-toggle fas ' + (active ? 'fa-check' : 'fa-edit')" @click="toggleExternal" @focus="toggleEdit" tabindex="0"></a>
+    <a :class="'input-edit-toggle fas ' + (active ? 'fa-check' : 'fa-edit')" @click="toggleExternal" @focus="toggleEdit" tabindex="0"></a>
   </div>
 </template>
 
@@ -67,7 +67,7 @@ export default {
 
 <style lang="scss">
 .archmage-vue {
-  .icon-edit-toggle {
+  .input-edit-toggle {
     position: absolute;
     top: 0;
     right: auto;
@@ -82,14 +82,14 @@ export default {
 
     &:hover,
     &:focus {
-      .icon-edit-toggle {
+      .input-edit-toggle {
         color: $c-blue;
         left: auto;
         right: 0;
       }
     }
 
-    .icon-edit-toggle {
+    .input-edit-toggle {
       &:hover,
       &:focus {
         color: $c-blue;

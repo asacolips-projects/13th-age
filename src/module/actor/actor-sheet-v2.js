@@ -11,6 +11,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Properties that we'll use for the Vue app.
     this.vueApp = null;
     this.vueRoot = null;
+    this.vueListenersActive = false;
     this.vueComponents = {
       'character-sheet': ArchmageCharacterSheet
     };
@@ -42,6 +43,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Basic data
     let isOwner = this.actor.isOwner;
     const context = {
+      appId: this.appId,
       owner: isOwner,
       limited: this.actor.limited,
       options: this.options,
@@ -129,9 +131,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else {
       // Pass new values from this.getData() into the app.
       this.vueRoot.updateContext(context);
-      setTimeout(() => {
-        this.activateVueListeners($(this.form), true);
-      }, 250);
+      // Reactivate the listeners if we need to.
+      if (!this.vueListenersActive) {
+        setTimeout(() => {
+          this.activateVueListeners($(this.form), true);
+        }, 150);
+      }
       return;
     }
 
@@ -149,9 +154,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
       if ($selector.length > 0) {
         this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
+        // @todo Find a better solution than a timeout.
         setTimeout(() => {
           this.activateVueListeners($(this.form), false);
-        }, 250);
+        }, 150);
       }
     });
 
@@ -246,8 +252,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       return;
     }
 
-    this._dragHandler(html);
+    if (html.find('.archmage-v2-vue').length > 0) {
+      this.vueListenersActive = true;
+    }
 
+    this._dragHandler(html);
     this._lockEffectsFields(html);
 
     // Place one-time executions after this line.
