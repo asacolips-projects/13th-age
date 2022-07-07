@@ -49,13 +49,14 @@ export default class preCreateChatMessageHandler {
         if (options.token) token = options.token;
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
-        let $rows = $content.find('.card-prop');
+        let $rows = $content.find('.card-prop');  // Updated later
 
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
 
-        // Handle conditions in feats as well
-        let $featRows = $content.find('.tag--feat .description');
-        preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $featRows);
+        // Handle conditions in feats as well as traits & nastier specials
+        let $otherRows = $content.find('.tag--feat .description, .card-row-description');
+        preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $otherRows);
+        $content.find('.tag--feat .description, .card-row-description').replaceWith($otherRows);
 
         let sequence = undefined;
         let sequencerFile = options.sequencer?.file;
@@ -179,11 +180,12 @@ export default class preCreateChatMessageHandler {
 
             // Update the content
             $content.find('.card-prop').replaceWith($rows);
-            updated_content = $content.html();
-            if (updated_content != null) {
-                data.content = updated_content;
-            }
         }
-    return sequence;
+
+      updated_content = $content.html();
+      if (updated_content != null) {
+          data.content = updated_content;
+      }
+      return sequence;
     }
 }
