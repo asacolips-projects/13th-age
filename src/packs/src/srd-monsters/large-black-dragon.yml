@@ -1,7 +1,7 @@
 _id: 'BPIodF4Ja1Fzrq0w'
 name: 'Large Black Dragon'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Large Black Dragon'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
   width: 1
   height: 1
   scale: 1

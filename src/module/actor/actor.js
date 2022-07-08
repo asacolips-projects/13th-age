@@ -1240,7 +1240,7 @@ export class ActorArchmage extends Actor {
     if (data.img || data.name) {
       let tokenData = {};
       // Propagate image update to token for default images
-      if (data.img && CONFIG.ARCHMAGE.TODO.includes(this.img)) {
+      if (data.img && CONFIG.ARCHMAGE.defaultMonsterTokens.values().includes(this.img)) {
         tokenData.img = data.img;
       }
 

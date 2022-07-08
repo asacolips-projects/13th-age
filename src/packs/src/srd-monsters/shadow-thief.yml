@@ -1,7 +1,7 @@
 _id: 'iUm1b4A0ImYbnjV9'
 name: 'Shadow Thief'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Shadow Thief'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
   width: 1
   height: 1
   scale: 1

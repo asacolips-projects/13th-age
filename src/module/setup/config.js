@@ -412,6 +412,31 @@ ARCHMAGE.defaultTokens = {
   'equipment': 'systems/archmage/assets/icons/items/inventory/backpack.jpg'
 };
 
+ARCHMAGE.defaultMonsterTokens = {
+  'aberration': 'systems/archmage/assets/icons/tokens/monsters/aberration.webp',
+  'beast': 'systems/archmage/assets/icons/tokens/monsters/beast.webp',
+  'construct': 'systems/archmage/assets/icons/tokens/monsters/construct.webp',
+  'demon': 'systems/archmage/assets/icons/tokens/monsters/demon.webp',
+  'devil': 'systems/archmage/assets/icons/tokens/monsters/devil.webp',
+  'dragon': 'systems/archmage/assets/icons/tokens/monsters/dragon.webp',
+  'dragon-black': 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp',
+  'dragon-blue': 'systems/archmage/assets/icons/tokens/monsters/dragon-blue.webp',
+  'dragon-green': 'systems/archmage/assets/icons/tokens/monsters/dragon-green.webp',
+  'dragon-red': 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp',
+  'dragon-white': 'systems/archmage/assets/icons/tokens/monsters/dragon-white.webp',
+  'elemental': 'systems/archmage/assets/icons/tokens/monsters/elemental.webp',
+  'elemental-air': 'systems/archmage/assets/icons/tokens/monsters/elemental-air.webp',
+  'elemental-earth': 'systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp',
+  'elemental-fire': 'systems/archmage/assets/icons/tokens/monsters/elemental-fire.webp',
+  'elemental-water': 'systems/archmage/assets/icons/tokens/monsters/elemental-water.webp',
+  'giant': 'systems/archmage/assets/icons/tokens/monsters/giant.webp',
+  'humanoid': 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp',
+  'ooze': 'systems/archmage/assets/icons/tokens/monsters/ooze.webp',
+  'plant': 'systems/archmage/assets/icons/tokens/monsters/plant.webp',
+  'spirit': 'systems/archmage/assets/icons/tokens/monsters/spirit.webp',
+  'undead': 'systems/archmage/assets/icons/tokens/monsters/undead.webp',
+};
+
 ARCHMAGE.classList = {
   'barbarian': 'Barbarian',
   'bard': 'Bard',
