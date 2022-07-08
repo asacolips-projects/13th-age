@@ -14,6 +14,10 @@ data:
     type: 'String'
     label: 'Group'
     value: 'Finishing'
+  powerOriginName:
+    type: 'String'
+    label: 'Power Original Name'
+    value: 'Life Burning Fire Fist (Rising Phoenix)'
   powerSource:
     type: 'String'
     label: 'Power Source'
