@@ -1235,6 +1235,27 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
+
+    // Update the prototype token.
+    if (data.img || data.name) {
+      let tokenData = {};
+      // Propagate image update to token for default images
+      if (data.img && CONFIG.ARCHMAGE.TODO.includes(this.img)) {
+        tokenData.img = data.img;
+      }
+
+      // Update tokens.
+      let tokens = document.getActiveTokens();
+      tokens.forEach(token => {
+        let updateData = duplicate(tokenData);
+        // Propagate name update to token if same as actor
+        if (data.name && this.name == token.name) {
+          updateData.name = data.name;
+        }
+        token.document.update(tokenData);
+      });
+    }
+
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
     // Deltas, needed for scrolling text later
