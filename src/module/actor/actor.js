@@ -1791,6 +1791,7 @@ Hooks.on('preUpdateActor', (document, data, options, id) => {
     // Update tokens.
     let tokens = document.getActiveTokens();
     tokens.forEach(token => {
+      if (token.actor != document) return;
       let updateData = duplicate(tokenData);
       // Propagate name update to token if same as actor
       if (data.name && document.name == token.name) {
