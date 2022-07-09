@@ -1235,7 +1235,6 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
-    const document = this;
 
     // Update the prototype token.
     if (data.img || data.name) {
@@ -1243,6 +1242,11 @@ export class ActorArchmage extends Actor {
       // Propagate image update to token for default images
       if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)) {
         tokenData.img = data.img;
+        data.token = {img: data.img};
+      }
+      // Propagate name update to token if same as actor
+      if (data.name && this.name == this.data.token.name) {
+        data.token = {name: data.name};
       }
 
       // Update tokens.
