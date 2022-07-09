@@ -1,0 +1,20 @@
+.callout {
+  .title {
+    display: block;
+    margin: 0;
+    padding: 4px;
+    color: white;
+  }
+
+  &.player .title {
+    background: greenyellow;
+  }
+
+  &.gm .title {
+    background: orange;
+  }
+
+  &.aside .title {
+    background: teal;
+  }
+}
