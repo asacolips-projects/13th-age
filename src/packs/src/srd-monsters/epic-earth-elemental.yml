@@ -1,7 +1,7 @@
 _id: '7lQkborFfbe5bhia'
 name: 'Epic Earth Elemental'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Epic Earth Elemental'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp'
   width: 1
   height: 1
   scale: 1
