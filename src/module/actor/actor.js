@@ -1257,7 +1257,7 @@ export class ActorArchmage extends Actor {
         if (data.name && this.name == token.name) {
           updateData.name = data.name;
         }
-        token.document.update(tokenData);
+        token.document.update(updateData);
       });
     }
 
