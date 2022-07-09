@@ -1,7 +1,7 @@
 _id: 'oAEMq1TPWP4krDgZ'
 name: 'Watch Skull'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Watch Skull'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
   width: 1
   height: 1
   scale: 1
