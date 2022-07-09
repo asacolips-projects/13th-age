@@ -1,0 +1,33 @@
+&.sheet-journal {
+  background: url('#{$assets}/textures/middle.webp') repeat-y;
+  background-size: 100% auto;
+  position: relative;
+  height: 100%;
+  padding-top: 135px;
+
+  &::before {
+    display: block;
+    content: '';
+    height: 135px;
+    width: 100%;
+    background: url('#{$assets}/textures/top.webp') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; // @todo verify this doesn't break.
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    height: 90px;
+    width: 100%;
+    background: url('#{$assets}/textures/bottom.webp') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+}

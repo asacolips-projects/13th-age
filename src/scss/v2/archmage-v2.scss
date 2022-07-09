@@ -20,6 +20,9 @@
   @import 'components/tabs';
   @import 'components/progress-bar';
   @import 'components/resource';
+  // Journals.
+  @import 'components/journals/page';
+  @import 'components/journals/callout';
 
   // Character and NPC sheets.
   &.sheet {
