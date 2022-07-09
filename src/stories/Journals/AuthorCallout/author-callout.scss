@@ -1,0 +1,25 @@
+// Insert scss here.
+.author-callout {
+  margin: 0;
+  padding: 0;
+
+  &.rob-heinsoo,
+  &.jonathan-tweet {
+    &::before {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 150px;
+      background: url('https://picsum.photos/100/150') no-repeat center;
+      background-size: contain;
+      float: left;
+      padding-right: 20px;
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+}

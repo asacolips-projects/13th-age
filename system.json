@@ -1,7 +1,7 @@
 {
   "name": "archmage",
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
-  "version": "1.19.0",
+  "version": "1.19.2",
   "authors": [
     {
       "name": "Matt Smith",
@@ -364,7 +364,7 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.19.0/raw/archmage.zip?job=build-prod",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.19.1/raw/archmage.zip?job=build-prod",
   "dependencies": [],
   "initiative": "1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value",
   "gridDistance": 1,

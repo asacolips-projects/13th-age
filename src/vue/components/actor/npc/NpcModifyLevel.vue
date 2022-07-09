@@ -65,14 +65,15 @@
         }
 
         // Set other overrides.
-        let mul = Math.pow(1.25, delta); // use explicit coefficients from book?
+        let mul = CONFIG.ARCHMAGE.npcLevelupMultipliers[delta.toString()];
+        if (!mul) mul = Math.pow(1.25, delta);
         let overrideData = {
           'name': this.actor.name+suffix,
           'data.attributes.level.value': newLvl,
           'data.attributes.ac.value': Number(this.actor.system.attributes.ac.value || 0) + delta,
           'data.attributes.pd.value': Number(this.actor.system.attributes.pd.value || 0) + delta,
           'data.attributes.md.value': Number(this.actor.system.attributes.md.value || 0) + delta,
-          // Initiative already depends directly on level
+          'data.attributes.init.value': Number(this.actor.system.attributes.init.value || 0) + delta,
           'data.attributes.hp.value': Math.round(this.actor.system.attributes.hp.value * mul),
           'data.attributes.hp.max': Math.round(this.actor.system.attributes.hp.max * mul),
         };

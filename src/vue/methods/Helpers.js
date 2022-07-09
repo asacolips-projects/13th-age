@@ -86,6 +86,8 @@ export function wrapRolls(text, replacements = []) {
   for (let [needle, replacement] of replaceMap) {
     clean = clean.replaceAll(needle, replacement)
   };
+  // Call TextEditor.enrichHTML to process remaining object links
+  clean = TextEditor.enrichHTML(clean)
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
