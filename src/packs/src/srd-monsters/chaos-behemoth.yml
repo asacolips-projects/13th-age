@@ -1,7 +1,7 @@
 _id: 'xOTIyU0eCfGx6gn2'
 name: 'Chaos Behemoth'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Chaos Behemoth'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
   width: 1
   height: 1
   scale: 1
