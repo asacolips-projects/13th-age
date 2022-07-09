@@ -7,3 +7,9 @@ export const parameters = {
     },
   },
 }
+
+// // @todo, uncomment this to wrapp all stories with extra markup.
+// export const decorators = [(story) => ({
+//   components: { story },
+//   template: '<div class="archmage"><story /></div>'
+// })];
