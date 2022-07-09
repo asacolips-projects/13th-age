@@ -86,12 +86,12 @@ data:
 sort: 100001
 flags:
   archmage: {}
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
 token:
   flags: {}
   name: 'Squib Swarm'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
   width: 1
   height: 1
   scale: 1

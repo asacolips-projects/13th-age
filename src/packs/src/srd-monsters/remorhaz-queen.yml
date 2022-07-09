@@ -1,7 +1,7 @@
 _id: '2Epu1Q2NsGWX2CYL'
 name: 'Remorhaz Queen'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
 data:
   attributes:
     attackMod:
@@ -123,7 +123,7 @@ token:
   flags: {}
   name: 'Remorhaz Queen'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
   tint: null
   width: 1
   height: 1
