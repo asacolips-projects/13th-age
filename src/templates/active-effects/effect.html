@@ -2,8 +2,8 @@
 
     <!-- Effect Header -->
     <header class="sheet-header">
-        <img class="effect-icon" src="{{ data.icon }}" data-edit="icon">
-        <h1 class="effect-title"><input type="text" name="label" value="{{data.label}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
+        <img class="effect-icon" src="{{ effect.icon }}" data-edit="icon">
+        <h1 class="effect-title"><input type="text" name="label" value="{{effect.label}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
     <article class="sheet-content">
@@ -21,20 +21,20 @@
                         <label>{{ localize "EFFECT.Icon" }}</label>
                         <div class="form-fields">
                             {{filePicker target="icon" type="image"}}
-                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{data.icon}}"/>
+                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{icon}}"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Disabled" }}</label>
-                        <input type="checkbox" name="disabled" {{ checked data.disabled }}/>
+                        <input type="checkbox" name="effect.disabled" {{ checked effect.disabled }}/>
                     </div>
 
                     {{#if isActorEffect}}
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Origin" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="origin" value="{{ data.origin }}" disabled/>
+                            <input type="text" name="effect.origin" value="{{ effect.origin }}" disabled/>
                         </div>
                     </div>
                     {{/if}}
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Transfer" }}</label>
                         <div class="form-fields">
-                            <input type="checkbox" name="transfer" {{checked data.transfer}}/>
+                            <input type="checkbox" name="effect.transfer" {{checked effect.transfer}}/>
                         </div>
                     </div>
                     {{/if}}
@@ -54,13 +54,13 @@
                     <div class="form-group">
                         <label>{{ localize "EFFECT.DurationSecs" }}</label>
                         <div class="form-fields">
-                            <input type="number" name="duration.seconds" value="{{ data.duration.seconds }}"/>
+                            <input type="number" name="effect.duration.seconds" value="{{ effect.duration.seconds }}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>{{ localize "EFFECT.StartTime" }}</label>
                         <div class="form-fields">
-                            <input type="number" name="duration.startTime" value="{{ data.duration.startTime }}"/>
+                            <input type="number" name="effect.duration.startTime" value="{{ effect.duration.startTime }}"/>
                         </div>
                     </div>
                     <hr/>
@@ -68,15 +68,15 @@
                         <label>{{ localize "EFFECT.DurationTurns" }}</label>
                         <div class="form-fields">
                             <label>{{ localize "COMBAT.Rounds" }}</label>
-                            <input type="number" name="duration.rounds" value="{{ data.duration.rounds }}"/>
+                            <input type="number" name="effect.duration.rounds" value="{{ effect.duration.rounds }}"/>
                             <label>{{ localize "COMBAT.Turns" }}</label>
-                            <input type="number" name="duration.turns" value="{{ data.duration.turns }}"/>
+                            <input type="number" name="effect.duration.turns" value="{{ effect.duration.turns }}"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Combat" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="duration.combat" value="{{ data.duration.combat }}" disabled/>
+                            <input type="text" name="effect.duration.combat" value="{{ effect.duration.combat }}" disabled/>
                         </div>
                     </div>
 
@@ -84,9 +84,9 @@
                         <label>{{ localize "EFFECT.StartTurns" }}</label>
                         <div class="form-fields">
                             <label>{{ localize "COMBAT.Round" }}</label>
-                            <input type="number" name="duration.startRound" value="{{ data.duration.startRound }}"/>
+                            <input type="number" name="effect.duration.startRound" value="{{ effect.duration.startRound }}"/>
                             <label>{{ localize "COMBAT.Turn" }}</label>
-                            <input type="number" name="duration.startTurn" value="{{ data.duration.startTurn }}"/>
+                            <input type="number" name="effect.duration.startTurn" value="{{ effect.duration.startTurn }}"/>
                         </div>
                     </div>
                 </section>
@@ -99,25 +99,25 @@
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeAttackBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.attack.melee.bonus" type="text" value="{{data.attributes.attack.melee.bonus}}"
+                        <input class="attribute-input" name="system.attributes.attack.melee.bonus" type="text" value="{{system.attributes.attack.melee.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedAttackBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.attack.ranged.bonus" type="text" value="{{data.attributes.attack.ranged.bonus}}"
+                        <input class="attribute-input" name="system.attributes.attack.ranged.bonus" type="text" value="{{system.attributes.attack.ranged.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.divineAttackBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.attack.divine.bonus" type="text" value="{{data.attributes.attack.divine.bonus}}"
+                        <input class="attribute-input" name="system.attributes.attack.divine.bonus" type="text" value="{{system.attributes.attack.divine.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneAttackBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.attack.arcane.bonus" type="text" value="{{data.attributes.attack.arcane.bonus}}"
+                        <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
@@ -127,49 +127,49 @@
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.ac.value" type="text" value="{{data.attributes.ac.value}}"
+                        <input class="attribute-input" name="system.attributes.ac.value" type="text" value="{{system.attributes.ac.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.pdBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.pd.value" type="text" value="{{data.attributes.pd.value}}"
+                        <input class="attribute-input" name="system.attributes.pd.value" type="text" value="{{system.attributes.pd.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.mdBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.md.value" type="text" value="{{data.attributes.md.value}}"
+                        <input class="attribute-input" name="system.attributes.md.value" type="text" value="{{system.attributes.md.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.hpBonus'}}</strong>
-                        <input class="attribute-input" name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}"
+                        <input class="attribute-input" name="system.attributes.hp.value" type="text" value="{{system.attributes.hp.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">Recoveries Bonus</strong>
-                        <input class="attribute-input" name="data.attributes.recoveries.value" type="text" value="{{data.attributes.recoveries.value}}"
+                        <input class="attribute-input" name="system.attributes.recoveries.value" type="text" value="{{system.attributes.recoveries.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">Save Bonus</strong>
-                        <input class="attribute-input" name="data.attributes.save.value" type="text" value="{{data.attributes.save.value}}"
+                        <input class="attribute-input" name="system.attributes.save.value" type="text" value="{{system.attributes.save.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">Disengage Bonus</strong>
-                        <input class="attribute-input" name="data.attributes.disengage" type="text" value="{{data.attributes.disengage}}"
+                        <input class="attribute-input" name="system.attributes.disengage" type="text" value="{{system.attributes.disengage}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
                         <strong class="attribute-name">Denies usage of Escalation Die</strong>
-                        <input type="checkbox" name="data.blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked data.blockedFromEscalationDie}} />
+                        <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked system.blockedFromEscalationDie}} />
                     </div>
                 </section>
             </div>
