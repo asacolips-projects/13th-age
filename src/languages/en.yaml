@@ -393,6 +393,7 @@ ARCHMAGE:
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
+    powerOriginName: Original Name
     powerType: Power Type
     powerUsage: Power Usage
     QuickRest: Quick Rest

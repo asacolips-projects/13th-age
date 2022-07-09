@@ -9,6 +9,10 @@ data:
   description:
     type: 'String'
     label: 'Description'
+  powerOriginName:
+    type: 'String'
+    label: 'Power Original Name'
+    value: 'Twisted Beam'
   powerSource:
     type: 'String'
     label: 'Power Source'
