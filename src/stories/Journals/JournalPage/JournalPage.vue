@@ -13,27 +13,39 @@
     <h2>Components</h2>
     <p>A list of components are displayed below.</p>
 
+    <!-- Quote -->
     <h3>Quote</h3>
+    <!-- NPC Quote -->
     <h4>NPC</h4>
     <quote content="Lorem ipsum dolor sit amet" type="npc" author="Some Dude"/>
+    <!-- Icon Quote -->
     <h4>Icon</h4>
     <quote content="Lorem ipsum dolor sit amet" type="icon"/>
 
+    <!-- Author Callout -->
     <h3>Author Callout</h3>
+    <!-- Rob Callout -->
     <h4>Rob's Callout</h4>
     <author-callout content="Lorem ipsum dolor sit amet" author="Rob Heinsoo"/>
+    <!-- Jonathan Callout -->
     <h4>Jonathan's Callout</h4>
     <author-callout content="Lorem ipsum dolor sit amet" author="Jonathan Tweet"/>
 
+    <!-- Callout -->
     <h3>Callout</h3>
+    <!-- Player Callout -->
     <h4>Player</h4>
     <callout header="Player" type="player" content="Lorem ipsum dolor sit amet."/>
+    <!-- GM Callout -->
     <h4>GM</h4>
     <callout header="Game Master" type="gm" content="Lorem ipsum dolor sit amet."/>
+    <!-- Aside Callout -->
     <h4>Aside</h4>
     <callout header="Aside" type="aside" content="Lorem ipsum dolor sit amet."/>
 
+    <!-- Icon Background -->
     <h3>Icon Background</h3>
+    <!-- Great Gold Wyrm Icon Background -->
     <h4>Great Gold Wyrm</h4>
     <icon-background header="The Great Gold Wyrm's Mirror"
       type="great-gold-wyrm"

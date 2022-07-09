@@ -9,15 +9,6 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/addon-docs",
     "@whitespace/storybook-addon-html",
-    'storybook-addon-sass-postcss',
-    {
-      name: 'storybook-addon-sass-postcss',
-      options: {
-        sassLoaderOptions: {
-          implementation: require('sass'),
-        },
-      },
-    },
   ],
   "framework": "@storybook/vue3",
   "core": {
@@ -25,5 +16,5 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
-  }
+  },
 }
