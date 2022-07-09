@@ -1,7 +1,7 @@
 _id: 'Vq3qL60t3VHSfCyn'
 name: 'Gargoyle'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/construct.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Gargoyle'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/construct.webp'
   width: 1
   height: 1
   scale: 1
