@@ -1,7 +1,7 @@
 _id: 'mEZbOR2BrCd8hw9j'
 name: 'Gelatinous Cubahedron (aka Cube)'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Gelatinous Cubahedron (aka Cube)'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
   width: 1
   height: 1
   scale: 1
