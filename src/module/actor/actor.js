@@ -1236,31 +1236,6 @@ export class ActorArchmage extends Actor {
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
 
-    // Update the prototype token.
-    if (data.img || data.name) {
-      let tokenData = {};
-      // Propagate image update to token for default images
-      if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)) {
-        tokenData.img = data.img;
-        data.token = {img: data.img};
-      }
-      // Propagate name update to token if same as actor
-      if (data.name && this.name == this.data.token.name) {
-        data.token = {name: data.name};
-      }
-
-      // Update tokens.
-      let tokens = this.getActiveTokens();
-      tokens.forEach(token => {
-        let updateData = duplicate(tokenData);
-        // Propagate name update to token if same as actor
-        if (data.name && this.name == token.name) {
-          updateData.name = data.name;
-        }
-        token.document.update(updateData);
-      });
-    }
-
     if (!options.diff || data.data === undefined) return; // Nothing to do
 
     // Deltas, needed for scrolling text later
@@ -1797,3 +1772,31 @@ function _scaleDice(exp, mul) {
   else if (!correction) return `${diceCnt}d${y}`;
   return `${diceCnt}d${y}+`+correction;
 }
+
+// TODO: move this code to _preUpdate and remove this once core plays nice
+Hooks.on('preUpdateActor', (document, data, options, id) => {
+  // Update the prototype token.
+  if (data.img || data.name) {
+    let tokenData = {};
+    // Propagate image update to token for default images
+    if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)) {
+      tokenData.img = data.img;
+      data.token = {img: data.img};
+    }
+    // Propagate name update to token if same as actor
+    if (data.name && document.name == document.data.token.name) {
+      data.token = {name: data.name};
+    }
+
+    // Update tokens.
+    let tokens = document.getActiveTokens();
+    tokens.forEach(token => {
+      let updateData = duplicate(tokenData);
+      // Propagate name update to token if same as actor
+      if (data.name && document.name == token.name) {
+        updateData.name = data.name;
+      }
+      token.document.update(updateData);
+    });
+  }
+});
