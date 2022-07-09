@@ -1,7 +1,7 @@
 _id: 'M5nyJFcL4b7AGiLC'
 name: 'Skin Devil'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Skin Devil'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
   width: 1
   height: 1
   scale: 1
