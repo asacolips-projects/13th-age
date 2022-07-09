@@ -1235,17 +1235,18 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
+    const document = this;
 
     // Update the prototype token.
     if (data.img || data.name) {
       let tokenData = {};
       // Propagate image update to token for default images
-      if (data.img && CONFIG.ARCHMAGE.defaultMonsterTokens.values().includes(this.img)) {
+      if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)) {
         tokenData.img = data.img;
       }
 
       // Update tokens.
-      let tokens = document.getActiveTokens();
+      let tokens = this.getActiveTokens();
       tokens.forEach(token => {
         let updateData = duplicate(tokenData);
         // Propagate name update to token if same as actor
