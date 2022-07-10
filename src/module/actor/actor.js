@@ -1233,6 +1233,7 @@ export class ActorArchmage extends Actor {
     // Note: in cunjunction with the hook this propagates to the prototype token too
     if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']
       && game.user.isGM) {
+        console.log('FOOBAR');
       this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
     }
   }

@@ -223,7 +223,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Support Image updates
     if ( this.options.editable ) {
-      html.on('click', 'img[data-edit]', (event) => this._onEditImage(event));
+      html.on('click', 'img[data-edit]', (event) => {
+        // Handle Tokenizer integration since the delayed Vue render prevents it.
+        const tokenizer = game.modules.get('vtta-tokenizer')?.active ?? false;
+        let bypass = event.shiftKey ? true : false;
+        if (tokenizer && !bypass) {
+          const doc = this.token ? this : this.document;
+          event.stopPropagation();
+          Tokenizer.tokenizeDoc(doc);
+          event.preventDefault();
+        }
+        // Otherwise, use the file picker.
+        else {
+          this._onEditImage(event)
+        }
+      });
     }
 
     // Roll listeners.
