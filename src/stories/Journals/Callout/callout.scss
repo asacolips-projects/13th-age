@@ -1,22 +1,22 @@
 @import '../init';
-.callout {
-  .title {
-    display: block;
-    margin: 0;
-    padding: 4px;
-    color: white;
-    font-family: $font-stack-secondary;
-  }
+// .callout {
+//   .title {
+//     display: block;
+//     margin: 0;
+//     padding: 4px;
+//     color: white;
+//     font-family: $font-stack-secondary;
+//   }
 
-  &.player .title {
-    background: greenyellow;
-  }
+//   &.player .title {
+//     background: greenyellow;
+//   }
 
-  &.gm .title {
-    background: orange;
-  }
+//   &.gm .title {
+//     background: orange;
+//   }
 
-  &.aside .title {
-    background: teal;
-  }
-}
+//   &.aside .title {
+//     background: teal;
+//   }
+// }

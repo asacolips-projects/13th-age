@@ -1,3 +1,6 @@
 [submodule "src/vue/foundry-shim"]
 	path = src/vue/foundry-shim
 	url = ../../../asacolips-private-projects/foundry-shim.git
+[submodule "src/assets/book"]
+	path = src/assets/book
+	url = git@gitlab.com:asacolips-private-projects/archmage-assets.git

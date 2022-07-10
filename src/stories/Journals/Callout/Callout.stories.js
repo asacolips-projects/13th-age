@@ -24,20 +24,20 @@ const Template = (args) => ({
 export const Player = Template.bind({});
 Player.args = {
   header: 'Player',
-  content: '<p>Lorem ipsum dolor sit amet.</p>',
+  content: '<p>Semper si interdum ultricies id fringilla sodales ipsum luctus donec cras. Justo vel felis facilisi feugiat sapien luctus massa sed sit conubia. Fermentum rutrum hendrerit integer dignissim vel turpis aptent habitasse scelerisque donec. Montes egestas ante cursus enim duis praesent sapien eget posuere inceptos. Torquent nisi morbi arcu consectetur molestie.</p>',
   type: 'player',
 };
 
 export const GM = Template.bind({});
 GM.args = {
   header: 'GM',
-  content: '<p>Lorem ipsum dolor sit amet.</p>',
+  content: '<p>Semper si interdum ultricies id fringilla sodales ipsum luctus donec cras. Justo vel felis facilisi feugiat sapien luctus massa sed sit conubia. Fermentum rutrum hendrerit integer dignissim vel turpis aptent habitasse scelerisque donec. Montes egestas ante cursus enim duis praesent sapien eget posuere inceptos. Torquent nisi morbi arcu consectetur molestie.</p>',
   type: 'gm',
 };
 
 export const Aside = Template.bind({});
 Aside.args = {
   header: 'Aside',
-  content: '<p>Lorem ipsum dolor sit amet.</p>',
+  content: '<p>Semper si interdum ultricies id fringilla sodales ipsum luctus donec cras. Justo vel felis facilisi feugiat sapien luctus massa sed sit conubia. Fermentum rutrum hendrerit integer dignissim vel turpis aptent habitasse scelerisque donec. Montes egestas ante cursus enim duis praesent sapien eget posuere inceptos. Torquent nisi morbi arcu consectetur molestie.</p>',
   type: 'aside',
 };

@@ -1,0 +1,64 @@
+.quote {
+  &.icon {
+    h1 {
+      font-size: 30px;
+      text-align: left;;
+    }
+
+    .content {
+      font-size: 28px;
+      font-style: italic;
+      color: #911A1D;
+      margin-top: 10px;
+
+      > span {
+        color: #48307C;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.npc {
+    font-size: 18px;
+    font-style: italic;
+    color: #222;
+    position: relative;
+    padding: 30px 0;
+
+    &::before,
+    &::after {
+      display: block;
+      content: '';
+      height: 3px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, transparent, black, #7FA0C9, transparent);
+    }
+
+    &::after {
+      top: auto;
+      bottom: 0;
+    }
+
+    blockquote,
+    figcaption {
+      margin: 0 40px;
+    }
+
+    blockquote {
+      p {
+        margin: 0;
+
+        + p {
+          margin-top: 1em;
+        }
+      }
+    }
+
+    figcaption {
+      text-align: right;
+    }
+  }
+}

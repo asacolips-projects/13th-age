@@ -1,0 +1,61 @@
+.callout {
+  .title {
+    display: block;
+    margin: 0;
+    padding: 4px;
+    color: white;
+    font-family: $font-stack-secondary;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 4px 3px rgb(0 0 0 / 45%);
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: inset 0 8px 10px rgb(0 0 0 / 15%),
+      inset 0 -1px 2px 1px white;
+  }
+
+  .content {
+    padding: 20px;
+    margin-top: 1px;
+    box-shadow: inset 0 8px 10px 2px rgb(0 0 0 / 15%)
+  }
+
+  &.player {
+    .content {
+      color: #4f5945;
+      box-shadow: inset 0 8px 10px 2px rgb(79 89 69 / 15%)
+    }
+    .title {
+      background: #d2dabd;
+      border-color: #4f5945;
+      text-transform: uppercase;
+    }
+  }
+
+  &.gm {
+    .content {
+      color: #9c6014;
+      box-shadow: inset 0 8px 10px 2px rgb(227 108 0 / 25%);
+    }
+    .title {
+      text-transform: uppercase;
+      background: #ffe8bd;
+      border-color: #D79860;
+      box-shadow: inset 0 15px 30px rgba(#D79860, 0.8),
+        inset 0 -1px 2px 1px white;
+    }
+  }
+
+  &.aside {
+    .content {
+      box-shadow: inset 0 8px 10px 2px rgb(68 40 125 / 15%);
+    }
+    .title {
+      background: #B7C6D5;
+      border-color: #556998;
+      text-transform: inherit;
+      box-shadow: inset 0 15px 20px rgba(#556998, 0.55),
+        inset 0 -1px 2px 1px white;
+    }
+  }
+}
