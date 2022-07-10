@@ -1,1 +1,31 @@
 // Insert scss here.
+@import '../init';
+// .author-callout {
+//   &.rob-heinsoo,
+//   &.jonathan-tweet {
+//     &::before {
+//       content: '';
+//       display: block;
+//       width: 90px;
+//       height: 105px;
+//       background: url('#{$assets}/book/icon-rh.webp') no-repeat center;
+//       background-size: contain;
+//       float: left;
+//       margin-right: 20px;
+//     }
+
+//     &::after {
+//       display: block;
+//       content: '';
+//       clear: both;
+//     }
+//   }
+
+//   &.jonathan-tweet {
+//     &::before {
+//       width: 105px;
+//       height: 105px;
+//       background-image: url('#{$assets}/book/icon-jt.webp');
+//     }
+//   }
+// }

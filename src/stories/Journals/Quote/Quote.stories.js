@@ -24,7 +24,7 @@ const Template = (args) => ({
 export const Icon = Template.bind({});
 Icon.args = {
   header: 'Quote',
-  content: '"Your pardon, but this is the moment you burst into flames...<span>fireball</span>...and I go save civilization."',
+  content: '"Your pardon, but this is the moment you burst into flames . . . <span>fireball</span> . . . and I go save civilization."',
   type: 'icon'
 };
 

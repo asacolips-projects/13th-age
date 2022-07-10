@@ -1,0 +1,31 @@
+.icon-background {
+  position: relative;
+  overflow: visible;
+
+  &.great-gold-wyrm {
+    &::before {
+      display: block;
+      content: '';
+      background: url('#{$assets}/book/great-gold-wyrm.webp') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      z-index: 0;
+      opacity: 0.25;
+    }
+  }
+
+  .title,
+  .content {
+    position: relative;
+    margin: 0;
+    padding: 12px;
+    z-index: 1;
+  }
+}

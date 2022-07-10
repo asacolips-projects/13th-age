@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import '../_init.scss';
+import './author-callout.scss';
 import { reactive, computed } from 'vue';
 export default {
   name: 'author-callout',

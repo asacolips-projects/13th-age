@@ -24,8 +24,7 @@
       <p>A senectus euismod non cubilia ac porta mi. Efficitur scelerisque dictumst turpis orci nullam congue pretium ut metus tellus. Penatibus ultrices porttitor per ridiculus risus aptent aliquam tortor luctus. Parturient orci lacinia nulla platea ac. Tincidunt pede eleifend eu et leo augue tortor sem sapien ultrices consectetuer. At proin ligula arcu platea ultricies.</p>" type="npc" author="Some Dude"/>
       <!-- Icon Quote -->
       <h4>Icon</h4>
-      <quote content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>
-      <p>A senectus euismod non cubilia ac porta mi. Efficitur scelerisque dictumst turpis orci nullam congue pretium ut metus tellus. Penatibus ultrices porttitor per ridiculus risus aptent aliquam tortor luctus. Parturient orci lacinia nulla platea ac. Tincidunt pede eleifend eu et leo augue tortor sem sapien ultrices consectetuer. At proin ligula arcu platea ultricies.</p>" type="icon"/>
+      <quote header="Quote" content='"Your pardon, but this is the moment you burst into flames . . . <span>fireball</span> . . . and I go save civilization."' type="icon"/>
 
       <!-- Author Callout -->
       <h3>Author Callout</h3>
@@ -42,23 +41,20 @@
       <h3>Callout</h3>
       <!-- Player Callout -->
       <h4>Player</h4>
-      <callout header="Player" type="player" content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>
-      <p>A senectus euismod non cubilia ac porta mi. Efficitur scelerisque dictumst turpis orci nullam congue pretium ut metus tellus. Penatibus ultrices porttitor per ridiculus risus aptent aliquam tortor luctus. Parturient orci lacinia nulla platea ac. Tincidunt pede eleifend eu et leo augue tortor sem sapien ultrices consectetuer. At proin ligula arcu platea ultricies.</p>."/>
+      <callout header="Player" type="player" content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>"/>
       <!-- GM Callout -->
       <h4>GM</h4>
-      <callout header="Game Master" type="gm" content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>
-      <p>A senectus euismod non cubilia ac porta mi. Efficitur scelerisque dictumst turpis orci nullam congue pretium ut metus tellus. Penatibus ultrices porttitor per ridiculus risus aptent aliquam tortor luctus. Parturient orci lacinia nulla platea ac. Tincidunt pede eleifend eu et leo augue tortor sem sapien ultrices consectetuer. At proin ligula arcu platea ultricies.</p>."/>
+      <callout header="Game Master" type="gm" content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>"/>
       <!-- Aside Callout -->
       <h4>Aside</h4>
-      <callout header="Aside" type="aside" content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>
-      <p>A senectus euismod non cubilia ac porta mi. Efficitur scelerisque dictumst turpis orci nullam congue pretium ut metus tellus. Penatibus ultrices porttitor per ridiculus risus aptent aliquam tortor luctus. Parturient orci lacinia nulla platea ac. Tincidunt pede eleifend eu et leo augue tortor sem sapien ultrices consectetuer. At proin ligula arcu platea ultricies.</p>."/>
+      <callout header="Aside" type="aside" content="<p>Enim tortor nisi consectetur odio aptent. Habitant risus ornare ipsum mus magnis rutrum purus consectetur diam congue lobortis. Praesent urna nostra lacinia phasellus non. Quam iaculis euismod risus mi ex velit. Elementum accumsan elit auctor sem consectetuer leo magna ipsum laoreet torquent. Felis consectetuer efficitur si faucibus euismod.</p>"/>
 
       <!-- Icon Background -->
       <h3>Icon Background</h3>
       <!-- Great Gold Wyrm Icon Background -->
       <h4>Great Gold Wyrm</h4>
       <icon-background header="The Great Gold Wyrm's Mirror"
-        type="great-gold-wyrm"
+        icon="great-gold-wyrm"
         content="<p>Risus arcu tellus dictum congue potenti elementum blandit vehicula porttitor suspendisse. Laoreet feugiat consectetuer ornare primis justo pellentesque letius. Maximus aliquam sociosqu curae justo ante tristique. Arcu fusce integer montes at facilisi proin neque sollicitudin faucibus. Dui quam convallis vulputate est donec natoque hac tristique sodales.</p>
           <p>Pede nunc libero vulputate elementum tempor tellus. Luctus sed faucibus est sollicitudin velit dictum congue. Habitant turpis conubia quis himenaeos egestas arcu. Dapibus maecenas blandit nascetur mollis scelerisque. Consequat euismod tempor iaculis suscipit dui odio tortor curae convallis libero nisl. Sagittis mattis sit quam cubilia montes. Pulvinar dignissim cubilia porta lectus proin aenean ultrices bibendum letius class.</p>"/>
     </div>
