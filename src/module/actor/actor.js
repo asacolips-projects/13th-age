@@ -1231,7 +1231,8 @@ export class ActorArchmage extends Actor {
   // Set the default portrait and token image to the system's
   async _onCreate(data, options, user) {
     // Note: in cunjunction with the hook this propagates to the prototype token too
-    if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']) {
+    if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']
+      && game.user.isGM) {
       this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
     }
   }
