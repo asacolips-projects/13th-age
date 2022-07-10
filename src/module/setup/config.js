@@ -414,6 +414,7 @@ ARCHMAGE.defaultTokens = {
 
 ARCHMAGE.defaultMonsterTokens = {
   'default': 'icons/svg/mystery-man.svg',
+  'default-toolkit': 'systems/archmage/assets/icons/tokens/monsters/token-neutral.webp',
   'aberration': 'systems/archmage/assets/icons/tokens/monsters/aberration.webp',
   'beast': 'systems/archmage/assets/icons/tokens/monsters/beast.webp',
   'construct': 'systems/archmage/assets/icons/tokens/monsters/construct.webp',

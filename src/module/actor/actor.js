@@ -1227,6 +1227,15 @@ export class ActorArchmage extends Actor {
     }
   }
 
+  // TODO@cswendrowski: refactor this for v10
+  // Set the default portrait and token image to the system's
+  async _onCreate(data, options, user) {
+    // Note: in cunjunction with the hook this propagates to the prototype token too
+    if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']) {
+      this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
+    }
+  }
+
   /**
    * Actor update hook
    *
