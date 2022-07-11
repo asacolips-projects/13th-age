@@ -1,7 +1,7 @@
 _id: 'zT1X4CLaTCmxo8pn'
 name: 'Parasitic Dybbuk'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Parasitic Dybbuk'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
   width: 1
   height: 1
   scale: 1

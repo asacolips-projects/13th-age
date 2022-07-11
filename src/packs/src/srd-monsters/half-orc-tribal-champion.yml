@@ -1,7 +1,7 @@
 _id: 'c1b0LF2pIJFPlzhm'
 name: 'Half-Orc Tribal Champion'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Half-Orc Tribal Champion'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
   width: 1
   height: 1
   scale: 1

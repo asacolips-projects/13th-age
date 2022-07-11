@@ -1,7 +1,7 @@
 _id: 'ogO3HkOmmTKMFJoO'
 name: 'Hag'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Hag'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
   width: 1
   height: 1
   scale: 1

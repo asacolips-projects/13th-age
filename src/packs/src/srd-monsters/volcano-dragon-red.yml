@@ -1,7 +1,7 @@
 _id: 'GyXxuQTzrOygYw12'
 name: 'Volcano Dragon (Red)'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Volcano Dragon (Red)'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp'
   width: 1
   height: 1
   scale: 1

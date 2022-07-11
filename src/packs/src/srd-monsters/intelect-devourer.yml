@@ -1,7 +1,7 @@
 _id: 'i6WPEodUc7I9xujP'
 name: 'Intelect devourer'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
 data:
   attributes:
     attackMod:
@@ -123,7 +123,7 @@ token:
   flags: {}
   name: 'Intelect devourer'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
   tint: null
   width: 1
   height: 1

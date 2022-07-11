@@ -1,7 +1,7 @@
 _id: 'MT7D2ZQhiio010YI'
 name: 'Empyrean Dragon (Black)'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Empyrean Dragon (Black)'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
   width: 1
   height: 1
   scale: 1

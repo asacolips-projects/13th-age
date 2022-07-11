@@ -1,7 +1,7 @@
 _id: 'hfH16sCh4rhMs9zn'
 name: 'Jotun Auroch'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Jotun Auroch'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
   width: 1
   height: 1
   scale: 1

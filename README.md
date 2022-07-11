@@ -70,7 +70,7 @@ The Toolkit13 name is copyright © 2020 by Matt Smith. Some rights reserved.
 
 ## HTML, CSS, and Javscript
 
-All HTML, CSS, and Javascript files are licensed under the [MIT license](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/MIT.txt) and are freely available.
+All HTML, CSS, Javascript, and Vue files are licensed under the [MIT license](https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/licenses/MIT.txt) and are freely available. YAML files (excluding those in the src/packs/) directory are also licensed under the MIT license.
 
 ## Images and file assets
 
@@ -84,7 +84,7 @@ Images and files in the `assets/icons` directory are provided via licenses secur
 * Dice by Heberti Almeida from the Noun Project
 * Licensed icon artwork by Rexard https://assetstore.unity.com/publishers/13229
 
-Other image assets licensed under the MIT license.
+Image assets in this repository may not be used outside of Foundry VTT and cannot be redistributed.
 
 ## SRD and OGL Content
 

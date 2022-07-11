@@ -1,7 +1,7 @@
 _id: 'ZNlL3LuF3ASgA6W6'
 name: 'Huge Brass Dragon (Metallic)'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/dragon-brass.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Huge Brass Dragon (Metallic)'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/dragon-brass.webp'
   width: 1
   height: 1
   scale: 1

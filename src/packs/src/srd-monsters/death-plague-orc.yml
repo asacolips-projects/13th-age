@@ -1,7 +1,7 @@
 _id: 'Qh2CGKPuUwfYPB0w'
 name: 'Death-Plague Orc'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
 data:
   attributes:
     attackMod:
@@ -123,7 +123,7 @@ token:
   flags: {}
   name: 'Death-Plague Orc'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
   tint: null
   width: 1
   height: 1
