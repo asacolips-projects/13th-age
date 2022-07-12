@@ -1,7 +1,7 @@
 _id: 'FMx0i9N4bOVCJOmW'
 name: 'Gelatinous Octahedron'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
 data:
   attributes:
     attackMod:
@@ -123,7 +123,7 @@ token:
   flags: {}
   name: 'Gelatinous Octahedron'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
   tint: null
   width: 1
   height: 1

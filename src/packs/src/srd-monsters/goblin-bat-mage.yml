@@ -1,7 +1,7 @@
 _id: 'Ql6S9QXrnlIETuxL'
 name: 'Goblin Bat Mage'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
 data:
   attributes:
     attackMod:
@@ -100,7 +100,7 @@ data:
       type: 'String'
       label: 'Size'
     type:
-      value: 'Beast &amp; Humanoid'
+      value: 'humanoid'
       type: 'String'
       label: 'Type'
     resistance:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Goblin Bat Mage'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
   width: 1
   height: 1
   scale: 1

@@ -1,7 +1,7 @@
 _id: 'q6t8Q3HR3vX1zKIu'
 name: 'Ice Devil (Gelugon)'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Ice Devil (Gelugon)'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
   width: 1
   height: 1
   scale: 1

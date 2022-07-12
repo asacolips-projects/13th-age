@@ -1,7 +1,7 @@
 _id: 'YWUMZ29u82zpOHMi'
 name: 'Zealous Warbanner'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/construct.webp'
 data:
   attributes:
     attackMod:
@@ -123,7 +123,7 @@ token:
   flags: {}
   name: 'Vicious Warbanner'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/construct.webp'
   tint: null
   width: 1
   height: 1

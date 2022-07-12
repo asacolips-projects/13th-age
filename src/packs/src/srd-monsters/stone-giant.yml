@@ -1,7 +1,7 @@
 _id: 'SJH4MwRqhQHuYLW9'
 name: 'Stone Giant'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Stone Giant'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
   width: 1
   height: 1
   scale: 1
