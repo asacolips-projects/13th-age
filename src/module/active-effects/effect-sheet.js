@@ -38,7 +38,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     }
 
     const edChange = effect.effect.changes.find(x => x.key === "system.attributes.escalation.value");
-    effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
+    //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
     return effect;
   }

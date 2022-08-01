@@ -236,7 +236,8 @@ const SYSTEM_COPY = [
   'src/images/**/*',
   'src/module/**/*',
   'src/scripts/**/*',
-  'src/templates/**/*'
+  'src/templates/**/*',
+  'src/module/tours/configs/*'
 ];
 function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})

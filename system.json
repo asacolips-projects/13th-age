@@ -108,7 +108,8 @@
       "label": "Sorcerer",
       "type": "Item",
       "name": "sorcerer",
-      "path": "packs/sorcerer.db"
+      "path": "packs/sorcerer.db",
+      "system": "archmage"
     },
     {
       "label": "Sorcerer Tables",

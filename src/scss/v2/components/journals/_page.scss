@@ -1,3 +1,8 @@
+.Subhead-bold-ital {
+  font-weight: bold;
+  font-style: italic;
+}
+
 &.sheet-journal {
   background: url('#{$assets}/book/middle.webp') repeat-y;
   background-size: 100% auto;
@@ -31,7 +36,7 @@
     z-index: 1;
   }
 
-  .journal-page {
+  .journal-entry-page {
     .content-wrapper {
       max-width: 800px;
       padding: 0 40px;

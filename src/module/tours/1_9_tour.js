@@ -1,81 +1,66 @@
-export class OneDotNineTour {
+import {FeatureTour} from "./feature-tour.mjs";
+
+export class OneDotNineTour extends FeatureTour {
     constructor() {
-        let tour = introJs()
-
-        tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.17.0");
+        super({
+          title: "1.9.0",
+          description: "Overview of 1.9.0 features",
+          canBeResumed: false,
+          display: true,
+          version: "1.9.0",
+          steps: [
+            {
+              content: "ARCHMAGE.TOURS.190.welcome"
+            },
+            {
+              content: "ARCHMAGE.TOURS.190.aip"
+            },
+            {
+              selector: '.fa-users',
+              content: "ARCHMAGE.TOURS.190.baseStats",
+              position: 'bottom'
+            },
+            {
+              selector: '.fa-atlas',
+              content: "ARCHMAGE.TOURS.190.necromancer",
+              position: 'bottom'
+            },
+            {
+              selector: '.fa-atlas',
+              content: "ARCHMAGE.TOURS.190.inlineRoll",
+              position: 'bottom'
+            },
+            {
+              selector: '.fa-cogs',
+              content: "ARCHMAGE.TOURS.190.colorblind",
+              position: 'bottom'
+            },
+            {
+              selector: '#archmage-reference-btn',
+              content: "ARCHMAGE.TOURS.190.inlineRollDocs",
+              position: 'bottom'
+            },
+            {
+              selector: '#archmage-help-btn',
+              content: "ARCHMAGE.TOURS.190.systemDocs",
+              position: 'bottom'
+            },
+            {
+              selector: '.fa-comments',
+              content: "ARCHMAGE.TOURS.190.chatCards",
+              position: 'bottom'
+            },
+            {
+              content: "ARCHMAGE.TOURS.190.end"
+            },
+          ]
         });
-        tour.oncomplete(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.9.0");
-        });
-
-        tour.onbeforechange(function(targetElement) {
-
-          if ($(targetElement).data("pack") == "archmage.srd-monsters") {
-            $('.item>.fa-atlas').click();
-          }
-          else if ($(targetElement).hasClass("fas")) {
-            $(targetElement).click();
-          }
-        });
-
-        tour.setOption('tooltipPosition', 'auto');
-        tour.setOption('positionPrecedence', ['right', 'left', 'top', 'bottom']);
-        tour.setOption('showProgress', true);
-
-        tour.setOptions({
-            steps: [
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.welcome")
-              },
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.aip")
-              },
-              {
-                element: document.querySelector('.fa-users'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.baseStats"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('.fa-atlas'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.necromancer"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('.fa-atlas'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.inlineRoll"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('.fa-cogs'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.colorblind"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('#archmage-reference-btn'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.inlineRollDocs"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('#archmage-help-btn'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.systemDocs"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('.fa-comments'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.chatCards"),
-                position: 'bottom'
-              },
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.190.end")
-              },
-            ]
-          });
-
-        this.tour = tour;
     }
 
-    start() {
-        this.tour.start();
+    async _preStep() {
+      await super._preStep();
+      if ( this.currentStep?.selector?.includes(".fa") ) {
+        $(this.currentStep.selector).click();
+      }
     }
 }

@@ -457,21 +457,13 @@ Hooks.once('ready', () => {
 
 /* ---------------------------------------------- */
 
-Hooks.on("renderSettings", (app, html) => {
+Hooks.on("renderSettings", async (app, html) => {
   let button = $(`<button id="archmage-reference-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
     ev.preventDefault();
     new ArchmageReference().render(true);
-  });
-
-  // Reset Tours
-  let players = html.find("button[data-action='players']");
-  $(`<button data-action="resettours"><i class="fas fa-hiking" aria-hidden="true"></i>Reset Feature Tours</button>`).insertAfter(players);
-  html.find('button[data-action="resettours"]').click(ev => {
-    game.settings.set("archmage", "lastTourVersion", "0.0.0");
-    location.reload();
   });
 
   let helpButton = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
@@ -493,6 +485,7 @@ Hooks.on("renderSettings", (app, html) => {
 
   if (showTours) {
     let tourGuide = new TourGuide();
+    await tourGuide.registerTours();
     tourGuide.startNewFeatureTours();
   }
 });
@@ -622,6 +615,10 @@ Hooks.on('dropCanvasData', (canvas, data) => {
   // For conditions just toggle the effect
   return token._object.toggleEffect(statusEffect);
 
+});
+
+Hooks.on("renderJournalSheet", async (app, html, data) => {
+  app._element[0].classList.add("archmage-v2");
 });
 
 /* ---------------------------------------------- */

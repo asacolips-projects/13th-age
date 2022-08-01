@@ -1,53 +1,32 @@
-export class OneDotSeventeenTour {
+import {FeatureTour} from "./feature-tour.mjs";
+
+export class OneDotSeventeenTour extends FeatureTour {
     constructor() {
-        let tour = introJs()
-
-        tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.17.0");
+        super({
+          title: "1.17.0",
+          description: "Overview of 1.17.0 features",
+          canBeResumed: true,
+          display: true,
+          version: "1.17.0",
+          steps: [
+            {
+              selector: ".great-gold-wyrm",
+              content: "ARCHMAGE.TOURS.1170.welcome"
+            },
+            {
+              selector: '#sidebar-tabs [data-tab="chat"]',
+              content: "ARCHMAGE.TOURS.1170.crits",
+              position: 'bottom'
+            },
+            {
+              selector: '#sidebar-tabs [data-tab="compendium"]',
+              content: "ARCHMAGE.TOURS.1170.compendia",
+              position: 'bottom'
+            },
+            {
+              content: "ARCHMAGE.TOURS.1170.end"
+            },
+          ]
         });
-        tour.oncomplete(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.17.0");
-        });
-
-        // tour.onbeforechange(function(targetElement) {
-
-        //   if ($(targetElement).data("pack") == "archmage.srd-monsters") {
-        //     $('.item>.fa-atlas').click();
-        //   }
-        //   else if ($(targetElement).hasClass("fas")) {
-        //     $(targetElement).click();
-        //   }
-        // });
-
-        tour.setOption('tooltipPosition', 'auto');
-        tour.setOption('positionPrecedence', ['right', 'left', 'top', 'bottom']);
-        tour.setOption('showProgress', true);
-
-        tour.setOptions({
-            steps: [
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.1170.welcome")
-              },
-              {
-                element: document.querySelector('#sidebar-tabs [data-tab="chat"]'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.1170.crits"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('#sidebar-tabs [data-tab="compendium"]'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.1170.compendia"),
-                position: 'bottom'
-              },
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.1170.end")
-              },
-            ]
-          });
-
-        this.tour = tour;
-    }
-
-    start() {
-        this.tour.start();
     }
 }
