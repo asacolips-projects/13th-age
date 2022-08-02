@@ -31,7 +31,7 @@ export class DamageApplicator {
     }
     selected.forEach(token => {
       let actorData = duplicate(token.actor.data);
-      actorData.data.attributes.hp.value -= toApply;
+      actorData.system.attributes.hp.value -= toApply;
       token.actor.update(actorData);
     });
 
@@ -42,7 +42,7 @@ export class DamageApplicator {
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
       let actorData = duplicate(token.actor.data);
-      actorData.data.attributes.hp.value = Math.max(0, actorData.data.attributes.hp.value) + toApply;
+      actorData.system.attributes.hp.value = Math.max(0, actorData.data.attributes.hp.value) + toApply;
       token.actor.update(actorData);
     });
   }
@@ -52,7 +52,7 @@ export class DamageApplicator {
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
       let actorData = duplicate(token.actor.data);
-      let hp = actorData.data.attributes["hp"];
+      let hp = actorData.system.attributes["hp"];
       if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
       hp.temp = Math.max(hp.temp, toApply);
       token.actor.update(actorData);
