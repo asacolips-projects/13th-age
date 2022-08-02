@@ -452,12 +452,13 @@ export class ItemArchmage extends Item {
   getChatData(htmlOptions, skipInlineRolls) {
     const data = this[`_${this.data.type}ChatData`]();
     if (!skipInlineRolls) {
-      htmlOptions = foundry.utils.mergeObject(htmlOptions, { async: false});
+      htmlOptions = foundry.utils.mergeObject(htmlOptions ?? {}, { async: false});
       data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
     }
     return data;
   }
 
+  
   _powerChatData() {
     const data = duplicate(this.system);
     const tags = [
