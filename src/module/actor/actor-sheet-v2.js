@@ -89,7 +89,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Retrieve a list of locked fields due to AEs.
     context.actor.lockedFields = [];
     this.actor.effects.forEach(ae => {
-      const changes = ae.data.changes.map(c => c.key);
+      const changes = ae.changes.map(c => c.key);
       context.actor.lockedFields = context.actor.lockedFields.concat(changes);
     });
 
@@ -764,7 +764,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       // Execute the update.
       let updates = {};
-      updates[`data.icons.${iconIndex}.results`] = results;
+      updates[`system.icons.${iconIndex}.results`] = results;
       await this.actor.update(updates);
     }
   }
@@ -808,11 +808,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         let tier = dataset.tier ?? null;
         if (!tier) return;
         let isActive = item.system.feats[tier].isActive.value;
-        updateData[`data.feats.${tier}.isActive.value`] = !isActive;
+        updateData[`system.feats.${tier}.isActive.value`] = !isActive;
       }
       else if (item.type == "equipment") {
         let isActive = item.system.isActive;
-        updateData["data.isActive"] = !isActive;
+        updateData["system.isActive"] = !isActive;
       }
 
       await item.update(updateData, {});
