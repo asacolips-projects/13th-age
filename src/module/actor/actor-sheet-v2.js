@@ -474,7 +474,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    */
   async _onFormulaRoll(formula) {
     let roll = new Roll(formula, this.actor.getRollData());
-    await roll.roll();
+    await roll.roll({async: true});
     roll.toMessage();
   }
 
@@ -550,7 +550,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (actorData.icons[iconIndex]) {
       let icon = actorData.icons[iconIndex];
       let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = await roll.roll();
+      let result = await roll.roll({async: true});
 
       let fives = 0;
       let sixes = 0;

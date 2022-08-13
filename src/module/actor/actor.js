@@ -603,7 +603,7 @@ export class ActorArchmage extends Actor {
     }
     if (bonus != 0) formula = formula + "+" + bonus.toString();
     let roll = new Roll(formula);
-    let result = await roll.roll();
+    let result = await roll.roll({async: true});
 
     // Create the chat message title.
     let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
