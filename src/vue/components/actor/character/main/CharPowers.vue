@@ -185,7 +185,7 @@ export default {
       // let powers = this.actor.items.filter(i => i.type == 'power');
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
-        let powerData = power.data;
+        let powerData = power;
 
         // Handle the built-in group types.
         if (sortTypes.includes(this.groupBy)) {

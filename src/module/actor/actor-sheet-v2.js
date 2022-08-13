@@ -178,7 +178,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   // Update initial content throughout all editors.
   _updateEditors(html) {
     for (let [name, editor] of Object.entries(this.editors)) {
-      const data = this.object instanceof Document ? this.object.data : this.object;
+      // const data = this.object instanceof Document ? this.object.data : this.object;
+      const data = this.object;
       const initialContent = getProperty(data, name);
       const div = $(this.form).find(`.editor-content[data-edit="${name}"]`)[0];
       this.editors[name].initial = initialContent;
@@ -431,7 +432,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         break;
 
       case 'toggle':
-        return effect.update({disabled: !effect.data.disabled});
+        return effect.update({disabled: !effect.disabled});
     }
 
   }
@@ -512,7 +513,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let combat = game.combat;
     // Check to see if this actor is already in the combat.
     if (!combat) return;
-    let combatant = combat.data.combatants.find(c => c?.actor?.data?._id == this.actor.id);
+    let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
     // Create the combatant if needed.
     if (!combatant) {
       await this.actor.rollInitiative({createCombatants: true});
@@ -970,7 +971,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let powers = packData
         // Filter down the power items by id.
         .filter(p => {
-          return powerIds.includes(p.data._id)
+          return powerIds.includes(p._id)
         })
         // Prepare the items for saving.
         .map(p => {
