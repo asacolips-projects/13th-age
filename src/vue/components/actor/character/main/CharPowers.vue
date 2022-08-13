@@ -47,26 +47,26 @@
       <ul class="power-group-content flexcol">
         <li v-for="(power, powerKey) in powerGroups[groupKey]" :key="powerKey" :class="concat('item power-item power-item--', power._id)" :data-item-id="power._id" :data-draggable="draggable" :draggable="draggable">
           <!-- Clickable power header. -->
-          <div :class="concat('power-summary grid power-grid ', (power.data.powerUsage.value ? power.data.powerUsage.value : 'other'), (power.data.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
+          <div :class="concat('power-summary grid power-grid ', (power.system.powerUsage.value ? power.system.powerUsage.value : 'other'), (power.system.trigger.value ? ' power-summary--trigger' : ''), (activePowers[power._id] ? ' active' : ''))">
             <Rollable name="item" :hide-icon="true" type="item" :opt="power._id"><img :src="power.img" class="power-image"/></Rollable>
             <a class="power-name" v-on:click="togglePower" :data-item-id="power._id">
-              <h3 class="power-title unit-subtitle"><span v-if="power.data.powerLevel.value">[{{power.data.powerLevel.value}}] </span> {{power.name}}</h3>
+              <h3 class="power-title unit-subtitle"><span v-if="power.system.powerLevel.value">[{{power.system.powerLevel.value}}] </span> {{power.name}}</h3>
             </a>
             <div class="power-feat-pips" v-if="hasFeats(power)">
               <ul class="feat-pips">
-                <li v-for="(feat, tier) in filterFeats(power.data.feats)" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
+                <li v-for="(feat, tier) in filterFeats(power.system.feats)" :key="tier" :class="concat('feat-pip', (feat.isActive.value ? ' active' : ''))" :data-item-id="power._id" :data-tier="tier"><div class="hide">{{tier}}</div></li>
               </ul>
             </div>
-            <div class="power-action" v-if="power.data.actionType.value">{{getActionShort(power.data.actionType.value)}}</div>
-            <div class="power-recharge" v-if="power.data.recharge.value && power.data.powerUsage.value == 'recharge'">
-              <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.data.recharge.value) || 16}}+</Rollable>
+            <div class="power-action" v-if="power.system.actionType.value">{{getActionShort(power.system.actionType.value)}}</div>
+            <div class="power-recharge" v-if="power.system.recharge.value && power.system.powerUsage.value == 'recharge'">
+              <Rollable name="recharge" type="recharge" :opt="power._id">{{Number(power.system.recharge.value) || 16}}+</Rollable>
             </div>
-            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.data.quantity.value"><span v-if="power.data.quantity.value !== null">{{power.data.quantity.value}}</span></div>
+            <div class="power-uses" :data-item-id="power._id" :data-quantity="power.system.quantity.value"><span v-if="power.system.quantity.value !== null">{{power.system.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="power._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="power._id"><i class="fas fa-trash"></i></a>
             </div>
-            <div v-if="power.data.trigger.value" class="power-trigger"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.data.trigger.value}}</div>
+            <div v-if="power.system.trigger.value" class="power-trigger"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.system.trigger.value}}</div>
           </div>
           <!-- Expanded power content. -->
           <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
@@ -143,8 +143,8 @@ export default {
       else if (this.groupBy == 'group'){
         this.powers.forEach(i => {
           groups['power'] = 'Power';
-          if (i.data.group.value) {
-            let group = i.data.group.value;
+          if (i.system.group.value) {
+            let group = i.system.group.value;
             if (!group || group === undefined) {
               group = 'Power';
             }
@@ -185,7 +185,7 @@ export default {
       // let powers = this.actor.items.filter(i => i.type == 'power');
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
-        let powerData = power;
+        let powerData = power.system;
 
         // Handle the built-in group types.
         if (sortTypes.includes(this.groupBy)) {
@@ -222,8 +222,8 @@ export default {
      */
     hasFeats(power) {
       let hasFeats = false;
-      if (power.data && power.data && power.data.feats) {
-        for (let [tier, feat] of Object.entries(power.data.feats)) {
+      if (power && power.system && power.system.feats) {
+        for (let [tier, feat] of Object.entries(power.system.feats)) {
           if (feat.description.value || feat.isActive.value) {
             hasFeats = true;
             break;
@@ -281,10 +281,10 @@ export default {
       }
       else if (this.sortBy == 'level') {
         powers = powers.sort((a,b) => {
-          if (a.data.powerLevel.value < b.data.powerLevel.value) {
+          if (a.system.powerLevel.value < b.system.powerLevel.value) {
             return -1;
           }
-          if (a.data.powerLevel.value > b.data.powerLevel.value) {
+          if (a.system.powerLevel.value > b.system.powerLevel.value) {
             return 1;
           }
           return 0;
