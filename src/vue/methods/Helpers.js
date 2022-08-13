@@ -87,13 +87,13 @@ export function wrapRolls(text, replacements = []) {
     clean = clean.replaceAll(needle, replacement)
   };
   // Call TextEditor.enrichHTML to process remaining object links
-  clean = TextEditor.enrichHTML(clean)
+  clean = TextEditor.enrichHTML(clean, { async: false})
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
 
 export function getActor(actorData) {
-  if (actorData.token.actorLink || !actorData?.token?.sceneId) {
+  if (actorData.prototypeToken.actorLink || !actorData?.prototypeToken?.sceneId) {
     return game.actors.get(actorData._id);
   }
   else if (actorData.token?.id && actorData.token?.sceneId) {

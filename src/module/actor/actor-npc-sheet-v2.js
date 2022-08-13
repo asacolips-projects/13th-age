@@ -27,7 +27,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
 
   /** @override */
   get template() {
-    const type = this.actor.data.type;
+    const type = this.actor.type;
     return `systems/archmage/templates/actors/actor-${type}-sheet-vue.html`;
   }
 

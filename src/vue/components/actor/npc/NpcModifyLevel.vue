@@ -81,7 +81,7 @@
         // Create a preview actor that we can use for display.
         let previewActor = {
           name: this.actor.name,
-          data: duplicate(this.actor.data)
+          data: duplicate(this.actor)
         };
 
         // Update the fields.
