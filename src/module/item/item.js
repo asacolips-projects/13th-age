@@ -34,7 +34,7 @@ export class ItemArchmage extends Item {
     if (uses == null) {
       return this._roll_resource_check({});
     } else {
-      let updateData = {"data.quantity.value": Math.max(uses - 1, 0)};
+      let updateData = {"system.quantity.value": Math.max(uses - 1, 0)};
       if (uses == 0 && !event.shiftKey && this.type == "power"
         && this.system.powerUsage.value != 'at-will') {
         let use = false;
@@ -77,7 +77,7 @@ export class ItemArchmage extends Item {
         if (parsed[2] && parsed[2].toLowerCase().includes("command point")
             && res.perCombat.commandPoints.enabled) {
           let costNum = Number(parsed[1]);
-          let path = 'data.resources.perCombat.commandPoints.current';
+          let path = 'system.resources.perCombat.commandPoints.current';
           updateData[path] = res.perCombat.commandPoints.current - costNum;
           if (costNum > res.perCombat.commandPoints.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP");
@@ -89,7 +89,7 @@ export class ItemArchmage extends Item {
         else if (parsed[2] && parsed[2].toLowerCase().includes("ki")
             && this.actor.system.resources.spendable.ki.enabled) {
           let costNum = Number(parsed[1]);
-          let path = 'data.resources.spendable.ki.current';
+          let path = 'system.resources.spendable.ki.current';
           updateData[path] = res.spendable.ki.current - costNum;
           if (costNum > res.spendable.ki.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi");
@@ -99,7 +99,7 @@ export class ItemArchmage extends Item {
         }
         // Momentum
         else if (parsed[3] && res.perCombat.momentum.enabled) {
-          let path = 'data.resources.perCombat.momentum.current';
+          let path = 'system.resources.perCombat.momentum.current';
           if (parsed[3].toLowerCase() == "gain momentum") {
             updateData[path] = true;
           } else if (parsed[3].toLowerCase() == "spend momentum"
@@ -116,7 +116,7 @@ export class ItemArchmage extends Item {
         }
         // Focus
         else if (parsed[3] && res.perCombat.focus.enabled) {
-          let path = 'data.resources.perCombat.focus.current';
+          let path = 'system.resources.perCombat.focus.current';
           if (parsed[3].toLowerCase() == "gain focus") {
             updateData[path] = true;
           } else if (parsed[3].toLowerCase() == "focus") {
@@ -136,7 +136,7 @@ export class ItemArchmage extends Item {
             && res.spendable[resourcePathName].current !== null
             && resourceName.toLowerCase().includes(parsed[2].toLowerCase())) {
             let numUsed = Number(parsed[1]);
-            let path = `data.resources.spendable.${resourcePathName}.current`;
+            let path = `system.resources.spendable.${resourcePathName}.current`;
             updateData[path] = res.spendable[resourcePathName].current - numUsed;
             if (updateData[path] < 0) {
               let msg = game.i18n.localize("ARCHMAGE.UI.errNoCustomResource") + " ";
@@ -187,11 +187,11 @@ export class ItemArchmage extends Item {
     let numTargets = {targets: 1, rolls: []};
     if (this.type == "power" || this.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
-      overrideData = {"data.attack.value": attackLine};
+      overrideData = {"system.attack.value": attackLine};
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(this);
-        overrideData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
-        if (numTargets.targetLine) overrideData["data.target.value"] = numTargets.targetLine;
+        overrideData = {"system.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
+        if (numTargets.targetLine) overrideData["system.target.value"] = numTargets.targetLine;
       }
     }
     let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
@@ -205,7 +205,7 @@ export class ItemArchmage extends Item {
     const templateData = {
       actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
-      item: itemToRender.data,
+      item: itemToRender,
       data: itemToRender.getChatData({ rollData: rollData }, true)
     };
 
@@ -450,7 +450,7 @@ export class ItemArchmage extends Item {
   /* -------------------------------------------- */
 
   getChatData(htmlOptions, skipInlineRolls) {
-    const data = this[`_${this.data.type}ChatData`]();
+    const data = this[`_${this.type}ChatData`]();
     if (!skipInlineRolls) {
       htmlOptions = foundry.utils.mergeObject(htmlOptions ?? {}, { async: false});
       data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';

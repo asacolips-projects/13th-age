@@ -14,7 +14,7 @@ export default class HitEvaluation {
         let hasMissed = undefined;
 
         let defense = HitEvaluation._getTargetDefense(row_text);
-        let critRangeMin = 20 - attacker.data.data.attributes.critMod.atk.value;
+        let critRangeMin = 20 - attacker.system.attributes.critMod.atk.value;
 
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) return;
@@ -53,15 +53,15 @@ export default class HitEvaluation {
                     hasFumbled = true;
                   }
                   // Barbarian crit.
-                  else if (attacker?.data.data.details.detectedClasses?.includes("barbarian")
+                  else if (attacker?.system.details.detectedClasses?.includes("barbarian")
                     && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
                     && part.results[1].result > 10) {
                     $roll_self.addClass('dc-crit');
                     hasCrit = true;
                   }
                   // Natural 2, if dual-wielding.
-                  else if (attacker && attacker.data.type === 'character'
-                    && attacker.data.data.attributes.weapon.melee.dualwield
+                  else if (attacker && attacker.type === 'character'
+                    && attacker.system.attributes.weapon.melee.dualwield
                     && r.result === 2 && !r.discarded && !r.rerolled) {
                     $roll_self.addClass('dc-reroll');
                   }
@@ -135,7 +135,7 @@ export default class HitEvaluation {
     let res = "";
     for (let i = 0; i < targets.length; i++) {
       if (targetsSpecial[i]) res += "<b>"
-      res += targets[i].data.name;
+      res += targets[i].name;
       if (targetsSpecial[i]) res += "</b>"
       if (i+1 < targets.length) res += ", "
     }

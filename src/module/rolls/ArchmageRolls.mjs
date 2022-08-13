@@ -10,7 +10,7 @@ export default class ArchmageRolls {
       nlpMap[i.toString()] = i;
     }
 
-    if (item.data.type == "power") {
+    if (item.type == "power") {
       let targetLine = item.system.target.value;
       if (targetLine != null) {
         // First cleanup references to target HPs
@@ -47,7 +47,7 @@ export default class ArchmageRolls {
         }
       }
     }
-    else if (item.data.type == "action") {
+    else if (item.type == "action") {
       // Get text between brackets, that's where targets are stored
       let targetLine = /(\(.*\))/.exec(item.system.attack.value);
       if (targetLine != null) {
@@ -117,7 +117,7 @@ export default class ArchmageRolls {
       for (let i = 1; i < targetsCount; i++) {
         newAttackLine += ", " + roll;
       }
-      if (item.data.type == "action" && numTargets.rolls) {
+      if (item.type == "action" && numTargets.rolls) {
         numTargets.rolls.forEach(r => {
           // Embed pre-rolled targets
           vs = vs.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
