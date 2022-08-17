@@ -168,11 +168,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /** @override */
   async close(options={}) {
+    // Run the upstream close method.
+    const result = await super.close(options);
     // Unmount and clean up the vue app on close.
     this.vueApp.unmount();
     this.vueApp = null;
     this.vueRoot = null;
-    return super.close(options);
+    // Return the close response from earlier.
+    return result;
   }
 
   // Update initial content throughout all editors.
