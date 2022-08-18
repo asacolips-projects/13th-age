@@ -654,10 +654,10 @@ effects:
       statusId: hampered
 - _id: EbgcLOD473VyJvqj
   changes:
-  - key: data.attributes.escalation.value
+  - key: system.attributes.escalation.value
     mode: 5
     value: '0'
-  - key: data.attributes.attackMod.value
+  - key: system.attributes.attackMod.value
     mode: 2
     value: "-4"
   disabled: false
