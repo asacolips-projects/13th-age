@@ -16,7 +16,7 @@
           <input v-else type="number" name="system.attributes.hp.max" class="resource-max" v-model="actor.system.attributes.hp.max">
         </div>
         <div class="labeled-input flexrow">
-          <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
+          <label for="system.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
           <input type="number" name="system.attributes.hp.temp" class="temp-hp" v-model="actor.system.attributes.hp.temp">
         </div>
       </div>

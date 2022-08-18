@@ -60,12 +60,12 @@
     <div class="resource-divider" v-if="(resourceCount > 1 && customResourceCount > 0) || customResourceCount > 1"></div>
     <!-- Custom Resouces -->
     <section v-for="(resource, index) in customResources" :key="index" class="unit unit--custom">
-      <input type="text" :name="concat('data.resources.spendable.', index, '.label')" class="resource-title-input" v-model="resource.label"/>
+      <input type="text" :name="concat('system.resources.spendable.', index, '.label')" class="resource-title-input" v-model="resource.label"/>
       <Progress :name="index" :current="resource.current" :max="resource.max"/>
       <div class="resource flexrow">
-        <input type="number" :name="concat('data.resources.spendable.', index, '.current')" class="resource-current" v-model="resource.current">
+        <input type="number" :name="concat('system.resources.spendable.', index, '.current')" class="resource-current" v-model="resource.current">
         <span class="resource-separator">/</span>
-        <input type="number" :name="concat('data.resources.spendable.', index, '.max')" class="resource-max" v-model="resource.max">
+        <input type="number" :name="concat('system.resources.spendable.', index, '.max')" class="resource-max" v-model="resource.max">
       </div>
     </section>
   </section>

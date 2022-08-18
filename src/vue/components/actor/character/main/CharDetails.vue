@@ -1,6 +1,6 @@
 <template>
   <section :class="classes">
-    <Editor :owner="actor.owner" target='data.details.biography.value' button="true" editable="true" :content="actor.system.details.biography.value"/>
+    <Editor :owner="actor.owner" target='system.details.biography.value' button="true" editable="true" :content="actor.system.details.biography.value"/>
   </section>
 </template>
 
