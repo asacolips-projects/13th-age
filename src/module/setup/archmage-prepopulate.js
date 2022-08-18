@@ -141,7 +141,7 @@ export class ArchmagePrepopulate {
     let entries = await pack.getDocuments();
     let content = {};
     for (let i = 0; i < entries.length; i++) {
-      content[this.cleanClassName(entries[i].name)] = entries[i].content;
+      content[this.cleanClassName(entries[i].name)] = Array.from(entries[i].pages)[1]?.text?.content;
     }
     return content;
   }
