@@ -30,7 +30,7 @@
           <Input type="number" name="system.attributes.hp.max" class="resource-max" :actor="actor"/>
         </div>
         <div class="labeled-input flexrow">
-          <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
+          <label for="system.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
           <Input type="number" name="system.attributes.hp.temp" class="temp-hp" :actor="actor"/>
         </div>
       </div>

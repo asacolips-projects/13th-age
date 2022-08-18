@@ -1678,13 +1678,13 @@ export class ActorArchmage extends Actor {
     if (!mul) mul = Math.pow(1.25, delta);
     let overrideData = {
       'name': this.name+suffix,
-      'data.attributes.level.value': lvl,
-      'data.attributes.ac.value': Number(this.system.attributes.ac.value || 0) + delta,
-      'data.attributes.pd.value': Number(this.system.attributes.pd.value || 0) + delta,
-      'data.attributes.md.value': Number(this.system.attributes.md.value || 0) + delta,
-      'data.attributes.init.value': Number(this.system.attributes.init.value || 0) + delta,
-      'data.attributes.hp.value': Math.round(this.system.attributes.hp.value * mul),
-      'data.attributes.hp.max': Math.round(this.system.attributes.hp.max * mul),
+      'system.attributes.level.value': lvl,
+      'system.attributes.ac.value': Number(this.system.attributes.ac.value || 0) + delta,
+      'system.attributes.pd.value': Number(this.system.attributes.pd.value || 0) + delta,
+      'system.attributes.md.value': Number(this.system.attributes.md.value || 0) + delta,
+      'system.attributes.init.value': Number(this.system.attributes.init.value || 0) + delta,
+      'system.attributes.hp.value': Math.round(this.system.attributes.hp.value * mul),
+      'system.attributes.hp.max': Math.round(this.system.attributes.hp.max * mul),
     };
 
     // Create the new actor and save it.

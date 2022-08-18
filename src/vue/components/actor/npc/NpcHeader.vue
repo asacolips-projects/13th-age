@@ -15,8 +15,8 @@
       <section class="section section--details">
         <!-- Flavor text -->
         <div class="unit unit--hide-label unit--flavor">
-          <label for="data.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
-          <Editor :owner="actor.owner" target='data.details.flavor.value' button="true" editable="true" :content="actor.system.details.flavor.value"/>
+          <label for="system.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
+          <Editor :owner="actor.owner" target='system.details.flavor.value' button="true" editable="true" :content="actor.system.details.flavor.value"/>
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">
@@ -34,12 +34,12 @@
             <!-- Form inputs for creature details. -->
             <template v-slot:edit>
               <span class="unit unit--input">
-                <label for="data.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
+                <label for="system.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
                 <Input type="number" name="system.attributes.level.value" :actor="actor" reactive="false"/>
               </span>
               <!-- @todo write a migration to let this become a flat value -->
               <span class="unit unit--input">
-                <label for="data.attributes.init.value">{{localize('ARCHMAGE.initiative')}}</label>
+                <label for="system.attributes.init.value">{{localize('ARCHMAGE.initiative')}}</label>
                 <Input type="number" name="system.attributes.init.value" :actor="actor" reactive="false"/>
               </span>
               <Select name="system.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
@@ -50,12 +50,12 @@
         </div>
         <!-- Resistance -->
         <div class="unit unit--resistance flexrow">
-          <label for="data.details.resistance.value">{{localize('ARCHMAGE.resistance')}}: </label>
+          <label for="system.details.resistance.value">{{localize('ARCHMAGE.resistance')}}: </label>
           <input type="text" name="system.details.resistance.value" v-model="actor.system.details.resistance.value"/>
         </div>
         <!-- Vulnerability -->
         <div class="unit unit--vulnerability flexrow">
-          <label for="data.details.vulnerability.value">{{localize('ARCHMAGE.vulnerability')}}: </label>
+          <label for="system.details.vulnerability.value">{{localize('ARCHMAGE.vulnerability')}}: </label>
           <input type="text" name="system.details.vulnerability.value" v-model="actor.system.details.vulnerability.value"/>
         </div>
       </section>

@@ -194,7 +194,7 @@ export default {
     },
     getBonuses(actions) {
       let bonuses = {};
-      for (let [prop, value] of Object.entries(actions.data.attributes)) {
+      for (let [prop, value] of Object.entries(actions.system.attributes)) {
         if (value.bonus) {
           bonuses[prop] = value.bonus
         }
