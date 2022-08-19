@@ -138,7 +138,6 @@
         <!-- Ki -->
         <div v-for="(resource, r) in resourcesSpendable" :key="r" class="settings-resource" :data-key="r">
           <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
-          <input type="checkbox" :name="concat('system.resources.spendable.', r, '.enabled')" v-model="resource.enabled">
           <strong class="unit-subtitle">{{localize(concat('ARCHMAGE.CHARACTER.RESOURCES.', r))}}</strong>
         </div>
       </div>
