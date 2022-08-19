@@ -96,9 +96,9 @@ export function getActor(actorData) {
   if (actorData.prototypeToken.actorLink || !actorData?.prototypeToken?.sceneId) {
     return game.actors.get(actorData._id);
   }
-  else if (actorData.token?.id && actorData.token?.sceneId) {
-    const scene = game.scenes.get(actorData.token.sceneId);
-    const token = scene ? scene.tokens.get(actorData.token.id) : false;
+  else if (actorData.prototypeToken?.id && actorData.prototypeToken?.sceneId) {
+    const scene = game.scenes.get(actorData.prototypeToken.sceneId);
+    const token = scene ? scene.tokens.get(actorData.prototypeToken.id) : false;
     return token?.actor ?? false;
   }
   else if (actorData?.pack) {

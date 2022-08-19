@@ -68,8 +68,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Add token info if needed.
     if (this.actor?.token?.id) {
       if (!this.actor.token.actorLink && this.actor?.token?.id) {
-        context.actor.token.id = this.actor.token.id;
-        context.actor.token.sceneId = this.actor.token?.parent?.id;
+        context.actor.prototypeToken.id = this.actor.prototypeToken.id;
+        context.actor.prototypeToken.sceneId = this.actor.prototypeToken?.parent?.id;
       }
     }
 
