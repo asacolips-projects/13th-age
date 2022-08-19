@@ -21,7 +21,7 @@
             <div class="sheet-tabs-content">
               <!-- Ability Description -->
               <div class="tab" data-group="primary" data-tab="description">
-                  {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+                  {{editor data.description.value target="data.description.value" button=true owner=owner editable=editable}}
               </div>
 
               <!-- Ability Details -->
@@ -180,12 +180,12 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.special'}}</label>
-                      {{editor content=data.special.value target="data.special.value" button=true owner=owner editable=editable}}
+                      {{editor data.special.value target="data.special.value" button=true owner=owner editable=editable}}
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.effect'}}</label>
-                      {{editor content=data.effect.value target="data.effect.value" button=true owner=owner editable=editable}}
+                      {{editor data.effect.value target="data.effect.value" button=true owner=owner editable=editable}}
                   </div>
 
                   <div class="form-group">
@@ -253,7 +253,7 @@
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.adventurerDescription'}}</summary>
-                              {{editor content=data.feats.adventurer.description.value target="data.feats.adventurer.description.value" button=true owner=owner editable=editable}}
+                              {{editor data.feats.adventurer.description.value target="data.feats.adventurer.description.value" button=true owner=owner editable=editable}}
                           </details>
                       </div>
                       <div class="form-group">
@@ -263,7 +263,7 @@
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.championDescription'}}</summary>
-                              {{editor content=data.feats.champion.description.value target="data.feats.champion.description.value" button=true owner=owner editable=editable}}
+                              {{editor data.feats.champion.description.value target="data.feats.champion.description.value" button=true owner=owner editable=editable}}
                           </details>
                       </div>
                       <div class="form-group">
@@ -273,7 +273,7 @@
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.epicDescription'}}</summary>
-                              {{editor content=data.feats.epic.description.value target="data.feats.epic.description.value" button=true owner=owner editable=editable}}
+                              {{editor data.feats.epic.description.value target="data.feats.epic.description.value" button=true owner=owner editable=editable}}
                           </details>
                       </div>
                   </details>
