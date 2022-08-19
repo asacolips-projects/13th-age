@@ -1,7 +1,7 @@
 _id: '57eUiEVInl6uecB8'
 name: 'Orc Battle Screamer'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
 data:
   attributes:
     attackMod:
@@ -123,7 +123,7 @@ token:
   flags: {}
   name: 'Orc Battle Screamer'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
   tint: null
   width: 1
   height: 1

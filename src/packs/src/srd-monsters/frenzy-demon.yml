@@ -1,7 +1,7 @@
 _id: 'CGxhEoQh1hHZIeyz'
 name: 'Frenzy Demon'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Frenzy Demon'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
   width: 1
   height: 1
   scale: 1

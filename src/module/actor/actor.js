@@ -1226,6 +1226,21 @@ export class ActorArchmage extends Actor {
     }
   }
 
+  // TODO@cswendrowski: refactor this for v10
+  // Override default configuration by updating actor after creation
+  async _onCreate(data, options, user) {
+    // Set the default portrait and token image to the system's
+    if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']
+      && game.user.isGM) {
+      // Note: in cunjunction with the hook this propagates to the prototype token too
+      await this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
+    }
+    // For characters only default to linked token
+    if (this.type == "character") {
+      await this.update({token: {actorLink: true}});
+    }
+  }
+
   /**
    * Actor update hook
    *
@@ -1770,3 +1785,39 @@ function _scaleDice(exp, mul) {
   else if (!correction) return `${diceCnt}d${y}`;
   return `${diceCnt}d${y}+`+correction;
 }
+
+// TODO: move this code to _preUpdate and remove this once core plays nice
+Hooks.on('preUpdateActor', (document, data, options, id) => {
+  // Update default images on npc type change
+  if (data.data?.details?.type?.value
+    && document.type == "npc"
+    && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)
+    && CONFIG.ARCHMAGE.defaultMonsterTokens[data.data.details.type.value]) {
+    data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.data.details.type.value];
+  }
+  // Update the prototype token.
+  if (data.img || data.name) {
+    let tokenData = {};
+    // Propagate image update to token for default images
+    if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)) {
+      tokenData.img = data.img;
+      data.token = {img: data.img};
+    }
+    // Propagate name update to token if same as actor
+    if (data.name && document.name == document.data.token.name) {
+      data.token = {name: data.name};
+    }
+
+    // Update tokens.
+    let tokens = document.getActiveTokens();
+    tokens.forEach(token => {
+      if (token.actor != document) return;
+      let updateData = duplicate(tokenData);
+      // Propagate name update to token if same as actor
+      if (data.name && document.name == token.name) {
+        updateData.name = data.name;
+      }
+      token.document.update(updateData);
+    });
+  }
+});

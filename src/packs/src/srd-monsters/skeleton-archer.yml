@@ -1,7 +1,7 @@
 _id: 'PoYewLi15xnGKagd'
 name: 'Skeleton Archer'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
 data:
   attributes:
     attackMod:
@@ -100,7 +100,7 @@ data:
       type: 'String'
       label: 'Size'
     type:
-      value: "Undead\_"
+      value: "undead"
       type: 'String'
       label: 'Type'
     resistance:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Skeleton Archer'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
   width: 1
   height: 1
   scale: 1

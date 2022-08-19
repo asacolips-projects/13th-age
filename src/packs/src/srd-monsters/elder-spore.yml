@@ -1,7 +1,7 @@
 _id: 'RSkN7WrG1bs3oyHd'
 name: 'Elder Spore'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/plant.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Elder Spore'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/plant.webp'
   width: 1
   height: 1
   scale: 1

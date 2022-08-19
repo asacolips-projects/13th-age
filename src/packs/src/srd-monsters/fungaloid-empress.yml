@@ -1,7 +1,7 @@
 _id: 'WC7EFRm4qbrqwcNo'
 name: 'Fungaloid Empress'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/plant.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Fungaloid Empress'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/plant.webp'
   width: 1
   height: 1
   scale: 1

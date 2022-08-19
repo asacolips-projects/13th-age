@@ -1,7 +1,7 @@
 _id: 'L8N9oasC7gVZaPOi'
 name: 'Medium Red Dragon'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Medium Red Dragon'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp'
   width: 1
   height: 1
   scale: 1

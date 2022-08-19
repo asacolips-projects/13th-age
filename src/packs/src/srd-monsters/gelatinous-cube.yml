@@ -1,7 +1,7 @@
 _id: '2ZTQ3LrPDrlhr6in'
 name: 'Gelatinous Cube'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Gelatinous Cube'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
   width: 1
   height: 1
   scale: 1

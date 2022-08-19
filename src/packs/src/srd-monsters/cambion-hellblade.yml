@@ -1,7 +1,7 @@
 _id: 'sJFphooMtZVPJKd3'
 name: 'Cambion Hellblade'
 type: 'npc'
-img: 'icons/svg/mystery-man.svg'
+img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
 data:
   attributes:
     attackMod:
@@ -121,7 +121,7 @@ token:
   flags: {}
   name: 'Cambion Hellblade'
   displayName: 0
-  img: 'icons/svg/mystery-man.svg'
+  img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
   width: 1
   height: 1
   scale: 1
