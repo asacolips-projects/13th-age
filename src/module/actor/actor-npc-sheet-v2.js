@@ -109,7 +109,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
     // Default image.
     let img = CONFIG.ARCHMAGE.defaultTokens[itemType] ?? CONFIG.DEFAULT_TOKEN;
 
-    // Initialize data.
+    // Initialize data
     let data = {};
     if (typeof dataset == 'object') {
       for (let [k,v] of Object.entries(dataset)) {

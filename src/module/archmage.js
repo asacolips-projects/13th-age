@@ -320,7 +320,7 @@ Hooks.once('init', async function() {
     const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
     if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
-    else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
+    else parts.push((actor.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
   }
 });
@@ -788,27 +788,27 @@ Hooks.on('deleteCombat', (combat) => {
   $('.archmage-escalation').addClass('hide');
 
   // Clear out death saves, per combat resources and temp HP.
-  let combatants = combat.data.combatants;
+  let combatants = combat.combatants;
   if (combatants) {
     // Retrieve the character actors.
-    let actors = combatants.filter(c => c?.actor?.data?.type == 'character');
+    let actors = combatants.filter(c => c?.actor?.type == 'character');
     let updatedActors = {};
     // Iterate over the actors for updates.
     actors.forEach(async (a) => {
       // Only proceed if this combatant has an actor and hasn't been updated.
-      if (a.actor && !updatedActors[a.actor.data._id]) {
+      if (a.actor && !updatedActors[a.actor._id]) {
         // Retrieve the actor.
         let actor = a.actor;
         // Perform the update.
         if (actor) {
           let updates = {};
-          updates['data.attributes.saves.deathFails.value'] = 0;
-          updates['data.attributes.hp.temp'] = 0;
+          updates['system.attributes.saves.deathFails.value'] = 0;
+          updates['system.attributes.hp.temp'] = 0;
           for (let k of Object.keys(actor.system.resources.perCombat)) {
-            updates[`data.resources.perCombat.${k}.current`] = 0;
+            updates[`system.resources.perCombat.${k}.current`] = 0;
           }
           await actor.update(updates);
-          updatedActors[actor.data._id];
+          updatedActors[actor._id];
         }
       }
     });
@@ -816,22 +816,15 @@ Hooks.on('deleteCombat', (combat) => {
 });
 
 Hooks.on('createCombatant', (document, data, options, id) => {
-  // Retrieve the actor for this combatant.
-  let scene = document.parent?.data?.scene ? game.scenes.get(document.parent.data.scene) : null;
-  let tokens = scene ? scene.data.tokens : [];
-  let tokenId = document?.data?._source?.tokenId;
-  if (tokens && tokenId) {
-    let token = tokens.find(t => t.id == tokenId);
-    let actor = token ? game.actors.get(token.data.actorId) : null;
-    // Add command points at start of combat.
-    if (actor && actor.data.type == 'character') {
-      let updates = {};
-      let hasStrategist = actor.items.find(i => i.data.name.safeCSSId().includes('strategist'));
-      let basePoints = hasStrategist ? 2 : 1;
-      // TODO: Add support for Forceful Command.
-      updates['data.resources.perCombat.commandPoints.current'] = basePoints;
-      actor.update(updates);
-    }
+  let actor = document.actor;
+  // Add command points at start of combat.
+  if (actor && actor.type == 'character') {
+    let updates = {};
+    let hasStrategist = actor.items.find(i => i.system.name.safeCSSId().includes('strategist'));
+    let basePoints = hasStrategist ? 2 : 1;
+    // TODO: Add support for Forceful Command.
+    updates['system.resources.perCombat.commandPoints.current'] = basePoints;
+    actor.update(updates);
   }
 });
 

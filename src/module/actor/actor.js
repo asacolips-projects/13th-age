@@ -1789,11 +1789,11 @@ function _scaleDice(exp, mul) {
 // TODO: move this code to _preUpdate and remove this once core plays nice
 Hooks.on('preUpdateActor', (document, data, options, id) => {
   // Update default images on npc type change
-  if (data.data?.details?.type?.value
+  if (data.system?.details?.type?.value
     && document.type == "npc"
     && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)
-    && CONFIG.ARCHMAGE.defaultMonsterTokens[data.data.details.type.value]) {
-    data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.data.details.type.value];
+    && CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
+    data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value];
   }
   // Update the prototype token.
   if (data.img || data.name) {

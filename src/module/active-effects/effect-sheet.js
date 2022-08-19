@@ -56,7 +56,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     const effectData = this.getData();
     let changes = effectData?.data?.changes ? effectData.data.changes.map(c => c.toObject(false)) : [];
 
-    // Build an array of effects from the form data.
+    // Build an array of effects from the form data
     let newChanges = [
       // Attacks
       {
