@@ -91,7 +91,7 @@ export class ItemArchmageSheet extends ItemSheet {
     }
 
     // console.log(data);
-    data.data = data.data.data;
+    data.data = data.data.system;
     return data;
   }
 
