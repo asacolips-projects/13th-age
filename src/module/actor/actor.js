@@ -58,7 +58,7 @@ export class ActorArchmage extends Actor {
 
     // Prepare data, items, derived data, and effects.
     this.prepareBaseData();
-    this.prepareEmbeddedDocuments();
+    // this.prepareEmbeddedEntities();
 
     // Apply activeEffects in group 1 (most properties).
     this.applyActiveEffects('default');
@@ -110,10 +110,10 @@ export class ActorArchmage extends Actor {
    * @param {string} weight Determines which set of effects to apply.
    */
   applyActiveEffects(weight = 'default') {
-    const overrides = this.overrides ? foundry.utils.flattenObject(this.overrides): {};
+    const overrides = foundry.utils.flattenObject(this.overrides ?? {});
 
     // Extract non-disabled and relevant changes
-    let relevant = (c => {return true;});
+    let relevant = (c => {return c.value.disabled !== true;});
     switch (weight) {
       // Handle ability scores and base attributes.
       case 'pre':
@@ -133,7 +133,7 @@ export class ActorArchmage extends Actor {
         break;
       // Handle remaining active effects.
       case 'post':
-        relevant = (c => {return true;})
+        // Use the default filter function defined prior to the switch statement.
         break;
     }
     const changes = this.effects.reduce((changes, e) => {
@@ -207,7 +207,7 @@ export class ActorArchmage extends Actor {
       const result = change.effect.apply(this, change);
       // Remember we already applied change for everything but @ed and @std
       if ( result !== null && !change.key.includes('standardBonuses') && !change.key.includes('escalation')) {
-        overrides[change.key] = result;
+        overrides[change.key] = result[change.key];
       }
     }
 
@@ -217,6 +217,7 @@ export class ActorArchmage extends Actor {
 
   /** @inheritdoc */
   prepareEmbeddedEntities() {
+    // @todo is this still needed? Causes issues in v10.
     const embeddedTypes = this.constructor.metadata.embedded || {};
     for ( let cls of Object.values(embeddedTypes) ) {
       const collection = cls.metadata.collection;
