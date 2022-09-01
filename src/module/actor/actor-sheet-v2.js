@@ -691,7 +691,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onCommandRoll(dice) {
     let actor = this.actor;
     let roll = new Roll(dice, this.actor.getRollData());
-    await roll.roll();
+    await roll.roll({async: true});
 
     let pointsOld = actor.system.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;
