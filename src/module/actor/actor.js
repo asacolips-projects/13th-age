@@ -1222,7 +1222,11 @@ export class ActorArchmage extends Actor {
           strokeThickness: 4,
           duration: 3000
         };
-        token.hud.createScrollingText(delta.signedString()+" "+suffix, foundry.utils.mergeObject(textOptions, overrideOptions));
+        canvas.interface.createScrollingText(
+          token.center,
+          delta.signedString()+" "+suffix,
+          foundry.utils.mergeObject(textOptions, overrideOptions)
+        );
       }
     }
   }
