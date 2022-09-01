@@ -826,7 +826,7 @@ export class ActorArchmage extends Actor {
       const chatData = {
         user: game.user.id, speaker: {actor: this.id, token: this.token,
         alias: this.name, scene: game.user.viewedScene},
-        roll: new Roll("") // TODO: Refactor this, needed to silence an error in 0.8.x
+        // roll: new Roll("") // TODO: Refactor this, needed to silence an error in 0.8.x
       };
 
       // Toggle default roll mode
@@ -846,7 +846,7 @@ export class ActorArchmage extends Actor {
       roll = Roll.fromJSON(unescape(roll_html.data('roll')));
     } else {
       // Perform the roll ourselves
-      await roll.roll();
+      await roll.roll({async: true});
     }
 
     // If 3d dice are enabled, handle them
