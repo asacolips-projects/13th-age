@@ -9,7 +9,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       height: 550,
       tabs: [{navSelector: ".tabs", contentSelector: "form", initial: "effects"}],
       submitOnClose: true,
-      submitOnChange: true
+      submitOnChange: false
     });
   }
 
@@ -119,12 +119,12 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     ];
 
     // Update the existing changes to replace duplicates.
-    for (let change of changes) {
-      const newChange = newChanges.find(c => c.key == change.key);
+    for (let i = 0; i < changes.length; i++) {
+      const newChange = newChanges.find(c => c.key == changes[i].key);
       if (newChange) {
         // Replace with the new change and update the array to prevent duplicates.
-        change = newChange;
-        newChanges = newChanges.filter(c => c.key != change.key);
+        changes[i] = newChange;
+        newChanges = newChanges.filter(c => c.key != changes[i].key);
       }
     }
 
