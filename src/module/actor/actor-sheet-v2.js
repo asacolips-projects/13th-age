@@ -190,23 +190,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     }
   }
 
-  /** @override */
-  activateEditor(name, options={}, initialContent="") {
-    const editor = this.editors[name];
-    if ( !editor ) throw new Error(`${name} is not a registered editor name!`);
-    options = mergeObject(editor.options, options);
-    options.height = options.target.offsetHeight;
-    // Override initial content to pull from the editor, to avoid stale data.
-    initialContent = editor.initial;
-    TextEditor.create(options, initialContent).then(mce => {
-      editor.mce = mce;
-      editor.changed = false;
-      editor.active = true;
-      mce.focus();
-      mce.on('change', ev => editor.changed = true);
-    });
-  }
-
   /* ------------------------------------------------------------------------ */
   /*  Event Listeners ------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */

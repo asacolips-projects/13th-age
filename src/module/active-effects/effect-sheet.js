@@ -54,7 +54,9 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     // Retrieve the existing effects.
     const effectData = this.getData();
-    let changes = effectData?.data?.changes ? effectData.data.changes.map(c => c.toObject(false)) : [];
+    // @todo c.toObject(false) doesn't appear to be needed after v10, investigate
+    // if we can clean this up after v10 stable.
+    let changes = effectData?.data?.changes ? effectData.data.changes.map(c => typeof c.toObject !== 'undefined' ? c.toObject(false) : c) : [];
 
     // Build an array of effects from the form data
     let newChanges = [
