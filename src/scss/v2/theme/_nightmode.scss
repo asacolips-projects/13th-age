@@ -62,6 +62,15 @@ $bx-night: inset 0 0 100px 0 #191919;
       background-color: $ct-border-night !important;
     }
 
+    .section--attributes {
+      .unit--attributes {
+        span.defense-value,
+        div.resource-max {
+          border-color: $c-white;
+        }
+      }
+    }
+
     .unit,
     .power-filters,
     .equipment-filters,
