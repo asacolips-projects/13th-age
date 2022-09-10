@@ -58,12 +58,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Convert the actor data into a more usable version.
     let actorData = this.actor.toObject(false);
 
+    // Get drag data for later retrieval.
+    const dragData = this.actor.toDragData();
+    if (dragData.uuid.includes('Token.') && dragData.type !== 'Token') {
+      dragData.type = 'Token';
+    }
+
+    context.dragData = dragData;
+
     // Add to our data object that the sheet will use.
     context.actor = actorData;
     context.data = actorData.system;
     context.actor.owner = context.owner;
     context.actor._source = foundry.utils.deepClone(this.actor._source);
     context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
+    context.actor.dragData = context.dragData;
 
     // Add token info if needed.
     if (this.actor?.token?.id) {

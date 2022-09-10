@@ -155,8 +155,11 @@
         // Update the state.
         this.headerCollapsed = !this.headerCollapsed;
         // Set a flag.
-        const actor = !this.actor.pack ? getActor(this.actor) : false;
-        if (actor) actor.setFlag('archmage', `sheetDisplay.header.collapsed`, this.headerCollapsed);
+        if (!this.actor.pack) {
+          getActor(this.actor).then(actor => {
+            actor.setFlag('archmage', `sheetDisplay.header.collapsed`, this.headerCollapsed);
+          });
+        }
       },
       getOptions(key) {
         return CONFIG.ARCHMAGE[key] ?? [];

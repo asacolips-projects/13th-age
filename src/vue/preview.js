@@ -33,7 +33,6 @@ fetch('./template.json')
     context.data = context.actor.data;
 
     const hp = foundry.utils.getProperty(context.actor, 'system.attributes.hp.value');
-    console.log(hp);
 
     // Get the translation object.
     const i18n = new Localization('en');
@@ -58,8 +57,6 @@ fetch('./template.json')
         return content;
       }
     }
-
-    console.log(context.actor);
 
     createApp(ArchmageNpcSheet, {
       context: context,

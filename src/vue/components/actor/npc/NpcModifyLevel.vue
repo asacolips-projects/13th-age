@@ -103,24 +103,7 @@
     },
     methods: {
       autoLevelConfirm(event) {
-        if (this.actor?.pack) {
-          getActor(this.actor).then(actor => {
-            console.log(actor);
-            if (!actor) return;
-            // Prepare the delta and run the method.
-            let delta = this.newLevel - this.actor.system.attributes.level.value;
-            if (delta !== 0) {
-              actor.autoLevelActor(delta).then(newActor => {
-                newActor.setFlag('archmage', 'sheetDisplay.tabs.primary.value', 'actions').then(() => {
-                  newActor.sheet.render(true);
-                });
-              });
-            }
-          });
-        }
-        else {
-          const actor = getActor(this.actor);
-          console.log(actor);
+        getActor(this.actor).then(actor => {
           if (!actor) return;
           // Prepare the delta and run the method.
           let delta = this.newLevel - this.actor.system.attributes.level.value;
@@ -131,7 +114,7 @@
               });
             });
           }
-        }
+        });
       }
     }
   }
