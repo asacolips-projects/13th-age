@@ -442,7 +442,7 @@ export class ActorArchmage extends Actor {
         else toughness = Math.floor(toughness)
       }
 
-      data.attributes.hp.max = Math.floor((data.attributes.hp.base + data.abilities.con.nonKey.mod) * hpLevelModifier[level] + hpBonus + toughness);
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) * hpLevelModifier[level] + hpBonus + toughness);
     }
 
     // Recoveries
