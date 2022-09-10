@@ -14,19 +14,19 @@
 
             <div class="sheet-tabs-content">
               <div class="tab" data-group="primary" data-tab="description">
-                  {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+                  {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
               </div>
 
               <div class="tab" data-group="primary" data-tab="details">
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.price'}}</strong>
-                      <input name="data.price.value" type="text" value="{{data.price.value}}"
+                      <input name="system.price.value" type="text" value="{{system.price.value}}"
                           data-dtype="String" placeholder="1,000gp" />
                   </div>
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.active'}}</strong>
-                      <input type="checkbox" name="data.isActive" value="1" data-dtype="Boolean" {{checked data.isActive}} />
+                      <input type="checkbox" name="system.isActive" value="1" data-dtype="Boolean" {{checked system.isActive}} />
                   </div>
 
                   <div class="settings-group form-group">
@@ -35,25 +35,25 @@
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeAttackBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.attack.melee.bonus" type="text" value="{{data.attributes.attack.melee.bonus}}"
+                      <input class="attribute-input" name="system.attributes.attack.melee.bonus" type="text" value="{{system.attributes.attack.melee.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rangedAttackBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.attack.ranged.bonus" type="text" value="{{data.attributes.attack.ranged.bonus}}"
+                      <input class="attribute-input" name="system.attributes.attack.ranged.bonus" type="text" value="{{system.attributes.attack.ranged.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.divineAttackBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.attack.divine.bonus" type="text" value="{{data.attributes.attack.divine.bonus}}"
+                      <input class="attribute-input" name="system.attributes.attack.divine.bonus" type="text" value="{{system.attributes.attack.divine.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneAttackBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.attack.arcane.bonus" type="text" value="{{data.attributes.attack.arcane.bonus}}"
+                      <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
@@ -63,49 +63,49 @@
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.ac.bonus" type="text" value="{{data.attributes.ac.bonus}}"
+                      <input class="attribute-input" name="system.attributes.ac.bonus" type="text" value="{{system.attributes.ac.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.pdBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.pd.bonus" type="text" value="{{data.attributes.pd.bonus}}"
+                      <input class="attribute-input" name="system.attributes.pd.bonus" type="text" value="{{system.attributes.pd.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.mdBonus'}}</strong>
-                      <input class="attribute-input" name="data.attributes.md.bonus" type="text" value="{{data.attributes.md.bonus}}"
+                      <input class="attribute-input" name="system.attributes.md.bonus" type="text" value="{{system.attributes.md.bonus}}"
                           data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.hpBonus'}}</strong>
-                    <input class="attribute-input" name="data.attributes.hp.bonus" type="text" value="{{data.attributes.hp.bonus}}"
+                    <input class="attribute-input" name="system.attributes.hp.bonus" type="text" value="{{system.attributes.hp.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">Recoveries Bonus</strong>
-                    <input class="attribute-input" name="data.attributes.recoveries.bonus" type="text" value="{{data.attributes.recoveries.bonus}}"
+                    <input class="attribute-input" name="system.attributes.recoveries.bonus" type="text" value="{{system.attributes.recoveries.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">Save Bonus</strong>
-                    <input class="attribute-input" name="data.attributes.save.bonus" type="text" value="{{data.attributes.save.bonus}}"
+                    <input class="attribute-input" name="system.attributes.save.bonus" type="text" value="{{system.attributes.save.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">Save Bonus hp treshold</strong>
-                    <input class="attribute-input" name="data.attributes.save.threshold" type="text" value="{{data.attributes.save.threshold}}"
+                    <input class="attribute-input" name="system.attributes.save.threshold" type="text" value="{{system.attributes.save.threshold}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">Disengage Bonus</strong>
-                    <input class="attribute-input" name="data.attributes.disengage.bonus" type="text" value="{{data.attributes.disengage.bonus}}"
+                    <input class="attribute-input" name="system.attributes.disengage.bonus" type="text" value="{{system.attributes.disengage.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>
 
@@ -114,8 +114,8 @@
                   </div>
 
                   <div class="settings-group">
-                      <select class="attribute-input" name="data.chackra" data-type="String">
-                          {{#select data.chackra}}
+                      <select class="attribute-input" name="system.chackra" data-type="String">
+                          {{#select system.chackra}}
                           <option value="none">None</option>
                           <option value="armor" title="Default Bonus: Armor Class">Armor, robe, shirt, tunic</option>
                           <option value="arrow">Arrow, crossbow bolt, slingstone</option>
@@ -144,8 +144,8 @@
 
                   <div class="settings-group">
                     <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.powerUsage'}}</strong>
-                      <select name="data.powerUsage.value" data-dtype="{{data.powerUsage.type}}">
-                          {{#select data.powerUsage.value}}
+                      <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
+                          {{#select system.powerUsage.value}}
                           {{#each equipUsages as |name type|}}
                           <option value="{{type}}">{{name}}</option>
                           {{/each}}
@@ -155,20 +155,20 @@
 
                   <div class="settings-group">
                     <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.recharge'}}</strong>
-                    <input class="attribute-input" name="data.recharge.value" type="text" value="{{data.recharge.value}}"
-                        data-dtype="data.recharge.type" placeholder="Numbers only, such as '16'" />
+                    <input class="attribute-input" name="system.recharge.value" type="text" value="{{system.recharge.value}}"
+                        data-dtype="system.recharge.type" placeholder="Numbers only, such as '16'" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">Uses Remaining</strong>
-                    <input class="attribute-input" name="data.quantity.value" type="text" value="{{data.quantity.value}}"
-                        data-dtype="data.quantity.type" placeholder="Number of remaining uses, usually the same as Max Uses" />
+                    <input class="attribute-input" name="system.quantity.value" type="text" value="{{system.quantity.value}}"
+                        data-dtype="system.quantity.type" placeholder="Number of remaining uses, usually the same as Max Uses" />
                   </div>
 
                   <div class="settings-group">
                     <strong class="attribute-name">Max Uses</strong>
-                    <input class="attribute-input" name="data.maxQuantity.value" type="text" value="{{data.maxQuantity.value}}"
-                        data-dtype="data.maxQuantity.type" placeholder="Number of uses per battle/day, usually 1" />
+                    <input class="attribute-input" name="system.maxQuantity.value" type="text" value="{{system.maxQuantity.value}}"
+                        data-dtype="system.maxQuantity.type" placeholder="Number of uses per battle/day, usually 1" />
                   </div>
 
               </div>

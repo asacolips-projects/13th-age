@@ -1,8 +1,8 @@
 <template>
   <div class="editor-wrapper">
     <div class="editor">
-      <div class="editor-content" :data-edit="target" v-html="enrichHTML()"></div>
       <a class="editor-edit" v-if="canEdit"><i class="fas fa-edit"></i></a>
+      <div class="editor-content" :data-edit="target" v-html="enrichHTML()"></div>
     </div>
   </div>
 </template>
@@ -27,7 +27,8 @@ export default {
         documents: this.documents ?? true,
         links: this.links ?? true,
         rolls: this.rolls ?? true,
-        rollData: this.rollData ?? {}
+        rollData: this.rollData ?? {},
+        async: false
       });
       return editor;
     }

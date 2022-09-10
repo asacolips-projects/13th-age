@@ -7,9 +7,9 @@
     <div class="tab archmage-aip">
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
-            <input type="text" name="data.group.value" value="{{data.group.value}}" data-dtype="{{data.group.type}}" placeholder="Things with the same group will be grouped together"/>
+            <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="Things with the same group will be grouped together"/>
         </div>
 
-        {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+        {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
     </div>
 </form>

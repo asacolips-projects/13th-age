@@ -33,9 +33,9 @@
               <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
             </a>
             <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
-              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.data?.attack?.value" class="action-roll" v-html="wrapRolls(action.data.attack.value, attackReplacer)"></span>
-              <span v-if="action.data?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.data.hit.value)"></span>
-              <span v-if="action.type !== 'action' && action.data?.description?.value" v-html="action.data.description.value"></span>
+              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="wrapRolls(action.system.attack.value, attackReplacer)"></span>
+              <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.system.hit.value)"></span>
+              <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="action.system.description.value"></span>
             </span>
             <div class="item-controls">
               <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
@@ -143,7 +143,7 @@ export default {
       if (action.type == 'action') {
         const fields = ['hit1', 'hit2', 'hit3', 'miss', 'description'];
         for (let field of fields) {
-          if (action.data[field]?.value) {
+          if (action.system[field]?.value) {
             result = true;
           }
         }
@@ -194,7 +194,7 @@ export default {
     },
     getBonuses(actions) {
       let bonuses = {};
-      for (let [prop, value] of Object.entries(actions.data.attributes)) {
+      for (let [prop, value] of Object.entries(actions.system.attributes)) {
         if (value.bonus) {
           bonuses[prop] = value.bonus
         }

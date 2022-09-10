@@ -1,0 +1,21 @@
+.quote {
+  &.icon {
+    h1 {
+      font-size: 30px;
+      text-align: left;;
+    }
+
+    .content {
+      font-size: 28px;
+      font-style: italic;
+      color: #911A1D;
+      margin-top: 10px;
+
+      > span {
+        color: #48307C;
+        font-weight: bold;
+      }
+    }
+  }
+
+}

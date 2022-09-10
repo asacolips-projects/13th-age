@@ -32,13 +32,13 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       }
     }
 
-    for ( const change of effect.data.changes ) {
-      if ( change.key === "data.attributes.escalation.value" ) continue;
+    for ( const change of effect.effect.changes ) {
+      if ( change.key === "system.attributes.escalation.value" ) continue;
       setValue(effect, change.key, change.value);
     }
 
-    const edChange = effect.data.changes.find(x => x.key === "data.attributes.escalation.value");
-    effect.data.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
+    const edChange = effect.effect.changes.find(x => x.key === "system.attributes.escalation.value");
+    //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
     return effect;
   }
@@ -54,66 +54,68 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     // Retrieve the existing effects.
     const effectData = this.getData();
-    let changes = effectData?.data?.changes ? effectData.data.changes.map(c => c.toObject(false)) : [];
+    // @todo c.toObject(false) doesn't appear to be needed after v10, investigate
+    // if we can clean this up after v10 stable.
+    let changes = effectData?.data?.changes ? effectData.data.changes.map(c => typeof c.toObject !== 'undefined' ? c.toObject(false) : c) : [];
 
-    // Build an array of effects from the form data.
+    // Build an array of effects from the form data
     let newChanges = [
       // Attacks
       {
-        key: "data.attributes.attack.melee.bonus",
-        value: formData.data.attributes.attack.melee.bonus,
+        key: "system.attributes.attack.melee.bonus",
+        value: formData.system.attributes.attack.melee.bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.attack.ranged.bonus",
-        value: formData.data.attributes.attack.ranged.bonus,
+        key: "system.attributes.attack.ranged.bonus",
+        value: formData.system.attributes.attack.ranged.bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.attack.divine.bonus",
-        value: formData.data.attributes.attack.divine.bonus,
+        key: "system.attributes.attack.divine.bonus",
+        value: formData.system.attributes.attack.divine.bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.attack.arcane.bonus",
-        value: formData.data.attributes.attack.arcane.bonus,
+        key: "system.attributes.attack.arcane.bonus",
+        value: formData.system.attributes.attack.arcane.bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
 
       // Defenses
       {
-        key: "data.attributes.ac.value",
-        value: formData.data.attributes.ac.value,
+        key: "system.attributes.ac.value",
+        value: formData.system.attributes.ac.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.md.value",
-        value: formData.data.attributes.md.value,
+        key: "system.attributes.md.value",
+        value: formData.system.attributes.md.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.pd.value",
-        value: formData.data.attributes.pd.value,
+        key: "system.attributes.pd.value",
+        value: formData.system.attributes.pd.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.hp.value",
-        value: formData.data.attributes.hp.value,
+        key: "system.attributes.hp.value",
+        value: formData.system.attributes.hp.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.recoveries.value",
-        value: formData.data.attributes.recoveries.value,
+        key: "system.attributes.recoveries.value",
+        value: formData.system.attributes.recoveries.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.save.value",
-        value: formData.data.attributes.save.value,
+        key: "system.attributes.save.value",
+        value: formData.system.attributes.save.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "data.attributes.disengage",
-        value: formData.data.attributes.disengage,
+        key: "system.attributes.disengage",
+        value: formData.system.attributes.disengage,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
     ];
@@ -131,9 +133,9 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     // Apply the combined effect changes.
     ae.changes = changes.concat(newChanges);
 
-    if ( formData.data.blockedFromEscalationDie ) {
+    if ( formData.system.blockedFromEscalationDie ) {
       ae.changes.push({
-        key: 'data.attributes.escalation.value',
+        key: 'system.attributes.escalation.value',
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
         value: '0'
       });

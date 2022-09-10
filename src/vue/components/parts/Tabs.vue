@@ -38,8 +38,11 @@ export default {
       }
 
       // Update the flag.
-      const actor = !this.actor.pack ? getActor(this.actor) : false;
-      if (actor) actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
+      if (!this.actor.pack) {
+        getActor(this.actor).then(actor => {
+          actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
+        });
+      }
     },
     getTabClass(tab, index) {
       return `tab-link tab-link--${index}${tab.active ? ' active': ''}`;

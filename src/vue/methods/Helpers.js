@@ -87,24 +87,18 @@ export function wrapRolls(text, replacements = []) {
     clean = clean.replaceAll(needle, replacement)
   };
   // Call TextEditor.enrichHTML to process remaining object links
-  clean = TextEditor.enrichHTML(clean)
+  clean = TextEditor.enrichHTML(clean, { async: false})
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
 
-export function getActor(actorData) {
-  if (actorData.token.actorLink || !actorData?.token?.sceneId) {
-    return game.actors.get(actorData._id);
-  }
-  else if (actorData.token?.id && actorData.token?.sceneId) {
-    const scene = game.scenes.get(actorData.token.sceneId);
-    const token = scene ? scene.tokens.get(actorData.token.id) : false;
-    return token?.actor ?? false;
-  }
-  else if (actorData?.pack) {
-    const pack = game.packs.get(actorData.pack);
-    const actor = pack.getDocument(actorData._id);
-    return actor;
-  }
-  return false;
+export async function getActor(actorData) {
+  // If no drag data is available, we can't retrieve the actor.
+  if (!actorData?.dragData?.uuid) return false;
+
+  // Async load the actor/token from the UUID.
+  const document = await fromUuid(actorData.dragData.uuid);
+
+  // If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
+  return document?.actor ?? document;
 }

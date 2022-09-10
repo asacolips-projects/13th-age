@@ -79,7 +79,7 @@ export class ArchmagePrepopulate {
       let racePack = await game.packs.find(p => p.metadata.name == 'races');
       let pack = await racePack.getDocuments();
       for (let entry of pack) {
-        let sourceName = entry.data.data?.powerSourceName?.value ?? entry.data.data.group.value;
+        let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;
         let raceNamesArray = sourceName.split('/').map(n => this.cleanClassName(n));
         if (raceNamesArray.includes(cleanRace)) {
           if (cleanRace in content) {
@@ -115,7 +115,7 @@ export class ArchmagePrepopulate {
       let key = "Multiclass Feats";
       let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
       let powers = pack.filter(e => {
-        let sourceName = e.data.data?.powerSourceName?.value ?? e.data.data.group.value;
+        let sourceName = e.system?.powerSourceName?.value ?? e.system.group.value;
         return classes.includes(this.cleanClassName(sourceName))
       });
       if (powers.length > 0) {content[key] = {name: key, content: powers};}
@@ -141,7 +141,7 @@ export class ArchmagePrepopulate {
     let entries = await pack.getDocuments();
     let content = {};
     for (let i = 0; i < entries.length; i++) {
-      content[this.cleanClassName(entries[i].data.name)] = entries[i].data.content;
+      content[this.cleanClassName(entries[i].name)] = Array.from(entries[i].pages)[1]?.text?.content;
     }
     return content;
   }
@@ -209,14 +209,14 @@ export class ArchmagePrepopulate {
         return 0;
       }
       let aSort = [
-        a.data.data.powerType.value,
-        a.data.data.powerLevel.value,
-        a.data.name
+        a.system.powerType.value,
+        a.system.powerLevel.value,
+        a.name
       ];
       let bSort = [
-        b.data.data.powerType.value,
-        b.data.data.powerLevel.value,
-        b.data.name
+        b.system.powerType.value,
+        b.system.powerLevel.value,
+        b.name
       ];
       return sortTest(aSort[0], bSort[0]) || sortTest(aSort[1], bSort[1]) || sortTest(aSort[2], bSort[2]);
     })
@@ -228,13 +228,13 @@ export class ArchmagePrepopulate {
       });
 
       return {
-        uuid: p.data._id,
-        title: p.data.name,
-        usage: p.data.data.powerUsage.value,
-        usageClass: p.data.data.powerUsage.value ? this.getPowerClasses(p.data.data.powerUsage.value)[0] : 'other',
-        powerType: p.data.data.powerType.value,
-        level: p.data.data.powerLevel.value,
-        powerData: p.data,
+        uuid: p._id,
+        title: p.name,
+        usage: p.system.powerUsage.value,
+        usageClass: p.system.powerUsage.value ? this.getPowerClasses(p.system.powerUsage.value)[0] : 'other',
+        powerType: p.system.powerType.value,
+        level: p.system.powerLevel.value,
+        powerData: p,
         powerCard: chatData,
       };
     });

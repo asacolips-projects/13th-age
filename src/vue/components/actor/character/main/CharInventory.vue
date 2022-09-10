@@ -4,7 +4,7 @@
     <section class="equipment-currency flexrow">
       <div v-for="(type) in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
         <h2 class="unit-title">{{localize(concat('ARCHMAGE.COINS.', type))}}</h2>
-        <input type="number" :name="concat('data.coins.', type, '.value')" class="currency-input" v-model="actor.data.coins[type].value" placeholder="0">
+        <input type="number" :name="concat('system.coins.', type, '.value')" class="currency-input" v-model="actor.system.coins[type].value" placeholder="0">
       </div>
     </section>
     <!-- Sorts and filters. -->
@@ -53,20 +53,20 @@
             </a>
             <div class="equipment-feat-pips" v-if="groupKey === 'equipment'">
               <ul class="feat-pips">
-                <li :class="concat('feat-pip', (equipment.data.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.data.isActive}}</div></li>
+                <li :class="concat('feat-pip', (equipment.system.isActive ? ' active' : ''))" :data-item-id="equipment._id"><div class="hide">{{equipment.system.isActive}}</div></li>
               </ul>
             </div>
-            <div class="equipment-bonus flexrow" v-if="equipment.data.attributes">
+            <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
               <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                 <span class="bonus-label">{{bonusProp}} </span>
                 <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
               </span>
             </div>
-            <div class="equipment-chakra" v-if="equipment.data.chackra">{{equipment.data.chackra}}</div>
-            <div class="equipment-recharge" v-if="equipment.data.recharge && equipment.data.recharge.value && equipment.data.powerUsage.value == 'recharge'">
-              <Rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.data.recharge.value) || 16}}+</Rollable>
+            <div class="equipment-chakra" v-if="equipment.system.chackra">{{equipment.system.chackra}}</div>
+            <div class="equipment-recharge" v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'">
+              <Rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.system.recharge.value) || 16}}+</Rollable>
             </div>
-            <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.data.quantity.value"><span>{{equipment.data.quantity.value}}</span></div>
+            <div class="equipment-quantity" :data-item-id="equipment._id" :data-quantity="equipment.system.quantity.value"><span>{{equipment.system.quantity.value}}</span></div>
             <div class="item-controls">
               <a class="item-control item-edit" :data-item-id="equipment._id"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" :data-item-id="equipment._id"><i class="fas fa-trash"></i></a>
@@ -177,7 +177,7 @@ export default {
       if (this.searchValue) {
         equipment = equipment.filter(i => {
           let needle = this.cleanClassName(this.searchValue);
-          let haystack = `${i.name}${i.data.chackra ? i.data.chackra : ''}`;
+          let haystack = `${i.name}${i.system.chackra ? i.system.chackra : ''}`;
 
           if (i.type == 'equipment') {
             let bonuses = this.getBonuses(i);
@@ -212,7 +212,7 @@ export default {
     },
     getBonuses(equipment) {
       let bonuses = {};
-      for (let [prop, value] of Object.entries(equipment.data.attributes)) {
+      for (let [prop, value] of Object.entries(equipment.system.attributes)) {
         if (value.bonus) {
           bonuses[prop] = value.bonus
         }

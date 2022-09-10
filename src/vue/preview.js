@@ -25,15 +25,14 @@ fetch('./template.json')
     // Initialize the empty actor.
     const actorTemplates = new Actor(data);
 
-    // Add the sample actor data.
+    // Add the sample actor data
     const npcJson = await fetch('./vue/content/sample-npc.json');
     const npcActor = await npcJson.json();
 
     context.actor = mergeObject(actorTemplates.actors.npc, npcActor);
     context.data = context.actor.data;
 
-    const hp = foundry.utils.getProperty(context.actor, 'data.attributes.hp.value');
-    console.log(hp);
+    const hp = foundry.utils.getProperty(context.actor, 'system.attributes.hp.value');
 
     // Get the translation object.
     const i18n = new Localization('en');
@@ -58,8 +57,6 @@ fetch('./template.json')
         return content;
       }
     }
-
-    console.log(context.actor);
 
     createApp(ArchmageNpcSheet, {
       context: context,

@@ -61,6 +61,7 @@ export default {
       // TODO: Localize
       return label
           .replace("data.attributes", "")
+          .replace("system.attributes", "")
           .replace("attack", "Attack")
           .replace("arcane", "Arcane")
           .replace("divine", "Divine")
