@@ -483,7 +483,8 @@ Hooks.on("renderSettings", async (app, html) => {
   if (showTours) {
     let tourGuide = new TourGuide();
     await tourGuide.registerTours();
-    tourGuide.startNewFeatureTours();
+    // @todo fix tours for v10
+    // tourGuide.startNewFeatureTours();
   }
 });
 
