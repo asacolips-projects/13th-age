@@ -1,4 +1,5 @@
 name: archmage
+id: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
 version: 1.21.0
 authors:
@@ -10,8 +11,13 @@ authors:
     discord: Legofed3#6471
 
 description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
-minimumCoreVersion: 9
-compatibleCoreVersion: 9
+minimumCoreVersion: 10
+compatibleCoreVersion: 10
+
+compatibility:
+  minimum: 10
+  verified: 10.285
+  maximum: 11
 
 esmodules:
   - module/archmage.js
