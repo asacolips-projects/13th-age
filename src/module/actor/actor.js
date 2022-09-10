@@ -1732,7 +1732,7 @@ export class ActorArchmage extends Actor {
         if (!parsed) continue;
         let newAtk = `[[d20+${parseInt(parsed[1])+delta}`;
         if (!parsed[2].includes("]]")) newAtk += "]]";
-        itemOverrideData['data.attack.value'] = newAtk + parsed[2];
+        itemOverrideData['system.attack.value'] = newAtk + parsed[2];
       }
       if (item.type == 'action' || item.type == 'trait' || item.type == 'nastierSpecial') {
         // Multiply damage
@@ -1752,7 +1752,7 @@ export class ActorArchmage extends Actor {
               newValue = newValue.slice(0, index)+newValue.slice(index).replace(orig, newDmg);
               offset -= (newDmg.length - orig.length);
             });
-            itemOverrideData[`data.${key}.value`] = newValue;
+            itemOverrideData[`system.${key}.value`] = newValue;
           }
         }
       }
