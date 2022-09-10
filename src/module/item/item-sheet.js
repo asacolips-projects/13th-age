@@ -45,21 +45,21 @@ export class ItemArchmageSheet extends ItemSheet {
    * @return {undefined}
    */
   async getData(options) {
-    const data = super.getData(options);
+    const context = super.getData(options);
 
     // Sequencer support
-    data.sequencerEnabled = game.modules.get("sequencer")?.active;
+    context.sequencerEnabled = game.modules.get("sequencer")?.active;
 
     // Power-specific data
     if (this.item.type === 'power') {
-      data['powerSources'] = CONFIG.ARCHMAGE.powerSources;
-      data['powerTypes'] = CONFIG.ARCHMAGE.powerTypes;
-      data['powerUsages'] = CONFIG.ARCHMAGE.powerUsages;
-      data['actionTypes'] = CONFIG.ARCHMAGE.actionTypes;
+      context['powerSources'] = CONFIG.ARCHMAGE.powerSources;
+      context['powerTypes'] = CONFIG.ARCHMAGE.powerTypes;
+      context['powerUsages'] = CONFIG.ARCHMAGE.powerUsages;
+      context['actionTypes'] = CONFIG.ARCHMAGE.actionTypes;
     }
     // Equipment-specific data
     else if (this.item.type === 'equipment') {
-      data['equipUsages'] = CONFIG.ARCHMAGE.equipUsages;
+      context['equipUsages'] = CONFIG.ARCHMAGE.equipUsages;
     }
 
     if (this.actor) {
@@ -67,10 +67,10 @@ export class ItemArchmageSheet extends ItemSheet {
 
       if (this.actor.type === 'character') {
         // Pass general character data.
-        powerClass = this.actor.data.data.details.class.value.toLowerCase();
+        powerClass = this.actor.system.details.class.value.toLowerCase();
       }
 
-      let powerLevel = this.actor.data.data.details.level.value;
+      let powerLevel = this.actor.system.details.level.value;
       let powerLevelString = '';
 
       for (let i = 1; i <= powerLevel; i++) {
@@ -86,13 +86,12 @@ export class ItemArchmageSheet extends ItemSheet {
         }
       }
 
-      data['powerClass'] = powerClass;
-      data['powerLevel'] = powerLevelString;
+      context['powerClass'] = powerClass;
+      context['powerLevel'] = powerLevelString;
     }
 
-    // console.log(data);
-    data.data = data.data.data;
-    return data;
+    context.system = context.data.system;
+    return context;
   }
 
   _getHeaderButtons() {

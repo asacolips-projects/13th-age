@@ -3,7 +3,7 @@
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="equipment-details flexcol">
       <div class="equipment-detail">
-        <span class="equipment-detail-value" v-html="equipment.data.description.value"></span>
+        <span class="equipment-detail-value" v-html="equipment.system.description.value"></span>
       </div>
     </section>
   </section>

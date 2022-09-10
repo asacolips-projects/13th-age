@@ -33,7 +33,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /** @override */
   get template() {
-    const type = this.actor.data.type;
+    const type = this.actor.type;
     return `systems/archmage/templates/actors/actor-${type}-sheet-vue.html`;
   }
 
@@ -56,20 +56,29 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     };
 
     // Convert the actor data into a more usable version.
-    let actorData = this.actor.data.toObject(false);
+    let actorData = this.actor.toObject(false);
+
+    // Get drag data for later retrieval.
+    const dragData = this.actor.toDragData();
+    if (dragData.uuid.includes('Token.') && dragData.type !== 'Token') {
+      dragData.type = 'Token';
+    }
+
+    context.dragData = dragData;
 
     // Add to our data object that the sheet will use.
     context.actor = actorData;
-    context.data = actorData.data;
+    context.data = actorData.system;
     context.actor.owner = context.owner;
-    context.actor._source = foundry.utils.deepClone(this.actor.data._source.data);
+    context.actor._source = foundry.utils.deepClone(this.actor._source);
     context.actor.overrides = foundry.utils.flattenObject(this.actor.overrides);
+    context.actor.dragData = context.dragData;
 
     // Add token info if needed.
     if (this.actor?.token?.id) {
       if (!this.actor.token.actorLink && this.actor?.token?.id) {
-        context.actor.token.id = this.actor.token.id;
-        context.actor.token.sceneId = this.actor.token?.parent?.id;
+        context.actor.prototypeToken.id = this.actor.prototypeToken.id;
+        context.actor.prototypeToken.sceneId = this.actor.prototypeToken?.parent?.id;
       }
     }
 
@@ -89,7 +98,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Retrieve a list of locked fields due to AEs.
     context.actor.lockedFields = [];
     this.actor.effects.forEach(ae => {
-      const changes = ae.data.changes.map(c => c.key);
+      const changes = ae.changes.map(c => c.key);
       context.actor.lockedFields = context.actor.lockedFields.concat(changes);
     });
 
@@ -181,29 +190,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   // Update initial content throughout all editors.
   _updateEditors(html) {
     for (let [name, editor] of Object.entries(this.editors)) {
-      const data = this.object instanceof Document ? this.object.data : this.object;
+      // const data = this.object instanceof Document ? this.object.data : this.object;
+      const data = this.object;
       const initialContent = getProperty(data, name);
       const div = $(this.form).find(`.editor-content[data-edit="${name}"]`)[0];
       this.editors[name].initial = initialContent;
       this.editors[name].options.target = div;
     }
-  }
-
-  /** @override */
-  activateEditor(name, options={}, initialContent="") {
-    const editor = this.editors[name];
-    if ( !editor ) throw new Error(`${name} is not a registered editor name!`);
-    options = mergeObject(editor.options, options);
-    options.height = options.target.offsetHeight;
-    // Override initial content to pull from the editor, to avoid stale data.
-    initialContent = editor.initial;
-    TextEditor.create(options, initialContent).then(mce => {
-      editor.mce = mce;
-      editor.changed = false;
-      editor.active = true;
-      mce.focus();
-      mce.on('change', ev => editor.changed = true);
-    });
   }
 
   /* ------------------------------------------------------------------------ */
@@ -448,7 +441,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         break;
 
       case 'toggle':
-        return effect.update({disabled: !effect.data.disabled});
+        return effect.update({disabled: !effect.disabled});
     }
 
   }
@@ -490,7 +483,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    */
   async _onFormulaRoll(formula) {
     let roll = new Roll(formula, this.actor.getRollData());
-    await roll.roll();
+    await roll.roll({async: true});
     roll.toMessage();
   }
 
@@ -529,7 +522,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let combat = game.combat;
     // Check to see if this actor is already in the combat.
     if (!combat) return;
-    let combatant = combat.data.combatants.find(c => c?.actor?.data?._id == this.actor.id);
+    let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
     // Create the combatant if needed.
     if (!combatant) {
       await this.actor.rollInitiative({createCombatants: true});
@@ -561,12 +554,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * @returns object | Chat message
    */
   async _onIconRoll(iconIndex) {
-    let actorData = this.actor.data.data;
+    let actorData = this.actor.system;
 
     if (actorData.icons[iconIndex]) {
       let icon = actorData.icons[iconIndex];
       let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = await roll.roll();
+      let result = await roll.roll({async: true});
 
       let fives = 0;
       let sixes = 0;
@@ -690,9 +683,9 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onCommandRoll(dice) {
     let actor = this.actor;
     let roll = new Roll(dice, this.actor.getRollData());
-    await roll.roll();
+    await roll.roll({async: true});
 
-    let pointsOld = actor.data.data.resources.perCombat.commandPoints.current;
+    let pointsOld = actor.system.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;
 
     await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
@@ -745,7 +738,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (dataset.opt) {
       let count = Number(dataset.opt);
-      if (count == this.actor.data.data.attributes.saves[saveType].value) {
+      if (count == this.actor.system.attributes.saves[saveType].value) {
         count = Math.max(0, count - 1);
       }
       let updateData = {};
@@ -775,12 +768,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       }
 
       // Retrieve the original results array, replace this die result.
-      let results = this.actor.data.data.icons[iconIndex].results;
+      let results = this.actor.system.icons[iconIndex].results;
       results[resultIndex] = value;
 
       // Execute the update.
       let updates = {};
-      updates[`data.icons.${iconIndex}.results`] = results;
+      updates[`system.icons.${iconIndex}.results`] = results;
       await this.actor.update(updates);
     }
   }
@@ -795,14 +788,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     let item = this.actor.items.get(itemId);
     if (item) {
-      if (item.data.data?.quantity?.value == null) return;
+      if (item.system?.quantity?.value == null) return;
       // Update the quantity.
-      let newQuantity = Number(item.data.data.quantity.value) ?? 0;
+      let newQuantity = Number(item.system.quantity.value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
       // TODO: Refactor the fallback to not be absurdly high after maxQuantity
       // has become regularly used.
-      let maxQuantity = item.data.data?.maxQuantity?.value ?? 99;
+      let maxQuantity = item.system?.maxQuantity?.value ?? 99;
 
       await item.update({'data.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
@@ -823,12 +816,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       if (item.type == "power") {
         let tier = dataset.tier ?? null;
         if (!tier) return;
-        let isActive = item.data.data.feats[tier].isActive.value;
-        updateData[`data.feats.${tier}.isActive.value`] = !isActive;
+        let isActive = item.system.feats[tier].isActive.value;
+        updateData[`system.feats.${tier}.isActive.value`] = !isActive;
       }
       else if (item.type == "equipment") {
-        let isActive = item.data.data.isActive;
-        updateData["data.isActive"] = !isActive;
+        let isActive = item.system.isActive;
+        updateData["system.isActive"] = !isActive;
       }
 
       await item.update(updateData, {});
@@ -924,8 +917,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /*  Import Powers --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
   async _importPowers(event) {
-    let characterRace = this.actor.data.data.details.race.value;
-    let characterClasses = this.actor.data.data.details.detectedClasses ?? [];
+    let characterRace = this.actor.system.details.race.value;
+    let characterClasses = this.actor.system.details.detectedClasses ?? [];
     let prepop = new ArchmagePrepopulate();
     let classResults = await prepop.renderDialog(characterClasses, characterRace);
     if (!classResults) {
@@ -987,7 +980,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let powers = packData
         // Filter down the power items by id.
         .filter(p => {
-          return powerIds.includes(p.data._id)
+          return powerIds.includes(p._id)
         })
         // Prepare the items for saving.
         .map(p => {

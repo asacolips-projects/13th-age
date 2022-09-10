@@ -9,18 +9,18 @@ export class ItemArchmage extends Item {
 
   prepareDerivedData() {
     super.prepareDerivedData();
-    if (!this.data.img || this.data.img == CONFIG.DEFAULT_TOKEN) {
-      if (CONFIG.ARCHMAGE.defaultTokens[this.data.type]) {
-        this.data.img = CONFIG.ARCHMAGE.defaultTokens[this.data.type];
+    if (!this.img || this.img == CONFIG.DEFAULT_TOKEN) {
+      if (CONFIG.ARCHMAGE.defaultTokens[this.type]) {
+        this.img = CONFIG.ARCHMAGE.defaultTokens[this.type];
       }
       else {
-        this.data.img = CONST.DEFAULT_TOKEN;
+        this.img = CONST.DEFAULT_TOKEN;
       }
     }
 
-    if (this.data.type == 'loot' || this.data.type == 'tool') {
-      let model = game.system.model.Item[this.data.type];
-      if (!this.data.data.quantity) this.data.data.quantity = model.quantity;
+    if (this.type == 'loot' || this.type == 'tool') {
+      let model = game.system.model.Item[this.type];
+      if (!this.system.quantity) this.system.quantity = model.quantity;
     }
   }
 
@@ -30,13 +30,13 @@ export class ItemArchmage extends Item {
    */
   async roll() {
     // Update uses left
-    let uses = this.data.data.quantity?.value;
+    let uses = this.system.quantity?.value;
     if (uses == null) {
       return this._roll_resource_check({});
     } else {
-      let updateData = {"data.quantity.value": Math.max(uses - 1, 0)};
+      let updateData = {"system.quantity.value": Math.max(uses - 1, 0)};
       if (uses == 0 && !event.shiftKey && this.type == "power"
-        && this.data.data.powerUsage.value != 'at-will') {
+        && this.system.powerUsage.value != 'at-will') {
         let use = false;
         new Dialog({
           title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
@@ -66,18 +66,18 @@ export class ItemArchmage extends Item {
 
   async _roll_resource_check(itemUpdateData) {
     // Decrease resources if cost is set
-    let cost = this.data.data.cost?.value;
+    let cost = this.system.cost?.value;
     let updateData = {}
     if (cost && game.settings.get("archmage", "automatePowerCost")) {
       let filter = /^(-*[0-9]*) ([a-zA-Z ]+)|([a-zA-Z ]+)$/;
       let parsed = filter.exec(cost);
-      let res = this.actor.data.data.resources;
+      let res = this.actor.system.resources;
       if (parsed) {
         // Command points
         if (parsed[2] && parsed[2].toLowerCase().includes("command point")
             && res.perCombat.commandPoints.enabled) {
           let costNum = Number(parsed[1]);
-          let path = 'data.resources.perCombat.commandPoints.current';
+          let path = 'system.resources.perCombat.commandPoints.current';
           updateData[path] = res.perCombat.commandPoints.current - costNum;
           if (costNum > res.perCombat.commandPoints.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP");
@@ -87,9 +87,9 @@ export class ItemArchmage extends Item {
         }
         // Ki
         else if (parsed[2] && parsed[2].toLowerCase().includes("ki")
-            && this.actor.data.data.resources.spendable.ki.enabled) {
+            && this.actor.system.resources.spendable.ki.enabled) {
           let costNum = Number(parsed[1]);
-          let path = 'data.resources.spendable.ki.current';
+          let path = 'system.resources.spendable.ki.current';
           updateData[path] = res.spendable.ki.current - costNum;
           if (costNum > res.spendable.ki.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi");
@@ -99,7 +99,7 @@ export class ItemArchmage extends Item {
         }
         // Momentum
         else if (parsed[3] && res.perCombat.momentum.enabled) {
-          let path = 'data.resources.perCombat.momentum.current';
+          let path = 'system.resources.perCombat.momentum.current';
           if (parsed[3].toLowerCase() == "gain momentum") {
             updateData[path] = true;
           } else if (parsed[3].toLowerCase() == "spend momentum"
@@ -116,7 +116,7 @@ export class ItemArchmage extends Item {
         }
         // Focus
         else if (parsed[3] && res.perCombat.focus.enabled) {
-          let path = 'data.resources.perCombat.focus.current';
+          let path = 'system.resources.perCombat.focus.current';
           if (parsed[3].toLowerCase() == "gain focus") {
             updateData[path] = true;
           } else if (parsed[3].toLowerCase() == "focus") {
@@ -136,7 +136,7 @@ export class ItemArchmage extends Item {
             && res.spendable[resourcePathName].current !== null
             && resourceName.toLowerCase().includes(parsed[2].toLowerCase())) {
             let numUsed = Number(parsed[1]);
-            let path = `data.resources.spendable.${resourcePathName}.current`;
+            let path = `system.resources.spendable.${resourcePathName}.current`;
             updateData[path] = res.spendable[resourcePathName].current - numUsed;
             if (updateData[path] < 0) {
               let msg = game.i18n.localize("ARCHMAGE.UI.errNoCustomResource") + " ";
@@ -185,13 +185,13 @@ export class ItemArchmage extends Item {
     // Replicate attack rolls as needed for attacks
     let overrideData = {};
     let numTargets = {targets: 1, rolls: []};
-    if (this.data.type == "power" || this.data.type == "action") {
+    if (this.type == "power" || this.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
-      overrideData = {"data.attack.value": attackLine};
+      overrideData = {"system.attack.value": attackLine};
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(this);
-        overrideData = {"data.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
-        if (numTargets.targetLine) overrideData["data.target.value"] = numTargets.targetLine;
+        overrideData = {"system.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
+        if (numTargets.targetLine) overrideData["system.target.value"] = numTargets.targetLine;
       }
     }
     let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
@@ -200,12 +200,12 @@ export class ItemArchmage extends Item {
     let rollData = itemToRender.actor.getRollData(this);
 
     // Basic template rendering data
-    const template = `systems/archmage/templates/chat/${this.data.type.toLowerCase()}-card.html`
+    const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const token = itemToRender.actor.token;
     const templateData = {
       actor: itemToRender.actor,
       tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
-      item: itemToRender.data,
+      item: itemToRender,
       data: itemToRender.getChatData({ rollData: rollData }, true)
     };
 
@@ -236,15 +236,15 @@ export class ItemArchmage extends Item {
 
     // this line causes deprecation warnings due to missing asyinc= for rolls
     // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content = TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
+    chatData.content =await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
 
     let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
-      type: this.data.type,
+      type: this.type,
       actor: this.actor,
       token: token,
-      powerLevel: this.data.data.powerLevel?.value,
-      sequencer: this.data.data.sequencer
+      powerLevel: this.system.powerLevel?.value,
+      sequencer: this.system.sequencer
     }, null);
 
     // If 3d dice are enabled, handle them first.
@@ -305,8 +305,8 @@ export class ItemArchmage extends Item {
       sequencerAnim.play();
     }
 
-    if (!isObjectEmpty(itemUpdateData)) this.update(itemUpdateData, {});
-    if (!isObjectEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+    if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
+    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
 
     // Handle Monk AC bonus
     //TODO: remove dependency on times-up once core Foundry handles AE expiry
@@ -325,19 +325,19 @@ export class ItemArchmage extends Item {
    */
   async recharge({createMessage=true}={}) {
     // Only update for recharge powers/items.
-    if (!this.data.data?.powerUsage?.value == 'recharge') return;
+    if (!this.system?.powerUsage?.value == 'recharge') return;
 
     // And only if recharge is feasible
     // if (recharge <= 0 || recharge > 20) return;
 
     // If a recharge power does not have a recharge value, assume 16+
-    let recharge = Number(this.data.data?.recharge?.value) || 16;
+    let recharge = Number(this.system?.recharge?.value) || 16;
 
     let actor = this.actor;
-    let maxQuantity = this.data.data?.maxQuantity?.value ?? 1;
-    let currQuantity = this.data.data?.quantity?.value ?? 0;
+    let maxQuantity = this.system?.maxQuantity?.value ?? 1;
+    let currQuantity = this.system?.quantity?.value ?? 0;
     if (maxQuantity - currQuantity <= 0) return;
-    let rechAttempts = this.data.data?.rechargeAttempts?.value ?? 0;
+    let rechAttempts = this.system?.rechargeAttempts?.value ?? 0;
 
     let roll = new Roll('d20');
     await roll.roll();
@@ -364,7 +364,7 @@ export class ItemArchmage extends Item {
 
       const templateData = {
         actor: actor,
-        title: this.data.name,
+        title: this.name,
         tokenId: token ? `${token.id}` : null,
         success: rechargeSuccessful,
         data: chatData,
@@ -404,11 +404,11 @@ export class ItemArchmage extends Item {
    * Check if we are rolling a monk form, add related AC active effect
    */
   async _handleMonkAC() {
-    if (this.data.type != "power") return;
-    if (!this.actor.data.data.details.detectedClasses?.includes("monk")) return;
+    if (this.type != "power") return;
+    if (!this.actor.system.details.detectedClasses?.includes("monk")) return;
 
     let effects = this.actor.effects;
-    let group = this.data.data.group.value.toLowerCase();
+    let group = this.system.group.value.toLowerCase();
     let bonusMagnitudeMap = {};
     bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
     bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;
@@ -450,15 +450,17 @@ export class ItemArchmage extends Item {
   /* -------------------------------------------- */
 
   getChatData(htmlOptions, skipInlineRolls) {
-    const data = this[`_${this.data.type}ChatData`]();
+    const data = this[`_${this.type}ChatData`]();
     if (!skipInlineRolls) {
+      htmlOptions = foundry.utils.mergeObject(htmlOptions ?? {}, { async: false});
       data.description.value = data.description.value !== undefined ? TextEditor.enrichHTML(data.description.value, htmlOptions) : '';
     }
     return data;
   }
 
+  
   _powerChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     const tags = [
       {
         label: game.i18n.localize('ARCHMAGE.CHAT.actionType'),
@@ -478,7 +480,7 @@ export class ItemArchmage extends Item {
       },
       {
         label: data.powerLevel !== undefined ? data.powerLevel.label : 'Level',
-        value: game.i18n.localize('ARCHMAGE.level') + ' ' + (data.powerLevel !== undefined ? data.powerLevel.value : this.actor.data.data.details.level.value)
+        value: game.i18n.localize('ARCHMAGE.level') + ' ' + (data.powerLevel !== undefined ? data.powerLevel.value : this.actor.system.details.level.value)
       }
     ];
 
@@ -563,32 +565,32 @@ export class ItemArchmage extends Item {
   }
 
   _equipmentChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     return data;
   }
 
   _actionChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     return data;
   }
 
   _traitChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     return data;
   }
 
   _nastierSpecialChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     return data;
   }
 
   _toolChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     return data;
   }
 
   _lootChatData() {
-    const data = duplicate(this.data.data);
+    const data = duplicate(this.system);
     return data;
   }
 

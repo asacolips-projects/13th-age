@@ -1,48 +1,33 @@
-export class OneDotEightTour {
+import {FeatureTour} from "./feature-tour.mjs";
+
+export class OneDotEightTour extends FeatureTour {
     constructor() {
-        let tour = introJs()
-
-        tour.onexit(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.17.0");
+        super({
+          title: "1.8.0",
+          description: "Overview of 1.8.0 features",
+          canBeResumed: true,
+          display: true,
+          version: "1.8.0",
+          steps: [
+            {
+              content: "ARCHMAGE.TOURS.180.welcome"
+            },
+            {
+              selector: '.fa-atlas',
+              content: "ARCHMAGE.TOURS.180.monkCompendium"
+            },
+            {
+              selector: '.fa-fist-raised',
+              content: "ARCHMAGE.TOURS.180.escalationDie"
+            },
+            {
+              selector: '.fa-cogs',
+              content: "ARCHMAGE.TOURS.180.tierShorthand"
+            },
+            {
+              content: "ARCHMAGE.TOURS.180.end"
+            },
+          ]
         });
-        tour.oncomplete(function() {
-          game.settings.set("archmage", "lastTourVersion", "1.8.0");
-        });
-
-        tour.setOption('tooltipPosition', 'auto');
-        tour.setOption('positionPrecedence', ['right', 'left', 'top', 'bottom']);
-        tour.setOption('showProgress', true);
-
-        tour.setOptions({
-            steps: [
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.180.welcome")
-              },
-              {
-                element: document.querySelector('.fa-atlas'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.180.monkCompendium"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('.fa-fist-raised'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.180.escalationDie"),
-                position: 'bottom'
-              },
-              {
-                element: document.querySelector('.fa-cogs'),
-                intro: game.i18n.localize("ARCHMAGE.TOURS.180.tierShorthand"),
-                position: 'bottom'
-              },
-              {
-                intro: game.i18n.localize("ARCHMAGE.TOURS.180.end")
-              },
-            ]
-          });
-
-        this.tour = tour;
-    }
-
-    start() {
-        this.tour.start();
     }
 }

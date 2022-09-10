@@ -1,7 +1,5 @@
 import { ARCHMAGE, FLAGS } from './setup/config.js';
 import { ActorArchmage } from './actor/actor.js';
-import { ActorArchmageSheet } from './actor/actor-sheet.js';
-import { ActorArchmageNPCSheetLegacy } from './actor/actor-npc-sheet.js';
 import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
@@ -115,15 +113,9 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet('core', ActorSheet);
 
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
-    label: "V2 NPC Sheet",
+    label: "NPC Sheet",
     types: ["npc"],
     makeDefault: true
-  });
-
-  Actors.registerSheet("archmage", ActorArchmageNPCSheetLegacy, {
-    label: "Legacy NPC Sheet",
-    types: ["npc"],
-    makeDefault: false
   });
 
   // V2 actor sheet (See issue #118).
@@ -315,12 +307,12 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = function() {
     const actor = this.actor;
     if (!actor) return "1d20";
-    const init = actor.data.data.attributes.init.mod;
+    const init = actor.system.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
     const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
     if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
-    else parts.push((actor.data.type === 'npc' ? 0.01 : 0));
+    else parts.push((actor.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
   }
 });
@@ -450,28 +442,25 @@ Hooks.once('ready', () => {
   });
 
   // Wait to register the hotbar macros until ready.
-  Hooks.on("hotbarDrop", (bar, data, slot) => createArchmageMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    if (['Item'].includes(data.type)) {
+      createArchmageMacro(data, slot);
+      return false;
+    }
+  });
 
   $('.message').off("contextmenu");
 });
 
 /* ---------------------------------------------- */
 
-Hooks.on("renderSettings", (app, html) => {
+Hooks.on("renderSettings", async (app, html) => {
   let button = $(`<button id="archmage-reference-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
     ev.preventDefault();
     new ArchmageReference().render(true);
-  });
-
-  // Reset Tours
-  let players = html.find("button[data-action='players']");
-  $(`<button data-action="resettours"><i class="fas fa-hiking" aria-hidden="true"></i>Reset Feature Tours</button>`).insertAfter(players);
-  html.find('button[data-action="resettours"]').click(ev => {
-    game.settings.set("archmage", "lastTourVersion", "0.0.0");
-    location.reload();
   });
 
   let helpButton = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
@@ -493,7 +482,9 @@ Hooks.on("renderSettings", (app, html) => {
 
   if (showTours) {
     let tourGuide = new TourGuide();
-    tourGuide.startNewFeatureTours();
+    await tourGuide.registerTours();
+    // @todo fix tours for v10
+    // tourGuide.startNewFeatureTours();
   }
 });
 
@@ -540,7 +531,7 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 
   // If there's an actor, set the token size.
   if (actor) {
-    let size = actor.data.data.details.size?.value;
+    let size = actor.system.details.size?.value;
     if (size == 'large' && data.height == 1 && data.width == 1) {
       data.height = 2;
       data.width = 2;
@@ -622,6 +613,10 @@ Hooks.on('dropCanvasData', (canvas, data) => {
   // For conditions just toggle the effect
   return token._object.toggleEffect(statusEffect);
 
+});
+
+Hooks.on("renderJournalSheet", async (app, html, data) => {
+  app._element[0].classList.add("archmage-v2");
 });
 
 /* ---------------------------------------------- */
@@ -791,27 +786,27 @@ Hooks.on('deleteCombat', (combat) => {
   $('.archmage-escalation').addClass('hide');
 
   // Clear out death saves, per combat resources and temp HP.
-  let combatants = combat.data.combatants;
+  let combatants = combat.combatants;
   if (combatants) {
     // Retrieve the character actors.
-    let actors = combatants.filter(c => c?.actor?.data?.type == 'character');
+    let actors = combatants.filter(c => c?.actor?.type == 'character');
     let updatedActors = {};
     // Iterate over the actors for updates.
     actors.forEach(async (a) => {
       // Only proceed if this combatant has an actor and hasn't been updated.
-      if (a.actor && !updatedActors[a.actor.data._id]) {
+      if (a.actor && !updatedActors[a.actor._id]) {
         // Retrieve the actor.
         let actor = a.actor;
         // Perform the update.
         if (actor) {
           let updates = {};
-          updates['data.attributes.saves.deathFails.value'] = 0;
-          updates['data.attributes.hp.temp'] = 0;
-          for (let k of Object.keys(actor.data.data.resources.perCombat)) {
-            updates[`data.resources.perCombat.${k}.current`] = 0;
+          updates['system.attributes.saves.deathFails.value'] = 0;
+          updates['system.attributes.hp.temp'] = 0;
+          for (let k of Object.keys(actor.system.resources.perCombat)) {
+            updates[`system.resources.perCombat.${k}.current`] = 0;
           }
           await actor.update(updates);
-          updatedActors[actor.data._id];
+          updatedActors[actor._id];
         }
       }
     });
@@ -819,22 +814,15 @@ Hooks.on('deleteCombat', (combat) => {
 });
 
 Hooks.on('createCombatant', (document, data, options, id) => {
-  // Retrieve the actor for this combatant.
-  let scene = document.parent?.data?.scene ? game.scenes.get(document.parent.data.scene) : null;
-  let tokens = scene ? scene.data.tokens : [];
-  let tokenId = document?.data?._source?.tokenId;
-  if (tokens && tokenId) {
-    let token = tokens.find(t => t.id == tokenId);
-    let actor = token ? game.actors.get(token.data.actorId) : null;
-    // Add command points at start of combat.
-    if (actor && actor.data.type == 'character') {
-      let updates = {};
-      let hasStrategist = actor.items.find(i => i.data.name.safeCSSId().includes('strategist'));
-      let basePoints = hasStrategist ? 2 : 1;
-      // TODO: Add support for Forceful Command.
-      updates['data.resources.perCombat.commandPoints.current'] = basePoints;
-      actor.update(updates);
-    }
+  let actor = document.actor;
+  // Add command points at start of combat.
+  if (actor && actor.type == 'character') {
+    let updates = {};
+    let hasStrategist = actor.items.find(i => i.system.name.safeCSSId().includes('strategist'));
+    let basePoints = hasStrategist ? 2 : 1;
+    // TODO: Add support for Forceful Command.
+    updates['system.resources.perCombat.commandPoints.current'] = basePoints;
+    actor.update(updates);
   }
 });
 
@@ -865,7 +853,7 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
         levelHalf: {
           label: 'level_half',
           name: '1/2 Level',
-          formula: actor.data.data.attributes.level !== undefined ? Math.floor(actor.data.data.attributes.level.value / 2) : 0
+          formula: actor.system.attributes.level !== undefined ? Math.floor(actor.system.attributes.level.value / 2) : 0
         },
         escalation: {
           label: 'escalation',
@@ -894,10 +882,10 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
 
   // Replace the ability attributes in the calculator with custom formulas.
   let levelMultiplier = 1;
-  if (actor.data.data.attributes.level.value >= 5) {
+  if (actor.system.attributes.level.value >= 5) {
     levelMultiplier = 2;
   }
-  if (actor.data.data.attributes.level.value >= 8) {
+  if (actor.system.attributes.level.value >= 8) {
     levelMultiplier = 3;
   }
 
@@ -924,40 +912,69 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
  * @returns {Promise}
  */
 async function createArchmageMacro(data, slot) {
+  // First, determine if this is a valid owned item.
   if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
-  const item = data.data;
+  if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
+    return ui.notifications.warn("You can only create macro buttons for owned Items");
+  }
+  // If it is, retrieve it based on the uuid.
+  const item = await Item.fromDropData(data);
 
   // Create the macro command
   const command = `game.archmage.rollItemMacro("${item.name}");`;
-  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
+  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command) && m.author.isSelf);
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
       type: "script",
       img: item.img,
       command: command,
-      flags: { "archmage.itemMacro": true }
+      flags: {
+        "archmage.itemMacro": true,
+        "archmage.itemUuid": data.uuid
+      }
     });
   }
+
   game.user.assignHotbarMacro(macro, slot);
-  return false;
 }
 
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemName
+ * @param {string} itemData
  * @return {Promise}
  */
-function rollItemMacro(itemName) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor;
-  if (speaker.token) actor = game.actors.tokens[speaker.token];
-  if (!actor) actor = game.actors.get(speaker.actor);
-  const item = actor ? actor.items.find(i => i.name === itemName) : null;
-  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+function rollItemMacro(itemData) {
+  // Reconstruct the drop data so that we can load the item.
+  // @todo this section isn't currently used, the name section below is used.
+  if (itemData.includes('Actor.') || itemData.includes('Token.')) {
+    const dropData = {
+      type: 'Item',
+      uuid: itemData
+    };
+    Item.fromDropData(dropData).then(item => {
+      // Determine if the item loaded and if it's an owned item.
+      if (!item || !item.parent) {
+        const itemName = item?.name ?? itemData;
+        return ui.notifications.warn(`Could not find item ${itemName}. You may need to delete and recreate this macro.`);
+      }
 
-  // Trigger the item roll
-  return item.roll();
+      // Trigger the item roll
+      item.roll();
+    });
+  }
+  // Load item by name from the actor.
+  else {
+    const speaker = ChatMessage.getSpeaker();
+    const itemName = itemData;
+    let actor;
+    if (speaker.token) actor = game.actors.tokens[speaker.token];
+    if (!actor) actor = game.actors.get(speaker.actor);
+    const item = actor ? actor.items.find(i => i.name === itemName) : null;
+    if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+
+    // Trigger the item roll
+    return item.roll();
+  }
 }

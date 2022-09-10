@@ -10,8 +10,8 @@ export default class ArchmageRolls {
       nlpMap[i.toString()] = i;
     }
 
-    if (item.data.type == "power") {
-      let targetLine = item.data.data.target.value;
+    if (item.type == "power") {
+      let targetLine = item.system.target.value;
       if (targetLine != null) {
         // First cleanup references to target HPs
         let lineToParse = targetLine.replace(/[0-9]+ hp/g, '');
@@ -40,16 +40,16 @@ export default class ArchmageRolls {
           if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
             || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
             || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")
-            || item.data.data?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
+            || item.system?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
             ) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
       }
     }
-    else if (item.data.type == "action") {
+    else if (item.type == "action") {
       // Get text between brackets, that's where targets are stored
-      let targetLine = /(\(.*\))/.exec(item.data.data.attack.value);
+      let targetLine = /(\(.*\))/.exec(item.system.attack.value);
       if (targetLine != null) {
         targetLine = targetLine[0];
         // First check for rolls
@@ -79,7 +79,7 @@ export default class ArchmageRolls {
 
   static addAttackMod(item) {
     // Add @atk.mod modifier to the first inline roll, if it isn't 0
-    let attackLine = item.data.data.attack.value;
+    let attackLine = item.system.attack.value;
     let atkMod = item.actor.getRollData().atk.mod;
     if (atkMod) {
       let match = /(\[\[.+?\]\])/.exec(attackLine);
@@ -103,7 +103,7 @@ export default class ArchmageRolls {
     }
 
     // Handle the special case of the Crescendo spell
-    if (item.data.data?.special?.value?.toLowerCase().includes(
+    if (item.system?.special?.value?.toLowerCase().includes(
       game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())) {
         newAttackLine = ArchmageRolls._handleCrescendo(newAttackLine);
       }
@@ -117,7 +117,7 @@ export default class ArchmageRolls {
       for (let i = 1; i < targetsCount; i++) {
         newAttackLine += ", " + roll;
       }
-      if (item.data.type == "action" && numTargets.rolls) {
+      if (item.type == "action" && numTargets.rolls) {
         numTargets.rolls.forEach(r => {
           // Embed pre-rolled targets
           vs = vs.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)

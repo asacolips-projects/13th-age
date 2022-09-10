@@ -12,16 +12,16 @@
   <section class="section section--level-preview grid grid-3col">
     <ul class="preview-rows flexcol">
       <li>
-        <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.data.attributes.hp.value}} / {{preview.data.attributes.hp.max}} ({{numberFormat(preview.data.attributes.hp.max - actor.data.attributes.hp.max, 0, true)}})</span>
+        <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.system.attributes.hp.value}} / {{preview.system.attributes.hp.max}} ({{numberFormat(preview.system.attributes.hp.max - actor.system.attributes.hp.max, 0, true)}})</span>
       </li>
       <li>
-        <strong>{{localize('ARCHMAGE.ac.key')}}: </strong><span>{{preview.data.attributes.ac.value}} ({{numberFormat(preview.data.attributes.ac.value - actor.data.attributes.ac.value, 0, true)}})</span>
+        <strong>{{localize('ARCHMAGE.ac.key')}}: </strong><span>{{preview.system.attributes.ac.value}} ({{numberFormat(preview.system.attributes.ac.value - actor.system.attributes.ac.value, 0, true)}})</span>
       </li>
       <li>
-        <strong>{{localize('ARCHMAGE.pd.key')}}: </strong><span>{{preview.data.attributes.pd.value}} ({{numberFormat(preview.data.attributes.pd.value - actor.data.attributes.pd.value, 0, true)}})</span>
+        <strong>{{localize('ARCHMAGE.pd.key')}}: </strong><span>{{preview.system.attributes.pd.value}} ({{numberFormat(preview.system.attributes.pd.value - actor.system.attributes.pd.value, 0, true)}})</span>
       </li>
       <li>
-        <strong>{{localize('ARCHMAGE.md.key')}}: </strong><span>{{preview.data.attributes.md.value}} ({{numberFormat(preview.data.attributes.md.value - actor.data.attributes.md.value, 0, true)}})</span>
+        <strong>{{localize('ARCHMAGE.md.key')}}: </strong><span>{{preview.system.attributes.md.value}} ({{numberFormat(preview.system.attributes.md.value - actor.system.attributes.md.value, 0, true)}})</span>
       </li>
     </ul>
     <div class="help-text">
@@ -41,7 +41,7 @@
       Input
     },
     setup(props) {
-      const newLevel = ref(props.actor.data.attributes.level.value);
+      const newLevel = ref(props.actor.system.attributes.level.value);
       return {
         newLevel,
         localize,
@@ -51,7 +51,7 @@
     computed: {
       preview() {
         // Set the level.
-        let lvl = Number(this.actor.data.attributes.level.value || 0);
+        let lvl = Number(this.actor.system.attributes.level.value || 0);
         let newLvl = this.newLevel;
         let delta = newLvl - lvl;
 
@@ -69,19 +69,19 @@
         if (!mul) mul = Math.pow(1.25, delta);
         let overrideData = {
           'name': this.actor.name+suffix,
-          'data.attributes.level.value': newLvl,
-          'data.attributes.ac.value': Number(this.actor.data.attributes.ac.value || 0) + delta,
-          'data.attributes.pd.value': Number(this.actor.data.attributes.pd.value || 0) + delta,
-          'data.attributes.md.value': Number(this.actor.data.attributes.md.value || 0) + delta,
-          'data.attributes.init.value': Number(this.actor.data.attributes.init.value || 0) + delta,
-          'data.attributes.hp.value': Math.round(this.actor.data.attributes.hp.value * mul),
-          'data.attributes.hp.max': Math.round(this.actor.data.attributes.hp.max * mul),
+          'system.attributes.level.value': newLvl,
+          'system.attributes.ac.value': Number(this.actor.system.attributes.ac.value || 0) + delta,
+          'system.attributes.pd.value': Number(this.actor.system.attributes.pd.value || 0) + delta,
+          'system.attributes.md.value': Number(this.actor.system.attributes.md.value || 0) + delta,
+          'system.attributes.init.value': Number(this.actor.system.attributes.init.value || 0) + delta,
+          'system.attributes.hp.value': Math.round(this.actor.system.attributes.hp.value * mul),
+          'system.attributes.hp.max': Math.round(this.actor.system.attributes.hp.max * mul),
         };
 
         // Create a preview actor that we can use for display.
         let previewActor = {
           name: this.actor.name,
-          data: duplicate(this.actor.data)
+          system: duplicate(this.actor.system)
         };
 
         // Update the fields.
@@ -93,37 +93,20 @@
       },
       levelRestraints() {
         return {
-          min: Math.max(0, this.actor.data.attributes.level.value - 6),
-          max: Math.min(15, this.actor.data.attributes.level.value + 6)
+          min: Math.max(0, this.actor.system.attributes.level.value - 6),
+          max: Math.min(15, this.actor.system.attributes.level.value + 6)
         }
       },
       noLevelChange() {
-        return this.actor.data.attributes.level.value == this.newLevel;
+        return this.actor.system.attributes.level.value == this.newLevel;
       }
     },
     methods: {
       autoLevelConfirm(event) {
-        if (this.actor?.pack) {
-          getActor(this.actor).then(actor => {
-            console.log(actor);
-            if (!actor) return;
-            // Prepare the delta and run the method.
-            let delta = this.newLevel - this.actor.data.attributes.level.value;
-            if (delta !== 0) {
-              actor.autoLevelActor(delta).then(newActor => {
-                newActor.setFlag('archmage', 'sheetDisplay.tabs.primary.value', 'actions').then(() => {
-                  newActor.sheet.render(true);
-                });
-              });
-            }
-          });
-        }
-        else {
-          const actor = getActor(this.actor);
-          console.log(actor);
+        getActor(this.actor).then(actor => {
           if (!actor) return;
           // Prepare the delta and run the method.
-          let delta = this.newLevel - this.actor.data.attributes.level.value;
+          let delta = this.newLevel - this.actor.system.attributes.level.value;
           if (delta !== 0) {
             actor.autoLevelActor(delta).then(newActor => {
               newActor.setFlag('archmage', 'sheetDisplay.tabs.primary.value', 'actions').then(() => {
@@ -131,7 +114,7 @@
               });
             });
           }
-        }
+        });
       }
     }
   }

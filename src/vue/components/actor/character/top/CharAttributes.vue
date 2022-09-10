@@ -8,16 +8,16 @@
       <!-- HP -->
       <div class="unit unit--has-max unit--hp">
         <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
-        <Progress name="hp" :current="actor.data.attributes.hp.value" :temp="actor.data.attributes.hp.temp" :max="actor.data.attributes.hp.max"/>
+        <Progress name="hp" :current="actor.system.attributes.hp.value" :temp="actor.system.attributes.hp.temp" :max="actor.system.attributes.hp.max"/>
         <div class="resource flexrow">
-          <input type="number" name="data.attributes.hp.value" class="resource-current" v-model="actor.data.attributes.hp.value">
+          <input type="number" name="system.attributes.hp.value" class="resource-current" v-model="actor.system.attributes.hp.value">
           <span class="resource-separator">/</span>
-          <div v-if="actor.data.attributes.hp.automatic" class="resource-max">{{actor.data.attributes.hp.max}}</div>
-          <input v-else type="number" name="data.attributes.hp.max" class="resource-max" v-model="actor.data.attributes.hp.max">
+          <div v-if="actor.system.attributes.hp.automatic" class="resource-max">{{actor.system.attributes.hp.max}}</div>
+          <input v-else type="number" name="system.attributes.hp.max" class="resource-max" v-model="actor.system.attributes.hp.max">
         </div>
         <div class="labeled-input flexrow">
-          <label for="data.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
-          <input type="number" name="data.attributes.hp.temp" class="temp-hp" v-model="actor.data.attributes.hp.temp">
+          <label for="system.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
+          <input type="number" name="system.attributes.hp.temp" class="temp-hp" v-model="actor.system.attributes.hp.temp">
         </div>
       </div>
       <!-- Defenses -->
@@ -25,15 +25,15 @@
         <h2 class="unit-title">{{localize('ARCHMAGE.defenses')}}</h2>
         <div class="defenses grid grid-3col">
           <div class="defense defense--ac flexcol">
-            <span class="defense-value">{{actor.data.attributes.ac.value}}</span>
+            <span class="defense-value">{{actor.system.attributes.ac.value}}</span>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.ac.label'), ' (', localize('ARCHMAGE.ac.stats'), ')')">{{localize('ARCHMAGE.ac.key')}}</h3>
           </div>
           <div class="defense defense--pd flexcol">
-            <span class="defense-value">{{actor.data.attributes.pd.value}}</span>
+            <span class="defense-value">{{actor.system.attributes.pd.value}}</span>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.pd.label'), ' (', localize('ARCHMAGE.pd.stats'), ')')">{{localize('ARCHMAGE.pd.key')}}</h3>
           </div>
           <div class="defense defense--md flexcol">
-            <span class="defense-value">{{actor.data.attributes.md.value}}</span>
+            <span class="defense-value">{{actor.system.attributes.md.value}}</span>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.md.label'), ' (', localize('ARCHMAGE.md.stats'), ')')">{{localize('ARCHMAGE.md.key')}}</h3>
           </div>
         </div>
@@ -41,15 +41,15 @@
       <!-- Recoveries -->
       <div class="unit unit--has-max unit--recoveries">
         <h2 class="unit-title">{{localize('ARCHMAGE.recoveries')}}</h2>
-        <Progress name="recoveries" :current="actor.data.attributes.recoveries.value" :max="actor.data.attributes.recoveries.max"/>
+        <Progress name="recoveries" :current="actor.system.attributes.recoveries.value" :max="actor.system.attributes.recoveries.max"/>
         <div class="resource flexrow">
-          <input type="number" name="data.attributes.recoveries.value" class="resource-current" v-model="actor.data.attributes.recoveries.value">
+          <input type="number" name="system.attributes.recoveries.value" class="resource-current" v-model="actor.system.attributes.recoveries.value">
           <span class="resource-separator">/</span>
-          <div v-if="actor.data.attributes.recoveries.automatic" class="resource-max">{{actor.data.attributes.recoveries.max}}</div>
-          <input v-else type="number" name="data.attributes.recoveries.max" class="resource-max" v-model="actor.data.attributes.recoveries.max">
+          <div v-if="actor.system.attributes.recoveries.automatic" class="resource-max">{{actor.system.attributes.recoveries.max}}</div>
+          <input v-else type="number" name="system.attributes.recoveries.max" class="resource-max" v-model="actor.system.attributes.recoveries.max">
         </div>
         <div class="roll">
-          <a class="rollable rollable--recover" data-roll-type="recovery">{{actor.data.attributes.level.value}}{{actor.data.attributes.recoveries.dice}}+{{actor.data.abilities.con.dmg}} ({{actor.data.attributes.recoveries.avg}})</a>
+          <a class="rollable rollable--recover" data-roll-type="recovery">{{actor.system.attributes.level.value}}{{actor.system.attributes.recoveries.dice}}+{{actor.system.abilities.con.dmg}} ({{actor.system.attributes.recoveries.avg}})</a>
         </div>
       </div>
       <!-- Saving Throws -->
@@ -67,19 +67,19 @@
           <div class="death-saves">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('ARCHMAGE.SAVE.death')}}</a>
             <div class="death-save-attempts flexrow">
-              <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[0]" data-opt="1">
-              <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[1]" data-opt="2">
-              <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[2]" data-opt="3">
-              <input type="checkbox" v-model="actor.data.attributes.saves.deathFails.steps[3]" data-opt="4">
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[0]" data-opt="1">
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[1]" data-opt="2">
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[2]" data-opt="3">
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[3]" data-opt="4">
             </div>
           </div>
           <div class="last-gasp-saves">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="lastGasp">{{localize('ARCHMAGE.SAVE.lastGasp')}}</a>
             <div class="lastgasp-save-attempts flexrow">
-              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[0]" data-opt="1">
-              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[1]" data-opt="2">
-              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[2]" data-opt="3">
-              <input type="checkbox" v-model="actor.data.attributes.saves.lastGaspFails.steps[3]" data-opt="4">
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[0]" data-opt="1">
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[1]" data-opt="2">
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[2]" data-opt="3">
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[3]" data-opt="4">
             </div>
           </div>
         </div>

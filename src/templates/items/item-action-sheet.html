@@ -7,63 +7,63 @@
     <div class="tab archmage-aip">
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
-            <input type="text" name="data.group.value" value="{{data.group.value}}" data-dtype="{{data.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
+            <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
         </div>
 
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.attack'}}</label>
-            <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="Ex: [[d20+10+@ed]], [[/r d20+10+@ed]] vs AC ([[1d3+1]] attacks)"/>
+            <input type="text" name="system.attack.value" value="{{system.attack.value}}" data-dtype="{{system.attack.type}}" placeholder="Ex: [[d20+10+@ed]], [[/r d20+10+@ed]] vs AC ([[1d3+1]] attacks)"/>
         </div>
 
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.hit'}}</label>
-            <input type="text" name="data.hit.value" value="{{data.hit.value}}" data-dtype="{{data.hit.type}}" placeholder="Ex: [[10]] damage, [[5]] ongoing psychic damage"/>
+            <input type="text" name="system.hit.value" value="{{system.hit.value}}" data-dtype="{{system.hit.type}}" placeholder="Ex: [[10]] damage, [[5]] ongoing psychic damage"/>
         </div>
 
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.hit1'}}</label>
             <div class="form-inputs">
-                <input type="text" name="data.hit1.name" value="{{data.hit1.name}}" data-dtype="String" placeholder="Ex: Natural even hit"/>
-                <input type="text" name="data.hit1.value" value="{{data.hit1.value}}" data-dtype="{{data.hit1.type}}" placeholder="Ex: The target is also grabbed."/>
+                <input type="text" name="system.hit1.name" value="{{system.hit1.name}}" data-dtype="String" placeholder="Ex: Natural even hit"/>
+                <input type="text" name="system.hit1.value" value="{{system.hit1.value}}" data-dtype="{{system.hit1.type}}" placeholder="Ex: The target is also grabbed."/>
             </div>
         </div>
 
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.hit2'}}</label>
             <div class="form-inputs">
-                <input type="text" name="data.hit2.name" value="{{data.hit2.name}}" data-dtype="String" placeholder="Ex: Natural 18+"/>
-                <input type="text" name="data.hit2.value" value="{{data.hit2.value}}" data-dtype="{{data.hit2.type}}" placeholder="Ex: Make a *screeching wail* attack as a free action."/>
+                <input type="text" name="system.hit2.name" value="{{system.hit2.name}}" data-dtype="String" placeholder="Ex: Natural 18+"/>
+                <input type="text" name="system.hit2.value" value="{{system.hit2.value}}" data-dtype="{{system.hit2.type}}" placeholder="Ex: Make a *screeching wail* attack as a free action."/>
             </div>
         </div>
 
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.hit3'}}</label>
             <div class="form-inputs">
-                <input type="text" name="data.hit3.name" value="{{data.hit3.name}}" data-dtype="String" placeholder="Ex: Natural odd miss"/>
-                <input type="text" name="data.hit3.value" value="{{data.hit3.value}}" data-dtype="{{data.hit3.type}}" placeholder="Ex: Deal [[8]] miss damage"/>
+                <input type="text" name="system.hit3.name" value="{{system.hit3.name}}" data-dtype="String" placeholder="Ex: Natural odd miss"/>
+                <input type="text" name="system.hit3.value" value="{{system.hit3.value}}" data-dtype="{{system.hit3.type}}" placeholder="Ex: Deal [[8]] miss damage"/>
             </div>
         </div>
 
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.miss'}}</label>
-            <input type="text" name="data.miss.value" value="{{data.miss.value}}" data-dtype="{{data.miss.type}}" placeholder="Ex: [[4]] damage"/>
+            <input type="text" name="system.miss.value" value="{{system.miss.value}}" data-dtype="{{system.miss.type}}" placeholder="Ex: [[4]] damage"/>
         </div>
 
         {{#if sequencerEnabled }}
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.sequencerFile'}}</label>
-            <input type="text" name="data.sequencer.file" value="{{data.sequencer.file}}" data-dtype="String" placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Creature/Claws_01_Regular_Red_200x200.webm"/>
+            <input type="text" name="system.sequencer.file" value="{{system.sequencer.file}}" data-dtype="String" placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Creature/Claws_01_Regular_Red_200x200.webm"/>
         </div>
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.sequencerStretch'}}</label>
-            <input type="checkbox" name="data.sequencer.stretch" value="1" data-dtype="Boolean" {{checked data.sequencer.stretch}}/>
+            <input type="checkbox" name="system.sequencer.stretch" value="1" data-dtype="Boolean" {{checked system.sequencer.stretch}}/>
         </div>
         <div class="form-group">
             <label>{{localize 'ARCHMAGE.CHAT.sequencerPersonal'}}</label>
-            <input type="checkbox" name="data.sequencer.personal" value="1" data-dtype="Boolean" {{checked data.sequencer.personal}}/>
+            <input type="checkbox" name="system.sequencer.personal" value="1" data-dtype="Boolean" {{checked system.sequencer.personal}}/>
         </div>
         {{/if}}
 
-        {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+        {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
     </div>
 </form>

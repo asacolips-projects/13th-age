@@ -2,12 +2,12 @@
   <section class="action">
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="action-details flexcol">
-      <div v-if="action.data?.hit1?.value" class="hanging-indent action-hit1"><em v-html="getLabel(action.data?.hit1?.name)"></em><span v-html="wrapRolls(action.data.hit1.value)"></span></div>
-      <div v-if="action.data?.hit2?.value" class="hanging-indent action-hit2"><em v-html="getLabel(action.data?.hit2?.name)"></em><span v-html="wrapRolls(action.data.hit2.value)"></span></div>
-      <div v-if="action.data?.hit3?.value" class="hanging-indent action-hit3"><em v-html="getLabel(action.data?.hit3?.name)"></em><span v-html="wrapRolls(action.data.hit3.value)"></span></div>
-      <div v-if="action.data?.miss?.value" class="hanging-indent action-miss"><em>Miss:</em> <span v-html="wrapRolls(action.data.miss.value)"></span></div>
-      <div v-if="action.data?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
-        <span class="action-detail-value" v-html="action.data.description.value"></span>
+      <div v-if="action.system?.hit1?.value" class="hanging-indent action-hit1"><em v-html="getLabel(action.system?.hit1?.name)"></em><span v-html="wrapRolls(action.system.hit1.value)"></span></div>
+      <div v-if="action.system?.hit2?.value" class="hanging-indent action-hit2"><em v-html="getLabel(action.system?.hit2?.name)"></em><span v-html="wrapRolls(action.system.hit2.value)"></span></div>
+      <div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3"><em v-html="getLabel(action.system?.hit3?.name)"></em><span v-html="wrapRolls(action.system.hit3.value)"></span></div>
+      <div v-if="action.system?.miss?.value" class="hanging-indent action-miss"><em>Miss:</em> <span v-html="wrapRolls(action.system.miss.value)"></span></div>
+      <div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
+        <span class="action-detail-value" v-html="action.system.description.value"></span>
       </div>
     </section>
   </section>
