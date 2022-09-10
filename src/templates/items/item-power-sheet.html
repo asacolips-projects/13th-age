@@ -21,7 +21,7 @@
             <div class="sheet-tabs-content">
               <!-- Ability Description -->
               <div class="tab" data-group="primary" data-tab="description">
-                  {{editor data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+                  {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
               </div>
 
               <!-- Ability Details -->
@@ -29,23 +29,23 @@
 
                 <div class="form-group">
                     <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
-                    <input type="text" name="data.group.value" value="{{data.group.value}}" data-dtype="{{data.group.type}}" placeholder="Things with the same group will be grouped together"/>
+                    <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="Things with the same group will be grouped together"/>
                 </div>
 
                 <div class="form-group">
                     <label>{{localize 'ARCHMAGE.CHAT.powerOriginName'}}</label>
-                    <input type="text" name="data.powerOriginName.value" value="{{data.powerOriginName.value}}" data-dtype="{{data.powerOriginName.type}}" placeholder="Fireball"/>
+                    <input type="text" name="system.powerOriginName.value" value="{{system.powerOriginName.value}}" data-dtype="{{system.powerOriginName.type}}" placeholder="Fireball"/>
                   </div>
 
                 <div class="form-group">
                     <label>{{localize 'ARCHMAGE.CHAT.powerSourceName'}}</label>
-                    <input type="text" name="data.powerSourceName.value" value="{{data.powerSourceName.value}}" data-dtype="{{data.powerSourceName.type}}" placeholder="Wizard"/>
+                    <input type="text" name="system.powerSourceName.value" value="{{system.powerSourceName.value}}" data-dtype="{{system.powerSourceName.type}}" placeholder="Wizard"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerSource'}}</label>
-                      <select name="data.powerSource.value" data-dtype="{{data.powerSource.type}}">
-                          {{#select data.powerSource.value}}
+                      <select name="system.powerSource.value" data-dtype="{{system.powerSource.type}}">
+                          {{#select system.powerSource.value}}
                           {{#each powerSources as |name type|}}
                           <option value="{{type}}">{{name}}</option>
                           {{/each}}
@@ -55,8 +55,8 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerType'}}</label>
-                      <select name="data.powerType.value" data-dtype="{{data.powerType.type}}">
-                          {{#select data.powerType.value}}
+                      <select name="system.powerType.value" data-dtype="{{system.powerType.type}}">
+                          {{#select system.powerType.value}}
                           {{#each powerTypes as |name type|}}
                           <option value="{{type}}">{{name}}</option>
                           {{/each}}
@@ -66,8 +66,8 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerUsage'}}</label>
-                      <select name="data.powerUsage.value" data-dtype="{{data.powerUsage.type}}">
-                          {{#select data.powerUsage.value}}
+                      <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
+                          {{#select system.powerUsage.value}}
                           <option value="">- None -</option>
                           {{#each powerUsages as |name type|}}
                           <option value="{{type}}">{{name}}</option>
@@ -78,8 +78,8 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.actionType'}}</label>
-                      <select name="data.actionType.value" data-dtype="{{data.actionType.type}}">
-                          {{#select data.actionType.value}}
+                      <select name="system.actionType.value" data-dtype="{{system.actionType.type}}">
+                          {{#select system.actionType.value}}
                           <option value="">- None -</option>
                           {{#each actionTypes as |name type|}}
                           <option value="{{type}}">{{name}}</option>
@@ -90,190 +90,190 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.powerLevel'}}</label>
-                      <input type="text" name="data.powerLevel.value" value="{{data.powerLevel.value}}" data-dtype="{{data.powerLevel.type}}" placeholder="1"/>
+                      <input type="text" name="system.powerLevel.value" value="{{system.powerLevel.value}}" data-dtype="{{system.powerLevel.type}}" placeholder="1"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.range'}}</label>
-                      <input type="text" name="data.range.value" value="{{data.range.value}}" data-dtype="{{data.range.type}}" placeholder="Melee or Ranged"/>
+                      <input type="text" name="system.range.value" value="{{system.range.value}}" data-dtype="{{system.range.type}}" placeholder="Melee or Ranged"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.trigger'}}</label>
-                      <input type="text" name="data.trigger.value" value="{{data.trigger.value}}" data-dtype="{{data.trigger.type}}" placeholder="Natural even miss"/>
+                      <input type="text" name="system.trigger.value" value="{{system.trigger.value}}" data-dtype="{{system.trigger.type}}" placeholder="Natural even miss"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.target'}}</label>
-                      <input type="text" name="data.target.value" value="{{data.target.value}}" data-dtype="{{data.target.type}}" placeholder="[[1d3]] nearby enemies"/>
+                      <input type="text" name="system.target.value" value="{{system.target.value}}" data-dtype="{{system.target.type}}" placeholder="[[1d3]] nearby enemies"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.always'}}</label>
-                      <input type="text" name="data.always.value" value="{{data.always.value}}" data-dtype="{{data.always.type}}" placeholder="Some effect that always happens"/>
+                      <input type="text" name="system.always.value" value="{{system.always.value}}" data-dtype="{{system.always.type}}" placeholder="Some effect that always happens"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.attack'}}</label>
-                      <input type="text" name="data.attack.value" value="{{data.attack.value}}" data-dtype="{{data.attack.type}}" placeholder="[[d20+@str.mod+@lvl+@ed]] vs. AC"/>
+                      <input type="text" name="system.attack.value" value="{{system.attack.value}}" data-dtype="{{system.attack.type}}" placeholder="[[d20+@str.mod+@lvl+@ed]] vs. AC"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.hit'}}</label>
-                      <input type="text" name="data.hit.value" value="{{data.hit.value}}" data-dtype="{{data.hit.type}}" placeholder="[[@wpn.m.dice+@str.dmg]] damage"/>
+                      <input type="text" name="system.hit.value" value="{{system.hit.value}}" data-dtype="{{system.hit.type}}" placeholder="[[@wpn.m.dice+@str.dmg]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.hitEven'}}</label>
-                      <input type="text" name="data.hitEven.value" value="{{data.hitEven.value}}" data-dtype="{{data.hitEven.type}}" placeholder=""/>
+                      <input type="text" name="system.hitEven.value" value="{{system.hitEven.value}}" data-dtype="{{system.hitEven.type}}" placeholder=""/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.hitOdd'}}</label>
-                      <input type="text" name="data.hitOdd.value" value="{{data.hitOdd.value}}" data-dtype="{{data.hitOdd.type}}" placeholder=""/>
+                      <input type="text" name="system.hitOdd.value" value="{{system.hitOdd.value}}" data-dtype="{{system.hitOdd.type}}" placeholder=""/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.crit'}}</label>
-                      <input type="text" name="data.crit.value" value="{{data.crit.value}}" data-dtype="{{data.crit.type}}" placeholder="Additional effects on a crit"/>
+                      <input type="text" name="system.crit.value" value="{{system.crit.value}}" data-dtype="{{system.crit.type}}" placeholder="Additional effects on a crit"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.miss'}}</label>
-                      <input type="text" name="data.miss.value" value="{{data.miss.value}}" data-dtype="{{data.miss.type}}" placeholder="Damage equal to your level ([[@lvl]])"/>
+                      <input type="text" name="system.miss.value" value="{{system.miss.value}}" data-dtype="{{system.miss.type}}" placeholder="Damage equal to your level ([[@lvl]])"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.missEven'}}</label>
-                      <input type="text" name="data.missEven.value" value="{{data.missEven.value}}" data-dtype="{{data.missEven.type}}" placeholder=""/>
+                      <input type="text" name="system.missEven.value" value="{{system.missEven.value}}" data-dtype="{{system.missEven.type}}" placeholder=""/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.missOdd'}}</label>
-                      <input type="text" name="data.missOdd.value" value="{{data.missOdd.value}}" data-dtype="{{data.missOdd.type}}" placeholder=""/>
+                      <input type="text" name="system.missOdd.value" value="{{system.missOdd.value}}" data-dtype="{{system.missOdd.type}}" placeholder=""/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.sustainOn'}}</label>
-                      <input type="text" name="data.sustainOn.value" value="{{data.sustainOn.value}}" data-dtype="{{data.sustainOn.type}}" placeholder="Numbers only, such as '16'"/>
+                      <input type="text" name="system.sustainOn.value" value="{{system.sustainOn.value}}" data-dtype="{{system.sustainOn.type}}" placeholder="Numbers only, such as '16'"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.recharge'}}</label>
-                      <input type="text" name="data.recharge.value" value="{{data.recharge.value}}" data-dtype="{{data.recharge.type}}" placeholder="Numbers only, such as '16'"/>
+                      <input type="text" name="system.recharge.value" value="{{system.recharge.value}}" data-dtype="{{system.recharge.type}}" placeholder="Numbers only, such as '16'"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.cost'}}</label>
-                      <input type="text" name="data.cost.value" value="{{data.cost.value}}" data-dtype="{{data.cost.type}}" placeholder="2 command points"/>
+                      <input type="text" name="system.cost.value" value="{{system.cost.value}}" data-dtype="{{system.cost.type}}" placeholder="2 command points"/>
                   </div>
 
                   <div class="form-group">
                       <label>Uses Remaining</label>
-                      <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}" placeholder="Number of remaining uses, usually the same as Max Uses"/>
+                      <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}" placeholder="Number of remaining uses, usually the same as Max Uses"/>
                   </div>
-                  
+
                   <div class="form-group">
                       <label>Max Uses</label>
-                      <input type="text" name="data.maxQuantity.value" value="{{data.maxQuantity.value}}" data-dtype="{{data.maxQuantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
+                      <input type="text" name="system.maxQuantity.value" value="{{system.maxQuantity.value}}" data-dtype="{{system.maxQuantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.special'}}</label>
-                      {{editor data.special.value target="data.special.value" button=true owner=owner editable=editable}}
+                      {{editor system.special.value target="system.special.value" button=true owner=owner editable=editable}}
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.effect'}}</label>
-                      {{editor data.effect.value target="data.effect.value" button=true owner=owner editable=editable}}
+                      {{editor system.effect.value target="system.effect.value" button=true owner=owner editable=editable}}
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.castBroadEffect'}}</label>
-                      <textarea class="attribute-value" name="data.castBroadEffect.value" rows="5" title=""
-                      data-dtype="{{data.castBroadEffect.type}}">{{#if data.castBroadEffect.value}}{{data.castBroadEffect.value}}{{/if}}</textarea>
+                      <textarea class="attribute-value" name="system.castBroadEffect.value" rows="5" title=""
+                      data-dtype="{{system.castBroadEffect.type}}">{{#if system.castBroadEffect.value}}{{system.castBroadEffect.value}}{{/if}}</textarea>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.castPower'}}</label>
-                      <textarea class="attribute-value" name="data.castPower.value" rows="5" title=""
-                      data-dtype="{{data.castPower.type}}">{{#if data.castPower.value}}{{data.castPower.value}}{{/if}}</textarea>
+                      <textarea class="attribute-value" name="system.castPower.value" rows="5" title=""
+                      data-dtype="{{system.castPower.type}}">{{#if system.castPower.value}}{{system.castPower.value}}{{/if}}</textarea>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.sustainedEffect'}}</label>
-                      <textarea class="attribute-value" name="data.sustainedEffect.value" rows="5" title=""
-                      data-dtype="{{data.sustainedEffect.type}}">{{#if data.sustainedEffect.value}}{{data.sustainedEffect.value}}{{/if}}</textarea>
+                      <textarea class="attribute-value" name="system.sustainedEffect.value" rows="5" title=""
+                      data-dtype="{{system.sustainedEffect.type}}">{{#if system.sustainedEffect.value}}{{system.sustainedEffect.value}}{{/if}}</textarea>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.finalVerse'}}</label>
-                      <textarea class="attribute-value" name="data.finalVerse.value" rows="5" title=""
-                      data-dtype="{{data.finalVerse.type}}">{{#if data.finalVerse.value}}{{data.finalVerse.value}}{{/if}}</textarea>
+                      <textarea class="attribute-value" name="system.finalVerse.value" rows="5" title=""
+                      data-dtype="{{system.finalVerse.type}}">{{#if system.finalVerse.value}}{{system.finalVerse.value}}{{/if}}</textarea>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellChain'}}</label>
-                      <textarea class="attribute-value" name="data.spellChain.value" rows="5" title=""
-                      data-dtype="{{data.spellChain.type}}">{{#if data.spellChain.value}}{{data.spellChain.value}}{{/if}}</textarea>
+                      <textarea class="attribute-value" name="system.spellChain.value" rows="5" title=""
+                      data-dtype="{{system.spellChain.type}}">{{#if system.spellChain.value}}{{system.spellChain.value}}{{/if}}</textarea>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.breathWeapon'}}</label>
-                      <textarea class="attribute-value" name="data.breathWeapon.value" rows="5" title=""
-                      data-dtype="{{data.breathWeapon.type}}">{{#if data.breathWeapon.value}}{{data.breathWeapon.value}}{{/if}}</textarea>
+                      <textarea class="attribute-value" name="system.breathWeapon.value" rows="5" title=""
+                      data-dtype="{{system.breathWeapon.type}}">{{#if system.breathWeapon.value}}{{system.breathWeapon.value}}{{/if}}</textarea>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel3'}}</label>
-                      <input type="text" name="data.spellLevel3.value" value="{{data.spellLevel3.value}}" data-dtype="{{data.spellLevel3.type}}" placeholder="[[3d6]] damage"/>
+                      <input type="text" name="system.spellLevel3.value" value="{{system.spellLevel3.value}}" data-dtype="{{system.spellLevel3.type}}" placeholder="[[3d6]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel5'}}</label>
-                      <input type="text" name="data.spellLevel5.value" value="{{data.spellLevel5.value}}" data-dtype="{{data.spellLevel5.type}}" placeholder="[[5d6]] damage"/>
+                      <input type="text" name="system.spellLevel5.value" value="{{system.spellLevel5.value}}" data-dtype="{{system.spellLevel5.type}}" placeholder="[[5d6]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel7'}}</label>
-                      <input type="text" name="data.spellLevel7.value" value="{{data.spellLevel7.value}}" data-dtype="{{data.spellLevel7.type}}" placeholder="[[7d6]] damage"/>
+                      <input type="text" name="system.spellLevel7.value" value="{{system.spellLevel7.value}}" data-dtype="{{system.spellLevel7.type}}" placeholder="[[7d6]] damage"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel9'}}</label>
-                      <input type="text" name="data.spellLevel9.value" value="{{data.spellLevel9.value}}" data-dtype="{{data.spellLevel9.type}}" placeholder="[[9d6]] damage"/>
+                      <input type="text" name="system.spellLevel9.value" value="{{system.spellLevel9.value}}" data-dtype="{{system.spellLevel9.type}}" placeholder="[[9d6]] damage"/>
                   </div>
 
                   <details class="form-details" open="true">
                       <summary>{{localize 'ARCHMAGE.feats'}}</summary>
                       <div class="form-group">
                           <label>{{localize 'ARCHMAGE.CHAT.adventurer'}}</label>
-                          <input type="checkbox" name="data.feats.adventurer.isActive.value" value="1" data-dtype="Boolean" {{checked data.feats.adventurer.isActive.value}}/>
+                          <input type="checkbox" name="system.feats.adventurer.isActive.value" value="1" data-dtype="Boolean" {{checked system.feats.adventurer.isActive.value}}/>
                       </div>
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.adventurerDescription'}}</summary>
-                              {{editor data.feats.adventurer.description.value target="data.feats.adventurer.description.value" button=true owner=owner editable=editable}}
+                              {{editor system.feats.adventurer.description.value target="system.feats.adventurer.description.value" button=true owner=owner editable=editable}}
                           </details>
                       </div>
                       <div class="form-group">
                           <label>{{localize 'ARCHMAGE.CHAT.champion'}}</label>
-                          <input type="checkbox" name="data.feats.champion.isActive.value" value="1" data-dtype="Boolean" {{checked data.feats.champion.isActive.value}}/>
+                          <input type="checkbox" name="system.feats.champion.isActive.value" value="1" data-dtype="Boolean" {{checked system.feats.champion.isActive.value}}/>
                       </div>
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.championDescription'}}</summary>
-                              {{editor data.feats.champion.description.value target="data.feats.champion.description.value" button=true owner=owner editable=editable}}
+                              {{editor system.feats.champion.description.value target="system.feats.champion.description.value" button=true owner=owner editable=editable}}
                           </details>
                       </div>
                       <div class="form-group">
                           <label>{{localize 'ARCHMAGE.CHAT.epic'}}</label>
-                          <input type="checkbox" name="data.feats.epic.isActive.value" value="1" data-dtype="Boolean" {{checked data.feats.epic.isActive.value}}/>
+                          <input type="checkbox" name="system.feats.epic.isActive.value" value="1" data-dtype="Boolean" {{checked system.feats.epic.isActive.value}}/>
                       </div>
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.epicDescription'}}</summary>
-                              {{editor data.feats.epic.description.value target="data.feats.epic.description.value" button=true owner=owner editable=editable}}
+                              {{editor system.feats.epic.description.value target="system.feats.epic.description.value" button=true owner=owner editable=editable}}
                           </details>
                       </div>
                   </details>
@@ -281,15 +281,15 @@
                   {{#if sequencerEnabled }}
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.sequencerFile'}}</label>
-                      <input type="text" name="data.sequencer.file" value="{{data.sequencer.file}}" data-dtype="String" placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Creature/Claws_01_Regular_Red_200x200.webm"/>
+                      <input type="text" name="system.sequencer.file" value="{{system.sequencer.file}}" data-dtype="String" placeholder="Ex: modules/JB2A_DnD5e/Library/Generic/Creature/Claws_01_Regular_Red_200x200.webm"/>
                   </div>
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.sequencerStretch'}}</label>
-                      <input type="checkbox" name="data.sequencer.stretch" value="1" data-dtype="Boolean" {{checked data.sequencer.stretch}}/>
+                      <input type="checkbox" name="system.sequencer.stretch" value="1" data-dtype="Boolean" {{checked system.sequencer.stretch}}/>
                   </div>
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.sequencerPersonal'}}</label>
-                      <input type="checkbox" name="data.sequencer.personal" value="1" data-dtype="Boolean" {{checked data.sequencer.personal}}/>
+                      <input type="checkbox" name="system.sequencer.personal" value="1" data-dtype="Boolean" {{checked system.sequencer.personal}}/>
                   </div>
                   {{/if}}
               </div>

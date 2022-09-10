@@ -7,11 +7,11 @@
     <ol class="item-details">
         <li>
             <label>Quantity</label>
-            <input type="text" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="{{data.quantity.type}}"/>
+            <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}"/>
         </li>
         <li>
             <label>Value</label>
-            <input type="text" name="data.price.value" value="{{data.price.value}}" data-dtype="{{data.price.type}}"/>
+            <input type="text" name="system.price.value" value="{{system.price.value}}" data-dtype="{{system.price.type}}"/>
         </li>
     </ol>
 
@@ -21,7 +21,7 @@
 
     <div class="sheet-tabs-content">
       <div class="tab" data-group="primary" data-tab="description">
-          {{editor data.description.value target="data.description.value" button=true}}
+          {{editor system.description.value target="system.description.value" button=true}}
       </div>
     </div>
 
