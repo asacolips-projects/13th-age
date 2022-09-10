@@ -203,7 +203,7 @@ export default {
 
   .section--tabs {
     nav.tabs {
-      margin-top: 8px;
+      margin-top: 0;
     }
   }
 }

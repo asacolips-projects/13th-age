@@ -97,6 +97,7 @@ export default {
 .archmage-v2.npc-sheet {
   .section--attributes {
     padding-bottom: 0;
+    margin: 0 0 12px;
 
     .unit--attributes {
       margin-bottom: 0;
@@ -104,6 +105,7 @@ export default {
 
     &.collapsed {
       padding-top: 0;
+      margin: 12px 0;
 
       .unit--attributes {
         padding: 6px 0;

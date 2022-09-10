@@ -118,12 +118,13 @@ img[data-edit="img"] {
     height: auto;
   }
 
-  button[title="Formats"],
-  button[title="Table"],
-  button[title="Horizontal line"],
-  button[title="Insert/edit link"] {
-    display: none;
-  }
+  // @todo commenting these out for now. We may hide them again at a later date.
+  // button[title="Formats"],
+  // button[title="Table"],
+  // button[title="Horizontal line"],
+  // button[title="Insert/edit link"] {
+  //   display: none;
+  // }
 }
 
 a {
