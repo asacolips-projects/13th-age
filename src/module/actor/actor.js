@@ -1254,7 +1254,41 @@ export class ActorArchmage extends Actor {
 
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
-    if (!options.diff || data.system === undefined) return; // Nothing to do
+    if (!options.diff || data === undefined) return; // Nothing to do
+
+    // Update default images on npc type change
+    if (data.system?.details?.type?.value
+      && this.type == "npc"
+      && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)
+      && CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
+      data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value];
+    }
+    // Update the prototype token.
+    if (data.img || data.name) {
+      let tokenData = {};
+      // Propagate image update to token for default images
+      if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)) {
+        tokenData.texture = {src: data.img};
+        data.prototypeToken = {texture: {src: data.img}};
+      }
+      // Propagate name update to token if same as actor
+      if (data.name && this.name == this.prototypeToken.name) {
+        data.prototypeToken = {name: data.name};
+      }
+
+      // Update tokens.
+      let tokens = this.getActiveTokens();
+      tokens.forEach(token => {
+        let updateData = duplicate(tokenData);
+        // Propagate name update to token if same as actor
+        if (data.name && this.name == token.name) {
+          updateData.name = data.name;
+        }
+        token.document.update(updateData);
+      });
+    }
+
+    if (data.system === undefined) return; // Nothing more to do
 
     // Deltas, needed for scrolling text later
     let deltaActual = 0;
@@ -1790,43 +1824,3 @@ function _scaleDice(exp, mul) {
   else if (!correction) return `${diceCnt}d${y}`;
   return `${diceCnt}d${y}+`+correction;
 }
-
-// TODO: move this code to _preUpdate and remove this once core plays nice
-Hooks.on('preUpdateActor', (document, data, options, id) => {
-  // Update default images on npc type change
-  if (data.system?.details?.type?.value
-    && document.type == "npc"
-    && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)
-    && CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
-    data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value];
-  }
-  // Update the prototype token.
-  if (data.img || data.name) {
-    let tokenData = {};
-    // Propagate image update to token for default images
-    if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)) {
-      tokenData.img = data.img;
-      data.prototypeToken = {texture: {src: data.img}};
-    }
-    // Propagate name update to token if same as actor
-    if (data.name && document.name == document.data.token.name) {
-      data.prototypeToken = {name: data.name};
-    }
-
-    // Update tokens.
-    let tokens = document.getActiveTokens();
-    tokens.forEach(token => {
-      if (token.actor != document) return;
-      let updateData = {};
-      // Propagate image update to token for default images
-      if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)) {
-        updateData = {texture: {src: data.img}};
-      }
-      // Propagate name update to token if same as actor
-      if (data.name && document.name == token.name) {
-        updateData.name = data.name;
-      }
-      token.document.update(updateData);
-    });
-  }
-});
