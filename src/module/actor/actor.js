@@ -1806,18 +1806,22 @@ Hooks.on('preUpdateActor', (document, data, options, id) => {
     // Propagate image update to token for default images
     if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)) {
       tokenData.img = data.img;
-      data.token = {img: data.img};
+      data.prototypeToken = {texture: {src: data.img}};
     }
     // Propagate name update to token if same as actor
     if (data.name && document.name == document.data.token.name) {
-      data.token = {name: data.name};
+      data.prototypeToken = {name: data.name};
     }
 
     // Update tokens.
     let tokens = document.getActiveTokens();
     tokens.forEach(token => {
       if (token.actor != document) return;
-      let updateData = duplicate(tokenData);
+      let updateData = {};
+      // Propagate image update to token for default images
+      if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(document.img)) {
+        updateData = {texture: {src: data.img}};
+      }
       // Propagate name update to token if same as actor
       if (data.name && document.name == token.name) {
         updateData.name = data.name;
