@@ -155,6 +155,7 @@ export default class preCreateChatMessageHandler {
                       .stretchTo(towards)
                       .file(file)
                       .missed(missed)
+                      .wait(300)
                 }
                 else {
                   return sequence
@@ -162,11 +163,12 @@ export default class preCreateChatMessageHandler {
                       .atLocation(towards)
                       .file(file)
                       .missed(missed)
+                      .wait(300)
                 }
               }
               // Self
               if (sequencerFileSelf && token && !sequencerReversed) {
-                sequence.effect().atLocation(token).file(sequencerFileSelf);
+                sequence.effect().atLocation(token).file(sequencerFileSelf).wait(300);
               }
               // Ray
               if (hitEvaluationResults && sequencerFileRay && !sequencerReversed) {
