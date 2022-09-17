@@ -143,7 +143,7 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (game.modules.get("sequencer")?.active) {
+            if (game.modules.get("sequencer")?.active && token) {
               sequence = new Sequence();
               // Display Sequencer Effects
               function addAttack(sequence, source, towards, stretch, missed, file) {
@@ -167,7 +167,7 @@ export default class preCreateChatMessageHandler {
                 }
               }
               // Self
-              if (sequencerFileSelf && token && !sequencerReversed) {
+              if (sequencerFileSelf && !sequencerReversed) {
                 sequence.effect().atLocation(token).file(sequencerFileSelf).wait(300);
               }
               // Ray
@@ -186,7 +186,7 @@ export default class preCreateChatMessageHandler {
                 hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
               }
               // Self - reversed
-              if (sequencerFileSelf && token && sequencerReversed) {
+              if (sequencerFileSelf && sequencerReversed) {
                 sequence.effect().atLocation(token).file(sequencerFileSelf);
               }
             }
