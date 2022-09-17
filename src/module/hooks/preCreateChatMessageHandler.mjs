@@ -59,9 +59,10 @@ export default class preCreateChatMessageHandler {
         $content.find('.tag--feat .description, .card-row-description').replaceWith($otherRows);
 
         let sequence = undefined;
-        let sequencerFile = options.sequencer?.file;
-        let sequencerStretch = options.sequencer?.stretch;
-        let sequencerPersonal = options.sequencer?.personal;
+        let sequencerFileTarget = options.sequencer?.target;
+        let sequencerFileRay = options.sequencer?.ray;
+        let sequencerFileSelf = options.sequencer?.self;
+        let sequencerReversed = options.sequencer?.reversed;
 
         if ($rows.length > 0) {
 
@@ -142,40 +143,50 @@ export default class preCreateChatMessageHandler {
                 }
             });
 
-            if (game.modules.get("sequencer")?.active && sequencerFile && sequencerPersonal && token) {
+            if (game.modules.get("sequencer")?.active) {
               sequence = new Sequence();
-              sequence.effect().atLocation(token).file(sequencerFile);
-            }
-            else if (hitEvaluationResults && game.modules.get("sequencer")?.active && sequencerFile) {
-                if (sequencerFile === "") {
-                    // TODO: Using the damage type and range, default to various Setting configurable files
-                    sequencerFile = "modules/JB2A_DnD5e/Library/Generic/Impact/Impact_07_Regular_Orange_400x400.webm";
-                    sequencerStretch = false;
+              // Display Sequencer Effects
+              function addAttack(sequence, source, towards, stretch, missed, file) {
+                if (stretch) {
+                  if (!source) return sequence;
+                  return sequence
+                      .effect()
+                      .atLocation(source)
+                      .stretchTo(towards)
+                      .file(file)
+                      .missed(missed)
                 }
-
-                // Display Sequencer Effects
-                function addAttack(sequence, source, towards, stretch, missed) {
-                  if (stretch) {
-                    if (!source) return sequence;
-                    return sequence
-                        .effect()
-                        .atLocation(source)
-                        .stretchTo(towards)
-                        .file(sequencerFile)
-                        .missed(missed)
-                  }
-                  else {
-                    return sequence
-                        .effect()
-                        .atLocation(towards)
-                        .file(sequencerFile)
-                        .missed(missed)
-                  }
+                else {
+                  return sequence
+                      .effect()
+                      .atLocation(towards)
+                      .file(file)
+                      .missed(missed)
                 }
-
-                sequence = new Sequence();
-                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, sequencerStretch, false));
-                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, sequencerStretch, true));
+              }
+              // Self
+              if (sequencerFileSelf && token && !sequencerReversed) {
+                sequence.effect().atLocation(token).file(sequencerFileSelf);
+              }
+              // Ray
+              if (hitEvaluationResults && sequencerFileRay && !sequencerReversed) {
+                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
+                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay));
+              }
+              // Target
+              if (hitEvaluationResults && sequencerFileTarget) {
+                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
+                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget));
+              }
+              // Ray - reversed
+              if (hitEvaluationResults && sequencerFileRay && sequencerReversed) {
+                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
+                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
+              }
+              // Self - reversed
+              if (sequencerFileSelf && token && sequencerReversed) {
+                sequence.effect().atLocation(token).file(sequencerFileSelf);
+              }
             }
 
             // Update the content
