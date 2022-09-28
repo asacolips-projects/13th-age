@@ -332,7 +332,7 @@ export class ItemArchmage extends Item {
     if (this.system.macroToLaunch?.value.trim().length>0) {
       const macroName = this.system.macroToLaunch.value.trim();
       const macro = game.macros.getName(macroName);
-      if (macro) {
+      if (macro && macro.canExecute) {
         console.debug(`Launching macro '${macroName}'`);
         try {
           await macro.execute(actionDetails);
@@ -340,7 +340,7 @@ export class ItemArchmage extends Item {
           console.warn(`Launched macro '${macroName}' failed with: ${ex}`, ex);
         }
       } else {
-        console.debug(`Cannot execute macro '${macroName}' - it does not exist`);
+        console.debug(`Cannot execute macro '${macroName}' - it does not exist or do not have permission`);
       }
     }
 

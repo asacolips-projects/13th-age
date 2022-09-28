@@ -636,6 +636,10 @@ Item:
         isActive:
           type: Boolean
           label: Active
+    macroToLaunch:
+      type: String
+      label: Macro to launch
+      value: ''
   trait:
     templates:
       - standard
