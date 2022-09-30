@@ -278,12 +278,6 @@
                       </div>
                   </details>
 
-                  <div class="form-group">
-                      <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
-                      <textarea class="attribute-value" name="system.embeddedMacro.value" rows="5" title=""
-                      data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
-                  </div>
-
                   {{#if sequencerEnabled }}
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.sequencerFile'}}</label>
@@ -298,6 +292,14 @@
                       <input type="checkbox" name="system.sequencer.personal" value="1" data-dtype="Boolean" {{checked system.sequencer.personal}}/>
                   </div>
                   {{/if}}
+
+                  <!-- <div class="form-group"> -->
+                  <div>
+                      <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+                      <br/>
+                      <textarea class="attribute-value" name="system.embeddedMacro.value" rows="15" title=""
+                      data-dtype="{{system.embeddedMacro.type}}" style="font-family: monospace">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
+                  </div>
               </div>
             </div>
         </section>
