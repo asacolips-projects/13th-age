@@ -186,6 +186,6 @@ export default class preCreateChatMessageHandler {
       if (updated_content != null) {
           data.content = updated_content;
       }
-      return sequence;
+      return [ sequence, hitEvaluationResults ];
     }
 }
