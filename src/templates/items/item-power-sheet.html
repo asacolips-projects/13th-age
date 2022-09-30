@@ -279,8 +279,9 @@
                   </details>
 
                   <div class="form-group">
-                      <label>{{localize 'ARCHMAGE.CHAT.macroToLaunch'}}</label>
-                      <input type="text" name="system.macroToLaunch.value" value="{{system.macroToLaunch.value}}" data-dtype="system.macroToLaunch.type" placeholder="Ex: The name of a macro to trigger"/>
+                      <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+                      <textarea class="attribute-value" name="system.embeddedMacro.value" rows="5" title=""
+                      data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
                   </div>
 
                   {{#if sequencerEnabled }}

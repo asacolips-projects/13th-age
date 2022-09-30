@@ -318,29 +318,29 @@ export class ItemArchmage extends Item {
 
     // If there is a linked macro, then attempt to execute it
     // Within the macro, args[0] will reference this object:
-    const actionDetails = {
-      actionName: itemToRender.name,
-      actionType: itemToRender.type,
-      actorName: this.actor.name,
-      actorId: this.actor._id,
-      hitResults: hitEvaluationResults,
-      _actor: this.actor,
-      _item: itemToRender,
-      _rollData: rollData
+    const macro_data = {
+      item: itemToRender,
+      actor: this.actor,
+      hitEvaluation: hitEvaluationResults,
+      rollData: rollData
     };
 
-    if (this.system.macroToLaunch?.value.trim().length>0) {
-      const macroName = this.system.macroToLaunch.value.trim();
-      const macro = game.macros.getName(macroName);
-      if (macro && macro.canExecute) {
-        console.debug(`Launching macro '${macroName}'`);
-        try {
-          await macro.execute(actionDetails);
-        } catch(ex) {
-          console.warn(`Launched macro '${macroName}' failed with: ${ex}`, ex);
-        }
+    if (this.system.embeddedMacro?.value.length > 0) {
+      let macro = new Macro({
+        name: "Embedded macro",
+        type: "script",
+        scope: "global",
+        command: this.system.embeddedMacro.value});
+      macro.ownership.default = 3;  // Make it runnable by everyone to be on the safe sidebar
+      console.log(macro);
+      if (!macro.canExecute) {
+        ui.notifications.warn("Cannot execute embedded macro - request permission for this user to your GM!");
       } else {
-        console.debug(`Cannot execute macro '${macroName}' - it does not exist or do not have permission`);
+        try {
+          await macro.execute(macro_data);
+        } catch(ex) {
+          console.warn(`Embedded macro '${macroName}' failed with: ${ex}`, ex);
+        }
       }
     }
 

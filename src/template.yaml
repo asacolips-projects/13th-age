@@ -636,9 +636,9 @@ Item:
         isActive:
           type: Boolean
           label: Active
-    macroToLaunch:
+    embeddedMacro:
       type: String
-      label: Macro to launch
+      label: Embedded Macro
       value: ''
   trait:
     templates:
