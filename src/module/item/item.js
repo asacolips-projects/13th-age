@@ -317,29 +317,29 @@ export class ItemArchmage extends Item {
     const message = ChatMessage.create(chatData, { displaySheet: false });
 
     // If there is a linked macro, then attempt to execute it
-    // Within the macro, args[0] will reference this object:
-    const macro_data = {
-      item: itemToRender,
-      actor: this.actor,
-      hitEvaluation: hitEvaluationResults,
-      rollData: rollData
-    };
-
     if (this.system.embeddedMacro?.value.length > 0) {
+      // Extra data, accessible via args[0]
+      const macro_data = {
+        item: itemToRender,
+        // actor: this.actor, // Accessible as "actor"
+        hitEvaluation: hitEvaluationResults,
+        rollData: rollData
+      };
+
       let macro = new Macro({
         name: "Embedded macro",
         type: "script",
         scope: "global",
         command: this.system.embeddedMacro.value});
-      macro.ownership.default = 3;  // Make it runnable by everyone to be on the safe sidebar
-      console.log(macro);
+      macro.ownership.default = 3;  // Make it runnable by everyone to be on the safe side
+
       if (!macro.canExecute) {
-        ui.notifications.warn("Cannot execute embedded macro - request permission for this user to your GM!");
+        ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
       } else {
         try {
           await macro.execute(macro_data);
         } catch(ex) {
-          console.warn(`Embedded macro '${macroName}' failed with: ${ex}`, ex);
+          console.error(`Embedded macro '${macroName}' failed with: ${ex}`, ex);
         }
       }
     }
