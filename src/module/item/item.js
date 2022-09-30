@@ -238,7 +238,7 @@ export class ItemArchmage extends Item {
     // TODO: remove once rolls are correctly pre-rolled above
     chatData.content =await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
 
-    let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
+    let [ sequencerAnim, hitEvaluationResults ] = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
       type: this.type,
       actor: this.actor,
@@ -313,7 +313,38 @@ export class ItemArchmage extends Item {
     if (game.modules.get("times-up")?.active) {
       await this._handleMonkAC();
     }
-    return ChatMessage.create(chatData, { displaySheet: false });
+
+    const message = ChatMessage.create(chatData, { displaySheet: false });
+
+    // If there is a linked macro, then attempt to execute it
+    // Within the macro, args[0] will reference this object:
+    const actionDetails = {
+      actionName: itemToRender.name,
+      actionType: itemToRender.type,
+      actorName: this.actor.name,
+      actorId: this.actor._id,
+      hitResults: hitEvaluationResults,
+      _actor: this.actor,
+      _item: itemToRender,
+      _rollData: rollData
+    };
+
+    if (this.system.macroToLaunch?.value.trim().length>0) {
+      const macroName = this.system.macroToLaunch.value.trim();
+      const macro = game.macros.getName(macroName);
+      if (macro && macro.canExecute) {
+        console.debug(`Launching macro '${macroName}'`);
+        try {
+          await macro.execute(actionDetails);
+        } catch(ex) {
+          console.warn(`Launched macro '${macroName}' failed with: ${ex}`, ex);
+        }
+      } else {
+        console.debug(`Cannot execute macro '${macroName}' - it does not exist or do not have permission`);
+      }
+    }
+
+    return message;
   }
 
   /**
