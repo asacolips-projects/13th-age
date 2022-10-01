@@ -177,6 +177,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  embeddedMacro:
+    type: 'String'
+    label: 'Embedded Macro'
+    value: "let cp = 1;\nif (archmage.item.system.feats.champion.isActive.value\n  && (archmage.hitEvaluation?.$rolls[0].d20result % 2 == 0)) cp = 2;\nconst prev = actor.system.resources.perCombat.commandPoints.current;\nif (archmage.hitEvaluation?.hasHit) {\n  await actor.update({'system.resources.perCombat.commandPoints.current': prev+cp});\n}"
   group:
     value: 'Tactic'
     type: 'String'
