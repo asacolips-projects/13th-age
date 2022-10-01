@@ -316,16 +316,16 @@ export class ItemArchmage extends Item {
 
     const message = ChatMessage.create(chatData, { displaySheet: false });
 
-    // If there is a linked macro, then attempt to execute it
+    // If there is an embedded macro attempt to execute it
     if (this.system.embeddedMacro?.value.length > 0) {
-      // Extra data, accessible via args[0]
+      // Extra data accessible as "archmage" in embedded macros
       const macro_data = {
         item: itemToRender,
-        // actor: this.actor, // Accessible as "actor"
         hitEvaluation: hitEvaluationResults,
         rollData: rollData
       };
 
+      // Make a macro to work with Foundry's permissions - TODO: use getPermission?
       let macro = new Macro({
         name: "Embedded macro",
         type: "script",
@@ -337,8 +337,20 @@ export class ItemArchmage extends Item {
         ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
       } else {
         try {
-          await macro.execute(macro_data);
+          // await macro.execute(macro_data);
+          // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
+          // Add variables to the evaluation scope
+          const speaker = ChatMessage.implementation.getSpeaker();
+          const character = game.user.character;
+          const actor = game.actors.get(speaker.actor);
+          const token = (canvas.ready ? canvas.tokens.get(speaker.token) : null);
+
+          // Attempt script execution
+          const AsyncFunction = (async function(){}).constructor;
+          const fn = new AsyncFunction("speaker", "actor", "token", "character", "archmage", this.system.embeddedMacro.value);
+          await fn.call(this, speaker, actor, token, character, macro_data);
         } catch(ex) {
+          ui.notifications.error("There was an error in your macro syntax. See the console (F12) for details");
           console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
         }
       }
