@@ -318,32 +318,23 @@ export class ItemArchmage extends Item {
 
     // If there is an embedded macro attempt to execute it
     if (this.system.embeddedMacro?.value.length > 0) {
-      // Extra data accessible as "archmage" in embedded macros
-      const macro_data = {
-        item: itemToRender,
-        hitEvaluation: hitEvaluationResults,
-        rollData: rollData
-      };
 
-      // Make a macro to work with Foundry's permissions - TODO: use getPermission?
-      let macro = new Macro({
-        name: "Embedded macro",
-        type: "script",
-        scope: "global",
-        command: this.system.embeddedMacro.value});
-      macro.ownership.default = 3;  // Make it runnable by everyone to be on the safe side
-
-      if (!macro.canExecute) {
+      if (!game.user.hasPermission("MACRO_SCRIPT")) {
         ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
       } else {
         try {
-          // await macro.execute(macro_data);
           // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
           // Add variables to the evaluation scope
           const speaker = ChatMessage.implementation.getSpeaker();
           const character = game.user.character;
           const actor = game.actors.get(speaker.actor);
           const token = (canvas.ready ? canvas.tokens.get(speaker.token) : null);
+          // Extra data accessible as "archmage" in embedded macros
+          const macro_data = {
+            item: itemToRender,
+            hitEvaluation: hitEvaluationResults,
+            rollData: rollData
+          };
 
           // Attempt script execution
           const AsyncFunction = (async function(){}).constructor;
