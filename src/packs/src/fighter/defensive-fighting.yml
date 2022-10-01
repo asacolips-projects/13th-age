@@ -174,6 +174,10 @@ data:
       isActive:
         type: 'Boolean'
         label: 'Active'
+  embeddedMacro:
+    type: 'String'
+    label: 'Embedded Macro'
+    value: "const label = \"Defensive Fighting\";\nconst icon = \"icons/svg/shield.svg\";\nconst duration = {\n  combat: undefined,\n  rounds: 1,\n  seconds: undefined,\n  startRound: 0,\n  startTime: 0,\n  startTurn: 0,\n  turns: 1\n}\nconst flag = \"turnEnd\"\n\nlet bonus = 2;\nif (args[0].item.system.feats.champion.isActive.value) bonus = 3;\nlet effects = [{ key: \"data.attributes.ac.value\", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }];\nif (args[0].item.system.feats.adventurer.isActive.value) effects.push({ key: \"data.attributes.pd.value\", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });\nif (args[0].item.system.feats.epic.isActive.value) effects.push({ key: \"data.attributes.md.value\", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });\n\nlet effectData = {label: powerLabel, changes: effects, icon: icon};\n\n// Set duration\neffectData['flags.dae.specialDuration'] = flag;\neffectData.duration = duration;\n\nactor.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);"
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'KnAcreVVOBbVJkC3'

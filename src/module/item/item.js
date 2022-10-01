@@ -339,7 +339,7 @@ export class ItemArchmage extends Item {
         try {
           await macro.execute(macro_data);
         } catch(ex) {
-          console.error(`Embedded macro '${macroName}' failed with: ${ex}`, ex);
+          console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
         }
       }
     }

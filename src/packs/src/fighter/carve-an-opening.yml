@@ -175,7 +175,9 @@ data:
         type: 'Boolean'
         label: 'Active'
   embeddedMacro:
-    value: "const hasCarveFeat = actor.items.find(item => item.name===\"Carve an Opening\")?.system.feats.champion.isActive.value === true;\nconst amountToIncrement = hasCarveFeat ? 2 : 1;\nconst a = actor.system.attributes.critMod.atk.value;\nawait actor.update({'system.attributes.critMod.atk.value': a + amountToIncrement });\nui.notifications.info(\"Increased crit modifier to +\"+actor.system.attributes.critMod.atk.value);\n"
+    type: 'String'
+    label: 'Embedded Macro'
+    value: "const label = \"Carve an Opening\";\nconst icon = \"icons/svg/sword.svg\";\n\n// Compute bonus amount\n//const hasFeat = args[0].system.feats.champion.isActive.value === true;\nconst hasCarveFeat = actor.items.find(item => item.name===\"Carve an Opening\")?.system.feats.champion.isActive.value === true;\nconst bonus = hasCarveFeat ? 2 : 1;\n\n// Check for previous effects\nlet prev = 0;\nlet effectsToDelete = [];\nconst aes = actor.effects.filter(e => e.label == label);\naes.forEach(e => {\n  effectsToDelete.push(e.id);\n  if (e.disabled) return;\n  e.changes.forEach(c => {\n    if (c.key == 'system.attributes.critMod.atk.value') prev = Math.max(prev, Number(c.value));\n  });\n});\nawait actor.deleteEmbeddedDocuments(\"ActiveEffect\", effectsToDelete)\n\n// Make new effect\nlet effectData = {\n  label: label,\n  changes: [{ key: \"system.attributes.critMod.atk.value\", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD }],\n  icon: icon};\nactor.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n"
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: '9tNK1JiBfecxOZpH'
