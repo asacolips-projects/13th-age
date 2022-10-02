@@ -185,7 +185,7 @@ data:
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'
-    value: "const label = \"Halo\";\nconst effects = [\n  { key: \"data.attributes.ac.value\", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },\n  { key: \"data.attributes.pd.value\", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },\n  { key: \"data.attributes.md.value\", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD }\n];\nconst icon = \"icons/svg/angel.svg\";\n\n// Check for previous effects\nconst aes = actor.effects.filter(e => e.label == label);\nif (aes.length > 0) {\n  let effectsToDelete = [];\n  aes.forEach(e => {effectsToDelete.push(e.id)});\n  await actor.deleteEmbeddedDocuments(\"ActiveEffect\", effectsToDelete)\n} else {\n  const effectData = {label: label, changes: effects, icon: icon};\n  actor.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n}"
+    value: "const label = archmage.item.name;\nconst effects = [\n  { key: \"data.attributes.ac.value\", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },\n  { key: \"data.attributes.pd.value\", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },\n  { key: \"data.attributes.md.value\", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD }\n];\n\n// Check for previous effects\nconst aes = actor.effects.filter(e => e.label == label);\nif (aes.length > 0) {\n  let effectsToDelete = [];\n  aes.forEach(e => {effectsToDelete.push(e.id)});\n  await actor.deleteEmbeddedDocuments(\"ActiveEffect\", effectsToDelete)\n  archmage.suppressMessage = true;\n  ui.notifications.info(\"Defense bonus disabled.\");\n} else {\n  const effectData = {label: label, changes: effects, icon: archmage.item.img};\n  actor.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n}"
 flags: {}
 img: 'icons/svg/d20.svg'
 _id: 'DqyhiOcydNXYOK11'

@@ -180,7 +180,7 @@ data:
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'
-    value: "let cp = 1;\nif (archmage.item.system.feats.champion.isActive.value\n  && (archmage.hitEvaluation?.$rolls[0].d20result % 2 == 0)) cp = 2;\nconst prev = actor.system.resources.perCombat.commandPoints.current;\nif (archmage.hitEvaluation?.hasHit) {\n  await actor.update({'system.resources.perCombat.commandPoints.current': prev+cp});\n}"
+    value: "const hasFeat = archmage.item.system.feats.champion.isActive.value;\nconst isEven = (archmage.hitEval.$rolls[0].d20result % 2 == 0);\nconst bonus = (hasFeat && isEven) ? 2 : 1;\nconst cp = actor.system.resources.perCombat.commandPoints.current;\nif (archmage.hitEval.hasHit) {\n  await actor.update({'system.resources.perCombat.commandPoints.current': cp+bonus});\n}"
   group:
     value: 'Tactic'
     type: 'String'
