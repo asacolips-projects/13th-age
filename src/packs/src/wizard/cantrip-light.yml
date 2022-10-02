@@ -177,6 +177,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  embeddedMacro:
+    type: 'String'
+    label: 'Embedded Macro'
+    value: "if (!token) return;\nconst radiusBright = 3;\nconst radiusDim = 6\nlet conf = {\n  alpha: 0.35,\n  angle: 0,\n  coloration: 1,\n  gradual: true,\n  luminosity: 0.5,\n  saturation: 0,\n  contrast: 0,\n  shadows: 0,\n  animation: {\n    speed: 2,\n    intensity: 2,\n    reverse: false,\n    type: \"torch\",\n  },\n  darkness: {\n    min: 0,\n    max: 1,\n  },\n};\nif (token.data.light.bright != 0) {\n  conf.bright = 0;\n  conf.dim = 0;\n  await token.document.update({light: conf});\n  archmage.suppressMessage = true;\n} else {\n  conf.bright = radiusBright;\n  conf.dim = radiusDim;\n  await token.document.update({light: conf});\n}\n"
   group:
     value: 'Cantrip'
     type: 'String'
