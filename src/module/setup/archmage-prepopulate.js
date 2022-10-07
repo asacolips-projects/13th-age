@@ -190,13 +190,17 @@ export class ArchmagePrepopulate {
    *
    * @param {array} powersArray
    *   Array of compendium pack content.
+   * @param {object} actor
+   *   Actor document to evaluate for power filtering.
    *
    * @returns {array}
    *   Nested array of powers sorted by level, type, and name, grouped within
    *   power type. Each power has a simplified data structure compared to its
    *   compendium equivalent.
    */
-  getPowersFromPack(powersArray) {
+  getPowersFromPack(powersArray, actor = null) {
+    // Get an array of powers currently on the actor. This is used later to preselect class features.
+    let actorPowers = actor?.items ? actor.items.filter(i => i.type == 'power').map(i => i.system.powerOriginName.value) : [];
     // Presort all of the powers by level, type, and name.
     let preSorted = powersArray.sort((a, b) => {
       function sortTest(a, b) {
@@ -236,6 +240,7 @@ export class ArchmagePrepopulate {
         level: p.system.powerLevel.value,
         powerData: p,
         powerCard: chatData,
+        selected: p.system.powerType.value === 'feature' && !actorPowers.includes(p.system.powerOriginName.value)
       };
     });
 
@@ -313,7 +318,7 @@ export class ArchmagePrepopulate {
    * @returns {object|false}
    *   Object with the keys powers, content, options, and tabs.
    */
-  async renderDialog(classes = [], race = '') {
+  async renderDialog(classes = [], race = '', actor = null) {
     let compendiumClasses = classes.filter(a => this.validClasses.includes(a));
     let classCompendiums = await this.getCompendiums(compendiumClasses, race);
 
@@ -329,7 +334,7 @@ export class ArchmagePrepopulate {
 
     for (let [classKey, classObject] of Object.entries(classCompendiums)) {
       let classPowerPage = await this.renderPowerPage({
-        powers: this.getPowersFromPack(classObject.content),
+        powers: this.getPowersFromPack(classObject.content, actor),
         className: classObject.name,
         classContent: classJournals[classKey],
         machineName: classKey

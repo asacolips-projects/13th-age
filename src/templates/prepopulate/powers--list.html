@@ -13,7 +13,7 @@
           {{#each level as |power powerKey|}}
             <li class="import-powers-item">
               <div class="title">
-                <input type="checkbox" name="power-{{power.uuid}}" data-uuid="{{power.uuid}}" data-item-type="power"/>
+                <input type="checkbox" name="power-{{power.uuid}}" data-uuid="{{power.uuid}}" data-item-type="power" {{checked power.selected}}/>
               </div>
               <div class="content">{{> "systems/archmage/templates/chat/power-card.html" item=power.powerData data=power.powerCard}}</div>
             </li>

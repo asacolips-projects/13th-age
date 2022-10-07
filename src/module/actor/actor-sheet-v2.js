@@ -920,7 +920,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let characterRace = this.actor.system.details.race.value;
     let characterClasses = this.actor.system.details.detectedClasses ?? [];
     let prepop = new ArchmagePrepopulate();
-    let classResults = await prepop.renderDialog(characterClasses, characterRace);
+    let classResults = await prepop.renderDialog(characterClasses, characterRace, this.actor);
     if (!classResults) {
       return;
     }
