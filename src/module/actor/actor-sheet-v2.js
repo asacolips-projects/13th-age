@@ -363,6 +363,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let itemId = dataset.itemId;
     if (!itemId) return;
 
+    let bypass = event.shiftKey ? true : false;
+    if (bypass) {
+      let item = this.actor.items.get(itemId);
+      item.delete();
+      return;
+    }
+
     // Delete the item from the actor object.
     let del = false;
     new Dialog({
@@ -381,7 +388,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       close: html => {
         if (del) {
           let item = this.actor.items.get(itemId);
-          // await item.delete();
           item.delete();
         }
       }
@@ -920,7 +926,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let characterRace = this.actor.system.details.race.value;
     let characterClasses = this.actor.system.details.detectedClasses ?? [];
     let prepop = new ArchmagePrepopulate();
-    let classResults = await prepop.renderDialog(characterClasses, characterRace);
+    let classResults = await prepop.renderDialog(characterClasses, characterRace, this.actor);
     if (!classResults) {
       return;
     }
