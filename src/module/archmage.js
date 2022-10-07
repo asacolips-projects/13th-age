@@ -492,7 +492,7 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // Disable DsN's automatic parsing of inline rolls - let users enable it
-  if (isNewerVersion(game.modules.get('dice-so-nice')?.data?.version, "4.1.1")
+  if (isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
     && !game.settings.get("archmage", "DsNInlineOverride")) {
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
     game.settings.set("archmage", "DsNInlineOverride", true);
