@@ -40,7 +40,11 @@ export function ordinalSuffix(number) {
   return number + "th";
 }
 
-export function wrapRolls(text, replacements = []) {
+export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null) {
+  if (diceFormulaMode == 'long') {
+    return text;
+  }
+  rollData = JSON.parse(JSON.stringify(rollData));
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
     // Put these at the top for higher replacement priority
@@ -84,12 +88,53 @@ export function wrapRolls(text, replacements = []) {
   });
   // Replace special keys in inline rolls.
   for (let [needle, replacement] of replaceMap) {
-    clean = clean.replaceAll(needle, replacement)
+    console.log(diceFormulaMode);
+    console.log(rollData);
+    console.log(needle);
+    clean = clean.replaceAll(needle, (diceFormulaMode == 'numeric' ? getProperty(rollData, needle) : replacement));
   };
   // Call TextEditor.enrichHTML to process remaining object links
   clean = TextEditor.enrichHTML(clean, { async: false})
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
+}
+
+async function evaluateRolls(text = 'd20+@abil.dex.mod+@lvl+2+(@lvl)@wpn.m.die') {
+  let actor = game.actors.getName('test');
+  let roll = new Roll(text, actor.getRollData());
+  await roll.evaluate({async: true});
+  console.log(roll);
+  // let rollString = '';
+
+  // for (let [k,v] of Object.entries(roll.terms)) {
+  //   switch (v.constructor.name) {
+  //     case 'Die':
+  //       rollString += `{${v.formula}}`;
+  //       break;
+
+  //     case 'OperatorTerm':
+  //       rollString += v.operator;
+  //       break;
+
+  //     case 'NumericTerm':
+  //       rollString += v.number;
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // }
+
+  // console.log(rollString);
+  // let cleanString = rollString.replaceAll(/\}(.+)\{/g, (match, p1) => {
+  //   console.log(match);
+  //   console.log(p1);
+  //   let formula = p1.replace(/[^\d]+$/g, '');
+  //   return `}+${eval(formula)}+{`;
+  // }).replaceAll(/[\{\}]/g, '');
+  // console.log(rollString);
+  // console.log(cleanString);
+  // console.log(roll);
 }
 
 export async function getActor(actorData) {

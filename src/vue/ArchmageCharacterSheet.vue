@@ -40,7 +40,7 @@
           </Tab>
           <!-- Powers tab -->
           <Tab group="primary" :tab="tabs.primary.powers">
-            <CharPowers :actor="actor" :tab="tabs.primary.powers" :flags="flags"/>
+            <CharPowers :actor="actor" :context="context" :tab="tabs.primary.powers" :flags="flags"/>
           </Tab>
           <!-- Inventory tab -->
           <Tab group="primary" :tab="tabs.primary.inventory">
