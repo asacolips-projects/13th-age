@@ -240,7 +240,9 @@ export class ArchmagePrepopulate {
         level: p.system.powerLevel.value,
         powerData: p,
         powerCard: chatData,
-        selected: p.system.powerType.value === 'feature' && !actorPowers.includes(p.system.powerOriginName.value)
+        selected: p.system.powerType.value === 'feature'
+          && ['class', 'race'].includes(p.system.powerSource.value)
+          && !actorPowers.includes(p.system.powerOriginName.value)
       };
     });
 
