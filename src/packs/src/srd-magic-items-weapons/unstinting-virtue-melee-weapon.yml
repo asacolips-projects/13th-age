@@ -2,7 +2,7 @@ _id: 'dAOA2YKR1nTu3ZzC'
 name: 'Unstinting Virtue (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

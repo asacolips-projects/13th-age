@@ -2,7 +2,7 @@ _id: 'YWCYezyDe9YgXjMU'
 name: 'Phase Spider'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Phasing fangs'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Rummage and filch'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Phasing abilities'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -292,7 +292,7 @@ items:
     name: '1-2'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -314,7 +314,7 @@ items:
     name: '3'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -336,7 +336,7 @@ items:
     name: '4-5'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -358,7 +358,7 @@ items:
     name: '6'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -380,7 +380,7 @@ items:
     name: 'Stolen items'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: 'Ty3Jq0nPo3fnyrXw'
 name: 'Marilith (serpent demon)'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Six whirling swords'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'R: Beguiling gaze'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -268,7 +268,7 @@ items:
     name: 'Terrible swift swords'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: 'ufKGy5Zmyj4xHOY7'
 name: 'Spawn of the Master'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Claws and fangs'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: 'z2gt1gtC6YN1uw6T'
 name: 'Drow Soldier'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Paired swords'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'R: Crossbow'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -268,7 +268,7 @@ items:
     name: 'With my dying breath I curse at thee'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

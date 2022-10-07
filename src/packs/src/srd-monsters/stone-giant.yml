@@ -2,7 +2,7 @@ _id: 'SJH4MwRqhQHuYLW9'
 name: 'Stone Giant'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Stone club'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Stomp'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'R: Thrown boulder'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -320,7 +320,7 @@ items:
     name: 'Built of stone'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

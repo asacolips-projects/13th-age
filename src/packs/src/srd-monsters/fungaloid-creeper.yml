@@ -2,7 +2,7 @@ _id: '9Pe00XhaTPLbiGMF'
 name: 'Fungaloid Creeper'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/plant.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Probing tendrils'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: 'Food is here'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -246,7 +246,7 @@ items:
     name: 'Slow, rolling wave'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: 'jwvLyJm75b0pMBBE'
 name: 'Staff of Massacres'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

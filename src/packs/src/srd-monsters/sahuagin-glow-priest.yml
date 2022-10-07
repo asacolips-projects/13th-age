@@ -2,7 +2,7 @@ _id: 'zfjRGSN658Pz19Bt'
 name: 'Sahuagin Glow Priest'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Coral rod'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'R: Glowpriest’s prayer'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: '1-2 (Hymn of hate)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -292,7 +292,7 @@ items:
     name: '3-4 (Curse of despair)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -314,7 +314,7 @@ items:
     name: '5-6 (Scream of victory)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -336,7 +336,7 @@ items:
     name: '7-8 (Word of refuge)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -358,7 +358,7 @@ items:
     name: 'Water breather'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: '4CsfRUHc4dLDnvMH'
 name: 'Staff of Manipulation'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

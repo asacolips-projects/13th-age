@@ -2,7 +2,7 @@ _id: 'pygUkQdN6WPMars0'
 name: 'Staff of the God’s Riches'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

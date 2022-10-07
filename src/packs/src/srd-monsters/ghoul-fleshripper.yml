@@ -2,7 +2,7 @@ _id: 'k3QLAyXdRBN1T7gG'
 name: 'Ghoul Fleshripper'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Bony claws'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'Critical hit'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -242,7 +242,7 @@ items:
     name: 'Infected bite'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: '2aX994HRJMOg5RRb'
 name: 'Shadow Dragon'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Shadow claws'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'C: Nightmare breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Living shadow'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -292,7 +292,7 @@ items:
     name: 'Made of shadow'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -314,7 +314,7 @@ items:
     name: 'Shadowy escalation'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -336,7 +336,7 @@ items:
     name: 'On Holy Ground'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -358,7 +358,7 @@ items:
     name: 'Shadow illusions'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -380,7 +380,7 @@ items:
     name: 'Shadowy phasing'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

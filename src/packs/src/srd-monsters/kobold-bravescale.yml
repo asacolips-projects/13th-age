@@ -2,7 +2,7 @@ _id: 'ddC1ps4fD9AXQ4Qm'
 name: 'Kobold Bravescale'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Spear'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Spear porcupine'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Disciplined maneuver'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -292,7 +292,7 @@ items:
     name: 'Lock shields'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: '2IKoP9zzdJEm7PrX'
 name: 'Medium Black Dragon'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Claws and bite'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'C: Acid breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -272,7 +272,7 @@ items:
     name: 'Draconic grace'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -294,7 +294,7 @@ items:
     name: 'Intermittent breath'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -316,7 +316,7 @@ items:
     name: 'Water-breathing'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -338,7 +338,7 @@ items:
     name: 'Resist acid 12+'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

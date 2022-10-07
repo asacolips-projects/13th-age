@@ -2,7 +2,7 @@ _id: '53Brby12w3L3S1d5'
 name: 'Iconic Chimera'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Fangs, claws, and horns'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -229,7 +229,7 @@ items:
     name: '[Special trigger] Fiery breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -277,7 +277,7 @@ items:
     name: 'Tusk charge'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -325,7 +325,7 @@ items:
     name: 'Chimerical change'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -347,7 +347,7 @@ items:
     name: '(B) Bearded spell-eating head'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -369,7 +369,7 @@ items:
     name: '(F) Vulnerability, melee'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -391,7 +391,7 @@ items:
     name: '(B) Skin of indomitable faces'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -413,7 +413,7 @@ items:
     name: '(F) Vulnerability, spells'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -435,7 +435,7 @@ items:
     name: '(B) Flaming oil glands'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -457,7 +457,7 @@ items:
     name: '(F) Overconfident predator'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -479,7 +479,7 @@ items:
     name: '(B) Stone-studded dermis'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -501,7 +501,7 @@ items:
     name: '(F) Stubborn beast'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -523,7 +523,7 @@ items:
     name: '(B) Springing stag legs'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -545,7 +545,7 @@ items:
     name: '(F) Overly gracile'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -567,7 +567,7 @@ items:
     name: '(B) Mane of scorpion tails'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -589,7 +589,7 @@ items:
     name: '(F) Golden fleece'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -611,7 +611,7 @@ items:
     name: '(B) Inferno belly'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -633,7 +633,7 @@ items:
     name: '(F) Flammable blood'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -655,7 +655,7 @@ items:
     name: '(B) Wild heart'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -677,7 +677,7 @@ items:
     name: '(F) Vulnerability, poison'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -699,7 +699,7 @@ items:
     name: '(B) Bone plates'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -721,7 +721,7 @@ items:
     name: '(F) Vulnerability, holy'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -743,7 +743,7 @@ items:
     name: '(B) Mighty tusks'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -765,7 +765,7 @@ items:
     name: '(F) Too many horns'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -787,7 +787,7 @@ items:
     name: '(B) Eagle wings'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -809,7 +809,7 @@ items:
     name: '(F) Vulnerability, negative energy'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -831,7 +831,7 @@ items:
     name: '(B) Poison fangs'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -853,7 +853,7 @@ items:
     name: '(F) Bickering heads'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -875,7 +875,7 @@ items:
     name: '(B) Draconic sinews'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -897,7 +897,7 @@ items:
     name: '(F) Too many wings'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

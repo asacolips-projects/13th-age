@@ -2,7 +2,7 @@ _id: 'MKhCZj0bAnZzcqod'
 name: 'Climactic Shot (Ranged weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

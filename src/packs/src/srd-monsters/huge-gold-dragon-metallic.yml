@@ -2,7 +2,7 @@ _id: 'VFls7iXvokI7AeWp'
 name: 'Huge Gold Dragon (Metallic)'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-gold.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Ferocious bite'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: '[Special trigger] Stultifying smoke'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -272,7 +272,7 @@ items:
     name: 'C: Fiery breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -324,7 +324,7 @@ items:
     name: 'Inspire awe'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -346,7 +346,7 @@ items:
     name: 'Spiral of golden flame'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -368,7 +368,7 @@ items:
     name: 'Indomitability'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -390,7 +390,7 @@ items:
     name: 'Resist fire 18+'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

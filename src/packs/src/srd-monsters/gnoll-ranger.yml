@@ -2,7 +2,7 @@ _id: 'dxTwj8RJAtj0khpa'
 name: 'Gnoll Ranger'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Hand axes'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'R: Longbow'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Pack ferocity'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -292,7 +292,7 @@ items:
     name: 'Quick shot'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -314,7 +314,7 @@ items:
     name: 'Hates everyone'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

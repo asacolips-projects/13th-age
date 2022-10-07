@@ -2,7 +2,7 @@ _id: 'CwO44w2SdkYGhNCi'
 name: 'Chaos Glorp'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Oozespasm'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Spontaneous chaos'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: 'MT7D2ZQhiio010YI'
 name: 'Empyrean Dragon (Black)'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Gleaming bite'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'C: Venom breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -268,7 +268,7 @@ items:
     name: '[Special trigger] C: Crying heavens'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -318,7 +318,7 @@ items:
     name: 'Head 1'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -340,7 +340,7 @@ items:
     name: 'Head 2'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -362,7 +362,7 @@ items:
     name: 'Head 3'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -384,7 +384,7 @@ items:
     name: 'Swarming motes'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -406,7 +406,7 @@ items:
     name: 'Temporal manastorm'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -428,7 +428,7 @@ items:
     name: 'Three heads are better than one'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -450,7 +450,7 @@ items:
     name: 'An enemy who scores a critical hit against an empyrean dragon can forego the extra damage to lop off one of the dragon’s heads. If an enemy deals [[150]] damage with a single attack against the dragon, the attack will also remove a head. An empyrean dragon with two remaining heads can make only one gleaming bite attack as a standard action and can’t sacrifice that attack to remove conditions. The dragon dies if all three heads are removed.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -472,7 +472,7 @@ items:
     name: 'Intermittent breath'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

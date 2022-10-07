@@ -2,7 +2,7 @@ _id: 'IYE2vHg8h50g7RAl'
 name: 'Forceful Impact'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: '0IweiCnXWspTLEAg'
 name: 'Void Dragon (Black)'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Jaws and claws'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: 'C: Ensorceling breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -274,7 +274,7 @@ items:
     name: 'Slam'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -324,7 +324,7 @@ items:
     name: 'Void beasts'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -346,7 +346,7 @@ items:
     name: 'Draconic grace'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

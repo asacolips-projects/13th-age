@@ -2,7 +2,7 @@ _id: 'TbOp32IzGFfbFvCZ'
 name: 'Sword of Relentless Glory (+2 weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

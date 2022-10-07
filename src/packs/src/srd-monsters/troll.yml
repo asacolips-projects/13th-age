@@ -2,7 +2,7 @@ _id: 'tdbQR7Lc3IZInESe'
 name: 'Troll'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Greedy wicked claw'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'Trollish regeneration 10'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -242,7 +242,7 @@ items:
     name: 'When the troll is hit by an attack that deals fire or acid damage, it loses one use of its regeneration, and it can’t regenerate during its next turn.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -264,7 +264,7 @@ items:
     name: 'Dropping a troll to 0 hp doesn’t kill it if it has any uses of regeneration left.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -286,7 +286,7 @@ items:
     name: 'Increased regeneration'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -308,7 +308,7 @@ items:
     name: 'Mutant'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -330,7 +330,7 @@ items:
     name: 'Rending'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

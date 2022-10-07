@@ -2,7 +2,7 @@ _id: 'cgM5XB5YoysfWT1V'
 name: 'Energy'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

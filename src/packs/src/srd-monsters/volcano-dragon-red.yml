@@ -2,7 +2,7 @@ _id: 'GyXxuQTzrOygYw12'
 name: 'Volcano Dragon (Red)'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-red.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Fangs, claws, and wings'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: '[Special trigger] Tail smash'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -274,7 +274,7 @@ items:
     name: 'C: Volcanic breath'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -324,7 +324,7 @@ items:
     name: 'Burning skin'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -346,7 +346,7 @@ items:
     name: 'Continuous breath'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -368,7 +368,7 @@ items:
     name: 'Resist fire 14+'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

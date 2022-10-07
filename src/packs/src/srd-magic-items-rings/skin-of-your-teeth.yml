@@ -2,7 +2,7 @@ _id: 'OK5eLBvzdg1oVfYc'
 name: 'Skin of Your Teeth'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

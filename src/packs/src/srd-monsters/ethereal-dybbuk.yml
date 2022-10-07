@@ -2,7 +2,7 @@ _id: 'inegqMJFhP2AmYVD'
 name: 'Ethereal Dybbuk'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'R: Soul-suck'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -220,7 +220,7 @@ items:
     name: 'Fading'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -242,7 +242,7 @@ items:
     name: 'Fear'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -264,7 +264,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -286,7 +286,7 @@ items:
     name: 'Otherworldly'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

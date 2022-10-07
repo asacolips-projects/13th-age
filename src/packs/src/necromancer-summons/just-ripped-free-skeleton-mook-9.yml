@@ -2,7 +2,7 @@ _id: 'lRudHlUvsvKgSdGZ'
 name: 'Just-ripped-free Skeleton Mook (9)'
 type: 'npc'
 img: 'icons/svg/mystery-man.svg'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -373,7 +373,7 @@ items:
     name: 'Sword or axe or whatever'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -427,7 +427,7 @@ items:
     name: 'Resist weapons 16+'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

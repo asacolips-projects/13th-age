@@ -2,7 +2,7 @@ _id: 'r2yfrqSEjfpSPXaS'
 name: 'Pixie Warrior'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Diminutive sparkly sword'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -229,7 +229,7 @@ items:
     name: 'Enchanted boswhot'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -283,7 +283,7 @@ items:
     name: 'Madness'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -337,7 +337,7 @@ items:
     name: 'Maddened'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -359,7 +359,7 @@ items:
     name: 'Dazzling lights'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -381,7 +381,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -403,7 +403,7 @@ items:
     name: 'Invisibility'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

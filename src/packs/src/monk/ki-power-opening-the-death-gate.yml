@@ -1,7 +1,7 @@
 name: '(Ki Power) Opening the Death Gate'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/blood_02.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

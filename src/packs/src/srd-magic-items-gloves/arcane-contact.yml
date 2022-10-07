@@ -2,7 +2,7 @@ _id: 'JOH4aIys2hoycqWb'
 name: 'Arcane Contact'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

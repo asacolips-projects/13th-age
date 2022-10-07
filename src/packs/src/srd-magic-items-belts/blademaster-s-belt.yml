@@ -2,7 +2,7 @@ _id: '37YpLGg5bX8UBRVm'
 name: 'Blademaster’s Belt'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

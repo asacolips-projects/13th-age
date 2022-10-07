@@ -2,7 +2,7 @@ _id: '2UfXNP2OFWDUne7J'
 name: 'Bloodthirsty (Any weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

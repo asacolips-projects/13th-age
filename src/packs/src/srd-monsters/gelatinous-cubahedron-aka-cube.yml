@@ -2,7 +2,7 @@ _id: 'mEZbOR2BrCd8hw9j'
 name: 'Gelatinous Cubahedron (aka Cube)'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Shlup’n’schlorp'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: '[Special trigger] C: Spasms'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Gel drop'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -318,7 +318,7 @@ items:
     name: 'Engulf and dissolve'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -340,7 +340,7 @@ items:
     name: 'Instinctive actions'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -362,7 +362,7 @@ items:
     name: 'Instinctive - Jiggles in Place'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -384,7 +384,7 @@ items:
     name: 'Instinctive - Moves'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -406,7 +406,7 @@ items:
     name: '3. The cubahedron spits an engulfed creature into the air above it and makes a shlup’n’schlorp attack against that creature with a +5 attack bonus. Then the creature is engulfed again.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -428,7 +428,7 @@ items:
     name: '4. The cubahedron flattens itself slightly and crawls up a wall and possibly across the ceiling. The cube falls at the end of its turn. Each creature engulfed by the cube takes [[30]] damage, and it makes a gel drop attack against enemies below it.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -450,7 +450,7 @@ items:
     name: 'Instinctive - Moves Creature'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -472,7 +472,7 @@ items:
     name: 'Instinctive - Spits Out'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

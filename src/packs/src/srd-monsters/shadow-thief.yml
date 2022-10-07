@@ -2,7 +2,7 @@ _id: 'iUm1b4A0ImYbnjV9'
 name: 'Shadow Thief'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/dragon-black.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Shadow strangulation'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: '[Group ability] C: Shadow possession'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Group ability'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -292,7 +292,7 @@ items:
     name: 'Shadow thievery'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -314,7 +314,7 @@ items:
     name: 'Stop…thief! When a shadow thief steals an item, the creature it steals from can choose to prevent the theft, but at a cost. If the natural d20 thievery roll was odd, the target of the thievery attempt can choose to keep the item but become *hampered* (save ends) as they wrestle with the shadow. If the natural thievery roll was even, the target has the same choice, but it’s a hard save (16+) to end the hampered effect.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: 'RRNgcogkrNvkqDdD'
 name: 'Lich Count'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/undead.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Touch of the grave'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: 'R: Shadow rays'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -274,7 +274,7 @@ items:
     name: 'R: Empowered fireball'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -326,7 +326,7 @@ items:
     name: 'C: Look upon your doom'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -374,7 +374,7 @@ items:
     name: 'Thank you for the best ten years of your life'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -396,7 +396,7 @@ items:
     name: 'Immortality'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -418,7 +418,7 @@ items:
     name: 'Fear aura'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

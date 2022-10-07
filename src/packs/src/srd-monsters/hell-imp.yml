@@ -2,7 +2,7 @@ _id: 'TjHK0EnGKSxUfXvx'
 name: 'Hell Imp'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Needing taunt'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -230,7 +230,7 @@ items:
     name: '[Special trigger] Stinging tail'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -285,7 +285,7 @@ items:
     name: 'Devil''s due (Mwhahahah!)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -307,7 +307,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -329,7 +329,7 @@ items:
     name: 'Vanish'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -351,7 +351,7 @@ items:
     name: 'Free-form ability - Provoke'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -373,7 +373,7 @@ items:
     name: 'Potent venom'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

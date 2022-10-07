@@ -2,7 +2,7 @@ _id: 'v6mmRh4my5mlQk5U'
 name: 'Scroll of the Fortuitous Outlook'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

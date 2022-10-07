@@ -2,7 +2,7 @@ _id: 'saQX0Cdoloh3diMs'
 name: 'Evasion'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

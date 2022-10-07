@@ -2,7 +2,7 @@ _id: '26AsMqRWb4hhU1uR'
 name: 'Umluppuk'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Pods of mouths and eyes'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: 'C: Chorus of madness'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -272,7 +272,7 @@ items:
     name: 'Consume'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -320,7 +320,7 @@ items:
     name: 'Quick use'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -342,7 +342,7 @@ items:
     name: 'Resist psychic 18+'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -364,7 +364,7 @@ items:
     name: 'Consume'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

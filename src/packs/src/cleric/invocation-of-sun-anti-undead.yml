@@ -1,7 +1,7 @@
 name: 'Invocation of Sun/Anti-Undead'
 type: 'power'
 img: 'systems/archmage/assets/icons/spells/light-air-fire-3.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

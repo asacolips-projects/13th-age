@@ -2,7 +2,7 @@ _id: 'jAtYKx4uwWypFcZu'
 name: 'Drakefanged'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

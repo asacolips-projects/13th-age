@@ -2,7 +2,7 @@ _id: 'UUZ0X2KuKBRpUtCS'
 name: 'Perfection (Usually heavy armor)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

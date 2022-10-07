@@ -2,7 +2,7 @@ _id: 'cFP4zaOlRmaSk6nL'
 name: 'Black Pudding'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'C: Acid-drenched pseudopod'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Climber'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -244,7 +244,7 @@ items:
     name: 'Slippery'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

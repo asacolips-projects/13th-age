@@ -1,7 +1,7 @@
 name: '(Ki Power) Quivering Palm'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/shadow_01.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

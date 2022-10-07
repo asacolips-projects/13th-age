@@ -2,7 +2,7 @@ _id: 'bc9Lppf4f7uDNeZM'
 name: 'Iron Grip'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

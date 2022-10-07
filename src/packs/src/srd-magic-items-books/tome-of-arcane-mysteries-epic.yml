@@ -2,7 +2,7 @@ _id: 'KTj75sJqTTex5o7Q'
 name: 'Tome of Arcane Mysteries (Epic)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'w317L6okrCCTyOw4'
 name: 'Relentless Strike'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

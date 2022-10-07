@@ -2,7 +2,7 @@ _id: 'IPeD3XFvgXUXXQyz'
 name: 'Wand of the Bloodless Mage (+2 implement)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

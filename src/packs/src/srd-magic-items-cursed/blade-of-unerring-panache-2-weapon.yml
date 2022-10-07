@@ -2,7 +2,7 @@ _id: 'tatVgwGffqN8xCSW'
 name: 'Blade of Unerring Panache (+2 weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

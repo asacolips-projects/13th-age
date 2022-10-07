@@ -2,7 +2,7 @@ _id: 'yQoYxLP0zW8sjpFt'
 name: 'Codex of Foreshadowed Victory'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

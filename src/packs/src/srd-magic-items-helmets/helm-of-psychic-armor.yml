@@ -2,7 +2,7 @@ _id: 'swFpfe8IFLNW5jHb'
 name: 'Helm of Psychic Armor'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

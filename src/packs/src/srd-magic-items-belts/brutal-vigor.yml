@@ -2,7 +2,7 @@ _id: 'G7B0nKNJNOGpAwPL'
 name: 'Brutal Vigor'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

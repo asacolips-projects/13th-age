@@ -2,7 +2,7 @@ _id: 'UIQr8utaVUcq4RaF'
 name: 'Rasping Greaves (boots)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

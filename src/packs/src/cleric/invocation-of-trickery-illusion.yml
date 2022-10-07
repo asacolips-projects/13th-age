@@ -1,7 +1,7 @@
 name: 'Invocation of Trickery/Illusion'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/emerald_07.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

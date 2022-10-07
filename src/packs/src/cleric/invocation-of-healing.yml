@@ -1,7 +1,7 @@
 name: 'Invocation of Healing'
 type: 'power'
 img: 'systems/archmage/assets/icons/spells/heal-sky-1.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

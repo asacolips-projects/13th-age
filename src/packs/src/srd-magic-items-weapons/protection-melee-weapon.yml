@@ -2,7 +2,7 @@ _id: 'HYObPEBEAG1tVoJ6'
 name: 'Protection (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'AHweCvDlAvWJjZc3'
 name: 'Djinn'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Greatsword'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -230,7 +230,7 @@ items:
     name: 'c: Assault of the whirlwind'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -285,7 +285,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -307,7 +307,7 @@ items:
     name: 'Grant-a-wish'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -329,7 +329,7 @@ items:
     name: 'Protection boon'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -351,7 +351,7 @@ items:
     name: 'Spiky bits'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -373,7 +373,7 @@ items:
     name: 'Demonic taint'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -395,7 +395,7 @@ items:
     name: 'Unwelcome resonance'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -417,7 +417,7 @@ items:
     name: 'Sorcerous reach'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -439,7 +439,7 @@ items:
     name: 'Aura of command'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -461,7 +461,7 @@ items:
     name: 'Wind/Shadow form'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -483,7 +483,7 @@ items:
     name: 'Frenzied'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

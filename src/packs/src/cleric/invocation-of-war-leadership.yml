@@ -1,7 +1,7 @@
 name: 'Invocation of War/Leadership'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/red_10.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

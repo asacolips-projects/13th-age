@@ -2,7 +2,7 @@ _id: '8V1v7yZibSxoaz3z'
 name: 'Inimical (Any weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

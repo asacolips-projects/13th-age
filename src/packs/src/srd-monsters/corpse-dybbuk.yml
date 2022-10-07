@@ -2,7 +2,7 @@ _id: 'ujYCygji9WkxdQ4e'
 name: 'Corpse Dybbuk'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Supernatural strength'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -226,7 +226,7 @@ items:
     name: 'Unholy aversion'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -248,7 +248,7 @@ items:
     name: 'Warp another’s flesh'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

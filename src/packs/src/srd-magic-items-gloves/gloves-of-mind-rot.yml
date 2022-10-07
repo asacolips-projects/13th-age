@@ -2,7 +2,7 @@ _id: 'In2KDoX9HlyTMxjG'
 name: 'Gloves of Mind Rot'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

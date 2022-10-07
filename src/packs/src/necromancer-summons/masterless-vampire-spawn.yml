@@ -2,7 +2,7 @@ _id: 'spSDC2J7dkevgRzI'
 name: 'Masterless Vampire Spawn'
 type: 'npc'
 img: 'icons/svg/mystery-man.svg'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -373,7 +373,7 @@ items:
     name: 'Claw'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

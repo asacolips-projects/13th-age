@@ -2,7 +2,7 @@ _id: 'So2xyHwpLznex4lb'
 name: 'Staff of the Uncrowned King'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'
