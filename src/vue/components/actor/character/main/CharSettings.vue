@@ -99,7 +99,12 @@
       <!-- Flag Settings -->
       <div class="unit unit--flags">
         <div v-for="(flag, f) in flags" :key="f" :data-key="f" class="settings-flags">
-          <label :for="concat('flags.archmage.', f)" class="unit-subtitle flexrow"><input type="checkbox" :name="concat('flags.archmage.', f, )" v-model="flag.value"> {{flag.name}}</label>
+          <label :for="concat('flags.archmage.', f)" class="unit-subtitle flexrow">
+            <input v-if="!flag.options" type="checkbox" :name="concat('flags.archmage.', f, )" v-model="flag.value"> {{flag.name}}
+          </label>
+          <select v-if="flag.options" :name="concat('flags.archmage.', f, )" v-model="flag.value">
+            <option v-for="(option, o) in flag.options" :key="o" :value="o">{{localize(option)}}</option>
+          </select>
           <p class="notes">{{flag.hint}}</p>
         </div>
       </div>
