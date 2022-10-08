@@ -40,10 +40,7 @@ export function ordinalSuffix(number) {
   return number + "th";
 }
 
-export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null) {
-  if (diceFormulaMode == 'long') {
-    return text;
-  }
+export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null) {
   rollData = JSON.parse(JSON.stringify(rollData));
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
@@ -83,58 +80,82 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   ]);
   // Remove whitespace from inline rolls.
   let clean = text.toString();  // cast to string, could be e.g. number
-  text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
-    clean = clean.replace(match, match.replaceAll(' ', ''));
-  });
-  // Replace special keys in inline rolls.
-  for (let [needle, replacement] of replaceMap) {
-    console.log(diceFormulaMode);
-    console.log(rollData);
-    console.log(needle);
-    clean = clean.replaceAll(needle, (diceFormulaMode == 'numeric' ? getProperty(rollData, needle) : replacement));
-  };
-  // Call TextEditor.enrichHTML to process remaining object links
-  clean = TextEditor.enrichHTML(clean, { async: false})
+  if (diceFormulaMode == 'short') {
+    text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+      clean = clean.replace(match, match.replaceAll(' ', ''));
+    });
+    // Replace special keys in inline rolls.
+    for (let [needle, replacement] of replaceMap) {
+      clean = clean.replaceAll(needle, replacement);
+    };
+    // Call TextEditor.enrichHTML to process remaining object links
+    clean = TextEditor.enrichHTML(clean, { async: false})
+  }
+  else if (diceFormulaMode == 'long') {
+    clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+      return `<span class="expression">${match}</span>`;
+    });
+  }
+  else if (diceFormulaMode == 'numeric') {
+    clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+      let rollFormula = field == 'attack' ? `${p2} + @atk.mod` : p2;
+      let roll = new Roll(rollFormula, rollData);
+      roll.evaluate({async: false});
+      const newRoll = rollCondenser(roll);
+      return `<span class="expression">${newRoll.formula}</span>`;
+    });
+  }
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
 
-async function evaluateRolls(text = 'd20+@abil.dex.mod+@lvl+2+(@lvl)@wpn.m.die') {
-  let actor = game.actors.getName('test');
-  let roll = new Roll(text, actor.getRollData());
-  await roll.evaluate({async: true});
-  console.log(roll);
-  // let rollString = '';
+export function rollCondenser(roll) {
+  let originalTerms = roll.terms;
+  let newTerms = [];
+  let nestedTerms = [];
+  let operator = null;
 
-  // for (let [k,v] of Object.entries(roll.terms)) {
-  //   switch (v.constructor.name) {
-  //     case 'Die':
-  //       rollString += `{${v.formula}}`;
-  //       break;
+  function termCondenser(terms) {
+    let r = Roll.fromTerms(terms);
+    let t = new NumericTerm({number: r.total}).toJSON();
+    t.evaluated = true;
+    return NumericTerm.fromJSON(JSON.stringify(t));
+  }
 
-  //     case 'OperatorTerm':
-  //       rollString += v.operator;
-  //       break;
+  originalTerms.forEach(term => {
+    switch (term.constructor.name) {
+      case 'NumericTerm':
+        nestedTerms.push(term);
+        break;
 
-  //     case 'NumericTerm':
-  //       rollString += v.number;
-  //       break;
+      case 'OperatorTerm':
+        if (nestedTerms.length < 1) {
+          operator = term;
+          if (['*', '/'].includes(term.operator)) {
+            break;
+          }
+        }
+        nestedTerms.push(term);
+        break;
 
-  //     default:
-  //       break;
-  //   }
-  // }
+      default:
+        if (nestedTerms.length > 0) {
+          if (operator) newTerms.push(operator);
+          newTerms.push(termCondenser(nestedTerms));
+        }
+        newTerms.push(term);
+        nestedTerms = [];
+        operator = null;
+        break;
+    }
+  });
+  if (nestedTerms.length > 0) {
+    if (operator) newTerms.push(operator);
+    newTerms.push(termCondenser(nestedTerms));
+  }
 
-  // console.log(rollString);
-  // let cleanString = rollString.replaceAll(/\}(.+)\{/g, (match, p1) => {
-  //   console.log(match);
-  //   console.log(p1);
-  //   let formula = p1.replace(/[^\d]+$/g, '');
-  //   return `}+${eval(formula)}+{`;
-  // }).replaceAll(/[\{\}]/g, '');
-  // console.log(rollString);
-  // console.log(cleanString);
-  // console.log(roll);
+  let newRoll = Roll.fromTerms(newTerms);
+  return newRoll;
 }
 
 export async function getActor(actorData) {
