@@ -494,7 +494,7 @@ export class ItemArchmage extends Item {
     return data;
   }
 
-  
+
   _powerChatData() {
     const data = duplicate(this.system);
     const tags = [

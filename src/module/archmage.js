@@ -4,6 +4,7 @@ import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
+import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
@@ -84,6 +85,7 @@ Hooks.once('init', async function() {
     ItemArchmage,
     ItemArchmageSheet,
     EffectArchmageSheet,
+    ArchmageMacros,
     ArchmageUtility,
     rollItemMacro,
     ActorHelpersV2

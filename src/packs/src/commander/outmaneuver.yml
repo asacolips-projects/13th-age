@@ -180,7 +180,7 @@ system:
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'
-    value: "const hasFeat = archmage.item.system.feats.champion.isActive.value;\nconst isEven = (archmage.hitEval.$rolls[0].d20result % 2 == 0);\nconst bonus = (hasFeat && isEven) ? 2 : 1;\nconst cp = actor.system.resources.perCombat.commandPoints.current;\nif (archmage.hitEval.hasHit) {\n  await actor.update({'system.resources.perCombat.commandPoints.current': cp+bonus});\n}"
+    value: "game.archmage.ArchmageMacros.commanderOutmaneuver(speaker, actor, token, character, archmage);"
   group:
     value: 'Tactic'
     type: 'String'

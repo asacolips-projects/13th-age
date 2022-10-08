@@ -1036,6 +1036,11 @@ input[type="checkbox"] {
         display: inline;
       }
 
+      details {
+        max-width: 100%;
+        overflow: hidden;
+      }
+
       textarea {
         font-family: monospace;
         background: #fff;
