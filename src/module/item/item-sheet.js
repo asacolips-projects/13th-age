@@ -172,13 +172,15 @@ export class ItemArchmageSheet extends ItemSheet {
     // If the _CodeMirror module is enabled, use it to create a code editor for
     // the macro field.
     if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
-      const editor = CodeMirror.fromTextArea(html.find(".power-macro-editor textarea")[0], {
+      const textarea = html.find(".power-macro-editor textarea")[0];
+      const editor = CodeMirror.fromTextArea(textarea, {
         mode: "javascript",
         ...CodeMirror.userSettings,
         lineNumbers: true,
         inputStyle: "contenteditable",
         autofocus: false,
         theme: context.nightmode ? 'monokai' : 'default',
+        readOnly: textarea.hasAttribute('readonly')
       }).on('change', (instance) => instance.save());
     }
   }

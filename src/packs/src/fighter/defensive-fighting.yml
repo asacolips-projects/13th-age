@@ -177,7 +177,7 @@ system:
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'
-    value: "game.archmage.ArchmageMacros.fighterDefensiveFighting(speaker, actor, token, character, archmage);"
+    value: "// For the code executed in this macro, see\n// https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/integration-245-power-macros/src/module/setup/macros.js\ngame.archmage.ArchmageMacros.fighterDefensiveFighting(speaker, actor, token, character, archmage);"
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'KnAcreVVOBbVJkC3'

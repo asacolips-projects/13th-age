@@ -185,7 +185,7 @@ system:
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'
-    value: "game.archmage.ArchmageMacros.aasimarHalo(speaker, actor, token, character, archmage);"
+    value: "// For the code executed in this macro, see\n// https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/integration-245-power-macros/src/module/setup/macros.js\ngame.archmage.ArchmageMacros.aasimarHalo(speaker, actor, token, character, archmage);"
 flags: {}
 img: 'icons/svg/d20.svg'
 _id: 'DqyhiOcydNXYOK11'
