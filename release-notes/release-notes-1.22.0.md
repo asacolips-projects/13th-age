@@ -25,7 +25,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - Aasimar: Halo
     - Commander: Outmaneuver
     - Fighter: Carve an Opening
-    - Fighter: Defensive Fighting
+    - Fighter: Defensive Fighting (works best with _Times Up_ installed and active).
     - Wizard: Light (Cantrip)
 - Updated the **Import Powers** dialog to preselect any race or class features
   that are not already present on your character.
