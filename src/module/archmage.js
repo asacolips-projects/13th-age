@@ -18,6 +18,21 @@ import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 
 Hooks.once('init', async function() {
 
+  if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
+    var cssId = 'archmage-codemirror';
+    if (!document.getElementById(cssId))
+    {
+        var head  = document.getElementsByTagName('head')[0];
+        var link  = document.createElement('link');
+        link.id   = cssId;
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/modules/_CodeMirror/theme/monokai.css';
+        link.media = 'all';
+        head.appendChild(link);
+    }
+  }
+
   String.prototype.safeCSSId = function() {
     return encodeURIComponent(
       this.toLowerCase()

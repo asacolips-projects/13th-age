@@ -1024,6 +1024,31 @@ input[type="checkbox"] {
         margin-right: 4px;
       }
     }
+
+    .form-group-stacked {
+      > label {
+        border-right: none;
+      }
+    }
+
+    .power-macro-editor {
+      span {
+        display: inline;
+      }
+
+      textarea {
+        font-family: monospace;
+        background: #fff;
+        color: #222;
+      }
+
+      &.nightmode {
+        textarea {
+          background: #333;
+          color: #fff;
+        }
+      }
+    }
   }
 
   .mce-tinymce,

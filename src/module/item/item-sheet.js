@@ -65,6 +65,9 @@ export class ItemArchmageSheet extends ItemSheet {
     if (this.actor) {
       let powerClass = 'monster';
 
+      // Determine if nightmode is used.
+      context.nightmode = this.actor.getFlag('archmage', 'nightmode') ?? false;
+
       if (this.actor.type === 'character') {
         // Pass general character data.
         powerClass = this.actor.system.details.class.value.toLowerCase();
@@ -88,6 +91,12 @@ export class ItemArchmageSheet extends ItemSheet {
 
       context['powerClass'] = powerClass;
       context['powerLevel'] = powerLevelString;
+    }
+
+    // If there wasn't an actor, check to see if the user's selector character
+    // has nightmode set as a fallback.
+    if (game.user?.character) {
+      context.nightmode = game.user.character.getFlag('archmage', 'nightmode') ?? false;
     }
 
     context.system = context.data.system;
@@ -156,8 +165,22 @@ export class ItemArchmageSheet extends ItemSheet {
    *
    * @return {undefined}
    */
-  activateListeners(html) {
+  async activateListeners(html) {
     super.activateListeners(html);
+    const context = await this.getData();
+
+    // If the _CodeMirror module is enabled, use it to create a code editor for
+    // the macro field.
+    if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
+      const editor = CodeMirror.fromTextArea(html.find(".power-macro-editor textarea")[0], {
+        mode: "javascript",
+        ...CodeMirror.userSettings,
+        lineNumbers: true,
+        inputStyle: "contenteditable",
+        autofocus: false,
+        theme: context.nightmode ? 'monokai' : 'default',
+      }).on('change', (instance) => instance.save());
+    }
   }
 }
 
