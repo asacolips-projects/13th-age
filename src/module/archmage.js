@@ -770,6 +770,14 @@ Hooks.on('updateCombat', (async (combat, update) => {
     $escalationDiv.attr('data-value', escalation);
     $escalationDiv.removeClass('hide');
     $escalationDiv.find('.ed-number').text(escalation);
+
+    // Update open sheets.
+    for (let app of Object.values(ui.windows)) {
+      const appType = app?.object?.type ?? null;
+      if (appType == 'character' || appType == 'npc') {
+        app.render(true);
+      }
+    }
   }
 }));
 
