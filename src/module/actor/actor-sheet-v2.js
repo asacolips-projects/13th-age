@@ -52,7 +52,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       isCharacter: this.actor.type === "character",
       isNPC: this.actor.type === "npc",
       config: CONFIG.DND5E,
-      rollData: this.actor.getRollData.bind(this.actor)
+      rollData: this.actor.getRollData(this.actor)
     };
 
     // Convert the actor data into a more usable version.
