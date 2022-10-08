@@ -409,9 +409,10 @@ ARCHMAGE:
     RechargeSucc: recharged
     Rest: Rest
     Rests: Rests
-    sequencerFile: Sequencer File
-    sequencerPersonal: Play effect on source only
-    sequencerStretch: Stretch effect from Source
+    sequencerTarget: Sequencer File (Target)
+    sequencerRay: Sequencer File (Ray)
+    sequencerSelf: Sequencer File (Self)
+    sequencerReverse: Reverse Sequence
     special: Special
     spellChain: Chain Spell
     spellLevel3: 3rd Level Spell
