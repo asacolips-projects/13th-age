@@ -2,7 +2,7 @@ name: 'Moon in Storming Sky (Heaven’s Thunder)'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

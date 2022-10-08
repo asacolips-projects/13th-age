@@ -2,7 +2,7 @@ name: 'Force a Conclusion'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'VG9NLnrqhqJHb4Ev'
 name: 'Manual of Enlightened Flesh'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

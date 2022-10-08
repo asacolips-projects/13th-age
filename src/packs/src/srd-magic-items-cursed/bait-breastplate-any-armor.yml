@@ -2,7 +2,7 @@ _id: '8zjW5ygcDrcEqnzL'
 name: 'Bait Breastplate (any armor)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

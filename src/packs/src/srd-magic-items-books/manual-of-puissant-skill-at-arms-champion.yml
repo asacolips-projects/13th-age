@@ -2,7 +2,7 @@ _id: 'I7YySlWbguQnNGDU'
 name: 'Manual of Puissant Skill at Arms (Champion)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

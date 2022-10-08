@@ -2,7 +2,7 @@ name: 'Halo'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'
@@ -182,6 +182,10 @@ data:
     type: 'String'
     label: 'Group'
     value: ''
+  embeddedMacro:
+    type: 'String'
+    label: 'Embedded Macro'
+    value: "// For the code executed in this macro, see\n// https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/integration-245-power-macros/src/module/setup/macros.js\ngame.archmage.ArchmageMacros.aasimarHalo(speaker, actor, token, character, archmage);"
 flags: {}
 img: 'icons/svg/d20.svg'
 _id: 'DqyhiOcydNXYOK11'

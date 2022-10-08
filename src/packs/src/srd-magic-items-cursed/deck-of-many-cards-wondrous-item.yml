@@ -2,7 +2,7 @@ _id: 'anQ6WOq4bMbd08FC'
 name: 'Deck of Many Cards (wondrous item)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

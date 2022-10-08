@@ -2,7 +2,7 @@ _id: 'Fl4mZ3UolfbPoQKQ'
 name: 'Spiked'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

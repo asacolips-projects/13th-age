@@ -2,7 +2,7 @@ name: 'Panther Spins Free (Claws of the Panther)'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

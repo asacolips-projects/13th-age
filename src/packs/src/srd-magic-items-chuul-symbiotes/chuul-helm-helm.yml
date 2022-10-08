@@ -2,7 +2,7 @@ _id: 'fprz1DXSuIGleFAh'
 name: 'Chuul Helm (helm)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

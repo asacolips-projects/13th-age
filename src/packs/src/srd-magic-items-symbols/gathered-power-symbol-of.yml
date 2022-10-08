@@ -2,7 +2,7 @@ _id: 'JoYmOS1DhFVJWK2p'
 name: 'Gathered Power, Symbol of'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'k1FFWRS8vqFtD5Ug'
 name: 'Diabolical Staff'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

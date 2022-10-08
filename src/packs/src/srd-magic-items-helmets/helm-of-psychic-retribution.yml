@@ -2,7 +2,7 @@ _id: 'b75BGl2clatQ3pgQ'
 name: 'Helm of Psychic Retribution'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

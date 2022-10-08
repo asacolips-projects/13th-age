@@ -2,7 +2,7 @@ _id: 'dvktCjuX6ZIItcxG'
 name: 'Heroic Resolve'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

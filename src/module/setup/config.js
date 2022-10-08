@@ -893,6 +893,17 @@ FLAGS.characterFlags = {
     hint: "Reverse the sheet color scheme into a darkened night mode.",
     section: "Sheet",
     type: Boolean
+  },
+  "diceFormulaMode": {
+    name: "Dice Formula Mode",
+    hint: "Method used to display inline dice formulas on power previews in the character sheet.",
+    section: "Sheet",
+    type: String,
+    options: {
+      'short': 'Formula (short)',
+      'long': 'Formula (long)',
+      'numeric': 'Calculated modifiers'
+    }
   }
 };
 

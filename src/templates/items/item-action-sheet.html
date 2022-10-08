@@ -69,5 +69,13 @@
         {{/if}}
 
         {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
+
+        <!-- <div class="form-group"> -->
+        <div>
+            <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+            <br/>
+            <textarea class="attribute-value" name="system.embeddedMacro.value" rows="15" title=""
+            data-dtype="{{system.embeddedMacro.type}}" style="font-family: monospace">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
+        </div>
     </div>
 </form>

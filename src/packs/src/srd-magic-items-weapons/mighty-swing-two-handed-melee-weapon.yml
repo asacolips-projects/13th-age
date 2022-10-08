@@ -2,7 +2,7 @@ _id: 'pjFd6JErD1lVvaE1'
 name: 'Mighty Swing (Two-handed melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

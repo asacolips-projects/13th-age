@@ -2,7 +2,7 @@ name: '(Cantrip) Light'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'
@@ -177,6 +177,10 @@ data:
         type: 'Boolean'
         label: 'Active'
         value: false
+  embeddedMacro:
+    type: 'String'
+    label: 'Embedded Macro'
+    value: "// For the code executed in this macro, see\n// https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/integration-245-power-macros/src/module/setup/macros.js\ngame.archmage.ArchmageMacros.wizardLight(speaker, actor, token, character, archmage);"
   group:
     value: 'Cantrip'
     type: 'String'

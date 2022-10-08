@@ -1,7 +1,7 @@
 name: 'Invocation of Life/Death'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/blood_04.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

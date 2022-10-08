@@ -8,6 +8,7 @@
         <strong v-if="power.system.actionType.value">{{localize(concat('ARCHMAGE.',power.system.actionType.value))}}</strong>
         <strong v-if="power.system.powerUsage.value">{{constants.powerUsages[power.system.powerUsage.value]}}</strong>
         <strong v-if="power.system.powerType.value">{{constants.powerTypes[power.system.powerType.value]}}</strong>
+        <strong v-if="power.system.embeddedMacro.value"><em>{{localize('ARCHMAGE.CHAT.embeddedMacro')}}</em></strong>
       </div>
     </header>
     <!-- Primary properties (attack, hit, effect, etc.). -->
@@ -15,15 +16,15 @@
       <div v-if="power.system.description.value" class="power-detail power-detail--description">
         <span class="power-detail-value" v-html="power.system.description.value"></span>
       </div>
-      <div class="power-detail" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{power.system[field].label}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.system[field].value)"></span>
+      <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
+        <strong class="power-detail-label">{{power.system[field].label}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.system[field].value, [], diceFormulaMode, context.rollData, field)"></span>
       </div>
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
       <div v-for="(feat, tier) in filterFeats(power.system.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', tier))}}:</strong>
-        <div class="power-detail-content" v-html="wrapRolls(feat.description.value)"></div>
+        <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
       </div>
     </section>
   </section>
@@ -33,7 +34,7 @@
 import { concat, localize, wrapRolls } from '@/methods/Helpers';
 export default {
   name: 'Power',
-  props: ['power'],
+  props: ['power', 'actor', 'context'],
   setup() {
     return {
       concat,
@@ -47,6 +48,9 @@ export default {
   computed: {
     constants() {
       return CONFIG.ARCHMAGE;
+    },
+    diceFormulaMode() {
+      return this.actor?.flags?.archmage?.diceFormulaMode ?? 'short';
     },
     powerDetailFields() {
       let powerFields = [

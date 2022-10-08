@@ -2,7 +2,7 @@ _id: 'acdLcpev3KnflNCr'
 name: 'Adult Remorhaz'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -161,7 +161,7 @@ items:
     name: '[Special trigger] C: Death from below!'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -211,7 +211,7 @@ items:
     name: 'Savage bite'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -261,7 +261,7 @@ items:
     name: 'Burrow'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -283,7 +283,7 @@ items:
     name: 'Furnace aura'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -305,7 +305,7 @@ items:
     name: 'Bejeweled remorhaz'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -327,7 +327,7 @@ items:
     name: 'Remorhaz steamer'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -349,7 +349,7 @@ items:
     name: 'Spiney remorhaz'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

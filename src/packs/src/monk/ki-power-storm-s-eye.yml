@@ -1,7 +1,7 @@
 name: '(Ki Power) Storm’s Eye'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/beast_02.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

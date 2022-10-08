@@ -2,7 +2,7 @@ _id: 'QQzcP64lVYUGg5GW'
 name: 'Bearclaw'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

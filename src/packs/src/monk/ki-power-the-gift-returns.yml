@@ -1,7 +1,7 @@
 name: '(Ki Power)The Gift Returns'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/light_07.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

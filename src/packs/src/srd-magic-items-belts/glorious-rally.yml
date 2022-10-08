@@ -2,7 +2,7 @@ _id: 'vznkZihY32KyWOFK'
 name: 'Glorious Rally'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

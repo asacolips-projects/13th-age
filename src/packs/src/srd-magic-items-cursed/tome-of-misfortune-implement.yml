@@ -2,7 +2,7 @@ _id: 'X4knVnfIbcqKppaf'
 name: 'Tome of Misfortune (implement)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

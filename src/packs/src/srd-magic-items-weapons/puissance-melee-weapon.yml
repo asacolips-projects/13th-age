@@ -2,7 +2,7 @@ _id: 'cm3kP7i3qNjbkn2L'
 name: 'Puissance (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

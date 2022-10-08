@@ -70,7 +70,7 @@
           </div>
           <!-- Expanded power content. -->
           <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
-            <Power :power="power" :ref="concat('power--', power._id)"/>
+            <Power :power="power" :actor="actor" :context="context" :ref="concat('power--', power._id)"/>
           </div>
         </li>
       </ul>
@@ -84,7 +84,7 @@ import Power from '@/components/parts/Power.vue';
 import Rollable from '@/components/parts/Rollable.vue';
 export default {
   name: 'CharPowers',
-  props: ['actor', 'tab', 'flags'],
+  props: ['actor', 'context', 'tab', 'flags'],
   setup() {
     return {
       concat,

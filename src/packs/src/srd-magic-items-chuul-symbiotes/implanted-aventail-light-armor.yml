@@ -2,7 +2,7 @@ _id: 'bLVDysqoTr2HK0rn'
 name: 'Implanted Aventail (light armor)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

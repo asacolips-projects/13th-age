@@ -2,7 +2,7 @@ _id: 'O1NSzvqop97o2yQ8'
 name: 'Momentous Harmony'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'
