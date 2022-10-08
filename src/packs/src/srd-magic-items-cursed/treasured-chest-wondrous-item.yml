@@ -2,7 +2,7 @@ _id: '52ITw1xQk1md1CBd'
 name: 'Treasured Chest (wondrous item)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

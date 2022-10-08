@@ -2,7 +2,7 @@ _id: 'JoYhBe4vv6zpwbld'
 name: 'Abandon (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

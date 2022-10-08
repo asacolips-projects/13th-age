@@ -29,7 +29,7 @@ export class ArchmageUtility {
       // Get the current round.
       let round = combat.current.round;
       if (round == null) {
-        round = combat.data.round;
+        round = combat.round;
       }
       // Format it for min/max values.
       if (round < 1) {
@@ -82,7 +82,7 @@ export class ArchmageUtility {
       // Get the current round.
       let round = combat.current.round;
       if (round == null) {
-        round = combat.data.round;
+        round = combat.round;
       }
 
       // Establish limits on the current round.
@@ -122,7 +122,7 @@ export class ArchmageUtility {
       return false;
     }
     let combatantPlayers = combatant.players.map(c => {
-      return c.data._id;
+      return c._id;
     });
     if (combatantPlayers.includes(game.user.id)) {
       return true;
@@ -140,10 +140,10 @@ export class ArchmageUtility {
    */
   static getActorsByName(name) {
     if (Array.isArray(name)) {
-      return game.actors.filter(a => name.includes(a.data.name));
+      return game.actors.filter(a => name.includes(a.name));
     }
     else {
-      return game.actors.filter(a => a.data.name == name);
+      return game.actors.filter(a => a.name == name);
     }
   }
 
@@ -153,7 +153,7 @@ export class ArchmageUtility {
 
     if (monsters) {
       for (let actor of monsters) {
-        let name = actor.data.name.toLowerCase();
+        let name = actor.name.toLowerCase();
         let update = {};
 
         // Handle size.
@@ -164,18 +164,18 @@ export class ArchmageUtility {
         let sizeRegex = new RegExp(size);
         let sizeMatch = name.match(sizeRegex);
         if (sizeMatch && sizeMatch[0]) {
-          update['data.details.size.value'] = sizeMatch[0];
+          update['system.details.size.value'] = sizeMatch[0];
           if (sizeMatch[0] == 'large') {
-            update['data.token.width'] = 2;
-            update['data.token.height'] = 2;
+            update['prototypeToken.width'] = 2;
+            update['prototypeToken.height'] = 2;
           }
           else if (sizeMatch[0] == 'huge') {
-            update['data.token.width'] = 3;
-            update['data.token.height'] = 3;
+            update['prototypeToken.width'] = 3;
+            update['prototypeToken.height'] = 3;
           }
         }
         else {
-          update['data.details.size.value'] = 'normal';
+          update['system.details.size.value'] = 'normal';
         }
         // Handle role.
         let role = '';
@@ -185,7 +185,7 @@ export class ArchmageUtility {
         let roleRegex = new RegExp(role);
         let roleMatch = name.match(roleRegex);
         if (roleMatch && roleMatch[0]) {
-          update['data.details.role.value'] = roleMatch && roleMatch[0];
+          update['system.details.role.value'] = roleMatch && roleMatch[0];
         }
         // Handle type.
         let type = '';
@@ -195,11 +195,11 @@ export class ArchmageUtility {
         let typeRegex = new RegExp(type);
         let typeMatch = name.match(typeRegex);
         if (typeMatch && typeMatch[0]) {
-          update['data.details.type.value'] = typeMatch[0];
+          update['system.details.type.value'] = typeMatch[0];
         }
         if (Object.keys(update).length > 0) {
-          update['_id'] = actor.data._id;
-          update['name'] = actor.data.name.replace(/( |)\[.*\]/g, '');
+          update['_id'] = actor._id;
+          update['name'] = actor.name.replace(/( |)\[.*\]/g, '');
           await pack.updateEntity(update);
         }
       };
@@ -286,7 +286,7 @@ export class ArchmageUtility {
         let powerType = Object.entries(CONFIG.ARCHMAGE.powerTypes).find(p => p[1] == power.powerType);
         powers.push({
           name: power.title,
-          data: {
+          system: {
             'powerUsage.value': usage,
             'actionType.value': action,
             'powerType.value': powerType != undefined ? powerType[0] : null,

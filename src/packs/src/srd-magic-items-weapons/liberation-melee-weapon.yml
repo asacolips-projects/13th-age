@@ -2,7 +2,7 @@ _id: 'MO1PqUol8D04Qyfe'
 name: 'Liberation (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

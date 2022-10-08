@@ -2,7 +2,7 @@ _id: 'o7EWzp88SE2meVs5'
 name: 'Jack of All Trades'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'gdCyzqomtTAorGOZ'
 name: 'Helm of the Undaunted Hero'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

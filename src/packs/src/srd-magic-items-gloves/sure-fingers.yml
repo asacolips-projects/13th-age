@@ -2,7 +2,7 @@ _id: 'lzV2W4YhnV1Pf6oZ'
 name: 'Sure Fingers'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

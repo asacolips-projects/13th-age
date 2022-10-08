@@ -2,7 +2,7 @@ _id: '8J6Fd90BNHbbFtGu'
 name: 'Shelter'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

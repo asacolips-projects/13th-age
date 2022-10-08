@@ -2,7 +2,7 @@ _id: 'AEN3ajXfgyK1j4xL'
 name: 'Vanity (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

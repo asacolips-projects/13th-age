@@ -1,7 +1,7 @@
 name: 'Invocation of Justice/Vengeance'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/blue_27.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

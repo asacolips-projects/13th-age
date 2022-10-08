@@ -2,7 +2,7 @@ _id: 'o0IXTCY1aw4ikbEw'
 name: 'Neural Whip (light one-handed melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

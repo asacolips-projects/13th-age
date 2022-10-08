@@ -1,7 +1,7 @@
 name: 'Animal Companion (1)'
 type: 'npc'
 img: 'icons/svg/mystery-man.svg'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -145,7 +145,7 @@ items:
     name: 'Fangs or Claws or...'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -200,7 +200,7 @@ items:
     name: 'Companion Bonuses, pick one:'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -223,7 +223,7 @@ items:
     name: 'Bear (also Giant Badger, Wolverine)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -247,7 +247,7 @@ items:
     name: 'Boar (also Spiky Lizard)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -270,7 +270,7 @@ items:
     name: 'Eagle (also Falcon, Hawk, Owl, Vulture)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -293,7 +293,7 @@ items:
     name: 'Panther (also Lion, Tiger)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -316,7 +316,7 @@ items:
     name: 'Snake (also Giant Spider, Poison Toad)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -339,7 +339,7 @@ items:
     name: 'Wolf (also Big Dog, Coyote, Hyena, Jackal)'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

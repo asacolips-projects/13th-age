@@ -2,7 +2,7 @@ _id: 'QxweEYnVKGf6I1sP'
 name: 'Incomparable Axe of Wyrm Chopping (+3 axe)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

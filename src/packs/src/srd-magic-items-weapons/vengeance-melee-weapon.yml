@@ -2,7 +2,7 @@ _id: 'wrzj7YSSa3dvp5oT'
 name: 'Vengeance (Melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

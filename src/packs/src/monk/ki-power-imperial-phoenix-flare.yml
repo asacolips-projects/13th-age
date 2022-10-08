@@ -1,7 +1,7 @@
 name: '(Ki Power) Imperial Phoenix Flare'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/fire_11.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

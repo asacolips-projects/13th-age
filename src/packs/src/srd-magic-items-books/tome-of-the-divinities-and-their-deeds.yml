@@ -2,7 +2,7 @@ _id: 'fw4PiL9ybUQPWZLo'
 name: 'Tome of the Divinities and their Deeds'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

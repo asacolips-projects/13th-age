@@ -238,7 +238,7 @@ export class ItemArchmage extends Item {
     // TODO: remove once rolls are correctly pre-rolled above
     chatData.content =await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
 
-    let sequencerAnim = preCreateChatMessageHandler.handle(chatData, {
+    let [ sequencerAnim, hitEvaluationResults ] = preCreateChatMessageHandler.handle(chatData, {
       targets: numTargets.targets,
       type: this.type,
       actor: this.actor,
@@ -313,7 +313,43 @@ export class ItemArchmage extends Item {
     if (game.modules.get("times-up")?.active) {
       await this._handleMonkAC();
     }
-    return ChatMessage.create(chatData, { displaySheet: false });
+
+    // Extra data accessible as "archmage" in embedded macros
+    let macro_data = {
+      item: itemToRender,
+      hitEval: hitEvaluationResults,
+      suppressMessage: false,
+      // rollData: rollData
+    };
+
+    // If there is an embedded macro attempt to execute it
+    if (this.system.embeddedMacro?.value.length > 0) {
+
+      if (!game.user.hasPermission("MACRO_SCRIPT")) {
+        ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
+      } else {
+        // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
+
+        // Add variables to the evaluation scope
+        const speaker = ChatMessage.implementation.getSpeaker();
+        const character = game.user.character;
+        const actor = game.actors.get(speaker.actor);
+        const token = (canvas.ready ? canvas.tokens.get(speaker.token) : null);
+
+        // Attempt script execution
+        const AsyncFunction = (async function(){}).constructor;
+        const fn = new AsyncFunction("speaker", "actor", "token", "character", "archmage", this.system.embeddedMacro.value);
+        try {
+          await fn.call(this, speaker, actor, token, character, macro_data);
+        } catch(ex) {
+          ui.notifications.error("There was an error in your macro syntax. See the console (F12) for details");
+          console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
+        }
+      }
+    }
+
+    if (!macro_data.suppressMessage) return ChatMessage.create(chatData, { displaySheet: false });
+    return
   }
 
   /**
@@ -458,7 +494,7 @@ export class ItemArchmage extends Item {
     return data;
   }
 
-  
+
   _powerChatData() {
     const data = duplicate(this.system);
     const tags = [

@@ -1,7 +1,7 @@
 name: 'Invocation of Protection/Community'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/nature_01.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

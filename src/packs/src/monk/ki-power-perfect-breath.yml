@@ -1,7 +1,7 @@
 name: '(Ki Power) Perfect Breath'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/violet_15.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

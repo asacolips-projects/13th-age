@@ -2,7 +2,7 @@ _id: 'hJhVJU5P5zVX7njg'
 name: 'Great Low Sickle (+5 weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

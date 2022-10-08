@@ -2,7 +2,7 @@ _id: 'O05Fw2lSmmiF74gX'
 name: 'Staff of Dark Karma'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

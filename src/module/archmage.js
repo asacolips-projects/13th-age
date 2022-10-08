@@ -4,6 +4,7 @@ import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
 import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
 import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
+import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
 import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
@@ -17,6 +18,21 @@ import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 
 
 Hooks.once('init', async function() {
+
+  if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
+    var cssId = 'archmage-codemirror';
+    if (!document.getElementById(cssId))
+    {
+        var head  = document.getElementsByTagName('head')[0];
+        var link  = document.createElement('link');
+        link.id   = cssId;
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/modules/_CodeMirror/theme/monokai.css';
+        link.media = 'all';
+        head.appendChild(link);
+    }
+  }
 
   String.prototype.safeCSSId = function() {
     return encodeURIComponent(
@@ -69,6 +85,7 @@ Hooks.once('init', async function() {
     ItemArchmage,
     ItemArchmageSheet,
     EffectArchmageSheet,
+    ArchmageMacros,
     ArchmageUtility,
     rollItemMacro,
     ActorHelpersV2
@@ -492,7 +509,7 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // Disable DsN's automatic parsing of inline rolls - let users enable it
-  if (isNewerVersion(game.modules.get('dice-so-nice')?.data?.version, "4.1.1")
+  if (isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
     && !game.settings.get("archmage", "DsNInlineOverride")) {
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
     game.settings.set("archmage", "DsNInlineOverride", true);

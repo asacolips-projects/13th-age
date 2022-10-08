@@ -2,7 +2,7 @@ _id: 'n2kDVlrqKsf9mLim'
 name: 'Jeweled Glove'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

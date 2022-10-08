@@ -2,7 +2,7 @@ _id: 'ImsRCvfgbVkDsO0N'
 name: 'Death Claw (gloves)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

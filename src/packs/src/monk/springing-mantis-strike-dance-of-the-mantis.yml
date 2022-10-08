@@ -2,7 +2,7 @@ name: 'Springing Mantis Strike (Dance of the Mantis)'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'd5dsi6r9UdsOrvlQ'
 name: 'Summoned Wraith'
 type: 'npc'
 img: 'icons/svg/mystery-man.svg'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -373,7 +373,7 @@ items:
     name: 'Ice-Cold Blade'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -427,7 +427,7 @@ items:
     name: 'C: Spiraling Assault'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -482,7 +482,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -504,7 +504,7 @@ items:
     name: 'Ghostly'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

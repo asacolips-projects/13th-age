@@ -2,7 +2,7 @@ name: 'Squib Swarm'
 permission:
   default: 0
 type: 'npc'
-data:
+system:
   attributes:
     ac:
       type: 'Number'
@@ -119,7 +119,7 @@ items:
     name: 'Sharp nibbling beaks'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -159,7 +159,7 @@ items:
     name: 'Heat absorption'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

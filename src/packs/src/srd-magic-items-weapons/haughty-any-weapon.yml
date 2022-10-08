@@ -2,7 +2,7 @@ _id: '0j4i0Ra4dwcygBbV'
 name: 'Haughty (Any weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

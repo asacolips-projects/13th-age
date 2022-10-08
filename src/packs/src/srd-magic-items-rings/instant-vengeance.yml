@@ -2,7 +2,7 @@ _id: 'Uc6O9Z5qqRMSi5N9'
 name: 'Instant Vengeance'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

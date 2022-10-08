@@ -2,7 +2,7 @@ _id: '9zDB2DqjBPrZLmzy'
 name: 'Cups'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

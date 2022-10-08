@@ -2,7 +2,7 @@ _id: 'VLh7dvzuZHjA8gbb'
 name: 'Resilience'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'
