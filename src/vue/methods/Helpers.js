@@ -40,8 +40,27 @@ export function ordinalSuffix(number) {
   return number + "th";
 }
 
+/**
+ * Replace inline rolls with alternate formatting and wrap with an additional
+ * span tag for formatting.
+ *
+ * @param {string} text String to run replacements on.
+ * @param {array} replacements Array of replacements. Each array item should be
+ *   an array with the first index being the key to replace and the second index
+ *   being the replacement.
+ * @param {string} diceFormulaMode Defaults to 'short'. The replacement mode for
+ *   dice formulas, which can be 'short', 'long', or 'numeric'.
+ * @param {object|null} rollData Optional roll data to pass for numeric
+ *   replacements.
+ * @param {string} field Field the replacement is happening for, such as the
+ *   'attack' field.
+ *
+ * @returns {string}
+ */
 export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null) {
-  rollData = JSON.parse(JSON.stringify(rollData));
+  // Unproxy the roll data object.
+  rollData = rollData ? JSON.parse(JSON.stringify(rollData)) : {};
+
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
     // Put these at the top for higher replacement priority
@@ -78,59 +97,107 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
     ['@atk.a.bonus', 'ITM'], //ITM_ARC
     ['@atk.d.bonus', 'ITM'], //ITM_DIV
   ]);
+
   // Remove whitespace from inline rolls.
   let clean = text.toString();  // cast to string, could be e.g. number
+
+  // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
   if (diceFormulaMode == 'short') {
+    // Remove additional whitespace.
     text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
       clean = clean.replace(match, match.replaceAll(' ', ''));
     });
-    // Replace special keys in inline rolls.
+    // Iterate over all of our potential replacements and replace them if
+    // they're present.
     for (let [needle, replacement] of replaceMap) {
       clean = clean.replaceAll(needle, replacement);
     };
-    // Call TextEditor.enrichHTML to process remaining object links
-    clean = TextEditor.enrichHTML(clean, { async: false})
   }
+  // Handle replacements for the 'long' syntax, which is the original inline
+  // roll. Ex: [[@wpn.m.dice+@dex+@lvl]]
   else if (diceFormulaMode == 'long') {
+    // Run a regex over all inline rolls.
     clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       return `<span class="expression">${match}</span>`;
     });
   }
+  // Handle replacements for the 'numeric' syntax, which replacements all
+  // numeric and static terms and condenses them into as few numbers as
+  // possible. Ex: 5d8+9
   else if (diceFormulaMode == 'numeric') {
+    // Run a regex over all inline rolls.
     clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
-      let rollFormula = field == 'attack' ? `${p2} + @atk.mod` : p2;
+      // Get the roll formula. If this is an attack, append the attack mod.
+      let rollFormula = field == 'attack' && p2.includes('d20') ? `${p2} + @atk.mod` : p2;
+      // Create the roll and evaluate it.
       let roll = new Roll(rollFormula, rollData);
+      // @todo this will need to be updated to work with async, but that's
+      // complicated in a regex.
       roll.evaluate({async: false});
+      // Duplicate the roll into a condensed version that combines numbers
+      // where possible.
       const newRoll = rollCondenser(roll);
+      // Return the replacement.
       return `<span class="expression">${newRoll.formula}</span>`;
     });
   }
+
+  // Call TextEditor.enrichHTML to process remaining object links
+  clean = TextEditor.enrichHTML(clean, { async: false})
+
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
 }
 
-export function rollCondenser(roll) {
+/**
+ * Condense numeric and operator terms into a single numeric term.
+ *
+ * @param {array} terms Array of roll term objects.
+ * @returns {array}
+ */
+function termCondenser(terms) {
+  // Create a roll from the terms.
+  let r = Roll.fromTerms(terms);
+  // Create a new term from the total.
+  let t = new NumericTerm({number: r.total}).toJSON();
+  t.evaluated = true;
+  // Return the new NumericTerm instance.
+  return NumericTerm.fromJSON(JSON.stringify(t));
+}
+
+/**
+ * Duplicate a roll and return a new version where numeric terms are combined
+ * into as few numeric terms as possible. For example, d20+5+3 will become
+ * d20+8.
+ *
+ * @param {object} roll Roll object to modify.
+ * @returns
+ */
+function rollCondenser(roll) {
+  // Initialize our variables.
   let originalTerms = roll.terms;
   let newTerms = [];
   let nestedTerms = [];
   let operator = null;
 
-  function termCondenser(terms) {
-    let r = Roll.fromTerms(terms);
-    let t = new NumericTerm({number: r.total}).toJSON();
-    t.evaluated = true;
-    return NumericTerm.fromJSON(JSON.stringify(t));
-  }
-
+  // Iterate over the original terms.
   originalTerms.forEach(term => {
+    // Check to see what kind of term this is.
     switch (term.constructor.name) {
+      // If this is a numeric term, push it to our temporary nestedTerms array.
       case 'NumericTerm':
         nestedTerms.push(term);
         break;
 
+      // If this is an operator term, also push it to the temporary nestedTerms
+      // array (but skip in certain cases).
       case 'OperatorTerm':
+        // If this is the first operator, store that for later when we build
+        // our final terms array.
         if (nestedTerms.length < 1) {
           operator = term;
+          // If this is the first term and is multiplication or division, don't
+          // include it in our array since we can't condense it.
           if (['*', '/'].includes(term.operator)) {
             break;
           }
@@ -138,22 +205,34 @@ export function rollCondenser(roll) {
         nestedTerms.push(term);
         break;
 
+      // If this is any other kind of term, add to our newTerms array.
       default:
+        // If our nestedTerms array has been modified, append it.
         if (nestedTerms.length > 0) {
+          // If there's an operator, we neeed to append it first.
           if (operator) newTerms.push(operator);
+          // Condense the nestedTerms array into a single numeric term and
+          // append it.
           newTerms.push(termCondenser(nestedTerms));
         }
+        // Append our current term as well.
         newTerms.push(term);
+        // Reset the nested terms and operator now that they're part of the
+        // newTerms array.
         nestedTerms = [];
         operator = null;
         break;
     }
   });
+
+  // After the loop completes, we need to also append the operator and
+  // nestedTerms if there are any stragglers.
   if (nestedTerms.length > 0) {
     if (operator) newTerms.push(operator);
     newTerms.push(termCondenser(nestedTerms));
   }
 
+  // Generate the roll and return it.
   let newRoll = Roll.fromTerms(newTerms);
   return newRoll;
 }
