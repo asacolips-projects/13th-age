@@ -156,6 +156,11 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
  * @returns {array}
  */
 function termCondenser(terms) {
+  const last = terms.length - 1;
+  // Deal with trailing operators.
+  if (terms[last]?.operator) {
+    terms.splice(last, 1);
+  }
   // Create a roll from the terms.
   let r = Roll.fromTerms(terms);
   // Create a new term from the total.
@@ -198,6 +203,7 @@ function rollCondenser(roll) {
           operator = term;
           // If this is the first term and is multiplication or division, don't
           // include it in our array since we can't condense it.
+          // break;
           if (['*', '/'].includes(term.operator)) {
             break;
           }
@@ -214,6 +220,16 @@ function rollCondenser(roll) {
           // Condense the nestedTerms array into a single numeric term and
           // append it.
           newTerms.push(termCondenser(nestedTerms));
+        }
+        // Make sure that there's an operator if we're appending a dice after
+        // we previously appended a non-operator.
+        if (newTerms.length > 0 && !newTerms[newTerms.length - 1]?.operator) {
+          operator = OperatorTerm.fromJSON(JSON.stringify({
+            class: 'OperatorTerm',
+            evaluated: true,
+            operator: '+'
+          }));
+          newTerms.push(operator);
         }
         // Append our current term as well.
         newTerms.push(term);
