@@ -118,7 +118,7 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   else if (diceFormulaMode == 'long') {
     // Run a regex over all inline rolls.
     clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
-      return `<span class="expression">${match}</span>`;
+      return `<span class="expression">[${p2}]</span>`;
     });
   }
   // Handle replacements for the 'numeric' syntax, which replacements all
