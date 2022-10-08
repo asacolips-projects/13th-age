@@ -2,7 +2,7 @@ _id: 'tB5aUsWM99f3djOu'
 name: 'Lifestone'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

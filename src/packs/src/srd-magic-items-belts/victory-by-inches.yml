@@ -2,7 +2,7 @@ _id: 'GVEuF1RV9fSxe7ot'
 name: 'Victory by Inches'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

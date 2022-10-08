@@ -2,7 +2,7 @@ name: 'General Slays the Horde 2nd Atk (Way of the Metallic Dragon)'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'CbqHA6AgmgiEm5ae'
 name: 'Deathly Warbanner'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/construct.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Bladed fringe'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -229,7 +229,7 @@ items:
     name: 'Banner magic'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -284,7 +284,7 @@ items:
     name: 'False rally'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -338,7 +338,7 @@ items:
     name: 'Designated bearer'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -360,7 +360,7 @@ items:
     name: 'Bearer beware'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -382,7 +382,7 @@ items:
     name: 'Conditional resist damage 16+'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -404,7 +404,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -426,7 +426,7 @@ items:
     name: 'Mook morale'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

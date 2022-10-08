@@ -2,7 +2,7 @@ _id: 'shZIt0puGDw92K2R'
 name: 'Godlike Glory, Holy Symbol of'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'GF4mXls4eNjarfs3'
 name: 'Ambidexterity'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

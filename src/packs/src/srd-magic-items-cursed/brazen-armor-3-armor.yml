@@ -2,7 +2,7 @@ _id: 'jDMWRmUoSDrLCZSk'
 name: 'Brazen Armor (+3 armor)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

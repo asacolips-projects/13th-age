@@ -2,7 +2,7 @@ _id: 'tDV1QbO8GPcgcENP'
 name: 'Seeking'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

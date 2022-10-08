@@ -2,7 +2,7 @@ _id: 'zgih0GWcaiDOs7iU'
 name: 'Fang Devil'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Mighty tentacles'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: 'Cutting talon'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -276,7 +276,7 @@ items:
     name: '[Special trigger] Devil’s beak'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -326,7 +326,7 @@ items:
     name: 'Quick use'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -348,7 +348,7 @@ items:
     name: 'Quick use'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -370,7 +370,7 @@ items:
     name: 'Devil’s due (Trouble)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -392,7 +392,7 @@ items:
     name: 'Resist energy 13+'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

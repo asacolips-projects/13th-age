@@ -2,7 +2,7 @@ _id: 'o4P0QHsG9EeMBw6K'
 name: 'Kilt of the Mad Archmage'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

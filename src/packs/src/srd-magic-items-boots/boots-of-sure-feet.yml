@@ -1,7 +1,7 @@
 name: 'Boots of Sure Feet'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

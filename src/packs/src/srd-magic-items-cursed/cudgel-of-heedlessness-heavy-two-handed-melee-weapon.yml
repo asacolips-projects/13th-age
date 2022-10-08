@@ -2,7 +2,7 @@ _id: '5BaZcoJBwsOnNiri'
 name: 'Cudgel of Heedlessness (heavy two-handed melee weapon)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

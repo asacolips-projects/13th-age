@@ -2,7 +2,7 @@ _id: 'AY4PMtQeSA2li5yX'
 name: 'River Devil Minion'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Tentacles and talons'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -224,7 +224,7 @@ items:
     name: 'Devil’s due (Obsession)'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

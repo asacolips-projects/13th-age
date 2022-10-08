@@ -2,7 +2,7 @@ _id: '4BE5kgvqxz13aBu0'
 name: 'Elven'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

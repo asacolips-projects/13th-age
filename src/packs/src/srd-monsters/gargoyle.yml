@@ -2,7 +2,7 @@ _id: 'Vq3qL60t3VHSfCyn'
 name: 'Gargoyle'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/construct.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Furious claws and fangs'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -244,7 +244,7 @@ items:
     name: 'Rocky hide'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -266,7 +266,7 @@ items:
     name: 'Statues, statues, everywhere'
     type: 'nastierSpecial'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -2,7 +2,7 @@ _id: '67TzoCehPhEjBz3q'
 name: 'Wand of Unerring Pain'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

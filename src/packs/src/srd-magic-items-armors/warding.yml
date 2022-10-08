@@ -2,7 +2,7 @@ _id: 'oh7Vif1XqVl5bDHm'
 name: 'Warding'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

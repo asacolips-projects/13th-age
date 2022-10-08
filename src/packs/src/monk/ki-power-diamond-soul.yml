@@ -1,7 +1,7 @@
 name: '(Ki Power) Diamond Soul'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/red_09.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

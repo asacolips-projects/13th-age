@@ -1,7 +1,7 @@
 name: '(Ki Power) The Dance Continues'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/weapon_20.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

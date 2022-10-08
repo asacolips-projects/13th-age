@@ -2,7 +2,7 @@ _id: 'rCrpoHNx5ljP7xVF'
 name: 'Blackamber Skeletal Warrior'
 type: 'npc'
 img: 'icons/svg/mystery-man.svg'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -373,7 +373,7 @@ items:
     name: 'Shortsword'
     type: 'action'
     img: 'systems/dnd5e/icons/items/weapons/sword-short.jpg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -427,7 +427,7 @@ items:
     name: 'R: Javelin'
     type: 'action'
     img: 'systems/dnd5e/icons/items/weapons/bolt.png'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -481,7 +481,7 @@ items:
     name: 'Press Advantage'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

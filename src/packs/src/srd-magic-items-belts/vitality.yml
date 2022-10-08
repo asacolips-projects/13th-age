@@ -2,7 +2,7 @@ _id: 'uN1wt3p5jHN5F27s'
 name: 'Vitality'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'xOTIyU0eCfGx6gn2'
 name: 'Chaos Behemoth'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Behemoth chaos'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -226,7 +226,7 @@ items:
     name: 'Mewhowlwail'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -274,7 +274,7 @@ items:
     name: 'The betrayal of flesh'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

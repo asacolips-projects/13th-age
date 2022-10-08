@@ -2,7 +2,7 @@ _id: 'rl18xG39wTbswgoJ'
 name: 'Clawed Tentacles (gloves)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

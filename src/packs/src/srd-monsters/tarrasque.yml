@@ -2,7 +2,7 @@ _id: 'zLKJGIgmDtRCCVvo'
 name: 'Tarrasque'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/beast.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Creature of Legend'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -197,7 +197,7 @@ items:
     name: 'All-enveloping toothy maw'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -251,7 +251,7 @@ items:
     name: 'Immense spike, horn, or tusk'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -305,7 +305,7 @@ items:
     name: 'Earth-shaking, taloned claw'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -359,7 +359,7 @@ items:
     name: 'Cataclysmic tail slam'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -413,7 +413,7 @@ items:
     name: 'Amphibious'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -435,7 +435,7 @@ items:
     name: 'Enormously bulky'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -457,7 +457,7 @@ items:
     name: 'Inmortal'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -479,7 +479,7 @@ items:
     name: 'Inflexible'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -501,7 +501,7 @@ items:
     name: 'Drag'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -555,7 +555,7 @@ items:
     name: 'Legendary Resistance'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -577,7 +577,7 @@ items:
     name: 'Leveler'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -599,7 +599,7 @@ items:
     name: 'Collapse'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -653,7 +653,7 @@ items:
     name: 'Swallow Whole'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -675,7 +675,7 @@ items:
     name: 'Gullet Digestion'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -729,7 +729,7 @@ items:
     name: 'Soft-ish innerbelly'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -751,7 +751,7 @@ items:
     name: 'Fear'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -773,7 +773,7 @@ items:
     name: 'Regeneration 230'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

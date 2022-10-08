@@ -2,7 +2,7 @@ _id: 'az2DZ0unTyiPd6Vi'
 name: 'Stone Flesh'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

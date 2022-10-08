@@ -2,7 +2,7 @@ _id: 'pH2bYqxtYdMKkooC'
 name: 'Drow Sword Maiden'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/humanoid.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Cruel cutlass'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -230,7 +230,7 @@ items:
     name: 'c: Dagger dance'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -285,7 +285,7 @@ items:
     name: 'Effortles grace'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -307,7 +307,7 @@ items:
     name: 'Arcane warrior'
     type: 'nastierSpecial'
     img: 'icons/svg/poison.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

@@ -292,6 +292,16 @@
                       <input type="checkbox" name="system.sequencer.personal" value="1" data-dtype="Boolean" {{checked system.sequencer.personal}}/>
                   </div>
                   {{/if}}
+
+                  <!-- <div class="form-group"> -->
+                  <div class="form-group form-group-stacked power-macro-editor {{#if nightmode}}nightmode{{/if}}">
+                      <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+                      <details class="form-details">
+                        <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
+                        <textarea class="attribute-value" name="system.embeddedMacro.value" rows="20" title=""
+                            data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
+                      </details>
+                  </div>
               </div>
             </div>
         </section>

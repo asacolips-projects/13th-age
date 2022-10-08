@@ -2,7 +2,7 @@ _id: 'n1zErhO2NzWvRaIL'
 name: 'Ring of Delusion (ring)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

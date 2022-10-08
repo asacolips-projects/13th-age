@@ -2,7 +2,7 @@ _id: 'TAJQeUQrZLfo5xza'
 name: 'Lethal Strike'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

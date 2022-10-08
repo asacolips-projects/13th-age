@@ -1,7 +1,7 @@
 name: '(Ki Power) Become the Dragon'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/yellow_23.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

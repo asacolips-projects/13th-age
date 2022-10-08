@@ -1,7 +1,7 @@
 name: 'Invocation of Knowledge/Lore'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/yellow_41.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -383,6 +383,9 @@ ARCHMAGE:
     HP: HP
     ItemReset: restored uses to
     KiReset: reset to
+    embeddedMacro: Embedded Macro
+    embeddedMacroSummary: Edit the embedded macro that will run when this power is used.
+    embeddedMacroPermissionError: Cannot execute embedded macro - request permission for this user to your GM!
     miss: Miss
     missEven: Even Miss
     missOdd: Odd Miss

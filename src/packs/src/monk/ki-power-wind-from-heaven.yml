@@ -1,7 +1,7 @@
 name: '(Ki Power) Wind From Heaven'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/arrow_07.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

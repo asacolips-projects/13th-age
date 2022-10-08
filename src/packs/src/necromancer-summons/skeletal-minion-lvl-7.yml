@@ -2,7 +2,7 @@ _id: 'rbuk0DSa2VQgA6bl'
 name: 'Skeletal Minion (Lvl 7)'
 type: 'npc'
 img: 'icons/svg/mystery-man.svg'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -373,7 +373,7 @@ items:
     name: 'Pathetic Flailing'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

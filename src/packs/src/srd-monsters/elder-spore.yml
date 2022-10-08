@@ -2,7 +2,7 @@ _id: 'RSkN7WrG1bs3oyHd'
 name: 'Elder Spore'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/plant.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Slime spikes'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

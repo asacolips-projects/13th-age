@@ -2,7 +2,7 @@ _id: '59dFXbDP8RIc290a'
 name: 'Dwarven Mug'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

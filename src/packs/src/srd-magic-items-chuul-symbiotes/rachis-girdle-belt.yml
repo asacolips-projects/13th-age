@@ -2,7 +2,7 @@ _id: 'KRK7TV7zHnfMeDvC'
 name: 'Rachis Girdle (belt)'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

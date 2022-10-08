@@ -2,7 +2,7 @@ _id: 'Y62P23OoStA395uW'
 name: 'Scroll of Seven Subtle Serpents'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

@@ -2,7 +2,7 @@ _id: 'fsM10X052LBugz52'
 name: 'Bat Demon'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/demon.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Scrabbling claws'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Flight'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -244,7 +244,7 @@ items:
     name: 'Murder-pile At the start of each of the bat demon mob’s turns, choose one random nearby conscious enemy. All bat demons in the battle attempt to attack that enemy this turn, moving to it without disengaging and relying on their shifty ability to protect them. They keep attacking their target that turn even if it drops to 0 hp or below.'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -266,7 +266,7 @@ items:
     name: 'Shifty'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

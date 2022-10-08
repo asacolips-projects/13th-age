@@ -2,7 +2,7 @@ _id: 'XnKTLcGHCMtS2OLr'
 name: 'Gelatinous Dodecaedron'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/ooze.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -175,7 +175,7 @@ items:
     name: 'Shlup''n''schlorp'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -230,7 +230,7 @@ items:
     name: '[Special trigger] C: Spasms'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -285,7 +285,7 @@ items:
     name: 'Engulf and dissolve'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -307,7 +307,7 @@ items:
     name: 'Instinctive actions'
     type: 'trait'
     img: 'icons/svg/regen.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -329,7 +329,7 @@ items:
     name: '1. Squash'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -384,7 +384,7 @@ items:
     name: '2. Sudden orifice'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -439,7 +439,7 @@ items:
     name: '7. C: Stretch and engulf'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -494,7 +494,7 @@ items:
     name: '8. C: Pesudopod slaps'
     type: 'action'
     img: 'icons/svg/target.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

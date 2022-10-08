@@ -2,7 +2,7 @@ _id: '1Ctzvj8kceqsowbU'
 name: 'Earth Elemental'
 type: 'npc'
 img: 'systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp'
-data:
+system:
   attributes:
     attackMod:
       type: 'Number'
@@ -172,7 +172,7 @@ items:
     name: 'Rocky fists'
     type: 'action'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -222,7 +222,7 @@ items:
     name: 'Boulder up'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -244,7 +244,7 @@ items:
     name: 'Relentless pursuit'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'
@@ -266,7 +266,7 @@ items:
     name: 'Repair damage 10 and below'
     type: 'trait'
     img: 'icons/svg/mystery-man.svg'
-    data:
+    system:
       name:
         type: 'String'
         label: 'Name'

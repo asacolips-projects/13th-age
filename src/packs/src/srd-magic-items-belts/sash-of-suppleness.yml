@@ -2,7 +2,7 @@ _id: 'PHpx7F9K0m4cy6EE'
 name: 'Sash of Suppleness'
 type: 'equipment'
 img: 'icons/svg/item-bag.svg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

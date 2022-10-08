@@ -1,7 +1,7 @@
 name: '(Ki Power) Wind’s Comrade'
 type: 'power'
 img: 'systems/archmage/assets/icons/skills/green_10.jpg'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'

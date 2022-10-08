@@ -2,7 +2,7 @@ name: 'Breath of the White'
 permission:
   default: 0
 type: 'power'
-data:
+system:
   name:
     type: 'String'
     label: 'Name'
