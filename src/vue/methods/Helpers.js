@@ -1,5 +1,3 @@
-import { FALSE } from "sass";
-
 export function getSafeValue(property, defaultValue) {
   if (property) return property.value;
   return defaultValue;
