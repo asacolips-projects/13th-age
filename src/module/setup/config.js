@@ -902,7 +902,7 @@ FLAGS.characterFlags = {
     options: {
       'short': 'Formula (short)',
       'long': 'Formula (long)',
-      'numeric': 'Calculated modifiers'
+      'numeric': 'Calculated modifiers (experimental)'
     }
   }
 };

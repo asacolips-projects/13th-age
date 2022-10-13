@@ -63,6 +63,9 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   // Unproxy the roll data object.
   rollData = rollData ? JSON.parse(JSON.stringify(rollData)) : {};
 
+  // Fallback.
+  if (!diceFormulaMode) diceFormulaMode = 'short';
+
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
     // Put these at the top for higher replacement priority
@@ -193,10 +196,6 @@ function termCondenser(terms) {
 function rollCondenser(roll) {
   // Initialize our variables.
   let originalTerms = roll.terms;
-  if (roll.terms[0]?.faces == 12) {
-
-    console.log(roll.terms);
-  }
   let newTerms = [];
   let nestedTerms = [];
   let operator = null;
@@ -249,9 +248,6 @@ function rollCondenser(roll) {
         // Make sure that there's an operator if we're appending a dice after
         // we previously appended a non-operator.
         if (newTerms.length > 0 && !newTerms[newTerms.length - 1]?.operator) {
-          console.log(newTerms);
-          console.log(operator);
-          console.log(term);
           operator = OperatorTerm.fromJSON(JSON.stringify({
             class: 'OperatorTerm',
             evaluated: true,
