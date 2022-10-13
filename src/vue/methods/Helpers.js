@@ -61,6 +61,9 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   // Unproxy the roll data object.
   rollData = rollData ? JSON.parse(JSON.stringify(rollData)) : {};
 
+  // Fallback.
+  if (!diceFormulaMode) diceFormulaMode = 'short';
+
   // Build a map of string replacements.
   let replaceMap = replacements.concat([
     // Put these at the top for higher replacement priority
@@ -161,8 +164,18 @@ function termCondenser(terms) {
   if (terms[last]?.operator) {
     terms.splice(last, 1);
   }
-  // Create a roll from the terms.
-  let r = Roll.fromTerms(terms);
+  // If there aren't enough terms, exit early.
+  if (terms.length < 1) {
+    return false;
+  }
+  // Attempt to create a roll from the terms.
+  let r = null;
+  try {
+    r = Roll.fromTerms(terms);
+  } catch (error) {
+    console.warn(error);
+    return false;
+  }
   // Create a new term from the total.
   let t = new NumericTerm({number: r.total}).toJSON();
   t.evaluated = true;
@@ -184,6 +197,8 @@ function rollCondenser(roll) {
   let newTerms = [];
   let nestedTerms = [];
   let operator = null;
+  let condensedTerm = null;
+  let previousTermType = null;
 
   // Iterate over the original terms.
   originalTerms.forEach(term => {
@@ -198,16 +213,20 @@ function rollCondenser(roll) {
       // array (but skip in certain cases).
       case 'OperatorTerm':
         // If this is the first operator, store that for later when we build
-        // our final terms array.
-        if (nestedTerms.length < 1) {
+        // our final terms array. Don't store it if it's a double operator and
+        // negative (usually means something like d12 + -2).
+        // @todo this isn't quite functional yet. Doesn't work well with d12 - d8 + d6 + -3.
+        if (previousTermType !== 'OperatorTerm') {
           operator = term;
-          // If this is the first term and is multiplication or division, don't
-          // include it in our array since we can't condense it.
-          // break;
+        }
+        // If this is the first term and is multiplication or division, don't
+        // include it in our array since we can't condense it.
+        if (nestedTerms.length < 1) {
           if (['*', '/'].includes(term.operator)) {
             break;
           }
         }
+        // Append the operator.
         nestedTerms.push(term);
         break;
 
@@ -216,10 +235,13 @@ function rollCondenser(roll) {
         // If our nestedTerms array has been modified, append it.
         if (nestedTerms.length > 0) {
           // If there's an operator, we neeed to append it first.
-          if (operator) newTerms.push(operator);
+          if ((operator) && (nestedTerms.length > 1 || nestedTerms[0].constructor.name !== 'OperatorTerm')) {
+            newTerms.push(operator);
+          }
           // Condense the nestedTerms array into a single numeric term and
           // append it.
-          newTerms.push(termCondenser(nestedTerms));
+          condensedTerm = nestedTerms.length > 1 ? termCondenser(nestedTerms) : nestedTerms[0];
+          if (condensedTerm) newTerms.push(condensedTerm);
         }
         // Make sure that there's an operator if we're appending a dice after
         // we previously appended a non-operator.
@@ -239,17 +261,31 @@ function rollCondenser(roll) {
         operator = null;
         break;
     }
+
+    // Update our previous term for the next iteration.
+    previousTermType = term.constructor.name;
   });
 
   // After the loop completes, we need to also append the operator and
   // nestedTerms if there are any stragglers.
   if (nestedTerms.length > 0) {
-    if (operator) newTerms.push(operator);
-    newTerms.push(termCondenser(nestedTerms));
+    if (operator) {
+      newTerms.push(operator);
+    }
+    condensedTerm = nestedTerms.length > 1 ? termCondenser(nestedTerms) : nestedTerms[0];
+    if (condensedTerm) newTerms.push(condensedTerm);
   }
 
   // Generate the roll and return it.
-  let newRoll = Roll.fromTerms(newTerms);
+  let newRoll = false;
+  try {
+    newRoll = Roll.fromTerms(newTerms);
+  } catch (error) {
+    // Return the unmodified roll if there's an error.
+    console.warn(error);
+    return roll;
+  }
+
   return newRoll;
 }
 
