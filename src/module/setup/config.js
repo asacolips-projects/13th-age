@@ -464,6 +464,10 @@ ARCHMAGE.raceList = {
   'woodelf': "Wood Elf"
 };
 
+ARCHMAGE.classPacks = [
+  'classes'
+];
+
 ARCHMAGE.classList = {
   'barbarian': 'Barbarian',
   'bard': 'Bard',

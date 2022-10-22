@@ -101,8 +101,12 @@ export class ArchmagePrepopulate {
    *   pack content.
    */
   async getJournals() {
-    let pack = await game.packs.find(p => p.metadata.name == 'classes' && p.documentName == 'JournalEntry');
-    let entries = await pack.getDocuments();
+    let packs = await game.packs.filter(p => CONFIG.ARCHMAGE.classPacks.includes(p.metadata.name) && p.documentName == 'JournalEntry');
+    let entries = [];
+    for (let i = 0; i < packs.length; i++) {
+      let pack = await packs[i].getDocuments();
+      entries = entries.concat(pack);
+    }
     let content = {};
     for (let i = 0; i < entries.length; i++) {
       content[this.cleanClassName(entries[i].name)] = Array.from(entries[i].pages)[1]?.text?.content;
