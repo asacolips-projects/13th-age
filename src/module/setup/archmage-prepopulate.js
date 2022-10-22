@@ -289,11 +289,6 @@ export class ArchmagePrepopulate {
     let compendiumClasses = classes.filter(a => validClasses.includes(a));
     let classCompendiums = await this.getCompendiums(compendiumClasses, race);
 
-    if (classes.length < 1 || Object.keys(classCompendiums).length < 1) {
-      ui.notifications.error(`No class has been added to this character. Add a class before attempting to import powers.`);
-      return false;
-    }
-
     let classJournals = await this.getJournals();
     let templateData = {
       tabs: []
