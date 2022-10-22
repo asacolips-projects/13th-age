@@ -2,43 +2,6 @@
  * Class that can be used to query toolkit13.com.
  */
 export class ArchmagePrepopulate {
-  validClasses = [
-    'barbarian',
-    'bard',
-    'cleric',
-    'fighter',
-    'paladin',
-    'ranger',
-    'rogue',
-    'sorcerer',
-    'wizard',
-    'chaosmage',
-    'commander',
-    'druid',
-    'monk',
-    'necromancer',
-    'occultist'
-  ];
-
-  validRaces = [
-    'darkelf',
-    'dragonspawn',
-    'dragonic',
-    'dwarf',
-    'dwarfforged',
-    'forgeborn',
-    'gnome',
-    'halfelf',
-    'halforc',
-    'halfling',
-    'highelf',
-    'holyone',
-    'aasimar',
-    'human',
-    'tiefling',
-    'demontouched',
-    'woodelf'
-  ];
 
   constructor() {
     // Pass.
@@ -70,12 +33,13 @@ export class ArchmagePrepopulate {
    *   with the keys 'name' and 'content' for each result.
    */
   async getCompendiums(classes = [], race = '') {
+    let validRaces = Object.keys(CONFIG.ARCHMAGE.raceList);
     let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)));
     let content = {};
     let cleanRace = this.cleanClassName(race);
 
     // Load racial powers
-    if (race != '' && this.validRaces.includes(cleanRace)) {
+    if (race != '' && validRaces.includes(cleanRace)) {
       let racePack = await game.packs.find(p => p.metadata.name == 'races');
       let pack = await racePack.getDocuments();
       for (let entry of pack) {
@@ -321,7 +285,8 @@ export class ArchmagePrepopulate {
    *   Object with the keys powers, content, options, and tabs.
    */
   async renderDialog(classes = [], race = '', actor = null) {
-    let compendiumClasses = classes.filter(a => this.validClasses.includes(a));
+    let validClasses = Object.keys(CONFIG.ARCHMAGE.classList);
+    let compendiumClasses = classes.filter(a => validClasses.includes(a));
     let classCompendiums = await this.getCompendiums(compendiumClasses, race);
 
     if (classes.length < 1 || Object.keys(classCompendiums).length < 1) {
@@ -367,7 +332,7 @@ export class ArchmagePrepopulate {
       tabs: {
         navSelector: '.tabs-primary',
         contentSelector: '.tabs-primary-content',
-        initial: templateData.tabs[1] && !this.validClasses.includes(templateData.tabs[0].key) ? templateData.tabs[1].key : templateData.tabs[0].key,
+        initial: templateData.tabs[1] && !validClasses.includes(templateData.tabs[0].key) ? templateData.tabs[1].key : templateData.tabs[0].key,
         callback: () => {}
       }
     };

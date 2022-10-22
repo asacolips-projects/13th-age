@@ -444,6 +444,26 @@ ARCHMAGE.defaultMonsterTokens = {
   'undead': 'systems/archmage/assets/icons/tokens/monsters/undead.webp',
 };
 
+ARCHMAGE.raceList = {
+  'darkelf': "Dark Elf",
+  'dragonspawn': "Dragonspawn",
+  'dragonic': "Dragonic",
+  'dwarf': "Dwarf",
+  'dwarfforged': "Dwarf-forged",
+  'forgeborn': "Forgeborn",
+  'gnome': "Gnome",
+  'halfelf': "Half-Elf",
+  'halforc': "Half-Orc",
+  'halfling': "Halfling",
+  'highelf': "High Elf",
+  'holyone': "Holy One",
+  'aasimar': "Aasimar",
+  'human': "Human",
+  'tiefling': "Tiefling",
+  'demontouched': "Demontouched",
+  'woodelf': "Wood Elf"
+};
+
 ARCHMAGE.classList = {
   'barbarian': 'Barbarian',
   'bard': 'Bard',
