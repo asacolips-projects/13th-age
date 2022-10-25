@@ -63,9 +63,10 @@ export class ArchmagePrepopulate {
     // Load class powers
     for (let i = 0; i < classPacks.length; i++) {
       let pack = await classPacks[i].getDocuments();
-      content[this.cleanClassName(classPacks[i].metadata.name)] = {
-        name: classPacks[i].metadata.label,
-        content: pack
+      let className = this.cleanClassName(classPacks[i].metadata.name);
+      content[className] = {
+        name: CONFIG.ARCHMAGE.classList[className],
+        content: pack.concat(content[className]?.content || [])
       };
     }
     // Add animal companion to druid and ranger
