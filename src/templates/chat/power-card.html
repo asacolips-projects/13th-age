@@ -22,9 +22,11 @@
                     <div class="card-prop"><strong class="card-label">{{this.label}}:</strong> {{{this.value}}}</div>
                 </div>
                 {{/each}}
+                {{#if data.rollTable.value}}
                 <div class="card-row">
                     <div class="card-prop"><strong class="card-label">{{data.rollTable.label}}:</strong> {{{data.rollTable.value}}}</div>
                 </div>
+                {{/if}}
                 {{#if data.description.value}}
                     <div class="card-row">
                         {{{data.description.value}}}
