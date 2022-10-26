@@ -60,7 +60,7 @@ system:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[2d4*10+@atk.a.bonus]] @Compendium[archmage.system-macros.wpAqDyhVStW9Q594]{random energy} damage, and you take damage of the same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note that there’s no Charisma bonus to damage.)'
+    value: '[[2d4*10+@atk.a.bonus]] random energy damage, and you take damage of the same type equal to the unmodified dice roll (2d4, 2d8, or 2d12). (Note that there’s no Charisma bonus to damage.)'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
@@ -76,7 +76,7 @@ system:
   miss:
     type: 'String'
     label: 'Miss'
-    value: 'Half damage, and you still take @Compendium[archmage.system-macros.wpAqDyhVStW9Q594]{random energy} damage equal to the unmodified dice roll.'
+    value: 'Half damage, and you still take random energy damage equal to the unmodified dice roll.'
   missEven:
     type: 'String'
     label: 'Even Miss'
@@ -137,6 +137,10 @@ system:
     type: 'String'
     label: 'Breath Weapon'
     value: null
+  rollTable:
+    type: 'String'
+    label: 'Roll Table'
+    value: 'Random Energy'
   recharge:
     type: 'Number'
     label: 'Recharge'

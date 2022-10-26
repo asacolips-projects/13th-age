@@ -112,7 +112,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per round when you make a rogue melee weapon attack against an enemy engaged with one or more of your allies, you can deal extra damage if your attack hits.</p><table border="1" cellpadding="7" cellspacing="0"><thead><tr><th>Rogue Level</th><th>Extra Damage</th></tr><tr><td class="rtecenter"><strong>1</strong></td><td class="rtecenter">+[[1d4]]</td></tr><tr><td class="rtecenter"><strong>2</strong></td><td class="rtecenter">+[[1d6]]</td></tr><tr><td class="rtecenter"><strong>4</strong></td><td class="rtecenter">+[[2d6]]</td></tr><tr><td class="rtecenter"><strong>6</strong></td><td class="rtecenter">+[[3d6]]</td></tr><tr><td class="rtecenter"><strong>8</strong></td><td class="rtecenter">+[[5d6]]</td></tr><tr><td class="rtecenter"><strong>10</strong></td><td class="rtecenter">+[[7d6]]</td></tr></thead></table>'
+    value: '<p>Once per round when you make a rogue melee weapon attack against an enemy engaged with one or more of your allies, you can deal extra damage if your attack hits.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -137,6 +137,10 @@ system:
     type: 'String'
     label: 'Breath Weapon'
     value: null
+  rollTable:
+    type: 'String'
+    label: 'Roll Table'
+    value: 'Sneak Attack'
   recharge:
     type: 'Number'
     label: 'Recharge'

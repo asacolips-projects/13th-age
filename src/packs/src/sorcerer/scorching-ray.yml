@@ -162,7 +162,7 @@ system:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>Each time you cast the spell, you can have the attack deal @Compendium[archmage.system-macros.wpAqDyhVStW9Q594]{random energy} damage instead of fire damage. Replace the fire entry on the random energy table with your choice of negative energy or acid.</p>'
+        value: '<p>Each time you cast the spell, you can have the attack deal random energy damage instead of fire damage. Replace the fire entry on the random energy table with your choice of negative energy or acid.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
