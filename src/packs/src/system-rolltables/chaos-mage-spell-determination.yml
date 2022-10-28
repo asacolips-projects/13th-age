@@ -1,9 +1,7 @@
 name: 'Chaos Mage Spell Determination'
 permission:
   default: 0
-flags:
-  core:
-    sourceId: 'RollTable.Gz5OLJqxLHhVr0yO'
+flags: {}
 img: 'icons/svg/d20-grey.svg'
 description: ''
 results:
@@ -55,7 +53,7 @@ results:
     drawn: false
     documentId: null
     documentCollection: ''
-  - type: 1
+  - type: 2
     weight: 1
     range:
       - 5
@@ -63,11 +61,11 @@ results:
     drawn: false
     text: 'Iconic Spells'
     img: 'icons/svg/d20-grey.svg'
-    documentCollection: 'RollTable'
-    documentId: 'OugClihqeA0TCLSA'
-    _id: 'pweovhjZ49yq48hd'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'NFXhok8zAhpKKS35'
+    _id: '1qpXpB4pNWS5zTDh'
     flags: {}
-  - type: 1
+  - type: 2
     weight: 1
     range:
       - 6
@@ -75,9 +73,9 @@ results:
     drawn: false
     text: 'Iconic Spells'
     img: 'icons/svg/d20-grey.svg'
-    documentCollection: 'RollTable'
-    documentId: 'OugClihqeA0TCLSA'
-    _id: '3hmi7zBx1OoEYK8h'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'NFXhok8zAhpKKS35'
+    _id: 'IhrIiMt0SrpPiKtQ'
     flags: {}
 formula: '1d6'
 replacement: false

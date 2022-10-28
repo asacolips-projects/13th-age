@@ -1,9 +1,7 @@
 name: 'Chaos Mage Spell Determination (Multiclass)'
 permission:
   default: 0
-flags:
-  core:
-    sourceId: 'RollTable.JHMfrjxkdt4eqXTk'
+flags: {}
 img: 'icons/svg/d20-grey.svg'
 description: ''
 results:
@@ -55,7 +53,7 @@ results:
     drawn: false
     documentId: null
     documentCollection: ''
-  - type: 1
+  - type: 2
     weight: 1
     range:
       - 5
@@ -63,11 +61,11 @@ results:
     drawn: false
     text: 'Iconic Spells'
     img: 'icons/svg/d20-grey.svg'
-    documentCollection: 'RollTable'
-    documentId: 'OugClihqeA0TCLSA'
-    _id: 'pweovhjZ49yq48hd'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'NFXhok8zAhpKKS35'
+    _id: 'RxLNj2AnRi9MVymp'
     flags: {}
-  - type: 1
+  - type: 2
     weight: 1
     range:
       - 6
@@ -75,9 +73,9 @@ results:
     drawn: false
     text: 'Iconic Spells'
     img: 'icons/svg/d20-grey.svg'
-    documentCollection: 'RollTable'
-    documentId: 'OugClihqeA0TCLSA'
-    _id: '3hmi7zBx1OoEYK8h'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'NFXhok8zAhpKKS35'
+    _id: 'BkrMeh9TGAp3IyHJ'
     flags: {}
   - type: 0
     weight: 1
@@ -86,7 +84,7 @@ results:
       - 7
     drawn: false
     documentCollection: ''
-    _id: 'wOQEeQ9I2URAlIox'
+    _id: 'zasK423MEhAuq1sD'
     text: 'Multiclass'
     img: 'icons/svg/d20-black.svg'
     documentId: null
@@ -98,7 +96,7 @@ results:
       - 8
     drawn: false
     documentCollection: ''
-    _id: 'G5U80QzxhpCZipgx'
+    _id: 'SsvG0lb0iLw9Xrpt'
     text: 'Multiclass'
     img: 'icons/svg/d20-black.svg'
     documentId: null
@@ -110,7 +108,7 @@ results:
       - 9
     drawn: false
     documentCollection: ''
-    _id: '2tjMkpNlr6PZxSQC'
+    _id: 'm98CBgPDTk6X1X5B'
     text: 'Multiclass'
     img: 'icons/svg/d20-black.svg'
     documentId: null
