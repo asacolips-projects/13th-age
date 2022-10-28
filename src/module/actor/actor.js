@@ -1669,8 +1669,9 @@ export class ActorArchmage extends Actor {
           let alreadyConfigured = false;
           for (let key of Object.keys(this.system.resources.spendable)) {
             if (key == "ki") continue;
-            if (key == "CM Daily Spells"
-              || key == "CM Per-Battle Spells") alreadyConfigured = true;
+            if ((this.system.resources.spendable[key].label == "CM Daily Spells"
+              || this.system.resources.spendable[key].label == "CM Per-Battle Spells")
+              && this.system.resources.spendable[key].enabled == true) alreadyConfigured = true;
             if (this.system.resources.spendable[key].label == ''
               || this.system.resources.spendable[key].enabled == false) {
                 resIds.push(key);
@@ -1695,13 +1696,14 @@ export class ActorArchmage extends Actor {
             };
           }
         }
-         if (matchedClasses.includes("druid")) {
+        if (matchedClasses.includes("druid")) {
           // Find a free custom resource
           let resId = undefined;
           let alreadyConfigured = false;
           for (let key of Object.keys(this.system.resources.spendable)) {
             if (key == "ki") continue;
-            if (key == "Terrain Caster Daily Spells") alreadyConfigured = true;
+            if (this.system.resources.spendable[key].label == "Terrain Caster Daily Spells"
+              && this.system.resources.spendable[key].enabled == true) alreadyConfigured = true;
             if (this.system.resources.spendable[key].label == ''
               || this.system.resources.spendable[key].enabled == false) {
                 resId = key;
@@ -1711,10 +1713,10 @@ export class ActorArchmage extends Actor {
           // If we found one, configure it
           if (resId && !alreadyConfigured) {
             data.system.resources.spendable[resId] = {
-              current: 1,
+              current: 0,
               enabled: true,
               label: "Terrain Caster Daily Spells",
-              max: 1,
+              max: 0,
               rest: "full"
             };
           }

@@ -77,7 +77,7 @@ system:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '5 special ongoing damage (as above).'
+    value: '[[5]] special ongoing damage (as above).'
   missEven:
     type: 'String'
     label: 'Even Miss'
