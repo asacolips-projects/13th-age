@@ -10,69 +10,75 @@ results:
   - _id: 'B4eZF9b2pezTNcLF'
     flags: {}
     type: 0
-    text: 'attack'
+    text: 'Attack'
     img: 'icons/svg/d20-black.svg'
-    resultId: ''
     weight: 1
     range:
       - 1
       - 1
     drawn: false
+    documentId: null
+    documentCollection: ''
   - _id: 'oEMdEueTvulCJ1Va'
     flags: {}
     type: 0
-    text: 'attack'
+    text: 'Attack'
     img: 'icons/svg/d20-black.svg'
-    resultId: ''
     weight: 1
     range:
       - 2
       - 2
     drawn: false
+    documentId: null
+    documentCollection: ''
   - _id: 'JZI8hogxBdutPmtG'
     flags: {}
     type: 0
-    text: 'defense'
+    text: 'Defense'
     img: 'icons/svg/d20-black.svg'
-    resultId: ''
     weight: 1
     range:
       - 3
       - 3
     drawn: false
+    documentId: null
+    documentCollection: ''
   - _id: 'hlqkTbwXOLLyMbL5'
     flags: {}
     type: 0
-    text: 'defense'
+    text: 'Defense'
     img: 'icons/svg/d20-black.svg'
-    resultId: ''
     weight: 1
     range:
       - 4
       - 4
     drawn: false
-  - _id: 'CE2BKFmXjganAGVI'
-    flags: {}
-    type: 0
-    text: 'iconic'
-    img: 'icons/svg/d20-black.svg'
-    resultId: ''
+    documentId: null
+    documentCollection: ''
+  - type: 1
     weight: 1
     range:
       - 5
       - 5
     drawn: false
-  - _id: 'L5suIUE6e9mmBT4h'
+    text: 'Iconic Spells'
+    img: 'icons/svg/d20-grey.svg'
+    documentCollection: 'RollTable'
+    documentId: 'OugClihqeA0TCLSA'
+    _id: 'pweovhjZ49yq48hd'
     flags: {}
-    type: 0
-    text: 'iconic'
-    img: 'icons/svg/d20-black.svg'
-    resultId: ''
+  - type: 1
     weight: 1
     range:
       - 6
       - 6
     drawn: false
+    text: 'Iconic Spells'
+    img: 'icons/svg/d20-grey.svg'
+    documentCollection: 'RollTable'
+    documentId: 'OugClihqeA0TCLSA'
+    _id: '3hmi7zBx1OoEYK8h'
+    flags: {}
 formula: '1d6'
 replacement: false
 displayRoll: false
