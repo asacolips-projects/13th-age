@@ -178,6 +178,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Iconic: 6 (Blood of Warriors)'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/red_31.jpg'
 _id: 'lvrqwVBV1sipLVue'

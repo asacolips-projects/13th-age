@@ -177,6 +177,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Attack'
 flags: {}
 img: 'systems/archmage/assets/icons/spells/wind-magenta-1.jpg'
 _id: 'QsPP14OIpstflIMJ'

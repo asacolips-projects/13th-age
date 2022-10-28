@@ -1,16 +1,16 @@
-name: 'CM Attacking Warp'
+name: 'Defensive Warp'
 permission:
   default: 0
 flags:
   core:
-    sourceId: 'RollTable.AMxFCU82S7WGM44U'
+    sourceId: 'RollTable.Tg85xvRd6Mfb3F9n'
 img: 'icons/svg/d20-grey.svg'
 description: ''
 results:
-  - _id: 'NniTrYCFEwsdIshA'
+  - _id: 'N8qTjWfc2ydN4JTE'
     flags: {}
     type: 0
-    text: 'Air: You gain flight until the end of your next turn.'
+    text: 'Air: Once before the end of your next turn, you can heal using a recovery as a quick action.'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -18,10 +18,10 @@ results:
       - 1
       - 1
     drawn: false
-  - _id: 's1IhK8XsDjlsmRRX'
+  - _id: 'jNZz3gEO1GRfiYLm'
     flags: {}
     type: 0
-    text: 'Earth: Until the end of your next turn, each enemy that misses you with a melee attack is *stuck* until the end of its next turn.'
+    text: 'Earth: You gain [[@wis.dmg]] temporary hit points.'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -29,10 +29,10 @@ results:
       - 2
       - 2
     drawn: false
-  - _id: 'e3Nz9VBOmrlrPED7'
+  - _id: 'KRm3f2zhWFZKaY80'
     flags: {}
     type: 0
-    text: 'Fire: Until the end of your next turn, you can pop free from staggered enemies as a quick action.'
+    text: 'Fire: Until the end of your next turn, when an enemy moves to engage you, it takes [[@wis.dmg]] fire damage.'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -40,10 +40,10 @@ results:
       - 3
       - 3
     drawn: false
-  - _id: 'iJTdGfcZIJJsOWEM'
+  - _id: 'pYhC1c0fgROdmwZU'
     flags: {}
     type: 0
-    text: 'Water: You gain a [[@dex.mod]] bonus to disengage checks until the end of your next turn'
+    text: 'Water: Until the end of your next turn, when you heal using a recovery, add [[@wis.dmg]] hit points.'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -51,10 +51,10 @@ results:
       - 4
       - 4
     drawn: false
-  - _id: 'Sf27m1Fg1L8Kjjso'
+  - _id: 'RYPLhh2FxMwQ6xB1'
     flags: {}
     type: 0
-    text: 'Metal: Until the end of your next turn, when an enemy disengages from you, it takes [[@dex.dmg]] damage.'
+    text: 'Metal: Until the end of your next turn, you gain a +2 bonus to AC.'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -62,10 +62,10 @@ results:
       - 5
       - 5
     drawn: false
-  - _id: '1XbQGghqSzOnCkxC'
+  - _id: 'VnTkgoo8HCXwiBfH'
     flags: {}
     type: 0
-    text: 'Void: During your next turn, you can use a move action to teleport to a nearby location you can see.'
+    text: 'Void: Until the end of your next turn, the first time an attack hits you, as a free action you can choose to lose [[@lvl]] hit points to force the attacker to reroll the attack.'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -76,4 +76,4 @@ results:
 formula: '1d6'
 replacement: true
 displayRoll: false
-_id: 'xtyWhbxF5H2o3F26'
+_id: '7ipImAn4BVkskSzv'

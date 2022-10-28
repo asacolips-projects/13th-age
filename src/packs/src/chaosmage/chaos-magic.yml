@@ -142,6 +142,10 @@ system:
     type: 'String'
     label: 'Breath Weapon'
     value: ''
+  rollTable:
+    type: 'String'
+    label: 'Roll Table'
+    value: 'Chaos Mage Spell Determination'
   recharge:
     type: 'Number'
     label: 'Recharge'

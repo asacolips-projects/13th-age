@@ -113,7 +113,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Your magic provides you with a random warp effect when the next spell you cast will be a defense spell. This talent works best for chaos mages with a high Wisdom.</p><p>When your random spell choice indicates a defense spell, roll a d6 ([[d6]]) to determine the effect you’ll gain from the elemental warp. Even though you can’t cast the spell until your next turn, the warp effect applies now.</p><p>&nbsp;</p><table border=\"1\"><tbody><tr><td style=\"width: 54px;\">d6</td><td style=\"width: 699.333px;\">Effect</td></tr><tr><td style=\"width: 54px;\">1</td><td style=\"width: 699.333px;\"><em>Air</em>: Once before the end of your next turn, you can heal using a recovery as a quick action.</td></tr><tr><td style=\"width: 54px;\">2</td><td style=\"width: 699.333px;\"><em>Earth</em>: You gain [[@wis.dmg]] temporary hit points.</td></tr><tr><td style=\"width: 54px;\">3</td><td style=\"width: 699.333px;\"><em>Fire</em>: Until the end of your next turn, when an enemy moves to engage you, it takes [[@wis.dmg]] fire damage.</td></tr><tr><td style=\"width: 54px;\">4</td><td style=\"width: 699.333px;\"><em>Water</em>: Until the end of your next turn, when you heal using a recovery, add [[@wis.dmg]] hit points to that healing.</td></tr><tr><td style=\"width: 54px;\">5</td><td style=\"width: 699.333px;\"><em>Metal</em>: Until the end of your next turn, you gain a +[[2]] bonus to AC.</td></tr><tr><td style=\"width: 54px;\">6</td><td style=\"width: 699.333px;\"><em>Void</em>: Until the end of your next turn, the first time an attack hits you, as a free action you can choose to lose [[@lvl]] hit points to force the attacker to reroll the attack.</td></tr></tbody></table>'
+    value: '<p>Your magic provides you with a random warp effect when the next spell you cast will be a defense spell. This talent works best for chaos mages with a high Wisdom.</p><p>When your random spell choice indicates a defense spell, roll a d6 to determine the effect you’ll gain from the elemental warp. Even though you can’t cast the spell until your next turn, the warp effect applies now.</p><p>&nbsp;</p><p>@UUID[Compendium.archmage.system-rolltables.7ipImAn4BVkskSzv]{Defensive Warp}</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -138,6 +138,10 @@ system:
     type: 'String'
     label: 'Breath Weapon'
     value: ''
+  rollTable:
+    type: 'String'
+    label: 'Roll Table'
+    value: 'Defensive Warp'
   recharge:
     type: 'Number'
     label: 'Recharge'

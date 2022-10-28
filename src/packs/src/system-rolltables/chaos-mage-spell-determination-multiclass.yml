@@ -1,9 +1,9 @@
-name: 'CM Spell Determination'
+name: 'Chaos Mage Spell Determination (Multiclass)'
 permission:
   default: 0
 flags:
   core:
-    sourceId: 'RollTable.Gz5OLJqxLHhVr0yO'
+    sourceId: 'RollTable.JHMfrjxkdt4eqXTk'
 img: 'icons/svg/d20-grey.svg'
 description: ''
 results:
@@ -73,7 +73,40 @@ results:
       - 6
       - 6
     drawn: false
-formula: '1d6'
+  - _id: 'XdSy0DpzlLKze2Du'
+    flags: {}
+    type: 0
+    text: 'multiclass'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 7
+      - 7
+    drawn: false
+  - _id: '3gnkEefjZLv1J9oa'
+    flags: {}
+    type: 0
+    text: 'multiclass'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 8
+      - 8
+    drawn: false
+  - _id: 'eptG64eUsIsDaeBf'
+    flags: {}
+    type: 0
+    text: 'multiclass'
+    img: 'icons/svg/d20-black.svg'
+    resultId: ''
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+formula: '1d9'
 replacement: false
 displayRoll: false
-_id: 'Ei0FYxbQCi8j2VMz'
+_id: 'Dj9K1hDrAOfcmE2f'

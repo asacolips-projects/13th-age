@@ -1,16 +1,16 @@
-name: 'CM Defensive Warp'
+name: 'Chaos Mage Spell Determination'
 permission:
   default: 0
 flags:
   core:
-    sourceId: 'RollTable.Tg85xvRd6Mfb3F9n'
+    sourceId: 'RollTable.Gz5OLJqxLHhVr0yO'
 img: 'icons/svg/d20-grey.svg'
 description: ''
 results:
-  - _id: 'N8qTjWfc2ydN4JTE'
+  - _id: 'B4eZF9b2pezTNcLF'
     flags: {}
     type: 0
-    text: 'Air: Once before the end of your next turn, you can heal using a recovery as a quick action.'
+    text: 'attack'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -18,10 +18,10 @@ results:
       - 1
       - 1
     drawn: false
-  - _id: 'jNZz3gEO1GRfiYLm'
+  - _id: 'oEMdEueTvulCJ1Va'
     flags: {}
     type: 0
-    text: 'Earth: You gain [[@wis.dmg]] temporary hit points.'
+    text: 'attack'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -29,10 +29,10 @@ results:
       - 2
       - 2
     drawn: false
-  - _id: 'KRm3f2zhWFZKaY80'
+  - _id: 'JZI8hogxBdutPmtG'
     flags: {}
     type: 0
-    text: 'Fire: Until the end of your next turn, when an enemy moves to engage you, it takes [[@wis.dmg]] fire damage.'
+    text: 'defense'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -40,10 +40,10 @@ results:
       - 3
       - 3
     drawn: false
-  - _id: 'pYhC1c0fgROdmwZU'
+  - _id: 'hlqkTbwXOLLyMbL5'
     flags: {}
     type: 0
-    text: 'Water: Until the end of your next turn, when you heal using a recovery, add [[@wis.dmg]] hit points.'
+    text: 'defense'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -51,10 +51,10 @@ results:
       - 4
       - 4
     drawn: false
-  - _id: 'RYPLhh2FxMwQ6xB1'
+  - _id: 'CE2BKFmXjganAGVI'
     flags: {}
     type: 0
-    text: 'Metal: Until the end of your next turn, you gain a +2 bonus to AC.'
+    text: 'iconic'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -62,10 +62,10 @@ results:
       - 5
       - 5
     drawn: false
-  - _id: 'VnTkgoo8HCXwiBfH'
+  - _id: 'L5suIUE6e9mmBT4h'
     flags: {}
     type: 0
-    text: 'Void: Until the end of your next turn, the first time an attack hits you, as a free action you can choose to lose [[@lvl]] hit points to force the attacker to reroll the attack.'
+    text: 'iconic'
     img: 'icons/svg/d20-black.svg'
     resultId: ''
     weight: 1
@@ -74,6 +74,6 @@ results:
       - 6
     drawn: false
 formula: '1d6'
-replacement: true
+replacement: false
 displayRoll: false
-_id: '7ipImAn4BVkskSzv'
+_id: 'Ei0FYxbQCi8j2VMz'
