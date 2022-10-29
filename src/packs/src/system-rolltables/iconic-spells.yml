@@ -161,21 +161,11 @@ results:
 formula: '1d12'
 replacement: true
 displayRoll: false
-flags:
-  core:
-    sourceId: 'RollTable.OugClihqeA0TCLSA'
-_stats:
-  systemId: 'archmage'
-  systemVersion: '1.22.1'
-  coreVersion: '10.288'
-  createdTime: 1666977734050
-  modifiedTime: 1666979631883
-  lastModifiedBy: 'Y7ZCCgrYWjKNyJtK'
+flags: {}
 folder: null
 sort: 0
 ownership:
   default: 0
-  Y7ZCCgrYWjKNyJtK: 3
 _id: 'NFXhok8zAhpKKS35'
 permission:
   default: 0
