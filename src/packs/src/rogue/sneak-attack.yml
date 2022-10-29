@@ -112,7 +112,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Once per round when you make a rogue melee weapon attack against an enemy engaged with one or more of your allies, you can deal extra damage if your attack hits.</p>'
+    value: '<p>Once per round when you make a rogue melee weapon attack against an enemy engaged with one or more of your allies, you can deal extra damage if your attack hits.</p><p>@UUID[Compendium.archmage.system-rolltables.5vlUdZ2TEW2oHe6F]{Sneak Attack Damage}</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -140,7 +140,7 @@ system:
   rollTable:
     type: 'String'
     label: 'Roll Table'
-    value: 'Sneak Attack'
+    value: 'Sneak Attack Damage'
   recharge:
     type: 'Number'
     label: 'Recharge'
