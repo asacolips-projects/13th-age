@@ -138,7 +138,6 @@ Actor:
           type: String
           label: Melee weapon dice
           dice: d8
-          value: d8
           shield: false
           dualwield: false
           twohanded: false
@@ -146,22 +145,18 @@ Actor:
           type: String
           label: Ranged weapon dice
           dice: d8
-          value: d8
         jab:
           type: String
           label: JAB dice
           dice: d6
-          value: d6
         punch:
           type: String
           label: PUNCH dice
           dice: d8
-          value: d8
         kick:
           type: String
           label: KICK dice
           dice: d10
-          value: d10
     details:
       alignment:
         type: String
