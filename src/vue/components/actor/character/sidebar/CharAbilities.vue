@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     modColor(abil) {
-      if (abil.mod && abil.nonKey.mod) {
+      if (!isNaN(abil.mod) && !isNaN(abil.nonKey.mod)) {
         if (abil.mod < abil.nonKey.mod) {
           return '#E01616';
         }
@@ -43,7 +43,7 @@ export default {
       return 'inherit';
     },
     modTitle(abil, actor) {
-      if (abil.mod && abil.nonKey.mod) {
+      if (!isNaN(abil.mod) && !isNaN(abil.nonKey.mod)) {
         if (abil.mod < abil.nonKey.mod) {
           return game.i18n.format('ARCHMAGE.keyReduced', {
             mod: numberFormat(abil.mod, 0, true),
