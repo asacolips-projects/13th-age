@@ -89,7 +89,7 @@ system:
   cost:
     type: 'String'
     label: 'Cost'
-    value: '1 Terrain Caster daily spell'
+    value: '1 TC daily spell'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'

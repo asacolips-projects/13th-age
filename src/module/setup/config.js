@@ -694,7 +694,7 @@ ARCHMAGE.classResources = {
   // List custom resources to configure for classes that use them
   // Stored as an array of two-element arrays with label and reset
   'chaosmage': [["CM Daily Spells", "full"], ["CM Per-Battle Spells", "quick"]],
-  'druid' : [["Terrain Caster Daily Spells", "full"]]
+  'druid' : [["TC Daily Spells", "full"]]
 }
 
 ARCHMAGE.keyModifiers = {
