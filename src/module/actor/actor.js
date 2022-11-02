@@ -1663,67 +1663,48 @@ export class ActorArchmage extends Actor {
           },
           spendable: {ki: {enabled: matchedClasses.includes("monk")}}
         };
-        if (matchedClasses.includes("chaosmage")) {
-          // Find two free custom resources
-          let resIds = [];
-          let alreadyConfigured = false;
-          for (let key of Object.keys(this.system.resources.spendable)) {
-            if (key == "ki") continue;
-            if ((this.system.resources.spendable[key].label == "CM Daily Spells"
-              || this.system.resources.spendable[key].label == "CM Per-Battle Spells")
-              && this.system.resources.spendable[key].enabled == true) alreadyConfigured = true;
-            if (this.system.resources.spendable[key].label == ''
-              || this.system.resources.spendable[key].enabled == false) {
-                resIds.push(key);
-            }
-            if (resIds.length == 2) break;
-          }
-          // If we found them, configure them
-          if (resIds.length == 2 && !alreadyConfigured) {
-            data.system.resources.spendable[resIds[0]] = {
-              current: 1,
-              enabled: true,
-              label: "CM Daily Spells",
-              max: 1,
-              rest: "full"
-            };
-            data.system.resources.spendable[resIds[1]] = {
-              current: 1,
-              enabled: true,
-              label: "CM Per-Battle Spells",
-              max: 1,
-              rest: "quick"
-            };
-          }
-        }
-        if (matchedClasses.includes("druid")) {
-          // Find a free custom resource
-          let resId = undefined;
-          let alreadyConfigured = false;
-          for (let key of Object.keys(this.system.resources.spendable)) {
-            if (key == "ki") continue;
-            if (this.system.resources.spendable[key].label == "Terrain Caster Daily Spells"
-              && this.system.resources.spendable[key].enabled == true) alreadyConfigured = true;
-            if (this.system.resources.spendable[key].label == ''
-              || this.system.resources.spendable[key].enabled == false) {
-                resId = key;
-                break;
-            }
-          }
-          // If we found one, configure it
-          if (resId && !alreadyConfigured) {
-            data.system.resources.spendable[resId] = {
-              current: 0,
-              enabled: true,
-              label: "Terrain Caster Daily Spells",
-              max: 0,
-              rest: "full"
-            };
+        let busyResources = [];
+        for (let cl of matchedClasses) {
+          if (CONFIG.ARCHMAGE.classResources[cl]) {
+            this._setUpCustomResources(data, CONFIG.ARCHMAGE.classResources[cl], busyResources);
           }
         }
       }
       // Store matched classes for future reference
       data.system.details.detectedClasses = matchedClasses;
+    }
+  }
+
+  // Set up custom resources
+  _setUpCustomResources(data, resources, resourcesToAvoid) {
+    for (let res of resources) {
+      // Find a free custom resource
+      let resId = undefined;
+      let alreadyConfigured = false;
+      for (let key of Object.keys(this.system.resources.spendable)) {
+        if (key == "ki") continue;
+        let candidate = this.system.resources.spendable[key];
+        if (candidate.label == res[0] && candidate.enabled) {
+          alreadyConfigured = true;
+          break;
+        } else if (resourcesToAvoid.includes(key)) {
+          continue;
+        } else if (!candidate.enabled) {
+          resId = key;
+          resourcesToAvoid.push(resId);
+          break;
+        }
+      }
+      if (alreadyConfigured) break;
+
+      // Configure resource
+      data.system.resources.spendable[resId] = {
+        current: 1,
+        enabled: true,
+        label: res[0],
+        max: 1,
+        rest: res[1]
+      };
     }
   }
 
