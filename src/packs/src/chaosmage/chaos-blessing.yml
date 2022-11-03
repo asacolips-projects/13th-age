@@ -177,6 +177,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Defense'
 flags: {}
 img: 'systems/archmage/assets/icons/spells/protect-eerie-3.jpg'
 _id: 'bdVV5lXG3H3m3MMB'

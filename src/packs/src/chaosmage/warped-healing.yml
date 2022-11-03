@@ -88,7 +88,7 @@ system:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: '1 CM per-battle spell'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -174,6 +174,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Defense'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/shadow_18.jpg'
 _id: 'ZoiHc8zi8Ll5pwCZ'

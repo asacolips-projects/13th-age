@@ -177,6 +177,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Iconic: 2 (Blood of Warriors)'
 flags: {}
 img: 'systems/archmage/assets/icons/spells/horror-eerie-3.jpg'
 _id: 'Qu9z8AnprCFFBJdS'

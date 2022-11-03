@@ -113,7 +113,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Your magic provides you with a random warp effect when the next spell you cast will be an iconic spell. This talent works best for chaos mages with a high Intelligence.</p><p>When your random spell choice indicates an iconic spell, roll roll a d6 ([[d6]]) to determine the effect you’ll gain from the elemental warp. Even though you can’t cast the spell until your next turn, the warp effect applies now.</p><p>&nbsp;</p><table border=\"1\"><tbody><tr><td style=\"width: 34.6667px;\">d6</td><td style=\"width: 437.333px;\">Effect</td></tr><tr><td style=\"width: 34.6667px;\">1</td><td style=\"width: 437.333px;\"><em>Air</em>: Randomly determine two icon associations for the spell you’ll cast instead of one. Choose one of those associations to use for that spell.</td></tr><tr><td style=\"width: 34.6667px;\">2</td><td style=\"width: 437.333px;\"><em>Earth</em>: Until the end of your next turn, you gain a bonus to PD and MD equal to [[@int.mod]].</td></tr><tr><td style=\"width: 34.6667px;\">3</td><td style=\"width: 437.333px;\"><em>Fire</em>: Until the end of your next turn, you gain the once-per-battle racial power of a random nearby ally; ignore this benefit if it duplicates your own racial power or if it doesn’t make sense during the battle (human, for example).</td></tr><tr><td style=\"width: 34.6667px;\">4</td><td style=\"width: 437.333px;\"><em>Water</em>: Until the end of your next turn, you gain a bonus to saves equal to [[@int.mod]].</td></tr><tr><td style=\"width: 34.6667px;\">5</td><td style=\"width: 437.333px;\"><em>Metal</em>: Until the end of your next turn, critical hits scored against you only count as normal hits.</td></tr><tr><td style=\"width: 34.6667px;\">6</td><td style=\"width: 437.333px;\"><em>Void</em>: When you roll a natural 20 with an attack, the critical hit range of your attacks expands by 2 until the end of the battle (cumulative).</td></tr></tbody></table>'
+    value: '<p>Your magic provides you with a random warp effect when the next spell you cast will be an iconic spell. This talent works best for chaos mages with a high Intelligence.</p><p>When your random spell choice indicates an iconic spell, roll roll a d6 to determine the effect you’ll gain from the elemental warp. Even though you can’t cast the spell until your next turn, the warp effect applies now.</p><p>@UUID[Compendium.archmage.system-rolltables.2DvJKCyFrQip1tdi]{Iconic Warp}</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -138,6 +138,10 @@ system:
     type: 'String'
     label: 'Breath Weapon'
     value: ''
+  rollTable:
+    type: 'String'
+    label: 'Roll Table'
+    value: 'Iconic Warp'
   recharge:
     type: 'Number'
     label: 'Recharge'

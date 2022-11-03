@@ -88,7 +88,7 @@ system:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: '1 CM per-battle spell'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -137,6 +137,10 @@ system:
     type: 'String'
     label: 'Breath Weapon'
     value: ''
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Attack'
   recharge:
     type: 'Number'
     label: 'Recharge'

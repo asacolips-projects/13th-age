@@ -88,7 +88,7 @@ system:
   cost:
     type: 'String'
     label: 'Cost'
-    value: ''
+    value: '1 CM daily spell'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -174,6 +174,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Iconic: 2 (Blood of Warriors)'
 flags: {}
 img: 'systems/archmage/assets/icons/skills/shadow_16.jpg'
 _id: 'LYtfL0bufEZdSOy3'
