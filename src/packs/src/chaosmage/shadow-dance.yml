@@ -177,6 +177,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Iconic: 11 (Twisted Path)'
 flags: {}
 img: 'systems/archmage/assets/icons/spells/link-royal-1.jpg'
 _id: 'RfBQvue8r5DmofbX'

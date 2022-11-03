@@ -609,6 +609,10 @@ Item:
       type: Number
       label: Sustain On
       value: ''
+    rollTable:
+      type: String
+      label: Roll Table
+      value: ''
     feats:
       adventurer:
         description:

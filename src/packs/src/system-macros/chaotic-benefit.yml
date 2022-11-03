@@ -3,7 +3,7 @@ type: 'script'
 author: 'nPjNg32wEG3J72a7'
 img: 'icons/svg/dice-target.svg'
 scope: 'global'
-command: "let name = \"\";\nlet sourcePack = \"archmage.sorcerer-tables\";\n\nconst pc = actor ? actor : game.user.character;\nconst lvl = pc.data.data.attributes.level.value;\nif (lvl <= 4) name = \"Chaotic Benefit (A)\";\nelse if (lvl <= 7) name = \"Chaotic Benefit (C)\";\nelse name = \"Chaotic Benefit (E)\";\n\nlet table = game.tables.find(t => t.name === name);\nif (!table) {\n    let pack = await game.packs.get(sourcePack).getDocuments();\n    table = pack.find(t => t.name === name);\n}\nif (table) table.draw();"
+command: "let name = \"\";\nlet sourcePack = \"archmage.system-rolltables\";\n\nconst pc = actor ? actor : game.user.character;\nconst lvl = pc.data.data.attributes.level.value;\nif (lvl <= 4) name = \"Chaotic Benefit (A)\";\nelse if (lvl <= 7) name = \"Chaotic Benefit (C)\";\nelse name = \"Chaotic Benefit (E)\";\n\nlet table = game.tables.find(t => t.name === name);\nif (!table) {\n    let pack = await game.packs.get(sourcePack).getDocuments();\n    table = pack.find(t => t.name === name);\n}\nif (table) table.draw();"
 folder: null
 sort: 0
 permission:

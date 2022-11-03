@@ -1660,9 +1660,48 @@ export class ActorArchmage extends Actor {
           },
           spendable: {ki: {enabled: matchedClasses.includes("monk")}}
         };
+        let busyResources = [];
+        for (let cl of matchedClasses) {
+          if (CONFIG.ARCHMAGE.classResources[cl]) {
+            this._setUpCustomResources(data, CONFIG.ARCHMAGE.classResources[cl], busyResources);
+          }
+        }
       }
       // Store matched classes for future reference
       data.system.details.detectedClasses = matchedClasses;
+    }
+  }
+
+  // Set up custom resources
+  _setUpCustomResources(data, resources, resourcesToAvoid) {
+    for (let res of resources) {
+      // Find a free custom resource
+      let resId = undefined;
+      let alreadyConfigured = false;
+      for (let key of Object.keys(this.system.resources.spendable)) {
+        if (key == "ki") continue;
+        let candidate = this.system.resources.spendable[key];
+        if (candidate.label == res[0] && candidate.enabled) {
+          alreadyConfigured = true;
+          break;
+        } else if (resourcesToAvoid.includes(key)) {
+          continue;
+        } else if (!candidate.enabled) {
+          resId = key;
+          resourcesToAvoid.push(resId);
+          break;
+        }
+      }
+      if (alreadyConfigured) break;
+
+      // Configure resource
+      data.system.resources.spendable[resId] = {
+        current: 1,
+        enabled: true,
+        label: res[0],
+        max: 1,
+        rest: res[1]
+      };
     }
   }
 

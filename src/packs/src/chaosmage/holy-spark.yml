@@ -177,6 +177,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Iconic: 10 (Light of the High Ones)'
 flags: {}
 img: 'systems/archmage/assets/icons/spells/light-sky-1.jpg'
 _id: 'L3UEpCO3Lwx76oOJ'

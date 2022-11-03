@@ -177,6 +177,10 @@ system:
         type: 'Boolean'
         label: 'Active'
         value: false
+  group:
+    type: 'String'
+    label: 'Group'
+    value: 'Iconic: 8 (Twisted Path)'
 flags: {}
 img: 'systems/archmage/assets/icons/spells/link-eerie-2.jpg'
 _id: '5OeX6z1ykyUjYHrs'

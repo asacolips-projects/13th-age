@@ -103,12 +103,6 @@ packs:
     path: packs/sorcerer.db
     system: archmage
 
-  - label: Sorcerer Tables
-    type: RollTable
-    name: sorcerer-tables
-    path: packs/sorcerer-tables.db
-    system: archmage
-
   - label: Wizard
     type: Item
     name: wizard
@@ -119,12 +113,6 @@ packs:
     type: Item
     name: chaosmage
     path: packs/chaosmage.db
-    system: archmage
-
-  - label: Chaos Mage Tables
-    type: RollTable
-    name: chaosmage-tables
-    path: packs/chaosmage-tables.db
     system: archmage
 
   - label: Commander
@@ -305,6 +293,12 @@ packs:
     type: Macro
     name: system-macros
     path: packs/system-macros.db
+    system: archmage
+
+  - label: System RollTables
+    type: RollTable
+    name: system-rolltables
+    path: packs/system-rolltables.db
     system: archmage
 
 languages:

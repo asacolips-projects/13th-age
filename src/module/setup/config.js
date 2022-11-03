@@ -714,6 +714,13 @@ ARCHMAGE.classes = {
   }
 };
 
+ARCHMAGE.classResources = {
+  // List custom resources to configure for classes that use them
+  // Stored as an array of two-element arrays with label and reset
+  'chaosmage': [["CM Daily Spells", "full"], ["CM Per-Battle Spells", "quick"]],
+  'druid' : [["TC Daily Spells", "full"]]
+}
+
 ARCHMAGE.keyModifiers = {
   // Symmetrical dense matrix, store only lower triangle
   // Assumption: classes are stored in actors sorted in alphabetical order

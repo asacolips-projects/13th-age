@@ -199,6 +199,29 @@ export class ItemArchmage extends Item {
     // Prepare roll data now
     let rollData = itemToRender.actor.getRollData(this);
 
+    // Handle rollTable
+    if (this.system.rollTable.value) {
+      // Load table from world first
+      let table = game.tables.find(t => t.name === this.system.rollTable.value);
+      if (!table) {
+        // If not present in world, load system's from compendium
+        let pack = await game.packs.get("archmage.system-rolltables").getDocuments();
+        table = pack.find(t => t.name === this.system.rollTable.value);
+      }
+      if (table) {
+        // If we do have a table, roll on it
+        let roll = new Roll(table.formula, rollData);
+        let res = await table.draw({roll: roll, displayChat: false});
+        // Now override system.rollTable with rolled result
+        try {
+          itemToRender.system.rollTable.label = itemToRender.system.rollTable.value;
+          itemToRender.system.rollTable.value = res.results[0].text;
+        } catch(ex) {
+          ui.notifications.error("Only text rollTables are supported for now");
+        }
+      }
+    }
+
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const token = itemToRender.actor.token;

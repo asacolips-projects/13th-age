@@ -1,0 +1,51 @@
+name: 'Chaotic Benefit'
+img: 'icons/svg/d20-grey.svg'
+description: ''
+results:
+  - type: 2
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+    text: 'Chaotic Benefit (A)'
+    img: 'icons/svg/d20-grey.svg'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'jcbFdEkR9g1isX0S'
+    _id: 'oxsAg9eafCaXA6yU'
+    flags: {}
+  - type: 2
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+    text: 'Chaotic Benefit (C)'
+    img: 'icons/svg/d20-grey.svg'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'DsZC28QGCvhy8LyE'
+    _id: 'MxloVN4q71UE1ZeS'
+    flags: {}
+  - type: 2
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+    text: 'Chaotic Benefit (E)'
+    img: 'icons/svg/d20-grey.svg'
+    documentCollection: 'archmage.system-rolltables'
+    documentId: 'hojV2urxFb1cjgWJ'
+    _id: 'pkIOIFFKtZB9DwYQ'
+    flags: {}
+formula: '@tier'
+replacement: true
+displayRoll: false
+flags: {}
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: 'PQbtKGZVFy83A85d'
+permission:
+  default: 0
