@@ -467,11 +467,6 @@ export class ActorArchmage extends Actor {
       data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.nonKey.dmg);
     }
 
-    // Weapon dice
-    for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
-      data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
-    }
-
     // Initiative
     var improvedInit = 0;
     if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
@@ -528,6 +523,10 @@ export class ActorArchmage extends Actor {
           break;
 
         case 'weapon':
+          // Weapon dice
+          for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
+            data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
+          }
           data.wpn = {
             m: v?.melee ?? model.melee,
             r: v?.ranged ?? model.ranged,
@@ -1514,7 +1513,6 @@ export class ActorArchmage extends Actor {
       }
 
       data.system.attributes.weapon.melee.dice = `d${mWpn}`;
-      data.system.attributes.weapon.melee.value = `${lvl}d${mWpn}`;
     }
 
     else if (data.system.details !== undefined
@@ -1622,15 +1620,14 @@ export class ActorArchmage extends Actor {
           weapon: {
             melee: {
               dice: `d${base.mWpn}`,
-              value: `${lvl}d${base.mWpn}`,
               shield: shield,
               dualwield: dualwield,
               twohanded: twohanded
             },
-            ranged: {dice: `d${base.rWpn}`, value: `${lvl}d${base.rWpn}`},
-            jab: {dice: `d${jabWpn}`, value: `${lvl}d${jabWpn}`},
-            punch: {dice: `d${punchWpn}`, value: `${lvl}d${punchWpn}`},
-            kick: {dice: `d${kickWpn}`, value: `${lvl}d${kickWpn}`}
+            ranged: {dice: `d${base.rWpn}`},
+            jab: {dice: `d${jabWpn}`},
+            punch: {dice: `d${punchWpn}`},
+            kick: {dice: `d${kickWpn}`}
           }
         };
 
