@@ -70,8 +70,23 @@
       </li>
     </ol>
 
+    <h3>Resources</h3>
+    <p>Resources (Command Points, Focus, Ki, Momentum) can be accessed via the <span class="key">@rsc</span> shorthand, as shown here below. For ki and custom resources, a max suffix shorthand is also provided.</p>
+    <ol class="hotkey-list">
+      <li>
+        <div class="keys">
+          <span class="key">@rsc.cps</span>
+          <span class="key">@rsc.focus</span>
+          <span class="key">@rsc.ki</span>
+          <span class="key">@rsc.kimax</span>
+          <span class="key">@rsc.momentum</span>
+        </div>
+      </li>
+    </ol>
+    <p>Note: any custom resources that is both enabled and has a label set can be accessed with that label, reduced to lowercase letters only without spaces (e.g. a resource called "Power Points" can be accessed via <span class="key">@rsc.powerpoints</span> and <span class="key">@rsc.powerpointsmax</span>).</p>
+
     <h3>Weapons</h3>
-    <p>Weapons are broken down into melee (@wpn.m), ranged (@wpn.r), JAB (@wpn.j), PUNCH (@wpn.p), and KICK (@wpn.k). JAB, PUNCH, and KICK are intended for monks, and will use the monk damage die (d6, d8, d10, respectively) and will use Dexterity for attacks and Strength for damage.</p>
+    <p>Weapons are broken down into melee (<span class="key">@wpn.m</span>), ranged (<span class="key">@wpn.r</span>), JAB (<span class="key">@wpn.j</span>), PUNCH (<span class="key">@wpn.p</span>), and KICK (<span class="key">@wpn.k</span>). JAB, PUNCH, and KICK are intended for monks, and will default to the monk damage die (d6, d8, d10, respectively).</p>
     <ol class="hotkey-list">
       <li>
         <h4>Weapon Damage Die (single)</h4>
