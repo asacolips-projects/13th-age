@@ -200,7 +200,7 @@ export class ItemArchmage extends Item {
     let rollData = itemToRender.actor.getRollData(this);
 
     // Handle rollTable
-    if (this.system.rollTable.value) {
+    if (this.system.rollTable?.value) {
       // Load table from world first
       let table = game.tables.find(t => t.name === this.system.rollTable.value);
       if (!table) {
