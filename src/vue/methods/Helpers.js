@@ -133,13 +133,26 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
       // Get the roll formula. If this is an attack, append the attack mod.
       let rollFormula = field == 'attack' && p2.includes('d20') ? `${p2} + @atk.mod` : p2;
       // Create the roll and evaluate it.
-      let roll = new Roll(rollFormula, rollData);
-      // @todo this will need to be updated to work with async, but that's
-      // complicated in a regex.
-      roll.evaluate({async: false});
+      let roll = null;
+      try {
+        roll = new Roll(rollFormula, rollData);
+        // @todo this will need to be updated to work with async, but that's
+        // complicated in a regex.
+        roll.evaluate({async: false});
+      } catch (error) {
+        roll = null;
+        if (rollFormula.startsWith('/')) {
+          rollFormula = `[[${rollFormula}]]`;
+          console.log(`Skipping numeric roll replacement for ${rollFormula}`);
+        }
+        else {
+          rollFormula = `[${rollFormula}]`;
+          console.warn(error);
+        }
+      }
       // Duplicate the roll into a condensed version that combines numbers
       // where possible.
-      const newRoll = rollCondenser(roll);
+      const newRoll = roll?.formula ? rollCondenser(roll) : { formula: rollFormula };
       // Return the replacement.
       return `<span class="expression">${newRoll.formula}</span>`;
     });
