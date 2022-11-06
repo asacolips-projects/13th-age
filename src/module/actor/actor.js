@@ -581,19 +581,21 @@ export class ActorArchmage extends Actor {
     data.abil = data.abilities;
 
     // Process resource shorthands and custom resource names
-    data.rsc = {
-      cps: data.resources.perCombat.commandPoints.current,
-      focus: data.resources.perCombat.focus.current,
-      momentum: data.resources.perCombat.momentum.current,
-      ki: data.resources.spendable.ki.current,
-      kimax: data.resources.spendable.ki.max
-    };
-    for (let [k, v] of Object.entries(data.resources.spendable)) {
-      if (k == "ki") continue;
-      if (v.enabled && v.label) {
-        let label = v.label.toLowerCase().replace(/[^a-zA-z\d]/g, '');
-        data.rsc[label] = v.current;
-        data.rsc[label+"max"] = v.max;
+    if (this.type == "character"){
+      data.rsc = {
+        cps: data.resources.perCombat.commandPoints.current,
+        focus: data.resources.perCombat.focus.current,
+        momentum: data.resources.perCombat.momentum.current,
+        ki: data.resources.spendable.ki.current,
+        kimax: data.resources.spendable.ki.max
+      };
+      for (let [k, v] of Object.entries(data.resources.spendable)) {
+        if (k == "ki") continue;
+        if (v.enabled && v.label) {
+          let label = v.label.toLowerCase().replace(/[^a-zA-z\d]/g, '');
+          data.rsc[label] = v.current;
+          data.rsc[label+"max"] = v.max;
+        }
       }
     }
 
