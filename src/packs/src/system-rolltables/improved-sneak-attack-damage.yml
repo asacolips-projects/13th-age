@@ -1,0 +1,135 @@
+name: 'Improved Sneak Attack Damage'
+img: 'icons/svg/d20-grey.svg'
+description: ''
+results:
+  - type: 0
+    weight: 1
+    range:
+      - 1
+      - 1
+    drawn: false
+    documentCollection: ''
+    _id: '9i7Fw131LG66pcw5'
+    text: '+[[1d6]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 2
+      - 2
+    drawn: false
+    documentCollection: ''
+    _id: 'NOtpaCU1b0GbGW1T'
+    text: '+[[1d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 3
+      - 3
+    drawn: false
+    documentCollection: ''
+    _id: 'qo16CSmUTBmgCezX'
+    text: '+[[1d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 4
+      - 4
+    drawn: false
+    documentCollection: ''
+    _id: 'EVE6YA96WghhR6Qa'
+    text: '+[[2d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 5
+      - 5
+    drawn: false
+    documentCollection: ''
+    _id: '9Q69k3xWJhv9sc47'
+    text: '+[[2d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 6
+      - 6
+    drawn: false
+    documentCollection: ''
+    _id: 'YkVE7LF8EFZOL0nd'
+    text: '+[[3d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 7
+      - 7
+    drawn: false
+    documentCollection: ''
+    _id: 'JQwplMCdh5pv3WdL'
+    text: '+[[3d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 8
+      - 8
+    drawn: false
+    documentCollection: ''
+    _id: 'dFfXaM6DiV5UXJ1D'
+    text: '+[[5d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 9
+      - 9
+    drawn: false
+    documentCollection: ''
+    _id: '9Cc3qzN9yU06kh19'
+    text: '+[[5d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+  - type: 0
+    weight: 1
+    range:
+      - 10
+      - 10
+    drawn: false
+    documentCollection: ''
+    _id: 'DYHcnD9z5JoxKJcC'
+    text: '+[[7d8]] damage.'
+    img: 'icons/svg/d20-black.svg'
+    documentId: null
+    flags: {}
+formula: '@lvl'
+replacement: true
+displayRoll: false
+flags: {}
+folder: null
+sort: 0
+ownership:
+  default: 0
+permission:
+  default: 0
+_id: 'VSIqWO1EhnqqvraY'
