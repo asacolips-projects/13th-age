@@ -535,7 +535,7 @@ export class ActorArchmage extends Actor {
         case 'weapon':
           // Weapon dice
           for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
-            data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
+            data.attributes.weapon[wpn].value = `${CONFIG.ARCHMAGE.levelDiceNum[data.attributes.level.value]}${data.attributes.weapon[wpn].dice}`;
           }
           data.wpn = {
             m: v?.melee ?? model.melee,
