@@ -83,7 +83,8 @@ Hooks.once('init', async function() {
     scope: "world",
     type: Boolean,
     default: false,
-    config: true
+    config: true,
+    onChange: () => window.location.reload()
   });
 
   game.archmage = {
