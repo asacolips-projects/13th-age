@@ -153,6 +153,8 @@ ARCHMAGE:
     rechargeOncePerDayName: Recharge once per day only
     RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
     RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
+    secondEditionHint: Turn this on to use the 13th Age second edition rules, off if you'd prefer the first edition rules.
+    secondEditionName: Use 2e Rules
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this display a list of targeted defenses in the attack line of chat power cards.

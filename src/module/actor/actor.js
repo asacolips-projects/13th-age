@@ -421,18 +421,28 @@ export class ActorArchmage extends Actor {
 
     // Damage Modifiers
     data.tier = 1;
-    if (data.attributes.level.value >= 5) data.tier = 2;
-    if (data.attributes.level.value >= 8) data.tier = 3;
+    data.tierMult = 1;
+    if (data.attributes.level.value >= 5) {
+      data.tier = 2;
+      data.tierMult = 2;
+    }
+    if (data.attributes.level.value >= 8) {
+      data.tier = 3;
+      data.tierMult = 3;
+      if (game.settings.get("archmage", "secondEdition")) {
+        data.tierMult = 4;
+      }
+    }
     for (let prop in data.abilities) {
-      data.abilities[prop].dmg = data.tier * data.abilities[prop].mod;
-      data.abilities[prop].nonKey.dmg = data.tier * data.abilities[prop].nonKey.mod;
+      data.abilities[prop].dmg = data.tierMult * data.abilities[prop].mod;
+      data.abilities[prop].nonKey.dmg = data.tierMult * data.abilities[prop].nonKey.mod;
     }
 
     // HPs
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
-      if (data.incrementals?.hp) level++;
+      if (data.incrementals?.hp && (level < 10 || !game.settings.get("archmage", "secondEdition"))) level++;
 
       let toughness = 0;
       if (flags.archmage) {

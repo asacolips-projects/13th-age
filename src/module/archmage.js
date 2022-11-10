@@ -77,6 +77,15 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
+  game.settings.register("archmage", "secondEdition", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionHint"),
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheetV2,
