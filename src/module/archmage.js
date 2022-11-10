@@ -127,6 +127,17 @@ Hooks.once('init', async function() {
   });
   _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
 
+  // Update 2e constants
+  if (game.settings.get("archmage", "secondEdition")) {
+    // Update dice number at higher level
+    CONFIG.ARCHMAGE.levelDiceNum = CONFIG.ARCHMAGE.levelDiceNum2e;
+    // Remove AE from vulnerable
+    CONFIG.statusEffects[11].changes = null;
+    // TODO: change journal
+    // Rename hampered to hindered
+    CONFIG.statusEffects[11].label = "ARCHMAGE.EFFECT.StatusHindered";
+  }
+
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
 

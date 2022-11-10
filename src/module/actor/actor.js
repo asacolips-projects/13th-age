@@ -442,7 +442,7 @@ export class ActorArchmage extends Actor {
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
-      if (data.incrementals?.hp && (level < 10 || !game.settings.get("archmage", "secondEdition"))) level++;
+      if (data.incrementals?.hp && !game.settings.get("archmage", "secondEdition")) level++;
 
       let toughness = 0;
       if (flags.archmage) {
