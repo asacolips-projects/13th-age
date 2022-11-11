@@ -421,18 +421,11 @@ export class ActorArchmage extends Actor {
 
     // Damage Modifiers
     data.tier = 1;
-    data.tierMult = 1;
-    if (data.attributes.level.value >= 5) {
-      data.tier = 2;
-      data.tierMult = 2;
-    }
-    if (data.attributes.level.value >= 8) {
-      data.tier = 3;
-      data.tierMult = 3;
-      if (game.settings.get("archmage", "secondEdition")) {
-        data.tierMult = 4;
-      }
-    }
+    if (data.attributes.level.value >= 5) data.tier = 2;
+    if (data.attributes.level.value >= 8) data.tier = 3;
+    data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[level]
+    if (data.incrementals?.abilityMultiplier) data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[level+1]
+
     for (let prop in data.abilities) {
       data.abilities[prop].dmg = data.tierMult * data.abilities[prop].mod;
       data.abilities[prop].nonKey.dmg = data.tierMult * data.abilities[prop].nonKey.mod;
@@ -535,7 +528,7 @@ export class ActorArchmage extends Actor {
         case 'weapon':
           // Weapon dice
           for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
-            data.attributes.weapon[wpn].value = `${CONFIG.ARCHMAGE.levelDiceNum[data.attributes.level.value]}${data.attributes.weapon[wpn].dice}`;
+            data.attributes.weapon[wpn].value = `${CONFIG.ARCHMAGE.numDicePerLevel[data.attributes.level.value]}${data.attributes.weapon[wpn].dice}`;
           }
           data.wpn = {
             m: v?.melee ?? model.melee,

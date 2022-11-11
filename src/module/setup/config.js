@@ -311,8 +311,11 @@ ARCHMAGE.extendedStatusEffects = [
   // },
 ];
 
-ARCHMAGE.levelDiceNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-ARCHMAGE.levelDiceNum2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+
+ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3];
+ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
 
 // Power Settings
 ARCHMAGE.powerSources = {

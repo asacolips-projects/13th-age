@@ -132,6 +132,10 @@ Hooks.once('init', async function() {
   if (game.settings.get("archmage", "secondEdition")) {
     // Update dice number at higher level
     CONFIG.ARCHMAGE.levelDiceNum = CONFIG.ARCHMAGE.levelDiceNum2e;
+
+    // Update tier multiplier Array
+    CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
+
     // Remove AE from vulnerable
     let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
     CONFIG.statusEffects[id].changes = null;
