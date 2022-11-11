@@ -1,0 +1,28 @@
+name: 'Magic Oil (Epic)'
+type: 'loot'
+img: 'systems/archmage/assets/icons/items/potions/grand-green.jpg'
+system:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: "<p>As a quick action, pour this oil on a weapon, armor, or spellcasters&rsquo; implement to grant it a temporary magical bonus of +3.</p>\n<p>The effect lasts until the end of a battle or for five minutes before fading. Used on a weapon or a spellcasting implement, the bonus applies to attack and damage rolls. Used on armor, the bonus applies to AC.</p>\n<p>Bonuses from oils don&rsquo;t stack with magic items&rsquo; inherent bonuses. Use the higher bonus.</p>"
+  quantity:
+    type: 'Number'
+    label: 'Quantity'
+    value: 1
+  price:
+    type: 'Number'
+    label: 'Price'
+    value: 200
+effects: []
+flags: {}
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: 'R4yYgODdZKVdfI2M'
+permission:
+  default: 0
