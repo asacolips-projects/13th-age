@@ -133,10 +133,12 @@ Hooks.once('init', async function() {
     // Update dice number at higher level
     CONFIG.ARCHMAGE.levelDiceNum = CONFIG.ARCHMAGE.levelDiceNum2e;
     // Remove AE from vulnerable
-    CONFIG.statusEffects[11].changes = null;
+    let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
+    CONFIG.statusEffects[id].changes = null;
     // TODO: change journal
     // Rename hampered to hindered
-    CONFIG.statusEffects[11].label = "ARCHMAGE.EFFECT.StatusHindered";
+    id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
+    CONFIG.statusEffects[id].label = "ARCHMAGE.EFFECT.StatusHindered";
   }
 
   // Assign the actor class to the CONFIG
