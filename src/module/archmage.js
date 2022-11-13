@@ -139,10 +139,12 @@ Hooks.once('init', async function() {
     // Remove AE from vulnerable
     let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
     CONFIG.statusEffects[id].changes = null;
-    // TODO: change journal
+    CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
+
     // Rename hampered to hindered
     id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
     CONFIG.statusEffects[id].label = "ARCHMAGE.EFFECT.StatusHindered";
+    CONFIG.statusEffects[id].journal = "FHDyJEb29LWnO2Dg";
   }
 
   // Assign the actor class to the CONFIG
