@@ -49,7 +49,7 @@
           <input v-else type="number" name="system.attributes.recoveries.max" class="resource-max" v-model="actor.system.attributes.recoveries.max">
         </div>
         <div class="roll">
-          <a class="rollable rollable--recover" data-roll-type="recovery">{{actor.system.attributes.level.value}}{{actor.system.attributes.recoveries.dice}}+{{actor.system.abilities.con.dmg}} ({{actor.system.attributes.recoveries.avg}})</a>
+          <a class="rollable rollable--recover" data-roll-type="recovery">{{actor.system.attributes.recoveries.formula}} ({{actor.system.attributes.recoveries.avg}})</a>
         </div>
       </div>
       <!-- Saving Throws -->

@@ -458,33 +458,43 @@ export class ActorArchmage extends Actor {
 
     // Recoveries
     if (data.attributes.recoveries.automatic) {
-      data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
+      data.attributes.recoveries.max = data.attributes.recoveries.base;
+      if (!game.settings.get("archmage", "secondEdition")) data.attributes.recoveries.max += recoveriesBonus;
     }
-    // Calculate recovery average.
-    let recoveryLevel = CONFIG.ARCHMAGE.numDicePerLevel[Number(data.attributes.level?.value)] ?? 1;
+    // Calculate recovery formula and average.
+    let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[Number(data.attributes.level?.value)] ?? 1;
     // TODO: +1 with incremental
+    let recoveryDie = ["d8", "", "8"]; // Fall back
     let recoveryAvg = 3.5; // Fall back
-    let recoveryDie = 'd8'; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
-      recoveryDie = data.attributes.recoveries.dice;
+      let recDieRegExp = /^([0-9]*)d([0-9]+)/g;
+      let parsed = recDieRegExp.exec(data.attributes.recoveries.dice);
+      if (parsed) {
+        recoveryDie = parsed;
+        recoveryAvg = ((Number(recoveryDie[2]) + 1) / 2) * (Number(recoveryDie[1]) || 1);
+      }
     }
-    let recDieRegExp = /^([0-9]*)d([0-9]+)/g;
-    recoveryDie = recDieRegExp.exec(recoveryDie);
-    if (recoveryDie && recoveryDie.length == 3) {
-      recoveryAvg = ((Number(recoveryDie[2]) + 1) / 2) * (Number(recoveryDie[1]) || 1);
-    }
-    if (!flags.archmage?.strongRecovery) {
-      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.nonKey.dmg);
-    } else {
+    let formulaDice = (recoveryDice * (Number(recoveryDie[1]) || 1)).toString() + "d" + recoveryDie[2];
+    let formulaConst = data.abilities.con.nonKey.dmg;
+    recoveryAvg = Math.floor(recoveryDice * recoveryAvg);
+
+    if (flags.archmage?.strongRecovery) {
       // Handle Strong Recovery special case
       if (game.settings.get("archmage", "secondEdition")) {
-        recoveryAvg = Math.floor(recoveryLevel * recoveryAvg) + CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value] * 3;
+        formulaConst += CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value] * 3;
       } else {
-      // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
-      recoveryAvg = data.tier * (recoveryDie + 1) * (4 * recoveryDie - 1) / (6 * recoveryDie) + (recoveryLevel - data.tier) * recoveryAvg;
+        formulaDice = ((recoveryDice + data.tier) * (Number(recoveryDie[1]) || 1)).toString() + "d" + recoveryDie[2];
+        formulaDice += "k" + (recoveryDice * (Number(recoveryDie[1]) || 1)).toString();
+        // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
+        recoveryAvg = (data.tier * (Number(recoveryDie[1]) || 1)) * (Number(recoveryDie[2]) + 1) * (4 * Number(recoveryDie[2]) - 1) / (6 * Number(recoveryDie[2])) + (recoveryDice - data.tier) * recoveryAvg;
       }
-      data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.nonKey.dmg);
     }
+
+    if (game.settings.get("archmage", "secondEdition")) {
+      formulaConst += recoveriesBonus;
+    }
+    data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
+    data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
 
     // Initiative
     var improvedInit = 0;
@@ -822,16 +832,12 @@ export class ActorArchmage extends Actor {
     data.apply = (data.apply !== undefined) ? data.apply : true;
     data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
-    let actorData = this.system;
-    let totalRecoveries = actorData.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
-    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.nonKey.dmg.toString();
+    let totalRecoveries = this.system.attributes.recoveries.value;
+    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : '';
 
+    let formula = this.system.attributes.recoveries.formula;
     if (data.average) {
-      formula = this.system.attributes.recoveries.avg;
-    } else if (this.getFlag('archmage', 'strongRecovery')) {
-      // Handle strong recovery.
-      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.nonKey.dmg.toString();
+      formula = this.system.attributes.recoveries.avg.toString();
     }
 
     // Add bonus if any
@@ -863,7 +869,6 @@ export class ActorArchmage extends Actor {
       const chatData = {
         user: game.user.id, speaker: {actor: this.id, token: this.token,
         alias: this.name, scene: game.user.viewedScene},
-        // roll: new Roll("") // TODO: Refactor this, needed to silence an error in 0.8.x
       };
 
       // Toggle default roll mode
