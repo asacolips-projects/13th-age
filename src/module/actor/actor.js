@@ -423,8 +423,10 @@ export class ActorArchmage extends Actor {
     data.tier = 1;
     if (data.attributes.level.value >= 5) data.tier = 2;
     if (data.attributes.level.value >= 8) data.tier = 3;
-    data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[level]
-    if (data.incrementals?.abilityMultiplier) data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[level+1]
+    data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
+    if (data.incrementals?.abilityMultiplier) {
+      data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value+1];
+    }
 
     for (let prop in data.abilities) {
       data.abilities[prop].dmg = data.tierMult * data.abilities[prop].mod;
@@ -437,15 +439,21 @@ export class ActorArchmage extends Actor {
       let level = data.attributes.level.value;
       if (data.incrementals?.hp && !game.settings.get("archmage", "secondEdition")) level++;
 
-      let toughness = 0;
-      if (flags.archmage) {
-        toughness = flags.archmage.toughness ? data.attributes.hp.base : 0;
-        if (level <= 4) toughness = Math.floor(toughness / 2)
-        else if (level >= 8) toughness = Math.floor(toughness * 2)
-        else toughness = Math.floor(toughness)
+      let toughnessBonus = 0;
+      if (flags.archmage?.toughness) {
+        toughnessBonus = data.attributes.hp.base;
+        let mul = 1;
+        if (game.settings.get("archmage", "secondEdition")) {
+          if (level >= 5) mul = 2;
+          if (level >= 8) mul = 4;
+        } else {
+          if (level <= 4) mul = 1 / 2;
+          else if (level >= 8) mul = 2;
+        }
+        toughnessBonus = Math.floor(toughnessBonus * mul)
       }
 
-      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) * hpLevelModifier[level] + hpBonus + toughness);
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) * hpLevelModifier[level] + hpBonus + toughnessBonus);
     }
 
     // Recoveries
