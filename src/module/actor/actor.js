@@ -424,7 +424,7 @@ export class ActorArchmage extends Actor {
     if (data.attributes.level.value >= 5) data.tier = 2;
     if (data.attributes.level.value >= 8) data.tier = 3;
     data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
-    if (data.incrementals?.abilityMultiplier) {
+    if (data.incrementals?.abilMultiplier) {
       data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value+1];
     }
 
@@ -462,8 +462,9 @@ export class ActorArchmage extends Actor {
       if (!game.settings.get("archmage", "secondEdition")) data.attributes.recoveries.max += recoveriesBonus;
     }
     // Calculate recovery formula and average.
-    let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[Number(data.attributes.level?.value)] ?? 1;
-    // TODO: +1 with incremental
+    let recLevel = Number(data.attributes.level?.value);
+    if (data.incrementals?.recovery) recLevel += 1;
+    let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[recLevel];
     let recoveryDie = ["d8", "", "8"]; // Fall back
     let recoveryAvg = 3.5; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
@@ -499,7 +500,7 @@ export class ActorArchmage extends Actor {
     // Initiative
     var improvedInit = 0;
     if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
+    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value + (this.system.incrementals?.skillInitiative ? 1 : 0);
   }
 
   /* -------------------------------------------- */
@@ -1179,7 +1180,7 @@ export class ActorArchmage extends Actor {
       terms: terms,
       data: {
         abil: abl ? abl.nonKey.mod : 0,
-        lvl: this.system.attributes.level.value + (this.system.incrementals?.skills ? 1 : 0),
+        lvl: this.system.attributes.level.value + ((this.system.incrementals?.skills || this.system.incrementals?.skillInitiative) ? 1 : 0),
         bg: bg ? bg[1].bonus.value : 0,
         abilityName: abilityName,
         backgroundName: backgroundName,

@@ -214,17 +214,17 @@ ARCHMAGE:
     shield: Shield
     twohanded: Two-handed Weapon
   INCREMENTALS:
-    abilityScoreBonusHint: 4th/7th/10th Level (+1 to 3 abilities)
+    abilityScoreBonusHint: +1 to 3 abilities (4th/7th/10th Level)
     abilityScoreBonusName: Ability Score Bonus
     extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
-    extraMagicItemName: Extra Magic Item
+    extraMagicItemName: Magic Item
     featHint: Choose one feat as if you were the next level
     featName: Feat
     featureHint: Choose one class feature as if you were the next level
     featureName: Feature
     hpHint: Increase your HP as if you were the next level
     hpName: Hit Points
-    iconRelationshipPointHint: 5th/8th Level
+    iconRelationshipPointHint: Gain an extra Icon relationship point (4th/7th Level)
     iconRelationshipPointName: Icon Relationship Point
     powerSpell1Hint: Choose a power / spell as if you were the next level
     powerSpell1Name: Power / Spell
@@ -240,6 +240,13 @@ ARCHMAGE:
     skillsName: Skills
     talentHint: Choose one talent as if you were the next level
     talentName: Talent
+    # 2E
+    recoveryName: Recovery
+    recoveryHint: Gain extra recovery dice as if you were the next level
+    skillInitiativeName: Skills & Initiative
+    skillInitiativeHint: Add +1 to all skill and initiative checks
+    abilMultiplierName: Ability Multiplier
+    abilMultiplierHint: Double/quadruple the ability modifier contribution to damage and healing (4th/7th level)
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver

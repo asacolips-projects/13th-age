@@ -405,6 +405,10 @@ Actor:
       powerSpell3: false
       powerSpell4: false
       skills: false
+      # 2E incrementals
+      recovery: false
+      skillInitiative: false
+      abilMultiplier: false
     coins:
       platinum: 0
       gold: 0
