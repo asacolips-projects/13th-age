@@ -131,7 +131,7 @@ Hooks.once('init', async function() {
   // Update 2e constants
   if (game.settings.get("archmage", "secondEdition")) {
     // Update dice number at higher level
-    CONFIG.ARCHMAGE.levelDiceNum = CONFIG.ARCHMAGE.levelDiceNum2e;
+    CONFIG.ARCHMAGE.numDicePerLevel = CONFIG.ARCHMAGE.numDicePerLevel2e;
 
     // Update tier multiplier Array
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;

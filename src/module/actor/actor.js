@@ -461,7 +461,8 @@ export class ActorArchmage extends Actor {
       data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
     }
     // Calculate recovery average.
-    let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
+    let recoveryLevel = CONFIG.ARCHMAGE.numDicePerLevel[Number(data.attributes.level?.value)] ?? 1;
+    // TODO: +1 with incremental
     let recoveryDie = 'd8'; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
       recoveryDie = data.attributes.recoveries.dice;
@@ -469,12 +470,16 @@ export class ActorArchmage extends Actor {
     recoveryDie = Number(recoveryDie.replace('d', ''));
     if (isNaN(recoveryDie)) recoveryDie = 8;  // Fall back
     let recoveryAvg = (recoveryDie + 1) / 2;
-    if (!this.getFlag('archmage', 'strongRecovery')) {
+    if (!flags.archmage?.strongRecovery) {
       data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.nonKey.dmg);
     } else {
       // Handle Strong Recovery special case
+      if (game.settings.get("archmage", "secondEdition")) {
+        recoveryAvg = Math.floor(recoveryLevel * recoveryAvg) + CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value] * 3;
+      } else {
       // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
       recoveryAvg = data.tier * (recoveryDie + 1) * (4 * recoveryDie - 1) / (6 * recoveryDie) + (recoveryLevel - data.tier) * recoveryAvg;
+      }
       data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.nonKey.dmg);
     }
 
