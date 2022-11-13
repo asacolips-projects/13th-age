@@ -463,13 +463,16 @@ export class ActorArchmage extends Actor {
     // Calculate recovery average.
     let recoveryLevel = CONFIG.ARCHMAGE.numDicePerLevel[Number(data.attributes.level?.value)] ?? 1;
     // TODO: +1 with incremental
+    let recoveryAvg = 3.5; // Fall back
     let recoveryDie = 'd8'; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
       recoveryDie = data.attributes.recoveries.dice;
     }
-    recoveryDie = Number(recoveryDie.replace('d', ''));
-    if (isNaN(recoveryDie)) recoveryDie = 8;  // Fall back
-    let recoveryAvg = (recoveryDie + 1) / 2;
+    let recDieRegExp = /^([0-9]*)d([0-9]+)/g;
+    recoveryDie = recDieRegExp.exec(recoveryDie);
+    if (recoveryDie && recoveryDie.length == 3) {
+      recoveryAvg = ((Number(recoveryDie[2]) + 1) / 2) * (Number(recoveryDie[1]) || 1);
+    }
     if (!flags.archmage?.strongRecovery) {
       data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.nonKey.dmg);
     } else {
