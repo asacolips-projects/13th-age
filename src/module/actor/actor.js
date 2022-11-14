@@ -1588,6 +1588,7 @@ export class ActorArchmage extends Actor {
           pd: new Array(),
           md: new Array(),
           rec: new Array(),
+          rec_num: new Array(),
           mWpn_1h: new Array(),
           mWpn_2h: new Array(),
           rWpn: new Array(),
@@ -1603,6 +1604,7 @@ export class ActorArchmage extends Actor {
           base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
           base.md.push(CONFIG.ARCHMAGE.classes[item].md);
           base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
+          base.rec_num.push(CONFIG.ARCHMAGE.classes[item].rec_num || 8); // 8 is the default for 1e classes
           base.mWpn_1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
           if (CONFIG.ARCHMAGE.classes[item].wpn_2h_pen < 0) {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);}
           else {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);}
@@ -1621,6 +1623,8 @@ export class ActorArchmage extends Actor {
         base.md = Math.max.apply(null, base.md);
         if (base.rec.length == 1) base.rec = base.rec[0];
         else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
+        if (base.rec_num.length == 1) base.rec_num = base.rec_num[0];
+        else base.rec_num = Math.ceil(base.rec_num.reduce((a, b) => a + b, 0) / base.rec_num.length) // TODO: assumption about how this is supposed to work in 2e, waiting for confirmation from Rob
         base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
         base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
         base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
@@ -1660,7 +1664,10 @@ export class ActorArchmage extends Actor {
           ac: {base: base.ac},
           pd: {base: base.pd},
           md: {base: base.md},
-          recoveries: {dice: `d${base.rec}`},
+          recoveries: {
+            dice: `d${base.rec}`,
+            base: base.rec_num
+            },
           weapon: {
             melee: {
               dice: `d${base.mWpn}`,
@@ -1677,9 +1684,7 @@ export class ActorArchmage extends Actor {
 
         // Handle extra recoveries for fighters
         if (matchedClasses.includes("fighter")) {
-          data.system.attributes.recoveries.base = 9;
-        } else {
-          data.system.attributes.recoveries.base = 8;
+          data.system.attributes.recoveries.base += 1;
         }
 
         // Set Key Modifier for multiclasses

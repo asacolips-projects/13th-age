@@ -145,6 +145,13 @@ Hooks.once('init', async function() {
     id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
     CONFIG.statusEffects[id].label = "ARCHMAGE.EFFECT.StatusHindered";
     CONFIG.statusEffects[id].journal = "FHDyJEb29LWnO2Dg";
+
+    // Update class base stats
+    for (let cl of Object.keys(CONFIG.ARCHMAGE.classes2e)) {
+      for (let k of Object.keys(CONFIG.ARCHMAGE.classes2e[cl])) {
+        CONFIG.ARCHMAGE.classes[cl][k] = CONFIG.ARCHMAGE.classes2e[cl][k];
+      }
+    }
   }
 
   // Assign the actor class to the CONFIG

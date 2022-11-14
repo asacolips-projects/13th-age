@@ -720,6 +720,57 @@ ARCHMAGE.classes = {
   }
 };
 
+ARCHMAGE.classes2e = {
+  barbarian: {
+    rec_die: 12,
+    rec_num: 7
+  },
+  bard: {
+    // rec_die: 8,
+    // rec_num: 8
+  },
+  chaosmage: {
+  },
+  cleric: {
+    rec_die: 10,
+    rec_num: 7
+  },
+  commander: {
+  },
+  druid: {
+  },
+  fighter: {
+    // rec_die: 10,
+    // rec_num: 8
+  },
+  monk: {
+  },
+  necromancer: {
+  },
+  occultist: {
+  },
+  paladin: {
+    rec_die: 12,
+    rec_num: 7
+  },
+  ranger: {
+    rec_die: 10,
+    rec_num: 7
+  },
+  rogue: {
+    rec_die: 6,
+    rec_num: 10
+  },
+  sorcerer: {
+    // rec_die: 6,
+    // rec_num: 8
+  },
+  wizard: {
+    rec_die: 4,
+    rec_num: 10
+  }
+}
+
 ARCHMAGE.classResources = {
   // List custom resources to configure for classes that use them
   // Stored as an array of two-element arrays with label and reset
