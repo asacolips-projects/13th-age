@@ -118,7 +118,7 @@ class ArchmageUpdateHandler {
    */
    prepareMigrateTokenData(token) {
     return {
-      '_id': token.data._id,
+      '_id': token._id,
       'actorData': this.prepareMigrateActorData(token.actor)
     }
   }
@@ -207,7 +207,7 @@ class ArchmageUpdateHandler {
     }
 
     // Set a message.
-    const version = game.system.data.version;
+    const version = game.system.version;
     ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.start', {version}), {permanent: false});
 
     if (this.versionBelow('1.19.0')) {
@@ -260,10 +260,10 @@ class ArchmageUpdateHandler {
     await this.migrateCompendiums();
 
     // 4. Update the migration version setting.
-    game.settings.set('archmage', 'systemMigrationVersion', game.system.data.version);
+    game.settings.set('archmage', 'systemMigrationVersion', game.system.version);
     // @todo Determine why this fires too early.
     setTimeout(() => {
-      console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.data.version}`);
+      console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.version}`);
       ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.complete', {version}), {permanent: true});
     }, 250);
   }
