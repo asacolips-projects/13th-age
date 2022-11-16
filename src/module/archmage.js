@@ -152,6 +152,9 @@ Hooks.once('init', async function() {
         CONFIG.ARCHMAGE.classes[cl][k] = CONFIG.ARCHMAGE.classes2e[cl][k];
       }
     }
+  } else {
+    // Remove Mental Phenomenon flag
+    delete FLAGS.characterFlags.dexToInt;
   }
 
   // Assign the actor class to the CONFIG

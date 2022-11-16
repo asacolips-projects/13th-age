@@ -415,7 +415,7 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.disengageBonus = disengageBonus;
 
     // Defenses (second element of sorted triple equal median)
-    if (!this.getFlag("archmage", "dexToInt")) {
+    if (!this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
       data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
       data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
     } else {
@@ -470,7 +470,7 @@ export class ActorArchmage extends Actor {
     }
     // Calculate recovery formula and average.
     let recLevel = Number(data.attributes.level?.value);
-    if (data.incrementals?.recovery) recLevel += 1;
+    if (data.incrementals?.recovery && game.settings.get("archmage", "secondEdition")) recLevel += 1;
     let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[recLevel];
     let recoveryDie = ["d8", "", "8"]; // Fall back
     let recoveryAvg = 3.5; // Fall back
@@ -505,9 +505,11 @@ export class ActorArchmage extends Actor {
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
 
     // Initiative
-    let incrInit = this.system.incrementals?.skillInitiative ? 1 : 0;
+    let incrInit = this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition") ? 1 : 0;
     let statInit = data.abilities?.dex?.nonKey?.mod || 0;
-    if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
+    if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
+      statInit = data.abilities?.int?.nonKey?.mod || 0;
+    }
     data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
   }
 
