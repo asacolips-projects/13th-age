@@ -415,17 +415,24 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.disengageBonus = disengageBonus;
 
     // Defenses (second element of sorted triple equal median)
-    data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
-    data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+    if (!this.getFlag("archmage", "dexToInt")) {
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+    } else {
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+    }
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
+
 
     // Damage Modifiers
     data.tier = 1;
     if (data.attributes.level.value >= 5) data.tier = 2;
     if (data.attributes.level.value >= 8) data.tier = 3;
-    data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
     if (data.incrementals?.abilMultiplier) {
       data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value+1];
+    } else {
+      data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
     }
 
     for (let prop in data.abilities) {
@@ -498,9 +505,10 @@ export class ActorArchmage extends Actor {
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
 
     // Initiative
-    var improvedInit = 0;
-    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value + (this.system.incrementals?.skillInitiative ? 1 : 0);
+    let incrInit = this.system.incrementals?.skillInitiative ? 1 : 0;
+    let statInit = data.abilities?.dex?.nonKey?.mod || 0;
+    if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
+    data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
   }
 
   /* -------------------------------------------- */
@@ -1624,7 +1632,7 @@ export class ActorArchmage extends Actor {
         if (base.rec.length == 1) base.rec = base.rec[0];
         else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
         if (base.rec_num.length == 1) base.rec_num = base.rec_num[0];
-        else base.rec_num = Math.ceil(base.rec_num.reduce((a, b) => a + b, 0) / base.rec_num.length) // TODO: assumption about how this is supposed to work in 2e, waiting for confirmation from Rob
+        else base.rec_num = Math.round(base.rec_num.reduce((a, b) => a + b, 0) / base.rec_num.length) // TODO: placeholder, waiting for final design
         base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
         base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
         base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);

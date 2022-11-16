@@ -141,6 +141,11 @@ class ArchmageUpdateHandler {
       updateData = this.__migrateNpcInit(actor, updateData);
     }
 
+    // Append PC migration for version 1.24.0
+    if (this.versionBelow('1.24.0')) {
+      updateData = this.__migratePCImprovedInitFlag(actor, updateData);
+    }
+
     // Future updates will go here.
 
     // Return the final update object.
@@ -158,6 +163,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migrateNpcInit(actor, updateData={}) {
+    if (actor.type != "npc") return updateData;
     const actorData = actor.system;
     return mergeObject(updateData, {
       'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
@@ -168,12 +174,30 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
+   * 1.24.0: Update PC to drop improvedInitiative flag.
+   *
+   * @param {object} actor Actor document to update.
+   * @param {object} updateData Update data object to merge changes into.
+   * @returns
+   *   Update object.
+   */
+  __migratePCImprovedInitFlag(actor, updateData={}) {
+    if (actor.type != "character") return updateData;
+    const actorData = actor.system;
+    const bonus = actor.getFlag("archmage", "improvedIniative") ? 4 : 0;
+    actor.unsetFlag("archmage", "improvedIniative");
+    return mergeObject(updateData, {'system.attributes.init.value': Number(actorData.attributes.init.value) + bonus});
+  }
+
+  /* -------------------------------------------*/
+
+  /**
    * Main entrypoint to execute migrations.
    */
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this for each new version that requires a migration.
-    if (!this.versionBelow('1.19.0')) {
+    if (!this.versionBelow('1.24.0')) {
       return;
     }
 
@@ -190,10 +214,12 @@ class ArchmageUpdateHandler {
       ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_19_0'), {permanent: true});
     }
 
-    // @todo: This will need to be expanded to support other actor types.
+    if (this.versionBelow('1.24.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_24_0'), {permanent: true});
+    }
 
     // 1. Update world actors.
-    const actors = this.queryActors(actor => actor.type == 'npc');
+    const actors = Array.from(game.actors.values());
     console.log('TOOLKIT13: UPDATING ACTORS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateActors'));
     if (actors.length > 0) {
@@ -214,7 +240,7 @@ class ArchmageUpdateHandler {
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateTokens'));
     if (scenes.length > 0) {
       for (let scene of scenes) {
-        const tokens = this.queryTokens(scene, token => token?.actor?.type == 'npc'); //ERROR actor is null
+        const tokens = this.queryTokens(scene);
         const updates = [];
         tokens.forEach(token => {
           updates.push(this.prepareMigrateTokenData(token));
@@ -270,7 +296,7 @@ class ArchmageUpdateHandler {
   queryTokens(scene, callbackFilter = null) {
     // Filter for tokens that are unlinked only.
     const tokens = scene.tokens.filter(token => {
-      if (token.data.actorLink && token.data.actorId && game.actors.has(token.data.actorId)) return false;
+      if (token.isLinked && token.actorId && game.actors.has(token.actorId)) return false;
       return true;
     })
 
@@ -286,11 +312,11 @@ class ArchmageUpdateHandler {
 
       if (pack.documentName == 'Actor') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM ACTORS');
-        await this.migrateCompendiumActors(pack, actor => actor.type == 'npc');
+        await this.migrateCompendiumActors(pack);
       }
       else if (pack.documentName == 'Scene') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
-        await this.migrateCompendiumScenes(pack, token => token?.actor?.type == 'npc');
+        await this.migrateCompendiumScenes(pack);
       }
     }
   }

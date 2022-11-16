@@ -523,6 +523,7 @@ ARCHMAGE:
     updateCompendiumActors: 'Updating compendium actors: {pack}'
     updateCompendiumScenes: 'Updating compendium scenes: {pack}'
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
+    '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
 # Tours
   TOURS:
     '170':

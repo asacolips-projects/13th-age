@@ -940,21 +940,21 @@ FLAGS.characterFlags = {
     section: "Feats",
     type: Boolean
   },
-  "improvedIniative": {
-    name: "Improved Initiative",
-    hint: "General feat to increase initiative by +4.",
-    section: "Feats",
-    type: Boolean
-  },
   "strongRecovery": {
     name: "Strong Recovery",
-    hint: "General feat to reroll some of your recovery die, keeping highest.",
+    hint: "General feat to improve your recovery rolls.",
     section: "Feats",
     type: Boolean
   },
   "toughness": {
     name: "Toughness",
     hint: "General feat to increase your max HP based on your base HP",
+    section: "Feats",
+    type: Boolean
+  },
+  "dexToInt": {
+    name: "Mental Phenomenon",
+    hint: "Wizard talent to use Int on place of Dex for AC, PD and initiative calculations.",
     section: "Feats",
     type: Boolean
   },
