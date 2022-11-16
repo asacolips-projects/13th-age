@@ -416,14 +416,18 @@ export class ActorArchmage extends Actor {
 
     // Defenses (second element of sorted triple equal median)
     if (!this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
-      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
-      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
     } else {
-      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
-      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.int.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
     }
-    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
-
+    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
+      data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
     // Damage Modifiers
     data.tier = 1;
@@ -460,7 +464,8 @@ export class ActorArchmage extends Actor {
         toughnessBonus = Math.floor(toughnessBonus * mul)
       }
 
-      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) * hpLevelModifier[level] + hpBonus + toughnessBonus);
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) 
+        * hpLevelModifier[level] + hpBonus + toughnessBonus);
     }
 
     // Recoveries
@@ -494,7 +499,8 @@ export class ActorArchmage extends Actor {
         formulaDice = ((recoveryDice + data.tier) * (Number(recoveryDie[1]) || 1)).toString() + "d" + recoveryDie[2];
         formulaDice += "k" + (recoveryDice * (Number(recoveryDie[1]) || 1)).toString();
         // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
-        recoveryAvg = (data.tier * (Number(recoveryDie[1]) || 1)) * (Number(recoveryDie[2]) + 1) * (4 * Number(recoveryDie[2]) - 1) / (6 * Number(recoveryDie[2])) + (recoveryDice - data.tier) * recoveryAvg;
+        recoveryAvg = (data.tier * (Number(recoveryDie[1]) || 1)) * (Number(recoveryDie[2]) + 1)
+          * (4 * Number(recoveryDie[2]) - 1) / (6 * Number(recoveryDie[2])) + (recoveryDice - data.tier) * recoveryAvg;
       }
     }
 
@@ -1634,7 +1640,8 @@ export class ActorArchmage extends Actor {
         if (base.rec.length == 1) base.rec = base.rec[0];
         else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
         if (base.rec_num.length == 1) base.rec_num = base.rec_num[0];
-        else base.rec_num = Math.round(base.rec_num.reduce((a, b) => a + b, 0) / base.rec_num.length) // TODO: placeholder, waiting for final design
+        // TODO: placeholder, waiting for final design
+        else base.rec_num = Math.round(base.rec_num.reduce((a, b) => a + b, 0) / base.rec_num.length)
         base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
         base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
         base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
