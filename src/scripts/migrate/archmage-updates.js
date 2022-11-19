@@ -163,7 +163,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migrateNpcInit(actor, updateData={}) {
-    if (actor.type != "npc") return updateData;
+    if (!actor || actor.type != "npc") return updateData;
     const actorData = actor.system;
     return mergeObject(updateData, {
       'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
@@ -182,7 +182,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migratePCImprovedInitFlag(actor, updateData={}) {
-    if (actor.type != "character") return updateData;
+    if (!actor || actor.type != "character") return updateData;
     const actorData = actor.system;
     const bonus = actor.getFlag("archmage", "improvedIniative") ? 4 : 0;
     actor.unsetFlag("archmage", "improvedIniative");

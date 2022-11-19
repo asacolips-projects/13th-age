@@ -639,7 +639,7 @@ Hooks.on('dropCanvasData', (canvas, data) => {
   // Get the token at the drop point, if any
   const x = data.x;
   const y = data.y;
-  const gridSize = canvas.scene.data.size;  //Or .grid?
+  const gridSize = canvas.scene.grid.size;
   // Get the set of targeted tokens
   const targets = Array.from(canvas.scene.data.tokens.values()).filter(t => {
     if ( !t.visible ) return false;
