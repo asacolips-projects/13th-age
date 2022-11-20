@@ -435,7 +435,7 @@ export class ActorArchmage extends Actor {
     data.tier = 1;
     if (data.attributes.level.value >= 5) data.tier = 2;
     if (data.attributes.level.value >= 8) data.tier = 3;
-    if (data.incrementals?.abilMultiplier) {
+    if (data.incrementals?.abilMultiplier && game.settings.get("archmage", "secondEdition")) {
       data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value+1];
     } else {
       data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
@@ -1210,7 +1210,9 @@ export class ActorArchmage extends Actor {
       terms: terms,
       data: {
         abil: abl ? abl.nonKey.mod : 0,
-        lvl: this.system.attributes.level.value + ((this.system.incrementals?.skills || this.system.incrementals?.skillInitiative) ? 1 : 0),
+        lvl: this.system.attributes.level.value +
+          ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
+          || this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
         bg: bg ? bg[1].bonus.value : 0,
         abilityName: abilityName,
         backgroundName: backgroundName,
