@@ -329,9 +329,11 @@ export class ActorArchmage extends Actor {
       delete data.incrementals.feature;
     }
 
+    // Fix max death saves based on 2e.
+    data.attributes.saves.deathFails.max = game.settings.get('archmage', 'secondEdition') ? 5 : 4;
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
-    data.attributes.saves.deathFails.steps = [false, false, false, false];
+    data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
     for (let i = 0; i < deathCount; i++) {
       data.attributes.saves.deathFails.steps[i] = true;
     }
@@ -717,7 +719,7 @@ export class ActorArchmage extends Actor {
       if (success && this.system.attributes.hp.value <= 0) {
         this.rollRecovery({}, true);
       }
-      else await this.update({'data.attributes.saves.deathFails.value': Math.min(4, Number(this.system.attributes.saves.deathFails.value) + 1)});
+      else await this.update({'data.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
     }
 
     // Handle failures of last gasp saves.
@@ -922,8 +924,8 @@ export class ActorArchmage extends Actor {
       newHp = Math.min(this.system.attributes.hp.max, Math.max(0, newHp) + roll.total);
     }
     await this.update({
-      'data.attributes.recoveries.value': newRec,
-      'data.attributes.hp.value': newHp
+      'system.attributes.recoveries.value': newRec,
+      'system.attributes.hp.value': newHp
     });
 
     return {roll: roll, total: roll.total};
@@ -948,7 +950,19 @@ export class ActorArchmage extends Actor {
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
-    updateData['data.attributes.hp.value'] = Math.min(this.system.attributes.hp.max, Math.max(this.system.attributes.hp.value, 0) + templateData.gainedHp);
+    updateData['system.attributes.hp.value'] = Math.min(this.system.attributes.hp.max, Math.max(this.system.attributes.hp.value, 0) + templateData.gainedHp);
+
+    // Death saves.
+    if (game.settings.get('archmage', 'secondEdition')) {
+      if (this.system.attributes.saves.deathFails.value > 1) {
+        updateData['system.attributes.saves.deathFails.value'] = 1;
+      }
+    }
+    else {
+      if (this.system.attributes.saves.deathFails.value > 0) {
+        updateData['system.attributes.saves.deathFails.value'] = 0;
+      }
+    }
 
     // Resources
     // Focus, Momentum and Command Points handled on end combat hook
@@ -959,7 +973,7 @@ export class ActorArchmage extends Actor {
       if (this.system.resources.spendable[resourcePathName].enabled
         && this.system.resources.spendable[resourcePathName].rest != "none") {
         let max = this.system.resources.spendable[resourcePathName].max;
-        let path = `data.resources.spendable.${resourcePathName}.current`;
+        let path = `system.resources.spendable.${resourcePathName}.current`;
         if (this.system.resources.spendable[resourcePathName].rest == "quick"
           && max && curr < max) {
           updateData[path] = max;
@@ -1000,7 +1014,7 @@ export class ActorArchmage extends Actor {
           && item.system.quantity.value != null))
           && item.system.quantity.value < maxQuantity) {
           await item.update({
-            'data.quantity': {value: maxQuantity}
+            'system.quantity': {value: maxQuantity}
           });
           templateData.items.push({
             key: item.name,
@@ -1058,15 +1072,15 @@ export class ActorArchmage extends Actor {
     let updateData = {}
 
     // Recoveries & hp
-    updateData['data.attributes.recoveries.value'] = this.system.attributes.recoveries.max;
-    updateData['data.attributes.hp.value'] = this.system.attributes.hp.max;
-    updateData['data.attributes.saves.deathFails.value'] = 0;
-    updateData['data.attributes.saves.lastGaspFails.value'] = 0;
+    updateData['system.attributes.recoveries.value'] = this.system.attributes.recoveries.max;
+    updateData['system.attributes.hp.value'] = this.system.attributes.hp.max;
+    updateData['system.attributes.saves.deathFails.value'] = 0;
+    updateData['system.attributes.saves.lastGaspFails.value'] = 0;
 
     // Resources
     if (this.system.resources.spendable.ki.enabled
       && this.system.resources.spendable.ki.current < this.system.resources.spendable.ki.max) {
-      updateData['data.resources.spendable.ki.current'] = this.system.resources.spendable.ki.max;
+      updateData['system.resources.spendable.ki.current'] = this.system.resources.spendable.ki.max;
       templateData.resources.push({
         key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.ki.max}`
@@ -1079,7 +1093,7 @@ export class ActorArchmage extends Actor {
       if (this.system.resources.spendable[resourcePathName].enabled
         && this.system.resources.spendable[resourcePathName].rest != "none") {
         let max = this.system.resources.spendable[resourcePathName].max;
-        let path = `data.resources.spendable.${resourcePathName}.current`;
+        let path = `system.resources.spendable.${resourcePathName}.current`;
         if ((this.system.resources.spendable[resourcePathName].rest == "full"
           || this.system.resources.spendable[resourcePathName].rest == "quick")
           && max && curr < max) {
@@ -1117,8 +1131,8 @@ export class ActorArchmage extends Actor {
       if (maxQuantity && item.system.quantity.value < maxQuantity
         && usageArray.includes(item.system.powerUsage?.value)) {
         await item.update({
-          'data.quantity': {value: maxQuantity},
-          'data.rechargeAttempts': {value: 0}
+          'system.quantity': {value: maxQuantity},
+          'system.rechargeAttempts': {value: 0}
         });
         templateData.items.push({
           key: item.name,
@@ -1402,6 +1416,19 @@ export class ActorArchmage extends Actor {
         // Dead
         await this._updateHpCondition(data, "dead", 0, maxHp,
           game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+      }
+
+      // Handle first skull in 2e.
+      if (game.settings.get('archmage', 'secondEdition')) {
+        if (this.system.attributes.hp.value > 0 && data.system.attributes.hp.value <= 0) {
+          if (!data.system.attributes?.saves?.deathFails?.value) {
+            data.system.attributes.saves = this.system.attributes.saves;
+          }
+          data.system.attributes.saves.deathFails.value += 1;
+          for (let i = 0; i < data.system.attributes.saves.deathFails.value; i++) {
+            data.system.attributes.saves.deathFails.steps[i] = true;
+          }
+        }
       }
     }
 

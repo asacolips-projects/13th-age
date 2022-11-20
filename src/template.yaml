@@ -60,6 +60,7 @@ Actor:
           disengageBonus: 0
           deathFails:
             value: 0
+            # Max and steps are adjusted in actor.js depending on 2e setting.
             max: 4
             steps:
               - false
