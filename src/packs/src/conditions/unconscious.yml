@@ -1,10 +1,8 @@
-name: Unconscious
+name: 'Unconscious'
 permission:
   default: 0
 folder: ''
 flags: {}
-content: "<p>You can't take any actions (except to make death saves). At the start of your turn, make a death save. To make a death save, roll a d20 at the start of your turn. If you roll 16+, use a recovery to return to consciousness and heal up to the number of hit points you rolled with your recovery. If you roll a natural 20, you get to take actions normally that turn. If you roll 15 or less, you take one step toward the grave. After the fourth failed death save in a single battle, you die.
-You also die when you reach negative hit points equal to half your maximum hit points.
-If you’re able to use one of your recoveries (or otherwise get healed) while you are dying, ignore your current negative hit points. Start from 0 and add the hit points you’ve regained.</p>"
+content: '<p>You can''t take any actions (except to make death saves). At the start of your turn, make a death save. To make a death save, roll a d20 at the start of your turn. If you roll 16+, use a recovery to return to consciousness and heal up to the number of hit points you rolled with your recovery. If you roll a natural 20, you get to take actions normally that turn. If you roll 15 or less, you take one step toward the grave. After the fourth failed death save in a single battle, you die. You also die when you reach negative hit points equal to half your maximum hit points. If you’re able to use one of your recoveries (or otherwise get healed) while you are dying, ignore your current negative hit points. Start from 0 and add the hit points you’ve regained.</p>'
 img: ''
-_id: '21cEqzk92tflpW7N'
+_id: 'u9VHMyTBvK4lLbPa'
