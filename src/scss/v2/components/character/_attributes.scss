@@ -31,7 +31,7 @@
   .unit--img {
     flex: 0 auto;
     width: 185px;
-    margin-right: $padding-lg;
+    margin-right: $padding-md;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,6 +40,7 @@
   .unit--attributes {
     @include borderBoth;
     @include borderWide;
+    grid-gap: 18px;
 
     .unit {
       position: relative;
@@ -51,7 +52,7 @@
           position: absolute;
           top: 0;
           bottom: 0;
-          left: -$padding-md;
+          left: -9px;
           width: 2px;
           background: $ct-border;
         }
@@ -129,20 +130,21 @@
     }
   }
 
-  .unit--init-death {
-    .death-saves {
+  .unit--death {
+    .last-gasp-saves {
       margin-top: $padding-md;
       padding-top: $padding-md;
       border-top: 2px solid $ct-border;
     }
 
-    .death-save-attempts {
+    .attempts {
       justify-content: space-between;
 
       input[type="checkbox"] {
         flex: 0 0 $font-sm;
         width: $font-sm;
         height: $font-sm;
+        margin: 3px 0;
       }
     }
   }

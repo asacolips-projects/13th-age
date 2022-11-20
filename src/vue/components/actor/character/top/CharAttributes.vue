@@ -66,20 +66,21 @@
         <div class="dividers flexcol">
           <div class="death-saves">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('ARCHMAGE.SAVE.death')}}</a>
-            <div class="death-save-attempts flexrow">
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[0]" data-opt="1">
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[1]" data-opt="2">
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[2]" data-opt="3">
-              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[3]" data-opt="4">
+            <div class="death-save-attempts attempts flexrow">
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[0]" data-opt="1"/>
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[1]" data-opt="2"/>
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[2]" data-opt="3"/>
+              <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[3]" data-opt="4"/>
+              <input v-if="secondEdition" type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[4]" data-opt="5"/>
             </div>
           </div>
           <div class="last-gasp-saves">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="lastGasp">{{localize('ARCHMAGE.SAVE.lastGasp')}}</a>
-            <div class="lastgasp-save-attempts flexrow">
-              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[0]" data-opt="1">
-              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[1]" data-opt="2">
-              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[2]" data-opt="3">
-              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[3]" data-opt="4">
+            <div class="lastgasp-save-attempts attempts flexrow">
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[0]" data-opt="1"/>
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[1]" data-opt="2"/>
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[2]" data-opt="3"/>
+              <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[3]" data-opt="4"/>
             </div>
           </div>
         </div>
@@ -110,7 +111,11 @@ export default {
   components: {
     Progress
   },
-  computed: {},
+  computed: {
+    secondEdition() {
+      return game.settings.get('archmage', 'secondEdition') === true;
+    }
+  },
   methods: {
     getAvatarDimensions() {
       let img = this.$refs['avatar'];
