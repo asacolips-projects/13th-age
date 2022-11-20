@@ -849,6 +849,8 @@ Hooks.on('deleteCombat', (combat) => {
   // Clear the escalation die.
   $('.archmage-escalation').addClass('hide');
 
+  if (!game.user.isGM) return;
+
   // Clear out death saves, per combat resources and temp HP.
   let combatants = combat.combatants;
   if (combatants) {
@@ -878,6 +880,7 @@ Hooks.on('deleteCombat', (combat) => {
 });
 
 Hooks.on('createCombatant', (document, data, options, id) => {
+  if (!game.user.isGM) return;
   let actor = document.actor;
   // Add command points at start of combat.
   if (actor && actor.type == 'character') {

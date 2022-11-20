@@ -244,6 +244,13 @@
       "system": "archmage"
     },
     {
+      "label": "SRD Magic Items - Consumables",
+      "type": "Item",
+      "name": "srd-magic-items-consumables",
+      "path": "packs/srd-magic-items-consumables.db",
+      "system": "archmage"
+    },
+    {
       "label": "SRD Magic Items - Chuul Symbiotes",
       "type": "Item",
       "name": "srd-magic-items-chuul-symbiotes",

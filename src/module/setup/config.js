@@ -21,7 +21,7 @@ ARCHMAGE.statusEffects = [
     id: "unconscious",
     label: "ARCHMAGE.EFFECT.StatusUnconscious",
     icon: "icons/svg/unconscious.svg",
-    journal: "21cEqzk92tflpW7N",
+    journal: "u9VHMyTBvK4lLbPa",
     changes: [
       {
         key: 'data.attributes.ac.value',
