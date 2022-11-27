@@ -102,7 +102,7 @@
     }
 
     .defense-value {
-      font-size: $font-md;
+      font-size: $font-sm;
       font-family: $font-stack-base;
       font-weight: bold;
       display: flex;
@@ -111,6 +111,7 @@
       justify-content: center;
       text-align: center;
       width: 100%;
+      padding: 0;
     }
 
     .unit-subtitle {
