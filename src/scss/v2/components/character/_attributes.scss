@@ -93,6 +93,10 @@
   .unit--defenses {
     text-align: center;
 
+    .defenses {
+      grid-gap: 8px;
+    }
+
     .unit-title {
       height: 35px;
     }
