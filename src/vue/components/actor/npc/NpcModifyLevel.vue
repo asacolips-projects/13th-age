@@ -6,7 +6,7 @@
       <input type="range" step="1" :min="levelRestraints.min" :max="levelRestraints.max" v-model="newLevel" />
     </div>
     <div class="unit unit--confirm">
-      <button class="button button--confirm" @click="autoLevelConfirm" :disabled="noLevelChange">{{localize('ARCHMAGE.AUTOLEVEL.confirm')}}</button>
+      <button class="button button--confirm" @click="autoLevelConfirm" :disabled="noLevelChange" type="button">{{localize('ARCHMAGE.AUTOLEVEL.confirm')}}</button>
     </div>
   </section>
   <section class="section section--level-preview grid grid-3col">
