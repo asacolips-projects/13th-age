@@ -568,6 +568,7 @@ export class ActorArchmage extends Actor {
 
         case 'level':
           data.lvl = v.value;
+          data.lvldice = CONFIG.ARCHMAGE.numDicePerLevel[v.value];
           break;
 
         case 'weapon':
