@@ -15,6 +15,7 @@ import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
+import { registerModuleArt } from './setup/register-module-art.js';
 
 
 Hooks.once('init', async function() {
@@ -98,7 +99,13 @@ Hooks.once('init', async function() {
     ArchmageMacros,
     ArchmageUtility,
     rollItemMacro,
-    ActorHelpersV2
+    ActorHelpersV2,
+    system: {
+      moduleArt: {
+        map: new Map(),
+        refresh: registerModuleArt
+      }
+    }
   };
 
   // Replace sheets.
@@ -507,7 +514,8 @@ Hooks.once('ready', () => {
 
   $('.message').off("contextmenu");
 
-  // @todo add moduleArt mapping here.
+  // Build the module art map. See module/setup/register-module-art.js for more details.
+  registerModuleArt();
 });
 
 /* ---------------------------------------------- */
