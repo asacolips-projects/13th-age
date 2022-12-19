@@ -66,6 +66,7 @@ ARCHMAGE:
   keyMod: Key Modifier
   keyReduced: Reduced to {mod} due to {kmod1}/{kmod2} key modifier
   kickWeaponDice: KICK Weapon Dice
+  kin: Kin
   level: Level
   loot: Loot
   lvl: Lvl
@@ -153,6 +154,8 @@ ARCHMAGE:
     rechargeOncePerDayName: Recharge once per day only
     RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
     RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
+    secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
+    secondEditionName: Use 2e Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this display a list of targeted defenses in the attack line of chat power cards.
@@ -212,17 +215,18 @@ ARCHMAGE:
     shield: Shield
     twohanded: Two-handed Weapon
   INCREMENTALS:
-    abilityScoreBonusHint: 4th/7th/10th Level (+1 to 3 abilities)
+    abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
+    abilityScoreBonus2eHint: +1 to ability scores (3rd/6th/9th Level)
     abilityScoreBonusName: Ability Score Bonus
     extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
-    extraMagicItemName: Extra Magic Item
+    extraMagicItemName: Magic Item
     featHint: Choose one feat as if you were the next level
     featName: Feat
     featureHint: Choose one class feature as if you were the next level
     featureName: Feature
     hpHint: Increase your HP as if you were the next level
     hpName: Hit Points
-    iconRelationshipPointHint: 5th/8th Level
+    iconRelationshipPointHint: Gain an extra Icon relationship point (4th/7th Level)
     iconRelationshipPointName: Icon Relationship Point
     powerSpell1Hint: Choose a power / spell as if you were the next level
     powerSpell1Name: Power / Spell
@@ -238,6 +242,13 @@ ARCHMAGE:
     skillsName: Skills
     talentHint: Choose one talent as if you were the next level
     talentName: Talent
+    # 2E
+    recoveryName: Recovery
+    recoveryHint: Gain extra recovery dice as if you were the next level
+    skillInitiativeName: Skills & Initiative
+    skillInitiativeHint: Add +1 to all skill and initiative checks
+    abilMultiplierName: Ability Multiplier
+    abilMultiplierHint: Double/quadruple the ability modifier contribution to damage and healing (4th/7th level)
   COINS:
     copper: Copper
     copperHint: 10 Copper = 1 Silver
@@ -415,10 +426,15 @@ ARCHMAGE:
     sequencerReverse: Reverse Sequence
     special: Special
     spellChain: Chain Spell
+    spellLevel2: 2nd Level Spell
     spellLevel3: 3rd Level Spell
+    spellLevel4: 4th Level Spell
     spellLevel5: 5th Level Spell
+    spellLevel6: 6th Level Spell
     spellLevel7: 7th Level Spell
+    spellLevel8: 8th Level Spell
     spellLevel9: 9th Level Spell
+    spellLevel10: 10th Level Spell
     rollTable: RollTable
     sustainedEffect: Opening and Sustained Effect
     sustainOn: Sustain On
@@ -468,6 +484,7 @@ ARCHMAGE:
     StatusFlying: Flying
     StatusGrabbed: Grabbed
     StatusHampered: Hampered
+    StatusHindered: Hindered
     StatusHelpless: Helpless
     StatusHidden: Hidden
     StatusHolyShield: Holy Shield
@@ -508,6 +525,7 @@ ARCHMAGE:
     updateCompendiumActors: 'Updating compendium actors: {pack}'
     updateCompendiumScenes: 'Updating compendium scenes: {pack}'
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
+    '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
 # Tours
   TOURS:
     '170':

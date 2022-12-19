@@ -8,7 +8,7 @@
     </div>
     <!-- Race -->
     <div class="unit unit--abs-label unit--race">
-      <label for="system.details.race.value">{{localize("ARCHMAGE.race")}}</label>
+      <label for="system.details.race.value">{{secondEdition ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race")}}</label>
       <input type="text" name="system.details.race.value" class="input-secondary" v-model="actor.system.details.race.value">
     </div>
     <!-- Class -->
@@ -39,7 +39,11 @@ export default {
       level: {}
     }
   },
-  computed: {},
+  computed: {
+    secondEdition() {
+      return game.settings.get('archmage', 'secondEdition') === true;
+    }
+  },
   methods: { /* See created. */},
   async mounted() {
     this.level = this.actor.system.attributes.level;

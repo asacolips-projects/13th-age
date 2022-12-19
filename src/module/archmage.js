@@ -77,6 +77,16 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
+  game.settings.register("archmage", "secondEdition", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionHint"),
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true,
+    onChange: () => window.location.reload()
+  });
+
   game.archmage = {
     ActorArchmage,
     ActorArchmageSheetV2,
@@ -117,6 +127,35 @@ Hooks.once('init', async function() {
     onChange: enable => _setArchmageStatusEffects(enable)
   });
   _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+
+  // Update 2e constants
+  if (game.settings.get("archmage", "secondEdition")) {
+    // Update dice number at higher level
+    CONFIG.ARCHMAGE.numDicePerLevel = CONFIG.ARCHMAGE.numDicePerLevel2e;
+
+    // Update tier multiplier Array
+    CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
+
+    // Remove AE from vulnerable
+    let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
+    CONFIG.statusEffects[id].changes = null;
+    CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
+
+    // Rename hampered to hindered
+    id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
+    CONFIG.statusEffects[id].label = "ARCHMAGE.EFFECT.StatusHindered";
+    CONFIG.statusEffects[id].journal = "FHDyJEb29LWnO2Dg";
+
+    // Update class base stats
+    for (let cl of Object.keys(CONFIG.ARCHMAGE.classes2e)) {
+      for (let k of Object.keys(CONFIG.ARCHMAGE.classes2e[cl])) {
+        CONFIG.ARCHMAGE.classes[cl][k] = CONFIG.ARCHMAGE.classes2e[cl][k];
+      }
+    }
+  } else {
+    // Remove Mental Phenomenon flag
+    delete FLAGS.characterFlags.dexToInt;
+  }
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
@@ -600,7 +639,7 @@ Hooks.on('dropCanvasData', (canvas, data) => {
   // Get the token at the drop point, if any
   const x = data.x;
   const y = data.y;
-  const gridSize = canvas.scene.data.size;  //Or .grid?
+  const gridSize = canvas.scene.grid.size;
   // Get the set of targeted tokens
   const targets = Array.from(canvas.scene.data.tokens.values()).filter(t => {
     if ( !t.visible ) return false;
