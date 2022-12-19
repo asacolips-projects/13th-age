@@ -585,17 +585,22 @@ export class ItemArchmage extends Item {
       'castPower',
       'sustainedEffect',
       'finalVerse',
+      'spellLevel2',
       'spellLevel3',
+      'spellLevel4',
       'spellLevel5',
+      'spellLevel6',
       'spellLevel7',
+      'spellLevel8',
       'spellLevel9',
+      'spellLevel10',
       'spellChain',
       'breathWeapon',
       'special',
     ];
 
     // Add spell level entries only if the current spell level is high enough
-    [3, 5, 7, 9].forEach(i => {
+    [2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(i => {
       if (Number(data.powerLevel.value) < i) {
         effectKeys = effectKeys.filter(x => x != `spellLevel${i}`)
       }

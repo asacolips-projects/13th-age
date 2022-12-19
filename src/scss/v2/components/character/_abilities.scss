@@ -1,6 +1,6 @@
 .section--abilities {
   .grid-4col {
-    grid-template-columns: 28px auto 38px 38px;
+    grid-template-columns: 40px auto 48px 48px;
     grid-gap: 4px;
   }
 
@@ -22,6 +22,7 @@
 
   .ability-score {
     border-bottom: 0;
+    font-size: $font-sm;
   }
 
   .ability-name {
@@ -34,7 +35,7 @@
 
   .ability-mod,
   .ability-lvl {
-    font-size: $font-md;
+    font-size: $font-sm;
     font-family: $font-stack-base;
     font-weight: bold;
     display: flex;

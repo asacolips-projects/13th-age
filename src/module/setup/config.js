@@ -311,6 +311,12 @@ ARCHMAGE.extendedStatusEffects = [
   // },
 ];
 
+ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+
+ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3];
+ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
+
 // Power Settings
 ARCHMAGE.powerSources = {
   'class': 'Class',
@@ -714,6 +720,57 @@ ARCHMAGE.classes = {
   }
 };
 
+ARCHMAGE.classes2e = {
+  barbarian: {
+    rec_die: 12,
+    rec_num: 7
+  },
+  bard: {
+    // rec_die: 8,
+    // rec_num: 8
+  },
+  chaosmage: {
+  },
+  cleric: {
+    rec_die: 10,
+    rec_num: 7
+  },
+  commander: {
+  },
+  druid: {
+  },
+  fighter: {
+    // rec_die: 10,
+    // rec_num: 8
+  },
+  monk: {
+  },
+  necromancer: {
+  },
+  occultist: {
+  },
+  paladin: {
+    rec_die: 12,
+    rec_num: 7
+  },
+  ranger: {
+    rec_die: 10,
+    rec_num: 7
+  },
+  rogue: {
+    rec_die: 6,
+    rec_num: 10
+  },
+  sorcerer: {
+    // rec_die: 6,
+    // rec_num: 8
+  },
+  wizard: {
+    rec_die: 4,
+    rec_num: 10
+  }
+}
+
 ARCHMAGE.classResources = {
   // List custom resources to configure for classes that use them
   // Stored as an array of two-element arrays with label and reset
@@ -883,21 +940,21 @@ FLAGS.characterFlags = {
     section: "Feats",
     type: Boolean
   },
-  "improvedIniative": {
-    name: "Improved Initiative",
-    hint: "General feat to increase initiative by +4.",
-    section: "Feats",
-    type: Boolean
-  },
   "strongRecovery": {
     name: "Strong Recovery",
-    hint: "General feat to reroll some of your recovery die, keeping highest.",
+    hint: "General feat to improve your recovery rolls.",
     section: "Feats",
     type: Boolean
   },
   "toughness": {
     name: "Toughness",
     hint: "General feat to increase your max HP based on your base HP",
+    section: "Feats",
+    type: Boolean
+  },
+  "dexToInt": {
+    name: "Mental Phenomenon",
+    hint: "Wizard talent to use Int on place of Dex for AC, PD and initiative calculations.",
     section: "Feats",
     type: Boolean
   },

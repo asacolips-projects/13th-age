@@ -329,9 +329,11 @@ export class ActorArchmage extends Actor {
       delete data.incrementals.feature;
     }
 
+    // Fix max death saves based on 2e.
+    data.attributes.saves.deathFails.max = game.settings.get('archmage', 'secondEdition') ? 5 : 4;
     // Update death save count.
     let deathCount = data.attributes.saves.deathFails.value;
-    data.attributes.saves.deathFails.steps = [false, false, false, false];
+    data.attributes.saves.deathFails.steps = game.settings.get('archmage', 'secondEdition') ? [false, false, false, false, false] : [false, false, false, false];
     for (let i = 0; i < deathCount; i++) {
       data.attributes.saves.deathFails.steps[i] = true;
     }
@@ -415,62 +417,108 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.disengageBonus = disengageBonus;
 
     // Defenses (second element of sorted triple equal median)
-    data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
-    data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod, data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
-    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod, data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
+    if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.int.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+    } else {
+      data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.dex.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
+      data.attributes.pd.value = Number(data.attributes.pd.base) + Number([data.abilities.dex.nonKey.lvlmod,
+        data.abilities.con.nonKey.lvlmod, data.abilities.str.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(pdBonus);
+    }
+    data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
+      data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
     // Damage Modifiers
     data.tier = 1;
     if (data.attributes.level.value >= 5) data.tier = 2;
     if (data.attributes.level.value >= 8) data.tier = 3;
+    if (data.incrementals?.abilMultiplier && game.settings.get("archmage", "secondEdition")) {
+      data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value+1];
+    } else {
+      data.tierMult = CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value];
+    }
+
     for (let prop in data.abilities) {
-      data.abilities[prop].dmg = data.tier * data.abilities[prop].mod;
-      data.abilities[prop].nonKey.dmg = data.tier * data.abilities[prop].nonKey.mod;
+      data.abilities[prop].dmg = data.tierMult * data.abilities[prop].mod;
+      data.abilities[prop].nonKey.dmg = data.tierMult * data.abilities[prop].nonKey.mod;
     }
 
     // HPs
     if (data.attributes.hp.automatic) {
       let hpLevelModifier = [1, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 28];
       let level = data.attributes.level.value;
-      if (data.incrementals?.hp) level++;
+      if (data.incrementals?.hp && !game.settings.get("archmage", "secondEdition")) level++;
 
-      let toughness = 0;
-      if (flags.archmage) {
-        toughness = flags.archmage.toughness ? data.attributes.hp.base : 0;
-        if (level <= 4) toughness = Math.floor(toughness / 2)
-        else if (level >= 8) toughness = Math.floor(toughness * 2)
-        else toughness = Math.floor(toughness)
+      let toughnessBonus = 0;
+      if (flags.archmage?.toughness) {
+        toughnessBonus = data.attributes.hp.base;
+        let mul = 1;
+        if (game.settings.get("archmage", "secondEdition")) {
+          if (level >= 5) mul = 2;
+          if (level >= 8) mul = 4;
+        } else {
+          if (level <= 4) mul = 1 / 2;
+          else if (level >= 8) mul = 2;
+        }
+        toughnessBonus = Math.floor(toughnessBonus * mul)
       }
 
-      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) * hpLevelModifier[level] + hpBonus + toughness);
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) 
+        * hpLevelModifier[level] + hpBonus + toughnessBonus);
     }
 
     // Recoveries
     if (data.attributes.recoveries.automatic) {
-      data.attributes.recoveries.max = data.attributes.recoveries.base + recoveriesBonus;
+      data.attributes.recoveries.max = data.attributes.recoveries.base;
+      if (!game.settings.get("archmage", "secondEdition")) data.attributes.recoveries.max += recoveriesBonus;
     }
-    // Calculate recovery average.
-    let recoveryLevel = Number(data.attributes.level?.value) ?? 1;
-    let recoveryDie = 'd8'; // Fall back
+    // Calculate recovery formula and average.
+    let recLevel = Number(data.attributes.level?.value);
+    if (data.incrementals?.recovery && game.settings.get("archmage", "secondEdition")) recLevel += 1;
+    let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[recLevel];
+    let recoveryDie = ["d8", "", "8"]; // Fall back
+    let recoveryAvg = 3.5; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
-      recoveryDie = data.attributes.recoveries.dice;
+      let recDieRegExp = /^([0-9]*)d([0-9]+)/g;
+      let parsed = recDieRegExp.exec(data.attributes.recoveries.dice);
+      if (parsed) {
+        recoveryDie = parsed;
+        recoveryAvg = ((Number(recoveryDie[2]) + 1) / 2) * (Number(recoveryDie[1]) || 1);
+      }
     }
-    recoveryDie = Number(recoveryDie.replace('d', ''));
-    if (isNaN(recoveryDie)) recoveryDie = 8;  // Fall back
-    let recoveryAvg = (recoveryDie + 1) / 2;
-    if (!this.getFlag('archmage', 'strongRecovery')) {
-      data.attributes.recoveries.avg = Math.floor(recoveryLevel * recoveryAvg) + (data.abilities.con.nonKey.dmg);
-    } else {
+    let formulaDice = (recoveryDice * (Number(recoveryDie[1]) || 1)).toString() + "d" + recoveryDie[2];
+    let formulaConst = data.abilities.con.nonKey.dmg;
+    recoveryAvg = Math.floor(recoveryDice * recoveryAvg);
+
+    if (flags.archmage?.strongRecovery) {
       // Handle Strong Recovery special case
-      // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
-      recoveryAvg = data.tier * (recoveryDie + 1) * (4 * recoveryDie - 1) / (6 * recoveryDie) + (recoveryLevel - data.tier) * recoveryAvg;
-      data.attributes.recoveries.avg = Math.floor(recoveryAvg) + (data.abilities.con.nonKey.dmg);
+      if (game.settings.get("archmage", "secondEdition")) {
+        formulaConst += CONFIG.ARCHMAGE.tierMultPerLevel[data.attributes.level.value] * 3;
+      } else {
+        formulaDice = ((recoveryDice + data.tier) * (Number(recoveryDie[1]) || 1)).toString() + "d" + recoveryDie[2];
+        formulaDice += "k" + (recoveryDice * (Number(recoveryDie[1]) || 1)).toString();
+        // E[2dxkh] = (x + 1) (4x - 1) / 6x ~= 2x/3
+        recoveryAvg = (data.tier * (Number(recoveryDie[1]) || 1)) * (Number(recoveryDie[2]) + 1)
+          * (4 * Number(recoveryDie[2]) - 1) / (6 * Number(recoveryDie[2])) + (recoveryDice - data.tier) * recoveryAvg;
+      }
     }
 
+    if (game.settings.get("archmage", "secondEdition")) {
+      formulaConst += recoveriesBonus;
+    }
+    data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
+    data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
+
     // Initiative
-    var improvedInit = 0;
-    if (flags.archmage) improvedInit = flags.archmage.improvedIniative ? 4 : 0;
-    data.attributes.init.mod = (data.abilities?.dex?.nonKey?.mod || 0) + data.attributes.init.value + improvedInit + data.attributes.level.value;
+    let incrInit = this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition") ? 1 : 0;
+    let statInit = data.abilities?.dex?.nonKey?.mod || 0;
+    if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
+      statInit = data.abilities?.int?.nonKey?.mod || 0;
+    }
+    data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
   }
 
   /* -------------------------------------------- */
@@ -520,12 +568,13 @@ export class ActorArchmage extends Actor {
 
         case 'level':
           data.lvl = v.value;
+          data.lvldice = CONFIG.ARCHMAGE.numDicePerLevel[v.value];
           break;
 
         case 'weapon':
           // Weapon dice
           for (let wpn of ["melee", "ranged", "jab", "punch", "kick"]) {
-            data.attributes.weapon[wpn].value = `${data.attributes.level.value}${data.attributes.weapon[wpn].dice}`;
+            data.attributes.weapon[wpn].value = `${CONFIG.ARCHMAGE.numDicePerLevel[data.attributes.level.value]}${data.attributes.weapon[wpn].dice}`;
           }
           data.wpn = {
             m: v?.melee ?? model.melee,
@@ -671,7 +720,7 @@ export class ActorArchmage extends Actor {
       if (success && this.system.attributes.hp.value <= 0) {
         this.rollRecovery({}, true);
       }
-      else await this.update({'data.attributes.saves.deathFails.value': Math.min(4, Number(this.system.attributes.saves.deathFails.value) + 1)});
+      else await this.update({'data.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
     }
 
     // Handle failures of last gasp saves.
@@ -803,16 +852,12 @@ export class ActorArchmage extends Actor {
     data.apply = (data.apply !== undefined) ? data.apply : true;
     data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
-    let actorData = this.system;
-    let totalRecoveries = actorData.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : ''
-    let formula = actorData.attributes.level.value.toString() + actorData.attributes.recoveries.dice + '+' + actorData.abilities.con.nonKey.dmg.toString();
+    let totalRecoveries = this.system.attributes.recoveries.value;
+    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : '';
 
+    let formula = this.system.attributes.recoveries.formula;
     if (data.average) {
-      formula = this.system.attributes.recoveries.avg;
-    } else if (this.getFlag('archmage', 'strongRecovery')) {
-      // Handle strong recovery.
-      formula = (actorData.attributes.level.value + actorData.tier).toString() + actorData.attributes.recoveries.dice + 'k' + actorData.attributes.level.value.toString() + '+' + actorData.abilities.con.nonKey.dmg.toString();
+      formula = this.system.attributes.recoveries.avg.toString();
     }
 
     // Add bonus if any
@@ -844,7 +889,6 @@ export class ActorArchmage extends Actor {
       const chatData = {
         user: game.user.id, speaker: {actor: this.id, token: this.token,
         alias: this.name, scene: game.user.viewedScene},
-        // roll: new Roll("") // TODO: Refactor this, needed to silence an error in 0.8.x
       };
 
       // Toggle default roll mode
@@ -881,8 +925,8 @@ export class ActorArchmage extends Actor {
       newHp = Math.min(this.system.attributes.hp.max, Math.max(0, newHp) + roll.total);
     }
     await this.update({
-      'data.attributes.recoveries.value': newRec,
-      'data.attributes.hp.value': newHp
+      'system.attributes.recoveries.value': newRec,
+      'system.attributes.hp.value': newHp
     });
 
     return {roll: roll, total: roll.total};
@@ -907,7 +951,19 @@ export class ActorArchmage extends Actor {
       templateData.gainedHp += rec.total;
       templateData.usedRecoveries += 1;
     }
-    updateData['data.attributes.hp.value'] = Math.min(this.system.attributes.hp.max, Math.max(this.system.attributes.hp.value, 0) + templateData.gainedHp);
+    updateData['system.attributes.hp.value'] = Math.min(this.system.attributes.hp.max, Math.max(this.system.attributes.hp.value, 0) + templateData.gainedHp);
+
+    // Death saves.
+    if (game.settings.get('archmage', 'secondEdition')) {
+      if (this.system.attributes.saves.deathFails.value > 1) {
+        updateData['system.attributes.saves.deathFails.value'] = 1;
+      }
+    }
+    else {
+      if (this.system.attributes.saves.deathFails.value > 0) {
+        updateData['system.attributes.saves.deathFails.value'] = 0;
+      }
+    }
 
     // Resources
     // Focus, Momentum and Command Points handled on end combat hook
@@ -918,7 +974,7 @@ export class ActorArchmage extends Actor {
       if (this.system.resources.spendable[resourcePathName].enabled
         && this.system.resources.spendable[resourcePathName].rest != "none") {
         let max = this.system.resources.spendable[resourcePathName].max;
-        let path = `data.resources.spendable.${resourcePathName}.current`;
+        let path = `system.resources.spendable.${resourcePathName}.current`;
         if (this.system.resources.spendable[resourcePathName].rest == "quick"
           && max && curr < max) {
           updateData[path] = max;
@@ -959,7 +1015,7 @@ export class ActorArchmage extends Actor {
           && item.system.quantity.value != null))
           && item.system.quantity.value < maxQuantity) {
           await item.update({
-            'data.quantity': {value: maxQuantity}
+            'system.quantity': {value: maxQuantity}
           });
           templateData.items.push({
             key: item.name,
@@ -1017,15 +1073,15 @@ export class ActorArchmage extends Actor {
     let updateData = {}
 
     // Recoveries & hp
-    updateData['data.attributes.recoveries.value'] = this.system.attributes.recoveries.max;
-    updateData['data.attributes.hp.value'] = this.system.attributes.hp.max;
-    updateData['data.attributes.saves.deathFails.value'] = 0;
-    updateData['data.attributes.saves.lastGaspFails.value'] = 0;
+    updateData['system.attributes.recoveries.value'] = this.system.attributes.recoveries.max;
+    updateData['system.attributes.hp.value'] = this.system.attributes.hp.max;
+    updateData['system.attributes.saves.deathFails.value'] = 0;
+    updateData['system.attributes.saves.lastGaspFails.value'] = 0;
 
     // Resources
     if (this.system.resources.spendable.ki.enabled
       && this.system.resources.spendable.ki.current < this.system.resources.spendable.ki.max) {
-      updateData['data.resources.spendable.ki.current'] = this.system.resources.spendable.ki.max;
+      updateData['system.resources.spendable.ki.current'] = this.system.resources.spendable.ki.max;
       templateData.resources.push({
         key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.ki.max}`
@@ -1038,7 +1094,7 @@ export class ActorArchmage extends Actor {
       if (this.system.resources.spendable[resourcePathName].enabled
         && this.system.resources.spendable[resourcePathName].rest != "none") {
         let max = this.system.resources.spendable[resourcePathName].max;
-        let path = `data.resources.spendable.${resourcePathName}.current`;
+        let path = `system.resources.spendable.${resourcePathName}.current`;
         if ((this.system.resources.spendable[resourcePathName].rest == "full"
           || this.system.resources.spendable[resourcePathName].rest == "quick")
           && max && curr < max) {
@@ -1076,8 +1132,8 @@ export class ActorArchmage extends Actor {
       if (maxQuantity && item.system.quantity.value < maxQuantity
         && usageArray.includes(item.system.powerUsage?.value)) {
         await item.update({
-          'data.quantity': {value: maxQuantity},
-          'data.rechargeAttempts': {value: 0}
+          'system.quantity': {value: maxQuantity},
+          'system.rechargeAttempts': {value: 0}
         });
         templateData.items.push({
           key: item.name,
@@ -1155,7 +1211,9 @@ export class ActorArchmage extends Actor {
       terms: terms,
       data: {
         abil: abl ? abl.nonKey.mod : 0,
-        lvl: this.system.attributes.level.value + (this.system.incrementals?.skills ? 1 : 0),
+        lvl: this.system.attributes.level.value +
+          ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
+          || this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
         bg: bg ? bg[1].bonus.value : 0,
         abilityName: abilityName,
         backgroundName: backgroundName,
@@ -1362,6 +1420,19 @@ export class ActorArchmage extends Actor {
         await this._updateHpCondition(data, "dead", 0, maxHp,
           game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
       }
+
+      // Handle first skull in 2e.
+      if (game.settings.get('archmage', 'secondEdition')) {
+        if (this.system.attributes.hp.value > 0 && data.system.attributes.hp.value <= 0) {
+          if (!data.system.attributes?.saves?.deathFails?.value) {
+            data.system.attributes.saves = this.system.attributes.saves;
+          }
+          data.system.attributes.saves.deathFails.value += 1;
+          for (let i = 0; i < data.system.attributes.saves.deathFails.value; i++) {
+            data.system.attributes.saves.deathFails.steps[i] = true;
+          }
+        }
+      }
     }
 
     if (!this.type === 'character') return; // Nothing else to do
@@ -1563,6 +1634,7 @@ export class ActorArchmage extends Actor {
           pd: new Array(),
           md: new Array(),
           rec: new Array(),
+          rec_num: new Array(),
           mWpn_1h: new Array(),
           mWpn_2h: new Array(),
           rWpn: new Array(),
@@ -1578,6 +1650,7 @@ export class ActorArchmage extends Actor {
           base.pd.push(CONFIG.ARCHMAGE.classes[item].pd);
           base.md.push(CONFIG.ARCHMAGE.classes[item].md);
           base.rec.push(CONFIG.ARCHMAGE.classes[item].rec_die);
+          base.rec_num.push(CONFIG.ARCHMAGE.classes[item].rec_num || 8); // 8 is the default for 1e classes
           base.mWpn_1h.push(CONFIG.ARCHMAGE.classes[item].wpn_1h);
           if (CONFIG.ARCHMAGE.classes[item].wpn_2h_pen < 0) {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h_pen);}
           else {base.mWpn_2h.push(CONFIG.ARCHMAGE.classes[item].wpn_2h);}
@@ -1596,6 +1669,9 @@ export class ActorArchmage extends Actor {
         base.md = Math.max.apply(null, base.md);
         if (base.rec.length == 1) base.rec = base.rec[0];
         else base.rec = (Math.ceil(base.rec.reduce((a, b) => a/2 + b/2) / base.rec.length) * 2);
+        if (base.rec_num.length == 1) base.rec_num = base.rec_num[0];
+        // TODO: placeholder, waiting for final design
+        else base.rec_num = Math.round(base.rec_num.reduce((a, b) => a + b, 0) / base.rec_num.length)
         base.mWpn_1h = Math.max.apply(null, base.mWpn_1h);
         base.mWpn_2h_pen = base.mWpn_2h.every(a => a < 0);
         base.mWpn_2h = Math.max.apply(null, base.mWpn_2h);
@@ -1635,7 +1711,10 @@ export class ActorArchmage extends Actor {
           ac: {base: base.ac},
           pd: {base: base.pd},
           md: {base: base.md},
-          recoveries: {dice: `d${base.rec}`},
+          recoveries: {
+            dice: `d${base.rec}`,
+            base: base.rec_num
+            },
           weapon: {
             melee: {
               dice: `d${base.mWpn}`,
@@ -1652,9 +1731,7 @@ export class ActorArchmage extends Actor {
 
         // Handle extra recoveries for fighters
         if (matchedClasses.includes("fighter")) {
-          data.system.attributes.recoveries.base = 9;
-        } else {
-          data.system.attributes.recoveries.base = 8;
+          data.system.attributes.recoveries.base += 1;
         }
 
         // Set Key Modifier for multiclasses
