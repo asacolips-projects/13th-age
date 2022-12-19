@@ -506,6 +506,8 @@ Hooks.once('ready', () => {
   });
 
   $('.message').off("contextmenu");
+
+  // @todo add moduleArt mapping here.
 });
 
 /* ---------------------------------------------- */
