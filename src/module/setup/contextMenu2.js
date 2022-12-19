@@ -53,6 +53,7 @@ export class ContextMenu2 {
     bind() {
       this.element.on(this.eventName, this.selector, event => {
         event.preventDefault();
+        event.stopPropagation();
         let parent = $(event.currentTarget),
             menu = this.menu;
   

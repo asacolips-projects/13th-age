@@ -2441,32 +2441,9 @@ input[type="checkbox"] {
 // Foundry Core inlne overrides
 
 .chat-card,
-.message {
-  &.icon-roll {
-    .dice-tooltip {
-      .dice-rolls {
-        .roll.die {
-          background: $c-gray--lighter;
-          border-radius: 4px;
-          width: 22px;
-          height: 22px;
-          line-height: 24px;
-          padding: 0;
-          margin-right: 5px;
-
-          &.result-5 {
-            background: #8acee4;
-          }
-
-          &.result-6 {
-            background: #93c385;
-          }
-        }
-
-      }
-    }
-  }
-
+.message,
+.container {
+  .content-link,
   .inline-roll,
   .inline-roll--archmage {
     background: $ct-black--75;
@@ -2477,6 +2454,7 @@ input[type="checkbox"] {
     line-height: 0;
     padding: 2px;
     transition: transform ease-in-out 0.25s;
+    text-indent: 0 !important; // Used important here in case it's in a hanging-indent block.
 
     &.expanded {
       color: $c-white;
@@ -2510,6 +2488,34 @@ input[type="checkbox"] {
 
     .die--discarded {
       opacity: 0.5;
+    }
+  }
+}
+
+.chat-card,
+.message {
+  &.icon-roll {
+    .dice-tooltip {
+      .dice-rolls {
+        .roll.die {
+          background: $c-gray--lighter;
+          border-radius: 4px;
+          width: 22px;
+          height: 22px;
+          line-height: 24px;
+          padding: 0;
+          margin-right: 5px;
+
+          &.result-5 {
+            background: #8acee4;
+          }
+
+          &.result-6 {
+            background: #93c385;
+          }
+        }
+
+      }
     }
   }
 
