@@ -1,0 +1,235 @@
+srd-Monsters:
+  # Ankhegs
+  kcQCI1bWod0Z5qBH:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/ankhrav.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/ankhrav.webp
+  # Awakened Trees
+  ibtWNHE226OXTy9L:
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/awakened-tree.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/awakened-tree.webp
+      scale: 1.5
+  # Azer
+  iuHhXriG1gLeJpjL:
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/azer.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/azer.webp
+  # Basilisk
+  n8esrezVvm0eSBV6:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/basilisk.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/basilisk.webp
+  # Bear
+  8xTrdlMs5KdLKvxJ:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/black-bear.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/black-bear.webp
+  # Dire Bear
+  Diczik9saugCGzYB:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/cave-bear.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/cave-bear.webp
+  # Bugbears
+  wsPxNxR7bjqwEp1R: # Bugbear
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/bugbear-thug.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/bugbear-thug.webp
+      scale: 1.5
+  SFMSruUvPzJvVVvx: # Barbarous Bugbear
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/bugbear-thug.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/bugbear-thug.webp
+      scale: 1.5
+  Vfu1rIzPcWUzV48h: # Bugbear Schemer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/bugbear-tormentor.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/bugbear-tormentor.webp
+  5o1zaDDT6HPt0ixY: # Bugbear Scout
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/bugbear-tormentor.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/bugbear-tormentor.webp
+  # Demons, Balor
+  0qv7c4kXhHdKFWUl:
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/demon/balor.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/demon/balor.webp
+      scale: 1.5
+  # Demons, Bat
+  fsM10X052LBugz52:
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/demon/nabasu.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/demon/nabasu.webp
+      scale: 2
+  # Devils, Barbazu
+  9eFvIDQYNWJY8o0r:
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/devil/barbazu.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/devil/barbazu.webp
+      scale: 1.5
+  # Devils, Hamatula
+  Es4CNaaB5E76JxLA:
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/devil/hamatula.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/fiendish/devil/hamatula.webp
+  # Dragons, Blue
+  HY35ul0coNqlTqhH:
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-blue-adult.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-blue-adult.webp
+      scale: 2
+  RPlCfAz5ypEeo5LH:
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-blue-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-blue-ancient.webp
+      scale: 2
+  k0iGuUowV5eOMdLZ:
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-blue-young.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-blue-young.webp
+      scale: 2
+  # Elementals, Air
+  JDrpfSABC3rrAUAa: # Small
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/air/living-whirlwind.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/air/living-whirlwind.webp
+  aMJ8Y30BUkdVvAvw: # Normal
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/air/melody-on-the-wind.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/air/melody-on-the-wind.webp
+  7ikZRRXC0chRAch7: # Big
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/air/elemental-hurricane.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/air/elemental-hurricane.webp
+  ykSU4aw1oWsISFX6: # Epic
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/air/air-wisp.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/air/air-wisp.webp
+  # Elementals, Earth
+  U9c2470ucVHL4kyI: # Small
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/earth-wisp.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/earth-wisp.webp
+  1Ctzvj8kceqsowbU: # Normal
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/living-landslide.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/living-landslide.webp
+  C5MD7oU7MkKNF9VN: # Big
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/zaramuun.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/zaramuun.webp
+      scale: 1.5
+  7lQkborFfbe5bhia: # Epic
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/elemental-avalanche.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/elemental-avalanche.webp
+  # Elementals, Fire
+  QoQzUcya0yoSUiTt: # Small
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/fire-wisp.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/fire-wisp.webp
+  8tB4mhjzjIhwxT9F: # Normal
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/striding-fire.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/striding-fire.webp
+      scale: 1.5
+  aqbohmuNvVut8pzW: # Big
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/living-wildfire.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/living-wildfire.webp
+  a4Klpt6gf9DKgzK7: # Epic
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/elemental-inferno.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/elemental-inferno.webp
+  # Elementals, Water
+  SJSeXsNZBdKzgovK: # Small
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/water-wisp.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/water/water-wisp.webp
+  7rknyBVT8dJulnLr: # Normal
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/tidal-master.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/water/tidal-master.webp
+  wUJXFt0QCBtxcJ5K: # Big
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/living-waterfall.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/water/living-waterfall.webp
+  M6bS5hZ8wKPwEesy: # Epic
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/elemental-tsunami.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/elemental/water/elemental-tsunami.webp
+  # Fungaloids
+  YGm0aLYOxYuDLEBF:
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/leshy/fungus-leshy.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/plant/leshy/fungus-leshy.webp
+  RSkN7WrG1bs3oyHd:
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/leshy/fungus-leshy.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/plant/leshy/fungus-leshy.webp
+  # Giants, Frost
+  Y1eomXamSryinrMI: # Bergship Raider
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/frost-giant.webp
+  kS97PEiCwJzLUzPB: # Frost Giant
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/frost-giant.webp
+  7EG1WR5a6GMqZrck: # Frost Giant Adventurer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/frost-giant.webp
+  # Purple Worms
+  hUz6BaiWWwNjWVOP:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/worm-purple.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/worm-purple.webp
+  PfM0Q4bWexZzF5kG:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/worm-purple.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/worm-purple.webp
+  DycjxxWJKu5oZqdS:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/worm-purple.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/worm-purple.webp
+  # Remorhaz
+  acdLcpev3KnflNCr: # Adult
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/remorhaz.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/remorhaz.webp
+      scale: 2
+  UjSCx3qHeiCzLZYr: # Barbellite
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/remorhaz.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/remorhaz.webp
+      scale: 2
+  c3k7IotMuSwEEQkA: # Frost-Würm
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/remorhaz.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/remorhaz.webp
+      scale: 2
+  2Epu1Q2NsGWX2CYL: # Queen
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/remorhaz.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/remorhaz.webp
+      scale: 2
+  # The Saved
+  sMhDYM1KPC23VcZp: # Avenging Orb
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/graveknight.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/graveknight.webp
+      scale: 2
+  44WH5nxugTaJ6Z3b: # Destroying Sword
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/graveknight.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/graveknight.webp
+      scale: 2
+  pRvk6BaDt3hpMGFn: # Enduring Shield
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/graveknight.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/graveknight.webp
+      scale: 2
+  # Stirge
+  ym0fowWROpOZkbM3:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/bloodseeker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/bloodseeker.webp
+      scale: 1.5
+  DNHwMQd1AASGQF2V:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/bloodseeker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/bloodseeker.webp
+      scale: 1.5
+  Eh6NWAnhtdODWqzb:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/bloodseeker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/bloodseeker.webp
+      scale: 1.5
+  HrY8fcq7rjtpbQ1J:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/bloodseeker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/bloodseeker.webp
+      scale: 1.5
+  # Zorigami
+  3zO3zi1oItXUS3vN:
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/mechanical/clockwork-soldier.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/clockwork-soldier.webp
+  txuQ5FWVKX9u4HRk:
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/mechanical/clockwork-spy.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/clockwork-spy.webp
+  eDikUkWnx7yJotnj:
+    actor: modules/pf2e-tokens-bestiaries/portraits/monitor/aeon/arbiter.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/monitor/aeon/arbiter.webp
+      scale: 1.5
