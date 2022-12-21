@@ -353,6 +353,45 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-blue-young.webp
       scale: 2
+  # Dragons, Red
+  L8N9oasC7gVZaPOi: # Medium Red Dragon
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-red-young.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-red-young.webp
+      scale: 2
+  bJEZdUrLa8vmzaNs: # Large Red Dragon
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-red-adult.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-red-adult.webp
+      scale: 2
+  6t1WceFl0n8rOgYp: # Hoardsong Dragon (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-red-adult.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-red-adult.webp
+      scale: 2
+  wPq3ZHZwQQtkHlOV: # Hoard Spirit (could be better)
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/magical/living-rune-divine.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/magical/living-rune-divine.webp
+  piVOzj9ljQ2Nc8XA: # Huge Red Dragon
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-red-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-red-ancient.webp
+      scale: 1.5
+  NC2LGEPu81AyTj3X: # Flamewreathed Dragon (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-red-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-red-ancient.webp
+      scale: 1.5
+  Yxj7ERaB70RcSYkK: # Greathoard Elder (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-red-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-red-ancient.webp
+      scale: 1.5
+  GyXxuQTzrOygYw12: # Volcano Dragon (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-magma-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-magma-ancient.webp
+      scale: 1.5
   # Dragons, White
   mZErP6QotjUwZTZq: # Medium
     actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-white-young.webp
@@ -432,6 +471,16 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/dybbuk.webp
       scale: 1.5
+  # Elder Beasts
+  26AsMqRWb4hhU1uR: # Umluppuk
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gibbering-mouther.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gibbering-mouther.webp
+  ep3ZLwDJtMSfLqyZ: # Hagunemnon
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gogiteth.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gogiteth.webp
+  SuoDdY1M7vBRTPx8: # Warped Beast
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/shoggoth.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/shoggoth.webp
   # Efreet
   KZnOoom2nKpBYKeW:
     actor: modules/pf2e-tokens-bestiaries/portraits/elemental/genie/efreeti.webp
@@ -569,6 +618,53 @@ srd-Monsters:
   ysQE2YF4RoQYdhmV:
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/bat-giant.webp
     token: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/bat-giant.webp
+  # Gargoyle
+  Vq3qL60t3VHSfCyn:
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/gargoyle.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/gargoyle.webp
+      scale: 1.5
+  # Gelahedrons
+  2ZTQ3LrPDrlhr6in: # Gelatinous Cube
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/gelatinous-cube.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/ooze/gelatinous-cube.webp
+  mEZbOR2BrCd8hw9j: # Gelatinous Cubahedron
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/gelatinous-cube.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/ooze/gelatinous-cube.webp
+  XnKTLcGHCMtS2OLr: # Gelatinous Dodecahedron
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/gelatinous-cube.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/ooze/gelatinous-cube.webp
+  FMx0i9N4bOVCJOmW: # Gelatinous Octahedron
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/gelatinous-cube.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/ooze/gelatinous-cube.webp
+  pZnuvB9d3NyAAePq: # Gelatinous Tetrahedron
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/gelatinous-cube.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/ooze/gelatinous-cube.webp
+  # Ghast
+  JmUz3WJRrYUGkJ2Q:
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghast.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghast.webp
+      scale: 1.5
+  # Ghouls
+  4Qjs7wLjwY8ONzyj: # Ghoul
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+  kCbeSRConIBao6ID: # Gravemeat
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+  WYBGeQDA3qCLyh30: # Newly Risen Ghoul
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+  prHmHTXHse0ObRv5: # Ghoul Licklash
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+  2EeMUmZyM7P9RWIM: # Ghoul Pusbuster
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+  k3QLAyXdRBN1T7gG: # Ghoul Fleshripper
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
   # Giants, Cloud
   X7X7ul3wPBkjlCqZ: # Cloud Giant Thane
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/cloud-giant.webp
@@ -596,6 +692,47 @@ srd-Monsters:
   7EG1WR5a6GMqZrck: # Frost Giant Adventurer
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/frost-giant.webp
+  # Giants, Hill
+  qx4dKzHiCKZEI39v:
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/hill-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/hill-giant.webp
+  # Gnolls
+  h2EYagaLchOWbnvC: # Gnoll Shredder
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-cultist.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-cultist.webp
+  dxTwj8RJAtj0khpa: # Gnoll Ranger
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-hunter.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-hunter.webp
+  OJyjJAHLOqeQUsdF: # Gnoll Fiendfletch
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-hunter.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-hunter.webp
+  YWV41syd0JbYKyfz: # Gnoll Savage
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-sergeant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-sergeant.webp
+  2atghIyBkCS7WZ1F: # Gnoll War Leader
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-sergeant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-sergeant.webp
+  # Goblins
+  LEM1INiGQLyu1U05: # Goblin Grunt
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/goblin-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/goblin-warrior.webp
+      scale: 1.2
+  WXMiBSHV9Kujf46n: # Goblin Scum
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/goblin-commando.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/goblin-commando.webp
+      scale: 1.2
+  2zDKFIRWNB3QOPUQ: # Goblin Shaman
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/goblin-pyro.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/goblin-pyro.webp
+      scale: 1.2
+  Ql6S9QXrnlIETuxL: # Goblin Bat Mage
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/goblin-pyro.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/goblin-pyro.webp
+      scale: 1.2
   # Golems
   tda4lMHYL8KKDAmp: # Bronze
     actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/mithral-golem.webp
@@ -617,6 +754,16 @@ srd-Monsters:
   bHj1BM922d78837Z: # Stone
     actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/stone-golem.webp
     token: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/stone-golem.webp
+  # Hag
+  ogO3HkOmmTKMFJoO:
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hag/green-hag.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/hag/green-hag.webp
+  # Harpy
+  taWrEq22pthdVkRZ:
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hybrid/harpy.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hybrid/harpy.webp
+      scale: 1.5
   # Hell Bugs
   cpZE2FJOGUPVcer1: # Boombug
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/flash-beetle.webp
@@ -633,6 +780,20 @@ srd-Monsters:
   mntgZykhzIoW7RJU: # Swarming Maw
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/centipede-swarm.webp
     token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/centipede-swarm.webp
+  # Hobgoblins
+  5pNBcbXM6PTkPHSp: # Hobgoblin Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/hobgoblin-soldier.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/hobgoblin-soldier.webp
+  XQSuJf2GeX0vgwQD: # Hobgoblin Warmage
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/hobgoblin-archer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/hobgoblin-archer.webp
+      scale: 1.5
+  17aTIyYffIlKbXdQ: # Hobgoblin Captain
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/hobgoblin-general.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/hobgoblin-general.webp
+      scale: 1.5
   # Humans
   z61MzDMbczedGDls: # Blue Sorcerer
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/samsaran-anchorite.webp
@@ -650,6 +811,13 @@ srd-Monsters:
   JPmUO0psaGKlpBbM:
     actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/rhu-chalik.webp
     token: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/rhu-chalik.webp
+  # Hydra
+  ZEpelUvJiCTTrnau: # Five-headed Hydra
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/hydra.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/hydra.webp
+  s2ke2UHFXQZHU2Ud: # Seven-headed Hydra
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/hydra.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/hydra.webp
   # Jorogumo
   1efai4ra5C5OQl7c: # Binding Bride
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hag/winter-hag.webp
@@ -782,6 +950,11 @@ srd-Monsters:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/orc-brute.webp
       scale: 1.5
   Qh2CGKPuUwfYPB0w: # Death-Plague Orc
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/orc-brute.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/orc-brute.webp
+      scale: 1.5
+  dkoyxuCZl9tnNH9S: # Great Fang Cadre
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/orc-brute.webp
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/orc-brute.webp
