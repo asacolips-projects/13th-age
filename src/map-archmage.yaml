@@ -492,6 +492,36 @@ srd-Monsters:
   M6bS5hZ8wKPwEesy: # Epic
     actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/elemental-tsunami.webp
     token: modules/pf2e-tokens-bestiaries/tokens/elemental/water/elemental-tsunami.webp
+  # Ettercaps
+  wTE6yodJNOOL7ZM9: # Ettercap Hunter
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/web-lurker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/web-lurker.webp
+      scale: 1.5
+  vGoKjhVw0YbIBRGC: # Ettercap Keeper
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/web-lurker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/web-lurker.webp
+      scale: 1.5
+  zu2F2IjGPGL3jObN: # Ettercap Acolyte
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/web-lurker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/web-lurker.webp
+      scale: 1.5
+  Nhkat9IKTYjDDmpA: # Ettercap Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/web-lurker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/web-lurker.webp
+      scale: 1.5
+  nCvgaEGi9l1w6jfD: # Ettercap Supplicant
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/web-lurker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/web-lurker.webp
+      scale: 1.5
+  # Ettin
+  mpfOqaO3FDhLPDXW:
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/ettin.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/ettin.webp
   # Flower of Unlife
   3dFpHdddefleCcae: # Blood Rose
     actor: modules/pf2e-tokens-bestiaries/portraits/plant/calathgar.webp
@@ -535,6 +565,10 @@ srd-Monsters:
   yjmVuGPxS0lkoZ3g: # Sporrior
     actor: modules/pf2e-tokens-bestiaries/portraits/plant/leshy/fungus-leshy.webp
     token: modules/pf2e-tokens-bestiaries/tokens/plant/leshy/fungus-leshy.webp
+  # Fire Bat
+  ysQE2YF4RoQYdhmV:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/bat-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/bat-giant.webp
   # Giants, Cloud
   X7X7ul3wPBkjlCqZ: # Cloud Giant Thane
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/cloud-giant.webp
@@ -542,6 +576,16 @@ srd-Monsters:
   zCM6En98e0rcKNSw: # Cloud Giant Warrior
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/cloud-giant.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/cloud-giant.webp
+  iv1HdE32vrCbA73S: # Cloud Giant Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/cloud-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/cloud-giant.webp
+  # Giants, Fire
+  m2cAw8ju6JtfAp1W: # Fire Giant
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/fire-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
+  f0vOJcihqGrqhmGV: # Fire Giant Warlord
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/fire-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
   # Giants, Frost
   Y1eomXamSryinrMI: # Bergship Raider
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
@@ -622,6 +666,27 @@ srd-Monsters:
   DEUVhpefVn0nCKqt: # The Woven
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hag/winter-hag.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/hag/winter-hag.webp
+  # Lammasu (using manticore in lieu of a better option)
+  eJLzKl3r89V7ATUR: # Fallen Lammasu
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/manticore.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/manticore.webp
+      scale: 1.5
+  5PJeAZ421xz26Dft: # Lammasu Priest
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/manticore.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/manticore.webp
+      scale: 1.5
+  axFxaEvBkBy9ulkb: # Lammasu Wizard
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/manticore.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/manticore.webp
+      scale: 1.5
+  7KIdM2t1qf6DTkk6: # Lammasu Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/manticore.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/manticore.webp
+      scale: 1.5
   # Manticores
   6x70u92MuKPvNyGP: # Manticore
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/manticore.webp
@@ -958,6 +1023,17 @@ srd-Monsters:
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/orc-warchief.webp
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/orc-warchief.webp
+      scale: 1.5
+  # Wendigo
+  CZPQxHUFA7EVNJ2K: # Elder Wendigo
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/wendigo.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/wendigo.webp
+      scale: 1.5
+  ffHA1fJWGbIB44Kz: # Wendigo Spirit
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/wendigo.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/wendigo.webp
       scale: 1.5
   # Zombies
   IiqizvB3zMlWsmj1: # Big Zombie
