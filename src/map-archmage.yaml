@@ -42,6 +42,29 @@ srd-Monsters:
   5o1zaDDT6HPt0ixY: # Bugbear Scout
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/goblinoid/bugbear-tormentor.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/goblinoid/bugbear-tormentor.webp
+  # Bulette
+  F0sQyvqvg3Sv5iy7:
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/bulette.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/bulette.webp
+  slyMHP5kFkIC6NxQ: # Deep Bulette
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/bulette.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/bulette.webp
+  fxfyW7uIHagmiB5z: # Green Bulette
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/bulette.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/bulette.webp
+  # Cambion
+  SSUTh5xDMEmUQ4Ea: # Dirk
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/fetchling-scout.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/fetchling-scout.webp
+  sJFphooMtZVPJKd3: # Hellblade
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/fetchling-scout.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/fetchling-scout.webp
+  AVurdV9m5R8LAEkr: # Katar
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/fetchling-scout.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/fetchling-scout.webp
+  f0gfVhnPlNW1MIOD: # Sickle
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/fetchling-scout.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/humanoid/fetchling-scout.webp
   # Demons, Balor
   0qv7c4kXhHdKFWUl:
     actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/demon/balor.webp
@@ -113,9 +136,50 @@ srd-Monsters:
   zgih0GWcaiDOs7iU: # Fang Devil
     actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/quoppopak.webp
     token: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/quoppopak.webp
-  7kXZN2Rn9woTDlWi: # Fang Devil
+  7kXZN2Rn9woTDlWi: # The Final Devil
     actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/quoppopak.webp
     token: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/quoppopak.webp
+  vmCMkLagtejjlM0H: # River Devil
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/quoppopak.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/quoppopak.webp
+  AY4PMtQeSA2li5yX: # River Devil Minion
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/quoppopak.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/quoppopak.webp
+  # Dragons, Black
+  # Medium
+  2IKoP9zzdJEm7PrX: # Medium (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-black-young.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-black-young.webp
+      scale: 2
+  # Large
+  BPIodF4Ja1Fzrq0w: # Large (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-black-adult.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-black-adult.webp
+      scale: 1.5
+  FfG992lOYvyqrjkB: # Gorge (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-underworld-young.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-young.webp
+  8cTzRPlsPBXxpmiT: # Catacomb (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-umbral-adult.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-umbral-adult.webp
+      scale: 1.5
+  # Huge
+  1j2K3ryrnDWKaKKV: # Huge (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-black-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-black-ancient.webp
+      scale: 1.5
+  0IweiCnXWspTLEAg: # Void (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-underworld-adult.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-adult.webp
+  MT7D2ZQhiio010YI: # Empyrean (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-underworld-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-ancient.webp
+      scale: 1.5
   # Dragons, Blue
   HY35ul0coNqlTqhH:
     actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-blue-adult.webp
@@ -282,6 +346,43 @@ srd-Monsters:
   7EG1WR5a6GMqZrck: # Frost Giant Adventurer
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/frost-giant.webp
+  # Golems
+  tda4lMHYL8KKDAmp: # Bronze
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/mithral-golem.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/mithral-golem.webp
+  hfAhD1HZv3FPxYXA: # Clay
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/clay-golem.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/clay-golem.webp
+  UA5DfEwzN2BrPIfW: # Flesh
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/flesh-golem.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/flesh-golem.webp
+  GUj1lMVfQYfY9FWU: # Iron
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/iron-golem.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/iron-golem.webp
+  j05Ko4KXS6V2dZ2l: # Marble
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/glass-golem.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/glass-golem.webp
+      scale: 1.5
+  bHj1BM922d78837Z: # Stone
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/stone-golem.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/stone-golem.webp
+  # Hell Bugs
+  cpZE2FJOGUPVcer1: # Boombug
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/flash-beetle.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/flash-beetle.webp
+  XXJpiQImBXZa7OxP: # Hell Hound
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/beast/hell-hound.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/hell-hound.webp
+  PfDeh8PVsZmw53Ft: # Hellwasp
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/hellwasp-swarm.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/hellwasp-swarm.webp
+  cYucX28Rm9i86R9j: # Hook Scuttler
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/cockroach-giant.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/cockroach-giant.webp
+  mntgZykhzIoW7RJU: # Swarming Maw
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/centipede-swarm.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/centipede-swarm.webp
   # Humans
   z61MzDMbczedGDls: # Blue Sorcerer
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/samsaran-anchorite.webp
@@ -315,6 +416,23 @@ srd-Monsters:
   DEUVhpefVn0nCKqt: # The Woven
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hag/winter-hag.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/hag/winter-hag.webp
+  # Ogre Mages
+  CPFyQu2s90q5oGsp: # Ogre Mage
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/onidoshi.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/onidoshi.webp
+      scale: 2
+  w8BypgDqfYlY2qb3: # Ogre Mage Knight
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/yai-fire.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/fiendish/yai-fire.webp
+  ym8uVQH29CAoWuTW: # Ogre Prismatic Mage
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/yai-ice.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/fiendish/yai-ice.webp
+  PUvvoYStOBXa7dV5: # Ogre Lightning Mage
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/yai-water.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/yai-water.webp
+      scale: 2
   # Oozes
   cFP4zaOlRmaSk6nL: # Black Pudding
     actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/black-pudding.webp
