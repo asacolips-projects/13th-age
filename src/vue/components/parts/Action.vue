@@ -7,7 +7,7 @@
       <div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3"><em v-html="getLabel(action.system?.hit3?.name)"></em><span v-html="wrapRolls(action.system.hit3.value)"></span></div>
       <div v-if="action.system?.miss?.value" class="hanging-indent action-miss"><em>Miss:</em> <span v-html="wrapRolls(action.system.miss.value)"></span></div>
       <div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
-        <span class="action-detail-value" v-html="action.system.description.value"></span>
+        <span class="action-detail-value" v-html="wrapRolls(action.system.description.value)"></span>
       </div>
     </section>
   </section>
@@ -16,7 +16,7 @@
 <script>
 import { concat, localize, wrapRolls } from '@/methods/Helpers';
 export default {
-  name: 'Actioin',
+  name: 'Action',
   props: ['action'],
   setup() {
     return {

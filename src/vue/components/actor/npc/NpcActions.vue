@@ -35,7 +35,7 @@
             <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
               <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="wrapRolls(action.system.attack.value, attackReplacer)"></span>
               <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.system.hit.value)"></span>
-              <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="action.system.description.value"></span>
+              <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="wrapRolls(action.system.description.value)"></span>
             </span>
             <div class="item-controls">
               <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>

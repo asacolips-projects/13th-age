@@ -59,6 +59,10 @@
 .hanging-indent {
   padding-left: $padding-md;
   text-indent: -$padding-md;
+
+  li {
+    text-indent: 0;
+  }
 }
 
 .expression {
