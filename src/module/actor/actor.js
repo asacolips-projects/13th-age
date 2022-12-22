@@ -1337,7 +1337,6 @@ export class ActorArchmage extends Actor {
   // TODO@cswendrowski: refactor this for v10
   // Override default configuration by updating actor after creation
   async _onCreate(data, options, user) {
-    // @todo add moduleArt mapping here.
     // Set the default portrait and token image to the system's
     if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']
       && game.user.isGM) {
