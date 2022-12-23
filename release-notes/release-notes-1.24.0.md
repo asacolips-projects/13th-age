@@ -34,9 +34,19 @@ Added a new setting to enable support for 13th Age 2e. With it active, the follo
 - Fix Unconscious condition links wrongly referencing Confused instead 
 - Fix npc autoLevel being wrongly triggered by hitting enter while editing the npc vue sheet
 
+## Compendium Improvements
+
+- Added logic to handle dynamically replacing monster art for compendium actors to use art supplied by external modules. See the **Bonus Feature** section below for more details.
+- Updated huge monsters to use 3 as their token width and height
+- Updated large monsters to use 2 as their token width and height
+- Added Smoke Devil
+- Added Ogre Magi Knight
+- Added Cloud Giant Magician
+- Corrected Cloud Giant Warrior to not use the Cloud Giant Magician stats
+
 ## Bonus Feature! Add support for token art provided by modules (both editions)
 
-We've added support for modules to include a `archmage-art` flag to enable on-the-fly portrait and token art replacements for compendium actors. For this initial release, we've coordinated with Cora to add one of these mappings to the official [Pathfinder Token Pack: Bestiaries](https://foundryvtt.com/packages/pf2e-tokens-bestiaries) premium module. If you have that module purchased and enabled, the 395 monsters included in our `SRD Monsters` compendium will use the fantastic art in the screenshot below!
+We've added support for modules to include a `archmage-art` flag to enable on-the-fly portrait and token art replacements for compendium actors. For this initial release, we've coordinated with Cora to add one of these mappings to the official [Pathfinder Token Pack: Bestiaries](https://foundryvtt.com/packages/pf2e-tokens-bestiaries) premium module. If you have that module purchased and enabled, the 395 monsters included in our `SRD Monsters` compendium will use the fantastic art in the screenshot below! To use this with the PF2e token pack, you'll need 1.0.2 version of that module (or higher).
 
 ![Screenshot of Toolkit13 tokens using Pathfinder 2e's official token art](https://mattsmithin-files.s3.amazonaws.com/screenshots/13a-pf2e-token-art.webp)
 
