@@ -1,7 +1,7 @@
-_id: 'i6WPEodUc7I9xujP'
-name: 'Intelect devourer'
+_id: 'zCM6En98e0rcKNSw'
+name: 'Cloud Giant Magician'
 type: 'npc'
-img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
+img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
 system:
   attributes:
     attackMod:
@@ -17,42 +17,42 @@ system:
     ac:
       type: 'Number'
       label: 'Armor Class'
-      value: 19
+      value: 21
       base: 10
       min: 0
     pd:
       type: 'Number'
       label: 'Physical Defense'
-      value: 15
+      value: 19
       base: 10
       min: 0
     md:
       type: 'Number'
       label: 'Mental Defense'
-      value: 19
+      value: 22
       base: 10
       min: 0
     hp:
       type: 'Number'
       label: 'Hit Points'
-      value: 56
+      value: 280
       min: 0
-      max: 56
+      max: 280
       temp: 0
       tempmax: 0
-      base: 7
+      base: 10
       automatic: true
     init:
       type: 'Number'
       label: 'Initiative Modifier'
-      value: 5
-      mod: 5
+      value: 12
+      mod: 12
     level:
       type: 'Number'
       label: 'Level'
-      value: 3
+      value: 7
       min: 0
-      max: 10
+      max: 12
     disengage: 11
     disengageBonus: 0
     saves:
@@ -80,10 +80,8 @@ system:
       value: 8
       max: 8
       dice: 'd8'
-      base: 8
-      automatic: true
     escalation:
-      value: 0
+      value: 6
   details:
     alignment:
       type: 'String'
@@ -94,15 +92,15 @@ system:
     flavor:
       value: ''
     role:
-      value: 'spoiler'
+      value: 'caster'
       type: 'String'
       label: 'Role'
     size:
-      value: 'normal'
+      value: 'huge'
       type: 'String'
       label: 'Size'
     type:
-      value: 'aberration'
+      value: 'giant'
       type: 'String'
       label: 'Type'
     resistance:
@@ -116,17 +114,16 @@ system:
     level:
       type: 'Number'
       label: 'Level'
-      value: 3
+      value: 7
       min: 0
-      max: 10
+      max: 12
 token:
   flags: {}
-  name: 'Intelect devourer'
+  name: 'Cloud Giant Warrior'
   displayName: 0
-  img: 'systems/archmage/assets/icons/tokens/monsters/aberration.webp'
-  tint: null
-  width: 1
-  height: 1
+  img: 'systems/archmage/assets/icons/tokens/monsters/giant.webp'
+  width: 3
+  height: 3
   scale: 1
   lockRotation: false
   rotation: 0
@@ -138,7 +135,7 @@ token:
   sightAngle: 0
   lightAngle: 360
   lightAlpha: 1
-  actorId: 'Zf7uiqx7SStCKBbH'
+  actorId: 'YMtR1D9QLzVOuPNI'
   actorLink: false
   actorData: {}
   disposition: -1
@@ -170,17 +167,17 @@ token:
       min: 0
       max: 1
 items:
-  - _id: 'kAhCZTgnoP4ULvsO'
+  - _id: 'lSrVALLeYYHvjYVa'
     flags: {}
-    name: 'C: Recall trauma'
+    name: 'Staff'
     type: 'action'
-    img: 'icons/svg/target.svg'
+    img: 'icons/svg/mystery-man.svg'
     system:
       name:
         type: 'String'
         label: 'Name'
       description:
-        type: 'String'
+        type: ''
         label: 'Description'
         value: ''
       group:
@@ -188,28 +185,22 @@ items:
         label: 'Group'
         value: ''
       attack:
-        type: 'String'
+        type: ''
         label: 'Attack Roll'
-        value: '[[d20+8]] vs. MD ([[1]] nearby enemy)'
+        value: '[[d20 + 10]] vs. AC ([[2]] attacks)'
       hit:
-        type: 'String'
+        type: ''
         label: 'Hit'
-        value: '[[16]] psychic damage'
+        value: '[[40]] damage'
       hit1:
         type: 'String'
         label: 'Hit'
-        name: 'Natural even hit'
-        value: 'The target can''t add the escalation die to its attacks (save ends)'
       hit2:
         type: 'String'
         label: 'Hit'
-        name: ''
-        value: ''
       hit3:
         type: 'String'
         label: 'Hit'
-        name: ''
-        value: ''
       hit4:
         type: 'String'
         label: 'Hit'
@@ -219,23 +210,70 @@ items:
       miss:
         type: 'String'
         label: 'Miss'
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+  - _id: 'S8dg1xGiS8xZg1YM'
+    flags: {}
+    name: 'R: Sleep, little ones'
+    type: 'action'
+    img: 'icons/svg/mystery-man.svg'
+    system:
+      name:
+        type: 'String'
+        label: 'Name'
+      description:
+        type: ''
+        label: 'Description'
         value: ''
+      group:
+        type: 'String'
+        label: 'Group'
+        value: ''
+      attack:
+        type: ''
+        label: 'Attack Roll'
+        value: '[[d20 + 12]] vs. MD ([[1]] nearby enemy)'
+      hit:
+        type: ''
+        label: 'Hit'
+        value: 'or [[1d3]] nearby enemies in a group if the escalation die is 3+); [[20]] psychic damage, and if the target has 50 hp or fewer after the attack, it falls *unconscious* (hard save ends, 16+; it also ends if the target takes [[10]] or more damage)'
+      hit1:
+        type: 'String'
+        label: 'Hit'
+      hit2:
+        type: 'String'
+        label: 'Hit'
+      hit3:
+        type: 'String'
+        label: 'Hit'
+      hit4:
+        type: 'String'
+        label: 'Hit'
+      hit5:
+        type: 'String'
+        label: 'Hit'
+      miss:
+        type: 'String'
+        label: 'Miss'
     sort: 100000
     effects: []
     folder: null
     permission:
       default: 0
-  - _id: 'fQRAqXu7qGF34TzV'
+  - _id: 'lIsOdkvxzIE3Lpaa'
     flags: {}
-    name: 'C: ego scourge'
+    name: 'R: Zzzzzottttttttttt!'
     type: 'action'
-    img: 'icons/svg/target.svg'
+    img: 'icons/svg/mystery-man.svg'
     system:
       name:
         type: 'String'
         label: 'Name'
       description:
-        type: 'String'
+        type: ''
         label: 'Description'
         value: ''
       group:
@@ -243,28 +281,22 @@ items:
         label: 'Group'
         value: ''
       attack:
-        type: 'String'
+        type: ''
         label: 'Attack Roll'
-        value: '[[d20+8]] vs. MD ([[1]] nearby or far away enemy)'
+        value: '[[d20 + 12]] vs. PD'
       hit:
-        type: 'String'
+        type: ''
         label: 'Hit'
-        value: '[[10]] psychic damage, and the target must choose one: take [[10]] extra damage; OR lose two points (cumulative) from its highest current background (min 0) until the next full heal-up'
+        value: '[[35]] force damage, and [[35]] ongoing lightning damage'
       hit1:
         type: 'String'
         label: 'Hit'
-        name: ''
-        value: ''
       hit2:
         type: 'String'
         label: 'Hit'
-        name: ''
-        value: ''
       hit3:
         type: 'String'
         label: 'Hit'
-        name: ''
-        value: ''
       hit4:
         type: 'String'
         label: 'Hit'
@@ -272,153 +304,33 @@ items:
         type: 'String'
         label: 'Hit'
       miss:
-        type: 'String'
-        label: 'Miss'
-        value: ''
+        type: ''
+        label: 'Hit'
+        name: 'Miss'
+        value: '[[20]] force damage, and [[20]] ongoing lightning damage.'
     sort: 200000
     effects: []
     folder: null
     permission:
       default: 0
-  - _id: 'iWtbOaOw9t5KR5bM'
+  - _id: 'Rns4GoZreO43NuIr'
     flags: {}
-    name: 'C: Mind wipe'
-    type: 'action'
-    img: 'icons/svg/target.svg'
+    name: 'Strike with advantage'
+    type: 'trait'
+    img: 'icons/svg/mystery-man.svg'
     system:
       name:
         type: 'String'
         label: 'Name'
       description:
-        type: 'String'
+        type: ''
         label: 'Description'
-        value: '<p>Limited use: 1/battle</p>'
+        value: 'A cloud giant gains a +4 attack bonus against any enemy taking ongoing damage or that has an ongoing condition (*unconscious* sleep, for instance).'
       group:
         type: 'String'
         label: 'Group'
-        value: ''
-      attack:
-        type: 'String'
-        label: 'Attack Roll'
-        value: '[[d20+10]] vs. MD ([[1]] nearby enemy per point on esc. die)'
-      hit:
-        type: 'String'
-        label: 'Hit'
-        value: 'The target can neither detect the intellect devourer’s presence nor remember it was ever there to begin with. If no enemy in the battle remembers the devourer is there, remove it from play. Each nearby enemy immediately detects the devourer’s presence if it makes an attack or if it doesn’t leave the battle by the end of its next turn.'
-      hit1:
-        type: 'String'
-        label: 'Hit'
-        name: ''
-        value: ''
-      hit2:
-        type: 'String'
-        label: 'Hit'
-        name: ''
-        value: ''
-      hit3:
-        type: 'String'
-        label: 'Hit'
-        name: ''
-        value: ''
-      hit4:
-        type: 'String'
-        label: 'Hit'
-      hit5:
-        type: 'String'
-        label: 'Hit'
-      miss:
-        type: 'String'
-        label: 'Miss'
         value: ''
     sort: 300000
-    effects: []
-    folder: null
-    permission:
-      default: 0
-  - _id: 'pdz3GiFnD8eVqquM'
-    flags: {}
-    name: 'Exploit trauma'
-    type: 'trait'
-    img: 'icons/svg/regen.svg'
-    system:
-      name:
-        type: 'String'
-        label: 'Name'
-      description:
-        type: 'String'
-        label: 'Description'
-        value: '<p>The intellect devourer&rsquo;s crit range with attacks against MD expands by 2.</p>'
-      group:
-        type: 'String'
-        label: 'Group'
-        value: ''
-    sort: 400000
-    effects: []
-    folder: null
-    permission:
-      default: 0
-  - _id: 'hGm9hTD08gzzMcvB'
-    flags: {}
-    name: 'Lost opportunity'
-    type: 'trait'
-    img: 'icons/svg/regen.svg'
-    system:
-      name:
-        type: 'String'
-        label: 'Name'
-      description:
-        type: 'String'
-        label: 'Description'
-        value: '<p>This creature can&rsquo;t make opportunity attacks.</p>'
-      group:
-        type: 'String'
-        label: 'Group'
-        value: ''
-    sort: 500000
-    effects: []
-    folder: null
-    permission:
-      default: 0
-  - _id: 'yfjIHQaz5i5MMmBG'
-    flags: {}
-    name: 'Psychovore'
-    type: 'trait'
-    img: 'icons/svg/regen.svg'
-    system:
-      name:
-        type: 'String'
-        label: 'Name'
-      description:
-        type: 'String'
-        label: 'Description'
-        value: '<p>An intellect devourer remembers the current escalation die value the first time its host body drops to 0 hit points in a battle and gains a bonus equal to that value to all attacks and defenses until the end of the battle.</p>'
-      group:
-        type: 'String'
-        label: 'Group'
-        value: ''
-    sort: 600000
-    effects: []
-    folder: null
-    permission:
-      default: 0
-  - _id: 'hbSDoXvx2wfdCIGM'
-    flags: {}
-    name: 'Increased trauma'
-    type: 'nastierSpecial'
-    img: 'icons/svg/poison.svg'
-    system:
-      name:
-        type: 'String'
-        label: 'Name'
-      description:
-        type: 'String'
-        label: 'Description'
-        value: '<p>Increased trauma:&nbsp;Add the following extra effect trigger to the intellect devourer&rsquo;s&nbsp;recall trauma&nbsp;attack.</p><p>Natural 5, 10, 15, 20:&nbsp;The target can&rsquo;t cast spells until the end of its next turn.</p>'
-      group:
-        type: 'String'
-        label: 'Group'
-        value: ''
-    sort: 700000
     effects: []
     folder: null
     permission:
@@ -428,4 +340,5 @@ folder: null
 sort: 100001
 permission:
   default: 0
-flags: {}
+flags:
+  archmage: {}

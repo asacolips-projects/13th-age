@@ -7,6 +7,33 @@ import { DiceArchmage } from './dice.js';
 export class ActorArchmage extends Actor {
 
   /** @override */
+  constructor(data, context={}) {
+    // If this is a compendium actor, check to see if we can use module art.
+    // Note: in addition to this, we have a step during the actor's preCreate
+    // event to use fallback token art.
+    if (context.pack && data._id) {
+      // Retrieve this token's module art from the art map, if any .
+      const art = game.archmage.system.moduleArt.map.get(`Compendium.${context.pack}.${data._id}`);
+      if (art) {
+        // Module art was found. Replace the actor image.
+        data.img = art.actor;
+        // Replace the token art as well.
+        const tokenArt =
+          typeof art.token === "string"
+            // If it's a string, we only need to set the image.
+            ? { img: art.token }
+            // If it's an object, that will also include the image scale.
+            : { ...art.token };
+        // Update the prototype token for the actor.
+        data.prototypeToken = mergeObject(data.prototypeToken ?? {}, tokenArt);
+      }
+    }
+
+    // Run the parent constructor.
+    super(data, context);
+  }
+
+  /** @override */
   async rollInitiative({createCombatants=false, rerollInitiative=false, initiativeOptions={}}={}) {
     // Obtain (or create) a combat encounter
     let combat = game.combat;

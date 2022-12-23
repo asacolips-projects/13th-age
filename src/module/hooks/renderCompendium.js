@@ -4,7 +4,7 @@ export class renderCompendium {
     let newOptions = duplicate(data);
     newOptions.index = {};
 
-    console.log(data.collection.metadata)
+    // console.log(data.collection.metadata)
 
     // TODO: Disable this after compendiums are working.
     return;
