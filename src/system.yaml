@@ -1,7 +1,7 @@
 name: archmage
 id: archmage
 title: Toolkit13 Character Sheet (13th Age Compatible)
-version: "1.24.0.beta-2"
+version: "1.24.0"
 authors:
   - name: Matt Smith
     discord: asacolips#1867
@@ -22,7 +22,8 @@ compatibility:
 esmodules:
   - module/archmage.js
   # Vue is included in the actor sheet class. To download new copies, go to
-  # https://unpkg.com/browse/vue@3/dist/
+  # https://unpkg.com/browse/vue@3/dist/ and replace `src/scripts/lib/vue.esm-browser.js`
+  # and `src/scripts/lib/vue.esm-browser.prod.js`
 
 scripts:
   - scripts/lib/parse-md.js
@@ -319,7 +320,7 @@ languages:
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.24.0.beta-2/raw/archmage.zip?job=build-prod
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.24.0/raw/archmage.zip?job=build-prod
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
 gridDistance: 1
 gridUnits: ''
