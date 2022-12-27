@@ -534,7 +534,7 @@ export class ActorArchmage extends Actor {
     }
 
     if (game.settings.get("archmage", "secondEdition")) {
-      formulaConst += recoveriesBonus;
+      formulaConst += recoveriesBonus * recLevel;
     }
     data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
