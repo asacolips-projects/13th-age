@@ -507,7 +507,7 @@ export class ActorArchmage extends Actor {
     if (data.incrementals?.recovery && game.settings.get("archmage", "secondEdition")) recLevel += 1;
     let recoveryDice = CONFIG.ARCHMAGE.numDicePerLevel[recLevel];
     let recoveryDie = ["d8", "", "8"]; // Fall back
-    let recoveryAvg = 3.5; // Fall back
+    let recoveryAvg = 4.5; // Fall back
     if (typeof data.attributes?.recoveries?.dice == 'string') {
       let recDieRegExp = /^([0-9]*)d([0-9]+)/g;
       let parsed = recDieRegExp.exec(data.attributes.recoveries.dice);
@@ -534,7 +534,7 @@ export class ActorArchmage extends Actor {
     }
 
     if (game.settings.get("archmage", "secondEdition")) {
-      formulaConst += recoveriesBonus * recLevel;
+      formulaConst += recoveriesBonus * Number(data.attributes.level?.value);
     }
     data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
