@@ -2,7 +2,7 @@
   "name": "archmage",
   "id": "archmage",
   "title": "Toolkit13 Character Sheet (13th Age Compatible)",
-  "version": "1.24.0",
+  "version": "1.24.1",
   "authors": [
     {
       "name": "Matt Smith",
@@ -18,12 +18,12 @@
     }
   ],
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
-  "minimumCoreVersion": 10,
-  "compatibleCoreVersion": 10,
+  "minimumCoreVersion": "10",
+  "compatibleCoreVersion": "10",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10.291,
-    "maximum": 11
+    "minimum": "10",
+    "verified": "10.291",
+    "maximum": "11"
   },
   "esmodules": [
     "module/archmage.js"
@@ -371,9 +371,9 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.24.0/raw/archmage.zip?job=build-prod",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.24.1/raw/archmage.zip?job=build-prod",
   "initiative": "1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value",
-  "gridDistance": 1,
+  "gridDistance": "1",
   "gridUnits": "",
   "primaryTokenAttribute": "attributes.hp",
   "manifestPlusVersion": "1.1.0",
