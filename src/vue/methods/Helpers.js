@@ -99,6 +99,7 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
     ['@atk.r.bonus', 'ITM'], //ITM_RNG
     ['@atk.a.bonus', 'ITM'], //ITM_ARC
     ['@atk.d.bonus', 'ITM'], //ITM_DIV
+		['*', '×'], // needed to avoid passing asterisks to markdown
   ]);
 
   // Remove whitespace from inline rolls.
