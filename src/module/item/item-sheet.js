@@ -173,15 +173,17 @@ export class ItemArchmageSheet extends ItemSheet {
     // the macro field.
     if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
       const textarea = html.find(".power-macro-editor textarea")[0];
-      const editor = CodeMirror.fromTextArea(textarea, {
-        mode: "javascript",
-        ...CodeMirror.userSettings,
-        lineNumbers: true,
-        inputStyle: "contenteditable",
-        autofocus: false,
-        theme: context.nightmode ? 'monokai' : 'default',
-        readOnly: textarea.hasAttribute('readonly')
-      }).on('change', (instance) => instance.save());
+      if (textarea) {
+        const editor = CodeMirror.fromTextArea(textarea, {
+          mode: "javascript",
+          ...CodeMirror.userSettings,
+          lineNumbers: true,
+          inputStyle: "contenteditable",
+          autofocus: false,
+          theme: context.nightmode ? 'monokai' : 'default',
+          readOnly: textarea.hasAttribute('readonly')
+        }).on('change', (instance) => instance.save());
+      }
     }
   }
 }
