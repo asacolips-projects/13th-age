@@ -20,14 +20,15 @@ export class ArchmageMacros {
     // Check for previous effects
     const aes = actor.effects.filter(e => e.label == label);
     if (aes.length > 0) {
+      archmage.suppressMessage = true;
       let effectsToDelete = [];
       aes.forEach(e => {effectsToDelete.push(e.id)});
       await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
-      archmage.suppressMessage = true;
-      ui.notifications.info("");
+      // ui.notifications.info("Halo removed");
     } else {
       const effectData = {label: label, changes: effects, icon: archmage.item.img};
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      // ui.notifications.info("Halo applied");
     }
   }
 
