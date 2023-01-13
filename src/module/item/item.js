@@ -226,7 +226,7 @@ export class ItemArchmage extends Item {
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     let tokens = canvas.tokens.controlled;
     let token = tokens ? tokens[0] : null;
-    if (!token) {
+    if (!token || token.actor != itemToRender.actor) {
       tokens = itemToRender.actor.getActiveTokens(true);
       token = tokens.length > 0 ? tokens[0] : null;
     }
