@@ -1,12 +1,14 @@
 # Description
 
-Create characters in this FoundryVTT character sheet that is compatible with the _13th Age Roleplaying Game_. It has full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions. Compendium entries are based on the OGL content for the _13th Age Roleplaying Game_, and conversion of them to FoundryVTT compendiums is still in progress for some classes. Rules unrelated to classes or monsters are not provided in this system, which means that the _13th Age Roleplaying Game_ is required to play it.
+Create characters in this FoundryVTT character sheet that is compatible with the _13th Age Roleplaying Game_. It has full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions. Compendium entries are based on the Open Game License (OGL) content for the _13th Age Roleplaying Game_, and conversion of them to FoundryVTT compendiums is still in progress for some classes. Rules unrelated to classes or monsters are not provided in this system, which means that the _13th Age Roleplaying Game_ is required to play it.
 
 # Install
 
 1. Go to the setup page and choose Game Systems.
 2. Click the Install System button, and either search for Toolkit13 or paste in this manifest link:
-    * Foundry 0.6.x: [https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json)
+```
+https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json>
+```
 3. Create a game world using the new sytem.
 
 # Inline Rolls
@@ -60,13 +62,13 @@ This system makes usage of several different licenses, both for the code and for
 
 ## Compatible with the 13th Age Roleplaying Game
 
-Compatible with the 13th Age Roleplaying Game requires the 13th Age Roleplaying Game from Fire Opal Media Inc. and Pelgrane Press Ltd. See [http://13thage.com](13thAge.com) for more information on the 13th Age Roleplaying Game. Fire Opal Media Inc. does not guarantee compatibility, and does not endorse this product.
+Compatible with the 13th Age Roleplaying Game requires the 13th Age Roleplaying Game from Fire Opal Media Inc. and Pelgrane Press Ltd. See <http://13thage.com> for more information on the 13th Age Roleplaying Game. Fire Opal Media Inc. does not guarantee compatibility, and does not endorse this product.
 
 ## Copyright
 
 The Toolkit13 name is copyright © 2020 by Matt Smith. Some rights reserved.
 
-13th Age is a registered trademark of Fire Opal Media Inc., and the 13th Age Roleplaying Game and the 13th Age Roleplaying Game Compatibility Logo are trademarks of Fire Opal Media Inc. under exclusive license to Pelgrane Press Ltd., and are used under the 13th Age Roleplaying Game Compatibility License. See [http://13thage.com](13thAge.com) for more information on the compatibility license.
+13th Age is a registered trademark of Fire Opal Media Inc., and the 13th Age Roleplaying Game and the 13th Age Roleplaying Game Compatibility Logo are trademarks of Fire Opal Media Inc. under exclusive license to Pelgrane Press Ltd., and are used under the 13th Age Roleplaying Game Compatibility License. See <http://13thage.com> for more information on the compatibility license.
 
 ## HTML, CSS, and Javscript
 
@@ -74,15 +76,15 @@ All HTML, CSS, Javascript, and Vue files are licensed under the [MIT license](ht
 
 ## Images and file assets
 
-Images and files in the `assets/icons` directory are provided via licenses secured by Foundry VTT at [https://foundryvtt.com/article/partnerships/](https://foundryvtt.com/article/partnerships/) and may only be used within Foundry VTT. At the time of writing, that includes the following assets:
+Images and files in the `assets/icons` directory are provided via licenses secured by Foundry VTT at <https://foundryvtt.com/article/partnerships/> and may only be used within Foundry VTT. At the time of writing, that includes the following assets:
 
-* Thanks to J. W. Bjerk (eleazzar) for “Painterly Spell Icons” series: https://opengameart.org
-* Potion Artwork** Thanks to Melle, https://opengameart.org/content/fantasy-potion-set
-* Thanks to various contributors, https://game-icons.net
+* Thanks to J. W. Bjerk (eleazzar) for “Painterly Spell Icons” series: <https://opengameart.org>
+* Potion Artwork** Thanks to Melle, <https://opengameart.org/content/fantasy-potion-set>
+* Thanks to various contributors, <https://game-icons.net>
 * Dice by Mike Valstar from the Noun Project
 * Dice by Dank By Design from the Noun Project
 * Dice by Heberti Almeida from the Noun Project
-* Licensed icon artwork by Rexard https://assetstore.unity.com/publishers/13229
+* Licensed icon artwork by Rexard <https://assetstore.unity.com/publishers/13229>
 
 Image assets in this repository may not be used outside of Foundry VTT and cannot be redistributed.
 
