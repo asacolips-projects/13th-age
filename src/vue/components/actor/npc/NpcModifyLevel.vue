@@ -10,7 +10,7 @@
     </div>
   </section>
   <section class="section section--level-preview grid grid-3col">
-    <ul class="preview-rows flexcol">
+    <ul class="preview-rows flexcol" v-if="preview">
       <li>
         <strong>{{localize('ARCHMAGE.CHAT.HP')}}: </strong><span>{{preview.system.attributes.hp.value}} / {{preview.system.attributes.hp.max}} ({{numberFormat(preview.system.attributes.hp.max - actor.system.attributes.hp.max, 0, true)}})</span>
       </li>

@@ -289,6 +289,8 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareCharacterData(data, model, flags) {
+    // Clamp level
+    data.attributes.level.value = Math.min(Math.max(data.attributes.level.value, 0), 99);
 
     // Find known classes if not already detected - fixes older characters
     if (!data.details.detectedClasses && data.details.class?.value) {
@@ -557,6 +559,9 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   _prepareNPCData(data, model, flags) {
+    // Clamp level
+    data.attributes.level.value = Math.min(Math.max(data.attributes.level.value, 0), 15);
+
     // init.mod is used for rolls, while value is used on the sheet.
     data.attributes.init.mod = data.attributes.init.value;
   }
