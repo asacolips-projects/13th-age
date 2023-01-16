@@ -7,7 +7,7 @@ Create characters in this FoundryVTT character sheet that is compatible with the
 1. Go to the setup page and choose Game Systems.
 2. Click the Install System button, and either search for Toolkit13 or paste in this manifest link:
 ```
-https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json>
+https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json
 ```
 3. Create a game world using the new sytem.
 

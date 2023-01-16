@@ -315,54 +315,6 @@ items:
     folder: null
     permission:
       default: 0
-  - _id: 'XsBgysOZlrYQgubG'
-    flags: {}
-    name: 'New Item'
-    type: 'action'
-    img: 'icons/svg/mystery-man.svg'
-    system:
-      name:
-        type: 'String'
-        label: 'Name'
-      description:
-        type: ''
-        label: 'Description'
-        value: ''
-      group:
-        type: 'String'
-        label: 'Group'
-        value: ''
-      attack:
-        type: ''
-        label: 'Attack Roll'
-        value: '[[d20 + 15]] vs. PD ([[1]] enemy near the target)'
-      hit:
-        type: ''
-        label: 'Hit'
-        value: '[[20]] lightning damage.'
-      hit1:
-        type: 'String'
-        label: 'Hit'
-      hit2:
-        type: 'String'
-        label: 'Hit'
-      hit3:
-        type: 'String'
-        label: 'Hit'
-      hit4:
-        type: 'String'
-        label: 'Hit'
-      hit5:
-        type: 'String'
-        label: 'Hit'
-      miss:
-        type: 'String'
-        label: 'Miss'
-    sort: 300000
-    effects: []
-    folder: null
-    permission:
-      default: 0
   - _id: 'hB7EUBiZIVj00RfE'
     flags: {}
     name: 'Quick use'
