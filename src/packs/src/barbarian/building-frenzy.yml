@@ -44,7 +44,7 @@ system:
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: null
+    value: 'After you have missed an attack'
   target:
     type: 'String'
     label: 'Target'
@@ -144,11 +144,11 @@ system:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 0
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Max Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
