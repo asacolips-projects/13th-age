@@ -345,7 +345,7 @@ ARCHMAGE:
     arrow: Arrow, crossbow bolt, slingstone
     belt: Belt, swordbelt, kilt, girdle
     book: Book, scroll, manual, grimoire
-    boots: Boots, scandals, slippers, shoes
+    boots: Boots, sandals, slippers, shoes
     cloak: Cloak, mantle, cape
     glove: Glove, gauntlet, mitt
     helmet: Helmet, circlet, crown, cap
@@ -570,7 +570,7 @@ ARCHMAGE:
       compendia: We have several corrections to existing compendia entries, and we've added <strong>magic items</strong> from the SRD!
       end: "There's also a variety of bug fixes and minor tweaks added to the system! You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.17.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '1190':
-      welcome: Welcom to Toolkit13 (13th Age Compatible) version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
+      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
       end: "You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.19.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
       npc:
         welcome: We've updated the NPC sheet to a new design! The original NPC sheet is still available and can be switched to by setting the sheet to the "Legacy NPC Sheet".
