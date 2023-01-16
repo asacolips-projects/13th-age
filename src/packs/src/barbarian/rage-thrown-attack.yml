@@ -76,7 +76,7 @@ system:
   miss:
     type: 'String'
     label: 'Miss'
-    value: '[[@lvl]] damage'
+    value: '—'
   missEven:
     type: 'String'
     label: 'Even Miss'
