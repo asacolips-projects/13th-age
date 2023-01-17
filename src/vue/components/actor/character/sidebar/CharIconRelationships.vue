@@ -1,5 +1,5 @@
 <template>
-  <section class="section section--icons flexcol">
+  <section class="section section--icons flexcol" v-if="Object.keys(icons).length">
     <h2 class="unit-title">{{localize('ARCHMAGE.iconRelationships')}}</h2>
     <ul class="list list--icons icons">
       <li v-for="(item, index) in icons" :key="concat('system.icons.', index)" class="list-item list-item--icons icon flexrow" :data-key="index">

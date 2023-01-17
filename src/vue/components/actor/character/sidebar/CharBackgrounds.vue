@@ -1,5 +1,5 @@
 <template>
-  <section class="section section--backgrounds flexcol">
+  <section class="section section--backgrounds flexcol" v-if="Object.keys(backgrounds).length">
     <h2 class="unit-title">{{localize('ARCHMAGE.backgrounds')}}</h2>
     <ul class="list list--backgrounds backgrounds">
       <li v-for="(item, index) in backgrounds" :key="concat('system.backgrounds.', index)" class="list-item list-item--backgrounds background flexrow" :data-key="index">
