@@ -982,6 +982,18 @@ FLAGS.characterFlags = {
     section: "Sheet",
     type: Boolean
   },
+  "hideIncrementals": {
+    name: "Hide Incremental Advances",
+    hint: "Hides the Incremental Advances section.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "hideOneUniqueThing": {
+    name: "Hide One Unique Thing",
+    hint: "Hides the One Unique Thing section.",
+    section: "Sheet",
+    type: Boolean
+  },
   "diceFormulaMode": {
     name: "Dice Formula Mode",
     hint: "Method used to display inline dice formulas on power previews in the character sheet.",
