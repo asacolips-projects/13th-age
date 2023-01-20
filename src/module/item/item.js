@@ -342,6 +342,14 @@ export class ItemArchmage extends Item {
       await this._handleMonkAC();
     }
 
+    // Extra data accessible as "archmage" in embedded macros
+    let macro_data = {
+      item: itemToRender,
+      hitEval: hitEvaluationResults,
+      suppressMessage: false,
+      // rollData: rollData
+    };
+
     // If there is an embedded macro attempt to execute it
     if (this.system.embeddedMacro?.value.length > 0) {
 
@@ -349,14 +357,6 @@ export class ItemArchmage extends Item {
         ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
       } else {
         // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
-
-        // Extra data accessible as "archmage" in embedded macros
-        let macro_data = {
-          item: itemToRender,
-          hitEval: hitEvaluationResults,
-          suppressMessage: false,
-          // rollData: rollData
-        };
 
         // Add variables to the evaluation scope
         const speaker = ChatMessage.implementation.getSpeaker();
@@ -376,8 +376,8 @@ export class ItemArchmage extends Item {
       }
     }
 
-    if (!macro_data.suppressMessage) return ChatMessage.create(chatData, { displaySheet: false });
-    return
+    if (macro_data.suppressMessage) return;
+    return ChatMessage.create(chatData, { displaySheet: false });
   }
 
   /**
