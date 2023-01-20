@@ -6,6 +6,9 @@
 
   <div class="card-content">
       <div class="card-row">
+          {{#if data.embeddedMacro.value}}
+              <div class="card-row"><em>({{localize "ARCHMAGE.CHAT.embeddedMacro"}})</em></div>
+          {{/if}}
           {{#if data.description.value}}
               <div class="card-row card-row-description">
                   {{{data.description.value}}}
