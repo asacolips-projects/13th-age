@@ -361,8 +361,7 @@ export class ItemArchmage extends Item {
         // Add variables to the evaluation scope
         const speaker = ChatMessage.implementation.getSpeaker();
         const character = game.user.character;
-        const actor = game.actors.get(speaker.actor);
-        // const token = (canvas.ready ? canvas.tokens.get(speaker.token) : null);
+        const actor = this.actor;
 
         // Attempt script execution
         const AsyncFunction = (async function(){}).constructor;

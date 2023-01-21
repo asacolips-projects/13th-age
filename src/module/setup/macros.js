@@ -136,7 +136,7 @@ export class ArchmageMacros {
   static async wizardLight(speaker, actor, token, character, archmage) {
     if (!token) return;
     const radiusBright = 3;
-    const radiusDim = 6
+    const radiusDim = 4;
     let conf = {
       alpha: 0.35,
       angle: 0,
