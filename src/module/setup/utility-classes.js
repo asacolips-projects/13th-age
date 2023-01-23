@@ -343,7 +343,7 @@ export class ArchmageUtility {
 /**
  * Class that defines utility methods for macros.
  */
-export class ArchmageMacroUtility {
+export class MacroUtils {
   /**
    * Generate durations for active effects
    * Done here to simplify future compatibility with core support for AE expiry

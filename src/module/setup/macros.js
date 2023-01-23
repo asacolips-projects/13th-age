@@ -54,7 +54,7 @@ export class ArchmageMacros {
       { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
       ]
     }
-    archmage.util.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
@@ -131,7 +131,7 @@ export class ArchmageMacros {
     if (archmage.item.system.feats.epic.isActive.value) effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
 
     let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
-    archmage.util.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
 
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
