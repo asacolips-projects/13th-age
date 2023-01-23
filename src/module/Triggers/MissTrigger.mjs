@@ -13,10 +13,10 @@ export default class MissTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ "miss" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() ];
     }
 
     doesntTriggerOn() {
-        return [ "even", "odd" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.even").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.odd").toLowerCase() ];
     }
 }
