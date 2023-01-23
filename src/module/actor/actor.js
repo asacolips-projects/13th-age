@@ -1462,12 +1462,21 @@ export class ActorArchmage extends Actor {
       }
     }
 
-    if (this.type == 'npc' && data.system.attributes?.level?.value) {
-      // Clamp NPC level to [0, 15]
-      data.system.attributes.level.value = Math.min(15, Math.max(0, data.system.attributes.level.value));
+    // Record deltas to show scrolling text in onUpdate
+    // Done there since it fires on all clients, letting everyone see the text
+    options.fromPreUpdate = { temp: deltaTemp, hp: deltaActual };
+
+    if (this.type == 'npc'){
+
+      if (data.system.attributes?.level?.value) {
+        // Clamp NPC level to [0, 15]
+        data.system.attributes.level.value = Math.min(15, Math.max(0, data.system.attributes.level.value));
+      }
+
+      return; // Nothing else to do
     }
 
-    if (!(this.type == 'character')) return; // Nothing else to do
+    // Character-specific processing
 
     if (!isNaN(data.system.attributes?.level?.value)) {
       // Clamp PC level to [1, 10]
@@ -1506,9 +1515,7 @@ export class ActorArchmage extends Actor {
         this.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
-    // Record deltas to show scrolling text in onUpdate
-    // Done there since it fires on all clients, letting everyone see the text
-    options.fromPreUpdate = {temp: deltaTemp, hp: deltaActual, rec: deltaRec};
+    options.fromPreUpdate.rec = deltaRec;
 
     if (data.system.attributes?.weapon?.melee?.shield !== undefined
       || data.system.attributes?.weapon?.melee?.dualwield !== undefined

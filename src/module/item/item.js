@@ -1,5 +1,5 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
-import { ArchmageUtility } from '../setup/utility-classes.js';
+import { ArchmageMacroUtility } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 /**
@@ -347,6 +347,7 @@ export class ItemArchmage extends Item {
       item: itemToRender,
       hitEval: hitEvaluationResults,
       suppressMessage: false,
+      util: ArchmageMacroUtility,
       // rollData: rollData
     };
 
@@ -504,7 +505,7 @@ export class ItemArchmage extends Item {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       }]
     }
-    effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    ArchmageMacroUtility.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
     await this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 

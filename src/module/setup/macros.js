@@ -34,6 +34,32 @@ export class ArchmageMacros {
 
   ////////////////////////////////////////////////
   /**
+   * Barbarian Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * Whirlwind.
+   */
+  static async barbarianWhirlwind(speaker, actor, token, character, archmage) {
+    if (!actor) return;
+
+    const penalty = -4;
+
+    let effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [
+      { key: "data.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+      { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+      ]
+    }
+    archmage.util.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  ////////////////////////////////////////////////
+  /**
    * Commander Macros.
    */
   ////////////////////////////////////////////////
@@ -85,8 +111,10 @@ export class ArchmageMacros {
     // Make new effect
     let effectData = {
       label: label,
-      changes: [{ key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD }],
-      icon: archmage.item.img};
+      icon: archmage.item.img,
+      changes: [
+        { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+      ]};
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
@@ -96,30 +124,14 @@ export class ArchmageMacros {
   static async fighterDefensiveFighting(speaker, actor, token, character, archmage) {
     if (!actor) return;
 
-    const label = archmage.item.name;
-
     let bonus = 2;
     if (archmage.item.system.feats.champion.isActive.value) bonus = 3;
     let effects = [{ key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }];
     if (archmage.item.system.feats.adventurer.isActive.value) effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     if (archmage.item.system.feats.epic.isActive.value) effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
 
-    let effectData = {label: label, changes: effects, icon: archmage.item.img};
-
-    // Set duration
-
-    const duration = {
-      combat: undefined,
-      rounds: 1,
-      seconds: undefined,
-      startRound: 0,
-      startTime: 0,
-      startTurn: 0,
-      turns: 1
-    }
-    const flag = "turnEnd"
-    effectData['flags.dae.specialDuration'] = flag;
-    effectData.duration = duration;
+    let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
+    archmage.util.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
 
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
