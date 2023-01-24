@@ -45,13 +45,18 @@ export class ArchmageMacros {
     if (!actor) return;
 
     let penalty = -4;
-    if (archmage.item.system.feats.champion.isActive.value) penalty = -2;
+
+    // Reduce the penalty if we have the (1e) champion feat
+    if (archmage.item.system.feats.champion.isActive.value && !game.settings.get('archmage', 'secondEdition')) {
+      penalty = -2;
+    }
+
     let effectData = {
       label: archmage.item.name,
       icon: archmage.item.img,
       changes: [
-      { key: "data.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
-      { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+        { key: "data.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+        { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
       ]
     }
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
@@ -126,9 +131,15 @@ export class ArchmageMacros {
 
     let bonus = 2;
     if (archmage.item.system.feats.champion.isActive.value) bonus = 3;
-    let effects = [{ key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }];
-    if (archmage.item.system.feats.adventurer.isActive.value) effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
-    if (archmage.item.system.feats.epic.isActive.value) effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+    let effects = [
+      { key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+    ];
+    if (archmage.item.system.feats.adventurer.isActive.value) {
+      effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+    }
+    if (archmage.item.system.feats.epic.isActive.value) {
+      effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+    }
 
     let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)

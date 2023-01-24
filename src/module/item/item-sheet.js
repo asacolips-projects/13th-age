@@ -146,6 +146,12 @@ export class ItemArchmageSheet extends ItemSheet {
       }
     }
 
+    // Force permissions to ensure item displays for players
+    let updates = {"ownership.default": CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER};
+    updates[`ownership.${game.userId}`] = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
+    // Cloning without saving ensures this change is ephemeral
+    item = item.clone(updates, {"save": false, "keepId": false});
+
     let itemSheet = new ItemArchmageSheet(item, {
       title: item.title,
       uuid: item.uuid,
