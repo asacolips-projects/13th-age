@@ -44,8 +44,8 @@ export class ArchmageMacros {
   static async barbarianWhirlwind(speaker, actor, token, character, archmage) {
     if (!actor) return;
 
-    const penalty = -4;
-
+    let penalty = -4;
+    if (archmage.item.system.feats.champion.isActive.value) penalty = -2;
     let effectData = {
       label: archmage.item.name,
       icon: archmage.item.img,
