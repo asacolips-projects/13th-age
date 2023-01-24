@@ -12,7 +12,7 @@ export default class CritTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase() ];
+        return [ "crit" ];
     }
 
     doesntTriggerOn() {
