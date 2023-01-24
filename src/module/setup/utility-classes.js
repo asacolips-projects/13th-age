@@ -184,6 +184,7 @@ export class ArchmageUtility {
 
 /**
  * Class that defines utility methods for macros.
+ * IMPORTANT: this class is used in (possibly user-defined) macros, handle any changes with care.
  */
 export class MacroUtils {
   /**
