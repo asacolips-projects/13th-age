@@ -372,7 +372,7 @@ items:
     flags: {}
     name: 'Shortsword'
     type: 'action'
-    img: 'systems/dnd5e/icons/items/weapons/sword-short.jpg'
+    img: 'icons/svg/target.svg'
     system:
       name:
         type: 'String'
@@ -426,7 +426,7 @@ items:
     flags: {}
     name: 'R: Javelin'
     type: 'action'
-    img: 'systems/dnd5e/icons/items/weapons/bolt.png'
+    img: 'icons/svg/target.svg'
     system:
       name:
         type: 'String'
