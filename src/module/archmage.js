@@ -6,6 +6,7 @@ import { ItemArchmage } from './item/item.js';
 import { ItemArchmageSheet } from './item/item-sheet.js';
 import { ArchmageMacros } from './setup/macros.js';
 import { ArchmageUtility } from './setup/utility-classes.js';
+import { MacroUtils } from './setup/utility-classes.js';
 import { ArchmageReference } from './setup/utility-classes.js';
 import { ContextMenu2 } from './setup/contextMenu2.js';
 import { DamageApplicator } from './setup/damageApplicator.js';
@@ -98,6 +99,7 @@ Hooks.once('init', async function() {
     EffectArchmageSheet,
     ArchmageMacros,
     ArchmageUtility,
+    MacroUtils,
     rollItemMacro,
     ActorHelpersV2,
     system: {

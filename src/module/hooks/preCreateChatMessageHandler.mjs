@@ -171,19 +171,34 @@ export default class preCreateChatMessageHandler {
                 sequence.effect().atLocation(token).file(sequencerFileSelf).wait(300);
               }
               // Ray
-              if (hitEvaluationResults && sequencerFileRay && !sequencerReversed) {
-                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
-                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay));
+              if (sequencerFileRay && !sequencerReversed) {
+                if (hitEvaluationResults) {
+                  hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
+                  hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, true, true, sequencerFileRay));
+                } else {
+                  // Not an attack
+                  targets.forEach(t => sequence = addAttack(sequence, token, t, true, false, sequencerFileRay));
+                }
               }
               // Target
-              if (hitEvaluationResults && sequencerFileTarget) {
-                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
-                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget));
+              if (sequencerFileTarget) {
+                if (hitEvaluationResults) {
+                  hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
+                  hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, token, t, false, true, sequencerFileTarget));
+                } else {
+                  // Not an attack
+                  targets.forEach(t => sequence = addAttack(sequence, token, t, false, false, sequencerFileTarget));
+                }
               }
               // Ray - reversed
-              if (hitEvaluationResults && sequencerFileRay && sequencerReversed) {
-                hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
-                hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
+              if (sequencerFileRay && sequencerReversed) {
+                if (hitEvaluationResults) {
+                  hitEvaluationResults.targetsHit.forEach(t => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
+                  hitEvaluationResults.targetsMissed.forEach(t => sequence = addAttack(sequence, t, token, true, true, sequencerFileRay));
+                } else {
+                  // Not an attack
+                  targets.forEach(t => sequence = addAttack(sequence, t, token, true, false, sequencerFileRay));
+                }
               }
               // Self - reversed
               if (sequencerFileSelf && sequencerReversed) {

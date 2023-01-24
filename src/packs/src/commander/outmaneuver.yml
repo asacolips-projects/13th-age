@@ -180,7 +180,7 @@ system:
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'
-    value: "// For the code executed in this macro, see\n// https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/integration-245-power-macros/src/module/setup/macros.js\ngame.archmage.ArchmageMacros.commanderOutmaneuver(speaker, actor, token, character, archmage);"
+    value: "// For the code executed in this macro, see\n// https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js\ngame.archmage.ArchmageMacros.commanderOutmaneuver(speaker, actor, token, character, archmage);"
   group:
     value: 'Tactic'
     type: 'String'

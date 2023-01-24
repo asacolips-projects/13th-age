@@ -1,5 +1,5 @@
 import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
-import { ArchmageUtility } from '../setup/utility-classes.js';
+import { MacroUtils } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
 /**
@@ -224,10 +224,15 @@ export class ItemArchmage extends Item {
 
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
-    const token = itemToRender.actor.token;
+    let tokens = canvas.tokens.controlled;
+    let token = tokens ? tokens[0] : null;
+    if (!token || token.actor != itemToRender.actor) {
+      tokens = itemToRender.actor.getActiveTokens(true);
+      token = tokens.length > 0 ? tokens[0] : null;
+    }
     const templateData = {
       actor: itemToRender.actor,
-      tokenId: token ? `${token._object.scene.id}.${token.id}` : null,
+      tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
       data: itemToRender.getChatData({ rollData: rollData }, true)
     };
@@ -240,7 +245,7 @@ export class ItemArchmage extends Item {
       user: game.user.id,
       speaker: {
         actor: itemToRender.actor.id,
-        token: itemToRender.actor.token,
+        token: null, //token,
         alias: itemToRender.actor.name,
         scene: game.user.viewedScene
       }
@@ -356,8 +361,7 @@ export class ItemArchmage extends Item {
         // Add variables to the evaluation scope
         const speaker = ChatMessage.implementation.getSpeaker();
         const character = game.user.character;
-        const actor = game.actors.get(speaker.actor);
-        const token = (canvas.ready ? canvas.tokens.get(speaker.token) : null);
+        const actor = this.actor;
 
         // Attempt script execution
         const AsyncFunction = (async function(){}).constructor;
@@ -371,8 +375,8 @@ export class ItemArchmage extends Item {
       }
     }
 
-    if (!macro_data.suppressMessage) return ChatMessage.create(chatData, { displaySheet: false });
-    return
+    if (macro_data.suppressMessage) return;
+    return ChatMessage.create(chatData, { displaySheet: false });
   }
 
   /**
@@ -500,7 +504,7 @@ export class ItemArchmage extends Item {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       }]
     }
-    effectData = ArchmageUtility.addDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
     await this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 

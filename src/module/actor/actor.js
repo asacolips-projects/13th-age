@@ -1462,13 +1462,26 @@ export class ActorArchmage extends Actor {
       }
     }
 
-    if (!this.type === 'character') return; // Nothing else to do
+    // Record deltas to show scrolling text in onUpdate
+    // Done there since it fires on all clients, letting everyone see the text
+    options.fromPreUpdate = { temp: deltaTemp, hp: deltaActual };
 
-    // if (data.data.attributes?.level?.value) {
-      // Update of a PC level - make sure it's within [1, 10]
-      // if (data.data.attributes.level.value < 1) data.data.attributes.level.value = 1;
-      // if (data.data.attributes.level.value > 10) data.data.attributes.level.value = 10;
-    // }
+    if (this.type == 'npc'){
+
+      if (data.system.attributes?.level?.value) {
+        // Clamp NPC level to [0, 15]
+        data.system.attributes.level.value = Math.min(15, Math.max(0, data.system.attributes.level.value));
+      }
+
+      return; // Nothing else to do
+    }
+
+    // Character-specific processing
+
+    if (!isNaN(data.system.attributes?.level?.value)) {
+      // Clamp PC level to [1, 10]
+      data.system.attributes.level.value = Math.min(10, Math.max(1, data.system.attributes.level.value));
+    }
 
     if (data.system.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
@@ -1502,9 +1515,7 @@ export class ActorArchmage extends Actor {
         this.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
     }
-    // Record deltas to show scrolling text in onUpdate
-    // Done there since it fires on all clients, letting everyone see the text
-    options.fromPreUpdate = {temp: deltaTemp, hp: deltaActual, rec: deltaRec};
+    options.fromPreUpdate.rec = deltaRec;
 
     if (data.system.attributes?.weapon?.melee?.shield !== undefined
       || data.system.attributes?.weapon?.melee?.dualwield !== undefined

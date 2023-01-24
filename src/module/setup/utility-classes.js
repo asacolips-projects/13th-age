@@ -171,11 +171,29 @@ export class ArchmageUtility {
     }
   }
 
-  // Generate durations for active effects
-  // Done here to simplify future compatibility with core support for AE expiry
-  // Currently relies on the times-up module
-  // TODO: change to core Foundry when (if) support comes
-  static addDuration(data, duration, options={}) {
+  // Find known classes
+  static detectClasses(className) {
+    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
+    let classRegex = new RegExp(classList.join('|'), 'g');
+    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+    let matchedClasses = className.match(classRegex);
+    if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
+    return matchedClasses;
+  }
+}
+
+/**
+ * Class that defines utility methods for macros.
+ * IMPORTANT: this class is used in (possibly user-defined) macros, handle any changes with care.
+ */
+export class MacroUtils {
+  /**
+   * Generate durations for active effects
+   * Done here to simplify future compatibility with core support for AE expiry
+   * Currently relies on the times-up module
+   * TODO: change to core Foundry when (if) support comes
+   */
+  static setDuration(data, duration, options={}) {
     let d = {
       combat: undefined,
       rounds: undefined,
@@ -213,16 +231,6 @@ export class ArchmageUtility {
     }
     data.duration = d;
     return data;
-  }
-
-  // Find known classes
-  static detectClasses(className) {
-    let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-    let classRegex = new RegExp(classList.join('|'), 'g');
-    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
-    let matchedClasses = className.match(classRegex);
-    if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
-    return matchedClasses;
   }
 }
 
