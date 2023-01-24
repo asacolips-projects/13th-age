@@ -9,12 +9,12 @@ export default class EvenTrigger extends ITrigger{
         if (rollResult % 2 == 0) {
             active = true;
             if (hitEvaluationResults?.hasHit != undefined) {
-                if (triggerText.includes("hit") && !hitEvaluationResults.hasHit) {
+                if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase()) && !hitEvaluationResults.hasHit) {
                     active = false;
                 }
             }
             if (hitEvaluationResults?.hasMissed != undefined) {
-                if (triggerText.includes("miss") && !hitEvaluationResults.hasMissed) {
+                if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase()) && !hitEvaluationResults.hasMissed) {
                     active = false;
                 }
             }
@@ -27,7 +27,7 @@ export default class EvenTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ "even" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.even").toLowerCase() ];
     }
 
     doesntTriggerOn() {

@@ -13,10 +13,10 @@ export default class HitTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ "hit" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase() ];
     }
 
     doesntTriggerOn() {
-        return [ "even", "odd" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.even").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.odd").toLowerCase() ];
     }
 }
