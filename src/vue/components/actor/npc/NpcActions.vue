@@ -15,41 +15,43 @@
       </div>
     </header> -->
     <!-- Actions, by group. -->
-    <section v-for="(group, groupKey) in groups" :key="groupKey" class="action-group">
-      <div class="action-group-header">
-        <!-- Group title and add button. -->
-        <div class="action-header-title flexrow">
-          <h2 class="action-group-title unit-title">{{localize(group)}}</h2>
-          <div class="item-controls">
-            <a class="item-control item-create" :data-item-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
-          </div>
-        </div>
-      </div>
-      <ul class="action-group-content flexcol">
-        <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" :data-draggable="draggable" :draggable="draggable">
-          <!-- Clickable action header. -->
-          <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
-            <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
-              <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
-            </a>
-            <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
-              <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="wrapRolls(action.system.attack.value, attackReplacer)"></span>
-              <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.system.hit.value)"></span>
-              <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="wrapRolls(action.system.description.value)"></span>
-            </span>
-            <div class="item-controls">
-              <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
-              <a class="item-control item-edit" :data-item-id="action._id"><i class="fas fa-edit"></i></a>
-              <a class="item-control item-delete" :data-item-id="action._id"><i class="fas fa-trash"></i></a>
+    <span v-for="(group, groupKey) in groups" :key="groupKey">
+      <section class="action-group" v-if="groupKey !== 'misc' || actionGroups[groupKey]">
+        <div class="action-group-header">
+          <!-- Group title and add button. -->
+          <div class="action-header-title flexrow">
+            <h2 class="action-group-title unit-title">{{localize(group)}}</h2>
+            <div class="item-controls" v-if="groupKey !== 'misc'">
+              <a class="item-control item-create" :data-item-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
             </div>
           </div>
-          <!-- Expanded action content. -->
-          <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))" :style="getActionStyle(action._id)">
-            <Action :action="action" :ref="concat('action--', action._id)"/>
-          </div>
-        </li>
-      </ul>
-    </section>
+        </div>
+        <ul class="action-group-content flexcol">
+          <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" :data-draggable="draggable" :draggable="draggable">
+            <!-- Clickable action header. -->
+            <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
+              <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
+                <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
+              </a>
+              <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
+                <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="wrapRolls(action.system.attack.value, attackReplacer)"></span>
+                <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.system.hit.value)"></span>
+                <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="wrapRolls(action.system.description.value)"></span>
+              </span>
+              <div class="item-controls">
+                <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
+                <a class="item-control item-edit" :data-item-id="action._id"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" :data-item-id="action._id"><i class="fas fa-trash"></i></a>
+              </div>
+            </div>
+            <!-- Expanded action content. -->
+            <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))" :style="getActionStyle(action._id)">
+              <Action :action="action" :ref="concat('action--', action._id)"/>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </span>
   </section>
 </template>
 
@@ -100,24 +102,22 @@ export default {
       return `section section--actions flexcol`;
     },
     groups() {
-      let groups = {};
-      let sortTypes = [
-        'action',
-        'trait',
-        'nastierSpecial'
-      ];
-      // Handle the built-in sort types.
-      let sortKey = `${this.groupBy}`;
-      for (let key of sortTypes) {
-        groups[key] = `ARCHMAGE.${key}s`;
-      }
+      let groups = {
+        'action': 'ARCHMAGE.actions',
+        'trait': 'ARCHMAGE.traits',
+        'nastierSpecial':  'ARCHMAGE.nastierSpecials',
+        'misc': 'ARCHMAGE.misc'
+      };
+
       return groups;
     },
     actionGroups() {
       let actionsByGroup = this.actions.reduce((actionsGroup, action) => {
         let group = action.type ? action.type : 'action';
-        // Override legacy 'tool' with 'loot'
-        group = group == 'tool' ? 'loot' : group;
+
+        if (group !== 'action' && group !== 'trait' && group !== 'nastierSpecial') {
+          group = 'misc';
+        }
 
         // Create the group if it doesn't exist.
         if (!actionsGroup[group]) {
@@ -155,7 +155,7 @@ export default {
      * actions items on the actor. Filters by type and search keys.
      */
     getActions() {
-      let actions = this.actor.items.filter(i => i.type == 'action' || i.type == 'trait' || i.type == 'nastierSpecial');
+      let actions = this.actor.items;
       if (this.searchValue) {
         actions = actions.filter(i => {
           let needle = this.cleanClassName(this.searchValue);

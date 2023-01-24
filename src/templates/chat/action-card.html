@@ -1,6 +1,9 @@
 <div class="archmage chat-card item-card" {{#if actor.id}}data-actor-id="{{actor.id}}"{{/if}} {{#if item.id}}data-item-id="{{item.id}}"{{/if}} {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
   <header class="card-header flexrow">
-    <img src="{{item.img}}" title="{{item.name}}" width="36" height="36"/>
+    {{#if (eq item.img "icons/svg/mystery-man.svg")}}
+    {{else}}
+      <img src="{{item.img}}" title="{{item.name}}" width="36" height="36" />
+    {{/if}}
     <h3 class="ability-usage ability-usage--{{data.powerUsage.value}}">{{{item.name}}}</h3>
   </header>
 
