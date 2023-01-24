@@ -380,6 +380,7 @@ ARCHMAGE:
     effect: Effect
     epic: Epic Feat
     epicDescription: Epic Feat Description
+    even: even
     finalVerse: Final Verse
     FullHeal: Full Heal-Up
     FullHealBody: Regain all health, recoveries, and power uses.
@@ -401,9 +402,11 @@ ARCHMAGE:
     missEven: Even Miss
     missOdd: Odd Miss
     MomentReset: lost
+    natural: natural
     NoResources: Not enough resources
     NoUses: No uses left
     NoUsesMsg: No uses left, are you sure you want to use this?
+    odd: odd
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
