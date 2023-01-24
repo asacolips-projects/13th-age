@@ -7,7 +7,7 @@ import { ItemArchmage } from "../item/item.js";
 export class ActorArchmageSheet extends ActorSheet {
 
   /**
-   * Extend and override the default options used by the 5e Actor Sheet
+   * Extend and override the default options used by the Actor Sheet
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
