@@ -11,6 +11,15 @@
             <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="Things with the same group will be grouped together"/>
         </div>
 
+        <div class="form-group form-group-stacked power-macro-editor">
+            <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
+            <details class="form-details">
+              <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
+              <textarea class="attribute-value" name="system.embeddedMacro.value" rows="20" title=""
+                  data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea>
+            </details>
+        </div>
+
         {{editor system.description.value target="system.description.value" button=true owner=owner editable=editable}}
     </div>
 </form>

@@ -28,7 +28,7 @@ system:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: 'other'
+    value: 'recharge'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -140,7 +140,7 @@ system:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: 0
+    value: 16
   quantity:
     type: 'Number'
     label: 'Uses'

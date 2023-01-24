@@ -4,11 +4,14 @@
         <h3>{{item.name}}</h3>
     </header>
 
-    <div class="card-content">{{{data.description.value}}}</div>
-
-    <!-- <div class="card-buttons"> -->
-        <!-- <button data-action="toolCheck" data-ability="{{data.ability.value}}">Use {{item.name}}</button> -->
-    <!-- </div> -->
+    <div class="card-content">
+        <div class="card-row">
+            {{#if data.embeddedMacro.value}}
+                <div class="card-row"><em>({{localize "ARCHMAGE.CHAT.embeddedMacro"}})</em></div>
+            {{/if}}
+            {{{data.description.value}}}
+        </div>
+    </div>
 
     <footer class="card-footer">
         {{#each data.properties}}

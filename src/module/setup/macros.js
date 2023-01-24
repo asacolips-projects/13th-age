@@ -20,15 +20,47 @@ export class ArchmageMacros {
     // Check for previous effects
     const aes = actor.effects.filter(e => e.label == label);
     if (aes.length > 0) {
+      archmage.suppressMessage = true;
       let effectsToDelete = [];
       aes.forEach(e => {effectsToDelete.push(e.id)});
       await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
-      archmage.suppressMessage = true;
-      ui.notifications.info("");
+      // ui.notifications.info("Halo removed");
     } else {
       const effectData = {label: label, changes: effects, icon: archmage.item.img};
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      // ui.notifications.info("Halo applied");
     }
+  }
+
+  ////////////////////////////////////////////////
+  /**
+   * Barbarian Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * Whirlwind.
+   */
+  static async barbarianWhirlwind(speaker, actor, token, character, archmage) {
+    if (!actor) return;
+
+    let penalty = -4;
+
+    // Reduce the penalty if we have the (1e) champion feat
+    if (archmage.item.system.feats.champion.isActive.value && !game.settings.get('archmage', 'secondEdition')) {
+      penalty = -2;
+    }
+
+    let effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [
+        { key: "data.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+        { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+      ]
+    }
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   ////////////////////////////////////////////////
@@ -84,8 +116,10 @@ export class ArchmageMacros {
     // Make new effect
     let effectData = {
       label: label,
-      changes: [{ key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD }],
-      icon: archmage.item.img};
+      icon: archmage.item.img,
+      changes: [
+        { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+      ]};
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
@@ -95,30 +129,20 @@ export class ArchmageMacros {
   static async fighterDefensiveFighting(speaker, actor, token, character, archmage) {
     if (!actor) return;
 
-    const label = archmage.item.name;
-
     let bonus = 2;
     if (archmage.item.system.feats.champion.isActive.value) bonus = 3;
-    let effects = [{ key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }];
-    if (archmage.item.system.feats.adventurer.isActive.value) effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
-    if (archmage.item.system.feats.epic.isActive.value) effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
-
-    let effectData = {label: label, changes: effects, icon: archmage.item.img};
-
-    // Set duration
-
-    const duration = {
-      combat: undefined,
-      rounds: 1,
-      seconds: undefined,
-      startRound: 0,
-      startTime: 0,
-      startTurn: 0,
-      turns: 1
+    let effects = [
+      { key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+    ];
+    if (archmage.item.system.feats.adventurer.isActive.value) {
+      effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
-    const flag = "turnEnd"
-    effectData['flags.dae.specialDuration'] = flag;
-    effectData.duration = duration;
+    if (archmage.item.system.feats.epic.isActive.value) {
+      effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+    }
+
+    let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
 
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
@@ -135,7 +159,7 @@ export class ArchmageMacros {
   static async wizardLight(speaker, actor, token, character, archmage) {
     if (!token) return;
     const radiusBright = 3;
-    const radiusDim = 6
+    const radiusDim = 4;
     let conf = {
       alpha: 0.35,
       angle: 0,
