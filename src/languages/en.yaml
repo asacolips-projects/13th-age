@@ -27,7 +27,6 @@ ARCHMAGE:
   chakra: Chakra
   class: Class
   conflicted: Conflicted
-  create: Create
   critModAtk: Crit Modifier (Attack)
   critModDef: Crit Modifier (Defense)
   daily: Daily
@@ -56,12 +55,10 @@ ARCHMAGE:
   iconRelationships: Icon Relationships
   import: Import Powers
   incrementalAdvances: Incremental Advances
-  incrementals: Incrementals
   initAdjustment: Initiative Adjustment
   initiative: Initiative
   interrupt: Interrupt Action
   inventory: Inventory
-  item: 'Item'
   jabWeaponDice: JAB Weapon Dice
   keyMod: Key Modifier
   keyReduced: Reduced to {mod} due to {kmod1}/{kmod2} key modifier
@@ -74,9 +71,6 @@ ARCHMAGE:
   maneuver: Maneuver
   maneuvers: Maneuvers
   melee: Melee
-  meleeAbility: Melee Ability
-  meleeDamageAbility: Melee Damage Ability
-  meleeMiss: Melee Miss Dmg.
   meleeWeaponDice: Melee Weapon Dice
   misc: Misc.
   miscellaneous: Miscellaneous
@@ -101,9 +95,6 @@ ARCHMAGE:
   quick: Quick Action
   race: Race
   ranged: Ranged
-  rangedAbility: Ranged Ability
-  rangedDamageAbility: Ranged Damage Ability
-  rangedMiss: Ranged Miss Dmg.
   rangedWeaponDice: Ranged Weapon Dice
   rchg: Rchg.
   recharge: Recharge
@@ -114,7 +105,6 @@ ARCHMAGE:
   saves: Saves
   size: Size
   sort: Sort
-  specialTraits: Special Traits
   spell: Spell
   spells: Spells
   standard: Standard Action
@@ -177,7 +167,6 @@ ARCHMAGE:
   CHARACTER:
     RESOURCES:
       commandPoints: Command Points
-      cp: Cmd
       custom1: Custom Resource 1
       custom2: Custom Resource 2
       custom3: Custom Resource 3
@@ -195,7 +184,6 @@ ARCHMAGE:
     improvedIniativeName: Improved Initiative
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
-    title: Flags
   CHARACTERSETTINGS:
     bg1: Background 1
     bg2: Background 2
@@ -322,22 +310,18 @@ ARCHMAGE:
     acBonus: AC Bonus
     active: Active
     arcaneAttackBonus: Arcane Spell / Arcane Attack Bonus
-    arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
     chakraSlot: Chakra Slot
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
     divineAttackBonus: Divine Spell / Divine Attack Bonus
-    divineBonus: Divine Spell / Divine Attack Bonus
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     mdBonus: MD Bonus
     meleeAttackBonus: Melee Attack Bonus
-    meleeBonus: Melee Attack Bonus
     pdBonus: PD Bonus
     price: Price
     rangedAttackBonus: Ranged Attack Bonus
-    rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
     saveBonus: Save Bonus
   CHAKRA:
@@ -345,7 +329,7 @@ ARCHMAGE:
     arrow: Arrow, crossbow bolt, slingstone
     belt: Belt, swordbelt, kilt, girdle
     book: Book, scroll, manual, grimoire
-    boots: Boots, scandals, slippers, shoes
+    boots: Boots, sandals, slippers, shoes
     cloak: Cloak, mantle, cape
     glove: Glove, gauntlet, mitt
     helmet: Helmet, circlet, crown, cap
@@ -570,7 +554,7 @@ ARCHMAGE:
       compendia: We have several corrections to existing compendia entries, and we've added <strong>magic items</strong> from the SRD!
       end: "There's also a variety of bug fixes and minor tweaks added to the system! You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.17.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '1190':
-      welcome: Welcom to Toolkit13 (13th Age Compatible) version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
+      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
       end: "You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.19.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
       npc:
         welcome: We've updated the NPC sheet to a new design! The original NPC sheet is still available and can be switched to by setting the sheet to the "Legacy NPC Sheet".
