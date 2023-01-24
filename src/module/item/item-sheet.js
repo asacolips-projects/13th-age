@@ -4,7 +4,7 @@
 export class ItemArchmageSheet extends ItemSheet {
 
   /**
-   * Extend and override the default options used by the 5e Actor Sheet
+   * Extend and override the default options used by the Actor Sheet
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {

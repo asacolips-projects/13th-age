@@ -51,7 +51,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       cssClass: isOwner ? "editable" : "locked",
       isCharacter: this.actor.type === "character",
       isNPC: this.actor.type === "npc",
-      config: CONFIG.DND5E,
+      config: CONFIG.ARCHMAGE,
       rollData: this.actor.getRollData(this.actor)
     };
 

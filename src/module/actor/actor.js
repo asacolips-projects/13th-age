@@ -2,7 +2,7 @@ import { ArchmageUtility } from '../setup/utility-classes.js';
 import { DiceArchmage } from './dice.js';
 
 /**
- * Extend the base Actor class to implement additional logic specialized for D&D5e.
+ * Extend the base Actor class to implement additional logic specialized for the system.
  */
 export class ActorArchmage extends Actor {
 
@@ -493,7 +493,7 @@ export class ActorArchmage extends Actor {
         toughnessBonus = Math.floor(toughnessBonus * mul)
       }
 
-      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0)) 
+      data.attributes.hp.max = Math.floor((data.attributes.hp.base + Math.max(data.abilities.con.nonKey.mod, 0))
         * hpLevelModifier[level] + hpBonus + toughnessBonus);
     }
 
