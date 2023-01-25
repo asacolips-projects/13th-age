@@ -64,11 +64,11 @@ system:
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
-    value: '[[(@lvl)d10+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
+    value: '[[(@lvldice)d10+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
   hitOdd:
     type: 'String'
     label: 'Natural Odd Hit'
-    value: '[[(@lvl)d6+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
+    value: '[[(@lvldice)d6+max(@str.dmg,@dex.dmg)+@atk.m.bonus]] damage.'
   crit:
     type: 'String'
     label: 'Crit'
