@@ -223,22 +223,19 @@ export default {
     hasFeats(power) {
       let hasFeats = false;
       if (power && power.system && power.system.feats) {
-        for (let [tier, feat] of Object.entries(power.system.feats)) {
-          if (feat.description.value || feat.isActive.value) {
-            hasFeats = true;
-            break;
-          }
-        }
+        power.system.feats.forEach(feat => {
+          if (feat.description || feat.isActive) { hasFeats = true; }
+        });
       }
       return hasFeats;
     },
     /**
      * Filter empty feats
      */
-    filterFeats(featObj) {
-      let res = {}
-      for (let [tier, feat] of Object.entries(featObj)) {
-        if (feat.description.value) res[tier] = feat;
+    filterFeats(feats) {
+      let res = {};
+      for (let [index, feat] of feats.entries()) {
+        if (feat.description) res[index] = feat;
       }
       return res;
     },
