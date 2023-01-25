@@ -279,12 +279,12 @@
                       {{#each system.feats}}
                       <div class="form-group">
                           <label>{{localize 'ARCHMAGE.ITEM.active'}}</label>
-                          <input type="checkbox" name="system.feats[{{@index}}].isActive" value="1" data-dtype="Boolean" {{checked this.isActive}}/>
+                          <input type="checkbox" name="system.feats.{{@key}}.isActive.value" value="1" data-dtype="Boolean" {{checked this.isActive.value}}/>
                       </div>
                       <div class="form-group">
                           <details class="form-details">
                               <summary>{{localize 'ARCHMAGE.CHAT.featDescription'}}</summary>
-                              {{editor this.description target="system.feats[@index].description" button=true owner=owner editable=editable}}
+                              {{{editor this.description.value target="system.feats.{{@key}}.description.value" button=true owner=owner editable=editable}}}
                           </details>
                       </div>
                       {{/each}}

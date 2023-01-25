@@ -223,9 +223,13 @@ export default {
     hasFeats(power) {
       let hasFeats = false;
       if (power && power.system && power.system.feats) {
-        power.system.feats.forEach(feat => {
-          if (feat.description || feat.isActive) { hasFeats = true; }
-        });
+        for (let [id, feat] of Object.entries(power.system.feats)) {
+          if (feat.description.value || feat.isActive.value) {
+            hasFeats = true;
+            break;
+          }
+        }
+
       }
       return hasFeats;
     },
@@ -234,8 +238,8 @@ export default {
      */
     filterFeats(feats) {
       let res = {};
-      for (let [index, feat] of feats.entries()) {
-        if (feat.description) res[index] = feat;
+      for (let [index, feat] of Object.entries(feats)) {
+        if (feat.description.value) res[index] = feat;
       }
       return res;
     },
