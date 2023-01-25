@@ -639,27 +639,24 @@ Item:
       label: Roll Table
       value: ''
     feats:
-      adventurer:
-        description:
-          type: String
-          label: Adventurer Feat
-        isActive:
-          type: Boolean
-          label: Active
-      champion:
-        description:
-          type: String
-          label: Champion Feat
-        isActive:
-          type: Boolean
-          label: Active
-      epic:
-        description:
-          type: String
-          label: Epic Feat
-        isActive:
-          type: Boolean
-          label: Active
+      - description: ''
+        isActive: false
+        tier: 'adventurer'
+        powerUsage: ''
+        quantity: null
+        maxQuantity: null
+      - description: ''
+        isActive: false
+        tier: 'champion'
+        powerUsage: ''
+        quantity: null
+        maxQuantity: null
+      - description: ''
+        isActive: false
+        tier: 'epic'
+        powerUsage: ''
+        quantity: null
+        maxQuantity: null
     embeddedMacro:
       type: String
       label: Embedded Macro
