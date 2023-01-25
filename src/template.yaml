@@ -165,9 +165,11 @@ Actor:
       class:
         type: String
         label: Class
+        value: ''
       race:
         type: String
         label: Race
+        value: ''
       out:
         label: One Unique Thing
         type: String
