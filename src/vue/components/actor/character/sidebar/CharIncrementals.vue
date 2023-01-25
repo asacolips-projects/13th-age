@@ -1,5 +1,5 @@
 <template>
-  <section class="section section--incrementals flexcol" v-if="!actor.flags.archmage.hideIncrementals">
+  <section class="section section--incrementals flexcol" v-if="!actor.flags.archmage?.hideIncrementals">
     <h2 class="unit-title">{{localize('ARCHMAGE.incrementalAdvances')}}</h2>
     <ul class="list list--incrementals incrementals">
       <li v-for="(item, index) in getOrderedIncrementals(actor)" :key="index" class="list-item list-item--incrementals incremental" :data-key="index">
