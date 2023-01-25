@@ -276,36 +276,18 @@
 
                   <details class="form-details" open="true">
                       <summary>{{localize 'ARCHMAGE.feats'}}</summary>
+                      {{#each system.feats}}
                       <div class="form-group">
-                          <label>{{localize 'ARCHMAGE.CHAT.adventurer'}}</label>
-                          <input type="checkbox" name="system.feats.adventurer.isActive.value" value="1" data-dtype="Boolean" {{checked system.feats.adventurer.isActive.value}}/>
+                          <label>{{localize 'ARCHMAGE.ITEM.active'}}</label>
+                          <input type="checkbox" name="system.feats[{{@index}}].isActive" value="1" data-dtype="Boolean" {{checked this.isActive}}/>
                       </div>
                       <div class="form-group">
                           <details class="form-details">
-                              <summary>{{localize 'ARCHMAGE.CHAT.adventurerDescription'}}</summary>
-                              {{editor system.feats.adventurer.description.value target="system.feats.adventurer.description.value" button=true owner=owner editable=editable}}
+                              <summary>{{localize 'ARCHMAGE.CHAT.featDescription'}}</summary>
+                              {{editor this.description target="system.feats[@index].description" button=true owner=owner editable=editable}}
                           </details>
                       </div>
-                      <div class="form-group">
-                          <label>{{localize 'ARCHMAGE.CHAT.champion'}}</label>
-                          <input type="checkbox" name="system.feats.champion.isActive.value" value="1" data-dtype="Boolean" {{checked system.feats.champion.isActive.value}}/>
-                      </div>
-                      <div class="form-group">
-                          <details class="form-details">
-                              <summary>{{localize 'ARCHMAGE.CHAT.championDescription'}}</summary>
-                              {{editor system.feats.champion.description.value target="system.feats.champion.description.value" button=true owner=owner editable=editable}}
-                          </details>
-                      </div>
-                      <div class="form-group">
-                          <label>{{localize 'ARCHMAGE.CHAT.epic'}}</label>
-                          <input type="checkbox" name="system.feats.epic.isActive.value" value="1" data-dtype="Boolean" {{checked system.feats.epic.isActive.value}}/>
-                      </div>
-                      <div class="form-group">
-                          <details class="form-details">
-                              <summary>{{localize 'ARCHMAGE.CHAT.epicDescription'}}</summary>
-                              {{editor system.feats.epic.description.value target="system.feats.epic.description.value" button=true owner=owner editable=editable}}
-                          </details>
-                      </div>
+                      {{/each}}
                   </details>
 
                   {{#if sequencerEnabled }}
