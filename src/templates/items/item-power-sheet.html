@@ -275,13 +275,22 @@
                   </div>
 
                   <details class="form-details" open="true">
-                      <summary>{{localize 'ARCHMAGE.feats'}}</summary>
+                      <label>{{localize 'ARCHMAGE.feats'}}</label>
                       {{#each system.feats}}
-                      <details class="form-details" open="true">
-                          <summary>{{localize (concatenate "ARCHMAGE.CHAT." this.tier.value)}}</summary>
+                      <div class="form-group form-group-stacked">
+                          <div class="form-group">
+                            <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
+                            <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">
+                                {{#select this.tier.value}}
+                                {{#each featTiers as |name tier|}}
+                                <option value="{{tier}}">{{name}}</option>
+                                {{/each}}
+                                {{/select}}
+                            </select>
+                          </div>
                           <div class="form-group">
                               <label>{{localize 'ARCHMAGE.ITEM.active'}}</label>
-                              <input type="checkbox" name="system.feats.{{@key}}.isActive.value" value="1" data-dtype="Boolean" {{checked this.isActive.value}}/>
+                              <input type="checkbox" name="system.feats.{{@key}}.isActive.value" value="1" data-dtype="{{this.isActive.type}}" {{checked this.isActive.value}}/>
                           </div>
                           <div class="form-group">
                               {{editor this.description.value target=(concatenate "system.feats." @key ".description.value") button=true owner=../owner editable=../editable}}
@@ -289,17 +298,16 @@
                           <div class="form-group">
                             <label>TODOUses Remaining</label>
                             <input class="attribute-input" name="system.feats.{{@key}}.quantity.value" type="text" value="{{this.quantity.value}}"
-                                data-dtype="system.feats.{{@key}}.quantity.type" placeholder="Number of remaining uses, usually the same as Max Uses" />
+                                data-dtype="{{this.quantity.type}}" placeholder="TODONumber of remaining uses, usually the same as Max Uses" />
                           </div>
-
                           <div class="form-group">
                             <label>TODOMax Uses</label>
                             <input class="attribute-input" name="system.feats.{{@key}}.maxQuantity.value" type="text" value="{{this.maxQuantity.value}}"
-                                data-dtype="system.feats.{{@key}}.maxQuantity.type" placeholder="Number of uses per battle/day, usually 1" />
+                                data-dtype="{{this.maxQuantity.type}}" placeholder="TODONumber of uses per battle/day, usually 1" />
                           </div>
-                              </details>
-                              {{/each}}
-                          </details>
+                      </div>
+                      {{/each}}
+                  </details>
 
                   {{#if sequencerEnabled }}
                   <div class="form-group form-group-stacked">

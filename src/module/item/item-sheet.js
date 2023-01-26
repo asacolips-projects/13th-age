@@ -56,6 +56,7 @@ export class ItemArchmageSheet extends ItemSheet {
       context['powerTypes'] = CONFIG.ARCHMAGE.powerTypes;
       context['powerUsages'] = CONFIG.ARCHMAGE.powerUsages;
       context['actionTypes'] = CONFIG.ARCHMAGE.actionTypes;
+      context['featTiers'] = CONFIG.ARCHMAGE.featTiers;
     }
     // Equipment-specific data
     else if (this.item.type === 'equipment') {

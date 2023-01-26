@@ -164,6 +164,8 @@ Hooks.once('init', async function() {
   } else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
+    // Remove 11th level feat tier
+    delete CONFIG.ARCHMAGE.featTiers.iconic;
   }
 
   // Assign the actor class to the CONFIG
