@@ -22,8 +22,8 @@
     </section>
     <!-- Feats. -->
     <section class="power-feats flexcol">
-      <div v-for="(feat, tier) in filterFeats(power.system.feats)" :key="tier" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
-        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', tier))}}:</strong>
+      <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
+        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', feat.tier.value))}}:</strong>
         <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
       </div>
     </section>
