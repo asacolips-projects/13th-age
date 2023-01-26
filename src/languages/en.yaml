@@ -346,12 +346,14 @@ ARCHMAGE:
     wondrous: Wondrous item
   CHAT:
     actionType: Action Type
+    adventurer: Adventurer Feat
     always: Always
     attack: Attack
     breathWeapon: Breath Weapon
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
     castPower: Cast for Power
+    champion: Champion Feat
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     cost: Cost
@@ -359,7 +361,7 @@ ARCHMAGE:
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
     effect: Effect
-    featDescription: Feat Description
+    epic: Epic Feat
     finalVerse: Final Verse
     FullHeal: Full Heal-Up
     FullHealBody: Regain all health, recoveries, and power uses.
@@ -372,6 +374,7 @@ ARCHMAGE:
     hitEven: Even Hit
     hitOdd: Odd Hit
     HP: HP
+    iconic: Omega Feat
     ItemReset: restored uses to
     KiReset: reset to
     embeddedMacro: Embedded Macro
