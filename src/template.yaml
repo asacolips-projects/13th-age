@@ -651,7 +651,7 @@ Item:
         tier:
           type: String
           value: 'adventurer'
-        powerUsage: 
+        powerUsage:
           type: String
           value: ''
         quantity:
@@ -670,7 +670,7 @@ Item:
         tier:
           type: String
           value: 'champion'
-        powerUsage: 
+        powerUsage:
           type: String
           value: ''
         quantity:
@@ -689,7 +689,7 @@ Item:
         tier:
           type: String
           value: 'epic'
-        powerUsage: 
+        powerUsage:
           type: String
           value: ''
         quantity:

@@ -79,6 +79,10 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
+  Handlebars.registerHelper('featpath', (key) => {
+    return `system.feats.${key}.description.value`
+  });
+
   game.settings.register("archmage", "secondEdition", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionHint"),
