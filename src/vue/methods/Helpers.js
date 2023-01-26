@@ -25,21 +25,6 @@ export function concat(...args) {
   }, '');
 }
 
-export function ordinalSuffix(number) {
-  var last = number % 10,
-      teens = number % 100;
-  if (last == 1 && teens != 11) {
-      return number + "st";
-  }
-  if (last == 2 && teens != 12) {
-      return number + "nd";
-  }
-  if (last == 3 && teens != 13) {
-      return number + "rd";
-  }
-  return number + "th";
-}
-
 /**
  * Replace inline rolls with alternate formatting and wrap with an additional
  * span tag for formatting.

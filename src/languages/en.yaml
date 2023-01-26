@@ -65,6 +65,7 @@ ARCHMAGE:
   kickWeaponDice: KICK Weapon Dice
   kin: Kin
   level: Level
+  levelFormat: "{level} level"
   loot: Loot
   lvl: Lvl
   magicItems: Magic Items
@@ -396,8 +397,7 @@ ARCHMAGE:
     powerUsage: Power Usage
     QuickRest: Quick Rest
     QuickRestBody: Regain per-battle powers, roll to recharge spent recharge powers, and roll recoveries to heal above 50% health.
-    QuickRestHP1: rolled
-    QuickRestHP2: recoveries healing
+    QuickRestHP: rolled {recoveries} healing {hp} HP
     range: Range
     recharge: Recharge
     RechargeFail: recharge failed

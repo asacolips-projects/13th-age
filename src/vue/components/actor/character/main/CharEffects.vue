@@ -3,7 +3,7 @@
     <section class="effects-group">
       <div class="effects-group-header">
         <div class="effects-header-title grid effects-grid">
-          <h2 class="effects-group-title unit-title">{{localize('Effects')}}</h2>
+          <h2 class="effects-group-title unit-title">{{localize('EFFECT.TabEffects')}}</h2>
           <div class="item-controls effect-controls">
             <a class="effect-control" data-action="create" :title="localize('Create Effect')"><i class="fas fa-plus"></i></a>
           </div>
