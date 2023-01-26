@@ -25,6 +25,7 @@
       <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', feat.tier.value))}}:</strong>
         <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
+        <div class="power-feat-uses" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity.value"><span v-if="feat.quantity.value !== null">{{power.system.quantity.value}}</span></div>
       </div>
     </section>
   </section>
