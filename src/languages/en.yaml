@@ -404,6 +404,7 @@ ARCHMAGE:
     RechargeSucc: recharged
     Rest: Rest
     Rests: Rests
+    sequencerDesc: Configure a sequencer animation.
     sequencerTarget: Sequencer File (Target)
     sequencerRay: Sequencer File (Ray)
     sequencerSelf: Sequencer File (Self)
