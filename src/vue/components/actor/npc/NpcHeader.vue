@@ -71,7 +71,7 @@
 </template>
 
 <script>
-  import { localize, ordinalSuffix, numberFormat, getActor } from '@/methods/Helpers';
+  import { localize, numberFormat, getActor } from '@/methods/Helpers';
   import ToggleInput from '@/components/parts/ToggleInput.vue';
   import Input from '@/components/parts/Input.vue';
   import Select from '@/components/parts/Select.vue';
@@ -83,7 +83,6 @@
     setup() {
       return {
         localize,
-        ordinalSuffix,
         numberFormat,
         CONFIG,
         game
@@ -99,7 +98,7 @@
     },
     computed: {
       levelFormatted() {
-        return `${ordinalSuffix(this.actor.system.attributes.level.value ?? 0)} level`;
+        return game.archmage.ArchmageUtility.formatLevel(this.actor.system.attributes.level.value ?? 0);
       },
       sizeFormatted() {
         return CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value] ?? this.actor.system.details?.size?.value;
