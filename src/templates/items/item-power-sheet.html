@@ -282,7 +282,7 @@
                             <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
                             <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">
                                 {{#select this.tier.value}}
-                                {{#each featTiers as |name tier|}}
+                                {{#each ../featTiers as |name tier|}}
                                 <option value="{{tier}}">{{name}}</option>
                                 {{/each}}
                                 {{/select}}
