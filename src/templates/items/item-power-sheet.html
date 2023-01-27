@@ -278,6 +278,12 @@
                       <label>{{localize 'ARCHMAGE.feats'}}</label>
                       {{#each system.feats}}
                       <div class="form-group form-group-stacked">
+                          <div class="form-group flexrow">
+                            <span>+</span>
+                            <span>-</span>
+                            <span>u</span>
+                            <span>d</span>
+                          </div>
                           <div class="form-group">
                             <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
                             <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">

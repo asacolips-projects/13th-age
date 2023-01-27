@@ -249,6 +249,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Item listeners.
     html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
     html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
+    html.on('click', '.feat-uses', (event) => this._updateFeatQuantity(event, true));
+    html.on('contextmenu', '.feat-uses', (event) => this._updateFeatQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updatePips(event));
   }
 
@@ -803,8 +805,37 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // has become regularly used.
       let maxQuantity = item.system?.maxQuantity?.value ?? 99;
 
-      await item.update({'data.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
+      await item.update({'system.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
+  }
+
+  async _updateFeatQuantity(event, increase = true) {
+    event.preventDefault();
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+    let itemId = dataset.itemId;
+    let featIndex = dataset.itemFeatkey;
+
+    if (!itemId) return;
+
+    let item = this.actor.items.get(itemId);
+    if (!item) return;
+
+    let feat = item.system.feats[featIndex];
+    if (!feat) return;
+
+    // Update the quantity.
+    let newQuantity = Number(feat.quantity.value) ?? 0;
+    newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
+
+    // TODO: Refactor the fallback to not be absurdly high after maxQuantity
+    // has become regularly used.
+    let maxQuantity = feat.maxQuantity.value ?? 99;
+
+    let updateData = {};
+    updateData[`system.feats.${featIndex}.quantity.value`] = increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity);
+
+    await item.update(updateData, {});
   }
 
   async _updatePips(event) {
