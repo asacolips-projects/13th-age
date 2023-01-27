@@ -245,14 +245,10 @@ export default {
      * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
      */
     getActionShort(actionType) {
-      let actionTypes = {
-        'standard': 'STD',
-        'move': 'MOV',
-        'quick': 'QCK',
-        'free': 'FREE',
-        'interrupt': 'INT'
-      };
-      return actionTypes[actionType] ? actionTypes[actionType] : 'STD';
+      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
+        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
+      }
+      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
     },
     /**
      * Update the `powers` prop to be equal to a filtered version of the current
