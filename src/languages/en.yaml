@@ -459,6 +459,11 @@ ARCHMAGE:
     normalShort: Normal
     success: Succeeded
   EFFECT:
+    AE:
+      edit: Edit Effect
+      delete: Delete Effect
+      new: New Effect
+      toggle: Toggle Effect
     StatusAsleep: Asleep
     StatusBlessed: Blessed
     StatusBonusDefenses: Bonus Defenses
