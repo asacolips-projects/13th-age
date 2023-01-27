@@ -1028,6 +1028,7 @@ export class ActorArchmage extends Actor {
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
+      let itemUpdateData = {};
       let maxQuantity = item.system?.maxQuantity?.value ?? 1;
       if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
@@ -1041,9 +1042,7 @@ export class ActorArchmage extends Actor {
           || (item.system.powerUsage?.value == 'at-will'
           && item.system.quantity.value != null))
           && item.system.quantity.value < maxQuantity) {
-          await item.update({
-            'system.quantity': {value: maxQuantity}
-          });
+          itemUpdateData['system.quantity'] = {value: maxQuantity}
           templateData.items.push({
             key: item.name,
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
@@ -1070,6 +1069,24 @@ export class ActorArchmage extends Actor {
           }
         }
       }
+      // Feats
+      if (item.type == "power") {
+        for (let index of Object.keys(item.system.feats)) {
+          let feat = item.system.feats[index];
+          if (!feat.isActive?.value) continue;
+          let maxQuantity = feat.maxQuantity?.value;
+          if (feat.powerUsage?.value == 'once-per-battle' && maxQuantity && feat.quantity?.value < maxQuantity) {
+            itemUpdateData[`system.feats.${index}.quantity.value`] = maxQuantity;
+            let tier = game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`);
+            templateData.items.push({
+              key: `${item.name} - ${tier}`,
+              message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
+            });
+          }
+        }
+      }
+      // Update item
+      if ( !foundry.utils.isEmpty(itemUpdateData) ) await item.update(itemUpdateData);
     };
 
     // Print outcomes to chat
@@ -1153,20 +1170,37 @@ export class ActorArchmage extends Actor {
 
       if (item.type != 'power' && item.type != 'equipment') continue;
 
+      let itemUpdateData = {};
       let usageArray = ['once-per-battle','daily','recharge'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && item.system.quantity.value < maxQuantity
         && usageArray.includes(item.system.powerUsage?.value)) {
-        await item.update({
-          'system.quantity': {value: maxQuantity},
-          'system.rechargeAttempts': {value: 0}
-        });
+        itemUpdateData['system.quantity'] = {value: maxQuantity}
+        itemUpdateData['system.rechargeAttempts'] = {value: 0}
         templateData.items.push({
           key: item.name,
           message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
         });
       }
+      // Feats
+      if (item.type == "power") {
+        for (let index of Object.keys(item.system.feats)) {
+          let feat = item.system.feats[index];
+          if (!feat.isActive?.value) continue;
+          let maxQuantity = feat.maxQuantity?.value;
+          if (maxQuantity && feat.quantity?.value < maxQuantity && usageArray.includes(feat.powerUsage?.value)) {
+            itemUpdateData[`system.feats.${index}.quantity.value`] = maxQuantity;
+            let tier = game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`);
+            templateData.items.push({
+              key: `${item.name} - ${tier}`,
+              message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
+            });
+          }
+        }
+      }
+      // Update item
+      if ( !foundry.utils.isEmpty(itemUpdateData) ) await item.update(itemUpdateData);
     }
 
     // Print outcomes to chat
