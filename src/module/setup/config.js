@@ -356,6 +356,12 @@ ARCHMAGE.equipUsages = {
   'other': 'Other'
 };
 
+ARCHMAGE.featUsages = {
+  'daily': 'Daily',
+  'once-per-battle': 'Per Battle',
+  'other': 'Other'
+};
+
 ARCHMAGE.actionTypes = {
   'standard': 'Standard',
   'move': 'Move',

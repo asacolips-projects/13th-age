@@ -228,7 +228,6 @@ export default {
             break;
           }
         }
-
       }
       return hasFeats;
     },
