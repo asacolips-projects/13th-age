@@ -27,9 +27,9 @@
       <label>Ability Score</label>
       <select name="ability" data-dtype="String">
         {{#select defaultAbility}}
-          {{#each abilities as |ability_obj key|}}
-            <option value="{{ability_obj.mod}}" data-label="{{ability_obj.label}}">{{numberFormat ability_obj.mod decimals=0 sign=true}} {{ability_obj.label}}</option>
-          {{/each}}
+        {{#each abilities as |ability_obj key|}}
+          <option value="{{ability_obj.mod}}" data-label="{{localize (concatenate 'ARCHMAGE.' key '.label')}}">{{numberFormat ability_obj.mod decimals=0 sign=true}} {{localize (concatenate "ARCHMAGE." key ".label")}}</option>
+        {{/each}}
         {{/select}}
       </select>
     </div>

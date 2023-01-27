@@ -1215,8 +1215,8 @@ export class ActorArchmage extends Actor {
 
     if (abilityId) {
       abl = this.system.abilities[abilityId]  ?? null;
-      flavor = abl ? `${abl.label} Ability Check` : 'Ability Check';
-      abilityName = abl.label ? abl.label : '';
+      abilityName = abl?.label ? game.i18n.localize(`ARCHMAGE.${abilityId}.label`) : '';
+      flavor = abl ? `${abilityName} Ability Check` : 'Ability Check';
     }
 
     if (background) {
