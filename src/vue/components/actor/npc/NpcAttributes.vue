@@ -1,6 +1,20 @@
 <template>
   <section :class="'section section--attributes flexrow' + (headerCollapsed ? ' collapsed' : '')">
     <div class="unit unit--attributes grid grid-4col border-both">
+      <!-- HP -->
+      <div class="unit unit--has-max unit--hp">
+        <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
+        <Progress name="hp" :current="actor.system.attributes.hp.value" :temp="actor.system.attributes.hp.temp" :max="actor.system.attributes.hp.max"/>
+        <div class="resource flexrow">
+          <Input type="number" name="system.attributes.hp.value" class="resource-current" :actor="actor" reactive="true"/>
+          <span class="resource-separator">/</span>
+          <Input type="number" name="system.attributes.hp.max" class="resource-max" :actor="actor"/>
+        </div>
+        <div class="labeled-input flexrow">
+          <label for="system.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
+          <Input type="number" name="system.attributes.hp.temp" class="temp-hp" :actor="actor"/>
+        </div>
+      </div>
       <!-- Defenses -->
       <div class="unit unit--defenses">
         <h2 class="unit-title">{{localize('ARCHMAGE.defenses')}}</h2>
@@ -18,20 +32,6 @@
             <Input type="number" name="system.attributes.md.value" class="defense-value" :actor="actor"/>
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.md.label'), ' (', localize('ARCHMAGE.md.stats'), ')')">{{localize('ARCHMAGE.md.key')}}</h3>
           </div>
-        </div>
-      </div>
-      <!-- HP -->
-      <div class="unit unit--has-max unit--hp">
-        <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
-        <Progress name="hp" :current="actor.system.attributes.hp.value" :temp="actor.system.attributes.hp.temp" :max="actor.system.attributes.hp.max"/>
-        <div class="resource flexrow">
-          <Input type="number" name="system.attributes.hp.value" class="resource-current" :actor="actor" reactive="true"/>
-          <span class="resource-separator">/</span>
-          <Input type="number" name="system.attributes.hp.max" class="resource-max" :actor="actor"/>
-        </div>
-        <div class="labeled-input flexrow">
-          <label for="system.attributes.hp.temp" class="unit-subtitle">{{localize('ARCHMAGE.tempHp')}}</label>
-          <Input type="number" name="system.attributes.hp.temp" class="temp-hp" :actor="actor"/>
         </div>
       </div>
       <!-- Saving Throws -->
