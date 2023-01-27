@@ -27,10 +27,10 @@ export default class NaturalExactTrigger extends ITrigger {
     }
 
     triggersOn() {
-        return [ "natural" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase() ];
     }
 
     doesntTriggerOn() {
-        return [ "hit", "miss", "+" ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase()+':', game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase()+':', "+" ];
     }
 }
