@@ -341,7 +341,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Create the item.
     let itemData = {
-      name: 'New ' + game.i18n.localize(`ARCHMAGE.${itemType}`),
+      name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
       type: itemType,
       img: img,
       data: data
