@@ -6,14 +6,14 @@
         <input type="hidden" name="flags.archmage.sheetDisplay.powers.groupBy.value" v-model="groupBy"/>
         <label for="power-group">{{localize('ARCHMAGE.groupBy')}}</label>
         <select name="power-group" v-model="groupBy">
-          <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.',option.value))}}</option>
+          <option v-for="(option, index) in groupOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.GROUPS.', option.value))}}</option>
         </select>
       </div>
       <div class="sort-powers">
         <input type="hidden" name="flags.archmage.sheetDisplay.powers.sortBy.value" v-model="sortBy"/>
         <label for="power-sort">{{localize('ARCHMAGE.sort')}}</label>
         <select name="power-sort" v-model="sortBy">
-          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.',option.value))}}</option>
+          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
         </select>
       </div>
       <div class="filter-search-powers">
@@ -21,7 +21,7 @@
         <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
       <div class="import-powers">
-        <button class="item-import button" title="Create Power" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
+        <button class="item-import button" title="{{localize('ARCHMAGE.import')}}" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
     </header>
     <!-- Powers, by group. -->
@@ -29,7 +29,7 @@
       <div class="power-group-header">
         <!-- Group title and add button. -->
         <div class="power-header-title grid power-grid">
-          <h2 class="power-group-title unit-title">{{localize('ARCHMAGE.' + group.toLowerCase())}}</h2>
+          <h2 class="power-group-title unit-title">{{localize(group)}}</h2>
           <div class="item-controls">
             <a class="item-control item-create" data-item-type="power" :data-group-type="groupBy" :data-power-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
           </div>
@@ -122,7 +122,7 @@ export default {
     },
     /**
      * Retrieve the groups as a computed property. Stored as keyed object where
-     * the key is the machine name for the group and the value is the labe.
+     * the key is the machine name for the group and the value is the label.
      */
     groups() {
       let groups = {};
@@ -142,11 +142,11 @@ export default {
       // Handle custom groups.
       else if (this.groupBy == 'group'){
         this.powers.forEach(i => {
-          groups['power'] = 'Power';
+          groups['power'] = 'ARCHMAGE.power';
           if (i.system.group.value) {
             let group = i.system.group.value;
             if (!group || group === undefined) {
-              group = 'Power';
+              group = 'ARCHMAGE.power';
             }
             groups[this.cleanClassName(group)] = group;
           }
@@ -154,10 +154,10 @@ export default {
       }
       // Default to a 'power' group.
       else {
-        groups['power'] = 'Power';
+        groups['power'] = 'ARCHMAGE.power';
       }
       // Handle the fallback group.
-      if (!groups['other']) groups['other'] = `other`;
+      if (!groups['other']) groups['other'] = `ARCHMAGE.other`;
       // Return clean groups.
       return groups;
     },
@@ -182,7 +182,6 @@ export default {
       // Re-sort the powers.
       this.getPowers();
 
-      // let powers = this.actor.items.filter(i => i.type == 'power');
       let powersByGroup = this.powers.reduce((powerGroup, power) => {
         let group = 'power';
         let powerData = power.system;
