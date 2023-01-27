@@ -21,7 +21,7 @@
         <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
       <div class="import-powers">
-        <button class="item-import button" title="{{localize('ARCHMAGE.import')}}" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
+        <button class="item-import button" :title="localize('ARCHMAGE.import')" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
     </header>
     <!-- Powers, by group. -->
