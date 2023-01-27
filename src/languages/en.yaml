@@ -59,6 +59,7 @@ ARCHMAGE:
   initiative: Initiative
   interrupt: Interrupt Action
   inventory: Inventory
+  item: Item
   jabWeaponDice: JAB Weapon Dice
   keyMod: Key Modifier
   keyReduced: Reduced to {mod} due to {kmod1}/{kmod2} key modifier
