@@ -102,7 +102,22 @@ ARCHMAGE:
   rchg: Rchg.
   recharge: Recharge
   recoveries: Recoveries
+  recovery: Recovery
+  recoveryAdventurer: Potion (Adv.)
+  recoveryAdventurerFull: Adventurer Potion
+  recoveryChampion: Potion (Cha.)
+  recoveryChampionFull: Champion Potion
+  recoveryChatTitle: "{recovery} Recovery"
+  recoveryChatTitleHalf: "{recovery} (Half)"
   recoveryDice: Recovery Dice
+  recoveryEpic: Potion (Epic)
+  recoveryEpicFull: Epic Potion
+  recoveryFree: Free
+  recoveryFreeChat: Free
+  recoveryIconic: Potion (Iconic)
+  recoveryIconicFull: Iconic Potion
+  recoveryNormal: Normal
+  recoveryRoll: Recovery Roll
   resistance: Resistance
   role: Role
   saves: Saves
