@@ -1,4 +1,4 @@
-<form class="effect-sheet item-sheet editable" autocomplete="off">
+<form class="archmage effect-sheet item-sheet editable" autocomplete="off">
 
     <!-- Effect Header -->
     <header class="sheet-header">
@@ -21,7 +21,7 @@
                         <label>{{ localize "EFFECT.Icon" }}</label>
                         <div class="form-fields">
                             {{filePicker target="icon" type="image"}}
-                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{icon}}"/>
+                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.icon}}"/>
                         </div>
                     </div>
 
@@ -45,6 +45,13 @@
                         <div class="form-fields">
                             <input type="checkbox" name="effect.transfer" {{checked effect.transfer}}/>
                         </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if supportsDescription}}
+                    <div class="form-group stacked description">
+                        <label>{{ localize "EFFECT.Description" }}</label>
+                        {{editor descriptionHTML target="description" button=true editable=editable engine="prosemirror" collaborate=false}}
                     </div>
                     {{/if}}
                 </section>
@@ -118,6 +125,12 @@
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.arcaneAttackBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
+                               data-dtype="Number" placeholder="0" />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.critModBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.critMod.atk.value" type="text" value="{{system.attributes.critMod.atk.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 

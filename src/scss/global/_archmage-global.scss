@@ -562,6 +562,12 @@ input[type="checkbox"] {
     }
   }
 
+  &.effect-sheet {
+    .description {
+      height: 50%;
+    }
+  }
+
   &.item-sheet {
 
     .editor-content {
