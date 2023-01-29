@@ -117,6 +117,8 @@ ARCHMAGE:
   recovery: Recovery
   recoveryAdventurer: Potion (Adv.)
   recoveryAdventurerFull: Adventurer Potion
+  recoveryApplyHealingLabel: Apply healing?
+  recoveryBonusLabel: Recovery bonus?
   recoveryChampion: Potion (Cha.)
   recoveryChampionFull: Champion Potion
   recoveryChatTitle: "{recovery} Recovery"
@@ -133,6 +135,7 @@ ARCHMAGE:
   resistance: Resistance
   role: Role
   rollAdvantageShort: Adv.
+  rollAverageLabel: Average roll?
   rollBonus: Situational Bonus?
   rollBonusPlaceholder: e.g. +1d4
   rollDisadvantageShort: Dis.
