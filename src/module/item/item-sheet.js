@@ -218,80 +218,77 @@ export class ItemArchmageSheet extends ItemSheet {
     let featIndex = dataset.featkey;
     let feats = item.system.feats;
 
-    // let change = (() => {return;});
+    let change = (async () => {return;});
     switch(dataset.action) {
       case 'add':
-        if (feats) feats = Object.values(feats);
-        else feats = [];
-        feats.push({
-          "description": {
-            "type": "String",
-            "value": ""
-          },
-          "isActive": {
-            "type": "Boolean",
-            "value": false
-          },
-          "tier": {
-            "type": "String",
-            "value": "adventurer"
-          },
-          "powerUsage": {
-            "type": "String",
-            "value": ""
-          },
-          "quantity": {
-            "type": "Number",
-            "value": null
-          },
-          "maxQuantity": {
-            "type": "Number",
-            "value": null
-          }
+        change = (async () => {
+          if (feats) feats = Object.values(feats);
+          else feats = [];
+          feats.push({
+            "description": {
+              "type": "String",
+              "value": ""
+            },
+            "isActive": {
+              "type": "Boolean",
+              "value": false
+            },
+            "tier": {
+              "type": "String",
+              "value": "adventurer"
+            },
+            "powerUsage": {
+              "type": "String",
+              "value": ""
+            },
+            "quantity": {
+              "type": "Number",
+              "value": null
+            },
+            "maxQuantity": {
+              "type": "Number",
+              "value": null
+            }
+          });
+          await item.update({'system.feats': Object.assign({}, feats)});
         });
-        await item.update({'system.feats': Object.assign({}, feats)});
         break;
       case 'del':
-        delete feats[featIndex];
-        feats = Object.assign({}, Object.values(feats));
-        // Double update to work arounde core's inability to recognize that the new object lacks a key
-        await item.update({'system.feats': null});
-        await item.update({'system.feats': feats});
-        break;
-    }
-
-    // let bypass = event.shiftKey ? true : false;
-    // if (bypass) {
-      // change();
-      // return;
-    // }
-
-    // TODO: implement this once core plays ball with updates
-/*    // Delete the feat from the item object.
-     let del = false;
-    new Dialog({
-      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
-      buttons: {
-        del: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-          callback: () => {del = true;}
-        },
-        cancel: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => {}
-        }
-      },
-      default: 'cancel',
-      close: html => {
-        if (del) {
+        change = (async () => {
           delete feats[featIndex];
           feats = Object.assign({}, Object.values(feats));
           // Double update to work arounde core's inability to recognize that the new object lacks a key
           await item.update({'system.feats': null});
           await item.update({'system.feats': feats});
-        }
-      }
-    }).render(true); */
+        });
+        break;
+      case 'up':
+        change = (async () => {
+          featIndex = Number(featIndex);
+          if (featIndex == 0) return;
+          feats = Object.values(feats);
+          let tmp = feats[featIndex - 1];
+          feats[featIndex - 1] = feats[featIndex];
+          feats[featIndex] = tmp
+          // await item.update({'system.feats': null});
+          await item.update({'system.feats': Object.assign({}, feats)});
+        });
+        break;
+      case 'down':
+        change = (async () => {
+          feats = Object.values(feats);
+          featIndex = Number(featIndex);
+          if (featIndex >= feats.length - 1) return;
+          let tmp = feats[featIndex + 1];
+          feats[featIndex + 1] = feats[featIndex];
+          feats[featIndex] = tmp
+          // await item.update({'system.feats': null});
+          await item.update({'system.feats': Object.assign({}, feats)});
+        });
+        break;
+    }
+
+    await change();
   }
 
 }
