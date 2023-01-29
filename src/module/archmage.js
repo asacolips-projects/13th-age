@@ -50,7 +50,7 @@ Hooks.once('init', async function() {
   });
 
   Handlebars.registerHelper('getPowerClass', (inputString) => {
-    // Get the appropriate usage.
+    // Get the appropriate usage. TODO: likely needs to be localized?
     let usage = 'other';
     let usageString = inputString !== null ? inputString.toLowerCase() : '';
     if (usageString.includes('will')) {
@@ -112,10 +112,13 @@ Hooks.once('init', async function() {
 
   // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
+  Items.registerSheet("archmage", ItemArchmageSheet, {
+    label: game.i18n.localize('ARCHMAGE.sheetItem'),
+    makeDefault: true
+  });
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
-    label: "Toolkit13 Active Effect Sheet",
+    label: game.i18n.localize('ARCHMAGE.sheetActiveEffect'),
     makeDefault: true
   });
 
@@ -178,14 +181,14 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet('core', ActorSheet);
 
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
-    label: "NPC Sheet",
+    label: game.i18n.localize('ARCHMAGE.sheetNPC'),
     types: ["npc"],
     makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
   Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-    label: "Character Sheet",
+    label: game.i18n.localize('ARCHMAGE.sheetCharacter'),
     types: ["character"],
     makeDefault: true
   });
@@ -707,6 +710,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).off("contextmenu");
 
     // console.log($(this).parent()[0].innerText);
+    // TODO: Likely needs to be localized
     if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
       return;
     }
