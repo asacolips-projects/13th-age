@@ -212,9 +212,8 @@ export class ItemArchmageSheet extends ItemSheet {
     let itemId = dataset.itemId;
     if (!itemId) return;
 
-    let item = this.actor.items.get(itemId);
-    if (!item) return;
-    if (item.type != "power") return;
+    let item = this.item;
+    if (!item || item.type != "power") return;
 
     let featIndex = dataset.featkey;
     let feats = item.system.feats;
