@@ -38,6 +38,17 @@
         <input type="checkbox" name="system.resources.perCombat.momentum.current" v-model="momentum">
       </div>
     </section>
+    <!-- Combat Rhythm -->
+    <section v-if="actor.system.resources.perCombat.rhythm.enabled" class="unit unit--rhythm">
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm')}}</h2>
+      <div class="resource flexrow">
+        <select name="system.resources.perCombat.rhythm.current" v-model="rhythm">
+          <option value="none">{{localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.none')}}</option>
+          <option value="offense">{{localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense')}}</option>
+          <option value="defense">{{localize('ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense')}}</option>
+        </select>
+      </div>
+    </section>
     <!-- Disengage -->
     <section class="unit unit--disengage">
       <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
@@ -98,7 +109,8 @@ export default {
       disengage: {
         value: 11,
         bonus: 0
-      }
+      },
+      rhythm: 'none'
     }
   },
   computed: {
@@ -115,6 +127,7 @@ export default {
       if (this.actor.system.resources.spendable.ki.enabled) count++;
       if (this.actor.system.resources.perCombat.focus.enabled) count++;
       if (this.actor.system.resources.perCombat.momentum.enabled) count++;
+      if (this.actor.system.resources.perCombat.rhythm.enabled) count++;
       return count;
     },
     customResourceCount() {
@@ -128,6 +141,7 @@ export default {
       this.momentum = this.actor.system.resources.perCombat.momentum.current;
       this.focus = this.actor.system.resources.perCombat.focus.current;
       this.ki = this.actor.system.resources.spendable.ki;
+      this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
       this.disengage = {
         value: this.actor.system.attributes.disengage,
         bonus: this.actor.system.attributes.disengageBonus
