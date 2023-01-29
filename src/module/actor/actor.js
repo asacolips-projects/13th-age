@@ -1222,21 +1222,25 @@ export class ActorArchmage extends Actor {
     let backgroundName = '';
 
     if (abilityId) {
-      abl = this.system.abilities[abilityId]  ?? null;
+      abl = this.system.abilities[abilityId] ?? null;
       abilityName = abl?.label ? game.i18n.localize(`ARCHMAGE.${abilityId}.label`) : '';
-      flavor = abl ? `${abilityName} Ability Check` : 'Ability Check';
+      if (abl) {
+        flavor = game.i18n.format('ARCHMAGE.checkSkillFormat', { name: abilityName });
+      } else {
+        flavor = game.i18n.localize('ARCHMAGE.checkSkill');
+      }
     }
 
-    if (background) {
+    if (background !== null) {
       bg = Object.entries(this.system.backgrounds).find(([k,v]) => {
         return v.name.value && (v.name.value.safeCSSId() == background.safeCSSId());
       });
       if (bg) {
-        flavor = `${bg[1].name.value} Background Check`;
+        flavor = game.i18n.format('ARCHMAGE.checkBackgroundFormat', {name: bg[1].name.value});
         backgroundName = Number(bg[1].bonus.value) >= 0 ? `+${bg[1].bonus.value} ${bg[1].name.value}` : `${bg[1].bonus.value} ${bg[1].name.value}`;
       }
       else {
-        flavor = 'Background Check';
+        flavor = game.i18n.localize('ARCHMAGE.checkBackground');
       }
     }
 

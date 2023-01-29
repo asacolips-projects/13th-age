@@ -1,6 +1,7 @@
 ARCHMAGE:
   abilities: Abilities
   abilityName: Ability Name
+  abilityScore: Ability Score
   act: Act.
   action: Action
   actions: Actions
@@ -10,6 +11,7 @@ ARCHMAGE:
   attackMod: Attack Modifier
   attributes: Attributes
   avatarAlt: Character profile image
+  background: Background
   backgrounds: Backgrounds
   baseAC: Base AC
   baseHP: Base HP
@@ -25,6 +27,10 @@ ARCHMAGE:
   calculateHP: Calculate Max HP?
   calculateRecoveries: Calculate Max Recoveries?
   chakra: Chakra
+  checkBackground: Background Check
+  checkBackgroundFormat: "{name} Background Check"
+  checkSkill: Skill Check
+  checkSkillFormat: "{name} Skill Check"
   class: Class
   conflicted: Conflicted
   critModAtk: Crit Modifier (Attack)
@@ -120,6 +126,13 @@ ARCHMAGE:
   recoveryRoll: Recovery Roll
   resistance: Resistance
   role: Role
+  rollAdvantageShort: Adv.
+  rollBonus: Situational Bonus?
+  rollBonusPlaceholder: e.g. +1d4
+  rollDisadvantageShort: Dis.
+  rollFormula: Formula
+  rollMode: Roll Mode
+  rollNormal: Normal
   saves: Saves
   size: Size
   sort: Sort
