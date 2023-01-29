@@ -801,8 +801,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let newQuantity = Number(item.system.quantity.value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
-      // TODO: Refactor the fallback to not be absurdly high after maxQuantity
-      // has become regularly used.
+      // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
       let maxQuantity = item.system?.maxQuantity?.value ?? 99;
 
       await item.update({'system.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
@@ -828,8 +827,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let newQuantity = Number(feat.quantity.value) ?? 0;
     newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
-    // TODO: Refactor the fallback to not be absurdly high after maxQuantity
-    // has become regularly used.
+    // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
     let maxQuantity = feat.maxQuantity.value ?? 99;
 
     let updateData = {};

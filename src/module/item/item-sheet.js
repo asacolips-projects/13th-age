@@ -210,7 +210,7 @@ export class ItemArchmageSheet extends ItemSheet {
     let dataset = target.dataset;
 
     let item = this.item;
-    if (!item || item.type != "power") return;
+    if (item.type != "power") return;
 
     let featIndex = dataset.featkey;
     let feats = item.system.feats;
@@ -268,7 +268,7 @@ export class ItemArchmageSheet extends ItemSheet {
         feats = Object.values(feats);
         featIndex = Number(featIndex);
         if (featIndex >= feats.length - 1) return;
-        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex - 1], feats[featIndex + 1]]
+        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]]
         await item.update({'system.feats': Object.assign({}, feats)});
         return;
     }
@@ -278,8 +278,6 @@ export class ItemArchmageSheet extends ItemSheet {
       await change();
       return;
     }
-
-    // Delete the item from the actor object.
     let del = false;
     new Dialog({
       title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
