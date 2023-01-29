@@ -235,6 +235,7 @@ export default {
      * Filter empty feats
      */
     filterFeats(feats) {
+      if (!feats) return {};
       let res = {};
       for (let [index, feat] of Object.entries(feats)) {
         if (feat.description.value) res[index] = feat;

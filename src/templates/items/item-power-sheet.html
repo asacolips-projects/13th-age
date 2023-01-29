@@ -274,16 +274,26 @@
                       <input type="text" name="system.rollTable.value" value="{{system.rollTable.value}}" data-dtype="{{system.rollTable.type}}" placeholder="Sneak Attack"/>
                   </div>
 
-                  <details class="form-details" open="true">
-                      <label>{{localize 'ARCHMAGE.feats'}}</label>
-                      {{#each system.feats}}
-                      <div class="form-group form-group-stacked">
-                          <div class="form-group flexrow">
-                            <span>+</span>
-                            <span>-</span>
-                            <span>u</span>
-                            <span>d</span>
-                          </div>
+                  <div class="form-group form-group-stacked">
+                      <details class="form-details" open="true">
+                        <summary>{{localize 'ARCHMAGE.feats'}}</summary>
+                          <span>
+                              <a class="feat-edit" title="Create Feat" data-item-id="{{item._id}}" data-action="add">
+                                  <i class="fas fa-plus"></i>
+                              </a>
+                          </span>
+                          {{#each system.feats as |feat key|}}
+                          <span>
+                              <a class="feat-edit" title="Delete Feat" data-item-id="{{../item._id}}" data-featKey="{{key}}" data-action="del">
+                                  <i class="fas fa-minus"></i>
+                              </a>
+                              <a class="feat-edit" title="Move Feat Up" data-item-id="{{../item._id}}" data-featKey="{{key}}" data-action="up">
+                                  <i class="fas fa-angle-up"></i>
+                              </a>
+                              <a class="feat-edit" title="Move Feat Down" data-item-id="{{../item._id}}" data-featKey="{{key}}" data-action="down">
+                                  <i class="fas fa-angle-down"></i>
+                              </a>
+                          </span>
                           <div class="form-group">
                             <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
                             <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">
@@ -324,9 +334,9 @@
                             <input class="attribute-input" name="system.feats.{{@key}}.maxQuantity.value" type="text" value="{{this.maxQuantity.value}}"
                                 data-dtype="{{this.maxQuantity.type}}" placeholder="TODONumber of uses per battle/day, usually 1" />
                           </div>
-                      </div>
-                      {{/each}}
-                  </details>
+                          {{/each}}
+                      </details>
+                  </div>
 
                   {{#if sequencerEnabled }}
                   <div class="form-group form-group-stacked">

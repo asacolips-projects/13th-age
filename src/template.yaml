@@ -641,63 +641,25 @@ Item:
       label: Roll Table
       value: ''
     feats:
-      0:
-        description:
-          type: String
-          value: ''
-        isActive:
-          type: Boolean
-          value: false
-        tier:
-          type: String
-          value: 'adventurer'
-        powerUsage:
-          type: String
-          value: ''
-        quantity:
-          type: Number
-          value: null
-        maxQuantity:
-          type: Number
-          value: null
-      1:
-        description:
-          type: String
-          value: ''
-        isActive:
-          type: Boolean
-          value: false
-        tier:
-          type: String
-          value: 'champion'
-        powerUsage:
-          type: String
-          value: ''
-        quantity:
-          type: Number
-          value: null
-        maxQuantity:
-          type: Number
-          value: null
-      2:
-        description:
-          type: String
-          value: ''
-        isActive:
-          type: Boolean
-          value: false
-        tier:
-          type: String
-          value: 'epic'
-        powerUsage:
-          type: String
-          value: ''
-        quantity:
-          type: Number
-          value: null
-        maxQuantity:
-          type: Number
-          value: null
+      # 0:
+        # description:
+          # type: String
+          # value: ''
+        # isActive:
+          # type: Boolean
+          # value: false
+        # tier:
+          # type: String
+          # value: 'adventurer'
+        # powerUsage:
+          # type: String
+          # value: ''
+        # quantity:
+          # type: Number
+          # value: null
+        # maxQuantity:
+          # type: Number
+          # value: null
     embeddedMacro:
       type: String
       label: Embedded Macro

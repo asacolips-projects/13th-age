@@ -813,14 +813,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     event.preventDefault();
     let target = event.currentTarget;
     let dataset = target.dataset;
-    let itemId = dataset.itemId;
-    let featIndex = dataset.itemFeatkey;
 
+    let itemId = dataset.itemId;
     if (!itemId) return;
 
     let item = this.actor.items.get(itemId);
     if (!item) return;
 
+    let featIndex = dataset.itemFeatkey;
     let feat = item.system.feats[featIndex];
     if (!feat) return;
 

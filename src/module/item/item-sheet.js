@@ -193,9 +193,108 @@ export class ItemArchmageSheet extends ItemSheet {
         }).on('change', (instance) => instance.save());
       }
     }
-  }
-}
 
+    // Feat buttons
+    html.on('click', '.feat-edit', (event) => this._updateFeat(event));
+  }
+
+  /**
+   * Add/delete/reorder feats on a power.
+   *
+   * @param {Event} event
+   *   Html event that triggered the method.
+   */
+  async _updateFeat(event) {
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    let itemId = dataset.itemId;
+    if (!itemId) return;
+
+    let item = this.actor.items.get(itemId);
+    if (!item) return;
+    if (item.type != "power") return;
+
+    let featIndex = dataset.featkey;
+    let feats = item.system.feats;
+
+    // let change = (() => {return;});
+    switch(dataset.action) {
+      case 'add':
+        if (feats) feats = Object.values(feats);
+        else feats = [];
+        feats.push({
+          "description": {
+            "type": "String",
+            "value": ""
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": false
+          },
+          "tier": {
+            "type": "String",
+            "value": "adventurer"
+          },
+          "powerUsage": {
+            "type": "String",
+            "value": ""
+          },
+          "quantity": {
+            "type": "Number",
+            "value": null
+          },
+          "maxQuantity": {
+            "type": "Number",
+            "value": null
+          }
+        });
+        await item.update({'system.feats': Object.assign({}, feats)});
+        break;
+      case 'del':
+        delete feats[featIndex];
+        feats = Object.assign({}, Object.values(feats));
+        // Double update to work arounde core's inability to recognize that the new object lacks a key
+        await item.update({'system.feats': null});
+        await item.update({'system.feats': feats});
+        break;
+    }
+
+    // let bypass = event.shiftKey ? true : false;
+    // if (bypass) {
+      // change();
+      // return;
+    // }
+
+    // TODO: implement this once core plays ball with updates
+/*    // Delete the feat from the item object.
+     let del = false;
+    new Dialog({
+      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+      buttons: {
+        del: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+          callback: () => {del = true;}
+        },
+        cancel: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+          callback: () => {}
+        }
+      },
+      default: 'cancel',
+      close: html => {
+        if (del) {
+          delete feats[featIndex];
+          feats = Object.assign({}, Object.values(feats));
+          // Double update to work arounde core's inability to recognize that the new object lacks a key
+          await item.update({'system.feats': null});
+          await item.update({'system.feats': feats});
+        }
+      }
+    }).render(true); */
+  }
+
+}
 
 
 Hooks.once('ready', async function () {

@@ -98,7 +98,8 @@ export default {
      * Filter empty feats
      */
     filterFeats(featObj) {
-      let res = {}
+      if (!featObj) return {};
+      let res = {};
       for (let [tier, feat] of Object.entries(featObj)) {
         if (feat.description.value) res[tier] = feat;
       }
