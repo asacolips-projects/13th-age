@@ -8,6 +8,7 @@ export class ItemArchmageSheet extends ItemSheet {
    */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
+      scrollY: ['.archmage-aip'],
       classes: super.defaultOptions.classes.concat(['archmage', 'item', 'item-sheet']),
       template: 'systems/archmage/templates/item-power-sheet.html',
       height: 550,
