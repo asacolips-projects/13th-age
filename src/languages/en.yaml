@@ -33,6 +33,12 @@ ARCHMAGE:
   checkSkillFormat: "{name} Skill Check"
   class: Class
   conflicted: Conflicted
+  contextApplyDamage: Apply as Damage
+  contextApplyDamageHalf: Apply as Half Damage
+  contextApplyDamageDouble: Apply as Double Damage
+  contextApplyDamageTriple: Apply as Triple Damage
+  contextApplyHealing: Apply as Healing
+  contextApplyTempHealth: Apply as Temp Health
   critModAtk: Crit Modifier (Attack)
   critModDef: Crit Modifier (Defense)
   daily: Daily

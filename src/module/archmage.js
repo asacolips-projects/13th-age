@@ -713,42 +713,42 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
     new ContextMenu2($(this).parent(), "." + uuid, [
       {
-        name: "Apply as Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, 1);
         }
       },
       {
-        name: "Apply as Half Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, .5);
         }
       },
       {
-        name: "Apply as Double Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, 2);
         }
       },
       {
-        name: "Apply as Triple Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, 3);
         }
       },
       {
-        name: "Apply as Healing",
+        name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
         icon: '<i class="fas fa-medkit"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asHealing(inlineRoll);
         }
       },
       {
-        name: "Apply as Temp Health",
+        name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
         icon: '<i class="fas fa-heart"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asTempHealth(inlineRoll);
