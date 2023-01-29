@@ -310,12 +310,12 @@ ARCHMAGE:
   ITEM:
     acBonus: AC Bonus
     active: Active
-    arcaneAttackBonus: Arcane Spell / Arcane Attack Bonus
+    arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
     chakraSlot: Chakra Slot
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
-    divineAttackBonus: Divine Spell / Divine Attack Bonus
+    divineBonus: Divine Spell / Divine Attack Bonus
     critModBonus: Critical Hit Modifier Bonu
     critModBonusHint: +1 means you would crit on 19-20, etc
     critDefBonus: Critical Hit Defense Bonus
@@ -323,10 +323,10 @@ ARCHMAGE:
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     mdBonus: MD Bonus
-    meleeAttackBonus: Melee Attack Bonus
+    meleeBonus: Melee Attack Bonus
     pdBonus: PD Bonus
     price: Price
-    rangedAttackBonus: Ranged Attack Bonus
+    rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
     saveBonus: Save Bonus
   CHAKRA:
