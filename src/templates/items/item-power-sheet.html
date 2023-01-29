@@ -278,19 +278,19 @@
                       <details class="form-details" open="true">
                         <summary>{{localize 'ARCHMAGE.feats'}}</summary>
                           <span>
-                              <a class="feat-edit" title="Create Feat" data-item-id="{{item._id}}" data-action="add">
+                              <a class="feat-edit" title="Create Feat" data-action="add">
                                   <i class="fas fa-plus"></i>
                               </a>
                           </span>
                           {{#each system.feats as |feat key|}}
                           <span>
-                              <a class="feat-edit" title="Delete Feat" data-item-id="{{../item._id}}" data-featKey="{{key}}" data-action="del">
+                              <a class="feat-edit" title="Delete Feat" data-featKey="{{key}}" data-action="del">
                                   <i class="fas fa-minus"></i>
                               </a>
-                              <a class="feat-edit" title="Move Feat Up" data-item-id="{{../item._id}}" data-featKey="{{key}}" data-action="up">
+                              <a class="feat-edit" title="Move Feat Up" data-featKey="{{key}}" data-action="up">
                                   <i class="fas fa-angle-up"></i>
                               </a>
-                              <a class="feat-edit" title="Move Feat Down" data-item-id="{{../item._id}}" data-featKey="{{key}}" data-action="down">
+                              <a class="feat-edit" title="Move Feat Down" data-featKey="{{key}}" data-action="down">
                                   <i class="fas fa-angle-down"></i>
                               </a>
                           </span>

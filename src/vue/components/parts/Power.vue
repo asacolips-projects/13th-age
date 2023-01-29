@@ -27,7 +27,7 @@
         <div class="flexrow">
           <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
           <div class="feat-uses" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity.value">
-            <!-- <a class="rollable" data-roll-type="feat" :data-roll-opt="index">{{localize(concat('ARCHMAGE.', index, '.label'))}}</a> -->
+            <!-- <a class="rollable" data-roll-type="feat" :data-item-id="power._id" :data-item-featKey="index"></a> -->
             <span v-if="feat.quantity.value !== null">{{feat.quantity.value}}</span>
           </div>
         </div>

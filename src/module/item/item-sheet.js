@@ -209,9 +209,6 @@ export class ItemArchmageSheet extends ItemSheet {
     let target = event.currentTarget;
     let dataset = target.dataset;
 
-    let itemId = dataset.itemId;
-    if (!itemId) return;
-
     let item = this.item;
     if (!item || item.type != "power") return;
 
@@ -221,38 +218,36 @@ export class ItemArchmageSheet extends ItemSheet {
     let change = (async () => {return;});
     switch(dataset.action) {
       case 'add':
-        change = (async () => {
-          if (feats) feats = Object.values(feats);
-          else feats = [];
-          feats.push({
-            "description": {
-              "type": "String",
-              "value": ""
-            },
-            "isActive": {
-              "type": "Boolean",
-              "value": false
-            },
-            "tier": {
-              "type": "String",
-              "value": "adventurer"
-            },
-            "powerUsage": {
-              "type": "String",
-              "value": ""
-            },
-            "quantity": {
-              "type": "Number",
-              "value": null
-            },
-            "maxQuantity": {
-              "type": "Number",
-              "value": null
-            }
-          });
-          await item.update({'system.feats': Object.assign({}, feats)});
+        if (feats) feats = Object.values(feats);
+        else feats = [];
+        feats.push({
+          "description": {
+            "type": "String",
+            "value": ""
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": false
+          },
+          "tier": {
+            "type": "String",
+            "value": "adventurer"
+          },
+          "powerUsage": {
+            "type": "String",
+            "value": ""
+          },
+          "quantity": {
+            "type": "Number",
+            "value": null
+          },
+          "maxQuantity": {
+            "type": "Number",
+            "value": null
+          }
         });
-        break;
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
       case 'del':
         change = (async () => {
           delete feats[featIndex];
@@ -263,31 +258,23 @@ export class ItemArchmageSheet extends ItemSheet {
         });
         break;
       case 'up':
-        change = (async () => {
-          featIndex = Number(featIndex);
-          if (featIndex == 0) return;
-          feats = Object.values(feats);
-          let tmp = feats[featIndex - 1];
-          feats[featIndex - 1] = feats[featIndex];
-          feats[featIndex] = tmp
-          await item.update({'system.feats': Object.assign({}, feats)});
-        });
-        break;
+        featIndex = Number(featIndex);
+        if (featIndex == 0) return;
+        feats = Object.values(feats);
+        [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]]
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
       case 'down':
-        change = (async () => {
-          feats = Object.values(feats);
-          featIndex = Number(featIndex);
-          if (featIndex >= feats.length - 1) return;
-          let tmp = feats[featIndex + 1];
-          feats[featIndex + 1] = feats[featIndex];
-          feats[featIndex] = tmp
-          await item.update({'system.feats': Object.assign({}, feats)});
-        });
-        break;
+        feats = Object.values(feats);
+        featIndex = Number(featIndex);
+        if (featIndex >= feats.length - 1) return;
+        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex - 1], feats[featIndex + 1]]
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
     }
 
     let bypass = event.shiftKey ? true : false;
-    if (dataset.action != 'del' || bypass) {
+    if (bypass) {
       await change();
       return;
     }
