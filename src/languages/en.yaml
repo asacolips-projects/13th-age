@@ -212,6 +212,7 @@ ARCHMAGE:
   CHARACTER:
     RESOURCES:
       commandPoints: Command Points
+      commandPointsGained: Gained {points} command points.
       custom1: Custom Resource 1
       custom2: Custom Resource 2
       custom3: Custom Resource 3
