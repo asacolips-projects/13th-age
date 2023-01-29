@@ -316,7 +316,10 @@ ARCHMAGE:
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
     divineAttackBonus: Divine Spell / Divine Attack Bonus
-    critModBonus: Critical Hit Modifier Bonus (+1 means crit on 19-20, etc)
+    critModBonus: Critical Hit Modifier Bonu
+    critModBonusHint: +1 means you would crit on 19-20, etc
+    critDefBonus: Critical Hit Defense Bonus
+    critDefBonusHint: +1 means something that would crit you on 19-20 only crits on 20.
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     mdBonus: MD Bonus

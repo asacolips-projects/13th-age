@@ -124,6 +124,11 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         value: formData.system.attributes.disengage,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
+      {
+        key: "system.attributes.critMod.def.value",
+        value: formData.system.attributes.critMod.def.value,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      },
     ];
 
     // Update the existing changes to replace duplicates.

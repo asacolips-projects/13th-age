@@ -78,6 +78,8 @@ export default {
           .replace("save", "Save Bonus")
           .replace("disengage", "Disengage Bonus")
           .replace("recoveries", "Recoveries")
+          .replace("critMod.atk", "Critical Hit Bonus")
+          .replace("critMod.def", "Critical Hit Defense")
           .replace("value", "")
           .replaceAll(".", " ")
           .replace("ac ", "Armor Class");
@@ -88,17 +90,23 @@ export default {
         'question',
         'times',
         'plus',
+        "minus",
         'angle-double-down',
         'angle-double-up',
         'undo'
       ]
       effect.changes.forEach(c => {
         if (c.key && c.value) {
-          changes.push({
+          let change = {
             label: this.cleanLabel(c.key),
             mode: modes[c.mode],
             value: c.value
-          });
+          };
+          if (change.mode === "plus" && change.value < 0) {
+            change.mode = "minus";
+            change.value = Math.abs(change.value);
+          }
+          changes.push(change);
         }
       })
       return changes;
