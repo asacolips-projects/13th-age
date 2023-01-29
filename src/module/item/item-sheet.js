@@ -270,7 +270,6 @@ export class ItemArchmageSheet extends ItemSheet {
           let tmp = feats[featIndex - 1];
           feats[featIndex - 1] = feats[featIndex];
           feats[featIndex] = tmp
-          // await item.update({'system.feats': null});
           await item.update({'system.feats': Object.assign({}, feats)});
         });
         break;
@@ -282,15 +281,37 @@ export class ItemArchmageSheet extends ItemSheet {
           let tmp = feats[featIndex + 1];
           feats[featIndex + 1] = feats[featIndex];
           feats[featIndex] = tmp
-          // await item.update({'system.feats': null});
           await item.update({'system.feats': Object.assign({}, feats)});
         });
         break;
     }
 
-    await change();
-  }
+    let bypass = event.shiftKey ? true : false;
+    if (dataset.action != 'del' || bypass) {
+      await change();
+      return;
+    }
 
+    // Delete the item from the actor object.
+    let del = false;
+    new Dialog({
+      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+      buttons: {
+        del: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+          callback: async () => {del = true;}
+        },
+        cancel: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+          callback: async () => {}
+        }
+      },
+      default: 'cancel',
+      close: async html => {
+        if (del) await change();
+      }
+    }).render(true);
+  }
 }
 
 
