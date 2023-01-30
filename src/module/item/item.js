@@ -29,45 +29,85 @@ export class ItemArchmage extends Item {
    * @return {Promise}
    */
   async roll() {
-    // Update uses left
-    let uses = this.system.quantity?.value;
-    if (uses == null) {
-      return this._roll_resource_check({});
-    } else {
-      let updateData = {"system.quantity.value": Math.max(uses - 1, 0)};
-      if (uses == 0 && !event.shiftKey && this.type == "power"
-        && this.system.powerUsage.value != 'at-will') {
-        let use = false;
-        new Dialog({
-          title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
-          content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
-          buttons: {
-            use: {
-              label: game.i18n.localize("ARCHMAGE.CHAT.Use"),
-              callback: () => {use = true;}
-            },
-            cancel: {
-              label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-              callback: () => {}
-            }
-          },
-          default: 'cancel',
-          close: html => {
-            if (use) {
-              return this._roll_resource_check(updateData);
-            }
-          }
-        }).render(true);
-      } else {
-        return this._roll_resource_check(updateData);
-      }
-    }
+    let itemUpdateData = {};
+    let actorUpdateData = {};
+    let itemOverrideData = {};
+
+    // First check remaining uses.
+    let early_exit = await this._rollUsesCheck(itemUpdateData);
+    if (early_exit) return;
+
+    // Then check resources.
+    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData);
+    if (early_exit) return;
+
+    // Check targets.
+    let targets = await this._rollMultiTargets(itemOverrideData);
+
+    // Make an ephemeral clone of the item with the modifications we made earlier.
+    let itemToRender = this.clone(itemOverrideData, {"save": false, "keepId": true});
+
+    // Prepare roll data now.
+    let rollData = itemToRender.actor.getRollData(this);
+
+    // Handle roll table.
+    await this._rollHandleRollTable(itemToRender, rollData);
+
+    // Get token.
+    let token = this._rollGetToken(itemToRender);
+
+    // Render the chat card.
+    let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token);
+
+    // Evaluate outcomes and prepare animations.
+    let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
+      targets: targets,
+      type: this.type,
+      actor: this.actor,
+      token: token,
+      powerLevel: this.system.powerLevel?.value,
+      sequencer: this.system.sequencer
+    }, null);
+
+    // Perform animations.
+    await this._rollAnimate(chatData, sequencerAnim);
+
+    // Perform updates.
+    if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
+    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
+
+    // Handle Monk AC bonus.
+    //TODO: remove dependency on times-up once core Foundry handles AE expiry
+    if (game.modules.get("times-up")?.active) await this._handleMonkAC();
+
+    // Run embedded macro.
+    let suppressMessage = await this._rollExecuteMacro(itemToRender, hitEvalRes, token);
+
+    return suppressMessage ? undefined : ChatMessage.create(chatData, { displaySheet: false });
   }
 
-  async _roll_resource_check(itemUpdateData) {
+  async _rollUsesCheck(updateData) {
+    // Update uses left
+    let uses = this.system.quantity?.value;
+    if (uses == null) return false;
+    updateData["system.quantity.value"] = Math.max(uses - 1, 0);
+    if (uses == 0 && !event.shiftKey && this.type == "power" && this.system.powerUsage.value != 'at-will') {
+      let use = false;
+      await Dialog.confirm({
+       title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
+       content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
+       yes: () => {use = true;},
+       no: () => {},
+       defaultYes: false
+      });
+      return !use;
+    }
+    return false;
+  }
+
+  async _rollResourceCheck(itemUpdateData, actorUpdateData) {
     // Decrease resources if cost is set
     let cost = this.system.cost?.value;
-    let updateData = {}
     if (cost && game.settings.get("archmage", "automatePowerCost")) {
       let filter = /^(-*[0-9]*) ([a-zA-Z ]+)|([a-zA-Z ]+)$/;
       let parsed = filter.exec(cost);
@@ -78,11 +118,11 @@ export class ItemArchmage extends Item {
             && res.perCombat.commandPoints.enabled) {
           let costNum = Number(parsed[1]);
           let path = 'system.resources.perCombat.commandPoints.current';
-          updateData[path] = res.perCombat.commandPoints.current - costNum;
+          actorUpdateData[path] = res.perCombat.commandPoints.current - costNum;
           if (costNum > res.perCombat.commandPoints.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP");
-            updateData[path] = 0;
-            return this._roll_resDiag(msg, itemUpdateData, updateData);
+            actorUpdateData[path] = 0;
+            return this._rollResDiag(msg, itemUpdateData, actorUpdateData);
           }
         }
         // Ki
@@ -90,26 +130,26 @@ export class ItemArchmage extends Item {
             && this.actor.system.resources.spendable.ki.enabled) {
           let costNum = Number(parsed[1]);
           let path = 'system.resources.spendable.ki.current';
-          updateData[path] = res.spendable.ki.current - costNum;
+          actorUpdateData[path] = res.spendable.ki.current - costNum;
           if (costNum > res.spendable.ki.current) {
             let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi");
-            updateData[path] = 0;
-            return this._roll_resDiag(msg, itemUpdateData, updateData);
+            actorUpdateData[path] = 0;
+            return this._rollResDiag(msg, itemUpdateData, actorUpdateData);
           }
         }
         // Momentum
         else if (parsed[3] && res.perCombat.momentum.enabled) {
           let path = 'system.resources.perCombat.momentum.current';
           if (parsed[3].toLowerCase() == "gain momentum") {
-            updateData[path] = true;
+            actorUpdateData[path] = true;
           } else if (parsed[3].toLowerCase() == "spend momentum"
           || parsed[3].toLowerCase() == "have momentum") {
             if (!res.perCombat.momentum.current) {
               let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
-              return this._roll_resDiag(msg, itemUpdateData, updateData);
+              return this._rollResDiag(msg, itemUpdateData, actorUpdateData);
             } else {
               if (parsed[3].toLowerCase() == "spend momentum") {
-                updateData[path] = false;
+                actorUpdateData[path] = false;
               }
             }
           }
@@ -118,13 +158,13 @@ export class ItemArchmage extends Item {
         else if (parsed[3] && res.perCombat.focus.enabled) {
           let path = 'system.resources.perCombat.focus.current';
           if (parsed[3].toLowerCase() == "gain focus") {
-            updateData[path] = true;
+            actorUpdateData[path] = true;
           } else if (parsed[3].toLowerCase() == "focus") {
             if (!res.perCombat.focus.current) {
               let msg = game.i18n.localize("ARCHMAGE.UI.errNoFocus");
-              return this._roll_resDiag(msg, itemUpdateData, updateData);
+              return this._rollResDiag(msg, itemUpdateData, actorUpdateData);
             } else {
-              updateData[path] = false;
+              actorUpdateData[path] = false;
             }
           }
         }
@@ -137,68 +177,52 @@ export class ItemArchmage extends Item {
             && resourceName.toLowerCase().includes(parsed[2].toLowerCase())) {
             let numUsed = Number(parsed[1]);
             let path = `system.resources.spendable.${resourcePathName}.current`;
-            updateData[path] = res.spendable[resourcePathName].current - numUsed;
-            if (updateData[path] < 0) {
+            actorUpdateData[path] = res.spendable[resourcePathName].current - numUsed;
+            if (actorUpdateData[path] < 0) {
               let msg = game.i18n.localize("ARCHMAGE.UI.errNoCustomResource") + " ";
               msg += resourceName + ". " + game.i18n.localize("ARCHMAGE.UI.errNoCustomResource2");
-              updateData[path] = 0;
-              return this._roll_resDiag(msg, itemUpdateData, updateData);
+              actorUpdateData[path] = 0;
+              return this._rollResDiag(msg, itemUpdateData, actorUpdateData);
             }
             let resMax = res.spendable[resourcePathName].max;
-            if (resMax && updateData[path] > resMax) {
-              updateData[path] = resMax;
+            if (resMax && actorUpdateData[path] > resMax) {
+              actorUpdateData[path] = resMax;
             }
           }
         }
       }
     }
-    return this._roll_render(itemUpdateData, updateData);
+    return false;
   }
 
-  async _roll_resDiag(message, itemUpdateData, actorUpdateData) {
+  async _rollResDiag(message, itemUpdateData, actorUpdateData) {
     let use = false;
-    new Dialog({
-      title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
-      content: message,
-      buttons: {
-        use: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Use"),
-          callback: () => {use = true;}
-        },
-        cancel: {
-          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
-          callback: () => {}
-        }
-      },
-      default: 'cancel',
-      close: html => {
-        if (use) {
-          return this._roll_render(itemUpdateData, actorUpdateData);
-        } else {
-          return;
-        }
-      }
-    }).render(true);
+    await Dialog.confirm({
+     title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
+     content: message,
+     yes: () => {use = true;},
+     no: () => {},
+     defaultYes: false
+    });
+    return !use;
   }
 
-  async _roll_render(itemUpdateData, actorUpdateData) {
+  async _rollMultiTargets(itemOverrideData) {
     // Replicate attack rolls as needed for attacks
-    let overrideData = {};
     let numTargets = {targets: 1, rolls: []};
     if (this.type == "power" || this.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
-      overrideData = {"system.attack.value": attackLine};
+      itemOverrideData["system.attack.value"] = attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(this);
-        overrideData = {"system.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
-        if (numTargets.targetLine) overrideData["system.target.value"] = numTargets.targetLine;
+        itemOverrideData = {"system.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
+        if (numTargets.targetLine) itemOverrideData["system.target.value"] = numTargets.targetLine;
       }
     }
-    let itemToRender = this.clone(overrideData, {"save": false, "keepId": true});
+    return numTargets.targets;
+  }
 
-    // Prepare roll data now
-    let rollData = itemToRender.actor.getRollData(this);
-
+  async _rollHandleRollTable(itemToRender, rollData) {
     // Handle rollTable
     if (this.system.rollTable?.value) {
       // Load table from world first
@@ -221,24 +245,28 @@ export class ItemArchmage extends Item {
         }
       }
     }
+  }
 
-    // Basic template rendering data
-    const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
+  _rollGetToken(itemToRender) {
     let tokens = canvas.tokens.controlled;
     let token = tokens ? tokens[0] : null;
     if (!token || token.actor != itemToRender.actor) {
       tokens = itemToRender.actor.getActiveTokens(true);
       token = tokens.length > 0 ? tokens[0] : null;
     }
+    return token;
+  }
+
+  async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token) {
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/${this.type.toLowerCase()}-card.html`
     const templateData = {
       actor: itemToRender.actor,
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
       data: itemToRender.getChatData({ rollData: rollData }, true)
     };
-
-    // TODO: roll rolls here
-    //let rollData = await ArchmageRolls.rollItem(this);
 
     // Basic chat message data
     const chatData = {
@@ -261,20 +289,12 @@ export class ItemArchmage extends Item {
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
+    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
 
-    // this line causes deprecation warnings due to missing asyinc= for rolls
-    // TODO: remove once rolls are correctly pre-rolled above
-    chatData.content =await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
+    return chatData;
+  }
 
-    let [ sequencerAnim, hitEvaluationResults ] = preCreateChatMessageHandler.handle(chatData, {
-      targets: numTargets.targets,
-      type: this.type,
-      actor: this.actor,
-      token: token,
-      powerLevel: this.system.powerLevel?.value,
-      sequencer: this.system.sequencer
-    }, null);
-
+  async _rollAnimate(chatData, sequencerAnim) {
     // If 3d dice are enabled, handle them first.
     if (game.dice3d && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       let contentHtml = $(chatData.content);
@@ -329,25 +349,15 @@ export class ItemArchmage extends Item {
     }
 
     // Play sequencer animation after the dice, if we got any
-    if(sequencerAnim) {
-      sequencerAnim.play();
-    }
+    if(sequencerAnim) sequencerAnim.play();
+  }
 
-    if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
-    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
-
-    // Handle Monk AC bonus
-    //TODO: remove dependency on times-up once core Foundry handles AE expiry
-    if (game.modules.get("times-up")?.active) {
-      await this._handleMonkAC();
-    }
-
+  async _rollExecuteMacro(itemToRender, hitEvalRes, token) {
     // Extra data accessible as "archmage" in embedded macros
     let macro_data = {
       item: itemToRender,
-      hitEval: hitEvaluationResults,
-      suppressMessage: false,
-      // rollData: rollData
+      hitEval: hitEvalRes,
+      suppressMessage: false
     };
 
     // If there is an embedded macro attempt to execute it
@@ -375,9 +385,9 @@ export class ItemArchmage extends Item {
       }
     }
 
-    if (macro_data.suppressMessage) return;
-    return ChatMessage.create(chatData, { displaySheet: false });
+    return macro_data.suppressMessage;
   }
+
 
   /**
    * Roll an item's recharge, and update its quantity based on the maxQuantity.
