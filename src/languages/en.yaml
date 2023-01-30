@@ -449,6 +449,8 @@ ARCHMAGE:
     range: Range
     recharge: Recharge
     RechargeFail: recharge failed
+    RechargeLabel: Rolling recharge
+    RechargeRoll: Recharge Roll
     RechargeSucc: recharged
     Rest: Rest
     Rests: Rests
