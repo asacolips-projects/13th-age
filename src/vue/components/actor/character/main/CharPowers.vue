@@ -21,7 +21,7 @@
         <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
       <div class="import-powers">
-        <button class="item-import button" title="{{localize('ARCHMAGE.import')}}" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
+        <button class="item-import button" :title="localize('ARCHMAGE.import')" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
     </header>
     <!-- Powers, by group. -->
@@ -245,14 +245,10 @@ export default {
      * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
      */
     getActionShort(actionType) {
-      let actionTypes = {
-        'standard': 'STD',
-        'move': 'MOV',
-        'quick': 'QCK',
-        'free': 'FREE',
-        'interrupt': 'INT'
-      };
-      return actionTypes[actionType] ? actionTypes[actionType] : 'STD';
+      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
+        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
+      }
+      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
     },
     /**
      * Update the `powers` prop to be equal to a filtered version of the current

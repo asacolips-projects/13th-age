@@ -794,54 +794,54 @@ export class ActorArchmage extends Actor {
     let dialogData = {avg: avg ? "checked" : ""};
     renderTemplate(template, dialogData).then(dlg => {
       new Dialog({
-        title: "Recovery Roll",
+        title: game.i18n.localize("ARCHMAGE.recoveryRoll"),
         content: dlg,
         buttons: {
           normal: {
-            label: 'Normal',
+            label: game.i18n.localize("ARCHMAGE.recoveryNormal"),
             callback: () => {
               rolled = true;
             }
           },
           free: {
-            label: 'Free',
+            label: game.i18n.localize("ARCHMAGE.recoveryFree"),
             callback: () => {
-              data.label = 'Free';
+              data.label = game.i18n.localize("ARCHMAGE.recoveryFreeChat");
               data.free = true;
               rolled = true;
             }
           },
           pot1: {
-            label: 'Potion (Adv.)',
+            label: game.i18n.localize("ARCHMAGE.recoveryAdventurer"),
             callback: () => {
-              data.label = 'Adventurer Potion';
+              data.label = game.i18n.localize("ARCHMAGE.recoveryAdventurerFull");
               data.bonus = "+1d8";
               data.max = 30;
               rolled = true;
             }
           },
           pot2: {
-            label: 'Potion (Cha.)',
+            label: game.i18n.localize("ARCHMAGE.recoveryChampion"),
             callback: () => {
-              data.label = 'Champion Potion';
+              data.label = game.i18n.localize("ARCHMAGE.recoveryChampionFull");
               data.bonus = "+2d8";
               data.max = 60;
               rolled = true;
             }
           },
           pot3: {
-            label: 'Potion (Epic)',
+            label: game.i18n.localize("ARCHMAGE.recoveryEpic"),
             callback: () => {
-              data.label = 'Epic Potion';
+              data.label = game.i18n.localize("ARCHMAGE.recoveryEpicFull");
               data.bonus = "+3d8";
               data.max = 100;
               rolled = true;
             }
           },
           pot4: {
-            label: 'Potion (Iconic)',
+            label: game.i18n.localize("ARCHMAGE.recoveryIconic"),
             callback: () => {
-              data.label = 'Iconic Potion';
+              data.label = game.i18n.localize("ARCHMAGE.recoveryIconicFull");
               data.bonus = "+4d8";
               data.max = 130;
               rolled = true;
@@ -875,12 +875,20 @@ export class ActorArchmage extends Actor {
     data.bonus = (data.bonus !== undefined) ? data.bonus : "";
     data.max = (data.max !== undefined) ? data.max : 0;
     data.free = (data.free !== undefined) ? data.free : false;
-    data.label = (data.label !== undefined) ? data.label+" Recovery" : "Recovery";
+    if (data.label !== undefined) {
+      data.label = game.i18n.format("ARCHMAGE.recoveryChatTitle",
+        { recovery: data.label });
+    } else {
+      data.label = game.i18n.localize("ARCHMAGE.recovery");
+    }
     data.apply = (data.apply !== undefined) ? data.apply : true;
     data.average = (data.average !== undefined) ? data.average : this.getFlag('archmage', 'averageRecoveries');
     data.createMessage = (data.createMessage !== undefined) ? data.createMessage : false;
     let totalRecoveries = this.system.attributes.recoveries.value;
-    data.label += (Number(totalRecoveries) <= 0 && !data.free) ? ' (Half)' : '';
+    if (Number(totalRecoveries) <= 0 && !data.free) {
+      data.label = game.i18n.format("ARCHMAGE.recoveryChatTitleHalf",
+        { recovery: data.label });
+    }
 
     let formula = this.system.attributes.recoveries.formula;
     if (data.average) {
@@ -1214,21 +1222,25 @@ export class ActorArchmage extends Actor {
     let backgroundName = '';
 
     if (abilityId) {
-      abl = this.system.abilities[abilityId]  ?? null;
+      abl = this.system.abilities[abilityId] ?? null;
       abilityName = abl?.label ? game.i18n.localize(`ARCHMAGE.${abilityId}.label`) : '';
-      flavor = abl ? `${abilityName} Ability Check` : 'Ability Check';
+      if (abl) {
+        flavor = game.i18n.format('ARCHMAGE.checkSkillFormat', { name: abilityName });
+      } else {
+        flavor = game.i18n.localize('ARCHMAGE.checkSkill');
+      }
     }
 
-    if (background) {
+    if (background !== null) {
       bg = Object.entries(this.system.backgrounds).find(([k,v]) => {
         return v.name.value && (v.name.value.safeCSSId() == background.safeCSSId());
       });
       if (bg) {
-        flavor = `${bg[1].name.value} Background Check`;
+        flavor = game.i18n.format('ARCHMAGE.checkBackgroundFormat', {name: bg[1].name.value});
         backgroundName = Number(bg[1].bonus.value) >= 0 ? `+${bg[1].bonus.value} ${bg[1].name.value}` : `${bg[1].bonus.value} ${bg[1].name.value}`;
       }
       else {
-        flavor = 'Background Check';
+        flavor = game.i18n.localize('ARCHMAGE.checkBackground');
       }
     }
 

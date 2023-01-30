@@ -3,9 +3,9 @@
     <section class="effects-group">
       <div class="effects-group-header">
         <div class="effects-header-title grid effects-grid">
-          <h2 class="effects-group-title unit-title">{{localize('EFFECT.TabEffects')}}</h2>
+          <h2 class="effects-group-title unit-title">{{localize('ARCHMAGE.effects')}}</h2>
           <div class="item-controls effect-controls">
-            <a class="effect-control" data-action="create" :title="localize('Create Effect')"><i class="fas fa-plus"></i></a>
+            <a class="effect-control" data-action="create" :title="localize('ARCHMAGE.EFFECT.AE.new')"><i class="fas fa-plus"></i></a>
           </div>
         </div>
       </div>
@@ -26,9 +26,9 @@
               </div>
             </div>
             <div class="item-controls effect-controls">
-              <a class="effect-control" :data-item-id="effect._id" data-action="toggle" :title="localize('Toggle Effect')"><i :class="concat('fas fa-', effect.disabled ? 'check' : 'times')"></i></a>
-              <a class="effect-control" :data-item-id="effect._id" data-action="edit" :title="localize('Edit Effect')"><i class="fas fa-edit"></i></a>
-              <a class="effect-control" :data-item-id="effect._id" data-action="delete" :title="localize('Edit Effect')"><i class="fas fa-trash"></i></a>
+              <a class="effect-control" :data-item-id="effect._id" data-action="toggle" :title="localize('ARCHMAGE.EFFECT.AE.toggle')"><i :class="concat('fas fa-', effect.disabled ? 'check' : 'times')"></i></a>
+              <a class="effect-control" :data-item-id="effect._id" data-action="edit" :title="localize('ARCHMAGE.EFFECT.AE.edit')"><i class="fas fa-edit"></i></a>
+              <a class="effect-control" :data-item-id="effect._id" data-action="delete" :title="localize('ARCHMAGE.EFFECT.AE.delete')"><i class="fas fa-trash"></i></a>
             </div>
           </div>
         </li>

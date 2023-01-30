@@ -4,6 +4,8 @@
 
 /**
  * Class that defines utility methods for the Archmage system.
+ * IMPORTANT: May be used by modules/macros. Handle changes with care!
+ * (For example, the formatting methods are used in translation modules.)
  */
 export class ArchmageUtility {
 
@@ -179,6 +181,11 @@ export class ArchmageUtility {
     let matchedClasses = className.match(classRegex);
     if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
     return matchedClasses;
+  }
+
+  static formatNewItemName(itemType) {
+    return game.i18n.format("ARCHMAGE.newItem",
+      { item: game.i18n.localize(`ARCHMAGE.${itemType}`) });
   }
 
   static formatLevel(number) {

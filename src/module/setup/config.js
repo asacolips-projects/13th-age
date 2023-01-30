@@ -357,6 +357,14 @@ ARCHMAGE.actionTypes = {
   'interrupt': 'Interrupt'
 };
 
+ARCHMAGE.actionTypesShort = {
+  'standard': 'STD',
+  'move': 'MOV',
+  'quick': 'QCK',
+  'free': 'FREE',
+  'interrupt': 'INT'
+};
+
 ARCHMAGE.effectDurations = {
   StartOfNextTurn: 0,
   EndOfNextTurn: 1,
