@@ -10,12 +10,12 @@
         </div>
       </div>
       <ul class="effects-group-content flexcol">
-        <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item', (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
+        <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item ', concat('effect-', effect._id), (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
               <img :src="effect.icon" class="effects-image"/>
             </div>
-            <a class="effects-name" :data-effects-id="effect._id">
+            <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
               <h3 class="effects-title unit-subtitle">{{effect.label}}</h3>
             </a>
             <div class="effects-bonus flexrow">
@@ -30,6 +30,9 @@
               <a class="effect-control" :data-item-id="effect._id" data-action="edit" :title="localize('ARCHMAGE.EFFECT.AE.edit')"><i class="fas fa-edit"></i></a>
               <a class="effect-control" :data-item-id="effect._id" data-action="delete" :title="localize('ARCHMAGE.EFFECT.AE.delete')"><i class="fas fa-trash"></i></a>
             </div>
+          </div>
+          <div v-if="effect.description" class="effect-detail effect-detail--description hidden">
+            <span class="effect-detail-value" v-html="effect.description"></span>
           </div>
         </li>
       </ul>
@@ -50,6 +53,7 @@ export default {
     // Equivalent to data: and computed:
     const componentData = reactive({
       effects: [],
+      activeEffects: {},
       classes: computed(() => `section section--effects flexcol`)
     });
     // Define methods.
@@ -74,6 +78,8 @@ export default {
           .replace("save", "Save Bonus")
           .replace("disengage", "Disengage Bonus")
           .replace("recoveries", "Recoveries")
+          .replace("critMod.atk", "Critical Hit Bonus")
+          .replace("critMod.def", "Critical Hit Defense")
           .replace("value", "")
           .replaceAll(".", " ")
           .replace("ac ", "Armor Class");
@@ -84,17 +90,23 @@ export default {
         'question',
         'times',
         'plus',
+        "minus",
         'angle-double-down',
         'angle-double-up',
         'undo'
       ]
       effect.changes.forEach(c => {
         if (c.key && c.value) {
-          changes.push({
+          let change = {
             label: this.cleanLabel(c.key),
             mode: modes[c.mode],
             value: c.value
-          });
+          };
+          if (change.mode === "plus" && change.value < 0) {
+            change.mode = "minus";
+            change.value = Math.abs(change.value);
+          }
+          changes.push(change);
         }
       })
       return changes;
@@ -111,12 +123,26 @@ export default {
       cleanLabel
     }
   },
-  watch: {
-    'actor.effects': {
-      deep: true,
-      handler() {
-        this.getEffects()
+  methods: {
+    /**
+     * Toggle effect display (click event).
+     */
+    toggleEffect(event) {
+      let target = event.currentTarget;
+      let dataset = target.dataset;
+      let id = dataset.effectsId;
+      if (id) {
+        // Toggle the state if the effect is currently being tracked.
+        if (this.activeEffects[id] !== undefined) {
+          this.activeEffects[id] = !this.activeEffects[id];
+        }
+        // Otherwise, assume it should be open since this was click event.
+        else {
+          this.activeEffects[id] = true;
+        }
       }
+      const element = this.$el.querySelector(`.effect-${id} > .effect-detail--description`);
+      if ( element ) element.classList.toggle('hidden');
     }
   },
   watch: {
