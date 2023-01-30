@@ -112,7 +112,7 @@ export class ItemArchmageSheet extends ItemSheet {
     // Share Entry
     if (game.user.isGM) {
       buttons.unshift({
-        label: "Show Players",
+        label: game.i18n.localize('ARCHMAGE.sharePlayers'),
         class: "share-image",
         icon: "fas fa-eye",
         onclick: () => this.shareItem()
