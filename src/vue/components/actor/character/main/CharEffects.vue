@@ -61,29 +61,6 @@ export default {
       let effects = this.actor.effects;
       this.effects = effects;
     };
-    function cleanLabel(label) {
-      // TODO: Localize
-      return label
-          .replace("data.attributes", "")
-          .replace("system.attributes", "")
-          .replace("attack", "Attack")
-          .replace("arcane", "Arcane")
-          .replace("divine", "Divine")
-          .replace("ranged", "Ranged")
-          .replace("melee", "Melee")
-          .replace("bonus", "Bonus")
-          .replace("md", "Mental Defense")
-          .replace("pd", "Physical Defense")
-          .replace("hp", "Health")
-          .replace("save", "Save Bonus")
-          .replace("disengage", "Disengage Bonus")
-          .replace("recoveries", "Recoveries")
-          .replace("critMod.atk", "Critical Hit Bonus")
-          .replace("critMod.def", "Critical Hit Defense")
-          .replace("value", "")
-          .replaceAll(".", " ")
-          .replace("ac ", "Armor Class");
-    };
     function getChanges(effect) {
       let changes = [];
       let modes = [
@@ -98,7 +75,7 @@ export default {
       effect.changes.forEach(c => {
         if (c.key && c.value) {
           let change = {
-            label: this.cleanLabel(c.key),
+            label: game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key),
             mode: modes[c.mode],
             value: c.value
           };
@@ -119,8 +96,7 @@ export default {
       localize,
       numberFormat,
       getEffects,
-      getChanges,
-      cleanLabel
+      getChanges
     }
   },
   methods: {
