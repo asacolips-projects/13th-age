@@ -27,22 +27,22 @@
               <!-- Ability Details -->
               <div class="tab archmage-aip" data-group="primary" data-tab="details">
 
-                <div class="form-group">
+                <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.group'}}">
                     <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
-                    <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="Things with the same group will be grouped together"/>
+                    <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.powerOriginTitle'}}">
                     <label>{{localize 'ARCHMAGE.CHAT.powerOriginName'}}</label>
-                    <input type="text" name="system.powerOriginName.value" value="{{system.powerOriginName.value}}" data-dtype="{{system.powerOriginName.type}}" placeholder="Fireball"/>
+                    <input type="text" name="system.powerOriginName.value" value="{{system.powerOriginName.value}}" data-dtype="{{system.powerOriginName.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.powerOriginNamePlaceholder'}}"/>
                   </div>
 
-                <div class="form-group">
+                <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.powerSourceTitle'}}">
                     <label>{{localize 'ARCHMAGE.CHAT.powerSourceName'}}</label>
-                    <input type="text" name="system.powerSourceName.value" value="{{system.powerSourceName.value}}" data-dtype="{{system.powerSourceName.type}}" placeholder="Wizard"/>
+                    <input type="text" name="system.powerSourceName.value" value="{{system.powerSourceName.value}}" data-dtype="{{system.powerSourceName.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.powerSourcePlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.powerSourceTypeTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.powerSource'}}</label>
                       <select name="system.powerSource.value" data-dtype="{{system.powerSource.type}}">
                           {{#select system.powerSource.value}}
@@ -68,7 +68,7 @@
                       <label>{{localize 'ARCHMAGE.CHAT.powerUsage'}}</label>
                       <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
                           {{#select system.powerUsage.value}}
-                          <option value="">- None -</option>
+                          <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
                           {{#each powerUsages as |name type|}}
                           <option value="{{type}}">{{name}}</option>
                           {{/each}}
@@ -80,7 +80,7 @@
                       <label>{{localize 'ARCHMAGE.CHAT.actionType'}}</label>
                       <select name="system.actionType.value" data-dtype="{{system.actionType.type}}">
                           {{#select system.actionType.value}}
-                          <option value="">- None -</option>
+                          <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
                           {{#each actionTypes as |name type|}}
                           <option value="{{type}}">{{name}}</option>
                           {{/each}}
@@ -93,89 +93,89 @@
                       <input type="text" name="system.powerLevel.value" value="{{system.powerLevel.value}}" data-dtype="{{system.powerLevel.type}}" placeholder="1"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.rangeTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.range'}}</label>
-                      <input type="text" name="system.range.value" value="{{system.range.value}}" data-dtype="{{system.range.type}}" placeholder="Melee or Ranged"/>
+                      <input type="text" name="system.range.value" value="{{system.range.value}}" data-dtype="{{system.range.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.rangePlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.triggerTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.trigger'}}</label>
-                      <input type="text" name="system.trigger.value" value="{{system.trigger.value}}" data-dtype="{{system.trigger.type}}" placeholder="Natural even miss"/>
+                      <input type="text" name="system.trigger.value" value="{{system.trigger.value}}" data-dtype="{{system.trigger.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.triggerPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.targetTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.target'}}</label>
-                      <input type="text" name="system.target.value" value="{{system.target.value}}" data-dtype="{{system.target.type}}" placeholder="[[1d3]] nearby enemies"/>
+                      <input type="text" name="system.target.value" value="{{system.target.value}}" data-dtype="{{system.target.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.targetPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.alwaysTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.always'}}</label>
-                      <input type="text" name="system.always.value" value="{{system.always.value}}" data-dtype="{{system.always.type}}" placeholder="Some effect that always happens"/>
+                      <input type="text" name="system.always.value" value="{{system.always.value}}" data-dtype="{{system.always.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.alwaysPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.attackTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.attack'}}</label>
-                      <input type="text" name="system.attack.value" value="{{system.attack.value}}" data-dtype="{{system.attack.type}}" placeholder="[[d20+@str.mod+@lvl+@ed]] vs. AC"/>
+                      <input type="text" name="system.attack.value" value="{{system.attack.value}}" data-dtype="{{system.attack.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.attackPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.hitTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.hit'}}</label>
-                      <input type="text" name="system.hit.value" value="{{system.hit.value}}" data-dtype="{{system.hit.type}}" placeholder="[[@wpn.m.dice+@str.dmg]] damage"/>
+                      <input type="text" name="system.hit.value" value="{{system.hit.value}}" data-dtype="{{system.hit.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.hitPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.hitEvenTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.hitEven'}}</label>
-                      <input type="text" name="system.hitEven.value" value="{{system.hitEven.value}}" data-dtype="{{system.hitEven.type}}" placeholder=""/>
+                      <input type="text" name="system.hitEven.value" value="{{system.hitEven.value}}" data-dtype="{{system.hitEven.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.hitEvenTitle'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.hitOddTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.hitOdd'}}</label>
-                      <input type="text" name="system.hitOdd.value" value="{{system.hitOdd.value}}" data-dtype="{{system.hitOdd.type}}" placeholder=""/>
+                      <input type="text" name="system.hitOdd.value" value="{{system.hitOdd.value}}" data-dtype="{{system.hitOdd.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.hitOddTitle'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.critPlaceholder'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.crit'}}</label>
-                      <input type="text" name="system.crit.value" value="{{system.crit.value}}" data-dtype="{{system.crit.type}}" placeholder="Additional effects on a crit"/>
+                      <input type="text" name="system.crit.value" value="{{system.crit.value}}" data-dtype="{{system.crit.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.critPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.missTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.miss'}}</label>
-                      <input type="text" name="system.miss.value" value="{{system.miss.value}}" data-dtype="{{system.miss.type}}" placeholder="Damage equal to your level ([[@lvl]])"/>
+                      <input type="text" name="system.miss.value" value="{{system.miss.value}}" data-dtype="{{system.miss.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.missPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.missEvenPlaceholder'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.missEven'}}</label>
-                      <input type="text" name="system.missEven.value" value="{{system.missEven.value}}" data-dtype="{{system.missEven.type}}" placeholder=""/>
+                      <input type="text" name="system.missEven.value" value="{{system.missEven.value}}" data-dtype="{{system.missEven.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.missEvenPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.missOddPlaceholder'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.missOdd'}}</label>
-                      <input type="text" name="system.missOdd.value" value="{{system.missOdd.value}}" data-dtype="{{system.missOdd.type}}" placeholder=""/>
+                      <input type="text" name="system.missOdd.value" value="{{system.missOdd.value}}" data-dtype="{{system.missOdd.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.missOddPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.sustainOnTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.sustainOn'}}</label>
-                      <input type="text" name="system.sustainOn.value" value="{{system.sustainOn.value}}" data-dtype="{{system.sustainOn.type}}" placeholder="Numbers only, such as '16'"/>
+                      <input type="text" name="system.sustainOn.value" value="{{system.sustainOn.value}}" data-dtype="{{system.sustainOn.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.numbersOnly'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.rechargeHint'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.recharge'}}</label>
-                      <input type="text" name="system.recharge.value" value="{{system.recharge.value}}" data-dtype="{{system.recharge.type}}" placeholder="Numbers only, such as '16'"/>
+                      <input type="text" name="system.recharge.value" value="{{system.recharge.value}}" data-dtype="{{system.recharge.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.numbersOnly'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.cost'}}</label>
-                      <input type="text" name="system.cost.value" value="{{system.cost.value}}" data-dtype="{{system.cost.type}}" placeholder="2 command points"/>
+                      <input type="text" name="system.cost.value" value="{{system.cost.value}}" data-dtype="{{system.cost.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.costPlaceholder'}}"/>
                   </div>
 
-                  <div class="form-group">
-                      <label>Uses Remaining</label>
-                      <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}" placeholder="Number of remaining uses, usually the same as Max Uses"/>
+                  <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}">
+                      <label>{{localize 'ARCHMAGE.ITEM.usesRemaining'}}</label>
+                      <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}"/>
                   </div>
 
-                  <div class="form-group">
-                      <label>Max Uses</label>
-                      <input type="text" name="system.maxQuantity.value" value="{{system.maxQuantity.value}}" data-dtype="{{system.maxQuantity.type}}" placeholder="Number of uses per battle/day, usually 1"/>
+                  <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
+                      <label>{{localize 'ARCHMAGE.ITEM.usesMax'}}</label>
+                      <input type="text" name="system.maxQuantity.value" value="{{system.maxQuantity.value}}" data-dtype="{{system.maxQuantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}"/>
                   </div>
 
                   <div class="form-group">
@@ -226,52 +226,52 @@
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel2'}}</label>
-                      <input type="text" name="system.spellLevel2.value" value="{{system.spellLevel2.value}}" data-dtype="{{system.spellLevel2.type}}" placeholder="[[2d6]] damage"/>
+                      <input type="text" name="system.spellLevel2.value" value="{{system.spellLevel2.value}}" data-dtype="{{system.spellLevel2.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel2Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel3'}}</label>
-                      <input type="text" name="system.spellLevel3.value" value="{{system.spellLevel3.value}}" data-dtype="{{system.spellLevel3.type}}" placeholder="[[3d6]] damage"/>
+                      <input type="text" name="system.spellLevel3.value" value="{{system.spellLevel3.value}}" data-dtype="{{system.spellLevel3.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel3Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel4'}}</label>
-                      <input type="text" name="system.spellLevel4.value" value="{{system.spellLevel4.value}}" data-dtype="{{system.spellLevel4.type}}" placeholder="[[4d6]] damage"/>
+                      <input type="text" name="system.spellLevel4.value" value="{{system.spellLevel4.value}}" data-dtype="{{system.spellLevel4.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel4Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel5'}}</label>
-                      <input type="text" name="system.spellLevel5.value" value="{{system.spellLevel5.value}}" data-dtype="{{system.spellLevel5.type}}" placeholder="[[5d6]] damage"/>
+                      <input type="text" name="system.spellLevel5.value" value="{{system.spellLevel5.value}}" data-dtype="{{system.spellLevel5.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel5Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel6'}}</label>
-                      <input type="text" name="system.spellLevel6.value" value="{{system.spellLevel6.value}}" data-dtype="{{system.spellLevel6.type}}" placeholder="[[6d6]] damage"/>
+                      <input type="text" name="system.spellLevel6.value" value="{{system.spellLevel6.value}}" data-dtype="{{system.spellLevel6.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel6Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel7'}}</label>
-                      <input type="text" name="system.spellLevel7.value" value="{{system.spellLevel7.value}}" data-dtype="{{system.spellLevel7.type}}" placeholder="[[7d6]] damage"/>
+                      <input type="text" name="system.spellLevel7.value" value="{{system.spellLevel7.value}}" data-dtype="{{system.spellLevel7.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel7Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel8'}}</label>
-                      <input type="text" name="system.spellLevel8.value" value="{{system.spellLevel8.value}}" data-dtype="{{system.spellLevel8.type}}" placeholder="[[8d6]] damage"/>
+                      <input type="text" name="system.spellLevel8.value" value="{{system.spellLevel8.value}}" data-dtype="{{system.spellLevel8.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel8Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel9'}}</label>
-                      <input type="text" name="system.spellLevel9.value" value="{{system.spellLevel9.value}}" data-dtype="{{system.spellLevel9.type}}" placeholder="[[9d6]] damage"/>
+                      <input type="text" name="system.spellLevel9.value" value="{{system.spellLevel9.value}}" data-dtype="{{system.spellLevel9.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel9Placeholder'}}"/>
                   </div>
 
                   <div class="form-group">
                       <label>{{localize 'ARCHMAGE.CHAT.spellLevel10'}}</label>
-                      <input type="text" name="system.spellLevel10.value" value="{{system.spellLevel10.value}}" data-dtype="{{system.spellLevel10.type}}" placeholder="[[10d6]] damage"/>
+                      <input type="text" name="system.spellLevel10.value" value="{{system.spellLevel10.value}}" data-dtype="{{system.spellLevel10.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.spellLevel10Placeholder'}}"/>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" title="{{localize 'ARCHMAGE.CHAT.rollTableTitle'}}">
                       <label>{{localize 'ARCHMAGE.CHAT.rollTable'}}</label>
-                      <input type="text" name="system.rollTable.value" value="{{system.rollTable.value}}" data-dtype="{{system.rollTable.type}}" placeholder="Sneak Attack"/>
+                      <input type="text" name="system.rollTable.value" value="{{system.rollTable.value}}" data-dtype="{{system.rollTable.type}}" placeholder="{{localize 'ARCHMAGE.CHAT.rollTablePlaceholder'}}"/>
                   </div>
 
                   <details class="form-details" open="true">
