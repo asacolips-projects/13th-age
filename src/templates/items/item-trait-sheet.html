@@ -1,17 +1,17 @@
 <form class="archmage item-sheet trait-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="44" width="44"/>
-        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
     <div class="tab archmage-aip">
 
-        <div class="form-group">
+        <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.group'}}">
             <label>{{localize 'ARCHMAGE.CHAT.group'}}</label>
-            <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="Things with the same group will be grouped together"/>
+            <input type="text" name="system.group.value" value="{{system.group.value}}" data-dtype="{{system.group.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.group'}}"/>
         </div>
 
-        <div class="form-group form-group-stacked power-macro-editor">
+        <div class="form-group form-group-stacked power-macro-editor" title="{{localize 'ARCHMAGE.CHAT.embeddedMacroSummaryTooltip'}}">
             <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label>
             <details class="form-details">
               <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary>
