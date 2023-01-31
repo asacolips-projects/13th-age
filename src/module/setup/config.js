@@ -357,6 +357,14 @@ ARCHMAGE.actionTypes = {
   'interrupt': 'Interrupt'
 };
 
+ARCHMAGE.actionTypesShort = {
+  'standard': 'STD',
+  'move': 'MOV',
+  'quick': 'QCK',
+  'free': 'FREE',
+  'interrupt': 'INT'
+};
+
 ARCHMAGE.effectDurations = {
   StartOfNextTurn: 0,
   EndOfNextTurn: 1,
@@ -948,13 +956,13 @@ FLAGS.characterFlags = {
   },
   "toughness": {
     name: "Toughness",
-    hint: "General feat to increase your max HP based on your base HP",
+    hint: "General feat to increase your max HP based on your base HP.",
     section: "Feats",
     type: Boolean
   },
   "dexToInt": {
     name: "Mental Phenomenon",
-    hint: "Wizard talent to use Int on place of Dex for AC, PD and initiative calculations.",
+    hint: "Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.",
     section: "Feats",
     type: Boolean
   },

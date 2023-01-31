@@ -15,8 +15,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
   /* -------------------------------------------- */
 
-  getData(options) {
-    const effect = super.getData(options);
+  async getData(options) {
+    const effect = await super.getData(options);
 
     function setValue(obj,access,value){
       if (typeof(access)=='string'){
@@ -40,17 +40,18 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     const edChange = effect.effect.changes.find(x => x.key === "system.attributes.escalation.value");
     //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
+    effect.supportsDescription = game.release.generation >= 11;
+
     return effect;
   }
 
   /* -------------------------------------------- */
 
   async _updateObject(event, formData) {
-    // console.dir(formData);
-
     let ae = foundry.utils.duplicate(this.object);
     ae.label = formData.label;
     ae.icon = formData.icon;
+    ae.description = formData.description;
 
     // Retrieve the existing effects.
     const effectData = this.getData();
@@ -79,6 +80,11 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       {
         key: "system.attributes.attack.arcane.bonus",
         value: formData.system.attributes.attack.arcane.bonus,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      },
+      {
+        key: "system.attributes.critMod.atk.value",
+        value: formData.system.attributes.critMod.atk.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
 
@@ -116,6 +122,11 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       {
         key: "system.attributes.disengage",
         value: formData.system.attributes.disengage,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      },
+      {
+        key: "system.attributes.critMod.def.value",
+        value: formData.system.attributes.critMod.def.value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
     ];

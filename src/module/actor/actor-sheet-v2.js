@@ -341,7 +341,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Create the item.
     let itemData = {
-      name: 'New ' + game.i18n.localize(`ARCHMAGE.${itemType}`),
+      name: game.archmage.ArchmageUtility.formatNewItemName(itemType),
       type: itemType,
       img: img,
       data: data
@@ -418,7 +418,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     switch (dataset.action) {
       case 'create':
         return this.actor.createEmbeddedDocuments('ActiveEffect', [{
-          label: 'New Effect',
+          label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
           icon: 'icons/svg/aura.svg',
           origin: this.actor.uuid,
           disabled: false
