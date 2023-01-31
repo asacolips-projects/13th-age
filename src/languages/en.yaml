@@ -556,6 +556,7 @@ ARCHMAGE:
     errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
     errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
+    errNotTable: The RollTable field supports plain text RollTable names or UUID links to RollTables only.
     errDependency: The <strong>vueport</strong> and <strong>dlopen</strong> modules are required for the V2 character sheet. Return to the Foundry setup page and use the module installer to install both of those modules to allow the V2 character sheet to be available.
     enableDependencies: Enable dependencies?
     dependencyContent: The V2 character sheet requires the VuePort and dlopen modules to be enabled. Would you like to enable them now?

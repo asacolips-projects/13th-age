@@ -280,8 +280,18 @@ export class ItemArchmage extends Item {
   async _rollHandleRollTable(itemToRender, rollData) {
     // Handle rollTable
     if (this.system.rollTable?.value) {
-      // Load table from world first
-      let table = game.tables.find(t => t.name === this.system.rollTable.value);
+      let table;
+      // Try to interpret input as UUID
+      let uuid = this.system.rollTable.value.match(/^@UUID\[([^\s]+)\]/);
+      if (uuid) table = await fromUuid(uuid[1]);
+      if (table && table.documentName != "RollTable") {
+        table = undefined;
+        ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.errNotTable"));
+      }
+      if (!table) {
+        // Treat as plain text, and load table from world first
+        table = game.tables.find(t => t.name === this.system.rollTable.value);
+      }
       if (!table) {
         // If not present in world, load system's from compendium
         let pack = await game.packs.get("archmage.system-rolltables").getDocuments();
