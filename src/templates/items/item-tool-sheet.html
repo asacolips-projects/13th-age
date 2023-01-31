@@ -1,31 +1,22 @@
 <form class="archmage item-sheet action-sheet {{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ARCHMAGE.name'}}"/></h1>
     </header>
 
     <ol class="item-details">
         <li>
-            <label>Quantity</label>
+            <label>{{localize 'ARCHMAGE.ITEM.quantity'}}</label>
             <input type="text" name="system.quantity.value" value="{{system.quantity.value}}" data-dtype="{{system.quantity.type}}"/>
         </li>
         <li>
-            <label>Price</label>
+            <label>{{localize 'ARCHMAGE.ITEM.price'}}</label>
             <input type="text" name="system.price.value" value="{{system.price.value}}" data-dtype="{{system.price.type}}"/>
         </li>
     </ol>
 
-    <!-- <div class="form-group form-group-stacked power-macro-editor"> -->
-        <!-- <label>{{localize 'ARCHMAGE.CHAT.embeddedMacro'}}</label> -->
-        <!-- <details class="form-details"> -->
-            <!-- <summary>{{localize 'ARCHMAGE.CHAT.embeddedMacroSummary'}}</summary> -->
-            <!-- <textarea class="attribute-value" name="system.embeddedMacro.value" rows="20" title="" -->
-            <!-- data-dtype="{{system.embeddedMacro.type}}">{{#if system.embeddedMacro.value}}{{system.embeddedMacro.value}}{{/if}}</textarea> -->
-        <!-- </details> -->
-    <!-- </div> -->
-
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="description">{{localize 'ARCHMAGE.description'}}</a>
     </nav>
 
     <div class="sheet-tabs-content">

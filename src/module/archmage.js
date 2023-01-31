@@ -892,7 +892,7 @@ Hooks.on('createCombatant', (document, data, options, id) => {
   // Add command points at start of combat.
   if (actor && actor.type == 'character') {
     let updates = {};
-    let hasStrategist = actor.items.find(i => i.system.name.safeCSSId().includes('strategist'));
+    let hasStrategist = actor.items.find(i => i.system.name.label.safeCSSId().includes('strategist'));
     let basePoints = hasStrategist ? 2 : 1;
     // TODO: Add support for Forceful Command.
     updates['system.resources.perCombat.commandPoints.current'] = basePoints;

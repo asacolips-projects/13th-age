@@ -97,6 +97,7 @@ ARCHMAGE:
   nastierSpecials: Nastier Specials
   negative: Negative
   newItem: New {item}
+  noneOption: "- None -"
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   other: Other
@@ -166,9 +167,9 @@ ARCHMAGE:
   SETTINGS:
     automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
     automateBaseStatsFromClassName: Automatically compute base stats
-    automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
+    automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
     automateHPConditionsName: Auto-manage Dead and Staggered
-    ColorblindHint: Change the colors of the power cards to more accessibility color palette.
+    ColorblindHint: Change the colors of the power cards to a more accessibile color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
     ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
@@ -185,13 +186,13 @@ ARCHMAGE:
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
-    RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
+    RoundUpDamageApplicationHint: This will be applied the same way for both characters and NPCs.
     RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
     secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
     secondEditionName: Use 2e Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
-    showDefensesInChatHint: Enable this display a list of targeted defenses in the attack line of chat power cards.
+    showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
     showDefensesInChatName: Show target(s) defense(s) in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
@@ -361,7 +362,8 @@ ARCHMAGE:
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
-    critModBonus: Critical Hit Modifier Bonu
+    escalationBlockedHint: Denies usage of Escalation Die
+    critModBonus: Critical Hit Modifier Bonus
     critModBonusHint: +1 means you would crit on 19-20, etc
     critDefBonus: Critical Hit Defense Bonus
     critDefBonusHint: +1 means something that would crit you on 19-20 only crits on 20.
@@ -371,34 +373,57 @@ ARCHMAGE:
     meleeBonus: Melee Attack Bonus
     pdBonus: PD Bonus
     price: Price
+    pricePlaceholder: 1,000gp
+    quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
     saveBonus: Save Bonus
+    saveBonusHPTreshold: Save Bonus HP Threshold
+    usesMax: Maximum Uses
+    usesMaxHint: Number of uses per battle/day, usually 1
+    usesRemaining: Uses Remaining
+    usesRemainingHint: Number of remaining uses, usually the same as Max Uses
   CHAKRA:
     armor: Armor, robe, shirt, tunic
+    armorBonus: "Default Bonus: Armor Class"
     arrow: Arrow, crossbow bolt, slingstone
     belt: Belt, swordbelt, kilt, girdle
+    beltBonus: "Default Bonus: Recoveries"
     book: Book, scroll, manual, grimoire
     boots: Boots, sandals, slippers, shoes
+    bootsBonus: "Default Bonus: Disengage Checks"
     cloak: Cloak, mantle, cape
+    cloakBonus: "Default Bonus: Physical Defense"
     glove: Glove, gauntlet, mitt
     helmet: Helmet, circlet, crown, cap
+    helmetBonus: "Default Bonus: Mental Defense"
     melee: Weapon, melee
     necklace: Necklace, pendant
+    necklaceBonus: "Default Bonus: Save bonus"
     none: None
+    noBonus: No default bonus, depends on the item
     ranged: Weapon, ranged
     ring: Ring
     shield: Shield
+    shieldBonus: "Default Bonus: Hit points"
     staff: Staff (implement)
+    staffBonus: "Operates as both a Wand and a Symbol"
     symbol: Symbol, holy relic, sacred sickle (implement)
+    symbolBonus: "Default Bonus: Divine Attack and Damage"
     wand: Wand (implement)
+    wandBonus: "Default Bonus: Arcane Attack and Damage"
+    weaponBonus: "Default Bonus: Attack and Damage"
     wondrous: Wondrous item
   CHAT:
     actionType: Action Type
     adventurer: Adventurer Feat
     adventurerDescription: Adventurer Feat Description
     always: Always
+    alwaysPlaceholder: Some effect that always happens
+    alwaysTitle: Effects that always happen, regardless of circumstances or rolls
     attack: Attack
+    attackPlaceholder: "[[d20+@str.mod+@lvl+@ed]] vs. AC"
+    attackTitle: Attack formula, such as "[[d20+@str.mod+@lvl+@ed]] vs. AC"
     breathWeapon: Breath Weapon
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
@@ -408,6 +433,7 @@ ARCHMAGE:
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     crit: Crit
+    critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
     effect: Effect
@@ -420,42 +446,61 @@ ARCHMAGE:
     FullHealHP: reset to maximum
     group: Group
     hit: Hit
+    hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
+    hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"
     hit1: Special Hit (1)
     hit2: Special Hit (2)
     hit3: Special Hit (3)
     hitEven: Even Hit
+    hitEvenTitle: Effects that happen on even hits
     hitOdd: Odd Hit
+    hitOddTitle: Effects that happen on odd hits
     HP: HP
     ItemReset: restored uses to
     KiReset: reset to
     embeddedMacro: Embedded Macro
     embeddedMacroSummary: Edit the embedded macro that will be run on use.
+    embeddedMacroSummaryTooltip: The macro will be run if the item is used/rolled. Context is passed as arguments.
     embeddedMacroPermissionError: Cannot execute embedded macro - request permission for this user to your GM!
     miss: Miss
+    missPlaceholder: Damage equal to your level ([[@lvl]])
+    missTitle: Effects that happen on a miss, such as "Damage equal to your level ([[@lvl]])"
     missEven: Even Miss
+    missEvenPlaceholder: Effects that happen on even misses
     missOdd: Odd Miss
+    missOddPlaceholder: Effects that happen on odd misses
     MomentReset: lost
     natural: natural
     NoResources: Not enough resources
     NoUses: No uses left
     NoUsesMsg: No uses left, are you sure you want to use this?
+    numbersOnly: Numbers only, such as '16'
     odd: odd
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
+    powerSourcePlaceholder: Wizard
+    powerSourceTitle: The source this power was gained from (e.g. Wizard).
+    powerSourceTypeTitle: The type of source this power was gained from.
     powerOriginName: Original Name
+    powerOriginNamePlaceholder: Fireball
+    powerOriginTitle: Original power name when the power's name is customized for any reason (such as the wizard's polysyllabic verbalizations talent).
     powerType: Power Type
     powerUsage: Power Usage
     QuickRest: Quick Rest
     QuickRestBody: Regain per-battle powers, roll to recharge spent recharge powers, and roll recoveries to heal above 50% health.
     QuickRestHP: rolled {recoveries} healing {hp} HP
     range: Range
+    rangePlaceholder: Melee or Ranged
+    rangeTitle: Range of the power, such as 'Melee' or 'Ranged'
     recharge: Recharge
+    rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
     RechargeFail: recharge failed
     RechargeLabel: Rolling recharge
     RechargeRoll: Recharge Roll
     RechargeSucc: recharged
     resources: Resources
+    resourcesPlaceholder: -2 command points
     Rest: Rest
     Rests: Rests
     sequencerDesc: Configure a sequencer animation.
@@ -466,19 +511,35 @@ ARCHMAGE:
     special: Special
     spellChain: Chain Spell
     spellLevel2: 2nd Level Spell
+    spellLevel2Placeholder: "[[2d6]] damage"
     spellLevel3: 3rd Level Spell
+    spellLevel3Placeholder: "[[3d6]] damage"
     spellLevel4: 4th Level Spell
+    spellLevel4Placeholder: "[[4d6]] damage"
     spellLevel5: 5th Level Spell
+    spellLevel5Placeholder: "[[5d6]] damage"
     spellLevel6: 6th Level Spell
+    spellLevel6Placeholder: "[[6d6]] damage"
     spellLevel7: 7th Level Spell
+    spellLevel7Placeholder: "[[7d6]] damage"
     spellLevel8: 8th Level Spell
+    spellLevel8Placeholder: "[[8d6]] damage"
     spellLevel9: 9th Level Spell
+    spellLevel9Placeholder: "[[9d6]] damage"
     spellLevel10: 10th Level Spell
+    spellLevel10Placeholder: "[[10d6]] damage"
     rollTable: RollTable
+    rollTablePlaceholder: Sneak Attack
+    rollTableTitle: Name of a roll table to roll on use (only text supported)
     sustainedEffect: Opening and Sustained Effect
     sustainOn: Sustain On
+    sustainOnTitle: Numbers only, such as '16' (is sustained on a roll of 16+)
     target: Target
+    targetPlaceholder: "[[1d3]] nearby enemies"
+    targetTitle: Targets for this power, such as "[[1d3]] nearby enemies", determines how many attacks are rolled
     trigger: Trigger
+    triggerPlaceholder: Natural even miss
+    triggerTitle: Trigger for this power, such as 'Natural even miss'
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
   TARGETING:
@@ -509,8 +570,13 @@ ARCHMAGE:
     success: Succeeded
   EFFECT:
     AE:
-      edit: Edit Effect
+      arcane: Arcane
+      critHitBonus: Critical Hit Bonus
+      critHitDefense: Critical Hit Defense
       delete: Delete Effect
+      divine: Divine
+      edit: Edit Effect
+      negativeRecovery: Negative Recovery Penalty
       new: New Effect
       toggle: Toggle Effect
     StatusAsleep: Asleep
@@ -554,10 +620,6 @@ ARCHMAGE:
     errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
     errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
-    errNotTable: The RollTable field supports plain text RollTable names or UUID links to RollTables only.
-    errDependency: The <strong>vueport</strong> and <strong>dlopen</strong> modules are required for the V2 character sheet. Return to the Foundry setup page and use the module installer to install both of those modules to allow the V2 character sheet to be available.
-    enableDependencies: Enable dependencies?
-    dependencyContent: The V2 character sheet requires the VuePort and dlopen modules to be enabled. Would you like to enable them now?
     noToken: No token selected.
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
