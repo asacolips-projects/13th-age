@@ -1490,8 +1490,18 @@ export class ActorArchmage extends Actor {
 
     // Character-specific processing
 
+    // Remove commas from custom resource names
+    if (data.system.resources?.spendable) {
+      for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
+        if (data.system.resources.spendable["custom"+idx]) {
+          let label = data.system.resources.spendable["custom"+idx].label;
+          if (label) data.system.resources.spendable["custom"+idx].label = label.replace(",", "");
+        }
+      }
+    }
+
+    // Clamp PC level to [1, 10]
     if (!isNaN(data.system.attributes?.level?.value)) {
-      // Clamp PC level to [1, 10]
       data.system.attributes.level.value = Math.min(10, Math.max(1, data.system.attributes.level.value));
     }
 
