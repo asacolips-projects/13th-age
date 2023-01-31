@@ -97,6 +97,7 @@ ARCHMAGE:
   nastierSpecials: Nastier Specials
   negative: Negative
   newItem: New {item}
+  noneOption: "- None -"
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   other: Other
@@ -418,7 +419,11 @@ ARCHMAGE:
     adventurer: Adventurer Feat
     adventurerDescription: Adventurer Feat Description
     always: Always
+    alwaysPlaceholder: Some effect that always happens
+    alwaysTitle: Effects that always happen, regardless of circumstances or rolls
     attack: Attack
+    attackPlaceholder: "[[d20+@str.mod+@lvl+@ed]] vs. AC"
+    attackTitle: Attack formula, such as "[[d20+@str.mod+@lvl+@ed]] vs. AC"
     breathWeapon: Breath Weapon
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
@@ -428,7 +433,9 @@ ARCHMAGE:
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     cost: Cost
+    costPlaceholder: 2 command points
     crit: Crit
+    critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
     effect: Effect
@@ -441,11 +448,15 @@ ARCHMAGE:
     FullHealHP: reset to maximum
     group: Group
     hit: Hit
+    hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
+    hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"
     hit1: Special Hit (1)
     hit2: Special Hit (2)
     hit3: Special Hit (3)
     hitEven: Even Hit
+    hitEvenTitle: Effects that happen on even hits
     hitOdd: Odd Hit
+    hitOddTitle: Effects that happen on odd hits
     HP: HP
     ItemReset: restored uses to
     KiReset: reset to
@@ -454,24 +465,36 @@ ARCHMAGE:
     embeddedMacroSummaryTooltip: The macro will be run if the item is used/rolled. Context is passed as arguments.
     embeddedMacroPermissionError: Cannot execute embedded macro - request permission for this user to your GM!
     miss: Miss
+    missPlaceholder: Damage equal to your level ([[@lvl]])
+    missTitle: Effects that happen on a miss, such as "Damage equal to your level ([[@lvl]])"
     missEven: Even Miss
+    missEvenPlaceholder: Effects that happen on even misses
     missOdd: Odd Miss
+    missOddPlaceholder: Effects that happen on odd misses
     MomentReset: lost
     natural: natural
     NoResources: Not enough resources
     NoUses: No uses left
     NoUsesMsg: No uses left, are you sure you want to use this?
+    numbersOnly: Numbers only, such as '16'
     odd: odd
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
+    powerSourcePlaceholder: Wizard
+    powerSourceTitle: The source this power was gained from (e.g. Wizard).
+    powerSourceTypeTitle: The type of source this power was gained from.
     powerOriginName: Original Name
+    powerOriginNamePlaceholder: Fireball
+    powerOriginTitle: Original power name when the power's name is customized for any reason (such as the wizard's polysyllabic verbalizations talent).
     powerType: Power Type
     powerUsage: Power Usage
     QuickRest: Quick Rest
     QuickRestBody: Regain per-battle powers, roll to recharge spent recharge powers, and roll recoveries to heal above 50% health.
     QuickRestHP: rolled {recoveries} healing {hp} HP
     range: Range
+    rangePlaceholder: Melee or Ranged
+    rangeTitle: Range of the power, such as 'Melee' or 'Ranged'
     recharge: Recharge
     rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
     RechargeFail: recharge failed
@@ -488,19 +511,35 @@ ARCHMAGE:
     special: Special
     spellChain: Chain Spell
     spellLevel2: 2nd Level Spell
+    spellLevel2Placeholder: "[[2d6]] damage"
     spellLevel3: 3rd Level Spell
+    spellLevel3Placeholder: "[[3d6]] damage"
     spellLevel4: 4th Level Spell
+    spellLevel4Placeholder: "[[4d6]] damage"
     spellLevel5: 5th Level Spell
+    spellLevel5Placeholder: "[[5d6]] damage"
     spellLevel6: 6th Level Spell
+    spellLevel6Placeholder: "[[6d6]] damage"
     spellLevel7: 7th Level Spell
+    spellLevel7Placeholder: "[[7d6]] damage"
     spellLevel8: 8th Level Spell
+    spellLevel8Placeholder: "[[8d6]] damage"
     spellLevel9: 9th Level Spell
+    spellLevel9Placeholder: "[[9d6]] damage"
     spellLevel10: 10th Level Spell
+    spellLevel10Placeholder: "[[10d6]] damage"
     rollTable: RollTable
+    rollTablePlaceholder: Sneak Attack
+    rollTableTitle: Name of a roll table to roll on use (only text supported)
     sustainedEffect: Opening and Sustained Effect
     sustainOn: Sustain On
+    sustainOnTitle: Numbers only, such as '16' (is sustained on a roll of 16+)
     target: Target
+    targetPlaceholder: "[[1d3]] nearby enemies"
+    targetTitle: Targets for this power, such as "[[1d3]] nearby enemies", determines how many attacks are rolled
     trigger: Trigger
+    triggerPlaceholder: Natural even miss
+    triggerTitle: Trigger for this power, such as 'Natural even miss'
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
   TARGETING:
