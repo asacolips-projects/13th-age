@@ -166,11 +166,11 @@ ARCHMAGE:
   SETTINGS:
     automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
     automateBaseStatsFromClassName: Automatically compute base stats
-    automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
+    automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
     automateHPConditionsName: Auto-manage Dead and Staggered
     automatePowerCostHint: Remove resources (e.g. Command Points, Ki or Focus) automatically when using a power with a cost?
     automatePowerCostName: Automatically apply power costs
-    ColorblindHint: Change the colors of the power cards to more accessibility color palette.
+    ColorblindHint: Change the colors of the power cards to a more accessibility color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
     ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
@@ -187,13 +187,13 @@ ARCHMAGE:
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
-    RoundUpDamageApplicationHint: This will be applied the same way for both characters and npcs
+    RoundUpDamageApplicationHint: This will be applied the same way for both characters and NPCs.
     RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
     secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
     secondEditionName: Use 2e Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
-    showDefensesInChatHint: Enable this display a list of targeted defenses in the attack line of chat power cards.
+    showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
     showDefensesInChatName: Show target(s) defense(s) in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
