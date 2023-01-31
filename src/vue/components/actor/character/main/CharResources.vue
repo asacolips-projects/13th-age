@@ -39,7 +39,7 @@
       </div>
     </section>
     <!-- Combat Rhythm -->
-    <section v-if="actor.system.resources.perCombat.rhythm.enabled" class="unit unit--rhythm">
+    <section v-if="actor.system.resources.perCombat.rhythm.enabled && secondEdition" class="unit unit--rhythm">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm')}}</h2>
       <div class="resource flexrow">
         <select name="system.resources.perCombat.rhythm.current" v-model="rhythm">
@@ -117,9 +117,13 @@ export default {
     customResources() {
       let resources = {};
       for (let [k,v] of Object.entries(this.actor.system.resources.spendable)) {
+        if ( v.secondEdition && !game.settings.get('archmage', 'secondEdition') ) continue;
         if (k.includes('custom') && v.enabled) resources[k] = v;
       }
       return resources;
+    },
+    secondEdition() {
+      return game.settings.get('archmage', 'secondEdition') === true;
     },
     resourceCount() {
       let count = 0;
@@ -127,7 +131,9 @@ export default {
       if (this.actor.system.resources.spendable.ki.enabled) count++;
       if (this.actor.system.resources.perCombat.focus.enabled) count++;
       if (this.actor.system.resources.perCombat.momentum.enabled) count++;
-      if (this.actor.system.resources.perCombat.rhythm.enabled) count++;
+      if ( game.settings.get('archmage', 'secondEdition') ) {
+        if (this.actor.system.resources.perCombat.rhythm.enabled) count++;
+      }
       return count;
     },
     customResourceCount() {
@@ -141,7 +147,9 @@ export default {
       this.momentum = this.actor.system.resources.perCombat.momentum.current;
       this.focus = this.actor.system.resources.perCombat.focus.current;
       this.ki = this.actor.system.resources.spendable.ki;
-      this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
+      if ( game.settings.get('archmage', 'secondEdition') ) {
+        this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
+      }
       this.disengage = {
         value: this.actor.system.attributes.disengage,
         bonus: this.actor.system.attributes.disengageBonus

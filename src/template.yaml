@@ -339,6 +339,7 @@ Actor:
           enabled: false
           current: 'none'
           default: 'none'
+          secondEdition: true
       spendable:
         ki:
           enabled: false
