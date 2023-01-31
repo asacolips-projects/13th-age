@@ -288,15 +288,6 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
-  game.settings.register('archmage', 'automatePowerCost', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostHint"),
-    scope: 'world',
-    config: true,
-    default: true,
-    type: Boolean
-  });
-
   game.settings.register('archmage', 'unboundEscDie', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieHint"),

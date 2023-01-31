@@ -105,115 +105,116 @@ export class ItemArchmage extends Item {
   }
 
   async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender) {
-    // Decrease resources if cost is set
-    let costStr = this.system.cost?.value;
-    let newCostStr = [];
-    if (costStr && game.settings.get("archmage", "automatePowerCost")) {
-      let costs = costStr.split(",").map(item => item.trim());
-      let res = this.actor.system.resources;
-      let filter = /^([\+-]*)([0-9]*)\s*([a-zA-Z0-9\s]+)$/;
+    // Updates resources if field is set
+    let resStr = this.system.resources?.value;
+    if (!resStr) return false;
 
-      for (let cost of costs) {
+    let resources = resStr.split(",").map(item => item.trim());
+    let res = this.actor.system.resources;
+    let filter = /^([\+-]*)([0-9]*)\s*([a-zA-Z0-9\s]+)$/;
+    let newResStr = [];
+    for (let resource of resources) {
 
-        // Handle inline rolls
-        let ir = /(\[\[.+?\]\])/.exec(cost);
-        let rolls;
-        let origCost = cost;
-        if (ir) {
-          rolls = ArchmageRolls.getInlineRolls(cost, itemToRender.actor.getRollData(itemToRender))
-          ArchmageRolls.rollAll(rolls, itemToRender.actor);
-          cost = cost.replace(ir[1], rolls[0].total);
+      // Handle inline rolls
+      let ir = /(\[\[.+?\]\])/.exec(resource);
+      let rolls;
+      let origResource = resource;
+      if (ir) {
+        rolls = ArchmageRolls.getInlineRolls(resource, itemToRender.actor.getRollData(itemToRender))
+        ArchmageRolls.rollAll(rolls, itemToRender.actor);
+        resource = resource.replace(ir[1], rolls[0].total);
+      }
+
+      // Then process the item
+      let parsed = filter.exec(resource);
+      if (parsed) {
+        let sign = parsed[1]
+        let num = parsed[2] ? Number(parsed[2]) : null;
+        if (num) num = (sign == "-") ? num * -1 : num;
+        let str = parsed[3].toLowerCase();
+
+        // Command points
+        if (res.perCombat.commandPoints.enabled &&
+            (str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints").toLowerCase())
+            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPointsShort").toLowerCase()
+            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPointsShortPlural").toLowerCase())) {
+          if (await this._rollProcessResource(
+            actorUpdateData, itemUpdateData, 'system.resources.perCombat.commandPoints.current', sign, num,
+            res.perCombat.commandPoints.current, game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP")
+          )) { return true; }
         }
 
-        // Then process the item
-        let parsed = filter.exec(cost);
-        if (parsed) {
-          let sign = parsed[1]
-          let num = parsed[2] ? Number(parsed[2]) : null;
-          if (num) num = (sign == "-") ? num * -1 : num;
-          let str = parsed[3].toLowerCase();
-
-          // Command points
-          if (res.perCombat.commandPoints.enabled &&
-              (str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints").toLowerCase())
-              || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPointsShort").toLowerCase()
-              || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPointsShortPlural").toLowerCase())) {
-            if (await this._rollProcessResource(
-              actorUpdateData, itemUpdateData, 'system.resources.perCombat.commandPoints.current', sign, num,
-              res.perCombat.commandPoints.current, game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP")
-            )) { return true; }
+        // Ki
+        else if (res.spendable.ki.enabled &&
+            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki").toLowerCase())) {
+          let path = 'system.resources.spendable.ki.current';
+          if (await this._rollProcessResource(
+            actorUpdateData, itemUpdateData, path, sign, num, res.spendable.ki.current,
+            game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi")
+          )) { return true; }
+          // Handle maximum
+          let resMax = res.spendable.ki.max;
+          if (resMax && actorUpdateData[path] > resMax) {
+            actorUpdateData[path] = resMax;
           }
+        }
 
-          // Ki
-          else if (res.spendable.ki.enabled &&
-              str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki").toLowerCase())) {
-            let path = 'system.resources.spendable.ki.current';
-            if (await this._rollProcessResource(
-              actorUpdateData, itemUpdateData, path, sign, num, res.spendable.ki.current,
-              game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi")
-            )) { return true; }
-            // Handle maximum
-            let resMax = res.spendable.ki.max;
-            if (resMax && actorUpdateData[path] > resMax) {
-              actorUpdateData[path] = resMax;
-            }
-          }
+        // Momentum
+        else if (res.perCombat.momentum.enabled &&
+            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum").toLowerCase())) {
+          if (await this._rollProcessResource(
+            actorUpdateData, itemUpdateData, 'system.resources.perCombat.momentum.current', sign, num,
+            res.perCombat.momentum.current, game.i18n.localize("ARCHMAGE.UI.errNoMomentum")
+          )) { return true; }
+        }
 
-          // Momentum
-          else if (res.perCombat.momentum.enabled &&
-              str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum").toLowerCase())) {
-            if (await this._rollProcessResource(
-              actorUpdateData, itemUpdateData, 'system.resources.perCombat.momentum.current', sign, num,
-              res.perCombat.momentum.current, game.i18n.localize("ARCHMAGE.UI.errNoMomentum")
-            )) { return true; }
-          }
+        // Focus
+        else if (res.perCombat.focus.enabled &&
+            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.focus").toLowerCase())) {
+          if (await this._rollProcessResource(
+            actorUpdateData, itemUpdateData, 'system.resources.perCombat.focus.current', sign, num,
+            res.perCombat.focus.current, game.i18n.localize("ARCHMAGE.UI.errNoFocus")
+          )) { return true; }
+        }
 
-          // Focus
-          else if (res.perCombat.focus.enabled &&
-              str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.focus").toLowerCase())) {
-            if (await this._rollProcessResource(
-              actorUpdateData, itemUpdateData, 'system.resources.perCombat.focus.current', sign, num,
-              res.perCombat.focus.current, game.i18n.localize("ARCHMAGE.UI.errNoFocus")
-            )) { return true; }
-          }
+        // Combat Rhythm
+        else if (res.perCombat.rhythm?.enabled &&
+            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rhythm").toLowerCase())) {
+          if (await this._rollProcessResource(
+            actorUpdateData, itemUpdateData, 'system.resources.perCombat.rhythm.current', sign, num,
+            res.perCombat.momentum.current, game.i18n.localize("ARCHMAGE.UI.errNoRhythm")
+          )) { return true; }
+        }
 
-          // Combat Rhythm
-          else if (res.perCombat.rhythm?.enabled &&
-              str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rhythm").toLowerCase())) {
-            if (await this._rollProcessResource(
-              actorUpdateData, itemUpdateData, 'system.resources.perCombat.rhythm.current', sign, num,
-              res.perCombat.momentum.current, game.i18n.localize("ARCHMAGE.UI.errNoRhythm")
-            )) { return true; }
-          }
-
-          // Custom resources
-          else {
-            for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
-              let resourcePathName = "custom"+idx;
-              let resourceName = res.spendable[resourcePathName].label;
-              if (res.spendable[resourcePathName].enabled && str.includes(resourceName.toLowerCase())) {
-                let path = `system.resources.spendable.${resourcePathName}.current`;
-                if (await this._rollProcessResource(
-                  actorUpdateData, itemUpdateData, path, sign, num, res.spendable[resourcePathName].current,
-                  game.i18n.format("ARCHMAGE.UI.errNoCustomResource", {res: resourceName})
-                )) { return true; }
-                // Handle maximum
-                let resMax = res.spendable[resourcePathName].max;
-                if (resMax && actorUpdateData[path] > resMax) {
-                  actorUpdateData[path] = resMax;
-                }
+        // Custom resources
+        else {
+          for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
+            let resourcePathName = "custom"+idx;
+            let resourceName = res.spendable[resourcePathName].label;
+            if (res.spendable[resourcePathName].enabled && str.includes(resourceName.toLowerCase())) {
+              let path = `system.resources.spendable.${resourcePathName}.current`;
+              if (await this._rollProcessResource(
+                actorUpdateData, itemUpdateData, path, sign, num, res.spendable[resourcePathName].current,
+                game.i18n.format("ARCHMAGE.UI.errNoCustomResource", {res: resourceName})
+              )) { return true; }
+              // Handle maximum
+              let resMax = res.spendable[resourcePathName].max;
+              if (resMax && actorUpdateData[path] > resMax) {
+                actorUpdateData[path] = resMax;
               }
             }
           }
         }
-
-        // If there were inline rolls, replace formula with rolled value
-        if (ir) cost = origCost.replace(ir[1], rolls[0].inlineRoll.outerHTML);
-        newCostStr.push(cost);
       }
-      // Reconstruct the processed value
-      itemToRender.system.cost.value = newCostStr.join(", ");
+
+      // If there were inline rolls, replace formula with rolled value
+      if (ir) resource = origResource.replace(ir[1], rolls[0].inlineRoll.outerHTML);
+      newResStr.push(resource);
     }
+
+    // Reconstruct the processed value
+    itemToRender.system.resources.value = newResStr.join(", ");
+
     return false;
   }
 
@@ -636,7 +637,7 @@ export class ItemArchmage extends Item {
       'miss',
       'missEven',
       'missOdd',
-      'cost',
+      'resources',
     ];
     const properties = propKeys.map(k => {
       return {

@@ -168,8 +168,6 @@ ARCHMAGE:
     automateBaseStatsFromClassName: Automatically compute base stats
     automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes; Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
     automateHPConditionsName: Auto-manage Dead and Staggered
-    automatePowerCostHint: Remove resources (e.g. Command Points, Ki or Focus) automatically when using a power with a cost?
-    automatePowerCostName: Automatically apply power costs
     ColorblindHint: Change the colors of the power cards to more accessibility color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
@@ -409,7 +407,6 @@ ARCHMAGE:
     championDescription: Champion Feat Description
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
-    cost: Cost
     crit: Crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
@@ -458,6 +455,7 @@ ARCHMAGE:
     RechargeLabel: Rolling recharge
     RechargeRoll: Recharge Roll
     RechargeSucc: recharged
+    resources: Resources
     Rest: Rest
     Rests: Rests
     sequencerDesc: Configure a sequencer animation.
