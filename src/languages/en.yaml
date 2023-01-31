@@ -361,6 +361,7 @@ ARCHMAGE:
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
+    escalationBlockedHint: Denies usage of Escalation Die
     critModBonus: Critical Hit Modifier Bonus
     critModBonusHint: +1 means you would crit on 19-20, etc
     critDefBonus: Critical Hit Defense Bonus
