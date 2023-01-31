@@ -372,27 +372,45 @@ ARCHMAGE:
     meleeBonus: Melee Attack Bonus
     pdBonus: PD Bonus
     price: Price
+    pricePlaceholder: 1,000gp
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
     saveBonus: Save Bonus
+    saveBonusHPTreshold: Save Bonus HP Threshold
+    usesMax: Maximum Uses
+    usesMaxHint: Number of uses per battle/day, usually 1
+    usesRemaining: Uses Remaining
+    usesRemainingHint: Number of remaining uses, usually the same as Max Uses
   CHAKRA:
     armor: Armor, robe, shirt, tunic
+    armorBonus: "Default Bonus: Armor Class"
     arrow: Arrow, crossbow bolt, slingstone
     belt: Belt, swordbelt, kilt, girdle
+    beltBonus: "Default Bonus: Recoveries"
     book: Book, scroll, manual, grimoire
     boots: Boots, sandals, slippers, shoes
+    bootsBonus: "Default Bonus: Disengage Checks"
     cloak: Cloak, mantle, cape
+    cloakBonus: "Default Bonus: Physical Defense"
     glove: Glove, gauntlet, mitt
     helmet: Helmet, circlet, crown, cap
+    helmetBonus: "Default Bonus: Mental Defense"
     melee: Weapon, melee
     necklace: Necklace, pendant
+    necklaceBonus: "Default Bonus: Save bonus"
     none: None
+    noBonus: No default bonus, depends on the item
     ranged: Weapon, ranged
     ring: Ring
     shield: Shield
+    shieldBonus: "Default Bonus: Hit points"
     staff: Staff (implement)
+    staffBonus: "Operates as both a Wand and a Symbol"
     symbol: Symbol, holy relic, sacred sickle (implement)
+    symbolBonus: "Default Bonus: Divine Attack and Damage"
     wand: Wand (implement)
+    wandBonus: "Default Bonus: Arcane Attack and Damage"
+    weaponBonus: "Default Bonus: Attack and Damage"
     wondrous: Wondrous item
   CHAT:
     actionType: Action Type
@@ -432,6 +450,7 @@ ARCHMAGE:
     KiReset: reset to
     embeddedMacro: Embedded Macro
     embeddedMacroSummary: Edit the embedded macro that will be run on use.
+    embeddedMacroSummaryTooltip: The macro will be run if the item is used/rolled. Context is passed as arguments.
     embeddedMacroPermissionError: Cannot execute embedded macro - request permission for this user to your GM!
     miss: Miss
     missEven: Even Miss
@@ -453,6 +472,7 @@ ARCHMAGE:
     QuickRestHP: rolled {recoveries} healing {hp} HP
     range: Range
     recharge: Recharge
+    rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
     RechargeFail: recharge failed
     RechargeLabel: Rolling recharge
     RechargeRoll: Recharge Roll
