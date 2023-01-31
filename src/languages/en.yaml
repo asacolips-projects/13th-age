@@ -511,6 +511,7 @@ ARCHMAGE:
     AE:
       edit: Edit Effect
       delete: Delete Effect
+      negativeRecovery: Negative Recovery Penalty
       new: New Effect
       toggle: Toggle Effect
     StatusAsleep: Asleep

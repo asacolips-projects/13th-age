@@ -1508,15 +1508,16 @@ export class ActorArchmage extends Actor {
       // Handle negative recoveries penalties, via AE
       // Clear previous effect, then recreate it if the at negative recoveries
       let effectsToDelete = [];
+      const negRecoveryLabel = game.i18n.localize("ARCHMAGE.EFFECT.AE.negativeRecovery");
       this.effects.forEach(x => {
-        if (x.label == "Negative Recovery Penalty") effectsToDelete.push(x.id);
+        if (x.label == negRecoveryLabel) effectsToDelete.push(x.id);
       });
       await this.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
 
       let newRec = data.system.attributes.recoveries.value;
       if (newRec < 0) {
         const effectData = {
-          label: "Negative Recovery Penalty",
+          label: negRecoveryLabel,
           changes: [
             {key: "data.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
             {key: "data.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
