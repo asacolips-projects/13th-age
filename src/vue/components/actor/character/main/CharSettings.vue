@@ -196,6 +196,7 @@ export default {
     resourcesCustom() {
       let resources = {};
       for (let [k,v] of Object.entries(this.actor.system.resources.spendable)) {
+        if ( v.secondEdition && !game.settings.get('archmage', 'secondEdition') ) continue;
         if (k.includes('custom')) resources[k] = v;
       }
       return resources;
@@ -203,6 +204,7 @@ export default {
     resourcesPerCombat() {
       let resources = {};
       for (let [k,v] of Object.entries(this.actor.system.resources.perCombat)) {
+        if ( v.secondEdition && !game.settings.get('archmage', 'secondEdition') ) continue;
         resources[k] = v;
       }
       return resources;
@@ -210,6 +212,7 @@ export default {
     resourcesSpendable() {
       let resources = {};
       for (let [k,v] of Object.entries(this.actor.system.resources.spendable)) {
+        if ( v.secondEdition && !game.settings.get('archmage', 'secondEdition') ) continue;
         if (!k.includes('custom')) resources[k] = v;
       }
       return resources;
