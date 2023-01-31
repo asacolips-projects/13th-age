@@ -61,28 +61,6 @@ export default {
       let effects = this.actor.effects;
       this.effects = effects;
     };
-    function cleanLabel(label) {
-      return label
-          .replace("data.attributes", "")
-          .replace("system.attributes", "")
-          .replace("attack", game.i18n.localize("ARCHMAGE.attack"))
-          .replace("arcane", game.i18n.localize("ARCHMAGE.EFFECT.AE.arcane"))
-          .replace("divine", game.i18n.localize("ARCHMAGE.EFFECT.AE.divine"))
-          .replace("ranged", game.i18n.localize("ARCHMAGE.ranged"))
-          .replace("melee", game.i18n.localize("ARCHMAGE.melee"))
-          .replace("bonus", game.i18n.localize("ARCHMAGE.bonus"))
-          .replace("md", game.i18n.localize("ARCHMAGE.md.label"))
-          .replace("pd", game.i18n.localize("ARCHMAGE.pd.label"))
-          .replace("hp", game.i18n.localize("ARCHMAGE.health"))
-          .replace("save", game.i18n.localize("ARCHMAGE.ITEM.saveBonus"))
-          .replace("disengage", game.i18n.localize("ARCHMAGE.ITEM.disengageBonus"))
-          .replace("recoveries", game.i18n.localize("ARCHMAGE.recoveries"))
-          .replace("critMod.atk", game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitBonus"))
-          .replace("critMod.def", game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitDefense"))
-          .replace("value", "")
-          .replaceAll(".", " ")
-          .replace("ac ", game.i18n.localize("ARCHMAGE.ac.label"));
-    };
     function getChanges(effect) {
       let changes = [];
       let modes = [
@@ -97,7 +75,7 @@ export default {
       effect.changes.forEach(c => {
         if (c.key && c.value) {
           let change = {
-            label: this.cleanLabel(c.key),
+            label: game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key),
             mode: modes[c.mode],
             value: c.value
           };
@@ -118,8 +96,7 @@ export default {
       localize,
       numberFormat,
       getEffects,
-      getChanges,
-      cleanLabel
+      getChanges
     }
   },
   methods: {
