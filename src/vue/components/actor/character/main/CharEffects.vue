@@ -3,19 +3,19 @@
     <section class="effects-group">
       <div class="effects-group-header">
         <div class="effects-header-title grid effects-grid">
-          <h2 class="effects-group-title unit-title">{{localize('EFFECT.TabEffects')}}</h2>
+          <h2 class="effects-group-title unit-title">{{localize('ARCHMAGE.effects')}}</h2>
           <div class="item-controls effect-controls">
-            <a class="effect-control" data-action="create" :title="localize('Create Effect')"><i class="fas fa-plus"></i></a>
+            <a class="effect-control" data-action="create" :title="localize('ARCHMAGE.EFFECT.AE.new')"><i class="fas fa-plus"></i></a>
           </div>
         </div>
       </div>
       <ul class="effects-group-content flexcol">
-        <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item', (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
+        <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item ', concat('effect-', effect._id), (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
               <img :src="effect.icon" class="effects-image"/>
             </div>
-            <a class="effects-name" :data-effects-id="effect._id">
+            <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
               <h3 class="effects-title unit-subtitle">{{effect.label}}</h3>
             </a>
             <div class="effects-bonus flexrow">
@@ -26,10 +26,13 @@
               </div>
             </div>
             <div class="item-controls effect-controls">
-              <a class="effect-control" :data-item-id="effect._id" data-action="toggle" :title="localize('Toggle Effect')"><i :class="concat('fas fa-', effect.disabled ? 'check' : 'times')"></i></a>
-              <a class="effect-control" :data-item-id="effect._id" data-action="edit" :title="localize('Edit Effect')"><i class="fas fa-edit"></i></a>
-              <a class="effect-control" :data-item-id="effect._id" data-action="delete" :title="localize('Edit Effect')"><i class="fas fa-trash"></i></a>
+              <a class="effect-control" :data-item-id="effect._id" data-action="toggle" :title="localize('ARCHMAGE.EFFECT.AE.toggle')"><i :class="concat('fas fa-', effect.disabled ? 'check' : 'times')"></i></a>
+              <a class="effect-control" :data-item-id="effect._id" data-action="edit" :title="localize('ARCHMAGE.EFFECT.AE.edit')"><i class="fas fa-edit"></i></a>
+              <a class="effect-control" :data-item-id="effect._id" data-action="delete" :title="localize('ARCHMAGE.EFFECT.AE.delete')"><i class="fas fa-trash"></i></a>
             </div>
+          </div>
+          <div v-if="effect.description" class="effect-detail effect-detail--description hidden">
+            <span class="effect-detail-value" v-html="effect.description"></span>
           </div>
         </li>
       </ul>
@@ -50,6 +53,7 @@ export default {
     // Equivalent to data: and computed:
     const componentData = reactive({
       effects: [],
+      activeEffects: {},
       classes: computed(() => `section section--effects flexcol`)
     });
     // Define methods.
@@ -57,44 +61,29 @@ export default {
       let effects = this.actor.effects;
       this.effects = effects;
     };
-    function cleanLabel(label) {
-      // TODO: Localize
-      return label
-          .replace("data.attributes", "")
-          .replace("system.attributes", "")
-          .replace("attack", "Attack")
-          .replace("arcane", "Arcane")
-          .replace("divine", "Divine")
-          .replace("ranged", "Ranged")
-          .replace("melee", "Melee")
-          .replace("bonus", "Bonus")
-          .replace("md", "Mental Defense")
-          .replace("pd", "Physical Defense")
-          .replace("hp", "Health")
-          .replace("save", "Save Bonus")
-          .replace("disengage", "Disengage Bonus")
-          .replace("recoveries", "Recoveries")
-          .replace("value", "")
-          .replaceAll(".", " ")
-          .replace("ac ", "Armor Class");
-    };
     function getChanges(effect) {
       let changes = [];
       let modes = [
         'question',
         'times',
         'plus',
+        "minus",
         'angle-double-down',
         'angle-double-up',
         'undo'
       ]
       effect.changes.forEach(c => {
         if (c.key && c.value) {
-          changes.push({
-            label: this.cleanLabel(c.key),
+          let change = {
+            label: game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key),
             mode: modes[c.mode],
             value: c.value
-          });
+          };
+          if (change.mode === "plus" && change.value < 0) {
+            change.mode = "minus";
+            change.value = Math.abs(change.value);
+          }
+          changes.push(change);
         }
       })
       return changes;
@@ -107,16 +96,29 @@ export default {
       localize,
       numberFormat,
       getEffects,
-      getChanges,
-      cleanLabel
+      getChanges
     }
   },
-  watch: {
-    'actor.effects': {
-      deep: true,
-      handler() {
-        this.getEffects()
+  methods: {
+    /**
+     * Toggle effect display (click event).
+     */
+    toggleEffect(event) {
+      let target = event.currentTarget;
+      let dataset = target.dataset;
+      let id = dataset.effectsId;
+      if (id) {
+        // Toggle the state if the effect is currently being tracked.
+        if (this.activeEffects[id] !== undefined) {
+          this.activeEffects[id] = !this.activeEffects[id];
+        }
+        // Otherwise, assume it should be open since this was click event.
+        else {
+          this.activeEffects[id] = true;
+        }
       }
+      const element = this.$el.querySelector(`.effect-${id} > .effect-detail--description`);
+      if ( element ) element.classList.toggle('hidden');
     }
   },
   watch: {

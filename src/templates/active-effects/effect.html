@@ -1,4 +1,4 @@
-<form class="effect-sheet item-sheet editable" autocomplete="off">
+<form class="archmage effect-sheet item-sheet editable" autocomplete="off">
 
     <!-- Effect Header -->
     <header class="sheet-header">
@@ -21,7 +21,7 @@
                         <label>{{ localize "EFFECT.Icon" }}</label>
                         <div class="form-fields">
                             {{filePicker target="icon" type="image"}}
-                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{icon}}"/>
+                            <input class="image" type="text" name="icon" placeholder="path/image.png" value="{{effect.icon}}"/>
                         </div>
                     </div>
 
@@ -45,6 +45,13 @@
                         <div class="form-fields">
                             <input type="checkbox" name="effect.transfer" {{checked effect.transfer}}/>
                         </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if supportsDescription}}
+                    <div class="form-group stacked description">
+                        <label>{{ localize "EFFECT.Description" }}</label>
+                        {{editor descriptionHTML target="description" button=true editable=editable engine="prosemirror" collaborate=false}}
                     </div>
                     {{/if}}
                 </section>
@@ -121,6 +128,13 @@
                                data-dtype="Number" placeholder="0" />
                     </div>
 
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.critModBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.critMod.atk.value" type="text" value="{{system.attributes.critMod.atk.value}}"
+                               data-dtype="Number" placeholder="0" />
+                    </div>
+                    <p class="notes">{{localize 'ARCHMAGE.ITEM.critModBonusHint'}}</p>
+
                     <div class="settings-group form-group" style="padding-top: 10px;">
                         <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
                     </div>
@@ -150,25 +164,32 @@
                     </div>
 
                     <div class="settings-group">
-                        <strong class="attribute-name">Recoveries Bonus</strong>
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.recoveriesBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.recoveries.value" type="text" value="{{system.attributes.recoveries.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
-                        <strong class="attribute-name">Save Bonus</strong>
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.saveBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.save.value" type="text" value="{{system.attributes.save.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
-                        <strong class="attribute-name">Disengage Bonus</strong>
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.disengage" type="text" value="{{system.attributes.disengage}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
                     <div class="settings-group">
-                        <strong class="attribute-name">Denies usage of Escalation Die</strong>
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.critDefBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.critMod.def.value" type="text" value="{{system.attributes.critMod.def.value}}"
+                               data-dtype="Number" placeholder="0" />
+                    </div>
+                    <p class="notes">{{localize 'ARCHMAGE.ITEM.critDefBonusHint'}}</p>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
                         <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked system.blockedFromEscalationDie}} />
                     </div>
                 </section>

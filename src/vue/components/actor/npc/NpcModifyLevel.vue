@@ -1,7 +1,6 @@
 <template>
   <section class="section section--level-edit flexrow">
     <div class="unit unit--modify-level">
-      <!-- @todo localize this -->
       <label><strong>{{localize('ARCHMAGE.AUTOLEVEL.newLevel')}}: {{newLevel}}</strong></label>
       <input type="range" step="1" :min="levelRestraints.min" :max="levelRestraints.max" v-model="newLevel" />
     </div>

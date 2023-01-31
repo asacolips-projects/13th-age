@@ -50,7 +50,7 @@ Hooks.once('init', async function() {
   });
 
   Handlebars.registerHelper('getPowerClass', (inputString) => {
-    // Get the appropriate usage.
+    // Get the appropriate usage. TODO: likely needs to be localized?
     let usage = 'other';
     let usageString = inputString !== null ? inputString.toLowerCase() : '';
     if (usageString.includes('will')) {
@@ -112,10 +112,13 @@ Hooks.once('init', async function() {
 
   // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("archmage", ItemArchmageSheet, { makeDefault: true });
+  Items.registerSheet("archmage", ItemArchmageSheet, {
+    label: game.i18n.localize('ARCHMAGE.sheetItem'),
+    makeDefault: true
+  });
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
-    label: "Toolkit13 Active Effect Sheet",
+    label: game.i18n.localize('ARCHMAGE.sheetActiveEffect'),
     makeDefault: true
   });
 
@@ -180,14 +183,14 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet('core', ActorSheet);
 
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
-    label: "NPC Sheet",
+    label: game.i18n.localize('ARCHMAGE.sheetNPC'),
     types: ["npc"],
     makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
   Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-    label: "Character Sheet",
+    label: game.i18n.localize('ARCHMAGE.sheetCharacter'),
     types: ["character"],
     makeDefault: true
   });
@@ -709,48 +712,49 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).off("contextmenu");
 
     // console.log($(this).parent()[0].innerText);
+    // TODO: Likely needs to be localized
     if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
       return;
     }
 
     new ContextMenu2($(this).parent(), "." + uuid, [
       {
-        name: "Apply as Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, 1);
         }
       },
       {
-        name: "Apply as Half Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, .5);
         }
       },
       {
-        name: "Apply as Double Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, 2);
         }
       },
       {
-        name: "Apply as Triple Damage",
+        name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
         icon: '<i class="fas fa-tint"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asDamage(inlineRoll, 3);
         }
       },
       {
-        name: "Apply as Healing",
+        name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
         icon: '<i class="fas fa-medkit"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asHealing(inlineRoll);
         }
       },
       {
-        name: "Apply as Temp Health",
+        name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
         icon: '<i class="fas fa-heart"></i>',
         callback: inlineRoll => {
           new DamageApplicator().asTempHealth(inlineRoll);
@@ -899,7 +903,7 @@ Hooks.on('createCombatant', (document, data, options, id) => {
   // Add command points at start of combat.
   if (actor && actor.type == 'character') {
     let updates = {};
-    let hasStrategist = actor.items.find(i => i.system.name.safeCSSId().includes('strategist'));
+    let hasStrategist = actor.items.find(i => i.system.name.label.safeCSSId().includes('strategist'));
     let basePoints = hasStrategist ? 2 : 1;
     // TODO: Add support for Forceful Command.
     updates['system.resources.perCombat.commandPoints.current'] = basePoints;

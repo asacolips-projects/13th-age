@@ -182,7 +182,7 @@ export class DiceArchmage {
         content: dlg,
         buttons: {
           disadvantage: {
-            label: 'Dis.',
+            label: game.i18n.localize("ARCHMAGE.rollDisadvantageShort"),
             callback: () => {
               adv = -1;
               rolled = true;
@@ -203,7 +203,7 @@ export class DiceArchmage {
             }
           },
           normal: {
-            label: 'Normal',
+            label: game.i18n.localize("ARCHMAGE.rollNormal"),
             callback: () => {
               rolled = true;
             }
@@ -223,7 +223,7 @@ export class DiceArchmage {
             }
           },
           advantage: {
-            label: 'Adv.',
+            label: game.i18n.localize("ARCHMAGE.rollAdvantageShort"),
             callback: () => {
               adv = 1;
               rolled = true;
