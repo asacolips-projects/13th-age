@@ -31,21 +31,20 @@ export class ItemArchmage extends Item {
   async roll() {
     let itemUpdateData = {};
     let actorUpdateData = {};
-    let itemOverrideData = {};
 
     // First check remaining uses.
     let early_exit = await this._rollUsesCheck(itemUpdateData);
     if (early_exit) return;
 
+    // Make an ephemeral clone of the item which we can dirty during processing.
+    let itemToRender = this.clone({}, {"save": false, "keepId": true});
+
     // Then check resources.
-    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData);
+    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
     if (early_exit) return;
 
     // Check targets.
-    let targets = await this._rollMultiTargets(itemOverrideData);
-
-    // Make an ephemeral clone of the item with the modifications we made earlier.
-    let itemToRender = this.clone(itemOverrideData, {"save": false, "keepId": true});
+    let targets = await this._rollMultiTargets(itemToRender);
 
     // Prepare roll data now.
     let rollData = itemToRender.actor.getRollData(this);
@@ -105,14 +104,28 @@ export class ItemArchmage extends Item {
     return false;
   }
 
-  async _rollResourceCheck(itemUpdateData, actorUpdateData) {
+  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender) {
     // Decrease resources if cost is set
     let costStr = this.system.cost?.value;
+    let newCostStr = [];
     if (costStr && game.settings.get("archmage", "automatePowerCost")) {
       let costs = costStr.split(",").map(item => item.trim());
       let res = this.actor.system.resources;
       let filter = /^([\+-]*)([0-9]*)\s*([a-zA-Z0-9\s]+)$/;
+
       for (let cost of costs) {
+
+        // Handle inline rolls
+        let ir = /(\[\[.+?\]\])/.exec(cost);
+        let rolls;
+        let origCost = cost;
+        if (ir) {
+          rolls = ArchmageRolls.getInlineRolls(cost, itemToRender.actor.getRollData(itemToRender))
+          ArchmageRolls.rollAll(rolls, itemToRender.actor);
+          cost = cost.replace(ir[1], rolls[0].total);
+        }
+
+        // Then process the item
         let parsed = filter.exec(cost);
         if (parsed) {
           let sign = parsed[1]
@@ -165,7 +178,7 @@ export class ItemArchmage extends Item {
           }
 
           // Combat Rhythm
-          else if (res.perCombat.rhythm.enabled &&
+          else if (res.perCombat.rhythm?.enabled &&
               str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rhythm").toLowerCase())) {
             if (await this._rollProcessResource(
               actorUpdateData, itemUpdateData, 'system.resources.perCombat.rhythm.current', sign, num,
@@ -193,7 +206,13 @@ export class ItemArchmage extends Item {
             }
           }
         }
+
+        // If there were inline rolls, replace formula with rolled value
+        if (ir) cost = origCost.replace(ir[1], rolls[0].inlineRoll.outerHTML);
+        newCostStr.push(cost);
       }
+      // Reconstruct the processed value
+      itemToRender.system.cost.value = newCostStr.join(", ");
     }
     return false;
   }
@@ -243,16 +262,16 @@ export class ItemArchmage extends Item {
     return stop;
   }
 
-  async _rollMultiTargets(itemOverrideData) {
+  async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
     if (this.type == "power" || this.type == "action") {
       let attackLine = ArchmageRolls.addAttackMod(this);
-      itemOverrideData["system.attack.value"] = attackLine;
+      itemToRender.system.attack.value = attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(this);
-        itemOverrideData = {"system.attack.value": ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets)};
-        if (numTargets.targetLine) itemOverrideData["system.target.value"] = numTargets.targetLine;
+        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets);
+        if (numTargets.targetLine) itemToRender.system.target.value = numTargets.targetLine;
       }
     }
     return numTargets.targets;
