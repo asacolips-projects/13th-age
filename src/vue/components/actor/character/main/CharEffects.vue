@@ -62,27 +62,26 @@ export default {
       this.effects = effects;
     };
     function cleanLabel(label) {
-      // TODO: Localize
       return label
           .replace("data.attributes", "")
           .replace("system.attributes", "")
-          .replace("attack", "Attack")
-          .replace("arcane", "Arcane")
-          .replace("divine", "Divine")
-          .replace("ranged", "Ranged")
-          .replace("melee", "Melee")
-          .replace("bonus", "Bonus")
-          .replace("md", "Mental Defense")
-          .replace("pd", "Physical Defense")
-          .replace("hp", "Health")
-          .replace("save", "Save Bonus")
-          .replace("disengage", "Disengage Bonus")
-          .replace("recoveries", "Recoveries")
-          .replace("critMod.atk", "Critical Hit Bonus")
-          .replace("critMod.def", "Critical Hit Defense")
+          .replace("attack", game.i18n.localize("ARCHMAGE.attack"))
+          .replace("arcane", game.i18n.localize("ARCHMAGE.EFFECT.AE.arcane"))
+          .replace("divine", game.i18n.localize("ARCHMAGE.EFFECT.AE.divine"))
+          .replace("ranged", game.i18n.localize("ARCHMAGE.ranged"))
+          .replace("melee", game.i18n.localize("ARCHMAGE.melee"))
+          .replace("bonus", game.i18n.localize("ARCHMAGE.bonus"))
+          .replace("md", game.i18n.localize("ARCHMAGE.md.label"))
+          .replace("pd", game.i18n.localize("ARCHMAGE.pd.label"))
+          .replace("hp", game.i18n.localize("ARCHMAGE.health"))
+          .replace("save", game.i18n.localize("ARCHMAGE.ITEM.saveBonus"))
+          .replace("disengage", game.i18n.localize("ARCHMAGE.ITEM.disengageBonus"))
+          .replace("recoveries", game.i18n.localize("ARCHMAGE.recoveries"))
+          .replace("critMod.atk", game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitBonus"))
+          .replace("critMod.def", game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitDefense"))
           .replace("value", "")
           .replaceAll(".", " ")
-          .replace("ac ", "Armor Class");
+          .replace("ac ", game.i18n.localize("ARCHMAGE.ac.label"));
     };
     function getChanges(effect) {
       let changes = [];

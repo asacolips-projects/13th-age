@@ -509,8 +509,12 @@ ARCHMAGE:
     success: Succeeded
   EFFECT:
     AE:
-      edit: Edit Effect
+      arcane: Arcane
+      critHitBonus: Critical Hit Bonus
+      critHitDefense: Critical Hit Defense
       delete: Delete Effect
+      divine: Divine
+      edit: Edit Effect
       negativeRecovery: Negative Recovery Penalty
       new: New Effect
       toggle: Toggle Effect
