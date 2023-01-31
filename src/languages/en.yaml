@@ -212,6 +212,8 @@ ARCHMAGE:
   CHARACTER:
     RESOURCES:
       commandPoints: Command Points
+      commandPointsShort: CP
+      commandPointsShortPlural: CPs
       commandPointsGained: Gained {points} command points.
       custom1: Custom Resource 1
       custom2: Custom Resource 2
@@ -551,8 +553,8 @@ ARCHMAGE:
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?
     errNoFocus: You need Focus to use this power. Use anyway?
-    errNoCustomResource: You don't have enough
-    errNoCustomResource2: Use anyway?
+    errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
+    errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
     errDependency: The <strong>vueport</strong> and <strong>dlopen</strong> modules are required for the V2 character sheet. Return to the Foundry setup page and use the module installer to install both of those modules to allow the V2 character sheet to be available.
     enableDependencies: Enable dependencies?
