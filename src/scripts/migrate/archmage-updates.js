@@ -229,12 +229,22 @@ class ArchmageUpdateHandler {
     let parsed = /^([\+-]*)([0-9]*)\s*(.+)$/.exec(val);
     if (parsed) {
       val = "";
-      // Invert sign
-      if (parsed[1] == "-") val += "+"; else val += "-";
-      // Keep number
-      if (parsed[2]) val += parsed[2] + " ";
-      // Keep rest
-      if (parsed[3]) val += parsed[3];
+      if (parsed[2]) {
+        // Invert sign
+        if (parsed[1] == "-") val += "+"; else val += "-";
+        // Keep number and rest
+        val += parsed[2] + " " + parsed[3];
+      } else {
+        let str = parsed[3] || "";
+        switch(str.toLowerCase()) {
+          case "gain momentum": val = "+Momentum"; break;
+          case "have momentum": val = "Momentum"; break;
+          case "spend momentum": val = "-Momentum"; break;
+          case "gain focus": val = "+Focus"; break;
+          case "focus": val = "-Focus"; break;
+          default: val = parsed[3]; break;
+        }
+      }
     }
     return mergeObject(updateData, {
       'system.resources.value': val,
