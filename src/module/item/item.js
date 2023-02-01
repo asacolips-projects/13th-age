@@ -76,13 +76,13 @@ export class ItemArchmage extends Item {
     if (game.modules.get("times-up")?.active) await this._handleMonkAC();
 
     // Run embedded macro.
-    let macro = await this._rollExecuteMacro(itemToRender, hitEvalRes, itemUpdateData, actorUpdateData, token);
+    let suppressMessage = await this._rollExecuteMacro(itemToRender, hitEvalRes, itemUpdateData, actorUpdateData, token);
 
     // Perform updates.
-    if (!foundry.utils.isEmpty(macro.itemUpdates)) this.update(macro.itemUpdates, {});
-    if (!foundry.utils.isEmpty(macro.actorUpdates)) this.actor.update(macro.actorUpdates);
+    if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
+    if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
 
-    return macro.suppressMessage ? undefined : ChatMessage.create(chatData, { displaySheet: false });
+    return suppressMessage ? undefined : ChatMessage.create(chatData, { displaySheet: false });
   }
 
   async _rollUsesCheck(updateData) {
