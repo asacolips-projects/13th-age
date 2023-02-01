@@ -182,7 +182,8 @@ export class ItemArchmage extends Item {
           let path = 'system.resources.perCombat.rhythm.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoRhythm");
           let resObj =  res.perCombat.rhythm;
-          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg, str);
+          let opt = (str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()) ? "offense" : "defense";
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg, opt);
           if (stop) return true;
         }
 
@@ -240,13 +241,13 @@ export class ItemArchmage extends Item {
          no: () => {stop = true;},
          defaultYes: false
         });
-        // if (path != 'system.attributes.recoveries.value') actorUpdateData[path] = 0;
+        if (path != 'system.attributes.recoveries.value') actorUpdateData[path] = 0;
       }
     }
 
     else if (sign) {
-      // Binary resource update case
-      if (sign == "+") actorUpdateData[path] = true;
+      // Binary (and rhythm) resource update case
+      if (sign == "+") actorUpdateData[path] = opt ? opt : true;
       else {
         if (!curr) {
           await Dialog.confirm({
@@ -257,13 +258,13 @@ export class ItemArchmage extends Item {
            defaultYes: false
           });
         }
-        else { actorUpdateData[path] = false; }
+        actorUpdateData[path] = opt ? "none" : false;
       }
     }
 
     else {
       // Resource test case
-      if (!opt && !curr) {
+      if (!curr || curr == "none") {
         await Dialog.confirm({
          title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
          content: msg,
@@ -271,15 +272,6 @@ export class ItemArchmage extends Item {
          no: () => {stop = true;},
          defaultYes: false
         });
-      }
-      else if (opt) {
-        // Combat Rhythm cases
-        if (opt == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()) {
-          actorUpdateData[path] = "offense";
-        }
-        else if (opt && opt == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense").toLowerCase()) {
-          actorUpdateData[path] = "defense";
-        }
       }
     }
 
