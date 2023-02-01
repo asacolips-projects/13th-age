@@ -210,9 +210,8 @@ ARCHMAGE:
   # Characters
   CHARACTER:
     RESOURCES:
+      commandPoint: Command Point
       commandPoints: Command Points
-      commandPointsShort: CP
-      commandPointsShortPlural: CPs
       commandPointsGained: Gained {points} command points.
       custom1: Custom Resource 1
       custom2: Custom Resource 2
@@ -227,7 +226,7 @@ ARCHMAGE:
       ki: Ki
       momentum: Momentum
       recoveries: Recoveries
-      recoveriesSingular: Recovery
+      recovery: Recovery
       rhythm: Combat Rhythm
     RHYTHMCHOICES:
       none: None

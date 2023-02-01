@@ -135,9 +135,9 @@ export class ItemArchmage extends Item {
 
         // Command points
         if (res.perCombat.commandPoints.enabled &&
-            (str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints").toLowerCase())
-            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPointsShort").toLowerCase()
-            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPointsShortPlural").toLowerCase())) {
+            (str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints").toLowerCase()
+            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoint").toLowerCase()
+            )) {
           let path = 'system.resources.perCombat.commandPoints.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughCP");
           let resObj = res.perCombat.commandPoints;
@@ -147,7 +147,7 @@ export class ItemArchmage extends Item {
 
         // Ki
         else if (res.spendable.ki.enabled &&
-            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki").toLowerCase())) {
+            str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki").toLowerCase()) {
           let path = 'system.resources.spendable.ki.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi");
           let resObj = res.spendable.ki;
@@ -157,7 +157,7 @@ export class ItemArchmage extends Item {
 
         // Momentum
         else if (res.perCombat.momentum.enabled &&
-            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum").toLowerCase())) {
+            str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.momentum").toLowerCase()) {
           let path = 'system.resources.perCombat.momentum.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
           let resObj = res.perCombat.momentum;
@@ -167,7 +167,7 @@ export class ItemArchmage extends Item {
 
         // Focus
         else if (res.perCombat.focus.enabled &&
-            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.focus").toLowerCase())) {
+            str == (game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.focus").toLowerCase())) {
           let path = 'system.resources.perCombat.focus.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoFocus");
           let resObj =  res.perCombat.focus;
@@ -188,8 +188,8 @@ export class ItemArchmage extends Item {
         }
 
         // Recoveries
-        else if (str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recoveries").toLowerCase())
-            || str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recoveriesSingular").toLowerCase())) {
+        else if (str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recoveries").toLowerCase()
+            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recovery").toLowerCase()) {
           let path = 'system.attributes.recoveries.value';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoRecoveries");
           let resObj =  this.actor.system.attributes.recoveries;
