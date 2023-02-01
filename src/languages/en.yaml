@@ -228,6 +228,11 @@ ARCHMAGE:
       momentum: Momentum
       recoveries: Recoveries
       recoveriesSingular: Recovery
+      rhythm: Combat Rhythm
+    RHYTHMCHOICES:
+      none: None
+      offense: Offense
+      defense: Defense
   CHARACTERFLAGS:
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
