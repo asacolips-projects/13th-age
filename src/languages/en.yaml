@@ -156,6 +156,7 @@ ARCHMAGE:
   standard: Standard Action
   talent: Talent
   talents: Talents
+  terrains: Terrains
   tempHp: Temp HP
   tool: Tool
   trait: Trait
@@ -542,6 +543,17 @@ ARCHMAGE:
     triggerTitle: Trigger for this power, such as 'Natural even miss'
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
+  TERRAINS:
+    label: Terrains Present
+    none: None
+    caveDungeonUnderworld: Cave, Dungeon, Underworld
+    forestWoods: Forest, Woods
+    iceTundraDeepSnow: Ice, Tundra, Deep Snow
+    koruBehemoth: Koru, Behemoth
+    mountains: Mountains
+    plainsOverworld: Plains, Overworld
+    ruins: Ruins
+    swampLakeRiver: Swamp, Lake, River
   TARGETING:
     '2': two
     '3': three
