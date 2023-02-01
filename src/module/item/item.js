@@ -73,7 +73,7 @@ export class ItemArchmage extends Item {
 
     // Handle Monk AC bonus.
     //TODO: remove dependency on times-up once core Foundry handles AE expiry
-    if (game.modules.get("times-up")?.active) await this._handleMonkAC();
+    if (game.modules.get("times-up")?.active) await this._rollMonkAC(itemToRender);
 
     // Run embedded macro.
     let suppressMessage = await this._rollExecuteMacro(itemToRender, hitEvalRes, itemUpdateData, actorUpdateData, token);
@@ -437,6 +437,53 @@ export class ItemArchmage extends Item {
     if(sequencerAnim) sequencerAnim.play();
   }
 
+
+
+  /**
+   * Check if we are rolling a monk form, add related AC active effect
+   */
+  async _rollMonkAC(itemToRender) {
+    if (itemToRender.type != "power") return;
+    if (!itemToRender.actor.system.details.detectedClasses?.includes("monk")) return;
+
+    let effects = itemToRender.actor.effects;
+    let group = itemToRender.system.group.value.toLowerCase();
+    let bonusMagnitudeMap = {};
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;
+    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.finishing")] = 3;
+    if (!Object.keys(bonusMagnitudeMap).includes(group)) return;
+    let bonusMagnitude = bonusMagnitudeMap[group];
+
+    // Check for other monk AC bonuses
+    let effectsToDelete = [];
+    let alreadyHasBetterBonus = false;
+    effects.forEach(e => {
+      if (e.data.label == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
+        if (Number(e.data.changes[0].value) <= bonusMagnitude) {
+          effectsToDelete.push(e.id);
+        }
+        else alreadyHasBetterBonus = true;
+      }
+    });
+    await itemToRender.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+
+    if (alreadyHasBetterBonus) return;
+
+    // Now create new AC bonus effect
+    let effectData = {
+      label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
+      icon: "icons/svg/shield.svg",
+      changes: [{
+        key: "data.attributes.ac.value",
+        value: bonusMagnitude,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    }
+    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
   async _rollExecuteMacro(itemToRender, hitEvalRes, itemUpdateData, actorUpdateData, token) {
     // Extra data accessible as "archmage" in embedded macros
     let macro_data = {
@@ -558,51 +605,6 @@ export class ItemArchmage extends Item {
       target: recharge,
       success: rechargeSuccessful
     };
-  }
-
-  /**
-   * Check if we are rolling a monk form, add related AC active effect
-   */
-  async _handleMonkAC() {
-    if (this.type != "power") return;
-    if (!this.actor.system.details.detectedClasses?.includes("monk")) return;
-
-    let effects = this.actor.effects;
-    let group = this.system.group.value.toLowerCase();
-    let bonusMagnitudeMap = {};
-    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.opening")] = 1;
-    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.flow")] = 2;
-    bonusMagnitudeMap[game.i18n.localize("ARCHMAGE.MONKFORMS.finishing")] = 3;
-    if (!Object.keys(bonusMagnitudeMap).includes(group)) return;
-    let bonusMagnitude = bonusMagnitudeMap[group];
-
-    // Check for other monk AC bonuses
-    let effectsToDelete = [];
-    let alreadyHasBetterBonus = false;
-    effects.forEach(e => {
-      if (e.data.label == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
-        if (Number(e.data.changes[0].value) <= bonusMagnitude) {
-          effectsToDelete.push(e.id);
-        }
-        else alreadyHasBetterBonus = true;
-      }
-    });
-    await this.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
-
-    if (alreadyHasBetterBonus) return;
-
-    // Now create new AC bonus effect
-    let effectData = {
-      label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
-      icon: "icons/svg/shield.svg",
-      changes: [{
-        key: "data.attributes.ac.value",
-        value: bonusMagnitude,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      }]
-    }
-    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
-    await this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   /* -------------------------------------------- */

@@ -229,8 +229,6 @@ ARCHMAGE:
       recoveries: Recoveries
       recoveriesSingular: Recovery
   CHARACTERFLAGS:
-    improvedIniativeHint: General feat to increase initiative by +4.
-    improvedIniativeName: Improved Initiative
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
   CHARACTERSETTINGS:
