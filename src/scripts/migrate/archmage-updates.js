@@ -225,8 +225,7 @@ class ArchmageUpdateHandler {
    */
   __migratePowerCostToResources(item, updateData={}) {
     if (!item || item.type != "power") return updateData;
-    const itemData = item.system;
-    let val = itemData.system.cost.value;
+    let val = item.system.cost?.value || "";
     let parsed = /^([\+-]*)([0-9]*)\s*(.+)$/.exec(val);
     if (parsed) {
       val = "";
@@ -252,7 +251,7 @@ class ArchmageUpdateHandler {
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this for each new version that requires a migration.
-    if (!this.versionBelow('1.24.0')) {
+    if (!this.versionBelow('1.25.0')) {
       return;
     }
 
