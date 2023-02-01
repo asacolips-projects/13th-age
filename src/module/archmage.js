@@ -107,7 +107,54 @@ Hooks.once('init', async function() {
         map: new Map(),
         refresh: registerModuleArt
       }
-    }
+    },
+    terrains: [
+      {
+        id: "none",
+        name: "ARCHMAGE.TERRAINS.none",
+        icon: "fa-solid fa-circle-xmark"
+      },
+      {
+        id: "caveDungeonUnderworld",
+        name: "ARCHMAGE.TERRAINS.caveDungeonUnderworld",
+        icon: "fa-solid fa-dungeon"
+      },
+      {
+        id: "forestWoods",
+        name: "ARCHMAGE.TERRAINS.forestWoods",
+        icon: "fa-solid fa-trees"
+      },
+      {
+        id: "iceTundraDeepSnow",
+        name: "ARCHMAGE.TERRAINS.iceTundraDeepSnow",
+        icon: "fa-solid fa-icicles"
+      },
+      {
+        id: "migration",
+        name: "ARCHMAGE.TERRAINS.migration",
+        icon: "fa-solid fa-paw-claws"
+      },
+      {
+        id: "mountains",
+        name: "ARCHMAGE.TERRAINS.mountains",
+        icon: "fa-solid fa-mountains"
+      },
+      {
+        id: "plainsOverworld",
+        name: "ARCHMAGE.TERRAINS.plainsOverworld",
+        icon: "fa-solid fa-staff"
+      },
+      {
+        id: "ruins",
+        name: "ARCHMAGE.TERRAINS.ruins",
+        icon: "fa-solid fa-scroll-old"
+      },
+      {
+        id: "swampLakeRiver",
+        name: "ARCHMAGE.TERRAINS.swampLakeRiver",
+        icon: "fa-solid fa-water"
+      }
+    ]
   };
 
   // Replace sheets.
@@ -463,8 +510,7 @@ Hooks.on('setup', (data, options, id) => {
 
 /* ---------------------------------------------- */
 
-Hooks.once('ready', () => {
-
+function addEscalationDie() {
   let escalation = ArchmageUtility.getEscalation();
   let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
   $('body').append(`<div class="archmage-escalation${hide}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
@@ -493,10 +539,17 @@ Hooks.once('ready', () => {
         console.warn("Effects not currently supported");
         break;
     }
-    if ( !doc ) return;
+    if (!doc) return;
 
     return doc.sheet.render(true);
   });
+}
+
+/* -------------------------------------------- */
+
+Hooks.once('ready', () => {
+
+  addEscalationDie();
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
@@ -521,6 +574,76 @@ Hooks.once('ready', () => {
 
   // Build the module art map. See module/setup/register-module-art.js for more details.
   registerModuleArt();
+});
+
+/* -------------------------------------------- */
+
+function renderSceneTerrains() {
+
+  // Remove any existing element
+  $('.archmage-terrains').remove();
+
+  let scene = game.scenes.viewed;
+  if ( !scene) return;
+  let terrains = scene.getFlag('archmage', 'terrains').filter(x => x !== 'none');
+  if ( !terrains || (terrains.length === 0) ) return;
+
+  const aside = $(`<aside class="archmage-terrains"></aside>`);
+  if ( terrains ) {
+      terrains.forEach(t => {
+        const terrain = game.archmage.terrains.find(x => x.id === t);
+        aside.append(`<div><i class="${terrain.icon}"></i> ${game.i18n.localize(terrain.name)}</div>`);
+      });
+  }
+  // Set height based on number of terrains
+  aside.css('height', `${18 * (terrains.length + 1)}px`);
+  $('body').append(aside);
+}
+
+/* -------------------------------------------- */
+
+Hooks.on('canvasReady', (canvas) => {
+    renderSceneTerrains();
+});
+
+/* -------------------------------------------- */
+
+Hooks.on('renderSceneConfig', (app, html, data) => {
+
+  // Attach a list of Terrains to the scene config as a multi-select
+  const terrainOptions = game.archmage.terrains.map(t => {
+      return {
+          value: t.id,
+          label: game.i18n.localize(t.name)
+      };
+  });
+  const currentTerrains = data.document.getFlag('archmage', 'terrains') || [];
+
+  // Create multiple select dom element
+  const htmlSelect = $(`<select multiple="multiple" name="flags.archmage.terrains" data-dtype="String"></select>`);
+  terrainOptions.forEach(o => {
+      const attrs = ["value='"+o.value+"'", currentTerrains.includes(o.value) ? "selected=" : ""];
+      const option = $(`<option ${attrs.join(" ")}>${o.label}</option>`);
+      htmlSelect.append(option);
+  });
+
+  // Wrap the select in a form-group
+  const htmlFormGroup = $(`<div class="form-group"></div>`);
+  htmlFormGroup.append(`<label>${game.i18n.localize("ARCHMAGE.TERRAINS.label")}</label>`);
+  htmlFormGroup.append(htmlSelect);
+
+  // Attach the select after .initial-position
+  html.find('.initial-position').after(htmlFormGroup);
+  html.find('.initial-position').after('<hr>');
+
+  // Update the height of the scene config by setting to auto
+  app._element.css('height', 'auto');
+});
+
+/* -------------------------------------------- */
+
+Hooks.on("updateScene", (scene, data, options, userId) => {
+  renderSceneTerrains();
 });
 
 /* ---------------------------------------------- */
