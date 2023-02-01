@@ -224,7 +224,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migratePowerCostToResources(item, updateData={}) {
-    if (!item || item.type != "power") return updateData;
+    if (!item || item.type != "power" || item.system.resources) return updateData;
     let val = item.system.cost?.value || "";
     let parsed = /^([\+-]*)([0-9]*)\s*(.+)$/.exec(val);
     if (parsed) {

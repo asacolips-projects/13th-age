@@ -519,7 +519,7 @@ export class ItemArchmage extends Item {
       }
     }
 
-    return macro_data;
+    return macro_data.suppressMessage;
   }
 
 
