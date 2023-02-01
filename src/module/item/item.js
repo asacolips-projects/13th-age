@@ -111,7 +111,7 @@ export class ItemArchmage extends Item {
 
     let resources = resStr.split(",").map(item => item.trim());
     let res = this.actor.system.resources;
-    let filter = /^([\+-]*)([0-9]*)\s*([a-zA-Z0-9\s]+)$/;
+    let filter = /^([\+-]*)([0-9]*)\s*(.+)$/;
     let newResStr = [];
     for (let resource of resources) {
 
@@ -177,11 +177,12 @@ export class ItemArchmage extends Item {
 
         // Combat Rhythm
         else if (res.perCombat.rhythm?.enabled &&
-            str.includes(game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rhythm").toLowerCase())) {
+            (str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()
+            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense").toLowerCase())) {
           let path = 'system.resources.perCombat.rhythm.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoRhythm");
           let resObj =  res.perCombat.rhythm;
-          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg);
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg, str);
           if (stop) return true;
         }
 
@@ -222,7 +223,7 @@ export class ItemArchmage extends Item {
     return false;
   }
 
-  async _rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg) {
+  async _rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg, opt=null) {
     let stop = false;
     let curr = resObj.current;
     // Recoveries are stored as 'value'
@@ -239,7 +240,7 @@ export class ItemArchmage extends Item {
          no: () => {stop = true;},
          defaultYes: false
         });
-        if (path != 'system.attributes.recoveries.value') actorUpdateData[path] = 0;
+        // if (path != 'system.attributes.recoveries.value') actorUpdateData[path] = 0;
       }
     }
 
@@ -262,7 +263,7 @@ export class ItemArchmage extends Item {
 
     else {
       // Resource test case
-      if (!curr) {
+      if (!opt && !curr) {
         await Dialog.confirm({
          title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
          content: msg,
@@ -270,6 +271,15 @@ export class ItemArchmage extends Item {
          no: () => {stop = true;},
          defaultYes: false
         });
+      }
+      else if (opt) {
+        // Combat Rhythm cases
+        if (opt == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()) {
+          actorUpdateData[path] = "offense";
+        }
+        else if (opt && opt == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.defense").toLowerCase()) {
+          actorUpdateData[path] = "defense";
+        }
       }
     }
 
