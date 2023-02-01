@@ -130,8 +130,8 @@ Hooks.once('init', async function() {
         icon: "fa-solid fa-icicles"
       },
       {
-        id: "koruBehemoth",
-        name: "ARCHMAGE.TERRAINS.koruBehemoth",
+        id: "migration",
+        name: "ARCHMAGE.TERRAINS.migration",
         icon: "fa-solid fa-paw-claws"
       },
       {
