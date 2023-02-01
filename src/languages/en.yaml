@@ -226,6 +226,8 @@ ARCHMAGE:
       focus: Focus
       ki: Ki
       momentum: Momentum
+      recoveries: Recoveries
+      recoveriesSingular: Recovery
   CHARACTERFLAGS:
     improvedIniativeHint: General feat to increase initiative by +4.
     improvedIniativeName: Improved Initiative
@@ -617,6 +619,7 @@ ARCHMAGE:
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?
     errNoFocus: You need Focus to use this power. Use anyway?
+    errNoRecoveries: You don't have any recoveries left. Use anyway?
     errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
     errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
