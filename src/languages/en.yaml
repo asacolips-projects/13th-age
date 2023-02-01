@@ -636,9 +636,11 @@ ARCHMAGE:
     updateActors: 'Updating world actors'
     updateTokens: 'Updating world tokens'
     updateCompendiumActors: 'Updating compendium actors: {pack}'
+    updateCompendiumItems: 'Updating compendium items: {pack}'
     updateCompendiumScenes: 'Updating compendium scenes: {pack}'
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
     '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
+    '1_25_0': "Toolkit13 1.25.0: Updating Powers cost field to new resources syntax."
 # Tours
   TOURS:
     '170':

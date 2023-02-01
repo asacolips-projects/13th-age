@@ -166,8 +166,8 @@ class ArchmageUpdateHandler {
     if (!actor || actor.type != "npc") return updateData;
     const actorData = actor.system;
     return mergeObject(updateData, {
-      'data.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
-      'data.attributes.init.-=mod': null
+      'system.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
+      'system.attributes.init.-=mod': null
     });
   }
 
@@ -190,6 +190,61 @@ class ArchmageUpdateHandler {
   }
 
   /* -------------------------------------------*/
+
+  /**
+   * Prepare update data for an item.
+   *
+   * @param {object} item Item document
+   * @returns
+   *   Update object compatible with item.update()
+   */
+   prepareMigrateItemData(item) {
+    // Initialize with an empty update.
+    let updateData = {};
+
+    // Append Power for version 1.25.0
+    if (this.versionBelow('1.25.0')) {
+      updateData = this.__migratePowerCostToResources(item, updateData);
+    }
+
+    // Future updates will go here.
+
+    // Return the final update object.
+    return updateData;
+  }
+
+  /* -------------------------------------------*/
+
+  /**
+   * 1.25.0: Update NPC initiative to use value instead of mod.
+   *
+   * @param {object} actor Actor document to update.
+   * @param {object} updateData Update data object to merge changes into.
+   * @returns
+   *   Update object.
+   */
+  __migratePowerCostToResources(item, updateData={}) {
+    if (!item || item.type != "power") return updateData;
+    const itemData = item.system;
+    let val = itemData.system.cost.value;
+    let parsed = /^([\+-]*)([0-9]*)\s*(.+)$/.exec(val);
+    if (parsed) {
+      val = "";
+      // Invert sign
+      if (parsed[1] == "-") val += "+"; else val += "-";
+      // Keep number
+      if (parsed[2]) val += parsed[2] + " ";
+      // Keep rest
+      if (parsed[3]) val += parsed[3];
+    }
+    return mergeObject(updateData, {
+      'system.resources.value': val,
+      'system.-=cost': null
+    });
+  }
+
+  /* -------------------------------------------*/
+
 
   /**
    * Main entrypoint to execute migrations.
@@ -218,6 +273,10 @@ class ArchmageUpdateHandler {
       ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_24_0'), {permanent: true});
     }
 
+    if (this.versionBelow('1.25.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_25_0'), {permanent: true});
+    }
+
     // 1. Update world actors.
     const actors = Array.from(game.actors.values());
     console.log('TOOLKIT13: UPDATING ACTORS');
@@ -227,6 +286,9 @@ class ArchmageUpdateHandler {
         // Attempt actor updates.
         try {
           await actor.update(this.prepareMigrateActorData(actor));
+          for (let item of actor.items) {
+            await item.update(this.prepareMigrateItemData(item));
+          }
         } catch (error) {
           error.message = `Failed Toolkit13 system migration for world actor ${actor.name}: ${error.message}`;
           console.error(error);
@@ -308,7 +370,7 @@ class ArchmageUpdateHandler {
   async migrateCompendiums() {
     for ( let pack of game.packs ) {
       if ( pack.metadata.package !== "world" ) continue;
-      if ( !["Actor", "Scene"].includes(pack.documentName) ) continue;
+      if ( !["Actor", "Scene", "Item"].includes(pack.documentName) ) continue;
 
       if (pack.documentName == 'Actor') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM ACTORS');
@@ -317,6 +379,10 @@ class ArchmageUpdateHandler {
       else if (pack.documentName == 'Scene') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
         await this.migrateCompendiumScenes(pack);
+      }
+      else if (pack.documentName == 'Scene') {
+        console.log('TOOLKIT13: UPDATING COMPENDIUM ITEMS');
+        await this.migrateCompendiumItems(pack);
       }
     }
   }
@@ -354,6 +420,9 @@ class ArchmageUpdateHandler {
         SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: progress});
         try {
           await actor.update(this.prepareMigrateActorData(actor));
+          for (let item of actor.items) {
+            await item.update(this.prepareMigrateItemData(item));
+          }
         } catch (error) {
           error.message = `Failed Toolkit13 system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
@@ -415,6 +484,52 @@ class ArchmageUpdateHandler {
     }
 
     SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: 100});
+
+    // Lock pack.
+    await pack.configure({locked: wasLocked});
+  }
+
+  /* -------------------------------------------*/
+
+  /**
+   * Update items in world compendiums.
+   *
+   * @param {object} pack Compendium pack to migrate
+   * @param {function} callbackFilter Optional callback filter to apply, using
+   *   the same format as an array filter such as scene.tokens.filter();
+   */
+  async migrateCompendiumItems(pack, callbackFilter = null) {
+    // Unlock pack.
+    const wasLocked = pack.locked;
+    await pack.configure({locked: false});
+
+    // Retrieve documents.
+    // await pack.migrate();
+    const documents = await pack.getDocuments();
+    let progress = 0;
+    let count = 0;
+
+    const packLabel = pack?.metadata?.label ?? '';
+    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: 0});
+
+    // Retrieve actros.
+    const items = callbackFilter ? documents.filter(item => callbackFilter(item)) : documents;
+    const total = items.length;
+    if (total > 0) {
+      for (let item of items) {
+        count++;
+        progress = Math.ceil(count / total * 100);
+        SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: progress});
+        try {
+          await item.update(this.prepareMigrateItemData(item));
+        } catch (error) {
+          error.message = `Failed Toolkit13 system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
+          console.error(error);
+        }
+      };
+    }
+
+    SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: 100});
 
     // Lock pack.
     await pack.configure({locked: wasLocked});
