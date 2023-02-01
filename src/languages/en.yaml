@@ -226,6 +226,11 @@ ARCHMAGE:
       focus: Focus
       ki: Ki
       momentum: Momentum
+      rhythm: Combat Rhythm
+    RHYTHMCHOICES:
+      none: None
+      offense: Offense
+      defense: Defense
   CHARACTERFLAGS:
     improvedIniativeHint: General feat to increase initiative by +4.
     improvedIniativeName: Improved Initiative

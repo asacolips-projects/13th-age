@@ -337,6 +337,11 @@ Actor:
         focus:
           enabled: false
           current: false
+        rhythm:
+          enabled: false
+          current: 'none'
+          default: 'none'
+          secondEdition: true
       spendable:
         ki:
           enabled: false
