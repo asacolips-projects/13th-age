@@ -39,6 +39,10 @@ input[type="checkbox"] {
   zoom: 0.9;
 }
 
+option[selected] {
+  background-color: #aeaea8;
+}
+
 @import 'grid';
 
 /* ---------------------------------------- */
@@ -1644,6 +1648,44 @@ input[type="checkbox"] {
     &:active {
       background: $ct-black--45;
     }
+  }
+}
+
+
+// Scene Terrains
+.archmage-terrains {
+  background: $ct-black--75;
+  border: 1px solid $c-black;
+  border-radius: 5px;
+  bottom: 67px;
+  box-shadow: 0 0 10px $c-black;
+  box-sizing: content-box;
+  color: $c-white;
+  font-family: $font-stack-secondary;
+  font-size: 14px;
+  height: 84px;
+  left: 360px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  position: fixed;
+  text-align: center;
+  width: 200px;
+  padding: 5px;
+
+  &.hide {
+    display: none;
+  }
+
+  &::before {
+    bottom: 2px;
+    content: 'Terrains';
+    font-family: $font-stack-base;
+    font-size: 12px;
+    left: 50%;
+    line-height: 1;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 80px;
   }
 }
 
