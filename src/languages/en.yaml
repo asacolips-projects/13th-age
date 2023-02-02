@@ -645,6 +645,7 @@ ARCHMAGE:
     start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "Toolkit13 System Migration to version {version} completed!"
     updateActors: 'Updating world actors'
+    updateCompendiums: 'Updating world compendiums'
     updateItems: 'Updating world items'
     updateTokens: 'Updating world tokens'
     updateCompendiumActors: 'Updating compendium actors: {pack}'

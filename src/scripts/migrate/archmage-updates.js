@@ -233,7 +233,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migratePowerCostToResources(item, updateData={}) {
-    if (!item || item.type != "power" || item.system.resources) return updateData;
+    if (!item || item.type != "power" || !item.system.cost) return updateData;
     let val = item.system.cost?.value || "";
     let parsed = /^([\+-]*)([0-9]*)\s*(.+)$/.exec(val);
     if (parsed) {
@@ -353,6 +353,8 @@ class ArchmageUpdateHandler {
     }
 
     // 4. Update world compendiums (Actors, Scenes).
+    console.log('TOOLKIT13: UPDATING COMPENDIUMS');
+    ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateCompendiums'));
     await this.migrateCompendiums();
 
     // 5. Update the migration version setting.
@@ -444,7 +446,7 @@ class ArchmageUpdateHandler {
     const packLabel = pack?.metadata?.label ?? '';
     SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumActors', {pack: packLabel}), pct: 0});
 
-    // Retrieve actros.
+    // Retrieve actors.
     const actors = callbackFilter ? documents.filter(actor => callbackFilter(actor)) : documents;
     const total = actors.length;
     if (total > 0) {
@@ -546,7 +548,7 @@ class ArchmageUpdateHandler {
     const packLabel = pack?.metadata?.label ?? '';
     SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumItems', {pack: packLabel}), pct: 0});
 
-    // Retrieve actros.
+    // Retrieve items.
     const items = callbackFilter ? documents.filter(item => callbackFilter(item)) : documents;
     const total = items.length;
     if (total > 0) {
