@@ -68,15 +68,15 @@ export class ItemArchmage extends Item {
       sequencer: this.system.sequencer
     }, null);
 
-    // Perform animations.
-    await this._rollAnimate(chatData, sequencerAnim);
-
     // Handle Monk AC bonus.
     //TODO: remove dependency on times-up once core Foundry handles AE expiry
     if (game.modules.get("times-up")?.active) await this._rollMonkAC(itemToRender);
 
     // Run embedded macro.
-    let suppressMessage = await this._rollExecuteMacro(itemToRender, hitEvalRes, itemUpdateData, actorUpdateData, token);
+    let suppressMessage = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);
+
+    // Perform animations.
+    await this._rollAnimate(chatData, sequencerAnim);
 
     // Perform updates.
     if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
@@ -488,38 +488,39 @@ export class ItemArchmage extends Item {
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  async _rollExecuteMacro(itemToRender, hitEvalRes, itemUpdateData, actorUpdateData, token) {
+  async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token) {
     // Extra data accessible as "archmage" in embedded macros
     let macro_data = {
       item: itemToRender,
-      hitEval: hitEvalRes,
-      suppressMessage: false,
       itemUpdates: itemUpdateData,
-      actorUpdates: actorUpdateData
+      actorUpdates: actorUpdateData,
+      chat: chatData,
+      hitEval: hitEvalRes,
+      seqAnim: sequencerAnim,
+      suppressMessage: false
     };
-
     // If there is an embedded macro attempt to execute it
-    if (this.system.embeddedMacro?.value.length > 0) {
+    if (itemToRender.system.embeddedMacro?.value.length > 0) {
 
       if (!game.user.hasPermission("MACRO_SCRIPT")) {
         ui.notifications.warn(game.i18n.localize("ARCHMAGE.CHAT.embeddedMacroPermissionError"));
-      } else {
-        // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
+        return false;
+      }
 
-        // Add variables to the evaluation scope
-        const speaker = ChatMessage.implementation.getSpeaker();
-        const character = game.user.character;
-        const actor = this.actor;
+      // Add variables to the evaluation scope
+      const speaker = ChatMessage.implementation.getSpeaker();
+      const character = game.user.character;
+      const actor = itemToRender.actor;
 
-        // Attempt script execution
-        const AsyncFunction = (async function(){}).constructor;
-        const fn = new AsyncFunction("speaker", "actor", "token", "character", "archmage", this.system.embeddedMacro.value);
-        try {
-          await fn.call(this, speaker, actor, token, character, macro_data);
-        } catch(ex) {
-          ui.notifications.error("There was an error in your macro syntax. See the console (F12) for details");
-          console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
-        }
+      // Run our own function to bypass macro parameters limitations - based on Foundry's _executeScript
+      const AsyncFunction = (async function(){}).constructor;
+      const fn = new AsyncFunction("speaker", "actor", "token", "character", "archmage", itemToRender.system.embeddedMacro.value);
+      // Attempt script execution
+      try {
+        await fn.call(this, speaker, actor, token, character, macro_data);
+      } catch(ex) {
+        ui.notifications.error("There was an error in your macro syntax. See the console (F12) for details");
+        console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
       }
     }
 
