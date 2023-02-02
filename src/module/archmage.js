@@ -585,7 +585,9 @@ function renderSceneTerrains() {
 
   let scene = game.scenes.viewed;
   if ( !scene) return;
-  let terrains = scene.getFlag('archmage', 'terrains').filter(x => x !== 'none');
+  let flag = scene.getFlag('archmage', 'terrains');
+  if ( !flag) return;
+  let terrains = flag.filter(x => x !== 'none');
   if ( !terrains || (terrains.length === 0) ) return;
 
   const aside = $(`<aside class="archmage-terrains"></aside>`);
