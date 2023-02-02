@@ -118,7 +118,7 @@ class ArchmageUpdateHandler {
    */
    prepareMigrateTokenData(token) {
     let actorUpdates = this.prepareMigrateActorData(token.actor);
-    if (!token.actorLink) {
+    if (!token.actorLink && token.actor) {
       let itemUpdates = {};
       for (let item of token.actor.items) {
         let upd = this.prepareMigrateItemData(item);
