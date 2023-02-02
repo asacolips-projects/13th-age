@@ -414,7 +414,7 @@ class ArchmageUpdateHandler {
         console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
         await this.migrateCompendiumScenes(pack);
       }
-      else if (pack.documentName == 'Scene') {
+      else if (pack.documentName == 'Item') {
         console.log('TOOLKIT13: UPDATING COMPENDIUM ITEMS');
         await this.migrateCompendiumItems(pack);
       }
