@@ -232,6 +232,7 @@ export class ItemArchmage extends Item {
 
     if (num != null) {
       // Number resource update case
+      if (sign == "-") num *= -1;
       actorUpdateData[path] = curr + num;
       if (actorUpdateData[path] < 0) {
         await Dialog.confirm({
@@ -247,7 +248,10 @@ export class ItemArchmage extends Item {
 
     else if (sign) {
       // Binary (and rhythm) resource update case
-      if (sign == "+") actorUpdateData[path] = opt ? opt : true;
+      if (sign == "+") {
+        let val = (typeof curr == 'number') ? 1 : true;
+        actorUpdateData[path] = opt ? opt : val;
+      }
       else {
         if (!curr) {
           await Dialog.confirm({
@@ -258,13 +262,14 @@ export class ItemArchmage extends Item {
            defaultYes: false
           });
         }
+        let val = (typeof curr == 'number') ? 0 : val;
         actorUpdateData[path] = opt ? "none" : false;
       }
     }
 
     else {
       // Resource test case
-      if (!curr || curr == "none") {
+      if (!curr || curr == "none" || curr != 0) {
         await Dialog.confirm({
          title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
          content: msg,
