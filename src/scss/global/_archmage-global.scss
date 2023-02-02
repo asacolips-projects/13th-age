@@ -1600,7 +1600,7 @@ option[selected] {
 
   &::after {
     bottom: 2px;
-    content: 'Escalation Die';
+    content: attr(data-esc-die-text);
     font-family: $font-stack-base;
     font-size: 12px;
     left: 50%;
