@@ -134,7 +134,7 @@ export class ItemArchmage extends Item {
         let str = parsed[3].toLowerCase();
 
         // Command points
-        if (res.perCombat.commandPoints.enabled &&
+        if (res.perCombat.commandPoints.enabled && num &&
             (str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoints").toLowerCase()
             || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.commandPoint").toLowerCase()
             )) {
@@ -146,7 +146,7 @@ export class ItemArchmage extends Item {
         }
 
         // Ki
-        else if (res.spendable.ki.enabled &&
+        else if (res.spendable.ki.enabled && num &&
             str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki").toLowerCase()) {
           let path = 'system.resources.spendable.ki.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNotEnoughKi");
@@ -161,7 +161,7 @@ export class ItemArchmage extends Item {
           let path = 'system.resources.perCombat.momentum.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoMomentum");
           let resObj = res.perCombat.momentum;
-          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg);
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, null, resObj, msg);
           if (stop) return true;
         }
 
@@ -171,7 +171,7 @@ export class ItemArchmage extends Item {
           let path = 'system.resources.perCombat.focus.current';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoFocus");
           let resObj =  res.perCombat.focus;
-          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg);
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, null, resObj, msg);
           if (stop) return true;
         }
 
@@ -183,13 +183,13 @@ export class ItemArchmage extends Item {
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoRhythm");
           let resObj =  res.perCombat.rhythm;
           let opt = (str == game.i18n.localize("ARCHMAGE.CHARACTER.RHYTHMCHOICES.offense").toLowerCase()) ? "offense" : "defense";
-          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, num, resObj, msg, opt);
+          let stop = await this._rollProcessResource(actorUpdateData, itemUpdateData, path, sign, null, resObj, msg, opt);
           if (stop) return true;
         }
 
         // Recoveries
-        else if (str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recoveries").toLowerCase()
-            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recovery").toLowerCase()) {
+        else if ((str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recoveries").toLowerCase()
+            || str == game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.recovery").toLowerCase()) && num) {
           let path = 'system.attributes.recoveries.value';
           let msg = game.i18n.localize("ARCHMAGE.UI.errNoRecoveries");
           let resObj =  this.actor.system.attributes.recoveries;
