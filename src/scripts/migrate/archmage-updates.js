@@ -117,9 +117,18 @@ class ArchmageUpdateHandler {
    *   Update object compatible with scene.updateEmbeddedDocuments('Token', updateData)
    */
    prepareMigrateTokenData(token) {
+    let actorUpdates = this.prepareMigrateActorData(token.actor);
+    if (!token.actorLink) {
+      let itemUpdates = {};
+      for (let item of token.actor.items) {
+        let upd = this.prepareMigrateItemData(item);
+        if (!foundry.utils.isEmpty(upd)) itemUpdates[item._id] = upd;
+      }
+      if (!foundry.utils.isEmpty(itemUpdates)) actorUpdates["items"] = itemUpdates;
+    }
     return {
       '_id': token._id,
-      'actorData': this.prepareMigrateActorData(token.actor)
+      'actorData': actorUpdates
     }
   }
 
@@ -137,7 +146,7 @@ class ArchmageUpdateHandler {
     let updateData = {};
 
     // Append NPC migration for version 1.19.0.
-    if (this.versionBelow('1.19.0')) {
+    if (this.versionBelow('1.219.0')) {
       updateData = this.__migrateNpcInit(actor, updateData);
     }
 
@@ -305,7 +314,23 @@ class ArchmageUpdateHandler {
       };
     }
 
-    // 2. Update unlinked tokens in scenes.
+    // 2. Update world items.
+    const items = Array.from(game.items.values());
+    console.log('TOOLKIT13: UPDATING ITEMS');
+    ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateItems'));
+    if (items.length > 0) {
+      for (let item of items) {
+        // Attempt item updates.
+        try {
+          await item.update(this.prepareMigrateItemData(item));
+        } catch (error) {
+          error.message = `Failed Toolkit13 system migration for world item ${item.name}: ${error.message}`;
+          console.error(error);
+        }
+      };
+    }
+
+    // 3. Update unlinked tokens in scenes.
     const scenes = game.scenes.contents; // Use .contents so that it's an array instead of a Collection.
     console.log('TOOLKIT13: UPDATING TOKENS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateTokens'));
@@ -327,10 +352,10 @@ class ArchmageUpdateHandler {
       };
     }
 
-    // 3. Update world compendiums (Actors, Scenes).
+    // 4. Update world compendiums (Actors, Scenes).
     await this.migrateCompendiums();
 
-    // 4. Update the migration version setting.
+    // 5. Update the migration version setting.
     game.settings.set('archmage', 'systemMigrationVersion', game.system.version);
     // @todo Determine why this fires too early.
     setTimeout(() => {
