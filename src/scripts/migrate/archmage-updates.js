@@ -146,7 +146,7 @@ class ArchmageUpdateHandler {
     let updateData = {};
 
     // Append NPC migration for version 1.19.0.
-    if (this.versionBelow('1.219.0')) {
+    if (this.versionBelow('1.19.0')) {
       updateData = this.__migrateNpcInit(actor, updateData);
     }
 
