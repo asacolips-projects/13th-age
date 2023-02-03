@@ -230,9 +230,10 @@ export class ItemArchmage extends Item {
     // Recoveries are stored as 'value'
     if (curr == undefined) curr = resObj.value;
 
+    // Number resource case
     if (num != null) {
-      // Number resource update case
-      actorUpdateData[path] = curr + num;
+      // No sign means override
+      actorUpdateData[path] = sign ? curr + num : num;
       if (actorUpdateData[path] < 0) {
         await Dialog.confirm({
          title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
@@ -245,14 +246,30 @@ export class ItemArchmage extends Item {
       }
     }
 
-    else if (sign) {
-      // Binary (and rhythm) resource update case
-      if (sign == "+") {
-        let val = (typeof curr == 'number') ? 1 : true;
-        actorUpdateData[path] = opt ? opt : val;
-      }
-      else {
-        if (!curr) {
+    // Binary (and rhythm) case
+    else {
+      if (sign) {
+        // Resource update case
+        if (sign == "+") {
+          let val = (typeof curr == 'number') ? 1 : true;
+          actorUpdateData[path] = opt ? opt : val;
+        }
+        else {
+          if (!curr) {
+            await Dialog.confirm({
+             title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
+             content: msg,
+             yes: () => {},
+             no: () => {stop = true;},
+             defaultYes: false
+            });
+          }
+          let val = (typeof curr == 'number') ? 0 : false;
+          actorUpdateData[path] = opt ? "none" : val;
+        }
+      } else {
+        // Resource test case
+        if (!curr || curr == "none" || curr == 0) {
           await Dialog.confirm({
            title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
            content: msg,
@@ -261,21 +278,6 @@ export class ItemArchmage extends Item {
            defaultYes: false
           });
         }
-        let val = (typeof curr == 'number') ? 0 : false;
-        actorUpdateData[path] = opt ? "none" : val;
-      }
-    }
-
-    else {
-      // Resource test case
-      if (!curr || curr == "none" || curr == 0) {
-        await Dialog.confirm({
-         title: game.i18n.localize("ARCHMAGE.CHAT.NoResources"),
-         content: msg,
-         yes: () => {},
-         no: () => {stop = true;},
-         defaultYes: false
-        });
       }
     }
 

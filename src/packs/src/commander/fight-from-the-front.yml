@@ -88,7 +88,7 @@ system:
   resources:
     type: 'String'
     label: 'Resources'
-    value: ''
+    value: '+[[1d3]] command points'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
