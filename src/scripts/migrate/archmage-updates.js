@@ -504,7 +504,7 @@ class ArchmageUpdateHandler {
         progress = Math.ceil(count / total * 100);
         SceneNavigation.displayProgressBar({label: game.i18n.format('ARCHMAGE.MIGRATIONS.updateCompendiumScenes', {pack: packLabel}), pct: progress});
 
-        const tokens = this.queryTokens(scene, token => callbackFilter(token));
+        const tokens = this.queryTokens(scene);
         const updates = [];
 
         tokens.forEach(token => {
