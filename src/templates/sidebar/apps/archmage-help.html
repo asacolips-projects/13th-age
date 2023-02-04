@@ -92,6 +92,37 @@
       </li>
     </ol>
     <p>Note: any custom resources that is both enabled and has a label set can be accessed with that label, reduced to lowercase letters only without spaces (e.g. a resource called "Power Points" can be accessed via <span class="key">@rsc.powerpoints</span> and <span class="key">@rsc.powerpointsmax</span>).</p>
+    <p>Resources can also be manipulated by powers via the <span class="key">Resources</span> field, using the following sysntax.<br/>
+    For numeric resources (command points, ki, custom resources):</p>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Increase the resource value</h4>
+        <div class="keys"><span class="key">+N resourcename</span></div>
+      </li>
+      <li>
+        <h4>Decrease the resource value (asks confirmation if &lt;=0)</h4>
+        <div class="keys"><span class="key">-N resourcename</span></div>
+      </li>
+      <li>
+        <h4>Override the resource value</h4>
+        <div class="keys"><span class="key">N resourcename</span></div>
+      </li>
+    </ol>
+    <p>For binary/flag resources (momentum, focus, custom resources):</p>
+    <ol class="hotkey-list">
+      <li>
+        <h4>Set the resource</h4>
+        <div class="keys"><span class="key">+resourcename</span></div>
+      </li>
+      <li>
+        <h4>Unset the resource (asks confirmation if already unset)</h4>
+        <div class="keys"><span class="key">-resourcename</span></div>
+      </li>
+      <li>
+        <h4>Test the resource (asks confirmation if unset)</h4>
+        <div class="keys"><span class="key">resourcename</span></div>
+      </li>
+    </ol>
 
     <h3>Weapons</h3>
     <p>Weapons are broken down into melee (<span class="key">@wpn.m</span>), ranged (<span class="key">@wpn.r</span>), JAB (<span class="key">@wpn.j</span>), PUNCH (<span class="key">@wpn.p</span>), and KICK (<span class="key">@wpn.k</span>). JAB, PUNCH, and KICK are intended for monks, and will default to the monk damage die (d6, d8, d10, respectively).</p>

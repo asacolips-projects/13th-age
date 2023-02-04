@@ -363,7 +363,7 @@ class ArchmageUpdateHandler {
     setTimeout(() => {
       console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.version}`);
       ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.complete', {version}), {permanent: true});
-    }, 1000);
+    }, 10000);
   }
 
   /* -------------------------------------------*/
