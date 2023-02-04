@@ -241,7 +241,7 @@ class ArchmageUpdateHandler {
       if (parsed[2]) {
         // Invert sign
         if (parsed[1] == "-") val += "+"; else val += "-";
-        // Keep number and rest
+        // Keep number and remainder
         val += parsed[2] + " " + parsed[3];
       } else {
         let str = parsed[3] || "";
@@ -363,7 +363,7 @@ class ArchmageUpdateHandler {
     setTimeout(() => {
       console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.version}`);
       ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.complete', {version}), {permanent: true});
-    }, 250);
+    }, 1000);
   }
 
   /* -------------------------------------------*/
@@ -405,7 +405,8 @@ class ArchmageUpdateHandler {
 
   async migrateCompendiums() {
     for ( let pack of game.packs ) {
-      if ( pack.metadata.package !== "world" ) continue;
+      if ( pack.metadata.packageType !== "world" ) continue;
+      // if ( pack.metadata.packageType !== "system" ) continue; // Auto-update system compendiums
       if ( !["Actor", "Scene", "Item"].includes(pack.documentName) ) continue;
 
       if (pack.documentName == 'Actor') {
