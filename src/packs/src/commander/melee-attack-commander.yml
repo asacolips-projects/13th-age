@@ -60,7 +60,7 @@ system:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage, and gain [[1d3]] command points.'
+    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
