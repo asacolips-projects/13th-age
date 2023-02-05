@@ -60,7 +60,7 @@ system:
   hit:
     type: 'String'
     label: 'Hit'
-    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage.'
+    value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage, and gain command points from your Fight from the Front class feature.'
   hitEven:
     type: 'String'
     label: 'Natural Even Hit'
