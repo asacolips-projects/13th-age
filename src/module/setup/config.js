@@ -990,6 +990,12 @@ FLAGS.characterFlags = {
     section: "Sheet",
     type: Boolean
   },
+  "hideEmptyPowerGroups": {
+    name: "Hide empty Power groups",
+    hint: "Hide empty Power groups on the sheet (besides the default one).",
+    section: "Sheet",
+    type: Boolean
+  },
   "hideIncrementals": {
     name: "Hide Incremental Advances",
     hint: "Hides the Incremental Advances section.",

@@ -690,6 +690,7 @@ flags:
     portraitRound: false
     portraitFrame: false
     nightmode: false
+    hideEmptyPowerGroups: false
     hideIncrementals: false
     hideOneUniqueThing: false
   core:
