@@ -1002,15 +1002,21 @@ FLAGS.characterFlags = {
     section: "Sheet",
     type: Boolean
   },
+  "hideImportPowers": {
+    name: "Hide Import Powers",
+    hint: "Hide the Import Powers button for players.",
+    section: "Sheet",
+    type: Boolean
+  },
   "hideIncrementals": {
     name: "Hide Incremental Advances",
-    hint: "Hides the Incremental Advances section.",
+    hint: "Hide the Incremental Advances section.",
     section: "Sheet",
     type: Boolean
   },
   "hideOneUniqueThing": {
     name: "Hide One Unique Thing",
-    hint: "Hides the One Unique Thing section.",
+    hint: "Hide the One Unique Thing section.",
     section: "Sheet",
     type: Boolean
   },
