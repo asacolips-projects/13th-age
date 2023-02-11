@@ -990,6 +990,12 @@ FLAGS.characterFlags = {
     section: "Sheet",
     type: Boolean
   },
+  "hideCurrency": {
+    name: "Hide Currency",
+    hint: "Hide the currency section in the inventory.",
+    section: "Sheet",
+    type: Boolean
+  },
   "hideEmptyPowerGroups": {
     name: "Hide empty Power groups",
     hint: "Hide empty Power groups on the sheet (besides the default one).",

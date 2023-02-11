@@ -690,9 +690,6 @@ flags:
     portraitRound: false
     portraitFrame: false
     nightmode: false
-    hideEmptyPowerGroups: false
-    hideIncrementals: false
-    hideOneUniqueThing: false
   core:
     sourceId: Compendium.archmage.srd-Monsters.F0sQyvqvg3Sv5iy7
     sheetClass: archmage.ActorArchmageNpcSheetV2
