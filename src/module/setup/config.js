@@ -1020,6 +1020,12 @@ FLAGS.characterFlags = {
     section: "Sheet",
     type: Boolean
   },
+  "hideSettingsTab": {
+    name: "Hide Settings tab",
+    hint: "Hide the sheet settings tab for players.",
+    section: "Sheet",
+    type: Boolean
+  },
   "diceFormulaMode": {
     name: "Dice Formula Mode",
     hint: "Method used to display inline dice formulas on power previews in the character sheet.",

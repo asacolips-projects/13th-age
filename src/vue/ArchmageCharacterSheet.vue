@@ -51,7 +51,7 @@
             <CharEffects :actor="actor" :tab="tabs.primary.effects" :flags="flags"/>
           </Tab>
           <!-- Settings tab -->
-          <Tab group="primary" :tab="tabs.primary.settings">
+          <Tab group="primary" :tab="tabs.primary.settings" v-if="shouldDisplaySettingsTab(actor)">
             <CharSettings :actor="actor" :tab="tabs.primary.settings"/>
           </Tab>
         </section>
@@ -146,13 +146,21 @@ export default {
             label: localize('ARCHMAGE.settings'),
             active: false,
             icon: 'fa-cogs',
-            hideLabel: true
+            hideLabel: true,
+            hidden: (this.actor.flags?.archmage?.hideSettingsTab === true && !game.user.isGM)
           }
         }
       }
     }
   },
-  methods: {},
+  methods: {
+    shouldDisplaySettingsTab(actor) {
+      if (actor?.flags?.archmage?.hideSettingsTab === true && !game.user.isGM) {
+        return false;
+      }
+      return true;
+    }
+  },
   computed: {
     nightmode() {
       let flags = this.actor.flags ? this.actor.flags.archmage : null;
