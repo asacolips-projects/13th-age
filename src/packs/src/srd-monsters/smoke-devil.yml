@@ -1,40 +1,40 @@
-_id: XBuW0KQtlgAKHj8b
-name: Smoke Devil
-type: npc
-img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+_id: 'XBuW0KQtlgAKHj8b'
+name: 'Smoke Devil'
+type: 'npc'
+img: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
 system:
   attributes:
     attackMod:
-      type: Number
+      type: 'Number'
       value: 0
     critMod:
       atk:
-        type: Number
+        type: 'Number'
         value: 0
       def:
-        type: Number
+        type: 'Number'
         value: 0
     ac:
-      type: Number
-      label: Armor Class
+      type: 'Number'
+      label: 'Armor Class'
       value: 19
       base: 10
       min: 0
     pd:
-      type: Number
-      label: Physical Defense
+      type: 'Number'
+      label: 'Physical Defense'
       value: 19
       base: 10
       min: 0
     md:
-      type: Number
-      label: Mental Defense
+      type: 'Number'
+      label: 'Mental Defense'
       value: 19
       base: 10
       min: 0
     hp:
-      type: Number
-      label: Hit Points
+      type: 'Number'
+      label: 'Hit Points'
       value: 90
       min: 0
       max: 90
@@ -43,12 +43,12 @@ system:
       base: 7
       automatic: true
     init:
-      type: Number
-      label: Initiative Modifier
+      type: 'Number'
+      label: 'Initiative Modifier'
       value: 8
     level:
-      type: Number
-      label: Level
+      type: 'Number'
+      label: 'Level'
       value: 5
       min: 0
       max: 10
@@ -61,49 +61,49 @@ system:
         value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
+          - false
+          - false
+          - false
+          - false
       lastGaspFails:
         value: 0
         max: 4
         steps:
-        - false
-        - false
-        - false
-        - false
+          - false
+          - false
+          - false
+          - false
   details:
     alignment:
-      type: String
-      label: Alignment
+      type: 'String'
+      label: 'Alignment'
     biography:
-      type: String
-      label: Biography
+      type: 'String'
+      label: 'Biography'
     flavor:
       value: ''
     role:
-      value: troop
+      value: 'troop'
     size:
-      value: normal
+      value: 'normal'
     type:
-      value: devil
+      value: 'devil'
     resistance:
-      value: Resist fire 13+
+      value: 'Resist fire 13+'
     vulnerability:
       value: ''
 prototypeToken:
-  name: Smoke Devil
+  name: 'Smoke Devil'
   displayName: 0
   actorLink: false
   texture:
-    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
+    src: 'systems/archmage/assets/icons/tokens/monsters/devil.webp'
     scaleX: 1
     scaleY: 1
     offsetX: 0
     offsetY: 0
     rotation: 0
-    tint:
+    tint: null
   width: 1
   height: 1
   lockRotation: false
@@ -112,14 +112,14 @@ prototypeToken:
   disposition: -1
   displayBars: 0
   bar1:
-    attribute: attributes.hp
+    attribute: 'attributes.hp'
   bar2:
-    attribute:
+    attribute: null
   light:
     alpha: 0.5
     angle: 360
     bright: 0
-    color:
+    color: null
     coloration: 1
     dim: 0
     attenuation: 0.5
@@ -128,7 +128,7 @@ prototypeToken:
     contrast: 0
     shadows: 0
     animation:
-      type:
+      type: null
       speed: 5
       intensity: 5
       reverse: false
@@ -137,10 +137,10 @@ prototypeToken:
       max: 1
   sight:
     enabled: false
-    range:
+    range: null
     angle: 360
-    visionMode: basic
-    color:
+    visionMode: 'basic'
+    color: null
     attenuation: 0.1
     brightness: 0
     saturation: 0
@@ -149,325 +149,314 @@ prototypeToken:
   flags: {}
   randomImg: false
 items:
-  - name: Dire Embrace
-    type: action
-    img: icons/svg/target.svg
+  - name: 'Dire Embrace'
+    type: 'action'
+    img: 'icons/svg/target.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
+        type: 'String'
+        label: 'Description'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
-        type: String
-        label: Attack Roll
-        value: "[[d20+10]] vs PD"
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs PD'
       hit:
-        type: String
-        label: Hit
-        value: "[[15]] poison damage"
+        type: 'String'
+        label: 'Hit'
+        value: '[[15]] poison damage'
       hit1:
-        type: String
-        label: Hit
-        name: Full embrace
-        value: If the target is the only creature engaged with the smoke devil, the
-          attack deals 30 poison damage instead.
+        type: 'String'
+        label: 'Hit'
+        name: 'Full embrace'
+        value: 'If the target is the only creature engaged with the smoke devil, the attack deals 30 poison damage instead.'
       hit2:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
         name: ''
         value: ''
       hit3:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
         name: ''
         value: ''
       hit4:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
       hit5:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
       miss:
-        type: String
-        label: Miss
-        value: "[[7]] poison damage"
+        type: 'String'
+        label: 'Miss'
+        value: '[[7]] poison damage'
       embeddedMacro:
         value: ''
-    _id: eL6jc8y5n1TT5cNr
+    _id: 'eL6jc8y5n1TT5cNr'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566380791
       modifiedTime: 1671566443645
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Ember of hate
-    type: trait
-    img: icons/svg/regen.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Ember of hate'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
-        value: "<p>Each time the smoke devil hits an enemy, the embers floating in the
-          center of its body glow more brightly. Once per battle as a free action during
-          its turn, the devil can make an <em>ember burst</em> attack. It also makes
-          this attack as an interrupt action when it drops to 0 hp.</p>"
+        type: 'String'
+        label: 'Description'
+        value: '<p>Each time the smoke devil hits an enemy, the embers floating in the center of its body glow more brightly. Once per battle as a free action during its turn, the devil can make an <em>ember burst</em> attack. It also makes this attack as an interrupt action when it drops to 0 hp.</p>'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
-    _id: 8p2GEstNK0cFyX4B
+    _id: '8p2GEstNK0cFyX4B'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566451205
       modifiedTime: 1671566466672
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Ember Burst
-    type: action
-    img: icons/svg/target.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Ember Burst'
+    type: 'action'
+    img: 'icons/svg/target.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
+        type: 'String'
+        label: 'Description'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
       attack:
-        type: String
-        label: Attack Roll
-        value: "[[d20+10]] vs PD (each enemy engaged with the devil)"
+        type: 'String'
+        label: 'Attack Roll'
+        value: '[[d20+10]] vs PD (each enemy engaged with the devil)'
       hit:
-        type: String
-        label: Hit
-        value: The target takes [[5]] fire damage for each creature hit by the smoke
-          devil earlier in the battle (max [[15]] damage; remember to track this)
+        type: 'String'
+        label: 'Hit'
+        value: 'The target takes [[5]] fire damage for each creature hit by the smoke devil earlier in the battle (max [[15]] damage; remember to track this)'
       hit1:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
         name: ''
         value: ''
       hit2:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
         name: ''
         value: ''
       hit3:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
         name: ''
         value: ''
       hit4:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
       hit5:
-        type: String
-        label: Hit
+        type: 'String'
+        label: 'Hit'
       miss:
-        type: String
-        label: Miss
+        type: 'String'
+        label: 'Miss'
         value: ''
       embeddedMacro:
         value: ''
-    _id: 9v3a7ttLA17Ux1W3
+    _id: '9v3a7ttLA17Ux1W3'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566470348
       modifiedTime: 1671566528358
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Devil's Due (Formless)
-    type: trait
-    img: icons/svg/regen.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Devil''s Due (Formless)'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
-        value: "<p>When you choose to add the escalation die to an attack against a
-          smoke devil, it gains <em>resist damage 16+</em> against the attack.</p>"
+        type: 'String'
+        label: 'Description'
+        value: '<p>When you choose to add the escalation die to an attack against a smoke devil, it gains <em>resist damage 16+</em> against the attack.</p>'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
-    _id: STDcpH0hNVralJd3
+    _id: 'STDcpH0hNVralJd3'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566535378
       modifiedTime: 1671566552982
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Flight
-    type: trait
-    img: icons/svg/regen.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Flight'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
-        value: "<p>Smoke devils drift and eddy as if blown by an evil wind.</p>"
+        type: 'String'
+        label: 'Description'
+        value: '<p>Smoke devils drift and eddy as if blown by an evil wind.</p>'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
-    _id: ZRINEuEqsRVZ9npm
+    _id: 'ZRINEuEqsRVZ9npm'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566557742
       modifiedTime: 1671566571454
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Resist fire 13+
-    type: trait
-    img: icons/svg/regen.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Resist fire 13+'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
-        value: "<p>When a fire attack targets this creature, the attacker must roll
-          a natural 13+ on the attack roll or it only deals half damage.</p>"
+        type: 'String'
+        label: 'Description'
+        value: '<p>When a fire attack targets this creature, the attacker must roll a natural 13+ on the attack roll or it only deals half damage.</p>'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
-    _id: zTzOiDMv4lVsaMjm
+    _id: 'zTzOiDMv4lVsaMjm'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566573912
       modifiedTime: 1671566589123
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Free-form covert ability - Insinuate
-    type: trait
-    img: icons/svg/regen.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Free-form covert ability - Insinuate'
+    type: 'trait'
+    img: 'icons/svg/regen.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
-        value: "<p>Smoke devils have a preternatural ability to get to their chosen
-          victims. Keeping the smoke devil out is a hard, champion-tier challenge (DC
-          25).</p>"
+        type: 'String'
+        label: 'Description'
+        value: '<p>Smoke devils have a preternatural ability to get to their chosen victims. Keeping the smoke devil out is a hard, champion-tier challenge (DC 25).</p>'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
-    _id: eslYXfRVSSyymLaJ
+    _id: 'eslYXfRVSSyymLaJ'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566592745
       modifiedTime: 1671566621867
-      lastModifiedBy: WYU73coo5rYxuFle
-  - name: Smokey Retreat
-    type: nastierSpecial
-    img: icons/svg/poison.svg
+      lastModifiedBy: 'WYU73coo5rYxuFle'
+  - name: 'Smokey Retreat'
+    type: 'nastierSpecial'
+    img: 'icons/svg/poison.svg'
     system:
       name:
-        type: String
-        label: Name
+        type: 'String'
+        label: 'Name'
       description:
-        type: String
-        label: Description
-        value: "<p>A smoke devil can &ldquo;take 12&rdquo; on disengage checks, taking
-          a natural result of 12 instead of rolling (which normally would allow it to
-          disengage automatically from up to two enemies).</p>"
+        type: 'String'
+        label: 'Description'
+        value: '<p>A smoke devil can &ldquo;take 12&rdquo; on disengage checks, taking a natural result of 12 instead of rolling (which normally would allow it to disengage automatically from up to two enemies).</p>'
       group:
-        type: String
-        label: Group
+        type: 'String'
+        label: 'Group'
         value: ''
-    _id: XKectQK1c9W3hKZ5
+    _id: 'XKectQK1c9W3hKZ5'
     effects: []
-    folder:
+    folder: null
     sort: 0
     ownership:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
     _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
+      systemId: 'archmage'
+      systemVersion: '1.23.1'
       coreVersion: '10.291'
       createdTime: 1671566631902
       modifiedTime: 1671566643935
-      lastModifiedBy: WYU73coo5rYxuFle
+      lastModifiedBy: 'WYU73coo5rYxuFle'
 effects: []
 folder: null
 sort: 100001

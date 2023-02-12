@@ -86,10 +86,10 @@ system:
     type: 'String'
     label: 'Odd Miss'
     value: ''
-  cost:
+  resources:
     type: 'String'
-    label: 'Cost'
-    value: '1 TC daily spell'
+    label: 'Resources'
+    value: '-1 TC daily spell'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'

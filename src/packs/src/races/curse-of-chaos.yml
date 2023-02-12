@@ -86,9 +86,9 @@ system:
     type: 'String'
     label: 'Odd Miss'
     value: ''
-  cost:
+  resources:
     type: 'String'
-    label: 'Cost'
+    label: 'Resources'
     value: ''
   castBroadEffect:
     type: 'String'
@@ -168,7 +168,7 @@ system:
       isActive:
         type: 'Boolean'
         label: 'Active'
-        value: true
+        value: false
     epic:
       description:
         type: 'String'

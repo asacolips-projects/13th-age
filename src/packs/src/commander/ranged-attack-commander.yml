@@ -85,9 +85,9 @@ system:
     type: 'String'
     label: 'Odd Miss'
     value: ''
-  cost:
+  resources:
     type: 'String'
-    label: 'Cost'
+    label: 'Resources'
     value: ''
   castBroadEffect:
     type: 'String'
