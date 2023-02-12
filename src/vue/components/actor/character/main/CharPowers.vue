@@ -20,12 +20,12 @@
         <label for="power-filter-search">{{localize('ARCHMAGE.filter')}}</label>
         <input type="text" name="power-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
       </div>
-      <div class="import-powers">
+      <div class="import-powers" v-if="shouldDisplayImportButton(actor)">
         <button class="item-import button" :title="localize('ARCHMAGE.import')" data-item-type="power" data-type="power" type="button"><i class="fas fa-atlas"></i> {{localize('ARCHMAGE.import')}}</button>
       </div>
     </header>
     <!-- Powers, by group. -->
-    <section v-for="(group, groupKey) in groups" :key="groupKey" class="power-group">
+    <section v-for="(group, groupKey) in filterGroupsForDisplay(actor, groups, powerGroups)" :key="groupKey" class="power-group">
       <div class="power-group-header">
         <!-- Group title and add button. -->
         <div class="power-header-title grid power-grid">
@@ -332,6 +332,36 @@ export default {
       return {
         maxHeight: height
       };
+    },
+    /**
+     * Filter which power groups are displayed:
+     * - If sheet option isn't enabled, show unfiltered powers list
+     * - Every group that is not empty
+     * - If ALL groups are empty, display the first one anyway
+     */
+    filterGroupsForDisplay(actor, groups, itemsPerGroup) {
+      if (actor?.flags?.archmage?.hideEmptyPowerGroups !== true) {
+        return groups;
+      }
+
+      var out = {};
+      for (var key in groups) {
+        if (key in itemsPerGroup) {
+          out[key] = groups[key];
+        }
+      }
+
+      if (Object.keys(out).length < 1 && Object.keys(groups).length > 0) {
+        out[key] = Object.values(groups)[0];
+      }
+
+      return out;
+    },
+    shouldDisplayImportButton(actor) {
+      if (actor?.flags?.archmage?.hideImportPowers === true && !game.user.isGM) {
+        return false;
+      }
+      return true;
     }
   },
   /**

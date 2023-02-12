@@ -990,15 +990,39 @@ FLAGS.characterFlags = {
     section: "Sheet",
     type: Boolean
   },
+  "hideCurrency": {
+    name: "Hide Currency",
+    hint: "Hide the currency section in the inventory.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "hideEmptyPowerGroups": {
+    name: "Hide empty Power groups",
+    hint: "Hide empty Power groups on the sheet (besides the default one).",
+    section: "Sheet",
+    type: Boolean
+  },
+  "hideImportPowers": {
+    name: "Hide Import Powers",
+    hint: "Hide the Import Powers button for players.",
+    section: "Sheet",
+    type: Boolean
+  },
   "hideIncrementals": {
     name: "Hide Incremental Advances",
-    hint: "Hides the Incremental Advances section.",
+    hint: "Hide the Incremental Advances section.",
     section: "Sheet",
     type: Boolean
   },
   "hideOneUniqueThing": {
     name: "Hide One Unique Thing",
-    hint: "Hides the One Unique Thing section.",
+    hint: "Hide the One Unique Thing section.",
+    section: "Sheet",
+    type: Boolean
+  },
+  "hideSettingsTab": {
+    name: "Hide Settings tab",
+    hint: "Hide the sheet settings tab for players.",
     section: "Sheet",
     type: Boolean
   },
