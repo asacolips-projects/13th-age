@@ -2,7 +2,12 @@
   <section class="section section--tabs flexshrink">
     <!-- <input type="hidden" :name="concat('flags.archmage.sheetDisplay.tabs.', group, '.value')" v-model="currentTab"/> -->
     <nav :class="'sheet-tabs tabs tabs--' + group" :data-group="group">
-      <a v-for="(tab, tabKey) in tabs" :key="'tab-' + group + '-' + tabKey" @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey"><i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i><span v-if="!tab.hideLabel">{{tab.label}}</span></a>
+      <span v-for="(tab, tabKey) in tabs" :key="'tab-' + group + '-' + tabKey">
+        <a @click="changeTab" :class="getTabClass(tab, tabKey)" :data-tab="tabKey" v-if="!tab.hidden">
+          <i v-if="tab.icon" :class="concat('fas ', tab.icon)"></i>
+          <span v-if="!tab.hideLabel">{{tab.label}}</span>
+        </a>
+      </span>
     </nav>
   </section>
 </template>
@@ -50,6 +55,9 @@ export default {
   },
   async mounted() {
     this.currentTab = this.flags.sheetDisplay.tabs[this.group].value ? this.flags.sheetDisplay.tabs[this.group].value : 'details';
+    if (this.tabs[this.currentTab].hidden) {
+      this.currentTab = 'details';
+    }
     this.changeTab(false);
   }
 }
