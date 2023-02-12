@@ -85,10 +85,10 @@ system:
     type: 'String'
     label: 'Odd Miss'
     value: ''
-  cost:
+  resources:
     type: 'String'
-    label: 'Cost'
-    value: 'Your remaining command points'
+    label: 'Resources'
+    value: '-Your remaining command points'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
