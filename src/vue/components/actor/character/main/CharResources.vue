@@ -1,7 +1,7 @@
 <template>
   <section class="section section--resources flexrow flexshrink" :data-resource-count="resourceCount" :data-custom-count="customResourceCount">
     <!-- Command Points -->
-    <section v-if="actor.system.resources.perCombat.commandPoints.enabled" class="unit unit--command-points">
+    <section v-if="actor.system.resources.perCombat.commandPoints?.enabled" class="unit unit--command-points">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.commandPoints')}}</h2>
       <div class="resource flexrow">
         <div class="resource--left">
@@ -15,7 +15,7 @@
       </div>
     </section>
     <!-- Ki -->
-    <section v-if="actor.system.resources.spendable.ki.enabled" class="unit unit--has-max unit--ki">
+    <section v-if="actor.system.resources.spendable.ki?.enabled" class="unit unit--has-max unit--ki">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.ki')}}</h2>
       <Progress name="ki" :current="actor.system.resources.spendable.ki.current" :max="actor.system.resources.spendable.ki.max"/>
       <div class="resource flexrow">
@@ -25,21 +25,21 @@
       </div>
     </section>
     <!-- Focus -->
-    <section v-if="actor.system.resources.perCombat.focus.enabled" class="unit unit--focus">
+    <section v-if="actor.system.resources.perCombat.focus?.enabled" class="unit unit--focus">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.focus')}}</h2>
       <div class="resource flexrow">
         <input type="checkbox" name="system.resources.perCombat.focus.current" v-model="focus">
       </div>
     </section>
     <!-- Momentum -->
-    <section v-if="actor.system.resources.perCombat.momentum.enabled" class="unit unit--momentum">
+    <section v-if="actor.system.resources.perCombat.momentum?.enabled" class="unit unit--momentum">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.momentum')}}</h2>
       <div class="resource flexrow">
         <input type="checkbox" name="system.resources.perCombat.momentum.current" v-model="momentum">
       </div>
     </section>
     <!-- Combat Rhythm -->
-    <section v-if="actor.system.resources.perCombat.rhythm.enabled && secondEdition" class="unit unit--rhythm">
+    <section v-if="actor.system.resources.perCombat.rhythm?.enabled && secondEdition" class="unit unit--rhythm">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rhythm')}}</h2>
       <div class="resource flexrow">
         <select name="system.resources.perCombat.rhythm.current" v-model="rhythm">
