@@ -1383,12 +1383,16 @@ export class ActorArchmage extends Actor {
   // TODO@cswendrowski: refactor this for v10
   // Override default configuration by updating actor after creation
   async _onCreate(data, options, user) {
+    if (!game.user.isGM) {
+      return;
+    }
+
     // Set the default portrait and token image to the system's
-    if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']
-      && game.user.isGM) {
+    if (data.img == CONFIG.ARCHMAGE.defaultMonsterTokens['default']) {
       // Note: in cunjunction with the hook this propagates to the prototype token too
       await this.update({img: CONFIG.ARCHMAGE.defaultMonsterTokens['default-toolkit']});
     }
+
     // For characters only default to linked token
     if (this.type == "character") {
       await this.update({token: {actorLink: true}});
@@ -1524,8 +1528,18 @@ export class ActorArchmage extends Actor {
 
     // Character-specific processing
 
+    // Remove commas from custom resource names
+    if (data.system.resources?.spendable) {
+      for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
+        if (data.system.resources.spendable["custom"+idx]) {
+          let label = data.system.resources.spendable["custom"+idx].label;
+          if (label) data.system.resources.spendable["custom"+idx].label = label.replace(",", "");
+        }
+      }
+    }
+
+    // Clamp PC level to [1, 10]
     if (!isNaN(data.system.attributes?.level?.value)) {
-      // Clamp PC level to [1, 10]
       data.system.attributes.level.value = Math.min(10, Math.max(1, data.system.attributes.level.value));
     }
 

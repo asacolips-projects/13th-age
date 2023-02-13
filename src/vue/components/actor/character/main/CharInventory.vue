@@ -1,7 +1,7 @@
 <template>
   <section :class="classes">
     <!-- Currency. -->
-    <section class="equipment-currency flexrow">
+    <section class="equipment-currency flexrow" v-if="!actor.flags.archmage.hideCurrency">
       <div v-for="(type) in currency" :key="type" :class="concat('unit unit--currency unit--currency-', type)">
         <h2 class="unit-title">{{localize(concat('ARCHMAGE.COINS.', type))}}</h2>
         <input type="number" :name="concat('system.coins.', type, '.value')" class="currency-input" v-model="actor.system.coins[type].value" placeholder="0">

@@ -85,10 +85,10 @@ system:
     type: 'String'
     label: 'Odd Miss'
     value: ''
-  cost:
+  resources:
     type: 'String'
-    label: 'Cost'
-    value: ''
+    label: 'Resources'
+    value: '+[[1d4]] command points'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -112,7 +112,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Gain [[1d4]] command points.</p>'
+    value: '<p>Gain 1d4 command points.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

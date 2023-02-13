@@ -72,7 +72,7 @@ export default {
         'miss',
         'missEven',
         'missOdd',
-        'cost',
+        'resources',
         'castBroadEffect',
         'castPower',
         'sustainedEffect',

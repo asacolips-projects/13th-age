@@ -480,11 +480,11 @@ Item:
       quantity:
         type: Number
         label: Uses
-        value: 1
+        value: null
       maxQuantity:
         type: Number
         label: Max Uses
-        value: 1
+        value: null
   power:
     templates:
       - standard
@@ -565,9 +565,9 @@ Item:
       type: String
       label: Odd Miss
       value: ''
-    cost:
+    resources:
       type: String
-      label: Cost
+      label: Resources
       value: ''
     castBroadEffect:
       type: String

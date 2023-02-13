@@ -19,10 +19,10 @@ export default class ArchmageRolls {
         lineToParse = targetLine.replace(/-[0-9]+/g, '');
 
         lineToParse = lineToParse.toLowerCase().replace(/\[\[.+?\]\] hp/g, '');
-        rolls = ArchmageRolls._getInlineRolls(lineToParse, item.actor.getRollData());
+        rolls = ArchmageRolls.getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
-          ArchmageRolls._roll(rolls, item.actor);
+          ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
           newTargetLine = duplicate(targetLine);
           rolls.forEach(r => {
@@ -53,10 +53,10 @@ export default class ArchmageRolls {
       if (targetLine != null) {
         targetLine = targetLine[0];
         // First check for rolls
-        rolls = ArchmageRolls._getInlineRolls(targetLine, item.actor.getRollData());
+        rolls = ArchmageRolls.getInlineRolls(targetLine, item.actor.getRollData());
         if (rolls !== undefined) {
           // Roll the targets now
-          ArchmageRolls._roll(rolls, item.actor);
+          ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
           rolls.forEach(r => targets += r.total);
         } else {
@@ -136,14 +136,14 @@ export default class ArchmageRolls {
     return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
   }
 
-  static _roll(rolls, actor, key=undefined) {
+  static rollAll(rolls, actor, key=undefined) {
     for (let i=0; i<rolls.length; i++) {
       rolls[i].evaluate({async: false});
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
     }
   }
 
-  static _getInlineRolls(text, data) {
+  static getInlineRolls(text, data) {
     try {
       if (!text) return undefined;
       const regex = /\[\[(\/[a-zA-Z]+\s)?(.*?)([\]]{2,3})/gi;

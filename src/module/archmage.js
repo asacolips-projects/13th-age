@@ -337,15 +337,6 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
-  game.settings.register('archmage', 'automatePowerCost', {
-    name: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostName"),
-    hint: game.i18n.localize("ARCHMAGE.SETTINGS.automatePowerCostHint"),
-    scope: 'world',
-    config: true,
-    default: true,
-    type: Boolean
-  });
-
   game.settings.register('archmage', 'unboundEscDie', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieHint"),
@@ -515,7 +506,8 @@ Hooks.on('setup', (data, options, id) => {
 function addEscalationDie() {
   let escalation = ArchmageUtility.getEscalation();
   let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  $('body').append(`<div class="archmage-escalation${hide}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
+  let text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
+  $('body').append(`<div class="archmage-escalation${hide}" data-esc-die-text="${text}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
   $('body').append('<div class="archmage-preload"></div>');
 
   // Add click events for ed.

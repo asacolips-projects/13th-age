@@ -78,7 +78,7 @@ export class ArchmageMacros {
     const bonus = (hasFeat && isEven) ? 2 : 1;
     const cp = actor?.system.resources.perCombat.commandPoints.current;
     if (archmage.hitEval.hasHit) {
-      await actor.update({'system.resources.perCombat.commandPoints.current': cp+bonus});
+      await actor.update({'system.resources.perCombat.commandPoints.current': cp + bonus});
     }
   }
 

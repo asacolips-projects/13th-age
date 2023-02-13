@@ -50,6 +50,7 @@ ARCHMAGE:
   effects: Effects
   equipment: Equipment
   equipmentName: Equipment Name
+  escalationDieLabel: Escalation Die
   feat: Feat
   feats: Feats
   feature: Feature
@@ -170,9 +171,7 @@ ARCHMAGE:
     automateBaseStatsFromClassName: Automatically compute base stats
     automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
     automateHPConditionsName: Auto-manage Dead and Staggered
-    automatePowerCostHint: Remove resources (e.g. Command Points, Ki or Focus) automatically when using a power with a cost?
-    automatePowerCostName: Automatically apply power costs
-    ColorblindHint: Change the colors of the power cards to a more accessibility color palette.
+    ColorblindHint: Change the colors of the power cards to a more accessibile color palette.
     ColorblindName: Enable Colorblind Accessibility Mode
     ColorblindOptioncolorBlindBY: Tritanopia (Blue/Yellow)
     ColorblindOptioncolorBlindRG: Protanopla / Deutanopla (Red/Green)
@@ -213,6 +212,7 @@ ARCHMAGE:
   # Characters
   CHARACTER:
     RESOURCES:
+      commandPoint: Command Point
       commandPoints: Command Points
       commandPointsGained: Gained {points} command points.
       custom1: Custom Resource 1
@@ -227,14 +227,14 @@ ARCHMAGE:
       focus: Focus
       ki: Ki
       momentum: Momentum
+      recoveries: Recoveries
+      recovery: Recovery
       rhythm: Combat Rhythm
     RHYTHMCHOICES:
       none: None
       offense: Offense
       defense: Defense
   CHARACTERFLAGS:
-    improvedIniativeHint: General feat to increase initiative by +4.
-    improvedIniativeName: Improved Initiative
     initiativeAdvHint: Human racial feat to roll 2d20 for initiative and keep the higher roll.
     initiativeAdvName: Quick to Fight
   CHARACTERSETTINGS:
@@ -436,8 +436,6 @@ ARCHMAGE:
     champion: Champion Feat
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
-    cost: Cost
-    costPlaceholder: 2 command points
     crit: Crit
     critPlaceholder: Additional effects on a crit
     Delete: Delete
@@ -505,6 +503,8 @@ ARCHMAGE:
     RechargeLabel: Rolling recharge
     RechargeRoll: Recharge Roll
     RechargeSucc: recharged
+    resources: Resources
+    resourcesPlaceholder: -2 command points
     Rest: Rest
     Rests: Rests
     sequencerDesc: Configure a sequencer animation.
@@ -633,8 +633,9 @@ ARCHMAGE:
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?
     errNoFocus: You need Focus to use this power. Use anyway?
-    errNoCustomResource: You don't have enough
-    errNoCustomResource2: Use anyway?
+    errNoRecoveries: You don't have any recoveries left. Use anyway?
+    errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
+    errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
     noToken: No token selected.
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
@@ -644,11 +645,15 @@ ARCHMAGE:
     start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "Toolkit13 System Migration to version {version} completed!"
     updateActors: 'Updating world actors'
+    updateCompendiums: 'Updating world compendiums'
+    updateItems: 'Updating world items'
     updateTokens: 'Updating world tokens'
     updateCompendiumActors: 'Updating compendium actors: {pack}'
+    updateCompendiumItems: 'Updating compendium items: {pack}'
     updateCompendiumScenes: 'Updating compendium scenes: {pack}'
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
     '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
+    '1_25_0': "Toolkit13 1.25.0: Updating Powers cost field to new resources syntax."
 # Tours
   TOURS:
     '170':
