@@ -10,7 +10,7 @@
   {{!-- Ability checks require choosing a background. --}}
   {{#if abilityCheck}}
     <div class="form-group">
-      <label>{{localize 'ARCHMAGE.abilityScore'}}</label>
+      <label>{{localize 'ARCHMAGE.background'}}</label>
       <select name="background" data-dtype="String">
         <option value="0">—</option>
         {{#each backgrounds as |background_obj key|}}
@@ -24,7 +24,7 @@
   {{!-- Background checks require choosing an ability. --}}
   {{#if backgroundCheck}}
     <div class="form-group">
-      <label>{{localize 'ARCHMAGE.background'}}</label>
+      <label>{{localize 'ARCHMAGE.abilityScore'}}</label>
       <select name="ability" data-dtype="String">
         {{#select defaultAbility}}
         {{#each abilities as |ability_obj key|}}
