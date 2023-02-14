@@ -623,8 +623,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
@@ -721,8 +720,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
