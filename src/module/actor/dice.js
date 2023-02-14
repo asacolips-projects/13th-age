@@ -123,13 +123,12 @@ export class DiceArchmage {
       };
 
       // Handle roll visibility.
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template.
       renderTemplate(template, templateData).then(content => {
         chatData.content = content;
-        ChatMessage.create(chatData, { displaySheet: false });
+        ChatMessage.create(chatData, { displaySheet: false, rollMode: rollMode });
       });
     };
 
@@ -160,6 +159,7 @@ export class DiceArchmage {
       abilityCheck: data.abilityCheck ?? true,
       backgroundCheck: data.backgroundCheck ?? false,
       defaultAbility: false,
+      defaultRollMode: rollMode,
       abilities: abilities ?? {},
       backgrounds: backgrounds ?? {},
       rollModes: CONFIG.Dice.rollModes
