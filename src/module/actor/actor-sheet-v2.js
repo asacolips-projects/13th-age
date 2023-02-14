@@ -600,7 +600,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Basic chat message data
       const chatData = {
         user: game.user.id,
-        type: 5,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
         speaker: {
           actor: this.actor.id,
@@ -703,7 +703,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Basic chat message data
     const chatData = {
       user: game.user.id,
-      type: 5,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       roll: roll,
       speaker: {
         actor: actor.id,

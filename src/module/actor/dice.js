@@ -97,7 +97,7 @@ export class DiceArchmage {
       // Prepare chat data for the template.
       const chatData = {
         user: game.user.id,
-        type: 5,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
         speaker: {
           actor: actor.id,
