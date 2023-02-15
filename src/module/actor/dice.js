@@ -57,7 +57,6 @@ export class DiceArchmage {
     }
 
     // Inner roll function
-    let speaker = ChatMessage.getSpeaker();
     let rollMode = game.settings.get("core", "rollMode");
     let rolled = false;
     let roll = (html = null, data = {}) => {
@@ -100,6 +99,8 @@ export class DiceArchmage {
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
         speaker: {
+          // ChatMessage.getSpeaker() goes by selected token,
+          // but we know which actor's sheet this was rolled from, so use that.
           actor: actor.id,
           token: actor.token,
           alias: actor.name,
