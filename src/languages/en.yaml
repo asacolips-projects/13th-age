@@ -1,3 +1,6 @@
+ACTOR:
+  TypeCharacter: Character
+  TypeNpc: Non-player Character (NPC)
 ARCHMAGE:
   abilities: Abilities
   abilityName: Ability Name
@@ -722,3 +725,11 @@ ARCHMAGE:
         settings: As with the character sheet, settings have been moved into their own tab. This currently only includes visual information such as the avatar settings and the ability to switch the NPC sheet to night mode, but we'll likely expand this in the future with additional settings!
       compendiums: |
         <strong>SRD Monster Compendiums</strong> have been updated to include inline rolls for <em>most</em> use cases. There have been a few outliers that slipped through the cracks, but virtually every monster in the SRD compendium was updated to have inline rolls added for their targeting lines and their damage. This only applies to monsters in the compendium.
+ITEM:
+  TypeAction: Action
+  TypeLoot: Loot
+  TypeEquipment: Magic Item
+  TypeNastierspecial: Nastier Special
+  TypePower: Power
+  TypeTool: Tool
+  TypeTrait: Trait
