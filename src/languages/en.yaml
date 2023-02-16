@@ -67,6 +67,7 @@ ARCHMAGE:
   hitPoints: Hit Points
   iconRelationships: Icon Relationships
   import: Import Powers
+  importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
   initiative: Initiative
@@ -641,7 +642,7 @@ ARCHMAGE:
     noToken: No token selected.
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
-    classChange: Class change detected, base stats adjusted.
+    classChange: "Class change detected, base stats adjusted: {classes}."
   MIGRATIONS:
     start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "Toolkit13 System Migration to version {version} completed!"
