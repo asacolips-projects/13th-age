@@ -100,7 +100,7 @@ export class ActorArchmage extends Actor {
     // Get the Actor's data object
     const actorData = this;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
-    if (!actorData.name) actorData.name = "New " + actorData.type;
+    if (!actorData.name) actorData.name = actorData.type;
 
     const data = actorData.system;
     const flags = actorData.flags;
