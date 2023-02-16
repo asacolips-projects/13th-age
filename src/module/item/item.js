@@ -401,12 +401,17 @@ export class ItemArchmage extends Item {
             let $row_self = $(this);
             let row_text = $row_self.html();
             // Attack or Target rows - keep all, in right order
-            if (row_text.includes('Attack:') || row_text.includes('Target:')) {
+            const triggerAttack = game.i18n.localize("ARCHMAGE.CHAT.attack") + ':';
+            const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ':';
+            const triggerHit = game.i18n.localize("ARCHMAGE.CHAT.hit") + ':';
+            const triggerLevelSpell = game.i18n.localize("ARCHMAGE.CHAT.spellLevelTrigger") + ':';
+            if (row_text.includes(triggerAttack) ||
+                row_text.includes(triggerTarget)) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
                   let roll = Roll.fromJSON(unescape(e.dataset.roll));
-                  if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
+                  if (row_text.includes(triggerAttack) && roll.terms[0].faces != 20) {
                     // Not an attack roll, usually a target roll, roll first
                     rolls.unshift(roll);
                   } else rolls.push(roll);
@@ -414,7 +419,7 @@ export class ItemArchmage extends Item {
               }
             }
             // Hit or Spell level rows - keep only the last
-            else if (row_text.includes('Hit:') || row_text.includes('Level Spell:')) {
+            else if (row_text.includes(triggerHit) || row_text.includes(triggerLevelSpell)) {
               damageRolls = []; // Reset for each line
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {

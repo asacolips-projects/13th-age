@@ -534,6 +534,7 @@ ARCHMAGE:
     spellLevel9Placeholder: "[[9d6]] damage"
     spellLevel10: 10th Level Spell
     spellLevel10Placeholder: "[[10d6]] damage"
+    spellLevelTrigger: Level Spell
     rollTable: RollTable
     rollTablePlaceholder: Sneak Attack
     rollTableTitle: Name of a roll table to roll on use (only text supported)
