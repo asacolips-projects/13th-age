@@ -1681,8 +1681,8 @@ export class ActorArchmage extends Actor {
         matchedClasses = [...new Set(matchedClasses)].sort();
 
         // Check that the matched classes actually changed
-        if (this.system.details.matchedClasses !== undefined
-          && JSON.stringify(this.system.details.matchedClasses) == JSON.stringify(matchedClasses)
+        if (this.system.details.detectedClasses !== undefined
+          && JSON.stringify(this.system.details.detectedClasses) == JSON.stringify(matchedClasses)
           ) {
           return;
         }
