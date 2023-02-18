@@ -588,11 +588,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         }
       });
 
-      // Update actor.
-      let updateData = {};
-      updateData[`data.icons.${iconIndex}.results`] = actorIconResults;
-      await this.actor.update(updateData);
-
       // Basic template rendering data
       const template = `systems/archmage/templates/chat/icon-relationship-card.html`
       const token = this.actor.token;
@@ -629,7 +624,17 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
 
-      let message = ChatMessage.create(chatData, { displaySheet: false });
+      let message = await ChatMessage.create(chatData, { displaySheet: false });
+
+      if (game.dice3d && message?.id) {
+        // Wait for 3D dice animation to finish before handling results if enabled
+        await game.dice3d.waitFor3DAnimationByMessageID(message.id);
+      }
+
+      // Update actor.
+      let updateData = {};
+      updateData[`data.icons.${iconIndex}.results`] = actorIconResults;
+      await this.actor.update(updateData);
 
       // Card support
       if (game.decks) {
@@ -694,8 +699,6 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let pointsOld = actor.system.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;
 
-    await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
-
     // Basic template rendering data
     const template = `systems/archmage/templates/chat/command-card.html`
     const token = actor.token;
@@ -726,7 +729,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
-    ChatMessage.create(chatData, { displaySheet: false });
+    const msg = await ChatMessage.create(chatData, { displaySheet: false });
+
+    if (game.dice3d && msg?.id) {
+      // Wait for 3D dice animation to finish before handling results if enabled
+      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
+    }
+
+    await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
   }
 
   async _onRechargeRoll(itemId) {

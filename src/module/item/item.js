@@ -591,7 +591,11 @@ export class ItemArchmage extends Item {
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
-      ChatMessage.create(chatData, { displaySheet: false });
+      const msg = await ChatMessage.create(chatData, { displaySheet: false });
+      if (game.dice3d && msg?.id) {
+        // Wait for 3D dice animation to finish before handling results if enabled
+        await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
+      }
     }
 
     // Update the item.
