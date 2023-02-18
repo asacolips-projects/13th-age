@@ -6,6 +6,7 @@
  * Class that defines utility methods for the Archmage system.
  * IMPORTANT: May be used by modules/macros. Handle changes with care!
  * (For example, the formatting methods are used in translation modules.)
+ * Available at runtime as game.archmage.ArchmageUtility.
  */
 export class ArchmageUtility {
 
@@ -232,6 +233,62 @@ export class ArchmageUtility {
       .replace("value", "")
       .replaceAll(".", " ")
       .replace("ac ", game.i18n.localize("ARCHMAGE.ac.label"));
+  }
+
+  /**
+   * Formats localized tooltip text, taking one or more localization keys,
+   * similar to game.i18n.localize(). 'ARCHMAGE.TOOLTIP.' is prepended to
+   * each key.
+   * If 2nd edition support is enabled, first the key with 'V2' appended is
+   * looked up, if that doesn't exist, the normal key is used.
+   * If multiple keys are given, the localization texts are
+   * appended as separate paragraphs.
+   * The last argument can be a format dict, as given to game.i18n.format(),
+   * in which case that formatting data is provided for all single keys.
+   * Examples:
+   *
+   * tooltip('charisma')
+   *   "ARCHMAGE.TOOLTIP.charisma" is looked up.
+   *   If 2nd edition is enabled, "ARCHMAGE.TOOLTIP.charismaV2" is used if found,
+   *   falling back to the above if it doesn't exist.
+   * tooltip('attributes', 'charisma')
+   *   As above, but both keys are looked up and appended as paragraphs.
+   * tooltip('attributes', 'charisma', {itemData: data})
+   *   As above, but the given format data is inserted for each separate key.
+   */
+  static tooltip(...keys) {
+    const isSecondEdition = game.settings.get('archmage', 'secondEdition');
+    const keyPrefix = "ARCHMAGE.TOOLTIP.";
+    const secondEditionSuffix = "V2";
+
+    var format = {};
+    var out = "";
+
+    if (!keys || !Array.isArray(keys) || keys.length < 1) {
+      return out;
+    }
+
+    // Last element may be format dict, check and handle accordingly
+    if (keys.length > 1 && keys[keys.length -1].constructor == Object) {
+      format = keys.pop();
+    }
+
+    for (const key of keys) {
+      var val = "";
+
+      val = game.i18n.format(keyPrefix + key + secondEditionSuffix, format);
+      if (!isSecondEdition || val.startsWith(keyPrefix)) {
+        val = game.i18n.format(keyPrefix + key, format);
+      }
+
+      out += "\n" + val.trim();
+    }
+
+    // Some formatting for Foundry's tooltips
+    out = out.trim().replaceAll("\r\n", "<br><br>").replaceAll("\n", "<br><br>");
+    out = "<p style=\"text-align: left; margin: 0;\">" + out + "</p>";
+
+    return out;
   }
 }
 

@@ -655,6 +655,15 @@ ARCHMAGE:
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
     '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
     '1_25_0': "Toolkit13 1.25.0: Updating Powers cost field to new resources syntax."
+  TOOLTIP:
+    pcName: Character name
+    pcRace: Character race (for example, "Dwarf")
+    pcRaceV2: Character kin (for example, "Dwarf")
+    pcRaceDesc: |
+      Provides a <b>+2</b> bonus to one of your ability scores. May also provide some additional powers.
+      Your choice usually won't limit your class selection.
+      Common choices are often <i>Human</i>, <i>Dwarf</i>, <i>Elf</i>, <i>Gnome</i>, <i>Half Elf</i>, <i>Half Orc</i> and <i>Halfling</i>.
+      For more unusual choices or mixed ancestry, talk to your GM.
 # Tours
   TOURS:
     '170':
