@@ -1118,7 +1118,7 @@ async function createArchmageMacro(data, slot) {
   // First, determine if this is a valid owned item.
   if (data.type !== "Item") return;
   if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
-    return ui.notifications.warn("You can only create macro buttons for owned Items");
+    return ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnMacroOnlyOwnedItems"));
   }
   // If it is, retrieve it based on the uuid.
   const item = await Item.fromDropData(data);
@@ -1160,7 +1160,7 @@ function rollItemMacro(itemData) {
       // Determine if the item loaded and if it's an owned item.
       if (!item || !item.parent) {
         const itemName = item?.name ?? itemData;
-        return ui.notifications.warn(`Could not find item ${itemName}. You may need to delete and recreate this macro.`);
+        return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotFound", { item: itemName}));
       }
 
       // Trigger the item roll
@@ -1175,7 +1175,7 @@ function rollItemMacro(itemData) {
     if (speaker.token) actor = game.actors.tokens[speaker.token];
     if (!actor) actor = game.actors.get(speaker.actor);
     const item = actor ? actor.items.find(i => i.name === itemName) : null;
-    if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+    if (!item) return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotOnActor", { item: itemName}));
 
     // Trigger the item roll
     return item.roll();
