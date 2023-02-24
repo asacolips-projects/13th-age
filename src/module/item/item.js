@@ -420,14 +420,15 @@ export class ItemArchmage extends Item {
             }
             // Hit or Spell level rows - keep only the last
             else if (row_text.includes(triggerHit) || row_text.includes(triggerLevelSpell)) {
-              damageRolls = []; // Reset for each line
+              newDamageRolls = [];
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
                   let roll = Roll.fromJSON(unescape(e.dataset.roll));
-                  damageRolls.push(roll);
+                  newDamageRolls.push(roll);
                 });
               }
+              if (newDamageRolls.length > 0) damageRolls = newDamageRolls; // Animate only relevant rolls
             }
           });
         }
