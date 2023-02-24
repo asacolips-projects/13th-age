@@ -43,9 +43,6 @@ Hooks.once('init', async function() {
     ).replace(/%[0-9A-F]{2}/gi, '-');
   }
 
-  // Preload template partials.
-  preloadHandlebarsTemplates();
-
   Handlebars.registerHelper('safeCSSId', (arg) => {
     return `${arg}`.safeCSSId();
   });
@@ -79,6 +76,9 @@ Hooks.once('init', async function() {
     }
     return outStr;
   });
+
+  // Preload template partials.
+  preloadHandlebarsTemplates();
 
   game.settings.register("archmage", "secondEdition", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionName"),
