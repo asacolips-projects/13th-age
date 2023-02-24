@@ -17,6 +17,7 @@ import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
+import { TokenArchmage } from './actor/token.js';
 
 
 Hooks.once('init', async function() {
@@ -218,6 +219,7 @@ Hooks.once('init', async function() {
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
+  CONFIG.Token.objectClass = TokenArchmage;
 
   // Assign ItemArchmage class to CONFIG
   CONFIG.Item.documentClass = ItemArchmage;
