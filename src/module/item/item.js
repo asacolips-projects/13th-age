@@ -420,7 +420,7 @@ export class ItemArchmage extends Item {
             }
             // Hit or Spell level rows - keep only the last
             else if (row_text.includes(triggerHit) || row_text.includes(triggerLevelSpell)) {
-              newDamageRolls = [];
+              let newDamageRolls = [];
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
