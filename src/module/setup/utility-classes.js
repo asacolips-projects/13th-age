@@ -224,7 +224,7 @@ export class ArchmageUtility {
       .replace("md", game.i18n.localize("ARCHMAGE.md.label"))
       .replace("pd", game.i18n.localize("ARCHMAGE.pd.label"))
       .replace("hp", game.i18n.localize("ARCHMAGE.health"))
-      .replace("save", game.i18n.localize("ARCHMAGE.ITEM.saveBonus"))
+      .replace("save", game.i18n.localize("ARCHMAGE.save"))
       .replace("disengage", game.i18n.localize("ARCHMAGE.ITEM.disengageBonus"))
       .replace("recoveries", game.i18n.localize("ARCHMAGE.recoveries"))
       .replace("critMod.atk", game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitBonus"))
