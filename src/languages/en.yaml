@@ -38,6 +38,7 @@ ARCHMAGE:
   contextApplyDamageDouble: Apply as Double Damage
   contextApplyDamageTriple: Apply as Triple Damage
   contextApplyHealing: Apply as Healing
+  contextApplyHealingHalf: Apply as Half Healing
   contextApplyTempHealth: Apply as Temp Health
   critModAtk: Crit Modifier (Attack)
   critModDef: Crit Modifier (Defense)
@@ -188,8 +189,8 @@ ARCHMAGE:
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
-    RoundUpDamageApplicationHint: This will be applied the same way for both characters and NPCs.
-    RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
+    RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
+    RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
     secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
     secondEditionName: Use 2e Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports

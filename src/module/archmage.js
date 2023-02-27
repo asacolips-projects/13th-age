@@ -865,7 +865,14 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
         icon: '<i class="fas fa-medkit"></i>',
         callback: inlineRoll => {
-          new DamageApplicator().asHealing(inlineRoll);
+          new DamageApplicator().asHealing(inlineRoll, 1);
+        }
+      },
+      {
+        name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
+        icon: '<i class="fas fa-medkit"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asHealing(inlineRoll, .5);
         }
       },
       {
