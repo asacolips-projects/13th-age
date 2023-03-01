@@ -373,7 +373,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Delete the item from the actor object.
     let del = false;
     new Dialog({
-      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
+      content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
       buttons: {
         del: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
@@ -430,7 +431,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       case 'delete':
         let del = false;
         new Dialog({
-          title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+          title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
+          content: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
           buttons: {
             del: {
               label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
