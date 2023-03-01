@@ -66,9 +66,6 @@ export class ItemArchmageSheet extends ItemSheet {
     if (this.actor) {
       let powerClass = 'monster';
 
-      // Determine if nightmode is used.
-      context.nightmode = this.actor.getFlag('archmage', 'nightmode') ?? false;
-
       if (this.actor.type === 'character') {
         // Pass general character data.
         powerClass = this.actor.system.details.class.value?.toLowerCase();
@@ -92,12 +89,6 @@ export class ItemArchmageSheet extends ItemSheet {
 
       context['powerClass'] = powerClass;
       context['powerLevel'] = powerLevelString;
-    }
-
-    // If there wasn't an actor, check to see if the user's selector character
-    // has nightmode set as a fallback.
-    if (game.user?.character) {
-      context.nightmode = game.user.character.getFlag('archmage', 'nightmode') ?? false;
     }
 
     context.system = context.data.system;
@@ -187,7 +178,7 @@ export class ItemArchmageSheet extends ItemSheet {
           lineNumbers: true,
           inputStyle: "contenteditable",
           autofocus: false,
-          theme: context.nightmode ? 'monokai' : 'default',
+          theme: game.settings.get("archmage", "nightmode") ? 'monokai' : 'default',
           readOnly: textarea.hasAttribute('readonly')
         }).on('change', (instance) => instance.save());
       }
