@@ -364,7 +364,7 @@ export class ItemArchmage extends Item {
       user: game.user.id,
       speaker: {
         actor: itemToRender.actor.id,
-        token: null, //token,
+        token: null,
         alias: itemToRender.actor.name,
         scene: game.user.viewedScene
       }
@@ -372,9 +372,7 @@ export class ItemArchmage extends Item {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
@@ -566,7 +564,7 @@ export class ItemArchmage extends Item {
       // Basic chat message data
       const chatData = {
         user: game.user.id,
-        type: 5,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
         speaker: {
           actor: actor.id,
@@ -586,8 +584,7 @@ export class ItemArchmage extends Item {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);

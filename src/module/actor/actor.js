@@ -714,7 +714,7 @@ export class ActorArchmage extends Actor {
     // Basic chat message data
     const chatData = {
       user: game.user.id,
-      type: 5,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       roll: roll,
       speaker: {
         actor: this.id,
@@ -735,8 +735,7 @@ export class ActorArchmage extends Actor {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
@@ -928,8 +927,7 @@ export class ActorArchmage extends Actor {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
@@ -1087,8 +1085,7 @@ export class ActorArchmage extends Actor {
       alias: this.name, scene: game.user.viewedScene},
     };
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     // If 3d dice are enabled, handle them
     if (game.dice3d) {
@@ -1184,8 +1181,7 @@ export class ActorArchmage extends Actor {
       alias: this.name, scene: game.user.viewedScene},
     };
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }

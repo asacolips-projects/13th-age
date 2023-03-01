@@ -57,7 +57,6 @@ export class DiceArchmage {
     }
 
     // Inner roll function
-    let speaker = ChatMessage.getSpeaker();
     let rollMode = game.settings.get("core", "rollMode");
     let rolled = false;
     let roll = (html = null, data = {}) => {
@@ -97,9 +96,11 @@ export class DiceArchmage {
       // Prepare chat data for the template.
       const chatData = {
         user: game.user.id,
-        type: 5,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
         speaker: {
+          // ChatMessage.getSpeaker() goes by selected token,
+          // but we know which actor's sheet this was rolled from, so use that.
           actor: actor.id,
           token: actor.token,
           alias: actor.name,
@@ -123,13 +124,12 @@ export class DiceArchmage {
       };
 
       // Handle roll visibility.
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template.
       renderTemplate(template, templateData).then(content => {
         chatData.content = content;
-        ChatMessage.create(chatData, { displaySheet: false });
+        ChatMessage.create(chatData, { displaySheet: false, rollMode: rollMode });
       });
     };
 
@@ -160,6 +160,7 @@ export class DiceArchmage {
       abilityCheck: data.abilityCheck ?? true,
       backgroundCheck: data.backgroundCheck ?? false,
       defaultAbility: false,
+      defaultRollMode: rollMode,
       abilities: abilities ?? {},
       backgrounds: backgrounds ?? {},
       rollModes: CONFIG.Dice.rollModes
