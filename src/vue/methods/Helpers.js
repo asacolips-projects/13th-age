@@ -7,6 +7,10 @@ export function localize(key) {
   return game.i18n.localize(key);
 }
 
+export function tooltip(...keys) {
+  return game.archmage.ArchmageUtility.tooltip(...keys);
+}
+
 export function cssClass(string) {
   return encodeURIComponent(
     string.trim().toLowerCase()
