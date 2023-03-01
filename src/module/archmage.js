@@ -826,9 +826,10 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).addClass(uuid);
     $(this).off("contextmenu");
 
-    // console.log($(this).parent()[0].innerText);
-    // TODO: Likely needs to be localized
-    if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
+    const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ":";
+    const triggerAttack = game.i18n.localize("ARCHMAGE.attack") + ":";
+    if ($(this).parent()[0].innerText.includes(triggerTarget) ||
+        $(this).parent()[0].innerText.includes(triggerAttack)) {
       return;
     }
 
