@@ -188,7 +188,7 @@ export default class ArchmageRolls {
     for (let [k, v] of Object.entries(data.dataset)) {
       a.dataset[k] = v;
     }
-    a.innerHTML = `<i class="fas fa-dice-d20"></i> ${data.label}`;
+    a.innerHTML = `<i class="fas fa-dice-d20"></i>${data.label}`;
     return a;
   }
 
