@@ -332,7 +332,7 @@ export class ItemArchmage extends Item {
           itemToRender.system.rollTable.label = itemToRender.system.rollTable.value;
           itemToRender.system.rollTable.value = res.results[0].text;
         } catch(ex) {
-          ui.notifications.error("Only text rollTables are supported for now");
+          ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errOnlyTextRolltables"));
         }
       }
     }
@@ -525,7 +525,7 @@ export class ItemArchmage extends Item {
       try {
         await fn.call(this, speaker, actor, token, character, macro_data);
       } catch(ex) {
-        ui.notifications.error("There was an error in your macro syntax. See the console (F12) for details");
+        ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errMacroSyntax"));
         console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
       }
     }

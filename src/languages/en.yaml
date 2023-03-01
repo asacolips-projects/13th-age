@@ -637,6 +637,7 @@ ARCHMAGE:
     StatusVulnerable: Vulnerable
     StatusWeakened: Weakened
   UI:
+    errMacroSyntax: There was an error in your macro syntax. See the console (F12) for details.
     errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?
@@ -645,6 +646,10 @@ ARCHMAGE:
     errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
     errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
+    errOnlyTextRolltables: Only text Roll Tables are supported for now.
+    warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
+    warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
+    warnMacroItemNotOnActor: Your controlled Actor does not have an item named {item}.
     noToken: No token selected.
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
