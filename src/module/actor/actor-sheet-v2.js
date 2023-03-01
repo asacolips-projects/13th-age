@@ -932,17 +932,17 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     }
 
     let d = new Dialog({
-      title: `Import Powers`,
+      title: game.i18n.localize("ARCHMAGE.import"),
       content: classResults.content,
       buttons: {
         cancel: {
           icon: '<i class="fas fa-times"></i>',
-          label: "Cancel",
+          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
           callback: () => null
         },
         submit: {
           icon: '<i class="fas fa-check"></i>',
-          label: "Submit",
+          label: game.i18n.localize("ARCHMAGE.importSubmit"),
           callback: dlg => this._onImportPower(dlg, this.actor, classResults.powers)
         }
       },

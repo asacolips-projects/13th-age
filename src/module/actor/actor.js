@@ -100,7 +100,7 @@ export class ActorArchmage extends Actor {
     // Get the Actor's data object
     const actorData = this;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
-    if (!actorData.name) actorData.name = "New " + actorData.type;
+    if (!actorData.name) actorData.name = actorData.type;
 
     const data = actorData.system;
     const flags = actorData.flags;
@@ -1677,14 +1677,15 @@ export class ActorArchmage extends Actor {
         matchedClasses = [...new Set(matchedClasses)].sort();
 
         // Check that the matched classes actually changed
-        if (this.system.details.matchedClasses !== undefined
-          && JSON.stringify(this.system.details.matchedClasses) == JSON.stringify(matchedClasses)
+        if (this.system.details.detectedClasses !== undefined
+          && JSON.stringify(this.system.details.detectedClasses) == JSON.stringify(matchedClasses)
           ) {
           return;
         }
 
         // Class changed, alert the user we're about to muck with the base stats
-        ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.classChange"));
+        ui.notifications.info(game.i18n.format("ARCHMAGE.UI.classChange",
+          { classes: ArchmageUtility.formatClassList(matchedClasses) }));
 
         // Collect base stats for detected classes
         let base = {
