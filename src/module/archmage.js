@@ -374,6 +374,15 @@ Hooks.once('init', async function() {
     }
   });
 
+  game.settings.register('archmage', 'nightmode', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeHint"),
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'colorBlindMode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),

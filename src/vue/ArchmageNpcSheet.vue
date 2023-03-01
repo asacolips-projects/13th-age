@@ -163,8 +163,7 @@ export default {
   },
   computed: {
     nightmode() {
-      let flags = this.actor.flags ? this.actor.flags.archmage : null;
-      return flags && flags.nightmode ? 'nightmode' : '';
+      return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     flags() {
       let flags = this.actor.flags ? this.actor.flags.archmage : {};

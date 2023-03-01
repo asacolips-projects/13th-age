@@ -186,6 +186,8 @@ ARCHMAGE:
     initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
     multiTargetAttackRollsHint: Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets.
     multiTargetAttackRollsName: Multi-Target Attack Rolls
+    nightmodeHint: Reverse the sheet color scheme into a darkened night mode.
+    nightmodeName: Night Mode
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
     RoundUpDamageApplicationHint: This will be applied the same way for both characters and NPCs.
