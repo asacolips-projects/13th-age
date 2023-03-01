@@ -2,12 +2,12 @@
   <!-- HEADER -->
   <header class="header character-header grid grid-4col">
     <!-- Name -->
-    <div class="unit unit--abs-label unit--name">
+    <div class="unit unit--abs-label unit--name" :data-tooltip="tooltip('pcName')">
       <label for="name">{{localize("ARCHMAGE.name")}}</label>
       <input type="text" name="name" class="input-secondary" v-model="actor.name">
     </div>
     <!-- Race -->
-    <div class="unit unit--abs-label unit--race">
+    <div class="unit unit--abs-label unit--race" :data-tooltip="tooltip('pcRace', 'pcRaceDesc')">
       <label for="system.details.race.value">{{secondEdition ? localize("ARCHMAGE.kin") : localize("ARCHMAGE.race")}}</label>
       <input type="text" name="system.details.race.value" class="input-secondary" v-model="actor.system.details.race.value">
     </div>
@@ -25,13 +25,14 @@
 </template>
 
 <script>
-import { localize } from '@/methods/Helpers';
+import { localize, tooltip } from '@/methods/Helpers';
 export default {
   name: 'CharacterHeader',
   props: ['actor'],
   setup() {
     return {
-      localize
+      localize,
+      tooltip
     }
   },
   data() {

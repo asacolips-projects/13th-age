@@ -17,6 +17,7 @@ import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
 import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
+import { TokenArchmage } from './actor/token.js';
 
 
 Hooks.once('init', async function() {
@@ -41,9 +42,6 @@ Hooks.once('init', async function() {
       this.toLowerCase()
     ).replace(/%[0-9A-F]{2}/gi, '-');
   }
-
-  // Preload template partials.
-  preloadHandlebarsTemplates();
 
   Handlebars.registerHelper('safeCSSId', (arg) => {
     return `${arg}`.safeCSSId();
@@ -78,6 +76,9 @@ Hooks.once('init', async function() {
     }
     return outStr;
   });
+
+  // Preload template partials.
+  preloadHandlebarsTemplates();
 
   game.settings.register("archmage", "secondEdition", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.secondEditionName"),
@@ -220,6 +221,7 @@ Hooks.once('init', async function() {
 
   // Assign the actor class to the CONFIG
   CONFIG.Actor.documentClass = ActorArchmage;
+  CONFIG.Token.objectClass = TokenArchmage;
 
   // Assign ItemArchmage class to CONFIG
   CONFIG.Item.documentClass = ItemArchmage;
@@ -374,6 +376,15 @@ Hooks.once('init', async function() {
       gm: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityGM'),
       off: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityOff'),
     }
+  });
+
+  game.settings.register('archmage', 'nightmode', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeHint"),
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean
   });
 
   game.settings.register('archmage', 'colorBlindMode', {
@@ -828,9 +839,10 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).addClass(uuid);
     $(this).off("contextmenu");
 
-    // console.log($(this).parent()[0].innerText);
-    // TODO: Likely needs to be localized
-    if ($(this).parent()[0].innerText.includes("Target: ") || $(this).parent()[0].innerText.includes("Attack: ")) {
+    const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ":";
+    const triggerAttack = game.i18n.localize("ARCHMAGE.attack") + ":";
+    if ($(this).parent()[0].innerText.includes(triggerTarget) ||
+        $(this).parent()[0].innerText.includes(triggerAttack)) {
       return;
     }
 
@@ -867,7 +879,14 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
         icon: '<i class="fas fa-medkit"></i>',
         callback: inlineRoll => {
-          new DamageApplicator().asHealing(inlineRoll);
+          new DamageApplicator().asHealing(inlineRoll, 1);
+        }
+      },
+      {
+        name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
+        icon: '<i class="fas fa-medkit"></i>',
+        callback: inlineRoll => {
+          new DamageApplicator().asHealing(inlineRoll, .5);
         }
       },
       {
@@ -1120,7 +1139,7 @@ async function createArchmageMacro(data, slot) {
   // First, determine if this is a valid owned item.
   if (data.type !== "Item") return;
   if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
-    return ui.notifications.warn("You can only create macro buttons for owned Items");
+    return ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnMacroOnlyOwnedItems"));
   }
   // If it is, retrieve it based on the uuid.
   const item = await Item.fromDropData(data);
@@ -1162,7 +1181,7 @@ function rollItemMacro(itemData) {
       // Determine if the item loaded and if it's an owned item.
       if (!item || !item.parent) {
         const itemName = item?.name ?? itemData;
-        return ui.notifications.warn(`Could not find item ${itemName}. You may need to delete and recreate this macro.`);
+        return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotFound", { item: itemName}));
       }
 
       // Trigger the item roll
@@ -1177,7 +1196,7 @@ function rollItemMacro(itemData) {
     if (speaker.token) actor = game.actors.tokens[speaker.token];
     if (!actor) actor = game.actors.get(speaker.actor);
     const item = actor ? actor.items.find(i => i.name === itemName) : null;
-    if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+    if (!item) return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotOnActor", { item: itemName}));
 
     // Trigger the item roll
     return item.roll();

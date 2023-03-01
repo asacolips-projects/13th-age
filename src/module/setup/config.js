@@ -954,6 +954,15 @@ ARCHMAGE.npcLevelupMultipliers = {
   '-6': 1/4.0,
 };
 
+// Colors used to display HP in token health bars
+ARCHMAGE.tokenHPColors = {
+  damage: 0xFF0000,
+  healing: 0x00FF00,
+  temp: 0x66CCFF,
+  tempmax: 0x440066,
+  negmax: 0x550000
+};
+
 FLAGS.characterFlags = {
   "initiativeAdv": {
     name: "Quick to Fight",
@@ -994,12 +1003,6 @@ FLAGS.characterFlags = {
   "portraitFrame": {
     name: "Portrait Frame",
     hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
-    section: "Sheet",
-    type: Boolean
-  },
-  "nightmode": {
-    name: "Night Mode",
-    hint: "Reverse the sheet color scheme into a darkened night mode.",
     section: "Sheet",
     type: Boolean
   },
@@ -1062,12 +1065,6 @@ FLAGS.npcFlags = {
   "portraitFrame": {
     name: "Portrait Frame",
     hint: "Whether or not the character portrait has a white frame and shadow on the V2 sheet.",
-    section: "Sheet",
-    type: Boolean
-  },
-  "nightmode": {
-    name: "Night Mode",
-    hint: "Reverse the sheet color scheme into a darkened night mode.",
     section: "Sheet",
     type: Boolean
   }

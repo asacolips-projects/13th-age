@@ -1,3 +1,6 @@
+ACTOR:
+  TypeCharacter: Character
+  TypeNpc: Non-player Character (NPC)
 ARCHMAGE:
   abilities: Abilities
   abilityName: Ability Name
@@ -38,7 +41,9 @@ ARCHMAGE:
   contextApplyDamageDouble: Apply as Double Damage
   contextApplyDamageTriple: Apply as Triple Damage
   contextApplyHealing: Apply as Healing
+  contextApplyHealingHalf: Apply as Half Healing
   contextApplyTempHealth: Apply as Temp Health
+  cost: Cost
   critModAtk: Crit Modifier (Attack)
   critModDef: Crit Modifier (Defense)
   daily: Daily
@@ -67,6 +72,7 @@ ARCHMAGE:
   hitPoints: Hit Points
   iconRelationships: Icon Relationships
   import: Import Powers
+  importSubmit: Import
   incrementalAdvances: Incremental Advances
   initAdjustment: Initiative Adjustment
   initiative: Initiative
@@ -144,6 +150,7 @@ ARCHMAGE:
   rollFormula: Formula
   rollMode: Roll Mode
   rollNormal: Normal
+  save: Save
   saves: Saves
   sharePlayers: Show Players
   sheetActiveEffect: Toolkit13 Active Effect Sheet
@@ -186,10 +193,12 @@ ARCHMAGE:
     initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
     multiTargetAttackRollsHint: Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets.
     multiTargetAttackRollsName: Multi-Target Attack Rolls
+    nightmodeHint: Reverse the sheet color scheme into a darkened night mode.
+    nightmodeName: Night Mode
     rechargeOncePerDayHint: Attempt to recharge powers on quick rests only once (true) or re-attempt after every quick rest (false)?
     rechargeOncePerDayName: Recharge once per day only
-    RoundUpDamageApplicationHint: This will be applied the same way for both characters and NPCs.
-    RoundUpDamageApplicationName: When applying damage via the right-click context menu, should it round up (true) or round down (false)?
+    RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
+    RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
     secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
     secondEditionName: Use 2e Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports
@@ -440,6 +449,7 @@ ARCHMAGE:
     critPlaceholder: Additional effects on a crit
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
+    DeleteConfirmTitle: Confirm deletion
     effect: Effect
     epic: Epic Feat
     even: even
@@ -532,6 +542,7 @@ ARCHMAGE:
     spellLevel9Placeholder: "[[9d6]] damage"
     spellLevel10: 10th Level Spell
     spellLevel10Placeholder: "[[10d6]] damage"
+    spellLevelTrigger: Level Spell
     rollTable: RollTable
     rollTablePlaceholder: Sneak Attack
     rollTableTitle: Name of a roll table to roll on use (only text supported)
@@ -629,6 +640,7 @@ ARCHMAGE:
     StatusVulnerable: Vulnerable
     StatusWeakened: Weakened
   UI:
+    errMacroSyntax: There was an error in your macro syntax. See the console (F12) for details.
     errNotEnoughCP: You don't have enough Command Points to use this command. Use anyway?
     errNotEnoughKi: You don't have enough Ki to use this power. Use anyway?
     errNoMomentum: You need Momentum to use this power. Use anyway?
@@ -637,10 +649,14 @@ ARCHMAGE:
     errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
     errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
+    errOnlyTextRolltables: Only text Roll Tables are supported for now.
+    warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
+    warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
+    warnMacroItemNotOnActor: Your controlled Actor does not have an item named {item}.
     noToken: No token selected.
     tooManyLevels: Changing a monster by more than 6 levels is not recommended.
     levelLimits: Level can't increase above 15 or decrease below 0.
-    classChange: Class change detected, base stats adjusted.
+    classChange: "Class change detected, base stats adjusted: {classes}."
   MIGRATIONS:
     start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
     complete: "Toolkit13 System Migration to version {version} completed!"
@@ -654,6 +670,15 @@ ARCHMAGE:
     '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
     '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
     '1_25_0': "Toolkit13 1.25.0: Updating Powers cost field to new resources syntax."
+  TOOLTIP:
+    pcName: Character name
+    pcRace: Character race (for example, "Dwarf")
+    pcRaceV2: Character kin (for example, "Dwarf")
+    pcRaceDesc: |
+      Provides a <b>+2</b> bonus to one of your ability scores. May also provide some additional powers.
+      Your choice usually won't limit your class selection.
+      Common choices are often <i>Human</i>, <i>Dwarf</i>, <i>Elf</i>, <i>Gnome</i>, <i>Half Elf</i>, <i>Half Orc</i> and <i>Halfling</i>.
+      For more unusual choices or mixed ancestry, talk to your GM.
 # Tours
   TOURS:
     '170':
@@ -721,3 +746,11 @@ ARCHMAGE:
         settings: As with the character sheet, settings have been moved into their own tab. This currently only includes visual information such as the avatar settings and the ability to switch the NPC sheet to night mode, but we'll likely expand this in the future with additional settings!
       compendiums: |
         <strong>SRD Monster Compendiums</strong> have been updated to include inline rolls for <em>most</em> use cases. There have been a few outliers that slipped through the cracks, but virtually every monster in the SRD compendium was updated to have inline rolls added for their targeting lines and their damage. This only applies to monsters in the compendium.
+ITEM:
+  TypeAction: Action
+  TypeLoot: Loot
+  TypeEquipment: Magic Item
+  TypeNastierspecial: Nastier Special
+  TypePower: Power
+  TypeTool: Tool
+  TypeTrait: Trait
