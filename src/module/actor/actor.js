@@ -1460,9 +1460,14 @@ export class ActorArchmage extends Actor {
         // Staggered
         await this._updateHpCondition(data, "staggered", 0.5, maxHp,
           game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
-        // Dead
-        await this._updateHpCondition(data, "dead", 0, maxHp,
-          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        // Dead / Unconscious
+        if (this.type == 'npc'){
+          await this._updateHpCondition(data, "dead", 0, maxHp,
+            game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        } else {
+          await this._updateHpCondition(data, "unconscious", 0, maxHp,
+            game.i18n.localize("ARCHMAGE.EFFECT.StatusUnconscious"));
+        }
       }
 
       // Handle first skull in 2e.
