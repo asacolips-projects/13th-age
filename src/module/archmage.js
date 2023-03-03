@@ -376,6 +376,15 @@ Hooks.once('init', async function() {
     }
   });
 
+  game.settings.register('archmage', 'sheetTooltips', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsHint"),
+    scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'nightmode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeHint"),

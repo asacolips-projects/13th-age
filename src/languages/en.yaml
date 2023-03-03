@@ -207,6 +207,8 @@ ARCHMAGE:
     showDefensesInChatName: Show target(s) defense(s) in chat
     staggeredOverlayHint: If enabled the staggered condition will be automatically applied as a token overlay instead of a normal condition.
     staggeredOverlayName: Staggered as overlay
+    sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
+    sheetTooltipsName: Sheet tooltips
     tourVisibilityAll: Everyone can see tours
     tourVisibilityGM: Only the GM can see tours
     tourVisibilityHint: When new versions of Toolkit13 are released, the system will display a tour of the changes. Use this setting to determine who should see the tours (or if they should be disabled).
@@ -673,14 +675,122 @@ ARCHMAGE:
     '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
     '1_25_0': "Toolkit13 1.25.0: Updating Powers cost field to new resources syntax."
   TOOLTIP:
-    pcName: Character name
+    portrait: Portrait image.<br>Click to edit (may need permissions).
+    pcAbility: |
+      Ability Scores (or <b>Abilities</b>) are distributed during character creation to fit the character you want to portray and can be increased upon reaching certain levels. The <b>Modifier</b> (or <b>Mod</b>) is derived from this value. The character level acts as a bonus.
+    pcAbilitySuffix: |
+      Click to roll a <b>Skill Check</b> based on this ability. You can optionally apply a <b>Background</b> and <b>Situational Bonus</b> in the roll dialog.
+    pcAbilitystr: |
+      <b>Strength</b> represents bodily power and capacity for force. It's used for <b>melee attack and damage rolls</b> (for most classes), <b>Skill checks</b> (whether for athletic activities, physical intimidation or other things) and <b>Physical Defense</b> (<b>PD</B>). Especially important for Fighters, Barbarians and Paladins.
+    pcAbilitycon: |
+      <b>Constitution</b> represents toughness, endurance and stamina. It's used for character determining <b>Hit Points</b>, <b>Armor Class</b> (<b>AC</b>), <b>Physical Defense</b> (<b>PD</B>) and <b>Skill Checks</b> (for things that require endurance). This is important for all classes (except Necromancers).
+    pcAbilitydex: |
+      <b>Dexterity</b> represents hand-eye coordination, agility, reflexes and balance. It's used for <b>ranged attack and damage rolls</b> (with weapns, for most classes), <b>Armor Class</b> (<b>AC</b>), <b>Physical Defense</b> (<b>PD</B>) and <b>Skill Checks</b> (for things like picking locks, balancing or sneaking). Most important for Rogues, and anyone who wants to be a skilled archer.
+    pcAbilityint: |
+      <b>Intelligence</b> represents capacity for analytical and abstract thought and the ability to recall knowledge. It's used for <b>Mental Defense</b> (<b>MD</b>), <b>Skill Checks</b> and spellcasting for some classes, like Wizards and Necromancers.
+    pcAbilitywis: |
+      <b>Wisdom</b> represents intuiton, insight and perceptiveness, being in tune with and aware of one's surroundings. It's used for <b>Mental Defense</b> (<b>MD</b>), <b>Armor Class</b> (<b>AC</b>), <b>Skill Checks</b> (like determining an NPCs motivation, healing the wounded or <b>Stabilizing</b> an unconscious ally) and spellcasting for some classes, like Clerics and Druids.
+    pcAbilitycha: |
+      <b>Charisma</b> represents social grace and force of personality. It's used for <b>Mental Defense</b> (<b>MD</b>), <b>Skill Checks</b> (like bluffing or influencing people, pretending to be someone else, intimdating people or handling animals), spellcasting for some classes (like Sorcerer) and Paladin class features.
+    pcBackground: |
+      {desc}
+      Backgrounds represent pieces of a character's history and experience.
+      It helps to keep Backgrounds broad enough to encompass multiple skills while being specific enough to connect your character to the world – to a region, faction, people or goal.
+      The sheet options can be used to hide unused backgrounds or to add more.
+      Click the die icon to roll a check based on this background. You can choose which <b>Ability</b> to use and optionally apply a <b>Situational Bonus</b> in the roll dialog.
+    pcClass: |
+      Character class (for example, "Fighter")
+      Determines things like available talent, powers, feats and base stats. Also provides a <b>+2</b> bonus to one of your ability scores.
+      Base stats are adjusted automatically when this field is edited. For this to work, the spelling must match exactly.
+      You may want to adjust whether you use a shield, a two handed weapon or dual wielding in the sheet settings.
+      For custom classes, stats need to be set in the sheet settings manually. Foundry modules can add more classes.
+      For multiclassing, multiple class names can be used, like "Fighter/Barbarian". You may need to adjust the key modifiers to use in the sheet settings.
+    pcDeathSaves: |
+      Dying player characters (at 0 HP or below) need to make <b>Death Saves</b> at the start of each of their turns and can't take other actions.
+      Death saves are a <b>Hard</b> (16+) save. On success, use a recovery to return to consciousness and recover HP. On a natural 20, you can also act normally during that turn.
+      On a 15 or less, you take one step toward the grave. After the <b>fourth</b> failed death save in a single battle, you <b>die</b>.
+      You also die when you reach negative HP equal to half your maximum HP or when running out of <b>Last Gasp</b> saves.
+      A dying character can be <b>stabilized</b> with a DC 10 healing skill check using Wisdom as a <b>Standard Action</b>, which is wasted on failure. On a 25+, the check becomes a <b>Quick Action</b> instead.
+      Feeding a dying character a <b>healing potion</b> gets them conscious and back on their feet, but always takes a <b>Standard Action</b>.
+      Death saves only reset <b>after a battle</b> (Foundry handles this during <b>Quick Rest</b>).
+    pcDefenses: |
+      <b>Armor Class</B> (<b>AC</b>) is based on the middle value of <b>Strength</b>, <b>Dexterity</b> or <b>Wisdom</b>. Protects against weapon attacks, both melee and ranged.
+      <b>Physical Defense</B> (<b>PD</b>) is based on the middle value of <b>Strength</b>, <b>Constitution</b> or <b>Dexterity</b>. Protects from other physical attacks, like many spells.
+      <b>Mental Defense</B> (<b>MD</b>) is based on the middle value of <b>Intelligence</b>, <b>Wisdom</b> or <b>Charisma</b>. Protects against mental attacks, like many spells.
+      Effects and attacks need to <b>meet or beat</b> these values.
+      Exact values are determined by class, the relevant ability modifier and character level.
+    pcEngagement: |
+      In battle, everyone is either <b>engaged</b> or <b>unengaged</b> (<b>free</b>). Allies engaged with the same foe are considered next to each other.
+      <b>Free</b> characters can move freely, use ranged attacks, etc. If they try to move past a <b>free</b> foe, that foe usually has the option to intercept them (which engages them and usually stops the movement for this turn). Free characters can't use melee attacks or close-quarter attacks until they engage.
+      <b>Engaged</b> characters are in meele with one or more foes. They can use melee attacks and close-quarter spells against those foes. They can use ranged attacks and non-close-quarters spells, but draw opportunity attacks from <b>all</b> foes that are engaging them that <i>aren't</i> targets of the attack. Moving away also draws opportunity attacks from <b>all</b> engaged foes.
+      <b>Opportunity Attacks</b> are single basic melee attacks made as a free action.
+      You can use your <b>Move Action</b> to <b>Disengage</b>. This is a <b>Normal</b> (11+) save. On a success, you disengage and can move normally without drawing opportunity attacks. If you fail, you don't move and lose your move action for that turn and remain engaged, but don't take any opportunity attacks either.
+    pcHitpoints: |
+      Hit Points are determined by class, constitution modifier and level.
+      Hit Points are an abstraction around health, stamina and will to fight. Every creature has hit points.
+      Player characters (and often enemies) are <b>Staggered</b> at <b>half</b> of their hit points and below, at which point some powers, spells, monster attacks and other things work differently.
+      You slay (or knock out) enemies at 0 HP. Player characters fall <b>Unconscious</b> and can't take any actions besides rolling a <b>Death Save</b>, which they need to do at the start of each of their turns. Hover over <b>Death Saves</b> for more information.
+      You can have <b>negative HP</b>, so you still take damage at 0 HP. When you reach half your maximum Hit Points, you <b>die instantly</b>. Negative Hit Points are ignored when healing and using recoveries. Always start counting from 0 then.
+      Hit Points can be regained by using <b>Recoveries</b>, <b>Potions</b> and some spells and powers.
+      A <b>Full Heal-Up</b> resets HP back to full. When <b>Leveling Up</b> (or taking the <b>Incremental Advance</b> for Hit Points), your current Hit Points increase by the same amount as your Maximum Hit Points.
+      <b>Temporary Hit Points</b> don't stack and are used up before normal Hit Points. They reset to 0 when rolling initiative and after each battle.
+    pcIconRelationship: |
+      Icons are the most known and important NPCs and their factions in your campaign.
+      Your character's relationship to some of these icons (whether <i>positive</i>, <i>negative</i> or <i>conflicted</i>) will result in occasional <b>Advantages</b> (sometimes with <b>Complications</b> attached).
+      Click to roll icon dice, one per relationship point. For each point, Foundry shows a small symbol you can click to toggle between used (or empty), <b>5</b> (<b>Complicated Advantage</b>) or <b>6</b> (<b>Unambiguous Advantage</b>).
+    pcInitiative: |
+      Initiative is a D20 roll, with <b>Dexterity</b> modifier and class level as bonus.
+      In combat, combatants act in initiative order. Initiative is determined <b>once</b> at the beginning of combat.
+      You can choose to <b>Delay</b> your turn, taking no action and then act normally on whatever initiative count you decide to act. By doing this, you voluntarily reduce your initiative for the rest of the combat.
+      Click to roll initiative (only useable if an encounter exists in Foundry's Combat Tracker).
+    pcLastGaspSaves: |
+      Some effects offer <b>Last Gasp Saves</b> instead of instantly affecting (or killing) a character.
+      On their first turn while being affected by <b>Last Gasp Saves</b>, a character can take only one action (a <b>Standard Action</b>, <b>Quick Action</b> or moving). Afterwards, they roll a <b>Hard</b> save (16+). If this fails, they are now <b>Helpless</b> and can take no further actions except to roll more last gasp saves.
+      Like for <b>Death Saves</b>, they now roll another <b>Hard</b> save (16+) at the beginning of each of their turns and a single success means the character has thrown off the condition and will act normally on their next turn, while a natural 20 means they can take their normal turn immediately.
+      Failing <b>four</b> Last Gasp saves means the effect fully succeeds and the character turns to stone, is liquefied or whatever else they were saving against.
+      An ally next to a character making Last Gasp saves can use a <b>Standard Action</b> to <b>help</b> shake off the effect, which allows the affected character to roll a bonus last gasp save that does not count against the four total if failed, and only requires a <b>Normal</b> save (11+).
+    pcName: |
+      Character name (for example, "Helen")
+      Consider the setting's lore and the character's upringing and backgrounds for inspiration.
+      Does the character carry a title from a background?<br>Have they earned a funny nickname?<br>Maybe another player and you want to play siblings and share a last name?
+      It's usually good to avoid recognizable names from real life and media.
+      Examples:<br><i>Bobert the Barbarian</i><br><i>Bree "Apple" Goodbarrel</i><br><i>Shemra</i><br><i>Sir Richard Highhome</i>
+    pcLevel: |
+      Character level (from <b>1</b> to <b>10</b>)
+      Characters scale strongly by level. For example, each level increases <b>Attack Bonus</b>, number of <b>Damage Dice</b>, <b>Skill Checks</b>, <b>Hit Points</b>, <b>Defenses</b>, <b>Initiative</b> and number of <b>Recovery Dice</b> (but not <b>Recoveries</b>).
+      Levels are divided into three tiers:<br>Levels 1 to 4 are considered <b>Adventurer</b> tier.<br>Levels 5 to 7 are considered <b>Champion</b> tier.<br>Levels 8 to 10 are considered <b>Epic</b> tier.
+      Upon reaching a new tier, characters scale even more strongly, new options (like <b>Champion</b> or <b>Epic</b> tier feats) become available and the story threats usually become more far-reaching and dangerous as well.
     pcRace: Character race (for example, "Dwarf")
     pcRaceV2: Character kin (for example, "Dwarf")
     pcRaceDesc: |
-      Provides a <b>+2</b> bonus to one of your ability scores. May also provide some additional powers.
+      Provides a <b>+2</b> bonus to one of your ability scores. The bonus can't be stacked with the class bonus.
+      May also provide some additional powers.
       Your choice usually won't limit your class selection.
       Common choices are often <i>Human</i>, <i>Dwarf</i>, <i>Elf</i>, <i>Gnome</i>, <i>Half Elf</i>, <i>Half Orc</i> and <i>Halfling</i>.
-      For more unusual choices or mixed ancestry, talk to your GM.
+      For other choices or mixed ancestry, talk to your GM.
+    pcRecoveries: |
+      Recoveries are used to restore <b>Hit Points</b>.
+      Many powers, spells and potions grant uses of recoveries. Some grant <b>Free Recoveries</b>, which don't consume recoveries.
+      Player characters can use a <b>Standard Action</b> to <b>Rally</b> and use <b>one Recovery</b> to regain lost <b>Hit Points</b>. A character that already rallied in a battle needs to pass a <b>Normal</b> save (11+) each time before they can rally again. If they fail, they retain their action but can't rally that turn.
+      During a <b>Quick Rest</b>, you can choose to use as many recoveries as you have available. If you are <b>Staggered</b>, you <b>must</b> try to heal yourself using recoveries, spells or other means.
+      When using a recovery, you roll a recovery die for each level and add the constitution modifier at the end, regaining this many HP. (The constitution bonus is doubled at <b>Champion</b> levels, and tripled at <b>Epic</b> levels.)
+      The recovery die size and number of recoveries available depend on each class and can be improved by various talents and feats.
+      If you take an action or are affected by something that requires a recovery but have none left, you get half the healing you would otherwise get and take a stacking -1 penalty to all defenses and attack rolls until your next <b>Full Heal-Up</b>. This is supported in Foundry as <b>negative recoveries</b> (you can set the number of remaining recoveries to <b>-3</b>, for example).
+      A <b>Full Heal-Up</b> resets recoveries to full.
+    pcRestQuick: |
+      After each battle, you can use a quick rest.
+      You can choose to heal yourself using as many recoveries as you have available.
+      If you are <b>Staggered</b> (at half <b>Hit Points</b> or below) you <b>must</b> try to heal yourself, either with a recovery, a spell or by other means.
+      For each recharge power you used in the last battle, roll to see if you recharge the power (roll a d20, meet or beat the recharge value). Otherwise, it is recharged after the next battle.
+      Foundry automatically rolls power recharge rolls and recoveries when staggered upon clicking Quick Rest.
+    pcRestFull: |
+      After about four battles, you earned a full heal-up.
+      <b>Hit Points</b> are reset to full.<br>All used <b>Recoveries</b> are regained.<br>All expended powers are regained or recharged (<b>Daily</b> powers are actually "per Full Heal-up").<br>If the party earned a Level-up, now is the time!
+    pcSaves: |
+      Saves are a d20 roll with no standard modifiers against a difficulty class (DC) that you need to meet or beat.
+      Saves are used for anything from power recharges to saves against effects to death saves.
+      There are three DCs for saves, if a save doesn't specify a DC, it's a <b>Normal</b> save:<br><b>Easy</b> (6+)<br><b>Normal</b> (11+)<br><b>Hard</b> (16+)
+      There are no standard modifiers or bonuses to saves, but some talents, feats and items provide save bonuses.
 # Tours
   TOURS:
     '170':
