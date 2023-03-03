@@ -8,6 +8,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 - [i18n] Added and improved _many_ localization strings throughout the system.
 - [i18n] Added localization for attack trigger detection. More work is planned for this in the future so that a tagging system is used for more flexibility, but this does allow for localizing compendiums in the meantime.
+- [i18n] Added localization support for the class parser.
 - [Fix] Fixed error on combat creation
 - [Fix] Remove unused translation strings
 - [Fix] miss rage thrown attack
@@ -81,6 +82,30 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 - [Fix] Fixed #163 by adding "is GM" check to the character post-create hook
 - [Fix] Added null checks for nonexistant resources
 - [Fix] Adjusted color gradient on powers to extend the darker range of it and improve contrast with the white icons/text on the right edge of power names.
+- [Fix] Fixed `Background` and `Ability` popup labels being switched (background selection was labelled `Ability:`, and vice versa)
+- [Fix] Fixed `Roll Mode` dropdown selection in roll dialog popups having no effect (present in Ability/Background rolls)
+    - The selected roll mode now always overrides the current roll mode selected above the chat for this roll
+    - The dropdown is initialized to whatever is currently selected above chat (like in 5E), so if you just click through, you still get whatever you have currently selected as default
+    - The Roll Mode is now actually correctly passed (if the chat message type is "Roll", it needs to be set in the separate config, not only in Chat Data when creating a chat message)
+- [Fix] Improved vertical alignment of the number text in roll formulas and totals in chat cards.
+- [Fix] Adds a proper title to the delete confirm popup and moves the current title to the popup content. This makes the popup look more like other Foundry/Archmage popups, and also avoids issues with long localizations being cutoff in the title.
+- [Fix] Improved padding between dice icon and number in inline rolls.
+- [Fix] Fixed a subtle bug: Lines with `Chain Spell` were previously ignored during parsing, should have been `Chain Spell:`, otherwise target lines may be mistakenly ignored as well.
+- [Fix] Fixed every inline roll context menu entry being highlighted (due to inheriting the highlight from the parent element)
+- [Fix] When 3D dice rolls (i.e., Dice So Nice) are enabled, currently for some rolls, the result is spoiled before the 3D dice finish rolling, as the UI is already updated:
+    - Death saves and last gasp saves get crossed out/removed immediately on roll start
+    - Item recharge handles success/failure immediately
+    - Icon rolls show earned 5s/6s immediately
+    - Same for commander rolls
+- [Feature] Added tooltips to the character sheet with rule summaries. These are disabled by default due to how invasive they can be for regular gameplay, but they're a handy aid for new players. 
+- [Fix] Fixed trigger parsing errors for attacks like the **Gargoyle**'s "Furious claws and fangs" attack, which contains the trigger word "even" later in its description.
+- [Feature] Added support for temp HP on token HP bars.
+- [Fix] Fixed an issue where the **save bonus** on active effects wouldn't work or display correctly.
+- [Feature] Add "Apply as Half Healing" to the damage/healing context menu.
+- [Feature] [Breaking] Moved the "night mode" setting out of the character sheet and into the system settings so that it applies across all characters. This setting is not automatically set and players who used night mode previously will need to enable it.
+- [Fix] Add a UI notification when rolling initiative via PC sheet button if no encounter exists in the combat tracker, instead of just silently doing nothing.
+- [Fix] Updated dropdown styling on night mode to have a dark background.
+- [Fix] Updated the condition that's applied at 0 HP to be unconscious on PC actors rather than dead.
 
 ## Credits
 
