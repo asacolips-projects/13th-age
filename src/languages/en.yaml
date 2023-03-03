@@ -1,6 +1,6 @@
 ACTOR:
   TypeCharacter: Character
-  TypeNpc: Non-player Character (NPC)
+  TypeNpc: Monster/NPC
 ARCHMAGE:
   abilities: Abilities
   abilityName: Ability Name
