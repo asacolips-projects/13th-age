@@ -650,6 +650,7 @@ ARCHMAGE:
     errNoRhythm: You need to enter your Combat Rhythm to use this power. Use anyway?
     errNoCustomResource: "You don't have enough {res}. Use anyway?"
     errNotInteger: must be an integer number
+    errNoInitiativeOutsideCombat: Can't roll initiative without an encounter in the combat tracker.
     errOnlyTextRolltables: Only text Roll Tables are supported for now.
     warnMacroOnlyOwnedItems: You can only create macro buttons for owned Items.
     warnMacroItemNotFound: Could not find item {item}. You may need to delete and recreate this macro.
