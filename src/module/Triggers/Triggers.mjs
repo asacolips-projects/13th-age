@@ -23,6 +23,11 @@ export default class Triggers {
   evaluateRow(row_text, $rolls, hitEvaluationResults) {
     var triggerText = row_text.toLowerCase();
 
+    // Only match against the part before ':'
+    if (triggerText.includes(":")) {
+      triggerText = triggerText.split(":", 2)[0];
+    }
+
     // We've previously setup all d20's in the rolls to have a value. Rolls that aren't a d20 will have a value of 0, which gets filtered out.
     var rollResults = $rolls.toArray().map(x => x.d20result).filter(x => x > 0);
     for (let rollResult of rollResults) {
@@ -37,8 +42,6 @@ export default class Triggers {
         }
 
         if (trigger.isActive(triggerText, rollResult, hitEvaluationResults)) {
-            // console.log(triggerText);
-            // console.log(trigger);
             return true;
         }
       }

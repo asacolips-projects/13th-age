@@ -6,6 +6,7 @@
  * Class that defines utility methods for the Archmage system.
  * IMPORTANT: May be used by modules/macros. Handle changes with care!
  * (For example, the formatting methods are used in translation modules.)
+ * Available at runtime as game.archmage.ArchmageUtility.
  */
 export class ArchmageUtility {
 
@@ -173,8 +174,54 @@ export class ArchmageUtility {
     }
   }
 
+  // Formats a list of matched classes like ['wizard', 'chaosmage'] for display,
+  // returning a string like "Wizard, Chaos Mage"
+  static formatClassList(classes) {
+    if (!classes || classes.length < 1) {
+      return "";
+    }
+    var out = [];
+    for (let i = 0; i < classes.length; ++i) {
+      const readable = CONFIG.ARCHMAGE.classList[classes[i]];
+      if (readable) {
+        out.push(readable);
+      }
+    }
+    return out.join(", ");
+  }
+
+  // Inverts a given object/map (switching keys and values) and sorts it by key length
+  static invertMapAndSortByKeyLength(map) {
+    var newMap = new Map();
+    // Swap keys with values
+    for (const key in map) {
+      const value = map[key];
+      newMap.set(value, key);
+    }
+    // Sort by key length
+    newMap = new Map([...newMap.entries()].sort((a, b) => {
+      return b[0].length - a[0].length;
+    }));
+    return newMap;
+  }
+
+  static prepareClassInputForDetection(input) {
+    if (game.i18n.lang === "en") {
+      return input;
+    }
+
+    const classNames = ArchmageUtility.invertMapAndSortByKeyLength(CONFIG.ARCHMAGE.classList);
+    var output = input.toLowerCase();
+    for (const [key, value] of classNames) {
+      output = output.replaceAll(key.toLowerCase(), value);
+    }
+
+    return output;
+  }
+
   // Find known classes
   static detectClasses(className) {
+    className = ArchmageUtility.prepareClassInputForDetection(className);
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
     let classRegex = new RegExp(classList.join('|'), 'g');
     className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
@@ -224,7 +271,7 @@ export class ArchmageUtility {
       .replace("md", game.i18n.localize("ARCHMAGE.md.label"))
       .replace("pd", game.i18n.localize("ARCHMAGE.pd.label"))
       .replace("hp", game.i18n.localize("ARCHMAGE.health"))
-      .replace("save", game.i18n.localize("ARCHMAGE.ITEM.saveBonus"))
+      .replace("save", game.i18n.localize("ARCHMAGE.save"))
       .replace("disengage", game.i18n.localize("ARCHMAGE.ITEM.disengageBonus"))
       .replace("recoveries", game.i18n.localize("ARCHMAGE.recoveries"))
       .replace("critMod.atk", game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitBonus"))
@@ -232,6 +279,66 @@ export class ArchmageUtility {
       .replace("value", "")
       .replaceAll(".", " ")
       .replace("ac ", game.i18n.localize("ARCHMAGE.ac.label"));
+  }
+
+  /**
+   * Formats localized tooltip text, taking one or more localization keys,
+   * similar to game.i18n.localize(). 'ARCHMAGE.TOOLTIP.' is prepended to
+   * each key.
+   * If 2nd edition support is enabled, first the key with 'V2' appended is
+   * looked up, if that doesn't exist, the normal key is used.
+   * If multiple keys are given, the localization texts are
+   * appended as separate paragraphs.
+   * The last argument can be a format dict, as given to game.i18n.format(),
+   * in which case that formatting data is provided for all single keys.
+   * Examples:
+   *
+   * tooltip('charisma')
+   *   "ARCHMAGE.TOOLTIP.charisma" is looked up.
+   *   If 2nd edition is enabled, "ARCHMAGE.TOOLTIP.charismaV2" is used if found,
+   *   falling back to the above if it doesn't exist.
+   * tooltip('attributes', 'charisma')
+   *   As above, but both keys are looked up and appended as paragraphs.
+   * tooltip('attributes', 'charisma', {itemData: data})
+   *   As above, but the given format data is inserted for each separate key.
+   */
+  static tooltip(...keys) {
+    if (!game.settings.get("archmage", "sheetTooltips")) {
+      return undefined;
+    }
+
+    const isSecondEdition = game.settings.get('archmage', 'secondEdition');
+    const keyPrefix = "ARCHMAGE.TOOLTIP.";
+    const secondEditionSuffix = "V2";
+
+    var format = {};
+    var out = "";
+
+    if (!keys || !Array.isArray(keys) || keys.length < 1) {
+      return out;
+    }
+
+    // Last element may be format dict, check and handle accordingly
+    if (keys.length > 1 && keys[keys.length -1].constructor == Object) {
+      format = keys.pop();
+    }
+
+    for (const key of keys) {
+      var val = "";
+
+      val = game.i18n.format(keyPrefix + key + secondEditionSuffix, format);
+      if (!isSecondEdition || val.startsWith(keyPrefix)) {
+        val = game.i18n.format(keyPrefix + key, format);
+      }
+
+      out += "\n" + val.trim();
+    }
+
+    // Some formatting for Foundry's tooltips
+    out = out.trim().replaceAll("\r\n", "<br><br>").replaceAll("\n", "<br><br>");
+    out = "<p style=\"text-align: left; margin: 0;\">" + out + "</p>";
+
+    return out;
   }
 }
 

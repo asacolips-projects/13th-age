@@ -38,8 +38,25 @@ export default class preCreateChatMessageHandler {
         let damageType = 'basic';
         let range = "melee";
 
-        // TODO (#74): All card evaluation needs to load from Localization
-        let rowsToSkip = ["Level:", "Recharge:", "Cost:", "Uses Remaining:", "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:", "Opening and Sustained Effect:", "Final Verse:", "Chain Spell", "Breath Weapon:"];
+        // Lines containing any of the following need to be skipped:
+        // "Level:", "Recharge:", "Cost:", "Uses Remaining:"
+        // "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:"
+        // "Opening and Sustained Effect:", "Final Verse:"
+        // "Chain Spell", "Breath Weapon:"
+        let rowsToSkip = [
+          game.i18n.localize("ARCHMAGE.level") + ':',
+          game.i18n.localize("ARCHMAGE.recharge")+':',
+          game.i18n.localize("ARCHMAGE.cost")+':',
+            "Uses Remaining:",
+            "Special:",
+            "Effect:",
+            "Cast for Broad Effect:",
+            "Cast for Power:",
+            "Opening and Sustained Effect:",
+            "Final Verse:",
+            "Chain Spell",
+            "Breath Weapon:"
+        ];
 
         let tokens = canvas.tokens.controlled;
         let actor = tokens ? tokens[0] : null;

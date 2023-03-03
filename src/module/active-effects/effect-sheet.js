@@ -105,8 +105,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "system.attributes.hp.value",
-        value: formData.system.attributes.hp.value,
+        key: "system.attributes.hp.max",
+        value: formData.system.attributes.hp.max,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
@@ -115,8 +115,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {
-        key: "system.attributes.save.value",
-        value: formData.system.attributes.save.value,
+        key: "system.attributes.saves.bonus",
+        value: formData.system.attributes.saves.bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },
       {

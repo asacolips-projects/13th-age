@@ -37,8 +37,16 @@ export class DamageApplicator {
 
   }
 
-  asHealing(inlineRoll) {
+  asHealing(inlineRoll, modifier) {
     let toApply = this.getRollValue(inlineRoll);
+
+    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
+      toApply = Math.ceil(toApply * modifier);
+    }
+    else {
+      toApply = Math.floor(toApply * modifier);
+    }
+
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
       let actorData = duplicate(token.actor);

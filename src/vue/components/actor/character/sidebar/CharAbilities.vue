@@ -6,7 +6,7 @@
       <div class="ability-lvl-label grid-start-4">{{localize('ARCHMAGE.lvl')}}</div>
     </div>
     <ul class="list list--abilities abilities">
-      <li v-for="(item, index) in actor.system.abilities" :key="concat('system.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index">
+      <li v-for="(item, index) in actor.system.abilities" :key="concat('system.abilities.', index, '.value')" class="list-item list-item--abilities ability grid grid-4col" :data-key="index" :data-tooltip="tooltip('pcAbility', 'pcAbility'+index, 'pcAbilitySuffix')">
         <input type="number" v-bind:name="concat('system.abilities.', index, '.value')" class="ability-score" v-model="item.value"/>
         <a class="ability-name rollable rollable--ability" data-roll-type="ability" :data-roll-opt="index">{{localize(concat('ARCHMAGE.', index, '.label'))}}</a>
         <div class="ability-mod" :style="concat('color:', modColor(item))" :title="modTitle(item, actor)">{{numberFormat(item.nonKey.mod, 0, true)}}</div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { numberFormat, localize, concat } from '@/methods/Helpers';
+import { numberFormat, localize, concat, tooltip } from '@/methods/Helpers';
 export default {
   name: 'CharAbilities',
   props: ['actor'],
@@ -25,7 +25,8 @@ export default {
     return {
       numberFormat,
       localize,
-      concat
+      concat,
+      tooltip
     }
   },
   data() {

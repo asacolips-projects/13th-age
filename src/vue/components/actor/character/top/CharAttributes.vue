@@ -1,12 +1,12 @@
 <template>
   <section class="section section--attributes flexrow">
     <!-- Actor image -->
-    <div class="unit unit--img profile-img">
+    <div class="unit unit--img profile-img" :data-tooltip="tooltip('portrait')">
       <img :src="actor.img" ref="avatar" :alt="localize('ARCHMAGE.avatarAlt')" :width="avatarWidth" :height="avatarHeight" :class="avatarClass" data-edit="img"/>
     </div>
     <div class="unit unit--attributes grid grid-5col border-both">
       <!-- HP -->
-      <div class="unit unit--has-max unit--hp">
+      <div class="unit unit--has-max unit--hp" :data-tooltip="tooltip('pcHitpoints')">
         <h2 class="unit-title">{{localize('ARCHMAGE.hitPoints')}}</h2>
         <Progress name="hp" :current="actor.system.attributes.hp.value" :temp="actor.system.attributes.hp.temp" :max="actor.system.attributes.hp.max"/>
         <div class="resource flexrow">
@@ -21,7 +21,7 @@
         </div>
       </div>
       <!-- Defenses -->
-      <div class="unit unit--defenses">
+      <div class="unit unit--defenses" :data-tooltip="tooltip('pcDefenses')">
         <h2 class="unit-title">{{localize('ARCHMAGE.defenses')}}</h2>
         <div class="defenses grid grid-3col">
           <div class="defense defense--ac flexcol">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <!-- Recoveries -->
-      <div class="unit unit--has-max unit--recoveries">
+      <div class="unit unit--has-max unit--recoveries" :data-tooltip="tooltip('pcRecoveries')">
         <h2 class="unit-title">{{localize('ARCHMAGE.recoveries')}}</h2>
         <Progress name="recoveries" :current="actor.system.attributes.recoveries.value" :max="actor.system.attributes.recoveries.max"/>
         <div class="resource flexrow">
@@ -53,7 +53,7 @@
         </div>
       </div>
       <!-- Saving Throws -->
-      <div class="unit unit--saves flexcol">
+      <div class="unit unit--saves flexcol" :data-tooltip="tooltip('pcSaves')">
         <h2 class="unit-title">{{localize('ARCHMAGE.saves')}}</h2>
         <div class="saves flexcol">
           <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="easy">6+ ({{localize('ARCHMAGE.SAVE.easyShort')}})</a>
@@ -64,7 +64,7 @@
       <!-- Init / Death Saves -->
       <div class="unit unit--death">
         <div class="dividers flexcol">
-          <div class="death-saves">
+          <div class="death-saves" :data-tooltip="tooltip('pcDeathSaves')">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="death">{{localize('ARCHMAGE.SAVE.death')}}</a>
             <div class="death-save-attempts attempts flexrow">
               <input type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[0]" data-opt="1"/>
@@ -74,7 +74,7 @@
               <input v-if="secondEdition" type="checkbox" v-model="actor.system.attributes.saves.deathFails.steps[4]" data-opt="5"/>
             </div>
           </div>
-          <div class="last-gasp-saves">
+          <div class="last-gasp-saves" :data-tooltip="tooltip('pcLastGaspSaves')">
             <a class="rollable rollable--save" data-roll-type="save" data-roll-opt="lastGasp">{{localize('ARCHMAGE.SAVE.lastGasp')}}</a>
             <div class="lastgasp-save-attempts attempts flexrow">
               <input type="checkbox" v-model="actor.system.attributes.saves.lastGaspFails.steps[0]" data-opt="1"/>
@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
+import { concat, localize, tooltip } from '@/methods/Helpers';
 import Progress from '@/components/parts/Progress.vue';
 export default {
   name: 'CharAttributes',
@@ -98,7 +98,8 @@ export default {
   setup() {
     return {
       concat,
-      localize
+      localize,
+      tooltip
     }
   },
   data() {

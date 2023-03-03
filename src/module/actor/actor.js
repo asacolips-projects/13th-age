@@ -100,7 +100,7 @@ export class ActorArchmage extends Actor {
     // Get the Actor's data object
     const actorData = this;
     if (!actorData.img) actorData.img = CONST.DEFAULT_TOKEN;
-    if (!actorData.name) actorData.name = "New " + actorData.type;
+    if (!actorData.name) actorData.name = actorData.type;
 
     const data = actorData.system;
     const flags = actorData.flags;
@@ -714,7 +714,7 @@ export class ActorArchmage extends Actor {
     // Basic chat message data
     const chatData = {
       user: game.user.id,
-      type: 5,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       roll: roll,
       speaker: {
         actor: this.id,
@@ -735,12 +735,16 @@ export class ActorArchmage extends Actor {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
-    ChatMessage.create(chatData, { displaySheet: false });
+    const msg = await ChatMessage.create(chatData, { displaySheet: false });
+
+    if (game.dice3d && msg?.id) {
+      // Wait for 3D dice animation to finish before handling results if enabled
+      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
+    }
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
@@ -928,8 +932,7 @@ export class ActorArchmage extends Actor {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
@@ -1087,8 +1090,7 @@ export class ActorArchmage extends Actor {
       alias: this.name, scene: game.user.viewedScene},
     };
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     // If 3d dice are enabled, handle them
     if (game.dice3d) {
@@ -1184,8 +1186,7 @@ export class ActorArchmage extends Actor {
       alias: this.name, scene: game.user.viewedScene},
     };
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
   }
@@ -1459,9 +1460,14 @@ export class ActorArchmage extends Actor {
         // Staggered
         await this._updateHpCondition(data, "staggered", 0.5, maxHp,
           game.i18n.localize("ARCHMAGE.EFFECT.StatusStaggered"));
-        // Dead
-        await this._updateHpCondition(data, "dead", 0, maxHp,
-          game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        // Dead / Unconscious
+        if (this.type == 'npc'){
+          await this._updateHpCondition(data, "dead", 0, maxHp,
+            game.i18n.localize("ARCHMAGE.EFFECT.StatusDead"));
+        } else {
+          await this._updateHpCondition(data, "unconscious", 0, maxHp,
+            game.i18n.localize("ARCHMAGE.EFFECT.StatusUnconscious"));
+        }
       }
 
       // Handle first skull in 2e.
@@ -1681,14 +1687,15 @@ export class ActorArchmage extends Actor {
         matchedClasses = [...new Set(matchedClasses)].sort();
 
         // Check that the matched classes actually changed
-        if (this.system.details.matchedClasses !== undefined
-          && JSON.stringify(this.system.details.matchedClasses) == JSON.stringify(matchedClasses)
+        if (this.system.details.detectedClasses !== undefined
+          && JSON.stringify(this.system.details.detectedClasses) == JSON.stringify(matchedClasses)
           ) {
           return;
         }
 
         // Class changed, alert the user we're about to muck with the base stats
-        ui.notifications.info(game.i18n.localize("ARCHMAGE.UI.classChange"));
+        ui.notifications.info(game.i18n.format("ARCHMAGE.UI.classChange",
+          { classes: ArchmageUtility.formatClassList(matchedClasses) }));
 
         // Collect base stats for detected classes
         let base = {

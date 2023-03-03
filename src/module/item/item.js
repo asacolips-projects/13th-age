@@ -332,7 +332,7 @@ export class ItemArchmage extends Item {
           itemToRender.system.rollTable.label = itemToRender.system.rollTable.value;
           itemToRender.system.rollTable.value = res.results[0].text;
         } catch(ex) {
-          ui.notifications.error("Only text rollTables are supported for now");
+          ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errOnlyTextRolltables"));
         }
       }
     }
@@ -364,7 +364,7 @@ export class ItemArchmage extends Item {
       user: game.user.id,
       speaker: {
         actor: itemToRender.actor.id,
-        token: null, //token,
+        token: null,
         alias: itemToRender.actor.name,
         scene: game.user.viewedScene
       }
@@ -372,9 +372,7 @@ export class ItemArchmage extends Item {
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user.id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
+    ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
@@ -401,12 +399,17 @@ export class ItemArchmage extends Item {
             let $row_self = $(this);
             let row_text = $row_self.html();
             // Attack or Target rows - keep all, in right order
-            if (row_text.includes('Attack:') || row_text.includes('Target:')) {
+            const triggerAttack = game.i18n.localize("ARCHMAGE.CHAT.attack") + ':';
+            const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ':';
+            const triggerHit = game.i18n.localize("ARCHMAGE.CHAT.hit") + ':';
+            const triggerLevelSpell = game.i18n.localize("ARCHMAGE.CHAT.spellLevelTrigger") + ':';
+            if (row_text.includes(triggerAttack) ||
+                row_text.includes(triggerTarget)) {
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
                   let roll = Roll.fromJSON(unescape(e.dataset.roll));
-                  if (row_text.includes('Attack:') && roll.terms[0].faces != 20) {
+                  if (row_text.includes(triggerAttack) && roll.terms[0].faces != 20) {
                     // Not an attack roll, usually a target roll, roll first
                     rolls.unshift(roll);
                   } else rolls.push(roll);
@@ -414,15 +417,16 @@ export class ItemArchmage extends Item {
               }
             }
             // Hit or Spell level rows - keep only the last
-            else if (row_text.includes('Hit:') || row_text.includes('Level Spell:')) {
-              damageRolls = []; // Reset for each line
+            else if (row_text.includes(triggerHit) || row_text.includes(triggerLevelSpell)) {
+              let newDamageRolls = [];
               let $roll_html = $row_self.find('.inline-result');
               if ($roll_html.length > 0) {
                 $roll_html.each(function(i, e){
                   let roll = Roll.fromJSON(unescape(e.dataset.roll));
-                  damageRolls.push(roll);
+                  newDamageRolls.push(roll);
                 });
               }
+              if (newDamageRolls.length > 0) damageRolls = newDamageRolls; // Animate only relevant rolls
             }
           });
         }
@@ -521,7 +525,7 @@ export class ItemArchmage extends Item {
       try {
         await fn.call(this, speaker, actor, token, character, macro_data);
       } catch(ex) {
-        ui.notifications.error("There was an error in your macro syntax. See the console (F12) for details");
+        ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errMacroSyntax"));
         console.error(`Embedded macro for '${this.name}' failed with: ${ex}`, ex);
       }
     }
@@ -566,7 +570,7 @@ export class ItemArchmage extends Item {
       // Basic chat message data
       const chatData = {
         user: game.user.id,
-        type: 5,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
         speaker: {
           actor: actor.id,
@@ -586,12 +590,15 @@ export class ItemArchmage extends Item {
 
       // Toggle default roll mode
       let rollMode = game.settings.get("core", "rollMode");
-      if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
-      if (rollMode === "blindroll") chatData["blind"] = true;
+      ChatMessage.applyRollMode(chatData, rollMode);
 
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
-      ChatMessage.create(chatData, { displaySheet: false });
+      const msg = await ChatMessage.create(chatData, { displaySheet: false });
+      if (game.dice3d && msg?.id) {
+        // Wait for 3D dice animation to finish before handling results if enabled
+        await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
+      }
     }
 
     // Update the item.
