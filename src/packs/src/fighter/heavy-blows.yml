@@ -153,25 +153,6 @@ system:
     0:
       description:
          type: 'String'
-         value: null
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: "<p>If you attacked with a two-handed weapon,\_<em>heavy blows</em>\_can trigger on any miss, odd or even.</p>"
       isActive:
          type: 'Boolean'
@@ -188,7 +169,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>The bonus instead equals double the escalation die with a one-handed weapon, or triple it with a two-handed weapon.</p>'

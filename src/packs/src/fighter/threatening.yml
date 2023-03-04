@@ -188,25 +188,6 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
-      description:
-         type: 'String'
-         value: null
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'epic'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'jjT6GrECEMA6cP00'
