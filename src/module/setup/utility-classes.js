@@ -303,6 +303,10 @@ export class ArchmageUtility {
    *   As above, but the given format data is inserted for each separate key.
    */
   static tooltip(...keys) {
+    if (!game.settings.get("archmage", "sheetTooltips")) {
+      return undefined;
+    }
+
     const isSecondEdition = game.settings.get('archmage', 'secondEdition');
     const keyPrefix = "ARCHMAGE.TOOLTIP.";
     const secondEditionSuffix = "V2";

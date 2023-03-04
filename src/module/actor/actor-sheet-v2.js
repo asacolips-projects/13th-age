@@ -531,7 +531,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onInitRoll() {
     let combat = game.combat;
     // Check to see if this actor is already in the combat.
-    if (!combat) return;
+    if (!combat) {
+      ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
+      return;
+    }
     let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
     // Create the combatant if needed.
     if (!combatant) {

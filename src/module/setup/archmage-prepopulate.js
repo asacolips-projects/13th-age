@@ -41,7 +41,7 @@ export class ArchmagePrepopulate {
     // Load racial powers
     if (race != '' && validRaces.includes(cleanRace)) {
       let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
-      for (let i = 0; i < classPacks.length; i++) {
+      for (let i = 0; i < racePacks.length; i++) {
         let pack = await racePacks[i].getDocuments();
         for (let entry of pack) {
           let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;

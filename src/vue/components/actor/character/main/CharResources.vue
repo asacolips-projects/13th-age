@@ -50,7 +50,7 @@
       </div>
     </section>
     <!-- Disengage -->
-    <section class="unit unit--disengage">
+    <section class="unit unit--disengage" :data-tooltip="tooltip('pcEngagement')">
       <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
       <div class="resource flexcol">
         <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
@@ -64,8 +64,8 @@
     <section class="unit unit--rest">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHAT.Rests')}}</h2>
       <div class="resource flexcol">
-        <button type="button" class="rest rest--quick" data-rest-type="quick"><i class="fas fa-campground"></i> {{localize('ARCHMAGE.CHAT.QuickRest')}}</button>
-        <button type="button" class="rest rest--full" data-rest-type="full"><i class="fas fa-bed"></i> {{localize('ARCHMAGE.CHAT.FullHeal')}}</button>
+        <button type="button" class="rest rest--quick" data-rest-type="quick" :data-tooltip="tooltip('pcRestQuick')"><i class="fas fa-campground"></i> {{localize('ARCHMAGE.CHAT.QuickRest')}}</button>
+        <button type="button" class="rest rest--full" data-rest-type="full" :data-tooltip="tooltip('pcRestFull')"><i class="fas fa-bed"></i> {{localize('ARCHMAGE.CHAT.FullHeal')}}</button>
       </div>
     </section>
     <div class="resource-divider" v-if="(resourceCount > 1 && customResourceCount > 0) || customResourceCount > 1"></div>
@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import { concat, localize } from '@/methods/Helpers';
+import { concat, localize, tooltip } from '@/methods/Helpers';
 import Progress from '@/components/parts/Progress.vue';
 export default {
   name: 'CharResources',
@@ -91,7 +91,8 @@ export default {
   setup() {
     return {
       concat,
-      localize
+      localize,
+      tooltip
     }
   },
   components: {
