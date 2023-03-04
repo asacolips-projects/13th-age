@@ -10,7 +10,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'OmBzEOY5ynq5q91K'
-    text: 'Iconic: 1'
+    text: 'Iconic: Archmage'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -22,7 +22,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'T7SGRzrYR3qbghLs'
-    text: 'Iconic: 2'
+    text: 'Iconic: Crusader'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -34,7 +34,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'pTXrMznGqlOG6KSY'
-    text: 'Iconic: 3'
+    text: 'Iconic: Diabolist'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -46,7 +46,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'kwRQDBSNvsGxbZ2x'
-    text: 'Iconic: 4'
+    text: 'Iconic: Dwarf King'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -58,7 +58,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'ffPpnOJ6hJE4awDu'
-    text: 'Iconic: 5'
+    text: 'Iconic: Elf Queen'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -70,7 +70,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: '015Vl8SvFxTg4iog'
-    text: 'Iconic: 5'
+    text: 'Iconic: Great Gold Wyrm '
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -82,7 +82,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'hxWlc34Vd2D6e2Bw'
-    text: 'Iconic: 6'
+    text: 'Iconic: High Druid '
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -94,7 +94,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'PWHtoEU8zyPDjpIU'
-    text: 'Iconic: 7'
+    text: 'Iconic: Lich King'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -106,7 +106,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'f7kQ0My6cmLnHO2F'
-    text: 'Iconic: 8'
+    text: 'Iconic: Orc Lord'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -118,7 +118,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'SYs09JLbB9AdaQcm'
-    text: 'Iconic: 9'
+    text: 'Iconic: Priestess'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -130,7 +130,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'bgEndo733aFK4Lbc'
-    text: 'Iconic: 10'
+    text: 'Iconic: Prince of Shadows'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
@@ -142,19 +142,7 @@ results:
     drawn: false
     documentCollection: ''
     _id: 'j5LSahiccBOa48Tn'
-    text: 'Iconic: 11'
-    img: 'icons/svg/d20-black.svg'
-    documentId: null
-    flags: {}
-  - type: 0
-    weight: 1
-    range:
-      - 13
-      - 13
-    drawn: false
-    documentCollection: ''
-    _id: 'UWkI9w1eEQMtwU9V'
-    text: ''
+    text: 'Iconic: The Three'
     img: 'icons/svg/d20-black.svg'
     documentId: null
     flags: {}
