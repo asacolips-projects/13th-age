@@ -112,7 +112,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You cannot take this talent if you have taken the\_<em>Loremaster</em>\_talent.</p><p>Choose two of the following three bonuses:</p><ol><li>Your bardic skills and magic are now based on your Wisdom rather than Charisma. Any time an element of the bard class refers to Charisma, you can replace that element with a reference to Wisdom.</li><li>Take two additional points of backgrounds; you can use these additional points to raise a background that has something to do with religion, mythology, or history up to the usually impossible rating of +6.</li><li>Take a single point of relationship with an icon. Add the point to a relationship you already have up to your normal maximum, or start a new one—positive, conflicted, or negative.</li></ol>"
+    value: "<p>You cannot take this talent if you have taken the\_<em>Loremaster</em>\_talent.</p><p>Choose two of the following three bonuses:</p><ol><li>Your bardic skills and magic are now based on your Wisdom rather than Charisma. Any time an element of the bard class refers to Charisma, you can replace that element with a reference to Wisdom.</li><li>Take two additional points of backgrounds; you can use these additional points to raise a background that has something to do with religion, mythology, or history up to the usually impossible rating of +6.</li><li>Take a single point of relationship with the Priestess OR the Great Gold Wyrm. Add the point to a relationship you already have up to your normal maximum, or start a new one—positive, conflicted, or negative.</li></ol>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

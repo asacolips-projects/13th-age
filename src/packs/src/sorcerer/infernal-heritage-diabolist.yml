@@ -1,4 +1,4 @@
-name: 'Metallic Protector Heritage'
+name: 'Infernal Heritage (Diabolist)'
 permission:
   default: 0
 type: 'power'
@@ -12,7 +12,7 @@ system:
   powerOriginName:
     type: 'String'
     label: 'Power Original Name'
-    value: 'Metallic Protector Heritage'
+    value: 'Infernal Heritage (Diabolist)'
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -28,7 +28,7 @@ system:
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
@@ -36,7 +36,7 @@ system:
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'quick'
   range:
     type: 'String'
     label: 'Range'
@@ -112,7 +112,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>Your rolls to re-use breath weapon spells during a fight gain a +2 bonus.</p>'
+    value: '<p>Once per day, as a quick action when the escalation die is 1+, you can enter a spell frenzy until the end of the battle.</p><p>While in a spell frenzy, you roll 2d20 for each of your sorcerer spell attacks. Use the highest die as your attack roll, but track whether the other die hits.</p><p>For each die that misses, you take damage equal to double the level of the target of your attack.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -144,17 +144,17 @@ system:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: null
+    value: 1
   feats:
     adventurer:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>As a quick action at the start of each battle, you can gain resist energy 12+ to one of the following types of energy of your choice: acid, cold, fire, lightning, or poison.</p>'
+        value: '<p>You gain resist energy damage 12+ to fire and to one of the following types of energy of your choice: acid, cold, lightning, psychic, thunder.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -162,7 +162,7 @@ system:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When you gather power and your chaotic benefit increases your defenses, you can choose one nearby ally to gain the same defense bonus.</p>'
+        value: '<p>Increase one of your resistances to 16+.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -170,10 +170,10 @@ system:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>One battle per day, you can choose to gain resist demon attack 16+ instead of resist energy 12+ from your Metallic Protector Heritage talent.</p>'
+        value: '<p>In addition to your normal use of spell frenzy, you can also enter a spell frenzy as a free action while the escalation die is 5+.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'aG2q7zyImCi8yZd3'
+_id: 'NKkBnJTyW28Wx4fa'
