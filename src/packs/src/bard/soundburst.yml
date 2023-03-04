@@ -191,7 +191,7 @@ system:
     2:
       description:
          type: 'String'
-         value: '<p>You can now target [[1d4+1]] enemies in a group with the spell.</p>'
+         value: '<p>You can now target 1d4+1 enemies in a group with the spell.</p>'
       isActive:
          type: 'Boolean'
          value: false
