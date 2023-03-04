@@ -112,7 +112,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: "<p>You cannot take this talent if you have taken the\_<em>Mythkenner</em>\_talent.</p><p>Choose two of the following three bonuses:</p><ul><li>Your bardic skills and magic are now based on your Intelligence rather than Charisma. Any time an element of the bard class refers to Charisma, you can replace that element with a reference to Intelligence.</li><li>Take two additional points of backgrounds. You can use these additional points to raise a background that has something to do with history, bardic lore, or magical knowledge up to the usually impossible rating of +6.</li><li>Take a single point of relationship with an icon. Add the point to a relationship you already have up to your normal maximum, or start a new one—positive, conflicted, or negative.</li></ul>"
+    value: "<p>You cannot take this talent if you have taken the\_<em>Mythkenner</em>\_talent.</p><p>Choose two of the following three bonuses:</p><ul><li>Your bardic skills and magic are now based on your Intelligence rather than Charisma. Any time an element of the bard class refers to Charisma, you can replace that element with a reference to Intelligence.</li><li>Take two additional points of backgrounds. You can use these additional points to raise a background that has something to do with history, bardic lore, or magical knowledge up to the usually impossible rating of +6.</li><li>Take a single point of relationship with the Archmage OR the Lich King. Add the point to a relationship you already have up to your normal maximum, or start a new one—positive, conflicted, or negative.</li></ul>"
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
