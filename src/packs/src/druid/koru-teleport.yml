@@ -1,4 +1,4 @@
-name: 'Terrain Caster: Migration Route (Large Herd Animal)'
+name: 'Koru Teleport'
 permission:
   default: 0
 type: 'power'
@@ -9,10 +9,11 @@ system:
   description:
     type: 'String'
     label: 'Description'
+    value: ''
   powerOriginName:
     type: 'String'
     label: 'Power Original Name'
-    value: 'Terrain Caster: Migration Route (Large Herd Animal)'
+    value: 'Koru Teleport'
   powerSource:
     type: 'String'
     label: 'Power Source'
@@ -24,23 +25,23 @@ system:
   powerType:
     type: 'String'
     label: 'Power Type'
-    value: 'talent'
+    value: 'spell'
   powerUsage:
     type: 'String'
     label: 'Power Usage'
-    value: ''
+    value: 'daily'
   powerLevel:
     type: 'Number'
     label: 'Level'
-    value: 1
+    value: 7
   actionType:
     type: 'String'
     label: 'Action'
-    value: ''
+    value: 'standard'
   range:
     type: 'String'
     label: 'Range'
-    value: ''
+    value: 'Ranged spell'
   trigger:
     type: 'String'
     label: 'Trigger'
@@ -88,7 +89,7 @@ system:
   resources:
     type: 'String'
     label: 'Resources'
-    value: ''
+    value: '-1 TC daily spell'
   castBroadEffect:
     type: 'String'
     label: 'Cast for Broad Effect'
@@ -112,7 +113,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: ''
+    value: '<p>You and up to 4 allies next to you can teleport to the site of any migratory beast herd in the world.</p><p>When you teleport, roll a d20. If you roll a 1, something unusual intervened and you arrive at a different herd site than you had intended (GM’s choice). Otherwise, you and your allies arrive somewhere hear the desired herd. Unlike the wizard’s 9th level teleport spell, this spell doesn’t allow you to choose your precise destination.</p><p>Any effects of spells or items cast/created before teleporting are canceled and no longer function on arrival, so it’s best to wait and use such spells after you arrive.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
@@ -154,7 +155,7 @@ system:
       description:
         type: 'String'
         label: 'Adventurer Feat'
-        value: '<p>You gain the whoomph spell below.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -163,7 +164,7 @@ system:
       description:
         type: 'String'
         label: 'Champion Feat'
-        value: '<p>When you cast whoomph during a battle, you can cast the beast shrugs later in that battle even if you are not on migration route terrain.</p>'
+        value: ''
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -172,7 +173,7 @@ system:
       description:
         type: 'String'
         label: 'Epic Feat'
-        value: '<p>You can now cast one bonus daily migration route spell that doesn&rsquo;t count against your total daily spells, but you still can&rsquo;t cast a specific daily spell of that type more than once per day.</p>'
+        value: '<p>You can now try to teleport to any location along the migration route. Stabbing your finger on the world map suffices, but your aim won’t be perfect. Attempts to teleport to places off the map to the north or west usually don’t work.</p>'
       isActive:
         type: 'Boolean'
         label: 'Active'
@@ -180,7 +181,7 @@ system:
   group:
     type: 'String'
     label: 'Group'
-    value: 'Terrain Caster: Migration Route (Large Herd Animal)'
+    value: 'Terrain Caster: Koru Behemoth'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
-_id: 'C6KckGiPbN6eSld1'
+_id: 'mAmJV1W8Zl1RK91M'
