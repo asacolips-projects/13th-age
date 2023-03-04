@@ -243,9 +243,11 @@ export class ItemArchmageSheet extends ItemSheet {
         change = (async () => {
           delete feats[featIndex];
           feats = Object.assign({}, Object.values(feats));
-          // Double update to work arounde core's inability to recognize that the new object lacks a key
-          await item.update({'system.feats': null});
-          await item.update({'system.feats': feats});
+          let updateData = {'system.feats': feats};
+          for (let key of Object.keys(item.system.feats)) {
+            if (!feats[key]) updateData[`system.feats.-=${key}`] = null;
+          }
+          await item.update(updateData);
         });
         break;
       case 'up':

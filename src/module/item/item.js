@@ -683,11 +683,7 @@ export class ItemArchmage extends Item {
       };
     })
 
-    const featKeys = [
-      'adventurer',
-      'champion',
-      'epic',
-    ];
+    const featKeys = config.ARCHMAGE.featTiers;
     const feats = featKeys.map(k => {
       return {
         label: data.feats[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
@@ -775,7 +771,7 @@ export class ItemArchmage extends Item {
     return data;
   }
 
-  static chatListeners(html) {
+/*   static chatListeners(html) {
 
     // Chat card actions
     html.on('click', '.card-buttons button', ev => {
@@ -836,5 +832,5 @@ export class ItemArchmage extends Item {
       // Tool usage
       else if (action === "toolCheck") item.rollToolCheck(ev);
     });
-  }
+  } */
 }
