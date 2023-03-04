@@ -131,7 +131,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The Blood of Warriors feats provide access to the icon feats associated with the Icon 3, Icon 8, Icon 11, and The Three.</p>'
+    value: '<p>The Blood of Warriors feats provide access to the icon feats associated with the Diabolist, Lich King, Prince of Shadows, and The Three.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'
