@@ -320,7 +320,7 @@ languages:
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.25.0.beta-1/raw/archmage.zip?job=build-prod
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.25.0/raw/archmage.zip?job=build-prod
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
 gridDistance: "1"
 gridUnits: ''
