@@ -216,6 +216,11 @@ class ArchmageUpdateHandler {
       updateData = this.__migratePowerCostToResources(item, updateData);
     }
 
+    // Append Power for version 1.26.0
+    if (this.versionBelow('1.26.0')) {
+      updateData = this.__migratePowerFeatStructure(item, updateData);
+    }
+
     // Future updates will go here.
 
     // Return the final update object.
@@ -225,7 +230,7 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
-   * 1.25.0: Update NPC initiative to use value instead of mod.
+   * 1.25.0: Update PC powers cost field to resources.
    *
    * @param {object} actor Actor document to update.
    * @param {object} updateData Update data object to merge changes into.
@@ -263,6 +268,59 @@ class ArchmageUpdateHandler {
 
   /* -------------------------------------------*/
 
+  /**
+   * 1.26.0: Update PC powers feat structure.
+   *
+   * @param {object} actor Actor document to update.
+   * @param {object} updateData Update data object to merge changes into.
+   * @returns
+   *   Update object.
+   */
+  __migratePowerFeatStructure(item, updateData={}) {
+    if (!item || item.type != "power" || !item.system.feats.adventurer) return updateData;
+    let feats = item.system.feats;
+    let i = 0;
+    let updatedFeats = {};
+    for (let key of ["adventurer", "champion", "epic"]) {
+      if (feats[key].description.value) {
+        updatedFeats[i] = {
+          description: {
+            type: 'String',
+            value: feats[key].description.value
+          },
+          isActive: {
+            type: 'Boolean',
+            value: feats[key].isActive.value
+          },
+          tier: {
+            type: 'String',
+            value: key
+          },
+          powerUsage: {
+            type: 'String',
+            value: ''
+          },
+          quantity: {
+            type: 'Number',
+            value: null
+          },
+          maxQuantity: {
+            type: 'Number',
+            value: null
+          }
+        };
+        i += 1;
+      }
+    }
+    return mergeObject(updateData, {
+      'system.feats': updatedFeats,
+      'system.feats.-=adventurer': null,
+      'system.feats.-=champion': null,
+      'system.feats.-=epic': null,
+      });
+  }
+
+  /* -------------------------------------------*/
 
   /**
    * Main entrypoint to execute migrations.
@@ -270,7 +328,7 @@ class ArchmageUpdateHandler {
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this for each new version that requires a migration.
-    if (!this.versionBelow('1.25.0')) {
+    if (!this.versionBelow('1.26.0')) {
       return;
     }
 
@@ -295,9 +353,13 @@ class ArchmageUpdateHandler {
       ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_25_0'), {permanent: true});
     }
 
+    if (this.versionBelow('1.26.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_26_0'), {permanent: true});
+    }
+
     // 1. Update world actors.
     const actors = Array.from(game.actors.values());
-    console.log('TOOLKIT13: UPDATING ACTORS');
+    console.log('13th Age System: UPDATING ACTORS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateActors'));
     if (actors.length > 0) {
       for (let actor of actors) {
@@ -316,7 +378,7 @@ class ArchmageUpdateHandler {
 
     // 2. Update world items.
     const items = Array.from(game.items.values());
-    console.log('TOOLKIT13: UPDATING ITEMS');
+    console.log('13th Age System: UPDATING ITEMS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateItems'));
     if (items.length > 0) {
       for (let item of items) {
@@ -332,7 +394,7 @@ class ArchmageUpdateHandler {
 
     // 3. Update unlinked tokens in scenes.
     const scenes = game.scenes.contents; // Use .contents so that it's an array instead of a Collection.
-    console.log('TOOLKIT13: UPDATING TOKENS');
+    console.log('13th Age System: UPDATING TOKENS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateTokens'));
     if (scenes.length > 0) {
       for (let scene of scenes) {
@@ -353,7 +415,7 @@ class ArchmageUpdateHandler {
     }
 
     // 4. Update world compendiums (Actors, Scenes).
-    console.log('TOOLKIT13: UPDATING COMPENDIUMS');
+    console.log('13th Age System: UPDATING COMPENDIUMS');
     ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.updateCompendiums'));
     await this.migrateCompendiums();
 
@@ -361,7 +423,7 @@ class ArchmageUpdateHandler {
     game.settings.set('archmage', 'systemMigrationVersion', game.system.version);
     // @todo Determine why this fires too early.
     setTimeout(() => {
-      console.log(`TOOLKIT13: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.version}`);
+      console.log(`13th Age System: UPDATING SYSTEM MIGRATION VERSION TO ${game.system.version}`);
       ui.notifications.info(game.i18n.format('ARCHMAGE.MIGRATIONS.complete', {version}), {permanent: true});
     }, 10000);
   }
@@ -410,15 +472,15 @@ class ArchmageUpdateHandler {
       if ( !["Actor", "Scene", "Item"].includes(pack.documentName) ) continue;
 
       if (pack.documentName == 'Actor') {
-        console.log('TOOLKIT13: UPDATING COMPENDIUM ACTORS');
+        console.log('13th Age System: UPDATING COMPENDIUM ACTORS');
         await this.migrateCompendiumActors(pack);
       }
       else if (pack.documentName == 'Scene') {
-        console.log('TOOLKIT13: UPDATING COMPENDIUM TOKENS');
+        console.log('13th Age System: UPDATING COMPENDIUM TOKENS');
         await this.migrateCompendiumScenes(pack);
       }
       else if (pack.documentName == 'Item') {
-        console.log('TOOLKIT13: UPDATING COMPENDIUM ITEMS');
+        console.log('13th Age System: UPDATING COMPENDIUM ITEMS');
         await this.migrateCompendiumItems(pack);
       }
     }
