@@ -191,7 +191,7 @@ system:
     2:
       description:
          type: 'String'
-         value: '<p>Once per day as a quick action, you can gain command points equal to the number of icon relationship points you have with the any one icon associated with battle or victory.</p>'
+         value: '<p>Once per day as a quick action, you can gain command points equal to the number of icon relationship points you have with the any one icon associated with the Crusader, Emperor, and Great Gold Wyrm.</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -200,13 +200,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
   group:
     value: null
 flags: {}

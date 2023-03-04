@@ -153,25 +153,6 @@ system:
     0:
       description:
          type: 'String'
-         value: null
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>The first time you use this tactic each battle, make a recharge roll for it at the start of your next turn, adding the escalation die to the roll ([[@ed]]). The recharge roll after the battle, if any, doesn&rsquo;t gain a bonus from the escalation die.</p>'
       isActive:
          type: 'Boolean'
@@ -181,14 +162,14 @@ system:
         value: 'champion'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'once-per-battle'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
-    2:
+        value: 1
+    1:
       description:
          type: 'String'
          value: '<p>The recharge roll is now 11+.</p>'

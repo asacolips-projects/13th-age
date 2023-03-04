@@ -153,7 +153,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>Once per day, add your Charisma modifier [[@cha.mod]] to the number of command points you gain when you use this action.</p>'
+         value: '<p>Once per day, add +[[@cha.mod]] to the number of command points you gain when you use this action.</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -162,13 +162,13 @@ system:
         value: 'adventurer'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
     1:
       description:
          type: 'String'
@@ -181,17 +181,17 @@ system:
         value: 'champion'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'once-per-battle'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
     2:
       description:
          type: 'String'
-         value: '<p>You now gain [[1d6]] command points instead of 1d4 when you use this action.</p>'
+         value: '<p>You now gain 1d6 command points instead of 1d4 when you use this action.</p>'
       isActive:
          type: 'Boolean'
          value: false

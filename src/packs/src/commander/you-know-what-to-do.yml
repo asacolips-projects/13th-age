@@ -153,25 +153,6 @@ system:
     0:
       description:
          type: 'String'
-         value: null
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>This command costs 3 command points instead of 4.</p>'
       isActive:
          type: 'Boolean'
@@ -188,7 +169,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>The target also gains [[3d10+@cha.dmg]] temporary hit points.</p>'

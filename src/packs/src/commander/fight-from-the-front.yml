@@ -153,7 +153,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>You now gain [[1d4]] command points when you hit with a melee attack during your turn instead of 1d3.</p>'
+         value: '<p>You now gain 1d4 command points when you hit with a melee attack during your turn.</p>'
       isActive:
          type: 'Boolean'
          value: false
