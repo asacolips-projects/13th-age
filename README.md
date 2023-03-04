@@ -88,6 +88,10 @@ Images and files in the `assets/icons` directory are provided via licenses secur
 
 Image assets in this repository may not be used outside of Foundry VTT and cannot be redistributed.
 
+## 13th Age Roleplaying Game Community Use Policy
+
+This system for Foundry VTT uses trademarks and/or copyrights owned by Fire Opal Media Inc., which are used under the Fire Opal Media Inc., 13th Age Community Use Policy. We are expressly prohibited from charging you to use or access this content. This system for Foundry VTT is not published, endorsed, or specifically approved by Fire Opal Media.
+
 ## SRD and OGL Content
 
 This system makes usage of the [Open Game License Version 1.0a](http://www.d20srd.org/ogl.htm), the text of which is reproduced below (including additional required copyright notices).
