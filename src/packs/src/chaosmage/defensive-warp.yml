@@ -196,7 +196,7 @@ system:
     2:
       description:
          type: 'String'
-         value: '<p>When an attacker rerolls an attack against you, it takes an attack penalty equal to your Wisdom modifier.</p>'
+         value: '<p>When an attacker rerolls an attack against you, it takes a -[[@wis.mod]] attack penalty.</p>'
       isActive:
          type: 'Boolean'
          value: false

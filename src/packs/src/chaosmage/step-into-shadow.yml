@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    1:
+    0:
       description:
          type: 'String'
          value: '<p>You can choose to add +1 to the d6 roll after seeing it.</p>'
@@ -169,7 +169,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>If you roll 6+, you gain both effects.</p>'

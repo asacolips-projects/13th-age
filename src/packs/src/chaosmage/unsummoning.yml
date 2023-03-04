@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    1:
+    0:
       description:
          type: 'String'
          value: '<p>This spell can now also target an entire mob of mooks. If the attack hits, replace them with a mob of undead mooks that is one level lower.</p>'
@@ -169,7 +169,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>You don&rsquo;t expend the spell when you miss with it.</p>'

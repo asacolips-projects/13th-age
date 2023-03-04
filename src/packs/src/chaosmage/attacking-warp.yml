@@ -158,7 +158,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>When you roll a successful disengage check, you gain temporary hit points equal to your Dexterity modifier (double your Dexterity modifier at 5th level; triple it at 8th level).</p>'
+         value: '<p>When you roll a successful disengage check, you gain [[@dex.mod]] temporary hit points([[2*@dex.mod]] at 5th level; [[3*@dex.mod]] at 8th level).</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -177,7 +177,7 @@ system:
     1:
       description:
          type: 'String'
-         value: '<p>While you are flying due to any effect, you gain a bonus to disengage checks equal to your Dexterity modifier.</p>'
+         value: '<p>While you are flying due to any effect, you gain a [[@dex.mod]] bonus to disengage checks.</p>'
       isActive:
          type: 'Boolean'
          value: false

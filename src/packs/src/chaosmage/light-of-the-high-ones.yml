@@ -131,7 +131,7 @@ system:
   effect:
     type: 'String'
     label: 'Effect'
-    value: '<p>The Blood of Warriors feats provide access to the icon feats associated with the Archmage, Elf Queen, High Druid, and Priestess.</p>'
+    value: '<p>The Light of the High Ones feats provide access to the icon feats associated with the Archmage, Elf Queen, High Druid, and Priestess.</p>'
   spellLevel3:
     type: 'String'
     label: '3rd Level Spell'

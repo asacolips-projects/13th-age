@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    1:
+    0:
       description:
          type: 'String'
          value: '<p>This spell now deals half damage on a miss.</p>'
@@ -169,10 +169,10 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
-         value: '<p>This spell now targets [[2d3]] enemies in a group.</p>'
+         value: '<p>This spell now targets 2d3 enemies in a group.</p>'
       isActive:
          type: 'Boolean'
          value: false
