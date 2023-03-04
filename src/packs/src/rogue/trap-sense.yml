@@ -156,7 +156,8 @@ system:
          value: '<p>The trap attack reroll can also apply to a nearby ally of the rogue as the rogue shouts a warning or acts to prevent the trap from hitting.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>You gain a +3 bonus to skill check rerolls you make against traps.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You only take half damage from trap attacks.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

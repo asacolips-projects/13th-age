@@ -156,7 +156,8 @@ system:
          value: '<p>You can now use the spell against a far away target, but with a –2 attack penalty.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Each time you cast the spell, you can have the attack deal random energy damage instead of fire damage. Replace the fire entry on the random energy table with your choice of negative energy or acid.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You don''t take the –2 penalty for attacking a far away enemy with the spell.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

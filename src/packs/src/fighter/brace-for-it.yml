@@ -156,7 +156,8 @@ system:
          value: "<p><em>Brace for it</em>\_now works against a critical hit from any type of attack.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: "<p><em>Brace for it</em>\_works against any number of critical hits before your next turn.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: null
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

@@ -156,7 +156,8 @@ system:
          value: '<p>Your bardic songs don''t stop immediately when you are knocked *unconscious*, *stunned*, or silenced. Instead, they continue for one round, giving you the chance to sustain the song on your next turn.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: null
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: null
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

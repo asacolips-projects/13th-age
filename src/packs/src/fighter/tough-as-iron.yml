@@ -156,7 +156,8 @@ system:
          value: '<p>Once per day, you can rally twice during a battle as a quick action, without needing to roll a save for the second rally.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Increase your total number of recoveries by 2.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>When you roll a natural 20 with an attack, you gain an additional use of Tough As Iron this battle.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

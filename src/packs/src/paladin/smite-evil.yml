@@ -156,7 +156,8 @@ system:
          value: '<p>Your Smite Evil attacks gain a +4 attack bonus.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Add 2d12 to the damage roll instead of 1d12.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Add 4d12 to the damage roll instead of 2d12.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

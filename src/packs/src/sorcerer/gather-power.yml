@@ -160,7 +160,8 @@ system:
          value: '<p>Once per battle, you can choose the chaotic benefit you want instead of rolling for it.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -178,7 +179,8 @@ system:
          value: '<p>Once per battle when the escalation die is 4+, you can gather power as a quick action.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -196,7 +198,8 @@ system:
          value: '<p>When you gather power, if the escalation die is 2+, you can roll two chaotic benefits. Unlike most effects, the benefits stack if you roll the same result twice.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

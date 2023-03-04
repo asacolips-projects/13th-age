@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: null
-  feats:    1:
+  feats:
+    1:
       description:
          type: 'String'
          value: '<p>When this attack drops the enemy to 0 hp or drops the last mook of a mob, you don&rsquo;t expend your focus</p>'

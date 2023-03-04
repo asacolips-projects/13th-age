@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:    1:
+  feats:
+    1:
       description:
          type: 'String'
          value: '<p>The triggering ally also gains temporary hit points equal to double your Wisdom modifier + the level of the triggering spell. In addition, that ally gains the temporary hit points again when they cast that spell this battle.</p>'

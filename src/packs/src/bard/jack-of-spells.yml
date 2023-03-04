@@ -156,7 +156,8 @@ system:
          value: "<p>You can use your Charisma as the ability score that provides spell's attack bonus and damage bonus (if any). Other ability score references remain unchanged.</p><p>If the spell is a wizard spell, you also gain three cantrips of your choice from the wizard. You can cast them like a wizard who lacks the Cantrip Mastery talent.</p><p>If you choose a spell from the sorcerer class, you also gain the sorcerer's\_<em>dancing lights</em>\_class feature.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Choose a second spell-casting class. Choose another spell from that class as well.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Choose a third spell-casting class. Gain a spell from that class also.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

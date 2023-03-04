@@ -156,7 +156,8 @@ system:
          value: "<p>On a miss, you can still use your move action normally (but still can't\_<em>shadow walk</em>\_this turn).</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: "<p>Twice per day, you can reroll the rogue attack that follows your successful use of\_<em>shadow walk</em>.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: "<p>Twice per day, you can reappear from your\_<em>shadow walk</em>\_in a nearby location you wouldn't have been able to reach unimpeded physically, for instance, on the other side of a portcullis or door, or high up a wall.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

@@ -156,7 +156,8 @@ system:
          value: '<p>If you spend a quick action to aim before making a ranged basic attack, add your Dexterity modifier to the damage if you miss.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Once per battle, expand your crit range with a fighter ranged attack by 4 (usually to 16+) for that attack. Declare you''re using this feat power before you roll the attack.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Your crit range with ranged weapon attacks expands by 1 (usually to 19+).</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

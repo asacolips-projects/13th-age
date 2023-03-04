@@ -156,7 +156,8 @@ system:
          value: '<p>Add your Charisma modifier to your Smooth Talk save rolls.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Success with your Smooth Talk talent gives you a 3-point positive relationship instead.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Even if you fail your Smooth Talk save, you get a 2-point conflicted relationship with the icon because the people you''re speaking with can''t be sure.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

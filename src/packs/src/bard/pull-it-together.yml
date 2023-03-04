@@ -156,7 +156,8 @@ system:
          value: '<p>The target adds [[(@ed)d4]](+1d4 healing per point on the escalation die).</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>The attack can now also trigger on any natural even roll; the extra healing is now [[(@ed)d6]](+1d6 per point).</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: "<p>You can use\_<em>pull it together</em>\_three times per battle; the extra healing is now [[(@ed)d10]](+1d10 per point).</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

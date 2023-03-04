@@ -156,7 +156,8 @@ system:
          value: '<p>When you miss with a sorcerer spell against an enemy you are engaged with, add [[@cha.dmg]] to the damage you deal.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Once per battle, you can include one enemy engaged with you as an additional target of any attack spell you cast that targets other enemies.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Once per day when you cast an empowered spell, each enemy engaged with you becomes an additional target of that spell if it''s not already targeted by the spell.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

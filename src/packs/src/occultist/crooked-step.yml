@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:    1:
+  feats:
+    1:
       description:
          type: 'String'
          value: '<p>The ally the triggering enemy is attacking gains a +[[@int.mod]] bonus to all defenses against that attack.</p>'

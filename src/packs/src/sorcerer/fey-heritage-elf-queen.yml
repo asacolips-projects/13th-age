@@ -156,7 +156,8 @@ system:
          value: '<p>You can now invoke your Fey Heritage talent in two battles each day.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>You gain a +2 attack bonus against elves and monsters in the elven sphere of influence (including the Drider, Storm Giant, and Medusa).</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Once per battle when the escalation die reaches 6+, as a free action, you can gain an elf racial power that you have not already used in this battle.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

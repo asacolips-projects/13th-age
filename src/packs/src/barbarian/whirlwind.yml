@@ -156,7 +156,8 @@ system:
          value: '<p>You now deal normal miss damage with missed Whirlwind attacks.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>The penalty to your AC and PD is reduced to –2. In addition, disengage checks you make the same turn as using Whirlwind automatically succeed.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You can use Whirlwind anytime during your turn, not just as the first action.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

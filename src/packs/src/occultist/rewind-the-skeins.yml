@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:    2:
+  feats:
+    2:
       description:
          type: 'String'
          value: '<p>Take it back five minutes. Time is pretty subjective in our game anyway, and now it&rsquo;s even more so, for you</p>'

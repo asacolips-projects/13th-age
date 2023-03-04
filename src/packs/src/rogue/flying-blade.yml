@@ -156,7 +156,8 @@ system:
          value: '<p>If you score a critical hit with <em>flying blade</em>, the target is also *dazed* (–4 attack) until the end of your next turn.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>As long as one of your allies is engaged with the target, your <em>flying blade</em> attack rolls no longer need to be even to add your Sneak Attack damage.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You can use <em>flying blade</em> with any ranged weapon.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

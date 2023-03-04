@@ -156,7 +156,8 @@ system:
          value: '<p>You gain resist energy damage 12+ to fire and to one of the following types of energy of your choice: acid, cold, lightning, psychic, thunder.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Increase one of your resistances to 16+.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>In addition to your normal use of spell frenzy, you can also enter a spell frenzy as a free action while the escalation die is 5+.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

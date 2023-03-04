@@ -160,7 +160,8 @@ system:
          value: '<p>You don''t take the –2 penalty for attacking a far away enemy with the spell.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -178,7 +179,8 @@ system:
          value: '<p>If you are a champion-tier sorcerer, roll any chaotic benefit gained with this spell on the @UUID[Compendium.archmage.system-rolltables.hojV2urxFb1cjgWJ]{epic chaotic benefits table}. If you are an epic-tier sorcerer, choose the epic chaotic benefit you want instead of rolling.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -196,7 +198,8 @@ system:
          value: null
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

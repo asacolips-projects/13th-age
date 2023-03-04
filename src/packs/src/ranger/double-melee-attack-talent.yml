@@ -156,7 +156,8 @@ system:
          value: '<p>Your second attack gains a +2 attack bonus if it is against a different target.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Once per battle, use Double Melee Attack after an odd attack roll.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Each turn, you can pop free of one enemy before one attack roll that is part of a Double Melee Attack. You can also use your move action in between your two attacks if you wish.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

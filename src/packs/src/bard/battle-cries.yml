@@ -156,7 +156,8 @@ system:
          value: "<p>You can generate the effect of any 1<sup>st</sup>\_or 3<sup>rd</sup>\_level battle cry you know as a standard action (instead of making a flexible melee attack to see which battle cry you are able to trigger). This allows you to choose the particular battle cry you want, at the expense of taking your standard action.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: null
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: null
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

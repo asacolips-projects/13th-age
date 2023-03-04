@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:    1:
+  feats:
+    1:
       description:
          type: 'String'
          value: '<p>This spell can now also target an entire mob of mooks. If the attack hits, replace them with a mob of undead mooks that is one level lower.</p>'

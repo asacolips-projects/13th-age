@@ -156,7 +156,8 @@ system:
          value: "<p>Regardless of your level, you gain the bonus power\_<em>thief's strike</em>\_in addition to your normal number of powers.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: "<p>Once per day, you can deal full damage with\_<em>thief's strike</em>\_instead of half damage.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: "<p>Twice per level, you can steal something with a successful\_<em>thief's strike</em>\_that you would not be able to steal ordinarily, but that would require a bit of magic, e.g. a dream, a spell, someone's hope, a memory. The theft won't be permanent. Every day, roll a hard save to determine whether you can keep what you stole for that day. Also, you can never steal the same thing twice.</p>"
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

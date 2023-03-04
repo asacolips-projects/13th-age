@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: null
-  feats:    1:
+  feats:
+    1:
       description:
          type: 'String'
          value: '<p>This spell now targets [[1d4]] enemies in a group.</p>'

@@ -160,7 +160,8 @@ system:
          value: '<p>Once per day as a free action, you can add your Sneak Attack damage to any hit against one target that would not otherwise have qualified for the damage.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -178,7 +179,8 @@ system:
          value: '<p>Once per day, roll d20s for your Sneak Attack damage instead of d8s.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -196,7 +198,8 @@ system:
          value: '<p>One battle per day, ignore the limitation that you can use Sneak Attack damage only once per round.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

@@ -160,7 +160,8 @@ system:
          value: '<p>Your Sneak Attack feature also works the first round of combat against enemies with a lower initiative than you.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -178,7 +179,8 @@ system:
          value: '<p>Your Sneak Attack feature also works against enemies who are *confused*, *dazed*, *stunned*, *vulnerable* to your attack, or *weakened*.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -196,7 +198,8 @@ system:
          value: '<p>Once per battle when you miss with an attack that would have allowed you to deal Sneak Attack damage, replace the normal miss damage with your full Sneak Attack damage.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

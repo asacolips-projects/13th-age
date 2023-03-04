@@ -156,7 +156,8 @@ system:
          value: '<p>If you drop the target with your <em>evasive strike</em> attack, you can pop free from all enemies instead.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>If you hit with <em>evasive strike</em> and the natural attack roll was even, you gain a +2 bonus to AC and PD against the next attack that targets you this battle (no joy if it''s an attack vs. MD).</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Ok. Thanks to your slippery mind, the champion feat benefit also provides a +2 bonus to MD.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

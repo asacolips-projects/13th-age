@@ -156,7 +156,8 @@ system:
          value: '<p>When you miss with <em>burning hands</em>, you deal fire damage to the target equal to each damage die that rolled its maximum possible result.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>When you roll a natural 18+ with a <em>burning hands</em> attack roll, you can choose another nearby target for the spell. The new target doesn''t have to be part of the original group.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You can now target each enemy engaged with you with your <em>burning hands</em> spell in addition to any other targets.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

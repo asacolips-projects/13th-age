@@ -149,7 +149,8 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:    1:
+  feats:
+    1:
       description:
          type: 'String'
          value: '<p>On a hit, the target also takes  [[@lvl+@wis.dmg]] psychic damage.</p>'

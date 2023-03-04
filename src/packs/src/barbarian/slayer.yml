@@ -156,7 +156,8 @@ system:
          value: '<p>You gain a +2 bonus to Slayer attacks.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>Once per battle, when you miss with a Slayer attack, deal the additional +1d6-per-level damage to the target instead of normal miss damage.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>Whenever one of your Slayer attacks drops a non-mook enemy to 0 hp, you gain [[20]] temporary hit points.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

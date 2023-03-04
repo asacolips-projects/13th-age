@@ -156,7 +156,8 @@ system:
          value: '<p>Your grasp of the way the world is put together increases; you now can use terrain stunt in urban environments.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>You can track as well in urban areas as you do in the wilderness.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You can track flying creatures and creatures that normally wouldn''t be trackable, and there''s the possibility that even teleports give you a sense of direction.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:

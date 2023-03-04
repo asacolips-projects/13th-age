@@ -156,7 +156,8 @@ system:
          value: '<p>Whenever the escalation die is 4+, as a quick action, you can start raging for free. (It doesn’t count against your normal usage.) This rage lasts until the end of the battle, as normal.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'adventurer'
       powerUsage:
@@ -174,7 +175,8 @@ system:
          value: '<p>You can now start raging freely when the escalation die is 3+.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'champion'
       powerUsage:
@@ -192,7 +194,8 @@ system:
          value: '<p>You can now start raging freely when the escalation die is 2+.</p>'
       isActive:
          type: 'Boolean'
-         value: None      tier:
+         value: false
+      tier:
         type: 'String'
         value: 'epic'
       powerUsage:
