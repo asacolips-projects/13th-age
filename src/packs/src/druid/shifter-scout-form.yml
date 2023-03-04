@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Your temporary animal background roll is a 1d6 instead of 1d4 + 1, and count a 1 rolled as a 2.</p><p>A normal success with your combat recon skill check also grants your allies a +2 bonus to initiative this battle.</p>'
+         type: 'String'
+         value: '<p>Your temporary animal background roll is a 1d6 instead of 1d4 + 1, and count a 1 rolled as a 2.</p><p>A normal success with your combat recon skill check also grants your allies a +2 bonus to initiative this battle.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Rerolls from your combat recon exploits gain a +2 bonus.</p>'
+         type: 'String'
+         value: '<p>Rerolls from your combat recon exploits gain a +2 bonus.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You now get two benefits instead of one when you succeed at a ridiculously hard skill check with your scout form.</p>'
+         type: 'String'
+         value: '<p>You now get two benefits instead of one when you succeed at a ridiculously hard skill check with your scout form.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

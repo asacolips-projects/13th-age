@@ -149,32 +149,25 @@ system:
     type: 'Number'
     label: 'Uses'
     value: null
-  feats:
-    adventurer:
+  feats:    1:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>The target instead gains a +4 bonus to MD and a +2 bonus to saves.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The target instead gains a +4 bonus to MD and a +2 bonus to saves.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'champion'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>For both initiates and adepts, your second beast form attack (the one you roll when the first attack misses) now deals [[@lvl]] miss damage. If you are a Shifter adept, you can have two beast aspects active at the same time. If you start using a third aspect, one of the two previous aspects of your choice ends.</p>'
+         type: 'String'
+         value: '<p>For both initiates and adepts, your second beast form attack (the one you roll when the first attack misses) now deals [[@lvl]] miss damage. If you are a Shifter adept, you can have two beast aspects active at the same time. If you start using a third aspect, one of the two previous aspects of your choice ends.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>If you are a Shifter initiate, you can now cast spells and use magic item powers while in beast form. If you are a Shifter adept, you can have three beast aspects active at the same time. If you start using a fourth aspect, one of the two previous aspects of your choice ends.</p>'
+         type: 'String'
+         value: '<p>If you are a Shifter initiate, you can now cast spells and use magic item powers while in beast form. If you are a Shifter adept, you can have three beast aspects active at the same time. If you start using a fourth aspect, one of the two previous aspects of your choice ends.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>If you are a Shifter adept, your beast form can now be a lycanthropic form when you wish&mdash;furred, deadly, and possessing a new power that you can use only while in lycanthropic form: shake it off.</p>'
+         type: 'String'
+         value: '<p>If you are a Shifter adept, your beast form can now be a lycanthropic form when you wish&mdash;furred, deadly, and possessing a new power that you can use only while in lycanthropic form: shake it off.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

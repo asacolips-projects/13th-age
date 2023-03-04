@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain 1 additional point in a background related to military history, strategy, command, or warfare. You can use this background point to raise that background beyond the normal maximum of 5.</p>'
+         type: 'String'
+         value: '<p>You gain 1 additional point in a background related to military history, strategy, command, or warfare. You can use this background point to raise that background beyond the normal maximum of 5.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per day after a battle, you can gain a +[[@wis.mod]] bonus to all recharge rolls you make for your expended tactics.</p>'
+         type: 'String'
+         value: '<p>Once per day after a battle, you can gain a +[[@wis.mod]] bonus to all recharge rolls you make for your expended tactics.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once per day as a free action, you can choose a tactic you don’t normally possess and use it as if you did (you don’t get any feats associated with it).</p>'
+         type: 'String'
+         value: '<p>Once per day as a free action, you can choose a tactic you don’t normally possess and use it as if you did (you don’t get any feats associated with it).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

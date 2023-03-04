@@ -150,30 +150,60 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: null
+      isActive:
+         type: 'Boolean'
+         value: None      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+    1:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: "<p>The crit range bonus from\_<em>set 'em up</em>\_now also applies to any ally who attacks the target while you are engaged with it.</p>"
+         type: 'String'
+         value: null
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
+      description:
+         type: 'String'
+         value: "<p>The crit range bonus from\_<em>set 'em up</em>\_now also applies to any ally who attacks the target while you are engaged with it.</p>"
+      isActive:
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'WIDMaxGozy2WlnOu'

@@ -149,33 +149,44 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:
-    adventurer:
+  feats:    1:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>This spell can now also target an entire mob of mooks. If the attack hits, replace them with a mob of undead mooks that is one level lower.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>This spell can now also target an entire mob of mooks. If the attack hits, replace them with a mob of undead mooks that is one level lower.</p>'
+         type: 'String'
+         value: '<p>You don&rsquo;t expend the spell when you miss with it.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You don&rsquo;t expend the spell when you miss with it.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

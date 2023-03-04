@@ -149,32 +149,25 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:
-    adventurer:
+  feats:    2:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>The spell now triggers when the escalation die is 2&ndash;5.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'epic'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>The spell now triggers when the escalation die is 2&ndash;5.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: '0gnlPt1pdoCZ9ygk'

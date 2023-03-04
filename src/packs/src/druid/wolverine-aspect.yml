@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Your extra melee damage while using this aspect increases according to your level:</p><p><strong>2nd level druid</strong>: [[1d8]] damage.</p><p><strong>4th level druid</strong>: [[1d10]] damage.</p><p><strong>6th level druid</strong>: [[2d6]] damage.</p><p><strong>8th level druid</strong>: [[3d6]] damage.</p><p><strong>10th level druid</strong>: [[3d12]] damage.</p>'
+         type: 'String'
+         value: '<p>Your extra melee damage while using this aspect increases according to your level:</p><p><strong>2nd level druid</strong>: [[1d8]] damage.</p><p><strong>4th level druid</strong>: [[1d10]] damage.</p><p><strong>6th level druid</strong>: [[2d6]] damage.</p><p><strong>8th level druid</strong>: [[3d6]] damage.</p><p><strong>10th level druid</strong>: [[3d12]] damage.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You can use the damage bonus against an enemy that started the battle with more hit points than you, but no longer does.</p>'
+         type: 'String'
+         value: '<p>You can use the damage bonus against an enemy that started the battle with more hit points than you, but no longer does.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Until the first time it recharges each day, wolverine aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
+         type: 'String'
+         value: '<p>Until the first time it recharges each day, wolverine aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

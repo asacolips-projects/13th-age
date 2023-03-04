@@ -150,31 +150,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Choose another Warrior Druid benefit you weren&rsquo;t able to start with. Whether you&rsquo;re an initiate or an adept, you can take this feat twice to gain the two Warrior Druid benefits you are missing.</p>'
+         type: 'String'
+         value: '<p>Choose another Warrior Druid benefit you weren&rsquo;t able to start with. Whether you&rsquo;re an initiate or an adept, you can take this feat twice to gain the two Warrior Druid benefits you are missing.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'adventurer'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

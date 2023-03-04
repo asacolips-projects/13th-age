@@ -151,32 +151,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Your summoned creatures can arrive anywhere you can see nearby, instead of needing to appear beside you.</p>'
+         type: 'String'
+         value: '<p>Your summoned creatures can arrive anywhere you can see nearby, instead of needing to appear beside you.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When you summon a non-mook creature, roll [[(@tier)d10+max(@str.dmg,@dex.dmg)]]. Your summoned creature increases its base hit points by that amount.</p>'
+         type: 'String'
+         value: '<p>When you summon a non-mook creature, roll [[(@tier)d10+max(@str.dmg,@dex.dmg)]]. Your summoned creature increases its base hit points by that amount.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'W5HGCX8IfbR1A2lb'

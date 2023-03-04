@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p><em>Predator’s Return</em>: You can spend 1 point of ki when your finishing attack misses all targets to use a flow attack instead of an opening attack with your next standard action—in effect, you get to skip the opening attack of your next form’s progression.</p>'
+         type: 'String'
+         value: '<p><em>Predator’s Return</em>: You can spend 1 point of ki when your finishing attack misses all targets to use a flow attack instead of an opening attack with your next standard action—in effect, you get to skip the opening attack of your next form’s progression.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
         value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: ''
+         type: 'String'
+         value: ''
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
+      description:
+         type: 'String'
+         value: ''
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: 'Finishing'
     type: 'String'

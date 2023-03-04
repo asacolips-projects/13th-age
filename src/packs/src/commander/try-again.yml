@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>If the escalation die is 3+, the target gains a bonus to the reroll equal to your Charisma modifier.</p>'
+         type: 'String'
+         value: '<p>If the escalation die is 3+, the target gains a bonus to the reroll equal to your Charisma modifier.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>If the rerolled attack scores a critical hit, you gain 1 command point.</p>'
+         type: 'String'
+         value: '<p>If the rerolled attack scores a critical hit, you gain 1 command point.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You can use this command before an ally makes an attack roll for 3 command points (instead of 2) for an entirely different effect: The target can make an additional basic attack this turn as a free action if the attack hits.</p>'
+         type: 'String'
+         value: '<p>You can use this command before an ally makes an attack roll for 3 command points (instead of 2) for an entirely different effect: The target can make an additional basic attack this turn as a free action if the attack hits.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: 'Command'
     type: 'String'

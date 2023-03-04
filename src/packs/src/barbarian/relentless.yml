@@ -150,30 +150,60 @@ system:
     label: 'Max Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: null
+      isActive:
+         type: 'Boolean'
+         value: None      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+    1:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Even when not raging, whenever you score a critical hit against an enemy, you have resist damage 12+ until the start of your next turn.</p>'
+         type: 'String'
+         value: null
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
+      description:
+         type: 'String'
+         value: '<p>Even when not raging, whenever you score a critical hit against an enemy, you have resist damage 12+ until the start of your next turn.</p>'
+      isActive:
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'd0MVlFnQ7Hwj0wDd'

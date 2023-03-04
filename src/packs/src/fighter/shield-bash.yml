@@ -150,30 +150,60 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>If the target is also engaged with any of your allies, you can have it pop free from them as well.</p>'
+         type: 'String'
+         value: '<p>If the target is also engaged with any of your allies, you can have it pop free from them as well.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
+         type: 'Boolean'
+         value: None      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per battle, you can also daze the target (save ends) of your shield bash attack, if that enemy is staggered.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+        value: 'adventurer'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
+      description:
+         type: 'String'
+         value: '<p>Once per battle, you can also daze the target (save ends) of your shield bash attack, if that enemy is staggered.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
+      description:
+         type: 'String'
+         value: null
+      isActive:
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'rLLdcIxNNmqiVDA3'

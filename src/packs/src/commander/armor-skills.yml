@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>When an enemy misses you with a melee attack and rolls a natural 1 or 2, you gain 1 command point.</p>'
+         type: 'String'
+         value: '<p>When an enemy misses you with a melee attack and rolls a natural 1 or 2, you gain 1 command point.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per day as a free action when you are hit by an attack that targets AC, you can take half damage from that attack instead.</p>'
+         type: 'String'
+         value: '<p>Once per day as a free action when you are hit by an attack that targets AC, you can take half damage from that attack instead.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once per day as a free action, you can gain a bonus to AC equal to the current escalation die [[@ed]] until the end of the battle. (The AC bonus increases or decreases as the escalation die increases or decreases.) This bonus can&rsquo;t be higher than the number of icon relationship points you have with warrior or leader icons in your game.</p>'
+         type: 'String'
+         value: '<p>Once per day as a free action, you can gain a bonus to AC equal to the current escalation die [[@ed]] until the end of the battle. (The AC bonus increases or decreases as the escalation die increases or decreases.) This bonus can&rsquo;t be higher than the number of icon relationship points you have with warrior or leader icons in your game.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

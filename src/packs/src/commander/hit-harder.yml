@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>The target gains a +[[@cha.dmg]] bonus to the damage roll.</p>'
+         type: 'String'
+         value: '<p>The target gains a +[[@cha.dmg]] bonus to the damage roll.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You can spend an additional command point (1 max) to add another damage die of the same type to the damage roll when you reroll damage dice. (You only roll the extra damage die once.)</p>'
+         type: 'String'
+         value: '<p>You can spend an additional command point (1 max) to add another damage die of the same type to the damage roll when you reroll damage dice. (You only roll the extra damage die once.)</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You can also use this command as a free action (instead of as an interrupt action) when an ally hits with an opportunity attack.</p>'
+         type: 'String'
+         value: '<p>You can also use this command as a free action (instead of as an interrupt action) when an ally hits with an opportunity attack.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: 'Command'
     type: 'String'

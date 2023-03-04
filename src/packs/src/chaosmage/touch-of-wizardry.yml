@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain a random wizard talent at the start of each day. Roll a [[d3]]. 1: Abjuration; 2: Evocation; 3: High Arcana (<em>counter magic</em>). Replace references to &ldquo;wizard&rdquo; in these talents with &ldquo;chaos mage&rdquo; and Intelligence with Charisma.</p>'
+         type: 'String'
+         value: '<p>You gain a random wizard talent at the start of each day. Roll a [[d3]]. 1: Abjuration; 2: Evocation; 3: High Arcana (<em>counter magic</em>). Replace references to &ldquo;wizard&rdquo; in these talents with &ldquo;chaos mage&rdquo; and Intelligence with Charisma.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You gain a single daily use of the wizard&rsquo;s <em>utility spell</em>, cast at your level or lower.</p>'
+         type: 'String'
+         value: '<p>You gain a single daily use of the wizard&rsquo;s <em>utility spell</em>, cast at your level or lower.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>If you don&rsquo;t like the first random wizard spell you select for the day, you can determine another random wizard spell. You&rsquo;re *stuck* with the second one.</p>'
+         type: 'String'
+         value: '<p>If you don&rsquo;t like the first random wizard spell you select for the day, you can determine another random wizard spell. You&rsquo;re *stuck* with the second one.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/spells/light-blue-1.jpg'
 _id: 'QDEsRAz1icP8ighL'

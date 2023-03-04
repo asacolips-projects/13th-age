@@ -150,30 +150,60 @@ system:
     label: 'Max Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You now deal normal miss damage with missed Whirlwind attacks.</p>'
+         type: 'String'
+         value: '<p>You now deal normal miss damage with missed Whirlwind attacks.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The penalty to your AC and PD is reduced to –2. In addition, disengage checks you make the same turn as using Whirlwind automatically succeed.</p>'
+         type: 'String'
+         value: '<p>The penalty to your AC and PD is reduced to –2. In addition, disengage checks you make the same turn as using Whirlwind automatically succeed.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You can use Whirlwind anytime during your turn, not just as the first action.</p>'
+         type: 'String'
+         value: '<p>You can use Whirlwind anytime during your turn, not just as the first action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: None      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   embeddedMacro:
     type: 'String'
     label: 'Embedded Macro'

@@ -154,32 +154,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per battle, as long as both classes use flexible attacks for the type of attack you are making, you can choose to roll a flexible attack without deciding which of your two classes it is linked to. Choose from all your flexible attacks after you see the result of the roll.</p>'
+         type: 'String'
+         value: '<p>Once per battle, as long as both classes use flexible attacks for the type of attack you are making, you can choose to roll a flexible attack without deciding which of your two classes it is linked to. Choose from all your flexible attacks after you see the result of the roll.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p><span class="fontstyle0">You can now use the adventurer-tier feat twice per battle.</span> </p>'
+         type: 'String'
+         value: '<p><span class="fontstyle0">You can now use the adventurer-tier feat twice per battle.</span> </p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/d20.svg'
 effects: []

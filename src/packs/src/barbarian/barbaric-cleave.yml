@@ -150,33 +150,63 @@ system:
     label: 'Max Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain a +2 attack bonus with Barbaric Cleave attacks. If the cleave attack hits, you can heal using a recovery.</p>'
+         type: 'String'
+         value: '<p>You gain a +2 attack bonus with Barbaric Cleave attacks. If the cleave attack hits, you can heal using a recovery.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>If there is no foe engaged with you to use your Barbaric Cleave attack against, as a free action you can move to a nearby foe before making the attack.</p>'
+         type: 'String'
+         value: '<p>If there is no foe engaged with you to use your Barbaric Cleave attack against, as a free action you can move to a nearby foe before making the attack.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>While raging, you can use Barbaric Cleave as many times as you like during a battle, but only once per round.</p>'
+         type: 'String'
+         value: '<p>While raging, you can use Barbaric Cleave as many times as you like during a battle, but only once per round.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'eYXBtXKDCg2KtUZ9'

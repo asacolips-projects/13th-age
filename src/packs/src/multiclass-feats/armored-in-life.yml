@@ -154,32 +154,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per battle while wearing heavy armor, use an attack from a class that normally takes an attack penalty while wearing heavy armor without taking that penalty.</p>'
+         type: 'String'
+         value: '<p>Once per battle while wearing heavy armor, use an attack from a class that normally takes an attack penalty while wearing heavy armor without taking that penalty.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Two battles per day, avoid all attack penalties for wearing heavy armor from a class that normally has such an attack penalty. During any other battles that day, you can still only use the once-per battle power from the adventurer-tier feat.</p>'
+         type: 'String'
+         value: '<p>Two battles per day, avoid all attack penalties for wearing heavy armor from a class that normally has such an attack penalty. During any other battles that day, you can still only use the once-per battle power from the adventurer-tier feat.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/d20.svg'
 effects: []

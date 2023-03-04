@@ -155,33 +155,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per battle when you roll for an iconic warp effect, roll the d6 twice and choose the result you want.</p>'
+         type: 'String'
+         value: '<p>Once per battle when you roll for an iconic warp effect, roll the d6 twice and choose the result you want.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When you roll a natural 18–20 on a save, a nearby ally of your choice can roll a save against a save ends effect.</p>'
+         type: 'String'
+         value: '<p>When you roll a natural 18–20 on a save, a nearby ally of your choice can roll a save against a save ends effect.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>When you roll a natural 20 with an attack, the critical hit range of your attacks expands by 2 until the end of the battle (cumulative).</p>'
+         type: 'String'
+         value: '<p>When you roll a natural 20 with an attack, the critical hit range of your attacks expands by 2 until the end of the battle (cumulative).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/spells/air-burst-magenta-3.jpg'
 _id: 'bRqyWUOnkvp5zL3N'
