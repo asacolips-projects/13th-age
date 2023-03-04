@@ -683,12 +683,11 @@ export class ItemArchmage extends Item {
       };
     })
 
-    const featKeys = config.ARCHMAGE.featTiers;
-    const feats = featKeys.map(k => {
+    const feats = Object.values(data.feats).map(f => {
       return {
-        label: data.feats[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
-        description: data.feats[k] ? data.feats[k].description.value : null,
-        isActive: data.feats[k] ? data.feats[k].isActive.value : null,
+        label: f.tier ? f.tier.value : null,
+        description: f.description ? f.description.value : null,
+        isActive: f.isActive ? f.isActive.value : null,
       };
     });
 
