@@ -182,13 +182,13 @@ system:
         value: 'champion'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'once-per-battle'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
     2:
       description:
          type: 'String'
@@ -201,13 +201,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
   group:
     type: 'String'
     label: 'Group'

@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: null
   feats:
-    1:
+    0:
       description:
          type: 'String'
          value: 'The target instead gains a +4 bonus to PD and [[@lvl + @wis.dmg]] temporary hit points'

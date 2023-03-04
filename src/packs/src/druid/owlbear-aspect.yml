@@ -153,7 +153,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>When you score a critical hit, you heal hit points equal to your level + your Wisdom modifier (double your Wisdom modifier at 5th level; triple it at 8th level).</p>'
+         value: '<p>When you score a critical hit, you heal [[@lvl+@wis.mod]] hit points ([[@lvl+2*@wis.mod]] at 5th level; [[@lvl+3*@wis.mod]] at 8th level).</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -200,13 +200,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
   group:
     type: 'String'
     label: 'Group'

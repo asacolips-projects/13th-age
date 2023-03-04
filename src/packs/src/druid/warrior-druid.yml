@@ -169,6 +169,25 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
+    1:
+      description:
+         type: 'String'
+         value: '<p>Choose another Warrior Druid benefit you weren&rsquo;t able to start with. Whether you&rsquo;re an initiate or an adept, you can take this feat twice to gain the two Warrior Druid benefits you are missing.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

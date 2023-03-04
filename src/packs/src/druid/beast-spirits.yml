@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    1:
+    0:
       description:
          type: 'String'
          value: '<p>You can use the improved version of each spell as amended by the champion-tier feats listed underneath it.</p>'

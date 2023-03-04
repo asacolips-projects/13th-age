@@ -150,10 +150,10 @@ system:
     label: 'Uses'
     value: null
   feats:
-    1:
+    0:
       description:
          type: 'String'
-         value: '<p>This spell now targets [[1d4]] enemies in a group.</p>'
+         value: '<p>This spell now targets 1d4 enemies in a group.</p>'
       isActive:
          type: 'Boolean'
          value: false

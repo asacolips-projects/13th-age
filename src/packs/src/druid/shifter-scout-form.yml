@@ -153,7 +153,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>Your temporary animal background roll is a 1d6 instead of 1d4 + 1, and count a 1 rolled as a 2.</p><p>A normal success with your combat recon skill check also grants your allies a +2 bonus to initiative this battle.</p>'
+         value: '<p>Your temporary animal background roll is a [[1d6]] instead of 1d4 + 1, and count a 1 rolled as a 2.</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -172,6 +172,25 @@ system:
     1:
       description:
          type: 'String'
+         value: '<p>A normal success with your combat recon skill check also grants your allies a +2 bonus to initiative this battle.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
+      description:
+         type: 'String'
          value: '<p>Rerolls from your combat recon exploits gain a +2 bonus.</p>'
       isActive:
          type: 'Boolean'
@@ -188,7 +207,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    3:
       description:
          type: 'String'
          value: '<p>You now get two benefits instead of one when you succeed at a ridiculously hard skill check with your scout form.</p>'
