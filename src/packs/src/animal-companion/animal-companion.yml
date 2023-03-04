@@ -144,11 +144,11 @@ system:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
     0:
       description:
