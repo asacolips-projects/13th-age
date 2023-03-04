@@ -25,7 +25,7 @@ async function registerModuleArt() {
       const pack = game.packs.get(`archmage.${packName}`);
       if (!pack) {
         console.warn(
-          `Toolkit13 System | Failed pack lookup from module art registration (${moduleKey}): ${packName}`
+          `13th Age System | Failed pack lookup from module art registration (${moduleKey}): ${packName}`
         );
         continue;
       }
@@ -69,7 +69,7 @@ async function getArtMap(art) {
     try {
       const response = await fetch(art);
       if (!response.ok) {
-        console.warn(`Toolkit13 System | Failed loading art mapping file at ${art}`);
+        console.warn(`13th Age System | Failed loading art mapping file at ${art}`);
         return null;
       }
       const map = await response.json();
@@ -78,7 +78,7 @@ async function getArtMap(art) {
     // Otherwise, output our error.
     catch (error) {
       if (error instanceof Error) {
-        console.warn(`Toolkit13 System | ${error.message}`);
+        console.warn(`13th Age System | ${error.message}`);
       }
     }
   }

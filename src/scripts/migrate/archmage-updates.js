@@ -308,7 +308,7 @@ class ArchmageUpdateHandler {
             await item.update(this.prepareMigrateItemData(item));
           }
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for world actor ${actor.name}: ${error.message}`;
+          error.message = `Failed 13th Age system migration for world actor ${actor.name}: ${error.message}`;
           console.error(error);
         }
       };
@@ -324,7 +324,7 @@ class ArchmageUpdateHandler {
         try {
           await item.update(this.prepareMigrateItemData(item));
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for world item ${item.name}: ${error.message}`;
+          error.message = `Failed 13th Age system migration for world item ${item.name}: ${error.message}`;
           console.error(error);
         }
       };
@@ -346,7 +346,7 @@ class ArchmageUpdateHandler {
         try {
           await scene.updateEmbeddedDocuments('Token', updates);
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for world scene ${scene.name}: ${error.message}`; //ERROR s is not defined
+          error.message = `Failed 13th Age system migration for world scene ${scene.name}: ${error.message}`; //ERROR s is not defined
           console.error(error);
         }
       };
@@ -461,7 +461,7 @@ class ArchmageUpdateHandler {
             await item.update(this.prepareMigrateItemData(item));
           }
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
+          error.message = `Failed 13th Age system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
         }
       };
@@ -514,7 +514,7 @@ class ArchmageUpdateHandler {
         try {
           await scene.updateEmbeddedDocuments('Token', updates);
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for scene ${scene.name} in compendium ${packLabel}: ${error.message}`;
+          error.message = `Failed 13th Age system migration for scene ${scene.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
         }
       };
@@ -560,7 +560,7 @@ class ArchmageUpdateHandler {
         try {
           await item.update(this.prepareMigrateItemData(item));
         } catch (error) {
-          error.message = `Failed Toolkit13 system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
+          error.message = `Failed 13th Age system migration for actor ${actor.name} in compendium ${packLabel}: ${error.message}`;
           console.error(error);
         }
       };

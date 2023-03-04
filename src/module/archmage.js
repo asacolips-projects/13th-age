@@ -663,7 +663,7 @@ Hooks.on("updateScene", (scene, data, options, userId) => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderSettings", async (app, html) => {
-  let button = $(`<button id="archmage-reference-btn" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
+  let button = $(`<button id="archmage-reference-btn" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
   button.on('click', ev => {
@@ -671,12 +671,24 @@ Hooks.on("renderSettings", async (app, html) => {
     new ArchmageReference().render(true);
   });
 
-  let helpButton = $(`<button id="archmage-help-btn" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
+  let helpButton = $(`<button id="archmage-help-btn" type="button" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
   html.find('button[data-action="controls"]').after(helpButton);
 
   helpButton.on('click', ev => {
     ev.preventDefault();
     window.open('https://asacolips.gitbook.io/toolkit13-system/', 'archmageHelp', 'width=1032,height=720');
+  });
+
+  let licenseButton = $(`<button id="archmage-license-btn" type="button" data-action="archmage-help"><i class="fas fa-book"></i> ${game.i18n.localize('ARCHMAGE.DIALOG.CUP.title')}</button>`);
+  html.find('button[data-action="controls"]').after(licenseButton);
+
+  licenseButton.on('click', ev => {
+    ev.preventDefault();
+    new Dialog({
+      title: game.i18n.localize('ARCHMAGE.DIALOG.CUP.title'),
+      content: game.i18n.localize('ARCHMAGE.DIALOG.CUP.content'),
+      buttons: {},
+    }).render(true);
   });
 
 

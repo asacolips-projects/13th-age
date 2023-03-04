@@ -23,10 +23,10 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/chat/power-card.html",
     "systems/archmage/templates/chat/recharge-card.html",
     "systems/archmage/templates/chat/recovery-card.html",
-    "systems/archmage/templates/chat/recovery-dialog-card.html",
+    "systems/archmage/templates/chat/recovery-dialog.html",
     "systems/archmage/templates/chat/rest-full-card.html",
     "systems/archmage/templates/chat/rest-short-card.html",
-    "systems/archmage/templates/chat/roll-dialog-card.html",
+    "systems/archmage/templates/chat/roll-dialog.html",
     "systems/archmage/templates/chat/save-card.html",
     "systems/archmage/templates/chat/skill-check-card.html",
     "systems/archmage/templates/chat/tool-card.html",
@@ -42,8 +42,8 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/items/item-tool-sheet.html",
     "systems/archmage/templates/items/item-trait-sheet.html",
 
-    "systems/archmage/templates/prepulate/powers--list.html",
-    "systems/archmage/templates/prepulate/tabs-content.html",
+    "systems/archmage/templates/prepopulate/powers--list.html",
+    "systems/archmage/templates/prepopulate/tabs-content.html",
 
     "systems/archmage/templates/sidebar/apps/archmage-help.html",
     "systems/archmage/templates/sidebar/apps/compendium.html",

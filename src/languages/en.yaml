@@ -153,7 +153,7 @@ ARCHMAGE:
   save: Save
   saves: Saves
   sharePlayers: Show Players
-  sheetActiveEffect: Toolkit13 Active Effect Sheet
+  sheetActiveEffect: 13th Age Active Effect Sheet
   sheetCharacter: Character Sheet
   sheetItem: Item Sheet
   sheetNPC: NPC Sheet
@@ -310,6 +310,10 @@ ARCHMAGE:
     platinumHint: 1 Platinum = 10 Gold
     silver: Silver
     silverHint: 1 Silver = 10 Copper
+  DIALOG:
+    CUP:
+      title: 13th Age Community Use Policy
+      content: "This system for Foundry VTT uses trademarks and/or copyrights owned by Fire Opal Media Inc., which are used under the Fire Opal Media Inc., 13th Age Community Use Policy. We are expressly prohibited from charging you to use or access this content. This system for Foundry VTT is not published, endorsed, or specifically approved by Fire Opal Media."
   PREPOPULATE:
     help: "Click the checkboxes to the left of any powers you would like to add, and then click submit to add them to your character. You can click any power's name to expand it and view its text and available feats."
 # Ability Scores
