@@ -189,25 +189,6 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
-      description:
-         type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'epic'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
 flags: {}
 img: 'icons/svg/d20.svg'
 _id: 'iVZk5SR0Bi0TZmLf'
