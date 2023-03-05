@@ -154,25 +154,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>If you roll a natural 19 or 20 for initiative, increase the escalation die by 1 (usually from 0 to 1 since it’s the start of the battle).</p>'
       isActive:
          type: 'Boolean'
@@ -180,25 +161,6 @@ system:
       tier:
         type: 'String'
         value: 'champion'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    2:
-      description:
-         type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'epic'
       powerUsage:
         type: 'String'
         value: ''

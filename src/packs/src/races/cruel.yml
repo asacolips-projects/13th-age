@@ -154,25 +154,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>Once per day, you can instead use cruel to deal [[5*@lvl]] ongoing damage against an enemy you miss or that you roll a natural odd attack against, even on a natural 1.</p>'
       isActive:
          type: 'Boolean'
@@ -182,32 +163,13 @@ system:
         value: 'champion'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
-    2:
-      description:
-         type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'epic'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
+        value: 1
   group:
     type: 'String'
     label: 'Group'
