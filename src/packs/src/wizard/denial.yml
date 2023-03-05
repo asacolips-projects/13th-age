@@ -153,25 +153,6 @@ system:
     0:
       description:
          type: 'String'
-         value: null
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>When you roll a natural even miss with the spell, the target is also *hampered* until the end of your next turn.</p>'
       isActive:
          type: 'Boolean'
@@ -188,10 +169,10 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
-         value: '<p>Increase the number of targets to [[1d4+1]].</p>'
+         value: '<p>Increase the number of targets to 1d4+1.</p>'
       isActive:
          type: 'Boolean'
          value: false
