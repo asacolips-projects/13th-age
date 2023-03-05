@@ -154,44 +154,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'champion'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    2:
-      description:
-         type: 'String'
          value: '<p>When you cast summon wraith while the escalation die ([[@ed]]) is 3+, you summon three wraiths or greater wraiths instead of two.</p>'
       isActive:
          type: 'Boolean'

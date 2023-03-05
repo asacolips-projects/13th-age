@@ -154,25 +154,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>The recovery is now free.</p>'
       isActive:
          type: 'Boolean'
@@ -189,7 +170,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>If your choice was wrong, you don’t expend the spell and can cast it later this battle. A second failed choice expends the spell.</p>'
@@ -201,13 +182,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'once-per-battle'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
 flags: {}
 img: 'systems/archmage/assets/icons/spells/link-eerie-2.jpg'
 _id: 'C28HNfO0twSusPPx'

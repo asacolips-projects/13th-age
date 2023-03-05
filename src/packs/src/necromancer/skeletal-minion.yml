@@ -154,7 +154,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>Like ranger animal companion feats, skeletal minion feats don’t build on each other. You don’t have to take skeletal minion feats in any particular order, you only need to qualify for the tier of the feat you are taking.</p><p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p><ul><li>Your skeletal minion now adds the escalation die to its attack rolls.</li><li>When an enemy attempts to disengage from the skeletal minion, it takes a penalty to the check equal to the escalation die.</li><li>As a quick action, you can set your skeletal minion ablaze, or extinguish the blaze. While it’s flaming, your skeleton minion’s damage dice increase by one size, and it deals fire damage with its melee attacks, but it takes damage equal to your level each time its natural attack roll is odd.</li></ul>'
+         value: '<p>Your skeletal minion now adds the escalation die to its attack rolls.</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -173,7 +173,45 @@ system:
     1:
       description:
          type: 'String'
-         value: '<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong> formatting.</p><ul><li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 3d6 becomes 4d6).</li><li>Add [[@cha.dmg]] to your skeletal minion’s hit points.</li></ul>'
+         value: '<p>When an enemy attempts to disengage from the skeletal minion, it takes a penalty to the check equal to the escalation die.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
+      description:
+         type: 'String'
+         value: '<p>As a quick action, you can set your skeletal minion ablaze, or extinguish the blaze. While it’s flaming, your skeleton minion’s damage dice increase by one size, and it deals fire damage with its melee attacks, but it takes damage equal to your level each time its natural attack roll is odd.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    3:
+      description:
+         type: 'String'
+         value: '<p>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 3d6 becomes 4d6).</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -189,10 +227,48 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    4:
       description:
          type: 'String'
-         value: '<p>We recommend marking the feat(s) you have chosen with&nbsp;<strong>bold</strong>&nbsp;formatting.</p><ul><li>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 4d6 becomes 5d6, and this is cumulative with the champion feat).</li><li>Your skeletal minion gains a +2 bonus to all defenses.</li></ul>'
+         value: '<p>Add [[@cha.dmg]] to your skeletal minion’s hit points.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    5:
+      description:
+         type: 'String'
+         value: '<p>Add a damage die of the same size to your skeletal minion’s damage rolls (for example, 4d6 becomes 5d6, and this is cumulative with the champion feat).</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    6:
+      description:
+         type: 'String'
+         value: '<p>Your skeletal minion gains a +2 bonus to all defenses.</p>'
       isActive:
          type: 'Boolean'
          value: false

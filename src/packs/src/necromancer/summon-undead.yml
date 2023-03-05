@@ -154,25 +154,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>You now summon [[1d4+1]] mooks when you use this spell instead of 1d3+1.</p>'
       isActive:
          type: 'Boolean'
@@ -189,7 +170,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>If one or more mooks summoned by the spell survive the battle, you can keep one mook with you until the next battle. Or until someone in the party or the world gets sick of it and slays the thing.</p>'

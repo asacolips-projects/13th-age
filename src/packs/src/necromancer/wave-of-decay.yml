@@ -154,25 +154,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>The spell no longer ends when you drop to 0 hit points or below; instead it ends when you fail a death save.</p>'
       isActive:
          type: 'Boolean'
@@ -189,7 +170,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>The spell no longer ends when you use it to drop an enemy to 0 hit points; it now ends when it drops a second enemy to 0 hit points.</p>'
