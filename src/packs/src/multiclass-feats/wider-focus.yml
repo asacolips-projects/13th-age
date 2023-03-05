@@ -166,13 +166,13 @@ system:
         value: 'adventurer'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'once-per-battle'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
 flags: {}
 img: 'icons/svg/d20.svg'
 effects: []
