@@ -191,7 +191,7 @@ system:
     2:
       description:
          type: 'String'
-         value: '<p>When an enemy misses you with an attack while you don’t have your focus, it takes psychic damage equal to [[@wis.dmg+@lvl]].</p>'
+         value: '<p>When an enemy misses you with an attack while you don’t have your focus, it takes [[@wis.dmg+@lvl]] psychic damage.</p>'
       isActive:
          type: 'Boolean'
          value: false

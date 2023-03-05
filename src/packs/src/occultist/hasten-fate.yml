@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    2:
+    0:
       description:
          type: 'String'
          value: '<p>The spell now triggers when the escalation die is 2&ndash;5.</p>'

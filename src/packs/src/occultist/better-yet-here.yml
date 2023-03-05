@@ -150,7 +150,7 @@ system:
     label: 'Uses'
     value: null
   feats:
-    1:
+    0:
       description:
          type: 'String'
          value: '<p>When this attack drops the enemy to 0 hp or drops the last mook of a mob, you don&rsquo;t expend your focus</p>'
@@ -169,7 +169,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>When the triggering ally scores a critical hit with the attack, you don&rsquo;t expend your focus</p>'

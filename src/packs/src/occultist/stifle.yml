@@ -150,10 +150,10 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    1:
+    0:
       description:
          type: 'String'
-         value: '<p>On a hit, the target also takes  [[@lvl+@wis.dmg]] psychic damage.</p>'
+         value: '<p>On a hit, the target also takes [[@lvl+@wis.dmg]] psychic damage.</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -169,7 +169,7 @@ system:
       maxQuantity:
         type: 'Number'
         value: null
-    2:
+    1:
       description:
          type: 'String'
          value: '<p>Increase the triggering hit point threshold by 50.</p>'

@@ -162,13 +162,13 @@ system:
         value: 'adventurer'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
     1:
       description:
          type: 'String'
@@ -181,13 +181,13 @@ system:
         value: 'champion'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
     2:
       description:
          type: 'String'
@@ -200,13 +200,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
   group:
     value: null
 flags: {}
