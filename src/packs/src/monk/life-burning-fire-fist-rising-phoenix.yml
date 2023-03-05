@@ -158,25 +158,6 @@ system:
     0:
       description:
          type: 'String'
-         value: ''
-      isActive:
-         type: 'Boolean'
-         value: false
-      tier:
-        type: 'String'
-        value: 'adventurer'
-      powerUsage:
-        type: 'String'
-        value: ''
-      quantity:
-        type: 'Number'
-        value: null
-      maxQuantity:
-        type: 'Number'
-        value: null
-    1:
-      description:
-         type: 'String'
          value: '<p>Once per day as a free action, double the healing you get when you heal using a recovery (from any effect).</p>'
       isActive:
          type: 'Boolean'
@@ -186,14 +167,14 @@ system:
         value: 'champion'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
-    2:
+        value: 1
+    1:
       description:
          type: 'String'
          value: '<p>One battle per day as a free action, choose yourself or a nearby ally. That creature gains a [[@wis.mod]] bonus to death saves until the end of the battle.</p>'
@@ -205,13 +186,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
 flags: {}
 img: 'systems/archmage/assets/icons/skills/yellow_38.jpg'
 effects: []
