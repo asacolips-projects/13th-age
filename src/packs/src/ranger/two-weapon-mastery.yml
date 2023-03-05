@@ -200,13 +200,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'daily'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'qOnZnWREg6q3FAVj'
