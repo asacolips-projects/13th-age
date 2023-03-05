@@ -204,13 +204,13 @@ system:
         value: 'epic'
       powerUsage:
         type: 'String'
-        value: ''
+        value: 'once-per-battle'
       quantity:
         type: 'Number'
-        value: null
+        value: 1
       maxQuantity:
         type: 'Number'
-        value: null
+        value: 1
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'q2pHBt8sXTYx6IxQ'
