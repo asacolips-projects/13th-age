@@ -583,6 +583,7 @@ ARCHMAGE:
     trigger: Trigger
     triggerPlaceholder: Natural even miss
     triggerTitle: Trigger for this power, such as 'Natural even miss'
+    triggerVsRegex: "(\\[\\[.+?\\]\\]).*(vs.*)"
     unambiguousAdvantages: Unambiguous Advantages
     Use: Use
   TERRAINS:

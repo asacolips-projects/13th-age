@@ -109,7 +109,7 @@ export default class ArchmageRolls {
       }
 
     // Split string into first inline roll and vs, and repeat roll as needed
-    let match = /(\[\[.+?\]\]).*(vs.*)/.exec(newAttackLine);
+    let match = new RegExp(game.i18n.localize("ARCHMAGE.CHAT.triggerVsRegex")).exec(newAttackLine);
     if (match) {
       let roll = match[1];
       let vs = match[2];
