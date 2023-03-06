@@ -463,8 +463,8 @@ ARCHMAGE:
     alwaysPlaceholder: Some effect that always happens
     alwaysTitle: Effects that always happen, regardless of circumstances or rolls
     attack: Attack
-    attackPlaceholder: "[[d20+@str.mod+@lvl+@ed]] vs. AC"
-    attackTitle: Attack formula, such as "[[d20+@str.mod+@lvl+@ed]] vs. AC"
+    attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
+    attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
     breathWeapon: Breath Weapon
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
