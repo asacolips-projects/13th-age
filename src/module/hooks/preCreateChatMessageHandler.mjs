@@ -39,23 +39,23 @@ export default class preCreateChatMessageHandler {
         let range = "melee";
 
         // Lines containing any of the following need to be skipped:
-        // "Level:", "Recharge:", "Cost:", "Uses Remaining:"
+        // "Level:", "Recharge:", "Resources:", "Uses Remaining:"
         // "Special:", "Effect:", "Cast for Broad Effect:", "Cast for Power:"
         // "Opening and Sustained Effect:", "Final Verse:"
         // "Chain Spell", "Breath Weapon:"
         let rowsToSkip = [
           game.i18n.localize("ARCHMAGE.level") + ':',
           game.i18n.localize("ARCHMAGE.recharge")+':',
-          game.i18n.localize("ARCHMAGE.cost")+':',
-            "Uses Remaining:",
-            "Special:",
-            "Effect:",
-            "Cast for Broad Effect:",
-            "Cast for Power:",
-            "Opening and Sustained Effect:",
-            "Final Verse:",
-            "Chain Spell",
-            "Breath Weapon:"
+          game.i18n.localize("ARCHMAGE.CHAT.resources") + ':',
+          game.i18n.localize("ARCHMAGE.ITEM.usesRemaining")+':',
+          game.i18n.localize("ARCHMAGE.CHAT.special") + ':',
+          game.i18n.localize("ARCHMAGE.CHAT.effect") + ':',
+          game.i18n.localize("ARCHMAGE.CHAT.castBroadEffect") + ':',
+          game.i18n.localize("ARCHMAGE.CHAT.castPower") + ':',
+          game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect") + ':',
+          game.i18n.localize("ARCHMAGE.CHAT.finalVerse") + ':',
+          game.i18n.localize("ARCHMAGE.CHAT.spellChain")+':',
+          game.i18n.localize("ARCHMAGE.CHAT.breathWeapon")+':'
         ];
 
         let tokens = canvas.tokens.controlled;
