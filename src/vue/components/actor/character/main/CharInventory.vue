@@ -58,11 +58,11 @@
             </div>
             <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
               <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
-                <span class="bonus-label">{{bonusProp}} </span>
+                <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
                 <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
               </span>
             </div>
-            <div class="equipment-chakra" v-if="equipment.system.chackra">{{equipment.system.chackra}}</div>
+            <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(concat('ARCHMAGE.CHAKRA.', equipment.system.chackra, "Label"))}}</div>
             <div class="equipment-recharge" v-if="equipment.system.recharge && equipment.system.recharge.value && equipment.system.powerUsage.value == 'recharge'">
               <Rollable name="recharge" type="recharge" :opt="equipment._id">{{Number(equipment.system.recharge.value) || 16}}+</Rollable>
             </div>
@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { concat, localize, numberFormat } from '@/methods/Helpers';
+import { concat, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers';
 import Equipment from '@/components/parts/Equipment.vue';
 import Loot from '@/components/parts/Loot.vue';
 import Rollable from '@/components/parts/Rollable.vue';
@@ -115,6 +115,7 @@ export default {
     return {
       concat,
       localize,
+      localizeEquipmentBonus,
       numberFormat
     }
   },

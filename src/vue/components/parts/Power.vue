@@ -17,7 +17,7 @@
         <span class="power-detail-value" v-html="power.system.description.value"></span>
       </div>
       <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{power.system[field].label}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.system[field].value, [], diceFormulaMode, context.rollData, field)"></span>
+        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.system[field].value, [], diceFormulaMode, context.rollData, field)"></span>
       </div>
     </section>
     <!-- Feats. -->

@@ -13,6 +13,7 @@ ARCHMAGE:
   attack: Attack
   attackMod: Attack Modifier
   attributes: Attributes
+  arcane: Arcane
   avatarAlt: Character profile image
   background: Background
   backgrounds: Backgrounds
@@ -50,7 +51,10 @@ ARCHMAGE:
   defenses: Defenses
   description: Description
   details: Details
+  disengage: Disengage
+  disengageShort: Disengage
   disengageAdjustment: Disengage Adjustment
+  divine: Divine
   edit: Edit
   effects: Effects
   equipment: Equipment
@@ -407,34 +411,51 @@ ARCHMAGE:
   CHAKRA:
     armor: Armor, robe, shirt, tunic
     armorBonus: "Default Bonus: Armor Class"
+    armorLabel: Armor
     arrow: Arrow, crossbow bolt, slingstone
+    arrowLabel: Arrow
     belt: Belt, swordbelt, kilt, girdle
     beltBonus: "Default Bonus: Recoveries"
+    beltLabel: Belt
     book: Book, scroll, manual, grimoire
+    bookLabel: Book
     boots: Boots, sandals, slippers, shoes
     bootsBonus: "Default Bonus: Disengage Checks"
+    bootsLabel: Boots
     cloak: Cloak, mantle, cape
     cloakBonus: "Default Bonus: Physical Defense"
+    cloakLabel: Cloak
     glove: Glove, gauntlet, mitt
+    gloveLabel: Glove
     helmet: Helmet, circlet, crown, cap
     helmetBonus: "Default Bonus: Mental Defense"
+    helmetLabel: Helmet
     melee: Weapon, melee
+    meleeLabel: Melee
     necklace: Necklace, pendant
     necklaceBonus: "Default Bonus: Save bonus"
+    necklaceLabel: Neck
     none: None
     noBonus: No default bonus, depends on the item
     ranged: Weapon, ranged
+    rangedLabel: Ranged
     ring: Ring
+    ringLabel: Ring
     shield: Shield
     shieldBonus: "Default Bonus: Hit points"
+    shieldLabel: Shield
     staff: Staff (implement)
     staffBonus: "Operates as both a Wand and a Symbol"
+    staffLabel: Staff
     symbol: Symbol, holy relic, sacred sickle (implement)
     symbolBonus: "Default Bonus: Divine Attack and Damage"
+    symbolLabel: Symbol
     wand: Wand (implement)
     wandBonus: "Default Bonus: Arcane Attack and Damage"
+    wandLabel: Wand
     weaponBonus: "Default Bonus: Attack and Damage"
     wondrous: Wondrous item
+    wondrousLabel: Wondrous
   CHAT:
     actionType: Action Type
     adventurer: Adventurer Feat
@@ -513,8 +534,8 @@ ARCHMAGE:
     QuickRestBody: Regain per-battle powers, roll to recharge spent recharge powers, and roll recoveries to heal above 50% health.
     QuickRestHP: rolled {recoveries} healing {hp} HP
     range: Range
-    rangePlaceholder: Melee or Ranged
-    rangeTitle: Range of the power, such as 'Melee' or 'Ranged'
+    rangePlaceholder: Melee attack or Ranged spell
+    rangeTitle: Range of the power, such as 'Meele attack' or 'Ranged spell'
     recharge: Recharge
     rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
     RechargeFail: recharge failed
@@ -785,7 +806,7 @@ ARCHMAGE:
       After each battle, you can use a quick rest.
       You can choose to heal yourself using as many recoveries as you have available.
       If you are <b>Staggered</b> (at half <b>Hit Points</b> or below) you <b>must</b> try to heal yourself, either with a recovery, a spell or by other means.
-      For each recharge power you used in the last battle, roll to see if you recharge the power (roll a d20, meet or beat the recharge value). Otherwise, it is recharged after the next battle.
+      For each recharge power you used in the last battle, roll to see if you recharge the power (roll a d20, meet or beat the recharge value).
       Foundry automatically rolls power recharge rolls and recoveries when staggered upon clicking Quick Rest.
     pcRestFull: |
       After about four battles, you earned a full heal-up.
