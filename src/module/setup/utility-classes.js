@@ -281,6 +281,20 @@ export class ArchmageUtility {
       .replace("ac ", game.i18n.localize("ARCHMAGE.ac.label"));
   }
 
+  static localizeEquipmentBonus(bonusProp) {
+    const keys = [
+      "ARCHMAGE." + bonusProp.toLowerCase() + "Short",
+      "ARCHMAGE." + bonusProp.toLowerCase(),
+      "ARCHMAGE." + bonusProp.toLowerCase() + ".key"
+    ];
+    for (const key of keys) {
+      if (game.i18n.localize(key) !== key) {
+        return game.i18n.localize(key);
+      }
+    }
+    return bonusProp;
+  }
+
   /**
    * Formats localized tooltip text, taking one or more localization keys,
    * similar to game.i18n.localize(). 'ARCHMAGE.TOOLTIP.' is prepended to

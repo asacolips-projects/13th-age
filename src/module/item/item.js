@@ -202,6 +202,9 @@ export class ItemArchmage extends Item {
           for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
             let resourcePathName = "custom"+idx;
             let resourceName = res.spendable[resourcePathName].label;
+            if (!resourceName) {
+              continue; // Skip unnamed resources
+            }
             if (res.spendable[resourcePathName].enabled && str.includes(resourceName.toLowerCase())) {
               let path = `system.resources.spendable.${resourcePathName}.current`;
               let msg = game.i18n.format("ARCHMAGE.UI.errNoCustomResource", {res: resourceName});

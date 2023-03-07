@@ -7,6 +7,10 @@ export function localize(key) {
   return game.i18n.localize(key);
 }
 
+export function localizeEquipmentBonus(bonusProp) {
+  return game.archmage.ArchmageUtility.localizeEquipmentBonus(bonusProp);
+}
+
 export function tooltip(...keys) {
   return game.archmage.ArchmageUtility.tooltip(...keys);
 }
