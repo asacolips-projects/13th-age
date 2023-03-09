@@ -13,12 +13,18 @@ export default class ArchmageRolls {
     if (item.type == "power") {
       let targetLine = item.system.target.value;
       if (targetLine != null) {
+        let lineToParse = targetLine.toLowerCase();
         // First cleanup references to target HPs
-        let lineToParse = targetLine.replace(/[0-9]+ hp/g, '');
+        const stringHP = game.i18n.localize("ARCHMAGE.CHAT.HP").toLowerCase();
+        const regexHP = new RegExp("[0-9]+ " + stringHP, "g");
+        const regexHPInline = new RegExp("\\[\\[.+?\\]\\] " + stringHP, "g");
+        lineToParse = lineToParse.replace(regexHP, '');
+        lineToParse = lineToParse.replace(regexHPInline, '');
         // Then remove negative numbers
-        lineToParse = targetLine.replace(/-[0-9]+/g, '');
-
-        lineToParse = lineToParse.toLowerCase().replace(/\[\[.+?\]\] hp/g, '');
+        lineToParse = lineToParse.replace(/-[0-9]+/g, '');
+        // Remove all numbers with at least 2 digits (so 10+)
+        // except for inline rolls (by checking for preceding '[[')
+        lineToParse = lineToParse.replace(/(?<!\[\[)[0-9]{2,}/g, '');
         rolls = ArchmageRolls.getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
