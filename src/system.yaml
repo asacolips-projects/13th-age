@@ -296,6 +296,12 @@ packs:
     path: packs/srd-magic-items-wondrous-items.db
     system: archmage
 
+  - label: SRD Random Monster Abilities
+    type: Item
+    name: srd-random-monster-abilities
+    path: packs/srd-random-monster-abilities.db
+    system: archmage
+
   - label: System Macros
     type: Macro
     name: system-macros
