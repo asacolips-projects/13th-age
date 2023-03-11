@@ -5,7 +5,7 @@
       <div v-if="action.system?.hit1?.value" class="hanging-indent action-hit1"><em v-html="getLabel(action.system?.hit1?.name)"></em><span v-html="wrapRolls(action.system.hit1.value)"></span></div>
       <div v-if="action.system?.hit2?.value" class="hanging-indent action-hit2"><em v-html="getLabel(action.system?.hit2?.name)"></em><span v-html="wrapRolls(action.system.hit2.value)"></span></div>
       <div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3"><em v-html="getLabel(action.system?.hit3?.name)"></em><span v-html="wrapRolls(action.system.hit3.value)"></span></div>
-      <div v-if="action.system?.miss?.value" class="hanging-indent action-miss"><em>Miss:</em> <span v-html="wrapRolls(action.system.miss.value)"></span></div>
+      <div v-if="action.system?.miss?.value" class="hanging-indent action-miss"><em>{{localize('ARCHMAGE.miss')}}:</em> <span v-html="wrapRolls(action.system.miss.value)"></span></div>
       <div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
         <span class="action-detail-value" v-html="wrapRolls(action.system.description.value)"></span>
       </div>

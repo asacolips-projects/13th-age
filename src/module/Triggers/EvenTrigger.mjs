@@ -31,6 +31,6 @@ export default class EvenTrigger extends ITrigger{
     }
 
     doesntTriggerOn() {
-        return [ ];
+        return [ game.i18n.localize("ARCHMAGE.CHAT.odd").toLowerCase() ];
     }
 }

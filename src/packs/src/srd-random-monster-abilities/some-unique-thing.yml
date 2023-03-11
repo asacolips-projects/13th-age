@@ -1,0 +1,26 @@
+name: 'Some Unique Thing'
+type: 'trait'
+img: 'icons/svg/item-bag.svg'
+system:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: '<p>The dragon has an entirely unique characteristic, something akin to a player character&rsquo;s one unique thing except that the dragon&rsquo;s version may be relevant to combat. GM, if you don&rsquo;t feel like making something up, choose an ability from the list above.</p>'
+  group:
+    type: 'String'
+    label: 'Group'
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+permission:
+  default: 0
+_id: '0rqVrV3xubwboh88'
