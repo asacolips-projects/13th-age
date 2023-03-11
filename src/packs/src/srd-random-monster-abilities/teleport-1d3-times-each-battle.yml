@@ -1,0 +1,26 @@
+name: 'Teleport 1d3 times each battle'
+type: 'trait'
+img: 'icons/svg/item-bag.svg'
+system:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: '<p>As a move action, the demon can teleport anywhere it can see nearby.</p>'
+  group:
+    type: 'String'
+    label: 'Group'
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: '0KY6GWNAlL2Bp8MY'
+permission:
+  default: 0

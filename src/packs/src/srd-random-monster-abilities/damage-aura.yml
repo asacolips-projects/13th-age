@@ -1,0 +1,26 @@
+name: 'Damage aura'
+type: 'trait'
+img: 'icons/svg/item-bag.svg'
+system:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: '<p>When an enemy starts its turn engaged with the dragon, it takes damage equal to the dragon&rsquo;s level (adventurer tier), double the level (champion tier), or triple the level (epic tier). The damage type is the same as the dragon&rsquo;s breath weapon.</p>'
+  group:
+    type: 'String'
+    label: 'Group'
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: 'yG1UvxBhKUbgXuKp'
+permission:
+  default: 0

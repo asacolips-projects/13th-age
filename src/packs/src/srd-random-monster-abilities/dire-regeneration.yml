@@ -1,0 +1,26 @@
+name: 'Dire regeneration'
+type: 'trait'
+img: 'icons/svg/item-bag.svg'
+system:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: '<p>When the escalation die is even, this animal heals damage equal to triple its level at the start of its turn.</p>'
+  group:
+    type: 'String'
+    label: 'Group'
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: 'bJsnIYiCGygnN1dP'
+permission:
+  default: 0

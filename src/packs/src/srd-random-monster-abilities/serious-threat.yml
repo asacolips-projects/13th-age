@@ -1,0 +1,26 @@
+name: 'Serious threat'
+type: 'trait'
+img: 'icons/svg/item-bag.svg'
+system:
+  name:
+    type: 'String'
+    label: 'Name'
+  description:
+    type: 'String'
+    label: 'Description'
+    value: '<p>Disengage checks against the dragon take a &ndash;5 penalty. When a creature fails to disengage from the dragon, it takes damage equal to double the dragon&rsquo;s level.</p>'
+  group:
+    type: 'String'
+    label: 'Group'
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: 'Rd1NQjMS0mPYB8Ae'
+permission:
+  default: 0
