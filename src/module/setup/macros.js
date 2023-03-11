@@ -47,7 +47,7 @@ export class ArchmageMacros {
     let penalty = -4;
 
     // Reduce the penalty if we have the (1e) champion feat
-    if (archmage.item.system.feats.champion.isActive.value && !game.settings.get('archmage', 'secondEdition')) {
+    if (archmage.item.system.feats[1].isActive.value && !game.settings.get('archmage', 'secondEdition')) {
       penalty = -2;
     }
 
@@ -73,7 +73,7 @@ export class ArchmageMacros {
    * Outmaneuver.
    */
   static async commanderOutmaneuver(speaker, actor, token, character, archmage) {
-    const hasFeat = archmage.item.system.feats.champion.isActive.value;
+    const hasFeat = archmage.item.system.feats[1].isActive.value;
     const isEven = (archmage.hitEval.$rolls[0].d20result % 2 == 0);
     const bonus = (hasFeat && isEven) ? 2 : 1;
     const cp = actor?.system.resources.perCombat.commandPoints.current;
@@ -97,7 +97,7 @@ export class ArchmageMacros {
     const label = archmage.item.name;
 
     // Compute bonus amount
-    const hasFeat = archmage.item.system.feats.champion.isActive.value;
+    const hasFeat = archmage.item.system.feats[1].isActive.value;
     const bonus = hasFeat ? 2 : 1;
 
     // Check for previous effects
@@ -130,14 +130,17 @@ export class ArchmageMacros {
     if (!actor) return;
 
     let bonus = 2;
-    if (archmage.item.system.feats.champion.isActive.value) bonus = 3;
+    // If the champion feat in active increase the bonus
+    if (archmage.item.system.feats[1].isActive.value) bonus = 3;
     let effects = [
       { key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
     ];
-    if (archmage.item.system.feats.adventurer.isActive.value) {
+    // If the adventurer feat in active apply to PD
+    if (archmage.item.system.feats[0].isActive.value) {
       effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
-    if (archmage.item.system.feats.epic.isActive.value) {
+    // If the epic feat in active apply to MD
+    if (archmage.item.system.feats[2].isActive.value) {
       effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
 
