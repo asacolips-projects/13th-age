@@ -86,8 +86,62 @@ export class ItemArchmage extends Item {
   }
 
   async rollFeat(featId) {
-    console.log("W.I.P.")
-    return //ChatMessage.create(chatData, { displaySheet: false });
+    let feat = this.system.feats[featId];
+    if (!feat || !feat.isActive.value) return;
+
+    // Process uses
+    let updateData = {};
+    if (feat.quantity.value != undefined && feat.quantity.value != null) {
+      let path = `system.feats.${featId}.quantity.value`;
+      updateData[path] = feat.quantity.value - 1;
+
+      if (updateData[path] < 0) {
+        let stop = false;
+        await Dialog.confirm({
+          title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
+          content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
+          yes: () => {updateData[path] = 0},
+          no: () => {stop = true;},
+          defaultYes: false
+        });
+        if (stop) return;
+      }
+    }
+
+    const template = `systems/archmage/templates/chat/feat-card.html`;
+    const templateData = {
+      actor: this.actor,
+      tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
+      item: this,
+      feat: feat,
+      featName: game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`)
+    };
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      speaker: {
+        actor: this.actor.id,
+        token: null,
+        alias: this.actor.name,
+        scene: game.user.viewedScene
+      }
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    ChatMessage.applyRollMode(chatData, rollMode);
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+
+    // Enrich the message to parse inline rolls.
+    let rollData = this.actor.getRollData(this);
+    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
+
+    // Perform updates.
+    if (!foundry.utils.isEmpty(updateData)) this.update(updateData, {});
+
+    return ChatMessage.create(chatData, { displaySheet: false });
   }
 
   async _rollUsesCheck(updateData) {

@@ -26,9 +26,9 @@
         <strong class="feat-detail-label">{{localize(concat('ARCHMAGE.CHAT.', feat.tier.value))}}:</strong>
         <div class="flexrow">
           <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
-          <div class="feat-uses" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity.value">
-            <a v-if="feat.quantity.value !== null" class="rollable" data-roll-type="feat" :data-roll-opt="power._id" :data-roll-opt2="index"></a>
-            <span v-if="feat.quantity.value !== null">{{feat.quantity.value}}</span>
+          <div class="feat-uses">
+            <a class="rollable" data-roll-type="feat" :data-roll-opt="power._id" :data-roll-opt2="index"></a>
+            <span v-if="feat.quantity.value !== null" class="feat-uses-rollable" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity.value">{{feat.quantity.value}}</span>
           </div>
         </div>
       </div>
