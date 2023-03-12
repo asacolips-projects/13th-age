@@ -471,6 +471,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Get the roll type and roll options.
     let type = dataset.rollType ?? null;
     let opt = dataset.rollOpt ?? null;
+    let opt2 = dataset.rollOpt2 ?? null;
 
     if (type == 'item' && opt) this._onItemRoll(opt);
     else if (type == 'recovery') this._onRecoveryRoll(event);
@@ -481,6 +482,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else if (type == 'icon') this._onIconRoll(opt);
     else if (type == 'command') this._onCommandRoll(opt);
     else if (type == 'recharge') this._onRechargeRoll(opt);
+    else if (type == 'feat') this._onFeatRoll(opt, opt2);
 
     // Fallback to a plain formula roll.
     else if (opt) await this._onFormulaRoll(opt);
@@ -747,6 +749,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onRechargeRoll(itemId) {
     let item = this.actor.items.get(itemId);
     if (item) await item.recharge();
+  }
+
+  async _onFeatRoll(itemId, featId) {
+    let item = this.actor.items.get(itemId);
+    if (item) item.rollFeat(featId);
   }
 
   /* ------------------------------------------------------------------------ */

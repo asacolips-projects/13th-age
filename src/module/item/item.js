@@ -85,6 +85,11 @@ export class ItemArchmage extends Item {
     return suppressMessage ? undefined : ChatMessage.create(chatData, { displaySheet: false });
   }
 
+  async rollFeat(featId) {
+    console.log("W.I.P.")
+    return //ChatMessage.create(chatData, { displaySheet: false });
+  }
+
   async _rollUsesCheck(updateData) {
     // Update uses left
     let uses = this.system.quantity?.value;

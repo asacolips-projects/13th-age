@@ -27,7 +27,7 @@
         <div class="flexrow">
           <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
           <div class="feat-uses" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity.value">
-            <!-- <a class="rollable" data-roll-type="feat" :data-item-id="power._id" :data-item-featKey="index"></a> -->
+            <a v-if="feat.quantity.value !== null" class="rollable" data-roll-type="feat" :data-roll-opt="power._id" :data-roll-opt2="index"></a>
             <span v-if="feat.quantity.value !== null">{{feat.quantity.value}}</span>
           </div>
         </div>
