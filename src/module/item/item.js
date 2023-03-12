@@ -745,9 +745,9 @@ export class ItemArchmage extends Item {
       };
     })
 
-    const feats = [];
+    let feats = [];
     if (data.feats) {
-      Object.values(data.feats).map(f => {
+      feats = Object.values(data.feats).map(f => {
         return {
           label: f.tier ? f.tier.value : null,
           description: f.description ? f.description.value : null,
