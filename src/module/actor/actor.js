@@ -955,6 +955,7 @@ export class ActorArchmage extends Actor {
       await game.dice3d.showForRoll(roll, game.user, true);
     }
 
+
     let newHp = this.system.attributes.hp.value;
     let newRec = this.system.attributes.recoveries.value;
     if (!data.free) {newRec -= 1;}
@@ -962,6 +963,10 @@ export class ActorArchmage extends Actor {
       // Starting from 0 if at negative hp is handled in the actor update hook
       newHp = Math.min(this.system.attributes.hp.max, Math.max(0, newHp) + roll.total);
     }
+
+    // Handle desperate recharge
+    if (newRec <= 0 && this.system.attributes.recoveries.value >= 1) this.rechargeDesperate();
+
     await this.update({
       'system.attributes.recoveries.value': newRec,
       'system.attributes.hp.value': newHp
@@ -1163,7 +1168,7 @@ export class ActorArchmage extends Actor {
 
       if (item.type != 'power' && item.type != 'equipment') continue;
 
-      let usageArray = ['once-per-battle','daily','recharge'];
+      let usageArray = ['once-per-battle','daily','recharge', 'daily-desperate'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && item.system.quantity.value < maxQuantity
@@ -1189,6 +1194,22 @@ export class ActorArchmage extends Actor {
     ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     let msg = await ChatMessage.create(chatData, {displaySheet: false});
+  }
+
+  async rechargeDesperate() {
+    // Recharge all desperate recharge items
+    let items = this.items.map(i => i);
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      if (item.type != 'power' && item.type != 'equipment') continue;
+      let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
+      let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
+      if (maxQuantity && item.system.quantity.value < maxQuantity
+        && item.system.powerUsage?.value == 'daily-desperate') {
+        await item.update({ 'system.quantity': {value: maxQuantity} });
+        ui.notifications.info(game.i18n.format("ARCHMAGE.CHAT.desperateRecharge", { item: item.name }));
+      }
+    }
   }
 
   /* -------------------------------------------- */
@@ -1483,6 +1504,8 @@ export class ActorArchmage extends Actor {
         }
       }
     }
+    // Handle desperate recharge
+    if (data.system.attributes?.saves?.deathFails?.value == 1) this.rechargeDesperate();
 
     // Record deltas to show scrolling text in onUpdate
     // Done there since it fires on all clients, letting everyone see the text

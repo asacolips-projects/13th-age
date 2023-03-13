@@ -346,6 +346,7 @@ ARCHMAGE.equipUsages = {
   'daily': 'Daily',
   'recharge': 'Recharge',
   'once-per-battle': 'Per Battle',
+  'daily-desperate': 'Daily/Desperate',
   'other': 'Other'
 };
 
