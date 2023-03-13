@@ -602,7 +602,8 @@ function renderSceneTerrains() {
   let terrains = flag.filter(x => x !== 'none');
   if ( !terrains || (terrains.length === 0) ) return;
 
-  const aside = $(`<aside class="archmage-terrains"></aside>`);
+  const label = game.i18n.localize('ARCHMAGE.terrains');
+  const aside = $(`<aside class="archmage-terrains" data-terrains-text="${label}"></aside>`);
   if ( terrains ) {
       terrains.forEach(t => {
         const terrain = game.archmage.terrains.find(x => x.id === t);

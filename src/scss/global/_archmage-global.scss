@@ -1678,7 +1678,7 @@ option[selected] {
 
   &::before {
     bottom: 2px;
-    content: 'Terrains';
+    content: attr(data-terrains-text);
     font-family: $font-stack-base;
     font-size: 12px;
     left: 50%;
