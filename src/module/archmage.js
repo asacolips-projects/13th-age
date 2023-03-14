@@ -525,7 +525,14 @@ function addEscalationDie() {
   let escalation = ArchmageUtility.getEscalation();
   let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
   let text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
-  $('.archmage-hotbar').prepend(`<div class="archmage-escalation${hide}"><div class="ed-number" data-esc-die-text="${text}">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
+  $('.archmage-hotbar').prepend(
+    `<div class="archmage-escalation${hide}">
+       <div class="ed-number" data-esc-die-text="${text}">${escalation}</div>
+       <div class="ed-controls">
+         <button class="ed-control ed-plus">+</button>
+         <button class="ed-control ed-minus">-</button>
+       </div>
+     </div>`);
 
   // Add click events for ed.
   $('body').on('click', '.ed-control', (event) => {
