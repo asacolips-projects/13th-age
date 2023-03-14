@@ -607,12 +607,12 @@ export class ItemArchmage extends Item {
     // Update the item.
     if (rechargeSuccessful) {
       await this.update({
-        data: { quantity: { value: Number(currQuantity) + 1 } }
+        system: { quantity: { value: Number(currQuantity) + 1 } }
       });
     } else {
       // Record recharge attempt
       await this.update({
-        data: { rechargeAttempts: { value: Number(rechAttempts) + 1 } }
+        system: { rechargeAttempts: { value: Number(rechAttempts) + 1 } }
       });
     }
 

@@ -435,7 +435,6 @@ ARCHMAGE:
     necklaceBonus: "Default Bonus: Save bonus"
     necklaceLabel: Neck
     none: None
-    noneLabel: ""
     noBonus: No default bonus, depends on the item
     ranged: Weapon, ranged
     rangedLabel: Ranged
@@ -479,7 +478,7 @@ ARCHMAGE:
     Delete: Delete
     DeleteConfirm: Are you sure you want to delete this?
     DeleteConfirmTitle: Confirm deletion
-    desperateRecharge: "Desperate recharge of '{item}'"
+    desperateRecharge: Desperate Recharge
     effect: Effect
     epic: Epic Feat
     epicDescription: Epic Feat Description
@@ -500,7 +499,7 @@ ARCHMAGE:
     hitOdd: Odd Hit
     hitOddTitle: Effects that happen on odd hits
     HP: HP
-    ItemReset: restored uses to
+    ItemReset: uses restored to
     KiReset: reset to
     embeddedMacro: Embedded Macro
     embeddedMacroSummary: Edit the embedded macro that will be run on use.
