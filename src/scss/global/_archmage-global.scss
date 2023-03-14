@@ -1664,7 +1664,7 @@ option[selected] {
   font-family: $font-stack-secondary;
   font-size: 14px;
   height: 84px;
-  left: 54px;
+  left: 8px;
   line-height: 1.2;
   position: relative;
   text-align: center;
@@ -1673,6 +1673,10 @@ option[selected] {
 
   &.hide {
     display: none;
+  }
+
+  &.gm {
+    left: 54px;
   }
 
   &::before {

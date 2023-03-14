@@ -522,13 +522,14 @@ Hooks.on('setup', (data, options, id) => {
 /* ---------------------------------------------- */
 
 function addEscalationDie() {
-  let escalation = ArchmageUtility.getEscalation();
-  let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  let text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
+  const escalation = ArchmageUtility.getEscalation();
+  const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
+  const hideIfNotGM = game.user.isGM ? '' : ' hide';
+  const text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
   $('.archmage-hotbar').prepend(
     `<div class="archmage-escalation${hide}">
        <div class="ed-number" data-esc-die-text="${text}">${escalation}</div>
-       <div class="ed-controls">
+       <div class="ed-controls${hideIfNotGM}"">
          <button class="ed-control ed-plus">+</button>
          <button class="ed-control ed-minus">-</button>
        </div>
@@ -610,7 +611,8 @@ function renderSceneTerrains() {
   if ( !terrains || (terrains.length === 0) ) return;
 
   const label = game.i18n.localize('ARCHMAGE.terrains');
-  const aside = $(`<aside class="archmage-terrains" data-terrains-text="${label}"></aside>`);
+  const isGM = game.user.isGM ? ' gm' : '';
+  const aside = $(`<aside class="archmage-terrains${isGM}" data-terrains-text="${label}"></aside>`);
   if ( terrains ) {
       terrains.forEach(t => {
         const terrain = game.archmage.terrains.find(x => x.id === t);
