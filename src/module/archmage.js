@@ -570,6 +570,7 @@ Hooks.once('ready', () => {
   $('#ui-bottom').prepend(`<div class="archmage-hotbar"></div>`);
   addEscalationDie();
   $('body').append('<div class="archmage-preload"></div>');
+  renderSceneTerrains();
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
@@ -627,7 +628,7 @@ function renderSceneTerrains() {
 /* -------------------------------------------- */
 
 Hooks.on('canvasReady', (canvas) => {
-    renderSceneTerrains();
+  renderSceneTerrains();
 });
 
 /* -------------------------------------------- */
