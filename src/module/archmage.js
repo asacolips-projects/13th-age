@@ -524,7 +524,7 @@ Hooks.on('setup', (data, options, id) => {
 function addEscalationDie() {
   const escalation = ArchmageUtility.getEscalation();
   const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  const hideIfNotGM = game.user.isGM ? '' : ' hide';
+  const hideIfNotGM = !game.user.isGM ? ' hide' : '';
   const text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
   $('.archmage-hotbar').prepend(
     `<div class="archmage-escalation${hide}">
