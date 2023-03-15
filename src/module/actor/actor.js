@@ -958,7 +958,6 @@ export class ActorArchmage extends Actor {
       await game.dice3d.showForRoll(roll, game.user, true);
     }
 
-
     let newHp = this.system.attributes.hp.value;
     let newRec = this.system.attributes.recoveries.value;
     if (!data.free) {newRec -= 1;}
