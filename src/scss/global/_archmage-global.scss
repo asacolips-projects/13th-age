@@ -1575,54 +1575,55 @@ option[selected] {
   }
 }
 
+.archmage-hotbar {
+  justify-content: start !important; // Important needed to override Foundry's #ui-bottom
+  margin: 0 4px 8px;
+}
+
 // Escalation die.
 .archmage-escalation {
   background: $ct-black--75;
   border: 1px solid $c-black;
   border-radius: 5px;
-  bottom: 67px;
   box-shadow: 0 0 10px $c-black;
   box-sizing: content-box;
   color: $c-white;
   font-family: $font-stack-secondary;
   font-size: 60px;
-  height: 84px;
-  left: 221px;
   line-height: 1.2;
-  margin: 0 0 8px;
-  position: fixed;
+  margin-top: auto;
+  position: relative;
   text-align: center;
   width: 84px;
+  height: 84px;
 
   &.hide {
-    display: none;
-  }
-
-  &::after {
-    bottom: 2px;
-    content: attr(data-esc-die-text);
-    font-family: $font-stack-base;
-    font-size: 12px;
-    left: 50%;
-    line-height: 1;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 80px;
+    display: none !important; // Important needed to override Foundry's #ui-bottom
   }
 
   .ed-number {
-    pointer-events: none;
+    margin-bottom: 12px;
+    width: 100%;
+
+    &::after {
+      bottom: 2px;
+      content: attr(data-esc-die-text);
+      font-family: $font-stack-base;
+      font-size: 12px;
+      line-height: 1;
+      position: absolute;
+      left: 0;
+    }
   }
 
   .ed-controls {
-    display: flex;
+    pointer-events: all;
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
     top: -1px;
     left: calc(100% + 7px);
     width: 40px;
-    height: 86px;
   }
 
   .ed-control {
@@ -1636,9 +1637,9 @@ option[selected] {
     background: $ct-black--75;
     border: 1px solid $c-black;
     border-radius: 5px;
-    bottom: 67px;
     box-shadow: 0 0 10px $c-black;
     color: $c-white;
+    margin-bottom: 6px;
 
     &:hover,
     &:active {
@@ -1657,17 +1658,15 @@ option[selected] {
   background: $ct-black--75;
   border: 1px solid $c-black;
   border-radius: 5px;
-  bottom: 67px;
   box-shadow: 0 0 10px $c-black;
   box-sizing: content-box;
   color: $c-white;
   font-family: $font-stack-secondary;
   font-size: 14px;
   height: 84px;
-  left: 360px;
+  left: 8px;
   line-height: 1.2;
-  margin: 0 0 8px;
-  position: fixed;
+  position: relative;
   text-align: center;
   width: 200px;
   padding: 5px;
@@ -1676,9 +1675,13 @@ option[selected] {
     display: none;
   }
 
+  &.gm {
+    left: 54px;
+  }
+
   &::before {
     bottom: 2px;
-    content: 'Terrains';
+    content: attr(data-terrains-text);
     font-family: $font-stack-base;
     font-size: 12px;
     left: 50%;
