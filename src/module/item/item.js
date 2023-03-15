@@ -73,7 +73,15 @@ export class ItemArchmage extends Item {
     if (game.modules.get("times-up")?.active) await this._rollMonkAC(itemToRender);
 
     // Run embedded macro.
-    let suppressMessage = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);
+    let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);
+    // Unpack macro data in case a sloppy macro replaces instead of modifying variables
+    itemToRender = macro.item;
+    itemUpdateData = macro.itemUpdates;
+    actorUpdateData = macro.actorUpdates;
+    chatData = macro.chat;
+    hitEvalRes = macro.hitEvalRes;
+    sequencerAnim = macro.seqAnim;
+    let suppressMessage = macro.suppressMessage;
 
     // Perform animations.
     await this._rollAnimate(chatData, sequencerAnim);
@@ -592,7 +600,7 @@ export class ItemArchmage extends Item {
       }
     }
 
-    return macro_data.suppressMessage;
+    return macro_data;
   }
 
 

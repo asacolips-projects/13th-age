@@ -388,9 +388,9 @@ ARCHMAGE:
     divineBonus: Divine Spell / Divine Attack Bonus
     escalationBlockedHint: Denies usage of Escalation Die
     critModBonus: Critical Hit Modifier Bonus
-    critModBonusHint: +1 means you would crit on 19-20, etc
+    critModBonusHint: +1 means you would crit on 19+, etc.
     critDefBonus: Critical Hit Defense Bonus
-    critDefBonusHint: +1 means something that would crit you on 19-20 only crits on 20.
+    critDefBonusHint: +1 means something that would crit you on 20 crits you on 19+, etc.
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
     mdBonus: MD Bonus
@@ -435,6 +435,7 @@ ARCHMAGE:
     necklaceBonus: "Default Bonus: Save bonus"
     necklaceLabel: Neck
     none: None
+    noneLabel: ""
     noBonus: No default bonus, depends on the item
     ranged: Weapon, ranged
     rangedLabel: Ranged

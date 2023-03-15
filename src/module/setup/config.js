@@ -24,17 +24,17 @@ ARCHMAGE.statusEffects = [
     journal: "u9VHMyTBvK4lLbPa",
     changes: [
       {
-        key: 'data.attributes.ac.value',
+        key: 'system.attributes.ac.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.pd.value',
+        key: 'system.attributes.pd.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.md.value',
+        key: 'system.attributes.md.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
@@ -55,7 +55,7 @@ ARCHMAGE.statusEffects = [
     journal: "dk4ua6smvjafdrqm",
     changes: [
       {
-        key: 'data.attributes.attackMod.value',
+        key: 'system.attributes.attackMod.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
@@ -69,12 +69,12 @@ ARCHMAGE.statusEffects = [
     journal: "gy68o7eat5p6bpgq",
     changes: [
       {
-        key: 'data.attributes.escalation.value',
+        key: 'system.attributes.escalation.value',
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
         value: '0'
       },
       {
-        key: 'data.attributes.attackMod.value',
+        key: 'system.attributes.attackMod.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
@@ -95,17 +95,17 @@ ARCHMAGE.statusEffects = [
     journal: "g20s05odo7v5mw2q",
     changes: [
       {
-        key: 'data.attributes.ac.value',
+        key: 'system.attributes.ac.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.pd.value',
+        key: 'system.attributes.pd.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.md.value',
+        key: 'system.attributes.md.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
@@ -133,17 +133,17 @@ ARCHMAGE.statusEffects = [
     journal: "2rxwthymp5rl1dqe",
     changes: [
       {
-        key: 'data.attributes.ac.value',
+        key: 'system.attributes.ac.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.pd.value',
+        key: 'system.attributes.pd.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.md.value',
+        key: 'system.attributes.md.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
@@ -157,7 +157,7 @@ ARCHMAGE.statusEffects = [
     journal: "bi9ye2usgfsdpubs",
     changes: [
       {
-        key: 'data.attributes.critMod.def.value',
+        key: 'system.attributes.critMod.def.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '2'
       }
@@ -171,22 +171,22 @@ ARCHMAGE.statusEffects = [
     journal: "3r2jt3c6skn7gw7d",
     changes: [
       {
-        key: 'data.attributes.attackMod.value',
+        key: 'system.attributes.attackMod.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.ac.value',
+        key: 'system.attributes.ac.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.pd.value',
+        key: 'system.attributes.pd.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       },
       {
-        key: 'data.attributes.md.value',
+        key: 'system.attributes.md.value',
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }

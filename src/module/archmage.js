@@ -524,11 +524,18 @@ Hooks.on('setup', (data, options, id) => {
 /* ---------------------------------------------- */
 
 function addEscalationDie() {
-  let escalation = ArchmageUtility.getEscalation();
-  let hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  let text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
-  $('body').append(`<div class="archmage-escalation${hide}" data-esc-die-text="${text}"><div class="ed-number">${escalation}</div><div class="ed-controls"><button class="ed-control ed-plus">+</button><button class="ed-control ed-minus">-</button></div></div>`);
-  $('body').append('<div class="archmage-preload"></div>');
+  const escalation = ArchmageUtility.getEscalation();
+  const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
+  const hideIfNotGM = !game.user.isGM ? ' hide' : '';
+  const text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
+  $('.archmage-hotbar').prepend(
+    `<div class="archmage-escalation${hide}">
+       <div class="ed-number" data-esc-die-text="${text}">${escalation}</div>
+       <div class="ed-controls${hideIfNotGM}"">
+         <button class="ed-control ed-plus">+</button>
+         <button class="ed-control ed-minus">-</button>
+       </div>
+     </div>`);
 
   // Add click events for ed.
   $('body').on('click', '.ed-control', (event) => {
@@ -562,8 +569,10 @@ function addEscalationDie() {
 /* -------------------------------------------- */
 
 Hooks.once('ready', () => {
-
+  $('#ui-bottom').prepend(`<div class="archmage-hotbar"></div>`);
   addEscalationDie();
+  $('body').append('<div class="archmage-preload"></div>');
+  renderSceneTerrains();
 
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
@@ -604,7 +613,9 @@ function renderSceneTerrains() {
   let terrains = flag.filter(x => x !== 'none');
   if ( !terrains || (terrains.length === 0) ) return;
 
-  const aside = $(`<aside class="archmage-terrains"></aside>`);
+  const label = game.i18n.localize('ARCHMAGE.terrains');
+  const isGM = game.user.isGM ? ' gm' : '';
+  const aside = $(`<aside class="archmage-terrains${isGM}" data-terrains-text="${label}"></aside>`);
   if ( terrains ) {
       terrains.forEach(t => {
         const terrain = game.archmage.terrains.find(x => x.id === t);
@@ -613,13 +624,13 @@ function renderSceneTerrains() {
   }
   // Set height based on number of terrains
   aside.css('height', `${18 * (terrains.length + 1)}px`);
-  $('body').append(aside);
+  $('.archmage-hotbar').append(aside);
 }
 
 /* -------------------------------------------- */
 
 Hooks.on('canvasReady', (canvas) => {
-    renderSceneTerrains();
+  renderSceneTerrains();
 });
 
 /* -------------------------------------------- */
