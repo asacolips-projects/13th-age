@@ -152,11 +152,11 @@ system:
   feats:
     0:
       description:
-         type: 'String'
-         value: '<p>FEAT</p>'
+        type: 'String'
+        value: '<p>FEAT</p>'
       isActive:
-         type: 'Boolean'
-         value: false
+        type: 'Boolean'
+        value: false
       tier:
         type: 'String'
         value: 'adventurer'
@@ -171,11 +171,11 @@ system:
         value: null
     1:
       description:
-         type: 'String'
-         value: '<p>FEAT</p>'
+        type: 'String'
+        value: '<p>FEAT</p>'
       isActive:
-         type: 'Boolean'
-         value: false
+        type: 'Boolean'
+        value: false
       tier:
         type: 'String'
         value: 'champion'
@@ -190,11 +190,11 @@ system:
         value: null
     2:
       description:
-         type: 'String'
-         value: '<p>FEAT</p>'
+        type: 'String'
+        value: '<p>FEAT</p>'
       isActive:
-         type: 'Boolean'
-         value: false
+        type: 'Boolean'
+        value: false
       tier:
         type: 'String'
         value: 'epic'
