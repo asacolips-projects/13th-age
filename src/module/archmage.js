@@ -175,7 +175,7 @@ Hooks.once('init', async function() {
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
     if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
-    else CONFIG.statusEffects = ARCHMAGE.statusEffects;
+    else CONFIG.statusEffects = duplicate(ARCHMAGE.statusEffects);
   }
   game.settings.register('archmage', 'extendedStatusEffects', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
@@ -203,6 +203,10 @@ Hooks.once('init', async function() {
 
     // Rename hampered to hindered
     id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
+    // append copy to parsing object so that both exist for parsing purposes
+    CONFIG.ARCHMAGE.statusEffects.push(duplicate(CONFIG.statusEffects[id]));
+    // then update condition
+    CONFIG.statusEffects[id].id = "hindered";
     CONFIG.statusEffects[id].label = "ARCHMAGE.EFFECT.StatusHindered";
     CONFIG.statusEffects[id].journal = "FHDyJEb29LWnO2Dg";
 
