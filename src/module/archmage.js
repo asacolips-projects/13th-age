@@ -441,6 +441,8 @@ Hooks.once('init', async function() {
     else parts.push((actor.type === 'npc' ? 0.01 : 0));
     return parts.filter(p => p !== null).join(" + ");
   }
+
+  ArchmageUtility.fixVuePopoutBug();
 });
 
 Hooks.on('setup', (data, options, id) => {
