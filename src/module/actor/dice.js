@@ -98,14 +98,7 @@ export class DiceArchmage {
         user: game.user.id,
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
-        speaker: {
-          // ChatMessage.getSpeaker() goes by selected token,
-          // but we know which actor's sheet this was rolled from, so use that.
-          actor: actor.id,
-          token: actor.token,
-          alias: actor.name,
-          scene: game.user.viewedScene
-        }
+        speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
       };
 
       // Prepare template data.
