@@ -432,12 +432,7 @@ export class ItemArchmage extends Item {
     // Basic chat message data
     const chatData = {
       user: game.user.id,
-      speaker: {
-        actor: itemToRender.actor.id,
-        token: null,
-        alias: itemToRender.actor.name,
-        scene: game.user.viewedScene
-      }
+      speaker: game.archmage.ArchmageUtility.getSpeaker(itemToRender.actor)
     };
 
     // Toggle default roll mode
@@ -642,12 +637,7 @@ export class ItemArchmage extends Item {
         user: game.user.id,
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
-        speaker: {
-          actor: actor.id,
-          token: actor.token,
-          alias: actor.name,
-          scene: game.user.viewedScene
-        }
+        speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
       };
 
       const templateData = {

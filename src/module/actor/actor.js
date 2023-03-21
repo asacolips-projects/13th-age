@@ -716,12 +716,7 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       roll: roll,
-      speaker: {
-        actor: this.id,
-        token: token,
-        alias: this.name,
-        scene: game.user.viewedScene
-      }
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
 
     const templateData = {
@@ -926,8 +921,8 @@ export class ActorArchmage extends Actor {
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
       const chatData = {
-        user: game.user.id, speaker: {actor: this.id, token: this.token,
-        alias: this.name, scene: game.user.viewedScene},
+        user: game.user.id,
+        speaker: game.archmage.ArchmageUtility.getSpeaker(this)
       };
 
       // Toggle default roll mode
@@ -1103,8 +1098,8 @@ export class ActorArchmage extends Actor {
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-short-card.html`
     const chatData = {
-      user: game.user.id, speaker: {actor: this.id, token: this.token,
-      alias: this.name, scene: game.user.viewedScene},
+      user: game.user.id,
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
     let rollMode = game.settings.get("core", "rollMode");
     ChatMessage.applyRollMode(chatData, rollMode);
@@ -1216,8 +1211,8 @@ export class ActorArchmage extends Actor {
     // Print outcomes to chat
     const template = `systems/archmage/templates/chat/rest-full-card.html`
     const chatData = {
-      user: game.user.id, speaker: {actor: this.id, token: this.token,
-      alias: this.name, scene: game.user.viewedScene},
+      user: game.user.id,
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
     let rollMode = game.settings.get("core", "rollMode");
     ChatMessage.applyRollMode(chatData, rollMode);
