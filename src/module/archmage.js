@@ -175,7 +175,7 @@ Hooks.once('init', async function() {
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
     if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
-    else CONFIG.statusEffects = ARCHMAGE.statusEffects;
+    else CONFIG.statusEffects = duplicate(ARCHMAGE.statusEffects);
   }
   game.settings.register('archmage', 'extendedStatusEffects', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
@@ -201,10 +201,9 @@ Hooks.once('init', async function() {
     CONFIG.statusEffects[id].changes = null;
     CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
 
-    // Rename hampered to hindered
+    // Remove 1e hampered from context menu status effects
     id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
-    CONFIG.statusEffects[id].label = "ARCHMAGE.EFFECT.StatusHindered";
-    CONFIG.statusEffects[id].journal = "FHDyJEb29LWnO2Dg";
+    delete CONFIG.statusEffects[id];
 
     // Update class base stats
     for (let cl of Object.keys(CONFIG.ARCHMAGE.classes2e)) {
@@ -215,6 +214,10 @@ Hooks.once('init', async function() {
   } else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
+
+    // Remove 2e hindered from context menu status effects
+    let id = CONFIG.statusEffects.findIndex(e => e.id == "hindered");
+    delete CONFIG.statusEffects[id];
   }
 
   // Assign the actor class to the CONFIG

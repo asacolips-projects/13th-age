@@ -80,12 +80,18 @@ ARCHMAGE.statusEffects = [
       }
     ]
   },
-  // Hampered.
+  // Hampered / Hindered.
   {
     id: "hampered",
     label: "ARCHMAGE.EFFECT.StatusHampered",
     icon: "icons/svg/paralysis.svg",
     journal: "mk69wxlsqwnydwip"
+  },
+  {
+    id: "hindered",
+    label: "ARCHMAGE.EFFECT.StatusHindered",
+    icon: "icons/svg/paralysis.svg",
+    journal: "FHDyJEb29LWnO2Dg"
   },
   // Helpless.
   {
