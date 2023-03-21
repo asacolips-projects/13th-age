@@ -1,10 +1,11 @@
-$bg-night: #292929;
-$bx-night: inset 0 0 100px 0 #191919;
+$c-night: #292929;
+$c-night-darker: #191919;
+$bx-night: inset 0 0 100px 0 $c-night-darker;
 
 .archmage-v2.sheet .window-content {
   .archmage-v2-vue.nightmode {
     // background-image: url('#{$assets}/paper-v2-nightmode.webp');
-    background: $bg-night;
+    background: $c-night;
     box-shadow: $bx-night;
     color: $c-white;
 
@@ -175,6 +176,10 @@ $bx-night: inset 0 0 100px 0 #191919;
 
     .expression {
       color: #ff7b7b;
+    }
+
+    .input-edit {
+      background: $c-night-darker;
     }
   }
 }
