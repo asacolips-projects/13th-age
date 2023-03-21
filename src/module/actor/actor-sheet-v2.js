@@ -602,12 +602,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         user: game.user.id,
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
-        speaker: {
-          actor: this.actor.id,
-          token: this.actor.token,
-          alias: this.actor.name,
-          scene: game.user.viewedScene
-        }
+        speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor)
       };
 
       const templateData = {
@@ -712,12 +707,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       user: game.user.id,
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       roll: roll,
-      speaker: {
-        actor: actor.id,
-        token: actor.token,
-        alias: actor.name,
-        scene: game.user.viewedScene
-      }
+      speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
     };
 
     const templateData = {
