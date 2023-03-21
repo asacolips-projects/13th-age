@@ -96,21 +96,18 @@ export default {
 <style lang="scss">
 .archmage-v2.npc-sheet {
   .section--attributes {
+    padding-top: 0;
     padding-bottom: 0;
-    margin: 0 0 12px;
+    margin: 2px 0 16px 0;
 
     .unit--attributes {
+      padding: 6px 0;
+      margin-top: 0;
       margin-bottom: 0;
     }
 
     &.collapsed {
-      padding-top: 0;
-      margin: 12px 0;
-
       .unit--attributes {
-        padding: 6px 0;
-        margin-top: 0;
-
         &::before {
           top: -4px;
           height: 3px;

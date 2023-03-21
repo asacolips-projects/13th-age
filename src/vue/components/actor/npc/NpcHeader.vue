@@ -16,7 +16,7 @@
         <!-- Flavor text -->
         <div class="unit unit--hide-label unit--flavor">
           <label for="system.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
-          <Editor :owner="actor.owner" target='system.details.flavor.value' button="true" editable="true" :content="actor.system.details.flavor.value"/>
+          <Editor :owner="actor.owner" target='system.details.flavor.value' button="true" editable="true" :title="localize('ARCHMAGE.flavor')" :content="actor.system.details.flavor.value"/>
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">
@@ -49,12 +49,12 @@
           </ToggleInput>
         </div>
         <!-- Resistance -->
-        <div class="unit unit--resistance flexrow">
+        <div class="unit unit--resistance flexrow" v-if="!headerCollapsed||actor.system.details.resistance.value">
           <label for="system.details.resistance.value">{{localize('ARCHMAGE.resistance')}}: </label>
           <input type="text" name="system.details.resistance.value" v-model="actor.system.details.resistance.value"/>
         </div>
         <!-- Vulnerability -->
-        <div class="unit unit--vulnerability flexrow">
+        <div class="unit unit--vulnerability flexrow" v-if="!headerCollapsed||actor.system.details.vulnerability.value">
           <label for="system.details.vulnerability.value">{{localize('ARCHMAGE.vulnerability')}}: </label>
           <input type="text" name="system.details.vulnerability.value" v-model="actor.system.details.vulnerability.value"/>
         </div>
@@ -91,8 +91,8 @@
     data() {
       return {
         avatarClass: 'avatar',
-        avatarWidth: 105,
-        avatarHeight: 105,
+        avatarWidth: 110,
+        avatarHeight: 110,
         headerCollapsed: this.flags?.sheetDisplay?.header?.collapsed ?? false
       }
     },
@@ -201,6 +201,10 @@
     }
   }
 
+  .section--header-top {
+    padding-right: $padding-lg;
+  }
+
   .section--avatar {
     flex: 0 auto;
   }
@@ -232,8 +236,8 @@
 
     h1 {
       font-family: $font-stack-secondary;
-      font-weight: normal;
-      font-size: 38px;
+      font-size: 24px;
+      font-weight: bold;
       border: none;
       line-height: 0.8;
     }
@@ -245,13 +249,13 @@
     max-width: 100%;
     width: auto;
     height: auto;
-    max-width: 105px;
-    max-height: 105px;
+    max-width: 110px;
+    max-height: 110px;
     border: 0;
 
     &.avatar--square {
       width: auto;
-      height: 105px;
+      height: 110px;
     }
 
     &.avatar--frame {
@@ -267,8 +271,8 @@
 
   .unit--img {
     flex: 0 auto;
-    width: 105px;
-    margin-right: $padding-lg;
+    width: 110px;
+    margin-left: $padding-sm;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -344,7 +348,17 @@
 
     .unit--flavor {
       font-style: italic;
-      margin: $padding-sm 0;
+      margin: 0 0 $padding-sm 0;
+      line-height: 1.3;
+    }
+
+    .unit--flavor .editor-content {
+      padding: 0 $padding-sm;
+      min-height: 2.5em;
+    }
+
+    .unit--flavor .editor-content p {
+      margin: 0.2em 0;
     }
 
   }
@@ -353,9 +367,9 @@
     transition: all ease-in-out 0.25s;
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 12px;
+    top: -$padding-sm;
+    right: -$padding-md;
+    padding: $padding-md;
   }
 
   .collapsed {
@@ -366,18 +380,15 @@
       padding-right: 85px;
     }
     .unit--img {
-      width: 65px;
+      width: 55px;
+      margin: 0 $padding-lg 0 $padding-sm;
 
       .avatar {
         width: auto;
-        height: 65px;
-        margin-top: -25px;
-        margin-right: -35px;
+        height: 55px;
+        margin-top: -35px;
+        margin-right: 0px;
       }
-    }
-    .unit--name h1 {
-      font-size: 24px;
-      font-weight: bold;
     }
     .toggle-header {
       transform: rotate(180deg);
