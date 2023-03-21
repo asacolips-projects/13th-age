@@ -294,6 +294,19 @@ export class ArchmageUtility {
     }
     return bonusProp;
   }
+  
+  static fixVuePopoutBug() {
+    // Workaround for upstream Vue bug:
+    // https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/177
+    // Remove once Vue fixed event handling in iframes/windows.
+    Hooks.on("PopOut:popout", async function (app, popout) {
+      const handler = (e) => {
+        Object.defineProperty(e, "timeStamp", { get: () => performance.now() })
+      }
+      const events = Object.keys(window).filter(name => name.substring(0, 2) == 'on').map(name => name.substring(2));
+      events.forEach((name) => popout.addEventListener(name, handler, true));
+    });
+  }
 
   /**
    * Formats localized tooltip text, taking one or more localization keys,
