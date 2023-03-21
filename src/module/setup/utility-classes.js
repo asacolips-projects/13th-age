@@ -354,6 +354,21 @@ export class ArchmageUtility {
 
     return out;
   }
+
+  static getSpeaker(actor) {
+    const speaker = ChatMessage.getSpeaker({actor});
+    if (!actor) return speaker;
+    let token = actor.token;
+    if (!token) token = actor.getActiveTokens()[0];
+    if (token) {
+      speaker.alias = token.name;
+    } else {
+      if (actor.prototypeToken) {
+        speaker.alias = actor.prototypeToken.name;
+      }
+    }
+    return speaker
+  }
 }
 
 /**
