@@ -150,6 +150,9 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       });
     }
 
+    // Filter changes for empty form fields.
+    ae.changes = ae.changes.filter(c => c.value !== null);
+
     return this.object.update(ae);
   }
 }
