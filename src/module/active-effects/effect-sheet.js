@@ -54,7 +54,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     ae.description = formData.description;
 
     // Retrieve the existing effects.
-    const effectData = this.getData();
+    const effectData = await this.getData();
     // @todo c.toObject(false) doesn't appear to be needed after v10, investigate
     // if we can clean this up after v10 stable.
     let changes = effectData?.data?.changes ? effectData.data.changes.map(c => typeof c.toObject !== 'undefined' ? c.toObject(false) : c) : [];
