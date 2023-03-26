@@ -54,10 +54,8 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     ae.description = formData.description;
 
     // Retrieve the existing effects.
-    const effectData = this.getData();
-    // @todo c.toObject(false) doesn't appear to be needed after v10, investigate
-    // if we can clean this up after v10 stable.
-    let changes = effectData?.data?.changes ? effectData.data.changes.map(c => typeof c.toObject !== 'undefined' ? c.toObject(false) : c) : [];
+    const effectData = await this.getData();
+    let changes = effectData?.data?.changes ? effectData.data.changes : [];
 
     // Build an array of effects from the form data
     let newChanges = [
@@ -151,6 +149,9 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
         value: '0'
       });
     }
+
+    // Filter changes for empty form fields.
+    ae.changes = ae.changes.filter(c => c.value !== null);
 
     return this.object.update(ae);
   }
