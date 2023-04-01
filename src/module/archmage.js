@@ -198,7 +198,7 @@ Hooks.once('init', async function() {
 
     // Remove AE from vulnerable
     let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
-    CONFIG.statusEffects[id].changes = null;
+    delete CONFIG.statusEffects[id].changes;
     CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
 
     // Remove 1e hampered from context menu status effects
