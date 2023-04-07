@@ -1169,7 +1169,7 @@ export class ActorArchmage extends Actor {
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
-        && (item.system.quantity.value < maxQuantity || system.rechargeAttempts.value > 0)) {
+        && (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
         await item.update({
           'system.quantity': {value: maxQuantity},
           'system.rechargeAttempts': {value: 0}
