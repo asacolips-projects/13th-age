@@ -212,6 +212,8 @@ ARCHMAGE:
     staggeredOverlayName: Staggered as overlay
     sheetTooltipsHint: Adds tooltips to sheets containing relevant SRD rules and tips. May be most useful when first learning the system or for the GM who only references player sheets occasionally. Client setting.
     sheetTooltipsName: Sheet tooltips
+    showPrivateGMAttackRollsHint: Shows 3D dice and their result for item/attack rolls to players when the GM's roll mode it set to "Private GM roll". Only the dice are shown, not the chat cards. Dice rolls may be useful to know for players (in cases such as the Fighter's Counter-Attack).
+    showPrivateGMAttackRollsName: Show 3D dice for private GM rolls
     tourVisibilityAll: Everyone can see tours
     tourVisibilityGM: Only the GM can see tours
     tourVisibilityHint: When new versions of Toolkit13 are released, the system will display a tour of the changes. Use this setting to determine who should see the tours (or if they should be disabled).

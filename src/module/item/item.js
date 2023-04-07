@@ -442,7 +442,11 @@ export class ItemArchmage extends Item {
         if (rolls.length > 0) {
           for (let r of rolls) {
             var hide = chatData.whisper.length ? chatData.whisper : null;
-            if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
+            if (hide && game.user.isGM &&
+                game.settings.get("archmage", "showPrivateGMAttackRolls") &&
+                game.settings.get("core", "rollMode") === "gmroll") {
+              hide = null;
+            } else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
               hide = null;
               r.ghost = true;
             }
