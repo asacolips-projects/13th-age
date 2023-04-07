@@ -441,9 +441,15 @@ export class ItemArchmage extends Item {
         rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
           for (let r of rolls) {
-            await game.dice3d.showForRoll(r, game.user, true,
-              chatData["whisper"] ? chatData["whisper"] : null,
-              chatData["blind"] && !game.user.isGM ? true : false);
+            var hide = chatData.whisper.length ? chatData.whisper : null;
+            if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
+              hide = null;
+              r.ghost = true;
+            }
+            await game.dice3d.showForRoll(
+              r, game.user, true, hide,
+              chatData.blind && !game.user.isGM,
+              null, chatData.speaker);
           }
         }
       }
