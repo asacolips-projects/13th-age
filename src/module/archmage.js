@@ -988,6 +988,77 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   });
 });
 
+Hooks.on("getChatLogEntryContext", (html, options) => {
+  let canApply = li => {
+    const message = game.messages.get(li.data("messageId"));
+    return message?.isRoll && message?.isContentVisible;
+  };
+  let getRoll = li => {
+    const message = game.messages.get(li.data("messageId"));
+    const roll = message?.rolls[0];
+    return roll;
+  }
+  options.push(
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), 1);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), .5);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), 2);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), 3);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
+      icon: '<i class="fas fa-medkit"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asHealing(getRoll(li), 1);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
+      icon: '<i class="fas fa-medkit"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asHealing(getRoll(li), .5);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
+      icon: '<i class="fas fa-heart"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asTempHealth(getRoll(li));
+      }
+    }
+  );
+  return options;
+});
+
 /* ---------------------------------------------- */
 
 // Update the escalation die tracker. Character values for the escalation die
