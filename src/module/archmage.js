@@ -875,9 +875,17 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).off("contextmenu");
 
     const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ":";
+    const triggerCastPower = game.i18n.localize("ARCHMAGE.CHAT.castPower") + ":";
+    if ($(this).parent()[0].innerText.includes(triggerTarget) &&
+        !$(this).parent()[0].innerText.includes(triggerCastPower)) {
+      // Ignore if this is a "Target:" line (but not if its "Cast for Power:",
+      // which in some localizations contains "Target:").
+      return;
+    }
+
     const triggerAttack = game.i18n.localize("ARCHMAGE.attack") + ":";
-    if ($(this).parent()[0].innerText.includes(triggerTarget) ||
-        $(this).parent()[0].innerText.includes(triggerAttack)) {
+    if ($(this).parent()[0].innerText.includes(triggerAttack)) {
+      // Ignore if this is a "Attack:" line.
       return;
     }
 
