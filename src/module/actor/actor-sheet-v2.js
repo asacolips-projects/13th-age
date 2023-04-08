@@ -616,19 +616,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         data: chatData
       };
 
-      // Toggle default roll mode
-      let rollMode = game.settings.get("core", "rollMode");
-      ChatMessage.applyRollMode(chatData, rollMode);
-
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
 
-      let message = await ChatMessage.create(chatData, { displaySheet: false });
-
-      if (game.dice3d && message?.id) {
-        // Wait for 3D dice animation to finish before handling results if enabled
-        await game.dice3d.waitFor3DAnimationByMessageID(message.id);
-      }
+      await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
       // Update actor.
       let updateData = {};
@@ -716,18 +707,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       data: chatData
     };
 
-    // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
-
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
-    const msg = await ChatMessage.create(chatData, { displaySheet: false });
 
-    if (game.dice3d && msg?.id) {
-      // Wait for 3D dice animation to finish before handling results if enabled
-      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
-    }
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
     await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
   }
