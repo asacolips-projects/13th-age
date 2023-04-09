@@ -1064,7 +1064,7 @@ export class ActorArchmage extends Actor {
         }
       }
       // Feats
-      if (item.type == "power") {
+      if (item.type == "power" && item.system.feats) {
         for (let index of Object.keys(item.system.feats)) {
           let feat = item.system.feats[index];
           if (!feat.isActive?.value) continue;
@@ -1175,7 +1175,7 @@ export class ActorArchmage extends Actor {
         });
       }
       // Feats
-      if (item.type == "power") {
+      if (item.type == "power" && item.system.feats) {
         for (let index of Object.keys(item.system.feats)) {
           let feat = item.system.feats[index];
           if (!feat.isActive?.value) continue;
