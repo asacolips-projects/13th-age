@@ -391,6 +391,15 @@ Hooks.once('init', async function() {
     type: Boolean
   });
 
+  game.settings.register('archmage', 'showPrivateGMAttackRolls', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsHint"),
+    scope: 'world',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
   game.settings.register('archmage', 'nightmode', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeHint"),
