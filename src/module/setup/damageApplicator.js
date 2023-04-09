@@ -1,21 +1,17 @@
 export class DamageApplicator {
 
-  getRollValue(inlineRoll) {
-    return Number.parseInt(inlineRoll[0].innerText.trim());
+  getRollValue(roll) {
+    if (Number.isInteger(roll)) {
+      return roll;
+    }
+    if (roll instanceof Roll) {
+      return roll.total;
+    }
+    return Number.parseInt(roll[0].innerText.trim());
   }
 
-/*   getTokenAttribute(token, attribute) {
-    if (token.data?.actorData?.data?.attributes != undefined) {
-      // Return token overridden value
-      if (token.data.actorData.data.attributes[attribute]) {
-        return token.data.actorData.data.attributes[attribute];
-      }
-    }
-    return token.actor.system.attributes[attribute];
-  } */
-
-  asDamage(inlineRoll, modifier) {
-    let toApply = this.getRollValue(inlineRoll);
+  asDamage(roll, modifier) {
+    let toApply = this.getRollValue(roll);
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
       toApply = Math.ceil(toApply * modifier);
@@ -37,8 +33,8 @@ export class DamageApplicator {
 
   }
 
-  asHealing(inlineRoll, modifier) {
-    let toApply = this.getRollValue(inlineRoll);
+  asHealing(roll, modifier) {
+    let toApply = this.getRollValue(roll);
 
     if (game.settings.get('archmage', 'roundUpDamageApplication')) {
       toApply = Math.ceil(toApply * modifier);
@@ -55,8 +51,8 @@ export class DamageApplicator {
     });
   }
 
-  asTempHealth(inlineRoll) {
-    let toApply = this.getRollValue(inlineRoll);
+  asTempHealth(roll) {
+    let toApply = this.getRollValue(roll);
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
       let actorData = duplicate(token.actor);
