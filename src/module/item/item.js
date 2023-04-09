@@ -25,7 +25,7 @@ export class ItemArchmage extends Item {
   }
 
   /**
-   * Roll the item to Chat, creating a chat card which contains follow up attack or damage roll options
+   * Roll the item to Chat, creating a chat card.
    * @return {Promise}
    */
   async roll() {
@@ -90,7 +90,11 @@ export class ItemArchmage extends Item {
     if (!foundry.utils.isEmpty(itemUpdateData)) this.update(itemUpdateData, {});
     if (!foundry.utils.isEmpty(actorUpdateData)) this.actor.update(actorUpdateData);
 
-    return suppressMessage ? undefined : ChatMessage.create(chatData, { displaySheet: false });
+    if (suppressMessage) {
+      return undefined;
+    }
+
+    return await game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
   async rollFeat(featId) {
@@ -430,14 +434,14 @@ export class ItemArchmage extends Item {
     };
 
     // Basic chat message data
-    const chatData = {
+    let chatData = {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(itemToRender.actor)
     };
 
     // Toggle default roll mode
     let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
+    chatData = ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
@@ -658,17 +662,10 @@ export class ItemArchmage extends Item {
         data: chatData,
       };
 
-      // Toggle default roll mode
-      let rollMode = game.settings.get("core", "rollMode");
-      ChatMessage.applyRollMode(chatData, rollMode);
-
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
-      const msg = await ChatMessage.create(chatData, { displaySheet: false });
-      if (game.dice3d && msg?.id) {
-        // Wait for 3D dice animation to finish before handling results if enabled
-        await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
-      }
+
+      await game.archmage.ArchmageUtility.createChatMessage(chatData);
     }
 
     // Update the item.

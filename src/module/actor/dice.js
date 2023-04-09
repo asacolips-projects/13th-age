@@ -85,8 +85,7 @@ export class DiceArchmage {
       let form = html ? html.find('form')[0] : null;
       rollMode = form ? form.rollMode.value : rollMode;
 
-      // Execute the roll and send it to chat
-      // TODO: this must be awaited for V10
+      // Execute the roll
       let roll = new Roll(terms.join('+'), data).roll({async: false});
 
       // Grab the template.
@@ -116,13 +115,10 @@ export class DiceArchmage {
         data: chatData
       };
 
-      // Handle roll visibility.
-      ChatMessage.applyRollMode(chatData, rollMode);
-
       // Render the template.
       renderTemplate(template, templateData).then(content => {
         chatData.content = content;
-        ChatMessage.create(chatData, { displaySheet: false, rollMode: rollMode });
+        game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
       });
     };
 

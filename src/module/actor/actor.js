@@ -728,18 +728,9 @@ export class ActorArchmage extends Actor {
       target
     };
 
-    // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
-
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
-    const msg = await ChatMessage.create(chatData, { displaySheet: false });
-
-    if (game.dice3d && msg?.id) {
-      // Wait for 3D dice animation to finish before handling results if enabled
-      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
-    }
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
@@ -925,15 +916,11 @@ export class ActorArchmage extends Actor {
         speaker: game.archmage.ArchmageUtility.getSpeaker(this)
       };
 
-      // Toggle default roll mode
-      let rollMode = game.settings.get("core", "rollMode");
-      ChatMessage.applyRollMode(chatData, rollMode);
-
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
       chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData(), async: true });
       // Create the chat message
-      let msg = await ChatMessage.create(chatData, {displaySheet: false});
+      await game.archmage.ArchmageUtility.createChatMessage(chatData);
       // Get the roll from the chat message
       let contentHtml = $(chatData.content);
       let row = $(contentHtml.find('.card-prop')[0]);
@@ -942,12 +929,6 @@ export class ActorArchmage extends Actor {
     } else {
       // Perform the roll ourselves
       await roll.roll({async: true});
-    }
-
-    // If 3d dice are enabled, handle them
-    if (game.dice3d  && (!game.settings.get("dice-so-nice", "animateInlineRoll")
-      || !data.createMessage)) {
-      await game.dice3d.showForRoll(roll, game.user, true);
     }
 
     let newHp = this.system.attributes.hp.value;
@@ -1101,8 +1082,6 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     // If 3d dice are enabled, handle them
     if (game.dice3d) {
@@ -1110,7 +1089,7 @@ export class ActorArchmage extends Actor {
         await game.dice3d.showForRoll(roll, game.user, true);
       }
     }
-    let msg = await ChatMessage.create(chatData, {displaySheet: false});
+    game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
   async restFull() {
@@ -1214,10 +1193,8 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
-    let msg = await ChatMessage.create(chatData, {displaySheet: false});
+    game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
   /* -------------------------------------------- */
