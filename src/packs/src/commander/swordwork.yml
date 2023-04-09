@@ -108,7 +108,7 @@ system:
   special:
     type: 'String'
     label: 'Special'
-    value: ''
+    value: '<p>You can only use this tactic when the E.D. is 4+.</p>'
   effect:
     type: 'String'
     label: 'Effect'

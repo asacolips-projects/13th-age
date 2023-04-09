@@ -108,7 +108,7 @@ system:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p>You can only use this tactic when one enemy is left in the battle.</p>'
+    value: '<p>You can only use this tactic when one enemy is left in the battle and the E.D. is 4+.</p>'
   effect:
     type: 'String'
     label: 'Effect'
