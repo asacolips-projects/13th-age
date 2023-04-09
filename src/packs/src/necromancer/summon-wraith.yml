@@ -151,33 +151,25 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>When you cast summon wraith while the escalation die ([[@ed]]) is 3+, you summon three wraiths or greater wraiths instead of two.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
         value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>When you cast summon wraith while the escalation die ([[@ed]]) is 3+, you summon three wraiths or greater wraiths instead of two.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/blue_37.jpg'
 _id: 'QiSgqTbzVkVBtlEL'

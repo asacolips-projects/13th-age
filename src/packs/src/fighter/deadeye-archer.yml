@@ -150,30 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>If you spend a quick action to aim before making a ranged basic attack, add your Dexterity modifier to the damage if you miss.</p>'
+         type: 'String'
+         value: '<p>If you spend a quick action to aim before making a ranged basic attack, add your Dexterity modifier to the damage if you miss.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per battle, expand your crit range with a fighter ranged attack by 4 (usually to 16+) for that attack. Declare you''re using this feat power before you roll the attack.</p>'
+         type: 'String'
+         value: '<p>Once per battle, expand your crit range with a fighter ranged attack by 4 (usually to 16+) for that attack. Declare you''re using this feat power before you roll the attack.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Your crit range with ranged weapon attacks expands by 1 (usually to 19+).</p>'
+         type: 'String'
+         value: '<p>Your crit range with ranged weapon attacks expands by 1 (usually to 19+).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'bu3NGUJG4slG40vw'

@@ -144,36 +144,183 @@ system:
   quantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   maxQuantity:
     type: 'Number'
     label: 'Uses'
-    value: 1
+    value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>Once per day, your animal companion can attack twice in a round with a standard action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
+         type: 'String'
+         value: '<p>Once per battle, your animal companion can turn a disengage success by an enemy it is engaged with into a failure.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
+         type: 'String'
+         value: '<p>Once per day, reroll one of your animal companion&rsquo;s missed attack rolls.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    3:
+      description:
+         type: 'String'
+         value: '<p>Your animal companion adds the escalation die to its attacks.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    4:
+      description:
+         type: 'String'
+         value: '<p>Once per day, your animal companion can force an enemy to reroll an attack that hit it.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    5:
+      description:
+         type: 'String'
+         value: '<p>Your Lethal Hunter talent also applies to your animal companion.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    6:
+      description:
+         type: 'String'
+         value: '<p>Increase your animal companion&rsquo;s Physical Defense and Mental Defense by +1.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    7:
+      description:
+         type: 'String'
+         value: '<p>Increase your animal companion&rsquo;s damage die by one size (for example, from d6s to d8s, or d8s to d10s).</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    8:
+      description:
+         type: 'String'
+         value: '<p>Increase your animal companion&rsquo;s AC by +1.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

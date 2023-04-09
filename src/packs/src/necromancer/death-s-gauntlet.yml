@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>When a target uses a standard action to end death’s gauntlet ongoing damage, it takes [[@lvl]] negative energy damage.</p>'
+         type: 'String'
+         value: '<p>When a target uses a standard action to end death’s gauntlet ongoing damage, it takes [[@lvl]] negative energy damage.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When you roll a natural even hit against a target with this spell, the ongoing negative energy damage has a hard save (16+).</p>'
+         type: 'String'
+         value: '<p>When you roll a natural even hit against a target with this spell, the ongoing negative energy damage has a hard save (16+).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>The spell can also target MD instead of PD.</p>'
+         type: 'String'
+         value: '<p>The spell can also target MD instead of PD.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/violet_28.jpg'
 _id: 'mI6kusuJzkdDcQsJ'

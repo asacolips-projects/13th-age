@@ -150,33 +150,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>You can cast full rituals by using all your actions each round to focus on the ritual for [[1d3 + 1]] rounds. As with standard rituals, your fast rituals are not meant to replace combat spells; they''re a means of acquiring and improvising wondrous magical effects rather than a means of inflicting damage and conditions.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You can cast full rituals by using all your actions each round to focus on the ritual for [[1d3 + 1]] rounds. As with standard rituals, your fast rituals are not meant to replace combat spells; they''re a means of acquiring and improvising wondrous magical effects rather than a means of inflicting damage and conditions.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
   group:
     value: null
 flags: {}

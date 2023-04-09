@@ -150,30 +150,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>If the enemy''s attack misses, you regain momentum.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>If the enemy''s attack misses, you regain momentum.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'VzxwHt0WgQoLZtz7'

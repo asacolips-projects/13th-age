@@ -150,30 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Your second attack gains a +2 attack bonus if it is against a different target.</p>'
+         type: 'String'
+         value: '<p>Your second attack gains a +2 attack bonus if it is against a different target.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per battle, you can use Double Ranged Attack after an odd attack roll.</p>'
+         type: 'String'
+         value: '<p>Once per battle, you can use Double Ranged Attack after an odd attack roll.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Each turn, you can pop free of one enemy before one attack roll that is part of a Double Ranged Attack. You can also use your move action in between your two attacks if you wish.</p>'
+         type: 'String'
+         value: '<p>Each turn, you can pop free of one enemy before one attack roll that is part of a Double Ranged Attack. You can also use your move action in between your two attacks if you wish.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'YukWyKZWO9KuwveP'

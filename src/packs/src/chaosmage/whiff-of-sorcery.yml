@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Twice per day, you can gather power as if you were a sorcerer in order to deal double damage with either a sorcerer spell or a chaos mage spell the next time you cast a spell. You also gain the chaotic benefit for gathering power. (Note that you should have already determined the type of spell you will be casting, since you select a spell type when you roll initiative and at the end of each turn, so you&rsquo;re generally better off waiting to gather power when you know you have an attack or iconic spell coming.)</p>'
+         type: 'String'
+         value: '<p>Twice per day, you can gather power as if you were a sorcerer in order to deal double damage with either a sorcerer spell or a chaos mage spell the next time you cast a spell. You also gain the chaotic benefit for gathering power. (Note that you should have already determined the type of spell you will be casting, since you select a spell type when you roll initiative and at the end of each turn, so you&rsquo;re generally better off waiting to gather power when you know you have an attack or iconic spell coming.)</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 2
+      maxQuantity:
+        type: 'Number'
+        value: 2
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>While you have an <em>air</em> or <em>fire </em>warp effect active, add [[@cha.dmg]] fire damage to your miss damage.</p>'
+         type: 'String'
+         value: '<p>While you have an <em>air</em> or <em>fire </em>warp effect active, add [[@cha.dmg]] fire damage to your miss damage.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>If you don&rsquo;t like the first random sorcerer spell you select for the day, you can determine another random sorcerer spell. You&rsquo;re *stuck* with the second one.</p>'
+         type: 'String'
+         value: '<p>If you don&rsquo;t like the first random sorcerer spell you select for the day, you can determine another random sorcerer spell. You&rsquo;re *stuck* with the second one.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
 flags: {}
 img: 'systems/archmage/assets/icons/spells/fog-blue-1.jpg'
 _id: 'OL19T59KVDkhKVPb'

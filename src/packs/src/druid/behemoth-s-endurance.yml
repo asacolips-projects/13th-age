@@ -150,31 +150,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: 'The target instead gains a +4 bonus to PD and [[@lvl + @wis.dmg]] temporary hit points'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: 'The target instead gains a +4 bonus to PD and [[@lvl + @wis.dmg]] temporary hit points'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'champion'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

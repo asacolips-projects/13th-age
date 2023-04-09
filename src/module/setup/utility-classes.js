@@ -9,6 +9,51 @@
  * Available at runtime as game.archmage.ArchmageUtility.
  */
 export class ArchmageUtility {
+  /**
+   * Helper utility function to create chat messages, handling roll mode and 3d dice.
+   *
+   * @param {object} chatData
+   *   The chat data, as given to ChatMessage.create().
+   * @param {object} context
+   *   (Optional) Chat message context/options, as given to ChatMessage.create().
+   * @param {boolean} waitForDice
+   *   (Optional) Whether to wait for 3d dice rolls to finish before returning.
+   *
+   * @return {Promise<Document>} The created ChatMessage document instance.
+   */
+  static async createChatMessage(chatData, context = {}, waitForDice = true) {
+    if (!chatData.flags) {
+      chatData.flags = {};
+    }
+    if (!chatData.flags.core) {
+      chatData.flags.core = {};
+    }
+    if (!chatData.flags.core.hasOwnProperty("canPopout")) {
+      chatData.flags.core.canPopout = true;
+    }
+
+    if (!context) {
+      context = {};
+    }
+    
+    if (!context.hasOwnProperty("rollMode")) {
+      // Default roll mode set via chat box.
+      context.rollMode = game.settings.get("core", "rollMode");
+    }
+    chatData = ChatMessage.applyRollMode(chatData, context.rollMode);
+
+    // Return early if we don't need to wait for the 3d dice animation.
+    if (!waitForDice || !game.dice3d) {
+      return ChatMessage.create(chatData, context);
+    }
+
+    // Try to wait for the 3d dice animation to finish.
+    const msg = await ChatMessage.create(chatData, context);
+    if (msg?.id) {
+      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
+    }
+    return msg;
+  }
 
   /**
    * Get Escalation Die value.
@@ -433,6 +478,18 @@ export class MacroUtils {
     }
     data.duration = d;
     return data;
+  }
+
+  /**
+   * Select all feats of a specific tier
+   */
+  static getFeatsByTier(item, tier) {
+    let res = [];
+    if (!item.system.feats) return res;
+    for (let feat of Object.values(item.system.feats)) {
+      if (feat.tier.value == tier) res.push(feat);
+    }
+    return res;
   }
 }
 

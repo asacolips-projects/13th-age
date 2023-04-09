@@ -151,33 +151,25 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>You can now try to teleport to any location along the migration route. Stabbing your finger on the world map suffices, but your aim won’t be perfect. Attempts to teleport to places off the map to the north or west usually don’t work.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
         value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You can now try to teleport to any location along the migration route. Stabbing your finger on the world map suffices, but your aim won’t be perfect. Attempts to teleport to places off the map to the north or west usually don’t work.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

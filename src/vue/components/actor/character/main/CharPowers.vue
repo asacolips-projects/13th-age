@@ -222,7 +222,7 @@ export default {
     hasFeats(power) {
       let hasFeats = false;
       if (power && power.system && power.system.feats) {
-        for (let [tier, feat] of Object.entries(power.system.feats)) {
+        for (let [id, feat] of Object.entries(power.system.feats)) {
           if (feat.description.value || feat.isActive.value) {
             hasFeats = true;
             break;
@@ -234,10 +234,11 @@ export default {
     /**
      * Filter empty feats
      */
-    filterFeats(featObj) {
-      let res = {}
-      for (let [tier, feat] of Object.entries(featObj)) {
-        if (feat.description.value) res[tier] = feat;
+    filterFeats(feats) {
+      if (!feats) return {};
+      let res = {};
+      for (let [index, feat] of Object.entries(feats)) {
+        if (feat.description.value) res[index] = feat;
       }
       return res;
     },

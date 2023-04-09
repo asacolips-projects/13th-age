@@ -150,30 +150,25 @@ system:
     label: 'Max Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: "<p>You can generate the effect of any 1<sup>st</sup>\_or 3<sup>rd</sup>\_level battle cry you know as a standard action (instead of making a flexible melee attack to see which battle cry you are able to trigger). This allows you to choose the particular battle cry you want, at the expense of taking your standard action.</p>"
+         type: 'String'
+         value: "<p>You can generate the effect of any 1<sup>st</sup>\_or 3<sup>rd</sup>\_level battle cry you know as a standard action (instead of making a flexible melee attack to see which battle cry you are able to trigger). This allows you to choose the particular battle cry you want, at the expense of taking your standard action.</p>"
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'auCqz5aw5hblXJGW'

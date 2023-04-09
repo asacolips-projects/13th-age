@@ -150,30 +150,44 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: "<p><em>Brace for it</em>\_now works against a critical hit from any type of attack.</p>"
+         type: 'String'
+         value: "<p><em>Brace for it</em>\_now works against a critical hit from any type of attack.</p>"
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: "<p><em>Brace for it</em>\_works against any number of critical hits before your next turn.</p>"
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+        value: 'adventurer'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
+      description:
+         type: 'String'
+         value: "<p><em>Brace for it</em>\_works against any number of critical hits before your next turn.</p>"
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'z9moL0VS3fbUUn4a'

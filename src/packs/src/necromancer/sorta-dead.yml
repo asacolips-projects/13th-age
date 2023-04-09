@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain <em>resist poison 16+</em> and <em>resist negative energy 16+</em>.</p>'
+         type: 'String'
+         value: '<p>You gain <em>resist poison 16+</em> and <em>resist negative energy 16+</em>.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The spells <em>zombie form, ghoul form, ghost form</em>, and <em>vampiric form</em> all function as recharge 16+ after battle spells for you, though you still memorize them as daily spells.</p>'
+         type: 'String'
+         value: '<p>The spells <em>zombie form, ghoul form, ghost form</em>, and <em>vampiric form</em> all function as recharge 16+ after battle spells for you, though you still memorize them as daily spells.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>No undead creature that is not under the direct command of a necromantic icon can attack you unless you attack it or cast a spell against it first.</p>'
+         type: 'String'
+         value: '<p>No undead creature that is not under the direct command of a necromantic icon can attack you unless you attack it or cast a spell against it first.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/water_03.jpg'
 _id: 'MafbR0PeXsChanjL'

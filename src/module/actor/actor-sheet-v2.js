@@ -249,6 +249,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Item listeners.
     html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
     html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
+    html.on('click', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, true));
+    html.on('contextmenu', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, false));
     html.on('click', '.feat-pip', (event) => this._updatePips(event));
   }
 
@@ -469,6 +471,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Get the roll type and roll options.
     let type = dataset.rollType ?? null;
     let opt = dataset.rollOpt ?? null;
+    let opt2 = dataset.rollOpt2 ?? null;
 
     if (type == 'item' && opt) this._onItemRoll(opt);
     else if (type == 'recovery') this._onRecoveryRoll(event);
@@ -479,6 +482,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else if (type == 'icon') this._onIconRoll(opt);
     else if (type == 'command') this._onCommandRoll(opt);
     else if (type == 'recharge') this._onRechargeRoll(opt);
+    else if (type == 'feat') this._onFeatRoll(opt, opt2);
 
     // Fallback to a plain formula roll.
     else if (opt) await this._onFormulaRoll(opt);
@@ -616,19 +620,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         data: chatData
       };
 
-      // Toggle default roll mode
-      let rollMode = game.settings.get("core", "rollMode");
-      ChatMessage.applyRollMode(chatData, rollMode);
-
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
 
-      let message = await ChatMessage.create(chatData, { displaySheet: false });
-
-      if (game.dice3d && message?.id) {
-        // Wait for 3D dice animation to finish before handling results if enabled
-        await game.dice3d.waitFor3DAnimationByMessageID(message.id);
-      }
+      await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
       // Update actor.
       let updateData = {};
@@ -716,18 +711,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       data: chatData
     };
 
-    // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
-
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
-    const msg = await ChatMessage.create(chatData, { displaySheet: false });
 
-    if (game.dice3d && msg?.id) {
-      // Wait for 3D dice animation to finish before handling results if enabled
-      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
-    }
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
     await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
   }
@@ -735,6 +722,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onRechargeRoll(itemId) {
     let item = this.actor.items.get(itemId);
     if (item) await item.recharge();
+  }
+
+  async _onFeatRoll(itemId, featId) {
+    let item = this.actor.items.get(itemId);
+    if (item) item.rollFeat(featId);
   }
 
   /* ------------------------------------------------------------------------ */
@@ -802,12 +794,39 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let newQuantity = Number(item.system.quantity.value) ?? 0;
       newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
 
-      // TODO: Refactor the fallback to not be absurdly high after maxQuantity
-      // has become regularly used.
+      // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
       let maxQuantity = item.system?.maxQuantity?.value ?? 99;
 
-      await item.update({'data.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
+      await item.update({'system.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
     }
+  }
+
+  async _updateFeatQuantity(event, increase = true) {
+    event.preventDefault();
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    let itemId = dataset.itemId;
+    if (!itemId) return;
+
+    let item = this.actor.items.get(itemId);
+    if (!item) return;
+
+    let featIndex = dataset.itemFeatkey;
+    let feat = item.system.feats[featIndex];
+    if (!feat) return;
+
+    // Update the quantity.
+    let newQuantity = Number(feat.quantity.value) ?? 0;
+    newQuantity = increase ? newQuantity + 1 : newQuantity - 1;
+
+    // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
+    let maxQuantity = feat.maxQuantity.value ?? 99;
+
+    let updateData = {};
+    updateData[`system.feats.${featIndex}.quantity.value`] = increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity);
+
+    await item.update(updateData, {});
   }
 
   async _updatePips(event) {

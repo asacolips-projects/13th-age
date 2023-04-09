@@ -728,18 +728,9 @@ export class ActorArchmage extends Actor {
       target
     };
 
-    // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
-
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
-    const msg = await ChatMessage.create(chatData, { displaySheet: false });
-
-    if (game.dice3d && msg?.id) {
-      // Wait for 3D dice animation to finish before handling results if enabled
-      await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
-    }
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
     // Handle recoveries or failures on death saves.
     if (difficulty == 'death') {
@@ -928,15 +919,11 @@ export class ActorArchmage extends Actor {
         speaker: game.archmage.ArchmageUtility.getSpeaker(this)
       };
 
-      // Toggle default roll mode
-      let rollMode = game.settings.get("core", "rollMode");
-      ChatMessage.applyRollMode(chatData, rollMode);
-
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
       chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData(), async: true });
       // Create the chat message
-      let msg = await ChatMessage.create(chatData, {displaySheet: false});
+      await game.archmage.ArchmageUtility.createChatMessage(chatData);
       // Get the roll from the chat message
       let contentHtml = $(chatData.content);
       let row = $(contentHtml.find('.card-prop')[0]);
@@ -945,12 +932,6 @@ export class ActorArchmage extends Actor {
     } else {
       // Perform the roll ourselves
       await roll.roll({async: true});
-    }
-
-    // If 3d dice are enabled, handle them
-    if (game.dice3d  && (!game.settings.get("dice-so-nice", "animateInlineRoll")
-      || !data.createMessage)) {
-      await game.dice3d.showForRoll(roll, game.user, true);
     }
 
     let newHp = this.system.attributes.hp.value;
@@ -1041,6 +1022,7 @@ export class ActorArchmage extends Actor {
     let items = this.items.map(i => i);
     for (let i = 0; i < items.length; i++) {
       let item = items[i];
+      let itemUpdateData = {};
       let maxQuantity = item.system?.maxQuantity?.value ?? 1;
       if ((item.type == "power" || item.type == "equipment") && maxQuantity) {
         // Recharge powers.
@@ -1054,9 +1036,7 @@ export class ActorArchmage extends Actor {
           || (item.system.powerUsage?.value == 'at-will'
           && item.system.quantity.value != null))
           && item.system.quantity.value < maxQuantity) {
-          await item.update({
-            'system.quantity': {value: maxQuantity}
-          });
+          itemUpdateData['system.quantity'] = {value: maxQuantity}
           templateData.items.push({
             key: item.name,
             message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
@@ -1083,6 +1063,24 @@ export class ActorArchmage extends Actor {
           }
         }
       }
+      // Feats
+      if (item.type == "power") {
+        for (let index of Object.keys(item.system.feats)) {
+          let feat = item.system.feats[index];
+          if (!feat.isActive?.value) continue;
+          let maxQuantity = feat.maxQuantity?.value;
+          if (feat.powerUsage?.value == 'once-per-battle' && maxQuantity && feat.quantity?.value < maxQuantity) {
+            itemUpdateData[`system.feats.${index}.quantity.value`] = maxQuantity;
+            let tier = game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`);
+            templateData.items.push({
+              key: `${item.name} - ${tier}`,
+              message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
+            });
+          }
+        }
+      }
+      // Update item
+      if ( !foundry.utils.isEmpty(itemUpdateData) ) await item.update(itemUpdateData);
     };
 
     // Print outcomes to chat
@@ -1091,8 +1089,6 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
     // If 3d dice are enabled, handle them
     if (game.dice3d) {
@@ -1100,7 +1096,7 @@ export class ActorArchmage extends Actor {
         await game.dice3d.showForRoll(roll, game.user, true);
       }
     }
-    let msg = await ChatMessage.create(chatData, {displaySheet: false});
+    game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
   async restFull() {
@@ -1165,20 +1161,37 @@ export class ActorArchmage extends Actor {
 
       if (item.type != 'power' && item.type != 'equipment') continue;
 
+      let itemUpdateData = {};
       let usageArray = ['once-per-battle','daily','recharge', 'daily-desperate'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
         && (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
-        await item.update({
-          'system.quantity': {value: maxQuantity},
-          'system.rechargeAttempts': {value: 0}
-        });
+        itemUpdateData['system.quantity'] = {value: maxQuantity}
+        itemUpdateData['system.rechargeAttempts'] = {value: 0}
         templateData.items.push({
           key: item.name,
           message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
         });
       }
+      // Feats
+      if (item.type == "power") {
+        for (let index of Object.keys(item.system.feats)) {
+          let feat = item.system.feats[index];
+          if (!feat.isActive?.value) continue;
+          let maxQuantity = feat.maxQuantity?.value;
+          if (maxQuantity && feat.quantity?.value < maxQuantity && usageArray.includes(feat.powerUsage?.value)) {
+            itemUpdateData[`system.feats.${index}.quantity.value`] = maxQuantity;
+            let tier = game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`);
+            templateData.items.push({
+              key: `${item.name} - ${tier}`,
+              message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
+            });
+          }
+        }
+      }
+      // Update item
+      if ( !foundry.utils.isEmpty(itemUpdateData) ) await item.update(itemUpdateData);
     }
 
     // Print outcomes to chat
@@ -1187,10 +1200,8 @@ export class ActorArchmage extends Actor {
       user: game.user.id,
       speaker: game.archmage.ArchmageUtility.getSpeaker(this)
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
     chatData["content"] = await renderTemplate(template, templateData);
-    let msg = await ChatMessage.create(chatData, {displaySheet: false});
+    game.archmage.ArchmageUtility.createChatMessage(chatData);
   }
 
   async rechargeDesperate() {

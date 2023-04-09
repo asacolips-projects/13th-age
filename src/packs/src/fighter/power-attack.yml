@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You deal the additional Power Attack damage even if the attack misses.</p>'
+         type: 'String'
+         value: '<p>You deal the additional Power Attack damage even if the attack misses.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>One battle per day, you can use Power Attack twice in the battle.</p>'
+         type: 'String'
+         value: '<p>One battle per day, you can use Power Attack twice in the battle.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>One-handed weapon damage using Power Attack increases to [[(@lvl)d6]]; two-handed weapon damage using Power Attack increases to [[(@lvl)d8]].</p>'
+         type: 'String'
+         value: '<p>One-handed weapon damage using Power Attack increases to [[(@lvl)d6]]; two-handed weapon damage using Power Attack increases to [[(@lvl)d8]].</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

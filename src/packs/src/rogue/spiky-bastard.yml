@@ -150,30 +150,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: "<p><em>Spiky bastard</em>\_damage now applies when you are staggered, though obviously not while you are *unconscious*.</p>"
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: "<p><em>Spiky bastard</em>\_damage now applies when you are staggered, though obviously not while you are *unconscious*.</p>"
+         type: 'String'
+         value: '<p>If the escalation die is 3+, the damage increases to [[15]] instead of 10.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>If the escalation die is 3+, the damage increases to [[15]] instead of 10.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'UcFp8JactD8kQJuW'

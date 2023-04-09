@@ -150,30 +150,44 @@ system:
     label: 'Max Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>Recharge check is now 11+.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Recharge check is now 11+.</p>'
+         type: 'String'
+         value: '<p>You can now also swap the positions of far-away allies you can see, up to a maximum of 9 creatures.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You can now also swap the positions of far-away allies you can see, up to a maximum of 9 creatures.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'GEvobMcDKkKO28sj'

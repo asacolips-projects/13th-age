@@ -153,31 +153,7 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:
-    adventurer:
-      description:
-        type: 'String'
-        label: 'Adventurer Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+  feats: null
 flags: {}
 img: 'systems/archmage/assets/icons/spells/beam-eerie-2.jpg'
 _id: 'mOLtbsWK2ZXE86mf'

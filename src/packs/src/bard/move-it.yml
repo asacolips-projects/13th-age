@@ -150,30 +150,63 @@ system:
     label: 'Max Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>The disengage check gains a +2 bonus.</p>'
+         type: 'String'
+         value: '<p>The disengage check gains a +2 bonus.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The bonus increases to +5.</p>'
+         type: 'String'
+         value: '<p>The bonus increases to +5.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>An engaged ally you target with this battle cry can pop free from one enemy as a free action before making the disengage check.</p>'
+         type: 'String'
+         value: '<p>An engaged ally you target with this battle cry can pop free from one enemy as a free action before making the disengage check.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'EkwrIvZdXCbNt45F'

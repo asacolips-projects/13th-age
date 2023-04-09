@@ -154,30 +154,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per day as a free action, you can add your Sneak Attack damage to any hit against one target that would not otherwise have qualified for the damage.</p>'
+         type: 'String'
+         value: '<p>Once per day as a free action, you can add your Sneak Attack damage to any hit against one target that would not otherwise have qualified for the damage.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per day, roll d20s for your Sneak Attack damage instead of d8s.</p>'
+         type: 'String'
+         value: '<p>Once per day, roll d20s for your Sneak Attack damage instead of d8s.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>One battle per day, ignore the limitation that you can use Sneak Attack damage only once per round.</p>'
+         type: 'String'
+         value: '<p>One battle per day, ignore the limitation that you can use Sneak Attack damage only once per round.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'cQVdwh1QlcorcETm'

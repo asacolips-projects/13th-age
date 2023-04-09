@@ -151,33 +151,25 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: ''
+         type: 'String'
+         value: '<p>Once per battle when you make a flow attack, you can roll an additional d20 for the attack roll.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'epic'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once per battle when you make a flow attack, you can roll an additional d20 for the attack roll.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     type: 'String'
     label: 'Group'

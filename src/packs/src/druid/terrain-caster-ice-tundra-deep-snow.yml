@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain the frost touch spell below.</p>'
+         type: 'String'
+         value: '<p>You gain the frost touch spell below.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You gain resist cold 16+ and your spells ignore the resist cold abilities that the targets of your spells have.</p>'
+         type: 'String'
+         value: '<p>You gain resist cold 16+ and your spells ignore the resist cold abilities that the targets of your spells have.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You can now cast one bonus daily ice/tundra/deep snow spell that doesn&rsquo;t count against your total daily spells, but you still can&rsquo;t cast a specific daily spell of that type more than once per day.</p>'
+         type: 'String'
+         value: '<p>You can now cast one bonus daily ice/tundra/deep snow spell that doesn&rsquo;t count against your total daily spells, but you still can&rsquo;t cast a specific daily spell of that type more than once per day.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     type: 'String'
     label: 'Group'

@@ -215,6 +215,9 @@ Hooks.once('init', async function() {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
 
+    // Remove 11th level feat tier
+    delete CONFIG.ARCHMAGE.featTiers.iconic;
+
     // Remove 2e hindered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hindered");
     CONFIG.statusEffects.splice(id, 1);
@@ -383,6 +386,15 @@ Hooks.once('init', async function() {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsHint"),
     scope: 'client',
+    config: true,
+    default: false,
+    type: Boolean
+  });
+
+  game.settings.register('archmage', 'showPrivateGMAttackRolls', {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsHint"),
+    scope: 'world',
     config: true,
     default: false,
     type: Boolean
@@ -875,9 +887,17 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     $(this).off("contextmenu");
 
     const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ":";
+    const triggerCastPower = game.i18n.localize("ARCHMAGE.CHAT.castPower") + ":";
+    if ($(this).parent()[0].innerText.includes(triggerTarget) &&
+        !$(this).parent()[0].innerText.includes(triggerCastPower)) {
+      // Ignore if this is a "Target:" line (but not if its "Cast for Power:",
+      // which in some localizations contains "Target:").
+      return;
+    }
+
     const triggerAttack = game.i18n.localize("ARCHMAGE.attack") + ":";
-    if ($(this).parent()[0].innerText.includes(triggerTarget) ||
-        $(this).parent()[0].innerText.includes(triggerAttack)) {
+    if ($(this).parent()[0].innerText.includes(triggerAttack)) {
+      // Ignore if this is a "Attack:" line.
       return;
     }
 
@@ -978,6 +998,77 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     }
 
   });
+});
+
+Hooks.on("getChatLogEntryContext", (html, options) => {
+  let canApply = li => {
+    const message = game.messages.get(li.data("messageId"));
+    return message?.isRoll && message?.isContentVisible;
+  };
+  let getRoll = li => {
+    const message = game.messages.get(li.data("messageId"));
+    const roll = message?.rolls[0];
+    return roll;
+  }
+  options.push(
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), 1);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), .5);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), 2);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
+      icon: '<i class="fas fa-tint"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asDamage(getRoll(li), 3);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
+      icon: '<i class="fas fa-medkit"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asHealing(getRoll(li), 1);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
+      icon: '<i class="fas fa-medkit"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asHealing(getRoll(li), .5);
+      }
+    },
+    {
+      name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
+      icon: '<i class="fas fa-heart"></i>',
+      condition: canApply,
+      callback: li => {
+        new DamageApplicator().asTempHealth(getRoll(li));
+      }
+    }
+  );
+  return options;
 });
 
 /* ---------------------------------------------- */

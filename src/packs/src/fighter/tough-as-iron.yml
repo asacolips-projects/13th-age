@@ -150,30 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per day, you can rally twice during a battle as a quick action, without needing to roll a save for the second rally.</p>'
+         type: 'String'
+         value: '<p>Once per day, you can rally twice during a battle as a quick action, without needing to roll a save for the second rally.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Increase your total number of recoveries by 2.</p>'
+         type: 'String'
+         value: '<p>Increase your total number of recoveries by 2.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>When you roll a natural 20 with an attack, you gain an additional use of Tough As Iron this battle.</p>'
+         type: 'String'
+         value: '<p>When you roll a natural 20 with an attack, you gain an additional use of Tough As Iron this battle.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'rAKXcBX75r0yJzcq'

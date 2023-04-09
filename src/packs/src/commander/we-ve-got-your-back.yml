@@ -150,33 +150,44 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>After the first time in a round you use this command as an interrupt action, you can use it as a free action until the start of your next turn if you have the command points for the cost. You can still only use the command once per ally’s turn.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>After the first time in a round you use this command as an interrupt action, you can use it as a free action until the start of your next turn if you have the command points for the cost. You can still only use the command once per ally’s turn.</p>'
+         type: 'String'
+         value: '<p>Add *hampered* and *stunned* to the list of conditions the effect includes.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Add *hampered* and *stunned* to the list of conditions the effect includes.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: 'Command'
     type: 'String'

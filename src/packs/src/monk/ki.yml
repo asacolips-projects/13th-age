@@ -155,33 +155,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain 1 additional point of ki each day.</p>'
+         type: 'String'
+         value: '<p>You gain 1 additional point of ki each day.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You can spend as much ki as you like during a turn. You must spend each point of ki on a different attack roll or a different ki power.</p>'
+         type: 'String'
+         value: '<p>You can spend as much ki as you like during a turn. You must spend each point of ki on a different attack roll or a different ki power.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Work with your GM to invent a new ki power related to your one unique thing or some other aspect of your character&rsquo;s story. If the ki power is too good and overshadows your other ki powers, the GM should rule that you can only use it once a day.</p>'
+         type: 'String'
+         value: '<p>Work with your GM to invent a new ki power related to your one unique thing or some other aspect of your character&rsquo;s story. If the ki power is too good and overshadows your other ki powers, the GM should rule that you can only use it once a day.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/d20.svg'
 effects: []

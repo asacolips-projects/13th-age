@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>When you cast a spell that allows an ally to heal using a recovery, you can let them use one of your recoveries instead. (If you also have the Protection/Community domain, any nearby ally can expend the recovery instead of you.)</p>'
+         type: 'String'
+         value: '<p>When you cast a spell that allows an ally to heal using a recovery, you can let them use one of your recoveries instead. (If you also have the Protection/Community domain, any nearby ally can expend the recovery instead of you.)</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: "<p>The\_<em>invocation of healing</em>\_gives you two additional uses of\_<em>heal</em>\_this battle instead of only one.</p>"
+         type: 'String'
+         value: "<p>The\_<em>invocation of healing</em>\_gives you two additional uses of\_<em>heal</em>\_this battle instead of only one.</p>"
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Increase the additional hit points the target heals to [[3*@lvl]].</p>'
+         type: 'String'
+         value: '<p>Increase the additional hit points the target heals to [[3*@lvl]].</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

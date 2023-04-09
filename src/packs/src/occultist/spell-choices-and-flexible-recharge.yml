@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per day, you can automatically succeed on a recharge roll that’s 6+ (but not 11+ or 16+).</p>'
+         type: 'String'
+         value: '<p>Once per day, you can automatically succeed on a recharge roll that’s 6+ (but not 11+ or 16+).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per day when you recharge a spell (usually during a quick rest), you can make a recharge roll for a recharge spell even if you haven’t expended that spell (allowing you to have an additional use of that spell available).</p>'
+         type: 'String'
+         value: '<p>Once per day when you recharge a spell (usually during a quick rest), you can make a recharge roll for a recharge spell even if you haven’t expended that spell (allowing you to have an additional use of that spell available).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once per day, you can automatically succeed on a recharge roll.</p>'
+         type: 'String'
+         value: '<p>Once per day, you can automatically succeed on a recharge roll.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     value: null
 flags: {}

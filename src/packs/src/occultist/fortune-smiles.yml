@@ -150,32 +150,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>Your retain focus range with this spell is now 1&ndash;5.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Your retain focus range with this spell is now 1&ndash;5.</p>'
+         type: 'String'
+         value: '<p>When you cast this spell, choose a second nearby ally. It can roll a save against a save ends effect.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>When you cast this spell, choose a second nearby ally. It can roll a save against a save ends effect.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'JPftOfsPNUBuB0Dz'

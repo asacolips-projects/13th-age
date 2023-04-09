@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain 1 additional point in a background related to military history, strategy, command, or warfare. You can use this background point to raise that background beyond the normal maximum of 5.</p>'
+         type: 'String'
+         value: '<p>You gain 1 additional point in a background related to military history, strategy, command, or warfare. You can use this background point to raise that background beyond the normal maximum of 5.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When you roll a die to find out how many allies one of your commands or tactics targets, add +1 to the result.</p>'
+         type: 'String'
+         value: '<p>When you roll a die to find out how many allies one of your commands or tactics targets, add +1 to the result.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once per day as a free action, you can gain a number of command points equal to your Intelligence modifier ([[@int.mod]]).</p>'
+         type: 'String'
+         value: '<p>Once per day as a free action, you can gain a number of command points equal to your Intelligence modifier ([[@int.mod]]).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     value: null
 flags: {}

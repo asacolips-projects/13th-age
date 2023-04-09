@@ -150,30 +150,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: null
+         type: 'String'
+         value: "<p>Once per battle, you can trigger\_<em>a dozen cuts</em>\_with a natural odd hit.</p>"
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: "<p>Once per battle, you can trigger\_<em>a dozen cuts</em>\_with a natural odd hit.</p>"
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+        value: 'champion'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'P5MEQnH3p5FQIqlB'

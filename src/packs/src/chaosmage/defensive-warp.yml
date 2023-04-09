@@ -155,33 +155,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>When you heal using a recovery, add hit points equal to the escalation die to that healing.</p>'
+         type: 'String'
+         value: '<p>When you heal using a recovery, add hit points equal to the escalation die to that healing.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>While you are at maximum hit points, you gain a +1 bonus to all defenses.</p>'
+         type: 'String'
+         value: '<p>While you are at maximum hit points, you gain a +1 bonus to all defenses.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>When an attacker rerolls an attack against you, it takes an attack penalty equal to your Wisdom modifier.</p>'
+         type: 'String'
+         value: '<p>When an attacker rerolls an attack against you, it takes a -[[@wis.mod]] attack penalty.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/spells/air-burst-magenta-2.jpg'
 _id: 'XB7ULibeYMnodohP'
