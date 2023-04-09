@@ -151,33 +151,25 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>Whenever a nearby enemy rolls a natural 1 on an attack against you, you can use curse of chaos against them without expending it.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
         value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Whenever a nearby enemy rolls a natural 1 on an attack against you, you can use curse of chaos against them without expending it.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

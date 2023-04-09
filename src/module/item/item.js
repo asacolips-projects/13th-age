@@ -93,6 +93,65 @@ export class ItemArchmage extends Item {
     return suppressMessage ? undefined : ChatMessage.create(chatData, { displaySheet: false });
   }
 
+  async rollFeat(featId) {
+    let feat = this.system.feats[featId];
+    if (!feat || !feat.isActive.value) return;
+
+    // Process uses
+    let updateData = {};
+    if (feat.quantity.value != undefined && feat.quantity.value != null) {
+      let path = `system.feats.${featId}.quantity.value`;
+      updateData[path] = feat.quantity.value - 1;
+
+      if (updateData[path] < 0) {
+        let stop = false;
+        await Dialog.confirm({
+          title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
+          content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
+          yes: () => {updateData[path] = 0},
+          no: () => {stop = true;},
+          defaultYes: false
+        });
+        if (stop) return;
+      }
+    }
+
+    const template = `systems/archmage/templates/chat/feat-card.html`;
+    const templateData = {
+      actor: this.actor,
+      tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
+      item: this,
+      feat: feat,
+      featName: game.i18n.localize(`ARCHMAGE.CHAT.${feat.tier.value}`)
+    };
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      speaker: {
+        actor: this.actor.id,
+        token: null,
+        alias: this.actor.name,
+        scene: game.user.viewedScene
+      }
+    };
+
+    // Toggle default roll mode
+    let rollMode = game.settings.get("core", "rollMode");
+    ChatMessage.applyRollMode(chatData, rollMode);
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+
+    // Enrich the message to parse inline rolls.
+    let rollData = this.actor.getRollData(this);
+    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
+
+    // Perform updates.
+    if (!foundry.utils.isEmpty(updateData)) this.update(updateData, {});
+
+    return ChatMessage.create(chatData, { displaySheet: false });
+  }
+
   async _rollUsesCheck(updateData) {
     // Update uses left
     let uses = this.system.quantity?.value;
@@ -684,18 +743,16 @@ export class ItemArchmage extends Item {
       };
     })
 
-    const featKeys = [
-      'adventurer',
-      'champion',
-      'epic',
-    ];
-    const feats = featKeys.map(k => {
-      return {
-        label: data.feats[k] ? game.i18n.localize(`ARCHMAGE.CHAT.${k}`) : null,
-        description: data.feats[k] ? data.feats[k].description.value : null,
-        isActive: data.feats[k] ? data.feats[k].isActive.value : null,
-      };
-    });
+    let feats = [];
+    if (data.feats) {
+      feats = Object.values(data.feats).map(f => {
+        return {
+          label: f.tier ? f.tier.value : null,
+          description: f.description ? f.description.value : null,
+          isActive: f.isActive ? f.isActive.value : null,
+        };
+      });
+    }
 
     let effectKeys = [
       'effect',
@@ -776,7 +833,7 @@ export class ItemArchmage extends Item {
     return data;
   }
 
-  static chatListeners(html) {
+/*   static chatListeners(html) {
 
     // Chat card actions
     html.on('click', '.card-buttons button', ev => {
@@ -837,5 +894,5 @@ export class ItemArchmage extends Item {
       // Tool usage
       else if (action === "toolCheck") item.rollToolCheck(ev);
     });
-  }
+  } */
 }

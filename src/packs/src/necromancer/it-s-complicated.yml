@@ -151,33 +151,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>All 6s you roll with relationship dice count as 5s. You gain another extra necromancer spell, but it must be at least two levels lower than your level.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
         value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>All 6s you roll with relationship dice count as 5s. You gain another extra necromancer spell, but it must be at least two levels lower than your level.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/water_03.jpg'
 _id: 'NpfoHIamNtHOJfnD'

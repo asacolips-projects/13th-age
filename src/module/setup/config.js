@@ -317,6 +317,13 @@ ARCHMAGE.extendedStatusEffects = [
   // },
 ];
 
+ARCHMAGE.featTiers = {
+  'adventurer': 'Adventurer',
+  'champion': 'Champion',
+  'epic': 'Epic',
+  'iconic': 'Omega'
+}
+
 ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
 
@@ -351,6 +358,12 @@ ARCHMAGE.powerUsages = {
 ARCHMAGE.equipUsages = {
   'daily': 'Daily',
   'recharge': 'Recharge',
+  'once-per-battle': 'Per Battle',
+  'other': 'Other'
+};
+
+ARCHMAGE.featUsages = {
+  'daily': 'Daily',
   'once-per-battle': 'Per Battle',
   'other': 'Other'
 };

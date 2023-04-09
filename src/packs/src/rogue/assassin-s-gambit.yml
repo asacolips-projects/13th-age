@@ -150,30 +150,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>Once a turn, you can get the extra standard action when this attack drops a mook target.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once a turn, you can get the extra standard action when this attack drops a mook target.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: '1fAiGTVj8N0PB6aI'

@@ -214,7 +214,7 @@ ARCHMAGE:
     sheetTooltipsName: Sheet tooltips
     tourVisibilityAll: Everyone can see tours
     tourVisibilityGM: Only the GM can see tours
-    tourVisibilityHint: When new versions of Toolkit13 are released, the system will display a tour of the changes. Use this setting to determine who should see the tours (or if they should be disabled).
+    tourVisibilityHint: When new versions of 13th Age are released, the system will display a tour of the changes. Use this setting to determine who should see the tours (or if they should be disabled).
     tourVisibilityName: Features tour visibility
     tourVisibilityOff: Tours are disabled
     UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
@@ -459,7 +459,6 @@ ARCHMAGE:
   CHAT:
     actionType: Action Type
     adventurer: Adventurer Feat
-    adventurerDescription: Adventurer Feat Description
     always: Always
     alwaysPlaceholder: Some effect that always happens
     alwaysTitle: Effects that always happen, regardless of circumstances or rolls
@@ -471,7 +470,6 @@ ARCHMAGE:
     castBroadEffect: Cast for Broad Effect
     castPower: Cast for Power
     champion: Champion Feat
-    championDescription: Champion Feat Description
     CmdPtsReset: reset to 1
     complicatedAdvantages: Complicated Advantages
     crit: Crit
@@ -481,7 +479,6 @@ ARCHMAGE:
     DeleteConfirmTitle: Confirm deletion
     effect: Effect
     epic: Epic Feat
-    epicDescription: Epic Feat Description
     even: even
     finalVerse: Final Verse
     FullHeal: Full Heal-Up
@@ -499,7 +496,8 @@ ARCHMAGE:
     hitOdd: Odd Hit
     hitOddTitle: Effects that happen on odd hits
     HP: HP
-    ItemReset: restored uses to
+    iconic: Omega Feat
+    ItemReset: uses restored to
     KiReset: reset to
     embeddedMacro: Embedded Macro
     embeddedMacroSummary: Edit the embedded macro that will be run on use.
@@ -581,6 +579,7 @@ ARCHMAGE:
     target: Target
     targetPlaceholder: "[[1d3]] nearby enemies"
     targetTitle: Targets for this power, such as "[[1d3]] nearby enemies", determines how many attacks are rolled
+    tier: Tier
     trigger: Trigger
     triggerPlaceholder: Natural even miss
     triggerTitle: Trigger for this power, such as 'Natural even miss'
@@ -688,8 +687,8 @@ ARCHMAGE:
     levelLimits: Level can't increase above 15 or decrease below 0.
     classChange: "Class change detected, base stats adjusted: {classes}."
   MIGRATIONS:
-    start: 'Applying Toolkit13 System Migration version {version}. Please be patient and do not close your game or shut down your server.'
-    complete: "Toolkit13 System Migration to version {version} completed!"
+    start: 'Applying 13th Age System Migration version {version}. Please be patient and do not close your game or shut down your server.'
+    complete: "13th Age System Migration to version {version} completed!"
     updateActors: 'Updating world actors'
     updateCompendiums: 'Updating world compendiums'
     updateItems: 'Updating world items'
@@ -697,9 +696,10 @@ ARCHMAGE:
     updateCompendiumActors: 'Updating compendium actors: {pack}'
     updateCompendiumItems: 'Updating compendium items: {pack}'
     updateCompendiumScenes: 'Updating compendium scenes: {pack}'
-    '1_19_0': "Toolkit13 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
-    '1_24_0': "Toolkit13 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
-    '1_25_0': "Toolkit13 1.25.0: Updating Powers cost field to new resources syntax."
+    '1_19_0': "13th Age 1.19.0: Updating NPC initiative to use a flat number and not calculate it based on level."
+    '1_24_0': "13th Age 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
+    '1_25_0': "13th Age 1.25.0: Updating Powers cost field to new resources syntax."
+    '1_26_0': "13th Age 1.26.0: Updating Powers feat structure."
   TOOLTIP:
     portrait: Portrait image.<br>Click to edit (may need permissions).
     pcAbility: |
@@ -820,7 +820,7 @@ ARCHMAGE:
 # Tours
   TOURS:
     '170':
-      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.7.0! Here's a quick tour of new features
+      welcome: Welcome to 13th Age System version 1.7.0! Here's a quick tour of new features
       documentation: We have started the (long) process of writing documentation for the system. If you have documentation you want to contribute, please reach out or issue a Pull Request!
       cards: We now have Card Support for Icon Relationship 5's and 6's - Please see the documentation for more info on how to enable and set this up
       sheets: Character sheets have been reworked. Open one up to check it out!
@@ -830,13 +830,13 @@ ARCHMAGE:
       generalFeats: Along with General Feats, courtesy of the Community!
       end: "There's a variety of bug fixes and minor tweaks as well, such as to Trigger automation. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '180':
-      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.8.0! Here's a quick tour of new features
+      welcome: Welcome to 13th Age System version 1.8.0! Here's a quick tour of new features
       monkCompendium: The Monk compendium is back up and available to use! Monk forms come preloaded with groups, so checkout the manual group sorting option on monk character sheets! Go jab, punch, and kick your way to victory!
       escalationDie: The Escalation die is now manually adjustable, and via a new System Setting can even go past 9000! (6 is the default max)
       tierShorthand: Thanks to LegoFed3, there is now a @tier shorthand for Actors. Tier is the multiplier for each tier (1x adv, 2x cha, 3x epic)
       end: "There's a variety of bug fixes and minor tweaks as well, such as multi-class health calculations and various compendium updates. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '190':
-      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.9.0! Here's a quick tour of new features
+      welcome: Welcome to 13th Age System version 1.9.0! Here's a quick tour of new features
       aip: Added basic support for the Autocomplete Inline Properties (https://foundryvtt.com/packages/autocomplete-inline-properties/) module, if enabled.
       necromancer: The Necromancer compendium is back up and available to use! Go Raise Hell!
       colorblind: Thanks to EndlesNights, we now have colorblind options. Check out the System Settings - powers should be much clearer for colorblind players!
@@ -847,7 +847,7 @@ ARCHMAGE:
       chatCards: Ability / Background checks now have a new Chat Card layout that includes useful information such as "Background used". The Icon Roll Chat Cards got a makeover as well - roll the dice and see what the Icons bring!
       end: "There's a variety of bug fixes and minor tweaks as well, such as fixing powers in the Compendiums, adding Weakling / Elite to creature sizes, negative recovery logic, and more. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '1100':
-      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.10.0! Here's a quick tour of new features
+      welcome: Welcome to 13th Age System version 1.10.0! Here's a quick tour of new features
       v2Sheet: We've redesigned the character sheet! The overall structure is the same, but everything that's rollable will now have a blue d20 near it, and the sheet will feel more responsive. If you prefer the original sheet, you can return to the original sheet per character by clicking the "Sheet" settings gear in the header of the sheet window.
       nightMode: The new character sheet has a night mode! Click the <i class="fas fa-cogs"></i> tab on the sheet and find it near the bottom of the right sidebar.
       rolls: Many more areas of the sheet are now rollable, such as initiative, death saves, icon rolls, and more. Watch out for a blue <i class="fas fa-dice-d20"></i> icon to find rollable links!
@@ -856,12 +856,12 @@ ARCHMAGE:
       powerImporter: The power importer has been redesigned! The new design is much closer to a character builder, and will pull from any classes and races detected on your character sheet.
       end: "There's also a variety of bug fixes and minor tweaks added to the system! Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '1170':
-      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.17.0! We have some important changes for critical hits in this release.
+      welcome: Welcome to 13th Age System version 1.17.0! We have some important changes for critical hits in this release.
       crits: <strong>Crits no longer double damage automatically.</strong>. Instead, each target that was critted against will be <strong>bold</strong> in the chat card. We've also added offensive and defensive crit modifiers as new settings within character sheets, and we've added an Active Effect to the vulnerable condition.
       compendia: We have several corrections to existing compendia entries, and we've added <strong>magic items</strong> from the SRD!
       end: "There's also a variety of bug fixes and minor tweaks added to the system! You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.17.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
     '1190':
-      welcome: Welcome to Toolkit13 (13th Age Compatible) version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
+      welcome: Welcome to 13th Age System version 1.19.0! We have some big changes for NPCs including a new sheet and updated compendiums!
       end: "You can read the full release notes <a href='https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.19.0' target='_blank'>here</a>. Come join us in the Foundry Discord #13th-age channel for questions and feedback!"
       npc:
         welcome: We've updated the NPC sheet to a new design! The original NPC sheet is still available and can be switched to by setting the sheet to the "Legacy NPC Sheet".

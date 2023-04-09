@@ -149,31 +149,7 @@ system:
     type: 'Number'
     label: 'Max Uses'
     value: 1
-  feats:
-    adventurer:
-      description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
+  feats: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'aPYHM8AK463UnPLd'

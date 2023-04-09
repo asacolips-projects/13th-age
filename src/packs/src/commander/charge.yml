@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>If you spend an additional command point, the target can use a melee attack instead of a basic attack.</p>'
+         type: 'String'
+         value: '<p>If you spend an additional command point, the target can use a melee attack instead of a basic attack.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The target gains a +[[@cha.mod]] bonus to the melee attack it makes from this command.</p>'
+         type: 'String'
+         value: '<p>The target gains a +[[@cha.mod]] bonus to the melee attack it makes from this command.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>This turn, if the target moves to attack an enemy you are also engaged with, that enemy is *vulnerable* to the attack.</p>'
+         type: 'String'
+         value: '<p>This turn, if the target moves to attack an enemy you are also engaged with, that enemy is *vulnerable* to the attack.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: 'Command'
     type: 'String'

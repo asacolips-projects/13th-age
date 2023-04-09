@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>If you&rsquo;re a Wild Healer initiate, you gain a daily use of the wild heal spell. If you&rsquo;re a Wild Healer adept, you instead gain a once-per-battle use of the wild heal spell.</p>'
+         type: 'String'
+         value: '<p>If you&rsquo;re a Wild Healer initiate, you gain a daily use of the wild heal spell. If you&rsquo;re a Wild Healer adept, you instead gain a once-per-battle use of the wild heal spell.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You gain an additional daily use of regeneration.</p>'
+         type: 'String'
+         value: '<p>You gain an additional daily use of regeneration.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Once per day as a free action when a target of one of your regeneration spells (or greater regeneration) fails the save to continue its regeneration, the target succeeds instead.</p>'
+         type: 'String'
+         value: '<p>Once per day as a free action when a target of one of your regeneration spells (or greater regeneration) fails the save to continue its regeneration, the target succeeds instead.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     type: 'String'
     label: 'Group'

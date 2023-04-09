@@ -151,33 +151,44 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>This feat allows you to speak enough arcana, dwarven, elven, gnomish, gnoll, goblin, orcish, and other standard humanoid languages to comprehend enough of what most other humanoids are saying or screaming during battle. You are not fluent in all these languages, no one will mistake you for a native speaker, and your vocabulary is adventurer-centric (heavy on words connected to danger rather than philosophy or emotions).</p><p>You can also read enough to get by in all these languages.</p>'
+         type: 'String'
+         value: '<p>This feat allows you to speak enough arcana, dwarven, elven, gnomish, gnoll, goblin, orcish, and other standard humanoid languages to comprehend enough of what most other humanoids are saying or screaming during battle. You are not fluent in all these languages, no one will mistake you for a native speaker, and your vocabulary is adventurer-centric (heavy on words connected to danger rather than philosophy or emotions).</p><p>You can also read enough to get by in all these languages.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You can speak, read, and write all the humanoid languages fluently. Stranger languages are no problem for you either. If someone is speaking it, you can figure it out.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'adventurer'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
         value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
+      description:
+         type: 'String'
+         value: '<p>You can speak, read, and write all the humanoid languages fluently. Stranger languages are no problem for you either. If someone is speaking it, you can figure it out.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/d20.svg'
 _id: 'iVZk5SR0Bi0TZmLf'

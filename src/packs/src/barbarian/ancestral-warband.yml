@@ -150,30 +150,25 @@ system:
     label: 'Max Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>Your Ancestral Warband spirits are always raging, even if you are not, and continue to fight for a single round while you are *unconscious*.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Your Ancestral Warband spirits are always raging, even if you are not, and continue to fight for a single round while you are *unconscious*.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'qk0fJSq08Woa8nvZ'

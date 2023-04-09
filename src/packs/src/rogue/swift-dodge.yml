@@ -150,30 +150,44 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>The power also triggers on an attack against PD.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The power also triggers on an attack against PD.</p>'
+         type: 'String'
+         value: '<p>The attack reroll takes a –2 penalty.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>The attack reroll takes a –2 penalty.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'ODFzwN1P2ij5U5QC'

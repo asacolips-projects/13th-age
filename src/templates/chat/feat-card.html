@@ -1,22 +1,18 @@
-<div class="archmage chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}">
+<div class="archmage chat-card item-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}" {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
     <header class="card-header flexrow">
-        <img src="{{item.img}}" title="{{item.name}}" width="36" height="36"/>
-        <h3>{{item.name}}</h3>
+        <img src="{{item.img}}" title="{{item.name}} - {{featName}}" width="36" height="36"/>
+        <h3 class="ability-usage ability-usage--{{feat.powerUsage.value}}">{{item.name}} - {{featName}}</h3>
     </header>
 
-    <div class="card-content">
-        {{{data.description.value}}}
-    </div>
+    <div class="item-summary">
 
-    <div class="card-buttons">
-        {{#if data.isSave}}<span>Save DC {{actor.system.attributes.spelldc.value}} ({{data.save.str}})</span>{{/if}}
-        {{#if data.isAttack}}<button data-action="featAttack">Attack</button>{{/if}}
-        {{#if data.damage.value}}<button data-action="featDamage">Damage</button>{{/if}}
-    </div>
+        <div class="card-content">
+            <div class="card-row">
+                <div class="tag tag--feat tag--{{#if feat.isActive.value}}active{{else}}inactive hide{{/if}} tag--{{safeCSSId feat.tier.value}}">
+                    <div class="description">{{{feat.description.value}}}</div>
+                </div>
+            </div>
+        </div>
 
-    <footer class="card-footer">
-        {{#each data.properties}}
-        <span>{{this}}</span>
-        {{/each}}
-    </footer>
+    </div>
 </div>

@@ -149,34 +149,7 @@ system:
     type: 'Number'
     label: 'Uses'
     value: null
-  feats:
-    adventurer:
-      description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+  feats: null
   group:
     value: 'Cantrip'
     type: 'String'

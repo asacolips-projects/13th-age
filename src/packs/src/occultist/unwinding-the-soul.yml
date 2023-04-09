@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You can now unwind a second enemy, but if you unwind a third, the first enemy is no longer *vulnerable*. You can also take this feat multiple times, allowing you to unwind another enemy each time you select it.</p>'
+         type: 'String'
+         value: '<p>You can now unwind a second enemy, but if you unwind a third, the first enemy is no longer *vulnerable*. You can also take this feat multiple times, allowing you to unwind another enemy each time you select it.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You can now unwind an enemy with any attack roll other than a natural 1 when you cast a spell, instead of only on an 11+.</p>'
+         type: 'String'
+         value: '<p>You can now unwind an enemy with any attack roll other than a natural 1 when you cast a spell, instead of only on an 11+.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>When you attack an enemy that you have begun to unwind and roll a natural 11+ against it, it takes extra psychic damage equal to your [[@wis.mod+@lvl]] from all subsequent hits by you or your allies.</p>'
+         type: 'String'
+         value: '<p>When you attack an enemy that you have begun to unwind and roll a natural 11+ against it, it takes extra psychic damage equal to your [[@wis.mod+@lvl]] from all subsequent hits by you or your allies.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

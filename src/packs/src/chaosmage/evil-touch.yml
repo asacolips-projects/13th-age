@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>This spell now deals half damage on a miss.</p>'
+         type: 'String'
+         value: '<p>This spell now deals half damage on a miss.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When the target drops to 0 hp, instead of gaining temporary hit points, you can choose to deal that amount of negative energy damage to one nearby enemy as a free action.</p>'
+         type: 'String'
+         value: '<p>When the target drops to 0 hp, instead of gaining temporary hit points, you can choose to deal that amount of negative energy damage to one nearby enemy as a free action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>This spell can now target a nearby enemy.</p>'
+         type: 'String'
+         value: '<p>This spell can now target a nearby enemy.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     type: 'String'
     label: 'Group'

@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>The spell now deals half damage on a miss.</p>'
+         type: 'String'
+         value: '<p>The spell now deals half damage on a miss.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You or an ally now lose one less die of hit points (for example, 3d6 instead of 4d6).</p>'
+         type: 'String'
+         value: '<p>You or an ally now lose one less die of hit points (for example, 3d6 instead of 4d6).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>The first time each battle you miss with this spell, if the escalation die is 3+, you can reroll the attack by having you or your ally lose the same amount of hit points again.</p>'
+         type: 'String'
+         value: '<p>The first time each battle you miss with this spell, if the escalation die is 3+, you can reroll the attack by having you or your ally lose the same amount of hit points again.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     type: 'String'
     label: 'Group'

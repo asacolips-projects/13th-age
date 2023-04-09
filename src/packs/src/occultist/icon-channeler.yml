@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Choose three icons when you take this feat. Each time you apply your 5 to one of those icons, roll a [[/r d6]]. On a 5–6, change that 5 you’re applying to a 6.</p>'
+         type: 'String'
+         value: '<p>Choose three icons when you take this feat. Each time you apply your 5 to one of those icons, roll a [[/r d6]]. On a 5–6, change that 5 you’re applying to a 6.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>As the adventurer feat, except that you can also choose three more icons (six total) when you take this feat that allow you to roll the d6 when you apply a 5 to one of them.</p>'
+         type: 'String'
+         value: '<p>As the adventurer feat, except that you can also choose three more icons (six total) when you take this feat that allow you to roll the d6 when you apply a 5 to one of them.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You now get two 5s when the other characters roll icon relationship dice. You can roll a d6 for each 5 if you apply it to a chosen icon from the adventurer and champion feats.</p>'
+         type: 'String'
+         value: '<p>You now get two 5s when the other characters roll icon relationship dice. You can roll a d6 for each 5 if you apply it to a chosen icon from the adventurer and champion feats.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

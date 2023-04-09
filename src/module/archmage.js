@@ -215,6 +215,9 @@ Hooks.once('init', async function() {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
 
+    // Remove 11th level feat tier
+    delete CONFIG.ARCHMAGE.featTiers.iconic;
+
     // Remove 2e hindered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hindered");
     CONFIG.statusEffects.splice(id, 1);

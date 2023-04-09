@@ -160,31 +160,7 @@ system:
     type: 'Number'
     label: 'Sustain On'
     value: null
-  feats:
-    adventurer:
-      description:
-        type: 'String'
-        label: 'Adventurer Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+  feats: null
 effects: []
 folder: null
 sort: 0

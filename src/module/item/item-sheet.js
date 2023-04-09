@@ -57,6 +57,8 @@ export class ItemArchmageSheet extends ItemSheet {
       context['powerTypes'] = CONFIG.ARCHMAGE.powerTypes;
       context['powerUsages'] = CONFIG.ARCHMAGE.powerUsages;
       context['actionTypes'] = CONFIG.ARCHMAGE.actionTypes;
+      context['featTiers'] = CONFIG.ARCHMAGE.featTiers;
+      context['featUsages'] = CONFIG.ARCHMAGE.featUsages;
     }
     // Equipment-specific data
     else if (this.item.type === 'equipment') {
@@ -183,9 +185,112 @@ export class ItemArchmageSheet extends ItemSheet {
         }).on('change', (instance) => instance.save());
       }
     }
+
+    // Feat buttons
+    html.on('click', '.feat-edit', (event) => this._updateFeat(event));
+  }
+
+  /**
+   * Add/delete/reorder feats on a power.
+   *
+   * @param {Event} event
+   *   Html event that triggered the method.
+   */
+  async _updateFeat(event) {
+    let target = event.currentTarget;
+    let dataset = target.dataset;
+
+    let item = this.item;
+    if (item.type != "power") return;
+
+    let featIndex = dataset.featkey;
+    let feats = item.system.feats;
+
+    let change = (async () => {return;});
+    switch(dataset.action) {
+      case 'add':
+        if (feats) feats = Object.values(feats);
+        else feats = [];
+        feats.push({
+          "description": {
+            "type": "String",
+            "value": ""
+          },
+          "isActive": {
+            "type": "Boolean",
+            "value": false
+          },
+          "tier": {
+            "type": "String",
+            "value": "adventurer"
+          },
+          "powerUsage": {
+            "type": "String",
+            "value": ""
+          },
+          "quantity": {
+            "type": "Number",
+            "value": null
+          },
+          "maxQuantity": {
+            "type": "Number",
+            "value": null
+          }
+        });
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
+      case 'del':
+        change = (async () => {
+          delete feats[featIndex];
+          feats = Object.assign({}, Object.values(feats));
+          let updateData = {'system.feats': feats};
+          for (let key of Object.keys(item.system.feats)) {
+            if (!feats[key]) updateData[`system.feats.-=${key}`] = null;
+          }
+          await item.update(updateData);
+        });
+        break;
+      case 'up':
+        featIndex = Number(featIndex);
+        if (featIndex == 0) return;
+        feats = Object.values(feats);
+        [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]]
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
+      case 'down':
+        feats = Object.values(feats);
+        featIndex = Number(featIndex);
+        if (featIndex >= feats.length - 1) return;
+        [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]]
+        await item.update({'system.feats': Object.assign({}, feats)});
+        return;
+    }
+
+    let bypass = event.shiftKey ? true : false;
+    if (bypass) {
+      await change();
+      return;
+    }
+    let del = false;
+    new Dialog({
+      title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirm"),
+      buttons: {
+        del: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
+          callback: async () => {del = true;}
+        },
+        cancel: {
+          label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
+          callback: async () => {}
+        }
+      },
+      default: 'cancel',
+      close: async html => {
+        if (del) await change();
+      }
+    }).render(true);
   }
 }
-
 
 
 Hooks.once('ready', async function () {

@@ -150,33 +150,25 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>Your allies don''t need to be next to you before you cast the spell, just nearby. Alternately, if they are all next to you when you cast the spell, you can teleport to a location known to one of your allies.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
+      maxQuantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Your allies don''t need to be next to you before you cast the spell, just nearby. Alternately, if they are all next to you when you cast the spell, you can teleport to a location known to one of your allies.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
   group:
     value: null
 flags: {}

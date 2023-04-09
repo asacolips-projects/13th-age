@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Whenever you take a full heal-up, you can choose whether you’d like to move a single point in a relationship with a positively or negatively aligned icon to one of the other icons. Tell a story of what has taken place to cause the shift, unless it’s already obvious from the events of the campaign. When you shift this relationship, the new point must match any current relationships with that icon, but it can be positive, negative, or conflicted if it’s currently the only point you have with that icon.</p>'
+         type: 'String'
+         value: '<p>Whenever you take a full heal-up, you can choose whether you’d like to move a single point in a relationship with a positively or negatively aligned icon to one of the other icons. Tell a story of what has taken place to cause the shift, unless it’s already obvious from the events of the campaign. When you shift this relationship, the new point must match any current relationships with that icon, but it can be positive, negative, or conflicted if it’s currently the only point you have with that icon.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You gain a bonus cleric spell that is at least two levels below your level, in addition to the spells you can cast as a necromancer. You can change this spell for a new one you know whenever you take a full heal-up. You can also substitute references to Wisdom with references to Intelligence in the spell.</p>'
+         type: 'String'
+         value: '<p>You gain a bonus cleric spell that is at least two levels below your level, in addition to the spells you can cast as a necromancer. You can change this spell for a new one you know whenever you take a full heal-up. You can also substitute references to Wisdom with references to Intelligence in the spell.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You gain the lowest-tier feat, if any, associated with your bonus cleric spell.</p>'
+         type: 'String'
+         value: '<p>You gain the lowest-tier feat, if any, associated with your bonus cleric spell.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/water_03.jpg'
 _id: 'Ks2O81fVdfYHYZlZ'

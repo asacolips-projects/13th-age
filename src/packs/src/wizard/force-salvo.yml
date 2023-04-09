@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You can now target a specific creature with more than one bolt. Once you hit that target, you must target a different creature, and so on. (Roll your attack after each bolt before picking a target for the next bolt.)</p>'
+         type: 'String'
+         value: '<p>You can now target a specific creature with more than one bolt. Once you hit that target, you must target a different creature, and so on. (Roll your attack after each bolt before picking a target for the next bolt.)</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>On a miss, a bolt now deals [[@lvl]] miss damage.</p>'
+         type: 'String'
+         value: '<p>On a miss, a bolt now deals [[@lvl]] miss damage.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Increase the number of bolts by 1.</p>'
+         type: 'String'
+         value: '<p>Increase the number of bolts by 1.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

@@ -150,34 +150,7 @@ system:
     type: 'Number'
     label: 'Uses'
     value: 1
-  feats:
-    adventurer:
-      description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+  feats: null
 flags: {}
 img: 'systems/archmage/assets/icons/spells/horror-acid-1.jpg'
 _id: '9WoAxfUDTmsaQnGQ'

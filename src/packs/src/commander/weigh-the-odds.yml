@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per day, add your Charisma modifier [[@cha.mod]] to the number of command points you gain when you use this action.</p>'
+         type: 'String'
+         value: '<p>Once per day, add +[[@cha.mod]] to the number of command points you gain when you use this action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>Once per battle while the escalation die is 3+, you can gain [[1d4]] command points as a quick action.</p>'
+         type: 'String'
+         value: '<p>Once per battle while the escalation die is 3+, you can gain [[1d4]] command points as a quick action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>You now gain [[1d6]] command points instead of 1d4 when you use this action.</p>'
+         type: 'String'
+         value: '<p>You now gain 1d6 command points instead of 1d4 when you use this action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
   group:
     value: null
 flags: {}

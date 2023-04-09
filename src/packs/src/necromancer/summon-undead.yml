@@ -151,33 +151,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: '<p>You now summon [[1d4+1]] mooks when you use this spell instead of 1d3+1.</p>'
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
         value: ''
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>You now summon [[1d4+1]] mooks when you use this spell instead of 1d3+1.</p>'
+         type: 'String'
+         value: '<p>If one or more mooks summoned by the spell survive the battle, you can keep one mook with you until the next battle. Or until someone in the party or the world gets sick of it and slays the thing.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>If one or more mooks summoned by the spell survive the battle, you can keep one mook with you until the next battle. Or until someone in the party or the world gets sick of it and slays the thing.</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/affliction_07.jpg'
 _id: 'b75sdYCZPkVxhUAP'

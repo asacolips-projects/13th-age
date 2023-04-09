@@ -150,30 +150,44 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
+         type: 'String'
+         value: "<p>If your\_<em>swift riposte</em>\_attack is a critical hit, the enemy's attack misses.</p>"
+      isActive:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Adventurer Feat'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
         value: null
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-    champion:
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: "<p>If your\_<em>swift riposte</em>\_attack is a critical hit, the enemy's attack misses.</p>"
+         type: 'String'
+         value: "<p>You gain a +2 attack bonus with\_<em>swift riposte</em>\_attacks.</p>"
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: "<p>You gain a +2 attack bonus with\_<em>swift riposte</em>\_attacks.</p>"
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'HT31aV1AyCrBNkkr'

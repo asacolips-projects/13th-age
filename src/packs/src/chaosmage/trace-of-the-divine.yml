@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>At the start of the day, choose a random cleric invocation, excepting those from the healing domain. You can use that invocation as if you were a cleric once this day as a quick action.</p>'
+         type: 'String'
+         value: '<p>At the start of the day, choose a random cleric invocation, excepting those from the healing domain. You can use that invocation as if you were a cleric once this day as a quick action.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>While you have an <em>air </em>or<em> water </em>warp effect active, when you heal using a recovery or cast a spell that lets an ally heal using a recovery, add an extra recovery die to the healing.</p>'
+         type: 'String'
+         value: '<p>While you have an <em>air </em>or<em> water </em>warp effect active, when you heal using a recovery or cast a spell that lets an ally heal using a recovery, add an extra recovery die to the healing.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>In addition to the random invocation you gain at the start of the day, you also get the talent/domain powers that go with it.</p>'
+         type: 'String'
+         value: '<p>In addition to the random invocation you gain at the start of the day, you also get the talent/domain powers that go with it.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/spells/protect-sky-1.jpg'
 _id: '1mQwfHb1xehu971o'

@@ -150,32 +150,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    1:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>The triggering ally also gains temporary hit points equal to [[2*@wis.mod]] + the level of the triggering spell. In addition, that ally gains the temporary hit points again when they cast that spell this battle.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>The triggering ally also gains temporary hit points equal to double your Wisdom modifier + the level of the triggering spell. In addition, that ally gains the temporary hit points again when they cast that spell this battle.</p>'
+         type: 'String'
+         value: '<p>Your retain focus range with this spell is now 1&ndash;15</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Your retain focus range with this spell is now 1&ndash;15</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'aaqk7cPXwfnoBVW1'

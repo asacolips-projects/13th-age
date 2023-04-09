@@ -154,31 +154,25 @@ system:
     label: 'Uses'
     value: null
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>While you are fighting with two melee weapons, you now gain the benefit of your TwoWeapon Mastery talent and any feats you&rsquo;ve taken for it even when using attacks from your non-ranger class.</p>'
+         type: 'String'
+         value: '<p>While you are fighting with two melee weapons, you now gain the benefit of your TwoWeapon Mastery talent and any feats you&rsquo;ve taken for it even when using attacks from your non-ranger class.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'adventurer'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/d20.svg'
 effects: []

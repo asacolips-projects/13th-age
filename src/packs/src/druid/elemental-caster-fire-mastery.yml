@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You gain the flame spear spell below.</p>'
+         type: 'String'
+         value: '<p>You gain the flame spear spell below.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When an elemental you have summoned drops to 0 hp, one enemy engaged with it takes [[@lvl + (2*@wis.mod)]] damage.</p>'
+         type: 'String'
+         value: '<p>When an elemental you have summoned drops to 0 hp, one enemy engaged with it takes [[@lvl + (2*@wis.mod)]] damage.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>The first daily Fire spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
+         type: 'String'
+         value: '<p>The first daily Fire spell you cast each day is now a recharge 16+ after battle spell for the rest of the day.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     type: 'String'
     label: 'Group'

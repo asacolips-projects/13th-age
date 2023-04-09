@@ -150,33 +150,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>You also gain a +2 attack bonus with any attack you reroll while using this aspect.</p>'
+         type: 'String'
+         value: '<p>You also gain a +2 attack bonus with any attack you reroll while using this aspect.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>When you move and then attack an enemy you were not engaged with at the start of your turn, you can reroll your first natural odd attack roll each turn, but must use the reroll. (The initiate effect bonuses don&rsquo;t apply to this reroll.)</p>'
+         type: 'String'
+         value: '<p>When you move and then attack an enemy you were not engaged with at the start of your turn, you can reroll your first natural odd attack roll each turn, but must use the reroll. (The initiate effect bonuses don&rsquo;t apply to this reroll.)</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Until the first time it recharges each day, tiger aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
+         type: 'String'
+         value: '<p>Until the first time it recharges each day, tiger aspect is recharge 11+ instead of recharge 16+ for adepts.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
   group:
     type: 'String'
     label: 'Group'

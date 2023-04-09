@@ -434,6 +434,18 @@ export class MacroUtils {
     data.duration = d;
     return data;
   }
+
+  /**
+   * Select all feats of a specific tier
+   */
+  static getFeatsByTier(item, tier) {
+    let res = [];
+    if (!item.system.feats) return res;
+    for (let feat of Object.values(item.system.feats)) {
+      if (feat.tier.value == tier) res.push(feat);
+    }
+    return res;
+  }
 }
 
 /**

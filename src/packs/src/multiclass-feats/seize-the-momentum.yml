@@ -154,32 +154,44 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>Once per day when you hit with an attack from your non-rogue class, you can gain <em>momentum </em>as if you had used a rogue attack.</p>'
+         type: 'String'
+         value: '<p>Once per day when you hit with an attack from your non-rogue class, you can gain <em>momentum </em>as if you had used a rogue attack.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: 'daily'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>In addition to using the adventurer-tier feat once per day, you can also use it once per battle (so in a four-battle day, you could use it five times).</p>'
+         type: 'String'
+         value: '<p>In addition to using the adventurer-tier feat once per day, you can also use it once per battle (so in a four-battle day, you could use it five times).</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Epic Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: 'once-per-battle'
+      quantity:
+        type: 'Number'
+        value: 1
+      maxQuantity:
+        type: 'Number'
+        value: 1
 flags: {}
 img: 'icons/svg/d20.svg'
 effects: []

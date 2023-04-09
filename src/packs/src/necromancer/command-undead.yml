@@ -151,33 +151,63 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
-        value: '<p>A miss doesn''t expend the spell.</p>'
+         type: 'String'
+         value: '<p>A miss doesn''t expend the spell.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'adventurer'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    1:
       description:
-        type: 'String'
-        label: 'Champion Feat'
-        value: '<p>If you wish, the target doesn’t make any attacks while *confused*. Instead it becomes compliant, answers short questions if possible, and follows other suggestions that don’t lead directly to damaging itself or other creatures. Basically, while confused it becomes a slightly puzzled friend, which may wonder why your other friends are hurting it while it’s trying to be helpful.</p>'
+         type: 'String'
+         value: '<p>If you wish, the target doesn’t make any attacks while *confused*. Instead it becomes compliant, answers short questions if possible, and follows other suggestions that don’t lead directly to damaging itself or other creatures. Basically, while confused it becomes a slightly puzzled friend, which may wonder why your other friends are hurting it while it’s trying to be helpful.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'champion'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
+    2:
       description:
-        type: 'String'
-        label: 'Epic Feat'
-        value: '<p>The target now adds the escalation die ([[@ed]]) to its attacks while *confused* by this spell.</p>'
+         type: 'String'
+         value: '<p>The target now adds the escalation die ([[@ed]]) to its attacks while *confused* by this spell.</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+         type: 'Boolean'
+         value: false
+      tier:
+        type: 'String'
+        value: 'epic'
+      powerUsage:
+        type: 'String'
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'systems/archmage/assets/icons/skills/yellow_19.jpg'
 _id: 'E9ukL9kmZrLPuaI5'

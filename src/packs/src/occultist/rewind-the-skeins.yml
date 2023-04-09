@@ -150,31 +150,25 @@ system:
     label: 'Uses'
     value: 1
   feats:
-    adventurer:
+    0:
       description:
-        type: 'String'
-        label: 'Adventurer Feat'
+         type: 'String'
+         value: '<p>Take it back five minutes. Time is pretty subjective in our game anyway, and now it&rsquo;s even more so, for you</p>'
       isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    champion:
-      description:
+         type: 'Boolean'
+         value: false
+      tier:
         type: 'String'
-        label: 'Champion Feat'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
-    epic:
-      description:
+        value: 'epic'
+      powerUsage:
         type: 'String'
-        label: 'Epic Feat'
-        value: '<p>Take it back five minutes. Time is pretty subjective in our game anyway, and now it&rsquo;s even more so, for you</p>'
-      isActive:
-        type: 'Boolean'
-        label: 'Active'
-        value: false
+        value: ''
+      quantity:
+        type: 'Number'
+        value: null
+      maxQuantity:
+        type: 'Number'
+        value: null
 flags: {}
 img: 'icons/svg/mystery-man.svg'
 _id: 'MKGVjCDjXQTzeB0H'

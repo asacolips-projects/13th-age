@@ -165,9 +165,11 @@ Actor:
       class:
         type: String
         label: Class
+        value: ''
       race:
         type: String
         label: Race
+        value: ''
       out:
         label: One Unique Thing
         type: String
@@ -644,27 +646,25 @@ Item:
       label: Roll Table
       value: ''
     feats:
-      adventurer:
-        description:
-          type: String
-          label: Adventurer Feat
-        isActive:
-          type: Boolean
-          label: Active
-      champion:
-        description:
-          type: String
-          label: Champion Feat
-        isActive:
-          type: Boolean
-          label: Active
-      epic:
-        description:
-          type: String
-          label: Epic Feat
-        isActive:
-          type: Boolean
-          label: Active
+      # 0:
+        # description:
+          # type: String
+          # value: ''
+        # isActive:
+          # type: Boolean
+          # value: false
+        # tier:
+          # type: String
+          # value: 'adventurer'
+        # powerUsage:
+          # type: String
+          # value: ''
+        # quantity:
+          # type: Number
+          # value: null
+        # maxQuantity:
+          # type: Number
+          # value: null
     embeddedMacro:
       type: String
       label: Embedded Macro
