@@ -146,6 +146,7 @@
                     <strong class="attribute-name">{{localize 'ARCHMAGE.CHAT.powerUsage'}}</strong>
                       <select name="system.powerUsage.value" data-dtype="{{system.powerUsage.type}}">
                           {{#select system.powerUsage.value}}
+                          <option value="">{{localize 'ARCHMAGE.noneOption'}}</option>
                           {{#each equipUsages as |name type|}}
                           <option value="{{type}}">{{name}}</option>
                           {{/each}}

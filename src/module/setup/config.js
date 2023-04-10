@@ -352,13 +352,15 @@ ARCHMAGE.powerUsages = {
   'once-per-battle': 'Per Battle',
   'recharge': 'Recharge',
   'daily': 'Daily',
+  'daily-desperate': 'Daily/Desperate',
   'other': 'Other'
 };
 
 ARCHMAGE.equipUsages = {
-  'daily': 'Daily',
-  'recharge': 'Recharge',
   'once-per-battle': 'Per Battle',
+  'recharge': 'Recharge',
+  'daily': 'Daily',
+  'daily-desperate': 'Daily/Desperate',
   'other': 'Other'
 };
 

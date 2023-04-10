@@ -736,8 +736,11 @@ export class ActorArchmage extends Actor {
     if (difficulty == 'death') {
       if (success) {
         if (this.system.attributes.hp.value <= 0) this.rollRecovery({}, true);
+      } else {
+        await this.update({'data.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
+        // Handle desperate recharge
+        await this.rechargeDesperate();
       }
-      else await this.update({'data.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
     }
 
     // Handle failures of last gasp saves.
@@ -938,6 +941,10 @@ export class ActorArchmage extends Actor {
       // Starting from 0 if at negative hp is handled in the actor update hook
       newHp = Math.min(this.system.attributes.hp.max, Math.max(0, newHp) + roll.total);
     }
+
+    // Handle desperate recharge
+    if (newRec <= 0 && this.system.attributes.recoveries.value >= 1) this.rechargeDesperate();
+
     await this.update({
       'system.attributes.recoveries.value': newRec,
       'system.attributes.hp.value': newHp
@@ -1057,7 +1064,7 @@ export class ActorArchmage extends Actor {
         }
       }
       // Feats
-      if (item.type == "power") {
+      if (item.type == "power" && item.system.feats) {
         for (let index of Object.keys(item.system.feats)) {
           let feat = item.system.feats[index];
           if (!feat.isActive?.value) continue;
@@ -1155,11 +1162,11 @@ export class ActorArchmage extends Actor {
       if (item.type != 'power' && item.type != 'equipment') continue;
 
       let itemUpdateData = {};
-      let usageArray = ['once-per-battle','daily','recharge'];
+      let usageArray = ['once-per-battle','daily','recharge', 'daily-desperate'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
-      if (maxQuantity && item.system.quantity.value < maxQuantity
-        && usageArray.includes(item.system.powerUsage?.value)) {
+      if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
+        && (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
         itemUpdateData['system.quantity'] = {value: maxQuantity}
         itemUpdateData['system.rechargeAttempts'] = {value: 0}
         templateData.items.push({
@@ -1168,7 +1175,7 @@ export class ActorArchmage extends Actor {
         });
       }
       // Feats
-      if (item.type == "power") {
+      if (item.type == "power" && item.system.feats) {
         for (let index of Object.keys(item.system.feats)) {
           let feat = item.system.feats[index];
           if (!feat.isActive?.value) continue;
@@ -1195,6 +1202,51 @@ export class ActorArchmage extends Actor {
     };
     chatData["content"] = await renderTemplate(template, templateData);
     game.archmage.ArchmageUtility.createChatMessage(chatData);
+  }
+
+  async rechargeDesperate() {
+    let templateData = {
+      actor: this,
+      items: []
+    };
+
+    // Recharge all desperate recharge items
+    let items = this.items.map(i => i);
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      if (item.type != 'power' && item.type != 'equipment') continue;
+      let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
+      let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
+      // Re-use rechargeAttempts to store whether we already desperately recharged before
+      let rechAttempts = maxQuantity - item.system.quantity.value;
+      rechAttempts = Math.max(rechAttempts - item.system.rechargeAttempts.value, 0)
+      if (maxQuantity && item.system.quantity.value < maxQuantity
+        && item.system.powerUsage?.value == 'daily-desperate') {
+        if (rechAttempts > 0) {
+          await item.update({
+            'system.quantity.value': item.system.quantity.value + rechAttempts,
+            'system.rechargeAttempts.value': item.system.rechargeAttempts.value + rechAttempts
+            });
+          templateData.items.push({
+            key: item.name,
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
+          });
+        }
+      }
+    }
+
+    // Print outcomes to chat
+    if (templateData.items.length > 0) {
+      const template = `systems/archmage/templates/chat/rest-desperate-card.html`
+      const chatData = {
+        user: game.user.id, speaker: {actor: this.id, token: this.token,
+        alias: this.name, scene: game.user.viewedScene},
+      };
+      let rollMode = game.settings.get("core", "rollMode");
+      ChatMessage.applyRollMode(chatData, rollMode);
+      chatData["content"] = await renderTemplate(template, templateData);
+      let msg = await ChatMessage.create(chatData, {displaySheet: false});
+    }
   }
 
   /* -------------------------------------------- */

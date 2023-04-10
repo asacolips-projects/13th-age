@@ -1,0 +1,13 @@
+<div class="archmage chat-card">
+  <header class="card-header flexrow">
+    <img src="{{actor.img}}" title="{{actor.name}}" width="36" height="36"/>
+    <h3 class="ability-usage ability-usage--daily">{{localize 'ARCHMAGE.CHAT.desperateRecharge'}}</h3>
+  </header>
+  <div class="card-content">
+    {{#each items as |itm key|}}
+    <div class="card-row">
+      <div class="card-prop"><strong>{{itm.key}}:</strong> {{itm.message}}</div>
+    </div>
+    {{/each}}
+  </div>
+</div>
