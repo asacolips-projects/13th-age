@@ -133,7 +133,12 @@ export default class preCreateChatMessageHandler {
                 // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
                 var triggerText = row_text.toLowerCase();
                 //console.log(triggerText);
-                if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase()) || triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase()+':') || triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase()+':') || triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase()+':')) {
+                if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase()) || 
+                  triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase()+':') || 
+                  triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase()+':') || 
+                  triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase()+':') || 
+                  triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitEven").toLowerCase()+':') ||
+                  triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hitOdd").toLowerCase()+':') ) {
                     let triggers = new Triggers();
                     let active = triggers.evaluateRow(row_text, $rolls, hitEvaluationResults);
 
