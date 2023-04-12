@@ -123,7 +123,9 @@ class ArchmageUpdateHandler {
       let itemUpdates = [];
       for (let item of token.actor.items) {
         let upd = this.prepareMigrateItemData(item);
-        if (!foundry.utils.isEmpty(upd)) itemUpdates.push({ _id: item._id, upd });
+        let updItm = duplicate(item);
+        updItm.system = foundry.utils.mergeObject(updItm.system, upd.system);
+        if (!foundry.utils.isEmpty(upd)) itemUpdates.push(updItm);
       }
       if (itemUpdates.length > 0) actorUpdates["items"] = itemUpdates;
     }
