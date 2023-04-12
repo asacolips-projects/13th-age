@@ -122,12 +122,12 @@ class ArchmageUpdateHandler {
       actorUpdates = this.prepareMigrateActorData(token.actor);
       let itemUpdates = [];
       for (let item of token.actor.items) {
-        let upd = this.prepareMigrateItemData(item);
         let updItm = duplicate(item);
-        updItm.system = foundry.utils.mergeObject(updItm.system, upd.system);
-        if (!foundry.utils.isEmpty(upd)) itemUpdates.push(updItm);
+        let upd = this.prepareMigrateItemData(item);
+        if (!foundry.utils.isEmpty(upd)) updItm.system = mergeObjectWithDeletion(updItm.system, upd.system);
+        itemUpdates.push(updItm);
       }
-      if (itemUpdates.length > 0) actorUpdates["items"] = itemUpdates;
+      actorUpdates["items"] = itemUpdates;
     }
     return {
       '_id': token._id,
@@ -653,6 +653,29 @@ class ArchmageUpdateHandler {
     const worldVersion = game.settings.get('archmage', 'systemMigrationVersion') ?? '1.17.0';
     return isNewerVersion(version, worldVersion);
   }
+}
+
+function isObject(item) {
+  return (item && typeof item === 'object' && !Array.isArray(item));
+}
+
+function mergeObjectWithDeletion(target, ...sources) {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (key.length > 2 && key.slice(0, 2) == "-=" && target.hasOwnProperty(key.substring(2))) {
+        delete target[key.substring(2)];
+      } else if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        mergeObjectWithDeletion(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+  return mergeObjectWithDeletion(target, ...sources);
 }
 
 // Instantiate the class and run updates.
