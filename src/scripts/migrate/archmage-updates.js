@@ -117,14 +117,15 @@ class ArchmageUpdateHandler {
    *   Update object compatible with scene.updateEmbeddedDocuments('Token', updateData)
    */
    prepareMigrateTokenData(token) {
-    let actorUpdates = this.prepareMigrateActorData(token.actor);
+    let actorUpdates = {};
     if (!token.actorLink && token.actor) {
-      let itemUpdates = {};
+      actorUpdates = this.prepareMigrateActorData(token.actor);
+      let itemUpdates = [];
       for (let item of token.actor.items) {
         let upd = this.prepareMigrateItemData(item);
-        if (!foundry.utils.isEmpty(upd)) itemUpdates[item._id] = upd;
+        if (!foundry.utils.isEmpty(upd)) itemUpdates.push({ _id: item._id, upd });
       }
-      if (!foundry.utils.isEmpty(itemUpdates)) actorUpdates["items"] = itemUpdates;
+      if (itemUpdates.length > 0) actorUpdates["items"] = itemUpdates;
     }
     return {
       '_id': token._id,
@@ -277,7 +278,7 @@ class ArchmageUpdateHandler {
    *   Update object.
    */
   __migratePowerFeatStructure(item, updateData={}) {
-    if (!item || item.type != "power" || !item.system.feats.adventurer) return updateData;
+    if (!item || item.type != "power" || !item.system.feats?.adventurer) return updateData;
     let feats = item.system.feats;
     let i = 0;
     let updatedFeats = {};
@@ -401,7 +402,8 @@ class ArchmageUpdateHandler {
         const tokens = this.queryTokens(scene);
         const updates = [];
         tokens.forEach(token => {
-          updates.push(this.prepareMigrateTokenData(token));
+          let upd = this.prepareMigrateTokenData(token);
+          if (!foundry.utils.isEmpty(upd.actorData)) updates.push(upd);
         });
 
         // Attempt scene updates.
