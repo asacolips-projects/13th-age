@@ -908,13 +908,15 @@ export class ActorArchmage extends Actor {
     }
 
     let roll = new Roll(`${formula}`);
+    let chatData = null;
+    let msg = null;
 
     if (data.createMessage) {
       // Basic template rendering data
       const template = "systems/archmage/templates/chat/recovery-card.html"
       const templateData = {actor: this, label: data.label, formula: formula};
       // Basic chat message data
-      const chatData = {
+      chatData = {
         user: game.user.id,
         speaker: game.archmage.ArchmageUtility.getSpeaker(this)
       };
@@ -923,7 +925,7 @@ export class ActorArchmage extends Actor {
       chatData.content = await renderTemplate(template, templateData);
       chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData(), async: true });
       // Create the chat message
-      let msg = await game.archmage.ArchmageUtility.createChatMessage(chatData);
+      msg = await game.archmage.ArchmageUtility.createChatMessage(chatData);
       // Get the roll from the chat message
       let contentHtml = $(msg.content);
       let row = $(contentHtml.find('.card-prop')[0]);
@@ -932,6 +934,12 @@ export class ActorArchmage extends Actor {
     } else {
       // Perform the roll ourselves
       await roll.roll({async: true});
+    }
+
+    // If 3d dice are enabled, handle them
+    if (game.dice3d &&
+        (!game.settings.get("dice-so-nice", "animateInlineRoll") || !data.createMessage)) {
+      await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData, msg?.id);
     }
 
     let newHp = this.system.attributes.hp.value;
@@ -1093,7 +1101,7 @@ export class ActorArchmage extends Actor {
     // If 3d dice are enabled, handle them
     if (game.dice3d) {
       for (let roll of rollsToAnimate) {
-        await game.dice3d.showForRoll(roll, game.user, true);
+        await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData);
       }
     }
     game.archmage.ArchmageUtility.createChatMessage(chatData);
@@ -1245,7 +1253,7 @@ export class ActorArchmage extends Actor {
       let rollMode = game.settings.get("core", "rollMode");
       ChatMessage.applyRollMode(chatData, rollMode);
       chatData["content"] = await renderTemplate(template, templateData);
-      let msg = await ChatMessage.create(chatData, {displaySheet: false});
+      await game.archmage.ArchmageUtility.createChatMessage(chatData);
     }
   }
 

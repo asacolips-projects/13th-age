@@ -47,12 +47,43 @@ export class ArchmageUtility {
       return ChatMessage.create(chatData, context);
     }
 
+    // Return early if there is nothing to wait on.
+    // Our own inline rolls are handled separately,
+    // so we only wait for roll messages or if default DSN inline rolls are used.
+    if (chatData.type !== CONST.CHAT_MESSAGE_TYPES.ROLL &&
+        !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+      return ChatMessage.create(chatData, context);
+    }
+
     // Try to wait for the 3d dice animation to finish.
     const msg = await ChatMessage.create(chatData, context);
     if (msg?.id) {
       await game.dice3d.waitFor3DAnimationByMessageID(msg.id);
     }
     return msg;
+  }
+
+  static async show3DDiceForRoll(roll, chatData = null,
+                                 chatMsgID = null, user = null, sync = true) {
+    if (!roll || !game.dice3d) {
+      return;
+    }
+    if (user == null) {
+      user = game.user;
+    }
+    var hide = chatData?.whisper?.length ? chatData.whisper : null;
+    if (hide && game.user.isGM &&
+        game.settings.get("archmage", "showPrivateGMAttackRolls") &&
+        game.settings.get("core", "rollMode") === "gmroll") {
+      hide = null;
+    } else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
+      hide = null;
+      roll.ghost = true;
+    }
+    return game.dice3d.showForRoll(
+              roll, game.user, sync, hide,
+              chatData?.blind && !game.user.isGM,
+              chatMsgID, chatData?.speaker);
   }
 
   /**
