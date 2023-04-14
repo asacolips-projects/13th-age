@@ -139,10 +139,6 @@ export class ItemArchmage extends Item {
       }
     };
 
-    // Toggle default roll mode
-    let rollMode = game.settings.get("core", "rollMode");
-    ChatMessage.applyRollMode(chatData, rollMode);
-
     // Render the template
     chatData["content"] = await renderTemplate(template, templateData);
 
@@ -153,7 +149,7 @@ export class ItemArchmage extends Item {
     // Perform updates.
     if (!foundry.utils.isEmpty(updateData)) this.update(updateData, {});
 
-    return ChatMessage.create(chatData, { displaySheet: false });
+    return game.archmage.ArchmageUtility.createChatMessage(chatData);;
   }
 
   async _rollUsesCheck(updateData) {
@@ -504,19 +500,7 @@ export class ItemArchmage extends Item {
         rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
           for (let r of rolls) {
-            var hide = chatData.whisper.length ? chatData.whisper : null;
-            if (hide && game.user.isGM &&
-                game.settings.get("archmage", "showPrivateGMAttackRolls") &&
-                game.settings.get("core", "rollMode") === "gmroll") {
-              hide = null;
-            } else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
-              hide = null;
-              r.ghost = true;
-            }
-            await game.dice3d.showForRoll(
-              r, game.user, true, hide,
-              chatData.blind && !game.user.isGM,
-              null, chatData.speaker);
+            await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData);
           }
         }
       }

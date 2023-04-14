@@ -623,7 +623,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Render the template
       chatData["content"] = await renderTemplate(template, templateData);
 
-      await game.archmage.ArchmageUtility.createChatMessage(chatData);
+      let message = await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
       // Update actor.
       let updateData = {};
