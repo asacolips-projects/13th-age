@@ -923,9 +923,9 @@ export class ActorArchmage extends Actor {
       chatData.content = await renderTemplate(template, templateData);
       chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData(), async: true });
       // Create the chat message
-      await game.archmage.ArchmageUtility.createChatMessage(chatData);
+      let msg = await game.archmage.ArchmageUtility.createChatMessage(chatData);
       // Get the roll from the chat message
-      let contentHtml = $(chatData.content);
+      let contentHtml = $(msg.content);
       let row = $(contentHtml.find('.card-prop')[0]);
       let roll_html = $(row.find('.inline-result'));
       roll = Roll.fromJSON(unescape(roll_html.data('roll')));
