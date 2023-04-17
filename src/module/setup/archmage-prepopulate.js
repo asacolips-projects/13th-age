@@ -33,7 +33,7 @@ export class ArchmagePrepopulate {
    *   with the keys 'name' and 'content' for each result.
    */
   async getCompendiums(classes = [], race = '') {
-    let validRaces = Object.keys(CONFIG.ARCHMAGE.raceList);
+    let validRaces = Object.values(CONFIG.ARCHMAGE.raceList).map(n => this.cleanClassName(n));
     let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)));
     let content = {};
     let cleanRace = this.cleanClassName(race);
