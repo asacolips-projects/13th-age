@@ -194,6 +194,8 @@ ARCHMAGE:
     hideInsteadOfOpaqueName: Hide inactive Features / Triggers instead of making them faded-out
     initiativeDexTiebreakerHint: If enabled initiative ties will be resolved using the initiative modifier; if not, monsters win by default.
     initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
+    initiativeStaticNpcHint: If enabled NPC actors will always 'take 10' on initiative rolls.
+    initiativeStaticNpcName: Static Initiative for NPCs
     multiTargetAttackRollsHint: Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets.
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     nightmodeHint: Reverse the sheet color scheme into a darkened night mode.
