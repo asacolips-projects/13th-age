@@ -103,7 +103,7 @@ export class ItemArchmage extends Item {
 
     // Process uses
     let updateData = {};
-    if (feat.quantity.value != undefined && feat.quantity.value != null) {
+    if (feat.quantity?.value != undefined && feat.quantity?.value != null) {
       let path = `system.feats.${featId}.quantity.value`;
       updateData[path] = feat.quantity.value - 1;
 
