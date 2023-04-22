@@ -14,9 +14,9 @@
         </div>
         <div :class="concat('icon-edit flexrow', isEdit(index, !editArray[index]))">
           <select class="relationship-edit" :name="concat('system.icons.', index, '.relationship.value')" v-model="item.relationship.value">
-            <option value="Positive">{{localize('ARCHMAGE.positive')}}</option>
-            <option value="Negative">{{localize('ARCHMAGE.negative')}}</option>
-            <option value="Conflicted">{{localize('ARCHMAGE.conflicted')}}</option>
+            <option value="Positive">{{localize('ARCHMAGE.Positive')}}</option>
+            <option value="Negative">{{localize('ARCHMAGE.Negative')}}</option>
+            <option value="Conflicted">{{localize('ARCHMAGE.Conflicted')}}</option>
           </select>
           <input type="number" v-bind:name="concat('system.icons.', index, '.bonus.value')" class="icon-bonus-edit" v-model="item.bonus.value"/>
           <input type="text" v-bind:name="concat('system.icons.', index, '.name.value')" class="icon-name-edit" v-model="item.name.value"/>
@@ -53,9 +53,9 @@ export default {
     },
     relationshipTypes() {
       return [
-        {label: game.i18n.localize('ARCHMAGE.positive'), code: 'Positive'},
-        {label: game.i18n.localize('ARCHMAGE.negative'), code: 'Negative'},
-        {label: game.i18n.localize('ARCHMAGE.conflicted'), code: 'Conflicted'}
+        {label: game.i18n.localize('ARCHMAGE.Positive'), code: 'Positive'},
+        {label: game.i18n.localize('ARCHMAGE.Negative'), code: 'Negative'},
+        {label: game.i18n.localize('ARCHMAGE.Conflicted'), code: 'Conflicted'}
       ];
     },
   },

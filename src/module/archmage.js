@@ -77,6 +77,15 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
+  Handlebars.registerHelper('iconSymbol', (iconKey) => {
+      let symbols = {
+        'Positive': '+',
+        'Negative': '-',
+        'Conflicted': '~'
+      };
+      return symbols[iconKey];
+  });
+
   // Preload template partials.
   preloadHandlebarsTemplates();
 
