@@ -33,27 +33,32 @@ export class ArchmagePrepopulate {
    *   with the keys 'name' and 'content' for each result.
    */
   async getCompendiums(classes = [], race = '') {
-    let validRaces = Object.values(CONFIG.ARCHMAGE.raceList).map(n => this.cleanClassName(n));
+    let validRaces = Object.values(CONFIG.ARCHMAGE.raceList);
     let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)));
     let content = {};
-    let cleanRace = this.cleanClassName(race);
 
     // Load racial powers
-    if (race != '' && validRaces.includes(cleanRace)) {
-      let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
-      for (let i = 0; i < racePacks.length; i++) {
-        let pack = await racePacks[i].getDocuments();
-        for (let entry of pack) {
-          let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;
-          let raceNamesArray = sourceName.split('/').map(n => this.cleanClassName(n));
-          if (raceNamesArray.includes(cleanRace)) {
-            if (cleanRace in content) {
-              content[cleanRace].content.push(entry);
-            } else {
-              content[cleanRace] = {
-                name: race,
-                content: [entry]
-              };
+    if (race != '') {
+      for (let i=0; i < validRaces.length; i++) {
+        let regexRace = new RegExp("(\\W|^)(" + validRaces[i] + ")(\\W|$)", "i");
+        if (race.match(regexRace)) {
+          let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
+          for (let i = 0; i < racePacks.length; i++) {
+            let pack = await racePacks[i].getDocuments();
+            for (let entry of pack) {
+              let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;
+              let raceNamesArray = sourceName.split('/');
+              if (raceNamesArray.some(n => regexRace.test(n))) {
+                let raceName = race.match(regexRace)[0].toLowerCase().replaceAll(/\(|\)|\//g,"").trim();
+                if (raceName in content) {
+                  content[raceName].content.push(entry);
+                } else {
+                  content[raceName] = {
+                    name: raceName,
+                    content: [entry]
+                  };
+                }
+              }
             }
           }
         }
