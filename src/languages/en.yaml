@@ -36,7 +36,7 @@ ARCHMAGE:
   checkSkill: Skill Check
   checkSkillFormat: "{name} Skill Check"
   class: Class
-  conflicted: Conflicted
+  Conflicted: Conflicted
   contextApplyDamage: Apply as Damage
   contextApplyDamageHalf: Apply as Half Damage
   contextApplyDamageDouble: Apply as Double Damage
@@ -105,14 +105,14 @@ ARCHMAGE:
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
-  negative: Negative
+  Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   other: Other
   others: Other
-  positive: Positive
+  Positive: Positive
   power: Power
   powerName: Power Name
   powers: Powers
