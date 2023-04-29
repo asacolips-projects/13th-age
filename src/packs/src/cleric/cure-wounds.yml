@@ -140,7 +140,7 @@ system:
   recharge:
     type: 'Number'
     label: 'Recharge'
-    value: 16
+    value: 0
   quantity:
     type: 'Number'
     label: 'Uses'
