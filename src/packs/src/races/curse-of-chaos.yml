@@ -21,7 +21,7 @@ system:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Tiefling / Demon-touched'
+    value: 'Tiefling / Demontouched'
   powerType:
     type: 'String'
     label: 'Power Type'
