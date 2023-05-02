@@ -21,7 +21,7 @@ system:
   powerSourceName:
     type: 'String'
     label: 'Power Source'
-    value: 'Half Elf'
+    value: 'Half-Elf'
   powerType:
     type: 'String'
     label: 'Power Type'
