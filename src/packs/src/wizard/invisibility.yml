@@ -128,7 +128,7 @@ system:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'Creatures made invisible by the spell have a 25% ([[1d100]] chance of remaining invisible the first time (and first time only) they attack or get flashy.'
+    value: 'Creatures made invisible by the spell have a 25% ([[1d100]]) chance of remaining invisible the first time (and first time only) they attack or get flashy.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'

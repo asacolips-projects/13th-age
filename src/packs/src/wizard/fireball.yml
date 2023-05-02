@@ -153,7 +153,7 @@ system:
     0:
       description:
          type: 'String'
-         value: '<p>Casting the spell recklessly increases the number of additional targets to 1d4 instead of 1d3.</p>'
+         value: '<p>Casting the spell recklessly increases the number of additional targets to [[1d4]] instead of 1d3.</p>'
       isActive:
          type: 'Boolean'
          value: false
@@ -172,7 +172,7 @@ system:
     1:
       description:
          type: 'String'
-         value: '<p>Increase the number of targets to 1d3+1 instead of 1d3.</p>'
+         value: '<p>Increase the number of targets to [[1d3+1]] instead of 1d3.</p>'
       isActive:
          type: 'Boolean'
          value: false
