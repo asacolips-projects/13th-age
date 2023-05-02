@@ -35,7 +35,7 @@
                 {{#if data.feats}}
                     {{#each data.feats as |feat key|}}
                         <div class="tag tag--feat tag--{{#if feat.isActive}}active{{else}}inactive hide{{/if}} tag--{{safeCSSId feat.label}}">
-                            <strong>{{feat.label}}:</strong>
+                            <strong>{{localize (concatenate "ARCHMAGE.CHAT." feat.label)}}:</strong>
                             <div class="description">{{{feat.description}}}</div>
                         </div>
                     {{/each}}

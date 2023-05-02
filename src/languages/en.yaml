@@ -36,7 +36,7 @@ ARCHMAGE:
   checkSkill: Skill Check
   checkSkillFormat: "{name} Skill Check"
   class: Class
-  conflicted: Conflicted
+  Conflicted: Conflicted
   contextApplyDamage: Apply as Damage
   contextApplyDamageHalf: Apply as Half Damage
   contextApplyDamageDouble: Apply as Double Damage
@@ -105,14 +105,14 @@ ARCHMAGE:
   name: Name
   nastierSpecial: Nastier Special
   nastierSpecials: Nastier Specials
-  negative: Negative
+  Negative: Negative
   newItem: New {item}
   noneOption: "- None -"
   once-per-battle: Per Battle
   oneUniqueThing: One Unique Thing
   other: Other
   others: Other
-  positive: Positive
+  Positive: Positive
   power: Power
   powerName: Power Name
   powers: Powers
@@ -194,6 +194,8 @@ ARCHMAGE:
     hideInsteadOfOpaqueName: Hide inactive Features / Triggers instead of making them faded-out
     initiativeDexTiebreakerHint: If enabled initiative ties will be resolved using the initiative modifier; if not, monsters win by default.
     initiativeDexTiebreakerName: Initiative Modifier as Tiebreaker
+    initiativeStaticNpcHint: If enabled NPC actors will always 'take 10' on initiative rolls.
+    initiativeStaticNpcName: Static Initiative for NPCs
     multiTargetAttackRollsHint: Enable this to automatically duplicate inline attack rolls for multi-target powers based on the number of targets.
     multiTargetAttackRollsName: Multi-Target Attack Rolls
     nightmodeHint: Reverse the sheet color scheme into a darkened night mode.
