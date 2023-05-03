@@ -128,7 +128,7 @@ system:
   spellLevel9:
     type: 'String'
     label: '9th Level Spell'
-    value: 'You can now target [[1d4]] nearby allies with the spell.'
+    value: 'You can now target 1d4 nearby allies with the spell.'
   spellChain:
     type: 'String'
     label: 'Chain Spell'
