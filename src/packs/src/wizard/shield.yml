@@ -44,7 +44,7 @@ system:
   trigger:
     type: 'String'
     label: 'Trigger'
-    value: ''
+    value: 'When an attack hits your AC.'
   target:
     type: 'String'
     label: 'Target'

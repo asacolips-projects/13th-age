@@ -52,7 +52,7 @@ system:
   always:
     type: 'String'
     label: 'Always'
-    value: ''
+    value: 'For the rest of the battle, once per round when an enemy moves to engage you, you can make the following attack against it as a free action before it has the chance to attack in melee.'
   attack:
     type: 'String'
     label: 'Attack'
@@ -108,7 +108,7 @@ system:
   special:
     type: 'String'
     label: 'Special'
-    value: '<p><em>Always: </em>For the rest of the battle, once per round when an enemy moves to engage you, you can make the following attack against it as a free action before it has the chance to attack in melee.</p>'
+    value: ''
   effect:
     type: 'String'
     label: 'Effect'
