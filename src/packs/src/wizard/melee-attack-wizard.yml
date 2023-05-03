@@ -40,7 +40,7 @@ system:
   range:
     type: 'String'
     label: 'Range'
-    value: 'At-Will'
+    value: ''
   trigger:
     type: 'String'
     label: 'Trigger'
