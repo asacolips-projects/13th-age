@@ -157,7 +157,8 @@ export class ItemArchmage extends Item {
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
     updateData["system.quantity.value"] = Math.max(uses - 1, 0);
-    if (uses == 0 && !event.shiftKey && this.type == "power" && this.system.powerUsage.value != 'at-will') {
+    if (uses == 0 && !event.shiftKey && ["power", "equipment", "loot", "tool"].includes(this.type)
+      && this.system.powerUsage?.value != 'at-will') {
       let use = false;
       await Dialog.confirm({
        title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
@@ -499,7 +500,7 @@ export class ItemArchmage extends Item {
         // If we have roll data, handle a 3d roll.
         rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
-          for (let r of rolls) {
+          for (let roll of rolls) {
             await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData);
           }
         }
