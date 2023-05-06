@@ -499,7 +499,7 @@ export class ItemArchmage extends Item {
         // If we have roll data, handle a 3d roll.
         rolls = rolls.concat(damageRolls);
         if (rolls.length > 0) {
-          for (let r of rolls) {
+          for (let roll of rolls) {
             await game.archmage.ArchmageUtility.show3DDiceForRoll(roll, chatData);
           }
         }
