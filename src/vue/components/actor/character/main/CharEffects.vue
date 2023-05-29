@@ -16,7 +16,7 @@
               <img :src="effect.icon" class="effects-image"/>
             </div>
             <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
-              <h3 class="effects-title unit-subtitle">{{effect.label}}</h3>
+              <h3 class="effects-title unit-subtitle">{{effect?.name ?? effect.label}}</h3>
             </a>
             <div class="effects-bonus flexrow">
               <div class="bonus" v-for="(bonus, bonusKey) in getChanges(effect)" :key="bonusKey">

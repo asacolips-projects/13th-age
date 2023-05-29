@@ -168,7 +168,7 @@ export class ActorArchmage extends Actor {
       return changes.concat(e.changes.map(c => {
         c = foundry.utils.duplicate(c);
         c.effect = e;
-        c.name = e.label;
+        c.name = e?.name ?? e.label;
         c.priority = c.priority ?? (c.mode * 10);
         return c;
       })).filter(relevant);
