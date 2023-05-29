@@ -2,7 +2,7 @@
   "name": "archmage",
   "id": "archmage",
   "title": "13th Age",
-  "version": "1.25.2",
+  "version": "1.26.0",
   "authors": [
     {
       "name": "Matt Smith",
@@ -19,10 +19,10 @@
   ],
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
   "minimumCoreVersion": "10",
-  "compatibleCoreVersion": "10",
+  "compatibleCoreVersion": "11",
   "compatibility": {
     "minimum": "10",
-    "verified": "10.291",
+    "verified": "11.299",
     "maximum": "11"
   },
   "esmodules": [
@@ -378,7 +378,7 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.25.2/raw/archmage.zip?job=build-prod",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.26.0/raw/archmage.zip?job=build-prod",
   "initiative": "1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value",
   "gridDistance": "1",
   "gridUnits": "",
