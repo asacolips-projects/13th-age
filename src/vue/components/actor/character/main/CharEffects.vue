@@ -16,6 +16,7 @@
               <img :src="effect.icon" class="effects-image"/>
             </div>
             <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
+              <!-- @todo: Remove the effect.label fallback when v10 support is dropped -->
               <h3 class="effects-title unit-subtitle">{{effect?.name ?? effect.label}}</h3>
             </a>
             <div class="effects-bonus flexrow">
