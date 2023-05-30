@@ -16,20 +16,20 @@ v10 - v11. Latest confirmed build supported is v11.299
     - Support multiple feats of the same tier and skipping tiers
     - Add 2e Omega feat tier
     - Add buttons to create, delete and reorder feats to the power sheet
-    - Add optional uses and refill patterns (per-battle, daily, etc.) to feats
+    - Add (optional) usage tracking and refill patterns (per-battle, daily, etc.) to feats
     - Add button to roll a single feat (instead of a whole power) to chat (reducing its uses if applicable) to the PC sheet
-    - Migrate existing powers to new structure in user worlds
-    - Update system power compendiums to use the new structure and include usage information where appropriate
+    - Add migration to update existing powers to new structure in user worlds
+    - Update system power compendiums to use the new structure and include usage tracking information where appropriate
     - Update system power macros that reference feats
-- Add "apply as" context menu support to vanilla Foundry roll messages
+- Add "Apply as" context menu support to vanilla Foundry roll messages
 - Add support for the Foundry "pop out" chat message feature
 - Animated Dice improvements:
     - Support ghost dice (which still rolls visible 3d dice for hidden GM rolls, but all dice faces show ?s, so players know something was rolled, but not the result)
-    - Add optional GM system setting to show 3d dice rolls for item/attacks rolls to players if the chat roll mode is set to Private GM roll. The chat card remains hidden. This may be useful information to players for cases like the Fighter's Counter-Attack.
-- Ass support for daily/desperate recharge for equipment and power items
+    - Add optional GM system setting to show 3d dice rolls for item/attacks rolls to players if the chat roll mode is set to Private GM roll. The chat card remains hidden, but this may be useful information to players for cases like the Fighter's Counter-Attack.
+- Add support for daily/desperate recharge for equipment and power items
     - Automate daily/desperate recharge (once each per full heal up) on failing death saves or using last recovery
 - Additional localization support:
-    - Add separate even and odd ingress triggers
+    - Add separate even and odd triggers
     - Fix a recharge localization reference
     - Fix Icon chat card localization
     - Fix feat tier localization in power chat cards
