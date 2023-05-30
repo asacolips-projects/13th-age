@@ -8,184 +8,55 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 v10 - v11. Latest confirmed build supported is v11.299
 
-## Changes
+## Features
 
 > IMPORTANT! This release includes a data migration for actors and items, so back up your world before installing it!
 
-Full release notes TBD. See change log below. The biggest addition is that we've refactored how feats are handled to support more than one feat of each tier. That requires a data migration, so make sure to back up your world!
+- Refactor feat storage:
+    - Support multiple feats of the same tier and skipping tiers
+    - Add 2e Omega feat tier
+    - Add buttons to create, delete and reorder feats to the power sheet
+    - Add optional uses and refill patterns (per-battle, daily, etc.) to feats
+    - Add button to roll a single feat (instead of a whole power) to chat (reducing its uses if applicable) to the PC sheet
+    - Migrate existing powers to new structure in user worlds
+    - Update system power compendiums to use the new structure and include usage information where appropriate
+    - Update system power macros that reference feats
+- Add "apply as" context menu support to vanilla Foundry roll messages
+- Add support for the Foundry "pop out" chat message feature
+- Animated Dice improvements:
+    - Support ghost dice (which still rolls visible 3d dice for hidden GM rolls, but all dice faces show ?s, so players know something was rolled, but not the result)
+    - Add optional GM system setting to show 3d dice rolls for item/attacks rolls to players if the chat roll mode is set to Private GM roll. The chat card remains hidden. This may be useful information to players for cases like the Fighter's Counter-Attack.
+- Ass support for daily/desperate recharge for equipment and power items
+    - Automate daily/desperate recharge (once each per full heal up) on failing death saves or using last recovery
+- Additional localization support:
+    - Add separate even and odd ingress triggers
+    - Fix a recharge localization reference
+    - Fix Icon chat card localization
+    - Fix feat tier localization in power chat cards
+    - Use a regex to parse known races (to support gender-dimorphic race names in some languages)
+- Add an optional setting to make NPC actors 'take 10' on initiative rolls (leaving all the variability on the players side)
 
-## Commits
+## Bug Fixes
 
-- e1ba40a0 Update manifest
-- 1b20699e Add v10 deprecation comments
-- 33c0052a Fix v11 deprecation for effect labels
-- 7189ff15 Ask confirmation when zero uses left for equipment, loot (and tool) items in addition to powers
-- 2b558819 Fix powers dice roll animations
-- ac872ed1 update hold portal
-- 7c7f0a06 fix
-- b06036f4 update utility portal
-- 196d25ec fix wizard
-- f7dce0c0 revert fireball
-- 7abc4a6c Merge branch archmage:master into master
-- f141967a update utility portal
-- 9134700b Fix wizard powers
-- b6321dc7 Demontouched srd name
-- 9a61e969 Insert '-' caracther in powerSourceName
-- 5b3a9e33 Desvinculate i var
-- 3fd3ec26 Revert master
-- bfa05358 Fix name
-- 304196eb Padronization familiar effect
-- 825a2dbf Fix <p> tag order in Counter-magic
-- 0ae641ce Regex for races
-- c5e617cb Fix feat tier localization in power chat cards
-- c9d5526b Make feat refactor more robust in the presence of outdated data (mostly due to old module compendiums since we do migrate world and system data)
-- 2ee6f7b9 Fix Icon chat card localization
-- 1b233ad8 Add optional setting to make NPC actors 'take 10' on initiative rolls (leaving all the variability on the PC side)
-- 1473951d Fix initial recharge of cure wounds
-- 3543437c Change keys to races values clean
-- 8079ee67 continue typo correction
-- 875ca544 Melle attack cleric typo correction
-- ec487b03 Fix recharge hint i18n reference
-- 5804541d Only run CI on upstream repo and default branch
-- 60aa53c8 Hide feat roll button for inactive feats
-- b0a84223 Merge remote-tracking branch 'origin/master' into fix/misc
-- a3737f30 Remove errant '>'
-- 5b60b7e8 3D dice and chat message fixes
-- 0792edda Fix recoveries not being applied
-- ca734192 Handle key deletion ('-=' syntax) in synthetic actor item updates
-- 75e9ac66 Fix the fix
-- 0cede5dc Fix item migrations for synthetic actors
-- 696e3931 Update preCreateChatMessageHandler.mjs
-- 4f64de40 Fix rests
-- 22c2c5cd Merge remote-tracking branch 'origin/master' into feature/desperateRecharge
-- 206716cc Add missing E.D. requirement to Finish This and Sowrdwork
-- 2cef687d Refactor roll chat messages
-- f3687f14 Add apply damage context menu for vanilla rolls
-- c5d405d1 Fix context menu localization case
-- a5308205 Add option to show 3d dice results to players
-- 42b649ef Fix item roll 3d dice not being shown for others
-- 31487584 Fix full heal ups
-- b765f808 Add D/D recharge option to powers; fix full heal up sometimes not resetting recharge attempts
-- 55c0c4ea Merge remote-tracking branch 'origin/master' into feature/desperateRecharge
-- 990df9f1 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- d3ed68f6 Release 1.25.2
-- 1e6745cd Fix vulneranble application with 2e rules
-- 89a9a6b5 Use new MacroUtils.getFeatsByTier helper method to make macros more robust to the new flexible feat structure
-- 6771f6a4 Merge remote-tracking branch 'origin/master' into feature/desperateRecharge
-- 5b6d0e0f Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- dd49c104 Release 1.25.1
-- 37da36af Blue sorc typo fix
-- c47ebe83 Avoid empty AE changes
-- 82bf6306 Clean up AE code
-- 02429def Fix AE changes getting lost due to missing await
-- 6ca57378 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 406c7b37 Merge remote-tracking branch 'origin/master' into feature/desperateRecharge
-- 077f7504 Avoid creating sparse array during status effects setup
-- da3917d5 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 6fceec45 Merge remote-tracking branch 'origin/master' into feature/desperateRecharge
-- 36e3fbe2 Fix Popouts, work around Vue event handling bug
-- 951b69b0 Use token names in chat
-- 9360290b NPC sheet layout improvements
-- 4aec5e8a Fix nightmode NPC edit popup
-- be952ab5 Refactor hampered/hindered related code
-- c4fdb74e Keep both hampered and hindered to avoid 2e issues
-- 6ab855ba Clean up excess spacing
-- 8fa33606 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 434334ca Merge remote-tracking branch 'origin/master' into feature/desperateRecharge
-- e4deeaaf Version missing file
-- 7af5fba8 Apply 1 suggestion(s) to 1 file(s)
-- 259538a8 Implement (more correct, possibly) handling of desperate recharge; remove missing string fix (added in another MR)
-- 511fd163 Fix Terrain UI rendering on first load
-- f2ea29a1 Hide Esc. Die controls if not GM
-- 6b621066 Better formatting
-- 38ef3c79 Add missing locale key
-- 34e75bb5 Move Esc. Die, Terrains to proper div above hotbar
-- 2a1f517e Implement daily/desperate recharge for items; fix missing nonelabel (empty) translation string
-- bb41ce27 Localize terrains UI label
-- 95057ba4 Unpack macro data in case a macro replaces variables
-- 106fd0c1  Fix feats not being displayed on sending power to chat
-- 40ccde3c Implement rolling feats to chat
-- d2cef467 Add rollable button and listener to feats with uses
-- 557c5243 Replace delete icon with trash bin
-- 6476168b Fix missed v10 data->system replacement in config.js; fix description for AE sheet critmod hints
-- 6c1c6e06 Fix macros
-- 7a5a2fe7 Fix importer
-- f778f5eb Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- fe570771 Add system rolltables for random dire animals, demons and dragons
-- a7da7c15 Add Random Monster Abilities system compendium
-- f96ceb6d Fix and improve power target number parsing
-- 8c8c908c Update formula placeholder for from lvl/ed to std
-- 46b73143 Don't execute even trigger on odd
-- fd96d96f Localize "vs." chat parsing
-- e7aef98b Locale rowsToSkip in chat parser, update Cost
-- 670a4a40 Skip unnamed custom resources when rolling powers
-- b8f2d4dd More localizations
-- 209dbe37 Update missing migration route -> Koru behemoth string
-- eb5d9d99 Review wizard
-- efc4d68e Review sorcerer
-- 12a38485 Review rogue
-- ba7133fd Review ranger
-- 00bc42f2 Review races
-- b046b611 Review paladin
-- bab75e5b Review occultist
-- 65de609d Review necromancer
-- 587e814e Review multiclass feats
-- 96176a97 Review monk
-- 9b6738b0 Review general feats
-- 38b06e3d Review fighter
-- 91c87559 Review druid
-- e7b3d497 Review commander
-- d895b1f5 Review cleric
-- ef43a110 Review chaos mage
-- 48030a54 Review bard
-- 09a89a7b Review barbarian
-- e05eda47 Remove spurios usage from animal companion
-- 3543f186 Review animal companion
-- 02f09697 Fix feat structure in system content
-- a58e16fc Update feat structure for system content
-- 77506e98 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- f0539d50  Fix feats not displaying in chat
-- f45a60bc Fix double update on feat deletion
-- ec7d94e2 Add migration
-- 748abcec Fix blood of warrior, light of the high ones and twisted path icon references
-- 5d9bbadf Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 043f5995 Update Icon references for Sorcerer
-- 5cec4c11 Update Icon references for Bard
-- ed3cbc1f Update Koru references for Druid
-- dfa4bb26 Update Icon references for Chaos Mage
-- 75a7d1e9 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 2e4642ec Fix typo
-- 91dd1caa Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 30587fda Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 0359cc35 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- b6bff6d1 Make use of newly added localization strings
-- b9542cdc Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 4e00b1d8 More code cleanup
-- b3ae002c Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 29eb2522 Code refactoring
-- 6bef3c16 Fix feat buttons not working on unowned items
-- fef4fdd9 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 297a6f68 Add confirmation dialog to feat deletion
-- a2b7c69a Add up/down logic
-- 4a678dcf Add CRUD buttons, listeners, implement add/delete logic
-- 12a3ff58 Integrate feat uses with rests
-- e830ca65 Fix css style override
-- 1940cbb6 Add listener and method to manipulate feat uses in power preview
-- e9d71d79 Add usage menu for each feat to item sheet
-- 572ae06c Align feat uses horizontally
-- faadfb18 Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 72f09a2e Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 0d6cc21a Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 35e7b8eb Show remaining uses in feats in power preview
-- 2e3223f6 Fix feat tier selector
-- 4e1e647d Move feat tier to select
-- 577d6ea4 Fix power preview; add uses to sheet
-- d5d16180 Reuse existing helper; improve feat layout
-- 2fcf91bf Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- 38193eaf Fix handelbar editor feath path
-- 4378c793 Move back to object-based storage for compatibility with save logic
-- 0e3595f4 Update item sheet
-- b3a8e6db Update vue sheet methods
-- 01cca6ef Add missing value fields to template
-- c8ce800e Merge remote-tracking branch 'origin/master' into feature/featRefactor
-- ee94ad43 Update template
+- Multiple small fixes and improvements to compendium powers feats
+- Fix animated dice not displaying on all clients
+- Fix an issue preventing the correct reset of recharge attempts on full heal ups (affects both daily/desperate and the Recharge once per day only system setting)
+- Remove errant '>' from power sheet
+- Fix typo in the cleric's basic melee attack
+- Fix initial recharge value of `Cure Wounds`
+- Fix formatting of `High Arcana` and `Wizard's Familiar`
+- Add missing `Utility` to `Hold Portal`
+- Add `Cyclic` reminder to `Color Spray` and `Rebuke`
+- Add missing ')' to `Invisibility`
+- Add condition parsing syntax to `Ray of Frost`
+- Add missing trigger to `Shield`
+- Fix special text in `Teleport Shield`
+- Add missing parentheses to `Haste`
+- Remove errant text in the wizard's melee attack
+- Remove inline roll from higher level `Overcome Resistance` (update the `Target:` line instead to make use of automatic multi-attacks)
+- Ask usage confirmation with zero uses left for `equipment`, `loot` (and `tool`) type items in addition to `power` ones
+- Silence some console warnings in Foundry v11
+
+## Credits
+
+Thanks to @manoelmozzer, @mhilbrunner and @legofed3 for their contributions in this release!
