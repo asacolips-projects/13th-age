@@ -1,10 +1,10 @@
 image: node:16
 
-workflow:
-  rules:
-  - if: '$CI_PROJECT_NAMESPACE != "asacolips-projects"'
-    when: never
-  - when: always
+# workflow:
+#   rules:
+#   - if: '$CI_PROJECT_NAMESPACE != "asacolips-projects"'
+#     when: never
+#   - when: always
 
 before_script:
   - apt-get update
