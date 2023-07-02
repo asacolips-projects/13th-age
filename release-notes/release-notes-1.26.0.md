@@ -6,7 +6,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 ## Compatible Foundry versions
 
-v10 - v11. Latest confirmed build supported is v11.299
+v10 - v11. Latest confirmed build supported is v11.304
 
 ## Features
 
