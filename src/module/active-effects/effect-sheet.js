@@ -49,7 +49,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
   async _updateObject(event, formData) {
     let ae = foundry.utils.duplicate(this.object);
-    ae.label = formData.label;
+    ae.name = formData.name;
     ae.icon = formData.icon;
     ae.description = formData.description;
 
