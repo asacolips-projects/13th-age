@@ -18,11 +18,11 @@
     }
   ],
   "description": "Run campaigns in OGL games that use icons, backgrounds, and one unique thing.",
-  "minimumCoreVersion": "10",
+  "minimumCoreVersion": "11",
   "compatibleCoreVersion": "11",
   "compatibility": {
-    "minimum": "10",
-    "verified": "11.309",
+    "minimum": "11",
+    "verified": "11.313",
     "maximum": "11"
   },
   "esmodules": [
