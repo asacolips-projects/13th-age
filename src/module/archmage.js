@@ -181,6 +181,17 @@ Hooks.once('init', async function() {
 
   CONFIG.ARCHMAGE = ARCHMAGE;
 
+  // Dynamically add statuses to status effects - doesn't seem to work if done statically
+  CONFIG.ARCHMAGE.statusEffects.forEach(s => {
+    if (s.id == "dead") s.statuses = ["dead"];
+    else s.statuses = ["none"];
+  });
+  CONFIG.ARCHMAGE.extendedStatusEffects.forEach(s => {
+    if (s.id == "hidden") s.statuses = ["invisible"];
+    else if (s.id == "asleep") s.statuses = ["blind"];
+    else s.statuses = ["none"];
+  });
+
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
     if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
@@ -852,12 +863,12 @@ Hooks.on('dropCanvasData', (canvas, data) => {
   const y = data.y;
   const gridSize = canvas.scene.grid.size;
   // Get the set of targeted tokens
-  const targets = Array.from(canvas.scene.data.tokens.values()).filter(t => {
+  const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
     if ( !t.visible ) return false;
-    return (t.data.x <= x
-            && (t.data.x + t.data.width * gridSize) >= x
-            && t.data.y <= y
-            && (t.data.y + t.data.height * gridSize) >= y);
+    return (t.x <= x
+            && (t.x + t.width * gridSize) >= x
+            && t.y <= y
+            && (t.y + t.height * gridSize) >= y);
   });
   if (targets.length == 0) return;
 
@@ -865,11 +876,11 @@ Hooks.on('dropCanvasData', (canvas, data) => {
   if (targets.length > 1) {
     // Select closest to center
     token =  targets.reduce((a, b) => {
-      const cntr_x_a = a.data.x + a.data.width * gridSize / 2;
-      const cntr_y_a = a.data.y + a.data.height * gridSize / 2;
+      const cntr_x_a = a.x + a.width * gridSize / 2;
+      const cntr_y_a = a.y + a.height * gridSize / 2;
       const dist_a = Math.sqrt(Math.pow(x - cntr_x_a, 2) + Math.pow(y - cntr_y_a, 2));
-      const cntr_x_b = b.data.x + b.data.width * gridSize / 2;
-      const cntr_y_b = b.data.y + b.data.height * gridSize / 2;
+      const cntr_x_b = b.x + b.width * gridSize / 2;
+      const cntr_y_b = b.y + b.height * gridSize / 2;
       const dist_b = Math.sqrt(Math.pow(x - cntr_x_b, 2) + Math.pow(y - cntr_y_b, 2));
       return ( dist_a < dist_b ? a : b );
     });

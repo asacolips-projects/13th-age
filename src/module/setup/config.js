@@ -253,7 +253,7 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "hidden",
     name: "ARCHMAGE.EFFECT.StatusHidden",
-    icon: "icons/svg/mystery-man.svg"
+    icon: "icons/svg/mystery-man.svg",
   },
   // Flying.
   {
@@ -271,7 +271,7 @@ ARCHMAGE.extendedStatusEffects = [
   // {
     // id: "asleep",
     // name: "ARCHMAGE.EFFECT.StatusAsleep",
-    // icon: "icons/svg/sleep.svg"
+    // icon: "icons/svg/sleep.svg",
   // },
   // Last Gasps.
   {
