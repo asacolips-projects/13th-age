@@ -1369,7 +1369,7 @@ export class ActorArchmage extends Actor {
         let createData = foundry.utils.deepClone(effectData);
         createData.name = game.i18n.localize(effectData.name);
         createData["flags.core.overlay"] = true;
-        // await this.createEmbeddedDocuments("ActiveEffect", [createData]);
+        createData.statuses = [createData.id];
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});

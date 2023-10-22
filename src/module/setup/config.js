@@ -243,15 +243,9 @@ ARCHMAGE.extendedStatusEffects = [
     name: "ARCHMAGE.EFFECT.StatusCursed",
     icon: "icons/svg/dice-target.svg"
   },
-  // Shining.
-  // {
-    // id: "shining",
-    // name: "ARCHMAGE.EFFECT.StatusShining",
-    // icon: "icons/svg/aura.svg"
-  // },
   // Hidden.
   {
-    id: "hidden",
+    id: "invisible", //hidden - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusHidden",
     icon: "icons/svg/mystery-man.svg",
   },
@@ -267,29 +261,23 @@ ARCHMAGE.extendedStatusEffects = [
     name: "ARCHMAGE.EFFECT.StatusGrabbed",
     icon: "icons/svg/item-bag.svg"
   },
-  // Asleep.
-  // {
-    // id: "asleep",
-    // name: "ARCHMAGE.EFFECT.StatusAsleep",
-    // icon: "icons/svg/sleep.svg",
-  // },
   // Last Gasps.
   {
     id: "lastgasps",
     name: "ARCHMAGE.EFFECT.StatusLastGasps",
     icon: "icons/svg/clockwork.svg"
   },
-  // Debuffed.
+  // Asleep.
   // {
-    // id: "debuffed",
-    // name: "ARCHMAGE.EFFECT.StatusDebuffed",
-    // icon: "icons/svg/direction.svg"
+    // id: "blind", //asleep - renamed to play nice with v11 statuses
+    // name: "ARCHMAGE.EFFECT.StatusAsleep",
+    // icon: "icons/svg/sleep.svg",
   // },
-  // Buffed.
+  // Shining.
   // {
-    // id: "buffed",
-    // name: "ARCHMAGE.EFFECT.StatusBuffed",
-    // icon: "icons/svg/up.svg"
+    // id: "shining",
+    // name: "ARCHMAGE.EFFECT.StatusShining",
+    // icon: "icons/svg/aura.svg"
   // },
   // Holy Shield.
   // {
@@ -314,6 +302,18 @@ ARCHMAGE.extendedStatusEffects = [
     // id: "mageshield",
     // name: "ARCHMAGE.EFFECT.StatusMageShield",
     // icon: "icons/svg/mage-shield.svg"
+  // },
+  // Buffed.
+  // {
+    // id: "buffed",
+    // name: "ARCHMAGE.EFFECT.StatusBuffed",
+    // icon: "icons/svg/up.svg"
+  // },
+  // Debuffed.
+  // {
+    // id: "debuffed",
+    // name: "ARCHMAGE.EFFECT.StatusDebuffed",
+    // icon: "icons/svg/direction.svg"
   // },
 ];
 

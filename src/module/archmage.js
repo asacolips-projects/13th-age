@@ -181,17 +181,6 @@ Hooks.once('init', async function() {
 
   CONFIG.ARCHMAGE = ARCHMAGE;
 
-  // Dynamically add statuses to status effects - doesn't seem to work if done statically
-  CONFIG.ARCHMAGE.statusEffects.forEach(s => {
-    if (s.id == "dead") s.statuses = ["dead"];
-    else s.statuses = ["none"];
-  });
-  CONFIG.ARCHMAGE.extendedStatusEffects.forEach(s => {
-    if (s.id == "hidden") s.statuses = ["invisible"];
-    else if (s.id == "asleep") s.statuses = ["blind"];
-    else s.statuses = ["none"];
-  });
-
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
     if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
