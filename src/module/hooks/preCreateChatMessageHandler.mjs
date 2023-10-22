@@ -7,10 +7,10 @@ export default class preCreateChatMessageHandler {
 
     static replaceEffectAndConditionReferences(actorDocument, $rows) {
         let conditions = CONFIG.ARCHMAGE.statusEffects.filter(x => x.journal);
-        const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.label)));
+        const conditionNames = new Set(conditions.map(x => game.i18n.localize(x.name)));
 
         function generateConditionLink(name) {
-            const condition = conditions.find(x => game.i18n.localize(x.label) === name);
+            const condition = conditions.find(x => game.i18n.localize(x.name) === name);
             return `<a class="effect-link" draggable="true" data-type="condition" data-id="${condition.id}" title="">
                     <img class="effects-icon" src="${condition.icon}" />
                     ${name}</a>`;

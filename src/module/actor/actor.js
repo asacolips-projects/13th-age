@@ -1362,12 +1362,12 @@ export class ActorArchmage extends Actor {
    * @return {undefined}
    */
   async _updateHpCondition(data, id, thres, maxHp, label) {
-    let filtered = this.effects.filter(x => x.label === label);
+    let filtered = this.effects.filter(x => x.name === label);
     filtered = filtered.map(e => e.id);
     if (filtered.length == 0 && data.system.attributes.hp.value/maxHp <= thres) {
         let effectData = CONFIG.statusEffects.find(x => x.id == id);
         let createData = foundry.utils.deepClone(effectData);
-        createData.label = game.i18n.localize(effectData.label);
+        createData.name = game.i18n.localize(effectData.name);
         createData["flags.core.statusId"] = effectData.id;
         createData["flags.core.overlay"] = true;
         delete createData.id;
