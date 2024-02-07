@@ -1,0 +1,236 @@
+name: Whirlwind
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Whirlwind
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source Name
+    value: Barbarian
+  powerType:
+    type: String
+    label: Power Type
+    value: talent
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: at-will
+  powerLevel:
+    type: Number
+    label: Level
+    value: '1'
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: null
+  trigger:
+    type: String
+    label: Trigger
+    value: null
+  target:
+    type: String
+    label: Target
+    value: null
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: null
+  hit:
+    type: String
+    label: Hit
+    value: null
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: null
+  missEven:
+    type: String
+    label: Even Miss
+    value: null
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: null
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: null
+  castPower:
+    type: String
+    label: Cast for Power
+    value: null
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: null
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: null
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>You can make a Whirlwind attack as the first action of your turn when
+      you are engaged by two or more enemies.</p><p>You take a –4 penalty to
+      your AC and PD until the start of your next turn. Then roll a separate
+      melee attack against each enemy you are engaged with. You deal no miss
+      damage with these attacks.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: null
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: null
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: null
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: null
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: null
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: null
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  feats:
+    '0':
+      description:
+        type: String
+        value: <p>You now deal normal miss damage with missed Whirlwind attacks.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '1':
+      description:
+        type: String
+        value: >-
+          <p>The penalty to your AC and PD is reduced to –2. In addition,
+          disengage checks you make the same turn as using Whirlwind
+          automatically succeed.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>You can use Whirlwind anytime during your turn, not just as the
+          first action.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.barbarianWhirlwind(speaker, actor, token,
+      character, archmage);
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: kFX5oRZ7foAH0GIN
+effects: []
+_key: '!items!kFX5oRZ7foAH0GIN'
+

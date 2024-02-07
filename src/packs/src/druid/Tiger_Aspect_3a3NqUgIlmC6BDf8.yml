@@ -1,0 +1,234 @@
+name: Tiger Aspect
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Tiger Aspect
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Druid
+  powerType:
+    type: String
+    label: Power Type
+    value: power
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: quick
+  range:
+    type: String
+    label: Range
+    value: ''
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: <p>Daily, or recharge 16+ for adepts</p>
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>Initiate Effect: Until the end of the battle, you gain the benefits of
+      two-weapon fighting: if your attack roll is a natural 2, you can reroll
+      the attack, but must use the reroll. In addition, the crit range of
+      attacks you reroll this way expands by 4.</p><p>Adept Effect: As the
+      initiate effect, and increase the size of your beast form melee attack
+      damage dice by one size (for example, d6s become d8s, and d10s become
+      12s).</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 16
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>You also gain a +2 attack bonus with any attack you reroll while
+          using this aspect.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '1':
+      description:
+        type: String
+        value: >-
+          <p>When you move and then attack an enemy you were not engaged with at
+          the start of your turn, you can reroll your first natural odd attack
+          roll each turn, but must use the reroll. (The initiate effect bonuses
+          don&rsquo;t apply to this reroll.)</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>Until the first time it recharges each day, tiger aspect is
+          recharge 11+ instead of recharge 16+ for adepts.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: daily
+      quantity:
+        type: Number
+        value: 1
+      maxQuantity:
+        type: Number
+        value: 1
+  group:
+    type: String
+    label: Group
+    value: Shifter
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 3a3NqUgIlmC6BDf8
+effects: []
+_key: '!items!3a3NqUgIlmC6BDf8'
+

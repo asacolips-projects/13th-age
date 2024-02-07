@@ -1,0 +1,435 @@
+_id: FfG992lOYvyqrjkB
+name: Gorge Dragon (Black)
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 164
+      min: 0
+      max: 164
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+      mod: 13
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: fire
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Gorge Dragon (Black)
+  displayName: 0
+  img: icons/svg/mystery-man.svg
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: QGcVzTBcmUIxGDHm
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: yNlT4OXPWCJ5gPAw
+    flags: {}
+    name: Coiling
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. PD'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[18]] damage, and the dragon grabs the target; while grabbed, the
+          target takes [[9]] damage at the start of each of its turns
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 5, 10, 15, or 20
+        value: >-
+          The dragon regains the use of its dazzling breath if it’s expended and
+          can use it during its next turn.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.yNlT4OXPWCJ5gPAw'
+  - _id: VfWeDufOMUUbF1CW
+    flags: {}
+    name: Bite
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: 'Limited use: 1/round, as a free action.'
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC ([[1]] enemy it’s grabbing)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[25]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: The target takes no damage and is instead swallowed whole (see below).
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.VfWeDufOMUUbF1CW'
+  - _id: zaXwSrExpWDjVg3v
+    flags: {}
+    name: 'C: Dazzling breath'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: 'Limited use: 1/battle, as a quick action.'
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[14]] damage, and if the target has 40 HP or fewer after being hit,
+          it’s *weakened* until the end of its next turn
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.zaXwSrExpWDjVg3v'
+  - _id: KXD9no9aE2Iou3oC
+    flags: {}
+    name: Swallowed whole
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          A creature that is swallowed whole must start making last gasp saves
+          during its next turn. An ally can assist with the save as normal, but
+          the save remains hard (16+) in that case. A roll of 16-19 causes the
+          creature to be regurgitated from the dragon’s gut, while a 20 means
+          that the creature cuts/rips a hole through the dragon’s flesh to
+          escape (dealing basic attack damage automatically).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.KXD9no9aE2Iou3oC'
+  - _id: Pmb83l2xiRuwyHwA
+    flags: {}
+    name: Chain constrictor
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The gorge dragon can have up to two enemies grabbed at the same time.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.Pmb83l2xiRuwyHwA'
+  - _id: xbx106WLOCp2Fedy
+    flags: {}
+    name: Resist cold 14+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a cold attack targets this creature, the attacker must roll a
+          natural 14+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.xbx106WLOCp2Fedy'
+  - _id: xcAON6ejLhsYjDK7
+    flags: {}
+    name: Water-breathing
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: Gorge dragons swim well and can breathe underwater.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FfG992lOYvyqrjkB.xcAON6ejLhsYjDK7'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!FfG992lOYvyqrjkB'
+

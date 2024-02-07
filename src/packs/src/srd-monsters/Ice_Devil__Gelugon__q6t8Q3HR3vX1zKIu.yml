@@ -1,0 +1,312 @@
+_id: q6t8Q3HR3vX1zKIu
+name: Ice Devil (Gelugon)
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 24
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 270
+      min: 0
+      max: 270
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 15
+      mod: 15
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: devil
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Ice Devil (Gelugon)
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 2rfMGpGDdoNRHaKZ
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 9fCL9pu6B4diHsCy
+    flags: {}
+    name: Wicked glaive
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[25]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: >-
+          As a free action, one of the ice devil’s nearby allies of its level or
+          lower can make a basic attack as the ice devil sets the battlefield.
+          That attack only deals half damage.
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural odd hit
+        value: The target is *stuck* (save ends).
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[10]] damage.'
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!q6t8Q3HR3vX1zKIu.9fCL9pu6B4diHsCy'
+  - _id: cMkMLmA86r1SVyH7
+    flags: {}
+    name: Devil’s due (Rime)
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When you choose to add the escalation die to an attack against an ice
+          devil, you are *stuck* (save ends).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!q6t8Q3HR3vX1zKIu.cMkMLmA86r1SVyH7'
+  - _id: ZJAsp4zudLGM6bBA
+    flags: {}
+    name: Shattering counsel
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a lower level nearby ally of the ice devil attacks a creature
+          that’s *stuck*, the crit range of that attack expands by the
+          escalation die.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!q6t8Q3HR3vX1zKIu.ZJAsp4zudLGM6bBA'
+  - _id: HXse9Dxiuy9eyk8d
+    flags: {}
+    name: Resist cold 13+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a cold attack targets this creature, the attacker must roll a
+          natural 13+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!q6t8Q3HR3vX1zKIu.HXse9Dxiuy9eyk8d'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!q6t8Q3HR3vX1zKIu'
+

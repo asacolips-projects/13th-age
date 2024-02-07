@@ -1,0 +1,408 @@
+_id: RPlCfAz5ypEeo5LH
+name: Huge Blue Dragon
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-white.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 29
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 26
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 26
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 980
+      min: 0
+      max: 980
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 17
+      mod: 17
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: huge
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Huge Blue Dragon
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
+  width: 3
+  height: 3
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 0xj0nBQTapPdvkao
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: WhYAp9jKHlpY0rba
+    flags: {}
+    name: Double claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[50]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: The dragon can make a bite attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!RPlCfAz5ypEeo5LH.WhYAp9jKHlpY0rba'
+  - _id: kNrFvCi6flwVeY7N
+    flags: {}
+    name: '[Special trigger] Bite'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[60]] damage, and [[4d10]] lightning damage to the target and to one
+          other nearby enemy of the dragon’s choice
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!RPlCfAz5ypEeo5LH.kNrFvCi6flwVeY7N'
+  - _id: du6UN40mFJRBCl0A
+    flags: {}
+    name: 'C: Far slashing lightning breath'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. PD ([[1d4]] nearby or far away enemies)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[80]] lightning damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The target is also *dazed* (save ends). After the target saves, it
+          takes a -1 attack penalty (non-cumulative) until its next full heal-up
+          (because it’s vibrating slightly out of synch with the rest of the
+          world).
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!RPlCfAz5ypEeo5LH.du6UN40mFJRBCl0A'
+  - _id: BYWZYe0T2TSeVqJ5
+    flags: {}
+    name: Intermittent breath
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          A huge blue dragon can use far slashing lightning breath [[2d4]] times
+          per battle, but never two turns in a row.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!RPlCfAz5ypEeo5LH.BYWZYe0T2TSeVqJ5'
+  - _id: O8mqOnWvFL5Hvwkt
+    flags: {}
+    name: Counter-spell
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: impossible unless the dragon has a save bonus from some other source).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!RPlCfAz5ypEeo5LH.O8mqOnWvFL5Hvwkt'
+  - _id: 3VttCv0WrDrKKa4q
+    flags: {}
+    name: Resist lightning 18+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a lightning attack targets this creature, the attacker must roll
+          a natural 18+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!RPlCfAz5ypEeo5LH.3VttCv0WrDrKKa4q'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!RPlCfAz5ypEeo5LH'
+

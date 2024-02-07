@@ -1,0 +1,883 @@
+_id: zLKJGIgmDtRCCVvo
+name: Tarrasque
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 31
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 29
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 2130
+      min: 0
+      max: 2130
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 20
+      mod: 20
+    level:
+      type: Number
+      label: Level
+      value: 15
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: huge
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 15
+      min: 0
+      max: 10
+token:
+  flags: {}
+  name: Tarrasque
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  tint: null
+  width: 3
+  height: 3
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 7dD7gKzlCUPUv14a
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: xBYwbGZvZMBqdfYX
+    flags: {}
+    name: Creature of Legend
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque can make one close attack and one melee attack each
+          round as a standard action. Note that flying is usually no defense
+          against the tarrasque, which is huge and powerful enough to pluck or
+          whack enemies out of the sky with surprising leaps.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.xBYwbGZvZMBqdfYX'
+  - _id: T0TqFN0XAhSlLKyZ
+    flags: {}
+    name: All-enveloping toothy maw
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+19]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[155] damgae'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The tarrasque grabs the target. It will swallow a grabbed enemy in
+          [[1d3]] rounds (see swallow whole).
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The tarrasque swallows the target immediately (see swallow whole).
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.T0TqFN0XAhSlLKyZ'
+  - _id: PqXCHbOTgNqCXRtR
+    flags: {}
+    name: Immense spike, horn, or tusk
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[155] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: >-
+          The target takes [[9d6]] extra damage and pops free from the tarrasque
+          as it’s hurled far away.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.PqXCHbOTgNqCXRtR'
+  - _id: BiMgv7heBd7fk8Oq
+    flags: {}
+    name: Earth-shaking, taloned claw
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: C
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+20]] vs. AC (each nearby enemy in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[155] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The target is *stunned* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: The target is *dazed* (save ends).
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.BiMgv7heBd7fk8Oq'
+  - _id: qyKrPyraMaovy3HF
+    flags: {}
+    name: Cataclysmic tail slam
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: C
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. PD (each nearby enemy in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[170]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The target is *vulnerable* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: The target is *dazed* until the end of its next turn.
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.qyKrPyraMaovy3HF'
+  - _id: u1lTY3GoWStcenUX
+    flags: {}
+    name: Amphibious
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque can swim and breathe underwater (or it holds so much
+          air in its vast lungs that it makes no difference).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.u1lTY3GoWStcenUX'
+  - _id: J5rb34UlQaBl89X3
+    flags: {}
+    name: Enormously bulky
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque is so huge that it ignores opportunity attacks. In
+          addition, normal-sized enemies are like fleas to it, and disengaging
+          from the tarrasque requires only an easy save (6+), unless the target
+          is grabbed.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.J5rb34UlQaBl89X3'
+  - _id: BzjSBhx11SwQbpyg
+    flags: {}
+    name: Inmortal
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque can&rsquo;t be killed, save by the explicit will of a
+          god (and not some jumped-up local god, either) or, perhaps, the
+          sacrifice of a great icon. The tarrasque&rsquo;s HP total indicates
+          the amount of damage required to make it disgorge swallowed enemies
+          and flee to go hibernate while it regenerates the damage it suffered
+          and decide if it wants to rampage again.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.BzjSBhx11SwQbpyg'
+  - _id: F88rsynPSMSQatSf
+    flags: {}
+    name: Inflexible
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque can&rsquo;t be killed, save by the explicit will of a
+          god (and not some jumped-up local god, either) or, perhaps, the
+          sacrifice of a great icon. The tarrasque&rsquo;s HP total indicates
+          the amount of damage required to make it disgorge swallowed enemies
+          and flee to go hibernate while it regenerates the damage it suffered
+          and decide if it wants to rampage again.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.F88rsynPSMSQatSf'
+  - _id: 71NNnol3kVk2kcfd
+    flags: {}
+    name: Drag
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+21]] vs. PD (each creature on its back)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[130]] damage, the target pops free of the tarrasque, and the target
+          is *hampered* (save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 1000000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.71NNnol3kVk2kcfd'
+  - _id: mpMxqbmnmPEA6TpC
+    flags: {}
+    name: Legendary Resistance
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque is immune to normal conditions and effects
+          (*stunned*, *weakened*, etc.), but it isn&rsquo;t completely
+          impervious. Bypassing its resistances requires icon-supported effort.
+          A PC can use one 5 or 6 they acquired from icon relationship dice
+          rolls to overcome the resistance each time they use an attack or power
+          that would apply a condition or effect upon the tarrasque. Of course,
+          they must also provide a story to go along with the reason the
+          tarrasque is affected.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.mpMxqbmnmPEA6TpC'
+  - _id: dOOJgcvto5X1r0jb
+    flags: {}
+    name: Leveler
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die is even, as a move action the tarrasque can
+          demolish any ordinary structure it can reach, such as a house, castle
+          wall, temple, or ship. The beast automatically reduces the structure
+          to rubble, rendering it useless. Each creature on top of or within the
+          structure is subject to a&nbsp;collapse&nbsp;attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.dOOJgcvto5X1r0jb'
+  - _id: M6JkPU25gvWAHzsL
+    flags: {}
+    name: Collapse
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. PD (each creature in/on the structure)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[90]] damage, and the target is *stuck* and takes [[20]] ongoing
+          damage (hard save ends both, 16+)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 1300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.M6JkPU25gvWAHzsL'
+  - _id: dbb1NyXKV0ULWTJj
+    flags: {}
+    name: Swallow Whole
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once a creature is swallowed, it goes inside one of the
+          tarrasque&rsquo;s gigantic stomachs. It can still act while inside the
+          tarrasque, but it will have to deal with the beast&rsquo;s stomach
+          acid that is splashing around. A swallowed creature must deal [[400]]
+          damage to the tarrasque to force it to disgorge the contents of its
+          gullet, freeing the creature. During the tarrasque&rsquo;s turn, it
+          can make a&nbsp;gullet digestion&nbsp;attack against the target as a
+          free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.dbb1NyXKV0ULWTJj'
+  - _id: fXCuatACU3jrvstg
+    flags: {}
+    name: Gullet Digestion
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+19]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] acid damage, and [[20]] ongoing acid damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[5d12]] acid damage'
+    sort: 1500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.fXCuatACU3jrvstg'
+  - _id: VPmlnQcKwZw2j08K
+    flags: {}
+    name: Soft-ish innerbelly
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The tarrasque doesn&rsquo;t have scales on the inside. It takes a
+          &ndash;5 penalty to all defenses against attacks from inside its
+          gullet, though only melee and close attacks can be made in there. The
+          tarrasque&rsquo;s insides are immune to acid damage, however.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.VPmlnQcKwZw2j08K'
+  - _id: mBcWFXpFTmW3o8q3
+    flags: {}
+    name: Fear
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While engaged with the tarrasque, enemies that have 216 hp or fewer
+          are *dazed* (&ndash;4 attack) and do not add the escalation die to
+          their attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.mBcWFXpFTmW3o8q3'
+  - _id: EPWoJpvAuWOOdZBx
+    flags: {}
+    name: Regeneration 230
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While a tarrasque is damaged, its malign magical flesh heals 230
+          hit points at the start of the tarrasque&rsquo;s turn. It can
+          regenerate five times per battle. If it heals up to its maximum hit
+          points, then that use of&nbsp;regeneration&nbsp;doesn&rsquo;t count
+          against the five-use limit. With this power, the monstrosity is likely
+          unstoppable without a powerful magical artifact designed specifically
+          to bind, wound, or otherwise hamper the tarrasque.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!zLKJGIgmDtRCCVvo.EPWoJpvAuWOOdZBx'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}
+_key: '!actors!zLKJGIgmDtRCCVvo'
+

@@ -1,0 +1,189 @@
+name: 'Shifter: Beast Form'
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: 'Shifter: Beast Form'
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Druid
+  powerType:
+    type: String
+    label: Power Type
+    value: talent
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: quick
+  range:
+    type: String
+    label: Range
+    value: ''
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: >-
+      <p>Daily for Shifter initiates (1 or 2 uses)</p><p>At-Will for Shifter
+      adepts</p>
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>You leave your humanoid form behind and assume the form of a deadly
+      predator such as a wolf, panther, tiger, bear, wolverine, lion, or another
+      animal that you are naturally connected to.</p><p>The choice of what type
+      of animal you become is up to you. You don&rsquo;t always have to change
+      into the same thing&mdash;your choices can suit the story. Stick to
+      four-legged natural predators, not creatures with supernatural abilities
+      or the ability to fly.</p><p>Shifter adepts can speak in growly voices and
+      cast spells while in beast form. Shifter initiates can speak in beast form
+      but can&rsquo;t cast spells unless they take the champion-tier feat
+      below.</p><p><strong>Magic items</strong>: Your magic items stick with you
+      and you get the benefit of their default bonuses. Yes, this means the
+      bonuses from your magic axe translate to your beast form. Shifter adepts
+      can use their magic item powers while in beast form. Shifter initiates
+      can&rsquo;t, but see the champion-tier feat below.</p><p><strong>Beast
+      form actions:</strong> Shifter adepts can shift freely between humanoid
+      form and beast form during a battle. Shifter initiates who shift into
+      beast form use up one of their daily beast form shifts, but they can shift
+      between beast form and humanoid form without using a daily shift for the
+      rest of that battle.</p><p>For both adepts and initiates, shifting to
+      humanoid form during your turn is a quick action. So is shifting back to
+      beast form.</p><p><strong>Beast aspects</strong>: While in beast form, you
+      can take on aspects of different beasts to help you in battle (see below).
+      You don&rsquo;t have to use the aspects; they&rsquo;re an option to
+      improve your beast form attacks and powers, not a requirement.</p><p>While
+      in beast form, you attack in melee using a beast form attack.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats: null
+  group:
+    type: String
+    label: Group
+    value: Shifter
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: JNAB8Cjqm1bIlhTS
+effects: []
+_key: '!items!JNAB8Cjqm1bIlhTS'
+

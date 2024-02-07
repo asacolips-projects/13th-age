@@ -1,0 +1,419 @@
+_id: J3vbAvRtp6nu7P6K
+name: Medusa Noble
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 27
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 500
+      min: 0
+      max: 500
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 17
+      mod: 17
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: double
+      type: String
+      label: Size
+    type:
+      value: humanoid
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Medusa Noble
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: xkMxLzP5bmIy9uek
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: L1UJqWx3JuUB1je5
+    flags: {}
+    name: Snakes and swords
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. AC ([[3]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[30]] damage, and [[15]] ongoing poison damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 18+
+        value: >-
+          The medusa can make a petrifying gaze attack against the target as a
+          free action.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!J3vbAvRtp6nu7P6K.L1UJqWx3JuUB1je5'
+  - _id: 7PbbIFnagkC08Z8y
+    flags: {}
+    name: 'R: Lightning fork'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. PD ([[1]] nearby or far away enemy)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[80]] lightning damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural odd hit or miss
+        value: >-
+          The medusa deals [[1d6]] x [[10]] lightning damage to all nearby
+          enemies.
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The medusa can make a lightning fork attack against a different target
+          as a free action; keep making lightning fork attacks until you run out
+          of targets that have taken damage from lightning fork or roll a
+          natural odd attack.
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!J3vbAvRtp6nu7P6K.7PbbIFnagkC08Z8y'
+  - _id: xNUHjZsLyL43wrw9
+    flags: {}
+    name: '[Special trigger] C: Petrifying gaze'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. MD ([[1]] enemy)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[70]] psychic damage, and the target must start making last gasp
+          saves as it turns to stone
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!J3vbAvRtp6nu7P6K.xNUHjZsLyL43wrw9'
+  - _id: 6E5iY1L1aBv1zSxQ
+    flags: {}
+    name: Caught by an eye
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Whenever a nearby enemy attacks the medusa noble and rolls a natural
+          1-5, the medusa can make a petrifying gaze attack against that
+          attacker as a free action.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!J3vbAvRtp6nu7P6K.6E5iY1L1aBv1zSxQ'
+  - _id: CV3999rKjwzrlQnv
+    flags: {}
+    name: Serpent wardings
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Thrice per battle, as a free action, the medusa noble can force an
+          enemy to reroll a spell attack that targeted it. The attacker can’t
+          use the escalation die for the reroll.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!J3vbAvRtp6nu7P6K.CV3999rKjwzrlQnv'
+  - _id: Bk4UpvWB9Oza0XFA
+    flags: {}
+    name: Skilled sorcerer
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          If lightning isn’t working against her target, the medusa noble can
+          take a -2 attack penalty to change the energy type of her ranged
+          attack to fire or thunder.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!J3vbAvRtp6nu7P6K.Bk4UpvWB9Oza0XFA'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!J3vbAvRtp6nu7P6K'
+

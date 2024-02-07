@@ -1,0 +1,288 @@
+_id: 3ufsRZjrzBEnAWEm
+name: Skeletal Hound
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 15
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 13
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 24
+      min: 0
+      max: 24
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 7
+      mod: 7
+    level:
+      type: Number
+      label: Level
+      value: 1
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: undead
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: Holy
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 1
+      min: 0
+      max: 10
+token:
+  flags: {}
+  name: Skeletal Hound
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+  tint: null
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: ZrSHOdUS8bPXJsYB
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: OmsZyRXdje1paMNK
+    flags: {}
+    name: Bite
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+6]]'
+      hit:
+        type: String
+        label: Hit
+        value: '[[5]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The hound leaves teeth in the wound; the target takes [[5]] ongoing
+          damage, and the hound takes [[1d6]] damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!3ufsRZjrzBEnAWEm.OmsZyRXdje1paMNK'
+  - _id: 2LeTz0lOPf3Az9Iz
+    flags: {}
+    name: Chomp chomp chomp
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies with a lower initiative than the hound take a &ndash;5
+          penalty to disengage checks against it.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!3ufsRZjrzBEnAWEm.2LeTz0lOPf3Az9Iz'
+  - _id: ig1Cs49CBjhKurfR
+    flags: {}
+    name: skilled intercept 11+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per round, an engaged skeletal hound can attempt to pop free
+          and intercept an enemy moving past it. Roll a normal save; on 11+, it
+          succeeds.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!3ufsRZjrzBEnAWEm.ig1Cs49CBjhKurfR'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}
+_key: '!actors!3ufsRZjrzBEnAWEm'
+

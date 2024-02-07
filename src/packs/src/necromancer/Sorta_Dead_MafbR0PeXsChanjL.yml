@@ -1,0 +1,235 @@
+name: Sorta Dead
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: ''
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Sorta Dead
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Necromancer
+  powerType:
+    type: String
+    label: Power Type
+    value: talent
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: ''
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: ''
+  range:
+    type: String
+    label: Range
+    value: ''
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>In some ways, you’re dead already. You don’t need to eat or sleep or
+      breathe. You can’t drown in normal water/liquid, though magical gas will
+      still affect you.</p><p>When a spell or effect targets or applies to
+      undead, you can decide whether you want to count as undead for that
+      specific effect. (For example, you could count as undead to take advantage
+      of a target’s vulnerability created by the ripping claws attack of a
+      starving ghoul mook you summoned via summon undead.)</p><p>The first time
+      you die each level, roll a normal save, adding [[d20+@cha.mod]]. If you
+      succeed, you heal using a free recovery instead of dying. If you were
+      dying because of last gasp saves, consider yourself saved from the last
+      gasp problem also.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>You gain <em>resist poison 16+</em> and <em>resist negative energy
+          16+</em>.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '1':
+      description:
+        type: String
+        value: >-
+          <p>The spells <em>zombie form, ghoul form, ghost form</em>, and
+          <em>vampiric form</em> all function as recharge 16+ after battle
+          spells for you, though you still memorize them as daily spells.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>No undead creature that is not under the direct command of a
+          necromantic icon can attack you unless you attack it or cast a spell
+          against it first.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+flags: {}
+img: systems/archmage/assets/icons/skills/water_03.jpg
+_id: MafbR0PeXsChanjL
+effects: []
+_key: '!items!MafbR0PeXsChanjL'
+

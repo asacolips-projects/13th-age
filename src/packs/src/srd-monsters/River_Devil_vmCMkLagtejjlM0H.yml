@@ -1,0 +1,358 @@
+_id: vmCMkLagtejjlM0H
+name: River Devil
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 25
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 230
+      min: 0
+      max: 230
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 18
+      mod: 18
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: devil
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: River Devil
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: zjvUdRYI5Catt3py
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: NJFu6nw3hzckeXhk
+    flags: {}
+    name: Cutting talons
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: The target also takes [[10]] ongoing damage.
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural odd miss
+        value: '[[10]] ongoing damage.'
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!vmCMkLagtejjlM0H.NJFu6nw3hzckeXhk'
+  - _id: 3KvcASVQ842Ib0Zn
+    flags: {}
+    name: Ripping tentacle
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: The target is *hampered* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!vmCMkLagtejjlM0H.3KvcASVQ842Ib0Zn'
+  - _id: zTDVpJtuE4N6NLvp
+    flags: {}
+    name: Quick use
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: This ability only requires a quick action (once per round) to use.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!vmCMkLagtejjlM0H.zTDVpJtuE4N6NLvp'
+  - _id: sXbWI9VFXnP9EeTH
+    flags: {}
+    name: Devil’s due (Foreshadowed weakness)
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When you choose to add the escalation die to an attack against a river
+          devil, you only heal half the normal hit points the next time you heal
+          using a recovery this battle. The effect is cumulative (so the second
+          time you heal, the third time, etc.) if you pay the devil’s due more
+          than once before using a recovery.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!vmCMkLagtejjlM0H.sXbWI9VFXnP9EeTH'
+  - _id: NLq3VTKRG8vwYloz
+    flags: {}
+    name: Resist energy 13+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When an energy attack targets this creature, the attacker must roll a
+          natural 13+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!vmCMkLagtejjlM0H.NLq3VTKRG8vwYloz'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!vmCMkLagtejjlM0H'
+

@@ -1,0 +1,442 @@
+_id: ek0KnUuduPgaNsZ5
+name: Treant Titan
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/plant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 28
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 26
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 390
+      min: 0
+      max: 390
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+      mod: 9
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: plant
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: fire
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Treant Titan
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/plant.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: fPFw3VzI5TbbeqTF
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: KsAtrwVcjAn6ptdY
+    flags: {}
+    name: Grasping branches
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[30]] damage, and the treant grabs the target. When the treant starts
+          its turn grabbing an enemy, it can make a twist and snap attack
+          against that target as a standard action that turn.
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.KsAtrwVcjAn6ptdY'
+  - _id: YBbHOSuWD8IMbJA7
+    flags: {}
+    name: '[Special trigger] Twist and snap'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 19]] vs. PD'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[80]] damage, and the target is *dazed* (save ends). If the treant
+          starts its turn grabbing a dazed enemy, it can make a titanic rend
+          attack against that target as a standard action that turn.
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[40]] damage.'
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.YBbHOSuWD8IMbJA7'
+  - _id: 8xwJu0Z0qP7DtTEc
+    flags: {}
+    name: '[Special trigger] Titanic rend'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 19]] vs. PD'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[160]] damage, and the treant titan can continue making titanic rend
+          attacks against the target until it escapes the grab, at which point
+          the treant will have to use a grasping branches attack against it
+          again.
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[60]] damage.'
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.8xwJu0Z0qP7DtTEc'
+  - _id: BAbIdKmgTzIj5Y3J
+    flags: {}
+    name: Fire fire fire!
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the treant takes [[35]] or more fire damage from a single attack,
+          it releases all grabbed creatures.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.BAbIdKmgTzIj5Y3J'
+  - _id: BS7sblSjZ1JmU9a1
+    flags: {}
+    name: Hardwood resistance
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          This creature has resist damage 18+ to all damage except fire damage
+          and melee weapon damage, which damages it normally.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.BS7sblSjZ1JmU9a1'
+  - _id: IiAQKU6VWzyKavxD
+    flags: {}
+    name: Coffin of living wood
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the treant titan hits with a titanic rend attack, the target is
+          pulled into a hollow chamber within the treant. While grabbed by the
+          treant this way, the target can’t be the target of its allies’ powers
+          or spells.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.IiAQKU6VWzyKavxD'
+  - _id: gFoQwkZltvTUQbmv
+    flags: {}
+    name: Gauntlet of branches
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Countless smaller branches whip through the air around the treant
+          titan. When a creature engaged with the treant misses it with an
+          attack, that creature takes [[12]] damage from the whipping branches.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ek0KnUuduPgaNsZ5.gFoQwkZltvTUQbmv'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!ek0KnUuduPgaNsZ5'
+

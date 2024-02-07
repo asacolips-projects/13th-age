@@ -1,0 +1,84 @@
+name: Random Rune Effect on Spellcasting Implement
+img: icons/svg/d20-grey.svg
+description: ''
+results:
+  - type: 0
+    weight: 1
+    range:
+      - 1
+      - 20
+    drawn: false
+    documentCollection: ''
+    _id: upVZOJ6pLmITG2op
+    text: +1 additional attack bonus if spell has only one target
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!1To7U9r1mJ9767qW.upVZOJ6pLmITG2op'
+  - type: 0
+    weight: 1
+    range:
+      - 21
+      - 40
+    drawn: false
+    documentCollection: ''
+    _id: xahuFiM047u0WYtP
+    text: >-
+      Implement gains an energy damage type such as fire, negative energy, etc.,
+      and deals +1d4 damage (champion: +2d6; epic: +5d6)
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!1To7U9r1mJ9767qW.xahuFiM047u0WYtP'
+  - type: 0
+    weight: 1
+    range:
+      - 41
+      - 60
+    drawn: false
+    documentCollection: ''
+    _id: 3KbFH2hTwfIt4bq9
+    text: +1 additional attack bonus with daily spells
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!1To7U9r1mJ9767qW.3KbFH2hTwfIt4bq9'
+  - type: 0
+    weight: 1
+    range:
+      - 61
+      - 80
+    drawn: false
+    documentCollection: ''
+    _id: sQv25ZzyQmhenFKv
+    text: 1 additional attack bonus if spell has more than one target
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!1To7U9r1mJ9767qW.sQv25ZzyQmhenFKv'
+  - type: 0
+    weight: 1
+    range:
+      - 81
+      - 100
+    drawn: false
+    documentCollection: ''
+    _id: SfOnpXx8p5EWeA45
+    text: Reroll one missed attack roll with implement
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!1To7U9r1mJ9767qW.SfOnpXx8p5EWeA45'
+formula: 1d100
+replacement: true
+displayRoll: true
+flags: {}
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: 1To7U9r1mJ9767qW
+permission:
+  default: 0
+_key: '!tables!1To7U9r1mJ9767qW'
+

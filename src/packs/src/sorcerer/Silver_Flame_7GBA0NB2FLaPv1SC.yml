@@ -1,0 +1,158 @@
+name: Silver Flame
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Silver Flame
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Sorcerer
+  powerType:
+    type: String
+    label: Power Type
+    value: spell
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  powerLevel:
+    type: Number
+    label: Level
+    value: '9'
+  actionType:
+    type: String
+    label: Action
+    value: quick
+  range:
+    type: String
+    label: Range
+    value: Close-quarters spell
+  trigger:
+    type: String
+    label: Trigger
+    value: null
+  target:
+    type: String
+    label: Target
+    value: null
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: null
+  hit:
+    type: String
+    label: Hit
+    value: null
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: null
+  missEven:
+    type: String
+    label: Even Miss
+    value: null
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: null
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: null
+  castPower:
+    type: String
+    label: Cast for Power
+    value: null
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: null
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: null
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: "<p>Roll your relationship dice that you have with a sorcerous heroic icon.</p><p>For each 6 you roll, you gain one 7th\_level or lower spell from any spellcasting class that you can cast this battle. For each 5 you roll, you gain one 5th\_level or lower spell from any spellcasting class that you can cast this battle.</p><p>If the escalation die is 5+, you can swap the escalation die for one or your rolls. If you get no successes, you regain the spell after this battle.</p><p>You can acquire one of the new spells the same round you cast this spell. Then select and acquire any other gained spells at the start of your next turn.</p><p>You can use your Charisma as the ability score that provides the acquired spells' attack bonuses and damage bonuses (if any). Other ability score references remain unchanged.</p><p>As you might expect, each 5 you roll also invokes an icon-related complication or obligation in the tradition of rolling 5s on relationship checks.</p>"
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: null
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: null
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: null
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: null
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: null
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: null
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats: null
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 7GBA0NB2FLaPv1SC
+effects: []
+_key: '!items!7GBA0NB2FLaPv1SC'
+

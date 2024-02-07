@@ -1,0 +1,453 @@
+_id: uhXPwGgX5ZzOKuQn
+name: Huge Copper Dragon (Metallic)
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 700
+      min: 0
+      max: 700
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+      mod: 16
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: huge
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Huge Copper Dragon (Metallic)
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/dragon-copper.webp
+  width: 3
+  height: 3
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: y5e1k8fgZZ64b26W
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: VmBgBVJo1FUVXJVi
+    flags: {}
+    name: Needle-sharp claws and teeth
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[70]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.VmBgBVJo1FUVXJVi'
+  - _id: mcHQQKXNQoND8lfx
+    flags: {}
+    name: '[Special trigger] C: Acrid smoke'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. PD (up to [[3]] enemies engaged with the dragon)'
+      hit:
+        type: ''
+        label: Hit
+        value: The target is *hampered* until the end of its next turn
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.mcHQQKXNQoND8lfx'
+  - _id: TEMp8E0TybHfnyik
+    flags: {}
+    name: 'C: Acid breath'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. PD ([[1d4]] nearby enemies in a group)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[35]] acid damage, and [[35]] ongoing acid damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[15]] ongoing acid damage.'
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.TEMp8E0TybHfnyik'
+  - _id: qO3srRhSLlpxNkv4
+    flags: {}
+    name: First natural 11+ each turn
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The dragon can make an acrid smoke attack as a free action.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.qO3srRhSLlpxNkv4'
+  - _id: M7jtabu0xflXHtOi
+    flags: {}
+    name: Inspire awe
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While an enemy has 120 hp or fewer, it takes a -4 penalty to limited
+          attacks against the dragon.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.M7jtabu0xflXHtOi'
+  - _id: zxGTv8jvgvh2DxXj
+    flags: {}
+    name: Resist fire 18+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a fire attack targets this creature, the attacker must roll a
+          natural 18+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.zxGTv8jvgvh2DxXj'
+  - _id: 89WCDsfn6daQiIL2
+    flags: {}
+    name: Supreme Out-think
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Once per battle as a free action when an enemy rolls a natural even
+          attack against the dragon, the dragon negates the attack (no damage or
+          effects). In addition, this effect against natural even attacks lasts
+          against the dragon’s enemies until the start of the dragon’s next
+          turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.89WCDsfn6daQiIL2'
+  - _id: pBphDFI5lojPwqEp
+    flags: {}
+    name: Swift mind
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Once per battle as a free action when an attack targets the dragon’s
+          MD, it can force the attacker to reroll the attack.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!uhXPwGgX5ZzOKuQn.pBphDFI5lojPwqEp'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!uhXPwGgX5ZzOKuQn'
+

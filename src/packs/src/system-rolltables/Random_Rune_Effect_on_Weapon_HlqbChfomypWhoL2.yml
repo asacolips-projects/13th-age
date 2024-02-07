@@ -1,0 +1,85 @@
+name: Random Rune Effect on Weapon
+img: icons/svg/d20-grey.svg
+description: ''
+results:
+  - type: 0
+    weight: 1
+    range:
+      - 1
+      - 20
+    drawn: false
+    documentCollection: ''
+    _id: bJuCbDtePhhsemCO
+    text: +4 bonus to opportunity attacks
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!HlqbChfomypWhoL2.bJuCbDtePhhsemCO'
+  - type: 0
+    weight: 1
+    range:
+      - 21
+      - 40
+    drawn: false
+    documentCollection: ''
+    _id: 7ICQCROIg0U569Rz
+    text: >-
+      Weapon gains an energy damage type such as fire, cold, etc., and deals
+      +1d4 damage (champion: +2d6; epic: +5d6)
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!HlqbChfomypWhoL2.7ICQCROIg0U569Rz'
+  - type: 0
+    weight: 1
+    range:
+      - 41
+      - 60
+    drawn: false
+    documentCollection: ''
+    _id: ebU7OtOZYwshHd0b
+    text: +4 attack bonus on first round of combat
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!HlqbChfomypWhoL2.ebU7OtOZYwshHd0b'
+  - type: 0
+    weight: 1
+    range:
+      - 61
+      - 80
+    drawn: false
+    documentCollection: ''
+    _id: c7wJevTMdk3tJ89m
+    text: >-
+      Weapon deals +1d10 damage while escalation die is 3+ (champion: +4d6;
+      epic: +3d20)
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!HlqbChfomypWhoL2.c7wJevTMdk3tJ89m'
+  - type: 0
+    weight: 1
+    range:
+      - 81
+      - 100
+    drawn: false
+    documentCollection: '[object Map]'
+    _id: Rfxt0e9NXnWZSSHH
+    text: ''
+    img: null
+    documentId: null
+    flags: {}
+    _key: '!tables.results!HlqbChfomypWhoL2.Rfxt0e9NXnWZSSHH'
+formula: 1d100
+replacement: true
+displayRoll: true
+flags: {}
+sort: 0
+ownership:
+  default: 0
+_id: HlqbChfomypWhoL2
+permission:
+  default: 0
+_key: '!tables!HlqbChfomypWhoL2'
+

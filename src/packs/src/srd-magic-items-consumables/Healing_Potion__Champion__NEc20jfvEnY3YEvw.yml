@@ -1,0 +1,32 @@
+name: Healing Potion (Champion)
+type: loot
+img: systems/archmage/assets/icons/items/potions/major-red.jpg
+effects: []
+flags: {}
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>As a standard action, spend a recovery and regain 2d8 additional hp
+      (max 60).</p>
+  quantity:
+    type: Number
+    label: Quantity
+    value: 1
+  price:
+    type: Number
+    label: Price
+    value: 100
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: NEc20jfvEnY3YEvw
+permission:
+  default: 0
+_key: '!items!NEc20jfvEnY3YEvw'
+

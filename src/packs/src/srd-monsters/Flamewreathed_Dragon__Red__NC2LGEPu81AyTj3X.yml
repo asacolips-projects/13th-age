@@ -1,0 +1,467 @@
+_id: NC2LGEPu81AyTj3X
+name: Flamewreathed Dragon (Red)
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 28
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 27
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 1100
+      min: 0
+      max: 1100
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 15
+      mod: 15
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: huge
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Flamewreathed Dragon (Red)
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/dragon-red.webp
+  width: 3
+  height: 3
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: DIoRt6a041INTEqT
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: vapoOzENSucCNRet
+    flags: {}
+    name: Fangs and claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. AC ([[3]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[75]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: The target takes [[20]] ongoing fire damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.vapoOzENSucCNRet'
+  - _id: 31MYT4yzWwEIdnMm
+    flags: {}
+    name: 'C: Primal fire breath'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. PD ([[1d4 + 1]] nearby enemies'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          or one enemy);60 fire damage, and [[15]] ongoing fire damage; OR
+          [[180]] fire damage, and [[30]] ongoing fire damage and the target is
+          *weakened* (save ends both) if used against a single enemy
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 18+
+        value: >-
+          If the breath targeted multiple enemies, the target takes [[25]]
+          ongoing fire damage instead of 15. If the breath targeted a single
+          enemy, the target takes [[60]] ongoing fire damage instead of 30.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.31MYT4yzWwEIdnMm'
+  - _id: SNMcHSpvLqfTDqj1
+    flags: {}
+    name: 'C: Whirling inferno'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: 'Limited use: 2/battle, as a quick action (once per round).'
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 17]] vs. PD (each nearby enemy taking ongoing fire damage)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          The target’s ongoing fire damage increases by 5 and becomes hard save
+          ends (16+) as the dragon fans the flames
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.SNMcHSpvLqfTDqj1'
+  - _id: RA96Xl2f5vx0m38P
+    flags: {}
+    name: Intermittent breath
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          A flamewreathed dragon can use primal fire breath [[1d4]] + 2 times
+          per battle, but never two turns in a row.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.RA96Xl2f5vx0m38P'
+  - _id: K91kYAYcUc3Bpmol
+    flags: {}
+    name: Resist fire 18+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a fire attack targets this creature, the attacker must roll a
+          natural 18+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.K91kYAYcUc3Bpmol'
+  - _id: 792IKkmLbQD4PTx0
+    flags: {}
+    name: Wyrm of *fear* and flame
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While engaged with this creature, enemies with 120 hp or fewer are
+          *dazed* (-4 attacks), do not add the escalation die to their attacks,
+          and take [[4d20]] fire damage at the start of their turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.792IKkmLbQD4PTx0'
+  - _id: NMqK1B7aTsLp6o4j
+    flags: {}
+    name: Draconic fire
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The dragon’s will and magic are so powerful that it ignores the fire
+          resistance of creatures battling it.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.NMqK1B7aTsLp6o4j'
+  - _id: VmW0nbD0eSGTqgsz
+    flags: {}
+    name: Smoke minions
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The dragon’s lair is wreathed in smoke and fumes, and through its
+          magic the dragon has some control over those hot gases. Once per round
+          as a quick action, the flamewreathed dragon can summon [[1d4]] smoke
+          minions that take humanoid or bestial form and defend the dragon’s
+          lair. Roll initiative for the minions once and use that count for all
+          additional minions.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!NC2LGEPu81AyTj3X.VmW0nbD0eSGTqgsz'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!NC2LGEPu81AyTj3X'
+

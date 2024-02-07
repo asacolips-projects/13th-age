@@ -1,0 +1,303 @@
+_id: hfAhD1HZv3FPxYXA
+name: Clay Golem
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 120
+      min: 0
+      max: 120
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+      mod: 6
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: construct
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Clay Golem
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: BrY7RNdFfoa0yZGv
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: F2IqUtvy3xHxQl2S
+    flags: {}
+    name: Bare brutal hands
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[36]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!hfAhD1HZv3FPxYXA.F2IqUtvy3xHxQl2S'
+  - _id: wPqxJbwQDrP7IDvN
+    flags: {}
+    name: Cursed wound
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          A non-dwarf creature damaged by a clay golem can’t be healed to above
+          half its maximum hit points until after the battle.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!hfAhD1HZv3FPxYXA.wPqxJbwQDrP7IDvN'
+  - _id: rbB1AF1KceusJV0W
+    flags: {}
+    name: Golem immunity
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Non-organic golems are immune to effects. They can’t be *dazed*,
+          *weakened*, *confused*, made *vulnerable*, or touched by ongoing
+          damage. You can damage a golem, but that’s about it.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!hfAhD1HZv3FPxYXA.rbB1AF1KceusJV0W'
+  - _id: 68p8UNkGhxNNiRtA
+    flags: {}
+    name: Ignore attacks 11+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When an attack hits this creature, the attacker must roll a natural
+          11+ on the attack roll or it misses instead. That’s all attacks.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!hfAhD1HZv3FPxYXA.68p8UNkGhxNNiRtA'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!hfAhD1HZv3FPxYXA'
+

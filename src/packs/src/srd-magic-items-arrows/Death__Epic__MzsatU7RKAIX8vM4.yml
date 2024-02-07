@@ -1,0 +1,74 @@
+_id: MzsatU7RKAIX8vM4
+name: Death (Epic)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>When you hit with this ammunition and deal damage, if the target has 40
+      hp or fewer after the hit, the creature drops to 0 hp. If it hits but
+      fails to drop its target, the ammunition is not used up. It must of course
+      be retrieved.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '20'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: arrow
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!MzsatU7RKAIX8vM4'
+

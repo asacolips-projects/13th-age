@@ -1,0 +1,245 @@
+_id: DNHwMQd1AASGQF2V
+name: Stirge
+permission:
+  default: 0
+type: npc
+system:
+  attributes:
+    ac:
+      type: Number
+      label: Armor Class
+      value: 16
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 10
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 18
+      min: 0
+      max: 18
+      temp: 0
+      tempmax: 0
+      base: 10
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 4
+      mod: 4
+    level:
+      type: Number
+      label: Level
+      value: 0
+      min: 0
+      max: 12
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    role:
+      type: String
+      label: Role
+      value: troop
+    size:
+      type: String
+      label: Size
+      value: normal
+    type:
+      type: String
+      label: Type
+      value: beast
+    resistance:
+      type: String
+      label: Resistance
+      value: ''
+    vulnerability:
+      type: String
+      label: Vulnerability
+      value: ''
+    level:
+      type: Number
+      label: Level
+      value: 0
+      min: 0
+      max: 12
+sort: 100001
+flags:
+  archmage: {}
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+token:
+  flags: {}
+  name: Stirge
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 360
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: uUDIlbnXD3K9WzQl
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1: {}
+  bar2: {}
+  randomImg: false
+items:
+  - _id: vPn2ikONq9a4CbsW
+    flags: {}
+    name: Claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[2]] damage, and the stirge can make a draining probe attack against
+          the target during its next turn if it’s still engaged with the target
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    _key: '!actors.items!DNHwMQd1AASGQF2V.vPn2ikONq9a4CbsW'
+  - _id: Lc9oKAzcG2gMXHnd
+    flags: {}
+    name: '[Special trigger] Draining probe'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. AC ([[1]] enemy hit by claws last turn)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[5]] damage, and [[5]] ongoing damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    _key: '!actors.items!DNHwMQd1AASGQF2V.Lc9oKAzcG2gMXHnd'
+  - _id: KUC8xKRTeO4Ml86x
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Stirges fly well. Also, the pitch of their wings is high and thin,
+          allowing a stirge to get very close without tipping off its prey.
+    sort: 200000
+    effects: []
+    _key: '!actors.items!DNHwMQd1AASGQF2V.KUC8xKRTeO4Ml86x'
+  - _id: 05L3H6gzctqPk8If
+    flags: {}
+    name: One and done
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          After hitting a living creature that has blood with its draining probe
+          attack, the stirge heals 5 hit points and will use its next turn to
+          move, fleeing to the hive to feed the stirgelings…and to alert the
+          hive that there is an easy meal nearby. A new full-strength stirge
+          enters the battle during the next round on the same initiative count.
+    sort: 300000
+    effects: []
+    _key: '!actors.items!DNHwMQd1AASGQF2V.05L3H6gzctqPk8If'
+effects: []
+_key: '!actors!DNHwMQd1AASGQF2V'
+

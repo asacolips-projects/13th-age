@@ -1,0 +1,191 @@
+name: Procession of the Sun and the Moon
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: ''
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Procession of the Sun and the Moon
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Monk
+  powerType:
+    type: String
+    label: Power Type
+    value: talent
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  powerLevel:
+    type: Number
+    label: Level
+    value: 9
+  actionType:
+    type: String
+    label: Action
+    value: ''
+  range:
+    type: String
+    label: Range
+    value: ''
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>Once per level, while meditating during a quick rest, you can decide
+      that it’s time for the start of a new day. You and each of your willing
+      allies can make a hard save. Each character who succeeds regains all
+      spells, powers, hit points, ki, and recoveries as if they had taken a full
+      heal-up and started a new day.</p><p>The only character element that does
+      not reset as if it was a new day are your icon relationship rolls and any
+      icon relationships.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>You and each of your allies gain a +[[max(@str.mod,@wis.mod)]]
+          bonus to the save.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+  group:
+    type: String
+    label: Group
+    value: ''
+flags: {}
+img: systems/archmage/assets/icons/skills/yellow_01.jpg
+effects: []
+_id: 0JYV8I4r4Y4KxX2a
+_key: '!items!0JYV8I4r4Y4KxX2a'
+

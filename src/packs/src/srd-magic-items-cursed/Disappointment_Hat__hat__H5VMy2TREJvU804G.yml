@@ -1,0 +1,78 @@
+_id: H5VMy2TREJvU804G
+name: Disappointment Hat (hat)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Green conical hat. Always: Each time you cast a spell outside of combat
+      or a spell is cast near you, it has some side effect (GM&rsquo;s choice)
+      that inconveniences you.</p>
+
+      <p>Recharge 6+: As a move action you pull out an item from the hat. Roll a
+      [[d6]] to see what you get: 1&ndash;2: You get a useless or disgusting
+      item. 3&ndash;6: You pull a useful non-magical item that grants a +d6
+      bonus to your next skill check until the end of your next turn.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '6'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: helmet
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!H5VMy2TREJvU804G'
+

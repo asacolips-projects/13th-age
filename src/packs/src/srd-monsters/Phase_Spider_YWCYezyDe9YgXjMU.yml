@@ -1,0 +1,440 @@
+_id: YWCYezyDe9YgXjMU
+name: Phase Spider
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 200
+      min: 0
+      max: 200
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+      mod: 16
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Phase Spider
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 7HFpjftxz0YQrCUk
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: EcknsmUKCUkr9voj
+    flags: {}
+    name: Phasing fangs
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. PD ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[25]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The spider can make a rummage and filch attack against the target as a
+          free action, even if the target isn’t staggered.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.EcknsmUKCUkr9voj'
+  - _id: BRVr9dQbocPidrz1
+    flags: {}
+    name: Rummage and filch
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. MD ([[1]] staggered creature)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          the phase spider steals a random true magic item from the target (see
+          below).
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.BRVr9dQbocPidrz1'
+  - _id: brBw3jVoPbs0kIV6
+    flags: {}
+    name: Phasing abilities
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          As long as it didn’t just return from being out of phase, at the start
+          of the phase spider’s turn, roll a [[d6]] to see which of its phase
+          and teleport abilities it can access that turn. The spider doesn’t
+          have to use the available ability and can attack normally, if it
+          wishes.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.brBw3jVoPbs0kIV6'
+  - _id: 33g8yyKalIB5c8sy
+    flags: {}
+    name: 1-2
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Short teleport—As a move action, the spider can teleport anywhere it
+          can see nearby.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.33g8yyKalIB5c8sy'
+  - _id: ABNIXsoZkiGDx5fB
+    flags: {}
+    name: '3'
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Long teleport—As a move action, the spider can teleport anywhere it
+          can see nearby or far away.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.ABNIXsoZkiGDx5fB'
+  - _id: GR5ijJ4sjCMLjBg5
+    flags: {}
+    name: 4-5
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Phase out—As a move action, the spider can remove itself from the
+          battlefield, returning on its next initiative turn anywhere it chooses
+          nearby. It doesn’t get to make a phase roll at the start of its next
+          turn though.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.GR5ijJ4sjCMLjBg5'
+  - _id: ERmxXyaA6GspYUVD
+    flags: {}
+    name: '6'
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Teleport away—If the spider has stolen at least one magic item, as a
+          move action it can teleport back to its lair, or to its master if it
+          has one. It leaves the battle. If it hasn’t stolen an item yet, it
+          won’t leave and can use its choice of the other abilities this turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.ERmxXyaA6GspYUVD'
+  - _id: fiLfwLrQkX5qJnYg
+    flags: {}
+    name: Stolen items
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          If the spider is slain before it leaves battle, all items stolen from
+          the party are recovered. If a [[d20]] roll results in a 20, other
+          magic items are found.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!YWCYezyDe9YgXjMU.fiLfwLrQkX5qJnYg'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!YWCYezyDe9YgXjMU'
+

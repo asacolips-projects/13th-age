@@ -1,0 +1,76 @@
+_id: pgN5zvWYejOa3PfD
+name: Staff of the Diffident Magician
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 6+) The first time an enemy engages you, make an opportunity
+      attack against that enemy. On a hit, you deal +[[2d8]] damage with that
+      attack (epic: +[[4d10]]) and daze the foe until the end of its turn, if
+      the creature is large or smaller (epic: any size).</p>
+
+      <p>Quirk: Doesn&rsquo;t like to be touched.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '6'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 2
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 2
+      arcane:
+        bonus: 2
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: staff
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!pgN5zvWYejOa3PfD'
+

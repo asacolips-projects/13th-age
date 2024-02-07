@@ -1,0 +1,335 @@
+_id: sMhDYM1KPC23VcZp
+name: Avenging Orb
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 13
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 46
+      min: 0
+      max: 46
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 3
+      mod: 3
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: humanoid
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Avenging Orb
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: Fdj5TdNrFMz17wy4
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: iDaQgRYZgf8iHZRB
+    flags: {}
+    name: Gauntlet slap
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 5]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[3]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 5, 10, 15, 20
+        value: The target also takes [[3]] ongoing psychic damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!sMhDYM1KPC23VcZp.iDaQgRYZgf8iHZRB'
+  - _id: HNxANX0S88MHI8q7
+    flags: {}
+    name: 'R: Orb of pain'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: >-
+          [[d20 + 7]] vs. MD ([[1]] or more nearby or far away enemies; see
+          history of abuse)
+      hit:
+        type: ''
+        label: Hit
+        value: '[[5]] psychic damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 5, 10, 15, 20
+        value: The target also takes [[3]] ongoing psychic damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!sMhDYM1KPC23VcZp.HNxANX0S88MHI8q7'
+  - _id: Cy5LSPJM1wUKp3Bm
+    flags: {}
+    name: Beyond saving
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The avenging orb takes a -5 penalty to saving throws.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!sMhDYM1KPC23VcZp.Cy5LSPJM1wUKp3Bm'
+  - _id: PSbLZISFyeXxL1A7
+    flags: {}
+    name: History of abuse
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Keep track of the number of enemy attacks that hit the avenging orb
+          during the battle. Until the end of the battle, the avenging orb can
+          target an additional enemy beyond the first with its orb of pain
+          attack for each of those hits. (Note that avenging orbs engaged in
+          melee usually choose to use orb of pain and suffer any resulting
+          opportunity attacks; if they’re lucky they’ll survive the attack and
+          be able to choose more targets for the orb of pain.)
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!sMhDYM1KPC23VcZp.PSbLZISFyeXxL1A7'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!sMhDYM1KPC23VcZp'
+

@@ -1,0 +1,31 @@
+name: Now I’m mad!
+type: trait
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>The first time the dragon is staggered each battle, it uses its breath
+      weapon attack as a free action that does not count against the normal uses
+      of its breath.</p>
+  group:
+    type: String
+    label: Group
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: lDLx2UPGSxgaovef
+permission:
+  default: 0
+_key: '!items!lDLx2UPGSxgaovef'
+

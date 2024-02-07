@@ -1,0 +1,404 @@
+_id: pQo7rrWALsNGA1C8
+name: Sparkscale Naga
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 190
+      min: 0
+      max: 190
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+      mod: 10
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+token:
+  flags: {}
+  name: Sparkscale Naga
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  tint: null
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: fJTRPsnCQdzWbclH
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 7h0Hxki19Swz24KA
+    flags: {}
+    name: Bite
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: Each nearby enemy takes [[10]] thunder damage
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!pQo7rrWALsNGA1C8.7h0Hxki19Swz24KA'
+  - _id: 9NoEBfKEfuEvkpvD
+    flags: {}
+    name: Bloom of lightning
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: '<p>Limited use: 1/battle.</p>'
+      group:
+        type: String
+        label: Group
+        value: R
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. PD ([[1d3]] nearby or far away enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: Each nearby enemy takes [[10]] thunder damage
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: Each nearby creature (including allies) takes [[5]] thunder damage
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!pQo7rrWALsNGA1C8.9NoEBfKEfuEvkpvD'
+  - _id: CKCK4H7jPlMpvgiM
+    flags: {}
+    name: Sparking aura
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: C
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+10]] vs. PD ([[1]] nearby enemy, or [[1]] nearby enemy per point
+          of esc. die if mystic escalator benefit is active)
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] lightning damage, an the target is *vulnerable* (save ends).'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!pQo7rrWALsNGA1C8.CKCK4H7jPlMpvgiM'
+  - _id: asMvuqWFmufAXXW2
+    flags: {}
+    name: Arcane Mirror
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an enemy targets the sparkscale naga with a spell, the naga
+          regains the use of&nbsp;sparking aura&nbsp;if it&rsquo;s expended. In
+          addition, if that spell is a recharge spell, roll its recharge check
+          immediately after the spell is cast. If the spell is a per-battle or
+          daily spell, roll a hard save (16+) immediately after the spell is
+          cast; on a success, the spellcaster doesn&rsquo;t expend the
+          spell.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!pQo7rrWALsNGA1C8.asMvuqWFmufAXXW2'
+  - _id: Z3rpj4lBjfCmCdoM
+    flags: {}
+    name: Mystic escalator
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The naga and each of its nearby allies can use the escalation die
+          unless the naga has been targeted by an enemy&rsquo;s spell since its
+          last turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!pQo7rrWALsNGA1C8.Z3rpj4lBjfCmCdoM'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}
+_key: '!actors!pQo7rrWALsNGA1C8'
+

@@ -1,0 +1,409 @@
+_id: rvpic1GaPiPJzfMo
+name: Elder Manafang Naga
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 24
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 210
+      min: 0
+      max: 210
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 11
+      mod: 11
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 10
+token:
+  flags: {}
+  name: Manafang Naga
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  tint: null
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: WzZ6XAPr2aaRbnsD
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: X5jjOzazEui12uQT
+    flags: {}
+    name: Bite
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[45]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: >-
+          The naga gains resist spell damage 16+ against the target spells until
+          the end of the battle
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[25]] damage'
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!rvpic1GaPiPJzfMo.X5jjOzazEui12uQT'
+  - _id: PssyfnBA0mz9IUU5
+    flags: {}
+    name: Force missiles
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: '<p>Limited use: 1/battle.</p>'
+      group:
+        type: String
+        label: Group
+        value: R
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[1d4]] nearby or far away enemies'
+      hit:
+        type: String
+        label: Hit
+        value: '[[45]] force damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!rvpic1GaPiPJzfMo.PssyfnBA0mz9IUU5'
+  - _id: wlQcA7PRNUrRgDPY
+    flags: {}
+    name: Ritual movements
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: C
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+15]] vs. MD ([[1]] nearby enemy, or [[1]] nearby enemy per point
+          of es. die if mystic escalator benefit is active)
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[45]] psychic damage, and the target can't cast spells or use the
+          activated powers of true magit items (save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[20]] psychic damage'
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!rvpic1GaPiPJzfMo.wlQcA7PRNUrRgDPY'
+  - _id: y15hKUg0Bf3Uqtbk
+    flags: {}
+    name: Arcane mirror
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>&nbsp;When an enemy targets the manafang naga with a spell, the
+          naga regains the use of&nbsp;force missiles&nbsp;if it&rsquo;s
+          expended. In addition, if that spell is a recharge spell, roll its
+          recharge check immediately after the spell is cast. If the spell is a
+          per-battle or daily spell, roll a hard save (16+) immediately after
+          the spell is cast; on a success, the spellcaster doesn&rsquo;t expend
+          the spell.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!rvpic1GaPiPJzfMo.y15hKUg0Bf3Uqtbk'
+  - _id: KQbvW5buwNQCfGyr
+    flags: {}
+    name: Supreme Mystic escalator
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span style="color: #333333; font-family: Amethysta, serif;
+          background-color: #ffffff;">T</span>he naga and each of its nearby
+          allies can use the escalation die unless the naga has been hit by two
+          enemy spells since its last turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!rvpic1GaPiPJzfMo.KQbvW5buwNQCfGyr'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}
+_key: '!actors!rvpic1GaPiPJzfMo'
+

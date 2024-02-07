@@ -1,0 +1,28 @@
+name: Nimble
+type: trait
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: <p>The dragon has a +2 bonus to PD.</p>
+  group:
+    type: String
+    label: Group
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: fLYv6QLIXjtoXqiX
+permission:
+  default: 0
+_key: '!items!fLYv6QLIXjtoXqiX'
+

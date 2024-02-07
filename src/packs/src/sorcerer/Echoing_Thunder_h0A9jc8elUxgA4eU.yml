@@ -1,0 +1,183 @@
+name: Echoing Thunder
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Echoing Thunder
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Sorcerer
+  powerType:
+    type: String
+    label: Power Type
+    value: spell
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: at-will
+  powerLevel:
+    type: Number
+    label: Level
+    value: '3'
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: Ranged spell
+  trigger:
+    type: String
+    label: Trigger
+    value: null
+  target:
+    type: String
+    label: Target
+    value: One nearby enemy
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+  hit:
+    type: String
+    label: Hit
+    value: >-
+      [[3d6+@cha.dmg+@atk.a.bonus]] thunder damage, and the first enemy that
+      hits you with a melee attack before the start of your next turn takes
+      [[2d6]] thunder damage. (An empowered spell does not double this
+      aftershock damage.)
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: '[[@lvl]] damage.'
+  missEven:
+    type: String
+    label: Even Miss
+    value: null
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: null
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: null
+  castPower:
+    type: String
+    label: Cast for Power
+    value: null
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: null
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: null
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: ''
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: null
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage; [[2d6]] aftershock damage.'
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: '[[7d6+@cha.dmg+@atk.a.bonus]] damage; [[3d6]] aftershock damage.'
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: '[[9d6+@cha.dmg+@atk.a.bonus]] damage; [[4d6]] aftershock damage.'
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: null
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: null
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>The spell's aftershock damage is now also doubled when echoing
+          thunder is empowered.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: h0A9jc8elUxgA4eU
+effects: []
+_key: '!items!h0A9jc8elUxgA4eU'
+

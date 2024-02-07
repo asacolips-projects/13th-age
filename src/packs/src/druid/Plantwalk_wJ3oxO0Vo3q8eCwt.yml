@@ -1,0 +1,174 @@
+name: Plantwalk
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Plantwalk
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Druid
+  powerType:
+    type: String
+    label: Power Type
+    value: spell
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  powerLevel:
+    type: Number
+    label: Level
+    value: 5
+  actionType:
+    type: String
+    label: Action
+    value: quick
+  range:
+    type: String
+    label: Range
+    value: Ranged spell
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: '-1 TC daily spell'
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>Until the end of the turn, you can teleport once as a move action by
+      moving into a tree or other large plant and emerging from another plant or
+      tree of the same species you can see or out of your line of sight. If you
+      go beyond your line of sight, the GM chooses how far you can go, up to a
+      mile.</p><p>Once per level when you cast this spell, you also summon a 5th
+      level earth elemental beside one of the trees or plants involved in your
+      teleport. Use the elemental caster&rsquo;s summon earth elemental
+      spell.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: The once per level summoning now summons a 7th level earth elemental.
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: >-
+      You can now use the spell to teleport virtually unlimited distances as
+      long as you travel to a grove or forest and emerge from a tree or plant
+      well-known to you. The once per level summoning now summons a 9th level
+      earth elemental.
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats: null
+  group:
+    type: String
+    label: Group
+    value: 'Terrain Caster: Forest, Woods'
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: wJ3oxO0Vo3q8eCwt
+effects: []
+_key: '!items!wJ3oxO0Vo3q8eCwt'
+
