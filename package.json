@@ -43,6 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "@foundryvtt/foundryvtt-cli": "^1.0.2",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-docs": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
