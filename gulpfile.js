@@ -5,19 +5,10 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
 const yaml = require('gulp-yaml');
 const webp = require('gulp-webp');
-const vueComponent = require('gulp-vue-single-file-component');
-const babel = require('gulp-babel');
-const wrap = require('gulp-wrap');
-const declare = require('gulp-declare');
-const concat = require('gulp-concat');
-const minify = require('gulp-minify');
 const replace = require('gulp-replace');
 const shell = require('gulp-shell')
 
 // Dependencies for compendium tasks.
-const through2 = require("through2");
-const jsYaml = require("js-yaml");
-const Datastore = require("nedb");
 const mergeStream = require("merge-stream");
 const fs = require("fs");
 const path = require("path");
@@ -63,39 +54,6 @@ function cleanPacks() {
 /* ----------------------------------------- */
 /*  Export Compendia
 /* ----------------------------------------- */
-
-/**
- * Santize pack entries.
- *
- * This function will deep clone a given compendium object, such as an Actor or
- * Item, and will then delete the `_id` key along with replacing the
- * `_permission` object with a generic version that doesn't reference user IDs.
- *
- * @param {object} pack Loaded compendium content.
- */
-function sanitizePack(pack) {
-  let sanitizedPack = JSON.parse(JSON.stringify(pack));
-  // delete sanitizedPack._id;
-  sanitizedPack.permission = { default: 0 };
-  return sanitizedPack;
-}
-
-/**
- * Sluggify a string.
- *
- * This function will take a given string and strip it of non-machine-safe
- * characters, so that it contains only lowercase alphanumeric characters and
- * hyphens.
- *
- * @param {string} string String to sluggify.
- */
-function sluggify(string) {
-  return string
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/gi, ' ')
-    .trim()
-    .replace(/\s+|-{2,}/g, '-');
-}
 
 /**
  * Gulp Task: Export Packs
