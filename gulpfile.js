@@ -40,22 +40,13 @@ function compilePacks() {
     return fs.statSync(path.join(PACK_SRC, file)).isDirectory();
   });
 
-  // Iterate over each folder/compendium.
   const packs = folders.map((folder) => {
-    // Initialize a blank nedb database based on the directory name. The new
-    // database will be stored in the dest directory as <foldername>.db
-    const db = new Datastore({ filename: path.resolve(__dirname, PACK_DEST, `${folder}.db`), autoload: true });
-    // Process the folder contents and insert them in the database.
-    return gulp.src(path.join(PACK_SRC, folder, "/**/*.yml")).pipe(
-      through2.obj((file, enc, cb) => {
-        let json = jsYaml.loadAll(file.contents.toString());
-        db.insert(json);
-        cb(null, file);
-      })
-    );
-  });
+    return gulp.src(path.join(PACK_SRC, folder))
+      .pipe(shell([
+        `fvtt package pack <%= file.stem %> -c --yaml --in <%= file.path %>`
+      ]))
+  })
 
-  // Execute the streams.
   return mergeStream.call(null, packs);
 }
 
