@@ -183,7 +183,7 @@ items:
         name: Natural 20
         value: >-
           The target becomes weakened and vulnerable (save ends), and the bonded
-          can fly until the end of its next 
+          can fly until the end of its next
       hit3:
         type: String
         label: Hit
@@ -207,7 +207,6 @@ items:
     sort: 0
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     flags: {}
     _stats:
       systemId: archmage
@@ -277,7 +276,6 @@ items:
     sort: 0
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     flags: {}
     _stats:
       systemId: archmage
@@ -324,7 +322,6 @@ items:
     sort: 0
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     flags: {}
     _stats:
       systemId: archmage
