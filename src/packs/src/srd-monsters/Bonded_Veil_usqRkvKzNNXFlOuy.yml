@@ -1,0 +1,355 @@
+name: Bonded Veil
+type: npc
+_id: usqRkvKzNNXFlOuy
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 140
+      min: 0
+      max: 140
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: triple
+    type:
+      value: construct
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Bonded Veil
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Fluttering shroud
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The bonded pops free and flies until the end of its turn as a free
+          action. It must land at the end of its turn, or take falling damage.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 20
+        value: >-
+          The target becomes weakened and vulnerable (save ends), and the bonded
+          can fly until the end of its next 
+      hit3:
+        type: String
+        label: Hit
+        name: Special, once per battle
+        value: The bonded makes this attack as a free action on somebody else’s turn.
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[15]] damage'
+      embeddedMacro:
+        value: ''
+    _id: PSUQjEWGIF4I5DQR
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604535363
+      modifiedTime: 1707604676864
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!usqRkvKzNNXFlOuy.PSUQjEWGIF4I5DQR'
+  - name: Cut to ribbons
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10] vs. AC (4 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The bonded must pop free and, as a free action, move into engagement
+          with a different enemy it has not already attacked this turn, then
+          continues its cut to ribbons attack if it still has any of its four
+          attacks left. If there are no other enemies that can be attacked, the
+          cut to ribbons attack ends.
+      hit2:
+        type: String
+        label: Hit
+        name: Special, once per battle
+        value: The bonded makes this attack as a free action on somebody else’s turn.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: a7KVeGIRqy17UW1N
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604535748
+      modifiedTime: 1707604729242
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!usqRkvKzNNXFlOuy.a7KVeGIRqy17UW1N'
+  - name: Veiled
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <div title="Page 17">
+
+          <div>
+
+          <div>
+
+          <p>Until the bonded is hit, it has a +4 bonus to
+          all&nbsp;defenses.</p>
+
+          </div>
+
+          </div>
+
+          </div>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XrOk3n0SGw79EXsx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604539363
+      modifiedTime: 1707604753197
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!usqRkvKzNNXFlOuy.XrOk3n0SGw79EXsx'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707604485147
+  modifiedTime: 1707604753197
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!usqRkvKzNNXFlOuy'
+

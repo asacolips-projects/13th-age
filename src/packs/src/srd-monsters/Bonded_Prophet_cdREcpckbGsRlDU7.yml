@@ -1,0 +1,473 @@
+name: Bonded Prophet
+type: npc
+_id: cdREcpckbGsRlDU7
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 420
+      min: 0
+      max: 420
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: triple
+    type:
+      value: construct
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Bonded Prophet
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Smite the unworthy, bless the worthy
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+18]] vs. AC ([[1d4]] engaged enemies or allies the bonded is
+          touching)
+      hit:
+        type: String
+        label: Hit
+        value: '[[50]] force damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Hit against ally
+        value: >-
+          Instead of taking 50 damage, the target heals [[30]] damage. Each ally
+          can only benefit from this healing once per battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: F13ZdQAIBa9SRJCc
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605260505
+      modifiedTime: 1707605291701
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!cdREcpckbGsRlDU7.F13ZdQAIBa9SRJCc'
+  - name: 'R: Eerie radiance'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. PD ([[1d3]] nearby or far away enemies or dead allies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Hit against dead ally
+        value: >-
+          If the attack beat the PD of a dead ally, instead of taking damage the
+          ally returns to life with [[20]] hp (or their maximum hp if it is
+          lower than 20). Each ally can only be targeted by eerie radiance once
+          per battle. This effect only works on allies who have died during the
+          battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: gUN2MBPhVR6tDoHk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605260868
+      modifiedTime: 1707605329019
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!cdREcpckbGsRlDU7.gUN2MBPhVR6tDoHk'
+  - name: 'C: Malediction'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. MD (one nearby or far away enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[70]] damage, and the next ally of the bonded prophet to hit the
+          target heals [[4d10]] hp
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: cdf7rzh1SGFymPPW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605261255
+      modifiedTime: 1707605348315
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!cdREcpckbGsRlDU7.cdf7rzh1SGFymPPW'
+  - name: Returned saints
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <div title="Page 18">
+
+          <div>
+
+          <div>
+
+          <p>The bonded&rsquo;s eerie radiance also works against long-dead
+          creatures, even returning corpses that are no more than dust and bones
+          to full life. GMs beware, this is a very nasty special if the bonded
+          prophet happens to be standing in a graveyard at the time.</p>
+
+          </div>
+
+          </div>
+
+          </div>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: sl77CwBke1YDx6cQ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605262388
+      modifiedTime: 1707605365247
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!cdREcpckbGsRlDU7.sl77CwBke1YDx6cQ'
+  - name: Divine retribution
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <div title="Page 18">
+
+          <div>
+
+          <div>
+
+          <p>The bonded prophet&rsquo;s mighty smite is even mightier if the PC
+          has violated some taboo, broken a sacred law, or transgressed into a
+          holy place. The attack deals an additional [[20]] force damage, hit or
+          miss, even on a 1.</p>
+
+          </div>
+
+          </div>
+
+          </div>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: hin1AY6ksBImXGiE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605262550
+      modifiedTime: 1707605385834
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!cdREcpckbGsRlDU7.hin1AY6ksBImXGiE'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707605189560
+  modifiedTime: 1707605385834
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!cdREcpckbGsRlDU7'
+

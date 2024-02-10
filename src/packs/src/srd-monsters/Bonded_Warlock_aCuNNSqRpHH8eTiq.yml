@@ -1,0 +1,522 @@
+name: Bonded Warlock
+type: npc
+_id: aCuNNSqRpHH8eTiq
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 430
+      min: 0
+      max: 430
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: triple
+    type:
+      value: construct
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Bonded Warlock
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Spell-breath
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. AC ([[1d4]] enemies engaged with the warlock)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[50]] force damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The target is teleported to the far side of the battlefield, and
+          hampered (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          Make a *violent dispelling* attack as a quick action against the
+          target, if it hits it does no damage but does dispel spells and
+          spell-like effects.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: D14BZzYxtkO31wE7
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605460292
+      modifiedTime: 1707605495863
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!aCuNNSqRpHH8eTiq.D14BZzYxtkO31wE7'
+  - name: 'C: Violent dispelling'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. MD (one nearby or far away enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[70]] damage, and any spell-like effects on the target or caused by
+          the target end
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Ld8JLmCNOx7fYzoE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605460440
+      modifiedTime: 1707605512745
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!aCuNNSqRpHH8eTiq.Ld8JLmCNOx7fYzoE'
+  - name: 'R: Hexplosion'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+18]] vs. the lowest PD in the group of targets ([[1d3]] nearby
+          or far away enemies in a group)
+      hit:
+        type: String
+        label: Hit
+        value: '[[90]] damage, split evenly (rounded down) between all targets hit'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: The target is dazed (easy save, 6+, ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          Make a *violent dispelling* attack as a quick action against the
+          target, if it hits it does no damage but does dispel spells and
+          spell-like effects.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Otfx22wGO41ZithE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605460596
+      modifiedTime: 1707605546961
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!aCuNNSqRpHH8eTiq.Otfx22wGO41ZithE'
+  - name: Spell absorption
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <div title="Page 18">
+
+          <div>
+
+          <div>
+
+          <p>Once per battle when a spell not granted by a talent hits the
+          bonded, it has no effect. Later in the battle as a quick action the
+          bonded can cast the spell that hit it, using the original
+          caster&rsquo;s attack and damage bonuses.</p>
+
+          </div>
+
+          </div>
+
+          </div>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WyyYwAkCAEckKic1
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605464068
+      modifiedTime: 1707605562001
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!aCuNNSqRpHH8eTiq.WyyYwAkCAEckKic1'
+  - name: Warlock’s warp
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <div title="Page 18">
+
+          <div>
+
+          <div>
+
+          <p>When one of the bonded&rsquo;s attacks misses all targets, the
+          bonded teleports as a free action.</p>
+
+          </div>
+
+          </div>
+
+          </div>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: MH87aufLOt8vrnom
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605464309
+      modifiedTime: 1707605572437
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!aCuNNSqRpHH8eTiq.MH87aufLOt8vrnom'
+  - name: Violent undoing
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <div title="Page 18">
+
+          <div>
+
+          <div>
+
+          <p>The bonded&rsquo;s violent dispelling attack "dispels" all manner
+          of useful conditions, such as a rogue having momentum or a fighter
+          having a higher crit range. In particular, this higher-strength
+          version of the attack shuts down that really irritating effect
+          that&rsquo;s always being used by that one character.</p>
+
+          </div>
+
+          </div>
+
+          </div>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: b2kVkFfdJ9NDFKGm
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707605464477
+      modifiedTime: 1707605593928
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!aCuNNSqRpHH8eTiq.b2kVkFfdJ9NDFKGm'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707605194785
+  modifiedTime: 1707605593928
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!aCuNNSqRpHH8eTiq'
+

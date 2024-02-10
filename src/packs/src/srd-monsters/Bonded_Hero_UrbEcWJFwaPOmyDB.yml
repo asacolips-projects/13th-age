@@ -1,0 +1,563 @@
+name: Bonded Hero
+type: npc
+_id: UrbEcWJFwaPOmyDB
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 135
+      min: 0
+      max: 135
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+    size:
+      value: triple
+    type:
+      value: construct
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Bonded Hero
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Sword-tip claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: Make the bonded’s special attack (one of the below) as a quick action.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 68sTYRVfvZkpL91Z
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604298680
+      modifiedTime: 1707604325724
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UrbEcWJFwaPOmyDB.68sTYRVfvZkpL91Z'
+  - name: 'C: Energy shroud'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] ongoing fire or cold damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: YC7oqTS7J8W9kvXT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604299260
+      modifiedTime: 1707604354836
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UrbEcWJFwaPOmyDB.YC7oqTS7J8W9kvXT'
+  - name: Hex hammer
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[20]] force damage, and the target pops free and is stunned until the
+          start of their next turn
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: SSyFjP4DIBCSBMw4
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604299728
+      modifiedTime: 1707604436817
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UrbEcWJFwaPOmyDB.SSyFjP4DIBCSBMw4'
+  - name: Touch of the divine
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC (vs. 1 or 2 engaged enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] holy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ptW5s1oFXXJH5YKi
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604300243
+      modifiedTime: 1707604426185
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UrbEcWJFwaPOmyDB.ptW5s1oFXXJH5YKi'
+  - name: Mystic shield
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[20]] thunder damage and the bonded’s AC and PD increase by +1 (to a
+          maximum of +3) until the end of the battle.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 75ynPmZjI6cxSNMk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604300778
+      modifiedTime: 1707604415199
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UrbEcWJFwaPOmyDB.75ynPmZjI6cxSNMk'
+  - name: 'R: Storm gaze'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: Make a second *storm gaze* attack against a new target.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: NJU4BDpRUQSn7HWn
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+      tWJ6KkFBgXXy34it: 3
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707604301261
+      modifiedTime: 1707604467188
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UrbEcWJFwaPOmyDB.NJU4BDpRUQSn7HWn'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707604215357
+  modifiedTime: 1707604467188
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!UrbEcWJFwaPOmyDB'
+
