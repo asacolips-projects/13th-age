@@ -34,7 +34,7 @@ function compilePacks() {
   const packs = folders.map((folder) => {
     return gulp.src(path.join(PACK_SRC, folder))
       .pipe(shell([
-        `fvtt package pack <%= file.stem %> -c --yaml --in <%= file.path %> --out ${PACK_DEST} --id archmage --type System`
+        `fvtt package pack <%= file.stem %> -c --yaml --in "<%= file.path %>" --out ${PACK_DEST} --id archmage --type System`
       ]))
   })
 
