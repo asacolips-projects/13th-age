@@ -37,6 +37,69 @@ styles:
   - vue/styles.vue.css
   - css/lib/introjs.css
 
+packFolders:
+  - name: Races / Classes
+    sorting: m
+    packs:
+      - races
+      - classes
+      - barbarian
+      - bard
+      - cleric
+      - fighter
+      - paladin
+      - ranger
+      - animal-companion
+      - rogue
+      - sorcerer
+      - wizard
+      - chaosmage
+      - commander
+      - druid
+      - monk
+      - necromancer
+      - occultist
+  - name: Monsters / Summons
+    sorting: m
+    packs:
+      - srd-Monsters
+      - animal-companions
+      - necromancer-summons
+  - name: Feats
+    sorting: a
+    packs:
+      - generalfeats
+      - multiclassfeats
+  - name: Magic Items
+    sorting: a
+    packs:
+      - srd-magic-items-armors
+      - srd-magic-items-arrows
+      - srd-magic-items-belts
+      - srd-magic-items-books
+      - srd-magic-items-boots
+      - srd-magic-items-chuul-symbiotes
+      - srd-magic-items-cloaks
+      - srd-magic-items-consumables
+      - srd-magic-items-cursed
+      - srd-magic-items-gloves
+      - srd-magic-items-helmets
+      - srd-magic-items-necklaces
+      - srd-magic-items-rings
+      - srd-magic-items-shields
+      - srd-magic-items-staffs
+      - srd-magic-items-symbols
+      - srd-magic-items-wands
+      - srd-magic-items-weapons
+      - srd-magic-items-wondrous-items
+  - name: Misc
+    sorting: m
+    packs:
+      - conditions
+      - srd-random-monster-abilities
+      - system-macros
+      - system-rolltables
+
 packs:
   - label: Classes
     type: JournalEntry
