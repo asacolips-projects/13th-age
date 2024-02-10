@@ -1,0 +1,515 @@
+_id: PUvvoYStOBXa7dV5
+name: Ogre Lightning Mage
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 230
+      min: 0
+      max: 230
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 15
+      mod: 15
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: giant
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Ogre Lightning Mage
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: lfSjmpTUyCZQJ7tg
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: m7Y5ulm8c27yfm3b
+    flags: {}
+    name: Naginata
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[40]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[15]] damage.'
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.m7Y5ulm8c27yfm3b'
+  - _id: qU0u4Tv0snCZS5YB
+    flags: {}
+    name: 'R: Lightning from torn sky'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: 1/battle, but the ogre lightning mage regains the use of
+          this attack if it’s expended each time it uses its naginata attack.
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. PD (up to [[2]] nearby enemies'
+      hit:
+        type: ''
+        label: Hit
+        value: plus one far away enemy, if any);52 lightning damage
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.qU0u4Tv0snCZS5YB'
+  - _id: xY5TNOinF7GNxoPg
+    flags: {}
+    name: 'R: Past master’s judgment'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[25]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.xY5TNOinF7GNxoPg'
+  - _id: nCM6D4hJ83w3Qgti
+    flags: {}
+    name: First natural even hit each attack
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The ogre lightning mage can cancel one spell or magical effect created
+          by the target.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.nCM6D4hJ83w3Qgti'
+  - _id: cKR2u1wAsrAraMlP
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The ogre lightning mage flies well using the sheer power of its
+          superior mind.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.cKR2u1wAsrAraMlP'
+  - _id: peCgOhOLdKzGRpfl
+    flags: {}
+    name: Invisibility
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While not engaged, the ogre lightning mage can turn invisible as an
+          at-will standard action. It becomes visible when it attacks. The ogre
+          mage takes [[1d10]] damage each time it uses invisibility while it’s
+          staggered.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.peCgOhOLdKzGRpfl'
+  - _id: rlYd1SeiGbb7EWwf
+    flags: {}
+    name: Resist exceptional attacks 16+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a limited attack (not an at-will attack) targets this creature,
+          the attacker must roll a natural 16+ on the attack roll or it only
+          deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.rlYd1SeiGbb7EWwf'
+  - _id: Ir7umlmxclaFBcrw
+    flags: {}
+    name: Trollish regeneration 20
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While an ogre mage is damaged, its uncanny flesh heals 20 hit points
+          at the start of the ogre mage’s turn. It can regenerate five times per
+          battle. If it heals to its maximum hit points, then that use of
+          regeneration doesn’t count against the five-use limit.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.Ir7umlmxclaFBcrw'
+  - _id: FTKvQMAjiyLjPpUd
+    flags: {}
+    name: >-
+      When the ogre mage is hit by an attack that deals fire or acid damage, it
+      loses one use of its regeneration, and it can’t regenerate during its next
+      turn.
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the ogre mage is hit by an attack that deals fire or acid damage,
+          it loses one use of its regeneration, and it can’t regenerate during
+          its next turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.FTKvQMAjiyLjPpUd'
+  - _id: s6KHO0H7FASPwinP
+    flags: {}
+    name: >-
+      Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of
+      regeneration left.
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of
+          regeneration left.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PUvvoYStOBXa7dV5.s6KHO0H7FASPwinP'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!PUvvoYStOBXa7dV5'
+

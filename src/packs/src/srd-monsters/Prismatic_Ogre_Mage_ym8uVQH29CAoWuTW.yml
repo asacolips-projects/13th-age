@@ -1,0 +1,584 @@
+_id: ym8uVQH29CAoWuTW
+name: Prismatic Ogre Mage
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 360
+      min: 0
+      max: 360
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+      mod: 16
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: giant
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Prismatic Ogre Mage
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: wlVysiHltsMQ8euU
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: uVgGdROvJbKyizIh
+    flags: {}
+    name: Horns and claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[75]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 2-5
+        value: >-
+          The prismatic ogre mage can use prismatic blast as a free action
+          without provoking an opportunity attack.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.uVgGdROvJbKyizIh'
+  - _id: veic8cbKSCqiSrZG
+    flags: {}
+    name: Force shove
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. PD (each enemy engaged with ogre)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] force damage, and the target pops free from the ogre mage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.veic8cbKSCqiSrZG'
+  - _id: NJOrGS30zjTBB2Ce
+    flags: {}
+    name: 'R: Prismatic blast'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. PD ([[1d3]] nearby or far away enemies in a group)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          Roll a [[d8]] against each hit target to determine the type of ray and
+          effect
+      hit1:
+        type: ''
+        label: Hit
+        name: 1. Red
+        value: '[[40]] fire damage.'
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.NJOrGS30zjTBB2Ce'
+  - _id: hB7EUBiZIVj00RfE
+    flags: {}
+    name: Quick use
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          This power only requires a quick action (once per round) instead of a
+          standard action when the escalation die is odd.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.hB7EUBiZIVj00RfE'
+  - _id: aOFedScK5pqsVnUj
+    flags: {}
+    name: 2. Orange
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: '[[50]] damage, and the target is *confused* (save ends).'
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.aOFedScK5pqsVnUj'
+  - _id: NvlQNOQeSQARtMZ9
+    flags: {}
+    name: 3. Yellow
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: '[[40]] ongoing poison damage.'
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.NvlQNOQeSQARtMZ9'
+  - _id: XGbkfnDsvdQUKaUp
+    flags: {}
+    name: 4. Green
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The target loses a recovery, and the prismatic ogre mage heals 70 hp.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.XGbkfnDsvdQUKaUp'
+  - _id: N2P2wNSie6ZbMKNP
+    flags: {}
+    name: 5. Blue
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.N2P2wNSie6ZbMKNP'
+  - _id: KhqyiS5Oy2SA58tc
+    flags: {}
+    name: 6. Cyan
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The target is *stunned* (save ends).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.KhqyiS5Oy2SA58tc'
+  - _id: wgMQOItvSbPMOKnV
+    flags: {}
+    name: 7. Purple
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The target is *dazed* and *confused* (save ends both). When the target
+          saves, it takes [[40]] psychic damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1000000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.wgMQOItvSbPMOKnV'
+  - _id: 1Vf6mYwQVlQ4KWD4
+    flags: {}
+    name: 8. Magenta
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The target is transported into the future. Remove that creature from
+          play, returning it to the battle in (or near) its previous location at
+          the end of its next turn. No time seems to pass for the target while
+          it’s gone.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.1Vf6mYwQVlQ4KWD4'
+  - _id: OLQZUpTdz0L6cbCl
+    flags: {}
+    name: Resist exceptional attacks 16+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a limited attack (not an at-will attack) targets this creature,
+          the attacker must roll a natural 16+ on the attack roll or it only
+          deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.OLQZUpTdz0L6cbCl'
+  - _id: sE67A3PnIeNVaIHo
+    flags: {}
+    name: Warp
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          “Yellow hair,” “Afraid of spiders,” “Prefers white wine to red,” or
+          “Tattoo of a halfling on left bicep.” These personal traits are
+          shuffled and randomly distributed equally by the GM after the battle
+          is over. Whichever trait each player receives is now true for their
+          character as well as for the character of the player who wrote it down
+          (unless there has somehow turned out to be a swap…). These traits
+          don’t alter game mechanics (feats, powers, backgrounds, icon
+          relationships, attributes, bonuses, etc.). They are personal details
+          that have been warped and scrambled by the prismatic ogre mage’s
+          magic.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ym8uVQH29CAoWuTW.sE67A3PnIeNVaIHo'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!ym8uVQH29CAoWuTW'
+

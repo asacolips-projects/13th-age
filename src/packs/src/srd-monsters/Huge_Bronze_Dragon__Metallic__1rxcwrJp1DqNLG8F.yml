@@ -1,0 +1,387 @@
+_id: 1rxcwrJp1DqNLG8F
+name: Huge Bronze Dragon (Metallic)
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-bronze.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 23
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 600
+      min: 0
+      max: 600
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+      mod: 12
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: huge
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Huge Bronze Dragon (Metallic)
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/dragon-bronze.webp
+  width: 3
+  height: 3
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: fjJpsQxUWqpbTM9Z
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: Xa0aF6tIzU5DXuI2
+    flags: {}
+    name: Crushing bite
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[170]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 11+
+        value: The dragon can pop free from one enemy engaged with it.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!1rxcwrJp1DqNLG8F.Xa0aF6tIzU5DXuI2'
+  - _id: AsxAoXviG09IWO74
+    flags: {}
+    name: 'C: Lightning breath'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: >-
+          [[d20 + 14]] vs. PD ([[1d6]] nearby or far away enemies in a rough
+          line)
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[120]] lightning damage, and the closest target hit is *dazed* (save
+          ends)
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: Half damage.
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!1rxcwrJp1DqNLG8F.AsxAoXviG09IWO74'
+  - _id: Wc90bRKn8yyiDpqN
+    flags: {}
+    name: Inspire awe
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While an enemy has 72 hp or fewer, it takes a -4 penalty to limited
+          attacks against the dragon.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!1rxcwrJp1DqNLG8F.Wc90bRKn8yyiDpqN'
+  - _id: Ku7K56JkzkRA3MZX
+    flags: {}
+    name: Resist lightning 18+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a lightning attack targets this creature, the attacker must roll
+          a natural 18+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!1rxcwrJp1DqNLG8F.Ku7K56JkzkRA3MZX'
+  - _id: I8gEAT7fWDqYtDBJ
+    flags: {}
+    name: Retributive lightning
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Once per battle as an interrupt action when an enemy targets it with
+          an attack, the dragon can make a lightning breath against that
+          attacker (and yes, if the dragon hits, the interrupted attack takes
+          the -4 penalty due to *dazed*).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!1rxcwrJp1DqNLG8F.I8gEAT7fWDqYtDBJ'
+  - _id: krRJCDuawD2Iz5Tv
+    flags: {}
+    name: Rugged defenses
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a creature attacks the dragon, if it used another action this
+          turn before the attack, the dragon gains a +4 bonus to all defenses
+          against the attack.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!1rxcwrJp1DqNLG8F.krRJCDuawD2Iz5Tv'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!1rxcwrJp1DqNLG8F'
+

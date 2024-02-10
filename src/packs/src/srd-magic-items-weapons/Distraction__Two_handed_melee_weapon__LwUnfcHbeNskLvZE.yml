@@ -1,0 +1,75 @@
+_id: LwUnfcHbeNskLvZE
+name: Distraction (Two-handed melee weapon)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 11+) When you hit with this weapon, allow one of your allies
+      engaged with that foe to make a basic melee attack against it as a free
+      action.</p>
+
+      <p>Quirk: Intrudes on personal space.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '11'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 1
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: melee
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!LwUnfcHbeNskLvZE'
+

@@ -1,0 +1,160 @@
+name: Breath of the Void
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Breath of the Void
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Sorcerer
+  powerType:
+    type: String
+    label: Power Type
+    value: spell
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  powerLevel:
+    type: Number
+    label: Level
+    value: '9'
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: Close-quarters spell
+  trigger:
+    type: String
+    label: Trigger
+    value: null
+  target:
+    type: String
+    label: Target
+    value: One nearby enemy; breath spell
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. MD'
+  hit:
+    type: String
+    label: Hit
+    value: >-
+      [[10*2d12+@cha.dmg+@atk.a.bonus]] negative energy damage, and the target
+      moves down [[2d6]] points in initiative order, to a minimum of 1.
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: Half damage.
+  missEven:
+    type: String
+    label: Even Miss
+    value: null
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: null
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: null
+  castPower:
+    type: String
+    label: Cast for Power
+    value: null
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: null
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: null
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: ''
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: null
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: null
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: null
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: null
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: null
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: "<p>For the rest of the battle, roll a d20 at the start of each of your turns; on a 16+, you can use\_<em>breath of the void</em>\_this turn if you wish.</p>"
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats: null
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: SRpndOFzeKMyWhpM
+effects: []
+_key: '!items!SRpndOFzeKMyWhpM'
+

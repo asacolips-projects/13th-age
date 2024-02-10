@@ -1,0 +1,184 @@
+name: Highblood Teleport
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: ''
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Highblood Teleport
+  powerSource:
+    type: String
+    label: Power Source
+    value: race
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: High Elf
+  powerType:
+    type: String
+    label: Power Type
+    value: power
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: once-per-battle
+  powerLevel:
+    type: Number
+    label: Level
+    value: '1'
+  actionType:
+    type: String
+    label: Action
+    value: move
+  range:
+    type: String
+    label: Range
+    value: Close-quarters
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: <p>Place yourself in a nearby location you can see.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>Deal [[2*@lvl]] damage to one enemy engaged with you before or
+          after you teleport.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+  group:
+    type: String
+    label: Group
+    value: ''
+flags: {}
+img: icons/svg/d20.svg
+_id: d7JRyIMQSzb5giSw
+effects: []
+_key: '!items!d7JRyIMQSzb5giSw'
+

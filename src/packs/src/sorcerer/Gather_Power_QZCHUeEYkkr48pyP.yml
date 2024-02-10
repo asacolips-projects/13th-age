@@ -1,0 +1,264 @@
+name: Gather Power
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Gather Power
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Sorcerer
+  powerType:
+    type: String
+    label: Power Type
+    value: feature
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: at-will
+  powerLevel:
+    type: Number
+    label: Level
+    value: '1'
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: null
+  trigger:
+    type: String
+    label: Trigger
+    value: null
+  target:
+    type: String
+    label: Target
+    value: null
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: null
+  hit:
+    type: String
+    label: Hit
+    value: null
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: null
+  missEven:
+    type: String
+    label: Even Miss
+    value: null
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: null
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: null
+  castPower:
+    type: String
+    label: Cast for Power
+    value: null
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: null
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: null
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>Once initiative has been rolled and a battle is underway, a sorcerer
+      can spend a standard action to gather magical power, preparing themselves
+      for casting a double-strength spell with their next standard action.
+      Gathering power is loud and very noticeable.</p><p>Sorcerers who want to
+      gather power before initiative has been rolled can go through the motions
+      but won't get any benefit from the act.</p><p>When a sorcerer gathers
+      power, it does not count as casting a spell; you can gather power without
+      taking opportunity attacks.</p><p>In addition, because you spend your
+      standard action to gather power, you generate a small magical benefit.
+      Like many of your powers, this benefit is chaotic rather than perfectly
+      reliable, so you must make a random check to see what benefit you get.
+      Roll a d6 and consult the appropriate table below.</p><p>If you get a
+      benefit that deals damage to enemies, you can choose the type of damage
+      (cold, fire, lightning, or thunder).</p><p>After you have gathered power,
+      you can use your next standard action to cast an empowered sorcerer spell.
+      Empowered sorcerer spells deal double the damage of a normal sorcerer
+      spell. This means that you double the damage results of the hit or a miss
+      from the single spell. Non-attack spells generally don't improve when cast
+      empowered; use empowered casting for attacks.</p><p>If you do not or are
+      not able to use your next standard action to cast a sorcerer attack spell,
+      you lose the power you've gathered. You can use another standard action to
+      gather power again, but the spell you eventually cast will still only do
+      double damage.</p><p>You can spend your move actions and quick actions any
+      way you like after you gather power and before casting your next empowered
+      spell. Yes, once a battle has started it's possible to perform the magical
+      firefight trick of gathering power while hiding to the side of the cave
+      entrance, then jumping into the cave opening on your next turn and
+      blasting with the empowered
+      spell.</p><p>@UUID[Compendium.archmage.system-rolltables.PQbtKGZVFy83A85d]{Chaotic
+      Benefits Table} (rolled below)</p><p>Breath weapon spells add an extra
+      wrinkle. Of course you can gather power the first time you cast a breath
+      weapon spell in a battle. Later in the fight it's a question of whether
+      you gathered power the turn before a breath weapon spell roll goes your
+      way. You can be all ready with gathered power but roll too low to use the
+      breath weapon spell, forcing you to cast a different spell with the
+      gathered power.</p><p>If you've gathered power for a spell that deals
+      ongoing damage, the ongoing damage is doubled the first time it is dealt,
+      but not on subsequent rounds, if any.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: null
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: null
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: null
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: null
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: null
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: null
+  rollTable:
+    type: String
+    label: Roll Table
+    value: Chaotic Benefit
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>Once per battle, you can choose the chaotic benefit you want
+          instead of rolling for it.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: once-per-battle
+      quantity:
+        type: Number
+        value: 1
+      maxQuantity:
+        type: Number
+        value: 1
+    '1':
+      description:
+        type: String
+        value: >-
+          <p>Once per battle when the escalation die is 4+, you can gather power
+          as a quick action.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: once-per-battle
+      quantity:
+        type: Number
+        value: 1
+      maxQuantity:
+        type: Number
+        value: 1
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>When you gather power, if the escalation die is 2+, you can roll
+          two chaotic benefits. Unlike most effects, the benefits stack if you
+          roll the same result twice.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: QZCHUeEYkkr48pyP
+effects: []
+_key: '!items!QZCHUeEYkkr48pyP'
+

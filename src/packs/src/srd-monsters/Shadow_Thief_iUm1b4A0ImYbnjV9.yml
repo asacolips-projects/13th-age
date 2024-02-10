@@ -1,0 +1,379 @@
+_id: iUm1b4A0ImYbnjV9
+name: Shadow Thief
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 38
+      min: 0
+      max: 38
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 17
+      mod: 17
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Shadow Thief
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: mtHS0c7wc5ViMmOO
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: Womv1rOzaayhqpsJ
+    flags: {}
+    name: Shadow strangulation
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. PD'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[20]] psychic damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: >-
+          The target takes [[20]] negative energy damage, and the shadow thief
+          can make a shadow possession attack as a free action (but see group
+          ability).
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!iUm1b4A0ImYbnjV9.Womv1rOzaayhqpsJ'
+  - _id: PBoAEKXqjD6i7KSQ
+    flags: {}
+    name: '[Group ability] C: Shadow possession'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. MD ([[1]] enemy hit by shadow strangulation)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          The shadow thief “crawls inside” the target. The target is *confused*
+          (save ends), and the shadow thief can’t be the target of an attack or
+          effect until it’s forced from the target’s body when that creature
+          saves against the confusion effect.
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!iUm1b4A0ImYbnjV9.PBoAEKXqjD6i7KSQ'
+  - _id: X2nLQLDzLXyJ93kG
+    flags: {}
+    name: Group ability
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          For every four shadow thieves in the battle (round up), one of them
+          can use shadow possession during the battle.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!iUm1b4A0ImYbnjV9.X2nLQLDzLXyJ93kG'
+  - _id: whYiXKoaxi59nlmF
+    flags: {}
+    name: Shadow thievery
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The shadow thief is an extension of the shadow dragon, not really a
+          separate entity. When it drops to 0 hp, it flees back to the shadow
+          dragon and merges with it. When this happens, if there is at least one
+          enemy engaged with that shadow thief, the thief chooses one enemy
+          engaged with it. Roll a [[d20]]; on a 16+, the shadow thief steals a
+          random magic item from the chosen enemy as it flees back to the dragon
+          (but see stop…thief below). Stolen items are replaced with shadowy
+          duplicates that work until the end of the battle then fade to
+          nothingness. The items can be recovered if the dragon is slain in the
+          same battle.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!iUm1b4A0ImYbnjV9.whYiXKoaxi59nlmF'
+  - _id: JX8X8PQ2JG3pQXG6
+    flags: {}
+    name: >-
+      Stop…thief! When a shadow thief steals an item, the creature it steals
+      from can choose to prevent the theft, but at a cost. If the natural d20
+      thievery roll was odd, the target of the thievery attempt can choose to
+      keep the item but become *hampered* (save ends) as they wrestle with the
+      shadow. If the natural thievery roll was even, the target has the same
+      choice, but it’s a hard save (16+) to end the hampered effect.
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Stop…thief! When a shadow thief steals an item, the creature it steals
+          from can choose to prevent the theft, but at a cost. If the natural
+          [[d20]] thievery roll was odd, the target of the thievery attempt can
+          choose to keep the item but become *hampered* (save ends) as they
+          wrestle with the shadow. If the natural thievery roll was even, the
+          target has the same choice, but it’s a hard save (16+) to end the
+          hampered effect.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!iUm1b4A0ImYbnjV9.JX8X8PQ2JG3pQXG6'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!iUm1b4A0ImYbnjV9'
+

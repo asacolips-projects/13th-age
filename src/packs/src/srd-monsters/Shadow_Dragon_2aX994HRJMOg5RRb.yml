@@ -1,0 +1,451 @@
+_id: 2aX994HRJMOg5RRb
+name: Shadow Dragon
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 260
+      min: 0
+      max: 260
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+      mod: 13
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: dragon
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Shadow Dragon
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/dragon-black.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: SWkIHHbHyQWUn3qg
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 16bu71tqURwAFtXh
+    flags: {}
+    name: Shadow claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[50]] psychic damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: The target is *confused* (hard save ends, 16+).
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.16bu71tqURwAFtXh'
+  - _id: rrr1B5zKqXgOZLU8
+    flags: {}
+    name: 'C: Nightmare breath'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: 1/battle, but the ability recharges when the dragon is
+          staggered. If it hasn’t already made a nightmare breath attack when it
+          becomes staggered, the dragon makes the attack as a free action and
+          then the breath recharges.
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. MD ([[1d3]] nearby or far away enemies)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[60]] negative energy damage, and the target becomes a living shadow
+          (hard save ends, 16+)
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.rrr1B5zKqXgOZLU8'
+  - _id: IdApCcUtVbJO8YVC
+    flags: {}
+    name: Living shadow
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While a living shadow, the target can’t physically interact with or
+          gain aid from companions or aid them (including healing, bonuses, and
+          effects) but is otherwise “normal.”
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.IdApCcUtVbJO8YVC'
+  - _id: 7tEZ2EiNyDdxHuGy
+    flags: {}
+    name: Made of shadow
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The shadow dragon perceives the invisible, is unaffected by the blur
+          spell, and ignores illusions. Rogues attempting to shadow walk near a
+          shadow dragon end up in the dragon’s belly (save ends). While there,
+          they are *helpless* and take [[2d12]] damage at the start of each of
+          their turns until they save and fall back out of shadow.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.7tEZ2EiNyDdxHuGy'
+  - _id: dYhXvbO56WM1pWUY
+    flags: {}
+    name: Shadowy escalation
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When in poorly lit areas of shadow, the dragon adds the escalation die
+          to its attack rolls. Complete darkness or bright daylight negates the
+          ability.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.dYhXvbO56WM1pWUY'
+  - _id: 6XnYidGuu6L2hn69
+    flags: {}
+    name: On Holy Ground
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While on “holy ground” such as a temple or consecrated shrine, all
+          hard saves against shadow dragon effects become normal saves. As a
+          standard action, a cleric who invokes the gods can produce a similar
+          anti-shadow effect in the nearby area until the start of their next
+          turn, or they can turn hard saves against shadow dragon abilities to
+          easy saves if that area is already on holy ground. Shadow dragons try
+          to avoid holy ground, and shadow thieves can only enter it while
+          possessing victims and will flee once the possession ends. It’s up to
+          the GM what counts as “holy ground” in their game.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.6XnYidGuu6L2hn69'
+  - _id: HS1PJMBFdu1qiclC
+    flags: {}
+    name: Shadow illusions
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          As a standard action, the dragon can appear to be humanoid, usually
+          disguising itself as an unthreatening old man in a cloak (DC 35 to
+          detect). Daylight will show the illusion for what it is—an
+          insubstantial dragon. Dragons with a Book of Many Faces will have
+          perfect humanoid disguises. Dropping the illusion is a free action.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.HS1PJMBFdu1qiclC'
+  - _id: y24qJJU5bXiIIclZ
+    flags: {}
+    name: Shadowy phasing
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the escalation die is even, natural odd attack rolls against the
+          dragon automatically miss. When the escalation die is odd, natural
+          even attack rolls against the dragon automatically miss. Attacks that
+          deal holy damage ignore this ability.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!2aX994HRJMOg5RRb.y24qJJU5bXiIIclZ'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!2aX994HRJMOg5RRb'
+

@@ -1,0 +1,77 @@
+_id: I7YySlWbguQnNGDU
+name: Manual of Puissant Skill at Arms (Champion)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 11+) When you miss with a melee attack, reroll the attack
+      using +15 as your attack bonus instead of your own bonus (epic: +20). If
+      an arcane spellcaster reads this manual, it hurts their brain and
+      permanently reduces their maximum hit points by 4 (epic: by 10).</p>
+
+      <p>Quirk: Constantly checking self out and flexing, and seems to want to
+      be caught doing that.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '11'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: book
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!I7YySlWbguQnNGDU'
+

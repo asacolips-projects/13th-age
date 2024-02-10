@@ -1,0 +1,557 @@
+_id: AHweCvDlAvWJjZc3
+name: Djinn
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 23
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 420
+      min: 0
+      max: 420
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 15
+      mod: 15
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+      base: 8
+      automatic: true
+    escalation:
+      value: 0
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: giant
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: Cold (only while staggered)
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 10
+token:
+  flags: {}
+  name: Djinn
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+  tint: null
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: xuTvsdRQAkOkpjPo
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: IaRm6tp1C1aEOeGA
+    flags: {}
+    name: Greatsword
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC ([[2]] attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 5, 10, 15, 20
+        value: >-
+          Increases the escalation die by 1 (cumulative), and until the end of
+          the battle, the djinn adds the escalation die to its attacks
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.IaRm6tp1C1aEOeGA'
+  - _id: s6Ta0Wut29ksRqmg
+    flags: {}
+    name: 'c: Assault of the whirlwind'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Limited use: The djinn can only use this attack while it's not
+          staggered.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+13]] vs. PD ([[1d4+1]] nearby creatures, including invisible
+          creatures)
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[35]] damage, and after the attack the djinn teleports to one of the
+          targets and engages it
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 5, 10, 15, 20
+        value: The target is *hampered* until the end of its next turn
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] damage'
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.s6Ta0Wut29ksRqmg'
+  - _id: XYEzB0KvGtub3yDb
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Genies fly extremely well, but lumber, at best, when walking on the
+          ground.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.XYEzB0KvGtub3yDb'
+  - _id: Ge1u12cqZXnPRaiI
+    flags: {}
+    name: Grant-a-wish
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A PC whose attack drops a djinn to 0 hp gains the equivalent of an
+          extremely favorable roll of 6 with an icon relationship die with an
+          icon of the PC&rsquo;s choice that the PC already has a positive or
+          conflicted relationship with. Treat this advantage as if it came from
+          a positive relationship. The GM is encouraged to treat this result
+          with the utmost benevolence and compassion.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.Ge1u12cqZXnPRaiI'
+  - _id: NgjOtCBLB4s1t16q
+    flags: {}
+    name: Protection boon
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While not staggered, the djinn gains&nbsp;resist spell damage
+          16+&nbsp;against all spells except those cast by a PC that has at
+          least a one point icon relationship with the icon that is channeling
+          the djinn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.NgjOtCBLB4s1t16q'
+  - _id: nXGLZvtWhl3QoLl3
+    flags: {}
+    name: Spiky bits
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an enemy makes a melee attack against the djinn and misses, it
+          takes [[2d20]] damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.nXGLZvtWhl3QoLl3'
+  - _id: AuNwgSNgzO18n9Mm
+    flags: {}
+    name: Demonic taint
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>The djinn gains a random demonic feature (see Demon).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.AuNwgSNgzO18n9Mm'
+  - _id: YU5qvPd8tLuUKEX0
+    flags: {}
+    name: Unwelcome resonance
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever a nearby enemy attempts to trigger a magic item power,
+          there&rsquo;s a 50% chance that the power fails. If it does, the item
+          refuses to let its owner use that power until the end of the
+          battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.YU5qvPd8tLuUKEX0'
+  - _id: NnhLLBMrTZxxFneW
+    flags: {}
+    name: Sorcerous reach
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The djinn&rsquo;s&nbsp;assault of the whirlwind&nbsp;attack can
+          also target far away enemies.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.NnhLLBMrTZxxFneW'
+  - _id: 4ck4Rp8OrYjxZ6ql
+    flags: {}
+    name: Aura of command
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Twice per battle as a free action, the djinn can turn an
+          ally&rsquo;s normal save into an easy save (6+), or an enemy&rsquo;s
+          normal save into a hard save (16+).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1000000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.4ck4Rp8OrYjxZ6ql'
+  - _id: Y53huhLAtThYacww
+    flags: {}
+    name: Wind/Shadow form
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While not staggered, the djinn has&nbsp;resist melee damage
+          16+.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.Y53huhLAtThYacww'
+  - _id: TQE7pbwvwPzLQPmU
+    flags: {}
+    name: Frenzied
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The djinn takes a &ndash;1 penalty to all defenses. While not
+          staggered, its crit range expands by 3.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 1200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!AHweCvDlAvWJjZc3.TQE7pbwvwPzLQPmU'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags: {}
+_key: '!actors!AHweCvDlAvWJjZc3'
+

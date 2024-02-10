@@ -1,0 +1,310 @@
+_id: Pmk2onuqSHLiPqa1
+name: Poison Dandelion
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 110
+      min: 0
+      max: 110
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+      mod: 10
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: double
+      type: String
+      label: Size
+    type:
+      value: undead
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: fire
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Poison Dandelion
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: JJSq1DIVbrua4Lud
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: Tp3k4qvKfzW68sfr
+    flags: {}
+    name: Green spikes
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural odd hit
+        value: The target takes [[10]] ongoing poison damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Pmk2onuqSHLiPqa1.Tp3k4qvKfzW68sfr'
+  - _id: Hl9kgPLwVDm3eJRP
+    flags: {}
+    name: 'C: Whirling seeds'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: The poison dandelion can only use this attack when the
+          escalation die is odd.
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC (each nearby non-plant or non-undead creature)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[15]] ongoing poison damage, and undead creatures and plant creatures
+          in the battle add the escalation die to their attacks against the
+          target (save ends both)
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Pmk2onuqSHLiPqa1.Hl9kgPLwVDm3eJRP'
+  - _id: 13QMXn0K4VaOGbBn
+    flags: {}
+    name: Black-gray resurgence
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the poison dandelion drops to 0 hit points, it’s destroyed until
+          the start of its next turn. At the start of its next turn, it returns
+          to life as a death blossom or lich flower that lacks the red-yellow
+          resurrection ability but is otherwise undamaged and whole.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Pmk2onuqSHLiPqa1.13QMXn0K4VaOGbBn'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!Pmk2onuqSHLiPqa1'
+

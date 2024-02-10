@@ -1,0 +1,31 @@
+name: Carnage
+type: trait
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>The dire animal&rsquo;s attacks that miss deal damage equal to its
+      level. When staggered, its missed attacks deal damage equal to double its
+      level.</p>
+  group:
+    type: String
+    label: Group
+    value: ''
+  embeddedMacro:
+    value: ''
+effects: []
+flags: null
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: AdQpkwd5MmhELVuu
+permission:
+  default: 0
+_key: '!items!AdQpkwd5MmhELVuu'
+

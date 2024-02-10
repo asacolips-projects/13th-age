@@ -1,0 +1,384 @@
+_id: FXvkDsAChdYKJSFe
+name: Centaur Raider
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 70
+      min: 0
+      max: 70
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+      mod: 10
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: humanoid
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Centaur Raider
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: EyOOjMU0HZ7F2iaR
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 6DOpXToZi6Fp0VQq
+    flags: {}
+    name: Hoof and weapon
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: >-
+          As a free action, the centaur raider can move and make another hoof
+          and weapon attack against a different nearby enemy (it will take
+          opportunity attacks for moving).
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FXvkDsAChdYKJSFe.6DOpXToZi6Fp0VQq'
+  - _id: X2KdMeLYiiXicW8A
+    flags: {}
+    name: 'R: Short bow'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[18]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: The centaur raider can take an additional move action this turn.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FXvkDsAChdYKJSFe.X2KdMeLYiiXicW8A'
+  - _id: LCa86L4h4mY7hmRd
+    flags: {}
+    name: Sweeping blow
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC ([[1d3]] nearby enemies)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[15]] damage, and the target loses its next move action.'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FXvkDsAChdYKJSFe.LCa86L4h4mY7hmRd'
+  - _id: BbVWBgKN9M6nNF7n
+    flags: {}
+    name: Harnessed speed
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The centaur raider gains a +4 AC bonus against opportunity attacks and
+          only takes half damage from opportunity attacks that hit it.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FXvkDsAChdYKJSFe.BbVWBgKN9M6nNF7n'
+  - _id: paATApHms8bMeiLk
+    flags: {}
+    name: Barreling charge
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the escalation die is even, the centaur raider can use a standard
+          action and a move action to make a sweeping blow attack against
+          multiple enemies as it moves past them (it will take opportunity
+          attacks). It ends this move and attack unengaged.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!FXvkDsAChdYKJSFe.paATApHms8bMeiLk'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!FXvkDsAChdYKJSFe'
+

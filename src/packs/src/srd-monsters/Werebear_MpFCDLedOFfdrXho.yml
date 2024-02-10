@@ -1,0 +1,406 @@
+_id: MpFCDLedOFfdrXho
+name: Werebear
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 140
+      min: 0
+      max: 140
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+      mod: 10
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Werebear
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: BzQ6X67Xfzw13sxn
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: vivAmoW7tTTxNShl
+    flags: {}
+    name: Massive claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: >-
+          The werebear grabs the target. As a standard action, it can make a
+          head chomp attack against an enemy it’s grabbing.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!MpFCDLedOFfdrXho.vivAmoW7tTTxNShl'
+  - _id: Vgo8wxUMG0vG14p0
+    flags: {}
+    name: '[Special trigger] Head chomp'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. AC ([[1]] enemy it’s grabbing)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[70]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[20]] damage.'
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!MpFCDLedOFfdrXho.Vgo8wxUMG0vG14p0'
+  - _id: pOVL24EhE1VSCWDf
+    flags: {}
+    name: Arm crunch
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[70]] damage, and the target is *weakened* until it regains maximum
+          hit points
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!MpFCDLedOFfdrXho.pOVL24EhE1VSCWDf'
+  - _id: sMHaPYs1KdFlzasI
+    flags: {}
+    name: Bestial fury (hybrid form only)
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: quadruple the die).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!MpFCDLedOFfdrXho.sMHaPYs1KdFlzasI'
+  - _id: qhh6zELFi7Y8pQFY
+    flags: {}
+    name: Unnatural vigor (hybrid or animal form only)
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the werebear is not staggered at the start of its turn, it heals
+          20 hp.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!MpFCDLedOFfdrXho.qhh6zELFi7Y8pQFY'
+  - _id: igF8BvTSNTgwZDJA
+    flags: {}
+    name: Chew on arm
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Instead of chomping on a grabbed enemy’s head, the werebear can make
+          an arm crunch attack against an enemy it’s grabbing.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!MpFCDLedOFfdrXho.igF8BvTSNTgwZDJA'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!MpFCDLedOFfdrXho'
+

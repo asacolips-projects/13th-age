@@ -1,0 +1,173 @@
+name: Wall of Stone (Earth)
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Wall of Stone (Earth)
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Druid
+  powerType:
+    type: String
+    label: Power Type
+    value: spell
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  powerLevel:
+    type: Number
+    label: Level
+    value: 9
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: Ranged spell
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>You create a more or less impenetrable wall of stone that&rsquo;s
+      pretty big. You can&rsquo;t drop it on top of enemies or bend it after
+      creating it, but it can form natural flowing shapes like a river of stone
+      that&rsquo;s at most 40 feet high, 120 feet long, and 10 feet thick. If
+      you&rsquo;re straining to come up with nasty ways to use the wall,
+      you&rsquo;re breaking the spirit of the spell, since it&rsquo;s just
+      supposed to be a stone wall that blocks most other creatures&rsquo;
+      movements.</p><p>You, the spellcasting druid, can move through the wall at
+      will, but you can&rsquo;t end your turn inside it.</p><p>The wall
+      isn&rsquo;t permanent: walls of stone generally disappear at sunrise or
+      sunset.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats: null
+  group:
+    type: String
+    label: Group
+    value: Elemental Caster
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 09040KMvrzb565h9
+effects: []
+_key: '!items!09040KMvrzb565h9'
+

@@ -1,0 +1,77 @@
+_id: VLrMDIMYExa8mYHI
+name: Guardian
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 11+) When a foe you&rsquo;re engaged with targets your ally
+      with an attack that doesn&rsquo;t include you, make that enemy target you
+      instead of that ally. Declare your choice before the attack is rolled.
+      (Epic: recharge 6+.)</p>
+
+      <p>Quirk: Compelled to the defense of others, even those who might not
+      need defending.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '11'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 2
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: cloak
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!VLrMDIMYExa8mYHI'
+

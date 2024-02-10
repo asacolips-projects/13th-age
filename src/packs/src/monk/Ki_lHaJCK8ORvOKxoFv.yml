@@ -1,0 +1,235 @@
+name: Ki
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: ''
+  group:
+    type: String
+    label: Group
+    value: ''
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Ki
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Monk
+  powerType:
+    type: String
+    label: Power Type
+    value: feature
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: ''
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: ''
+  range:
+    type: String
+    label: Range
+    value: ''
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>You gain a number of ki points each day equal to 1 + your Wisdom
+      modifier. You can spend ki to modify the natural result of one of your
+      attack rolls. Ki is a daily resource. When you take a full heal-up, you
+      regain all your ki points. You don&rsquo;t regain ki during a quick
+      rest.</p><p>After rolling an attack, you can spend 1 point of ki as a free
+      action to change your attack&rsquo;s natural result by 1, unless that
+      result is a natural 1. The change can be +1 or -1. Spending ki is a free
+      action, but you can only spend 1 point of ki each turn.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  feats:
+    '0':
+      description:
+        type: String
+        value: <p>You gain 1 additional point of ki each day.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '1':
+      description:
+        type: String
+        value: >-
+          <p>You can spend as much ki as you like during a turn. You must spend
+          each point of ki on a different attack roll or a different ki
+          power.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>Work with your GM to invent a new ki power related to your one
+          unique thing or some other aspect of your character&rsquo;s story. If
+          the ki power is too good and overshadows your other ki powers, the GM
+          should rule that you can only use it once a day.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+flags: {}
+img: icons/svg/d20.svg
+effects: []
+_id: lHaJCK8ORvOKxoFv
+_key: '!items!lHaJCK8ORvOKxoFv'
+

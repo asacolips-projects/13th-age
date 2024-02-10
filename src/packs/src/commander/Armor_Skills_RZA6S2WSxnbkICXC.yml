@@ -1,0 +1,230 @@
+name: Armor Skills
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Armor Skills
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Commander
+  powerType:
+    type: String
+    label: Power Type
+    value: talent
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: ''
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: ''
+  range:
+    type: String
+    label: Range
+    value: ''
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>Unlike other commanders, you take no attack penalties for fighting in
+      heavy armor. (As indicated on your class chart, your base AC in heavy
+      armor is 14.)</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>When an enemy misses you with a melee attack and rolls a natural 1
+          or 2, you gain 1 command point.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '1':
+      description:
+        type: String
+        value: >-
+          <p>Once per day as a free action when you are hit by an attack that
+          targets AC, you can take half damage from that attack instead.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: daily
+      quantity:
+        type: Number
+        value: 1
+      maxQuantity:
+        type: Number
+        value: 1
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>Once per day as a free action, you can gain a bonus to AC equal to
+          the current escalation die [[@ed]] until the end of the battle. (The
+          AC bonus increases or decreases as the escalation die increases or
+          decreases.) This bonus can&rsquo;t be higher than the number of icon
+          relationship points you have with warrior or leader icons in your
+          game.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: daily
+      quantity:
+        type: Number
+        value: 1
+      maxQuantity:
+        type: Number
+        value: 1
+  group:
+    value: null
+flags: {}
+img: systems/archmage/assets/icons/items/armor/halfplate.png
+effects: []
+_id: RZA6S2WSxnbkICXC
+_key: '!items!RZA6S2WSxnbkICXC'
+

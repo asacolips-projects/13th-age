@@ -1,0 +1,437 @@
+_id: Es4CNaaB5E76JxLA
+name: Barbed Devil (Hamatula)
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 24
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 175
+      min: 0
+      max: 175
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+      mod: 16
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: devil
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Barbed Devil (Hamatula)
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 7E5Mnq9B6ylPWCFN
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: xGEJ97LRsbz7aIlF
+    flags: {}
+    name: Glistening claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[12]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: The barbed devil can make a whirling barbs attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[6]] damage.'
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.xGEJ97LRsbz7aIlF'
+  - _id: 0wzRS0s9VZO7smad
+    flags: {}
+    name: '[Special trigger] Whirling barbs'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. PD'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[9]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.0wzRS0s9VZO7smad'
+  - _id: Swz3gMbxlXtSX966
+    flags: {}
+    name: 'R: Ball of hellfire'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. PD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[30]] fire damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: >-
+          The target also takes [[20]] poison damage and is *hampered* until the
+          end of its next turn as it chokes on sulphurous fumes.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.Swz3gMbxlXtSX966'
+  - _id: ns19bXMInGJESiAd
+    flags: {}
+    name: Barbs everywhere
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When an enemy engages the devil, the barbed devil can make a whirling
+          barbs attack against it as a free action.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.ns19bXMInGJESiAd'
+  - _id: z2ZTT5ThHl6jy5wr
+    flags: {}
+    name: Devil’s due (Loot)
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When you choose to add the escalation die to an attack against a
+          barbed devil, you must expend one of your unused true magic item
+          powers as the item gets a close encounter with the barbed devil’s
+          “soul.” If you can’t expend such a power, no escalation die for you.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.z2ZTT5ThHl6jy5wr'
+  - _id: FFjFUmwLt7mlmaV3
+    flags: {}
+    name: Slashing dodge
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While engaged with a single enemy, the barbed devil can “take 11” on a
+          disengage check, taking a natural result of 11 instead of rolling.
+          When it does so and successfully disengages, it can make a whirling
+          barbs attack against that enemy as part of the move action.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.FFjFUmwLt7mlmaV3'
+  - _id: KmLJ6w0Pvcm5KPY8
+    flags: {}
+    name: Resist fire 13+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a fire attack targets this creature, the attacker must roll a
+          natural 13+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Es4CNaaB5E76JxLA.KmLJ6w0Pvcm5KPY8'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!Es4CNaaB5E76JxLA'
+

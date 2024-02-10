@@ -50,6 +50,11 @@ npm run vite:build
 npm run vite:watch
 ```
 
+## Working with compendia
+
+The compendium pipeline includes the [Foundry command line utility](https://github.com/foundryvtt/foundryvtt-cli), which you must configure before using.
+Run `npm install` and then `./node_modules/.bin/fvtt configure` to walk through the setup steps, then do a `fvtt package workon archmage` to make sure it's working against the right files.
+
 ## Working with Vue
 
 This system uses Vue for character sheets and will eventually use it for other sheet types as well. For more information on how to work with the Vue components, see the README.md in `src/vue/README.md`.

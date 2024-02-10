@@ -1,0 +1,487 @@
+_id: SuoDdY1M7vBRTPx8
+name: Warped Beast
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 75
+      min: 0
+      max: 75
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+      mod: 9
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: aberration
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Warped Beast
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: ugjPEXDXx8As1SSy
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 9v66OO8hLtZEPEwQ
+    flags: {}
+    name: Tentacle maw
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[16]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 18+
+        value: The target is *hampered* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: The warped beast can make a psychic blast attack as a free action.
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.9v66OO8hLtZEPEwQ'
+  - _id: xASJS5GlvzD80yf0
+    flags: {}
+    name: '[Special trigger] C: Psychic blast'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 10]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[8]] psychic damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 18+
+        value: The target is *confused* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.xASJS5GlvzD80yf0'
+  - _id: 3UtxEJKZ0HiqDzPI
+    flags: {}
+    name: One madness feature
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          At the start of each of the warped beast’s turns, roll a [[d6]]. The
+          warped beast gains the corresponding ability until the start of its
+          next turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.3UtxEJKZ0HiqDzPI'
+  - _id: ccrlMGo2YMMApmUX
+    flags: {}
+    name: 1. Amorphous oozing form
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The beast has resist damage 11+ to all damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.ccrlMGo2YMMApmUX'
+  - _id: DcncSBsMUj0fngPN
+    flags: {}
+    name: 2. Dimensional slide
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Once during its turn, the warped beast can teleport anywhere nearby it
+          can see as a move action. Each enemy engaged with it when it teleports
+          is *confused* until the end of its next turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.DcncSBsMUj0fngPN'
+  - _id: 1NtW5ZRHcmYAuIsP
+    flags: {}
+    name: 3. Fear aura
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While engaged with the warped beast, enemies that have 24 hp or fewer
+          are *dazed* (-4 attack) and do not add the escalation die to their
+          attacks.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.1NtW5ZRHcmYAuIsP'
+  - _id: o4shP5Usq0AVd464
+    flags: {}
+    name: 4. Gibbering mouths
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When an enemy ends its turn engaged with the warped beast, it’s
+          *confused* until the end of its next turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.o4shP5Usq0AVd464'
+  - _id: I0YG74xGa3PN4GwL
+    flags: {}
+    name: 5. Many spontaneous limbs
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the warped beast makes a tentacle maw attack during its turn,
+          roll a [[d4]]. That many additional limbs or tentacles spontaneously
+          erupt from the creature and make an additional basic attack that turn
+          (special abilities/effects don’t trigger on those extra attacks). Each
+          of those attacks only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.I0YG74xGa3PN4GwL'
+  - _id: OmllZEWdeWlKRrF9
+    flags: {}
+    name: 6. Warping touch
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the warped beast hits a creature with a tentacle maw attack, the
+          target also takes [[5]] ongoing psychic damage and a -2 penalty to
+          saves (save ends both).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.OmllZEWdeWlKRrF9'
+  - _id: f4ByDJVZZswDXHFm
+    flags: {}
+    name: Warped mutant
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Roll two madness features instead of one each round (reroll similar
+          results).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SuoDdY1M7vBRTPx8.f4ByDJVZZswDXHFm'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!SuoDdY1M7vBRTPx8'
+

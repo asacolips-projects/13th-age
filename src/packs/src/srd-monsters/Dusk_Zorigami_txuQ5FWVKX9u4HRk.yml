@@ -1,0 +1,314 @@
+_id: txuQ5FWVKX9u4HRk
+name: Dusk Zorigami
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 28
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 23
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 23
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 200
+      min: 0
+      max: 200
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 18
+      mod: 18
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: construct
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Dusk Zorigami
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: bfwbyyTC3ccjIhzj
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: BGrkgoCR0wx2YTtO
+    flags: {}
+    name: Arm full of blades
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: The target is *hampered* (save ends).
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural odd hit
+        value: The target can’t heal using its own recoveries (save ends).
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+      hitt3:
+        type: ''
+        label: Hit
+        name: Natural 1-5
+        value: >-
+          The dusk zorigami can make a shaking the hourglass attack against a
+          single target as a free action.
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!txuQ5FWVKX9u4HRk.BGrkgoCR0wx2YTtO'
+  - _id: yJlBXGHVMcC2Ux8I
+    flags: {}
+    name: 'C: Shaking the hourglass'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 15]] vs. MD (each nearby enemy not engaged with a zorigami)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[20]] psychic damage, and the target is *vulnerable* (save ends)'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: The escalation die increases by one.
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural odd hit
+        value: The escalation die decreases by one.
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!txuQ5FWVKX9u4HRk.yJlBXGHVMcC2Ux8I'
+  - _id: fxEBx2DVatcqvTRr
+    flags: {}
+    name: The ticking clock of its own mortality
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: While it’s staggered, the dusk zorigami uses the escalation die.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!txuQ5FWVKX9u4HRk.fxEBx2DVatcqvTRr'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!txuQ5FWVKX9u4HRk'
+

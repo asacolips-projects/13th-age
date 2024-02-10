@@ -1,0 +1,228 @@
+name: You Set Them Up, I Finish
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: You Set Them Up, I Finish
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Commander
+  powerType:
+    type: String
+    label: Power Type
+    value: power
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: at-will
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: interrupt
+  range:
+    type: String
+    label: Range
+    value: Command
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: >-
+      One nearby ally (on the ally's turn) that hits an enemy you can see with
+      an attack this turn.
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: '-4 command points'
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>Add [[@cha.dmg]] to the damage dealt by your ally. In addition, during
+      your next turn, you gain a +2 attack bonus with melee attacks against the
+      enemy that your ally hit.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>The target ally also gains the damage bonus with any other attacks
+          it makes against the same enemy this turn.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: adventurer
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '1':
+      description:
+        type: String
+        value: <p>The command now costs 3 command points to use.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+    '2':
+      description:
+        type: String
+        value: >-
+          <p>Your attacks that benefit from the +2 attack bonus against that
+          enemy also add [[3*@cha.mod]] to your damage on a hit.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: epic
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+  group:
+    value: Command
+    type: String
+    label: Group
+flags: {}
+img: systems/archmage/assets/icons/skills/arrow_13.jpg
+effects: []
+_id: mlelBnieygms0bPW
+_key: '!items!mlelBnieygms0bPW'
+

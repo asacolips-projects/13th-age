@@ -1,0 +1,508 @@
+_id: PzQLZfzoDii33JJT
+name: Coursing Manticore
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 170
+      min: 0
+      max: 170
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+      mod: 13
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Coursing Manticore
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: sHJzNNJuR7C5z0ow
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: QEe9BZ96tz0lkOYf
+    flags: {}
+    name: Battering paws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 16+
+        value: >-
+          The manticore can make a scorpion sting attack against a different
+          target as a free action.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.QEe9BZ96tz0lkOYf'
+  - _id: mEhrZt0m9ZWmUqxV
+    flags: {}
+    name: Crushing leonine jaws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[30]] damage, or [[50]] damage against a creature taking ongoing
+          poison damage
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.mEhrZt0m9ZWmUqxV'
+  - _id: dQPKLDRMlA2bR8vh
+    flags: {}
+    name: 'C: Scorpion sting'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] damage, and [[5]] ongoing poison damage (hard save ends, 16+)'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.dQPKLDRMlA2bR8vh'
+  - _id: G9vKpFkyYcOromWE
+    flags: {}
+    name: 'R: Volley of tail spikes'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC ([[1d3]] nearby or far away enemies in a group)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[5]] ongoing poison damage (hard save ends, 16+)'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.G9vKpFkyYcOromWE'
+  - _id: gMC8LgFC0JBwJfD5
+    flags: {}
+    name: Fly-by attack
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While flying, the manticore can make a scorpion sting attack, pop free
+          from the target, and keep flying to somewhere nearby.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.gMC8LgFC0JBwJfD5'
+  - _id: ZcpOB9RolK4HiSuB
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Giant batlike dragon wings put the final horrid touch on the coursing
+          manticore’s “everything awful” design aesthetic.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.ZcpOB9RolK4HiSuB'
+  - _id: LY8fDlo85BHpdrQd
+    flags: {}
+    name: Poison reservoirs
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Each time the manticore uses its scorpion sting attack, it takes
+          [[1d6]] damage, or [[2d6]] damage if it’s staggered.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.LY8fDlo85BHpdrQd'
+  - _id: Yp90rQxGblMV6lH5
+    flags: {}
+    name: Diving leap
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The manticore leaps toward its prey, using its wings to arrow into
+          battle at tremendous speed. During its first turn only, add +6 to its
+          initiative count. After that, the beast returns to its normal
+          initiative order.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.Yp90rQxGblMV6lH5'
+  - _id: HLzI1GvxueNXTh3S
+    flags: {}
+    name: Aerial archer
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Instead of a scorpion tail, the manticore has a spiked tail full of
+          quills and can make volley of tail spikes attacks instead of scorpion
+          sting attacks.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!PzQLZfzoDii33JJT.HLzI1GvxueNXTh3S'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!PzQLZfzoDii33JJT'
+

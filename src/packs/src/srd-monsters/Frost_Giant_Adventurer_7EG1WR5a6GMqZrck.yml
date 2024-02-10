@@ -1,0 +1,309 @@
+_id: 7EG1WR5a6GMqZrck
+name: Frost Giant Adventurer
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 23
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 280
+      min: 0
+      max: 280
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+      mod: 13
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: giant
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: fire
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Frost Giant Adventurer
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: ouKLBP3NPYL66P09
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: HsI0RZZnBbN8DPsK
+    flags: {}
+    name: Overlarge club
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: >-
+          [[d20 + 13]] vs. AC ([[1]] nearby enemy or [[1]] enemy engaged with
+          giant)
+      hit:
+        type: ''
+        label: Hit
+        value: '[[75]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The target loses its next move action, and if it’s engaged with the
+          giant, it pops free.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!7EG1WR5a6GMqZrck.HsI0RZZnBbN8DPsK'
+  - _id: mgOEd6UFItF3lVVc
+    flags: {}
+    name: Ancient cold
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While battling one or more frost giants, there is only a 50% chance
+          that the escalation die increases at the start of the round.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!7EG1WR5a6GMqZrck.mgOEd6UFItF3lVVc'
+  - _id: Lq51d1Ct6QEKqnyu
+    flags: {}
+    name: Blood of the niefelheim
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When an enemy the frost giant adventurer is engaged with scores a
+          critical hit against the giant, that enemy is *hampered* (hard save
+          ends, 16+).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!7EG1WR5a6GMqZrck.Lq51d1Ct6QEKqnyu'
+  - _id: Q3WUO6JRA8HVDuWc
+    flags: {}
+    name: Resist cold 16+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a cold attack targets this creature, the attacker must roll a
+          natural 16+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!7EG1WR5a6GMqZrck.Q3WUO6JRA8HVDuWc'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!7EG1WR5a6GMqZrck'
+

@@ -1,0 +1,76 @@
+_id: fw4PiL9ybUQPWZLo
+name: Tome of the Divinities and their Deeds
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 16+) When you cast a divine spell, heal using a recovery and
+      add +[[1d6]] hit points to the total (champion: +[[2d8]] hp; epic:
+      +[[4d10]] hp).</p>
+
+      <p>Quirk: Sees the hands of the gods operating subtly through the natural
+      and social world, and makes others aware of it.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '16'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: book
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!fw4PiL9ybUQPWZLo'
+

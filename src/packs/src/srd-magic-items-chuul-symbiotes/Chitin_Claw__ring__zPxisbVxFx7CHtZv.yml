@@ -1,0 +1,77 @@
+_id: zPxisbVxFx7CHtZv
+name: Chitin Claw (ring)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>This fleshy multi-eyed loop sheaths a finger in sharp carapace.</p>
+
+      <p>Always: When you pick a lock, disarm a trap, or otherwise perform a
+      task that having a tiny shape-changing blade and tiny eyes attached to
+      your finger would be aided by, you gain a +2 bonus to the roll.</p>
+
+      <p>Quirk: Gnarled over-long fingers on that hand.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Other
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: ring
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!zPxisbVxFx7CHtZv'
+

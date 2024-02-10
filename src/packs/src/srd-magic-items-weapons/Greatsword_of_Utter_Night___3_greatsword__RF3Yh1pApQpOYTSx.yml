@@ -1,0 +1,79 @@
+_id: RF3Yh1pApQpOYTSx
+name: Greatsword of Utter Night (+3 greatsword)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 6+) When you hit with this weapon, you spirit away that enemy
+      and yourself to an empty void beyond time where only the two of you face
+      each other for a short time. Neither you nor your foe can move, but you
+      can sure fight. Your enemy acts first, then you, and then you are both
+      spirited back to the real world exactly where you were when the power
+      triggered. Bystanders only see a flash of black.</p>
+
+      <p>Quirk: Has disturbing dreams that can&rsquo;t be remembered, or at the
+      very least must not be.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '6'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 3
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: melee
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!RF3Yh1pApQpOYTSx'
+

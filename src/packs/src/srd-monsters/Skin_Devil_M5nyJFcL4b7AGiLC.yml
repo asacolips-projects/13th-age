@@ -1,0 +1,337 @@
+_id: M5nyJFcL4b7AGiLC
+name: Skin Devil
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 28
+      min: 0
+      max: 28
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+      mod: 6
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: devil
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Skin Devil
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: cHbBJ0Yqk05fE0ZX
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 6S9eZHOJH7YKgJVt
+    flags: {}
+    name: Fleshy limb
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[6]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!M5nyJFcL4b7AGiLC.6S9eZHOJH7YKgJVt'
+  - _id: kZqpNKpgzAX1PXz0
+    flags: {}
+    name: Stay whole
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          At the start of its turn, a skin devil heals 8 hp. If it doesn’t heal
+          up to its maximum hit points, it loses its ability to heal from this
+          ability until the end of the battle.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!M5nyJFcL4b7AGiLC.kZqpNKpgzAX1PXz0'
+  - _id: YdVil6AGGrxk8cpA
+    flags: {}
+    name: Structural collapse
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While the skin devil is staggered, when an enemy damages it, it loses
+          an additional 4 hp as the hapless thing fails to hold its boneless,
+          bulky mass together.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!M5nyJFcL4b7AGiLC.YdVil6AGGrxk8cpA'
+  - _id: DE9YCywrApG1ytEC
+    flags: {}
+    name: Weakling
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When building battles using this monster, it only counts as half a
+          normal monster.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!M5nyJFcL4b7AGiLC.DE9YCywrApG1ytEC'
+  - _id: PQsMZq3rFTIjzpsJ
+    flags: {}
+    name: Free-form covert ability—Unnoticed
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The skin devil is routinely able to pass through civilized areas
+          without alerting dogs, bouncers, city guards, or passersby. If the
+          thing attacks, that’s when you notice that it’s not a human but a
+          monstrous pile of flesh. In addition to passing unnoticed in crowds,
+          it uses its fluid shape to sneak through hidden places, and it doesn’t
+          make much noise unless it wants to. PCs looking for the devil won’t
+          find it unless they have some special information or advantage, and
+          even then it’s a hard check (DC 25). Normally when PCs think they have
+          the devil cornered, it escapes through a tight exit that it had
+          previously identified.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!M5nyJFcL4b7AGiLC.PQsMZq3rFTIjzpsJ'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!M5nyJFcL4b7AGiLC'
+

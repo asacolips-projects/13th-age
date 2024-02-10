@@ -1,0 +1,333 @@
+_id: SSJcpOcSW5NlXJj4
+name: Parasitic Lightning Beetle
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 27
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 36
+      min: 0
+      max: 36
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+      mod: 14
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Parasitic Lightning Beetle
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: qBzGNUYD0tyjKpF7
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: 6qnwe36aXiDw3tKX
+    flags: {}
+    name: Mouthparts
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: The target also takes [[5]] lightning damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SSJcpOcSW5NlXJj4.6qnwe36aXiDw3tKX'
+  - _id: KwDtnHHMhZB40sz6
+    flags: {}
+    name: 'R: Lightning zap'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 12]] vs. PD ([[1]] nearby enemy not engaged with a purple worm'
+      hit:
+        type: ''
+        label: Hit
+        value: purple larvae, or parasitic beetle);20 lightning damage
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: The target takes [[5]] extra lightning damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SSJcpOcSW5NlXJj4.KwDtnHHMhZB40sz6'
+  - _id: E4KDHrXqI0tVVrBd
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The beetles fly badly, usually just enough to get back to the worm
+          when they’ve been shaken off from their hiding spots in its segments.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SSJcpOcSW5NlXJj4.E4KDHrXqI0tVVrBd'
+  - _id: LBPouFCgl8AybLWm
+    flags: {}
+    name: Scaredy bugs
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Whenever one or more parasitic lightning beetles drop to 0 hp, roll a
+          [[d6]]. If you roll less than or equal to the number of beetles that
+          were destroyed by that attack, all beetles in the battle stop
+          fighting, using all their actions during their next turn to disengage
+          and fly away.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!SSJcpOcSW5NlXJj4.LBPouFCgl8AybLWm'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!SSJcpOcSW5NlXJj4'
+

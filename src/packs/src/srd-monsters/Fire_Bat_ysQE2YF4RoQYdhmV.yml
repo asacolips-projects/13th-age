@@ -1,0 +1,377 @@
+_id: ysQE2YF4RoQYdhmV
+name: Fire Bat
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 11
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 10
+      min: 0
+      max: 10
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+      mod: 9
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Fire Bat
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 8VldrEkorSPd9cTs
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: DU6yw3UzemdbMbVk
+    flags: {}
+    name: Burning claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 8]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[2]] damage, and [[2]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ysQE2YF4RoQYdhmV.DU6yw3UzemdbMbVk'
+  - _id: bxyqQR5JP9n5JegQ
+    flags: {}
+    name: Burning contrail
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. PD'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[5]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ysQE2YF4RoQYdhmV.bxyqQR5JP9n5JegQ'
+  - _id: JA2Hizu4k7dD3LQ3
+    flags: {}
+    name: Fiery flier
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          An unengaged fire bat can move, make a burning contrail attack, and
+          move away from the target as a standard action without taking an
+          opportunity attack from the target.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ysQE2YF4RoQYdhmV.JA2Hizu4k7dD3LQ3'
+  - _id: 8ROMQLC0z7MM9n8F
+    flags: {}
+    name: Blistering heat
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When an enemy engaged with the fire bat attacks it, that enemy takes
+          [[2]] fire damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ysQE2YF4RoQYdhmV.8ROMQLC0z7MM9n8F'
+  - _id: EFViXOFS3JAqWRU4
+    flags: {}
+    name: Fire resistance 16+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a fire attack targets this creature, the attacker must roll a
+          natural 16+ on the attack roll or it only deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ysQE2YF4RoQYdhmV.EFViXOFS3JAqWRU4'
+  - _id: exD44gLhn45Kd0JL
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Fire bats are agile fliers, especially when riding hot air currents.
+          They slow down a bit away from warmth.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!ysQE2YF4RoQYdhmV.exD44gLhn45Kd0JL'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!ysQE2YF4RoQYdhmV'
+

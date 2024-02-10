@@ -1,0 +1,309 @@
+_id: C5MD7oU7MkKNF9VN
+name: Big Earth Elemental
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 94
+      min: 0
+      max: 94
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+      mod: 9
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: elemental
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Big Earth Elemental
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: gufCWBWcFB049NmQ
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: ZKRlKhlsmR3nIShf
+    flags: {}
+    name: Rocky fists
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 11]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[16]] damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[7]] damage.'
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!C5MD7oU7MkKNF9VN.ZKRlKhlsmR3nIShf'
+  - _id: oF7iw504FmycKJkQ
+    flags: {}
+    name: Boulder up
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Roll a [[d8]] at the start of each of the earth elemental’s turns. If
+          you roll less than or equal to the escalation die, it shifts into
+          boulder guardian form until the end of the battle. While in this form,
+          it gains a +2 bonus to AC and the relentless pursuit ability (and you
+          stop rolling boulder up checks).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!C5MD7oU7MkKNF9VN.oF7iw504FmycKJkQ'
+  - _id: MpFNMitMGhbu4yv9
+    flags: {}
+    name: Relentless pursuit
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The elemental must be in boulder guardian form to use this ability.
+          Staggered enemies can’t disengage from the earth elemental. (They can
+          pop free, but they can’t roll disengage checks.)
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!C5MD7oU7MkKNF9VN.MpFNMitMGhbu4yv9'
+  - _id: wZtDiqdPdHt6S1UU
+    flags: {}
+    name: Repair damage 10 and below
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the earth elemental is targeted by a natural attack roll of 10 or
+          less, the elemental heals [[3d6]] damage before taking any damage from
+          the attack.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!C5MD7oU7MkKNF9VN.wZtDiqdPdHt6S1UU'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!C5MD7oU7MkKNF9VN'
+

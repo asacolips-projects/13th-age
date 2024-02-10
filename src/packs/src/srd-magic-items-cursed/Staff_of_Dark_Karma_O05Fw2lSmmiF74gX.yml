@@ -1,0 +1,74 @@
+_id: O05Fw2lSmmiF74gX
+name: Staff of Dark Karma
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(3/day) When you hit with a spell attack, deal extra damage to one
+      target. If the spell targets one enemy, deal +[[4d10]] damage. Otherwise,
+      deal +[[2d10]] damage. In addition, the first time you take damage each
+      battle, you lose [[20]] hp.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '3'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '3'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 4
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 4
+      arcane:
+        bonus: 4
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: staff
+effects: []
+folder: null
+sort: 0
+permission:
+  default: 0
+flags: {}
+_key: '!items!O05Fw2lSmmiF74gX'
+

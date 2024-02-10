@@ -1,0 +1,170 @@
+name: Ripping Vines
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: ''
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Ripping Vines
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Druid
+  powerType:
+    type: String
+    label: Power Type
+    value: spell
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: at-will
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: Ranged spell
+  trigger:
+    type: String
+    label: Trigger
+    value: ''
+  target:
+    type: String
+    label: Target
+    value: One nearby enemy
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: '[[d20+@wis.mod+@std+@atk.d.bonus]] vs. PD'
+  hit:
+    type: String
+    label: Hit
+    value: '[[1d8+@wis.dmg+@atk.d.bonus]] damage'
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>As a hit, plus ongoing damage equal to your [[@str.mod]] or
+      [[@dex.mod]], whichever is higher.</p><p>Crit: As a hit, plus the target
+      is *stuck* (save ends).</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: '[[3d6+@wis.dmg+@atk.d.bonus]] damage.'
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: >-
+      [[5d6+@wis.dmg+@atk.d.bonus]] damage, ongoing damage equal to
+      [[2*@str.mod]] or [[2*@dex.mod]] on a natural odd hit.
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: '[[5d8+@wis.dmg+@atk.d.bonus]] damage.'
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: >-
+      [[7d10+@wis.dmg+@atk.d.bonus]] damage, ongoing damage equal to
+      [[3*@str.mod]] or [[3*@dex.mod]] on a natural odd hit.
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: null
+  feats: null
+  group:
+    type: String
+    label: Group
+    value: Elemental Caster
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: CxiLnzmOwzh7x7Dl
+effects: []
+_key: '!items!CxiLnzmOwzh7x7Dl'
+

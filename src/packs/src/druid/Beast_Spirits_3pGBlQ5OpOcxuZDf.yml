@@ -1,0 +1,191 @@
+name: Beast Spirits
+permission:
+  default: 0
+type: power
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+  powerOriginName:
+    type: String
+    label: Power Original Name
+    value: Beast Spirits
+  powerSource:
+    type: String
+    label: Power Source
+    value: class
+  powerSourceName:
+    type: String
+    label: Power Source
+    value: Druid
+  powerType:
+    type: String
+    label: Power Type
+    value: flexible
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: once-per-battle
+  powerLevel:
+    type: Number
+    label: Level
+    value: 1
+  actionType:
+    type: String
+    label: Action
+    value: standard
+  range:
+    type: String
+    label: Range
+    value: Flexible melee attack
+  trigger:
+    type: String
+    label: Trigger
+    value: Natural 19+, or Natural 18+ if you are a Shifter adept
+  target:
+    type: String
+    label: Target
+    value: ''
+  always:
+    type: String
+    label: Always
+    value: ''
+  attack:
+    type: String
+    label: Attack
+    value: ''
+  hit:
+    type: String
+    label: Hit
+    value: ''
+  hitEven:
+    type: String
+    label: Natural Even Hit
+    value: ''
+  hitOdd:
+    type: String
+    label: Natural Odd Hit
+    value: ''
+  crit:
+    type: String
+    label: Crit
+    value: ''
+  miss:
+    type: String
+    label: Miss
+    value: ''
+  missEven:
+    type: String
+    label: Even Miss
+    value: ''
+  missOdd:
+    type: String
+    label: Odd Miss
+    value: ''
+  resources:
+    type: String
+    label: Resources
+    value: ''
+  castBroadEffect:
+    type: String
+    label: Cast for Broad Effect
+    value: ''
+  castPower:
+    type: String
+    label: Cast for Power
+    value: ''
+  sustainedEffect:
+    type: String
+    label: Opening and Sustained Effect
+    value: ''
+  finalVerse:
+    type: String
+    label: Final Verse
+    value: ''
+  special:
+    type: String
+    label: Special
+    value: ''
+  effect:
+    type: String
+    label: Effect
+    value: >-
+      <p>After the attack, as a free action you can cast one of the four spells
+      listed below this attack: behemoth&rsquo;s endurance, bull&rsquo;s
+      strength, cat&rsquo;s grace, or owl&rsquo;s wisdom. You choose which spell
+      to cast. Using beast spirits is normally the only way to access these
+      spells.</p><p><em>Special</em>: The four beast spirits spells last until
+      the end of the battle or until the target falls *unconscious*. If the
+      target already has a beast spirits spell effect on it, that spell is
+      cancelled when a new beast spirits spell targets it.</p>
+  spellLevel3:
+    type: String
+    label: 3rd Level Spell
+    value: ''
+  spellLevel5:
+    type: String
+    label: 5th Level Spell
+    value: ''
+  spellLevel7:
+    type: String
+    label: 7th Level Spell
+    value: ''
+  spellLevel9:
+    type: String
+    label: 9th Level Spell
+    value: ''
+  spellChain:
+    type: String
+    label: Chain Spell
+    value: ''
+  breathWeapon:
+    type: String
+    label: Breath Weapon
+    value: ''
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: 1
+  maxQuantity:
+    type: Number
+    label: Uses
+    value: 1
+  feats:
+    '0':
+      description:
+        type: String
+        value: >-
+          <p>You can use the improved version of each spell as amended by the
+          champion-tier feats listed underneath it.</p>
+      isActive:
+        type: Boolean
+        value: false
+      tier:
+        type: String
+        value: champion
+      powerUsage:
+        type: String
+        value: ''
+      quantity:
+        type: Number
+        value: null
+      maxQuantity:
+        type: Number
+        value: null
+  group:
+    type: String
+    label: Group
+    value: Warrior Druid
+flags: {}
+img: icons/svg/mystery-man.svg
+_id: 3pGBlQ5OpOcxuZDf
+effects: []
+_key: '!items!3pGBlQ5OpOcxuZDf'
+

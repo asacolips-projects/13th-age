@@ -1,0 +1,516 @@
+_id: CPFyQu2s90q5oGsp
+name: Ogre Mage
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 170
+      min: 0
+      max: 170
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+      mod: 14
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: giant
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Ogre Mage
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+  width: 2
+  height: 2
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: QcQrm9XwlgGOcqn1
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: M2b92l8KVrAojdVP
+    flags: {}
+    name: Naginata
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[35]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural 18+
+        value: >-
+          Make a second naginata attack against a nearby enemy as a free action
+          (engaging it is not required)
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.M2b92l8KVrAojdVP'
+  - _id: nHrGWgW557WkRc1d
+    flags: {}
+    name: 'C: Cone of cold'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: 1/day, and the attack affects the ogre’s allies engaged
+          with or between enemy targets.
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. PD (up to [[3]] nearby enemies in a group)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[50]] cold damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.nHrGWgW557WkRc1d'
+  - _id: tyd7paVZfg6nWtGX
+    flags: {}
+    name: '[Special trigger] C: Aura of treachery'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 13]] vs. MD'
+      hit:
+        type: ''
+        label: Hit
+        value: the target is *confused* until the end of the ogre mage’s next turn
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.tyd7paVZfg6nWtGX'
+  - _id: 5XB52dwq3jwaWK46
+    flags: {}
+    name: Aura of treachery
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Once per round when a nearby enemy misses the ogre mage with an
+          attack, the ogre mage can make an aura of treachery attack against it
+          as a free action.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.5XB52dwq3jwaWK46'
+  - _id: GUc53lX3RGQQk6Se
+    flags: {}
+    name: Flight
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: The ogre mage flies using the sheer power of its superior mind.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.GUc53lX3RGQQk6Se'
+  - _id: N9oZAcHAjNQOxP73
+    flags: {}
+    name: Invisibility
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          If the ogre mage is not engaged, it can turn invisible as an at-will
+          standard action. It becomes visible when it attacks. The ogre mage
+          takes [[1d10]] damage each time it uses invisibility while it’s
+          staggered.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.N9oZAcHAjNQOxP73'
+  - _id: FhDvsJfMtRb8LXLH
+    flags: {}
+    name: Resist exceptional attacks 16+
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a limited attack (not an at-will attack) targets this creature,
+          the attacker must roll a natural 16+ on the attack roll or it only
+          deals half damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.FhDvsJfMtRb8LXLH'
+  - _id: V3wv0L02IVacgX82
+    flags: {}
+    name: Trollish regeneration 20
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          While an ogre mage is damaged, its uncanny flesh heals 20 hit points
+          at the start of the ogre mage’s turn. It can regenerate five times per
+          battle. If it heals to its maximum hit points, then that use of
+          regeneration doesn’t count against the five-use limit.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 700000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.V3wv0L02IVacgX82'
+  - _id: uFrpQbxUe1zFgx3d
+    flags: {}
+    name: >-
+      When the ogre mage is hit by an attack that deals fire or acid damage, it
+      loses one use of its regeneration, and it can’t regenerate during its next
+      turn.
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the ogre mage is hit by an attack that deals fire or acid damage,
+          it loses one use of its regeneration, and it can’t regenerate during
+          its next turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 800000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.uFrpQbxUe1zFgx3d'
+  - _id: 7Jpf0ziB8xeaaPvl
+    flags: {}
+    name: >-
+      Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of
+      regeneration left.
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Dropping an ogre mage to 0 hp doesn’t kill it if it has any uses of
+          regeneration left.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 900000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!CPFyQu2s90q5oGsp.7Jpf0ziB8xeaaPvl'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!CPFyQu2s90q5oGsp'
+

@@ -1,0 +1,86 @@
+name: Random Rune Effect on Armor
+img: icons/svg/d20-grey.svg
+description: ''
+results:
+  - type: 0
+    weight: 1
+    range:
+      - 1
+      - 20
+    drawn: false
+    documentCollection: ''
+    _id: iPOlaIRSTQYymc12
+    text: The bonus also applies to PD
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!djAMvJnznazPb52v.iPOlaIRSTQYymc12'
+  - type: 0
+    weight: 1
+    range:
+      - 21
+      - 40
+    drawn: false
+    documentCollection: ''
+    _id: Armn9tCdxs1wg7Q9
+    text: The bonus also applies to MD
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!djAMvJnznazPb52v.Armn9tCdxs1wg7Q9'
+  - type: 0
+    weight: 1
+    range:
+      - 41
+      - 60
+    drawn: false
+    documentCollection: ''
+    _id: lN0h0LPw8E8bjFHc
+    text: The bonus also applies to both PD and MD
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!djAMvJnznazPb52v.lN0h0LPw8E8bjFHc'
+  - type: 0
+    weight: 1
+    range:
+      - 61
+      - 80
+    drawn: false
+    documentCollection: ''
+    _id: mHVf5UdRSdmQX7vj
+    text: >-
+      The bonus also applies to both PD and MD, and you can reroll one failed
+      save while the rune is active
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!djAMvJnznazPb52v.mHVf5UdRSdmQX7vj'
+  - type: 0
+    weight: 1
+    range:
+      - 81
+      - 100
+    drawn: false
+    documentCollection: ''
+    _id: eEkvCu1mwYbVw5Z2
+    text: >-
+      You can take your first rally this battle with a quick action (if you can
+      already rally with a quick action, the action is free)
+    img: icons/svg/d20-black.svg
+    documentId: null
+    flags: {}
+    _key: '!tables.results!djAMvJnznazPb52v.eEkvCu1mwYbVw5Z2'
+formula: 1d100
+replacement: true
+displayRoll: true
+flags: {}
+folder: null
+sort: 0
+ownership:
+  default: 0
+_id: djAMvJnznazPb52v
+permission:
+  default: 0
+_key: '!tables!djAMvJnznazPb52v'
+

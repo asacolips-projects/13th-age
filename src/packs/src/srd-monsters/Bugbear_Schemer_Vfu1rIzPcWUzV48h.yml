@@ -1,0 +1,414 @@
+_id: Vfu1rIzPcWUzV48h
+name: Bugbear Schemer
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 42
+      min: 0
+      max: 42
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 7
+      mod: 7
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: humanoid
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Bugbear Schemer
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: yc14nB7ohkBNMtoE
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: sr9wtZ55sagqzCnT
+    flags: {}
+    name: Big-ass warclub
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[8]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          Each of the bugbear schemer’s nearby humanoid allies gains a +2 bonus
+          to melee attacks until the start of the schemer’s next turn.
+      hit2:
+        type: ''
+        label: Hit
+        name: Natural odd miss
+        value: '[[4]] damage.'
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Vfu1rIzPcWUzV48h.sr9wtZ55sagqzCnT'
+  - _id: P0TkguEhEMY5pwjw
+    flags: {}
+    name: 'R: Ridiculously heavy crossbow'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: 'Limited use: 1/battle.'
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. AC ([[1]] nearby or far away enemy)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[14]] damage'
+      hit1:
+        type: ''
+        label: Hit
+        name: Natural even hit
+        value: The target takes [[1d6]] extra damage.
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Vfu1rIzPcWUzV48h.P0TkguEhEMY5pwjw'
+  - _id: 8lJBWuxITCz8z2c1
+    flags: {}
+    name: '[Special trigger] C: Rebuke to fools'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: 1/round as an interrupt action, when a nearby enemy rolls
+          a natural 1-5 with an attack against it.
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 9]] vs. MD ([[1]] nearby enemy)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[2d6]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Vfu1rIzPcWUzV48h.8lJBWuxITCz8z2c1'
+  - _id: gkYG2vkLXZUEghhT
+    flags: {}
+    name: Combat reload
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          During the bugbear schemer’s turn, if it doesn’t engage an enemy or
+          move, it regains a use of ridiculously heavy crossbow if it’s expended
+          as it reloads the crossbow.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Vfu1rIzPcWUzV48h.gkYG2vkLXZUEghhT'
+  - _id: 7lOkFMq0ymefwdlv
+    flags: {}
+    name: Fighting withdrawal
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the bugbear schemer successfully disengages, one of the enemies
+          engaged with it takes [[1d6]] damage.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Vfu1rIzPcWUzV48h.7lOkFMq0ymefwdlv'
+  - _id: da6rUrwMf9OC2qlq
+    flags: {}
+    name: Flee is a four-letter word
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When the bugbear schemer thinks the battle is out of reach and it
+          isn’t engaged, it can try to flee once per battle. As a move action,
+          roll a hard save. On a success, the bugbear schemer had a bolt-hole or
+          escape plan ready and it gets away (though it’s probably just getting
+          more troops).
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!Vfu1rIzPcWUzV48h.da6rUrwMf9OC2qlq'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!Vfu1rIzPcWUzV48h'
+

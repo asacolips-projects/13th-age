@@ -1,0 +1,422 @@
+_id: acdLcpev3KnflNCr
+name: Adult Remorhaz
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 280
+      min: 0
+      max: 280
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 11
+      mod: 11
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: large
+      type: String
+      label: Size
+    type:
+      value: beast
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: ''
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 12
+items:
+  - _id: Ss2Qb18x5PMrpztt
+    flags: {}
+    name: '[Special trigger] C: Death from below!'
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Limited use: 1/battle, during the remorhaz’s first turn or if
+          appearing on the surface after burrowing.
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 14]] vs. AC (each nearby creature)'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[45]] damage; OR [[22]] damage, and the target is *stunned* (save
+          ends)
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[15]] damage.'
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.Ss2Qb18x5PMrpztt'
+  - _id: PHvKce1QVleKqG2C
+    flags: {}
+    name: Savage bite
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 16]] vs. AC'
+      hit:
+        type: ''
+        label: Hit
+        value: >-
+          [[50]] damage, [[20]] fire damage, and the remorhaz grabs the target
+          if it’s not already grabbing a creature
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: ''
+        label: Hit
+        name: Miss
+        value: '[[15]] fire damage.'
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.PHvKce1QVleKqG2C'
+  - _id: afwIpj25nb4zkoKJ
+    flags: {}
+    name: Burrow
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          As the standard monster ability, except the remorhaz only needs to
+          roll 6+ in snow and ice.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.afwIpj25nb4zkoKJ'
+  - _id: RwjB54KB0gBlNjcs
+    flags: {}
+    name: Furnace aura
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          When a creature is engaged with the remorhaz (or grabbed by it) at the
+          start of its turn, it takes fire damage equal to 6 x the escalation
+          die.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 300000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.RwjB54KB0gBlNjcs'
+  - _id: DyP8utGUCJVoHGwV
+    flags: {}
+    name: Bejeweled remorhaz
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          It takes [[10]] fire damage; OR one piece of its non-magical equipment
+          (something useful, but player’s choice) melts or burns up. Adjust
+          skill checks or stats accordingly.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 400000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.DyP8utGUCJVoHGwV'
+  - _id: KpWf0Bw4KqR0v3q8
+    flags: {}
+    name: Remorhaz steamer
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The remorhaz is melting the ice/snow all the time and obscuring steam
+          rises into the air. Ranged attacks against the remorhaz take a -2
+          penalty, or a -4 penalty if the attacker is far away.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 500000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.KpWf0Bw4KqR0v3q8'
+  - _id: JAekL5cTYdMxxpEs
+    flags: {}
+    name: Spiney remorhaz
+    type: nastierSpecial
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          The remorhaz is covered in red-hot spines. When a nearby enemy rolls a
+          natural 1-5 with an attack roll, it takes [[20]] fire damage unless it
+          has somehow protected itself from the heat.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 600000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!acdLcpev3KnflNCr.JAekL5cTYdMxxpEs'
+effects: []
+folder: null
+sort: 100001
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Adult Remorhaz
+  displayName: 0
+  width: 2
+  height: 2
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  alpha: 1
+  light:
+    alpha: 1
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+      type: null
+    darkness:
+      min: 0
+      max: 1
+    attenuation: 0.5
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  detectionModes: []
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: null
+  modifiedTime: 1707335792405
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!acdLcpev3KnflNCr'
+

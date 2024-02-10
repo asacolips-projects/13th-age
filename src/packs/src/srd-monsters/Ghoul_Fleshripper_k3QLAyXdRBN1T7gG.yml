@@ -1,0 +1,277 @@
+_id: k3QLAyXdRBN1T7gG
+name: Ghoul Fleshripper
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 54
+      min: 0
+      max: 54
+      temp: 0
+      tempmax: 0
+      base: 10
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+      mod: 9
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
+    escalation:
+      value: 6
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+      type: String
+      label: Role
+    size:
+      value: normal
+      type: String
+      label: Size
+    type:
+      value: undead
+      type: String
+      label: Type
+    resistance:
+      value: ''
+      type: String
+      label: Resistance
+    vulnerability:
+      value: holy
+      type: String
+      label: Vulnerability
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 12
+token:
+  flags: {}
+  name: Ghoul Fleshripper
+  displayName: 0
+  img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+  width: 1
+  height: 1
+  scale: 1
+  lockRotation: false
+  rotation: 0
+  vision: false
+  dimSight: 0
+  brightSight: 0
+  dimLight: 0
+  brightLight: 0
+  sightAngle: 0
+  lightAngle: 360
+  lightAlpha: 1
+  actorId: 93QYo2XrV4TSnZtG
+  actorLink: false
+  actorData: {}
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  mirrorX: false
+  mirrorY: false
+  alpha: 1
+  light:
+    alpha: 0.5
+    angle: 0
+    bright: 0
+    coloration: 1
+    dim: 0
+    gradual: true
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+items:
+  - _id: nmVhk9uQhVXDzRbd
+    flags: {}
+    name: Bony claws
+    type: action
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: ''
+        label: Attack Roll
+        value: '[[d20 + 7]] vs. AC ([[2]] attacks)'
+      hit:
+        type: ''
+        label: Hit
+        value: '[[6]] damage, and the target is *vulnerable* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+      hit2:
+        type: String
+        label: Hit
+      hit3:
+        type: String
+        label: Hit
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+    sort: 0
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!k3QLAyXdRBN1T7gG.nmVhk9uQhVXDzRbd'
+  - _id: UN3ZBiz5H774S7gX
+    flags: {}
+    name: Critical hit
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Until the target saves against the *vulnerable* effect, it also takes
+          [[2d6]] ongoing damage each turn.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 100000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!k3QLAyXdRBN1T7gG.UN3ZBiz5H774S7gX'
+  - _id: 9rqMRg8y9jEAYNnB
+    flags: {}
+    name: Infected bite
+    type: trait
+    img: icons/svg/mystery-man.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: ''
+        label: Description
+        value: >-
+          Any creature that is slain by a ghoul and not consumed will rise as a
+          ghoul the next night.
+      group:
+        type: String
+        label: Group
+        value: ''
+    sort: 200000
+    effects: []
+    folder: null
+    permission:
+      default: 0
+    _key: '!actors.items!k3QLAyXdRBN1T7gG.9rqMRg8y9jEAYNnB'
+effects: []
+folder: null
+sort: 100001
+permission:
+  default: 0
+flags:
+  archmage: {}
+_key: '!actors!k3QLAyXdRBN1T7gG'
+
