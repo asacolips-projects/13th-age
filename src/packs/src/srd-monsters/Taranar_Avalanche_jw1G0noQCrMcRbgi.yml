@@ -1,6 +1,6 @@
-name: Lesser Xorn
+name: Taranar Avalanche
 type: npc
-_id: knPjTlizqzrvjmCw
+_id: jw1G0noQCrMcRbgi
 img: systems/archmage/assets/icons/tokens/monsters/elemental-earth.webp
 system:
   attributes:
@@ -17,13 +17,13 @@ system:
     ac:
       type: Number
       label: Armor Class
-      value: 19
+      value: 20
       base: 10
       min: 0
     pd:
       type: Number
       label: Physical Defense
-      value: 17
+      value: 19
       base: 10
       min: 0
     md:
@@ -35,21 +35,21 @@ system:
     hp:
       type: Number
       label: Hit Points
-      value: 74
+      value: 200
       min: 0
-      max: 74
-      temp: null
+      max: 200
+      temp: 0
       tempmax: 0
       base: 7
       automatic: true
     init:
       type: Number
       label: Initiative Modifier
-      value: 8
+      value: 11
     level:
       type: Number
       label: Level
-      value: 4
+      value: 6
       min: 0
       max: 10
     disengage: 11
@@ -83,17 +83,17 @@ system:
     flavor:
       value: ''
     role:
-      value: troop
+      value: wrecker
     size:
-      value: elite
+      value: huge
     type:
       value: elemental
     resistance:
       value: ''
     vulnerability:
-      value: ''
+      value: cold, fire
 prototypeToken:
-  name: Lesser Xorn
+  name: Taranar Avalanche
   displayName: 0
   actorLink: false
   appendNumber: false
@@ -148,7 +148,7 @@ prototypeToken:
   flags: {}
   randomImg: false
 items:
-  - name: Claw claw claw
+  - name: Crashing & smashing
     type: action
     img: icons/svg/target.svg
     system:
@@ -165,16 +165,19 @@ items:
       attack:
         type: String
         label: Attack Roll
-        value: '[[d20+9]] vs. AC (3 attacks)'
+        value: '[[d20+12]] vs. AC ([[1d4]] attacks)'
       hit:
         type: String
         label: Hit
-        value: '[[6]] damage'
+        value: '[[25]] damage'
       hit1:
         type: String
         label: Hit
-        name: Second hit against the same target in a round
-        value: Make a *bite* attack against the target as a free action.
+        name: Natural odd hit or miss
+        value: >-
+          The taranar avalanche deals damage to itself equal to 1d6 per point on
+          the escalation die [[1d6*@ed]]; damage is not reduced by the all-rock
+          ability.
       hit2:
         type: String
         label: Hit
@@ -194,10 +197,10 @@ items:
       miss:
         type: String
         label: Miss
-        value: ''
+        value: '[[10]] damage'
       embeddedMacro:
         value: ''
-    _id: tMAWJDXZZafWNCPp
+    _id: bLH3cAASEKe4fCX3
     effects: []
     folder: null
     sort: 0
@@ -208,13 +211,13 @@ items:
       systemId: archmage
       systemVersion: 1.26.1
       coreVersion: '11.315'
-      createdTime: 1707606500745
-      modifiedTime: 1707606527844
+      createdTime: 1707662344277
+      modifiedTime: 1707662414102
       lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.tMAWJDXZZafWNCPp'
-  - name: Bite
-    type: action
-    img: icons/svg/target.svg
+    _key: '!actors.items!jw1G0noQCrMcRbgi.bLH3cAASEKe4fCX3'
+  - name: No lightning flare ability
+    type: trait
+    img: icons/svg/regen.svg
     system:
       name:
         type: String
@@ -222,49 +225,17 @@ items:
       description:
         type: String
         label: Description
+        value: <p>Taranar avalanches are too far gone.</p>
       group:
         type: String
         label: Group
         value: ''
-      attack:
-        type: String
-        label: Attack Roll
-        value: '[[d20+11]] vs. AC'
-      hit:
-        type: String
-        label: Hit
-        value: '[[10] damage, and [[5]] ongoing damage'
-      hit1:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit2:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit3:
-        type: String
-        label: Hit
-        name: ''
-        value: ''
-      hit4:
-        type: String
-        label: Hit
-      hit5:
-        type: String
-        label: Hit
-      miss:
-        type: String
-        label: Miss
-        value: ''
       embeddedMacro:
         value: ''
-    _id: wmbZfVTiWIIe3JlN
+    _id: JyRMsgPCX2ZfvteH
     effects: []
     folder: null
-    sort: 0
+    sort: 100000
     ownership:
       default: 0
     flags: {}
@@ -272,45 +243,11 @@ items:
       systemId: archmage
       systemVersion: 1.26.1
       coreVersion: '11.315'
-      createdTime: 1707606501347
-      modifiedTime: 1707606546532
+      createdTime: 1707662344882
+      modifiedTime: 1707663441115
       lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.wmbZfVTiWIIe3JlN'
-  - name: Eruption
-    type: nastierSpecial
-    img: icons/svg/poison.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>When the xorn moves out of the floor or wall or ceiling into
-          engagement with an enemy, deal [[2d6]] damage to that enemy.</p>
-      group:
-        type: String
-        label: Group
-        value: ''
-      embeddedMacro:
-        value: ''
-    _id: z9rtyRov0fmRJTxf
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606502062
-      modifiedTime: 1707606563286
-      lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.z9rtyRov0fmRJTxf'
-  - name: Rock swimming
+    _key: '!actors.items!jw1G0noQCrMcRbgi.JyRMsgPCX2ZfvteH'
+  - name: All-rock (resist weapons and negative energy 16+)
     type: trait
     img: icons/svg/regen.svg
     system:
@@ -321,15 +258,18 @@ items:
         type: String
         label: Description
         value: >-
-          <p>As a move action the xorn can swim through the ground, or through a
-          wall.</p>
+          <p class="p1">All taranar are resistant to physical damage as a result
+          of their stony nature. If an assailant fails to make a natural roll of
+          16+ when using a weapon against a taranar, the attacker deals only
+          half damage. The resistance also applies to negative energy damage,
+          which tends to fizzle ineffectively against the ancient stones.</p>
       group:
         type: String
         label: Group
         value: ''
       embeddedMacro:
         value: ''
-    _id: Wq81MTKMqVaP5NER
+    _id: e518vSss6w0CkPx2
     effects: []
     folder: null
     sort: 0
@@ -340,11 +280,11 @@ items:
       systemId: archmage
       systemVersion: 1.26.1
       coreVersion: '11.315'
-      createdTime: 1707606567474
-      modifiedTime: 1707606599197
+      createdTime: 1707663427610
+      modifiedTime: 1707663436653
       lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.Wq81MTKMqVaP5NER'
-  - name: 360 degree vision
+    _key: '!actors.items!jw1G0noQCrMcRbgi.e518vSss6w0CkPx2'
+  - name: Thick-skinned
     type: trait
     img: icons/svg/regen.svg
     system:
@@ -355,18 +295,21 @@ items:
         type: String
         label: Description
         value: >-
-          <p>The xorn can&rsquo;t be surprised, and rogues can&rsquo;t use their
-          Sneak Attack class feature on them.</p>
+          <p>Being made of stone has its benefits. The taranar are immune to
+          almost all effects&mdash;they cannot be dazed, weakened, confused, or
+          made vulnerable to anything beyond those energies they are already
+          vulnerable to (fire and cold; see below). Taranar are also immune to
+          ongoing damage.</p>
       group:
         type: String
         label: Group
         value: ''
       embeddedMacro:
         value: ''
-    _id: XRINvuKB2sqQ9SMs
+    _id: m3BISrzV1s7OpqPe
     effects: []
     folder: null
-    sort: 0
+    sort: 200000
     ownership:
       default: 0
     flags: {}
@@ -374,80 +317,10 @@ items:
       systemId: archmage
       systemVersion: 1.26.1
       coreVersion: '11.315'
-      createdTime: 1707606569273
-      modifiedTime: 1707606611968
+      createdTime: 1707663595288
+      modifiedTime: 1707663608012
       lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.XRINvuKB2sqQ9SMs'
-  - name: Penetrating vision
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>The xorn can see through all types of rock and soil for some
-          distance, let&rsquo;s say "nearby".</p>
-      group:
-        type: String
-        label: Group
-        value: ''
-      embeddedMacro:
-        value: ''
-    _id: DLDWAsVKTrwzz91o
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606569694
-      modifiedTime: 1707606630745
-      lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.DLDWAsVKTrwzz91o'
-  - name: Resist cold and fire 16+
-    type: trait
-    img: icons/svg/regen.svg
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: >-
-          <p>Xorn are used to the fires of the deep and the cold of solid
-          rock&mdash;when a cold or fire attack targets a xorn, the attacker
-          must roll a natural 16+ on the attack roll or it only deals half
-          damage.</p>
-      group:
-        type: String
-        label: Group
-        value: ''
-      embeddedMacro:
-        value: ''
-    _id: tSZNl15XW0QoTeZd
-    effects: []
-    folder: null
-    sort: 0
-    ownership:
-      default: 0
-    flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606570190
-      modifiedTime: 1707606646566
-      lastModifiedBy: tWJ6KkFBgXXy34it
-    _key: '!actors.items!knPjTlizqzrvjmCw.tSZNl15XW0QoTeZd'
+    _key: '!actors.items!jw1G0noQCrMcRbgi.m3BISrzV1s7OpqPe'
 effects: []
 folder: null
 sort: 0
@@ -462,8 +335,8 @@ _stats:
   systemId: archmage
   systemVersion: 1.26.1
   coreVersion: '11.315'
-  createdTime: 1707606428669
-  modifiedTime: 1707661353618
+  createdTime: 1707662278686
+  modifiedTime: 1707663608012
   lastModifiedBy: tWJ6KkFBgXXy34it
-_key: '!actors!knPjTlizqzrvjmCw'
+_key: '!actors!jw1G0noQCrMcRbgi'
 
