@@ -1,0 +1,335 @@
+name: Spiketail
+type: npc
+_id: 79OynB4yZM1RcUgu
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 124
+      min: 0
+      max: 124
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+    size:
+      value: large
+    type:
+      value: beast
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Spiketail
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Thagomizer
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[24]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Hit and natural attack roll exceeds target’s Dexterity
+        value: >-
+          Target is flung [[1d6 * 10]] feet in a random direction. (If that’s
+          going to put it into a very dangerous place or over a cliff or similar
+          bad spot, it can roll a normal save to catch itself before being
+          thrown and take another [[2d6]] damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: jFcJ0Oe6ABiNvzMZ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707700375471
+      modifiedTime: 1707700459674
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!79OynB4yZM1RcUgu.jFcJ0Oe6ABiNvzMZ'
+  - name: 'R: Rear and stomp!'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. PD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[22]] damage and the target is *hampered* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle, but not while staggered.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: EuDQVgYLseIPhpbJ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707700375617
+      modifiedTime: 1707700497086
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!79OynB4yZM1RcUgu.EuDQVgYLseIPhpbJ'
+  - name: Whoooosh
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die is even, the spiketail can target a nearby
+          enemy with its thagomizer attack instead of needing to be engaged.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1LKiEO2N6r0VSZHW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707700376170
+      modifiedTime: 1707700514438
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!79OynB4yZM1RcUgu.1LKiEO2N6r0VSZHW'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707700355598
+  modifiedTime: 1707700514438
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!79OynB4yZM1RcUgu'
+
