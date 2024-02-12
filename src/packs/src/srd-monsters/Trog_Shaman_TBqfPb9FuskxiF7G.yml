@@ -1,0 +1,507 @@
+name: Trog Shaman
+type: npc
+_id: TBqfPb9FuskxiF7G
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 90
+      min: 0
+      max: 90
+      temp: null
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Trog Shaman
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Grimy spear
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd hit
+        value: >-
+          The target is again affected by trog stench if it had saved against
+          the effect.
+      hit2:
+        type: String
+        label: Hit
+        name: Special
+        value: See *primeval grudge*.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: >-
+          Damage equal to three times the penalty the trog’s stench currently
+          imposes on the target.
+      embeddedMacro:
+        value: ''
+    _id: nI32ny4zKFNhFIph
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707699486645
+      modifiedTime: 1707699531393
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!TBqfPb9FuskxiF7G.nI32ny4zKFNhFIph'
+  - name: 'C: Sibilant curse'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[17]] psychic damage, and the target is vulnerable to all attacks by
+          troglodytes
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: nRK52v98EOOpGvj2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707699486796
+      modifiedTime: 1707699556935
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!TBqfPb9FuskxiF7G.nRK52v98EOOpGvj2'
+  - name: Primeval grudge
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Until the trog shaman drops to 0 hp, the melee attacks of each trog
+          nearby the shaman deals [[6]] extra damage to elves and dwarves, and
+          [[3]] extra damage to half-elves.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: k2YKAW5ZLrEGxL69
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707699491516
+      modifiedTime: 1707699582483
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!TBqfPb9FuskxiF7G.k2YKAW5ZLrEGxL69'
+  - name: Chameleon
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Underground, or in swamps and rivers, attacks against troglodytes
+          by enemies who aren&rsquo;t engaged with them take a &ndash;4
+          penalty.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8MSvPpEwNBTAT9Iy
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707699491671
+      modifiedTime: 1707699599029
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!TBqfPb9FuskxiF7G.8MSvPpEwNBTAT9Iy'
+  - name: Trog stench
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Trogs spray scents that stink so badly that other humanoids take
+          penalties to all attacks, defenses, and saves when engaged with a
+          troglodyte or when nearby three or more troglodytes. Non-humanoids
+          aren&rsquo;t affected.</p>
+
+          <p>Humanoids affected by trog stench can make a normal save (with a
+          penalty) at the end of each of their turns. If the save succeeds, the
+          humanoid can ignore all trog stench for the rest of the battle. Trog
+          stench penalties vary for different humanoid races:</p>
+
+          <table style="width: 100%; height: 95px;" border="1">
+
+          <tbody>
+
+          <tr style="height: 17px;">
+
+          <td style="width: 78.6685%; height: 17px;">Race</td>
+
+          <td style="width: 21.3315%; height: 17px;">Save Penalty</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="width: 78.6685%; height: 17px;">Elves, gnolls, gnomes</td>
+
+          <td style="width: 21.3315%; height: 17px;">-4</td>
+
+          </tr>
+
+          <tr style="height: 10px;">
+
+          <td style="width: 78.6685%; height: 10px;">Humans, halflings,
+          half-elves, Aasimar, tieflings, etc.</td>
+
+          <td style="width: 21.3315%; height: 10px;">-3</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="width: 78.6685%; height: 17px;">Half-orcs, draconics</td>
+
+          <td style="width: 21.3315%; height: 17px;">-2</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="width: 78.6685%; height: 17px;">Dwarves</td>
+
+          <td style="width: 21.3315%; height: 17px;">-1</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="width: 78.6685%; height: 17px;">Steelforged</td>
+
+          <td style="width: 21.3315%; height: 17px;">-0</td>
+
+          </tr>
+
+          </tbody>
+
+          </table>
+
+          <p>&nbsp;</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: dh39v33CxOvm58CS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707699491837
+      modifiedTime: 1707699657670
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!TBqfPb9FuskxiF7G.dh39v33CxOvm58CS'
+  - name: Extra grime
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>*Grimy spear* now re-applies trog stench on any natural odd roll
+          (other than a natural 1, of course)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: MC9OSuNv3NPFUx0p
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707699493267
+      modifiedTime: 1707699643357
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!TBqfPb9FuskxiF7G.MC9OSuNv3NPFUx0p'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707699413239
+  modifiedTime: 1707699657670
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!TBqfPb9FuskxiF7G'
+
