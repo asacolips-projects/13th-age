@@ -1,0 +1,412 @@
+name: Great Sunder Wraith
+type: npc
+_id: CQnSjucE1EKptDnD
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 23
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 252
+      min: 0
+      max: 252
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 19
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+    size:
+      value: normal
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Great Sunder Wraith
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Shivering blade
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+16]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[50]] negative energy damage, or [[100]] negative energy damage if
+          the target has been hit by at least one sundering attack earlier in
+          the battle
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: Negative energy damage equal to the natural attack roll.
+      embeddedMacro:
+        value: ''
+    _id: GHCEgEK78CZV6ZCo
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707845149377
+      modifiedTime: 1707845202306
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!CQnSjucE1EKptDnD.GHCEgEK78CZV6ZCo'
+  - name: 'C: Sundering'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+16]] vs. PD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[60]] negative energy damage, and teleport the sunder wraith into
+          engagement with the target
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even miss
+        value: >-
+          Teleport the sunder wraith somewhere nearby the target, but not
+          engaged with an enemy.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Ep9013kF6yTRukWb
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707845149777
+      modifiedTime: 1707845220951
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!CQnSjucE1EKptDnD.Ep9013kF6yTRukWb'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Sunder wraiths fly like the world is defined however they want it
+          to be defined.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: wdkwHUskwuOXXVj9
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707845150578
+      modifiedTime: 1707845231365
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!CQnSjucE1EKptDnD.wdkwHUskwuOXXVj9'
+  - name: Ghostly
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature has resist damage 16+ to all damage (yes, even holy
+          damage, and for that matter, this creature has outgrown vulnerability
+          to holy damage) except force damage, which damages it normally.</p>
+
+          <p>A great sunder wraith can move through solid objects, but it
+          can&rsquo;t end its movement inside them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: rGsgjwdulXtu9WsP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707845150729
+      modifiedTime: 1707845249690
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!CQnSjucE1EKptDnD.rGsgjwdulXtu9WsP'
+  - name: Destroyer
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Three times per battle when the sunder wraith moves through a solid
+          object like a wall, throne, door, or chest, the object must roll a
+          hard save. If the save fails, the object is broken. Strongly magical
+          objects get bonuses on the save, but err on the side of uh-oh.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1QxUDkUWLeQzVTYM
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707845150840
+      modifiedTime: 1707845264749
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!CQnSjucE1EKptDnD.1QxUDkUWLeQzVTYM'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707845126628
+  modifiedTime: 1707845264749
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!CQnSjucE1EKptDnD'
+
