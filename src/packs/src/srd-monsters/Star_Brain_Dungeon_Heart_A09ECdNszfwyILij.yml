@@ -1,0 +1,543 @@
+name: Star-Brain Dungeon Heart
+type: npc
+_id: A09ECdNszfwyILij
+img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 30
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 28
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 1200
+      min: 0
+      max: 1200
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 20
+    level:
+      type: Number
+      label: Level
+      value: 14
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+    size:
+      value: huge
+    type:
+      value: aberration
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Star-Brain Dungeon Heart
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: 'C: Mutagenic emanations'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+22]] vs. AC (each enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] ongoing damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Instant rebirth
+        value: >-
+          Any enemy that dies due to ongoing damage from mutagenic emanations
+          instantly rejoins the fight as a star-mask brain zealot allied to the
+          dungeon heart.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: RSAFufjA1i4SIsf9
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867422531
+      modifiedTime: 1707867452911
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.RSAFufjA1i4SIsf9'
+  - name: 'C: Sickly sweet feelings'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+22]] vs. MD (one nearby or faraway enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          Until the end of the battle, the next time the target drops to 0 hp or
+          below, the target recovers with temporary hit points equal to its
+          normal maximum hit points, but is now an ally to the dungeon heart. It
+          is a standard action to free an ally next to you from their *sickly
+          sweet feelings*, but doing so makes them lose their temporary hp (at
+          which point they’ll collapse again unless they have been somehow
+          healed above 0 hit points).
+      hit1:
+        type: String
+        label: Hit
+        name: Quick use
+        value: 1/round, as a quick action.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: eNiVZzQfSwbA1Thj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867422724
+      modifiedTime: 1707867506560
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.eNiVZzQfSwbA1Thj'
+  - name: '[Special trigger] R: Mind-erasing blast'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+22]] vs. MD (the enemy that staggered the dungeon heart)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[200]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 5rMRibaAMuLg4duw
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867423415
+      modifiedTime: 1707867530804
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.5rMRibaAMuLg4duw'
+  - name: Mental scream
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time the dungeon heart is staggered, it makes a
+          *mind-erasing blast* attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: o3a3zDZRqPl1jbVC
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867425416
+      modifiedTime: 1707867553496
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.o3a3zDZRqPl1jbVC'
+  - name: Lost opportunity
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>The dungeon heart can&rsquo;t make opportunity attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: e8ifQzgNtCsrVzec
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867425786
+      modifiedTime: 1707867562665
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.e8ifQzgNtCsrVzec'
+  - name: Neuralogenic
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The brain doesn&rsquo;t move about by itself, but it does infect
+          nearby matter, turning wherever it is into more of itself: if you are
+          close enough to fight the brain, you are de-facto engaged with it, and
+          will be affected by its *mutagenic emanations* attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xsjFFOO1EBZsVbKI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867426288
+      modifiedTime: 1707867592266
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.xsjFFOO1EBZsVbKI'
+  - name: Flesh absorption
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an enemy fails to save against the ongoing damage from
+          mutagenic emanations, the dungeon heart heals [[20]] hp.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 73PNxcqTctzJZj4Y
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867428882
+      modifiedTime: 1707867614220
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.73PNxcqTctzJZj4Y'
+  - name: Soul drain
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies killed by the dungeon heart become mindless living husks
+          with no resurrection or healing possible&mdash;their soul is gone. (Of
+          course, there may be some miraculous quest for healing magic that
+          could restore them.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: qJ84KiNGfHX2yI3X
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707867429034
+      modifiedTime: 1707867627730
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!A09ECdNszfwyILij.qJ84KiNGfHX2yI3X'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707867393787
+  modifiedTime: 1707867627730
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!A09ECdNszfwyILij'
+
