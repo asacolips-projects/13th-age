@@ -1,0 +1,529 @@
+name: Rakshasa Mastermind
+type: npc
+_id: ZiqZjtpIkwGsCpel
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 23
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 330
+      min: 0
+      max: 330
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Rakshasa Mastermind
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Decisive bite
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[75]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[45]] damage'
+      embeddedMacro:
+        value: ''
+    _id: pKPFLO1M4wEeeDCG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707948284832
+      modifiedTime: 1707948299517
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.pKPFLO1M4wEeeDCG'
+  - name: 'R: Striped lightning bolts'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. PD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[40]] lightning damage, or [[80]] lightning damage against a
+          staggered target
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The rakshasa can make a *rend mind* attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 5PZGPmvw2Y9caxaP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707948284999
+      modifiedTime: 1707948329290
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.5PZGPmvw2Y9caxaP'
+  - name: 'C: Rend mind'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. MD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] psychic damage, and the target is *confused* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 6MqUIGooi6G73NE8
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707948285330
+      modifiedTime: 1707948349019
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.6MqUIGooi6G73NE8'
+  - name: Hidden plans
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a standard action, the rakshasa mastermind rolls a [[/r d4]] or
+          a [[/r d6]], your choice. If the roll is equal to or less than the
+          escalation die, a number of the rakshasa mastermind&rsquo;s allies
+          equal to the die roll will enter the battle in the next round. Each
+          new ally should be about as tough as a single PC according to the
+          building battles table. Explain this ability as the culmination of the
+          rakshasas&rsquo; cunning plans.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: cUTHAGUAig33yI2b
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707948286281
+      modifiedTime: 1707948374109
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.cUTHAGUAig33yI2b'
+  - name: Shapechange
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a standard action, the rakshasa can change its form to that of
+          any humanoid, or back to its own shape. Seeing through the shapechange
+          requires a DC 20 skill check.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4HFjwFDOTP2M1LrS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707948286428
+      modifiedTime: 1707948398845
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.4HFjwFDOTP2M1LrS'
+  - name: Lockheart
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time a rakshasa is dropped to 0 hit points, it dies but
+          will definitely be reborn, even if the PCs attempt to use an icon die
+          result to prevent the resurrection. A PC who scores a critical hit
+          against the rakshasa can attempt to nullify lockheart by choosing to
+          ignore all other effects of the critical hit (all damage, not just the
+          doubling) and attempting a normal save. If the save succeeds,
+          lockheart is ignored this battle. If the save fails, lockheart is
+          still in effect. A rakshasa can only use lockheart once in its
+          lifetime.</p>
+
+          <p>Alternatively, instead of rolling saves, the PCs could go on a
+          quest to find the lockheart&rsquo;s key before confronting the
+          rakshasa! That&rsquo;s a story angle you get to manipulate as you
+          choose.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: isfSS5zHsBsANw9K
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946990978
+      modifiedTime: 1707948401466
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.isfSS5zHsBsANw9K'
+  - name: Backwards palms
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When staggered, the rakshasa&rsquo;s hands shapeshift so that its
+          palms trade places with the backs of its hands. It not only looks
+          extremely weird, it also presents the player characters with an odd
+          choice: The next time the escalation die would advance, the PCs have
+          to choose whether the escalation die will decrease by 1 (minimum 0) or
+          whether this rakshasa gets to use the escalation die until the end of
+          the battle. If the PC group is split, the decision goes to the
+          character with the highest initiative.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: G4lRMTi3mawumiHB
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947412323
+      modifiedTime: 1707948402607
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ZiqZjtpIkwGsCpel.G4lRMTi3mawumiHB'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707948267588
+  modifiedTime: 1707948402607
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!ZiqZjtpIkwGsCpel'
+

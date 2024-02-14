@@ -1,0 +1,580 @@
+name: Rakshasa Sybarite
+type: npc
+_id: x0IdF9y8BmFQyLo6
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 230
+      min: 0
+      max: 230
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 11
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Rakshasa Sybarite
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Silver-shod claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[12]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Attack also beats the target’s PD
+        value: '[[12]] ongoing poison damage.'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: nH0xJERkXV44B3Uk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946986131
+      modifiedTime: 1707947011391
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.nH0xJERkXV44B3Uk'
+  - name: 'C: Powders, potions, and lotions'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Natural 2 or 12 hit: Target is *weakened* until they next take
+          damage.</p>
+
+          <p>Natural 3 or 13 hit: Target is vulnerable to poison attacks until
+          the end of the battle.</p>
+
+          <p>Natural 4 or 14 hit: Target is *hampered* until they next heal or
+          gain temporary hp.</p>
+
+          <p>Natural 5 or 15 hit: Target is *hampered* until they next hit with
+          an attack.</p>
+
+          <p>Natural 6 or 16 hit: Target is *stuck*, save ends.</p>
+
+          <p>Natural 7 or 17 hit: Target is *dazed*, easy save ends.</p>
+
+          <p>Natural 8 or 18 hit: Target is *stunned* until the end of its next
+          turn.</p>
+
+          <p>Natural 9 or 19 hit: Target is *confused*, easy save ends.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] poison damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[7]] poison damage.'
+      embeddedMacro:
+        value: ''
+    _id: YYFKMZJYeQwzEJ7H
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946986273
+      modifiedTime: 1707947156659
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.YYFKMZJYeQwzEJ7H'
+  - name: 'C: Psychic seduction'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+11]] vs. MD ([[1d3+1]] nearby or faraway enemies in a group,
+          group must contain at least two targets)
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] psychic damage, and the target is *confused* (hard save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Miss, but another target in the group was hit
+        value: Target is *confused* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: All targets missed
+        value: >-
+          The psychic seduction attack is not expended can be used again this
+          battle.
+      hit3:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle.
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xToZTuvTjqe03ntb
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946986423
+      modifiedTime: 1707947204185
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.xToZTuvTjqe03ntb'
+  - name: Shapechange
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a standard action, the rakshasa can change its form to that of
+          any humanoid, or back to its own shape. Seeing through the shapechange
+          requires a DC 20 skill check.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: u7vOBBqaC68znyez
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946987567
+      modifiedTime: 1707947236662
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.u7vOBBqaC68znyez'
+  - name: Contrabando
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The rakshasa has a stash of illicit substances&mdash;once per
+          battle as a quick action, it can either deal [[20]] ongoing poison
+          damage to one enemy that it has just left engagement with OR become
+          dazed but heal [[30]] hit points at the end of each of its turns (save
+          ends).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: JqRTQfhVIzJJqZDu
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946990701
+      modifiedTime: 1707947262057
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.JqRTQfhVIzJJqZDu'
+  - name: Shapechanger’s surprise
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle as a quick action the rakshasa changes forms to
+          something that causes consternation and misunderstanding among its
+          enemies&mdash;causing each enemy to become dazed until the enemy with
+          the lowest MD saves.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: CjCL0ZX9eoUmYJBB
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946990852
+      modifiedTime: 1707947275979
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.CjCL0ZX9eoUmYJBB'
+  - name: Lockheart
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time a rakshasa is dropped to 0 hit points, it dies but
+          will definitely be reborn, even if the PCs attempt to use an icon die
+          result to prevent the resurrection. A PC who scores a critical hit
+          against the rakshasa can attempt to nullify lockheart by choosing to
+          ignore all other effects of the critical hit (all damage, not just the
+          doubling) and attempting a normal save. If the save succeeds,
+          lockheart is ignored this battle. If the save fails, lockheart is
+          still in effect. A rakshasa can only use lockheart once in its
+          lifetime.</p>
+
+          <p>Alternatively, instead of rolling saves, the PCs could go on a
+          quest to find the lockheart&rsquo;s key before confronting the
+          rakshasa! That&rsquo;s a story angle you get to manipulate as you
+          choose.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: wXl59oIutrrYcWP5
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946990978
+      modifiedTime: 1707947485430
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.wXl59oIutrrYcWP5'
+  - name: Backwards palms
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When staggered, the rakshasa&rsquo;s hands shapeshift so that its
+          palms trade places with the backs of its hands. It not only looks
+          extremely weird, it also presents the player characters with an odd
+          choice: The next time the escalation die would advance, the PCs have
+          to choose whether the escalation die will decrease by 1 (minimum 0) or
+          whether this rakshasa gets to use the escalation die until the end of
+          the battle. If the PC group is split, the decision goes to the
+          character with the highest initiative.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ZmPEgSOjUDCmo9l7
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947412323
+      modifiedTime: 1707947535705
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x0IdF9y8BmFQyLo6.ZmPEgSOjUDCmo9l7'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707946922382
+  modifiedTime: 1707947535705
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!x0IdF9y8BmFQyLo6'
+

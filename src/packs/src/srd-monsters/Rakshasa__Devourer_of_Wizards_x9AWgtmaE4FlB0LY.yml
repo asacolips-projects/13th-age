@@ -1,0 +1,498 @@
+name: Rakshasa, Devourer of Wizards
+type: npc
+_id: x9AWgtmaE4FlB0LY
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 250
+      min: 0
+      max: 250
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Rakshasa, Devourer of Wizards
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Terrible claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (3 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage, and target is *hampered* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[5]] damage.'
+      embeddedMacro:
+        value: ''
+    _id: L4LFhPMCqKy63tB8
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947767345
+      modifiedTime: 1707947791267
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.L4LFhPMCqKy63tB8'
+  - name: 'R: Psychic freeze'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[40]] psychic damage, and [[10]] ongoing psychic damage and target is
+          *stuck* (save ends both)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ueJbsC8RwyZeaDVG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947767502
+      modifiedTime: 1707947817045
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.ueJbsC8RwyZeaDVG'
+  - name: A taste for high magic
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The devourer of wizards adds the escalation die to its attacks and
+          damage when it targets a creature that has one or more icon
+          relationship points with the Magic Icon.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Kt5gz3UJQeNI0L75
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947769288
+      modifiedTime: 1707947831168
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.Kt5gz3UJQeNI0L75'
+  - name: Unstoppable pounce
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time an enemy tries to intercept the devourer of wizards
+          each round, the devourer of wizards can roll a single rending claws
+          attack against the would-be interceptor. If the attack hits, the
+          interception is ignored and the devourer of wizards can continue
+          moving to its target unimpeded.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lkgHE5jTAgCGm5vP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947769420
+      modifiedTime: 1707947844861
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.lkgHE5jTAgCGm5vP'
+  - name: Shapechange
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a standard action, the rakshasa can change its form to that of
+          any humanoid, or back to its own shape. Seeing through the shapechange
+          requires a DC 20 skill check.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 6spBWidedJGETlAO
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947769552
+      modifiedTime: 1707947854595
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.6spBWidedJGETlAO'
+  - name: Lockheart
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time a rakshasa is dropped to 0 hit points, it dies but
+          will definitely be reborn, even if the PCs attempt to use an icon die
+          result to prevent the resurrection. A PC who scores a critical hit
+          against the rakshasa can attempt to nullify lockheart by choosing to
+          ignore all other effects of the critical hit (all damage, not just the
+          doubling) and attempting a normal save. If the save succeeds,
+          lockheart is ignored this battle. If the save fails, lockheart is
+          still in effect. A rakshasa can only use lockheart once in its
+          lifetime.</p>
+
+          <p>Alternatively, instead of rolling saves, the PCs could go on a
+          quest to find the lockheart&rsquo;s key before confronting the
+          rakshasa! That&rsquo;s a story angle you get to manipulate as you
+          choose.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: zmOQn7xwW7AgzlEl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707946990978
+      modifiedTime: 1707947860188
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.zmOQn7xwW7AgzlEl'
+  - name: Backwards palms
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When staggered, the rakshasa&rsquo;s hands shapeshift so that its
+          palms trade places with the backs of its hands. It not only looks
+          extremely weird, it also presents the player characters with an odd
+          choice: The next time the escalation die would advance, the PCs have
+          to choose whether the escalation die will decrease by 1 (minimum 0) or
+          whether this rakshasa gets to use the escalation die until the end of
+          the battle. If the PC group is split, the decision goes to the
+          character with the highest initiative.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: J3EZGLFTw2W5lFgM
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707947412323
+      modifiedTime: 1707947863067
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!x9AWgtmaE4FlB0LY.J3EZGLFTw2W5lFgM'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707947751641
+  modifiedTime: 1707947863067
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!x9AWgtmaE4FlB0LY'
+
