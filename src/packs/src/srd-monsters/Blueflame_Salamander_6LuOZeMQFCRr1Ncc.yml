@@ -1,0 +1,413 @@
+name: Blueflame Salamander
+type: npc
+_id: 6LuOZeMQFCRr1Ncc
+img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 100
+      min: 0
+      max: 100
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: huge
+    type:
+      value: elemental
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Blueflame Salamander
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/elemental.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Blueflame tongue
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[7]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: g6CxCTEvCixS7lrK
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707932711697
+      modifiedTime: 1707932725582
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!6LuOZeMQFCRr1Ncc.g6CxCTEvCixS7lrK'
+  - name: Heat haze aura
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>All enemies who start their turn nearby the salamander take [[7]]
+          fire damage. All enemies who do not resist fire and who end their turn
+          nearby the salamander take [[7]] fire damage. Salamanders ignore
+          damage from heat haze aura.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: UN9NjhwOJRvqutYy
+    effects: []
+    folder: null
+    sort: 500000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707932712307
+      modifiedTime: 1707933558054
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!6LuOZeMQFCRr1Ncc.UN9NjhwOJRvqutYy'
+  - name: Enduring flame
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Staggered enemies who are hit by blueflame tongue also take [[3]]
+          ongoing fire damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kNf9oCS5foUNsIzl
+    effects: []
+    folder: null
+    sort: 300000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707932712843
+      modifiedTime: 1707933531441
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!6LuOZeMQFCRr1Ncc.kNf9oCS5foUNsIzl'
+  - name: Escalating inferno
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the salamander is in an area with flames, lava, or that it has
+          set on fire, it gets to use the escalation die, adding it to its
+          attack rolls. Even when not fighting in such an environment, a
+          salamander attacked with a spell or attack that deals fire damage gets
+          to use the escalation die until the end of its next turn, or longer if
+          it&rsquo;s a powerful or lingering spell. Avoid casting fireball in
+          battle with a salamander!</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4NviszfyXGmhIUFI
+    effects: []
+    folder: null
+    sort: 500000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707933356451
+      modifiedTime: 1707933583656
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!6LuOZeMQFCRr1Ncc.4NviszfyXGmhIUFI'
+  - name: Resist fire 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Fire attacks against the salamander must roll a natural 16+ attack
+          roll or the attack does half damage. Whether or not such an attack
+          hits, see *escalating inferno!*</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 7dLP5azluYv2oUGv
+    effects: []
+    folder: null
+    sort: 600000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707933356576
+      modifiedTime: 1707933586000
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!6LuOZeMQFCRr1Ncc.7dLP5azluYv2oUGv'
+  - name: Heat metal
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies who make a melee attack with a non-magical weapon against a
+          salamander and who roll a natural 1 or 3 take ongoing fire damage
+          equal to twice the salamander&rsquo;s level unless they drop their
+          weapon as a free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: d0PBmnet1p1tKZKw
+    effects: []
+    folder: null
+    sort: 400000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707933358448
+      modifiedTime: 1707933589066
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!6LuOZeMQFCRr1Ncc.d0PBmnet1p1tKZKw'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707932669735
+  modifiedTime: 1707933589066
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!6LuOZeMQFCRr1Ncc'
+

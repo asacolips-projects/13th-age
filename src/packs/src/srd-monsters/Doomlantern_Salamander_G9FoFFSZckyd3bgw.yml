@@ -1,0 +1,472 @@
+name: Doomlantern Salamander
+type: npc
+_id: G9FoFFSZckyd3bgw
+img: systems/archmage/assets/icons/tokens/monsters/elemental.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 160
+      min: 0
+      max: 160
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+    size:
+      value: huge
+    type:
+      value: elemental
+    resistance:
+      value: ''
+    vulnerability:
+      value: cold
+prototypeToken:
+  name: Doomlantern Salamander
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/elemental.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Fearful flame
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><strong>Special save</strong>: The save against ongoing damage has
+          different effects depending on the roll:</p>
+
+          <ul>
+
+          <li>1-10: Save is failed, and the burning target&rsquo;s closest ally
+          takes [[7]] fire damage.</li>
+
+          <li>11-15: Save is successful (ongoing damage ends), but burning
+          target&rsquo;s closest ally takes [[7]] fire damage.</li>
+
+          <li>16+: Save is successful (ongoing damage ends).</li>
+
+          </ul>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+8]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[14]] fire damage and ongoing fire damage equal to the escalation die
+          value times seven (so the amount keeps going up as the escalation die
+          goes up, to a maximum of 42 ongoing fire damage)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 7XpMHnpvoOnLc6WV
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707932847083
+      modifiedTime: 1707932927636
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!G9FoFFSZckyd3bgw.7XpMHnpvoOnLc6WV'
+  - name: 'R: Lure of the flames'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+8]] vs. MD (two nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[25]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural roll higher than the target’s Wisdom attribute
+        value: >-
+          Until the target is engaged with the salamander, it will use its move
+          and standard actions to move and become engaged with the salamander!
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: RekbiX1RWRDqHbop
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707932850102
+      modifiedTime: 1707932986778
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!G9FoFFSZckyd3bgw.RekbiX1RWRDqHbop'
+  - name: Ignite
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Any unattended flammable objects ignite (straw in a stable, the
+          party&rsquo;s tents, trees, etc.) and nearby liquids boil. Provided
+          that there was anything flammable in the area the salamander gets to
+          use its escalating inferno power.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: rirLwICiVxMYFJN3
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707932850981
+      modifiedTime: 1707933003106
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!G9FoFFSZckyd3bgw.rirLwICiVxMYFJN3'
+  - name: Resist fire 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Fire attacks against the salamander must roll a natural 16+ attack
+          roll or the attack does half damage. Whether or not such an attack
+          hits, see *escalating inferno!*</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xBbQSf7q2Q2QhFJB
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.7dLP5azluYv2oUGv
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707933356576
+      modifiedTime: 1707933554289
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!G9FoFFSZckyd3bgw.xBbQSf7q2Q2QhFJB'
+  - name: Escalating inferno
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the salamander is in an area with flames, lava, or that it has
+          set on fire, it gets to use the escalation die, adding it to its
+          attack rolls. Even when not fighting in such an environment, a
+          salamander attacked with a spell or attack that deals fire damage gets
+          to use the escalation die until the end of its next turn, or longer if
+          it&rsquo;s a powerful or lingering spell. Avoid casting fireball in
+          battle with a salamander!</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: mAXDRTvzMB9teTEv
+    effects: []
+    folder: null
+    sort: 300000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.4NviszfyXGmhIUFI
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707933356451
+      modifiedTime: 1707933559556
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!G9FoFFSZckyd3bgw.mAXDRTvzMB9teTEv'
+  - name: Heat metal
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies who make a melee attack with a non-magical weapon against a
+          salamander and who roll a natural 1 or 3 take ongoing fire damage
+          equal to twice the salamander&rsquo;s level unless they drop their
+          weapon as a free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Lmn6eTDzaBdvEf6W
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.d0PBmnet1p1tKZKw
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707933358448
+      modifiedTime: 1707933569206
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!G9FoFFSZckyd3bgw.Lmn6eTDzaBdvEf6W'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707932830276
+  modifiedTime: 1707933569206
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!G9FoFFSZckyd3bgw'
+
