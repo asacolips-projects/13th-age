@@ -1,0 +1,385 @@
+name: Reaver
+type: npc
+_id: orSumF0xupih1fHd
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 185
+      min: 0
+      max: 185
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: double
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: holy
+prototypeToken:
+  name: Reaver
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Phasing
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While the escalation die is odd, the reaver takes no damage and
+          suffers no effects from attacks with natural attack rolls less than
+          18+ (or 16+ for attacks that deal holy damage). It does take full
+          damage and effects from attacks that are able to affect it.</p>
+
+          <p>While phasing, the reaver can move but creatures can&rsquo;t
+          intercept it, and it can travel through solid objects but not endits
+          turn in them. In addition, while phasing the reaver can&rsquo;t attack
+          (including opportunity attacks) or affect the physical world except in
+          the following way: When an enemy starts its turn engaged with the
+          phased reaver, it takes [[13]] negative energy damage.</p>
+
+          <p>The reaver can also use phasing outside of battle, but only for a
+          short time.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WsyLaOi8CfaB2pLL
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707941243335
+      modifiedTime: 1707941329059
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!orSumF0xupih1fHd.WsyLaOi8CfaB2pLL'
+  - name: Call upon death shades
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Until the reaver drops to 0 hp, when one of its living (not undead
+          or construct) enemies or non-mook allies rolls a death save or dies, a
+          death shade enters the battle. Death shades act immediately after the
+          reaver in initiative order.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: A1Zpe3yWI4SRXbsh
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707941244369
+      modifiedTime: 1707941341618
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!orSumF0xupih1fHd.A1Zpe3yWI4SRXbsh'
+  - name: Fear aura
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While engaged with this creature, enemies with 36 hp or fewer are
+          *dazed* and do not add the escalation die to their attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: qs9uRQx4bx5zvQ8H
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707941244775
+      modifiedTime: 1707941360095
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!orSumF0xupih1fHd.qs9uRQx4bx5zvQ8H'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Reavers ignore the bonds of gravity while they&rsquo;re
+          phasing.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: HQiI7K086Ps5XPUH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707941244936
+      modifiedTime: 1707941371847
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!orSumF0xupih1fHd.HQiI7K086Ps5XPUH'
+  - name: Reaping scythe
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[26]] negative energy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Both attacks hit the same target
+        value: >-
+          Until the end of its next turn, the target is affected by the reaver’s
+          *fear aura* even if it has more than 36 hp.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lEI3oMuaTkNB8B4G
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707941246037
+      modifiedTime: 1707941285430
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!orSumF0xupih1fHd.lEI3oMuaTkNB8B4G'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707941183823
+  modifiedTime: 1707941371847
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!orSumF0xupih1fHd'
+
