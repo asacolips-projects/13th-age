@@ -1,0 +1,338 @@
+name: Tempter
+type: npc
+_id: kVuhdJDsCf7GRUXJ
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 204
+      min: 0
+      max: 204
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+    size:
+      value: double
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Tempter
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Supernatural strength
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[60]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16, 18, or 20 hit or miss
+        value: The target is thrown faraway from the tempter.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 15, 17, or 19 hit
+        value: The target is *hampered* until the end of its next turn.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: EZQQPiz0YLvt9Jdo
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707871074544
+      modifiedTime: 1707871100006
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!kVuhdJDsCf7GRUXJ.EZQQPiz0YLvt9Jdo'
+  - name: 'C: Steal breath'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. PD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[25]] negative energy damage and [[20]] ongoing negative energy
+          damage
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16, 18, or 20 hit or miss
+        value: The target is pulled into engagement with the tempter.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 15, 17, or 19 hit
+        value: >-
+          While the target is taking the ongoing damage it is also *hampered*
+          (basic attacks only).
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] negative energy damage'
+      embeddedMacro:
+        value: ''
+    _id: xZyjyMmbmwqLyaJW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707871075065
+      modifiedTime: 1707871136827
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!kVuhdJDsCf7GRUXJ.xZyjyMmbmwqLyaJW'
+  - name: Shatter
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Normal non-magical armor and shields shatter under this
+          monster&rsquo;s <em>supernatural strength</em> attack. When the
+          tempter crits, the if the target is wearing non-magical heavy armor
+          the armor is destroyed (count as a -4 penalty to AC until the end of
+          the battle).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: bGwop6i6EfAmmNa0
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707871076097
+      modifiedTime: 1707871165155
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!kVuhdJDsCf7GRUXJ.bGwop6i6EfAmmNa0'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707871051240
+  modifiedTime: 1707871165155
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!kVuhdJDsCf7GRUXJ'
+
