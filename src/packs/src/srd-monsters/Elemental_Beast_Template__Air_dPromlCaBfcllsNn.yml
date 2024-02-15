@@ -101,7 +101,8 @@ system:
         <p>For balance, simplicity, pacing, and playability, don&rsquo;t use
         more than three abilities for an elemental beast.</p>
 
-        <p>(Drag items from this actor onto the actor you're augmenting.)</p>
+        <p>(Drag items from this actor onto the actor you're augmenting, and
+        change its type to ELEMENTAL.)</p>
     role:
       value: ''
     size:
@@ -539,7 +540,7 @@ _stats:
   systemVersion: 1.26.1
   coreVersion: '11.315'
   createdTime: 1708022638972
-  modifiedTime: 1708025541975
+  modifiedTime: 1708031980453
   lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!dPromlCaBfcllsNn'
 
