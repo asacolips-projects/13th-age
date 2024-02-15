@@ -1,0 +1,386 @@
+name: Coin Zombie
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 17
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 12
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 8
+      min: 0
+      max: 8
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 2
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+    size:
+      value: normal
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Coin Zombie
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Headshot
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">A critical hit against a coin zombie
+          cancels one mook&rsquo;s </span><span class="fontstyle2">lethal
+          jackpot </span><span class="fontstyle0">ability that turn, though if
+          the crit eliminates more than one coin zombie, others will still
+          trigger their own lethal jackpots.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: t7tAeLswpYFZpKwy
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690465854251
+      modifiedTime: 1690466010960
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!clCdy1qTfHeM5CER.t7tAeLswpYFZpKwy'
+  - name: Nicer special
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">If you&rsquo;re feeling merciful, say that
+          a PC can use a quick action to pocket some of the coins and grants a
+          +2 bonus to the save against the ongoing psychic damage from the
+          </span><span class="fontstyle2">lethal jackpot </span><span
+          class="fontstyle0">attack.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: naff54OH7LXKr4jI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690465856935
+      modifiedTime: 1690466058997
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!clCdy1qTfHeM5CER.naff54OH7LXKr4jI'
+  - name: Greedy claw
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. AC '
+      hit:
+        type: String
+        label: Hit
+        value: '[[3]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: nSfO66W72sMoLwQr
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687116112976
+      modifiedTime: 1690466163349
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!clCdy1qTfHeM5CER.nSfO66W72sMoLwQr'
+  - name: 'Limited Use: Lethal Jackpot'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">Limited use: </span><span
+          class="fontstyle2">1/battle per coin zombie mook, when that zombie
+          drops to 0 hit points.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. MD ([[1d3]] nearby enemies/bystanders)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[3]] ongoing psychic damage, and if the target moves while taking
+          that damage, it can only move to the jangling pile of coins that fell
+          out of the zombie’s crumbling body to cause this attack.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: iixKsOSUEjD6WVUd
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687116112976
+      modifiedTime: 1690466032768
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!clCdy1qTfHeM5CER.iixKsOSUEjD6WVUd'
+effects: []
+folder: null
+ownership:
+  default: 0
+  24IckEQPEIEklVti: 3
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1690465773984
+  modifiedTime: 1708006750710
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: clCdy1qTfHeM5CER
+sort: 100000
+_key: '!actors!clCdy1qTfHeM5CER'
+

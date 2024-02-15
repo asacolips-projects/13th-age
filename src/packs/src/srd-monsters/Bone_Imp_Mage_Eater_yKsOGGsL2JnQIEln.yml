@@ -1,0 +1,342 @@
+name: Bone Imp Mage-Eater
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/demon.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 12
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 4
+      min: 0
+      max: 4
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+    size:
+      value: weakling
+    type:
+      value: demon
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Bone Imp Mage-Eater
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/demon.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Frenzied Teeth
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+6]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[4]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4aYeQYWlMUKMx59E
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.25.2
+      coreVersion: '11.302'
+      createdTime: 1687861032549
+      modifiedTime: 1687861126895
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!yKsOGGsL2JnQIEln.4aYeQYWlMUKMx59E'
+  - name: Freakish Speed
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">On rounds when the escalation die is odd
+          the imp may move as a quick action once on its turn, flapping its
+          wings madly as it dashes about.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lx7aHhuwAuk7P1Kh
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.25.2
+      coreVersion: '11.302'
+      createdTime: 1687861033724
+      modifiedTime: 1687861137943
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!yKsOGGsL2JnQIEln.lx7aHhuwAuk7P1Kh'
+  - name: Resist Magic 13+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This creature has resist damage 13+ to all
+          damage from magic sources (even magic weapons). When a magic attack
+          targets this creature, the attacker must roll a natural 13+ on the
+          attack roll or it only deals half damage.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Bwt0T5bYdKMZQq6y
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.25.2
+      coreVersion: '11.302'
+      createdTime: 1687861034112
+      modifiedTime: 1687861151345
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!yKsOGGsL2JnQIEln.Bwt0T5bYdKMZQq6y'
+  - name: Magic eater
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">When this imp resists magic while the
+          escalation die is odd, it takes no damage instead of half damage, and
+          the crit range for all bone imp mage-eaters&rsquo; attacks expand by 1
+          (to a maximum of 6+) until the end of the battle.</span></p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kyRpM0DFjCfKVqiY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.25.2
+      coreVersion: '11.302'
+      createdTime: 1687861036850
+      modifiedTime: 1687861174525
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!yKsOGGsL2JnQIEln.kyRpM0DFjCfKVqiY'
+effects: []
+folder: null
+ownership:
+  default: 0
+  24IckEQPEIEklVti: 3
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1687860987716
+  modifiedTime: 1708006750710
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: yKsOGGsL2JnQIEln
+sort: 1100000
+_key: '!actors!yKsOGGsL2JnQIEln'
+

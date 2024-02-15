@@ -1,0 +1,576 @@
+name: Briar Elf Slayer
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 100
+      min: 0
+      max: 100
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Briar Elf Slayer
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Thorn Claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[14]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: 7 ongoing poison damage
+      hit2:
+        type: String
+        label: Hit
+        name: Crit
+        value: >-
+          The ongoing poison damage can’t be saved against while the briar elf
+          that inflicted it still lives and is in the battle.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1mZmMIDaa4Yp14AV
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874572268
+      modifiedTime: 1688973947939
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.1mZmMIDaa4Yp14AV'
+  - name: Counterstrike
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">When the briar elf is targeted by an
+          opportunity attack, it makes a thorn claws attack against the creature
+          that is targeting it first.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: QiESpgLQ7WUsrIs3
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874573804
+      modifiedTime: 1688973965325
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.QiESpgLQ7WUsrIs3'
+  - name: 'Choose one:'
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 94SusmDV6M5tpKXO
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874588472
+      modifiedTime: 1688973979842
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.94SusmDV6M5tpKXO'
+  - name: Thorny carapace
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">When an attacker misses this monster with
+          a melee attack, the attacker takes 12 damage.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xRpAzzjuruYzGHug
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874596956
+      modifiedTime: 1688974189395
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.xRpAzzjuruYzGHug'
+  - name: Fear Aura
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">Enemies engaged with this briar elf who
+          have fewer than 30 hp are dazed (-4 attack) and can&rsquo;t use the
+          escalation die.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8EMxGqQyHALSOSg8
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874597558
+      modifiedTime: 1688974203291
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.8EMxGqQyHALSOSg8'
+  - name: Dark Escalator
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">On turns when the escalation die is even
+          the briar elf slayer uses the escalation die, and any enemy engaged
+          with it does not.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4XWng8pvkzI4tHWH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874597912
+      modifiedTime: 1688974217323
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.4XWng8pvkzI4tHWH'
+  - name: '[Special Trigger] R: Bramble bow'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC ([[1]] nearby or far away enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[14]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 0EzLqYE23l2nyP0a
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874616281
+      modifiedTime: 1688974102298
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.0EzLqYE23l2nyP0a'
+  - name: Humanoid
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">The briar elf can make the Bramble bow
+          attack</span></p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: G3hiBmiknFc0hUZL
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874617930
+      modifiedTime: 1688974112599
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.G3hiBmiknFc0hUZL'
+  - name: Plant
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This monster&rsquo;s type is [plant]. This
+          monster has </span><span class="fontstyle2">resist weapons 16+
+          </span><span class="fontstyle0">(weapon attacks that roll less than a
+          natural 16 deal only half damage).</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: iSCeSCPEgrBR5MsN
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874618286
+      modifiedTime: 1688974128835
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.iSCeSCPEgrBR5MsN'
+  - name: Undead
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
+          Provided it is next to a tree, this monster can teleport to a
+          different nearby tree as a move action.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Eky9hI2mlBEeN9aU
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.305'
+      createdTime: 1687874620567
+      modifiedTime: 1688974146155
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!ru2KadKILTLgFzc4.Eky9hI2mlBEeN9aU'
+effects: []
+folder: null
+ownership:
+  default: 0
+  24IckEQPEIEklVti: 3
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1687874520390
+  modifiedTime: 1708006750710
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: ru2KadKILTLgFzc4
+sort: 900000
+_key: '!actors!ru2KadKILTLgFzc4'
+

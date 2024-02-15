@@ -1,0 +1,377 @@
+name: Derro Berserker
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 40
+      min: 0
+      max: 40
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 5
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Derro Berserker
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Scavenged weaponry
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+8]] vs. AC '
+      hit:
+        type: String
+        label: Hit
+        value: '[[8]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+hit
+        value: ' The target takes 5 ongoing damage'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: yKdoqYGACARKmuzS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687116112976
+      modifiedTime: 1690654700369
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!FwVWLmUQAGzVMBYQ.yKdoqYGACARKmuzS'
+  - name: Bad laughter
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">While the derro berserker is staggered, it
+          deals 4 extra damage when it hits with an attack.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: R9YTOtSl2BSKDMq7
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690654660961
+      modifiedTime: 1690654711626
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!FwVWLmUQAGzVMBYQ.R9YTOtSl2BSKDMq7'
+  - name: What pain?
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">The derro berserker ignores the first 6
+          points of damage it takes each turn.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: IAtR7nwDPTL3T1JW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690654661730
+      modifiedTime: 1690654723144
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!FwVWLmUQAGzVMBYQ.IAtR7nwDPTL3T1JW'
+  - name: Dead but still laughing
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">When a derro berserker drops to 0 hp, it
+          doesn&rsquo;t die. Instead, it can take one final turn, and then it
+          dies. Once the berserker drops, it can&rsquo;t be healed.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WMWISVaITulHM9K2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690654662777
+      modifiedTime: 1690654738954
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!FwVWLmUQAGzVMBYQ.WMWISVaITulHM9K2'
+  - name: Wrong head
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">When an enemy targets the derro berserker
+          with an attack against MD and gets a natural odd roll, that enemy is
+          dazed until the end of its next turn. This effect occurs whether the
+          attack hits or misses.</span></p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Ji26EI2qnkVXW2NY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690654662952
+      modifiedTime: 1690654757092
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!FwVWLmUQAGzVMBYQ.Ji26EI2qnkVXW2NY'
+effects: []
+folder: null
+ownership:
+  default: 0
+  24IckEQPEIEklVti: 3
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1690475773055
+  modifiedTime: 1708006758398
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: FwVWLmUQAGzVMBYQ
+sort: 0
+_key: '!actors!FwVWLmUQAGzVMBYQ'
+

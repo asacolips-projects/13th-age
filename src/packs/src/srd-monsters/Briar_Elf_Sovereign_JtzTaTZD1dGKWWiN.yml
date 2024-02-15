@@ -1,0 +1,653 @@
+name: Briar Elf Sovereign
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 28
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 26
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 750
+      min: 0
+      max: 750
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 20
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Briar Elf Sovereign
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Thorny scepter
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+17]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[100]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          [[80]] ongoing damage. Aftereffect: When the target saves against the
+          poison damage it becomes dazed (-4 attack) until the end of its next
+          turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[50]] damage'
+      embeddedMacro:
+        value: ''
+    _id: c0llzSPnYqfAvYPW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.BvLJNL0NwFdcRjjL
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1689149971944
+      modifiedTime: 1690446212709
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.c0llzSPnYqfAvYPW'
+  - name: 'C: Verdant evolution'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. PD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[80]] poison damage and [[50]] ongoing poison damage. Aftereffect:
+          When the target saves against the poison damage it becomes confused
+          until the end of its next turn.
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+ hit
+        value: >-
+          Until the end of the battle the target’s saves against poison damage
+          all become hard saves (16+).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: vNnYnyWtYnyTzr7m
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.1s38Tmee9NHmKFTE
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1689149981386
+      modifiedTime: 1690446333634
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.vNnYnyWtYnyTzr7m'
+  - name: The sovereign´s orders
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">When the escalation die is 1, as a free
+          action the sovereign can cause an ally to reroll a missed attack and
+          take the better roll. When the escalation die value is 2 the sovereign
+          can do this twice during the round. When the escalation die is 3+ the
+          sovereign gets to order three attacks rerolled.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: cpnmOdbZ957ogNSA
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.eT6ZEHlcG4hTK1R9.Item.zAQho2qb2R8Ur83x
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690395742004
+      modifiedTime: 1690446354130
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.cpnmOdbZ957ogNSA'
+  - name: 'Choose one:'
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: g9WFu70MPvy7Edct
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687874588472
+      modifiedTime: 1690445628545
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.g9WFu70MPvy7Edct'
+  - name: Humanoid
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">The sovereign has a magic item. You
+          don&rsquo;t need to work out what the item is right now, just give it
+          +2 to all its defenses, saves, and attacks to represent a generic
+          magical &lsquo;thing&rsquo;. Once the battle is over the adventurers
+          can loot the body for a magic item, and you can reveal/decide what the
+          item actually is.</span> </p>
+
+          <p>&nbsp;</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: r3H66KMdQEzae6yl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687874617930
+      modifiedTime: 1690446377407
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.r3H66KMdQEzae6yl'
+  - name: Plant
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This monster&rsquo;s type is [plant].
+          Whenever the briar elf sovereign is standing on soil and doesn&rsquo;t
+          move on its turn it heals 14 hit points.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: AaFMVCbl2yTnhtwZ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687874618286
+      modifiedTime: 1690446389641
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.AaFMVCbl2yTnhtwZ'
+  - name: Undead
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">This monster&rsquo;s type is [undead].
+          Other undead refuse to fight this monster (sorry necromancers). Cleric
+          attack spells that target this monster only deal half damage on a
+          hit.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 5Q8rJmJ8eCiBchFS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687874620567
+      modifiedTime: 1690446405027
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.5Q8rJmJ8eCiBchFS'
+  - name: Royal command
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">The briar elf sovereign is no longer
+          capped at three rerolls per round from </span><span
+          class="fontstyle2">the sovereign&rsquo;s orders</span><span
+          class="fontstyle0">&mdash;it gets four when the escalation die is 4,
+          five rerolls when the escalation die is 5, and can order six allies a
+          round to reroll their attacks once the escalation die reaches
+          6.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: LLo7duBPxyzVuLdb
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690445641014
+      modifiedTime: 1690446423547
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.LLo7duBPxyzVuLdb'
+  - name: Fear Aura
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">Enemies engaged with this briar elf who
+          have fewer than 120 hp are dazed (-4 attack) and can&rsquo;t use the
+          escalation die.</span></p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4pLgb2qnEz4NVaIo
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1687874597558
+      modifiedTime: 1690446435226
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.4pLgb2qnEz4NVaIo'
+  - name: Dark escalator
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span class="fontstyle0">On turns when the escalation die is even
+          the briar elves uses the escalation die, and their enemies do
+          not.</span> </p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: NdLGUsMZt4S8XLFt
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.0
+      coreVersion: '11.306'
+      createdTime: 1690445645243
+      modifiedTime: 1690446451859
+      lastModifiedBy: 24IckEQPEIEklVti
+    _key: '!actors.items!JtzTaTZD1dGKWWiN.NdLGUsMZt4S8XLFt'
+effects: []
+folder: null
+ownership:
+  default: 0
+  24IckEQPEIEklVti: 3
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1690445374563
+  modifiedTime: 1708006750710
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: JtzTaTZD1dGKWWiN
+sort: 500000
+_key: '!actors!JtzTaTZD1dGKWWiN'
+
