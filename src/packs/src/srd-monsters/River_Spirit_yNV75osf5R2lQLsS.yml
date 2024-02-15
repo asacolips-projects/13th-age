@@ -1,0 +1,475 @@
+name: River-Spirit
+type: npc
+_id: yNV75osf5R2lQLsS
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 215
+      min: 0
+      max: 215
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: River-Spirit
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Enchanting touch
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. MD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          The target is *confused* (save ends), and two other random nearby
+          enemies take [[30]] psychic damage.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[20]] psychic damage'
+      embeddedMacro:
+        value: ''
+    _id: TOnmyMoaBiReN5xl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033145118
+      modifiedTime: 1708033169810
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.TOnmyMoaBiReN5xl'
+  - name: 'R: Otherworldly aria'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. MD ([[2d3]] nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] psychic damage'
+      embeddedMacro:
+        value: ''
+    _id: iJEqt2GLShdAIRwj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033145250
+      modifiedTime: 1708033188086
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.iJEqt2GLShdAIRwj'
+  - name: Fear Aura
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While engaged with the river-spirit, enemies with 36 hp or fewer
+          are *dazed* (&ndash;4 to attack) and do not add the escalation die to
+          their attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1zcI7q7SG10NVpFu
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033146142
+      modifiedTime: 1708033227686
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.1zcI7q7SG10NVpFu'
+  - name: Siren
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the river-spirit scores a critical hit with <em>otherworldly
+          aria</em>, it also *stunned* the target (save ends).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BCzxKPgrBgyRSNYU
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033146310
+      modifiedTime: 1708033245163
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.BCzxKPgrBgyRSNYU'
+  - name: Rusalka
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Targets hit by the river-spirit&rsquo;s <em>enchanting touch</em>
+          attack must start rolling last gasp saves instead of being confused.
+          On the fourth failure, they fall into a long sleep that mortals call a
+          coma.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: GCzkTV8K3mnJNkKA
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033146449
+      modifiedTime: 1708033258216
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.GCzkTV8K3mnJNkKA'
+  - name: Banshee
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The river-spirit&rsquo;s <em>otherworldly aria</em> attack becomes
+          <em>haunting wail</em>, deals negative energy damage, and on a natural
+          18+, the target is *weakened* (save ends).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: dFWskiVUJ6yPuUnB
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033146590
+      modifiedTime: 1708033275179
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.dFWskiVUJ6yPuUnB'
+  - name: Power of a name
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature gains different abilities based on which name it has
+          taken.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: P4BETyPzhVBZcCBO
+    effects: []
+    folder: null
+    sort: 100000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032156998
+      modifiedTime: 1708033211504
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!yNV75osf5R2lQLsS.P4BETyPzhVBZcCBO'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708033121230
+  modifiedTime: 1708033275179
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!yNV75osf5R2lQLsS'
+

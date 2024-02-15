@@ -1,0 +1,445 @@
+name: Spriggan
+type: npc
+_id: u8aj2nXg3k7GbUCj
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 90
+      min: 0
+      max: 90
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Spriggan
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Scraggly fist
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          Only usable when the spriggan is at its normal size; but still usable
+          if hampered!
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kRcIUgvMEVQtHaHI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032965152
+      modifiedTime: 1708032983270
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u8aj2nXg3k7GbUCj.kRcIUgvMEVQtHaHI'
+  - name: 'R: Fairy lights'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: The target is *dazed* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          Once per battle, with an additional use for each critical hit scored
+          by the spriggan’s enemies this battle.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: fIc7N2DBYJXesRds
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032965304
+      modifiedTime: 1708033007157
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u8aj2nXg3k7GbUCj.fIc7N2DBYJXesRds'
+  - name: Giant-sized slap
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+11]] vs. PD (each enemy engaged with it, OR one enemy engaged
+          with it and one nearby enemy)
+      hit:
+        type: String
+        label: Hit
+        value: '[[17]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd hit
+        value: >-
+          The target is thrown somewhere faraway but non-harmful (like over a
+          cliff) and loses its next move action.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 1–3
+        value: The target can make an opportunity attack against the spriggan.
+      hit3:
+        type: String
+        label: Hit
+        name: Limited use
+        value: Only usable when the spriggan is at its larger size.
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: nWbOzedvtlwrLF6B
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032965460
+      modifiedTime: 1708033040235
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u8aj2nXg3k7GbUCj.nWbOzedvtlwrLF6B'
+  - name: Hidden guardian
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If a spriggan wants to stay hidden in an illusory form instead of
+          joining a battle, roll initiative for the spriggan as normal. When the
+          spriggan &ldquo;acts,&rdquo; by doing nothing, have the most
+          perceptive PC roll a DC 25 Wisdom check, adding +1 for each of their
+          allies in the fight. On a success, the spriggan&rsquo;s illusion is
+          pierced and the spriggan can use a single move action during its turn,
+          but nothing else&mdash;it burned its standard action trying to stay
+          hidden.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: l2tbwyv9nUfTYuGc
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032966392
+      modifiedTime: 1708033058928
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u8aj2nXg3k7GbUCj.l2tbwyv9nUfTYuGc'
+  - name: Embiggen
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die reaches 2, the spriggan grows in size as a
+          free action, acquiring its giant-sized slap attack. Note that as a
+          free action, this transformation can take place any time, usually at
+          the start of a round. If the spriggan was using its hidden guardian
+          ability, it&rsquo;s not hidden anymore!</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: AGMYvwVy0pH7JYq0
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032966528
+      modifiedTime: 1708033076191
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u8aj2nXg3k7GbUCj.AGMYvwVy0pH7JYq0'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708032947520
+  modifiedTime: 1708033076191
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!u8aj2nXg3k7GbUCj'
+

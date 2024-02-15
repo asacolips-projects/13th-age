@@ -1,0 +1,511 @@
+name: Grandmother
+type: npc
+_id: eNMLeghrlFFqAItV
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 600
+      min: 0
+      max: 600
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 15
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: triple
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Grandmother
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: 'C: Ancient spell'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. PD (2 attacks against nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[88]] special damage (type determined by the grandmother’s name)'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd hit
+        value: >-
+          The target becomes *vulnerable* to the grandmother’s type of special
+          damage until the end of the battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: FTIl4bRrfo7zdI7D
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033356925
+      modifiedTime: 1708033411449
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.FTIl4bRrfo7zdI7D'
+  - name: Pestle
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[66]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: cKmWVN1WXipoYyp9
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033357051
+      modifiedTime: 1708033484051
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.cKmWVN1WXipoYyp9'
+  - name: Power of a name
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature gains different abilities based on which name it has
+          taken.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: zq2ogf2SWCnsYcHP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708032156998
+      modifiedTime: 1708033358594
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.zq2ogf2SWCnsYcHP'
+  - name: Fairy godmother
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Ancient spell</em> deals force damage, and when the grandmother
+          scores a critical hit with the attack, the target is *weakened* (save
+          ends) and [[1d4]] of the grandmother&rsquo;s nearby allies heal [[30]]
+          hp.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: oT7P1ffcyw0dsWhu
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033365633
+      modifiedTime: 1708033436635
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.oT7P1ffcyw0dsWhu'
+  - name: Fate
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Ancient spell</em> now targets MD and deals psychic damage. In
+          addition, a target hit by ancient spell can&rsquo;t use the escalation
+          die until the end of its next turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 3dZHSkhUXzmaGHjC
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033365767
+      modifiedTime: 1708033451333
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.3dZHSkhUXzmaGHjC'
+  - name: Grandmother-witch
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Ancient spell</em> deals negative energy damage, and when
+          grandmother rolls a natural even hit with ancient spell against an
+          enemy engaged with her, she can make a <em>pestle</em> melee attack as
+          a free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WOohctpbGmrzTRHt
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033365900
+      modifiedTime: 1708033472133
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.WOohctpbGmrzTRHt'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The grandmother flies somehow, either through a magic item or by
+          using spells that have become second nature.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: rGMgVaFuyoVZqmzW
+    effects: []
+    folder: null
+    sort: -100000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033374667
+      modifiedTime: 1708033538314
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.rGMgVaFuyoVZqmzW'
+  - name: Bad idea
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a creature attacks grandmother, it takes [[1d6*10]] damage of
+          the grandmother&rsquo;s special type on a hit, or [[1d3*5]] damage of
+          that type on a miss.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: p9gw1xF7aQDoo4qB
+    effects: []
+    folder: null
+    sort: -200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033374785
+      modifiedTime: 1708033523584
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!eNMLeghrlFFqAItV.p9gw1xF7aQDoo4qB'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708033331437
+  modifiedTime: 1708033538314
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!eNMLeghrlFFqAItV'
+
