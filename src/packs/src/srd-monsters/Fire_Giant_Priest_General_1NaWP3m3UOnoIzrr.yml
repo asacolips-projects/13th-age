@@ -1,0 +1,506 @@
+name: Fire Giant Priest-General
+type: npc
+_id: 1NaWP3m3UOnoIzrr
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 360
+      min: 0
+      max: 360
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: large
+    type:
+      value: giant
+    resistance:
+      value: ''
+    vulnerability:
+      value: cold
+prototypeToken:
+  name: Fire Giant Priest-General
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Spear of burning iron
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: Up to three nearby enemies take [[20]] ongoing fire damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[40]] damage'
+      embeddedMacro:
+        value: ''
+    _id: CEm9FcdIKG6TAgfL
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034358888
+      modifiedTime: 1708034437659
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.CEm9FcdIKG6TAgfL'
+  - name: 'R: Unyr’s divine fist'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. AC ([[1d4]] nearby or faraway enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[70]] holy damage and [[25]] ongoing fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: Target is *vulnerable* to fire damage (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: Standard action when the escalation die is even.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[35]] holy damage'
+      embeddedMacro:
+        value: ''
+    _id: DOZ2M3pT88Yhyi5L
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034359076
+      modifiedTime: 1708034468570
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.DOZ2M3pT88Yhyi5L'
+  - name: Free the sacred flame
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever the fire giant priest-general makes an attack that
+          staggers a target or reduces a target to 0 hp or fewer, each non-mook
+          fire giant in the battle heals [[25]] hp.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8ItN7IInZIDh2MEv
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034359846
+      modifiedTime: 1708034481241
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.8ItN7IInZIDh2MEv'
+  - name: Resist fire 18+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a fire attack targets this creature, the attacker must roll a
+          natural 18+ on the attack roll or it only deals half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xyVAhavtvzy8OmNi
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034360004
+      modifiedTime: 1708034490458
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.xyVAhavtvzy8OmNi'
+  - name: Superior fire aura
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies engaged with a fire giant at the end of their turn take
+          fire damage equal to the escalation die value times ten ([[@ed*10]])
+          if they have not taken fire damage since the end of their last turn.
+          Enemies who resist fire damage take half damage from this fire
+          giant&rsquo;s fire aura.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8jdVFHfuiYadyORA
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034360129
+      modifiedTime: 1708034511537
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.8jdVFHfuiYadyORA'
+  - name: Greater fist of Unyr
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle, the fire giant priest- general can use
+          <em>Unyr&rsquo;s divine fist</em> as a quick action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: wOfj59246f9huPCX
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034363105
+      modifiedTime: 1708034528003
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.wOfj59246f9huPCX'
+  - name: Building flame
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever the fire giant priest-general makes an attack that
+          staggers a target or reduces a target to 0 hp or fewer, enemies lose
+          their fire resistances until the escalation die next advances.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: f3Wx2aQTS9ljspYx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034363258
+      modifiedTime: 1708034539602
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.f3Wx2aQTS9ljspYx'
+  - name: Incandescent holy blaze
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Fire attacks that miss the fire giant do not damage it and have no
+          effect, and the fire giant instead heals hp equal to five times the
+          attacker&rsquo;s level.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: iFQuGK2wnYSo3ytj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034363397
+      modifiedTime: 1708034565101
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1NaWP3m3UOnoIzrr.iFQuGK2wnYSo3ytj'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708034321667
+  modifiedTime: 1708034565101
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!1NaWP3m3UOnoIzrr'
+

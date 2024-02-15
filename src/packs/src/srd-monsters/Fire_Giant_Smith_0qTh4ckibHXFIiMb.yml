@@ -1,0 +1,517 @@
+name: Fire Giant Smith
+type: npc
+_id: 0qTh4ckibHXFIiMb
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 180
+      min: 0
+      max: 180
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: large
+    type:
+      value: giant
+    resistance:
+      value: ''
+    vulnerability:
+      value: cold
+prototypeToken:
+  name: Fire Giant Smith
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Burning hammer
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage, and [[10]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit against a target wearing metal armor
+        value: '[[20]] ongoing fire damage.'
+      hit2:
+        type: String
+        label: Hit
+        name: Crit against a target with metal armor and/or shield
+        value: >-
+          The armor and/or shield is shattered, the target now counts as
+          unarmored with no shield. Magic armors and shields get a save (12
+          minus the magical AC bonus—so between 11+ for a +1 shield to 7+ for
+          cursed epic +5 armor) to avoid shattering.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: r6fxgrUd2hsn9qCa
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034064998
+      modifiedTime: 1708034124703
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.r6fxgrUd2hsn9qCa'
+  - name: 'C: Awaken the primal fire'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. PD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] ongoing fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Aftereffect
+        value: >-
+          Once the target saves against the ongoing fire damage, until the end
+          of the day each time they spend a recovery they also take [[2d10]]
+          fire damage.
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle, as a quick action.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] fire damage'
+      embeddedMacro:
+        value: ''
+    _id: 1R9cRk64rALStKxI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034065147
+      modifiedTime: 1708034156468
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.1R9cRk64rALStKxI'
+  - name: 'R: Reforge the firmament'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. PD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[20]] fire damage, and [[15]] ongoing fire damage and the target is
+          *stuck*, save ends both.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: TEgBBmqzBrmlu6Lp
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034065297
+      modifiedTime: 1708034182669
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.TEgBBmqzBrmlu6Lp'
+  - name: Heat metal
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies who start their turn nearby the fire giant smith take fire
+          damage, unless they resist fire damage. If the enemy is wearing metal
+          armor they take [[2d6]] fire damage, enemies wielding a metal weapon
+          take [[1d6]] fire damage, and enemies with an offhand weapon or shield
+          take [[1d6]] fire damage, and those with coins or clasps of metal take
+          [[1d4]] fire damage&mdash;a maximum of 4d6+1d4 fire damage. Enemies
+          with absolutely no metal items or belongings ignore this ability.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: aMy5iCCCLD4jd5D2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034080639
+      modifiedTime: 1708034227958
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.aMy5iCCCLD4jd5D2'
+  - name: Resist fire 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a fire attack targets this creature, the attacker must roll a
+          natural 16+ on the attack roll or it only deals half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: YocRk44NjzBdz1tf
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034080781
+      modifiedTime: 1708034235464
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.YocRk44NjzBdz1tf'
+  - name: Fire aura
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Enemies engaged with a fire giant holy warrior at the end of their
+          turn take fire damage equal to the escalation die value times five
+          ([[@ed*5]]) if they have not taken fire damage since the end of their
+          last turn. Enemies who resist fire damage ignore this fire
+          giant&rsquo;s fire aura.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tnW9sQ8j73R7CyTI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.qSPzqbjstcYA04gv.Item.yaNv3aHyuJE82rqC
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708033887227
+      modifiedTime: 1708034082137
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.tnW9sQ8j73R7CyTI'
+  - name: Holy blaze
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Fire attacks that miss the fire giant smith do not damage it and
+          have no effect, and the fire giant instead heals hp equal to twice the
+          attacker&rsquo;s level.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: pcJr5O8NylDyMPgU
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708034084098
+      modifiedTime: 1708034255853
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0qTh4ckibHXFIiMb.pcJr5O8NylDyMPgU'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708034045243
+  modifiedTime: 1708034255853
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!0qTh4ckibHXFIiMb'
+
