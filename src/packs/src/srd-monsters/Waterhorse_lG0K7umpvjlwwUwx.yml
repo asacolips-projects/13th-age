@@ -1,0 +1,521 @@
+name: Waterhorse
+type: npc
+_id: lG0K7umpvjlwwUwx
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 162
+      min: 0
+      max: 162
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 11
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Waterhorse
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Hoofbeating
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[19]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: Beast form only, but OK while hampered.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WJqjAHkAEXfQDdC9
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707957105619
+      modifiedTime: 1707957133298
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!lG0K7umpvjlwwUwx.WJqjAHkAEXfQDdC9'
+  - name: Crushing grasp
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[22]] damage plus [[10]] ongoing damage (no save, ends when the
+          victim is no longer engaged with the water horse)
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: Humanoid form only, but OK while hampered.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ISplVtD1zUCFs1RT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707957105901
+      modifiedTime: 1707957152531
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!lG0K7umpvjlwwUwx.ISplVtD1zUCFs1RT'
+  - name: 'C: A truly wild ride'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. MD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          The victim is drawn to the waterhorse in its black charger form and
+          happily mounts the beast (treat it as a teleport for simplicity’s
+          sake). Once they are astride, the waterhorse attempts to flee into the
+          nearest body of water, taking the rider with them. To prevent this,
+          the rider can attempt a DC 25 Strength-based control check as a quick
+          action (1d20 + level + Strength modifier + any relevant background +
+          escalation die). If they succeed, the rider gains control of the
+          creature and can either dismount or steer it to where they wish,
+          potentially with a view to stealing its bridle on their next turn
+          (requiring a successful attack roll with that specified aim). If the
+          rider does not attempt to steal the bridle on their next turn, they
+          must make another DC 25 check to remain in control. Stealing the
+          bridle turns the waterhorse into its humanoid form and throws the
+          rider clear. If the rider fails to control the creature at any point,
+          it converts its next standard action to a move action, using it and
+          any other move actions it may have to enter the water and trigger its
+          watery grave attack 1 round later. The rider can continue to make
+          control checks until watery grave is activated.
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: Beast form only, and only when the escalation die is 3+.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: euL5BCsk2Qy7RWXO
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707957106052
+      modifiedTime: 1707957248249
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!lG0K7umpvjlwwUwx.euL5BCsk2Qy7RWXO'
+  - name: '[Special trigger] Watery grave'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          Any creature not in control of the waterhorse is dragged beneath the
+          surface of the lake. They no longer make control checks and instead
+          begin to make last gasp saves. If they accrue five failures, they
+          drown. Their bones will make a nice addition to the pile, as soon as
+          the waterhorse has finished gnawing on them.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BRyfX748y7tk1EO6
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707957110071
+      modifiedTime: 1707957277570
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!lG0K7umpvjlwwUwx.BRyfX748y7tk1EO6'
+  - name: Shapechanger
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a standard action, the waterhorse can change between its true
+          hairy humanoid appearance and its black charger disguise. A successful
+          DC 25 skill check is required to see through the shapechange. If the
+          waterhorse loses its bridle, it cannot change shape again until it
+          recovers it. Blame the creature&rsquo;s lack of imagination for its
+          limited forms.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 3fMyQV372zbD2RDX
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707957112103
+      modifiedTime: 1707957292976
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!lG0K7umpvjlwwUwx.3fMyQV372zbD2RDX'
+  - name: Not the first rodeo
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>The DC for a truly wild ride is now DC 30.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: uVq2m0bckWnOHw71
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707957115004
+      modifiedTime: 1707957309297
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!lG0K7umpvjlwwUwx.uVq2m0bckWnOHw71'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707957082862
+  modifiedTime: 1707957309297
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!lG0K7umpvjlwwUwx'
+
