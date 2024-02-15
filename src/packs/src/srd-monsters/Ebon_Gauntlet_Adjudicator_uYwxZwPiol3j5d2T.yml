@@ -1,0 +1,372 @@
+name: Ebon Gauntlet Adjudicator
+type: npc
+_id: uYwxZwPiol3j5d2T
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 130
+      min: 0
+      max: 130
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+    size:
+      value: large
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Ebon Gauntlet Adjudicator
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Blade of adjudication
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The adjudicator can make an *echo of decay* attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: hgeCwvcxGv2RsIcc
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708016174492
+      modifiedTime: 1708016195118
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!uYwxZwPiol3j5d2T.hgeCwvcxGv2RsIcc'
+  - name: 'C: Echo of decay'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. PD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] ongoing negative energy; every time the target suffers the
+          damage, normal plants and animals next to the target wither or die
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XL7n9Fb8XI6SMpWB
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708016174633
+      modifiedTime: 1708016211047
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!uYwxZwPiol3j5d2T.XL7n9Fb8XI6SMpWB'
+  - name: Trollish regeneration 10
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While an adjudicator is damaged, its glyphed flesh heals [[10]] hit
+          points at the start of the adjudicator&rsquo;s turn. It can regenerate
+          five times per battle. If it heals to its maximum hit points, then
+          that use of regeneration doesn&rsquo;t count against the five-use
+          limit. When the adjudicator is hit by an attack that deals acid or
+          force damage, it loses one use of its regeneration, and it can&rsquo;t
+          regenerate during its next turn. Dropping an adjudicator to 0 hp
+          doesn&rsquo;t kill it if it has any uses of regeneration left.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WIVLORmu10a6ZhJT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708016175189
+      modifiedTime: 1708016231418
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!uYwxZwPiol3j5d2T.WIVLORmu10a6ZhJT'
+  - name: Fear of the Echo
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nearby enemies of the adjudicator are vulnerable to all
+          attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: YpmRqTYInZgulNg0
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708016175683
+      modifiedTime: 1708016240970
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!uYwxZwPiol3j5d2T.YpmRqTYInZgulNg0'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708016154568
+  modifiedTime: 1708016240970
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!uYwxZwPiol3j5d2T'
+

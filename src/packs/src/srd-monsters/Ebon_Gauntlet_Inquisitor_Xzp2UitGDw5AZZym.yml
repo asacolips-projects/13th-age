@@ -1,0 +1,469 @@
+name: Ebon Gauntlet Inquisitor
+type: npc
+_id: Xzp2UitGDw5AZZym
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 190
+      min: 0
+      max: 190
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Ebon Gauntlet Inquisitor
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Rune dagger
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[28]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The target is *weakened* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 2GUN5D79bd7k7IGm
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017346218
+      modifiedTime: 1708017363338
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Xzp2UitGDw5AZZym.2GUN5D79bd7k7IGm'
+  - name: 'C: Judgment of the Zealous Icon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. MD (one or two nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[28]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd hit
+        value: >-
+          The target lies prostrate in front of the inquisitor until the
+          beginning of their next turn. While in this position, enemies gain a
+          +4 attack bonus against the target.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BZyOiU2zFAR79dHj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017346367
+      modifiedTime: 1708017383054
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Xzp2UitGDw5AZZym.BZyOiU2zFAR79dHj'
+  - name: Call to action
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once a round, as a quick action, the inquisitor can spur a nearby
+          ally into making an at-will attack as a free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 9xCl6IxCSkMowdBx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017347466
+      modifiedTime: 1708017396176
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Xzp2UitGDw5AZZym.9xCl6IxCSkMowdBx'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The inquisitor sits upon a flying throne. As a rule, it can&rsquo;t
+          fly extremely high, but it can usually fly just a little faster than a
+          victim can run.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: c0ToaZdOx4GQIrTX
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017347582
+      modifiedTime: 1708017405783
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Xzp2UitGDw5AZZym.c0ToaZdOx4GQIrTX'
+  - name: Vision of the Echo
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The inquisitor can use the&nbsp;<em>vision of the echo</em>
+          attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: SHpRdxEyuEjqmJqg
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017348250
+      modifiedTime: 1708017426379
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Xzp2UitGDw5AZZym.SHpRdxEyuEjqmJqg'
+  - name: 'R: Vision of the Echo'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. MD (1 nearby or faraway target)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[56]] psychic damage, and the target is *stunned* until the beginning
+          of the inquisitor’s next turn. At the end of the battle, the target
+          must roll a normal save; if it fails, it ages one year
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 5EsPA7oKOzYbr2TH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017443170
+      modifiedTime: 1708017482261
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Xzp2UitGDw5AZZym.5EsPA7oKOzYbr2TH'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708017330607
+  modifiedTime: 1708017482261
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!Xzp2UitGDw5AZZym'
+

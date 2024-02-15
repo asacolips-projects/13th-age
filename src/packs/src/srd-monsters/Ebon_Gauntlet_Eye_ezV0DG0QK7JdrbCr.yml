@@ -1,0 +1,438 @@
+name: Ebon Gauntlet Eye
+type: npc
+_id: ezV0DG0QK7JdrbCr
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 78
+      min: 0
+      max: 78
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Ebon Gauntlet Eye
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Touch of pain
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[10]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: Add the escalation die to the damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: yAZyucKpQb6SKgSY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017098476
+      modifiedTime: 1708017116012
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ezV0DG0QK7JdrbCr.yAZyucKpQb6SKgSY'
+  - name: 'R: Mind spike'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD (one nearby or faraway enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[21]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The target takes a –4 penalty to all its defenses until the end of the
+          eye’s next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: j5P9Zjoe5zvl0Z9r
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017098872
+      modifiedTime: 1708017136164
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ezV0DG0QK7JdrbCr.j5P9Zjoe5zvl0Z9r'
+  - name: 'R: Echo of nightmares'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD ([[1d3]] nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[20]] psychic damage, and the target is *hampered* and *dazed* (save
+          ends both); the target can remove these conditions by taking an
+          additional [[10]] psychic damage and allowing one of its most terrible
+          memories to ripple through its nearby allies, dealing [[1]] psychic
+          damage to each nearby ally
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          1/battle after the Ebon Gauntlet eye has hit with at least one mind
+          spike attack.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: iASA9NLdzbiCKy8X
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017099044
+      modifiedTime: 1708017207136
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ezV0DG0QK7JdrbCr.iASA9NLdzbiCKy8X'
+  - name: Gray shift
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per hit it has scored this battle, as a move action, the eye
+          can teleport to any nearby location it can see.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: nLRATuHnyIyQtHhg
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017100423
+      modifiedTime: 1708017217764
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ezV0DG0QK7JdrbCr.nLRATuHnyIyQtHhg'
+  - name: Echo fade
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle, as an interrupt action, the eye can gain resist
+          damage 18+ against attacks that target AC or PD. The resistance ends
+          when the eye makes an attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xSJorOi1xnyxlEvN
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708017100541
+      modifiedTime: 1708017227829
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ezV0DG0QK7JdrbCr.xSJorOi1xnyxlEvN'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708017078040
+  modifiedTime: 1708017227829
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!ezV0DG0QK7JdrbCr'
+
