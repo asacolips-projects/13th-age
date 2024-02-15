@@ -1,0 +1,531 @@
+name: Eidolon in War Form
+type: npc
+_id: GL7E0JXaz0A1Xeqc
+img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 162
+      min: 0
+      max: 162
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: triple
+    type:
+      value: spirit
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Eidolon in War Form
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Scissors, scythes, and chains
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[28]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The target takes [[14]] extra damage.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: >-
+          As above, and the eidolon grabs the target if doesn’t already have a
+          creature grabbed.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: k7XyBF5fU68vMciA
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021053326
+      modifiedTime: 1708021078819
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.k7XyBF5fU68vMciA'
+  - name: 'R: See the awful truth'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. MD (one nearby or faraway enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] psychic damage, and the target is *weakened* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Psychic link
+        value: >-
+          Each time a hit enemy rolls the save against weakened, one of its
+          allies (of the eidolon’s choice) takes [[14]] psychic damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: g0nFfOaLwCQjUR9X
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021053844
+      modifiedTime: 1708021104398
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.g0nFfOaLwCQjUR9X'
+  - name: 'C: The awful nature of reality'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. PD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          The target is *hampered* (save ends); each time the target fails the
+          save, it takes [[14]] psychic damage
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 34VVWGFWSJQl8l1n
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021054007
+      modifiedTime: 1708021134158
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.34VVWGFWSJQl8l1n'
+  - name: Undying
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an eidolon drops to 0 hp it becomes discorporate. The eidolon
+          isn&rsquo;t dead, just gone. It has lost its link to or focus upon the
+          time and place where the adventurers are. If adventurers drive off an
+          eidolon repeatedly it will probably just stay away. Eidolons can be
+          vindictive and hold grudges, but they have many possible worlds to
+          interact with and if a mortal proves too troublesome the eidolon will
+          move on. In general eidolons need defeating on three separate
+          occasions to convince them to stay away forever.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Ut4qIRCoFHt4qtan
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020710313
+      modifiedTime: 1708021137551
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.Ut4qIRCoFHt4qtan'
+  - name: Split reality
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The eidolon splits the party into different realities. Each player
+          rolls a [[/r d4]] for their character. That PC can only perceive and
+          interact with the eidolon and with other characters who rolled the
+          same number. That means PCs in different realities can&rsquo;t
+          communicate or affect each other in any way. For the rest of the
+          battle, each player rolls a [[/r d4]] at the start of the round to see
+          which reality their character is now in. At the start of each round,
+          the eidolon can choose which version(s) of reality its allies are
+          in.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xsWS01vQ324Ic462
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020712330
+      modifiedTime: 1708021138295
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.xsWS01vQ324Ic462'
+  - name: Warp time
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>At the start of each round two combatants swap places in the
+          initiative order as determined by the eidolon. Alternately, the
+          eidolon warps the momentum of the battle and the escalation die value
+          is determined at the start of the round with a [[/r d6]] roll.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ZN7rkb5teelgs4BX
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020712581
+      modifiedTime: 1708021139143
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.ZN7rkb5teelgs4BX'
+  - name: Reshuffle space
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The eidolon swaps the position of two creatures in the battle at
+          the start of the round. Alternately, if you are using minis and some
+          sort of map tiles you can rearrange the tiles with the minis still on
+          them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: LIM03vB1N4YK13v2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020712713
+      modifiedTime: 1708021140131
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GL7E0JXaz0A1Xeqc.LIM03vB1N4YK13v2'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708021036927
+  modifiedTime: 1708021140131
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!GL7E0JXaz0A1Xeqc'
+

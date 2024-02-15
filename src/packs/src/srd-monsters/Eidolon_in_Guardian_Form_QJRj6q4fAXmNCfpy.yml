@@ -1,0 +1,636 @@
+name: Eidolon in Guardian Form
+type: npc
+_id: QJRj6q4fAXmNCfpy
+img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 25
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 24
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 520
+      min: 0
+      max: 520
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: triple
+    type:
+      value: spirit
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Eidolon in Guardian Form
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Empowered weapon
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[70]] holy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Both attacks hit different targets
+        value: >-
+          The eidolon can make its divine proclamation this turn as a quick
+          action, but it is still only once per battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XVVOfaUJGpZdbsxJ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021281022
+      modifiedTime: 1708021302779
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.XVVOfaUJGpZdbsxJ'
+  - name: '[Once per battle] C: Divine proclamation'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+14]] vs. PD (all non- immortal creatures within the sound of its
+          voice)
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[25]] thunder damage, and [[25]] ongoing holy damage and target is
+          *weakened* (save ends both)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[25]] holy damage.'
+      embeddedMacro:
+        value: ''
+    _id: TWunB0CiPxaKg20v
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021281441
+      modifiedTime: 1708021331007
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.TWunB0CiPxaKg20v'
+  - name: '[Once per battle] R: Word of judgement'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+14]] vs. MD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[150]] holy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: The attack can be used again this battle.
+      embeddedMacro:
+        value: ''
+    _id: 147mu5CWjvGJwa1P
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021281964
+      modifiedTime: 1708021350583
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.147mu5CWjvGJwa1P'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This eidolon chooses to manifest wings, though its ability to fly
+          has very little to do with flapping them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ZVtbE8QHbl8GLvfD
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021283676
+      modifiedTime: 1708021359208
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.ZVtbE8QHbl8GLvfD'
+  - name: Chosen ones
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>PCs with positive icon relationships with the Religious Icon roll
+          those dice at the start of the battle, until the end of the battle
+          subtract the total rolled amount from any holy damage the adventurer
+          would otherwise take. This includes holy damage from creatures that
+          are not the eidolon.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: T9ZLOjYV2vo6mo6M
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021283823
+      modifiedTime: 1708021373456
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.T9ZLOjYV2vo6mo6M'
+  - name: Mission from the gods
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Until the eidolon makes its divine proclamation, natural odd attack
+          rolls against it miss.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: PAAiEU8qOesYMZRN
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708021285376
+      modifiedTime: 1708021381355
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.PAAiEU8qOesYMZRN'
+  - name: Undying
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an eidolon drops to 0 hp it becomes discorporate. The eidolon
+          isn&rsquo;t dead, just gone. It has lost its link to or focus upon the
+          time and place where the adventurers are. If adventurers drive off an
+          eidolon repeatedly it will probably just stay away. Eidolons can be
+          vindictive and hold grudges, but they have many possible worlds to
+          interact with and if a mortal proves too troublesome the eidolon will
+          move on. In general eidolons need defeating on three separate
+          occasions to convince them to stay away forever.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Qlddq7YCa2Ms8l3q
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020710313
+      modifiedTime: 1708021388011
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.Qlddq7YCa2Ms8l3q'
+  - name: Split reality
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The eidolon splits the party into different realities. Each player
+          rolls a [[/r d4]] for their character. That PC can only perceive and
+          interact with the eidolon and with other characters who rolled the
+          same number. That means PCs in different realities can&rsquo;t
+          communicate or affect each other in any way. For the rest of the
+          battle, each player rolls a [[/r d4]] at the start of the round to see
+          which reality their character is now in. At the start of each round,
+          the eidolon can choose which version(s) of reality its allies are
+          in.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: YLFI485QcFnozcNS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020712330
+      modifiedTime: 1708021390987
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.YLFI485QcFnozcNS'
+  - name: Warp time
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>At the start of each round two combatants swap places in the
+          initiative order as determined by the eidolon. Alternately, the
+          eidolon warps the momentum of the battle and the escalation die value
+          is determined at the start of the round with a [[/r d6]] roll.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 12mdy75MCpynbdPW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020712581
+      modifiedTime: 1708021391988
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.12mdy75MCpynbdPW'
+  - name: Reshuffle space
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The eidolon swaps the position of two creatures in the battle at
+          the start of the round. Alternately, if you are using minis and some
+          sort of map tiles you can rearrange the tiles with the minis still on
+          them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WZre6GKGwKwwMs9T
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708020712713
+      modifiedTime: 1708021393004
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!QJRj6q4fAXmNCfpy.WZre6GKGwKwwMs9T'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708021263898
+  modifiedTime: 1708021393004
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!QJRj6q4fAXmNCfpy'
+
