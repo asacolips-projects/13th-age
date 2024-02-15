@@ -1,0 +1,493 @@
+name: Hill Nymph (Oread)
+type: npc
+_id: jt8GK0RdpIj49zQ3
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 17
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 12
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 100
+      min: 0
+      max: 100
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 4
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: thunder
+prototypeToken:
+  name: Hill Nymph (Oread)
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Hardened fist
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[25]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 14+
+        value: >-
+          The target is *stuck* until the end of its next turn as a stone hand
+          rises from the ground to grasp it.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: As above, but save ends.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: F34XVUHiAD2oZIJu
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955923825
+      modifiedTime: 1707955950705
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.F34XVUHiAD2oZIJu'
+  - name: 'C: Hard words'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[20]] psychic damage, and the target is overcome by the cold beauty
+          and piercing words of the oread (save ends); while overcome, the
+          target takes a penalty to all defenses equal to the escalation die
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The target also takes the penalty to attacks.
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] psychic damage.'
+      embeddedMacro:
+        value: ''
+    _id: eLn6zcjfhk4PzwwB
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955923991
+      modifiedTime: 1707955986446
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.eLn6zcjfhk4PzwwB'
+  - name: Earth’s embrace
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle as a move action, the oread can pull one creature
+          currently overcome by its hard words attack under the ground into an
+          embrace with a part of its consciousness. The oread&rsquo;s physical
+          form remains above ground and continues to battle. The target remains
+          underground, taking no actions except to bond with the oread and
+          telepathically reveal its secrets to the oread until it saves. While
+          underground, it can&rsquo;t be seen or targeted by allies. Saving from
+          being overcome releases the target from underground.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: n5u4B7qK5LLUJHsJ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955925274
+      modifiedTime: 1707956013235
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.n5u4B7qK5LLUJHsJ'
+  - name: Resist weapon damage 12+
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a weapon attack targets this creature, the attacker must roll
+          a natural 12+ on the attack roll or it only deals half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: eobXoSAXn8Mvcdxw
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955926140
+      modifiedTime: 1707956022672
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.eobXoSAXn8Mvcdxw'
+  - name: Domain bound
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nymphs are tied to an area of land or water. Land areas will be at
+          most a couple miles wide; water areas might be much larger. As a rule,
+          nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 3YXzu9wI6BDeIp3y
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.dZNuOXlFpnn1OzQ2
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415347
+      modifiedTime: 1707956034591
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.3YXzu9wI6BDeIp3y'
+  - name: Limited immortality
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A nymph that drops to 0 hit points or is otherwise slain will
+          eventually return to life in its domain, so long as its domain and its
+          secret survives. After an hour, a nymph needs a hard save to return to
+          life. After eight hours, a nymph needs a normal save to return to
+          life. If the nymph has still not returned, roll an easy save at the
+          end of each 24 hours until the nymph succeeds.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Y5V3iyxGlO2jxW5i
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.VQalLgUCLGaLnDvR
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415395
+      modifiedTime: 1707956035478
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.Y5V3iyxGlO2jxW5i'
+  - name: Note on types
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nymphs with the humanoid type probably remember themselves. Nymphs
+          that have probably forgotten their original selves have the elemental
+          type.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: OBEwK13HCpGip0JY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.5DtwntvmiSLGrcNT
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415812
+      modifiedTime: 1707956036571
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!jt8GK0RdpIj49zQ3.OBEwK13HCpGip0JY'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707955899781
+  modifiedTime: 1707956036571
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!jt8GK0RdpIj49zQ3'
+

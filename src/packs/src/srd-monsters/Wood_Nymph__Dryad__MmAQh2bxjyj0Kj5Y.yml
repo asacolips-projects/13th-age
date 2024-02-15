@@ -1,0 +1,615 @@
+name: Wood Nymph (Dryad)
+type: npc
+_id: MmAQh2bxjyj0Kj5Y
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 76
+      min: 0
+      max: 76
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: fire
+prototypeToken:
+  name: Wood Nymph (Dryad)
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Sharp wooden fingers
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[12]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: mAoBXFQkWUB1Ntbk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955244443
+      modifiedTime: 1707955256773
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.mAoBXFQkWUB1Ntbk'
+  - name: 'R: Spiked acorn'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+6]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[11]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: yX5McqvtdoOyvbEK
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955244631
+      modifiedTime: 1707955269092
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.yX5McqvtdoOyvbEK'
+  - name: 'C: Willowy words'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. MD ([[1d2]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: The target is *confused* (save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The save is hard (16+) instead.
+      hit2:
+        type: String
+        label: Hit
+        name: Environmental boost
+        value: >-
+          The dryad gains a +4 bonus to the attack against targets that have
+          consumed natural food or water within the dryad’s domain within the
+          last day.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kMCTZ4C9Jph7jBKG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955244828
+      modifiedTime: 1707955300938
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.kMCTZ4C9Jph7jBKG'
+  - name: Tree stride
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a move action, a dryad can enter any living tree within its
+          domain it&rsquo;s touching and teleport to another tree within that
+          region. This movement doesn&rsquo;t provoke opportunity attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8YoxaYBSiWXctVct
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955246236
+      modifiedTime: 1707955312127
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.8YoxaYBSiWXctVct'
+  - name: Call tree friends
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Before the start of the battle, the dryad summons [[2d4]] awakened
+          trees that fight with it.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 6oC058TnY4fTXZhf
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955247278
+      modifiedTime: 1707955324502
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.6oC058TnY4fTXZhf'
+  - name: Entrancing beauty
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The dryad can appear as a beautiful wood elf. While speaking with
+          creatures outside of battle, the dryad can choose to add power to its
+          words to try to charm those listening. Make a <em>willowy words</em>
+          attack against each creature that can hear the dryad. On a hit,
+          instead of being confused, the target is *charmed* (as per the charm
+          person spell). It then considers the dryad a friend. Creatures missed
+          by the attackonly notice the charm attempt if it misses by 4 or more.
+          A dryad can attempt to charm a creature only once per day.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Y3b0nQeT6EVGWiJs
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955247429
+      modifiedTime: 1707955368344
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.Y3b0nQeT6EVGWiJs'
+  - name: Woodland grace
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The dryad can take an extra standard action during its turn when
+          the escalation die is even.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BkOfeTX1lE6oHFII
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955247550
+      modifiedTime: 1707955378149
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.BkOfeTX1lE6oHFII'
+  - name: Domain bound
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nymphs are tied to an area of land or water. Land areas will be at
+          most a couple miles wide; water areas might be much larger. As a rule,
+          nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: dZNuOXlFpnn1OzQ2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415347
+      modifiedTime: 1707955427584
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.dZNuOXlFpnn1OzQ2'
+  - name: Limited immortality
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A nymph that drops to 0 hit points or is otherwise slain will
+          eventually return to life in its domain, so long as its domain and its
+          secret survives. After an hour, a nymph needs a hard save to return to
+          life. After eight hours, a nymph needs a normal save to return to
+          life. If the nymph has still not returned, roll an easy save at the
+          end of each 24 hours until the nymph succeeds.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: VQalLgUCLGaLnDvR
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415395
+      modifiedTime: 1707955444390
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.VQalLgUCLGaLnDvR'
+  - name: Note on types
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nymphs with the humanoid type probably remember themselves. Nymphs
+          that have probably forgotten their original selves have the elemental
+          type.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 5DtwntvmiSLGrcNT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415812
+      modifiedTime: 1707955462118
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!MmAQh2bxjyj0Kj5Y.5DtwntvmiSLGrcNT'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707955223771
+  modifiedTime: 1707955462118
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!MmAQh2bxjyj0Kj5Y'
+

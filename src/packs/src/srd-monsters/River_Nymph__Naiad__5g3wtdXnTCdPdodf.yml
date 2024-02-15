@@ -1,0 +1,589 @@
+name: River Nymph (Naiad)
+type: npc
+_id: 5g3wtdXnTCdPdodf
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 80
+      min: 0
+      max: 80
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 9
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: River Nymph (Naiad)
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Fist of water
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+8]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[17]] damage, and the target pops free from the naiad'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: gXzbKd8kMbiwzl18
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955533048
+      modifiedTime: 1707955545637
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.gXzbKd8kMbiwzl18'
+  - name: 'R: Skipped river stone'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[12]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The attack targets another nearby enemy unless it’s already targeted
+          three enemies this way.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: i7Jbj0o42LSALLJr
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955533181
+      modifiedTime: 1707955568285
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.i7Jbj0o42LSALLJr'
+  - name: 'C: Watery words'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+8]] vs. MD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: The target is *confused* (save ends; see *the river’s song* below)
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: jyOUaODlG42weui0
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955533311
+      modifiedTime: 1707955590741
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.jyOUaODlG42weui0'
+  - name: The river’s song
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a creature is confused from the naiad&rsquo;s watery words
+          attack, it immediately moves into the water next to the naiad as a
+          free action to defend the naiad. The target takes half the damage of
+          the next attack that hits the naiad. During its turn, it doesn&rsquo;t
+          attack, instead moving to stay next to the naiad. Each time the target
+          fails its save, it will again defend the naiad against the next attack
+          that hits it, taking half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: RJKY4UVTtDAQ6jkT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955534869
+      modifiedTime: 1707955611448
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.RJKY4UVTtDAQ6jkT'
+  - name: One with the river
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A naiad can walk on the surface of water, making it seem shallow,
+          and it can swim through the water and breathe underwater with ease.
+          Its enemies might have a more difficult time engaging it.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 7s6eYXQrjLVyvEsx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955535016
+      modifiedTime: 1707955622238
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.7s6eYXQrjLVyvEsx'
+  - name: Naiad’s cleansing
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Each time a target confused by watery words fails its save, it will
+          forget something important. GM&rsquo;s choice or player&rsquo;s
+          suggestion!</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: iZhZ7O7tdtUtjhYP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955535579
+      modifiedTime: 1707955633185
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.iZhZ7O7tdtUtjhYP'
+  - name: Domain bound
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nymphs are tied to an area of land or water. Land areas will be at
+          most a couple miles wide; water areas might be much larger. As a rule,
+          nymphs can&rsquo;t leave the area they&rsquo;re bound to.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Ru2nJn3Jc7xi3CUG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.dZNuOXlFpnn1OzQ2
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415347
+      modifiedTime: 1707955636225
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.Ru2nJn3Jc7xi3CUG'
+  - name: Limited immortality
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A nymph that drops to 0 hit points or is otherwise slain will
+          eventually return to life in its domain, so long as its domain and its
+          secret survives. After an hour, a nymph needs a hard save to return to
+          life. After eight hours, a nymph needs a normal save to return to
+          life. If the nymph has still not returned, roll an easy save at the
+          end of each 24 hours until the nymph succeeds.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tfa6KDQjZGEgGu5B
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.VQalLgUCLGaLnDvR
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415395
+      modifiedTime: 1707955637205
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.tfa6KDQjZGEgGu5B'
+  - name: Note on types
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Nymphs with the humanoid type probably remember themselves. Nymphs
+          that have probably forgotten their original selves have the elemental
+          type.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 88VdDHKpnIpRVGEf
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.5DtwntvmiSLGrcNT
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1707955415812
+      modifiedTime: 1707955638223
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!5g3wtdXnTCdPdodf.88VdDHKpnIpRVGEf'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+  tWJ6KkFBgXXy34it: 3
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1707955511686
+  modifiedTime: 1707955638223
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!5g3wtdXnTCdPdodf'
+
