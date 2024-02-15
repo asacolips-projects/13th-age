@@ -1,0 +1,524 @@
+name: 'Elemental Beast Template: Earth'
+type: npc
+img: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 0
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 0
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 0
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 0
+      min: 0
+      max: 0
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 0
+    level:
+      type: Number
+      label: Level
+      value: 0
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: >-
+        <p>Any creature with the [BEAST] type can become an elemental beast,
+        just follow these guidelines.</p>
+
+        <p>The base creature loses whatever resistances and vulnerabilities it
+        had and gains those listed for its elemental affinity. It also gains
+        between one and three elemental abilities for that affinity from the
+        options below.</p>
+
+        <p>With just one ability, as well as a new vulnerability and resistance,
+        creatures that become elemental beasts aren&rsquo;t powerful or changed
+        enough to warrant adjusting their level for purposes of creating
+        encounters. However, you may want to up-level beasts with two or three
+        abilities depending on those abilities and your desired level of
+        difficulty, especially if you&rsquo;re creating a battle with several
+        elemental beasts.</p>
+
+        <p>For balance, simplicity, pacing, and playability, don&rsquo;t use
+        more than three abilities for an elemental beast.</p>
+
+        <p>(Drag items from this actor onto the actor you're augmenting.)</p>
+    role:
+      value: ''
+    size:
+      value: ''
+    type:
+      value: ''
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: 'Elemental Beast Template: Earth'
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/token-neutral.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Roots of earth
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When an effect would move this creature, roll a save. On a success,
+          the creature doesn&rsquo;t move.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: mwerhcLmaKCzPx6r
+    effects: []
+    folder: null
+    sort: -200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022799713
+      modifiedTime: 1708025568299
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.mwerhcLmaKCzPx6r'
+  - name: Resist force 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: oOtiidLYq6FTEI6W
+    effects: []
+    folder: null
+    sort: -200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022799991
+      modifiedTime: 1708025570216
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.oOtiidLYq6FTEI6W'
+  - name: Resist poison 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: L7yKyY7hgut2ffmP
+    effects: []
+    folder: null
+    sort: -200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022800163
+      modifiedTime: 1708025571646
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.L7yKyY7hgut2ffmP'
+  - name: Indomitable
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>This creature gains a +2 bonus to MD.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BJgSAItIlxRVq1kE
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022888535
+      modifiedTime: 1708025352562
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.BJgSAItIlxRVq1kE'
+  - name: Skin of stone
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature takes normal damage from critical hits. In addition,
+          once per battle as a free action, it can take only half damage from an
+          attack that hits.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: NTW89gXBDcqgijDW
+    effects: []
+    folder: null
+    sort: 500000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022889919
+      modifiedTime: 1708025361803
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.NTW89gXBDcqgijDW'
+  - name: Earthsea
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The creature gains the <em>burrower</em> trait if it does not
+          already have it.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 98qBzazCC9SYOItI
+    effects: []
+    folder: null
+    sort: 600000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022890333
+      modifiedTime: 1708025374411
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.98qBzazCC9SYOItI'
+  - name: Rockslide
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When this creature moves before making an attack, it deals
+          additional damage equal to [[2*@lvl]] on a hit.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 6rx0QHVsfCDItU5t
+    effects: []
+    folder: null
+    sort: 700000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708022891183
+      modifiedTime: 1708025391372
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.6rx0QHVsfCDItU5t'
+  - name: (Choose 1-3 of these)
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: on0tD6JEDRgJR78z
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708023489977
+      modifiedTime: 1708025564024
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.on0tD6JEDRgJR78z'
+  - name: Mending earth
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle as a standard action, this creature can heal [[15]]
+          hp or 20% of its maximum health, whichever is higher. It can only use
+          this ability while it is in contact with the ground.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: P4oZszeKhLclz9rr
+    effects: []
+    folder: null
+    sort: 800000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708025398641
+      modifiedTime: 1708025418344
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.P4oZszeKhLclz9rr'
+  - name: 'Vulnerability: thunder'
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: P1wqvM0FfYX4lLTh
+    effects: []
+    folder: null
+    sort: -100000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708025500236
+      modifiedTime: 1708025579057
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!06cof8vebYAe2YRf.P1wqvM0FfYX4lLTh'
+effects: []
+folder: null
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+    sheetDisplay:
+      tabs:
+        primary:
+          value: actions
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708022638972
+  modifiedTime: 1708025584643
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: 06cof8vebYAe2YRf
+sort: 0
+_key: '!actors!06cof8vebYAe2YRf'
+
