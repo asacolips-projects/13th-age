@@ -1,0 +1,477 @@
+name: Faun Outlaw
+type: npc
+_id: XgbQUmZFG7L74XZ2
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 18
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 92
+      min: 0
+      max: 92
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Faun Outlaw
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Destiny
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Choose either <em>Path of the Sword</em> or <em>Path of
+          Song</em>.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 2ZDmQojC3HYdJYm3
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026683293
+      modifiedTime: 1708027694986
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.2ZDmQojC3HYdJYm3'
+  - name: Thief’s dagger
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[24]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: >-
+          The outlaw also steals a random consumable magic item or wealth of
+          equivalent value from the target.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 676gDfK6OfWBEulZ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027712198
+      modifiedTime: 1708027729458
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.676gDfK6OfWBEulZ'
+  - name: Feint & dodge
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: The target is *stuck* until the end of its next turn
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: >-
+          The target instead loses all actions during its next turn and does
+          nothing as it gets tangled up.
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 2/battle, as a move action.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 2FwYZCAzNg4z0jQV
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027712344
+      modifiedTime: 1708027753592
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.2FwYZCAzNg4z0jQV'
+  - name: Path of the Sword
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Sucker punch</em>&mdash;<em>Feint &amp; dodge</em> now deals
+          [[7]] damage on a miss.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Sr6CtP3gdvMsDZD1
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027714031
+      modifiedTime: 1708027769045
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.Sr6CtP3gdvMsDZD1'
+  - name: Path of Song
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Swap PD and MD, and:</p>
+
+          <p><em>Blink</em>&mdash;<em>Thief&rsquo;s dagger</em> can be used
+          against a nearby enemy if the outlaw is not engaged. It does not
+          provoke opportunity attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ldShDIisqvZYRpTF
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027714176
+      modifiedTime: 1708027785947
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.ldShDIisqvZYRpTF'
+  - name: Full destiny
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The outlaw gains the other destiny benefit, and adds 1 to its lower
+          defense.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: B9z56Kw8ETQZgnar
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027715299
+      modifiedTime: 1708027794386
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.B9z56Kw8ETQZgnar'
+  - name: Fleet of foot
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Faun outlaws that flee from battle are quick and boosted with magic
+          that&rsquo;s all about escape. Pursuers must have some powerful magic
+          or iconic advantage to have a chance of catching them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: SU9UyOcrruQg3fyY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027715432
+      modifiedTime: 1708027805259
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!XgbQUmZFG7L74XZ2.SU9UyOcrruQg3fyY'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708027690240
+  modifiedTime: 1708027805259
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!XgbQUmZFG7L74XZ2'
+

@@ -1,0 +1,441 @@
+name: Faun Keeper
+type: npc
+_id: spYDa8lpVkB9I3tG
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 70
+      min: 0
+      max: 70
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: blocker
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Faun Keeper
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Destiny
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Choose either <em>Path of the Sword</em> or <em>Path of
+          Song</em>.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: sCX0emzuMFh12AHT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026683293
+      modifiedTime: 1708027324968
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!spYDa8lpVkB9I3tG.sCX0emzuMFh12AHT'
+  - name: Gnarled staff
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even miss
+        value: '[[5]] damage'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: khLcc04DJy8AbszP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027341726
+      modifiedTime: 1708027358289
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!spYDa8lpVkB9I3tG.khLcc04DJy8AbszP'
+  - name: 'C: Snare'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. PD (one nearby enemy engaged with an ally)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage, and the target pops free from the keeper’s ally'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The keeper engages the target.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 2WcKY52kDubAIP26
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027341871
+      modifiedTime: 1708027375340
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!spYDa8lpVkB9I3tG.2WcKY52kDubAIP26'
+  - name: Path of the Sword
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Sweep the leg</em>&mdash;On a natural odd hit with <em>gnarled
+          staff</em>, the target loses its next move action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: oBhYZ6eUppwUSitA
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027343961
+      modifiedTime: 1708027395870
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!spYDa8lpVkB9I3tG.oBhYZ6eUppwUSitA'
+  - name: Path of Song
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><span style="font-family: var(--font-primary); font-size:
+          var(--font-size-14);">Swap PD and MD, and:</span></p>
+
+          <p><span style="font-family: var(--font-primary); font-size:
+          var(--font-size-14);"><em>Thorny whip</em>&mdash;If the natural roll
+          with <em>snare</em> is above the target&rsquo;s Constitution, it deals
+          additional ongoing poison damage equal to [[2*@ed]] (save
+          ends).</span></p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Kmn1eNvQROGpoWSj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027344123
+      modifiedTime: 1708027427468
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!spYDa8lpVkB9I3tG.Kmn1eNvQROGpoWSj'
+  - name: Full destiny
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The keeper gains the other destiny benefit, and adds 1 to its lower
+          defense.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: S5uRCmLHXnxOkSJ4
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027346327
+      modifiedTime: 1708027468743
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!spYDa8lpVkB9I3tG.S5uRCmLHXnxOkSJ4'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708027321362
+  modifiedTime: 1708027468743
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!spYDa8lpVkB9I3tG'
+

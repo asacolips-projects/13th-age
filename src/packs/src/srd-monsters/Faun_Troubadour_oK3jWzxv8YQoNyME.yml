@@ -1,0 +1,470 @@
+name: Faun Troubadour
+type: npc
+_id: oK3jWzxv8YQoNyME
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 16
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 36
+      min: 0
+      max: 36
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 5
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Faun Troubadour
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: 'C: Heckle'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. MD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[5]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: Target is *hampered* (easy save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: Cannot be used on two consecutive rounds.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: cQYp19einChcJpax
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026679757
+      modifiedTime: 1708026709926
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.cQYp19einChcJpax'
+  - name: Bob and weave and headbutt
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: The troubadour pops free.
+      embeddedMacro:
+        value: ''
+    _id: HwEO8lV3uRk8IvbO
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026679904
+      modifiedTime: 1708026724195
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.HwEO8lV3uRk8IvbO'
+  - name: Destiny
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Choose either <em>Path of the Sword</em> or <em>Path of
+          Song</em>.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: TtwiXDnkKbmfOZND
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026683293
+      modifiedTime: 1708026739385
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.TtwiXDnkKbmfOZND'
+  - name: Path of the Sword
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Gang leader</em>&mdash;Creatures hit by <em>heckle</em> are
+          *vulnerable* to attack by the troubadour&rsquo;s allies until the
+          start of the troubadour&rsquo;s next turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ouwuYO9ablC2iDL5
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026684440
+      modifiedTime: 1708026761333
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.ouwuYO9ablC2iDL5'
+  - name: Path of Song
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Swap PD and MD, and:</p>
+
+          <p><em>Throw your voice</em>&mdash;Targets of <em>heckle</em> may not
+          attack the troubadour until the end of their next turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 87ZAMhYZBKpigZwq
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026684574
+      modifiedTime: 1708026830288
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.87ZAMhYZBKpigZwq'
+  - name: Full destiny
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The troubadour gains the other destiny benefit, and adds 1 to its
+          lower defense.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: KOSMcUcZVO1LwyOH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026686543
+      modifiedTime: 1708026815166
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.KOSMcUcZVO1LwyOH'
+  - name: Nice one!
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If an enemy rolls a natural 1 on an attack against the faun
+          troubadour, use <em>heckle</em> as a free action, but only against the
+          triggering enemy. This does not count as a use of heckle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: JeE45zrUklLQyo30
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026787240
+      modifiedTime: 1708026802862
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!oK3jWzxv8YQoNyME.JeE45zrUklLQyo30'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708026651901
+  modifiedTime: 1708026830288
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!oK3jWzxv8YQoNyME'
+

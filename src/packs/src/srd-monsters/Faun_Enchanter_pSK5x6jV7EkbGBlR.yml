@@ -1,0 +1,439 @@
+name: Faun Enchanter
+type: npc
+_id: pSK5x6jV7EkbGBlR
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 88
+      min: 0
+      max: 88
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Faun Enchanter
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Destiny
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Choose either <em>Path of the Sword</em> or <em>Path of
+          Song</em>.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kZ99ODMd3UEAxmNB
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026683293
+      modifiedTime: 1708027517104
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!pSK5x6jV7EkbGBlR.kZ99ODMd3UEAxmNB'
+  - name: Swift hoof
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] damage, and the enchanter pops free from the target'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 04l0nDgn3S1b4a0y
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027535544
+      modifiedTime: 1708027548077
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!pSK5x6jV7EkbGBlR.04l0nDgn3S1b4a0y'
+  - name: 'R: Whispered sonata'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[11]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Crit
+        value: The target is *dazed* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: pMu3nuJckvGcLOrh
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027535695
+      modifiedTime: 1708027568954
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!pSK5x6jV7EkbGBlR.pMu3nuJckvGcLOrh'
+  - name: Path of the Sword
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Shin kick</em>&mdash;On a natural even hit with <em>swift
+          hoof</em>, the target is *hampered* until the end of enchanter&rsquo;s
+          next turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 5v3TIZxvDjgtpRPF
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027537032
+      modifiedTime: 1708027611884
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!pSK5x6jV7EkbGBlR.5v3TIZxvDjgtpRPF'
+  - name: Path of Song
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Swap PD and MD, and:</p>
+
+          <p><em>Lullaby</em>&mdash;On a critical hit with <em>whispered
+          sonata</em>, the target must begin making last gasp saves instead of
+          being dazed. On the fourth failure, it falls unconscious.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: G8DYSiau6XxCWTQT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027537167
+      modifiedTime: 1708027622772
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!pSK5x6jV7EkbGBlR.G8DYSiau6XxCWTQT'
+  - name: Full destiny
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The enchanter gains the other destiny benefit, and adds 1 to its
+          lower defense.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lGZyFlkl3ZWFf8dl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027538184
+      modifiedTime: 1708027645916
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!pSK5x6jV7EkbGBlR.lGZyFlkl3ZWFf8dl'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708027509117
+  modifiedTime: 1708027645916
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!pSK5x6jV7EkbGBlR'
+

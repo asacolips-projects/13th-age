@@ -1,0 +1,441 @@
+name: Faun Ranger
+type: npc
+_id: sNqZkXhVauJJGJ3F
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 21
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 90
+      min: 0
+      max: 90
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: archer
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Faun Ranger
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Destiny
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Choose either <em>Path of the Sword</em> or <em>Path of
+          Song</em>.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: J3PGjbrMY5hYhmr4
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708026683293
+      modifiedTime: 1708027844583
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!sNqZkXhVauJJGJ3F.J3PGjbrMY5hYhmr4'
+  - name: Longsword
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          Make a second *longsword* attack, but ignore this trigger for the
+          second attack.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: x048LfJlfqt1fEPt
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027858316
+      modifiedTime: 1708027877692
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!sNqZkXhVauJJGJ3F.x048LfJlfqt1fEPt'
+  - name: 'R: Pinning shot'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC (two attacks vs. nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: The target is *stuck* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ptcWcn8ka8ZJm7vR
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027858442
+      modifiedTime: 1708027896579
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!sNqZkXhVauJJGJ3F.ptcWcn8ka8ZJm7vR'
+  - name: Path of the Sword
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p><em>Barbed arrowhead</em>&mdash;<em>Pinning shot</em> deals
+          [[1d12]] extra damage on a natural even hit.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ZC49zxdgJqcGUIaW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027859863
+      modifiedTime: 1708027939633
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!sNqZkXhVauJJGJ3F.ZC49zxdgJqcGUIaW'
+  - name: Path of Song
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Swap PD and MD, and:</p>
+
+          <p><em>Entangling arrows</em>&mdash;On a natural odd hit with
+          <em>pinning shot</em>, the target is *hampered* until the end of its
+          next turn. The target or an adjacent creature may spend a standard
+          action to remove this effect.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: a9JXgu8mJLArOmn1
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027860030
+      modifiedTime: 1708027931820
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!sNqZkXhVauJJGJ3F.a9JXgu8mJLArOmn1'
+  - name: Full destiny
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The ranger gains the other destiny benefit, and adds 1 to its lower
+          defense.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: gLzpDB7Qhkv5ooTN
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708027860564
+      modifiedTime: 1708027946603
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!sNqZkXhVauJJGJ3F.gLzpDB7Qhkv5ooTN'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708027840318
+  modifiedTime: 1708027946603
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!sNqZkXhVauJJGJ3F'
+
