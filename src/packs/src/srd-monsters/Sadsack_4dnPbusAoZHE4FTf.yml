@@ -1,0 +1,528 @@
+name: Sadsack
+type: npc
+_id: 4dnPbusAoZHE4FTf
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 19
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 16
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 24
+      min: 0
+      max: 24
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 1
+    level:
+      type: Number
+      label: Level
+      value: 2
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: normal
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Sadsack
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Jarring touch
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+7]] vs AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[4]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 2-5
+        value: Target is *hampered* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: PHtyLdi5mHL4wCho
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090452685
+      modifiedTime: 1708090469922
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.PHtyLdi5mHL4wCho'
+  - name: Contagious ennui
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Each enemy that misses an attack with a natural odd roll this
+          battle takes a -2 penalty to all its defenses until they score a
+          critical hit or the sadsack is reduced to 0 hit points. (As usual,
+          this ability does not stack.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: vM9O7tdcZPLAoo2J
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090453376
+      modifiedTime: 1708090483140
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.vM9O7tdcZPLAoo2J'
+  - name: Ghostly
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature has resist damage 12+ to all damage except holy
+          damage. A ghost can move through solid objects, but can&rsquo;t end
+          its turn inside them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: M3ibN4sor1LhW9Au
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090453508
+      modifiedTime: 1708090493647
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.M3ibN4sor1LhW9Au'
+  - name: Relic affinity
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Sadsacks are also vulnerable to the type of weapon or attack that
+          ended their lives. Interpret this liberally, GM.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: l08bTs5es8llOW0U
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090453662
+      modifiedTime: 1708090503672
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.l08bTs5es8llOW0U'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Gravity does not influence sadsacks unless they are staggered. When
+          they&rsquo;re staggered, they sink to the ground and stay there.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Omip6g5J8aoVEv7p
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090453794
+      modifiedTime: 1708090517340
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.Omip6g5J8aoVEv7p'
+  - name: Bound hauntings
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Most ghosts are bound to an area, usually the area of their death.
+          This ability won&rsquo;t come up much in play, but it does make it
+          seem likely that ghosts can be easier to get away from than other
+          monsters. Move far enough fast enough and the ghost returns to the
+          area it&rsquo;s bound to. Occasionally festivals for the dead or other
+          rituals can call bound ghosts from their hauntings, but those are
+          unusual and temporary circumstances.</p>
+
+          <p><strong>Exceptions</strong>: There may be ghosts that are bound to
+          people, or events, or phenomena that travel. There might even be
+          ghosts that aren&rsquo;t bound to anything, but at that stage there
+          are several other questions that surface and odd magical, iconic, or
+          unique intervention seems likely.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Hx2P7xMeCNEwpewo
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090571826
+      modifiedTime: 1708090662844
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.Hx2P7xMeCNEwpewo'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Most ghosts fly, though some may be quite slow, seeming to drift or
+          walking on air. Ghosts that fly in unusual ways will be flagged with
+          their own abilities.</p>
+
+          <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
+          constrained to act much like they acted when they were alive, and
+          flying wasn&rsquo;t part of their life package.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: wX9g5ojc4D0faie0
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090571952
+      modifiedTime: 1708090659749
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.wX9g5ojc4D0faie0'
+  - name: Unnatural touch
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Many ghosts can alter the temperature of their environment to more
+          closely match the underworld or afterlife that they&rsquo;ve so far
+          evaded. Sometimes that&rsquo;s icy cold, sometimes that&rsquo;s
+          burning hot, and sometimes it&rsquo;s just kind of normal, which would
+          go unnoticed unless the ghost is somewhere abnormal!</p>
+
+          <p><strong>Exceptions</strong>: This is more of a special effect of
+          ghost stories than part of a creature&rsquo;s combat abilities, and
+          you can safely ignore it unless you find telling moments when it adds
+          to the game.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1gphpVgsE4AJt6cT
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090572095
+      modifiedTime: 1708090656848
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.1gphpVgsE4AJt6cT'
+  - name: General Ghost Abilities
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: D7Rfwqnis7wIMhb7
+    effects: []
+    folder: null
+    sort: 100000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090626422
+      modifiedTime: 1708090655161
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!4dnPbusAoZHE4FTf.D7Rfwqnis7wIMhb7'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708090430692
+  modifiedTime: 1708090662844
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!4dnPbusAoZHE4FTf'
+

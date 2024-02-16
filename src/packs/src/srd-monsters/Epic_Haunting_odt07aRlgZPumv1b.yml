@@ -1,0 +1,506 @@
+name: Epic Haunting
+type: npc
+_id: odt07aRlgZPumv1b
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 36
+      min: 0
+      max: 36
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+    level:
+      type: Number
+      label: Level
+      value: 9
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+    size:
+      value: normal
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Epic Haunting
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Mob-based
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>For every separate mob of epic haunting mooks in the battle (mobs
+          start with at least four mooks), add a +1 bonus to the epic
+          haunting&rsquo;s attacks and +[[5]] to its damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: CXkuTZN61YG9ciDl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091575679
+      modifiedTime: 1708091596195
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.CXkuTZN61YG9ciDl'
+  - name: Ghostly
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature has resist damage 14+ to all damage except holy
+          damage. A ghost can move through solid objects, but can&rsquo;t end
+          its turn inside them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WDnkTZKVknP6i9YR
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091575837
+      modifiedTime: 1708091603416
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.WDnkTZKVknP6i9YR'
+  - name: Fear-boosters
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While there are three or more lesser, major, or epic haunting mooks
+          in a battle, the fear abilities of their allies affect enemies with
+          half again as many hit points as usual.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: KsZaJqaivQ53Oxu4
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091575982
+      modifiedTime: 1708091611197
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.KsZaJqaivQ53Oxu4'
+  - name: Terrible touch
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] negative energy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: H8Vw5kImt1ADbcEy
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091576581
+      modifiedTime: 1708091584433
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.H8Vw5kImt1ADbcEy'
+  - name: General Ghost Abilities
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: PIDEPbA33sq2tHVc
+    effects: []
+    folder: null
+    sort: 100000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.D7Rfwqnis7wIMhb7
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090626422
+      modifiedTime: 1708091612649
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.PIDEPbA33sq2tHVc'
+  - name: Bound hauntings
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Most ghosts are bound to an area, usually the area of their death.
+          This ability won&rsquo;t come up much in play, but it does make it
+          seem likely that ghosts can be easier to get away from than other
+          monsters. Move far enough fast enough and the ghost returns to the
+          area it&rsquo;s bound to. Occasionally festivals for the dead or other
+          rituals can call bound ghosts from their hauntings, but those are
+          unusual and temporary circumstances.</p>
+
+          <p><strong>Exceptions</strong>: There may be ghosts that are bound to
+          people, or events, or phenomena that travel. There might even be
+          ghosts that aren&rsquo;t bound to anything, but at that stage there
+          are several other questions that surface and odd magical, iconic, or
+          unique intervention seems likely.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: GYmnYBaZ09ycrjri
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.Hx2P7xMeCNEwpewo
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090571826
+      modifiedTime: 1708091613585
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.GYmnYBaZ09ycrjri'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Most ghosts fly, though some may be quite slow, seeming to drift or
+          walking on air. Ghosts that fly in unusual ways will be flagged with
+          their own abilities.</p>
+
+          <p><strong>Exceptions</strong>: Not all ghosts fly. Some seem
+          constrained to act much like they acted when they were alive, and
+          flying wasn&rsquo;t part of their life package.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: VUB1PHU0Dv5mcGND
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.wX9g5ojc4D0faie0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090571952
+      modifiedTime: 1708091614698
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.VUB1PHU0Dv5mcGND'
+  - name: Unnatural touch
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Many ghosts can alter the temperature of their environment to more
+          closely match the underworld or afterlife that they&rsquo;ve so far
+          evaded. Sometimes that&rsquo;s icy cold, sometimes that&rsquo;s
+          burning hot, and sometimes it&rsquo;s just kind of normal, which would
+          go unnoticed unless the ghost is somewhere abnormal!</p>
+
+          <p><strong>Exceptions</strong>: This is more of a special effect of
+          ghost stories than part of a creature&rsquo;s combat abilities, and
+          you can safely ignore it unless you find telling moments when it adds
+          to the game.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8ZWZpaaPPR3mIDNr
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.1gphpVgsE4AJt6cT
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708090572095
+      modifiedTime: 1708091616296
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!odt07aRlgZPumv1b.8ZWZpaaPPR3mIDNr'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708091551128
+  modifiedTime: 1708091616296
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!odt07aRlgZPumv1b'
+
