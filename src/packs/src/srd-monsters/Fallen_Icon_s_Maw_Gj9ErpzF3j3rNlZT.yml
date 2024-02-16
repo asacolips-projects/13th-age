@@ -1,0 +1,552 @@
+name: Fallen Icon’s Maw
+type: npc
+_id: Gj9ErpzF3j3rNlZT
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 28
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 25
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 25
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 1080
+      min: 0
+      max: 1080
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 20
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: >-
+        <p><strong>First PC campaign victory:</strong> The Fallen Icon&rsquo;s
+        Maw&rsquo;s tongue strike attack is now limited to a second attack with
+        no chance of a third attack, even if the second attack is a natural even
+        roll.</p>
+
+        <p><strong>Second PC campaign victory:</strong> Remove the snapping jaws
+        attack.</p>
+
+        <p><strong>Third PC campaign victory:</strong> Remove the charnel breath
+        attack.</p>
+
+        <p><strong>Fourth PC campaign victory:</strong> Remove the sweeping
+        shadow ability.</p>
+    role:
+      value: wrecker
+    size:
+      value: huge
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Fallen Icon’s Maw
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Tongue strike
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+ 17]] vs. AC (1 nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[150]] damage, and [[50]] ongoing negative energy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: Roll a second or third *tongue strike* against a different enemy.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ch4AF8F78bKD7scW
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106806707
+      modifiedTime: 1708106834910
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.ch4AF8F78bKD7scW'
+  - name: 'R: Charnel storm'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. MD (up to 3 nearby or faraway enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[120]] psychic damage, and [[30]] ongoing negative energy damage
+          (hard save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even miss
+        value: >-
+          [[60]] psychic damage, and [[15]] [[120]] psychic damage, and [[30]]
+          ongoing negative energy damage (hard save ends)
+      hit2:
+        type: String
+        label: Hit
+        name: Crit
+        value: The target is *vulnerable* (save ends).
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lFjtcSdvN5H7wPwu
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106807021
+      modifiedTime: 1708106883929
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.lFjtcSdvN5H7wPwu'
+  - name: 'C: Snapping jaws'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. PD (1 nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[180]] damage, and the target is *weakened* (hard save end, 16+)'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 2/battle
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[90]] damage'
+      embeddedMacro:
+        value: ''
+    _id: gdcaBhF7A9AxA4GD
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106807356
+      modifiedTime: 1708106916299
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.gdcaBhF7A9AxA4GD'
+  - name: Charnel breath
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. PD (each enemy engaged with it)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[50]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Quick use
+        value: 1/round, as a quick action
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Nlsqh4bHqInxirur
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106807689
+      modifiedTime: 1708106932394
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.Nlsqh4bHqInxirur'
+  - name: Empowered by death
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the last mook in a mob is slain nearby, or when a creature
+          drops to 0 hit points or dies in some other fashion nearby, the Fallen
+          Icon&rsquo;s Maw heals hit point equal to 10 &times; the creature (or
+          mob&rsquo;s) level.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: rYHVkqNrwxuv5mKF
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106809723
+      modifiedTime: 1708106948123
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.rYHVkqNrwxuv5mKF'
+  - name: Sweeping shadow
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the Fallen Icon&rsquo;s Maw is slain, the GM secretly rolls a
+          normal save (11+) at the end of each session, including this one. If
+          the save succeeds, the Fallen Icon regains a semblance of life: the
+          Fallen Icon&rsquo;s Shadow, the 13th level creature statted just
+          below, returns to life with attendant high priests and mages. If the
+          campaign somehow ends while the Fallen Icon&rsquo;s Maw and Fallen
+          Icon&rsquo;s Shadow are dead, well, it&rsquo;s not really dead, is
+          it?</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: G7Vwf147DLwdeFtU
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106809840
+      modifiedTime: 1708106970233
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.G7Vwf147DLwdeFtU'
+  - name: Fear aura
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While engaged with this creature, if the target has 120 hp or
+          fewer, it&rsquo;s *dazed* (&ndash;4 attack) and does not add the
+          escalation die to its attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: TEJNHXMsSnSeMO1p
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106812456
+      modifiedTime: 1708107011278
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!Gj9ErpzF3j3rNlZT.TEJNHXMsSnSeMO1p'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708106791672
+  modifiedTime: 1708107091631
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!Gj9ErpzF3j3rNlZT'
+

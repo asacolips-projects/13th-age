@@ -1,0 +1,407 @@
+name: Fallen Icon’s Shadow
+type: npc
+_id: ot6DzpD6S4MAQZyW
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 28
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 26
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 26
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 800
+      min: 0
+      max: 800
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 22
+    level:
+      type: Number
+      label: Level
+      value: 13
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: large
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Fallen Icon’s Shadow
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Great leeching
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[110]] negative energy damage, and Fallen Icon’s Shadow heals
+          [[2d6*10]] hit points
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd roll
+        value: Target also takes [[50]] ongoing negative energy damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: aurfSVoDLfEZVylj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708107114444
+      modifiedTime: 1708107152585
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ot6DzpD6S4MAQZyW.aurfSVoDLfEZVylj'
+  - name: 'R: Fanged shadows'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+18]] vs. MD ([[1d4]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[140]] psychic damage, and target is *dazed* (save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: '[[40]] ongoing psychic damage'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: W3zOvnvP6uYgCS32
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708107114598
+      modifiedTime: 1708107174746
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ot6DzpD6S4MAQZyW.W3zOvnvP6uYgCS32'
+  - name: Empowered by death
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the last mook in a mob is slain nearby, or when a creature
+          drops to 0 hit points or dies in some other fashion nearby, the Fallen
+          Icon&rsquo;s Shadow heals hit point equal to 10 &times; the creature
+          (or mob&rsquo;s) level.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: aEgqSp9S9DHrwgF2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708107115393
+      modifiedTime: 1708107183167
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ot6DzpD6S4MAQZyW.aEgqSp9S9DHrwgF2'
+  - name: Open maw
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die reaches 6, the battle ends as a campaign
+          loss for the player characters. The first consequence of the loss is
+          that the Fallen Icon&rsquo;s Shadow disappears and the Fallen
+          Icon&rsquo;s Maw returns to life at some other distant location.
+          Perhaps there is no other terrible consequence. Perhaps that&rsquo;s
+          enough.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: n8g6jyjuwnqwxUGk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708107115510
+      modifiedTime: 1708107197558
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ot6DzpD6S4MAQZyW.n8g6jyjuwnqwxUGk'
+  - name: Fear aura
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While engaged with this creature, if the target has 144 hp or
+          fewer, it&rsquo;s *dazed* (&ndash;4 attack) and does not add the
+          escalation die to its attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: W7k2g5s0kpp1AWoT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708107116098
+      modifiedTime: 1708107210406
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!ot6DzpD6S4MAQZyW.W7k2g5s0kpp1AWoT'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708107095631
+  modifiedTime: 1708107210406
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!ot6DzpD6S4MAQZyW'
+

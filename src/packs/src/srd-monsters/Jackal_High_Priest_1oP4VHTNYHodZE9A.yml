@@ -1,0 +1,477 @@
+name: Jackal High Priest
+type: npc
+_id: 1oP4VHTNYHodZE9A
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 24
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 332
+      min: 0
+      max: 332
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 17
+    level:
+      type: Number
+      label: Level
+      value: 10
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: double
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Jackal High Priest
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Morningstar of reckoning
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[70]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[35]] damage'
+      embeddedMacro:
+        value: ''
+    _id: ys0TnIqfkV6Dt9XO
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106544614
+      modifiedTime: 1708106564959
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1oP4VHTNYHodZE9A.ys0TnIqfkV6Dt9XO'
+  - name: 'R: Charnel wind'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. PD (1 or 2 nearby or faraway enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[88]] negative energy damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The high priest can make a *cull the weak* attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: uwUec62SJflH3mje
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106544801
+      modifiedTime: 1708106586095
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1oP4VHTNYHodZE9A.uwUec62SJflH3mje'
+  - name: '[Special trigger] C: Cull the weak'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+15]] vs. MD (1 nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[15]] psychic damage, and any ghoul or ghast attacking the target
+          gains a +5 attack bonus until the start of the priest’s next turn
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kT9uwqkhrWH4ziEa
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106545302
+      modifiedTime: 1708106601708
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1oP4VHTNYHodZE9A.kT9uwqkhrWH4ziEa'
+  - name: Summon ghouls
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The jackal high priest starts each battle accompanied by a mob of
+          [[/r 1d6+1]] 10th level greater summoned ghoul mooks. (The mooks
+          gained via this ability are accounted for in the building battle math
+          by the jackal priest&rsquo;s designation as a double-strength
+          monster.) At the start of each of the jackal priest&rsquo;s turns,
+          (whether or not the jackal high priest is engaged!) roll a [[/r d6]].
+          If you roll less than or equal to the escalation die, use the jackal
+          priest&rsquo;s standard action to add another mob of [[/r 1d6+1]]
+          greater summoned ghoul mooks to the battle. The newly summoned mooks
+          take their turn after the jackal high priest&rsquo;s turn. Stop
+          rolling the d6 after the ability has triggered to summon the second
+          mob of ghoul mooks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 2sEz0XTJPdPASKoR
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106546989
+      modifiedTime: 1708106678113
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1oP4VHTNYHodZE9A.2sEz0XTJPdPASKoR'
+  - name: Fear aura
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While engaged with this creature, if the target has 72 hp or fewer,
+          it&rsquo;s *dazed* (&ndash;4 attack) and does not add the escalation
+          die to its attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 6dRcYVdBSMjILRlX
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106547579
+      modifiedTime: 1708106649167
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1oP4VHTNYHodZE9A.6dRcYVdBSMjILRlX'
+  - name: Last rites
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a jackal high priest drops to 0 hp, each creature that
+          isn&rsquo;t allied with it must roll a hard save (16+). On a failure,
+          it takes [[12]] psychic damage. In addition, the high priest can use
+          <em>summon ghouls</em> as a free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: DTzms6NA4XtBtnkT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708106547720
+      modifiedTime: 1708106687888
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!1oP4VHTNYHodZE9A.DTzms6NA4XtBtnkT'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708106529548
+  modifiedTime: 1708106687888
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!1oP4VHTNYHodZE9A'
+
