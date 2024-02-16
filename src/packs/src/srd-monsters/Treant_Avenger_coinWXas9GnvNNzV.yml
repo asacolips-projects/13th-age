@@ -1,0 +1,266 @@
+name: Treant Avenger
+type: npc
+_id: coinWXas9GnvNNzV
+img: systems/archmage/assets/icons/tokens/monsters/plant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 30
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 28
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 22
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 76
+      min: 0
+      max: 76
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 15
+    level:
+      type: Number
+      label: Level
+      value: 12
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+    size:
+      value: normal
+    type:
+      value: plant
+    resistance:
+      value: ''
+    vulnerability:
+      value: fire
+prototypeToken:
+  name: Treant Avenger
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/plant.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Rending branches
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+17]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: '[[40]] extra damage'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: IvhdLRPgnTL2ecF7
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043310580
+      modifiedTime: 1708043324193
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!coinWXas9GnvNNzV.IvhdLRPgnTL2ecF7'
+  - name: Hardwood resistance
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature has resist damage 16+ to all damage except fire
+          damage and melee attacks against AC, which damage it normally.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lpMunXWTO4FZJINN
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043311247
+      modifiedTime: 1708043335506
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!coinWXas9GnvNNzV.lpMunXWTO4FZJINN'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708043287956
+  modifiedTime: 1708043335506
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!coinWXas9GnvNNzV'
+
