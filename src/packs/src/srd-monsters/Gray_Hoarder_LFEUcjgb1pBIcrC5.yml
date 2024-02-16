@@ -1,0 +1,343 @@
+name: Gray Hoarder
+type: npc
+_id: LFEUcjgb1pBIcrC5
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 15
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 75
+      min: 0
+      max: 75
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 7
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+    size:
+      value: double
+    type:
+      value: undead
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Gray Hoarder
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/undead.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Necromantic resistance
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The gray hoarder has resist negative energy 16+, as well as a +2
+          bonus to defenses and saves against attacks and effects that
+          specifically target undead.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 2u7lVjL9mCynFUhf
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091915080
+      modifiedTime: 1708092032838
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!LFEUcjgb1pBIcrC5.2u7lVjL9mCynFUhf'
+  - name: Scent of treasure
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The gray hoarder&rsquo;s crit range expands by the number of
+          heroic-tier true magic items that the target is attuned to. (Targets
+          with more of these items are preferred prey.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: O3HxXrLuNgn8oqZl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091915801
+      modifiedTime: 1708091993179
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!LFEUcjgb1pBIcrC5.O3HxXrLuNgn8oqZl'
+  - name: Mine forever
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the gray hoarder starts its turn next to a fallen enemy, it will
+          spend a quick action to pick up a random magic item or implement
+          belonging to that enemy. The gray hoarder will then attempt to
+          disengage (if necessary) and move as quickly as possible from the
+          battle without taking opportunity attacks. (<em>Mine Forever</em> is
+          also triggered when acquiring an item by scoring a critical hit.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8xBnWh6E0IgKwntG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091915951
+      modifiedTime: 1708092020278
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!LFEUcjgb1pBIcrC5.8xBnWh6E0IgKwntG'
+  - name: Greedy claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+8]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[11]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Crit
+        value: >-
+          The target loses the use of a random heroic-tier true magic item that
+          the gray hoarder magically wrests away. The item can only be retrieved
+          as a standard action from the body of the slain gray hoarder.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tchzd6bM52ZRXTXT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708091916569
+      modifiedTime: 1708091947778
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!LFEUcjgb1pBIcrC5.tchzd6bM52ZRXTXT'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708091883082
+  modifiedTime: 1708092032838
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!LFEUcjgb1pBIcrC5'
+
