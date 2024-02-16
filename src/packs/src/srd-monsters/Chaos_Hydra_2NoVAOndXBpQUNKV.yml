@@ -1,0 +1,1162 @@
+name: Chaos Hydra
+type: npc
+_id: 2NoVAOndXBpQUNKV
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 20
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 300
+      min: 0
+      max: 300
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 14
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: >-
+        <p class="p1">This hydra starts with four heads, but they&rsquo;re not
+        always the same heads! Roll a d6 four times&nbsp;before the fight begins
+        to find out which heads the chaos hydra starts the battle with. A
+        head&nbsp;that starts the fight may not finish the battle, heads shift
+        mid-fight, and as usual for hydras,&nbsp;new heads sprout when the
+        creature takes serious damage.</p>
+    role:
+      value: wrecker
+    size:
+      value: huge
+    type:
+      value: beast
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Chaos Hydra
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Reaching necks
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>On its turn, the chaos hydra can use any of its teeth attacks
+          against nearby creatures it can see and get to, but has a -2 attack
+          penalty when using teeth attacks against creatures it not engaged
+          with.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: IsDQxGy0AgFqMRd9
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115915852
+      modifiedTime: 1708116375057
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.IsDQxGy0AgFqMRd9'
+  - name: Wild thrasher
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The chaos hydra&rsquo;s attacks deal full damage against creatures
+          it has not already hit this turn. If the chaos hydra attacks a
+          creature it has hit earlier in the turn, the attack only deals half
+          damage, hit or miss or crit.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: lnpR6s8Nr5O6ycWH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115915993
+      modifiedTime: 1708116388061
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.lnpR6s8Nr5O6ycWH'
+  - name: Too tough to trick
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Whenever the chaos hydra would suffer any of the following
+          conditions, it ignores the condition and takes [[10]] damage instead:
+          confused, dazed, hampered, stunned, or weakened.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: SiQWWOnIiZ9XcVGj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115916160
+      modifiedTime: 1708116401186
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.SiQWWOnIiZ9XcVGj'
+  - name: Sprout fifth head
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time the hydra is staggered, as a free action it gains
+          [[70]] hit points and a random fifth head. Roll [[1d6]] to determine
+          which head. The chaos hydra is considered undamaged at its new hit
+          point total. Using the hydra&rsquo;s current hit points as a new
+          baseline, the hydra will be staggered again when it drops below 50% of
+          that total.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 9mscNgbqfInJdyBw
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115916278
+      modifiedTime: 1708116422894
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.9mscNgbqfInJdyBw'
+  - name: Sprout sixth head
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The second time the hydra is staggered, as a free action it gains
+          [[70]] hit points and a random sixth head, etc. Use a new hit point
+          baseline as before, but there is no seventh head waiting to
+          sprout.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: taHdTRJwLicEVw6u
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115920551
+      modifiedTime: 1708116435852
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.taHdTRJwLicEVw6u'
+  - name: '1-2: Reptile head'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>No bonus.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 79QH6d0ENBDrPmAt
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115928398
+      modifiedTime: 1708115972646
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.79QH6d0ENBDrPmAt'
+  - name: Cutting teeth
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[46]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[15]] damage'
+      embeddedMacro:
+        value: ''
+    _id: BXxHeWUDyRLNAIoY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115929333
+      modifiedTime: 1708116003544
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.BXxHeWUDyRLNAIoY'
+  - name: '3: Serpent head'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>The hydra gains +2 PD.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: dI7f4ihzw7ihP9Jj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115930175
+      modifiedTime: 1708116018929
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.dI7f4ihzw7ihP9Jj'
+  - name: Serpent teeth
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage, and [[10]] ongoing poison damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] damage'
+      embeddedMacro:
+        value: ''
+    _id: kaJELKRPbsVVHktk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115930341
+      modifiedTime: 1708116049674
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.kaJELKRPbsVVHktk'
+  - name: '4: Great monstrous head'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hydra gains fear aura, adding *dazed* to engaged enemies with
+          fewer than 48 hit points and preventing them from using the escalation
+          die (for each additional great monstrous head, add +20 points to the
+          threshold).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: V2eCdSP7xscJBmXR
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708115931605
+      modifiedTime: 1708116247226
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.V2eCdSP7xscJBmXR'
+  - name: Monstrous teeth
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[60]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[20]] damage'
+      embeddedMacro:
+        value: ''
+    _id: xpZCbpVqUGMdOgka
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116069628
+      modifiedTime: 1708116136240
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.xpZCbpVqUGMdOgka'
+  - name: '5: Draconic head'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hydra gains +2 AC and adds the escalation die to its attack
+          rolls for either its draconic teeth attack or its minor breath weapon
+          attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: H8TCYfVEo4Lo99wT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116071760
+      modifiedTime: 1708116165785
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.H8TCYfVEo4Lo99wT'
+  - name: Draconic teeth
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: UM3Muxy9Sk9dG9fn
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116072173
+      modifiedTime: 1708116182604
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.UM3Muxy9Sk9dG9fn'
+  - name: 'C: Minor breath weapon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD (1 nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[40]] random energy damage (roll [[1d4]]; 1: acid, 2: cold; 3: fire;
+          4: lightning)
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          Make a second *minor breath weapon* attack against a random different
+          nearby enemy. This second attack lacks this natural even hit trigger.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: QdPPU6l0WvHyrUN7
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116072316
+      modifiedTime: 1708116239155
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.QdPPU6l0WvHyrUN7'
+  - name: '6: Chaos ray head'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hydra can either bite with <em>chaotic teeth</em> or use the
+          <em>chaos ray</em> attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BFS6vTdalZ6rDApE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116073237
+      modifiedTime: 1708116275489
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.BFS6vTdalZ6rDApE'
+  - name: Chaotic teeth
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[35]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: Target is *weakened* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: fZITexuiKiGEBzRs
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116073506
+      modifiedTime: 1708116299084
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.fZITexuiKiGEBzRs'
+  - name: 'R: Chaotic ray'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD (1 nearby or faraway enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[50]] random energy damage (roll [[1d4]]; 1: acid, 2: cold; 3: fire;
+          4: lightning)
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          Roll [[1d4]]; 1: Later this turn, hydra can teleport somewhere nearby
+          as a quick action, 2: Hydra gains flight until the end of its next
+          turn, 3: The next attack which hits the hydra must be rerolled with a
+          -2 attack penalty, 4: GM: roll on the High Weirdness Table and apply
+          the result in the most amusing way possible.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural odd miss
+        value: >-
+          After the attack, this head may shift into a new head; roll [[1d6]] to
+          determine the new (or maybe repeated!) head.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: GcyVwc0KF3ir0Tun
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708116073636
+      modifiedTime: 1708116347429
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!2NoVAOndXBpQUNKV.GcyVwc0KF3ir0Tun'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708115677771
+  modifiedTime: 1708116435852
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!2NoVAOndXBpQUNKV'
+
