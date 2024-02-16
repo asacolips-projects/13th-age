@@ -1,0 +1,756 @@
+name: Hallowed Gargoyle
+type: npc
+_id: UcT89YkGypZiqSts
+img: systems/archmage/assets/icons/tokens/monsters/construct.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 100
+      min: 0
+      max: 100
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: normal
+    type:
+      value: construct
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Hallowed Gargoyle
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/construct.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[9]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[3]] damage'
+      embeddedMacro:
+        value: ''
+    _id: OuBN7mYD7903mF65
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108594651
+      modifiedTime: 1708108619782
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.OuBN7mYD7903mF65'
+  - name: Drop like a stone
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[26]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: Target is *weakened* and *hampered* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          Only when the hallowed gargoyle starts its turn flying and ends its
+          turn engaged on the ground.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: zr61WJcgm4jjv26J
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108595135
+      modifiedTime: 1708108652193
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.zr61WJcgm4jjv26J'
+  - name: (Each hallowed gargoyle has one of the following attacks)
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: |-
+          <p>Choose, or roll a [[/r d3]]:</p>
+          <p><strong>1:</strong> <em>bizarrely beautiful chant</em></p>
+          <p><strong>2:</strong> <em>magic missiles</em></p>
+          <p><strong>3:</strong> <em>denunciation</em></p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4FR4OV4U7L8zr0qk
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108595694
+      modifiedTime: 1708108689523
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.4FR4OV4U7L8zr0qk'
+  - name: 'C: Bizarrely beautiful chant'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          One nearby ally can roll a save against a save ends effect. If no
+          allies are affected by a save ends effect, one nearby ally can make a
+          basic attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: EX0jpgZBkEP5XjbT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108595843
+      modifiedTime: 1708108728456
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.EX0jpgZBkEP5XjbT'
+  - name: 'R: Magic missiles'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ([[1d4]] nearby enemies)
+      hit:
+        type: String
+        label: Hit
+        value: '[[14]] force damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: zYMhK6E5zIZY1yLI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108595995
+      modifiedTime: 1708108744822
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.zYMhK6E5zIZY1yLI'
+  - name: 'C: Denunciation'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+11]] vs. MD (1 enemy that has attacked the hallowed gargoyle
+          this battle)
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The target is *hampered* (save ends)
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BmoBqg21krbpO5XY
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108597269
+      modifiedTime: 1708108777100
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.BmoBqg21krbpO5XY'
+  - name: Halo
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time the hallowed gargoyle is hit by an attack against
+          MD, reroll the attack with a -2 attack penalty. (Sometimes the halo
+          sputters, so if you forget to use it the first time, use the reroll
+          later in the battle.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 92q9JRaCgwah0Hg6
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108601451
+      modifiedTime: 1708108802530
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.92q9JRaCgwah0Hg6'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Hallowed gargoyles can fly, but not gracefully. Mid-air, they take
+          a -2 penalty to all their defenses, and it takes them two move actions
+          to get airborne unless they can launch from above.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ytb8qsfxgGb9WDcH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.lXtwFERHlKht6V5t
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108336963
+      modifiedTime: 1708108831323
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.ytb8qsfxgGb9WDcH'
+  - name: Rocky hide
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hallowed gargoyle has resist damage 12+ against attacks
+          targeting AC.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: D2wZmfdFXs52eTWf
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.dKgeCSYaDvZj9Nqf
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108337101
+      modifiedTime: 1708108839447
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.D2wZmfdFXs52eTWf'
+  - name: Mirrored aggression
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Hallowed gargoyles have some ability to sense intentions and a
+          larger capacity to react appropriately! PCs with a negative or
+          conflicted relationship with the Religious Icon are vulnerable to all
+          the hallowed gargoyles&rsquo; attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WqGkOZuiQpKXDySw
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.tLHf2HblAFUJNrWI
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108426722
+      modifiedTime: 1708108841703
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.WqGkOZuiQpKXDySw'
+  - name: Statues, statues, everywhere
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Because they look so much like statues, and because most of the
+          things that look like hallowed gargoyles are statues, hallowed
+          gargoyles are capable of springing a surprise on inattentive PCs. When
+          there&rsquo;s a chance of such an ambush, give the PCs a normal skill
+          check (DC 20 at champion-tier, DC 25 at epic tier) to notice the
+          gargoyles waking and avoid being surprised (13th Age core rulebook,
+          page 164).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: b03AH5mHz0CeXyJE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.kKLndh5ZO3uD0yxF
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708108427023
+      modifiedTime: 1708108842561
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!UcT89YkGypZiqSts.b03AH5mHz0CeXyJE'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708108577404
+  modifiedTime: 1708108842561
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!UcT89YkGypZiqSts'
+
