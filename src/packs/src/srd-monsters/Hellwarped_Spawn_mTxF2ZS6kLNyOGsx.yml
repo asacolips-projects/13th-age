@@ -1,0 +1,1009 @@
+name: Hellwarped Spawn
+type: npc
+_id: mTxF2ZS6kLNyOGsx
+img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 15
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 180
+      min: 0
+      max: 180
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: <p>Add 1d4 to initiative.</p>
+    role:
+      value: wrecker
+    size:
+      value: large
+    type:
+      value: aberration
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Hellwarped Spawn
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Piercing claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[17]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: First natural odd hit each turn
+        value: The hellwarped can make one aberrant attack as a free action.
+      hit2:
+        type: String
+        label: Hit
+        name: Dual miss
+        value: >-
+          The hellwarped gains a cumulative +1 attack bonus to its *claw*
+          attacks until the end of the battle.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: FHH7UFC81ZNbFjHO
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113152312
+      modifiedTime: 1708113191769
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.FHH7UFC81ZNbFjHO'
+  - name: Aberrant attacks - only one (see below)
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ONEm1HKMzU590qNA
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113153195
+      modifiedTime: 1708113561036
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.ONEm1HKMzU590qNA'
+  - name: Biting mandibles
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs AC'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[13]] damage, and the target is *stuck* (save ends); while the target
+          is stuck this way, at the start of the hellwarped’s turn, it
+          automatically deals [[13]] damage to the target but can’t make an
+          aberrant attack that turn.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: KEjdMw1kOd5BqPyC
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113153347
+      modifiedTime: 1708114024299
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.KEjdMw1kOd5BqPyC'
+  - name: Extra claw
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[19]] damage (and the claw can benefit from the dual miss effect).'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ZOfpkNlEpkFcinsC
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113153513
+      modifiedTime: 1708114036733
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.ZOfpkNlEpkFcinsC'
+  - name: Lashing tentacle
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[5]] damage, and the target is *weakened* (save ends); the first time
+          the target fails this save, it becomes *stunned* instead (save ends).
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: KgqSzRYkG1HdaC3g
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113154417
+      modifiedTime: 1708114048100
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.KgqSzRYkG1HdaC3g'
+  - name: 'C: Antennae waveburst'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[5]] psychic damage, and the target must roll an immediate save. If
+          it fails, it’s *confused* until the end of its next turn.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1Y8HzRGTa5JbWHwH
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113154585
+      modifiedTime: 1708114061855
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.1Y8HzRGTa5JbWHwH'
+  - name: 'R: Shooting quills'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (one nearby enemy not engaged with it)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] damage. In addition, it takes only half damage from opportunity
+          attacks thanks to the spikes covering it.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: h74OxExuT0qBDSOG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113154699
+      modifiedTime: 1708114078526
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.h74OxExuT0qBDSOG'
+  - name: Aberrant attacks
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>While building a battle with a hellwarped beast, roll once on the
+          Aberrant Attacks table to see what type of attack it has. The spawn
+          can use its aberrant attack normally, or trigger it with a
+          <em>piercing claws</em> attack.</p>
+
+          <table style="width: 100%;" border="1"><colgroup><col style="width:
+          13.7519%;"><col style="width: 86.2481%;"></colgroup>
+
+          <tbody>
+
+          <tr>
+
+          <td>[[/r d6]]</td>
+
+          <td>Attack</td>
+
+          </tr>
+
+          <tr>
+
+          <td>1</td>
+
+          <td>Biting mandibles</td>
+
+          </tr>
+
+          <tr>
+
+          <td>2</td>
+
+          <td>Extra claw</td>
+
+          </tr>
+
+          <tr>
+
+          <td>3</td>
+
+          <td>Lashing tentacle</td>
+
+          </tr>
+
+          <tr>
+
+          <td>4</td>
+
+          <td>Antennae waveburst</td>
+
+          </tr>
+
+          <tr>
+
+          <td>5</td>
+
+          <td>Shooting quills</td>
+
+          </tr>
+
+          <tr>
+
+          <td>6</td>
+
+          <td>Charging horn slam</td>
+
+          </tr>
+
+          </tbody>
+
+          </table>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: oV0f8XbVmyt4vVO5
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113156297
+      modifiedTime: 1708113520678
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.oV0f8XbVmyt4vVO5'
+  - name: Infected by hell
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As creatures created by the energies of hellholes, hellwarped
+          beasts are usually also affected by powers that affect demons. GM,
+          it&rsquo;s your call. In exchange, feel free to allow the hellwarped
+          to deal fire, cold, acid, lightning, or thunder damage with its
+          aberrant attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: UzT4u2wuM2x8jIJg
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113157531
+      modifiedTime: 1708113264854
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.UzT4u2wuM2x8jIJg'
+  - name: Mutated form
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Since different creatures become hellwarped beasts, some are
+          tougher or hardier than others. Before battle, roll a d6 and adjust
+          the hellwarped&rsquo;s stats accordingly.&nbsp;</p>
+
+          <ol>
+
+          <li>
+
+          <table style="width: 100%; height: 119px;" border="1"><colgroup><col
+          style="width: 11.7089%;"><col style="width: 88.2911%;"></colgroup>
+
+          <tbody>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">[[/r d6]]</td>
+
+          <td style="height: 17px;">Effect</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">1</td>
+
+          <td style="height: 17px;">&ndash;2 to all defenses</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">2</td>
+
+          <td style="height: 17px;">+2 to all defenses</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">3</td>
+
+          <td style="height: 17px;">&ndash;10% to hit points</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">4</td>
+
+          <td style="height: 17px;">+10% to hit points</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">5</td>
+
+          <td style="height: 17px;">&ndash;1 to all attacks</td>
+
+          </tr>
+
+          <tr style="height: 17px;">
+
+          <td style="height: 17px;">6</td>
+
+          <td style="height: 17px;">+1 to all attacks</td>
+
+          </tr>
+
+          </tbody>
+
+          </table>
+
+          </li>
+
+          </ol>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: jrfzmttzSRRizG9e
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113157683
+      modifiedTime: 1708113418924
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.jrfzmttzSRRizG9e'
+  - name: Special movement
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The hellwarped has <em>flight</em>, <em>burrow</em>, an extra move
+          action, the ability to teleport as a move action, or some other
+          movement related ability of your choice. Decrease all its defenses by
+          1 due to the weak points this anatomy creates.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 0KSb9Qw38BldTs7K
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113161003
+      modifiedTime: 1708113348454
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.0KSb9Qw38BldTs7K'
+  - name: Tough for its kind
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>For its mutated form ability, choose one instead of rolling.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tDCpNUQq5MKOFaN6
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113363186
+      modifiedTime: 1708113371734
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.tDCpNUQq5MKOFaN6'
+  - name: '[use only when triggered as an aberrant attack] Charging horn slam'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[13]] damage, and the target is *dazed* (save ends).'
+      hit1:
+        type: String
+        label: Hit
+        name: Free charge
+        value: >-
+          The hellwarped pops free from each enemy engaged with it after making
+          its claws attacks, then moves to a nearby enemy as a free action and
+          makes this attack.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 7kwCVfBktj8PvFkE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708113733693
+      modifiedTime: 1708114092344
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!mTxF2ZS6kLNyOGsx.7kwCVfBktj8PvFkE'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708113087603
+  modifiedTime: 1708114092344
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!mTxF2ZS6kLNyOGsx'
+
