@@ -1,0 +1,610 @@
+name: Atrocious Gibbering Mouther
+type: npc
+_id: PO2SE4veXuRbhEd4
+img: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 22
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 14
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 180
+      min: 0
+      max: 180
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 6
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: large
+    type:
+      value: aberration
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Atrocious Gibbering Mouther
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/aberration.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Tearing mouths
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[11]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 19+
+        value: Target is grabbed
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tnxUjbuGozIv4cwa
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045626354
+      modifiedTime: 1708045640644
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.tnxUjbuGozIv4cwa'
+  - name: 'C: Pseudopod grasp'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD (1 nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: Target is grabbed and moved into engagement with the gibbering mouther
+      hit1:
+        type: String
+        label: Hit
+        name: Quick use
+        value: 1/round, as a quick action
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: GocUAqw4GdWNXHve
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045626652
+      modifiedTime: 1708045656849
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.GocUAqw4GdWNXHve'
+  - name: Absorb
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. PD (up to two grabbed enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[20]] acid damage and the crit range for this attack expands by 1 (to
+          a maximum of 11+)
+      hit1:
+        type: String
+        label: Hit
+        name: Crit
+        value: >-
+          Target must start making last gasp saves as they are slowly absorbed.
+          Absorbed creatures can’t be resurrected by normal means.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] acid damage'
+      embeddedMacro:
+        value: ''
+    _id: mWV8ERTgcrf6sY0c
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045627135
+      modifiedTime: 1708045683961
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.mWV8ERTgcrf6sY0c'
+  - name: 'C: Gibbering insanity'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. MD (2 random nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: Target is *shocked* (save ends)
+      hit1:
+        type: String
+        label: Hit
+        name: Quick use
+        value: 1/round, as a quick action
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: g7a4O6Sh63wuf8Jl
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045627823
+      modifiedTime: 1708045701172
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.g7a4O6Sh63wuf8Jl'
+  - name: Really insane terrain
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A gibbering mouther causes surrounding rocks and dirt to soften. On
+          rounds when the escalation die is odd characters must succeed at a
+          save (11+) when they attempt to move or their movement ends and they
+          become stuck (save ends). On turns when the ground softens the
+          gibbering mouther can move once on its turn as a quick action, as well
+          as once as a move action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: BIAG5hC7XmKIKxwh
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045628858
+      modifiedTime: 1708045712098
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.BIAG5hC7XmKIKxwh'
+  - name: Stone to flesh
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A gibbering mouther that also has the insane terrain nastier
+          special slowly turns the softening terrain to flesh, then absorbs it.
+          When the escalation die becomes 6, the die flips straight back to 1
+          and the gibbering mouther heals up to half its full hit points.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tShfBwXw88Cs6ktQ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045629007
+      modifiedTime: 1708045722281
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.tShfBwXw88Cs6ktQ'
+  - name: Eyes everywhere
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>Gibbering mouthers can&rsquo;t be ambushed or sneaked up on.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 17QNq950a0S58yQi
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.LNGqlxsM3pzmRh8m.Item.Bs6KWdjhVvo3QnHs
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045516437
+      modifiedTime: 1708045735276
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.17QNq950a0S58yQi'
+  - name: Flows where it likes
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>The gibbering mouther is immune to opportunity attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1f1ZlRiWX02izKmc
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.LNGqlxsM3pzmRh8m.Item.iNhGjuHDREjvvYPx
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045516570
+      modifiedTime: 1708045736445
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.1f1ZlRiWX02izKmc'
+  - name: Ooze
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The gibbering mouther is immune to effects. When an attack applies
+          a condition to a gibbering mouther (dazed, hampered, weakened, ongoing
+          damage, etc.), that condition doesn&rsquo;t affect it.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XtFvloODXtRePwwS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.LNGqlxsM3pzmRh8m.Item.GJcX8w4n8gdrOIXm
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708045516703
+      modifiedTime: 1708045737592
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!PO2SE4veXuRbhEd4.XtFvloODXtRePwwS'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708045611069
+  modifiedTime: 1708045737592
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!PO2SE4veXuRbhEd4'
+
