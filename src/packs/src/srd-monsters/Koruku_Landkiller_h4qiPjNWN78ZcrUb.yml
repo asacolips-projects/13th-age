@@ -1,0 +1,867 @@
+name: Koruku Landkiller
+type: npc
+_id: h4qiPjNWN78ZcrUb
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 432
+      min: 0
+      max: 432
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 17
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: huge
+    type:
+      value: beast
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Koruku Landkiller
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Thrashing tail
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: First miss
+        value: >-
+          The koruku landkiller makes a second *thrashing tail* attack against a
+          different target.
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 1-5 on either attack
+        value: >-
+          The koruku landkiller regains its *stolen magic* attack if it’s
+          expended.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[40]] damage'
+      embeddedMacro:
+        value: ''
+    _id: iIemtd42r4L27lYG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124936779
+      modifiedTime: 1708125074964
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.iIemtd42r4L27lYG'
+  - name: Earth-gouging plates
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[55]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: bWG9wq5pwgpJOmLM
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124937019
+      modifiedTime: 1708125086858
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.bWG9wq5pwgpJOmLM'
+  - name: Escalating saves
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The koruku landkiller adds twice the escalation die ([[2*@ed]]) to
+          its saves.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: pVMebtfntKZyazIB
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124939233
+      modifiedTime: 1708125294745
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.pVMebtfntKZyazIB'
+  - name: Stolen magic (see below)
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: jrJXYh1V6aDVoWSp
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124940163
+      modifiedTime: 1708124945198
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.jrJXYh1V6aDVoWSp'
+  - name: 'C: Flame of the Magic Icon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD ([[1d3]] nearby or faraway enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[114]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          One nearby koruku servitor can make a *wild magic blast* attack (fire
+          damage) as a free action.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: YqPlZC2gxfEJ3qo0
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124958211
+      modifiedTime: 1708125110201
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.YqPlZC2gxfEJ3qo0'
+  - name: 'C: Snare of the Nature Icon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[90]] damage and the target is *stuck* (normal save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          All nearby koruku servitors gain a +4 attack bonus against stuck
+          targets on their next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 9RlRKuTc4WSVsUc2
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124958375
+      modifiedTime: 1708125134634
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.9RlRKuTc4WSVsUc2'
+  - name: 'C: Roar of the Brute Icon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. MD ([[1d4]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[90]] thunder damage, and koruku servitors gain a +4 attack bonus
+          against the target on their next turn
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: rB9GLZQK9s343sap
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124958557
+      modifiedTime: 1708125155198
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.rB9GLZQK9s343sap'
+  - name: 'C: Treachery of the Draconic Icon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. MD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[80]] psychic damage and the target is *confused* (normal save ends)'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          Add a cumulative +2 to the defenses of all koruku servitors until the
+          end of the servitors’ next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 1xJbX1J1KSkBxtcP
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124958741
+      modifiedTime: 1708125179770
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.1xJbX1J1KSkBxtcP'
+  - name: 'C: Storm of the Zealous Icon'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[114]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          All nearby koruku servitors gain a +4 damage bonus until the end of
+          their next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: z5DKzXRwHJYifioG
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124959040
+      modifiedTime: 1708125199679
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.z5DKzXRwHJYifioG'
+  - name: 'C: Wrath of the sea'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD (all nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[70]] lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: Add a koruku servitor to the battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[35]] lightning damage.'
+      embeddedMacro:
+        value: ''
+    _id: 9aFMMgxUsq4SNYGZ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124959174
+      modifiedTime: 1708125226011
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.9aFMMgxUsq4SNYGZ'
+  - name: Stolen magic
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per battle as a standard action, a koruku landkiller can make
+          one of the magical attacks listed under "stolen magic."&nbsp;The first
+          five attacks can add the escalation die when rolled against a target
+          that has an icon relationship with the icon the power has been stolen
+          from! Feel free to roll a [[/r d6]] if you don&rsquo;t want to spend
+          time choosing between attacks. (If its thrashing tail attack roll
+          allows the landkiller to regain stolen magic, it doesn&rsquo;t have to
+          choose which magical attack it will use until it actually uses the
+          attack.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: rebKxseQuhaK3GsX
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124965877
+      modifiedTime: 1708125337779
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.rebKxseQuhaK3GsX'
+  - name: So many servitors
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the koruku landkiller is hit by an attack, add a koruku
+          servitor to the battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: DgBb5BBCYFWzQhed
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124969214
+      modifiedTime: 1708125268266
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!h4qiPjNWN78ZcrUb.DgBb5BBCYFWzQhed'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708124919964
+  modifiedTime: 1708125337779
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!h4qiPjNWN78ZcrUb'
+

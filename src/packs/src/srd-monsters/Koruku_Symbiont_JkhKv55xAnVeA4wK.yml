@@ -1,0 +1,501 @@
+name: Koruku Symbiont
+type: npc
+_id: JkhKv55xAnVeA4wK
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 23
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 21
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 94
+      min: 0
+      max: 94
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 10
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Koruku Symbiont
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Crashing fist or weapon
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[25]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+ hit
+        value: >-
+          The target is *weakened* (normal save ends) and the koruku symbiont
+          can pop free of the target.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 0D9jcjShpTQOvddZ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124677213
+      modifiedTime: 1708124697822
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!JkhKv55xAnVeA4wK.0D9jcjShpTQOvddZ'
+  - name: Stinging tentacles
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[15]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The target takes [[8]] ongoing poison damage (normal save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Natural 1-5
+        value: The koruku symbiont can make an *acid spew* attack as a quick action.
+      hit3:
+        type: String
+        label: Hit
+        name: Limited use
+        value: When the escalation die 2+.
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: zoPN0UdYeOdd0WVI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124677375
+      modifiedTime: 1708124747364
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!JkhKv55xAnVeA4wK.zoPN0UdYeOdd0WVI'
+  - name: 'C: Wrathful tsunami'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. PD ([[1d3]] nearby enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[28]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The target is *stunned* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle when the escalation die is 4+.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: vDi37yPTyBcBVlmw
+    effects: []
+    folder: null
+    sort: 200000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124678242
+      modifiedTime: 1708124813595
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!JkhKv55xAnVeA4wK.vDi37yPTyBcBVlmw'
+  - name: '[Special trigger] C: Acid spew'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] acid damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: The target is *hampered* (normal save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: sqyBq9K881D5lS3y
+    effects: []
+    folder: null
+    sort: 100000
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124678379
+      modifiedTime: 1708124783211
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!JkhKv55xAnVeA4wK.sqyBq9K881D5lS3y'
+  - name: Scuttle forth
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the koruku symbiont drops to 0 hit points, it rolls a normal
+          save (11+). If the save succeeds, place a 5th level koruku larva with
+          [[30]] hit points on the battlefield where it has detached itself from
+          its former host. The staggered larva maintains the initiative of its
+          host, but any conditions placed upon the host end. (If the save fails,
+          the larva gets squashed along with its host!)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: bHFwJPzTAXsdnJvt
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124682332
+      modifiedTime: 1708124834887
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!JkhKv55xAnVeA4wK.bHFwJPzTAXsdnJvt'
+  - name: It’s been fun
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the koruku symbiont is nearby a behemoth, the koruku detaches
+          itself from its host and leaps onto the behemoth. Once it finds a
+          likely spot for hibernation is secrets a slime which hardens into a
+          cocoon. The host reverts back to its original stats, losing all of the
+          benefits it gained as a symbiont, but takes no damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XXNuOxCMETjQfH7A
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708124682481
+      modifiedTime: 1708124854810
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!JkhKv55xAnVeA4wK.XXNuOxCMETjQfH7A'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708124661291
+  modifiedTime: 1708124854810
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!JkhKv55xAnVeA4wK'
+

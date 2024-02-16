@@ -1,0 +1,440 @@
+name: Koruku Servitor
+type: npc
+_id: w1QlxgRe2yslBBWp
+img: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 23
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 40
+      min: 0
+      max: 40
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+    size:
+      value: normal
+    type:
+      value: spirit
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Koruku Servitor
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/spirit.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Wild magic touch
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <table style="width: 100%;" border="1"><colgroup><col style="width:
+          15.5592%;"><col style="width: 84.4408%;"></colgroup>
+
+          <tbody>
+
+          <tr>
+
+          <td>[[/r d6]]</td>
+
+          <td>Wild Magic Benefit</td>
+
+          </tr>
+
+          <tr>
+
+          <td>1-2</td>
+
+          <td>You gain a +2 bonus to all defenses until the start of
+          your&nbsp;next turn.</td>
+
+          </tr>
+
+          <tr>
+
+          <td>3-4</td>
+
+          <td>Heal hit points equal to your level + twice your Charisma,
+          Intelligence, or Wisdom modifier (whichever is highest).</td>
+
+          </tr>
+
+          <tr>
+
+          <td>5-6</td>
+
+          <td>Roll to recharge a single expended magic item power
+          or&nbsp;expended recharge power.</td>
+
+          </tr>
+
+          </tbody>
+
+          </table>
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[23]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 1-5
+        value: >-
+          The koruku servitor takes [[10]] damage and the target gains a random
+          Wild Magic Benefit from the table below.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Dao7S9QHL2qX73Nh
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708125417882
+      modifiedTime: 1708125518910
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!w1QlxgRe2yslBBWp.Dao7S9QHL2qX73Nh'
+  - name: 'C: Wild magic burst'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD (all enemies engaged with the koruku servitor)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[36]] damage and deal [[40]] damage to this koru servitor'
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: When the escalation die is 4+.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: L90d87EhTJP53ybU
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708125418430
+      modifiedTime: 1708125556226
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!w1QlxgRe2yslBBWp.L90d87EhTJP53ybU'
+  - name: 'R: Wild magic blast'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[23]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: cs6Mli6qSOSLv2uL
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708125418578
+      modifiedTime: 1708125565571
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!w1QlxgRe2yslBBWp.cs6Mli6qSOSLv2uL'
+  - name: Flight
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Koruku servitors fade away if they fly too far from their koruku
+          landkiller, but are quick and agile fliers in battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ez3H553jt0ejDo2S
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708125419744
+      modifiedTime: 1708125574052
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!w1QlxgRe2yslBBWp.ez3H553jt0ejDo2S'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708125401778
+  modifiedTime: 1708125574052
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!w1QlxgRe2yslBBWp'
+
