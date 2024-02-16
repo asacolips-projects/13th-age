@@ -1,0 +1,636 @@
+name: Frogspawn Deceiver
+type: npc
+_id: L35PZ90Awo5sJLVn
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 16
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 72
+      min: 0
+      max: 72
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: spoiler
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Frogspawn Deceiver
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Hidden knife
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+8]] vs. AC (or [[d20+12]] vs AC if the frogfolk has a higher
+          initiative)
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 3IOt5Dm5ajSkHdFy
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708044311590
+      modifiedTime: 1708044340189
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.3IOt5Dm5ajSkHdFy'
+  - name: 'R: Poison darts'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] poison damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8AHCnioOEhdPm6Ph
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708044311760
+      modifiedTime: 1708044350808
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.8AHCnioOEhdPm6Ph'
+  - name: Poison touch
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This monster can coat items with poison. Once per battle on a hit
+          their attack does an extra ongoing 10 poison damage (hard save ends).
+          Outside battle they can coat objects with a skin-contact
+          poison&mdash;[[10]] poison damage and [[10]] ongoing poison damage
+          (save ends, or hard save if the target ingests the poison).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XMnWAAX3JYLv3KOm
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708044313327
+      modifiedTime: 1708044371967
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.XMnWAAX3JYLv3KOm'
+  - name: Disguise
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Frogspawn deceivers are experts at disguising themselves as other
+          less froggy races, it requires a DC 25 skill check to see the truth
+          beneath their veils or deep cloaks and lifelike masks. Once they
+          attack what they are becomes obvious.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: bPGnjFioacrn4D6X
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708044313492
+      modifiedTime: 1708044380971
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.bPGnjFioacrn4D6X'
+  - name: Jump
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>These froggy assassins can jump huge distances. When the escalation
+          die is even frogspawn deceivers can jump as a quick action, leaping
+          over enemies and past obstacles in a way that can&rsquo;t be
+          intercepted and that doesn&rsquo;t provoke attacks.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: vuN9Nnso2RNMkRQx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708044313643
+      modifiedTime: 1708044389846
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.vuN9Nnso2RNMkRQx'
+  - name: Slippery customer
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>Frogspawn deceivers do not take miss damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: UAjAL3WSwSfc9v0k
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708044315663
+      modifiedTime: 1708044397897
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.UAjAL3WSwSfc9v0k'
+  - name: Frogspawn abilities
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>You should certainly use one ability per frogspawn, occasionally
+          two. For frogspawn mooks, treat the abilities as usable once per
+          battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: oqtOkN8uRBUZQXPI
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.TjQLDeO52fYaZ4hP
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043699239
+      modifiedTime: 1708044399970
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.oqtOkN8uRBUZQXPI'
+  - name: Disgusting tongue
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The frogspawn deals [[@lvl]] poison damage to any character that
+          pops free of it or successfully disengages from it. (Teleporting away
+          is probably tongue-free unless the GM is hopping mad.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: srZl2elB5q3H3IR0
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.q6D3Ml0NO5Kw5nLv
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043701908
+      modifiedTime: 1708044401036
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.srZl2elB5q3H3IR0'
+  - name: Dunk and cover
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the battle is taking place in a swamp, lake, or river, whenever
+          the frogspawn misses with a natural even attack roll, it can duck out
+          of sight. Remove the frogspawn from the table until the start of its
+          next turn. At the start of its next turn, place it anywhere nearby its
+          previous location, but not engaged with an enemy.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: FljCQlt7HcdRU2Pj
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.WLVqaKLXJqR6daoV
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043702240
+      modifiedTime: 1708044401800
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.FljCQlt7HcdRU2Pj'
+  - name: Erratic leap (move action)
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If the frogspawn is unengaged at the start of its turn, choose a
+          random nearby enemy the frogspawn can see. The frogspawn leaps into
+          engagement with that enemy and its crit range with melee attacks
+          expands by 3 until the end of the turn.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Gb1BqtWtCRwYPNNv
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.iRpogwvTnxm3Viw8
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043702693
+      modifiedTime: 1708044402599
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.Gb1BqtWtCRwYPNNv'
+  - name: Paranoid destroyer
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This frogspawn can&rsquo;t be surprised. If there&rsquo;s a
+          surprise round, it gets to act. If there isn&rsquo;t a surprise round
+          at the start of combat, the frogspawn gets a surprise round if its
+          natural initiative roll is 16+. On the down side, subtract 2 from this
+          frogspawn&rsquo;s MD, because it&rsquo;s always sure it&rsquo;s going
+          to die. (Gamemaster: Don&rsquo;t give this ability to all the
+          frogspawn in a battle. Just one or two.)</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: eSh1Zm8ycAU3zDah
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.MakJV6Gb9TGBrkTW
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708043703121
+      modifiedTime: 1708044403369
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!L35PZ90Awo5sJLVn.eSh1Zm8ycAU3zDah'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708044293070
+  modifiedTime: 1708044403369
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!L35PZ90Awo5sJLVn'
+
