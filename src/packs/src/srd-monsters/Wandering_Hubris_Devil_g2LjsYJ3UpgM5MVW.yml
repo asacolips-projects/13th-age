@@ -1,0 +1,602 @@
+name: Wandering Hubris Devil
+type: npc
+_id: g2LjsYJ3UpgM5MVW
+img: systems/archmage/assets/icons/tokens/monsters/devil.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 20
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 24
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 360
+      min: 0
+      max: 360
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 12
+    level:
+      type: Number
+      label: Level
+      value: 7
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: wrecker
+    size:
+      value: huge
+    type:
+      value: devil
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Wandering Hubris Devil
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/devil.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Rain of blows
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. AC (3 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[25]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 18+
+        value: The target is *dazed* until the end of its next turn.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: uiVubbgl6RUtE7Bo
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114652769
+      modifiedTime: 1708114667621
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.uiVubbgl6RUtE7Bo'
+  - name: Crash and bash
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[50]] damage, and the target is *hampered* until the end of its next
+          turn.
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[25]] damage'
+      embeddedMacro:
+        value: ''
+    _id: oahomWmc3sTvGQ0p
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114653098
+      modifiedTime: 1708114688241
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.oahomWmc3sTvGQ0p'
+  - name: 'C: Looming fear'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+12]] vs. MD ([[1d4]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[60]] psychic damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: >-
+          While the target has 36 hp or fewer, it’s *dazed* from fear and
+          doesn’t add the escalation die to its attacks (save ends all).
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: R8oMftB4ppMhRbsQ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114653263
+      modifiedTime: 1708114720267
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.R8oMftB4ppMhRbsQ'
+  - name: Devil’s due (Chakra suppression)
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When you choose to add the escalation die to an attack against a
+          great hubris devil, the devil can choose one of your magic items whose
+          powers won&rsquo;t work for the rest of the battle (default bonuses
+          still apply).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4QVH7p5cCLUigM0U
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114654234
+      modifiedTime: 1708114731717
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.4QVH7p5cCLUigM0U'
+  - name: Resist holy 13+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a holy attack targets this creature, the attacker must roll a
+          natural 13+ on the attack roll or it only deals half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: kMglKbrGN1asflNM
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114654355
+      modifiedTime: 1708114741085
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.kMglKbrGN1asflNM'
+  - name: Friend or enemy?
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>A hubris devil using NPCs to attack the heroes makes it tough for
+          them to know if there are friends or allies among the attackers,
+          forcing the characters to be more careful with their attacks. Any
+          natural 1&ndash;5 attack roll against the devil is an automatic miss
+          with no miss damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 7rt3Dq83ZNcLsx20
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114765852
+      modifiedTime: 1708114780893
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.7rt3Dq83ZNcLsx20'
+  - name: Surprise!
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the hubris devil attacks, it gains a surprise round unless the
+          PCs were extremely perceptive (by making a ridiculously hard skill
+          check for tier).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: nFZ4ifYG7bnK2S33
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114765983
+      modifiedTime: 1708114792532
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.nFZ4ifYG7bnK2S33'
+  - name: Final-gasp soul snatch & escape
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the devil drops to 0 hp, it appears dead until the start of
+          its next turn, at which point it will attempt to steal a piece of the
+          soul of the closest character before it escapes into a supernatural
+          bolt hole. That character must roll a save. If they fail, they lose a
+          chunk of their soul&mdash;see below for possible effects. Anyone who
+          uses a coup de grace on the devil before its next turn will slay it
+          before it can claim a chunk of a soul and escape (but the PCs might
+          not be aware of this).</p>
+
+          <p><strong>Effects:</strong> What does it mean to have a chunk of your
+          soul stolen. You&rsquo;re free to come up with complications that suit
+          your campaign&rsquo;s metaphysics or take the suggestions that follow
+          as a starting point. Use one or more, as you choose.</p>
+
+          <ul>
+
+          <li>Magic items no longer work for the affected character, even ones
+          already attuned to them, and in a similar vein, no new items can be
+          attuned by that PC.</li>
+
+          <li>The PC loses access to their highest level of spells or powers.
+          For example, a cleric who normally casts 7th level spells could only
+          cast them at 5th level.</li>
+
+          <li>The PC takes a &ndash;2 penalty to saves.</li>
+
+          <li>The PC must roll 2d20 for attack rolls and take the lowest result
+          for the first two rounds of each battle.</li>
+
+          <li>The PC&rsquo;s appearance changes in some disturbing, hollow way
+          and they take a &ndash;4 penalty to skill checks.</li>
+
+          <li>PC loses one to three recoveries; not temporarily, their ability
+          to heal decreases.</li>
+
+          <li>One icon relationship changes to become a sign of complications
+          with devils, not advantages.</li>
+
+          <li>Devils gets some huge combat advantage against the PC.</li>
+
+          </ul>
+
+          <p><strong>Restoration:</strong> Similarly, you can choose how the
+          missing piece of soul might be restored. Some examples:</p>
+
+          <ul>
+
+          <li>No big deal: the PC rolls a normal save each time they gain a
+          level. If the save succeeds, they get their soul back.</li>
+
+          <li>The party must find and kill the escaped hubris devil. Luckily,
+          the PC&rsquo;s &lsquo;link&rsquo; to the devil means that each day the
+          PC can roll a normal save; on an 11+, they have a good idea of which
+          direction the devil is in. And hubris devils don&rsquo;t move all that
+          much.</li>
+
+          <li>Instead, the party must travel to the center of the devils&rsquo;
+          power and steal back their friend&rsquo;s soul shard. Or whatever it
+          is that you think their particular soul piece is gonna look like.</li>
+
+          <li>The devils immediately barter the soul shard to an enemy icon,
+          leading to an entirely new set of quests and complications.</li>
+
+          </ul>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: IiAid2bYnCFyC4qM
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708114766114
+      modifiedTime: 1708114903707
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!g2LjsYJ3UpgM5MVW.IiAid2bYnCFyC4qM'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708114631814
+  modifiedTime: 1708114903707
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!g2LjsYJ3UpgM5MVW'
+
