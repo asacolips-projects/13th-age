@@ -38,9 +38,11 @@ styles:
   - css/lib/introjs.css
 
 packFolders:
-  - name: Races / Classes
+  - name: Player options
     sorting: m
     packs:
+      - generalfeats
+      - multiclassfeats
       - races
       - classes
       - barbarian
@@ -50,6 +52,7 @@ packFolders:
       - paladin
       - ranger
       - animal-companion
+      - animal-companions
       - rogue
       - sorcerer
       - wizard
@@ -58,20 +61,15 @@ packFolders:
       - druid
       - monk
       - necromancer
+      - necromancer-summons
       - occultist
-  - name: Monsters / Summons
+  - name: Creatures
     sorting: m
     packs:
       - srd-Monsters
-      - animal-companions
-      - necromancer-summons
-  - name: Feats
-    sorting: a
-    packs:
-      - generalfeats
-      - multiclassfeats
+      - srd-random-monster-abilities
   - name: Magic Items
-    sorting: a
+    sorting: m
     packs:
       - srd-magic-items-armors
       - srd-magic-items-arrows
@@ -96,7 +94,6 @@ packFolders:
     sorting: m
     packs:
       - conditions
-      - srd-random-monster-abilities
       - system-macros
       - system-rolltables
 
