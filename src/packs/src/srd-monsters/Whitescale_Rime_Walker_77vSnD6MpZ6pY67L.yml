@@ -1,0 +1,450 @@
+name: Whitescale Rime Walker
+type: npc
+_id: 77vSnD6MpZ6pY67L
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 20
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 18
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 13
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 65
+      min: 0
+      max: 65
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 7
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: troop
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Whitescale Rime Walker
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Rime-coated spear
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[10]] damage and [[5]] cold damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit
+        value: >-
+          The rime walker can make a *frost breath* attack against the target as
+          a free action. This use of *frost breath* doesn’t count toward the
+          1/battle limit.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: VSo6NnlHaJvfjToy
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129413862
+      modifiedTime: 1708129438885
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!77vSnD6MpZ6pY67L.VSo6NnlHaJvfjToy'
+  - name: 'C: Frost breath'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. PD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[8]] cold damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: The target is *stuck* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: Limited use
+        value: 1/battle, as a quick action.
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8nT5Wl8PdEKNiqds
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129414014
+      modifiedTime: 1708129461508
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!77vSnD6MpZ6pY67L.8nT5Wl8PdEKNiqds'
+  - name: Coated in rime
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a free action at the start of the battle, the rime walker
+          breathes a cloud of frost that coats it in rime. The next attack that
+          hits it this battle deals only half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 0pvwaOh4VBPWlVBx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129415050
+      modifiedTime: 1708129474303
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!77vSnD6MpZ6pY67L.0pvwaOh4VBPWlVBx'
+  - name: Resist cold 14+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a cold attack targets this creature, the attacker must roll a
+          natural 14+ on the attack roll or it only deals half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: NFuzUGFj7sgVUw4K
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129415213
+      modifiedTime: 1708129480461
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!77vSnD6MpZ6pY67L.NFuzUGFj7sgVUw4K'
+  - name: Limited flight
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+          than or equal to the escalation die, the dragonic gains flight as a
+          move action during its turns thanks to a pair of wings it unfurls from
+          its back. The flight tends to be more power-flapping or gliding from
+          one place to another rather than hovering. Flamewings who also have
+          limited flight prefer to use their burning wings to fly in combat
+          wherever possible, resorting to their physical wings only if
+          needed.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: xQGUgJevbnLNJEpb
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708128953113
+      modifiedTime: 1708129483732
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!77vSnD6MpZ6pY67L.xQGUgJevbnLNJEpb'
+  - name: Blood of the wyrm
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This dragonic displays traits of its forebears, the mighty wyrms.
+          Roll a [[/r d10]] and consult the random dragon ability table, or
+          choose one of the first ten options that looks likely to shape the
+          story or battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: dIi76o7Nujhmg0J7
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708128953245
+      modifiedTime: 1708129484551
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!77vSnD6MpZ6pY67L.dIi76o7Nujhmg0J7'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708129398159
+  modifiedTime: 1708129484551
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!77vSnD6MpZ6pY67L'
+

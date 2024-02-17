@@ -1,0 +1,679 @@
+name: Bluescale Orb-Bearer
+type: npc
+_id: FRCLBNtIn4vQ2bRG
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 26
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 23
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 26
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 260
+      min: 0
+      max: 260
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 16
+    level:
+      type: Number
+      label: Level
+      value: 11
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: caster
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Bluescale Orb-Bearer
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Crackling energy
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+16]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] force damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural 16+
+        value: '[[16]] ongoing lightning damage'
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8fu9ywxzZSPSd2Nf
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130374044
+      modifiedTime: 1708130393806
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.8fu9ywxzZSPSd2Nf'
+  - name: 'C: Lightning breath'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+20]] vs. PD (one nearby enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[30]] lightning damage, and [[30]] ongoing lightning damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Aftereffect
+        value: >-
+          If the target rolled an even save against the ongoing lightning
+          damage, the target’s nearest ally takes [[10]] ongoing lightning
+          damage.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] lightning damage'
+      embeddedMacro:
+        value: ''
+    _id: uhUd2Es01nrvKsUe
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130374208
+      modifiedTime: 1708130422743
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.uhUd2Es01nrvKsUe'
+  - name: 'R: Force barbs'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+16]] vs. PD (up to 3 nearby or faraway enemies in a group)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[40]] force damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: w8smuO7XFwzZlCYD
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130374378
+      modifiedTime: 1708130435498
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.w8smuO7XFwzZlCYD'
+  - name: 'C: Arcane discharge'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+20]] vs. PD (one nearby or faraway enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[24]] damage and [[24]] ongoing damage, both of the same damage type
+          of the spell that it absorbed
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: NHZHGEuAVK2GXeHw
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130374527
+      modifiedTime: 1708130496172
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.NHZHGEuAVK2GXeHw'
+  - name: Absorb magic
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The first time this battle that the bluescale orb-bearer is hit by
+          a magic spell or spell-like power it has no effect&mdash;the attack
+          hits but does no damage, imposes no conditions, etc. Each time
+          it&rsquo;s hit this way thereafter, the bluescale takes no damage and
+          can make an *arcane discharge* attack as a free action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: DC90baAS0d7uL7WV
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130375886
+      modifiedTime: 1708130479241
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.DC90baAS0d7uL7WV'
+  - name: Resist lightning 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a lightning attack targets this creature, the attacker must
+          roll a natural 16+ on the attack roll or it only deals half
+          damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Vpf0MxPvDEn2kPyx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130376146
+      modifiedTime: 1708130506470
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.Vpf0MxPvDEn2kPyx'
+  - name: Tail whip
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The dragonic deals [[2d10]] extra damage to a target it misses with
+          a melee attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: WWXa9yBA7kDHTcgS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130379877
+      modifiedTime: 1708130516744
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.WWXa9yBA7kDHTcgS'
+  - name: Esoteric expulsion
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the orb-bearer dies having absorbed a spell but not having
+          released the energy via arcane discharge, roll a [[/r d6]]:</p>
+
+          <p><strong>1:</strong> Spatial bend&mdash;Whoever made the attack that
+          finished the orb- bearer swaps places with the ally or enemy furthest
+          from them.</p>
+
+          <p><strong>2:</strong> Time twist&mdash;The last character to act
+          disappears, and reappears in the same place at the end of their next
+          turn.&nbsp;</p>
+
+          <p><strong>3:</strong> Esoteric detonation&mdash;The [[/r 1d3+1]]
+          closest creatures take [[10]] force damage and [[10]] ongoing
+          lightning damage.&nbsp;</p>
+
+          <p><strong>4:</strong> Weird expulsion&mdash;Something harmlessly odd
+          happens, centered on the area around the body: a rain of frogs, or
+          colored lights start to dance, or a glowing cloud appears, etc.</p>
+
+          <p><strong>5:</strong> Bizarre expulsion&mdash;Something distractingly
+          odd happens that causes one random enemy and one random ally to be
+          *dazed* until the end of their next turns: their local gravity becomes
+          warped, they blaze with coruscating light, they briefly turn inside
+          out, etc.</p>
+
+          <p><strong>6:</strong> Stranger expulsion&mdash;Something dangerously
+          odd happens, dealing [[40]] ongoing damage to the nearest enemy to the
+          orb-bearer and perhaps having a lingering effect after the battle:
+          target ages or becomes younger rapidly, target enveloped in ice,
+          target&rsquo;s skin catches fire, etc.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: uVMaol2S1kvpVTPg
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708130380033
+      modifiedTime: 1708130614172
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.uVMaol2S1kvpVTPg'
+  - name: Limited flight
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+          than or equal to the escalation die, the dragonic gains flight as a
+          move action during its turns thanks to a pair of wings it unfurls from
+          its back. The flight tends to be more power-flapping or gliding from
+          one place to another rather than hovering. Flamewings who also have
+          limited flight prefer to use their burning wings to fly in combat
+          wherever possible, resorting to their physical wings only if
+          needed.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ICkO9AAlK4MeTiX9
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708128953113
+      modifiedTime: 1708130617162
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.ICkO9AAlK4MeTiX9'
+  - name: Blood of the wyrm
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This dragonic displays traits of its forebears, the mighty wyrms.
+          Roll a [[/r d10]] and consult the random dragon ability table, or
+          choose one of the first ten options that looks likely to shape the
+          story or battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ljKT1bqBKI0q4MwT
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708128953245
+      modifiedTime: 1708130617990
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!FRCLBNtIn4vQ2bRG.ljKT1bqBKI0q4MwT'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708130358263
+  modifiedTime: 1708130617990
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!FRCLBNtIn4vQ2bRG'
+

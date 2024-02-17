@@ -1,0 +1,557 @@
+name: Whitescale Blighter
+type: npc
+_id: u0JDIsN5niccxt56
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 24
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 22
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 19
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 140
+      min: 0
+      max: 140
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 13
+    level:
+      type: Number
+      label: Level
+      value: 8
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: fire
+prototypeToken:
+  name: Whitescale Blighter
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Frost claws
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[20]] damage, and [[15]] cold damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: >-
+          The damage for all subsequent cold attacks this battle increases by 1
+          (to a maximum of 4 extra cold damage).
+      hit2:
+        type: String
+        label: Hit
+        name: Crit
+        value: >-
+          Each enemy that doesn’t have resistance to cold damage becomes
+          vulnerable to cold damage until the end of the battle, and the cold
+          damage increase for all cold damage attacks resets.
+      hit3:
+        type: String
+        label: Hit
+        name: Miss against a stuck target
+        value: '[[10]] cold damage'
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: AEdywrLtxvlUZOic
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129781758
+      modifiedTime: 1708129831600
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.AEdywrLtxvlUZOic'
+  - name: 'C: Blizzard breath'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+13]] vs. PD ([[1d3]] nearby enemies)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] cold damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss
+        value: The target is *stuck* (save ends).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: vcCOYN0ROJpm424d
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129782285
+      modifiedTime: 1708129855356
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.vcCOYN0ROJpm424d'
+  - name: Escalating cold
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>All whitescale dragonics in the battle can use the escalation die.
+          This monster&rsquo;s escalating cold ability ends for this battle if
+          it takes fire damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: OMyrLEdgDyzNTRsa
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129783785
+      modifiedTime: 1708129866244
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.OMyrLEdgDyzNTRsa'
+  - name: Resist cold 16+
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When a cold attack targets this creature, the attacker must roll a
+          natural 16+ on the attack roll or it only deals half damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: JXwVPHCXudZWzwoy
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129783918
+      modifiedTime: 1708129876864
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.JXwVPHCXudZWzwoy'
+  - name: Gift of rime
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>As a free action at the start of the battle, and also once per turn
+          as a quick action, the whitescale blighter breathes a cloud of frost
+          that coats it or a nearby whitescale dragonic in rime. The next attack
+          that hits the rime-covered whitescale this battle deals only half
+          damage.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: GT9TAexH617gSB5t
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129784703
+      modifiedTime: 1708129887553
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.GT9TAexH617gSB5t'
+  - name: Tail whip
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The dragonic deals [[2d4]] extra damage to a target it misses with
+          a melee attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: VhFPbfCFoVBLoOGF
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129784852
+      modifiedTime: 1708129899522
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.VhFPbfCFoVBLoOGF'
+  - name: Undead killer
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The whitescale blighter hates undead and necromancers, and its crit
+          range expands by 1 against them.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: IzdRV2mWRjVKqv2h
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708129785541
+      modifiedTime: 1708129908584
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.IzdRV2mWRjVKqv2h'
+  - name: Limited flight
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>At the start of each turn, roll a [[/r d6]]. If the result is less
+          than or equal to the escalation die, the dragonic gains flight as a
+          move action during its turns thanks to a pair of wings it unfurls from
+          its back. The flight tends to be more power-flapping or gliding from
+          one place to another rather than hovering. Flamewings who also have
+          limited flight prefer to use their burning wings to fly in combat
+          wherever possible, resorting to their physical wings only if
+          needed.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ApAAy4iTJsER9Rof
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708128953113
+      modifiedTime: 1708129910415
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.ApAAy4iTJsER9Rof'
+  - name: Blood of the wyrm
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This dragonic displays traits of its forebears, the mighty wyrms.
+          Roll a [[/r d10]] and consult the random dragon ability table, or
+          choose one of the first ten options that looks likely to shape the
+          story or battle.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 8pMLWYQV41EEAThe
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags:
+      core:
+        sourceId: >-
+          Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708128953245
+      modifiedTime: 1708129911281
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!u0JDIsN5niccxt56.8pMLWYQV41EEAThe'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708129767649
+  modifiedTime: 1708129911281
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!u0JDIsN5niccxt56'
+
