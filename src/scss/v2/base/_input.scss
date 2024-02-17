@@ -29,3 +29,42 @@ button {
   font-weight: bold;
   padding: 0 $padding-sm;
 }
+
+// Expandable textareas. See CharBackgrounds.vue for an example.
+.grow-wrap {
+  display: grid;
+
+  &::after {
+    content: attr(data-replicated-value) " ";
+    white-space: pre-wrap;
+    visibility: hidden;
+  }
+
+  > textarea {
+    resize: none;
+    overflow: hidden;
+    background: transparent;
+
+    &:hover,
+    &:focus {
+      border-color: $c-blue;
+      color: $c-blue;
+      text-shadow: none;
+      box-shadow: none;
+      background: transparent;
+    }
+  }
+
+  &::after,
+  > textarea {
+    border: none;
+    padding: 5px;
+    font: inherit;
+    grid-area: 1 / 1 / 2 / 2;
+    height: auto;
+    min-height: 0;
+    text-align: left;
+    border-radius: 0;
+    line-height: 1.1;
+  }
+}

@@ -7,7 +7,7 @@
         <span class="rollable rollable--background flexshrink" data-roll-type="background" :data-roll-opt="item.name.value"></span>
         <span class="background-sign">+</span>
         <input type="number" v-bind:name="concat('system.backgrounds.', index, '.bonus.value')" class="background-bonus" v-model="item.bonus.value"/>
-        <input type="text" v-bind:name="concat('system.backgrounds.', index, '.name.value')" class="background-name" v-model="item.name.value"/>
+        <TextareaGrow :name="`system.backgrounds.${index}.name.value`" :value="item.name.value" classes="background-name"/>
       </li>
     </ul>
   </section>
@@ -15,6 +15,7 @@
 
 <script>
 import { localize, concat, tooltip } from '@/methods/Helpers';
+import TextareaGrow from '@/components/parts/TextareaGrow.vue';
 export default {
   name: 'CharBackgrounds',
   props: ['actor'],
@@ -28,6 +29,9 @@ export default {
   data() {
     return {}
   },
+  components: {
+    TextareaGrow
+  },
   computed: {
     backgrounds() {
       let filteredBackgrounds = {};
@@ -37,7 +41,7 @@ export default {
       return filteredBackgrounds;
     }
   },
-  methods: { /* See created. */},
+  methods: {},
   async mounted() {}
 }
 </script>
