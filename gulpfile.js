@@ -63,7 +63,7 @@ function cleanPacks() {
  */
 function extractPacks() {
   // Start a stream for all db files in the packs dir.
-  const packs = gulp.src(`${PACK_DEST}/**/*.db`)
+  const packs = gulp.src(`${PACK_DEST}/*`)
     .pipe(shell([
       'fvtt package unpack <%= file.stem %> -c --yaml --out src/packs/src/<%= file.stem %>'
     ]));
