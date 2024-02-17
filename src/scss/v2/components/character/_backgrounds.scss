@@ -7,6 +7,7 @@
 
   li {
     padding: 4px 0;
+    align-items: end;
   }
 }
 
@@ -23,4 +24,6 @@
   font-size: $font-xs;
   font-weight: normal;
   text-align: left;
+  margin: 0;
+  border-bottom: 2px solid $c-black;
 }
