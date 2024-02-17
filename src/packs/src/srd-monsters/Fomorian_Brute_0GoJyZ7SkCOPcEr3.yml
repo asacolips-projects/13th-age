@@ -1,0 +1,656 @@
+name: Fomorian Brute
+type: npc
+_id: 0GoJyZ7SkCOPcEr3
+img: systems/archmage/assets/icons/tokens/monsters/giant.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 21
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 19
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 12
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 36
+      min: 0
+      max: 36
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 8
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: mook
+    size:
+      value: large
+    type:
+      value: giant
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Fomorian Brute
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/giant.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Crude club
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+10]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[18]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: NaluER1PyuqdnVEV
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708126984321
+      modifiedTime: 1708126993993
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.NaluER1PyuqdnVEV'
+  - name: Bite
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+11]] vs. AC (2 attacks)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[12]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: hQpTXUMWtBoMyHK6
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708126984470
+      modifiedTime: 1708127005060
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.hQpTXUMWtBoMyHK6'
+  - name: Dog pile
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>If there are at least three other fomorians engaged with the
+          target, the fomorian brute can make the *bite* attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 4BldjdImYNNbuc1B
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708126985492
+      modifiedTime: 1708127030662
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.4BldjdImYNNbuc1B'
+  - name: Double-strength mook
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The fomorian brute mook counts as two 5th level mooks when you are
+          building battles.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: Fr2r9nphZTmKnFrS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708126985622
+      modifiedTime: 1708127015170
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.Fr2r9nphZTmKnFrS'
+  - name: Fomorian Mutation Nastier Specials
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Roll on the table below if you wish. You can also give fomorians
+          some unclean-one abilities (though never unearthly beauty).</p>
+
+          <table style="width: 100%;" border="1"><colgroup><col style="width:
+          12.9083%;"><col style="width: 87.0917%;"></colgroup>
+
+          <tbody>
+
+          <tr>
+
+          <td>[[/r d4]]</td>
+
+          <td>Mutation</td>
+
+          </tr>
+
+          <tr>
+
+          <td>1</td>
+
+          <td>Extra arm</td>
+
+          </tr>
+
+          <tr>
+
+          <td>2</td>
+
+          <td>Extra eyes</td>
+
+          </tr>
+
+          <tr>
+
+          <td>3</td>
+
+          <td>Fair is foul</td>
+
+          </tr>
+
+          <tr>
+
+          <td>4</td>
+
+          <td>Thick skin</td>
+
+          </tr>
+
+          </tbody>
+
+          </table>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: RPSHPuDxI8xAbkrx
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708127111533
+      modifiedTime: 1708127199483
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.RPSHPuDxI8xAbkrx'
+  - name: Extra arm
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>When the escalation die is odd, the fomorian can make one extra
+          melee attack per round as a quick action.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 7gNbOjGT0ObwY5io
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708127208645
+      modifiedTime: 1708127244377
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.7gNbOjGT0ObwY5io'
+  - name: Extra eyes
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>The fomorian has a cluster of small eyes in the back of its head, a
+          huge eye on a shoulder, a slug-like eye stalk, etc. The fomorian
+          can&rsquo;t be surprised or ambushed, and it has true sight (spells
+          like blur, invisibility, etc. don&rsquo;t work on it).</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: eaGDoO0uXwXEMCi4
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708127247899
+      modifiedTime: 1708127258681
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.eaGDoO0uXwXEMCi4'
+  - name: Fair is foul
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>Once per turn as a free action, the fomorian can make the <em>evil
+          eye</em> attack.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: dVpx0j28FHVjSHyS
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708127248044
+      modifiedTime: 1708127272758
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.dVpx0j28FHVjSHyS'
+  - name: Thick skin
+    type: nastierSpecial
+    img: icons/svg/poison.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>+1 AC and +2 PD.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: 0yLDKkZjdbi5lirC
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708127248363
+      modifiedTime: 1708127280417
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.0yLDKkZjdbi5lirC'
+  - name: 'C: Evil eye'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+11]] vs. PD (one nearby or faraway enemy, but not one that has
+          been targeted by this attack since the start of the last round)
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10]] ongoing damage, and the target’s skin and bones painfully twist
+          to make them hideous to behold. At the start of each day, provided
+          they receive some form of magical healing, the twisted victim rolls a
+          save with a bonus equal to their Charisma or Constitution modifier
+          (whichever is lower) to recover their original appearance.
+      hit1:
+        type: String
+        label: Hit
+        name: Limited use
+        value: >-
+          Once one target has been hit by this attack, no further evil eye
+          attacks can be made by any fomorian this battle.
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: uzvwbl0AuBWlujZE
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708127284397
+      modifiedTime: 1708127327367
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!0GoJyZ7SkCOPcEr3.uzvwbl0AuBWlujZE'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708126961634
+  modifiedTime: 1708127327367
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!0GoJyZ7SkCOPcEr3'
+
