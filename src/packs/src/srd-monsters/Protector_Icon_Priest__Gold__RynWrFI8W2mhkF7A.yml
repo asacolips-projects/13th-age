@@ -1,0 +1,436 @@
+name: Protector Icon Priest (Gold)
+type: npc
+_id: RynWrFI8W2mhkF7A
+img: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 18
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 14
+      base: 10
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 17
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 40
+      min: 0
+      max: 40
+      temp: 0
+      tempmax: 0
+      base: 7
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 6
+    level:
+      type: Number
+      label: Level
+      value: 3
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    flavor:
+      value: ''
+    role:
+      value: leader
+    size:
+      value: normal
+    type:
+      value: humanoid
+    resistance:
+      value: ''
+    vulnerability:
+      value: ''
+prototypeToken:
+  name: Protector Icon Priest (Gold)
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/humanoid.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Demon staff
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[8]] damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss against a 5th or lower level enemy
+        value: >-
+          Demons gain a +2 attack bonus and a +7 damage bonus against the target
+          (hard save ends, 16+).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: tPkaTIMCn6E5EG8O
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708132116024
+      modifiedTime: 1708132131877
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!RynWrFI8W2mhkF7A.tPkaTIMCn6E5EG8O'
+  - name: 'R: Flaring staff'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: >-
+          [[d20+9]] vs. PD (1 nearby enemy, and 1 other nearby enemy engaged
+          with a demon)
+      hit:
+        type: String
+        label: Hit
+        value: '[[6]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: Natural even hit or miss against a 5th or lower level enemy
+        value: >-
+          Demons gain a +2 attack bonus and a +7 damage bonus against the target
+          (hard save ends, 16+).
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: XHiHmxuyFcNimIpq
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708132116218
+      modifiedTime: 1708132150632
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!RynWrFI8W2mhkF7A.XHiHmxuyFcNimIpq'
+  - name: 'R: Fireburst'
+    type: action
+    img: icons/svg/target.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      group:
+        type: String
+        label: Group
+        value: ''
+      attack:
+        type: String
+        label: Attack Roll
+        value: '[[d20+9]] vs. PD (1 nearby or faraway enemy)'
+      hit:
+        type: String
+        label: Hit
+        value: '[[12]] fire damage'
+      hit1:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit2:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit3:
+        type: String
+        label: Hit
+        name: ''
+        value: ''
+      hit4:
+        type: String
+        label: Hit
+      hit5:
+        type: String
+        label: Hit
+      miss:
+        type: String
+        label: Miss
+        value: Deal [[6]] fire damage to the Protector Icon priest
+      embeddedMacro:
+        value: ''
+    _id: BBdUHI6lcU1aTuoJ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708132116626
+      modifiedTime: 1708132169926
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!RynWrFI8W2mhkF7A.BBdUHI6lcU1aTuoJ'
+  - name: Mutually destructive
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: >-
+          <p>This creature&rsquo;s critical hit range against an enemy with icon
+          relationship points with the Protector Icon is increased by that
+          enemy&rsquo;s number of relationship points. It&rsquo;s mutual: for
+          every point of relationship with the Protector Icon, expand the
+          critical hit range of attacks against the Protector Icon priest by
+          1.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: wFNQ57K97JsPk5yJ
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708132117398
+      modifiedTime: 1708132178951
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!RynWrFI8W2mhkF7A.wFNQ57K97JsPk5yJ'
+  - name: Somewhat evasive
+    type: trait
+    img: icons/svg/regen.svg
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: <p>This creature takes no damage from enemies&rsquo; misses.</p>
+      group:
+        type: String
+        label: Group
+        value: ''
+      embeddedMacro:
+        value: ''
+    _id: ctWGOTR1YtPnaYbL
+    effects: []
+    folder: null
+    sort: 0
+    ownership:
+      default: 0
+    flags: {}
+    _stats:
+      systemId: archmage
+      systemVersion: 1.26.1
+      coreVersion: '11.315'
+      createdTime: 1708132117521
+      modifiedTime: 1708132185944
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!RynWrFI8W2mhkF7A.ctWGOTR1YtPnaYbL'
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+flags:
+  archmage:
+    portraitRound: false
+    portraitFrame: false
+_stats:
+  systemId: archmage
+  systemVersion: 1.26.1
+  coreVersion: '11.315'
+  createdTime: 1708132103816
+  modifiedTime: 1708132185944
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_key: '!actors!RynWrFI8W2mhkF7A'
+
