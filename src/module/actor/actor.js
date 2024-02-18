@@ -25,7 +25,7 @@ export class ActorArchmage extends Actor {
             // If it's an object, that will also include the image scale.
             : { ...art.token };
         // Update the prototype token for the actor.
-        data.prototypeToken = mergeObject(data.prototypeToken ?? {}, tokenArt);
+        data.prototypeToken = foundry.utils.mergeObject(data.prototypeToken ?? {}, tokenArt);
       }
     }
 
@@ -352,7 +352,7 @@ export class ActorArchmage extends Actor {
     // Incrementals
     if (!('talent' in data.incrementals)) data.incrementals.talent = model.incrementals.talent;
     if ('feature' in data.incrementals) {
-      data.incrementals.talent = duplicate(data.incrementals.feature);
+      data.incrementals.talent = foundry.utils.duplicate(data.incrementals.feature);
       delete data.incrementals.feature;
     }
 
@@ -376,7 +376,7 @@ export class ActorArchmage extends Actor {
     for (let abl of Object.values(data.abilities)) {
       abl.mod = Math.floor((abl.value - 10) / 2);
       abl.lvl = abl.mod + data.attributes.level.value;
-      abl.nonKey = {mod: duplicate(abl.mod), lvlmod: duplicate(abl.lvl)};
+      abl.nonKey = {mod: foundry.utils.duplicate(abl.mod), lvlmod: foundry.utils.duplicate(abl.lvl)};
     }
     // Non nonKey modifiers are affected by the Key Modifier
     let keyMod = data.attributes.keyModifier;
@@ -581,7 +581,7 @@ export class ActorArchmage extends Actor {
     const model = game.system.model.Actor.character.attributes.weapon;
 
     // Re-map all attributes onto the base roll data
-    let newData = mergeObject(data.attributes, data.abilities);
+    let newData = foundry.utils.mergeObject(data.attributes, data.abilities);
     delete data.init;
     for (let [k, v] of Object.entries(newData)) {
       switch (k) {
@@ -628,7 +628,7 @@ export class ActorArchmage extends Actor {
           break;
 
         case 'attack':
-          data.atk = mergeObject((data.atk || {}), {
+          data.atk = foundry.utils.mergeObject((data.atk || {}), {
             m: v.melee,
             r: v.ranged,
             a: v.arcane,
@@ -637,7 +637,7 @@ export class ActorArchmage extends Actor {
           break;
 
         case 'attackMod':
-          data.atk = mergeObject((data.atk || {}), {
+          data.atk = foundry.utils.mergeObject((data.atk || {}), {
             mod: v.value
           });
           break;
@@ -1465,7 +1465,7 @@ export class ActorArchmage extends Actor {
       // Update tokens.
       let tokens = this.getActiveTokens();
       tokens.forEach(token => {
-        let updateData = duplicate(tokenData);
+        let updateData = foundry.utils.duplicate(tokenData);
         // Propagate name update to token if same as actor
         if (data.name && this.name == token.name) {
           updateData.name = data.name;
@@ -1498,7 +1498,7 @@ export class ActorArchmage extends Actor {
     if (data.system.attributes?.hp?.value !== undefined
       && data.system.attributes?.hp?.temp == undefined) {
       // Here we received an update of the total hp but not the temp, check them
-      let hp = duplicate(this.system.attributes.hp);
+      let hp = foundry.utils.duplicate(this.system.attributes.hp);
       if (data.system.attributes.hp.value === null
         || isNaN(data.system.attributes.hp.value)) {
         //If the update is nonsensical ignore it

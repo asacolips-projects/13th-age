@@ -688,7 +688,7 @@ export class ItemArchmage extends Item {
 
 
   _powerChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     const tags = [
       {
         label: game.i18n.localize('ARCHMAGE.CHAT.actionType'),
@@ -796,32 +796,32 @@ export class ItemArchmage extends Item {
   }
 
   _equipmentChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     return data;
   }
 
   _actionChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     return data;
   }
 
   _traitChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     return data;
   }
 
   _nastierSpecialChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     return data;
   }
 
   _toolChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     return data;
   }
 
   _lootChatData() {
-    const data = duplicate(this.system);
+    const data = foundry.utils.duplicate(this.system);
     return data;
   }
 

@@ -1,7 +1,7 @@
 name: archmage
 id: archmage
 title: 13th Age
-version: "1.26.1"
+version: "1.27.0"
 authors:
   - name: Matt Smith
     discord: asacolips#1867
@@ -10,14 +10,14 @@ authors:
   - name: Federico Pederzolli
     discord: Legofed3#6471
 
-description: Run campaigns in OGL games that use icons, backgrounds, and one unique thing.
+description: The official 13th Age system for Foundry Virtual Tabletop.
 minimumCoreVersion: "11"
 compatibleCoreVersion: "11"
 
 compatibility:
   minimum: "11"
-  verified: "11.313"
-  maximum: "11"
+  verified: "11.315"
+  maximum: "12"
 
 esmodules:
   - module/archmage.js
@@ -386,7 +386,7 @@ languages:
 socket: true
 url: https://gitlab.com/asacolips-projects/foundry-mods/archmage
 manifest: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json
-download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.26.1/raw/archmage.zip?job=build-prod
+download: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.27.0/raw/archmage.zip?job=build-prod
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
 gridDistance: "1"
 gridUnits: ''

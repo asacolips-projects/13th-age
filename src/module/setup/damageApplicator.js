@@ -26,7 +26,7 @@ export class DamageApplicator {
       return;
     }
     selected.forEach(token => {
-      let actorData = duplicate(token.actor);
+      let actorData = foundry.utils.duplicate(token.actor);
       actorData.system.attributes.hp.value -= toApply;
       token.actor.update(actorData);
     });
@@ -45,7 +45,7 @@ export class DamageApplicator {
 
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
-      let actorData = duplicate(token.actor);
+      let actorData = foundry.utils.duplicate(token.actor);
       actorData.system.attributes.hp.value = Math.max(0, actorData.system.attributes.hp.value) + toApply;
       token.actor.update(actorData);
     });
@@ -55,7 +55,7 @@ export class DamageApplicator {
     let toApply = this.getRollValue(roll);
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
-      let actorData = duplicate(token.actor);
+      let actorData = foundry.utils.duplicate(token.actor);
       let hp = actorData.system.attributes["hp"];
       if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
       hp.temp = Math.max(hp.temp, toApply);

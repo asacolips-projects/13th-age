@@ -20,7 +20,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
-    mergeObject(options, {
+    foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
       width: 960,
       height: 960,
@@ -310,7 +310,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    */
   async _createItem(event) {
     let target = event.currentTarget;
-    let dataset = duplicate(target.dataset);
+    let dataset = foundry.utils.duplicate(target.dataset);
 
     // Grab the item type from the dataset and then remove it.
     let itemType = dataset.itemType ?? 'power';
@@ -1012,7 +1012,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         })
         // Prepare the items for saving.
         .map(p => {
-          return duplicate(p);
+          return foundry.utils.duplicate(p);
         });
 
       // Create the owned items.

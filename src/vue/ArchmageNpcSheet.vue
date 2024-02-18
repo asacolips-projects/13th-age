@@ -181,7 +181,7 @@ export default {
           },
         }
       }
-      return mergeObject(baseFlags, flags);
+      return foundry.utils.mergeObject(baseFlags, flags);
     }
   },
   watch: {},

@@ -29,7 +29,7 @@ fetch('./template.json')
     const npcJson = await fetch('./vue/content/sample-npc.json');
     const npcActor = await npcJson.json();
 
-    context.actor = mergeObject(actorTemplates.actors.npc, npcActor);
+    context.actor = foundry.utils.mergeObject(actorTemplates.actors.npc, npcActor);
     context.data = context.actor.data;
 
     const hp = foundry.utils.getProperty(context.actor, 'system.attributes.hp.value');

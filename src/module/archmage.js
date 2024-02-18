@@ -184,7 +184,7 @@ Hooks.once('init', async function() {
   // Update status effects.
   function _setArchmageStatusEffects(extended) {
     if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
-    else CONFIG.statusEffects = duplicate(ARCHMAGE.statusEffects);
+    else CONFIG.statusEffects = foundry.utils.duplicate(ARCHMAGE.statusEffects);
   }
   game.settings.register('archmage', 'extendedStatusEffects', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
@@ -759,7 +759,7 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // Disable DsN's automatic parsing of inline rolls - let users enable it
-  if (isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
+  if (foundry.utils.isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
     && !game.settings.get("archmage", "DsNInlineOverride")) {
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
     game.settings.set("archmage", "DsNInlineOverride", true);
