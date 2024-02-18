@@ -13,8 +13,9 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 ## Features
 
 - Updated manifest to allow installation on Foundry v12.
-- Updated the **Backgrounds** fields on the character sheet to allow them to auto-grow in height if a background is long enough to wrap multiple lines. No longer will your backgrounds mysteriously disapper into nothingness!
-- Added the new monsters from v4.0 of the official SRD! This means that we now have all of the SRD versions of the Bestiary 2 monsters. These monsters don't yet have a mapping for the token art from the Pathfinder 2 token pack, but that will also be added sometime in the near future. Huge thanks go out to @benstraub for transcribing all of this content!
+- Updated the **Backgrounds** fields on the character sheet to allow them to auto-grow in height if a background is long enough to wrap multiple lines. No longer will your backgrounds mysteriously disappear into nothingness!
+- Added the new monsters from v4.0 of the official SRD! This means that we now have all of the SRD versions of the Bestiary 2 monsters. These monsters don't yet have a mapping for the token art from the Pathfinder 2 token pack, but that will also be added sometime in the near future. Huge thanks go out to @benstraub and kanyota for transcribing all of this content!
+- Compendiums are now organized into 4 different folders: *Player options*, *Creatures*, *Magic items*, and *Misc*.
 
 ### New Monsters from Bestiary 2
 
@@ -86,4 +87,4 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 ## Credits
 
-Thanks go out to @LegoFed3, @benstraub, and @asacolips for their contributions in this release!
+Thanks go out to @LegoFed3, @benstraub, kanyota, and @asacolips for their contributions in this release!
