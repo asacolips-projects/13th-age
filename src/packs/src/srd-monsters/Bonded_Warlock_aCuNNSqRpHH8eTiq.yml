@@ -363,22 +363,10 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 18">
-
-          <div>
-
-          <div>
-
           <p>Once per battle when a spell not granted by a talent hits the
           bonded, it has no effect. Later in the battle as a quick action the
           bonded can cast the spell that hit it, using the original
           caster&rsquo;s attack and damage bonuses.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group
@@ -411,20 +399,8 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 18">
-
-          <div>
-
-          <div>
-
           <p>When one of the bonded&rsquo;s attacks misses all targets, the
           bonded teleports as a free action.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group
@@ -457,23 +433,11 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 18">
-
-          <div>
-
-          <div>
-
           <p>The bonded&rsquo;s violent dispelling attack "dispels" all manner
           of useful conditions, such as a rogue having momentum or a fighter
           having a higher crit range. In particular, this higher-strength
           version of the attack shuts down that really irritating effect
           that&rsquo;s always being used by that one character.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

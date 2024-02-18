@@ -287,20 +287,8 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 12">
-
-          <div>
-
-          <div>
-
           <p>When a bloody shade dies, one random nearby non-mook ally regains
-          2d6 hp.</p>
-
-          </div>
-
-          </div>
-
-          </div>
+          [[/r 2d6]] hp.</p>
       group:
         type: String
         label: Group

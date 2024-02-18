@@ -356,21 +356,9 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 17">
-
-          <div>
-
-          <div>
-
           <p>This bonded can make ranged attacks in melee and not provoke
           attacks from those that it is engaged with. When leaving engagement
           the bonded does not provoke attacks.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group
@@ -403,23 +391,11 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 17">
-
-          <div>
-
-          <div>
-
           <p>As a move action, if the bonded isn&rsquo;t engaged, it can declare
           a creature or item or point on the battlefield to be the target of its
           overwatch. If before its next turn an enemy moves close to the focus
           of the overwatch, the bonded can make the *overwatch shot* attack on
           the triggering enemy.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

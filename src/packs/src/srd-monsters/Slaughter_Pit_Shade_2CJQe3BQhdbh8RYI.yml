@@ -229,20 +229,8 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 13">
-
-          <div>
-
-          <div>
-
           <p>When a nearby non-mook undead ally drops to 0 hit points, the
           slaughter pit shade immediately removes one ongoing condition.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

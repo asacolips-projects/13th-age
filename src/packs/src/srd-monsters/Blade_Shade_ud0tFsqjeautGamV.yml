@@ -223,37 +223,13 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 12">
-
-          <div>
-
-          <div>
-
           <p>As a quick action, the battle shade may disappear from the
           battlefield, melding into the ground. At the start of its next turn it
           reappears nearby as a move action. Attacks made the turn it reappears
           gain a +2 attack bonus and +2 to damage.</p>
-
-          <div title="Page 12">
-
-          <div>
-
-          <div>
-
+          
           <p><em>Limited use</em>: Only when triggered by <em>rusty
           blades</em>.</p>
-
-          </div>
-
-          </div>
-
-          </div>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

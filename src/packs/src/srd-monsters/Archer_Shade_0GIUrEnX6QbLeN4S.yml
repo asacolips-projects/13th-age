@@ -287,12 +287,6 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 13">
-
-          <div>
-
-          <div>
-
           <p>As a quick action, the archer shade may disappear from the
           battlefield, melding into the ground. At the start of its next turn it
           reappears nearby as a move action. Attacks made the turn it reappears
@@ -300,12 +294,6 @@ items:
 
           <p>Limited use: Only when triggered by&nbsp;<em>scrap dagger</em> or
           <em>rain of ghostly arrows</em>.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

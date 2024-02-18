@@ -362,22 +362,10 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 18">
-
-          <div>
-
-          <div>
-
           <p>The bonded&rsquo;s eerie radiance also works against long-dead
           creatures, even returning corpses that are no more than dust and bones
           to full life. GMs beware, this is a very nasty special if the bonded
           prophet happens to be standing in a graveyard at the time.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group
@@ -410,22 +398,10 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 18">
-
-          <div>
-
-          <div>
-
           <p>The bonded prophet&rsquo;s mighty smite is even mightier if the PC
           has violated some taboo, broken a sacred law, or transgressed into a
           holy place. The attack deals an additional [[20]] force damage, hit or
           miss, even on a 1.</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

@@ -225,13 +225,7 @@ items:
         type: String
         label: Description
         value: |-
-          <div title="Page 12">
-          <div>
-          <div>
           <p>Broken shades do not take miss damage from weapons.</p>
-          </div>
-          </div>
-          </div>
       group:
         type: String
         label: Group
@@ -264,20 +258,8 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 12">
-
-          <div>
-
-          <div>
-
           <p>When a member of the mob dies, other broken shades gain +1 to
           damage until the end of the battle (max +4).</p>
-
-          </div>
-
-          </div>
-
-          </div>
       group:
         type: String
         label: Group

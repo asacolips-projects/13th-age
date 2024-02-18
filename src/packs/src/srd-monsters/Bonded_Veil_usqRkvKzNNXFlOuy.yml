@@ -296,20 +296,8 @@ items:
         type: String
         label: Description
         value: >-
-          <div title="Page 17">
-
-          <div>
-
-          <div>
-
           <p>Until the bonded is hit, it has a +4 bonus to
-          all&nbsp;defenses.</p>
-
-          </div>
-
-          </div>
-
-          </div>
+          all defenses.</p>
       group:
         type: String
         label: Group
