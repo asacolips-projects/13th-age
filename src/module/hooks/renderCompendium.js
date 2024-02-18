@@ -1,7 +1,7 @@
 export class renderCompendium {
   static async handle(app, html, data) {
     let compendiumContent = null;
-    let newOptions = duplicate(data);
+    let newOptions = foundry.utils.duplicate(data);
     newOptions.index = {};
 
     // console.log(data.collection.metadata)
@@ -31,7 +31,7 @@ export class renderCompendium {
     //     }, {});
     //   }
 
-    //   newOptions.index = duplicate(data).index.reduce((groups, option) => {
+    //   newOptions.index = foundry.utils.duplicate(data).index.reduce((groups, option) => {
     //     if (option.id) {
     //       let group = option.search.type ? option.search.type : 'other';
     //       if (!groups[group]) {
@@ -60,7 +60,7 @@ export class renderCompendium {
     //       type: data.details.type ? data.details.type.value : 'other',
     //     };
     //   });
-    //   newOptions.index = duplicate(data).index.reduce((groups, option) => {
+    //   newOptions.index = foundry.utils.duplicate(data).index.reduce((groups, option) => {
     //     if (option.id) {
     //       // console.log(option);
     //       let group = option.search.type ? option.search.type : 'other';

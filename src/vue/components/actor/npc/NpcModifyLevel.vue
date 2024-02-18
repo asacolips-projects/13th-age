@@ -80,7 +80,7 @@
         // Create a preview actor that we can use for display.
         let previewActor = {
           name: this.actor.name,
-          system: duplicate(this.actor.system)
+          system: foundry.utils.duplicate(this.actor.system)
         };
 
         // Update the fields.

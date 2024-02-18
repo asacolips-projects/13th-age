@@ -224,7 +224,7 @@ export class ArchmagePrepopulate {
 
     // Rearrange the powers into groups by type.
     let powersByGroup = [];
-    powersByGroup = duplicate(preSorted).reduce((powerGroup, power) => {
+    powersByGroup = foundry.utils.duplicate(preSorted).reduce((powerGroup, power) => {
       if (power.powerType) {
         let group = power.powerType ? power.powerType : 'other';
         let level = power.level ?? 1;

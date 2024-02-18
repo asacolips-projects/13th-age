@@ -122,7 +122,7 @@ class ArchmageUpdateHandler {
       actorUpdates = this.prepareMigrateActorData(token.actor);
       let itemUpdates = [];
       for (let item of token.actor.items) {
-        let updItm = duplicate(item);
+        let updItm = foundry.utils.duplicate(item);
         let upd = this.prepareMigrateItemData(item);
         if (!foundry.utils.isEmpty(upd)) updItm.system = mergeObjectWithDeletion(updItm.system, upd.system);
         itemUpdates.push(updItm);
@@ -177,7 +177,7 @@ class ArchmageUpdateHandler {
   __migrateNpcInit(actor, updateData={}) {
     if (!actor || actor.type != "npc") return updateData;
     const actorData = actor.system;
-    return mergeObject(updateData, {
+    return foundry.utils.mergeObject(updateData, {
       'system.attributes.init.value': Number(actorData.attributes.init.value) + Number(actorData.attributes.level.value),
       'system.attributes.init.-=mod': null
     });
@@ -198,7 +198,7 @@ class ArchmageUpdateHandler {
     const actorData = actor.system;
     const bonus = actor.getFlag("archmage", "improvedIniative") ? 4 : 0;
     actor.unsetFlag("archmage", "improvedIniative");
-    return mergeObject(updateData, {'system.attributes.init.value': Number(actorData.attributes.init.value) + bonus});
+    return foundry.utils.mergeObject(updateData, {'system.attributes.init.value': Number(actorData.attributes.init.value) + bonus});
   }
 
   /* -------------------------------------------*/
@@ -263,7 +263,7 @@ class ArchmageUpdateHandler {
         }
       }
     }
-    return mergeObject(updateData, {
+    return foundry.utils.mergeObject(updateData, {
       'system.resources.value': val,
       'system.-=cost': null
     });
@@ -315,7 +315,7 @@ class ArchmageUpdateHandler {
         i += 1;
       }
     }
-    return mergeObject(updateData, {
+    return foundry.utils.mergeObject(updateData, {
       'system.feats': updatedFeats,
       'system.feats.-=adventurer': null,
       'system.feats.-=champion': null,
@@ -651,7 +651,7 @@ class ArchmageUpdateHandler {
    */
   versionBelow(version) {
     const worldVersion = game.settings.get('archmage', 'systemMigrationVersion') ?? '1.17.0';
-    return isNewerVersion(version, worldVersion);
+    return foundry.utils.isNewerVersion(version, worldVersion);
   }
 }
 

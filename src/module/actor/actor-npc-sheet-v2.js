@@ -17,7 +17,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
-    mergeObject(options, {
+    foundry.utils.mergeObject(options, {
       classes: options.classes.concat(['archmage-v2', 'actor', 'npc-sheet']).filter(c => c !== 'archmage'),
       width: 640,
       height: 800,
@@ -82,7 +82,7 @@ export class ActorArchmageNpcSheetV2 extends ActorArchmageSheetV2 {
    */
    async _createItem(event) {
     let target = event.currentTarget;
-    let dataset = duplicate(target.dataset);
+    let dataset = foundry.utils.duplicate(target.dataset);
 
     // Grab the item type from the dataset and then remove it.
     let itemType = dataset.itemType ?? 'power';

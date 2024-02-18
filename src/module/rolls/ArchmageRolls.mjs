@@ -30,7 +30,7 @@ export default class ArchmageRolls {
           // Roll the targets now
           ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
-          newTargetLine = duplicate(targetLine);
+          newTargetLine = foundry.utils.duplicate(targetLine);
           rolls.forEach(r => {
             targets += r.total;
             // Save outcomes in target line string
