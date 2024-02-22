@@ -1,7 +1,7 @@
 _id: 14RwkMs4pEwz2FCb
 name: Skeletal Minion (Lvl 1)
 type: npc
-img: icons/svg/mystery-man.svg
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
   attributes:
     attackMod:
@@ -321,7 +321,7 @@ token:
   flags: {}
   name: Skeletal Minion (1)
   displayName: 0
-  img: icons/svg/mystery-man.svg
+  img: systems/archmage/assets/icons/tokens/monsters/undead.webp
   tint: null
   width: 1
   height: 1

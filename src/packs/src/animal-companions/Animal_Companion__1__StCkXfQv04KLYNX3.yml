@@ -1,6 +1,6 @@
 name: Animal Companion (1)
 type: npc
-img: icons/svg/mystery-man.svg
+img: systems/archmage/assets/icons/tokens/monsters/beast.webp
 system:
   attributes:
     attackMod:
@@ -105,7 +105,7 @@ system:
       value: ''
 token:
   name: Animal Companion (1)
-  img: icons/svg/mystery-man.svg
+  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
   displayName: 0
   actorLink: false
   width: 1

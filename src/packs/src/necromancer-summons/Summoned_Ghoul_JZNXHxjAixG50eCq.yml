@@ -1,7 +1,7 @@
 _id: JZNXHxjAixG50eCq
 name: Summoned Ghoul
 type: npc
-img: icons/svg/mystery-man.svg
+img: systems/archmage/assets/icons/tokens/monsters/undead.webp
 system:
   attributes:
     attackMod:
@@ -321,7 +321,7 @@ token:
   flags: {}
   name: Summoned Ghoul
   displayName: 0
-  img: icons/svg/mystery-man.svg
+  img: systems/archmage/assets/icons/tokens/monsters/undead.webp
   tint: null
   width: 1
   height: 1
