@@ -40,9 +40,9 @@
 
       <section class="section section--main flexcol">
         <ul class="compendium-browser-results">
-          <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow" :data-id="entry._id" @click="openDocument(entry._id)">
-            <img :src="entry.img"/>
-            <div class="grid grid-4col">
+          <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry._id)">
+            <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
+            <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
               <strong class="grid-span-4">{{ entry?.name }}</strong>
               <div>Level {{ entry?.system?.attributes?.level?.value }}</div>
               <div>{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
@@ -85,6 +85,12 @@ export default {
         document.sheet.render(true);
         console.log(document);
       });
+    },
+    startDrag(event, entry) {
+      event.dataTransfer.setData('text/plain', JSON.stringify({
+        type: 'Actor',
+        uuid: entry.uuid
+      }));
     }
   },
   computed: {

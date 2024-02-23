@@ -651,7 +651,7 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderDocumentDirectory", (app, html, options) => {
-  if (["actors", "items"].includes(options.tabName)) {
+  if (["actors", "items"].includes(options.tabName) && !options.cssId.toLowerCase().includes('compendium')) {
     const htmlElement = html[0];
     const compendiumButton = `<button type="button" class="open-archmage-browser"><i class="fas fa-atlas"></i>${game.i18n.localize('Compendium Browser')}</button>`;
     // Append button. Click handler added in 'ready' hook.
