@@ -621,9 +621,16 @@ Hooks.once('ready', () => {
   });
 
   // Handle click events for the compendium browser.
-  document.querySelector("#sidebar").addEventListener("click", (event) => {
+  document.addEventListener("click", (event) => {
     if (event?.target?.classList && event.target.classList.contains("open-archmage-browser")) {
-      new ArchmageCompendiumBrowserApplication().render(true);
+      // Retrieve the existing compendium browser, if any.
+      let compendiumBrowser = Object.values(ui.windows).find(app => app.constructor.name == 'ArchmageCompendiumBrowserApplication');
+      // Otherwise, build a new one.
+      if (!compendiumBrowser) {
+        compendiumBrowser = new ArchmageCompendiumBrowserApplication();
+      }
+      // Render the browser.
+      compendiumBrowser.render(true);
     }
   });
 
