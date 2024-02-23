@@ -16,7 +16,11 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
 
   static get defaultOptions() {
     return {...super.defaultOptions,
-      classes: ['form'],
+      classes: [
+        'form',
+        'archmage-v2',
+        'archmage-dialog'
+      ],
       popOut: true,
       template: "systems/archmage/templates/dialog/compendium-browser.html",
       id: 'archmage-compendium-browser',
@@ -26,23 +30,24 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
     };
   }
 
-  getData() {
-    return {};
-  }
-
-  getPackIndex(pack = null) {
-    if (!pack) return;
-
-    // @todo simple example of retrieving a pack index for the filter.
-    pack = game.packs.get('archmage.srd-Monsters');
-    return pack.getIndex({
-      fields: [
+  async getData() {
+    return {
+      srdMonsters: await this.getPackIndex('archmage.srd-Monsters', [
         'system.attributes.level',
         'system.details.role.value',
         'system.details.size.value',
-        'system.details.type.value',
-      ]
-    })
+        'system.details.type.value'
+      ]),
+    };
+  }
+
+  async getPackIndex(packName = null, fields = []) {
+    if (!packName) return;
+    if (!fields || fields.length < 1) return;
+
+    // @todo simple example of retrieving a pack index for the filter.
+    const pack = game.packs.get(packName);
+    return pack.getIndex({fields: fields})
   }
 
   /* ------------------------------------------------------------------------ */
@@ -50,12 +55,10 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
   /* ------------------------------------------------------------------------ */
 
   /** @override */
-  render(force=false, options={}) {
-    const context = this.getData();
+  async render(force=false, options={}) {
+    const context = await this.getData();
 
-    this.getPackIndex('archmage.srd-Monsters').then(index => {
-      console.log(index);
-    });
+    // @todo refactor below lines to remove .then() calls in favor of await
 
     // Render the vue application after loading. We'll need to destroy this
     // later in the this.close() method for the sheet.
@@ -163,6 +166,15 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';
     html.on('focus', inputs, (event) => this._onFocus(event));
+  }
+
+  _onFocus(event) {
+    let target = event.currentTarget;
+    setTimeout(function() {
+      if (target == document.activeElement) {
+        $(target).trigger('select');
+      }
+    }, 100);
   }
 
   async _updateObject(event, formData) {}
