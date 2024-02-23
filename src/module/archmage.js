@@ -18,6 +18,7 @@ import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
+import { ArchmageCompendiumBrowserApplication } from './setup/compendium-browser.js';
 
 
 Hooks.once('init', async function() {
@@ -619,6 +620,13 @@ Hooks.once('ready', () => {
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
+  // Handle click events for the compendium browser.
+  document.querySelector("#sidebar").addEventListener("click", (event) => {
+    if (event?.target?.classList && event.target.classList.contains("open-archmage-browser")) {
+      new ArchmageCompendiumBrowserApplication().render(true);
+    }
+  });
+
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (['Item'].includes(data.type)) {
@@ -631,6 +639,17 @@ Hooks.once('ready', () => {
 
   // Build the module art map. See module/setup/register-module-art.js for more details.
   registerModuleArt();
+});
+
+/* ---------------------------------------------- */
+
+Hooks.on("renderDocumentDirectory", (app, html, options) => {
+  if (["actors", "items"].includes(options.tabName)) {
+    const htmlElement = html[0];
+    const compendiumButton = `<button type="button" class="open-archmage-browser"><i class="fas fa-atlas"></i>${game.i18n.localize('Compendium Browser')}</button>`;
+    // Append button. Click handler added in 'ready' hook.
+    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", compendiumButton);
+  }
 });
 
 /* -------------------------------------------- */
