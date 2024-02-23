@@ -30,6 +30,21 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
     return {};
   }
 
+  getPackIndex(pack = null) {
+    if (!pack) return;
+
+    // @todo simple example of retrieving a pack index for the filter.
+    pack = game.packs.get('archmage.srd-Monsters');
+    return pack.getIndex({
+      fields: [
+        'system.attributes.level',
+        'system.details.role.value',
+        'system.details.size.value',
+        'system.details.type.value',
+      ]
+    })
+  }
+
   /* ------------------------------------------------------------------------ */
   /*  Vue Rendering --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
@@ -37,6 +52,10 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
   /** @override */
   render(force=false, options={}) {
     const context = this.getData();
+
+    this.getPackIndex('archmage.srd-Monsters').then(index => {
+      console.log(index);
+    });
 
     // Render the vue application after loading. We'll need to destroy this
     // later in the this.close() method for the sheet.
