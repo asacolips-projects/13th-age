@@ -50,6 +50,9 @@
   </section>
 
   <section class="section section--main flexcol">
+
+    <Pager v-if="this.creaturesIndex?.length > 1" :total-rows="this.creaturesIndex.length" :per-page="100"/>
+
     <ul class="compendium-browser-results">
       <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry._id)">
         <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry)" draggable="true"/>
@@ -68,6 +71,7 @@
 <script>
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
+import Pager from '@/components/parts/Pager.vue';
 import { getPackIndex, getActorModuleArt } from '@/methods/Helpers.js';
 
 export default {
@@ -75,7 +79,8 @@ export default {
   props: [],
   components: {
     Slider,
-    Multiselect
+    Multiselect,
+    Pager
   },
   setup() {
     return {
