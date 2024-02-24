@@ -34,6 +34,7 @@
     flex-wrap: nowrap;
     border-bottom: 1px solid #999;
     padding: 0 2px;
+    cursor: pointer;
 
     img {
       flex: 0 auto;
@@ -48,4 +49,18 @@
       margin: 0;
     }
   }
+}
+
+// Override ranger slider styles.
+.slider-wrapper {
+  width: 227px;
+  padding: 0 10px 0 20px;
+}
+
+.level-range {
+  align-items: center;
+}
+
+.level-label {
+  flex: 0 auto;
 }

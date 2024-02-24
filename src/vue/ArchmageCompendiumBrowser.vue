@@ -10,31 +10,45 @@
 
         <div class="unit unit--input">
           <label class="unit-title" for="compendiumBrowser.level">Level</label>
-          <input type="number" min="0" id="compendiumBrowser.level" name="compendiumBrowser.level" v-model="level"/>
+          <div class="level-range flexrow">
+            <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
+            <div class="level-input slider-wrapper flexrow">
+              <Slider v-model="levelRange" :min="1" :max="15" :tooltips="false"/>
+            </div>
+          </div>
         </div>
 
         <div class="unit unit--input">
           <label class="unit-title" for="compendiumBrowser.type">Type</label>
-          <select name="compendiumBrowser.type" id="compendiumBrowser.type" v-model="type">
-            <option value="">-</option>
-            <option v-for="(option, index) in CONFIG.ARCHMAGE.creatureTypes" :key="index" :value="index">{{ option }}</option>
-          </select>
+          <Multiselect
+            v-model="type"
+            mode="tags"
+            :searchable="false"
+            :create-option="false"
+            :options="CONFIG.ARCHMAGE.creatureTypes"
+          />
         </div>
 
         <div class="unit unit--input">
           <label class="unit-title" for="compendiumBrowser.role">Role</label>
-          <select name="compendiumBrowser.role" id="compendiumBrowser.role" v-model="role">
-            <option value="">-</option>
-            <option v-for="(option, index) in CONFIG.ARCHMAGE.creatureRoles" :key="index" :value="index">{{ option }}</option>
-          </select>
+          <Multiselect
+            v-model="role"
+            mode="tags"
+            :searchable="false"
+            :create-option="false"
+            :options="CONFIG.ARCHMAGE.creatureRoles"
+          />
         </div>
 
         <div class="unit unit--input">
           <label class="unit-title" for="compendiumBrowser.size">Size</label>
-          <select name="compendiumBrowser.size" id="compendiumBrowser.size" v-model="size">
-            <option value="">-</option>
-            <option v-for="(option, index) in CONFIG.ARCHMAGE.creatureSizes" :key="index" :value="index">{{ option }}</option>
-          </select>
+          <Multiselect
+            v-model="size"
+            mode="tags"
+            :searchable="false"
+            :create-option="false"
+            :options="CONFIG.ARCHMAGE.creatureSizes"
+          />
         </div>
       </section>
 
@@ -58,11 +72,16 @@
 </template>
 
 <script>
+import Slider from '@vueform/slider';
+import Multiselect from '@vueform/multiselect';
 
 export default {
   name: 'ArchmageCompendiumBrowser',
   props: [`context`],
-  components: {},
+  components: {
+    Slider,
+    Multiselect
+  },
   setup() {
     return {
       CONFIG,
@@ -73,9 +92,10 @@ export default {
     return {
       name: '',
       level: null,
-      type: '',
-      role: '',
-      size: '',
+      levelRange: [1, 15],
+      type: [],
+      role: [],
+      size: [],
     }
   },
   methods: {
@@ -106,24 +126,27 @@ export default {
         result = result.filter(entry => entry.name.toLocaleLowerCase().includes(name));
       }
 
-      if (this.level && Number.isInteger(this.level)) {
+      if (this.levelRange.length == 2) {
         console.log('Level filter');
-        result = result.filter(entry => entry.system.attributes.level.value == this.level);
+        result = result.filter(entry =>
+          entry.system.attributes.level.value >= this.levelRange[0] &&
+          entry.system.attributes.level.value <= this.levelRange[1]
+        );
       }
 
-      if (this.type && this.type.length > 0) {
+      if (Array.isArray(this.type) && this.type.length > 0) {
         console.log('Type filter');
-        result = result.filter(entry => entry.system.details.type.value == this.type);
+        result = result.filter(entry => this.type.includes(entry.system.details.type.value));
       }
 
-      if (this.role && this.role.length > 0) {
+      if (Array.isArray(this.role) && this.role.length > 0) {
         console.log('Role filter');
-        result = result.filter(entry => entry.system.details.role.value == this.role);
+        result = result.filter(entry => this.role.includes(entry.system.details.role.value));
       }
 
-      if (this.size && this.size.length > 0) {
+      if (Array.isArray(this.size) && this.size.length > 0) {
         console.log('Size filter');
-        result = result.filter(entry => entry.system.details.size.value == this.size);
+        result = result.filter(entry => this.size.includes(entry.system.details.size.value));
       }
 
       return result.sort((a, b) => {
@@ -144,4 +167,10 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "@vueform/slider/themes/default.css";
+  @import "@vueform/multiselect/themes/default.css";
+
+  .multiselect {
+    width: 227px;
+  }
 </style>
