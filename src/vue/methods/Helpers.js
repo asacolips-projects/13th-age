@@ -305,3 +305,39 @@ export async function getActor(actorData) {
   // If it's a token, retrieve the actor prop. Otherwise, retrieve the document.
   return document?.actor ?? document;
 }
+
+/**
+ * Retrieve module art for an actor
+ *
+ * @param {object} actor Index version of an actor document from a compendium.
+ * @returns {string} Path to art asset
+ */
+export function getActorModuleArt(actor) {
+  // UUID doesn't exactly match the format used in the map currently.
+  const actorMapId = actor.uuid.replace('.Actor', '');
+  // Retrieve the art from the map, or fallback to the actor image.
+  const art = game.archmage.system.moduleArt.map.get(actorMapId);
+  return art?.actor ?? actor.img;
+}
+
+/**
+   * Retrieve index for a list of compendiums.
+   *
+   * @param {Array} packNames Array of compendiums to index.
+   * @param {Array} fields Array of field paths to include in the index.
+   * @returns Combined entries from the queried compendiums.
+   */
+export async function getPackIndex(packNames = [], fields = []) {
+  if (!packNames) return;
+  if (!fields || fields.length < 1) return;
+
+  let packs = [];
+
+  for (let packName of packNames) {
+    const pack = game.packs.get(packName);
+    const packIndex = await pack.getIndex({fields: fields});
+    packs = packs.concat(packIndex.contents);
+  }
+
+  return packs;
+}

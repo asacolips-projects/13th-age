@@ -25,29 +25,15 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
       template: "systems/archmage/templates/dialog/compendium-browser.html",
       id: 'archmage-compendium-browser',
       title: 'Compendium Browser',
-      width: 800,
+      width: 1024,
       height: 640,
     };
   }
 
   async getData() {
-    return {
-      srdMonsters: await this.getPackIndex('archmage.srd-Monsters', [
-        'system.attributes.level',
-        'system.details.role.value',
-        'system.details.size.value',
-        'system.details.type.value'
-      ]),
-    };
-  }
-
-  async getPackIndex(packName = null, fields = []) {
-    if (!packName) return;
-    if (!fields || fields.length < 1) return;
-
-    // @todo simple example of retrieving a pack index for the filter.
-    const pack = game.packs.get(packName);
-    return pack.getIndex({fields: fields})
+    // Compendiums are retrieved in the created() section of their respective
+    // component tabs.
+    return {};
   }
 
   /* ------------------------------------------------------------------------ */
