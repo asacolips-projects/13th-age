@@ -116,322 +116,322 @@
       "label": "Classes",
       "type": "JournalEntry",
       "name": "classes",
-      "path": "packs/classes.db",
+      "path": "packs/classes",
       "system": "archmage"
     },
     {
       "label": "Conditions",
       "type": "JournalEntry",
       "name": "conditions",
-      "path": "packs/conditions.db",
+      "path": "packs/conditions",
       "system": "archmage"
     },
     {
       "label": "Races",
       "type": "Item",
       "name": "races",
-      "path": "packs/races.db",
+      "path": "packs/races",
       "system": "archmage"
     },
     {
       "label": "Barbarian",
       "type": "Item",
       "name": "barbarian",
-      "path": "packs/barbarian.db",
+      "path": "packs/barbarian",
       "system": "archmage"
     },
     {
       "label": "Bard",
       "type": "Item",
       "name": "bard",
-      "path": "packs/bard.db",
+      "path": "packs/bard",
       "system": "archmage"
     },
     {
       "label": "Cleric",
       "type": "Item",
       "name": "cleric",
-      "path": "packs/cleric.db",
+      "path": "packs/cleric",
       "system": "archmage"
     },
     {
       "label": "Fighter",
       "type": "Item",
       "name": "fighter",
-      "path": "packs/fighter.db",
+      "path": "packs/fighter",
       "system": "archmage"
     },
     {
       "label": "Paladin",
       "type": "Item",
       "name": "paladin",
-      "path": "packs/paladin.db",
+      "path": "packs/paladin",
       "system": "archmage"
     },
     {
       "label": "Ranger",
       "type": "Item",
       "name": "ranger",
-      "path": "packs/ranger.db",
+      "path": "packs/ranger",
       "system": "archmage"
     },
     {
       "label": "Rogue",
       "type": "Item",
       "name": "rogue",
-      "path": "packs/rogue.db",
+      "path": "packs/rogue",
       "system": "archmage"
     },
     {
       "label": "Sorcerer",
       "type": "Item",
       "name": "sorcerer",
-      "path": "packs/sorcerer.db",
+      "path": "packs/sorcerer",
       "system": "archmage"
     },
     {
       "label": "Wizard",
       "type": "Item",
       "name": "wizard",
-      "path": "packs/wizard.db",
+      "path": "packs/wizard",
       "system": "archmage"
     },
     {
       "label": "Chaos Mage",
       "type": "Item",
       "name": "chaosmage",
-      "path": "packs/chaosmage.db",
+      "path": "packs/chaosmage",
       "system": "archmage"
     },
     {
       "label": "Commander",
       "type": "Item",
       "name": "commander",
-      "path": "packs/commander.db",
+      "path": "packs/commander",
       "system": "archmage"
     },
     {
       "label": "Druid",
       "type": "Item",
       "name": "druid",
-      "path": "packs/druid.db",
+      "path": "packs/druid",
       "system": "archmage"
     },
     {
       "label": "Monk",
       "type": "Item",
       "name": "monk",
-      "path": "packs/monk.db",
+      "path": "packs/monk",
       "system": "archmage"
     },
     {
       "label": "Necromancer",
       "type": "Item",
       "name": "necromancer",
-      "path": "packs/necromancer.db",
+      "path": "packs/necromancer",
       "system": "archmage"
     },
     {
       "label": "Necromancer (Summons)",
       "type": "Actor",
       "name": "necromancer-summons",
-      "path": "packs/necromancer-summons.db",
+      "path": "packs/necromancer-summons",
       "system": "archmage"
     },
     {
       "label": "Occultist",
       "type": "Item",
       "name": "occultist",
-      "path": "packs/occultist.db",
+      "path": "packs/occultist",
       "system": "archmage"
     },
     {
       "label": "General Feats",
       "type": "Item",
       "name": "generalfeats",
-      "path": "packs/general-feats.db",
+      "path": "packs/general-feats",
       "system": "archmage"
     },
     {
       "label": "Multiclass Feats",
       "type": "Item",
       "name": "multiclassfeats",
-      "path": "packs/multiclass-feats.db",
+      "path": "packs/multiclass-feats",
       "system": "archmage"
     },
     {
       "label": "Animal Companion",
       "type": "Item",
       "name": "animal-companion",
-      "path": "packs/animal-companion.db",
+      "path": "packs/animal-companion",
       "system": "archmage"
     },
     {
       "label": "Animal Companions",
       "type": "Actor",
       "name": "animal-companions",
-      "path": "packs/animal-companions.db",
+      "path": "packs/animal-companions",
       "system": "archmage"
     },
     {
       "label": "SRD Monsters",
       "type": "Actor",
       "name": "srd-Monsters",
-      "path": "packs/srd-monsters.db",
+      "path": "packs/srd-monsters",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Armors",
       "type": "Item",
       "name": "srd-magic-items-armors",
-      "path": "packs/srd-magic-items-armors.db",
+      "path": "packs/srd-magic-items-armors",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Arrows",
       "type": "Item",
       "name": "srd-magic-items-arrows",
-      "path": "packs/srd-magic-items-arrows.db",
+      "path": "packs/srd-magic-items-arrows",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Belts",
       "type": "Item",
       "name": "srd-magic-items-belts",
-      "path": "packs/srd-magic-items-belts.db",
+      "path": "packs/srd-magic-items-belts",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Books",
       "type": "Item",
       "name": "srd-magic-items-books",
-      "path": "packs/srd-magic-items-books.db",
+      "path": "packs/srd-magic-items-books",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Boots",
       "type": "Item",
       "name": "srd-magic-items-boots",
-      "path": "packs/srd-magic-items-boots.db",
+      "path": "packs/srd-magic-items-boots",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Consumables",
       "type": "Item",
       "name": "srd-magic-items-consumables",
-      "path": "packs/srd-magic-items-consumables.db",
+      "path": "packs/srd-magic-items-consumables",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Chuul Symbiotes",
       "type": "Item",
       "name": "srd-magic-items-chuul-symbiotes",
-      "path": "packs/srd-magic-items-chuul-symbiotes.db",
+      "path": "packs/srd-magic-items-chuul-symbiotes",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Cloaks",
       "type": "Item",
       "name": "srd-magic-items-cloaks",
-      "path": "packs/srd-magic-items-cloaks.db",
+      "path": "packs/srd-magic-items-cloaks",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Cursed",
       "type": "Item",
       "name": "srd-magic-items-cursed",
-      "path": "packs/srd-magic-items-cursed.db",
+      "path": "packs/srd-magic-items-cursed",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Gloves",
       "type": "Item",
       "name": "srd-magic-items-gloves",
-      "path": "packs/srd-magic-items-gloves.db",
+      "path": "packs/srd-magic-items-gloves",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Helmets",
       "type": "Item",
       "name": "srd-magic-items-helmets",
-      "path": "packs/srd-magic-items-helmets.db",
+      "path": "packs/srd-magic-items-helmets",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Necklaces",
       "type": "Item",
       "name": "srd-magic-items-necklaces",
-      "path": "packs/srd-magic-items-necklaces.db",
+      "path": "packs/srd-magic-items-necklaces",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Rings",
       "type": "Item",
       "name": "srd-magic-items-rings",
-      "path": "packs/srd-magic-items-rings.db",
+      "path": "packs/srd-magic-items-rings",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Shields",
       "type": "Item",
       "name": "srd-magic-items-shields",
-      "path": "packs/srd-magic-items-shields.db",
+      "path": "packs/srd-magic-items-shields",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Staffs",
       "type": "Item",
       "name": "srd-magic-items-staffs",
-      "path": "packs/srd-magic-items-staffs.db",
+      "path": "packs/srd-magic-items-staffs",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Symbols",
       "type": "Item",
       "name": "srd-magic-items-symbols",
-      "path": "packs/srd-magic-items-symbols.db",
+      "path": "packs/srd-magic-items-symbols",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Wands",
       "type": "Item",
       "name": "srd-magic-items-wands",
-      "path": "packs/srd-magic-items-wands.db",
+      "path": "packs/srd-magic-items-wands",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Weapons",
       "type": "Item",
       "name": "srd-magic-items-weapons",
-      "path": "packs/srd-magic-items-weapons.db",
+      "path": "packs/srd-magic-items-weapons",
       "system": "archmage"
     },
     {
       "label": "SRD Magic Items - Wondrous Items",
       "type": "Item",
       "name": "srd-magic-items-wondrous-items",
-      "path": "packs/srd-magic-items-wondrous-items.db",
+      "path": "packs/srd-magic-items-wondrous-items",
       "system": "archmage"
     },
     {
       "label": "SRD Random Monster Abilities",
       "type": "Item",
       "name": "srd-random-monster-abilities",
-      "path": "packs/srd-random-monster-abilities.db",
+      "path": "packs/srd-random-monster-abilities",
       "system": "archmage"
     },
     {
       "label": "System Macros",
       "type": "Macro",
       "name": "system-macros",
-      "path": "packs/system-macros.db",
+      "path": "packs/system-macros",
       "system": "archmage"
     },
     {
       "label": "System RollTables",
       "type": "RollTable",
       "name": "system-rolltables",
-      "path": "packs/system-rolltables.db",
+      "path": "packs/system-rolltables",
       "system": "archmage"
     }
   ],
