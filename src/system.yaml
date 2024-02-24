@@ -41,6 +41,7 @@ packFolders:
   - name: Player options
     sorting: m
     packs:
+      - pregen-characters
       - generalfeats
       - multiclassfeats
       - races
@@ -98,6 +99,12 @@ packFolders:
       - system-rolltables
 
 packs:
+  - label: Pregenerated Characters
+    type: Actor
+    name: pregen-characters
+    path: packs/pregen-characters
+    system: archmage
+
   - label: Classes
     type: JournalEntry
     name: classes
