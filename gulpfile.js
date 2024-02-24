@@ -173,8 +173,8 @@ function copyManifest() {
   return gulp.src('./dist/system.json')
     .pipe(gulp.dest('./'))
 }
-const copyTask = gulp.series(copyVueDependencies, copyFiles, copyManifest);
-const copyTaskProd = gulp.series(copyVueDependencies, copyFilesProd, copyManifest);
+const copyTask = gulp.series(copyFiles, copyManifest);
+const copyTaskProd = gulp.series(copyFilesProd, copyManifest);
 
 /* ----------------------------------------- */
 /*  Compile Vue 3                            */
@@ -256,6 +256,7 @@ exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
   cleanPacks,
+  copyVueDependencies,
   gulp.parallel(
     compileScss,
     compileYaml,
@@ -268,6 +269,7 @@ exports.build = gulp.series(
 );
 exports.prod = gulp.series(
   cleanPacks,
+  copyVueDependencies,
   gulp.parallel(
     compileScss,
     compileYaml,
@@ -280,6 +282,7 @@ exports.prod = gulp.series(
 );
 exports.noVite = gulp.series(
   cleanPacks,
+  copyVueDependencies,
   gulp.parallel(
     compileScss,
     compileYaml,
