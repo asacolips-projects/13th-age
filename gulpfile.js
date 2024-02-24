@@ -153,6 +153,13 @@ const SYSTEM_COPY = [
   'src/templates/**/*',
   'src/module/tours/configs/*'
 ];
+function copyVueDependencies() {
+  return gulp.src([
+      'node_modules/vue/dist/vue.esm-browser.js',
+      'node_modules/vue/dist/vue.esm-browser.prod.js'
+    ], {base: 'node_modules/vue/dist'})
+    .pipe(gulp.dest('./src/scripts/lib'));
+}
 function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})
     .pipe(gulp.dest('./dist'))
@@ -166,8 +173,8 @@ function copyManifest() {
   return gulp.src('./dist/system.json')
     .pipe(gulp.dest('./'))
 }
-const copyTask = gulp.series(copyFiles, copyManifest);
-const copyTaskProd = gulp.series(copyFilesProd, copyManifest);
+const copyTask = gulp.series(copyVueDependencies, copyFiles, copyManifest);
+const copyTaskProd = gulp.series(copyVueDependencies, copyFilesProd, copyManifest);
 
 /* ----------------------------------------- */
 /*  Compile Vue 3                            */
