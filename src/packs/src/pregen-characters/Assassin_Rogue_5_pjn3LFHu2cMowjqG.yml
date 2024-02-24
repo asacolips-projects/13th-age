@@ -1,6 +1,5 @@
-name: Assassin Rogue 1
+name: Assassin Rogue 5
 type: character
-_id: 6HIMT1iym095GExy
 img: icons/weapons/daggers/dagger-black.webp
 system:
   attributes:
@@ -35,7 +34,7 @@ system:
     hp:
       type: Number
       label: Hit Points
-      value: 21
+      value: 56
       min: 0
       max: 10
       temp: 0
@@ -49,7 +48,7 @@ system:
     level:
       type: Number
       label: Level
-      value: 1
+      value: 5
       min: 0
       max: 10
     disengage: 11
@@ -139,13 +138,13 @@ system:
     dex:
       type: Number
       label: Dexterity
-      value: 19
+      value: 20
       min: 3
       mod: 0
     con:
       type: Number
       label: Constitution
-      value: 12
+      value: 13
       min: 3
       mod: 0
     int:
@@ -163,7 +162,7 @@ system:
     cha:
       type: Number
       label: Charisma
-      value: 17
+      value: 18
       min: 3
       mod: 0
   backgrounds:
@@ -418,7 +417,7 @@ system:
     copper:
       value: null
 prototypeToken:
-  name: Assassin Rogue 1
+  name: Assassin Rogue 5
   displayName: 0
   actorLink: true
   appendNumber: false
@@ -671,7 +670,7 @@ items:
               swords, you can now use them without penalties.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -702,9 +701,9 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708798965030
-      modifiedTime: 1708799581537
+      modifiedTime: 1708800328686
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.Tjmi9TErwosFb6mc'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.Tjmi9TErwosFb6mc'
   - name: Cruel
     type: power
     system:
@@ -939,7 +938,7 @@ items:
       createdTime: 1708798965030
       modifiedTime: 1708798965030
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.DGA8Cp1mzFjXQNXo'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.DGA8Cp1mzFjXQNXo'
   - name: Melee attack (Rogue)
     type: power
     system:
@@ -992,7 +991,7 @@ items:
       powerLevel:
         type: Number
         label: Level
-        value: '1'
+        value: 1
       actionType:
         type: String
         label: Action
@@ -1000,11 +999,11 @@ items:
       range:
         type: String
         label: Range
-        value: null
+        value: ''
       trigger:
         type: String
         label: Trigger
-        value: null
+        value: ''
       target:
         type: String
         label: Target
@@ -1020,7 +1019,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage'
+        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus+2]] damage'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -1040,11 +1039,11 @@ items:
       missEven:
         type: String
         label: Even Miss
-        value: null
+        value: ''
       missOdd:
         type: String
         label: Odd Miss
-        value: null
+        value: ''
       resources:
         type: String
         label: Resources
@@ -1052,19 +1051,19 @@ items:
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
-        value: null
+        value: ''
       castPower:
         type: String
         label: Cast for Power
-        value: null
+        value: ''
       sustainedEffect:
         type: String
         label: Opening and Sustained Effect
-        value: null
+        value: ''
       finalVerse:
         type: String
         label: Final Verse
-        value: null
+        value: ''
       special:
         type: String
         label: Special
@@ -1080,7 +1079,7 @@ items:
       spellLevel3:
         type: String
         label: 3rd Level Spell
-        value: null
+        value: ''
       spellLevel4:
         type: String
         label: 4th Level Spell
@@ -1088,7 +1087,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: null
+        value: ''
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -1096,7 +1095,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: null
+        value: ''
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -1104,7 +1103,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: null
+        value: ''
       spellLevel10:
         type: String
         label: 10th Level Spell
@@ -1112,15 +1111,15 @@ items:
       spellChain:
         type: String
         label: Chain Spell
-        value: null
+        value: ''
       breathWeapon:
         type: String
         label: Breath Weapon
-        value: null
+        value: ''
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -1144,9 +1143,9 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708798965030
-      modifiedTime: 1708799584208
+      modifiedTime: 1708800536145
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.sKyhv0JCIiaJzZ1i'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.sKyhv0JCIiaJzZ1i'
   - name: Momentum
     type: power
     system:
@@ -1364,7 +1363,7 @@ items:
       createdTime: 1708798965030
       modifiedTime: 1708799586033
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.MYAaAPBGPjszLz88'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.MYAaAPBGPjszLz88'
   - name: Ranged Attack (Rogue)
     type: power
     system:
@@ -1571,7 +1570,7 @@ items:
       createdTime: 1708798965030
       modifiedTime: 1708799587520
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.MaVKJv9w1afzJyE2'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.MaVKJv9w1afzJyE2'
   - name: Trap Sense
     type: power
     system:
@@ -1846,7 +1845,7 @@ items:
       createdTime: 1708798965030
       modifiedTime: 1708799589999
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.rLZ7aEYC0MhXga9f'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.rLZ7aEYC0MhXga9f'
   - name: Murderous
     type: power
     system:
@@ -2116,7 +2115,7 @@ items:
       createdTime: 1708798965030
       modifiedTime: 1708799607888
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.656yVTyIntmOh5ML'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.656yVTyIntmOh5ML'
   - name: Shadow Walk
     type: power
     system:
@@ -2318,7 +2317,7 @@ items:
             value: "<p>On a miss, you can still use your move action normally (but still can't\_<em>shadow walk</em>\_this turn).</p>"
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -2387,9 +2386,9 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708798965030
-      modifiedTime: 1708799606352
+      modifiedTime: 1708800462464
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.cS7QtC39JC3beU3Q'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.cS7QtC39JC3beU3Q'
   - name: Sneak Attack
     type: power
     system:
@@ -2666,7 +2665,7 @@ items:
       createdTime: 1708799574438
       modifiedTime: 1708799597180
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.TQYrBLJM2iATiNYb'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.TQYrBLJM2iATiNYb'
   - name: Improved Sneak Attack
     type: power
     system:
@@ -2719,7 +2718,7 @@ items:
       powerLevel:
         type: Number
         label: Level
-        value: '1'
+        value: 1
       actionType:
         type: String
         label: Action
@@ -2727,15 +2726,15 @@ items:
       range:
         type: String
         label: Range
-        value: null
+        value: ''
       trigger:
         type: String
         label: Trigger
-        value: null
+        value: ''
       target:
         type: String
         label: Target
-        value: null
+        value: ''
       always:
         type: String
         label: Always
@@ -2743,11 +2742,11 @@ items:
       attack:
         type: String
         label: Attack
-        value: null
+        value: ''
       hit:
         type: String
         label: Hit
-        value: null
+        value: ''
       hitEven:
         type: String
         label: Natural Even Hit
@@ -2763,15 +2762,15 @@ items:
       miss:
         type: String
         label: Miss
-        value: null
+        value: ''
       missEven:
         type: String
         label: Even Miss
-        value: null
+        value: ''
       missOdd:
         type: String
         label: Odd Miss
-        value: null
+        value: ''
       resources:
         type: String
         label: Resources
@@ -2779,19 +2778,19 @@ items:
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
-        value: null
+        value: ''
       castPower:
         type: String
         label: Cast for Power
-        value: null
+        value: ''
       sustainedEffect:
         type: String
         label: Opening and Sustained Effect
-        value: null
+        value: ''
       finalVerse:
         type: String
         label: Final Verse
-        value: null
+        value: ''
       special:
         type: String
         label: Special
@@ -2811,7 +2810,7 @@ items:
       spellLevel3:
         type: String
         label: 3rd Level Spell
-        value: null
+        value: ''
       spellLevel4:
         type: String
         label: 4th Level Spell
@@ -2819,7 +2818,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: null
+        value: ''
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -2827,7 +2826,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: null
+        value: ''
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -2835,7 +2834,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: null
+        value: ''
       spellLevel10:
         type: String
         label: 10th Level Spell
@@ -2843,15 +2842,15 @@ items:
       spellChain:
         type: String
         label: Chain Spell
-        value: null
+        value: ''
       breathWeapon:
         type: String
         label: Breath Weapon
-        value: null
+        value: ''
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -2866,7 +2865,7 @@ items:
               qualified for the damage.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -2887,7 +2886,7 @@ items:
               d8s.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: champion
@@ -2939,9 +2938,9 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708799574438
-      modifiedTime: 1708799612472
+      modifiedTime: 1708800261344
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.bP1OayoLjiHyvQ46'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.bP1OayoLjiHyvQ46'
   - name: Deadly Thrust
     type: power
     system:
@@ -3208,7 +3207,7 @@ items:
       createdTime: 1708799743768
       modifiedTime: 1708799743768
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.ToStjL1qfP6td9v4'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.ToStjL1qfP6td9v4'
   - name: Evasive Strike
     type: power
     system:
@@ -3482,7 +3481,7 @@ items:
       createdTime: 1708799743768
       modifiedTime: 1708799743768
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.VDNyqm60AVSNw3gk'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.VDNyqm60AVSNw3gk'
   - name: Flying Blade
     type: power
     system:
@@ -3755,7 +3754,7 @@ items:
       createdTime: 1708799743768
       modifiedTime: 1708799743768
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.WxqfGY5Wlh1jANPV'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.WxqfGY5Wlh1jANPV'
   - name: Sure Cut
     type: power
     system:
@@ -3985,10 +3984,277 @@ items:
       createdTime: 1708799743768
       modifiedTime: 1708799743768
       lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!6HIMT1iym095GExy.pIBaHlroRWC4rghC'
+    _key: '!actors.items!pjn3LFHu2cMowjqG.pIBaHlroRWC4rghC'
+  - name: Bleeding Strike
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Rogue
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Bleeding Strike
+      powerType:
+        type: String
+        label: Power Type
+        value: power
+      powerLevel:
+        type: Number
+        label: Level
+        value: '3'
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Melee attack
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: One enemy who is not taking ongoing damage.
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@dex.mod+@std+@atk.m.bonus]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[@wpn.m.dice+@dex.dmg+@atk.m.bonus]] damage.'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: The target takes [[d4*@lvl]] ongoing damage.
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: '[[@lvl]] damage.'
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>The ongoing damage against large or huge targets increases to
+              [[@lvl*1d6]].</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: <p>A natural even miss also deals [[@lvl]] ongoing damage.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '2':
+          description:
+            type: String
+            value: >-
+              <p>You can now use <em>bleeding strike</em> against enemies taking
+              ongoing damage.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/skills/melee/blade-tip-chipped-blood-red.webp
+    _id: TN2G6BaxyrGt9KXA
+    effects: []
+    ownership:
+      default: 0
+      hsiv4q7EYWxaKXvN: 3
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708800227967
+      modifiedTime: 1708800443921
+      lastModifiedBy: hsiv4q7EYWxaKXvN
+    _key: '!actors.items!pjn3LFHu2cMowjqG.TN2G6BaxyrGt9KXA'
 effects: []
 folder: null
-sort: 200000
 ownership:
   default: 0
   hsiv4q7EYWxaKXvN: 3
@@ -4003,6 +4269,9 @@ flags:
       inventory:
         sortBy:
           value: custom
+      tabs:
+        primary:
+          value: powers
     initiativeAdv: false
     strongRecovery: false
     toughness: false
@@ -4016,12 +4285,15 @@ flags:
     hideOneUniqueThing: false
     hideSettingsTab: false
     diceFormulaMode: ''
+  core: {}
 _stats:
   systemId: archmage
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708798606491
-  modifiedTime: 1708800140092
+  modifiedTime: 1708800536145
   lastModifiedBy: hsiv4q7EYWxaKXvN
-_key: '!actors!6HIMT1iym095GExy'
+_id: pjn3LFHu2cMowjqG
+sort: 100000
+_key: '!actors!pjn3LFHu2cMowjqG'
 
