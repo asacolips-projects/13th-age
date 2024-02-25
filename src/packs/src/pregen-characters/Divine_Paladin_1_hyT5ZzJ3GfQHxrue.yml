@@ -703,7 +703,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -910,7 +909,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1122,7 +1120,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1334,7 +1331,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1541,7 +1537,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1810,7 +1805,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2078,7 +2072,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2285,7 +2278,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2556,7 +2548,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2787,7 +2778,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -3059,7 +3049,6 @@ items:
     _id: olfGHxmTCHf8IyYx
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -3270,7 +3259,6 @@ items:
     _id: U8g1bJJTtmtr2QtJ
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     flags:
       core:
         sourceId: Compendium.archmage.cleric.Item.DXKDjQ7EFNBvdi5A
@@ -3284,10 +3272,9 @@ items:
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.U8g1bJJTtmtr2QtJ'
 effects: []
 folder: null
-sort: 0
+sort: 400000
 ownership:
   default: 0
-  tWJ6KkFBgXXy34it: 3
 flags:
   archmage:
     sheetDisplay:
@@ -3317,7 +3304,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708819553371
-  modifiedTime: 1708820077108
+  modifiedTime: 1708877936055
   lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!hyT5ZzJ3GfQHxrue'
 

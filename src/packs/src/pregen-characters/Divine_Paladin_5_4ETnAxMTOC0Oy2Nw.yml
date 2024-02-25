@@ -702,7 +702,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -914,7 +913,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1126,7 +1124,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1338,7 +1335,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1545,7 +1541,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -1814,7 +1809,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2082,7 +2076,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2289,7 +2282,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2565,7 +2557,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -2796,7 +2787,6 @@ items:
     effects: []
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -3068,7 +3058,6 @@ items:
     _id: olfGHxmTCHf8IyYx
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -3279,7 +3268,6 @@ items:
     _id: U8g1bJJTtmtr2QtJ
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     flags:
       core:
         sourceId: Compendium.archmage.cleric.Item.DXKDjQ7EFNBvdi5A
@@ -3536,7 +3524,6 @@ items:
     _id: YJOlesc3FL5CLsS1
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     folder: null
     sort: 0
     _stats:
@@ -3746,7 +3733,6 @@ items:
     _id: HDGKXsPFKE7FDIIc
     ownership:
       default: 0
-      tWJ6KkFBgXXy34it: 3
     flags:
       core:
         sourceId: Compendium.archmage.cleric.Item.9NCqd3s063scqIuL
@@ -3762,7 +3748,6 @@ effects: []
 folder: null
 ownership:
   default: 0
-  tWJ6KkFBgXXy34it: 3
 flags:
   archmage:
     sheetDisplay:
@@ -3796,9 +3781,9 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708819553371
-  modifiedTime: 1708820362082
+  modifiedTime: 1708877936055
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: 4ETnAxMTOC0Oy2Nw
-sort: 0
+sort: 100000
 _key: '!actors!4ETnAxMTOC0Oy2Nw'
 
