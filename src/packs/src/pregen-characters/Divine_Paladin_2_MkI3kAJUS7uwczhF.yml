@@ -741,11 +741,11 @@ items:
       quantity:
         type: Number
         label: Uses
-        value: 0
+        value: 3
       maxQuantity:
         type: Number
         label: Uses
-        value: 1
+        value: 3
       group:
         type: String
         label: Group
@@ -925,7 +925,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708819684271
-      modifiedTime: 1708820126883
+      modifiedTime: 1708887039526
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MkI3kAJUS7uwczhF.QWDRnMwZjRtJJk3W'
   - name: (Smite Evil) Melee attack (Per-Battle)
@@ -3316,7 +3316,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708819553371
-  modifiedTime: 1708877936055
+  modifiedTime: 1708887039526
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: MkI3kAJUS7uwczhF
 sort: 300000

@@ -89,7 +89,7 @@ system:
         label: Melee weapon dice
         dice: d8
         shield: false
-        dualwield: false
+        dualwield: true
         twohanded: false
       ranged:
         type: String
@@ -3147,7 +3147,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708878182623
-  modifiedTime: 1708878478924
+  modifiedTime: 1708887272989
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: tY1PgbE5LATj7MRG
 sort: 100000

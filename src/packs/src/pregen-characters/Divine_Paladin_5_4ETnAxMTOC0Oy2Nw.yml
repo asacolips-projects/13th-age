@@ -736,11 +736,11 @@ items:
       quantity:
         type: Number
         label: Uses
-        value: 1
+        value: 3
       maxQuantity:
         type: Number
         label: Uses
-        value: 1
+        value: 3
       group:
         type: String
         label: Group
@@ -788,7 +788,7 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20+@str.mod+@std+@atk.m.bonus+4]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -920,7 +920,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708819684271
-      modifiedTime: 1708820354317
+      modifiedTime: 1708887023689
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.QWDRnMwZjRtJJk3W'
   - name: (Smite Evil) Melee attack (Per-Battle)
@@ -999,7 +999,7 @@ items:
       attack:
         type: String
         label: Attack
-        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+        value: '[[d20+@str.mod+@std+@atk.m.bonus+4]] vs. AC'
       hit:
         type: String
         label: Hit
@@ -1131,7 +1131,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708819684271
-      modifiedTime: 1708820362082
+      modifiedTime: 1708886999835
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.I7MOn5fStDUsS84Q'
   - name: Melee attack (Paladin)
@@ -3781,7 +3781,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708819553371
-  modifiedTime: 1708877936055
+  modifiedTime: 1708887023689
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: 4ETnAxMTOC0Oy2Nw
 sort: 100000
