@@ -28,29 +28,33 @@
 
   </section>
 
-  <section class="section section--main section--inventory flexcol">
-    <ul class="compendium-browser-results">
-      <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" class="compendium-browser-row flexrow document item equipment-item" :data-document-id="equipment._id" @click="openDocument(equipment.uuid)">
-        <div class="equipment-summary grid equipment-grid equipment" @dragstart="startDrag($event, equipment)" draggable="true">
-          <img :src="equipment.img" class="equipment-image"/>
-          <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
-          <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
-            <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
-              <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
-              <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
-            </span>
+  <section class="section section--no-overflow">
+    <Pager v-if="pager.totalRows > 0" :total-rows="pager.totalRows" :per-page="pager.perPage" :pager="pager"/>
+    <section class="section section--main section--inventory flexcol">
+      <ul class="compendium-browser-results">
+        <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" class="compendium-browser-row flexrow document item equipment-item" :data-document-id="equipment._id" @click="openDocument(equipment.uuid)">
+          <div class="equipment-summary grid equipment-grid equipment" @dragstart="startDrag($event, equipment)" draggable="true">
+            <img :src="equipment.img" class="equipment-image"/>
+            <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
+            <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
+              <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
+                <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
+                <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
+              </span>
+            </div>
+            <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
+            <div class="equipment-recharge">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
           </div>
-          <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
-          <div class="equipment-recharge">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </section>
   </section>
 </template>
 
 <script>
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
+import Pager from '@/components/parts/Pager.vue';
 import { getPackIndex, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers.js';
 
 export default {
@@ -59,6 +63,7 @@ export default {
   components: {
     Slider,
     Multiselect,
+    Pager
   },
   setup() {
     return {
@@ -74,6 +79,14 @@ export default {
   },
   data() {
     return {
+      pager: {
+        perPage: 50,
+        pages: 0,
+        current: 1,
+        firstIndex: 0,
+        lastIndex: 0,
+        totalRows: 0,
+      },
       packIndex: [],
       name: '',
       chakra: [],
@@ -188,6 +201,7 @@ export default {
       let result = this.packIndex;
 
       if (result.length < 1) {
+        this.pager.totalRows = 0;
         return [];
       }
 
@@ -229,11 +243,23 @@ export default {
         });
       }
 
-      return result.sort((a, b) => {
+      // Reflow pager.
+      if (result.length > this.pager.perPage) {
+        this.pager.totalRows = result.length;
+      }
+      else {
+        this.pager.totalRows = 0;
+      }
+
+      // Sort.
+      result = result.sort((a, b) => {
         return a.name.localeCompare(b.name);
-      }).slice(0, 25);
-      // @todo do we need to make a pager for performance?
-      // }).slice(0, 25);
+      });
+
+      // Return results.
+      return this.pager.totalRows > 0
+        ? result.slice(this.pager.firstIndex, this.pager.lastIndex)
+        : result;
     },
   },
   watch: {},

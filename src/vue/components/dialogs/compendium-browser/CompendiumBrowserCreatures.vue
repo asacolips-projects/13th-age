@@ -49,23 +49,23 @@
     </div>
   </section>
 
-  <section class="section section--main flexcol">
-
-    <!-- <Pager v-if="this.packIndex?.length > 1" :total-rows="this.packIndex.length" :per-page="100"/> -->
-
-    <ul class="compendium-browser-results">
-      <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
-        <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry)" draggable="true"/>
-        <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
-          <strong class="grid-span-4">{{ entry?.name }}</strong>
-          <div>Level {{ entry?.system?.attributes?.level?.value }}</div>
-          <div>{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
-          <div>{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
-          <div>{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
-        </div>
-      </li>
-    </ul>
-  </section>
+  <div class="section section--no-overflow">
+    <Pager v-if="pager.totalRows > 0" :total-rows="pager.totalRows" :per-page="pager.perPage" :pager="pager"/>
+    <section class="section section--main flexcol">
+      <ul class="compendium-browser-results">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
+          <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry)" draggable="true"/>
+          <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
+            <strong class="grid-span-4">{{ entry?.name }}</strong>
+            <div>Level {{ entry?.system?.attributes?.level?.value }}</div>
+            <div>{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
+            <div>{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
+            <div>{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -92,6 +92,14 @@ export default {
   },
   data() {
     return {
+      pager: {
+        perPage: 50,
+        pages: 0,
+        current: 1,
+        firstIndex: 0,
+        lastIndex: 0,
+        totalRows: 0,
+      },
       packIndex: [],
       name: '',
       levelRange: [1, 15],
@@ -124,6 +132,7 @@ export default {
       let result = this.packIndex;
 
       if (result.length < 1) {
+        this.pager.totalRows = 0;
         return [];
       }
 
@@ -151,11 +160,23 @@ export default {
         result = result.filter(entry => this.size.includes(entry.system.details.size.value));
       }
 
-      return result.sort((a, b) => {
+      // Reflow pager.
+      if (result.length > this.pager.perPage) {
+        this.pager.totalRows = result.length;
+      }
+      else {
+        this.pager.totalRows = 0;
+      }
+
+      // Sort.
+      result = result.sort((a, b) => {
         return a.name.localeCompare(b.name);
-      }).slice(0, 25);
-      // @todo do we need to make a pager for performance?
-      // }).slice(0, 25);
+      })
+
+      // Return results.
+      return this.pager.totalRows > 0
+        ? result.slice(this.pager.firstIndex, this.pager.lastIndex)
+        : result;
     },
   },
   watch: {},

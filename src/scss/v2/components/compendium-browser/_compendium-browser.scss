@@ -25,6 +25,25 @@
     }
   }
 
+  .pager {
+    li {
+      margin-right: 2px;
+    }
+
+    button {
+      background: $c-gray--25;
+      padding: 0 4px;
+      color: $c-black;
+      border: none;
+
+      &:hover,
+      &:focus {
+        color: $c-blue;
+        background: $c-white;
+      }
+    }
+  }
+
   .compendium-browser-results {
     margin: 0;
     padding: 0;

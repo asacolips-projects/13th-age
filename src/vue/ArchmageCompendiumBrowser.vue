@@ -8,15 +8,15 @@
     <section class="container container--bottom">
 
       <Tab group="primary" :tab="tabs.primary.creatures" classes="container container--bottom flexrow">
-        <CompendiumBrowserCreatures v-if="tabs.primary.creatures.active"/>
+        <CompendiumBrowserCreatures />
       </Tab>
 
       <Tab group="primary" :tab="tabs.primary.powers" classes="container container--bottom flexrow">
-        <CompendiumBrowserPowers v-if="tabs.primary.powers.active" />
+        <CompendiumBrowserPowers />
       </Tab>
 
       <Tab group="primary" :tab="tabs.primary.items" classes="container container--bottom flexrow">
-        <CompendiumBrowserItems v-if="tabs.primary.items.active"/>
+        <CompendiumBrowserItems />
       </Tab>
 
     </section>
@@ -53,7 +53,7 @@ export default {
           creatures: {
             key: 'creatures',
             label: 'Creatures',
-            active: false
+            active: true
           },
           powers: {
             key: 'powers',
@@ -63,7 +63,7 @@ export default {
           items: {
             key: 'items',
             label: 'Magic Items',
-            active: true
+            active: false
           }
         }
       }
@@ -93,7 +93,7 @@ export default {
       let baseFlags = {
         'sheetDisplay': {
           'tabs': {
-            'primary': {'value': 'items'}
+            'primary': {'value': 'creatures'}
           },
         }
       }

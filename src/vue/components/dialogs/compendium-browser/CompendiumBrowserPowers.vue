@@ -60,26 +60,30 @@
 
   </section>
 
-  <section class="section section--main flexcol">
-    <ul class="compendium-browser-results">
-      <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document item" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
-        <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
-        <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
-          <strong class="grid-span-4"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
-          <div>{{ CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] }}</div>
-          <div>{{ CONFIG.ARCHMAGE.actionTypes[entry.system.actionType.value] }}</div>
-          <div>{{ CONFIG.ARCHMAGE.powerTypes[entry.system.powerType.value] }}</div>
-          <div>{{ entry.system.powerSourceName.value }}</div>
-          <div v-if="entry.system.trigger.value" class="grid-span-4"><strong class="grid-span-4">Trigger:</strong>{{ entry.system.trigger.value }}</div>
-        </div>
-      </li>
-    </ul>
+  <section class="section section--no-overflow">
+    <Pager v-if="pager.totalRows > 0" :total-rows="pager.totalRows" :per-page="pager.perPage" :pager="pager"/>
+    <section class="section section--main flexcol">
+      <ul class="compendium-browser-results">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document item" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
+          <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
+          <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
+            <strong class="grid-span-4"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
+            <div>{{ CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] }}</div>
+            <div>{{ CONFIG.ARCHMAGE.actionTypes[entry.system.actionType.value] }}</div>
+            <div>{{ CONFIG.ARCHMAGE.powerTypes[entry.system.powerType.value] }}</div>
+            <div>{{ entry.system.powerSourceName.value }}</div>
+            <div v-if="entry.system.trigger.value" class="grid-span-4"><strong class="grid-span-4">Trigger:</strong>{{ entry.system.trigger.value }}</div>
+          </div>
+        </li>
+      </ul>
+    </section>
   </section>
 </template>
 
 <script>
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
+import Pager from '@/components/parts/Pager.vue';
 import { getPackIndex } from '@/methods/Helpers.js';
 
 export default {
@@ -87,7 +91,8 @@ export default {
   props: [],
   components: {
     Slider,
-    Multiselect
+    Multiselect,
+    Pager
   },
   setup() {
     return {
@@ -99,6 +104,14 @@ export default {
   },
   data() {
     return {
+      pager: {
+        perPage: 50,
+        pages: 0,
+        current: 1,
+        firstIndex: 0,
+        lastIndex: 0,
+        totalRows: 0,
+      },
       packIndex: [],
       name: '',
       levelRange: [1, 10],
@@ -133,6 +146,7 @@ export default {
       let result = this.packIndex;
 
       if (result.length < 1) {
+        this.pager.totalRows = 0;
         return [];
       }
 
@@ -170,11 +184,23 @@ export default {
         result = result.filter(entry => this.actionType.includes(entry.system.actionType.value));
       }
 
-      return result.sort((a, b) => {
+      // Reflow pager.
+      if (result.length > this.pager.perPage) {
+        this.pager.totalRows = result.length;
+      }
+      else {
+        this.pager.totalRows = 0;
+      }
+
+      // Sort.
+      result = result.sort((a, b) => {
         return a.system.powerLevel.value - b.system.powerLevel.value;
-      }).slice(0, 25);
-      // @todo do we need to make a pager for performance?
-      // }).slice(0, 25);
+      });
+
+      // Return results.
+      return this.pager.totalRows > 0
+        ? result.slice(this.pager.firstIndex, this.pager.lastIndex)
+        : result;
     },
   },
   watch: {},
