@@ -8,15 +8,15 @@
     <section class="container container--bottom">
 
       <Tab group="primary" :tab="tabs.primary.creatures" classes="container container--bottom flexrow">
-        <CompendiumBrowserCreatures />
+        <CompendiumBrowserCreatures v-if="tabs.primary.creatures.active"/>
       </Tab>
 
       <Tab group="primary" :tab="tabs.primary.powers" classes="container container--bottom flexrow">
-        <CompendiumBrowserPowers />
+        <CompendiumBrowserPowers v-if="tabs.primary.powers.active" />
       </Tab>
 
       <Tab group="primary" :tab="tabs.primary.items" classes="container container--bottom flexrow">
-        <h2>Magic Items Tab</h2>
+        <CompendiumBrowserItems v-if="tabs.primary.items.active"/>
       </Tab>
 
     </section>
@@ -28,6 +28,7 @@ import Tabs from '@/components/parts/Tabs.vue';
 import Tab from '@/components/parts/Tab.vue';
 import CompendiumBrowserPowers from '@/components/dialogs/compendium-browser/CompendiumBrowserPowers.vue';
 import CompendiumBrowserCreatures from '@/components/dialogs/compendium-browser/CompendiumBrowserCreatures.vue';
+import CompendiumBrowserItems from '@/components/dialogs/compendium-browser/CompendiumBrowserItems.vue';
 
 export default {
   name: 'ArchmageCompendiumBrowser',
@@ -36,7 +37,8 @@ export default {
     Tabs,
     Tab,
     CompendiumBrowserPowers,
-    CompendiumBrowserCreatures
+    CompendiumBrowserCreatures,
+    CompendiumBrowserItems
   },
   setup() {
     return {
@@ -51,7 +53,7 @@ export default {
           creatures: {
             key: 'creatures',
             label: 'Creatures',
-            active: true
+            active: false
           },
           powers: {
             key: 'powers',
@@ -61,7 +63,7 @@ export default {
           items: {
             key: 'items',
             label: 'Magic Items',
-            active: false
+            active: true
           }
         }
       }
@@ -91,7 +93,7 @@ export default {
       let baseFlags = {
         'sheetDisplay': {
           'tabs': {
-            'primary': {'value': 'creatures'}
+            'primary': {'value': 'items'}
           },
         }
       }

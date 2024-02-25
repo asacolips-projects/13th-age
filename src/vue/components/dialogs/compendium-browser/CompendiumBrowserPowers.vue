@@ -62,7 +62,7 @@
 
   <section class="section section--main flexcol">
     <ul class="compendium-browser-results">
-      <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document item" :data-document-id="entry._id" @click="openDocument(entry._id)">
+      <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document item" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
         <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
         <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
           <strong class="grid-span-4"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
@@ -91,13 +91,15 @@ export default {
   },
   setup() {
     return {
+      // Foundry base props and methods.
       CONFIG,
-      game
+      game,
+      getDocumentClass
     }
   },
   data() {
     return {
-      powersIndex: [],
+      packIndex: [],
       name: '',
       levelRange: [1, 10],
       actionType: [],
@@ -108,15 +110,17 @@ export default {
     }
   },
   methods: {
-    openDocument(id) {
-      let pack = game.packs.get('archmage.srd-Monsters');
-      pack.getDocument(id).then(document => {
+    openDocument(uuid) {
+      getDocumentClass('Item').fromDropData({
+        type: 'Item',
+        uuid: uuid
+      }).then(document => {
         document.sheet.render(true);
       });
     },
     startDrag(event, entry) {
       event.dataTransfer.setData('text/plain', JSON.stringify({
-        type: 'Actor',
+        type: 'Item',
         uuid: entry.uuid
       }));
     }
@@ -126,7 +130,7 @@ export default {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     entries() {
-      let result = this.powersIndex;
+      let result = this.packIndex;
 
       if (result.length < 1) {
         return [];
@@ -168,7 +172,7 @@ export default {
 
       return result.sort((a, b) => {
         return a.system.powerLevel.value - b.system.powerLevel.value;
-      });
+      }).slice(0, 25);
       // @todo do we need to make a pager for performance?
       // }).slice(0, 25);
     },
@@ -200,7 +204,7 @@ export default {
       'system.powerUsage.value',
       'system.actionType.value',
       'system.trigger.value',
-    ]).then(packIndex => this.powersIndex = packIndex);
+    ]).then(packIndex => this.packIndex = packIndex);
   },
   async mounted() {
     console.log("Compendium browser powers tab mounted.");

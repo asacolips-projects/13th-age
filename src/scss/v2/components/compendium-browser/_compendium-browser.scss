@@ -15,8 +15,8 @@
 
     > .unit {
       flex: 0 auto;
-      display: grid;
-      grid-template-columns: 65px auto;
+      display: flex;
+      flex-direction: column;
       margin-bottom: 10px;
     }
 
@@ -47,6 +47,27 @@
     .grid {
       grid-row-gap: 0;
       margin: 0;
+    }
+
+    .equipment-grid {
+      grid-template-columns: 32px auto 160px 60px 60px;
+    }
+
+    .equipment-title {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .equipment-bonus {
+      grid-column-start: 3;
+    }
+
+    .equipment-chakra {
+      grid-column-start: 4;
+    }
+
+    .equipment-recharge {
+      grid-column-start: 5;
     }
   }
 }

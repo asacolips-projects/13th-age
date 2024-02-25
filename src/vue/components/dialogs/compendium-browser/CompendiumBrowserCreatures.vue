@@ -51,10 +51,10 @@
 
   <section class="section section--main flexcol">
 
-    <Pager v-if="this.creaturesIndex?.length > 1" :total-rows="this.creaturesIndex.length" :per-page="100"/>
+    <!-- <Pager v-if="this.packIndex?.length > 1" :total-rows="this.packIndex.length" :per-page="100"/> -->
 
     <ul class="compendium-browser-results">
-      <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry._id)">
+      <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
         <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry)" draggable="true"/>
         <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
           <strong class="grid-span-4">{{ entry?.name }}</strong>
@@ -84,6 +84,7 @@ export default {
   },
   setup() {
     return {
+      // Foundry base props and methods.
       CONFIG,
       game,
       getActorModuleArt
@@ -91,7 +92,7 @@ export default {
   },
   data() {
     return {
-      creaturesIndex: [],
+      packIndex: [],
       name: '',
       levelRange: [1, 15],
       type: [],
@@ -100,9 +101,11 @@ export default {
     }
   },
   methods: {
-    openDocument(id) {
-      let pack = game.packs.get('archmage.srd-Monsters');
-      pack.getDocument(id).then(document => {
+    openDocument(uuid) {
+      getDocumentClass('Actor').fromDropData({
+        type: 'Actor',
+        uuid: uuid
+      }).then(document => {
         document.sheet.render(true);
       });
     },
@@ -118,7 +121,7 @@ export default {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     entries() {
-      let result = this.creaturesIndex;
+      let result = this.packIndex;
 
       if (result.length < 1) {
         return [];
@@ -150,7 +153,7 @@ export default {
 
       return result.sort((a, b) => {
         return a.name.localeCompare(b.name);
-      });
+      }).slice(0, 25);
       // @todo do we need to make a pager for performance?
       // }).slice(0, 25);
     },
@@ -167,7 +170,7 @@ export default {
       'system.details.role.value',
       'system.details.size.value',
       'system.details.type.value'
-    ]).then(packIndex => this.creaturesIndex = packIndex);
+    ]).then(packIndex => this.packIndex = packIndex);
   },
   async mounted() {
     console.log("Compendium browser creatures tab mounted.");
