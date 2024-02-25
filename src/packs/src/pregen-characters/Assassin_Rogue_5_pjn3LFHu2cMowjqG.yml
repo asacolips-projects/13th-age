@@ -472,237 +472,6 @@ prototypeToken:
   flags: {}
   randomImg: false
 items:
-  - name: Heritage of the Sword
-    type: power
-    system:
-      name:
-        type: String
-        label: Name
-      description:
-        type: String
-        label: Description
-        value: ''
-      powerUsage:
-        type: String
-        label: Power Usage
-        value: ''
-      recharge:
-        type: Number
-        label: Recharge
-        value: 0
-      rechargeAttempts:
-        type: Number
-        label: Number of Recharges Attempted
-        value: 0
-      quantity:
-        type: Number
-        label: Uses
-        value: null
-      maxQuantity:
-        type: Number
-        label: Uses
-        value: null
-      group:
-        type: String
-        label: Group
-        value: ''
-      powerSource:
-        type: String
-        label: Power Source
-        value: other
-      powerSourceName:
-        type: String
-        label: Power Source
-        value: Dark Elf/High Elf/Wood Elf
-      powerOriginName:
-        type: String
-        label: Power Original Name
-        value: Heritage of the Sword
-      powerType:
-        type: String
-        label: Power Type
-        value: feature
-      powerLevel:
-        type: Number
-        label: Level
-        value: '1'
-      actionType:
-        type: String
-        label: Action
-        value: ''
-      range:
-        type: String
-        label: Range
-        value: ''
-      trigger:
-        type: String
-        label: Trigger
-        value: ''
-      target:
-        type: String
-        label: Target
-        value: ''
-      always:
-        type: String
-        label: Always
-        value: ''
-      attack:
-        type: String
-        label: Attack
-        value: ''
-      hit:
-        type: String
-        label: Hit
-        value: ''
-      hitEven:
-        type: String
-        label: Natural Even Hit
-        value: ''
-      hitOdd:
-        type: String
-        label: Natural Odd Hit
-        value: ''
-      crit:
-        type: String
-        label: Crit
-        value: ''
-      miss:
-        type: String
-        label: Miss
-        value: ''
-      missEven:
-        type: String
-        label: Even Miss
-        value: ''
-      missOdd:
-        type: String
-        label: Odd Miss
-        value: ''
-      resources:
-        type: String
-        label: Resources
-        value: ''
-      castBroadEffect:
-        type: String
-        label: Cast for Broad Effect
-        value: ''
-      castPower:
-        type: String
-        label: Cast for Power
-        value: ''
-      sustainedEffect:
-        type: String
-        label: Opening and Sustained Effect
-        value: ''
-      finalVerse:
-        type: String
-        label: Final Verse
-        value: ''
-      special:
-        type: String
-        label: Special
-        value: ''
-      effect:
-        type: String
-        label: Effect
-        value: ''
-      spellLevel2:
-        type: String
-        label: 2nd Level Spell
-        value: ''
-      spellLevel3:
-        type: String
-        label: 3rd Level Spell
-        value: ''
-      spellLevel4:
-        type: String
-        label: 4th Level Spell
-        value: ''
-      spellLevel5:
-        type: String
-        label: 5th Level Spell
-        value: ''
-      spellLevel6:
-        type: String
-        label: 6th Level Spell
-        value: ''
-      spellLevel7:
-        type: String
-        label: 7th Level Spell
-        value: ''
-      spellLevel8:
-        type: String
-        label: 8th Level Spell
-        value: ''
-      spellLevel9:
-        type: String
-        label: 9th Level Spell
-        value: ''
-      spellLevel10:
-        type: String
-        label: 10th Level Spell
-        value: ''
-      spellChain:
-        type: String
-        label: Chain Spell
-        value: ''
-      breathWeapon:
-        type: String
-        label: Breath Weapon
-        value: ''
-      sustainOn:
-        type: Number
-        label: Sustain On
-        value: ''
-      rollTable:
-        type: String
-        label: Roll Table
-        value: ''
-      feats:
-        '0':
-          description:
-            type: String
-            value: >-
-              <p>If you can already use swords that deal d6 and d8 damage
-              without attack penalties, you gain a +2 damage bonus with them.
-              (This bonus doesn’t increase miss damage.)</p><p>Otherwise, if
-              your class would ordinarily have an attack penalty with such
-              swords, you can now use them without penalties.</p>
-          isActive:
-            type: Boolean
-            value: true
-          tier:
-            type: String
-            value: adventurer
-          powerUsage:
-            type: String
-            value: ''
-          quantity:
-            type: Number
-            value: null
-          maxQuantity:
-            type: Number
-            value: null
-      embeddedMacro:
-        type: String
-        label: Embedded Macro
-        value: ''
-    flags: {}
-    img: icons/svg/d20.svg
-    _id: Tjmi9TErwosFb6mc
-    effects: []
-    ownership:
-      default: 0
-    folder: null
-    sort: 300000
-    _stats:
-      systemId: archmage
-      systemVersion: 1.27.0
-      coreVersion: '11.315'
-      createdTime: 1708798965030
-      modifiedTime: 1708800328686
-      lastModifiedBy: hsiv4q7EYWxaKXvN
-    _key: '!actors.items!pjn3LFHu2cMowjqG.Tjmi9TErwosFb6mc'
   - name: Cruel
     type: power
     system:
@@ -2993,7 +2762,7 @@ items:
       powerLevel:
         type: Number
         label: Level
-        value: '1'
+        value: 1
       actionType:
         type: String
         label: Action
@@ -3005,7 +2774,7 @@ items:
       trigger:
         type: String
         label: Trigger
-        value: null
+        value: ''
       target:
         type: String
         label: Target
@@ -3041,11 +2810,11 @@ items:
       missEven:
         type: String
         label: Even Miss
-        value: null
+        value: ''
       missOdd:
         type: String
         label: Odd Miss
-        value: null
+        value: ''
       resources:
         type: String
         label: Resources
@@ -3053,19 +2822,19 @@ items:
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
-        value: null
+        value: ''
       castPower:
         type: String
         label: Cast for Power
-        value: null
+        value: ''
       sustainedEffect:
         type: String
         label: Opening and Sustained Effect
-        value: null
+        value: ''
       finalVerse:
         type: String
         label: Final Verse
-        value: null
+        value: ''
       special:
         type: String
         label: Special
@@ -3081,7 +2850,7 @@ items:
       spellLevel3:
         type: String
         label: 3rd Level Spell
-        value: null
+        value: ''
       spellLevel4:
         type: String
         label: 4th Level Spell
@@ -3089,7 +2858,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: null
+        value: ''
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -3097,7 +2866,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: null
+        value: ''
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -3105,7 +2874,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: null
+        value: ''
       spellLevel10:
         type: String
         label: 10th Level Spell
@@ -3113,19 +2882,19 @@ items:
       spellChain:
         type: String
         label: Chain Spell
-        value: null
+        value: ''
       breathWeapon:
         type: String
         label: Breath Weapon
-        value: null
+        value: ''
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
-        value: ''
+        value: Improved Sneak Attack Damage
       feats:
         '0':
           description:
@@ -3191,6 +2960,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: icons/skills/melee/strike-sword-stabbed-brown.webp
     _id: ToStjL1qfP6td9v4
@@ -3204,8 +2978,8 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708799743768
-      modifiedTime: 1708799743768
-      lastModifiedBy: hsiv4q7EYWxaKXvN
+      modifiedTime: 1708883888062
+      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pjn3LFHu2cMowjqG.ToStjL1qfP6td9v4'
   - name: Evasive Strike
     type: power
@@ -3259,7 +3033,7 @@ items:
       powerLevel:
         type: Number
         label: Level
-        value: '1'
+        value: 1
       actionType:
         type: String
         label: Action
@@ -3271,7 +3045,7 @@ items:
       trigger:
         type: String
         label: Trigger
-        value: null
+        value: ''
       target:
         type: String
         label: Target
@@ -3309,11 +3083,11 @@ items:
       missEven:
         type: String
         label: Even Miss
-        value: null
+        value: ''
       missOdd:
         type: String
         label: Odd Miss
-        value: null
+        value: ''
       resources:
         type: String
         label: Resources
@@ -3321,19 +3095,19 @@ items:
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
-        value: null
+        value: ''
       castPower:
         type: String
         label: Cast for Power
-        value: null
+        value: ''
       sustainedEffect:
         type: String
         label: Opening and Sustained Effect
-        value: null
+        value: ''
       finalVerse:
         type: String
         label: Final Verse
-        value: null
+        value: ''
       special:
         type: String
         label: Special
@@ -3349,7 +3123,7 @@ items:
       spellLevel3:
         type: String
         label: 3rd Level Spell
-        value: null
+        value: ''
       spellLevel4:
         type: String
         label: 4th Level Spell
@@ -3357,7 +3131,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: null
+        value: ''
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -3365,7 +3139,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: null
+        value: ''
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -3373,7 +3147,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: null
+        value: ''
       spellLevel10:
         type: String
         label: 10th Level Spell
@@ -3381,19 +3155,19 @@ items:
       spellChain:
         type: String
         label: Chain Spell
-        value: null
+        value: ''
       breathWeapon:
         type: String
         label: Breath Weapon
-        value: null
+        value: ''
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
-        value: ''
+        value: Improved Sneak Attack Damage
       feats:
         '0':
           description:
@@ -3464,6 +3238,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: icons/skills/movement/arrow-upward-yellow.webp
     _id: VDNyqm60AVSNw3gk
@@ -3477,8 +3256,8 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708799743768
-      modifiedTime: 1708799743768
-      lastModifiedBy: hsiv4q7EYWxaKXvN
+      modifiedTime: 1708883893739
+      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pjn3LFHu2cMowjqG.VDNyqm60AVSNw3gk'
   - name: Flying Blade
     type: power
@@ -3804,7 +3583,7 @@ items:
       powerLevel:
         type: Number
         label: Level
-        value: '1'
+        value: 1
       actionType:
         type: String
         label: Action
@@ -3816,7 +3595,7 @@ items:
       trigger:
         type: String
         label: Trigger
-        value: null
+        value: ''
       target:
         type: String
         label: Target
@@ -3852,11 +3631,11 @@ items:
       missEven:
         type: String
         label: Even Miss
-        value: null
+        value: ''
       missOdd:
         type: String
         label: Odd Miss
-        value: null
+        value: ''
       resources:
         type: String
         label: Resources
@@ -3864,19 +3643,19 @@ items:
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
-        value: null
+        value: ''
       castPower:
         type: String
         label: Cast for Power
-        value: null
+        value: ''
       sustainedEffect:
         type: String
         label: Opening and Sustained Effect
-        value: null
+        value: ''
       finalVerse:
         type: String
         label: Final Verse
-        value: null
+        value: ''
       special:
         type: String
         label: Special
@@ -3894,7 +3673,7 @@ items:
       spellLevel3:
         type: String
         label: 3rd Level Spell
-        value: null
+        value: ''
       spellLevel4:
         type: String
         label: 4th Level Spell
@@ -3902,7 +3681,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: null
+        value: ''
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -3910,7 +3689,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: null
+        value: ''
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -3918,7 +3697,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: null
+        value: ''
       spellLevel10:
         type: String
         label: 10th Level Spell
@@ -3926,19 +3705,19 @@ items:
       spellChain:
         type: String
         label: Chain Spell
-        value: null
+        value: ''
       breathWeapon:
         type: String
         label: Breath Weapon
-        value: null
+        value: ''
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
-        value: ''
+        value: Improved Sneak Attack Damage
       feats:
         '0':
           description:
@@ -3965,6 +3744,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: icons/skills/melee/strike-blade-knife-blue-red.webp
     _id: pIBaHlroRWC4rghC
@@ -3978,8 +3762,8 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708799743768
-      modifiedTime: 1708799743768
-      lastModifiedBy: hsiv4q7EYWxaKXvN
+      modifiedTime: 1708883900074
+      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pjn3LFHu2cMowjqG.pIBaHlroRWC4rghC'
   - name: Bleeding Strike
     type: power
@@ -4033,7 +3817,7 @@ items:
       powerLevel:
         type: Number
         label: Level
-        value: '3'
+        value: 3
       actionType:
         type: String
         label: Action
@@ -4045,7 +3829,7 @@ items:
       trigger:
         type: String
         label: Trigger
-        value: null
+        value: ''
       target:
         type: String
         label: Target
@@ -4081,11 +3865,11 @@ items:
       missEven:
         type: String
         label: Even Miss
-        value: null
+        value: ''
       missOdd:
         type: String
         label: Odd Miss
-        value: null
+        value: ''
       resources:
         type: String
         label: Resources
@@ -4093,19 +3877,19 @@ items:
       castBroadEffect:
         type: String
         label: Cast for Broad Effect
-        value: null
+        value: ''
       castPower:
         type: String
         label: Cast for Power
-        value: null
+        value: ''
       sustainedEffect:
         type: String
         label: Opening and Sustained Effect
-        value: null
+        value: ''
       finalVerse:
         type: String
         label: Final Verse
-        value: null
+        value: ''
       special:
         type: String
         label: Special
@@ -4121,7 +3905,7 @@ items:
       spellLevel3:
         type: String
         label: 3rd Level Spell
-        value: null
+        value: ''
       spellLevel4:
         type: String
         label: 4th Level Spell
@@ -4129,7 +3913,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: null
+        value: ''
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -4137,7 +3921,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: null
+        value: ''
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -4145,7 +3929,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: null
+        value: ''
       spellLevel10:
         type: String
         label: 10th Level Spell
@@ -4153,19 +3937,19 @@ items:
       spellChain:
         type: String
         label: Chain Spell
-        value: null
+        value: ''
       breathWeapon:
         type: String
         label: Breath Weapon
-        value: null
+        value: ''
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
-        value: ''
+        value: Improved Sneak Attack Damage
       feats:
         '0':
           description:
@@ -4175,7 +3959,7 @@ items:
               [[@lvl*1d6]].</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -4232,6 +4016,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: icons/skills/melee/blade-tip-chipped-blood-red.webp
     _id: TN2G6BaxyrGt9KXA
@@ -4245,8 +4034,8 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708800227967
-      modifiedTime: 1708800443921
-      lastModifiedBy: hsiv4q7EYWxaKXvN
+      modifiedTime: 1708884018930
+      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pjn3LFHu2cMowjqG.TN2G6BaxyrGt9KXA'
 effects: []
 folder: null
@@ -4285,7 +4074,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708798606491
-  modifiedTime: 1708811495712
+  modifiedTime: 1708884021220
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: pjn3LFHu2cMowjqG
 sort: 100000
