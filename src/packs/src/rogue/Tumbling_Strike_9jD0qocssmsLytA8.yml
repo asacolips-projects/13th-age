@@ -141,6 +141,14 @@ system:
     type: String
     label: Breath Weapon
     value: null
+  sustainOn:
+    type: Number
+    label: Sustain On
+    value: ''
+  rollTable:
+    type: String
+    label: Roll Table
+    value: 'Sneak Attack Damage'
   recharge:
     type: Number
     label: Recharge
