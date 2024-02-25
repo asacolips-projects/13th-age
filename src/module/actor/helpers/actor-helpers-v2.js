@@ -84,4 +84,19 @@ export class ActorHelpersV2 {
     }
     return 0;
   }
+
+  static _activatePortraitArtContextMenu(app, element) {
+    ContextMenu.create(app, element, '.profile-img', [
+      {
+        name: 'Show Portrait',
+        icon: '',
+        callback: console.log
+      },
+      {
+        name: 'Show Token',
+        icon: '',
+        callback: console.log
+      }
+    ])
+  }
 }
