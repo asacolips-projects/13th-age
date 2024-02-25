@@ -90,12 +90,24 @@ export class ActorHelpersV2 {
       {
         name: 'Show Portrait',
         icon: '',
-        callback: console.log
+        callback: () => {
+          new ImagePopout(app.actor.img, {
+            title: "Portrait: " + app.actor.name,
+            shareable: true,
+            uuid: app.actor.uuid,
+          }).render(true);
+        }
       },
       {
         name: 'Show Token',
         icon: '',
-        callback: console.log
+        callback: () => {
+          new ImagePopout(app.actor.prototypeToken.texture.src, {
+            title: "Token: " + app.actor.name,
+            shareable: true,
+            uuid: app.actor.uuid,
+          }).render(true);
+        }
       }
     ])
   }
