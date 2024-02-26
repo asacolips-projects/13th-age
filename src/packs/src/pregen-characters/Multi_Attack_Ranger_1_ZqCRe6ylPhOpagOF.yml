@@ -1042,7 +1042,7 @@ items:
       miss:
         type: String
         label: Miss
-        value: '[[@lvl]] damage'
+        value: '[[@lvl+@lvl]] damage'
       missEven:
         type: String
         label: Even Miss
@@ -1154,7 +1154,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708875665110
-      modifiedTime: 1708875860583
+      modifiedTime: 1708958207330
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZqCRe6ylPhOpagOF.1pg7NtTnxDVxlMXD'
   - name: Ranged Attack (Ranger)
@@ -2657,7 +2657,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708875595299
-  modifiedTime: 1708957221088
+  modifiedTime: 1708958207330
   lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ZqCRe6ylPhOpagOF'
 
