@@ -737,11 +737,11 @@ items:
       quantity:
         type: Number
         label: Uses
-        value: 1
+        value: 3
       maxQuantity:
         type: Number
         label: Uses
-        value: 1
+        value: 3
       group:
         type: String
         label: Group
@@ -921,7 +921,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708819684271
-      modifiedTime: 1708956735376
+      modifiedTime: 1708968004895
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.QWDRnMwZjRtJJk3W'
   - name: (Smite Evil) Melee attack (Per-Battle)
@@ -948,11 +948,11 @@ items:
       quantity:
         type: Number
         label: Uses
-        value: 3
+        value: 1
       maxQuantity:
         type: Number
         label: Uses
-        value: 3
+        value: 1
       group:
         type: String
         label: Group
@@ -1132,7 +1132,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708819684271
-      modifiedTime: 1708887052588
+      modifiedTime: 1708967996943
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hyT5ZzJ3GfQHxrue.I7MOn5fStDUsS84Q'
   - name: Melee attack (Paladin)
@@ -3309,7 +3309,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708819553371
-  modifiedTime: 1708956735376
+  modifiedTime: 1708968004895
   lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!hyT5ZzJ3GfQHxrue'
 
