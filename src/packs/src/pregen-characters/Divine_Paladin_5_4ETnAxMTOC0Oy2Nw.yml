@@ -1748,7 +1748,7 @@ items:
             value: <p>Your Smite Evil attacks gain a +4 attack bonus.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -1816,7 +1816,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708819684271
-      modifiedTime: 1708820337034
+      modifiedTime: 1708956821905
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4ETnAxMTOC0Oy2Nw.GhNXhD5Yn6DpfD6U'
   - name: Cleric Training
@@ -3781,7 +3781,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708819553371
-  modifiedTime: 1708887023689
+  modifiedTime: 1708956821905
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: 4ETnAxMTOC0Oy2Nw
 sort: 100000

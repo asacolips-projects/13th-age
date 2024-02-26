@@ -701,8 +701,8 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
+      modifiedTime: 1708957613059
+      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qP1EO9RjcBhMsEu7.XR85LdKJsEcNTsqk'
   - name: That’s Your Best Shot?
     type: power
@@ -925,14 +925,14 @@ items:
     ownership:
       default: 0
     folder: null
-    sort: 0
+    sort: 100000
     _stats:
       systemId: archmage
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708801222478
-      modifiedTime: 1708801222478
-      lastModifiedBy: hsiv4q7EYWxaKXvN
+      modifiedTime: 1708957611601
+      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qP1EO9RjcBhMsEu7.U59NdGj8hnsqaTIl'
   - name: (Rage) Melee attack
     type: power
@@ -3326,7 +3326,7 @@ flags:
           value: custom
       tabs:
         primary:
-          value: settings
+          value: powers
     initiativeAdv: false
     strongRecovery: false
     toughness: true
@@ -3346,7 +3346,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708801166031
-  modifiedTime: 1708886920906
+  modifiedTime: 1708957613059
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: qP1EO9RjcBhMsEu7
 sort: 0

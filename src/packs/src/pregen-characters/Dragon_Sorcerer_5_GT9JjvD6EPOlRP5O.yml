@@ -5008,7 +5008,7 @@ items:
               already ritual casters (cleric, wizard) don’t need this feat.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -5038,7 +5038,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708880950674
-      modifiedTime: 1708880950674
+      modifiedTime: 1708956855372
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GT9JjvD6EPOlRP5O.PcCdkatkI8XgCFkX'
   - name: Breath of the Green
@@ -5747,7 +5747,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708880598388
-  modifiedTime: 1708881100292
+  modifiedTime: 1708956855372
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: GT9JjvD6EPOlRP5O
 sort: 0

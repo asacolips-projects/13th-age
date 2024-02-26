@@ -2000,7 +2000,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -2174,7 +2174,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -2184,6 +2184,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/blue_17.jpg
     effects: []
@@ -2197,7 +2202,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708879468652
+      modifiedTime: 1708957105924
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.FtataH9teIZEuPXp'
   - name: (Cantrip) Arcane Mark
@@ -2212,7 +2217,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -2384,7 +2389,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -2394,6 +2399,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/blue_03.jpg
     effects: []
@@ -2407,7 +2417,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708879470678
+      modifiedTime: 1708957108551
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.bzJ9xje6MFgcs7CZ'
   - name: (Cantrip) Ghost Sound
@@ -2422,7 +2432,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -2597,7 +2607,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -2607,6 +2617,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/affliction_08.jpg
     effects: []
@@ -2620,7 +2635,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708879472365
+      modifiedTime: 1708957111318
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.PiWg29zfiNugrweX'
   - name: (Cantrip) Knock
@@ -2635,7 +2650,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -2809,7 +2824,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -2819,6 +2834,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/blood_11.jpg
     effects: []
@@ -2832,7 +2852,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708878950659
+      modifiedTime: 1708957091809
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.dD5SLwbyM4YOyBRx'
   - name: (Cantrip) Light
@@ -2847,7 +2867,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -3018,7 +3038,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -3035,6 +3055,11 @@ items:
 
           game.archmage.ArchmageMacros.wizardLight(speaker, actor, token,
           character, archmage);
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/mech_13.jpg
     effects: []
@@ -3048,7 +3073,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708878950659
+      modifiedTime: 1708957094239
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.LC9U6G8ROTh9niTg'
   - name: (Cantrip) Mage Hand
@@ -3063,7 +3088,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -3235,7 +3260,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -3245,6 +3270,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/violet_28.jpg
     effects: []
@@ -3258,7 +3288,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708878950659
+      modifiedTime: 1708957096570
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.W94zEVk0Wo88aLYI'
   - name: (Cantrip) Mending
@@ -3273,7 +3303,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -3450,7 +3480,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -3460,6 +3490,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/yellow_21.jpg
     effects: []
@@ -3473,7 +3508,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708878950659
+      modifiedTime: 1708957098703
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.He5EDA3xQ8aDWJac'
   - name: (Cantrip) Prestidigitation
@@ -3488,7 +3523,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -3659,7 +3694,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -3669,6 +3704,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/violet_17.jpg
     effects: []
@@ -3682,7 +3722,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708878950659
+      modifiedTime: 1708957101175
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.2WtL6TVCz3qdeDfm'
   - name: (Cantrip) Spark
@@ -3697,7 +3737,7 @@ items:
       powerUsage:
         type: String
         label: Power Usage
-        value: other
+        value: at-will
       recharge:
         type: Number
         label: Recharge
@@ -3870,7 +3910,7 @@ items:
       sustainOn:
         type: Number
         label: Sustain On
-        value: ''
+        value: null
       rollTable:
         type: String
         label: Roll Table
@@ -3880,6 +3920,11 @@ items:
         type: String
         label: Embedded Macro
         value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
     flags: {}
     img: systems/archmage/assets/icons/skills/mech_14.jpg
     effects: []
@@ -3893,7 +3938,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708878950659
-      modifiedTime: 1708878950659
+      modifiedTime: 1708957103442
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.yUqWZ3aCn3BuLGiW'
   - name: (Utility) Disguise Self
@@ -8185,7 +8230,7 @@ items:
               read enough to get by in all these languages.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -8237,7 +8282,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708879884944
-      modifiedTime: 1708879884944
+      modifiedTime: 1708957180811
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.K2fVF0GW8Vx1Ig15'
   - name: Precise Shot
@@ -8435,7 +8480,7 @@ items:
               ally, you have no chance of hitting that ally.</p>
           isActive:
             type: Boolean
-            value: false
+            value: true
           tier:
             type: String
             value: adventurer
@@ -8465,7 +8510,7 @@ items:
       systemVersion: 1.27.0
       coreVersion: '11.315'
       createdTime: 1708879884944
-      modifiedTime: 1708879884944
+      modifiedTime: 1708957186066
       lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!atT9xG6slENAVPLF.Okawf30n0S0zqpYN'
 effects: []
@@ -8505,7 +8550,7 @@ _stats:
   systemVersion: 1.27.0
   coreVersion: '11.315'
   createdTime: 1708878801362
-  modifiedTime: 1708879917726
+  modifiedTime: 1708957186066
   lastModifiedBy: tWJ6KkFBgXXy34it
 _id: atT9xG6slENAVPLF
 sort: 0
