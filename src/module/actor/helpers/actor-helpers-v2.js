@@ -88,22 +88,22 @@ export class ActorHelpersV2 {
   static _activatePortraitArtContextMenu(app, element) {
     ContextMenu.create(app, element, '.profile-img', [
       {
-        name: 'Show Portrait',
-        icon: '',
+        name: game.i18n.localize('ARCHMAGE.CHARACTER.showPortrait'),
+        icon: '<i class="fa fa-image-portrait"></i>',
         callback: () => {
           new ImagePopout(app.actor.img, {
-            title: "Portrait: " + app.actor.name,
+            title: game.i18n.format('ARCHMAGE.CHARACTER.showPortraitTitle', {name: app.actor.name}),
             shareable: true,
             uuid: app.actor.uuid,
           }).render(true);
         }
       },
       {
-        name: 'Show Token',
-        icon: '',
+        name: game.i18n.localize('ARCHMAGE.CHARACTER.showToken'),
+        icon: '<i class="fas fa-circle-user"></i>',
         callback: () => {
           new ImagePopout(app.actor.prototypeToken.texture.src, {
-            title: "Token: " + app.actor.name,
+            title: game.i18n.format('ARCHMAGE.CHARACTER.showTokenTitle', {name: app.actor.name}),
             shareable: true,
             uuid: app.actor.uuid,
           }).render(true);
