@@ -384,6 +384,7 @@ ARCHMAGE:
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
     chakraSlot: Chakra Slot
+    damageType: Damage Type
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
@@ -396,6 +397,7 @@ ARCHMAGE:
     hpBonus: HP Bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
+    ongoingDamage: Ongoing Damage
     pdBonus: PD Bonus
     price: Price
     pricePlaceholder: 1,000gp
@@ -466,6 +468,7 @@ ARCHMAGE:
     attack: Attack
     attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
     attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
+    applyDamage: Apply Damage
     breathWeapon: Breath Weapon
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
@@ -519,6 +522,7 @@ ARCHMAGE:
     NoUsesMsg: No uses left, do you want to use this anyway?
     numbersOnly: Numbers only, such as '16'
     odd: odd
+    ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
@@ -544,6 +548,7 @@ ARCHMAGE:
     RechargeSucc: recharged
     resources: Resources
     resourcesPlaceholder: -2 command points
+    removeEffect: Remove Effect
     Rest: Rest
     Rests: Rests
     sequencerDesc: Configure a sequencer animation.
@@ -625,6 +630,7 @@ ARCHMAGE:
     normal: Normal Save
     normalShort: Normal
     success: Succeeded
+    rollSave: Roll Save
   EFFECT:
     AE:
       arcane: Arcane

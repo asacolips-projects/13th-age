@@ -16,7 +16,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
   /* -------------------------------------------- */
 
   async getData(options) {
-    const effect = await super.getData(options);
+    const context = await super.getData(options);
 
     function setValue(obj,access,value){
       if (typeof(access)=='string'){
@@ -32,17 +32,23 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       }
     }
 
-    for ( const change of effect.effect.changes ) {
+    for ( const change of context.effect.changes ) {
       if ( change.key === "system.attributes.escalation.value" ) continue;
-      setValue(effect, change.key, change.value);
+      setValue(context, change.key, change.value);
     }
 
-    const edChange = effect.effect.changes.find(x => x.key === "system.attributes.escalation.value");
+    const edChange = context.effect.changes.find(x => x.key === "system.attributes.escalation.value");
     //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
-    effect.supportsDescription = game.release.generation >= 11;
+    context.supportsDescription = game.release.generation >= 11;
+    context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
 
-    return effect;
+    // Get data from flag
+    context.duration = context.effect.flags.archmage?.duration || "Infinite";
+    context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
+    context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
+
+    return context;
   }
 
   /* -------------------------------------------- */
@@ -52,6 +58,14 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     ae.name = formData.name;
     ae.icon = formData.icon;
     ae.description = formData.description;
+    ae.origin = formData.origin;
+
+    // Duration and ongoing damage goes on a flag
+    ae.flags.archmage = {
+      duration: formData.duration,
+      ongoingDamage: formData.ongoingDamage,
+      ongoingDamageType: formData.ongoingDamageType
+    };
 
     // Retrieve the existing effects.
     const effectData = await this.getData();

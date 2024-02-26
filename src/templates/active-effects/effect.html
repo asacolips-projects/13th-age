@@ -34,7 +34,16 @@
                     <div class="form-group">
                         <label>{{ localize "EFFECT.Origin" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="effect.origin" value="{{ effect.origin }}" disabled/>
+                            <input type="text" name="origin" value="{{ effect.origin }}" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ localize "EFFECT.TabDuration" }}</label>
+                        <div class="form-fields">
+                            <select name="duration">
+                                {{selectOptions durationOptions selected=duration}}
+                            </select>
                         </div>
                     </div>
                     {{/if}}
@@ -54,48 +63,6 @@
                         {{editor descriptionHTML target="description" button=true editable=editable engine="prosemirror" collaborate=false}}
                     </div>
                     {{/if}}
-                </section>
-
-                <!-- Duration Tab -->
-                <section class="tab" data-tab="duration">
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.DurationSecs" }}</label>
-                        <div class="form-fields">
-                            <input type="number" name="effect.duration.seconds" value="{{ effect.duration.seconds }}"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.StartTime" }}</label>
-                        <div class="form-fields">
-                            <input type="number" name="effect.duration.startTime" value="{{ effect.duration.startTime }}"/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.DurationTurns" }}</label>
-                        <div class="form-fields">
-                            <label>{{ localize "COMBAT.Rounds" }}</label>
-                            <input type="number" name="effect.duration.rounds" value="{{ effect.duration.rounds }}"/>
-                            <label>{{ localize "COMBAT.Turns" }}</label>
-                            <input type="number" name="effect.duration.turns" value="{{ effect.duration.turns }}"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.Combat" }}</label>
-                        <div class="form-fields">
-                            <input type="text" name="effect.duration.combat" value="{{ effect.duration.combat }}" disabled/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>{{ localize "EFFECT.StartTurns" }}</label>
-                        <div class="form-fields">
-                            <label>{{ localize "COMBAT.Round" }}</label>
-                            <input type="number" name="effect.duration.startRound" value="{{ effect.duration.startRound }}"/>
-                            <label>{{ localize "COMBAT.Turn" }}</label>
-                            <input type="number" name="effect.duration.startTurn" value="{{ effect.duration.startTurn }}"/>
-                        </div>
-                    </div>
                 </section>
 
                 <!-- Effects Tab -->
@@ -191,6 +158,22 @@
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
                         <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked system.blockedFromEscalationDie}} />
+                    </div>
+
+                    <div class="settings-group form-group" style="padding-top: 10px;">
+                        <label>{{localize 'ARCHMAGE.ITEM.ongoingDamage'}}</label>
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.ongoingDamage'}}</strong>
+                        <input class="attribute-input" name="ongoingDamage" type="text" value="{{ongoingDamage}}"
+                               data-dtype="Number" placeholder="0" />
+                    </div>
+
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.damageType'}}</strong>
+                        <input class="attribute-input" name="ongoingDamageType" type="text" value="{{ongoingDamageType}}"
+                               data-dtype="String" placeholder="Poison" />
                     </div>
                 </section>
             </div>

@@ -1,0 +1,55 @@
+<div class="archmage chat-card ongoing-effects">
+  <header class="card-header">
+    <h3 class="ability-usage ability-usage--recharge">{{title}}</h3>
+  </header>
+  <div class="card-content">
+      {{#if hasSelfEnded}}
+      <div class="card-row save-ends">
+          <h4>The following effects have ended on this Actor:</h4>
+          <ul>
+              {{#each selfEnded as |effect|}}
+              <li data-effect-id="{{effect._id}}" data-actor-id="{{../combatant.actorId}}">{{effect.name}}
+              <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
+              </li>
+              {{/each}}
+          </ul>
+      </div>
+      {{/if}}
+
+      {{#if hasOtherEnded}}
+      <div class="card-row other-ended">
+          <h4>The following effects have ended on another Actor:</h4>
+          <ul>
+              {{#each otherEnded as |effect|}}
+              <li data-effect-id="{{effect._id}}" data-actor-id="{{effect.parent._id}}">{{effect.name}} on {{effect.parent.name}}
+                  <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
+              </li>
+              {{/each}}
+          </ul>
+      </div>
+      {{/if}}
+
+      {{#if hasSaveEnds}}
+      <div class="card-row save-ends">
+          <h4>The following effects require a Save to end:</h4>
+            <ul>
+              {{#each saveEnds as |effect|}}
+              {{#if effect.isOngoing}}
+              <li data-effect-id="{{effect._id}}" data-actor-id="{{../combatant.actorId}}" data-value="{{effect.flags.archmage.ongoingDamage}}" data-save="{{effect.flags.archmage.duration}}">{{effect.name}}
+                  <a data-tooltip="Apply Damage" data-action="apply" class="effect-control"><i class="fas fa-flask-round-poison"></i></a>
+                  <a data-tooltip="Roll Save" data-action="save" class="effect-control"><i class="fas fa-dice-d20"></i></a>
+                  <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
+              </li>
+              {{else}}
+              <!-- Render each effect with a Roll Save button and a Remove Effect button -->
+              <li data-effect-id="{{effect._id}}" data-actor-id="{{../combatant.actorId}}" data-save="{{effect.flags.archmage.duration}}">{{effect.name}}
+                  <a data-tooltip="Roll Save" data-action="save" class="effect-control"><i class="fas fa-dice-d20"></i></a>
+                  <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
+              </li>
+              {{/if}}
+              {{/each}}
+            </ul>
+      </div>
+    {{/if}}
+  </div>
+</div>

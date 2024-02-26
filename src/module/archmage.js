@@ -18,6 +18,7 @@ import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
+import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 
 
 Hooks.once('init', async function() {
@@ -611,11 +612,17 @@ Hooks.once('ready', () => {
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
     if ( !event.target.classList.contains("effect-link") ) return;
+    const dataset = event.target.dataset;
     let data = {
-      type: event.target.dataset.type,
-      id: event.target.dataset.id
+      type: dataset.type,
+      id: dataset.id
     };
-    if ( event.target.dataset.actorId ) data.actorId = event.target.dataset.actorId;
+    if ( dataset.actorId ) data.actorId = dataset.actorId;
+    if ( dataset.damageType ) data.damageType = dataset.damageType;
+    if ( dataset.value ) data.value = dataset.value;
+    if ( dataset.ends ) data.ends = dataset.ends;
+    if ( dataset.source ) data.source = dataset.source;
+    if ( dataset.tooltip ) data.tooltip = dataset.tooltip;
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
@@ -838,6 +845,26 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     console.dir(effectData);
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
+  else if ( data.type == "ongoing-damage" ) {
+    const value = data.value;
+    const type = data.damageType;
+    const ends = data.ends;
+    const message = data.tooltip;
+
+    let effectData = {
+      name: message,
+      icon: "icons/svg/blood.svg",
+      origin: data.source,
+      flags: {
+        archmage: {
+          ongoingDamage: value,
+          ongoingDamageType: type,
+          duration: ends,
+        }
+      }
+    }
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
 });
 
 /* ---------------------------------------------- */
@@ -895,10 +922,11 @@ function uuidv4() {
   });
 }
 
-// Override the inline roll click behavior.
-Hooks.on('renderChatMessage', (chatMessage, html, options) => {
-  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
 
+Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+
+  // Override the inline roll click behavior.
+  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
   html.find('.inline-roll--archmage').each(function() {
     var uuid = uuidv4();
     // Add a way to uniquely identify this roll
@@ -1017,6 +1045,56 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     }
 
   });
+
+  // Hook up Effect buttons
+  html.find(".effect-control").on("click", async (event) => {
+    // If the link is disabled, do nothing
+    if (event.currentTarget.disabled) return;
+    const action = event.currentTarget.dataset.action;
+    event.currentTarget.classList.add("disabled");
+    // Get parent li
+    const li = event.currentTarget.closest("li");
+    const actorId = li.dataset.actorId;
+    const actor = game.actors.get(actorId);
+    switch (action) {
+      case "apply":
+        const value = li.dataset.value;
+        await actor.update({ "data.attributes.hp.value": actor.system.attributes.hp.value - value });
+        await chatMessage.update({ "flags.archmage.effectApplied": true });
+        break;
+      case "save":
+        const duration = li.dataset.save;
+        const durationToDifficulty = {
+          "EasySaveEnds": "easy",
+          "NormalSaveEnds": "normal",
+          "HardSaveEnds": "hard",
+        }
+        await actor.rollSave(durationToDifficulty[duration]);
+        await chatMessage.update({ "flags.archmage.effectSaved": true });
+        // We can replace the disabled class with the grayed-out class
+        event.currentTarget.classList.remove("disabled");
+        event.currentTarget.classList.add("grayed-out");
+        break;
+      case "remove":
+        const effectId = li.dataset.effectId;
+        await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
+        await chatMessage.update({ "flags.archmage.effectRemoved": true });
+        break;
+    }
+    chatMessage.render();
+  });
+
+  // Gray out and disable the effect buttons if the effect has already been applied, saved, or removed
+  html.find(".effect-control").each((i, el) => {
+    if (!chatMessage.data.flags.archmage) return;
+    if (el.dataset.action === "apply" && chatMessage.data.flags.archmage.effectApplied) {
+      el.classList.add("disabled");
+    } else if (el.dataset.action === "save" && chatMessage.data.flags.archmage.effectSaved) {
+      el.classList.add("grayed-out");
+    } else if (el.dataset.action === "remove" && chatMessage.data.flags.archmage.effectRemoved) {
+      el.classList.add("disabled");
+    }
+  });
 });
 
 Hooks.on("getChatLogEntryContext", (html, options) => {
@@ -1118,6 +1196,18 @@ Hooks.on('updateCombat', (async (combat, update) => {
     }
   }
 }));
+
+/* -------------------------------------------- */
+
+Hooks.on('combatTurn', combatTurn);
+
+/* -------------------------------------------- */
+
+Hooks.on('combatRound', combatRound);
+
+/* -------------------------------------------- */
+
+Hooks.on('preDeleteCombat', preDeleteCombat);
 
 /* ---------------------------------------------- */
 

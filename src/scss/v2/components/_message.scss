@@ -10,3 +10,13 @@
     line-height: 14px; // 24px parent line height minus padding (8px + 2px)
   }
 }
+
+.card-content {
+  .disabled {
+    color: $c-gray;
+    pointer-events: none;
+  }
+  .grayed-out {
+    color: $c-gray;
+  }
+}

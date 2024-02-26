@@ -392,7 +392,19 @@ ARCHMAGE.effectDurations = {
   StartOfNextSourceTurn: 2,
   EndOfNextSourceTurn: 3,
   SaveEnds: 4
-}
+};
+
+ARCHMAGE.effectDurationTypes = {
+  'Infinite': 'Infinite',
+  'StartOfNextTurn': "Start of Next Turn",
+  'EndOfNextTurn': "End of Next Turn",
+  'StartOfNextSourceTurn': "Start of Next Source Turn",
+  'EndOfNextSourceTurn': "End of Next Source Turn",
+  'EasySaveEnds': "Easy Save Ends",
+  'NormalSaveEnds': "Normal Save Ends",
+  'HardSaveEnds': "Hard Save Ends",
+  "EndOfCombat": "End of Combat",
+};
 
 ARCHMAGE.creatureTypes = {
   'aberration': 'Aberration',
