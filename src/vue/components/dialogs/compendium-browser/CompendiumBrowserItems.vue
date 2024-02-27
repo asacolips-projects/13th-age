@@ -29,7 +29,6 @@
   </section>
 
   <section class="section section--no-overflow">
-    <Pager v-if="pager.totalRows > 0" :total-rows="pager.totalRows" :per-page="pager.perPage" :pager="pager"/>
     <section class="section section--main section--inventory flexcol">
       <ul class="compendium-browser-results">
         <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" class="compendium-browser-row flexrow document item equipment-item" :data-document-id="equipment._id" @click="openDocument(equipment.uuid)">
@@ -48,6 +47,7 @@
         </li>
       </ul>
     </section>
+    <Pager v-if="pager.totalRows > 0" :pagerOptions="pager"/>
   </section>
 </template>
 
@@ -86,6 +86,7 @@ export default {
         firstIndex: 0,
         lastIndex: 0,
         totalRows: 0,
+        style: 'input'
       },
       packIndex: [],
       name: '',

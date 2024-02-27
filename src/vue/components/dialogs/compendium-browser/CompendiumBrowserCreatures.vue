@@ -50,7 +50,6 @@
   </section>
 
   <div class="section section--no-overflow">
-    <Pager v-if="pager.totalRows > 0" :total-rows="pager.totalRows" :per-page="pager.perPage" :pager="pager"/>
     <section class="section section--main flexcol">
       <ul class="compendium-browser-results">
         <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document actor" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
@@ -65,6 +64,7 @@
         </li>
       </ul>
     </section>
+    <Pager v-if="pager.totalRows > 0" :pagerOptions="pager"/>
   </div>
 </template>
 
@@ -99,6 +99,7 @@ export default {
         firstIndex: 0,
         lastIndex: 0,
         totalRows: 0,
+        style: 'input'
       },
       packIndex: [],
       name: '',
