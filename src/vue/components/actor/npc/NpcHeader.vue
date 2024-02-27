@@ -207,6 +207,11 @@
 
   .section--avatar {
     flex: 0 auto;
+
+    #context-menu {
+      left: auto;
+      right: 0;
+    }
   }
 
   .unit {
