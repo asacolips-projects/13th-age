@@ -2,6 +2,7 @@ import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
+import { ActorHelpersV2 } from './helpers/actor-helpers-v2.js';
 
 export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
@@ -206,6 +207,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+    ActorHelpersV2._activatePortraitArtContextMenu(this, html)
 
     if (!this.options.editable) return;
 
