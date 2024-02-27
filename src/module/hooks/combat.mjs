@@ -13,7 +13,6 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
     console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant);
 
-    // TODO: Use Token Id's
     // TODO: Some classes allow the player to roll a save at the start of their turn to end the effect
 
     const currentCombatantEffectData = {
@@ -31,7 +30,6 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             const isOngoing = effect.flags.archmage?.ongoingDamage > 0;
             effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
-            //await handleSaveEndsEffect(effect, combat.combatant);
         }
     }
 
@@ -39,7 +37,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     for (const otherCombatant of combat.combatants) {
         for (const effect of otherCombatant.actor.effects) {
             const duration = effect.flags.archmage?.duration;
-            if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.id) {
+            if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
                 console.log(`${prefix}OfNextSourceTurn effect found`, effect);
                 currentCombatantEffectData.otherEnded.push(effect);
             }
@@ -59,6 +57,8 @@ export async function preDeleteCombat(combat, context, options) {
     // Disable all effects
     for (const combatant of combat.combatants) {
         for (const effect of combatant.effects) {
+            // If duration is "Infinite", skip
+            if (effect.flags.archmage?.duration === "Infinite") continue;
             effect.disabled = true;
         }
         await combatant.update({effects: combatant.effects});
@@ -98,62 +98,6 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
     };
     console.log("Render Data", renderData);
     const html = await renderTemplate(template, renderData);
-
-    // Create a chat card
-    const chatData = {
-        user: game.user.id,
-        speaker: ChatMessage.getSpeaker({actor: combatant.actor}),
-        content: html
-    };
-    ChatMessage.create(chatData, {});
-}
-
-/* -------------------------------------------- */
-
-async function handleSaveEndsEffect(effect, combatant) {
-    const saveEnds = effect.flags.archmage?.duration;
-    let target = 11;
-    if (saveEnds === "EasySaveEnds") {
-        target = 6;
-    } else if (saveEnds === "NormalSaveEnds") {
-        target = 11;
-    } else if (saveEnds === "HardSaveEnds") {
-        target = 16;
-    }
-    const damageValue = effect.flags.archmage?.ongoingDamage;
-    let damageType = effect.flags.archmage?.ongoingDamageType;
-    if ( damageType ) damageType += " ";
-
-    let title = `${damageValue} ongoing ${damageType}damage (${CONFIG.ARCHMAGE.effectDurationTypes[saveEnds]})`;
-    let message = game.i18n.format("ARCHMAGE.CHAT.ongoingDamage", {
-        damage: damageValue,
-        target: combatant.name,
-        type: damageType,
-        source: effect.source ?? "unknown"
-    });
-
-    let formula = 'd20';
-    // Add bonuses, if any
-    let bonus = combatant.actor.system.attributes.saves.bonus;
-    if (bonus != 0) formula = formula + "+" + bonus.toString();
-    let roll = new Roll(formula);
-    let result = await roll.roll({async: true});
-    let rollResult = result.total;
-    let success = rollResult >= target;
-
-    const saveEndsData = {
-        title: "Ongoing Effects",
-        message: message,
-        target: target,
-        roll: roll,
-        result: result,
-        success: success,
-        damage: damageValue,
-        actor: combatant.actor
-    };
-
-    const template = "systems/archmage/templates/chat/ongoing-damage-card.html";
-    const html = await renderTemplate(template, saveEndsData);
 
     // Create a chat card
     const chatData = {

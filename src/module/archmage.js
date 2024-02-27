@@ -1054,8 +1054,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     event.currentTarget.classList.add("disabled");
     // Get parent li
     const li = event.currentTarget.closest("li");
-    const actorId = li.dataset.actorId;
-    const actor = game.actors.get(actorId);
+    const uuid = li.dataset.uuid;
+    const actor = await fromUuid(uuid);
     switch (action) {
       case "apply":
         const value = li.dataset.value;

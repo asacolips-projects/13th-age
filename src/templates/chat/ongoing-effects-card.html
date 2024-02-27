@@ -8,7 +8,7 @@
           <h4>The following effects have ended on this Actor:</h4>
           <ul>
               {{#each selfEnded as |effect|}}
-              <li data-effect-id="{{effect._id}}" data-actor-id="{{../combatant.actorId}}">{{effect.name}}
+              <li data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">{{effect.name}}
               <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
               </li>
               {{/each}}
@@ -21,7 +21,7 @@
           <h4>The following effects have ended on another Actor:</h4>
           <ul>
               {{#each otherEnded as |effect|}}
-              <li data-effect-id="{{effect._id}}" data-actor-id="{{effect.parent._id}}">{{effect.name}} on {{effect.parent.name}}
+              <li data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">{{effect.name}} on {{effect.parent.name}}
                   <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
               </li>
               {{/each}}
@@ -35,14 +35,14 @@
             <ul>
               {{#each saveEnds as |effect|}}
               {{#if effect.isOngoing}}
-              <li data-effect-id="{{effect._id}}" data-actor-id="{{../combatant.actorId}}" data-value="{{effect.flags.archmage.ongoingDamage}}" data-save="{{effect.flags.archmage.duration}}">{{effect.name}}
+              <li data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}} data-value="{{effect.flags.archmage.ongoingDamage}}" data-save="{{effect.flags.archmage.duration}}">{{effect.name}}
                   <a data-tooltip="Apply Damage" data-action="apply" class="effect-control"><i class="fas fa-flask-round-poison"></i></a>
                   <a data-tooltip="Roll Save" data-action="save" class="effect-control"><i class="fas fa-dice-d20"></i></a>
                   <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
               </li>
               {{else}}
               <!-- Render each effect with a Roll Save button and a Remove Effect button -->
-              <li data-effect-id="{{effect._id}}" data-actor-id="{{../combatant.actorId}}" data-save="{{effect.flags.archmage.duration}}">{{effect.name}}
+              <li data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}} data-save="{{effect.flags.archmage.duration}}">{{effect.name}}
                   <a data-tooltip="Roll Save" data-action="save" class="effect-control"><i class="fas fa-dice-d20"></i></a>
                   <a data-tooltip="Remove Effect" data-action="remove" class="effect-control"><i class="fas fa-trash"></i></a>
               </li>
