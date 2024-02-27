@@ -1,0 +1,5755 @@
+name: Dragon Sorcerer 5
+type: character
+img: icons/creatures/reptiles/lizard-mouth-glowing-red.webp
+system:
+  attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
+    ac:
+      type: Number
+      label: Armor Class
+      value: 10
+      base: 10
+      min: 0
+    pd:
+      type: Number
+      label: Physical Defense
+      value: 10
+      base: 11
+      min: 0
+    md:
+      type: Number
+      label: Mental Defense
+      value: 10
+      base: 10
+      min: 0
+    hp:
+      type: Number
+      label: Hit Points
+      value: 72
+      min: 0
+      max: 10
+      temp: 0
+      tempmax: 0
+      base: 6
+      automatic: true
+    init:
+      type: Number
+      label: Initiative Modifier
+      value: 0
+    level:
+      type: Number
+      label: Level
+      value: 5
+      min: 0
+      max: 10
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    keyModifier:
+      mod1: str
+      mod2: str
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d6
+      base: 8
+      automatic: true
+    weapon:
+      melee:
+        type: String
+        label: Melee weapon dice
+        dice: d8
+        shield: false
+        dualwield: false
+        twohanded: true
+      ranged:
+        type: String
+        label: Ranged weapon dice
+        dice: d6
+      jab:
+        type: String
+        label: JAB dice
+        dice: d6
+      punch:
+        type: String
+        label: PUNCH dice
+        dice: d8
+      kick:
+        type: String
+        label: KICK dice
+        dice: d10
+  details:
+    alignment:
+      type: String
+      label: Alignment
+    biography:
+      type: String
+      label: Biography
+    class:
+      type: String
+      label: Class
+      value: Sorcerer
+    race:
+      type: String
+      label: Race
+      value: Dragonic
+    out:
+      label: One Unique Thing
+      type: String
+      value: ''
+    detectedClasses:
+      - sorcerer
+  abilities:
+    str:
+      type: Number
+      label: Strength
+      value: 8
+      min: 3
+      mod: 0
+    dex:
+      type: Number
+      label: Dexterity
+      value: 13
+      min: 3
+      mod: 0
+    con:
+      type: Number
+      label: Constitution
+      value: 17
+      min: 3
+      mod: 0
+    int:
+      type: Number
+      label: Intelligence
+      value: 8
+      min: 3
+      mod: 0
+    wis:
+      type: Number
+      label: Wisdom
+      value: 10
+      min: 3
+      mod: 0
+    cha:
+      type: Number
+      label: Charisma
+      value: 21
+      min: 3
+      mod: 0
+  backgrounds:
+    bg1:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+    bg2:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+    bg3:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+    bg4:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+    bg5:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+    bg6:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+    bg7:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+    bg8:
+      name:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+  icons:
+    i1:
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+      results: []
+    i2:
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+      results: []
+    i3:
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: true
+      results: []
+    i4:
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      results: []
+    i5:
+      name:
+        type: String
+        value: ''
+      relationship:
+        type: String
+        value: ''
+      bonus:
+        type: Number
+        value: 0
+      isActive:
+        type: Boolean
+        value: false
+      results: []
+  resources:
+    perCombat:
+      momentum:
+        enabled: false
+        current: false
+      commandPoints:
+        enabled: false
+        current: 0
+      focus:
+        enabled: false
+        current: false
+      rhythm:
+        enabled: false
+        current: none
+        default: none
+        secondEdition: true
+    spendable:
+      ki:
+        enabled: false
+        current: 0
+        max: 0
+      custom1:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom2:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom3:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom4:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom5:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom6:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom7:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom8:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+      custom9:
+        label: ''
+        current: 0
+        max: 0
+        enabled: false
+        rest: none
+  incrementals:
+    abilityScoreBonus: false
+    extraMagicItem: false
+    feat: false
+    talent: false
+    hp: false
+    iconRelationshipPoint: false
+    powerSpell1: false
+    powerSpell2: false
+    powerSpell3: false
+    powerSpell4: false
+    skills: false
+    recovery: false
+    skillInitiative: false
+    abilMultiplier: false
+  coins:
+    platinum:
+      value: null
+    gold:
+      value: null
+    silver:
+      value: null
+    copper:
+      value: null
+prototypeToken:
+  name: Dragon Sorcerer 5
+  displayName: 0
+  actorLink: true
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: icons/creatures/claws/claw-talons-glowing-orange.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+  detectionModes: []
+  flags: {}
+  randomImg: false
+items:
+  - name: Breath Weapon
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: once-per-battle
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: 1
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: 1
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: race
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Dragonic / Dragonspawn
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Breath Weapon
+      powerType:
+        type: String
+        label: Power Type
+        value: power
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: quick
+      range:
+        type: String
+        label: Range
+        value: Close-quarters
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: One nearby enemy
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: >-
+          [[d20+max(@str.mod,@dex.mod,@con.mod,@int.mod,@wis.mod,@cha.mod)+@std]]
+          vs. PD
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[(@lvl)d6]] damage of an energy type that makes sense for your
+          character
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: ''
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: ''
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: ''
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>Your breath weapon attack targets [[1d3]] nearby enemies in a
+              group instead.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/svg/d20.svg
+    _id: 0i7L8ttt7eC0yMgu
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.0i7L8ttt7eC0yMgu'
+  - name: Access to Wizardry
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Access to Wizardry
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>Starting at 3rd level, you can take a wizard spell in place of a
+          sorcerer spell. The wizard spell must be two levels lower than the
+          sorcerer spell.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/sundries/books/book-symbol-spiral-silver-blue.webp
+    _id: Eh5vAwIsCkKXE7LV
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.Eh5vAwIsCkKXE7LV'
+  - name: Breath Weapon
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Breath Weapon
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>Spells with the <em>breath weapon</em> keyword have a chance to be
+          re-used during battle. Each <em>breath weapon</em> spell lists the
+          chance of re-using it (usually 16+). At the start of each round after
+          you've cast the <em>breath weapon </em>spell, make the re-use roll.
+          Success indicates that you may re-use that spell as a standard action,
+          but for that round only. If you fail the re-use roll, you don't have
+          the option to re-use the spell, but you get another chance at the
+          beginning of the next round.</p><p>The <em>breath weapon</em> power
+          lasts for a single battle only.</p><p>You can have only one <em>breath
+          weapon</em> spell active at a time. If you cast a different <em>breath
+          weapon</em> spell when you have an earlier spell active, the new spell
+          cancels the earlier spell. (See the Chromatic Destroyer Heritage
+          talent for the path to multiple <em>breath weapon</em>
+          spells.)</p><p>Failing a death save cancels any <em>breath weapon</em>
+          spells you have active.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>Failing a death save no longer cancels your <em>breath
+              weapon</em> spells. Keep rolling the entire battle.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/magic/sonic/scream-wail-shout-teal.webp
+    _id: cSng06MWeRr5p4f9
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.cSng06MWeRr5p4f9'
+  - name: Chain
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Chain
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>When you attack with a <em>chain</em> spell and get a natural even
+          roll, you can roll another attack against a different enemy within
+          range. Keep on rolling attacks as long as you get even rolls and don't
+          run out of new targets. Each enemy can be targeted only once.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/commodities/metal/chain-steel.webp
+    _id: 0zbum61zoVPYpBAE
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.0zbum61zoVPYpBAE'
+  - name: Dancing Lights
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Dancing Lights
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>All sorcerers can cast the <em>dancing lights</em> spell as a
+          standard action. Unlike the wizard's <em>light</em> cantrip, the
+          sorcerer's <em>dancing lights</em> spell produces a number of
+          varicolored light globes that bloom within 5 to 30 feet of the
+          sorcerer every two to five seconds. The sorcerer has very little
+          control over the exact location or illumination provided by the
+          lights, meaning that they can occasionally be used for dramatic plot
+          purposes.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/magic/light/orbs-smoke-pink.webp
+    _id: US4J61ttXFHpVN5T
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.US4J61ttXFHpVN5T'
+  - name: Gather Power
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Gather Power
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>Once initiative has been rolled and a battle is underway, a
+          sorcerer can spend a standard action to gather magical power,
+          preparing themselves for casting a double-strength spell with their
+          next standard action. Gathering power is loud and very
+          noticeable.</p><p>Sorcerers who want to gather power before initiative
+          has been rolled can go through the motions but won't get any benefit
+          from the act.</p><p>When a sorcerer gathers power, it does not count
+          as casting a spell; you can gather power without taking opportunity
+          attacks.</p><p>In addition, because you spend your standard action to
+          gather power, you generate a small magical benefit. Like many of your
+          powers, this benefit is chaotic rather than perfectly reliable, so you
+          must make a random check to see what benefit you get. Roll a d6 and
+          consult the appropriate table below.</p><p>If you get a benefit that
+          deals damage to enemies, you can choose the type of damage (cold,
+          fire, lightning, or thunder).</p><p>After you have gathered power, you
+          can use your next standard action to cast an empowered sorcerer spell.
+          Empowered sorcerer spells deal double the damage of a normal sorcerer
+          spell. This means that you double the damage results of the hit or a
+          miss from the single spell. Non-attack spells generally don't improve
+          when cast empowered; use empowered casting for attacks.</p><p>If you
+          do not or are not able to use your next standard action to cast a
+          sorcerer attack spell, you lose the power you've gathered. You can use
+          another standard action to gather power again, but the spell you
+          eventually cast will still only do double damage.</p><p>You can spend
+          your move actions and quick actions any way you like after you gather
+          power and before casting your next empowered spell. Yes, once a battle
+          has started it's possible to perform the magical firefight trick of
+          gathering power while hiding to the side of the cave entrance, then
+          jumping into the cave opening on your next turn and blasting with the
+          empowered
+          spell.</p><p>@UUID[Compendium.archmage.system-rolltables.PQbtKGZVFy83A85d]{Chaotic
+          Benefits Table} (rolled below)</p><p>Breath weapon spells add an extra
+          wrinkle. Of course you can gather power the first time you cast a
+          breath weapon spell in a battle. Later in the fight it's a question of
+          whether you gathered power the turn before a breath weapon spell roll
+          goes your way. You can be all ready with gathered power but roll too
+          low to use the breath weapon spell, forcing you to cast a different
+          spell with the gathered power.</p><p>If you've gathered power for a
+          spell that deals ongoing damage, the ongoing damage is doubled the
+          first time it is dealt, but not on subsequent rounds, if any.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: Chaotic Benefit
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>Once per battle, you can choose the chaotic benefit you want
+              instead of rolling for it.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: once-per-battle
+          quantity:
+            type: Number
+            value: 1
+          maxQuantity:
+            type: Number
+            value: 1
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>Once per battle when the escalation die is 4+, you can gather
+              power as a quick action.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: once-per-battle
+          quantity:
+            type: Number
+            value: 1
+          maxQuantity:
+            type: Number
+            value: 1
+        '2':
+          description:
+            type: String
+            value: >-
+              <p>When you gather power, if the escalation die is 2+, you can
+              roll two chaotic benefits. Unlike most effects, the benefits stack
+              if you roll the same result twice.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/magic/control/buff-flight-wings-runes-purple-orange.webp
+    _id: h6lIDMtXVp8oWIGD
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.h6lIDMtXVp8oWIGD'
+  - name: Melee attack (Sorcerer)
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Melee attack (Sorcerer)
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: One enemy
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@str.mod+@std+@atk.m.bonus]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[@wpn.m.dice+@str.dmg+@atk.m.bonus]] damage'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: '[[@lvl]] damage'
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/weapons/staves/staff-ornate-gold-jeweled.webp
+    _id: vC7V5YzoV33PSk7Y
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.vC7V5YzoV33PSk7Y'
+  - name: Random Energy
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Random Energy
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>Some sorcerer spells deal damage of a random type. If it matters
+          for the situation, use a d4 to determine which type of damage the
+          spell deals (see
+          @UUID[Compendium.archmage.system-rolltables.DvSTFFWi24BeGhWy]{Random
+          Energy Table}).</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: Random Energy
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/magic/light/explosion-star-small-pink.webp
+    _id: FZHvWwaZBWwoakXc
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.FZHvWwaZBWwoakXc'
+  - name: Ranged Attack (Sorcerer)
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Ranged Attack (Sorcerer)
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: One enemy
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@dex.mod+@std+@atk.r.bonus]] vs. AC'
+      hit:
+        type: String
+        label: Hit
+        value: '[[@wpn.r.dice+@dex.dmg+@atk.r.bonus]] damage'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: —
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/weapons/crossbows/crossbow-purple.webp
+    _id: bbfd8LowuYY4Masq
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.bbfd8LowuYY4Masq'
+  - name: Breath of the White
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: daily
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: 1
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: 1
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Breath of the White
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: 5
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Close-quarters spell
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: '[[1d2]] nearby enemies in a group; breath weapon'
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[3d6+@cha.dmg+@atk.a.bonus]] cold damage.'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: Half damage.
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: '[[5d6+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: '[[4d10+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: '[[6d12+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: '[[10d12+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: >-
+          <p>For the rest of the battle, roll a d20 at the start of each of your
+          turns. On a 16+, you can use breath of the white dragon that turn if
+          you wish.</p>
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/unholy/beam-ringed-impact-purple.webp
+    _id: 8tlPIpU32ZoGXio3
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880973582
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.8tlPIpU32ZoGXio3'
+  - name: Burning Hands
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Burning Hands
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: 3
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Close-quarters spell
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: Up to two nearby enemies in a group
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage.'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: '[[1d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: '[[2d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>When you miss with <em>burning hands</em>, you deal fire damage
+              to the target equal to each damage die that rolled its maximum
+              possible result.</p>
+          isActive:
+            type: Boolean
+            value: true
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>When you roll a natural 18+ with a <em>burning hands</em>
+              attack roll, you can choose another nearby target for the spell.
+              The new target doesn't have to be part of the original group.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '2':
+          description:
+            type: String
+            value: >-
+              <p>You can now target each enemy engaged with you with your
+              <em>burning hands</em> spell in addition to any other targets.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/sonic/scream-wail-shout-teal.webp
+    _id: vVM59zOqWAYN1BCV
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880981440
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.vVM59zOqWAYN1BCV'
+  - name: Chaos Bolt
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Chaos Bolt
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: 3
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Ranged spell
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: >-
+          Either a single nearby enemy or a single far away enemy with a -2
+          attack penalty.
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[1d8+@cha.dmg+@atk.a.bonus]] random energy damage.'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: >-
+          You gain a
+          @Compendium[archmage.system-macros.k7nFrgoSgocyOMbd]{chaotic benefit}
+          as if you had gathered power
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: '[[@lvl]] damage.'
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: >-
+          <p>The first time you use <em>chaos bolt</em> each battle, determine a
+          <em>random energy</em> type. The spell deals that type of damage each
+          time you use it that battle.</p>
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: '[[3d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: '[[5d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: '[[7d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: '[[9d8+@cha.dmg+@atk.a.bonus]] damage.'
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: Random Energy
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>You don't take the –2 penalty for attacking a far away enemy
+              with the spell.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>If you are a champion-tier sorcerer, roll any chaotic benefit
+              gained with this spell on the
+              @UUID[Compendium.archmage.system-rolltables.hojV2urxFb1cjgWJ]{epic
+              chaotic benefits table}. If you are an epic-tier sorcerer, choose
+              the epic chaotic benefit you want instead of rolling.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/light/projectiles-star-purple.webp
+    _id: 0VnMvpEuXeiiTyHo
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880985555
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.0VnMvpEuXeiiTyHo'
+  - name: Resist Energy
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: recharge
+      recharge:
+        type: Number
+        label: Recharge
+        value: 16
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: 1
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: 1
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Resist Energy
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: 5
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Ranged spell
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: You or one nearby ally
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>Until the end of the battle, the target gains resist damage 12+ to
+          the following energy type of your choice: cold, fire, lightning,
+          thunder.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: Choose two types of energy that the target gains resistance to.
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: Resistance is now 16+.
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: The spell now affects two targets.
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: Recharge roll is now 11+.
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: <p>You can target an additional creature with the spell.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/defensive/barrier-shield-dome-blue-purple.webp
+    _id: tGxYx7oiKFIQ0w20
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880991947
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.tGxYx7oiKFIQ0w20'
+  - name: Chromatic Destroyer Heritage (The Three)
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Chromatic Destroyer Heritage (The Three)
+      powerType:
+        type: String
+        label: Power Type
+        value: talent
+      powerLevel:
+        type: Number
+        label: Level
+        value: 1
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: ''
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: ''
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>You can have multiple <em>breath weapon</em> spells active at the
+          same time. You don't gain extra actions, so if you succeed with
+          multiple <em>breath weapon</em> spells, you'll generally have to
+          choose which one to use.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: ''
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: ''
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: ''
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>You gain a +2 attack bonus with empowered <em>breath weapon
+              </em>spells.</p>
+          isActive:
+            type: Boolean
+            value: true
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>Once per day, turn a failed <em>breath weapon</em> re-use roll
+              into a success.</p>
+          isActive:
+            type: Boolean
+            value: true
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: daily
+          quantity:
+            type: Number
+            value: 1
+          maxQuantity:
+            type: Number
+            value: 1
+        '2':
+          description:
+            type: String
+            value: >-
+              <p>One battle per day, gain resist dragon attack 16+ (all attacks
+              made by dragons; dragon must roll natural 16+ with the attack or
+              it deals only half damage).</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: daily
+          quantity:
+            type: Number
+            value: 1
+          maxQuantity:
+            type: Number
+            value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/creatures/claws/claw-talons-glowing-orange.webp
+    _id: hfQ0YwlOYFNsMQlR
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880956823
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.hfQ0YwlOYFNsMQlR'
+  - name: Metallic Protector Heritage (Great Gold Wyrm)
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Metallic Protector Heritage (Great Gold Wyrm)
+      powerType:
+        type: String
+        label: Power Type
+        value: talent
+      powerLevel:
+        type: Number
+        label: Level
+        value: 1
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: ''
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: ''
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>Your rolls to re-use breath weapon spells during a fight gain a +2
+          bonus.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: ''
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: ''
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: ''
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>As a quick action at the start of each battle, you can gain
+              resist energy 12+ to one of the following types of energy of your
+              choice: acid, cold, fire, lightning, or poison.</p>
+          isActive:
+            type: Boolean
+            value: true
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>When you gather power and your chaotic benefit increases your
+              defenses, you can choose one nearby ally to gain the same defense
+              bonus.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '2':
+          description:
+            type: String
+            value: >-
+              <p>One battle per day, you can choose to gain resist demon attack
+              16+ instead of resist energy 12+ from your Metallic Protector
+              Heritage talent.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: daily
+          quantity:
+            type: Number
+            value: 1
+          maxQuantity:
+            type: Number
+            value: 1
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/light/hand-sparks-glow-yellow.webp
+    _id: ZHmTdy0WS5S1dwIH
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880768068
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.ZHmTdy0WS5S1dwIH'
+  - name: Sorceror's Familiar
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Sorceror's Familiar
+      powerType:
+        type: String
+        label: Power Type
+        value: talent
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>You have a familiar much like a wizard's familiar, but more
+          changeable. Unlike the wizard, you don't choose two abilities for your
+          familiar. Instead you choose one permanent ability that suits your
+          familiar's nature; the only limitation is that you can't choose
+          <em>tough</em> as the permanent ability. Each time you get a full
+          heal-up, randomly determine two <em>other</em> abilities your familiar
+          will possess until your next full heal-up.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: <p>Your familiar gains another randomly changing ability.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>Once per level, if your familiar is close to you, it can cast
+              one of your spells as a free action on your initiative count, even
+              if you have already expended the spell. The spell functions as if
+              you had cast it.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: other
+          quantity:
+            type: Number
+            value: 1
+          maxQuantity:
+            type: Number
+            value: 1
+        '2':
+          description:
+            type: String
+            value: <p>Your familiar gains another randomly changing ability.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/creatures/unholy/demon-hairy-winged-pink.webp
+    _id: smhuDZpGY8cTT9nq
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.smhuDZpGY8cTT9nq'
+  - name: Sorceror's Familiar (Rules)
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Sorceror's Familiar (Rules)
+      powerType:
+        type: String
+        label: Power Type
+        value: talent
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: null
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: null
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: null
+      hit:
+        type: String
+        label: Hit
+        value: null
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: null
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: "<p>Your sorceror's familiar is a tiny or small animal or creature that aids you\_and provides companionship. It also provides opportunities for improvisation between you and the GM.</p><p>Your familiar is as intelligent as a normal person. It can communicate with you and will stay close you unless you've chosen abilities that let it roam. Your familiar is on your side but it's not perfectly in your control.</p><p>If your familiar dies, it can come back to you the next time you get a full heal-up. (The method or story used is between you and the GM.) Alternatively, you can get a new familiar.</p><p>familiars are useless in combat, except as indicated by their abilities. Ordinarily they aren't damaged by enemy attacks and spells unless the story calls for it.</p><h2>Familiar Abilities</h2><p>Choose one of the following permanent abilities for your familiar.</p><h3>Agile</h3><p>You gain a +2 bonus to Dexterity skill checks.</p><h3>Alert, Maybe Even Insightful</h3><p>You gain a +2 bonus to Wisdom skill checks.</p><h3>Counter-bite</h3><p>Each battle, if your familiar is close to you, it bites the first enemy that hits you with a melee attack after that attack, dealing [[(@lvl)1d4]] damage (no attack roll) to that enemy.</p><h3>Flight</h3><p>Your familiar flies as well as a hawk. It doesn't fly that often and usually sticks with you, but it can do so when its other abilities allow.</p><h3>Mimic</h3><p>One battle per day, you gain the use of the racial power (without feats) of one nearby ally.</p><h3>Poisonous</h3><p>Once per battle, when you hit an enemy engaged with you, you can add [[5]] ongoing poison damage per tier to the damage roll.</p><h3>Scout</h3><p>Once per day, your familiar can separate itself from you and make a reconnaissance run of an area or location. Roll an easy skill check for the environment to get your familiar\_to scout unseen.</p><h3>Tough</h3><p>You gain a +1 save bonus. Tough counts as two familiar\_abilities.</p><h3>Talkative</h3><p>Your familiar\_can talk like a person (but the GM speaks for the familiar\_more than you do).</p>"
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: null
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: null
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: null
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/creatures/unholy/demon-hairy-winged-pink.webp
+    _id: 0dSgPfhO777mkzJ3
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880699318
+      modifiedTime: 1708880699318
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.0dSgPfhO777mkzJ3'
+  - name: Scorching Ray
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Scorching Ray
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: 3
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Ranged spell
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: One nearby enemy
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: '[[1d6+@cha.dmg+@atk.a.bonus]] fire damage.'
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: The target also takes [[1d8]] ongoing fire damage
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: '[[@lvl]] damage.'
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: '[[3d6+@cha.dmg+@atk.a.bonus]] damage; [[2d4]] ongoing.'
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: '[[4d6+@cha.dmg+@atk.a.bonus]] damage; [[2d6]] ongoing.'
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: '[[6d6+@cha.dmg+@atk.a.bonus]] damage; [[3d6]] ongoing.'
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: '[[10d6+@cha.dmg+@atk.a.bonus]] damage; [[5d6]] ongoing.'
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>You can now use the spell against a far away target, but with a
+              –2 attack penalty.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '1':
+          description:
+            type: String
+            value: >-
+              <p>Each time you cast the spell, you can have the attack deal
+              random energy damage instead of fire damage. Replace the fire
+              entry on the random energy table with your choice of negative
+              energy or acid.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: champion
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+        '2':
+          description:
+            type: String
+            value: >-
+              <p>You don't take the –2 penalty for attacking a far away enemy
+              with the spell.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/fire/projectile-beams-salvo-red.webp
+    _id: DVf5izPATYaISvCi
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880884997
+      modifiedTime: 1708881005652
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.DVf5izPATYaISvCi'
+  - name: Ritual Casting
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+        value: ''
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: ''
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: other
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: General
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Ritual Casting
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: '1'
+      actionType:
+        type: String
+        label: Action
+        value: ''
+      range:
+        type: String
+        label: Range
+        value: ''
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: ''
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: ''
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: ''
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: ''
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: >-
+              <p>You can cast any spells you know as rituals. Classes that are
+              already ritual casters (cleric, wizard) don’t need this feat.</p>
+          isActive:
+            type: Boolean
+            value: true
+          tier:
+            type: String
+            value: adventurer
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/svg/d20.svg
+    _id: PcCdkatkI8XgCFkX
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708880950674
+      modifiedTime: 1708956855372
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.PcCdkatkI8XgCFkX'
+  - name: Breath of the Green
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: daily
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: 1
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: 1
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Breath of the Green
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: 5
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Close-quarters spell
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: '[[1d4]] nearby enemies in a group; breath weapon'
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: 15 + Charisma ongoing poison damage.
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: '[[5]] ongoing poison damage.'
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: 25 + Charisma ongoing poison damage; [[10]] ongoing on a miss.
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: 35 + Charisma ongoing poison damage; [[15]] ongoing on a miss.
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: 50 + Charisma ongoing poison damage; [[25]] ongoing on a miss.
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: >-
+          <p>For the rest of the battle, roll a d20 at the start of each of your
+          turns; on a 16+, you can use <em>breath of the green</em> that turn if
+          you wish.</p>
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags: {}
+    img: icons/magic/acid/pouring-gas-smoke-liquid.webp
+    _id: r6dMgBxGVLI9Wubm
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708881030932
+      modifiedTime: 1708881038819
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.r6dMgBxGVLI9Wubm'
+  - name: Breath of the Black
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: daily
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: 1
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: 1
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Breath of the Black
+      powerType:
+        type: String
+        label: Power Type
+        value: spell
+      powerLevel:
+        type: Number
+        label: Level
+        value: '5'
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: Close-quarters spell
+      trigger:
+        type: String
+        label: Trigger
+        value: null
+      target:
+        type: String
+        label: Target
+        value: One nearby enemy; breath weapon
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: '[[d20+@cha.mod+@std+@atk.a.bonus]] vs. PD'
+      hit:
+        type: String
+        label: Hit
+        value: >-
+          [[10d6+@cha.dmg+@atk.a.bonus]] acid damage, and [[20]] ongoing acid
+          damage.
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: '[[10]] ongoing acid damage.'
+      missEven:
+        type: String
+        label: Even Miss
+        value: null
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: null
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: null
+      castPower:
+        type: String
+        label: Cast for Power
+        value: null
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: null
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: null
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: ''
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: null
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: null
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: >-
+          [[10d10+@cha.dmg+@atk.a.bonus]] damage, and [[40]] ongoing damage;
+          [[20]] ongoing on a miss.
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: >-
+          [[2d6*10+@cha.dmg+@atk.a.bonus]] damage, and [[60]] ongoing damage;
+          [[30]] ongoing on a miss.
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: null
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: >-
+          <p>For the rest of the battle, roll a d20 at the start of each of your
+          turns; on a 16+, you can use <em>breath of the black</em> that turn if
+          you wish.</p>
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: ''
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats:
+        '0':
+          description:
+            type: String
+            value: <p>Double the spell's ongoing damage on a miss.</p>
+          isActive:
+            type: Boolean
+            value: false
+          tier:
+            type: String
+            value: epic
+          powerUsage:
+            type: String
+            value: ''
+          quantity:
+            type: Number
+            value: null
+          maxQuantity:
+            type: Number
+            value: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+    flags: {}
+    img: icons/magic/acid/projectile-faceted-glob.webp
+    _id: 94bPtlBFznLZ4kUv
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708881030932
+      modifiedTime: 1708881030932
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.94bPtlBFznLZ4kUv'
+  - name: Dancing Lights
+    type: power
+    system:
+      name:
+        type: String
+        label: Name
+      description:
+        type: String
+        label: Description
+      powerUsage:
+        type: String
+        label: Power Usage
+        value: at-will
+      recharge:
+        type: Number
+        label: Recharge
+        value: 0
+      rechargeAttempts:
+        type: Number
+        label: Number of Recharges Attempted
+        value: 0
+      quantity:
+        type: Number
+        label: Uses
+        value: null
+      maxQuantity:
+        type: Number
+        label: Uses
+        value: null
+      group:
+        type: String
+        label: Group
+        value: ''
+      powerSource:
+        type: String
+        label: Power Source
+        value: class
+      powerSourceName:
+        type: String
+        label: Power Source
+        value: Sorcerer
+      powerOriginName:
+        type: String
+        label: Power Original Name
+        value: Dancing Lights
+      powerType:
+        type: String
+        label: Power Type
+        value: feature
+      powerLevel:
+        type: Number
+        label: Level
+        value: 1
+      actionType:
+        type: String
+        label: Action
+        value: standard
+      range:
+        type: String
+        label: Range
+        value: ''
+      trigger:
+        type: String
+        label: Trigger
+        value: ''
+      target:
+        type: String
+        label: Target
+        value: ''
+      always:
+        type: String
+        label: Always
+        value: ''
+      attack:
+        type: String
+        label: Attack
+        value: ''
+      hit:
+        type: String
+        label: Hit
+        value: ''
+      hitEven:
+        type: String
+        label: Natural Even Hit
+        value: ''
+      hitOdd:
+        type: String
+        label: Natural Odd Hit
+        value: ''
+      crit:
+        type: String
+        label: Crit
+        value: ''
+      miss:
+        type: String
+        label: Miss
+        value: ''
+      missEven:
+        type: String
+        label: Even Miss
+        value: ''
+      missOdd:
+        type: String
+        label: Odd Miss
+        value: ''
+      resources:
+        type: String
+        label: Resources
+        value: ''
+      castBroadEffect:
+        type: String
+        label: Cast for Broad Effect
+        value: ''
+      castPower:
+        type: String
+        label: Cast for Power
+        value: ''
+      sustainedEffect:
+        type: String
+        label: Opening and Sustained Effect
+        value: ''
+      finalVerse:
+        type: String
+        label: Final Verse
+        value: ''
+      special:
+        type: String
+        label: Special
+        value: ''
+      effect:
+        type: String
+        label: Effect
+        value: >-
+          <p>All sorcerers can cast the <em>dancing lights</em> spell as a
+          standard action. Unlike the wizard's <em>light</em> cantrip, the
+          sorcerer's <em>dancing lights</em> spell produces a number of
+          varicolored light globes that bloom within 5 to 30 feet of the
+          sorcerer every two to five seconds. The sorcerer has very little
+          control over the exact location or illumination provided by the
+          lights, meaning that they can occasionally be used for dramatic plot
+          purposes.</p>
+      spellLevel2:
+        type: String
+        label: 2nd Level Spell
+        value: ''
+      spellLevel3:
+        type: String
+        label: 3rd Level Spell
+        value: ''
+      spellLevel4:
+        type: String
+        label: 4th Level Spell
+        value: ''
+      spellLevel5:
+        type: String
+        label: 5th Level Spell
+        value: ''
+      spellLevel6:
+        type: String
+        label: 6th Level Spell
+        value: ''
+      spellLevel7:
+        type: String
+        label: 7th Level Spell
+        value: ''
+      spellLevel8:
+        type: String
+        label: 8th Level Spell
+        value: ''
+      spellLevel9:
+        type: String
+        label: 9th Level Spell
+        value: ''
+      spellLevel10:
+        type: String
+        label: 10th Level Spell
+        value: ''
+      spellChain:
+        type: String
+        label: Chain Spell
+        value: ''
+      breathWeapon:
+        type: String
+        label: Breath Weapon
+        value: ''
+      sustainOn:
+        type: Number
+        label: Sustain On
+        value: null
+      rollTable:
+        type: String
+        label: Roll Table
+        value: ''
+      feats: null
+      embeddedMacro:
+        type: String
+        label: Embedded Macro
+        value: ''
+      sequencer:
+        self: ''
+        ray: ''
+        target: ''
+        reversed: false
+    flags:
+      core:
+        sourceId: Compendium.archmage.sorcerer.Item.9UXiu77RDLQacBRI
+    img: icons/magic/light/orbs-smoke-pink.webp
+    _id: 1py3xWwxwEQAO2KK
+    effects: []
+    ownership:
+      default: 0
+    folder: null
+    sort: 0
+    _stats:
+      systemId: archmage
+      systemVersion: 1.27.0
+      coreVersion: '11.315'
+      createdTime: 1708881046452
+      modifiedTime: 1708881063225
+      lastModifiedBy: tWJ6KkFBgXXy34it
+    _key: '!actors.items!GT9JjvD6EPOlRP5O.1py3xWwxwEQAO2KK'
+effects: []
+folder: null
+ownership:
+  default: 0
+flags:
+  archmage:
+    sheetDisplay:
+      tabs:
+        primary:
+          value: powers
+      powers:
+        groupBy:
+          value: powerType
+        sortBy:
+          value: custom
+      inventory:
+        sortBy:
+          value: custom
+    initiativeAdv: false
+    strongRecovery: false
+    toughness: false
+    averageRecoveries: false
+    portraitRound: false
+    portraitFrame: false
+    hideCurrency: false
+    hideEmptyPowerGroups: false
+    hideImportPowers: false
+    hideIncrementals: false
+    hideOneUniqueThing: false
+    hideSettingsTab: false
+    diceFormulaMode: ''
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.27.0
+  coreVersion: '11.315'
+  createdTime: 1708880598388
+  modifiedTime: 1708956855372
+  lastModifiedBy: tWJ6KkFBgXXy34it
+_id: GT9JjvD6EPOlRP5O
+sort: 0
+_key: '!actors!GT9JjvD6EPOlRP5O'
+
