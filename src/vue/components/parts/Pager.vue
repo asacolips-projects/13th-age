@@ -86,7 +86,11 @@
     max-width: 230px;
 
     .flexrow {
-      justify-content: space-around;
+      justify-content: space-evenly;
+
+      > * {
+        flex: 0;
+      }
     }
 
     button,
@@ -97,15 +101,10 @@
     .pager-input {
       border: 1px solid $c-gray--75;
       border-radius: 4px;
-      margin: 0 3px;
+      margin: 0;
       padding: 0 2px;
       line-height: 1;
       font-size: 16px;
-      background: $c-gray--25;
-    }
-
-    strong {
-      margin-left: 3px;
     }
   }
 
