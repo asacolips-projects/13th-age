@@ -226,6 +226,10 @@ ARCHMAGE:
     newLevel: New Level
   # Characters
   CHARACTER:
+    showPortrait: 'Show Portrait'
+    showPortraitTitle: 'Portrait: {name}'
+    showToken: 'Show Token'
+    showTokenTitle: 'Token: {name}'
     RESOURCES:
       commandPoint: Command Point
       commandPoints: Command Points
