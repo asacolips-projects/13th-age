@@ -17,13 +17,36 @@
     </div>
 
     <div class="unit unit--input">
-      <h2 class="unit-title" for="compendiumBrowser.bonuses">Recharge</h2>
-      <label><input type="checkbox" v-model="recharge">Has recharge</label>
+      <h2 class="unit-title" for="compendiumBrowser.bonuses">Bonus</h2>
+      <Multiselect
+        v-model="bonuses"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="bonusOptions"
+      />
     </div>
 
     <div class="unit unit--input">
-      <h2 class="unit-title" for="compendiumBrowser.bonuses">Bonus</h2>
-      <label v-for="(bonusName, bonusKey) in bonusOptions" :key="bonusKey"><input type="checkbox" v-model="bonuses[bonusKey]">{{ bonusName.label }}</label>
+      <h2 class="unit-title" for="compendiumBrowser.recharge">Recharge</h2>
+      <Multiselect
+        v-model="recharge"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="rechargeOptions"
+      />
+    </div>
+
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.powerUsage">Usage</label>
+      <Multiselect
+        v-model="powerUsage"
+        mode="tags"
+        :searchable="false"
+        :create-option="false"
+        :options="CONFIG.ARCHMAGE.powerUsages"
+      />
     </div>
 
   </section>
@@ -91,20 +114,9 @@ export default {
       packIndex: [],
       name: '',
       chakra: [],
-      recharge: false,
-      bonuses: {
-        melee: false,
-        ranged: false,
-        divine: false,
-        arcane: false,
-        ac: false,
-        md: false,
-        pd: false,
-        hp: false,
-        recoveries: false,
-        save: false,
-        disengage: false,
-      }
+      recharge: [],
+      bonuses: [],
+      powerUsage: [],
     }
   },
   methods: {
@@ -141,52 +153,82 @@ export default {
   },
   computed: {
     bonusOptions() {
-      return {
-        melee: {
+      return [
+        {
+          value: 'melee',
           dataProp: 'system.attributes.attack.melee.bonus',
           label: 'Melee',
         },
-        ranged: {
+        {
+          value: 'ranged',
           dataProp: 'system.attributes.attack.ranged.bonus',
           label: 'Ranged',
         },
-        divine: {
+        {
+          value: 'divine',
           dataProp: 'system.attributes.attack.divine.bonus',
           label: 'Divine',
         },
-        arcane: {
+        {
+          value: 'arcane',
           dataProp: 'system.attributes.attack.arcane.bonus',
           label: 'Arcane',
         },
-        ac: {
+        {
+          value: 'ac',
           dataProp: 'system.attributes.ac.bonus',
           label: 'AC',
         },
-        md: {
+        {
+          value: 'md',
           dataProp: 'system.attributes.md.bonus',
           label: 'PD',
         },
-        pd: {
+        {
+          value: 'pd',
           dataProp: 'system.attributes.pd.bonus',
           label: 'MD',
         },
-        hp: {
+        {
+          value: 'hp',
           dataProp: 'system.attributes.hp.bonus',
           label: 'HP',
         },
-        recoveries: {
+        {
+          value: 'recoveries',
           dataProp: 'system.attributes.recoveries.bonus',
           label: 'Recoveries',
         },
-        save: {
+        {
+          value: 'save',
           dataProp: 'system.attributes.save.bonus',
           label: 'Save',
         },
-        disengage: {
+        {
+          value: 'disengage',
           dataProp: 'system.attributes.disengage.bonus',
           label: 'Disengage',
         },
-      }
+      ];
+    },
+    rechargeOptions() {
+      return [
+        {
+          value: 6,
+          label: 'Easy (6+)',
+          next: 10,
+        },
+        {
+          value: 11,
+          label: 'Normal (11+)',
+          next: 15,
+        },
+        {
+          value: 16,
+          label: 'Hard (16+)',
+          next: 20,
+        }
+      ]
     },
     chakraSlots() {
       const result = {};
@@ -213,27 +255,37 @@ export default {
 
       if (Array.isArray(this.chakra) && this.chakra.length > 0) {
         // @todo chakra is misspelled in our data model. We need to fix that :(
-        result = result.filter(entry => this.chakra.includes(entry.system.chackra));
+        result = result.filter(entry => entry.system?.chakra && this.chakra.includes(entry.system.chackra));
       }
 
-      if (this.recharge) {
-        result = result.filter(entry => entry.system?.recharge?.value && parseInt(entry.system.recharge.value) > 0);
+      if (Array.isArray(this.powerUsage) && this.powerUsage.length > 0) {
+        result = result.filter(entry => this.powerUsage.includes(entry.system?.powerUsage?.value ?? 'other'));
       }
 
-      // Handle bonuse filters.
-      let needsBonusFilter = false;
-      for (let bonus of Object.values(this.bonuses)) {
-        if (bonus) {
-          needsBonusFilter = true;
-          break;
-        }
-      }
-      if (needsBonusFilter) {
+      // Recharge.
+      if (Array.isArray(this.recharge) && this.recharge.length > 0) {
         result = result.filter(entry => {
           let allowEntry = false;
-          for (let [k, v] of Object.entries(this.bonusOptions)) {
-            if (this.bonuses[k]) {
-              const prop = this.foundry.utils.getProperty(entry, this.bonusOptions[k].dataProp);
+          for (let rechargeOption of this.rechargeOptions) {
+            if (this.recharge.includes(rechargeOption.value)) {
+              const rechargeEntry = parseInt(entry.system?.recharge?.value ?? 0);
+              if (rechargeEntry >= rechargeOption.value && rechargeEntry <= rechargeOption.next) {
+                allowEntry = true;
+                break;
+              }
+            }
+          }
+          return allowEntry;
+        });
+      }
+
+      // Bonus options.
+      if (Array.isArray(this.bonuses) && this.bonuses.length > 0) {
+        result = result.filter(entry => {
+          let allowEntry = false;
+          for (let bonusOption of this.bonusOptions) {
+            if (this.bonuses.includes(bonusOption.value)) {
+              const prop = this.foundry.utils.getProperty(entry, bonusOption.dataProp);
               if (Number.isNumeric(prop) && prop !== 0) {
                 allowEntry = true;
                 break;
@@ -289,6 +341,7 @@ export default {
     ], [
       'system.chackra',
       'system.recharge.value',
+      'system.powerUsage.value',
       'system.attributes.attack',
       'system.attributes.ac',
       'system.attributes.md',

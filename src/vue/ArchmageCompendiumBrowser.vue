@@ -53,7 +53,7 @@ export default {
           creatures: {
             key: 'creatures',
             label: 'Creatures',
-            active: true
+            active: false
           },
           powers: {
             key: 'powers',
@@ -93,7 +93,7 @@ export default {
       let baseFlags = {
         'sheetDisplay': {
           'tabs': {
-            'primary': {'value': 'creatures'}
+            'primary': {'value': this.context?.defaultTab ?? 'creatures' }
           },
         }
       }

@@ -2,9 +2,9 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCompendiumBrowser } from "../../vue/components.vue.es.js";
 
-export class ArchmageCompendiumBrowserApplication extends FormApplication {
-  constructor() {
-    super();
+export class ArchmageCompendiumBrowserApplication extends Application {
+  constructor(...args) {
+    super(...args);
 
     this.vueApp = null;
     this.vueRoot = null;
@@ -33,7 +33,9 @@ export class ArchmageCompendiumBrowserApplication extends FormApplication {
   async getData() {
     // Compendiums are retrieved in the created() section of their respective
     // component tabs.
-    return {};
+    return {
+      defaultTab: this.options.defaultTab ?? 'creatures',
+    };
   }
 
   /* ------------------------------------------------------------------------ */
