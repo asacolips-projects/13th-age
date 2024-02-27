@@ -42,6 +42,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     context.supportsDescription = game.release.generation >= 11;
     context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
+    context.isNpc = this.object.parent.type === "npc";
 
     // Get data from flag
     context.duration = context.effect.flags.archmage?.duration || "Infinite";
@@ -72,76 +73,35 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     let changes = effectData?.data?.changes ? effectData.data.changes : [];
 
     // Build an array of effects from the form data
-    let newChanges = [
-      // Attacks
-      {
-        key: "system.attributes.attack.melee.bonus",
-        value: formData.system.attributes.attack.melee.bonus,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.attack.ranged.bonus",
-        value: formData.system.attributes.attack.ranged.bonus,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.attack.divine.bonus",
-        value: formData.system.attributes.attack.divine.bonus,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.attack.arcane.bonus",
-        value: formData.system.attributes.attack.arcane.bonus,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.critMod.atk.value",
-        value: formData.system.attributes.critMod.atk.value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
+    let newChanges = [];
 
-      // Defenses
-      {
-        key: "system.attributes.ac.value",
-        value: formData.system.attributes.ac.value,
+    function addChange(key) {
+      const value = foundry.utils.getProperty(formData, key);
+      if ( !value ) return;
+      newChanges.push({
+        key: key,
+        value: value,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.md.value",
-        value: formData.system.attributes.md.value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.pd.value",
-        value: formData.system.attributes.pd.value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.hp.max",
-        value: formData.system.attributes.hp.max,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.recoveries.value",
-        value: formData.system.attributes.recoveries.value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.saves.bonus",
-        value: formData.system.attributes.saves.bonus,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.disengage",
-        value: formData.system.attributes.disengage,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-      {
-        key: "system.attributes.critMod.def.value",
-        value: formData.system.attributes.critMod.def.value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      },
-    ];
+      });
+    }
+
+    // Attacks
+    addChange("system.attributes.attackMod.value");
+    addChange("system.attributes.attack.melee.bonus");
+    addChange("system.attributes.attack.ranged.bonus");
+    addChange("system.attributes.attack.divine.bonus");
+    addChange("system.attributes.attack.arcane.bonus");
+    addChange("system.attributes.critMod.atk.value");
+
+    // Defenses
+    addChange("system.attributes.ac.value");
+    addChange("system.attributes.md.value");
+    addChange("system.attributes.pd.value");
+    addChange("system.attributes.hp.max");
+    addChange("system.attributes.recoveries.value");
+    addChange("system.attributes.saves.bonus");
+    addChange("system.attributes.disengage");
+    addChange("system.attributes.critMod.def.value");
 
     // Update the existing changes to replace duplicates.
     for (let i = 0; i < changes.length; i++) {

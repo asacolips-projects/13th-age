@@ -71,6 +71,14 @@
                         <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
                     </div>
 
+                    {{#if isNpc}}
+                    <div class="settings-group">
+                        <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.toHitBonus'}}</strong>
+                        <input class="attribute-input" name="system.attributes.attackMod.value" type="text" value="{{system.attributes.attackMod.value}}"
+                               data-dtype="Number" placeholder="0" />
+                    </div>
+
+                    {{else}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.attack.melee.bonus" type="text" value="{{system.attributes.attack.melee.bonus}}"
@@ -94,6 +102,7 @@
                         <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
+                    {{/if}}
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.critModBonus'}}</strong>
@@ -106,6 +115,7 @@
                         <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
                     </div>
 
+                    {{#unless isNpc}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.ac.value" type="text" value="{{system.attributes.ac.value}}"
@@ -147,6 +157,7 @@
                         <input class="attribute-input" name="system.attributes.disengage" type="text" value="{{system.attributes.disengage}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
+                    {{/unless}}
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.critDefBonus'}}</strong>
@@ -155,10 +166,12 @@
                     </div>
                     <p class="notes">{{localize 'ARCHMAGE.ITEM.critDefBonusHint'}}</p>
 
+                    {{#unless isNpc}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.escalationBlockedHint'}}</strong>
                         <input type="checkbox" name="blockedFromEscalationDie" value="1" data-dtype="Boolean" {{checked system.blockedFromEscalationDie}} />
                     </div>
+                    {{/unless}}
 
                     <div class="settings-group form-group" style="padding-top: 10px;">
                         <label>{{localize 'ARCHMAGE.ITEM.ongoingDamage'}}</label>
