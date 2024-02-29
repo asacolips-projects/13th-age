@@ -115,7 +115,6 @@
                         <label>{{localize 'ARCHMAGE.ITEM.defenseBonuses'}}</label>
                     </div>
 
-                    {{#unless isNpc}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.acBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.ac.value" type="text" value="{{system.attributes.ac.value}}"
@@ -134,6 +133,7 @@
                                data-dtype="Number" placeholder="0" />
                     </div>
 
+                    {{#unless isNpc}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.hpBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.hp.max" type="text" value="{{system.attributes.hp.max}}"

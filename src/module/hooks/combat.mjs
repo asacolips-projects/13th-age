@@ -1,6 +1,5 @@
 export async function combatTurn(combat, context, options) {
     console.log("Combat Turn", combat, context, options);
-    console.log(combat.combatants.get(combat.previous.combatantId).name, combat.combatants.get(combat.current.combatantId).name);
 
     // If the direction is negative, ignore the turn
     if (options.direction < 0) return;
