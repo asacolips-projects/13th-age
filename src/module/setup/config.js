@@ -395,15 +395,15 @@ ARCHMAGE.effectDurations = {
 };
 
 ARCHMAGE.effectDurationTypes = {
-  'Infinite': 'Infinite',
-  'StartOfNextTurn': "Start of Next Turn",
-  'EndOfNextTurn': "End of Next Turn",
-  'StartOfNextSourceTurn': "Start of Next Source Turn",
-  'EndOfNextSourceTurn': "End of Next Source Turn",
-  'EasySaveEnds': "Easy Save Ends",
-  'NormalSaveEnds': "Normal Save Ends",
-  'HardSaveEnds': "Hard Save Ends",
-  "EndOfCombat": "End of Combat",
+  'Infinite': 'ARCHMAGE.DURATION.Infinite',
+  'StartOfNextTurn': "ARCHMAGE.DURATION.StartOfNextTurn",
+  'EndOfNextTurn': "ARCHMAGE.DURATION.EndOfNextTurn",
+  'StartOfNextSourceTurn': "ARCHMAGE.DURATION.StartOfNextSourceTurn",
+  'EndOfNextSourceTurn': "ARCHMAGE.DURATION.EndOfNextSourceTurn",
+  'EasySaveEnds': "ARCHMAGE.DURATION.EasySaveEnds",
+  'NormalSaveEnds': "ARCHMAGE.DURATION.NormalSaveEnds",
+  'HardSaveEnds': "ARCHMAGE.DURATION.HardSaveEnds",
+  "EndOfCombat": "ARCHMAGE.DURATION.EndOfCombat",
 };
 
 ARCHMAGE.creatureTypes = {

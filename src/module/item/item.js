@@ -63,6 +63,7 @@ export class ItemArchmage extends Item {
       targets: targets,
       type: this.type,
       actor: this.actor,
+      item: this,
       token: token,
       powerLevel: this.system.powerLevel?.value,
       sequencer: this.system.sequencer

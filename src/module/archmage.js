@@ -623,6 +623,8 @@ Hooks.once('ready', () => {
     if ( dataset.ends ) data.ends = dataset.ends;
     if ( dataset.source ) data.source = dataset.source;
     if ( dataset.tooltip ) data.tooltip = dataset.tooltip;
+    if (dataset.name ) data.name = dataset.name;
+    data.text = event.target.innerText;
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
@@ -846,10 +848,81 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
   else if ( data.type == "ongoing-damage" ) {
+
+    // Load the source actor and grab its image if possible
+    let sourceActor = await fromUuid(data.source);
+    let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
+
+    let effectData = {
+      name: data.name,
+      icon: img,
+      origin: data.source,
+      flags: {
+        archmage: {
+          ongoingDamage: data.value,
+          ongoingDamageType: data.damageType,
+          duration: data.ends,
+        }
+      }
+    }
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+});
+
+/* ---------------------------------------------- */
+
+Hooks.on('dropCanvasData', (canvas, data) => {
+
+  function findToken() {
+    // Get the token at the drop point, if any
+    const x = data.x;
+    const y = data.y;
+    const gridSize = canvas.scene.grid.size;
+    // Get the set of targeted tokens
+    const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
+      if (!t.visible) return false;
+      return (t.x <= x
+          && (t.x + t.width * gridSize) >= x
+          && t.y <= y
+          && (t.y + t.height * gridSize) >= y);
+    });
+    if (targets.length == 0) return null;
+
+    let token = targets[0];
+    if (targets.length > 1) {
+      // Select closest to center
+      token = targets.reduce((a, b) => {
+        const cntr_x_a = a.x + a.width * gridSize / 2;
+        const cntr_y_a = a.y + a.height * gridSize / 2;
+        const dist_a = Math.sqrt(Math.pow(x - cntr_x_a, 2) + Math.pow(y - cntr_y_a, 2));
+        const cntr_x_b = b.x + b.width * gridSize / 2;
+        const cntr_y_b = b.y + b.height * gridSize / 2;
+        const dist_b = Math.sqrt(Math.pow(x - cntr_x_b, 2) + Math.pow(y - cntr_y_b, 2));
+        return (dist_a < dist_b ? a : b);
+      });
+    }
+    return token;
+  }
+
+  if (data.type === 'condition') {
+
+    const token = findToken();
+    if (!token) return;
+
+    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
+
+    // For conditions just toggle the effect
+    return token._object.toggleEffect(statusEffect);
+  }
+  else if ( data.type == "ongoing-damage" ) {
+
+    const token = findToken();
+    if (!token) return;
+
     const value = data.value;
     const type = data.damageType;
     const ends = data.ends;
-    const message = data.tooltip;
+    const message = data.text;
 
     let effectData = {
       name: message,
@@ -863,50 +936,8 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
         }
       }
     }
-    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return token.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
-});
-
-/* ---------------------------------------------- */
-
-Hooks.on('dropCanvasData', (canvas, data) => {
-
-  // Only process conditions for now
-  if (data.type != 'condition') return;
-
-  // Get the token at the drop point, if any
-  const x = data.x;
-  const y = data.y;
-  const gridSize = canvas.scene.grid.size;
-  // Get the set of targeted tokens
-  const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
-    if ( !t.visible ) return false;
-    return (t.x <= x
-            && (t.x + t.width * gridSize) >= x
-            && t.y <= y
-            && (t.y + t.height * gridSize) >= y);
-  });
-  if (targets.length == 0) return;
-
-  let token = targets[0];
-  if (targets.length > 1) {
-    // Select closest to center
-    token =  targets.reduce((a, b) => {
-      const cntr_x_a = a.x + a.width * gridSize / 2;
-      const cntr_y_a = a.y + a.height * gridSize / 2;
-      const dist_a = Math.sqrt(Math.pow(x - cntr_x_a, 2) + Math.pow(y - cntr_y_a, 2));
-      const cntr_x_b = b.x + b.width * gridSize / 2;
-      const cntr_y_b = b.y + b.height * gridSize / 2;
-      const dist_b = Math.sqrt(Math.pow(x - cntr_x_b, 2) + Math.pow(y - cntr_y_b, 2));
-      return ( dist_a < dist_b ? a : b );
-    });
-  }
-
-  let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
-
-  // For conditions just toggle the effect
-  return token._object.toggleEffect(statusEffect);
-
 });
 
 Hooks.on("renderJournalSheet", async (app, html, data) => {
@@ -1048,10 +1079,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
   // Hook up Effect buttons
   html.find(".effect-control").on("click", async (event) => {
-    // If the link is disabled, do nothing
-    if (event.currentTarget.disabled) return;
     const action = event.currentTarget.dataset.action;
-    event.currentTarget.classList.add("disabled");
+    event.currentTarget.classList.add("grayed-out");
     // Get parent li
     const li = event.currentTarget.closest("li");
     const uuid = li.dataset.uuid;
@@ -1071,9 +1100,6 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         }
         await actor.rollSave(durationToDifficulty[duration]);
         await chatMessage.update({ "flags.archmage.effectSaved": true });
-        // We can replace the disabled class with the grayed-out class
-        event.currentTarget.classList.remove("disabled");
-        event.currentTarget.classList.add("grayed-out");
         break;
       case "remove":
         const effectId = li.dataset.effectId;
@@ -1088,11 +1114,11 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find(".effect-control").each((i, el) => {
     if (!chatMessage.data.flags.archmage) return;
     if (el.dataset.action === "apply" && chatMessage.data.flags.archmage.effectApplied) {
-      el.classList.add("disabled");
+      el.classList.add("grayed-out");
     } else if (el.dataset.action === "save" && chatMessage.data.flags.archmage.effectSaved) {
       el.classList.add("grayed-out");
     } else if (el.dataset.action === "remove" && chatMessage.data.flags.archmage.effectRemoved) {
-      el.classList.add("disabled");
+      el.classList.add("grayed-out");
     }
   });
 });

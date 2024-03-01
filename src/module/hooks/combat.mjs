@@ -24,7 +24,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         if (duration === `${prefix}OfNextTurn`) {
             console.log(`${prefix}OfNextTurn effect found`, effect);
             currentCombatantEffectData.selfEnded.push(effect);
-        } else if (saveEndsEffects.includes(duration)) {
+        } else if (saveEndsEffects.includes(duration) && prefix == "End") {
             console.log("SaveEnds effect found", effect);
             const isOngoing = effect.flags.archmage?.ongoingDamage > 0;
             effect.isOngoing = isOngoing;

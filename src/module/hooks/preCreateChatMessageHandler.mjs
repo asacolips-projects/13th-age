@@ -25,7 +25,7 @@ export default class preCreateChatMessageHandler {
         }
     }
 
-    static replaceOngoingEffectReferences(actorDocument, $rows) {
+    static replaceOngoingEffectReferences(actorDocument, $rows, options) {
         // HTML looks like this
         // <div className="card-prop trigger-unknown"><strong>Hit:</strong> <a
         //     className="inline-result inline-roll--archmage 6c311c92-0734-4bdc-9bcd-14ebe68408a6" data-tooltip="18"
@@ -51,13 +51,16 @@ export default class preCreateChatMessageHandler {
                 let saveEndsConfigValue = "NormalSaveEnds";
                 if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
                 else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
-                let source = actorDocument._id;
-                console.dir(damageValue, damageType, savesEndsText, saveEndsValue);
+                let source = actorDocument.uuid;
                 let message = `${damageValue} ongoing ${damageType}damage`;
+                let name = options.item.name;
+                // Replace any R: at the start of the name
+                name = name.replace(/^R: /, "");
                 let tooltip = message;
                 if ( savesEndsText ) tooltip += " " + savesEndsText;
                 let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
-                    data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}" data-tooltip="${tooltip}" data-source="${source}">
+                    data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
+                     data-tooltip="${tooltip}" data-source="${source}" data-name="${name}">
                     <i class="fas fa-flask-round-poison"></i> ${message}</a>`;
                 row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
             }
@@ -107,7 +110,7 @@ export default class preCreateChatMessageHandler {
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');  // Updated later
 
-        preCreateChatMessageHandler.replaceOngoingEffectReferences(actorDocument, $rows);
+        preCreateChatMessageHandler.replaceOngoingEffectReferences(actorDocument, $rows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
 
         // Handle conditions in feats as well as traits & nastier specials

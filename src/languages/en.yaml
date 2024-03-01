@@ -274,6 +274,16 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+  DURATION:
+    Infinite: Infinite
+    StartOfNextTurn: Start of Next Turn
+    EndOfNextTurn: End of Next Turn
+    StartOfNextSourceTurn: Start of Next Source Turn
+    EndOfNextSourceTurn: End of Next Source Turn
+    EasySaveEnds: Easy Save Ends
+    NormalSaveEnds: Normal Save Ends
+    HardSaveEnds: Hard Save Ends
+    EndOfCombat: End of Combat
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to ability scores (3rd/6th/9th Level)

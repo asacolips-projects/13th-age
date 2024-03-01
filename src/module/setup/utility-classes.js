@@ -35,7 +35,7 @@ export class ArchmageUtility {
     if (!context) {
       context = {};
     }
-    
+
     if (!context.hasOwnProperty("rollMode")) {
       // Default roll mode set via chat box.
       context.rollMode = game.settings.get("core", "rollMode");
@@ -339,6 +339,7 @@ export class ArchmageUtility {
       .replace("data.attributes", "")
       .replace("system.attributes", "")
       .replace("attack", game.i18n.localize("ARCHMAGE.attack"))
+      .replace("AttackMod", game.i18n.localize("ARCHMAGE.attack"))
       .replace("arcane", game.i18n.localize("ARCHMAGE.EFFECT.AE.arcane"))
       .replace("divine", game.i18n.localize("ARCHMAGE.EFFECT.AE.divine"))
       .replace("ranged", game.i18n.localize("ARCHMAGE.ranged"))
@@ -357,6 +358,59 @@ export class ArchmageUtility {
       .replace("ac ", game.i18n.localize("ARCHMAGE.ac.label"));
   }
 
+  static getActiveEffectLabelIcon(label) {
+
+    if (label.includes(game.i18n.localize("ARCHMAGE.EFFECT.AE.arcane"))) {
+      return "fas fa-magic";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.EFFECT.AE.divine"))) {
+      return "fas fa-praying-hands";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.ranged"))) {
+      return "fas fa-bullseye";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.melee"))) {
+      return "fas fa-fist-raised";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.health"))) {
+      return "fas fa-heart";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.save"))) {
+      return "fas fa-dice-d20";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.ITEM.disengageBonus"))) {
+      return "fas fa-running";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.recoveries"))) {
+      return "fas fa-medkit";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitBonus"))) {
+      return "fas fa-crosshairs";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.ac.label"))) {
+      return "fas fa-shield-alt";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.md.label"))) {
+      return "fas fa-shield-alt";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.pd.label"))) {
+      return "fas fa-shield-alt";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.EFFECT.AE.critHitDefense"))) {
+      return "fas fa-shield-alt";
+    }
+
+    // Last because they are generic and might match other labels
+    if (label.includes(game.i18n.localize("ARCHMAGE.attack"))) {
+      return "fas fa-sword";
+    }
+    if (label.includes(game.i18n.localize("ARCHMAGE.bonus"))) {
+      return "fas fa-sparkles";
+    }
+
+    return "fas fa-question";
+  }
+
   static localizeEquipmentBonus(bonusProp) {
     const keys = [
       "ARCHMAGE." + bonusProp.toLowerCase() + "Short",
@@ -370,7 +424,7 @@ export class ArchmageUtility {
     }
     return bonusProp;
   }
-  
+
   static fixVuePopoutBug() {
     // Workaround for upstream Vue bug:
     // https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/177
