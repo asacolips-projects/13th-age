@@ -1675,5 +1675,23 @@ srd-Monsters:
   eDikUkWnx7yJotnj:
     actor: modules/pf2e-tokens-bestiaries/portraits/monitor/aeon/arbiter.webp
     token:
-      img: modules/pf2e-tokens-bestiaries/tokens/monitor/aeon/arbiter.webp
+      img: modules/pf2e-tokens-bestiaries/tokens/monitor/aeon/arbiter2.webp
       scale: 1.5
+  # Battle Shade
+  YVIXRyMAGGp3tRHw: # Broken Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/cairn-wight.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/cairn-wight.webp
+      scale: 2
+  C0NRq0GuYqxLhhg8: # Bloody Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/draugr.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/draugr.webp
+  ud0tFsqjeautGamV: # Blade Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/guecubu.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/guecubu.webp
+  0GIUrEnX6QbLeN4S: # Archer Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/kurobozu.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/kurobozu.webp
+  2CJQe3BQhdbh8RYI: # Slaughter Pit Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/warsworn.webp
+    token: modules/pf2e-tokens-bestiaries/tokens/undead/warsworn.webp
