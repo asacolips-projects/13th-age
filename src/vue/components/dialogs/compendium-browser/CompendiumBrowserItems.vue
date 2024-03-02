@@ -264,7 +264,7 @@ export default {
 
       if (Array.isArray(this.chakra) && this.chakra.length > 0) {
         // @todo chakra is misspelled in our data model. We need to fix that :(
-        result = result.filter(entry => entry.system?.chakra && this.chakra.includes(entry.system.chackra));
+        result = result.filter(entry => this.chakra.includes(entry.system?.chackra));
       }
 
       if (Array.isArray(this.powerUsage) && this.powerUsage.length > 0) {
