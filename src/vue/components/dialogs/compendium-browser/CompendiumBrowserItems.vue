@@ -76,7 +76,6 @@
 <script>
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
-import Pager from '@/components/parts/Pager.vue';
 import { getPackIndex, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers.js';
 import { onUpdated } from 'vue';
 
@@ -85,8 +84,7 @@ export default {
   props: ['tab'],
   components: {
     Slider,
-    Multiselect,
-    Pager
+    Multiselect
   },
   setup() {
     return {

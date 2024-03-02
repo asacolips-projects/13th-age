@@ -17,7 +17,7 @@
 
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerSourceName">Source</label>
-      <input type="text" id="compendiumBrowser.powerSourceName" name="compendiumBrowser.powerSourceName" v-model="powerSourceName"/>
+      <input type="text" id="compendiumBrowser.powerSourceName" name="compendiumBrowser.powerSourceName" v-model="powerSourceName" placeholder="Fighter"/>
     </div>
 
     <div class="unit unit--input">
@@ -55,7 +55,7 @@
 
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.trigger">Trigger</label>
-      <input type="text" id="compendiumBrowser.trigger" name="compendiumBrowser.trigger" v-model="trigger"/>
+      <input type="text" id="compendiumBrowser.trigger" name="compendiumBrowser.trigger" v-model="trigger" placeholder="Even hit"/>
     </div>
 
   </section>
@@ -82,7 +82,6 @@
 <script>
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
-import Pager from '@/components/parts/Pager.vue';
 import { getPackIndex } from '@/methods/Helpers.js';
 import { onUpdated } from 'vue';
 
@@ -91,8 +90,7 @@ export default {
   props: ['tab'],
   components: {
     Slider,
-    Multiselect,
-    Pager
+    Multiselect
   },
   setup() {
     return {

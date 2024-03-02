@@ -78,8 +78,7 @@ export default {
   props: ['tab'],
   components: {
     Slider,
-    Multiselect,
-    Pager
+    Multiselect
   },
   setup() {
     return {
