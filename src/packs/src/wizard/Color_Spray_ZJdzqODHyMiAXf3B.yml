@@ -112,7 +112,7 @@ system:
     label: Special
     value: >-
       <p><em>Cyclic</em> (cast once per battle OR at-will when the escalation
-      die is even)<\p>
+      die is even)</p>
   effect:
     type: String
     label: Effect

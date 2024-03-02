@@ -5121,7 +5121,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: 15 + Charisma ongoing poison damage.
+        value: '[[15+@cha.dmg]] ongoing poison damage.'
       hitEven:
         type: String
         label: Natural Even Hit
@@ -5189,7 +5189,7 @@ items:
       spellLevel5:
         type: String
         label: 5th Level Spell
-        value: 25 + Charisma ongoing poison damage; [[10]] ongoing on a miss.
+        value: '[[25+@cha.dmg]] ongoing poison damage; [[10]] ongoing on a miss.'
       spellLevel6:
         type: String
         label: 6th Level Spell
@@ -5197,7 +5197,7 @@ items:
       spellLevel7:
         type: String
         label: 7th Level Spell
-        value: 35 + Charisma ongoing poison damage; [[15]] ongoing on a miss.
+        value: '[[35+@cha.dmg]] ongoing poison damage; [[15]] ongoing on a miss.'
       spellLevel8:
         type: String
         label: 8th Level Spell
@@ -5205,7 +5205,7 @@ items:
       spellLevel9:
         type: String
         label: 9th Level Spell
-        value: 50 + Charisma ongoing poison damage; [[25]] ongoing on a miss.
+        value: '[[50+@cha.dmg]] ongoing poison damage; [[25]] ongoing on a miss.'
       spellLevel10:
         type: String
         label: 10th Level Spell
