@@ -62,8 +62,8 @@
 
   <section class="section section--no-overflow">
     <section class="section section--main flexcol">
-      <ul class="compendium-browser-results">
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" class="compendium-browser-row flexrow document item" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
+      <ul class="compendium-browser-results compendium-browser-powers">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
           <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
           <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
             <strong class="grid-span-4"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
@@ -76,7 +76,6 @@
         </li>
       </ul>
     </section>
-    <Pager v-if="pager.totalRows > 0" :pagerOptions="pager"/>
   </section>
 </template>
 
@@ -85,10 +84,11 @@ import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
 import Pager from '@/components/parts/Pager.vue';
 import { getPackIndex } from '@/methods/Helpers.js';
+import { onUpdated } from 'vue';
 
 export default {
   name: 'CompendiumBrowserPowers',
-  props: [],
+  props: ['tab'],
   components: {
     Slider,
     Multiselect,
@@ -109,7 +109,7 @@ export default {
         pages: 0,
         current: 1,
         firstIndex: 0,
-        lastIndex: 0,
+        lastIndex: 50,
         totalRows: 0,
         style: 'input'
       },
@@ -121,6 +121,7 @@ export default {
       powerSourceName: '',
       powerUsage: [],
       trigger: '',
+      observer: null,
     }
   },
   methods: {
@@ -137,7 +138,17 @@ export default {
         type: 'Item',
         uuid: entry.uuid
       }));
-    }
+    },
+    infiniteScroll(entries) {
+      entries.forEach(({target, isIntersecting}) => {
+        if (!isIntersecting) {
+          return;
+        }
+
+        this.observer.unobserve(target);
+        this.pager.lastIndex = Math.min(this.pager.lastIndex + this.pager.perPage, this.pager.totalRows);
+      });
+    },
   },
   computed: {
     nightmode() {
@@ -188,6 +199,9 @@ export default {
       // Reflow pager.
       if (result.length > this.pager.perPage) {
         this.pager.totalRows = result.length;
+        if (this.pager.lastIndex == 0) {
+          this.pager.lastIndex = this.pager.perPage - 1;
+        }
       }
       else {
         this.pager.totalRows = 0;
@@ -232,9 +246,26 @@ export default {
       'system.actionType.value',
       'system.trigger.value',
     ]).then(packIndex => this.packIndex = packIndex);
+
+    this.observer = new IntersectionObserver(this.infiniteScroll, {
+      root: this.$el,
+      threshold: 0.5,
+    });
   },
   async mounted() {
     console.log("Compendium browser powers tab mounted.");
+    this.tab.opened = true;
+
+    onUpdated(() => {
+      console.log("Compendium browser magic items tab updated.");
+      const target = document.querySelector('.compendium-browser-powers .compendium-browser-row-observe');
+      if (target) {
+        this.observer.observe(target);
+      }
+    });
+  },
+  async beforeUnmount() {
+    this.observer.disconnect();
   }
 }
 </script>

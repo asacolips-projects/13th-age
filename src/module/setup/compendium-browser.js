@@ -100,7 +100,6 @@ export class ArchmageCompendiumBrowserApplication extends Application {
         setTimeout(() => {
           this.activateVueListeners($(this.form), false);
         }, 150);
-        console.log(this);
       }
     });
 

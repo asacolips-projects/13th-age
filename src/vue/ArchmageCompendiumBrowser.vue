@@ -8,15 +8,15 @@
     <section class="container container--bottom">
 
       <Tab group="primary" :tab="tabs.primary.creatures" classes="container container--bottom flexrow">
-        <CompendiumBrowserCreatures />
+        <CompendiumBrowserCreatures v-if="tabs.primary.creatures.active || tabs.primary.creatures.opened" :tab="tabs.primary.creatures"/>
       </Tab>
 
       <Tab group="primary" :tab="tabs.primary.powers" classes="container container--bottom flexrow">
-        <CompendiumBrowserPowers />
+        <CompendiumBrowserPowers v-if="tabs.primary.powers.active || tabs.primary.powers.opened" :tab="tabs.primary.powers"/>
       </Tab>
 
       <Tab group="primary" :tab="tabs.primary.items" classes="container container--bottom flexrow">
-        <CompendiumBrowserItems />
+        <CompendiumBrowserItems v-if="tabs.primary.items.active || tabs.primary.items.opened" :tab="tabs.primary.items"/>
       </Tab>
 
     </section>
@@ -53,17 +53,20 @@ export default {
           creatures: {
             key: 'creatures',
             label: 'Creatures',
-            active: false
+            active: false,
+            opened: false
           },
           powers: {
             key: 'powers',
             label: 'Powers & Spells',
-            active: false
+            active: false,
+            opened: false
           },
           items: {
             key: 'items',
             label: 'Magic Items',
-            active: false
+            active: false,
+            opened: false
           }
         }
       }
