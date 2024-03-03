@@ -50,16 +50,25 @@
   </section>
 
   <div class="section section--no-overflow">
-    <section class="section section--main flexcol">
+    <section class="section section--creatures section--main flexcol">
       <ul class="compendium-browser-results compendium-browser-creatures">
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document actor`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`creature-summary compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document actor`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
           <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry)" draggable="true"/>
-          <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
-            <strong class="grid-span-4">{{ entry?.name }}</strong>
-            <div>Level {{ entry?.system?.attributes?.level?.value }}</div>
-            <div>{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
-            <div>{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
-            <div>{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+          <div class="flexcol creature-contents" @dragstart="startDrag($event, entry)" draggable="true">
+            <div class="creature-title-wrapper">
+              <strong class="creature-title"><span v-if="entry.system?.attributes?.level?.value">[{{ entry.system.attributes.level.value }}]</span> {{ entry?.name }}</strong>
+            </div>
+            <div class="grid creature-grid">
+              <div class="creature-defenses" data-tooltip="Defenses">
+                <span><strong>HP:</strong> {{ entry.system.attributes.hp.max }}</span>
+                <span><strong>AC:</strong> {{ entry.system.attributes.ac.value }}</span>
+                <span><strong>PD:</strong> {{ entry.system.attributes.pd.value }}</span>
+                <span><strong>MD:</strong> {{ entry.system.attributes.md.value }}</span>
+              </div>
+              <div class="creature-type" data-tooltip="Type">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
+              <div class="creature-role" data-tooltip="Role">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
+              <div class="creature-size" data-tooltip="Size">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+            </div>
           </div>
         </li>
       </ul>
@@ -201,6 +210,10 @@ export default {
       'archmage.necromancer-summons',
     ], [
       'system.attributes.level',
+      'system.attributes.hp.max',
+      'system.attributes.ac.value',
+      'system.attributes.pd.value',
+      'system.attributes.md.value',
       'system.details.role.value',
       'system.details.size.value',
       'system.details.type.value'

@@ -85,13 +85,15 @@
     }
 
     .power-title-wrapper,
-    .equipment-title-wrapper {
+    .equipment-title-wrapper,
+    .creature-title-wrapper {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
       .power-title,
-      .equipment-title {
+      .equipment-title,
+      .creature-title {
         flex: 1;
       }
     }
@@ -103,7 +105,8 @@
     }
 
     .power-contents,
-    .equipment-contents {
+    .equipment-contents,
+    .creature-contents {
       padding: 2px 6px 4px 4px;
     }
 
@@ -155,6 +158,37 @@
 
     .equipment-recharge {
       grid-column-start: 3;
+    }
+
+    &.creature-summary {
+      margin: 0 0 1px 0;
+      position: relative;
+    }
+
+    .creature-grid {
+      grid-template-columns: auto 100px 100px 100px;
+      gap: 2px;
+      font-size: $font-tiny;
+      font-family: $font-stack-label;
+      text-align: center;
+
+      > * {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .creature-defenses {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        > * {
+          flex: 0 auto;
+          margin-right: 8px;
+        }
+      }
     }
   }
 
