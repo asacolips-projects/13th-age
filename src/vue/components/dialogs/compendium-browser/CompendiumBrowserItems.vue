@@ -54,18 +54,22 @@
   <section class="section section--no-overflow">
     <section class="section section--main section--inventory flexcol">
       <ul class="compendium-browser-results compendium-browser-items">
-        <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" :class="`compendium-browser-row${equipmentKey >= pager.lastIndex - 1 && equipmentKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item equipment-item`" :data-document-id="equipment._id" @click="openDocument(equipment.uuid)">
-          <div class="equipment-summary grid equipment-grid equipment" @dragstart="startDrag($event, equipment)" draggable="true">
-            <img :src="equipment.img" class="equipment-image"/>
-            <h3 class="equipment-title unit-subtitle">{{equipment.name}}</h3>
-            <div class="equipment-bonus flexrow" v-if="equipment.system.attributes">
-              <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
-                <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
-                <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
-              </span>
+        <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" :class="`equipment-summary equipment compendium-browser-row${equipmentKey >= pager.lastIndex - 1 && equipmentKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item equipment-item`" :data-document-id="equipment._id" @click="openDocument(equipment.uuid)">
+          <img :src="equipment.img" class="equipment-image" @dragstart="startDrag($event, equipment)" draggable="true"/>
+          <div class="flexcol equipment-contents" @dragstart="startDrag($event, equipment)" draggable="true">
+            <div class="equipment-title-wrapper">
+              <strong class="equipment-title unit-subtitle">{{equipment.name}}</strong>
             </div>
-            <div class="equipment-chakra" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
-            <div class="equipment-recharge">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
+            <div class="grid equipment-grid">
+              <div class="equipment-bonus flexrow" data-tooltip="Bonuses" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
+                <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
+                  <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
+                  <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
+                </span>
+              </div>
+              <div class="equipment-chakra" data-tooltip="Chakra" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
+              <div class="equipment-recharge" data-tooltip="Recharge">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
+            </div>
           </div>
         </li>
       </ul>
