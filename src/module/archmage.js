@@ -634,9 +634,6 @@ Hooks.once('ready', () => {
     }
   });
 
-  // @todo remove this before merging.
-  new ArchmageCompendiumBrowserApplication({defaultTab: 'items'}).render(true);
-
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (['Item'].includes(data.type)) {
