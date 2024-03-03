@@ -1,8 +1,11 @@
 <template>
   <section class="section section--sidebar flexcol filters">
+
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.name">Name</label>
-      <input type="text" id="compendiumBrowser.name" name="compendiumBrowser.name" v-model="name"/>
+      <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
+      <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
+        <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{ option.label }}</option>
+      </select>
     </div>
 
     <div class="unit unit--input">
@@ -13,6 +16,11 @@
           <Slider v-model="levelRange" :min="1" :max="15" :tooltips="false"/>
         </div>
       </div>
+    </div>
+
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.name">Name</label>
+      <input type="text" id="compendiumBrowser.name" name="compendiumBrowser.name" v-model="name" placeholder="Hydra"/>
     </div>
 
     <div class="unit unit--input">
@@ -94,7 +102,7 @@ export default {
       // Foundry base props and methods.
       CONFIG,
       game,
-      getActorModuleArt
+      getActorModuleArt,
     }
   },
   data() {
@@ -108,6 +116,14 @@ export default {
         totalRows: 0,
         style: 'input'
       },
+      sortBy: 'level',
+      sortOptions: [
+        { value: 'level', label: 'Level' },
+        { value: 'name', label: 'Name' },
+        { value: 'type', label: 'Type' },
+        { value: 'role', label: 'Role' },
+        { value: 'size', label: 'Size' },
+      ],
       packIndex: [],
       name: '',
       levelRange: [1, 15],
@@ -192,8 +208,18 @@ export default {
 
       // Sort.
       result = result.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      })
+        switch (this.sortBy) {
+          case 'name':
+            return a.name.localeCompare(b.name);
+          case 'type':
+            return a.system.details?.type?.value.localeCompare(b.system.details?.type?.value);
+          case 'role':
+            return a.system.details?.role?.value.localeCompare(b.system.details?.role?.value);
+          case 'size':
+            return a.system.details?.size?.value.localeCompare(b.system.details?.size?.value);
+        }
+        return a.system.attributes.level.value - b.system.attributes.level.value;
+      });
 
       // Return results.
       return this.pager.totalRows > 0
@@ -221,7 +247,7 @@ export default {
 
     this.observer = new IntersectionObserver(this.infiniteScroll, {
       root: this.$el,
-      threshold: 0.5,
+      threshold: 0.1,
     });
   },
   async mounted() {

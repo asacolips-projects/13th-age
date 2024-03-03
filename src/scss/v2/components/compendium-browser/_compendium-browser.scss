@@ -17,11 +17,17 @@
       flex: 0 auto;
       display: flex;
       flex-direction: column;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       width: 100%;
+
+      + .unit {
+        padding-top: 8px;
+        border-top: 1px dashed $c-gray--25;
+      }
     }
 
     input[type="text"],
+    input[type="number"],
     select,
     .multiselect {
       width: 100%;
@@ -38,6 +44,19 @@
 
     input {
       text-align: left;
+    }
+
+    .sort {
+      background: $c-blue;
+      color: $c-white;
+      border: none;
+      padding: 5px 10px;
+      height: auto;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 5px $c-black;
+      }
     }
   }
 
@@ -132,7 +151,7 @@
     }
 
     .equipment-grid {
-      grid-template-columns: auto 60px 60px;
+      grid-template-columns: auto 100px 60px 60px;
     }
 
     .equipment-title {
@@ -152,12 +171,16 @@
       }
     }
 
-    .equipment-chakra {
+    .equipment-usage {
       grid-column-start: 2;
     }
 
-    .equipment-recharge {
+    .equipment-chakra {
       grid-column-start: 3;
+    }
+
+    .equipment-recharge {
+      grid-column-start: 4;
     }
 
     &.creature-summary {

@@ -1,8 +1,11 @@
 <template>
   <section class="section section--sidebar flexcol filters">
+
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerName">Name</label>
-      <input type="text" id="compendiumBrowser.powerName" name="compendiumBrowser.powerName" v-model="name"/>
+      <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
+      <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
+        <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{ option.label }}</option>
+      </select>
     </div>
 
     <div class="unit unit--input">
@@ -13,6 +16,11 @@
           <Slider v-model="levelRange" :min="1" :max="10" :tooltips="false"/>
         </div>
       </div>
+    </div>
+
+    <div class="unit unit--input">
+      <label class="unit-title" for="compendiumBrowser.powerName">Name</label>
+      <input type="text" id="compendiumBrowser.powerName" name="compendiumBrowser.powerName" v-model="name" placeholder="Fireball"/>
     </div>
 
     <div class="unit unit--input">
@@ -63,12 +71,12 @@
   <section class="section section--no-overflow">
     <section class="section section--powers section--main flexcol">
       <ul class="compendium-browser-results compendium-browser-powers">
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${(entry.system.powerUsage.value ? entry.system.powerUsage.value : 'other')} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${(entry.system.powerUsage.value ? entry.system.powerUsage.value : 'other')} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid)" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
           <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
           <div class="flexcol power-contents" @dragstart="startDrag($event, entry)" draggable="true">
             <div class="power-title-wrapper">
               <strong class="power-title"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
-              <strong class="power-source" data-tooltip="Power source" v-if="entry.system.powerSourceName.value">{{ entry.system.powerSourceName.value }}</strong>
+              <strong class="power-source" v-if="entry.system.powerSourceName.value">{{ entry.system.powerSourceName.value }}</strong>
             </div>
             <div class="grid power-grid">
               <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
@@ -80,9 +88,6 @@
               <div class="power-recharge" data-tooltip="Recharge" v-if="entry.system.recharge.value && entry.system.powerUsage.value == 'recharge'">{{Number(entry.system.recharge.value) || 16}}+</div>
               <div class="power-action" data-tooltip="Action Type" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
             </div>
-            <!-- <div>{{ CONFIG.ARCHMAGE.actionTypes[entry.system.actionType.value] }}</div>
-            <div>{{ CONFIG.ARCHMAGE.powerTypes[entry.system.powerType.value] }}</div> -->
-            <!-- <div>{{ entry.system.powerSourceName.value }}</div> -->
           </div>
         </li>
       </ul>
@@ -122,6 +127,15 @@ export default {
         totalRows: 0,
         style: 'input'
       },
+      sortBy: 'level',
+      sortOptions: [
+        { value: 'level', label: 'Level' },
+        { value: 'name', label: 'Name' },
+        { value: 'source', label: 'Source' },
+        { value: 'type', label: 'Type' },
+        { value: 'usage', label: 'Usage' },
+        { value: 'action', label: 'Action' },
+      ],
       packIndex: [],
       name: '',
       levelRange: [1, 10],
@@ -253,6 +267,18 @@ export default {
 
       // Sort.
       result = result.sort((a, b) => {
+        switch (this.sortBy) {
+          case 'name':
+            return a.name.localeCompare(b.name);
+          case 'source':
+            return a.system?.powerSourceName?.value.localeCompare(b.system?.powerSourceName?.value);
+          case 'type':
+            return a.system?.powerType?.value.localeCompare(b.system?.powerType?.value);
+          case 'usage':
+            return a.system?.powerUsage?.value.localeCompare(b.system?.powerUsage?.value);
+          case 'action':
+            return a.system?.actionType?.value.localeCompare(b.system?.actionType?.value);
+        }
         return a.system.powerLevel.value - b.system.powerLevel.value;
       });
 
@@ -295,7 +321,7 @@ export default {
 
     this.observer = new IntersectionObserver(this.infiniteScroll, {
       root: this.$el,
-      threshold: 0.5,
+      threshold: 0.1,
     });
   },
   async mounted() {

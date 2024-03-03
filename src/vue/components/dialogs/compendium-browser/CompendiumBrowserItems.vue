@@ -1,8 +1,16 @@
 <template>
   <section class="section section--sidebar flexcol filters">
+
+    <div class="unit unit--input">
+      <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
+      <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
+        <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{ option.label }}</option>
+      </select>
+    </div>
+
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.itemName">Name</label>
-      <input type="text" id="compendiumBrowser.itemName" name="compendiumBrowser.itemName" v-model="name"/>
+      <input type="text" id="compendiumBrowser.itemName" name="compendiumBrowser.itemName" v-model="name" placeholder="Sword"/>
     </div>
 
     <div class="unit unit--input">
@@ -67,6 +75,7 @@
                   <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
                 </span>
               </div>
+              <div class="equipment-usage" v-if="equipment.system?.powerUsage?.value" data-tooltip="Usage">{{ CONFIG.ARCHMAGE.powerUsages[equipment.system?.powerUsage?.value ?? ''] ?? '' }}</div>
               <div class="equipment-chakra" data-tooltip="Chakra" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
               <div class="equipment-recharge" data-tooltip="Recharge">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
             </div>
@@ -113,6 +122,13 @@ export default {
         totalRows: 0,
         style: 'input'
       },
+      sortBy: 'name',
+      sortOptions: [
+        { value: 'name', label: 'Name' },
+        { value: 'chakra', label: 'Chakra / Bonus' },
+        { value: 'recharge', label: 'Recharge' },
+        { value: 'usage', label: 'Usage' },
+      ],
       packIndex: [],
       name: '',
       chakra: [],
@@ -322,6 +338,19 @@ export default {
 
       // Sort.
       result = result.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+
+      // Sort.
+      result = result.sort((a, b) => {
+        switch (this.sortBy) {
+          case 'chakra':
+            return (a.system?.chackra ?? '').localeCompare((b.system?.chackra ?? ''));
+          case 'usage':
+            return (a.system?.powerUsage?.value ?? '').localeCompare((b.system?.powerUsage?.value ?? ''));
+          case 'recharge':
+            return (a.system?.recharge?.value ?? 0) - (b.system?.recharge?.value ?? 0);
+        }
         return a.name.localeCompare(b.name);
       });
 

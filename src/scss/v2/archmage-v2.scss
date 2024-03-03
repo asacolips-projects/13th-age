@@ -49,6 +49,8 @@
 
   &.archmage-dialog {
     @import 'components/compendium-browser/compendium-browser';
+
+    min-width: 960px;
   }
 }
 

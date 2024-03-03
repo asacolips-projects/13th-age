@@ -26,7 +26,8 @@ export class ArchmageCompendiumBrowserApplication extends Application {
       id: 'archmage-compendium-browser',
       title: 'Compendium Browser',
       width: 1024,
-      height: 685,
+      height: 775,
+      resizable: true,
     };
   }
 
