@@ -61,17 +61,28 @@
   </section>
 
   <section class="section section--no-overflow">
-    <section class="section section--main flexcol">
+    <section class="section section--powers section--main flexcol">
       <ul class="compendium-browser-results compendium-browser-powers">
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${(entry.system.powerUsage.value ? entry.system.powerUsage.value : 'other')} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
           <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
-          <div class="grid grid-4col" @dragstart="startDrag($event, entry)" draggable="true">
-            <strong class="grid-span-4"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
-            <div>{{ CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] }}</div>
-            <div>{{ CONFIG.ARCHMAGE.actionTypes[entry.system.actionType.value] }}</div>
-            <div>{{ CONFIG.ARCHMAGE.powerTypes[entry.system.powerType.value] }}</div>
-            <div>{{ entry.system.powerSourceName.value }}</div>
-            <div v-if="entry.system.trigger.value" class="grid-span-4"><strong class="grid-span-4">Trigger:</strong>{{ entry.system.trigger.value }}</div>
+          <div class="flexcol power-contents" @dragstart="startDrag($event, entry)" draggable="true">
+            <div class="power-title-wrapper">
+              <strong class="power-title"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
+              <strong class="power-source" data-tooltip="Power source" v-if="entry.system.powerSourceName.value">{{ entry.system.powerSourceName.value }}</strong>
+            </div>
+            <div class="grid power-grid">
+              <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
+              <div class="power-feat-pips" data-tooltip="Feats" v-if="hasFeats(entry)">
+                <ul class="feat-pips">
+                  <li v-for="(feat, tier) in filterFeats(entry.system.feats)" :key="tier" :class="`feat-pip active`"></li>
+                </ul>
+              </div>
+              <div class="power-recharge" data-tooltip="Recharge" v-if="entry.system.recharge.value && entry.system.powerUsage.value == 'recharge'">{{Number(entry.system.recharge.value) || 16}}+</div>
+              <div class="power-action" data-tooltip="Action Type" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
+            </div>
+            <!-- <div>{{ CONFIG.ARCHMAGE.actionTypes[entry.system.actionType.value] }}</div>
+            <div>{{ CONFIG.ARCHMAGE.powerTypes[entry.system.powerType.value] }}</div> -->
+            <!-- <div>{{ entry.system.powerSourceName.value }}</div> -->
           </div>
         </li>
       </ul>
@@ -146,6 +157,41 @@ export default {
         this.observer.unobserve(target);
         this.pager.lastIndex = Math.min(this.pager.lastIndex + this.pager.perPage, this.pager.totalRows);
       });
+    },
+    /**
+     * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
+     */
+     getActionShort(actionType) {
+      if (CONFIG.ARCHMAGE.actionTypesShort[actionType]) {
+        return CONFIG.ARCHMAGE.actionTypesShort[actionType];
+      }
+      return CONFIG.ARCHMAGE.actionTypesShort['standard'];
+    },
+    /**
+     * Determine if this power has one or more feats.
+     */
+     hasFeats(power) {
+      let hasFeats = false;
+      if (power && power.system && power.system.feats) {
+        for (let [id, feat] of Object.entries(power.system.feats)) {
+          if (feat.description.value || feat.isActive.value) {
+            hasFeats = true;
+            break;
+          }
+        }
+      }
+      return hasFeats;
+    },
+    /**
+     * Filter empty feats
+     */
+    filterFeats(feats) {
+      if (!feats) return {};
+      let res = {};
+      for (let [index, feat] of Object.entries(feats)) {
+        if (feat.description.value) res[index] = feat;
+      }
+      return res;
     },
   },
   computed: {
@@ -242,7 +288,9 @@ export default {
       'system.powerLevel.value',
       'system.powerUsage.value',
       'system.actionType.value',
+      'system.recharge.value',
       'system.trigger.value',
+      'system.feats'
     ]).then(packIndex => this.packIndex = packIndex);
 
     this.observer = new IntersectionObserver(this.infiniteScroll, {
