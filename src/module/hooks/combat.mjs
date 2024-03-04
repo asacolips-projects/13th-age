@@ -12,8 +12,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
     console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant);
 
-    // TODO: Some classes allow the player to roll a save at the start of their turn to end the effect
-
+    const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
         selfEnded: [],
         savesEnds: [],
@@ -24,7 +23,8 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         if (duration === `${prefix}OfNextTurn`) {
             console.log(`${prefix}OfNextTurn effect found`, effect);
             currentCombatantEffectData.selfEnded.push(effect);
-        } else if (saveEndsEffects.includes(duration) && prefix == "End") {
+        } else if (saveEndsEffects.includes(duration) &&
+                (prefix == "End" || (prefix == "Start" && hasImplacable))) {
             console.log("SaveEnds effect found", effect);
             const isOngoing = effect.flags.archmage?.ongoingDamage > 0;
             effect.isOngoing = isOngoing;
@@ -38,6 +38,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             const duration = effect.flags.archmage?.duration;
             if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
                 console.log(`${prefix}OfNextSourceTurn effect found`, effect);
+                effect.otherName = otherCombatant.actor.name;
                 currentCombatantEffectData.otherEnded.push(effect);
             }
         }

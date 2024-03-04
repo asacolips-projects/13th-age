@@ -862,6 +862,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
           ongoingDamage: data.value,
           ongoingDamageType: data.damageType,
           duration: data.ends,
+          tooltip: data.tooltip
         }
       }
     }
@@ -871,7 +872,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
 
 /* ---------------------------------------------- */
 
-Hooks.on('dropCanvasData', (canvas, data) => {
+Hooks.on('dropCanvasData', async (canvas, data) => {
 
   function findToken() {
     // Get the token at the drop point, if any
@@ -919,20 +920,20 @@ Hooks.on('dropCanvasData', (canvas, data) => {
     const token = findToken();
     if (!token) return;
 
-    const value = data.value;
-    const type = data.damageType;
-    const ends = data.ends;
-    const message = data.text;
+    // Load the source actor and grab its image if possible
+    let sourceActor = await fromUuid(data.source);
+    let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
 
     let effectData = {
-      name: message,
-      icon: "icons/svg/blood.svg",
+      name: data.name,
+      icon: img,
       origin: data.source,
       flags: {
         archmage: {
-          ongoingDamage: value,
-          ongoingDamageType: type,
-          duration: ends,
+          ongoingDamage: data.value,
+          ongoingDamageType: data.damageType,
+          duration: data.ends,
+          tooltip: data.tooltip
         }
       }
     }
@@ -1081,18 +1082,18 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find(".effect-control").on("click", async (event) => {
     const action = event.currentTarget.dataset.action;
     event.currentTarget.classList.add("grayed-out");
-    // Get parent li
-    const li = event.currentTarget.closest("li");
-    const uuid = li.dataset.uuid;
+    // Get parent
+    const parent = event.currentTarget.closest(".effect");
+    const uuid = parent.dataset.uuid;
     const actor = await fromUuid(uuid);
     switch (action) {
       case "apply":
-        const value = li.dataset.value;
+        const value = parent.dataset.value;
         await actor.update({ "data.attributes.hp.value": actor.system.attributes.hp.value - value });
         await chatMessage.update({ "flags.archmage.effectApplied": true });
         break;
       case "save":
-        const duration = li.dataset.save;
+        const duration = parent.dataset.save;
         const durationToDifficulty = {
           "EasySaveEnds": "easy",
           "NormalSaveEnds": "normal",
@@ -1102,9 +1103,12 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         await chatMessage.update({ "flags.archmage.effectSaved": true });
         break;
       case "remove":
-        const effectId = li.dataset.effectId;
+        const effectId = parent.dataset.effectId;
         await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
         await chatMessage.update({ "flags.archmage.effectRemoved": true });
+        // Replace grayed-out with disabled
+        event.currentTarget.classList.remove("grayed-out");
+        event.currentTarget.classList.add("disabled");
         break;
     }
     chatMessage.render();
@@ -1113,12 +1117,13 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   // Gray out and disable the effect buttons if the effect has already been applied, saved, or removed
   html.find(".effect-control").each((i, el) => {
     if (!chatMessage.data.flags.archmage) return;
+    // TODO: This needs to be delineated by effect ID
     if (el.dataset.action === "apply" && chatMessage.data.flags.archmage.effectApplied) {
       el.classList.add("grayed-out");
     } else if (el.dataset.action === "save" && chatMessage.data.flags.archmage.effectSaved) {
       el.classList.add("grayed-out");
     } else if (el.dataset.action === "remove" && chatMessage.data.flags.archmage.effectRemoved) {
-      el.classList.add("grayed-out");
+      el.classList.add("disabled");
     }
   });
 });

@@ -1008,6 +1008,12 @@ FLAGS.characterFlags = {
     section: "Feats",
     type: Boolean
   },
+  "implacable": {
+    name: "Implacable",
+    hint: "Paladin talent to roll saves at the start of your turn instead of at the end of your turn.",
+    section: "Feats",
+    type: Boolean
+  },
   "averageRecoveries": {
     name: "Average Recovery Rolls",
     hint: "Average results for recovery rolls instead of rolling them.",

@@ -25,7 +25,7 @@ export default class preCreateChatMessageHandler {
         }
     }
 
-    static replaceOngoingEffectReferences(actorDocument, $rows, options) {
+    static replaceOngoingEffectReferences(uuid, $rows, options) {
         // HTML looks like this
         // <div className="card-prop trigger-unknown"><strong>Hit:</strong> <a
         //     className="inline-result inline-roll--archmage 6c311c92-0734-4bdc-9bcd-14ebe68408a6" data-tooltip="18"
@@ -51,7 +51,7 @@ export default class preCreateChatMessageHandler {
                 let saveEndsConfigValue = "NormalSaveEnds";
                 if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
                 else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
-                let source = actorDocument.uuid;
+                let source = uuid;
                 let message = `${damageValue} ongoing ${damageType}damage`;
                 let name = options.item.name;
                 // Replace any R: at the start of the name
@@ -76,6 +76,10 @@ export default class preCreateChatMessageHandler {
         let numTargets = options.targets ? options.targets : 1;
         let type = options.type ? options.type : 'power';
         let actorDocument = data.speaker?.actor ? game.actors.get(data.speaker.actor) : null;
+        let tokenDocument = data.speaker?.token ? canvas.tokens.get(data.speaker.token) : null;
+
+        let uuid = tokenDocument?.actor?.uuid ?? actorDocument?.uuid;
+
         // TODO: We have the data of what kind of damage (arcane, divine, etc) and range (melee, ranged), but it's hard to get here
         let damageType = 'basic';
         let range = "melee";
@@ -110,11 +114,12 @@ export default class preCreateChatMessageHandler {
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');  // Updated later
 
-        preCreateChatMessageHandler.replaceOngoingEffectReferences(actorDocument, $rows, options);
+        preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $rows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $rows);
 
         // Handle conditions in feats as well as traits & nastier specials
         let $otherRows = $content.find('.tag--feat .description, .card-row-description');
+        preCreateChatMessageHandler.replaceOngoingEffectReferences(uuid, $otherRows, options);
         preCreateChatMessageHandler.replaceEffectAndConditionReferences(actorDocument, $otherRows);
         $content.find('.tag--feat .description, .card-row-description').replaceWith($otherRows);
 

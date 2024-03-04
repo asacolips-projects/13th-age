@@ -538,6 +538,9 @@ ARCHMAGE:
     numbersOnly: Numbers only, such as '16'
     odd: odd
     ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
+    ongoingSelfEnded: The following Effects have ended on this Actor
+    ongoingOtherEnded: The following Effects have ended on another Actor
+    ongoingSaveEnds: The following Effects require a Save to end
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
