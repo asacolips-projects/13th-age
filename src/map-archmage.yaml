@@ -1695,3 +1695,14 @@ srd-Monsters:
   2CJQe3BQhdbh8RYI: # Slaughter Pit Shade
     actor: modules/pf2e-tokens-bestiaries/portraits/undead/warsworn.webp
     token: modules/pf2e-tokens-bestiaries/tokens/undead/warsworn.webp
+  # Gibbering Mouther
+  LNGqlxsM3pzmRh8m: # Gibbering Mouther
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gibbering-mouther.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gibbering-mouther.webp
+      scale: 1
+  PO2SE4veXuRbhEd4: # Atrocious Gibbering Mouther
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gibbering-mouther.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gibbering-mouther.webp
+      scale: 1
