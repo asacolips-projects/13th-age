@@ -352,6 +352,7 @@ ARCHMAGE.powerUsages = {
   'once-per-battle': 'Per Battle',
   'recharge': 'Recharge',
   'daily': 'Daily',
+  'cyclic': 'Cyclic',
   'daily-desperate': 'Daily/Desperate',
   'other': 'Other'
 };

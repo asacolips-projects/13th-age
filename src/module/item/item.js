@@ -156,6 +156,12 @@ export class ItemArchmage extends Item {
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
+    if (this.system.powerUsage?.value == 'cyclic'
+      && this.actor.system.attributes.escalation.value > 0
+      && this.actor.system.attributes.escalation.value % 2 == 0) {
+      // Cyclic power, E.D. even, do not consume uses
+      return false;
+    }
     updateData["system.quantity.value"] = Math.max(uses - 1, 0);
     if (uses == 0 && !event.shiftKey && ["power", "equipment", "loot", "tool"].includes(this.type)
       && this.system.powerUsage?.value != 'at-will') {
