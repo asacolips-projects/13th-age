@@ -256,7 +256,7 @@ items:
         type: String
         label: Attack Roll
         value: >-
-          Roll [[1d20] and  [[1d20]] and use each roll (or a lower result of
+          Roll [[1d20]] and  [[1d20]] and use each roll (or a lower result of
           your choice) to determine one effect
       hit:
         type: String
