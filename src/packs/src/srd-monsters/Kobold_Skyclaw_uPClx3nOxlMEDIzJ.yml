@@ -256,7 +256,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: '[[3]] damage, and rol [1d4] for the effect of the flask''s contents'
+        value: '[[3]] damage, and rol [[1d4]] for the effect of the flask''s contents'
       hit1:
         type: String
         label: Hit

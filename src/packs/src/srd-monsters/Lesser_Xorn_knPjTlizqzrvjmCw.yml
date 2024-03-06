@@ -233,7 +233,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: '[[10] damage, and [[5]] ongoing damage'
+        value: '[[10]] damage, and [[5]] ongoing damage'
       hit1:
         type: String
         label: Hit
