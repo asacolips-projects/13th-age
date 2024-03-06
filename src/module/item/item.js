@@ -158,7 +158,8 @@ export class ItemArchmage extends Item {
     if (uses == null) return false;
     if (this.system.powerUsage?.value == 'cyclic'
       && this.actor.system.attributes.escalation.value > 0
-      && this.actor.system.attributes.escalation.value % 2 == 0) {
+      && this.actor.system.attributes.escalation.value % 2 == 0
+      && uses > 0) {
       // Cyclic power, E.D. even, do not consume uses
       return false;
     }
