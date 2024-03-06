@@ -28,7 +28,7 @@ system:
   powerUsage:
     type: String
     label: Power Usage
-    value: once-per-battle
+    value: cyclic
   powerLevel:
     type: Number
     label: Level

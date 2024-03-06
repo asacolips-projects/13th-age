@@ -1041,6 +1041,7 @@ export class ActorArchmage extends Actor {
         }
         // Per battle powers.
         if ((item.system.powerUsage?.value == 'once-per-battle'
+          || item.system.powerUsage?.value == 'cyclic'
           || (item.system.powerUsage?.value == 'at-will'
           && item.system.quantity.value != null))
           && item.system.quantity.value < maxQuantity) {
@@ -1170,7 +1171,7 @@ export class ActorArchmage extends Actor {
       if (item.type != 'power' && item.type != 'equipment') continue;
 
       let itemUpdateData = {};
-      let usageArray = ['once-per-battle','daily','recharge', 'daily-desperate'];
+      let usageArray = ['once-per-battle','daily','recharge', 'cyclic', 'daily-desperate'];
       let fallbackQuantity = item.system.quantity.value !== null ? 1 : null;
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
