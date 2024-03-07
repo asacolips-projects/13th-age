@@ -1677,6 +1677,7 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/monitor/aeon/arbiter2.webp
       scale: 1.5
+
   # Battle Shade
   YVIXRyMAGGp3tRHw: # Broken Shade
     actor: modules/pf2e-tokens-bestiaries/portraits/undead/cairn-wight.webp
@@ -1695,6 +1696,7 @@ srd-Monsters:
   2CJQe3BQhdbh8RYI: # Slaughter Pit Shade
     actor: modules/pf2e-tokens-bestiaries/portraits/undead/warsworn.webp
     token: modules/pf2e-tokens-bestiaries/tokens/undead/warsworn.webp
+
   # Gibbering Mouther
   LNGqlxsM3pzmRh8m: # Gibbering Mouther
     actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gibbering-mouther.webp
@@ -1705,4 +1707,31 @@ srd-Monsters:
     actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gibbering-mouther.webp
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gibbering-mouther.webp
+      scale: 1
+
+  # Elemental beasts
+  vRFt14INIW98oq7w: # Badger
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/badger.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/badger.webp
+      scale: 1
+  uH6OQolwVZBkFujD: # Giant Bird of Prey
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/avian/eagle-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/avian/eagle-giant.webp
+      scale: 1.5
+  leuevBxooToL4QIA: # Great Cat
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/leopard.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/leopard.webp
+      scale: 1
+  bnk1gkoRLv8V0e2T: # Rat Swarm
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/rat-swarm.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/rat-swarm.webp
+      scale: 1
+  Pc4D7fVAATI2Lgoe: # Venomous Snake
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/emperor-cobra.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/emperor-cobra.webp
       scale: 1
