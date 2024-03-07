@@ -1777,3 +1777,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fey/quickling.webp
       scale: 1.5
+
+  # Coin Zombie
+  SVktQNf3ZxOYxAxQ: # Coin Collector Zombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/zombie-sulfur.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/zombie-sulfur.webp
+      scale: 1
+  clCdy1qTfHeM5CER: # Coin Zombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/worm-that-walks-cultist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/worm-that-walks-cultist.webp
+      scale: 1.5
+  1F9umoT78QHO2idd: # Jackpot Zombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/worm-that-walks-cultist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/worm-that-walks-cultist.webp
+      scale: 1.5
