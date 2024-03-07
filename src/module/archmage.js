@@ -18,7 +18,7 @@ import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
-import { ArchmageCompendiumBrowserApplication } from './setup/compendium-browser.js';
+import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 
 
 Hooks.once('init', async function() {
@@ -113,6 +113,7 @@ Hooks.once('init', async function() {
     MacroUtils,
     rollItemMacro,
     ActorHelpersV2,
+    ArchmageCompendiumBrowserApplication,
     system: {
       moduleArt: {
         map: new Map(),
