@@ -1411,13 +1411,6 @@ option[selected] {
       .colorBlindBY & { background: $cb-by-power-daily; }
     }
 
-    .ability-usage--daily-desperate {
-      background: $c-power-desperate;
-
-      .colorBlindRG & { background: $cb-rg-power-desperate; }
-      .colorBlindBY & { background: $cb-by-power-desperate; }
-    }
-
     .ability-usage--recharge {
       background: $c-power-recharge;
 
