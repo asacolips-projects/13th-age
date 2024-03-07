@@ -1735,3 +1735,45 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/emperor-cobra.webp
       scale: 1
+
+  # Briar Elves
+  aiQAeHLj31uboPt5: # Barbed Vines
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/viper-vine.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/viper-vine.webp
+      scale: 1
+  hWeK3ukWMNbf0QuB: # Briar Tree
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/scythe-tree.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/scythe-tree.webp
+      scale: 1.5
+  0CdcNIeN2QEM0rSK: # Briar Elf Assassin
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/blodeuwedd.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/blodeuwedd.webp
+      scale: 1.5
+  ru2KadKILTLgFzc4: # Briar Elf Slayer
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/grimstalker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/grimstalker.webp
+      scale: 1
+  Ev8kF94zDseE8Wva: # Briar Elf Sorcerer
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/leshy/green-man.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/leshy/green-man.webp
+      scale: 1
+  JtzTaTZD1dGKWWiN: # Briar Elf Sovereign
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/arboreal-warden.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/arboreal-warden.webp
+      scale: 1.5
+  3Hy9FJ1iym1SKrXM: # Briar Elf Stalker
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/twigjack.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/twigjack.webp
+      scale: 2
+  HgoLiefMFANQmDtA: # Briar Elf Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/quickling.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/quickling.webp
+      scale: 1.5
