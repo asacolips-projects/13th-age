@@ -2,7 +2,22 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCompendiumBrowser } from "../../vue/components.vue.es.js";
 
+
+/**
+ * Application class for the Compendium Browser.
+ *
+ * Extends the Application class into a Vue-based application.
+ *
+ * @todo refactor Vue boilerplate code into a mixin that can be used both
+ * here and in the actor sheet.
+ *
+ * @export
+ * @class ArchmageCompendiumBrowserApplication
+ * @typedef {ArchmageCompendiumBrowserApplication}
+ * @extends {Application}
+ */
 export class ArchmageCompendiumBrowserApplication extends Application {
+  /** @override */
   constructor(...args) {
     super(...args);
 
@@ -14,6 +29,7 @@ export class ArchmageCompendiumBrowserApplication extends Application {
     };
   }
 
+  /** @override */
   static get defaultOptions() {
     return {...super.defaultOptions,
       classes: [
@@ -31,10 +47,12 @@ export class ArchmageCompendiumBrowserApplication extends Application {
     };
   }
 
+  /** @override */
   async getData() {
-    // Compendiums are retrieved in the created() section of their respective
-    // component tabs.
+    // We only need to return data for the default tab, as compendium content
+    // is loaded in the create() method of their respective components.
     return {
+      // @todo add more default options, like saved filters.
       defaultTab: this.options.defaultTab ?? 'creatures',
     };
   }
@@ -87,23 +105,21 @@ export class ArchmageCompendiumBrowserApplication extends Application {
 
     // If we don't have an active vueRoot, run Foundry's render and then mount
     // the Vue application to the form.
-    this._render(force, options).catch(err => {
+    await this._render(force, options).catch(err => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
       console.error(err);
       this._state = Application.RENDER_STATES.ERROR;
     })
-    // Run Vue's render, assign it to our prop for tracking.
-    .then(rendered => {
-      let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
-      if ($selector.length > 0) {
-        this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
-        // @todo Find a better solution than a timeout.
-        setTimeout(() => {
-          this.activateVueListeners($(this.form), false);
-        }, 150);
-      }
-    });
 
+    // Mount our rendered app.
+    let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
+    if ($selector.length > 0) {
+      this.vueRoot = this.vueApp.mount(`[data-appid="${this.appId}"] .archmage-vue`);
+      // @todo Find a better solution than a timeout.
+      setTimeout(() => {
+        this.activateVueListeners($(this.form), false);
+      }, 150);
+    }
 
     // Store our app for later.
     // this.object.apps[this.appId] = this; @OBSOLETE?
@@ -126,6 +142,7 @@ export class ArchmageCompendiumBrowserApplication extends Application {
   /*  Vue Rendering --------------------------------------------------------- */
   /* ------------------------------------------------------------------------ */
 
+  /** @override */
   activateListeners(html) {
     super.activateListeners(html);
   }
@@ -144,18 +161,20 @@ export class ArchmageCompendiumBrowserApplication extends Application {
       this.vueListenersActive = true;
     }
 
-    // this._dragHandler(html);
-
     // Place one-time executions after this line.
     if (repeat) return;
-
-    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
 
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';
     html.on('focus', inputs, (event) => this._onFocus(event));
   }
 
+
+  /**
+   * Handle focus events.
+   *
+   * @param {*} event
+   */
   _onFocus(event) {
     let target = event.currentTarget;
     setTimeout(function() {
@@ -164,6 +183,4 @@ export class ArchmageCompendiumBrowserApplication extends Application {
       }
     }, 100);
   }
-
-  async _updateObject(event, formData) {}
 }
