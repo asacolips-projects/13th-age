@@ -1,12 +1,18 @@
 <template>
   <div :class="`archmage-v2-vue flexcol ${nightmode}`">
+    <!-- Tabs. -->
     <section class="container container--top">
       <Tabs group="primary" :tabs="tabs.primary" :flags="flags"/>
     </section>
 
-    <!-- @todo this class is duplicated in the tabs, figure out a better layout fix. -->
+    <!-- Filters + Content. -->
     <section class="container container--bottom">
 
+      <!--
+        Render each tab wrapper and their contents. The CompendiumBrowser<Type> components
+        each have a v-if on them that causes them to only render if they're active or if they
+        have been opened at least once.
+      -->
       <Tab group="primary" :tab="tabs.primary.creatures" classes="container container--bottom flexrow">
         <CompendiumBrowserCreatures v-if="tabs.primary.creatures.active || tabs.primary.creatures.opened" :tab="tabs.primary.creatures"/>
       </Tab>
@@ -24,6 +30,7 @@
 </template>
 
 <script>
+// Import component dependencies.
 import Tabs from '@/components/parts/Tabs.vue';
 import Tab from '@/components/parts/Tab.vue';
 import CompendiumBrowserPowers from '@/components/dialogs/compendium-browser/CompendiumBrowserPowers.vue';
@@ -48,8 +55,10 @@ export default {
   },
   data() {
     return {
+      // The only variable we actually need to track is the active tab.
       tabs: {
         primary: {
+          // Default tab is assigned in the flags() computed property.
           creatures: {
             key: 'creatures',
             label: 'Creatures',
@@ -72,21 +81,7 @@ export default {
       }
     }
   },
-  methods: {
-    openDocument(id) {
-      let pack = game.packs.get('archmage.srd-Monsters');
-      pack.getDocument(id).then(document => {
-        document.sheet.render(true);
-        console.log(document);
-      });
-    },
-    startDrag(event, entry) {
-      event.dataTransfer.setData('text/plain', JSON.stringify({
-        type: 'Actor',
-        uuid: entry.uuid
-      }));
-    }
-  },
+  methods: {},
   computed: {
     nightmode() {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
