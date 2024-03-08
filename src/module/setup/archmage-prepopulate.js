@@ -151,7 +151,8 @@ export class ArchmagePrepopulate {
         recharge = 6;
       }
     }
-    else if (usageString.includes('battle')) {
+    else if (usageString.includes('battle')
+      || usageString.includes('cyclic')) {
       usage = 'once-per-battle';
     }
     else if (usageString.includes('daily')) {

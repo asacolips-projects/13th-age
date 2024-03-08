@@ -15,7 +15,7 @@
               <div class="title">
                 <input type="checkbox" name="power-{{power.uuid}}" data-uuid="{{power.uuid}}" data-item-type="power" {{checked power.selected}}/>
               </div>
-              <div class="content">{{> "systems/archmage/templates/chat/power-card.html" item=power.powerData data=power.powerCard}}</div>
+              <div class="content">{{> "systems/archmage/templates/chat/power-card.html" item=power.powerData data=power.powerCard usageClass=power.usageClass}}</div>
             </li>
           {{/each}}
         </ul>

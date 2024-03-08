@@ -447,7 +447,7 @@ export class ItemArchmage extends Item {
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
       data: itemToRender.getChatData({ rollData: rollData }, true),
-      useClass: this._getUsageClass(itemToRender)
+      usageClass: this._getUsageClass(itemToRender)
     };
 
     // Basic chat message data
