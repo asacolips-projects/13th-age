@@ -326,6 +326,10 @@ ARCHMAGE:
     help: "Click the checkboxes to the left of any powers you would like to add, and then click submit to add them to your character. You can click any power's name to expand it and view its text and available feats."
   COMPENDIUMBROWSER:
     title: 'Compendium Browser'
+    tabs:
+      creatures: 'Creatures'
+      powers: 'Powers & Spells'
+      items: 'Magic Items'
     buttons:
       browseCreatures: 'Browse Creatures'
       browsePowers: 'Browse Powers'

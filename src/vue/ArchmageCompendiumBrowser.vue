@@ -61,19 +61,19 @@ export default {
           // Default tab is assigned in the flags() computed property.
           creatures: {
             key: 'creatures',
-            label: 'Creatures',
+            label: game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.tabs.creatures'),
             active: false,
             opened: false
           },
           powers: {
             key: 'powers',
-            label: 'Powers & Spells',
+            label: game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.tabs.powers'),
             active: false,
             opened: false
           },
           items: {
             key: 'items',
-            label: 'Magic Items',
+            label: game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.tabs.items'),
             active: false,
             opened: false
           }

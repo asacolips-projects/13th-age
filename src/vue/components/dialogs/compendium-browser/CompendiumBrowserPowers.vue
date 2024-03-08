@@ -3,7 +3,7 @@
 
     <!-- Sort. -->
     <div class="unit unit--input">
-      <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
+      <label for="compendiumBrowser.sort" class="unit-title">{{ localize('ARCHMAGE.sort') }}</label>
       <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
         <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{ option.label }}</option>
       </select>
@@ -11,7 +11,7 @@
 
     <!-- Level range slider. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerLevel">Level</label>
+      <label class="unit-title" for="compendiumBrowser.powerLevel">{{ localize('ARCHMAGE.level') }}</label>
       <div class="level-range flexrow">
         <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
         <div class="level-input slider-wrapper flexrow">
@@ -22,19 +22,19 @@
 
     <!-- Filter name. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerName">Name</label>
-      <input type="text" id="compendiumBrowser.powerName" name="compendiumBrowser.powerName" v-model="name" placeholder="Fireball"/>
+      <label class="unit-title" for="compendiumBrowser.powerName">{{ localize('ARCHMAGE.name') }}</label>
+      <input type="text" name="compendiumBrowser.powerName" v-model="name" placeholder="Fireball"/>
     </div>
 
     <!-- Filter source. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerSourceName">Source</label>
-      <input type="text" id="compendiumBrowser.powerSourceName" name="compendiumBrowser.powerSourceName" v-model="powerSourceName" placeholder="Fighter"/>
+      <label class="unit-title" for="compendiumBrowser.powerSourceName">{{ localize('ARCHMAGE.CHAT.powerSourceName') }}</label>
+      <input type="text" name="compendiumBrowser.powerSourceName" v-model="powerSourceName" placeholder="Fighter"/>
     </div>
 
     <!-- Filter type. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerType">Type</label>
+      <label class="unit-title" for="compendiumBrowser.powerType">{{ localize('ARCHMAGE.type') }}</label>
       <Multiselect
         v-model="powerType"
         mode="tags"
@@ -46,7 +46,7 @@
 
     <!-- Filter usage. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerUsage">Usage</label>
+      <label class="unit-title" for="compendiumBrowser.powerUsage">{{ localize('ARCHMAGE.CHAT.powerUsage') }}</label>
       <Multiselect
         v-model="powerUsage"
         mode="tags"
@@ -58,7 +58,7 @@
 
     <!-- Filter action. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.actionType">Action</label>
+      <label class="unit-title" for="compendiumBrowser.actionType">{{ localize('ARCHMAGE.action') }}</label>
       <Multiselect
         v-model="actionType"
         mode="tags"
@@ -70,13 +70,13 @@
 
     <!-- Filter trigger. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.trigger">Trigger</label>
-      <input type="text" id="compendiumBrowser.trigger" name="compendiumBrowser.trigger" v-model="trigger" placeholder="Even hit"/>
+      <label class="unit-title" for="compendiumBrowser.trigger">{{ localize('ARCHMAGE.CHAT.trigger') }}</label>
+      <input type="text" name="compendiumBrowser.trigger" v-model="trigger" placeholder="Even hit"/>
     </div>
 
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
-      <button type="reset" @click="resetFilters()">Reset</button>
+      <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
     </div>
 
   </section>
@@ -99,13 +99,13 @@
             <!-- Second row is supplemental info. -->
             <div class="grid power-grid">
               <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
-              <div class="power-feat-pips" data-tooltip="Feats" v-if="hasFeats(entry)">
+              <div class="power-feat-pips" :data-tooltip="localize('ARCHMAGE.feats')" v-if="hasFeats(entry)">
                 <ul class="feat-pips">
                   <li v-for="(feat, tier) in filterFeats(entry.system.feats)" :key="tier" :class="`feat-pip active`"></li>
                 </ul>
               </div>
-              <div class="power-recharge" data-tooltip="Recharge" v-if="entry.system.recharge.value && entry.system.powerUsage.value == 'recharge'">{{Number(entry.system.recharge.value) || 16}}+</div>
-              <div class="power-action" data-tooltip="Action Type" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
+              <div class="power-recharge" :data-tooltip="localize('ARCHMAGE.recharge')" v-if="entry.system.recharge.value && entry.system.powerUsage.value == 'recharge'">{{Number(entry.system.recharge.value) || 16}}+</div>
+              <div class="power-action" :data-tooltip="localize('ARCHMAGE.CHAT.actionTYpe')" v-if="entry.system.actionType.value">{{getActionShort(entry.system.actionType.value)}}</div>
             </div>
           </div>
         </li>
@@ -161,12 +161,12 @@ export default {
       // Sorting.
       sortBy: 'level',
       sortOptions: [
-        { value: 'level', label: 'Level' },
-        { value: 'name', label: 'Name' },
-        { value: 'source', label: 'Source' },
-        { value: 'type', label: 'Type' },
-        { value: 'usage', label: 'Usage' },
-        { value: 'action', label: 'Action' },
+        { value: 'level', label: game.i18n.localize('ARCHMAGE.level') },
+        { value: 'name', label: game.i18n.localize('ARCHMAGE.name') },
+        { value: 'source', label: game.i18n.localize('ARCHMAGE.CHAT.powerSourceName') },
+        { value: 'type', label: game.i18n.localize('ARCHMAGE.type') },
+        { value: 'usage', label: game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') },
+        { value: 'action', label: game.i18n.localize('ARCHMAGE.action') },
       ],
       // Our list of pseudo documents returned from the compendium.
       packIndex: [],
