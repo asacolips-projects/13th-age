@@ -1,6 +1,7 @@
 <template>
   <section class="section section--sidebar flexcol filters">
 
+    <!-- Sort. -->
     <div class="unit unit--input">
       <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
       <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
@@ -8,11 +9,13 @@
       </select>
     </div>
 
+    <!-- Name filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.itemName">Name</label>
       <input type="text" id="compendiumBrowser.itemName" name="compendiumBrowser.itemName" v-model="name" placeholder="Sword"/>
     </div>
 
+    <!-- Chakra filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.chakra">Chakra</label>
       <Multiselect
@@ -24,6 +27,7 @@
       />
     </div>
 
+    <!-- Bonuses filter. -->
     <div class="unit unit--input">
       <h2 class="unit-title" for="compendiumBrowser.bonuses">Bonus</h2>
       <Multiselect
@@ -35,6 +39,7 @@
       />
     </div>
 
+    <!-- Recharge filter. -->
     <div class="unit unit--input">
       <h2 class="unit-title" for="compendiumBrowser.recharge">Recharge</h2>
       <Multiselect
@@ -46,6 +51,7 @@
       />
     </div>
 
+    <!-- Usage filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerUsage">Usage</label>
       <Multiselect
@@ -60,14 +66,20 @@
   </section>
 
   <section class="section section--no-overflow">
+    <!-- Items results. -->
     <section class="section section--main section--inventory flexcol">
       <ul class="compendium-browser-results compendium-browser-items">
-        <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" :class="`equipment-summary equipment compendium-browser-row${equipmentKey >= pager.lastIndex - 1 && equipmentKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item equipment-item`" :data-document-id="equipment._id" @click="openDocument(equipment.uuid)">
-          <img :src="equipment.img" class="equipment-image" @dragstart="startDrag($event, equipment)" draggable="true"/>
-          <div class="flexcol equipment-contents" @dragstart="startDrag($event, equipment)" draggable="true">
+        <!-- Individual items entries. -->
+        <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" :class="`equipment-summary equipment compendium-browser-row${equipmentKey >= pager.lastIndex - 1 && equipmentKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item equipment-item`" :data-document-id="equipment._id" @click="openDocument(equipment.uuid, 'Item')">
+          <!-- Both the image and title have drag events. These are primarily separated so that -->
+          <!-- if a user drags the token, it will only show the token as their drag preview. -->
+          <img :src="equipment.img" class="equipment-image" @dragstart="startDrag($event, equipment, 'Item')" draggable="true"/>
+          <div class="flexcol equipment-contents" @dragstart="startDrag($event, equipment, 'Item')" draggable="true">
+            <!-- First row is the title. -->
             <div class="equipment-title-wrapper">
               <strong class="equipment-title unit-subtitle">{{equipment.name}}</strong>
             </div>
+            <!-- Second row is supplemental info. -->
             <div class="grid equipment-grid">
               <div class="equipment-bonus flexrow" data-tooltip="Bonuses" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
                 <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
@@ -87,23 +99,37 @@
 </template>
 
 <script>
+// onUpdated() is used for the infinite scroll intersection observer.
+import { onUpdated } from 'vue';
+// External components.
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
-import { getPackIndex, localize, localizeEquipmentBonus, numberFormat } from '@/methods/Helpers.js';
-import { onUpdated } from 'vue';
+// Helper methods.
+import {
+  getPackIndex,
+  localize,
+  localizeEquipmentBonus,
+  numberFormat,
+  openDocument,
+  startDrag
+} from '@/methods/Helpers.js';
 
 export default {
   name: 'CompendiumBrowserItems',
   props: ['tab'],
+  // Imported components that need to be available in the <template>
   components: {
     Slider,
     Multiselect
   },
   setup() {
     return {
+      // Imported methods that need to be available in the <template>
       localize,
       localizeEquipmentBonus,
       numberFormat,
+      openDocument,
+      startDrag,
       // Foundry base props and methods.
       CONFIG,
       foundry,
@@ -113,15 +139,15 @@ export default {
   },
   data() {
     return {
+      // Props used for infinite scroll and pagination.
+      observer: null,
       pager: {
         perPage: 50,
-        pages: 0,
-        current: 1,
         firstIndex: 0,
         lastIndex: 50,
         totalRows: 0,
-        style: 'input'
       },
+      // Sorting.
       sortBy: 'name',
       sortOptions: [
         { value: 'name', label: 'Name' },
@@ -129,38 +155,38 @@ export default {
         { value: 'recharge', label: 'Recharge' },
         { value: 'usage', label: 'Usage' },
       ],
+      // Our list of pseudo documents returned from the compendium.
       packIndex: [],
+      // Filters.
       name: '',
       chakra: [],
       recharge: [],
       bonuses: [],
       powerUsage: [],
-      observer: null,
     }
   },
   methods: {
-    openDocument(uuid) {
-      getDocumentClass('Item').fromDropData({
-        type: 'Item',
-        uuid: uuid
-      }).then(document => {
-        document.sheet.render(true);
-      });
-    },
-    startDrag(event, entry) {
-      event.dataTransfer.setData('text/plain', JSON.stringify({
-        type: 'Item',
-        uuid: entry.uuid
-      }));
-    },
-    infiniteScroll(entries) {
+    /**
+     * Callback for the infinite scroll IntersectionObserver.
+     *
+     * @param {Array} List of IntersectionObserverEntry objects.
+     */
+     infiniteScroll(entries) {
+      // Iterate over our possible elements.
       entries.forEach(({target, isIntersecting}) => {
+        // If the element isn't visible, do nothing.
         if (!isIntersecting) {
           return;
         }
 
+        // Otherwise, remove the observer and update our pager properties.
+        // We need to increase the lastIndex for our filter by an amount
+        // equal to our number of entries per page.
         this.observer.unobserve(target);
-        this.pager.lastIndex = Math.min(this.pager.lastIndex + this.pager.perPage, this.pager.totalRows);
+        this.pager.lastIndex = Math.min(
+          this.pager.lastIndex + this.pager.perPage,
+          this.pager.totalRows
+        );
       });
     },
     getBonuses(equipment) {
@@ -270,23 +296,24 @@ export default {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     entries() {
+      // Build our results array. Exit early if the length is 0.
       let result = this.packIndex;
-
       if (result.length < 1) {
         this.pager.totalRows = 0;
         return [];
       }
 
+      // Filter by name.
       if (this.name && this.name.length > 0) {
         const name = this.name.toLocaleLowerCase();
         result = result.filter(entry => entry.name.toLocaleLowerCase().includes(name));
       }
 
+      // Handle multiselect filters, which use arrays as their values.
       if (Array.isArray(this.chakra) && this.chakra.length > 0) {
         // @todo chakra is misspelled in our data model. We need to fix that :(
         result = result.filter(entry => this.chakra.includes(entry.system?.chackra));
       }
-
       if (Array.isArray(this.powerUsage) && this.powerUsage.length > 0) {
         result = result.filter(entry => this.powerUsage.includes(entry.system?.powerUsage?.value ?? 'other'));
       }
@@ -361,8 +388,11 @@ export default {
     },
   },
   watch: {},
+  // Handle created hook.
   async created() {
     console.log("Creating compendium browser magic items tab...");
+
+    // Load the pack index with the fields we need.
     getPackIndex([
       'archmage.srd-magic-items-armors',
       'archmage.srd-magic-items-arrows',
@@ -397,24 +427,31 @@ export default {
       'system.attributes.disengage',
     ]).then(packIndex => this.packIndex = packIndex);
 
+    // Create our intersection observer for infinite scroll.
     this.observer = new IntersectionObserver(this.infiniteScroll, {
       root: this.$el,
       threshold: 0.5,
     });
   },
+  // Handle mounted hook.
   async mounted() {
     console.log("Compendium browser magic items tab mounted.");
+
+    // Note that our tab has beened opened so that it won't de-render later.
     this.tab.opened = true;
 
+    // Adjust our observers whenever the results of the compendium browser
+    // are updated.
     onUpdated(() => {
-      console.log("Compendium browser magic items tab updated.");
       const target = document.querySelector('.compendium-browser-items .compendium-browser-row-observe');
       if (target) {
         this.observer.observe(target);
       }
     });
   },
+  // Handle the unmount hook.
   async beforeUnmount() {
+    // Handle the unmount hook.
     this.observer.disconnect();
   }
 }
@@ -423,8 +460,4 @@ export default {
 <style lang="scss">
   @import "@vueform/slider/themes/default.css";
   @import "@vueform/multiselect/themes/default.css";
-
-  .multiselect {
-    width: 227px;
-  }
 </style>
