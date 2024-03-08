@@ -40,7 +40,7 @@ export class ArchmageCompendiumBrowserApplication extends Application {
       popOut: true,
       template: "systems/archmage/templates/dialog/compendium-browser.html",
       id: 'archmage-compendium-browser',
-      title: 'Compendium Browser',
+      title: game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.title'),
       width: 1024,
       height: 775,
       resizable: true,

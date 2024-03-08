@@ -18,6 +18,22 @@
 </template>
 
 <script>
+  /**
+   * Pager component.
+   *
+   * To use, include in your template as <Pager :pager-options="pager-options"/>.
+   *
+   * The `pagerOptions` that gets passed into the component should be an object
+   * with the following properties. Each property should be an int, and all of them
+   * excluding the perPage property will be recalculated into the parent component.
+   *
+   * current: 0,
+   * pages: 0,
+   * totalRows: 0,
+   * perPage: 50,
+   * firstIndex: 0,
+   * lastIndex: 0
+   */
   export default {
     name: 'Pager',
     props: ['pager-options'],

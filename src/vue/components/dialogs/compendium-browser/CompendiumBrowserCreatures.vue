@@ -2,7 +2,7 @@
   <section class="section section--sidebar flexcol filters">
     <!-- Sort -->
     <div class="unit unit--input">
-      <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
+      <label for="compendiumBrowser.sort" class="unit-title">{{ localize('ARCHMAGE.sort') }}</label>
       <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
         <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{ option.label }}</option>
       </select>
@@ -10,7 +10,7 @@
 
     <!-- Level range slider. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.level">Level</label>
+      <label class="unit-title" for="compendiumBrowser.level">{{ localize('ARCHMAGE.level') }}</label>
       <div class="level-range flexrow">
         <div class="level-label"><span>{{ levelRange[0] }}</span><span v-if="levelRange[0] !== levelRange[1]"> - {{ levelRange[1] }}</span></div>
         <div class="level-input slider-wrapper flexrow">
@@ -21,13 +21,13 @@
 
     <!-- Name filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.name">Name</label>
+      <label class="unit-title" for="compendiumBrowser.name">{{ localize('ARCHMAGE.name') }}</label>
       <input type="text" name="compendiumBrowser.name" v-model="name" placeholder="Hydra"/>
     </div>
 
     <!-- Type filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.type">Type</label>
+      <label class="unit-title" for="compendiumBrowser.type">{{ localize('ARCHMAGE.type') }}</label>
       <Multiselect
         v-model="type"
         mode="tags"
@@ -39,7 +39,7 @@
 
     <!-- Role filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.role">Role</label>
+      <label class="unit-title" for="compendiumBrowser.role">{{ localize('ARCHMAGE.role') }}</label>
       <Multiselect
         v-model="role"
         mode="tags"
@@ -51,7 +51,7 @@
 
     <!-- Size filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.size">Size</label>
+      <label class="unit-title" for="compendiumBrowser.size">{{ localize('ARCHMAGE.size') }}</label>
       <Multiselect
         v-model="size"
         mode="tags"
@@ -63,7 +63,7 @@
 
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
-      <button type="reset" @click="resetFilters()">Reset</button>
+      <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
     </div>
 
   </section>
@@ -84,15 +84,15 @@
             </div>
             <!-- Second row is supplemental info. -->
             <div class="grid creature-grid">
-              <div class="creature-defenses" data-tooltip="Defenses">
-                <span><strong>HP:</strong> {{ entry.system.attributes.hp.max }}</span>
-                <span><strong>AC:</strong> {{ entry.system.attributes.ac.value }}</span>
-                <span><strong>PD:</strong> {{ entry.system.attributes.pd.value }}</span>
-                <span><strong>MD:</strong> {{ entry.system.attributes.md.value }}</span>
+              <div class="creature-defenses" :data-tooltip="localize('ARCHMAGE.defenses')">
+                <span><strong>{{ localize('ARCHMAGE.CHAT.HP') }}:</strong> {{ entry.system.attributes.hp.max }}</span>
+                <span><strong>{{ localize('ARCHMAGE.ac.key') }}:</strong> {{ entry.system.attributes.ac.value }}</span>
+                <span><strong>{{ localize('ARCHMAGE.pd.key') }}:</strong> {{ entry.system.attributes.pd.value }}</span>
+                <span><strong>{{ localize('ARCHMAGE.md.key') }}:</strong> {{ entry.system.attributes.md.value }}</span>
               </div>
-              <div class="creature-type" data-tooltip="Type">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
-              <div class="creature-role" data-tooltip="Role">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
-              <div class="creature-size" data-tooltip="Size">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
+              <div class="creature-type" :data-tooltip="localize('ARCHMAGE.type')">{{ CONFIG.ARCHMAGE.creatureTypes[entry?.system?.details?.type?.value] }}</div>
+              <div class="creature-role" :data-tooltip="localize('ARCHMAGE.role')">{{ CONFIG.ARCHMAGE.creatureRoles[entry?.system?.details?.role?.value] }}</div>
+              <div class="creature-size" :data-tooltip="localize('ARCHMAGE.size')">{{ CONFIG.ARCHMAGE.creatureSizes[entry?.system?.details?.size?.value] }}</div>
             </div>
           </div>
         </li>
@@ -112,7 +112,8 @@ import {
   getPackIndex,
   getActorModuleArt,
   openDocument,
-  startDrag
+  startDrag,
+  localize
 } from '@/methods/Helpers.js';
 
 export default {
@@ -129,6 +130,7 @@ export default {
       getActorModuleArt,
       openDocument,
       startDrag,
+      localize,
       // Foundry base props and methods.
       CONFIG,
       game,
@@ -147,11 +149,11 @@ export default {
       // Sorting.
       sortBy: 'level',
       sortOptions: [
-        { value: 'level', label: 'Level' },
-        { value: 'name', label: 'Name' },
-        { value: 'type', label: 'Type' },
-        { value: 'role', label: 'Role' },
-        { value: 'size', label: 'Size' },
+        { value: 'level', label: game.i18n.localize('ARCHMAGE.level') },
+        { value: 'name', label: game.i18n.localize('ARCHMAGE.name') },
+        { value: 'type', label: game.i18n.localize('ARCHMAGE.type') },
+        { value: 'role', label: game.i18n.localize('ARCHMAGE.role') },
+        { value: 'size', label: game.i18n.localize('ARCHMAGE.size') },
       ],
       // Our list of pseudo documents returned from the compendium.
       packIndex: [],

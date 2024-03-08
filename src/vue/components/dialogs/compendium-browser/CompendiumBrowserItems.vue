@@ -3,7 +3,7 @@
 
     <!-- Sort. -->
     <div class="unit unit--input">
-      <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
+      <label for="compendiumBrowser.sort" class="unit-title">{{ localize('ARCHMAGE.sort') }}</label>
       <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
         <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{ option.label }}</option>
       </select>
@@ -11,13 +11,13 @@
 
     <!-- Name filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.itemName">Name</label>
-      <input type="text" id="compendiumBrowser.itemName" name="compendiumBrowser.itemName" v-model="name" placeholder="Sword"/>
+      <label class="unit-title" for="compendiumBrowser.itemName">{{ localize('ARCHMAGE.name') }}</label>
+      <input type="text" name="compendiumBrowser.itemName" v-model="name" placeholder="Sword"/>
     </div>
 
     <!-- Chakra filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.chakra">Chakra</label>
+      <label class="unit-title" for="compendiumBrowser.chakra">{{ localize('ARCHMAGE.chakra') }}</label>
       <Multiselect
         v-model="chakra"
         mode="tags"
@@ -29,7 +29,7 @@
 
     <!-- Bonuses filter. -->
     <div class="unit unit--input">
-      <h2 class="unit-title" for="compendiumBrowser.bonuses">Bonus</h2>
+      <h2 class="unit-title" for="compendiumBrowser.bonuses">{{ localize('ARCHMAGE.bonus') }}</h2>
       <Multiselect
         v-model="bonuses"
         mode="tags"
@@ -41,7 +41,7 @@
 
     <!-- Recharge filter. -->
     <div class="unit unit--input">
-      <h2 class="unit-title" for="compendiumBrowser.recharge">Recharge</h2>
+      <h2 class="unit-title" for="compendiumBrowser.recharge">{{ localize('ARCHMAGE.recharge') }}</h2>
       <Multiselect
         v-model="recharge"
         mode="tags"
@@ -53,7 +53,7 @@
 
     <!-- Usage filter. -->
     <div class="unit unit--input">
-      <label class="unit-title" for="compendiumBrowser.powerUsage">Usage</label>
+      <label class="unit-title" for="compendiumBrowser.powerUsage">{{ localize('ARCHMAGE.GROUPS.powerUsage') }}</label>
       <Multiselect
         v-model="powerUsage"
         mode="tags"
@@ -65,7 +65,7 @@
 
     <!-- Reset. -->
     <div class="unit unit--input flexrow">
-      <button type="reset" @click="resetFilters()">Reset</button>
+      <button type="reset" @click="resetFilters()">{{ localize('Reset') }}</button>
     </div>
 
   </section>
@@ -86,15 +86,15 @@
             </div>
             <!-- Second row is supplemental info. -->
             <div class="grid equipment-grid">
-              <div class="equipment-bonus flexrow" data-tooltip="Bonuses" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
+              <div class="equipment-bonus flexrow" :data-tooltip="localize('ARCHMAGE.bonuses')" data-tooltip-direction="RIGHT" v-if="equipment.system.attributes">
                 <span class="bonus" v-for="(bonus, bonusProp) in getBonuses(equipment)" :key="bonusProp">
                   <span class="bonus-label">{{localizeEquipmentBonus(bonusProp)}} </span>
                   <span class="bonus-value">{{numberFormat(bonus, 0, true)}}</span>
                 </span>
               </div>
-              <div class="equipment-usage" v-if="equipment.system?.powerUsage?.value" data-tooltip="Usage">{{ CONFIG.ARCHMAGE.powerUsages[equipment.system?.powerUsage?.value ?? ''] ?? '' }}</div>
-              <div class="equipment-chakra" data-tooltip="Chakra" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
-              <div class="equipment-recharge" data-tooltip="Recharge">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
+              <div class="equipment-usage" v-if="equipment.system?.powerUsage?.value" :data-tooltip="localize('ARCHMAGE.GROUPS.powerUsage')">{{ CONFIG.ARCHMAGE.powerUsages[equipment.system?.powerUsage?.value ?? ''] ?? '' }}</div>
+              <div class="equipment-chakra" :data-tooltip="localize('ARCHMAGE.chakra')" v-if="equipment.system.chackra">{{localize(`ARCHMAGE.CHAKRA.${equipment.system.chackra}Label`)}}</div>
+              <div class="equipment-recharge" :data-tooltip="localize('ARCHMAGE.recharge')">{{ `${equipment.system?.recharge?.value > 0 ? Number(equipment.system.recharge.value) + '+' : ''}`}}</div>
             </div>
           </div>
         </li>
@@ -155,10 +155,10 @@ export default {
       // Sorting.
       sortBy: 'name',
       sortOptions: [
-        { value: 'name', label: 'Name' },
-        { value: 'chakra', label: 'Chakra / Bonus' },
-        { value: 'recharge', label: 'Recharge' },
-        { value: 'usage', label: 'Usage' },
+        { value: 'name', label: game.i18n.localize('ARCHMAGE.name') },
+        { value: 'chakra', label: game.i18n.localize('ARCHMAGE.chakra') },
+        { value: 'recharge', label: game.i18n.localize('ARCHMAGE.recharge') },
+        { value: 'usage', label: game.i18n.localize('ARCHMAGE.GROUPS.powerUsage') },
       ],
       // Our list of pseudo documents returned from the compendium.
       packIndex: [],
