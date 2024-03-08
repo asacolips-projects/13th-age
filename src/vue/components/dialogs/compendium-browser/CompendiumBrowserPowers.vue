@@ -82,15 +82,21 @@
   </section>
 
   <section class="section section--no-overflow">
+    <!-- Power results. -->
     <section class="section section--powers section--main flexcol">
       <ul class="compendium-browser-results compendium-browser-powers">
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${(entry.system.powerUsage.value ? entry.system.powerUsage.value : 'other')} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid)" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
-          <img :src="entry.img" @dragstart="startDrag($event, entry)" draggable="true"/>
-          <div class="flexcol power-contents" @dragstart="startDrag($event, entry)" draggable="true">
+        <!-- Individual powers entries. -->
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${(entry.system.powerUsage.value ? entry.system.powerUsage.value : 'other')} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid, 'Item')" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
+          <!-- Both the image and title have drag events. These are primarily separated so that -->
+          <!-- if a user drags the token, it will only show the token as their drag preview. -->
+          <img :src="entry.img" @dragstart="startDrag($event, entry, 'Item')" draggable="true"/>
+          <div class="flexcol power-contents" @dragstart="startDrag($event, entry, 'Item')" draggable="true">
+            <!-- First row is the title and class/source. -->
             <div class="power-title-wrapper">
               <strong class="power-title"><span v-if="entry?.system?.powerLevel?.value">[{{ entry.system.powerLevel.value }}]</span> {{ entry?.name }}</strong>
               <strong class="power-source" v-if="entry.system.powerSourceName.value">{{ entry.system.powerSourceName.value }}</strong>
             </div>
+            <!-- Second row is supplemental info. -->
             <div class="grid power-grid">
               <div v-if="entry.system.trigger.value" class="power-trigger"><strong>Trigger:</strong> {{ entry.system.trigger.value }}</div>
               <div class="power-feat-pips" data-tooltip="Feats" v-if="hasFeats(entry)">
@@ -109,20 +115,33 @@
 </template>
 
 <script>
+// onUpdated() is used for the infinite scroll intersection observer.
+import { onUpdated } from 'vue';
+// External components.
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
-import { getPackIndex } from '@/methods/Helpers.js';
-import { onUpdated } from 'vue';
+// Helper methods.
+import {
+  getPackIndex,
+  localize,
+  openDocument,
+  startDrag,
+} from '@/methods/Helpers.js';
 
 export default {
   name: 'CompendiumBrowserPowers',
   props: ['tab'],
+  // Imported components that need to be available in the <template>
   components: {
     Slider,
     Multiselect
   },
   setup() {
     return {
+      // Imported methods that need to be available in the <template>
+      localize,
+      openDocument,
+      startDrag,
       // Foundry base props and methods.
       CONFIG,
       game,
@@ -131,15 +150,15 @@ export default {
   },
   data() {
     return {
+      // Props used for infinited scroll and pagination.
+      observer: null,
       pager: {
         perPage: 50,
-        pages: 0,
-        current: 1,
         firstIndex: 0,
         lastIndex: 50,
         totalRows: 0,
-        style: 'input'
       },
+      // Sorting.
       sortBy: 'level',
       sortOptions: [
         { value: 'level', label: 'Level' },
@@ -149,7 +168,9 @@ export default {
         { value: 'usage', label: 'Usage' },
         { value: 'action', label: 'Action' },
       ],
+      // Our list of pseudo documents returned from the compendium.
       packIndex: [],
+      // Filters.
       name: '',
       levelRange: [1, 10],
       actionType: [],
@@ -157,24 +178,31 @@ export default {
       powerSourceName: '',
       powerUsage: [],
       trigger: '',
-      observer: null,
     }
   },
   methods: {
-    openDocument(uuid) {
-      getDocumentClass('Item').fromDropData({
-        type: 'Item',
-        uuid: uuid
-      }).then(document => {
-        document.sheet.render(true);
+    /**
+     * Callback for the infinite scroll IntersectionObserver.
+     *
+     * @param {Array} List of IntersectionObserverEntry objects.
+     */
+    infiniteScroll(entries) {
+      entries.forEach(({target, isIntersecting}) => {
+        // If the element isn't visible, do nothing.
+        if (!isIntersecting) {
+          return;
+        }
+
+        // Otherwise, remove the observer and update our pager properties.
+        // We need to increase the lastIndex for our filter by an amount
+        // equal to our number of entries per page.
+        this.observer.unobserve(target);
+        this.pager.lastIndex = Math.min(this.pager.lastIndex + this.pager.perPage, this.pager.totalRows);
       });
     },
-    startDrag(event, entry) {
-      event.dataTransfer.setData('text/plain', JSON.stringify({
-        type: 'Item',
-        uuid: entry.uuid
-      }));
-    },
+    /**
+     * Click event to reset our filters.
+     */
     resetFilters() {
       this.sortBy = 'level';
       this.name = '';
@@ -184,16 +212,6 @@ export default {
       this.powerSourceName = '';
       this.powerUsage = [];
       this.trigger = '';
-    },
-    infiniteScroll(entries) {
-      entries.forEach(({target, isIntersecting}) => {
-        if (!isIntersecting) {
-          return;
-        }
-
-        this.observer.unobserve(target);
-        this.pager.lastIndex = Math.min(this.pager.lastIndex + this.pager.perPage, this.pager.totalRows);
-      });
     },
     /**
      * Retrieve the abbreviated action type, such as 'STD' or 'QCK'.
@@ -236,18 +254,20 @@ export default {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     entries() {
+      // Build our results array. Exit early if the length is 0.
       let result = this.packIndex;
-
       if (result.length < 1) {
         this.pager.totalRows = 0;
         return [];
       }
 
+      // Filter by name.
       if (this.name && this.name.length > 0) {
         const name = this.name.toLocaleLowerCase();
         result = result.filter(entry => entry.name.toLocaleLowerCase().includes(name));
       }
 
+      // Filter by level.
       if (this.levelRange.length == 2) {
         result = result.filter(entry =>
           entry.system.powerLevel.value >= this.levelRange[0] &&
@@ -255,24 +275,25 @@ export default {
         );
       }
 
+      // Filter by power source.
       if (this.powerSourceName && this.powerSourceName.length > 0) {
         const name = this.powerSourceName.toLocaleLowerCase();
         result = result.filter(entry => entry.system.powerSourceName.value.toLocaleLowerCase().includes(name));
       }
 
+      // Filter by triger.
       if (this.trigger && this.trigger.length > 0) {
         const name = this.trigger.toLocaleLowerCase();
         result = result.filter(entry => entry.system.trigger.value && entry.system.trigger.value.toLocaleLowerCase().includes(name));
       }
 
+      // Handle multiselect filters, which use arrays as their values.
       if (Array.isArray(this.powerType) && this.powerType.length > 0) {
         result = result.filter(entry => this.powerType.includes(entry.system.powerType.value));
       }
-
       if (Array.isArray(this.powerUsage) && this.powerUsage.length > 0) {
         result = result.filter(entry => this.powerUsage.includes(entry.system.powerUsage.value));
       }
-
       if (Array.isArray(this.actionType) && this.actionType.length > 0) {
         result = result.filter(entry => this.actionType.includes(entry.system.actionType.value));
       }
@@ -312,8 +333,10 @@ export default {
     },
   },
   watch: {},
+  // Handle created hook.
   async created() {
     console.log("Creating compendium browser powers tab...");
+    // Load the pack index with the fields we need.
     getPackIndex([
       'archmage.barbarian',
       'archmage.bard',
@@ -342,24 +365,31 @@ export default {
       'system.feats'
     ]).then(packIndex => this.packIndex = packIndex);
 
+    // Create our intersection observer for infinite scroll.
     this.observer = new IntersectionObserver(this.infiniteScroll, {
       root: this.$el,
       threshold: 0.1,
     });
   },
+  // Handle mounted hook.
   async mounted() {
     console.log("Compendium browser powers tab mounted.");
+
+    // Note that our tab has beened opened so that it won't de-render later.
     this.tab.opened = true;
 
+    // Adjust our observers whenever the results of the compendium browser
+    // are updated.
     onUpdated(() => {
-      console.log("Compendium browser magic items tab updated.");
       const target = document.querySelector('.compendium-browser-powers .compendium-browser-row-observe');
       if (target) {
         this.observer.observe(target);
       }
     });
   },
+  // Handle the unmount hook.
   async beforeUnmount() {
+    // Handle the unmount hook.
     this.observer.disconnect();
   }
 }
@@ -368,8 +398,4 @@ export default {
 <style lang="scss">
   @import "@vueform/slider/themes/default.css";
   @import "@vueform/multiselect/themes/default.css";
-
-  .multiselect {
-    width: 227px;
-  }
 </style>
