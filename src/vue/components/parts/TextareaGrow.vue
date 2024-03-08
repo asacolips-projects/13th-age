@@ -1,6 +1,6 @@
 <template>
-  <div :class="`${classes} grow-wrap`" :data-replicated-value="value">
-    <textarea :name="name" v-model="value" rows="1"></textarea>
+  <div :class="`${classes} grow-wrap`" :data-replicated-value="valueAttr">
+    <textarea :name="name" :value="valueAttr" @input="updateValue" rows="1"></textarea>
   </div>
 </template>
 
@@ -8,6 +8,19 @@
 export default {
   name: 'TextareaGrow',
   props: ['classes', 'value', 'name'],
-  computed: {}
+  data() {
+    return {
+      valueAttr: ''
+    }
+  },
+  methods: {
+    updateValue(event) {
+      this.valueAttr = event.target.value;
+      this.$emit('update:value', event.target.value);
+    }
+  },
+  async created() {
+    this.valueAttr = this.value ?? '';
+  }
 }
 </script>

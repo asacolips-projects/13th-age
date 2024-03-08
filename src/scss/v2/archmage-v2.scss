@@ -28,7 +28,8 @@
   @import 'components/journals/quote';
 
   // Character and NPC sheets.
-  &.sheet {
+  &.sheet,
+  &.archmage-dialog {
     // Specific.
     @import 'components/sheet';
     @import 'components/character/header';
@@ -44,6 +45,12 @@
     @import 'components/character/inventory';
     @import 'components/character/effects';
     @import 'components/character/settings';
+  }
+
+  &.archmage-dialog {
+    @import 'components/compendium-browser/compendium-browser';
+
+    min-width: 960px;
   }
 }
 

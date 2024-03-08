@@ -153,6 +153,13 @@ const SYSTEM_COPY = [
   'src/templates/**/*',
   'src/module/tours/configs/*'
 ];
+function copyVueDependencies() {
+  return gulp.src([
+      'node_modules/vue/dist/vue.esm-browser.js',
+      'node_modules/vue/dist/vue.esm-browser.prod.js'
+    ], {base: 'node_modules/vue/dist'})
+    .pipe(gulp.dest('./src/scripts/lib'));
+}
 function copyFiles() {
   return gulp.src(SYSTEM_COPY, {base: 'src'})
     .pipe(gulp.dest('./dist'))
@@ -249,6 +256,7 @@ exports.compilePacks = gulp.series(cleanPacks, compilePacks);
 exports.extractPacks = gulp.series(extractPacks);
 exports.build = gulp.series(
   cleanPacks,
+  copyVueDependencies,
   gulp.parallel(
     compileScss,
     compileYaml,
@@ -261,6 +269,7 @@ exports.build = gulp.series(
 );
 exports.prod = gulp.series(
   cleanPacks,
+  copyVueDependencies,
   gulp.parallel(
     compileScss,
     compileYaml,
@@ -273,6 +282,7 @@ exports.prod = gulp.series(
 );
 exports.noVite = gulp.series(
   cleanPacks,
+  copyVueDependencies,
   gulp.parallel(
     compileScss,
     compileYaml,

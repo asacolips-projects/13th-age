@@ -18,6 +18,7 @@ import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
+import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 
 
 Hooks.once('init', async function() {
@@ -112,6 +113,7 @@ Hooks.once('init', async function() {
     MacroUtils,
     rollItemMacro,
     ActorHelpersV2,
+    ArchmageCompendiumBrowserApplication,
     system: {
       moduleArt: {
         map: new Map(),
@@ -619,6 +621,20 @@ Hooks.once('ready', () => {
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
+  // Handle click events for the compendium browser.
+  document.addEventListener("click", (event) => {
+    if (event?.target?.classList && event.target.classList.contains("open-archmage-browser")) {
+      // Retrieve the existing compendium browser, if any.
+      let compendiumBrowser = Object.values(ui.windows).find(app => app.constructor.name == 'ArchmageCompendiumBrowserApplication');
+      // Otherwise, build a new one.
+      if (!compendiumBrowser) {
+        compendiumBrowser = new ArchmageCompendiumBrowserApplication({defaultTab: event.target.dataset.tab ?? 'creatures'});
+      }
+      // Render the browser.
+      compendiumBrowser.render(true);
+    }
+  });
+
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (['Item'].includes(data.type)) {
@@ -631,6 +647,28 @@ Hooks.once('ready', () => {
 
   // Build the module art map. See module/setup/register-module-art.js for more details.
   registerModuleArt();
+});
+
+/* ---------------------------------------------- */
+
+Hooks.on("renderDocumentDirectory", (app, html, options) => {
+  if (["actors", "items"].includes(options.tabName) && !options.cssId.toLowerCase().includes('compendium')) {
+    const htmlElement = html[0];
+    let compendiumButton = '';
+
+    if (options.tabName == "items") {
+      compendiumButton = `
+      <div class="flexrow">
+        <button type="button" class="open-archmage-browser" data-tab="powers"><i class="fas fa-swords"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browsePowers')}</button>
+        <button type="button" class="open-archmage-browser" data-tab="items"><i class="fas fa-wand-magic-sparkles"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseItems')}</button>
+      </div>`;
+    }
+    else {
+      compendiumButton = `<button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>`;
+    }
+    // Append button. Click handler added in 'ready' hook.
+    htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", compendiumButton);
+  }
 });
 
 /* -------------------------------------------- */
