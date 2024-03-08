@@ -1,11 +1,6 @@
 <template>
   <section class="section section--sidebar flexcol filters">
 
-    <!-- Reset. -->
-    <div class="unit unit--input">
-      <button type="reset" @click="resetFilters()">Reset</button>
-    </div>
-
     <!-- Sort. -->
     <div class="unit unit--input">
       <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
@@ -77,6 +72,11 @@
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.trigger">Trigger</label>
       <input type="text" id="compendiumBrowser.trigger" name="compendiumBrowser.trigger" v-model="trigger" placeholder="Even hit"/>
+    </div>
+
+    <!-- Reset. -->
+    <div class="unit unit--input flexrow">
+      <button type="reset" @click="resetFilters()">Reset</button>
     </div>
 
   </section>

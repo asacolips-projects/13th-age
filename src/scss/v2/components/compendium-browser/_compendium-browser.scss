@@ -24,6 +24,11 @@
         padding-top: 8px;
         border-top: 1px dashed $c-gray--25;
       }
+
+      &.flexrow {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
     }
 
     input[type="text"],
@@ -66,6 +71,11 @@
       &:focus {
         box-shadow: none;
         border: 2px solid;
+      }
+
+      &[type="reset"] {
+        flex: 0 auto;
+        width: auto;
       }
     }
   }

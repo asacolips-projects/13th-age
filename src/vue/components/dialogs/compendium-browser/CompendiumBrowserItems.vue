@@ -63,6 +63,11 @@
       />
     </div>
 
+    <!-- Reset. -->
+    <div class="unit unit--input flexrow">
+      <button type="reset" @click="resetFilters()">Reset</button>
+    </div>
+
   </section>
 
   <section class="section section--no-overflow">
@@ -188,6 +193,17 @@ export default {
           this.pager.totalRows
         );
       });
+    },
+    /**
+     * Click event to reset our filters.
+     */
+     resetFilters() {
+      this.sortBy = 'name';
+      this.name = '';
+      this.chakra = [];
+      this.recharge = [];
+      this.bonuses = [];
+      this.powerUsage = [];
     },
     getBonuses(equipment) {
       let bonuses = {};

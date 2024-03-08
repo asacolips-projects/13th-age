@@ -60,6 +60,12 @@
         :options="CONFIG.ARCHMAGE.creatureSizes"
       />
     </div>
+
+    <!-- Reset. -->
+    <div class="unit unit--input flexrow">
+      <button type="reset" @click="resetFilters()">Reset</button>
+    </div>
+
   </section>
 
   <div class="section section--no-overflow">
@@ -180,6 +186,17 @@ export default {
           this.pager.totalRows
         );
       });
+    },
+    /**
+     * Click event to reset our filters.
+     */
+     resetFilters() {
+      this.sortBy = 'level';
+      this.name = '';
+      this.levelRange = [1, 15];
+      this.type = [];
+      this.role = [];
+      this.size = [];
     },
   },
   computed: {
