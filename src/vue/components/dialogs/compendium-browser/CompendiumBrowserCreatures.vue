@@ -1,6 +1,6 @@
 <template>
   <section class="section section--sidebar flexcol filters">
-
+    <!-- Sort -->
     <div class="unit unit--input">
       <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
       <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
@@ -8,6 +8,7 @@
       </select>
     </div>
 
+    <!-- Level range slider. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.level">Level</label>
       <div class="level-range flexrow">
@@ -18,11 +19,13 @@
       </div>
     </div>
 
+    <!-- Name filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.name">Name</label>
-      <input type="text" id="compendiumBrowser.name" name="compendiumBrowser.name" v-model="name" placeholder="Hydra"/>
+      <input type="text" name="compendiumBrowser.name" v-model="name" placeholder="Hydra"/>
     </div>
 
+    <!-- Type filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.type">Type</label>
       <Multiselect
@@ -34,6 +37,7 @@
       />
     </div>
 
+    <!-- Role filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.role">Role</label>
       <Multiselect
@@ -45,6 +49,7 @@
       />
     </div>
 
+    <!-- Size filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.size">Size</label>
       <Multiselect
@@ -58,14 +63,20 @@
   </section>
 
   <div class="section section--no-overflow">
+    <!-- Creatures results. -->
     <section class="section section--creatures section--main flexcol">
       <ul class="compendium-browser-results compendium-browser-creatures">
+        <!-- Individual creature entries. -->
         <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`creature-summary compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document actor`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
-          <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry)" draggable="true"/>
-          <div class="flexcol creature-contents" @dragstart="startDrag($event, entry)" draggable="true">
+          <!-- Both the image and title have drag events. These are primarily separated so that -->
+          <!-- if a user drags the token, it will only show the token as their drag preview. -->
+          <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry, 'Actor')" draggable="true"/>
+          <div class="flexcol creature-contents" @dragstart="startDrag($event, entry, 'Actor')" draggable="true">
+            <!-- First row is the title. -->
             <div class="creature-title-wrapper">
               <strong class="creature-title"><span v-if="entry.system?.attributes?.level?.value">[{{ entry.system.attributes.level.value }}]</span> {{ entry?.name }}</strong>
             </div>
+            <!-- Second row is supplemental info. -->
             <div class="grid creature-grid">
               <div class="creature-defenses" data-tooltip="Defenses">
                 <span><strong>HP:</strong> {{ entry.system.attributes.hp.max }}</span>
@@ -85,37 +96,49 @@
 </template>
 
 <script>
+// onUpdated() is used for the infinite scroll intersection observer.
+import { onUpdated } from 'vue';
+// External components.
 import Slider from '@vueform/slider';
 import Multiselect from '@vueform/multiselect';
-import { getPackIndex, getActorModuleArt } from '@/methods/Helpers.js';
-import { onUpdated } from 'vue';
+// Helper methods.
+import {
+  getPackIndex,
+  getActorModuleArt,
+  openDocument,
+  startDrag
+} from '@/methods/Helpers.js';
 
 export default {
   name: 'CompendiumBrowserPowers',
   props: ['tab'],
+  // Imported components that need to be available in the <template>
   components: {
     Slider,
-    Multiselect
+    Multiselect,
   },
   setup() {
     return {
+      // Imported methods that need to be available in the <template>
+      getActorModuleArt,
+      openDocument,
+      startDrag,
       // Foundry base props and methods.
       CONFIG,
       game,
-      getActorModuleArt,
     }
   },
   data() {
     return {
+      // Props used for infinite scroll and pagination.
+      observer: null,
       pager: {
         perPage: 50,
-        pages: 0,
-        current: 1,
         firstIndex: 0,
         lastIndex: 50,
         totalRows: 0,
-        style: 'input'
       },
+      // Sorting.
       sortBy: 'level',
       sortOptions: [
         { value: 'level', label: 'Level' },
@@ -124,38 +147,38 @@ export default {
         { value: 'role', label: 'Role' },
         { value: 'size', label: 'Size' },
       ],
+      // Our list of pseudo documents returned from the compendium.
       packIndex: [],
+      // Filters.
       name: '',
       levelRange: [1, 15],
       type: [],
       role: [],
       size: [],
-      observer: null,
     }
   },
   methods: {
-    openDocument(uuid) {
-      getDocumentClass('Actor').fromDropData({
-        type: 'Actor',
-        uuid: uuid
-      }).then(document => {
-        document.sheet.render(true);
-      });
-    },
-    startDrag(event, entry) {
-      event.dataTransfer.setData('text/plain', JSON.stringify({
-        type: 'Actor',
-        uuid: entry.uuid
-      }));
-    },
+    /**
+     * Callback for the infinite scroll IntersectionObserver.
+     *
+     * @param {Array} List of IntersectionObserverEntry objects.
+     */
     infiniteScroll(entries) {
+      // Iterate over our possible elements.
       entries.forEach(({target, isIntersecting}) => {
+        // If the element isn't visible, do nothing.
         if (!isIntersecting) {
           return;
         }
 
+        // Otherwise, remove the observer and update our pager properties.
+        // We need to increase the lastIndex for our filter by an amount
+        // equal to our number of entries per page.
         this.observer.unobserve(target);
-        this.pager.lastIndex = Math.min(this.pager.lastIndex + this.pager.perPage, this.pager.totalRows);
+        this.pager.lastIndex = Math.min(
+          this.pager.lastIndex + this.pager.perPage,
+          this.pager.totalRows
+        );
       });
     },
   },
@@ -164,18 +187,20 @@ export default {
       return game.settings.get("archmage", "nightmode") ? 'nightmode' : '';
     },
     entries() {
+      // Build our results array. Exit early if the length is 0.
       let result = this.packIndex;
-
       if (result.length < 1) {
         this.pager.totalRows = 0;
         return [];
       }
 
+      // Filter by name.
       if (this.name && this.name.length > 0) {
         const name = this.name.toLocaleLowerCase();
         result = result.filter(entry => entry.name.toLocaleLowerCase().includes(name));
       }
 
+      // Filter by level range.
       if (this.levelRange.length == 2) {
         result = result.filter(entry =>
           entry.system.attributes.level.value >= this.levelRange[0] &&
@@ -183,14 +208,13 @@ export default {
         );
       }
 
+      // Handle multiselect filters, which use arrays as their values.
       if (Array.isArray(this.type) && this.type.length > 0) {
         result = result.filter(entry => this.type.includes(entry.system.details.type.value));
       }
-
       if (Array.isArray(this.role) && this.role.length > 0) {
         result = result.filter(entry => this.role.includes(entry.system.details.role.value));
       }
-
       if (Array.isArray(this.size) && this.size.length > 0) {
         result = result.filter(entry => this.size.includes(entry.system.details.size.value));
       }
@@ -228,8 +252,11 @@ export default {
     },
   },
   watch: {},
+  // Handle created hook.
   async created() {
     console.log("Creating compendium browser creatures tab...");
+
+    // Load the pack index with the fields we need.
     getPackIndex([
       'archmage.srd-Monsters',
       'archmage.animal-companions',
@@ -245,34 +272,38 @@ export default {
       'system.details.type.value'
     ]).then(packIndex => this.packIndex = packIndex);
 
+    // Create our intersection observer for infinite scroll.
     this.observer = new IntersectionObserver(this.infiniteScroll, {
       root: this.$el,
       threshold: 0.1,
     });
   },
+  // Handle mounted hook.
   async mounted() {
     console.log("Compendium browser creatures tab mounted.");
+
+    // Note that our tab has beened opened so that it won't de-render later.
     this.tab.opened = true;
 
+    // Adjust our observers whenever the results of the compendium browser
+    // are updated.
     onUpdated(() => {
-      console.log("Compendium browser creatures tab updated.");
       const target = document.querySelector('.compendium-browser-creatures .compendium-browser-row-observe');
       if (target) {
         this.observer.observe(target);
       }
     });
   },
+  // Handle the unmount hook.
   async beforeUnmount() {
+    // Disconnect intersection observers when we unmount.
     this.observer.disconnect();
   }
 }
 </script>
 
 <style lang="scss">
+  // Import our component styles.
   @import "@vueform/slider/themes/default.css";
   @import "@vueform/multiselect/themes/default.css";
-
-  .multiselect {
-    width: 227px;
-  }
 </style>

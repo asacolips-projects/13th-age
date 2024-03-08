@@ -321,12 +321,12 @@ export function getActorModuleArt(actor) {
 }
 
 /**
-   * Retrieve index for a list of compendiums.
-   *
-   * @param {Array} packNames Array of compendiums to index.
-   * @param {Array} fields Array of field paths to include in the index.
-   * @returns Combined entries from the queried compendiums.
-   */
+ * Retrieve index for a list of compendiums.
+ *
+ * @param {Array} packNames Array of compendiums to index.
+ * @param {Array} fields Array of field paths to include in the index.
+ * @returns Combined entries from the queried compendiums.
+ */
 export async function getPackIndex(packNames = [], fields = []) {
   if (!packNames) return;
   if (!fields || fields.length < 1) return;
@@ -340,4 +340,37 @@ export async function getPackIndex(packNames = [], fields = []) {
   }
 
   return packs;
+}
+
+/**
+ * Open a document's sheet based on its uuid.
+ *
+ * @param {string} uuid Document UUID to open.
+ * @param {string} type Document type to open. Defaults to 'Actor'.
+ */
+export function openDocument(uuid, type = 'Actor') {
+  getDocumentClass(type).fromDropData({
+    type: type,
+    uuid: uuid
+  }).then(document => {
+    if (document?.sheet) {
+      document.sheet.render(true);
+    }
+    else {
+      console.warn(`No document found for ${uuid}`);
+    }
+  });
+}
+
+/**
+ * Starts a drag event and provides document drop data.
+ *
+ * @param {Event} event Drag event.
+ * @param {Object} entry Pack index entry object.
+ */
+export function startDrag(event, entry, type = 'Actor') {
+  event.dataTransfer.setData('text/plain', JSON.stringify({
+    type: type,
+    uuid: entry.uuid
+  }));
 }
