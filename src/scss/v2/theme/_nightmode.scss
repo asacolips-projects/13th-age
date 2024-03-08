@@ -14,7 +14,9 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       color: rgba($c-white, 0.6);
     }
 
-    select {
+    select,
+    .multiselect,
+    .multiselect-dropdown {
       color: $c-white;
       border-color: $c-black;
       background: #111;
@@ -168,8 +170,8 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       color: #c17a58;
     }
 
-    .power-trigger,
-    .power-trigger::before {
+    .power-trigger-tooltip,
+    .power-trigger-tooltip::before {
       background: #111 !important;
       color: $c-white !important;
       border-color: $ct-border-night !important;
