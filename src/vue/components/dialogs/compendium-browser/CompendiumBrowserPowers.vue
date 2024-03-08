@@ -1,6 +1,12 @@
 <template>
   <section class="section section--sidebar flexcol filters">
 
+    <!-- Reset. -->
+    <div class="unit unit--input">
+      <button type="reset" @click="resetFilters()">Reset</button>
+    </div>
+
+    <!-- Sort. -->
     <div class="unit unit--input">
       <label for="compendiumBrowser.sort" class="unit-title">Sort</label>
       <select class="sort" name="compendiumBrowser.sort" v-model="sortBy">
@@ -8,6 +14,7 @@
       </select>
     </div>
 
+    <!-- Level range slider. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerLevel">Level</label>
       <div class="level-range flexrow">
@@ -18,16 +25,19 @@
       </div>
     </div>
 
+    <!-- Filter name. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerName">Name</label>
       <input type="text" id="compendiumBrowser.powerName" name="compendiumBrowser.powerName" v-model="name" placeholder="Fireball"/>
     </div>
 
+    <!-- Filter source. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerSourceName">Source</label>
       <input type="text" id="compendiumBrowser.powerSourceName" name="compendiumBrowser.powerSourceName" v-model="powerSourceName" placeholder="Fighter"/>
     </div>
 
+    <!-- Filter type. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerType">Type</label>
       <Multiselect
@@ -39,6 +49,7 @@
       />
     </div>
 
+    <!-- Filter usage. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.powerUsage">Usage</label>
       <Multiselect
@@ -50,6 +61,7 @@
       />
     </div>
 
+    <!-- Filter action. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.actionType">Action</label>
       <Multiselect
@@ -61,6 +73,7 @@
       />
     </div>
 
+    <!-- Filter trigger. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.trigger">Trigger</label>
       <input type="text" id="compendiumBrowser.trigger" name="compendiumBrowser.trigger" v-model="trigger" placeholder="Even hit"/>
@@ -161,6 +174,16 @@ export default {
         type: 'Item',
         uuid: entry.uuid
       }));
+    },
+    resetFilters() {
+      this.sortBy = 'level';
+      this.name = '';
+      this.levelRange = [1, 10];
+      this.actionType = [];
+      this.powerType = [];
+      this.powerSourceName = '';
+      this.powerUsage = [];
+      this.trigger = '';
     },
     infiniteScroll(entries) {
       entries.forEach(({target, isIntersecting}) => {

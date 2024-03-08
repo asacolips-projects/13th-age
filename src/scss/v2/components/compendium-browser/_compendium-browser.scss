@@ -58,6 +58,16 @@
         box-shadow: 0 0 5px $c-black;
       }
     }
+
+    button {
+      font-size: 18px;
+      font-family: $font-stack-base;
+
+      &:focus {
+        box-shadow: none;
+        border: 2px solid;
+      }
+    }
   }
 
   .pager {

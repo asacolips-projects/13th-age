@@ -14,6 +14,10 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       color: rgba($c-white, 0.6);
     }
 
+    .slider-base {
+      background-color: #111;
+    }
+
     select,
     .multiselect,
     .multiselect-dropdown {
