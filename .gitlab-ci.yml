@@ -1,18 +1,85 @@
 image: node:18
 
-# workflow:
-#   rules:
-#   - if: '$CI_PROJECT_NAMESPACE != "asacolips-projects"'
-#     when: never
-#   - when: always
+stages:
+  - test
+  - build
+  ## Currently no deploy step since we're using gitlab artifacts.
+  # - deploy
 
 before_script:
   - apt-get update
   - apt-get install zip
 
+# Add caching for node_modules/ between stages.
 cache:
   paths:
     - node_modules/
+
+# Install node dependencies.
+install:
+  stage: .pre
+  script:
+    - npm ci
+  only:
+    - branches
+
+# Lint for errors.
+lint-errors:
+  stage: test
+  script:
+    - npm run lint:error
+  only:
+    - branches
+
+# Lint for warnings, but allow failure.
+lint-warnings:
+  stage: test
+  script:
+    - npm run lint
+  allow_failure: true
+  only:
+    - branches
+
+# Build the actual prod artifact.
+build-prod:
+  stage: build
+  script:
+    - export
+    - npm ci
+    - npm run build:prod
+    - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME  --tag=$CI_COMMIT_TAG
+    - cd dist && zip -q ../archmage.zip -r . && cd ../
+  artifacts:
+    paths:
+      - archmage.zip
+      - system.json
+  only:
+    - tags
+
+#############################################################################################
+### Beta branch building has been discontinued in favor of beta tags versions.            ###
+###                                                                                       ###
+#############################################################################################
+# build-beta:
+#   stage: build
+#   script:
+#     - export
+#     - npm ci
+#     - npm run build:prod
+#     - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME --versionpre=$CI_PIPELINE_IID
+#     - cd dist && zip -q ../archmage.zip -r . && cd ../
+#   artifacts:
+#     paths:
+#       - archmage.zip
+#       - system.json
+#   only:
+#     - beta
+
+
+#############################################################################################
+### This is the old preview build for monsters. Not really compatible with forks, so it's ###
+### disabled for now. Revisit in the future.                                              ###
+#############################################################################################
 
 # test-build:
 #   stage: test
@@ -34,33 +101,3 @@ cache:
 #   except:
 #     - beta
 #     - tags
-
-build-beta:
-  stage: build
-  script:
-    - export
-    - npm ci
-    - npm run build:prod
-    - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME --versionpre=$CI_PIPELINE_IID
-    - cd dist && zip -q ../archmage.zip -r . && cd ../
-  artifacts:
-    paths:
-      - archmage.zip
-      - system.json
-  only:
-    - beta
-
-build-prod:
-  stage: build
-  script:
-    - export
-    - npm ci
-    - npm run build:prod
-    - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME  --tag=$CI_COMMIT_TAG
-    - cd dist && zip -q ../archmage.zip -r . && cd ../
-  artifacts:
-    paths:
-      - archmage.zip
-      - system.json
-  only:
-    - tags
