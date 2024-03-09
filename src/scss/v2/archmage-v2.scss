@@ -1,5 +1,9 @@
 @import 'init';
 
+// General layout.
+@import 'layout/grid';
+@import 'layout/flex';
+
 // Theme overrides.
 @import 'application/window';
 
@@ -78,8 +82,6 @@
 }
 
 .chat-sidebar {
-  @import 'layout/grid';
-  @import 'layout/flex';
   @import 'components/chat/ongoing-effects';
 }
 
