@@ -20,7 +20,7 @@ cache:
 install:
   stage: .pre
   script:
-    - npm install --cache .npm --prefer-offline
+    - npm install --cache .npm
   when: manual
   allow_failure: false
   rules:
