@@ -387,16 +387,6 @@ ARCHMAGE.actionTypesShort = {
   'interrupt': 'INT'
 };
 
-ARCHMAGE.effectDurations = {
-  StartOfNextTurn: 0,
-  EndOfNextTurn: 1,
-  StartOfNextSourceTurn: 2,
-  EndOfNextSourceTurn: 3,
-  EasySaveEnds: 4,
-  NormalSaveEnds: 5,
-  HardSaveEnds: 6,
-};
-
 ARCHMAGE.effectDurationTypes = {
   'Infinite': 'ARCHMAGE.DURATION.Infinite',
   'StartOfNextTurn': "ARCHMAGE.DURATION.StartOfNextTurn",

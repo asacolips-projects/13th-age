@@ -60,7 +60,7 @@ export class ArchmageMacros {
         { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
       ]
     }
-    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
@@ -146,7 +146,7 @@ export class ArchmageMacros {
     }
 
     let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
-    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
 
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }

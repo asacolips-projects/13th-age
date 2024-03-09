@@ -521,36 +521,42 @@ export class ArchmageUtility {
 export class MacroUtils {
   /**
    * Generate durations for active effects
-   * Done here to simplify future compatibility with core support for AE expiry
-   * Currently relies on the times-up module
-   * TODO: change to core Foundry when (if) support comes
    */
   static setDuration(data, duration, options={}) {
     switch(duration) {
-      case CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn:
-        data['flags.archmage.duration'] = ["StartOfNextTurn"]
+      case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn:
+        data['flags.archmage.duration'] = "StartOfNextTurn";
         break;
-      case CONFIG.ARCHMAGE.effectDurations.EndOfNextTurn:
-        data['flags.archmage.duration'] = ["EndOfNextTurn"];
+      case CONFIG.ARCHMAGE.effectDurationTypes.EndOfNextTurn:
+        data['flags.archmage.duration'] = "EndOfNextTurn";
         break;
-      case CONFIG.ARCHMAGE.effectDurations.StartOfNextSourceTurn:
-        data['flags.archmage.duration'] = ["StartOfNextSourceTurn"];
+      case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn:
+        data['flags.archmage.duration'] = "StartOfNextSourceTurn";
         data.origin = options.sourceTurnUuid;
         break;
-      case CONFIG.ARCHMAGE.effectDurations.EndOfNextSourceTurn:
-        data['flags.archmage.duration'] = ["EndOfNextSourceTurn"];
+      case CONFIG.ARCHMAGE.effectDurationTypes.EndOfNextSourceTurn:
+        data['flags.archmage.duration'] = "EndOfNextSourceTurn";
         data.origin = options.sourceTurnUuid;
         break;
-      case CONFIG.ARCHMAGE.effectDurations.EasySaveEnds:
+      case CONFIG.ARCHMAGE.effectDurationTypes.EasySaveEnds:
         data['flags.archmage.duration'] = "EasySaveEnds";
         break;
-      case CONFIG.ARCHMAGE.effectDurations.NormalSaveEnds:
+      case CONFIG.ARCHMAGE.effectDurationTypes.NormalSaveEnds:
         data['flags.archmage.duration'] = "NormalSaveEnds";
         break;
-      case CONFIG.ARCHMAGE.effectDurations.HardSaveEnds:
+      case CONFIG.ARCHMAGE.effectDurationTypes.HardSaveEnds:
         data['flags.archmage.duration'] = "HardSaveEnds";
         break;
+      case CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat:
+        data['flags.archmage.duration'] = "EndOfCombat";
+        break;
+      case CONFIG.ARCHMAGE.effectDurationTypes.Infinite:
+        data['flags.archmage.duration'] = "Infinite";
+        break;
+      default:
+        console.warn("Unknown duration ", duration);
     }
+
     return data;
   }
 

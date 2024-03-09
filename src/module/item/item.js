@@ -574,7 +574,7 @@ export class ItemArchmage extends Item {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       }]
     }
-    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
