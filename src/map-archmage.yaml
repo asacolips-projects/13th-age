@@ -1877,3 +1877,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/xorn.webp
       scale: 1.5
+
+  # Hellstone Gargoyle
+  R6lhAiA1q9McUYhy: # Beautific Gargoyle
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/gargoyle.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/gargoyle.webp
+      scale: 1.5
+  UcT89YkGypZiqSts: # Hallowed Gargoyle
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/gargoyle.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/gargoyle.webp
+      scale: 1.5
+  f2XCtGbD1H5gxTrF: # Hellstone Gargoyle
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/gargoyle.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/gargoyle.webp
+      scale: 1.5
