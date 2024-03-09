@@ -45,8 +45,10 @@
               </div>
             </div>
             <!-- Expanded action content. -->
-            <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))" :style="getActionStyle(action._id)">
-              <Action :action="action" :ref="concat('action--', action._id)"/>
+            <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))">
+              <Transition name="slide-fade">
+                <Action v-if="activeActions[action._id]" :action="action" :ref="concat('action--', action._id)"/>
+              </Transition>
             </div>
           </li>
         </ul>
@@ -225,25 +227,6 @@ export default {
           this.activeActions[id] = true;
         }
       }
-    },
-    /**
-     * Calculate CSS height of actions.
-     */
-    getActionStyle(actionsId) {
-      // Retrieve the element from our refs.
-      let actions = this.$refs[`action--${actionsId}`];
-      let height = 0;
-
-      // Set the height if there's a ref.
-      if (actions) {
-        const element = this.$el.querySelector(`.action-item--${actionsId} .action-content .action`);
-        height = this.activeActions[actionsId] ? `${element.offsetHeight + 2}px` : `0px`;
-      }
-
-      // Return CSS style object.
-      return {
-        maxHeight: height
-      };
     },
     imageNotEmpty(action) {
       return action?.img && action.img !== 'icons/svg/mystery-man.svg' && action.img !== CONFIG.ARCHMAGE.defaultTokens[action.type];

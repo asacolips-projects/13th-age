@@ -84,9 +84,9 @@
   <section class="section section--no-overflow">
     <!-- Power results. -->
     <section class="section section--powers section--main flexcol">
-      <ul class="compendium-browser-results compendium-browser-powers">
+      <ul class="compendium-browser-results compendium-browser-powers" :key="escalation">
         <!-- Individual powers entries. -->
-        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${(entry.system.powerUsage.value ? entry.system.powerUsage.value : 'other')} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid, 'Item')" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
+        <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${powerUsageClass(entry)} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid, 'Item')" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
           <!-- Both the image and title have drag events. These are primarily separated so that -->
           <!-- if a user drags the token, it will only show the token as their drag preview. -->
           <img :src="entry.img" @dragstart="startDrag($event, entry, 'Item')" draggable="true"/>
@@ -130,7 +130,7 @@ import {
 
 export default {
   name: 'CompendiumBrowserPowers',
-  props: ['tab'],
+  props: ['tab', 'escalation'],
   // Imported components that need to be available in the <template>
   components: {
     Slider,
@@ -221,6 +221,20 @@ export default {
         return CONFIG.ARCHMAGE.actionTypesShort[actionType];
       }
       return CONFIG.ARCHMAGE.actionTypesShort['standard'];
+    },
+    /**
+     * Compute CSS class to assign based on special usage
+     */
+     powerUsageClass(power) {
+      let use = power.system.powerUsage.value ? power.system.powerUsage.value : 'other';
+      if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
+      else if (use == 'cyclic') {
+        if (this.escalation > 0
+          && this.escalation % 2 == 0) {
+          use = 'at-will cyclic';
+        } else use = 'once-per-battle cyclic';
+      }
+      return use;
     },
     /**
      * Determine if this power has one or more feats.
