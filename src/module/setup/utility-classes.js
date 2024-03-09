@@ -28,15 +28,15 @@ export class ArchmageUtility {
     if (!chatData.flags.core) {
       chatData.flags.core = {};
     }
-    if (!chatData.flags.core.hasOwnProperty("canPopout")) {
+    if (!foundry.utils.hasProperty(chatData.flags.core, "canPopout")) {
       chatData.flags.core.canPopout = true;
     }
 
     if (!context) {
       context = {};
     }
-    
-    if (!context.hasOwnProperty("rollMode")) {
+
+    if (!foundry.utils.hasProperty(context, "rollMode")) {
       // Default roll mode set via chat box.
       context.rollMode = game.settings.get("core", "rollMode");
     }
@@ -370,7 +370,7 @@ export class ArchmageUtility {
     }
     return bonusProp;
   }
-  
+
   static fixVuePopoutBug() {
     // Workaround for upstream Vue bug:
     // https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/issues/177
