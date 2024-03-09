@@ -34,7 +34,6 @@ module.exports = {
     "array-bracket-spacing": ["warn", "never"],
     "array-callback-return": "warn",
     "arrow-spacing": "warn",
-    "brace-style": "warn",
     "comma-dangle": ["warn", "never"],
     "comma-style": "warn",
     "computed-property-spacing": "warn",
@@ -183,6 +182,7 @@ module.exports = {
     "@stylistic/js/quotes": ["warn", "double", { avoidEscape: true, allowTemplateLiterals: true }],
     "@stylistic/js/space-in-parens": "warn",
     "@stylistic/js/object-curly-spacing": ["warn", "always"],
+    "@stylistic/js/brace-style": ["warn", "stroustrup"],
 
     "jsdoc/check-access": "warn",
     "jsdoc/check-alignment": "warn",
