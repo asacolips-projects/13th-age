@@ -2067,3 +2067,40 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/bestial/amphibian/frog-giant.webp
       scale: 1
+
+  # Faun
+  3HJvPqBvWUmt62lo: # Faun Bandleader
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/gancanagh.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/gancanagh.webp
+      scale: 1
+  pSK5x6jV7EkbGBlR: # Faun Enchanter
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/gancanagh.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/gancanagh.webp
+      scale: 1
+  4IhyChAGzsnyBAio: # Faun Harrier
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/bralani.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/bralani.webp
+      scale: 1
+  spYDa8lpVkB9I3tG: # Faun Keeper
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/ghaele.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/ghaele.webp
+      scale: 1.5
+  XgbQUmZFG7L74XZ2: # Faun Outlaw
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/veranallia.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/veranallia.webp
+      scale: 1
+  sNqZkXhVauJJGJ3F: # Faun Ranger
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/bralani.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/bralani.webp
+      scale: 1
+  oK3jWzxv8YQoNyME: # Faun Troubadour
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/gancanagh.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/gancanagh.webp
+      scale: 1
