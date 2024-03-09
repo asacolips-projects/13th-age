@@ -5,8 +5,6 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '',
-  publicDir: './dist',
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, 'src/vue')}/`,
@@ -22,11 +20,10 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
-    outDir: './public',
-    emptyOutDir: false,
+    outDir: './dist/vue',
     lib: {
       entry: path.resolve(__dirname, 'src/vue/index.js'),
-      name: 'v3boilerplateVueComponents',
+      name: 'v3ArchmageVueComponents',
       formats: ['es'], // also supports 'umd'
       fileName: (format) => `components.vue.${format}.js`,
     },
@@ -34,9 +31,6 @@ export default defineConfig({
       external: [
         'vue',
       ],
-      input: {
-        main: resolve(__dirname, 'index.html')
-      },
       output: {
         // Provide global variables to use in the UMD build
         // Add external deps here
@@ -45,7 +39,7 @@ export default defineConfig({
         },
         // Map the external dependency to a local copy of Vue 3 esm.
         paths: {
-          vue: `./scripts/lib/vue.esm-browser.js`
+          vue: `../scripts/lib/vue.esm-browser.js`
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name == 'style.css')

@@ -2,7 +2,8 @@ $c-night: #292929;
 $c-night-darker: #191919;
 $bx-night: inset 0 0 100px 0 $c-night-darker;
 
-.archmage-v2.sheet .window-content {
+.archmage-v2.sheet .window-content,
+.archmage-v2.archmage-dialog .window-content {
   .archmage-v2-vue.nightmode {
     // background-image: url('#{$assets}/paper-v2-nightmode.webp');
     background: $c-night;
@@ -13,7 +14,13 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       color: rgba($c-white, 0.6);
     }
 
-    select {
+    .slider-base {
+      background-color: #111;
+    }
+
+    select,
+    .multiselect,
+    .multiselect-dropdown {
       color: $c-white;
       border-color: $c-black;
       background: #111;
@@ -167,8 +174,8 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       color: #c17a58;
     }
 
-    .power-trigger,
-    .power-trigger::before {
+    .power-trigger-tooltip,
+    .power-trigger-tooltip::before {
       background: #111 !important;
       color: $c-white !important;
       border-color: $ct-border-night !important;

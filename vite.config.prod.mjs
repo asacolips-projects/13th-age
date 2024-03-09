@@ -1,4 +1,4 @@
-import path, { resolve } from 'path'
+import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -23,7 +23,7 @@ export default defineConfig({
     outDir: './dist/vue',
     lib: {
       entry: path.resolve(__dirname, 'src/vue/index.js'),
-      name: 'v3boilerplateVueComponents',
+      name: 'v3ArchmageVueComponents',
       formats: ['es'], // also supports 'umd'
       fileName: (format) => `components.vue.${format}.js`,
     },
@@ -39,7 +39,7 @@ export default defineConfig({
         },
         // Map the external dependency to a local copy of Vue 3 esm.
         paths: {
-          vue: `../scripts/lib/vue.esm-browser.js`
+          vue: `../scripts/lib/vue.esm-browser.prod.js`
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name == 'style.css')

@@ -1,0 +1,278 @@
+.container--top {
+  @include borderBottom;
+  @include borderWide;
+  margin-bottom: 18px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.container--bottom {
+  .filters {
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    > .unit {
+      flex: 0 auto;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      width: 100%;
+
+      + .unit {
+        padding-top: 8px;
+        border-top: 1px dashed $c-gray--25;
+      }
+
+      &.flexrow {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    .multiselect {
+      width: 100%;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.2;
+      height: auto;
+      padding: 4px;
+    }
+
+    input {
+      text-align: left;
+    }
+
+    .sort {
+      background: $c-blue;
+      color: $c-white;
+      border: none;
+      padding: 5px 10px;
+      height: auto;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 5px $c-black;
+      }
+    }
+
+    button {
+      font-size: 18px;
+      font-family: $font-stack-base;
+
+      &:focus {
+        box-shadow: none;
+        border: 2px solid;
+      }
+
+      &[type="reset"] {
+        flex: 0 auto;
+        width: auto;
+      }
+    }
+  }
+
+  .pager {
+
+    button {
+      background: $c-gray--25;
+      color: $c-black;
+      border: none;
+
+      &:hover,
+      &:focus {
+        color: $c-blue;
+        background: $c-white;
+      }
+    }
+  }
+
+  .compendium-browser-results {
+    margin: 0;
+    padding: 0;
+  }
+
+  .compendium-browser-row {
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #999;
+    padding: 0 2px;
+    cursor: pointer;
+
+    img {
+      flex: 0 auto;
+      width: 50px;
+      height: 50px;
+      border: none;
+      margin-right: 5px;
+    }
+
+    .grid {
+      grid-row-gap: 0;
+      margin: 0;
+    }
+
+    .power-grid {
+      grid-template-columns: auto 36px 44px 60px;
+    }
+
+    .power-title-wrapper,
+    .equipment-title-wrapper,
+    .creature-title-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .power-title,
+      .equipment-title,
+      .creature-title {
+        flex: 1;
+      }
+    }
+
+    .power-source,
+    .power-usage {
+      flex: 0 auto;
+      text-align: right;
+    }
+
+    .power-contents,
+    .equipment-contents,
+    .creature-contents {
+      padding: 2px 6px 4px 4px;
+    }
+
+    .power-trigger {
+      display: block;
+      grid-column-start: 1;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .power-feat-pips {
+      grid-column-start: 2;
+    }
+
+    .power-recharge {
+      grid-column-start: 3;
+    }
+
+    .power-action {
+      grid-column-start: 4;
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    .equipment-grid {
+      grid-template-columns: auto 100px 60px 60px;
+    }
+
+    .equipment-title {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .equipment-bonus {
+      grid-column-start: 1;
+      align-items: center;
+      justify-content: flex-end;
+
+      .bonus {
+        flex: 0 auto;
+        padding: 2px 6px;
+        margin: 0 2px;
+      }
+    }
+
+    .equipment-usage {
+      grid-column-start: 2;
+    }
+
+    .equipment-chakra {
+      grid-column-start: 3;
+    }
+
+    .equipment-recharge {
+      grid-column-start: 4;
+    }
+
+    &.creature-summary {
+      margin: 0 0 1px 0;
+      position: relative;
+    }
+
+    .creature-grid {
+      grid-template-columns: auto 100px 100px 100px;
+      gap: 2px;
+      font-size: $font-tiny;
+      font-family: $font-stack-label;
+      text-align: center;
+
+      > * {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .creature-defenses {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        > * {
+          flex: 0 auto;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  .section--powers,
+  .section--inventory {
+    .compendium-browser-row {
+      border-bottom: 0;
+      padding-bottom: 1px;
+    }
+  }
+}
+
+// Override ranger slider styles.
+.slider-wrapper {
+  width: 227px;
+  padding: 0 10px 0 20px;
+}
+
+.slider-connect {
+  background: $c-blue;
+}
+
+.level-range {
+  align-items: center;
+}
+
+.level-label {
+  flex: 0 auto;
+  font-family: $font-stack-base;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+// Override multiselect styles.
+.multiselect-tag {
+  background-color: $c-blue;
+}
+
+.multiselect {
+  &.is-active {
+    box-shadow: none;
+  }
+}
