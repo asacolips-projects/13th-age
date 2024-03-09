@@ -416,6 +416,9 @@ ARCHMAGE:
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
+    tier: Tier
+    relatedIcons: Related Icons
+    relatedIconsPlaceholder: "Archmage, High Druid, etc."
     saveBonus: Save Bonus
     saveBonusHPTreshold: Save Bonus HP Threshold
     usesMax: Maximum Uses

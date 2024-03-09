@@ -63,6 +63,7 @@ export class ItemArchmageSheet extends ItemSheet {
     // Equipment-specific data
     else if (this.item.type === 'equipment') {
       context['equipUsages'] = CONFIG.ARCHMAGE.equipUsages;
+      context['tiers'] = CONFIG.ARCHMAGE.itemTiers;
     }
 
     if (this.actor) {

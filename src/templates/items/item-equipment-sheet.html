@@ -19,6 +19,19 @@
 
               <div class="tab" data-group="primary" data-tab="details">
                   <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.tier'}}</strong>
+                      <select name="system.details.tier">
+                          {{selectOptions tiers selected=system.details.tier}}
+                      </select>
+                  </div>
+
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.relatedIcons'}}</strong>
+                      <input name="system.details.relatedIcons" type="text" value="{{system.details.relatedIcons}}"
+                             data-dtype="String" placeholder="{{localize 'ARCHMAGE.ITEM.relatedIconsPlaceholder'}}" />
+                  </div>
+
+                  <div class="settings-group">
                       <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.price'}}</strong>
                       <input name="system.price.value" type="text" value="{{system.price.value}}"
                           data-dtype="String" placeholder="{{localize 'ARCHMAGE.ITEM.pricePlaceholder'}}" />
