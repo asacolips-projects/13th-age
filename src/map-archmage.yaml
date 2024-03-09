@@ -1849,3 +1849,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/arboreal-reaper.webp
       scale: 1
+
+  # Xorn
+  3MNGAtjTfqVsjPT4: # Great Xorn
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/xorn.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/xorn.webp
+      scale: 1.5
+  knPjTlizqzrvjmCw: # Lesser Xorn
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/xorn.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/xorn.webp
+      scale: 1.5
