@@ -11,7 +11,7 @@ stages:
 cache:
   key:
     files:
-      - package-lock.json
+      - yarn.lock
   paths:
     - node_modules/
     - .npm
@@ -20,7 +20,8 @@ cache:
 install:
   stage: .pre
   script:
-    - npm install --cache .npm
+    - npm install -g yarn
+    - yarn install
   when: manual
   allow_failure: false
   rules:
@@ -30,7 +31,7 @@ install:
 lint-errors:
   stage: lint:errors
   script:
-    - npm run lint:errors
+    - yarn lint:errors
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
       changes:
@@ -40,12 +41,12 @@ lint-errors:
 lint-warnings:
   stage: lint:warnings
   script:
-    - npm run lint
+    - yarn lint
+  allow_failure: true
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
       changes:
         - src/**/*.{js, cjs, mjs}
-    - needs: ['install']
 
 # Build the actual prod artifact.
 build-prod:
