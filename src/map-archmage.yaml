@@ -975,6 +975,11 @@ srd-Monsters:
   s2ke2UHFXQZHU2Ud: # Seven-headed Hydra
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/hydra.webp
     token: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/hydra.webp
+  2NoVAOndXBpQUNKV: # Chaos Hydra
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/hydra.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/hydra.webp
+      scale: 1
   # Ice Zombie
   mRBoJt1YmeKCG4BC:
     actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/ice-golem.webp
