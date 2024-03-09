@@ -15,9 +15,9 @@
     </a>
     {{#if effect.otherName}}
         <span class="grid-span-2">on {{effect.otherName}}</span>
-        {{> effect-actions showApply=false showSave=false showDel=showDel span=1}}
+        {{> effect-actions showApply=false showSave=false showDel=false span=1}}
     {{else}}
-        {{> effect-actions showApply=false showSave=false showDel=showDel span=2}}
+        {{> effect-actions showApply=false showSave=false showDel=false span=2}}
     {{/if}}
 </div>
 {{/inline}}
@@ -29,7 +29,7 @@
         data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
-    {{> effect-actions showApply=false showSave=true showDel=showDel span=2}}
+    {{> effect-actions showApply=false showSave=true showDel=true span=2}}
 </div>
 {{/inline}}
 
@@ -58,7 +58,7 @@
             <h4>{{{localize "ARCHMAGE.CHAT.ongoingSelfEnded"}}}</h4>
             <div class="effects-wrapper flexcol">
                 {{#each selfEnded as |effect|}}
-                    {{> condition effect=effect showDel=showDel}}
+                    {{> condition effect=effect}}
                 {{/each}}
             </div>
         </div>
@@ -70,7 +70,7 @@
             <h4>{{{localize "ARCHMAGE.CHAT.ongoingOtherEnded"}}}</h4>
             <div class="effects-wrapper flexcol">
                 {{#each otherEnded as |effect|}}
-                    {{> condition effect=effect showDel=showDel}}
+                    {{> condition effect=effect}}
                 {{/each}}
             </div>
         </div>
