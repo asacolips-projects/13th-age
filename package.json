@@ -29,6 +29,7 @@
     "build-storybook": "build-storybook",
     "lint": "eslint --ext .js,.cjs,.mjs .",
     "lint:fix": "eslint --ext .js,.cjs,.mjs --fix .",
+    "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs .",
     "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs .",
     "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix ."
   },
