@@ -28,6 +28,7 @@ module.exports = {
     // significant refactors and need testing first.
     "no-case-declarations": "off",
     "no-inner-declarations": "off",
+    "no-var": "off",
     eqeqeq: ["off", "smart"],
     // Rules.
     "array-bracket-spacing": ["warn", "never"],
@@ -114,7 +115,6 @@ module.exports = {
     "no-useless-constructor": "warn",
     "no-useless-rename": "warn",
     "no-useless-return": "warn",
-    "no-var": "warn",
     "no-void": "warn",
     "no-whitespace-before-property": "warn",
     "prefer-numeric-literals": "warn",
