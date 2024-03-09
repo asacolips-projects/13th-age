@@ -821,6 +821,21 @@ srd-Monsters:
   f0vOJcihqGrqhmGV: # Fire Giant Warlord
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/fire-giant.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
+  qSPzqbjstcYA04gv: # Fire Giant Holy Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/fire-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
+      scale: 1
+  1NaWP3m3UOnoIzrr: # Fire Giant Priest-General
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/fire-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
+      scale: 1
+  0qTh4ckibHXFIiMb: # Fire Giant Smith
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/fire-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
+      scale: 1
   # Giants, Frost
   Y1eomXamSryinrMI: # Bergship Raider
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
