@@ -1816,3 +1816,36 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/morlock.webp
       scale: 1.5
+
+  # Fallen Icon - Nature (Forest That Walks)
+  # Barrier Beast left intentionally blank
+  pV32DIGlGJHcZWrg: # Fallen Icon – Nature
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/arboreal-archive.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/arboreal-archive.webp
+      scale: 1.5
+  ZqO5CVYRqr3S41jQ: # Fanatical Druid Circle
+    actor: modules/pf2e-tokens-bestiaries/portraits/troop/rancorous-priesthood.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/troop/rancorous-priesthood.webp
+      scale: 1.5
+  LZ9sOg7FU5wsmBkU: # Frenzied Wolf Pack
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/wolf.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/wolf.webp
+      scale: 1
+  NzvGlWReJyA69rqt: # Militant Ranger Squad
+    actor: modules/pf2e-tokens-bestiaries/portraits/troop/hellknight-cavalry-brigade.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/troop/hellknight-cavalry-brigade.webp
+      scale: 1
+  aPdXaYKs15MFSH7m: # Opportunistic Orc Band
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/orc-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/orc-warrior.webp
+      scale: 1.5
+  coinWXas9GnvNNzV: # Treant Avenger
+    actor: modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/arboreal-reaper.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/arboreal-reaper.webp
+      scale: 1
