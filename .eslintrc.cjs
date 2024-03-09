@@ -28,6 +28,7 @@ module.exports = {
     // significant refactors and need testing first.
     "no-case-declarations": "off",
     "no-inner-declarations": "off",
+    eqeqeq: ["off", "smart"],
     // Rules.
     "array-bracket-spacing": ["warn", "never"],
     "array-callback-return": "warn",
@@ -40,7 +41,6 @@ module.exports = {
     "default-param-last": "warn",
     "dot-location": ["warn", "property"],
     "eol-last": ["error", "always"],
-    eqeqeq: ["warn", "smart"],
     "func-call-spacing": "warn",
     "func-names": ["warn", "never"],
     "getter-return": "warn",
@@ -167,8 +167,6 @@ module.exports = {
       }
     ],
     "prefer-template": "warn",
-    "quote-props": ["warn", "as-needed", { keywords: false }],
-    quotes: ["warn", "double", { avoidEscape: true, allowTemplateLiterals: false }],
     semi: "warn",
     "space-before-blocks": ["warn", "always"],
     "space-before-function-paren": [
@@ -181,6 +179,8 @@ module.exports = {
     ],
     "spaced-comment": "warn",
 
+    "@stylistic/js/quote-props": ["warn", "as-needed", { keywords: false }],
+    "@stylistic/js/quotes": ["warn", "double", { avoidEscape: true, allowTemplateLiterals: true }],
     "@stylistic/js/space-in-parens": "warn",
     "@stylistic/js/object-curly-spacing": ["warn", "always"],
 
@@ -238,7 +238,7 @@ module.exports = {
     Tour: false,
     parseMarkdown: false,
     NumericTerm: false,
-    OperatorTerm: false,
+    OperatorTerm: false
   },
 
   overrides: [
