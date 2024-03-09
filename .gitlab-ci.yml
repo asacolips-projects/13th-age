@@ -37,7 +37,6 @@ lint-warnings:
   stage: lint:warnings
   script:
     - npm run lint
-  allow_failure: true
   only:
     - branches
 
