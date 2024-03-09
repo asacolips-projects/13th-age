@@ -39,6 +39,22 @@
     "vue/styles.vue.css",
     "css/lib/introjs.css"
   ],
+  "flags": {
+    "hotReload": {
+      "extensions": [
+        "css",
+        "html",
+        "hbs",
+        "json"
+      ],
+      "paths": [
+        "css",
+        "vue",
+        "templates",
+        "languages"
+      ]
+    }
+  },
   "packFolders": [
     {
       "name": "Player options",

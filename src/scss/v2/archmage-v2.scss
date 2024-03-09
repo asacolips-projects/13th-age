@@ -77,4 +77,10 @@
   }
 }
 
+.chat-sidebar {
+  @import 'layout/grid';
+  @import 'layout/flex';
+  @import 'components/chat/ongoing-effects';
+}
+
 @import 'theme/nightmode';

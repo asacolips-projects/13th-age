@@ -1,0 +1,84 @@
+.card-row {
+  padding: 0 0 8px;
+  margin: 0;
+
+  .grid {
+    grid-gap: 2px;
+    margin: 2px 0;
+    line-height: 1;
+  }
+
+  + .card-row {
+    border-top: 2px groove #fff;
+    padding: 8px 0;
+  }
+
+  h4 {
+    margin: 0;
+    padding: 10px;
+    background: $c-power-will;
+    line-height: 1;
+    color: $c-white;
+  }
+
+  .effects-wrapper {
+    margin: 0;
+    // border: 1px solid #4F2964;
+    // border-left-color: #25003c;
+    // border-right-color: #865f97;
+    border: 1px solid #176527;
+    border-left-color: #003c15;
+    border-right-color: #35993e;
+    padding: 4px 6px;
+
+    .effect-link {
+      overflow: hidden;
+      background: $c-power-other;
+      color: $c-white;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .effects-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        flex: 0 auto;
+      }
+
+      .effect-name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        flex: 1;
+      }
+    }
+
+    span.grid-span-2 {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  button {
+    font-size: 18px;
+    line-height: 1;
+    padding: 4px 0;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border-light-2);
+    border-radius: 3px;
+    box-shadow: 0 0 2px #FFF inset;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      background-color: $c-blue;
+      color: $c-white;
+      border-color: $c-blue;
+    }
+  }
+}
