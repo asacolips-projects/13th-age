@@ -1279,9 +1279,25 @@ srd-Monsters:
       img: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/otyugh.webp
       scale: 1.5
   # Owlbear
-  04PitHTyBGBPlBOG:
+  04PitHTyBGBPlBOG: # Owlbear
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/owlbear.webp
     token: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/owlbear.webp
+  J4f9G9GgZjWAw6jC: # Great Horned Owlbear
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/owlbear.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/owlbear.webp
+      scale: 1
+  37DqO2KEb0jlOV1H: # Snowy Owlbear
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/owlbear.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/owlbear.webp
+      scale: 1
+  xB9kvLogSmVmHlF6: # Snowy Owlbear Cub
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/owlbear.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mythological/owlbear.webp
+      scale: 1
+
   # Pixie Pod
   RyzWdFRVyrDvHDWG:
     actor: modules/pf2e-tokens-bestiaries/portraits/plant/dezullon.webp
