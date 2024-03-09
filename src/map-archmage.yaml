@@ -2020,3 +2020,50 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fey/gremlin/haniver.webp
       scale: 1
+
+  # Frogspawn
+  oJCYPxJ7fLOb8jvv: # Frog Knight
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-warrior.webp
+      scale: 1.5
+  0ZWuIONFPKHuDf8N: # Frogspawn Champion
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-warrior.webp
+      scale: 1.5
+  L35PZ90Awo5sJLVn: # Frogspawn Deceiver
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-scout.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-scout.webp
+      scale: 1
+  KTsRo8aldE8eHwjk: # Frogspawn Grunt
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-warrior.webp
+      scale: 1.5
+  8mPklaSoQPXtOI6g: # Frogspawn Monk
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-scout.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-scout.webp
+      scale: 1
+  wLerpTtthD8wwMfe: # Frogspawn Old-One
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-swampseer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-swampseer.webp
+      scale: 1.5
+  2cDji4ld9Mk419Z3: # Frogspawn Spellcroaker
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-swampseer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-swampseer.webp
+      scale: 1.5
+  avR7Zo988kzFmvvQ: # Frogspawn Thug
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/boggard-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/boggard-warrior.webp
+      scale: 1.5
+  1brMqzNUfHYt4ByV: # Mutant Bullfrog
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/amphibian/frog-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/amphibian/frog-giant.webp
+      scale: 1
