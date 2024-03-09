@@ -2104,3 +2104,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/gancanagh.webp
       scale: 1
+
+  # Purple Dragon
+  3R3df3IVw2AqTPKh: # The Purple Dragon (Adventurer)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-underworld-young.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-young.webp
+      scale: 1
+  khOUqTjHj7al85zc: # The Purple Dragon (Champion)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-underworld-adult.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-adult.webp
+      scale: 1
+  5Fsvq4hTjfHVUqIo: # The Purple Dragon (Epic)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/dragons/dragon-underworld-ancient.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-ancient.webp
+      scale: 1.5
