@@ -1,39 +1,51 @@
 image: node:18
 
 stages:
-  - test
+  - lint:errors
+  - lint:warnings
   - build
   ## Currently no deploy step since we're using gitlab artifacts.
   # - deploy
 
-before_script:
-  - apt-get update
-  - apt-get install zip
-
 # Add caching for node_modules/ between stages.
 cache:
-  paths:
-    - node_modules/
+  - &global_cache_node_mods
+      key:
+          files:
+              - package-lock.json
+      paths:
+          - node_modules/
+      policy: pull
 
 # Install node dependencies.
 install:
   stage: .pre
+  cache:
+    - <<: *global_cache_node_mods
+       when: on_success
+       policy: pull-push
+    - key: ${CI_JOB_NAME}
+       # must be inside $CI_PROJECT_DIR for gitlab-runner caching (#3)
+       paths:
+         - .npm/
+       when: on_success
+       policy: pull-push
   script:
-    - npm ci
+    - npm ci --cache .npm --prefer-offline
   only:
     - branches
 
 # Lint for errors.
 lint-errors:
-  stage: test
+  stage: lint:errors
   script:
-    - npm run lint:error
+    - npm run lint:errors
   only:
     - branches
 
 # Lint for warnings, but allow failure.
 lint-warnings:
-  stage: test
+  stage: lint:warnings
   script:
     - npm run lint
   allow_failure: true
@@ -43,9 +55,11 @@ lint-warnings:
 # Build the actual prod artifact.
 build-prod:
   stage: build
+  before_script:
+    - apt-get update
+    - apt-get install zip
   script:
     - export
-    - npm ci
     - npm run build:prod
     - node update-build-tags.js --branch=$CI_COMMIT_BRANCH --gitlabpath=$CI_PROJECT_PATH --jobname=$CI_JOB_NAME  --tag=$CI_COMMIT_TAG
     - cd dist && zip -q ../archmage.zip -r . && cd ../
