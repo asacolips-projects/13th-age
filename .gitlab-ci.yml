@@ -20,8 +20,9 @@ cache:
 install:
   stage: .pre
   script:
-    - npm ci --cache .npm --prefer-offline
+    - npm install --cache .npm --prefer-offline
   when: manual
+  allow_failure: false
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
 
@@ -34,7 +35,6 @@ lint-errors:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
       changes:
         - src/**/*.{js, cjs, mjs}
-    - needs: ['install']
 
 # Lint for warnings, but allow failure.
 lint-warnings:
