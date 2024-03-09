@@ -1894,3 +1894,45 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/gargoyle.webp
       scale: 1.5
+
+  # Nymph
+  jt8GK0RdpIj49zQ3: # Hill Nymph (Oread)
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/hesperid.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/hesperid.webp
+      scale: 1
+  5g3wtdXnTCdPdodf: # River Nymph (Naiad)
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/naiad.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/naiad.webp
+      scale: 1
+  gWTWOtLO9v2OO09N: # Sea Nymph (Nereid)
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/lampad.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/lampad.webp
+      scale: 1
+  abbiggkOmD5eNsxu: # Wild Dryad
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/dryad-queen.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/dryad-queen.webp
+      scale: 1
+  znTfU2lf82tJkfjH: # Wild Naiad
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/naiad-queen.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/naiad-queen.webp
+      scale: 1
+  gb8UkZp5o44Be7k4: # Wild Nereid
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/lampad-queen.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/lampad-queen.webp
+      scale: 1
+  b75kXznM7zzAROAu: # Wild Oread
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/hesperid-queen.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/hesperid-queen.webp
+      scale: 1
+  MmAQh2bxjyj0Kj5Y: # Wood Nymph (Dryad)
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/nymph/dryad.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/dryad.webp
+      scale: 1
