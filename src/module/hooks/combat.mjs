@@ -26,7 +26,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         } else if (saveEndsEffects.includes(duration) &&
                 (prefix == "End" || (prefix == "Start" && hasImplacable))) {
             console.log("SaveEnds effect found", effect);
-            const isOngoing = effect.flags.archmage?.ongoingDamage > 0;
+            const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
             effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
         }
@@ -53,15 +53,52 @@ export async function combatRound(combat, context, options) {
 }
 
 export async function preDeleteCombat(combat, context, options) {
+    const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
 
-    // Disable all effects
+    // Remove all battle effects
     for (const combatant of combat.combatants) {
-        for (const effect of combatant.effects) {
-            // If duration is "Infinite", skip
-            if (effect.flags.archmage?.duration === "Infinite") continue;
-            effect.disabled = true;
+        let effectsToDelete = [];
+
+        if (combatant.token.isLinked) {
+            // Probably player-facing, create end-of-combat chat card            
+            const currentCombatantEffectData = {
+                selfEnded: [],
+                savesEnds: [],
+                otherEnded: []
+            };
+
+            for (const effect of combatant.actor.effects) {
+                const duration = effect.flags.archmage?.duration;
+                // If duration is "Infinite", skip
+                if (duration === "Infinite") continue;
+                // If it's a save-ends effect store it as such
+                else if (saveEndsEffects.includes(duration)) {
+                    const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
+                    effect.isOngoing = isOngoing;
+                    currentCombatantEffectData.savesEnds.push(effect);
+                }
+                // Everything else should end with the battle
+                else {
+                    currentCombatantEffectData.selfEnded.push(effect);
+                    effectsToDelete.push(effect.id);
+                }
+            }
+
+            // Render card
+            await renderOngoingEffectsCard("End of Battle Effects", combatant, currentCombatantEffectData, false);
+
+        } else {
+            // Probably random monster, just delete silently
+            for (const effect of combatant.actor.effects) {
+                // If duration is "Infinite", skip
+                if (effect.flags.archmage?.duration === "Infinite") continue;
+                // Everything else should end with the battle
+                else effectsToDelete.push(effect.id);
+            }
         }
-        await combatant.update({effects: combatant.effects});
+
+        // Auto-delete AEs
+        await combatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
     }
 }
 
@@ -81,7 +118,7 @@ function saveEndsNameToTarget(saveEnds) {
 
 /* -------------------------------------------- */
 
-async function renderOngoingEffectsCard(title, combatant, effectData) {
+async function renderOngoingEffectsCard(title, combatant, effectData, manualDeleteButtons=true) {
     // If no effects, return
     if (effectData.selfEnded.length === 0 && effectData.savesEnds.length === 0 && effectData.otherEnded.length === 0) return;
 
@@ -94,7 +131,8 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         saveEnds: effectData.savesEnds,
         hasSaveEnds: effectData.savesEnds.length > 0,
         otherEnded: effectData.otherEnded,
-        hasOtherEnded: effectData.otherEnded.length > 0
+        hasOtherEnded: effectData.otherEnded.length > 0,
+        showDel: manualDeleteButtons
     };
     console.log("Render Data", renderData);
     const html = await renderTemplate(template, renderData);

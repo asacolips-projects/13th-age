@@ -1,4 +1,5 @@
 import { ArchmageUtility } from '../setup/utility-classes.js';
+import { MacroUtils } from '../setup/utility-classes.js';
 import { DiceArchmage } from './dice.js';
 
 /**
@@ -1371,6 +1372,7 @@ export class ActorArchmage extends Actor {
         createData.name = game.i18n.localize(effectData.name);
         createData["flags.core.overlay"] = true;
         createData.statuses = [createData.id];
+        MacroUtils.setDuration(createData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite)
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});

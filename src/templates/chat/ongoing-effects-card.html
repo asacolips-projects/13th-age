@@ -3,7 +3,7 @@
 <div class="effect-actions flexrow grid-span-{{span}}">
     {{#if showApply}}<button data-tooltip="{{localize 'ARCHMAGE.CHAT.applyDamage'}}" data-action="apply" class="effect-control"><i class="fas fa-flask-round-poison"></i><span class="visually-hidden">{{localize 'ARCHMAGE.CHAT.applyDamage'}}</span></button>{{/if}}
     {{#if showSave}}<button data-tooltip="{{localize 'ARCHMAGE.SAVE.rollSave'}}" data-action="save" class="effect-control"><i class="fas fa-dice-d20"></i><span class="visually-hidden">{{localize 'ARCHMAGE.SAVE.rollSave'}}</span></button>{{/if}}
-    <button data-tooltip="{{localize 'ARCHMAGE.CHAT.removeEffect'}}" data-action="remove" class="effect-control"><i class="fas fa-trash"></i><span class="visually-hidden">{{localize 'ARCHMAGE.CHAT.removeEffect'}}</span></button>
+    {{#if showDel}}<button data-tooltip="{{localize 'ARCHMAGE.CHAT.removeEffect'}}" data-action="remove" class="effect-control"><i class="fas fa-trash"></i><span class="visually-hidden">{{localize 'ARCHMAGE.CHAT.removeEffect'}}</span></button>{{/if}}
 </div>
 {{/inline}}
 
@@ -15,9 +15,9 @@
     </a>
     {{#if effect.otherName}}
         <span class="grid-span-2">on {{effect.otherName}}</span>
-        {{> effect-actions showApply=false showSave=false span=1}}
+        {{> effect-actions showApply=false showSave=false showDel=showDel span=1}}
     {{else}}
-        {{> effect-actions showApply=false showSave=false span=2}}
+        {{> effect-actions showApply=false showSave=false showDel=showDel span=2}}
     {{/if}}
 </div>
 {{/inline}}
@@ -29,7 +29,7 @@
         data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
-    {{> effect-actions showApply=false showSave=true span=2}}
+    {{> effect-actions showApply=false showSave=true showDel=showDel span=2}}
 </div>
 {{/inline}}
 
@@ -40,7 +40,7 @@
         data-value="{{effect.flags.archmage.ongoingDamage}}" data-damage-type="{{effect.flags.archmage.ongoingDamageType}}" data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
-    {{> effect-actions showApply=true showSave=true span=3}}
+    {{> effect-actions showApply=true showSave=true showDel=true span=3}}
 </div>
 {{/inline}}
 
@@ -58,7 +58,7 @@
             <h4>{{{localize "ARCHMAGE.CHAT.ongoingSelfEnded"}}}</h4>
             <div class="effects-wrapper flexcol">
                 {{#each selfEnded as |effect|}}
-                    {{> condition effect=effect}}
+                    {{> condition effect=effect showDel=showDel}}
                 {{/each}}
             </div>
         </div>
@@ -70,7 +70,7 @@
             <h4>{{{localize "ARCHMAGE.CHAT.ongoingOtherEnded"}}}</h4>
             <div class="effects-wrapper flexcol">
                 {{#each otherEnded as |effect|}}
-                    {{> condition effect=effect}}
+                    {{> condition effect=effect showDel=showDel}}
                 {{/each}}
             </div>
         </div>
