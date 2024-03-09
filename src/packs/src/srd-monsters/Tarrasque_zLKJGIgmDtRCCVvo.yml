@@ -220,7 +220,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: '[[155] damgae'
+        value: '[[155]] damage'
       hit1:
         type: String
         label: Hit
@@ -277,7 +277,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: '[[155] damage'
+        value: '[[155]] damage'
       hit1:
         type: String
         label: Hit
@@ -334,7 +334,7 @@ items:
       hit:
         type: String
         label: Hit
-        value: '[[155] damage'
+        value: '[[155]] damage'
       hit1:
         type: String
         label: Hit

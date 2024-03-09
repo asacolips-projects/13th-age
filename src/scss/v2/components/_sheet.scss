@@ -31,6 +31,14 @@
     scrollbar-width: thin;
   }
 
+  .section--no-overflow {
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
   /* ----------------------------------------- */
   /* Scrollbar
   /* ----------------------------------------- */

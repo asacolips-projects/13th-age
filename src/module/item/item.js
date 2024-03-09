@@ -157,6 +157,13 @@ export class ItemArchmage extends Item {
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
+    if (this.system.powerUsage?.value == 'cyclic'
+      && this.actor.system.attributes.escalation.value > 0
+      && this.actor.system.attributes.escalation.value % 2 == 0
+      && uses > 0) {
+      // Cyclic power, E.D. even, do not consume uses
+      return false;
+    }
     updateData["system.quantity.value"] = Math.max(uses - 1, 0);
     if (uses == 0 && !event.shiftKey && ["power", "equipment", "loot", "tool"].includes(this.type)
       && this.system.powerUsage?.value != 'at-will') {
@@ -419,6 +426,19 @@ export class ItemArchmage extends Item {
     return token;
   }
 
+  _getUsageClass(item) {
+    let use = item.system.powerUsage?.value ? item.system.powerUsage.value : 'other';
+    if (['daily', 'daily-desperate'].includes(use)) use = 'daily';
+    else if (use == 'cyclic') {
+      if (item.actor.system.attributes.escalation.value > 0
+        && item.actor.system.attributes.escalation.value % 2 == 0) {
+        // Cyclic power, E.D. even, at-will
+        use = 'at-will';
+      } else use = 'once-per-battle';
+    }
+    return use;
+  }
+
   async _rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token) {
 
     // Basic template rendering data
@@ -427,7 +447,8 @@ export class ItemArchmage extends Item {
       actor: itemToRender.actor,
       tokenId: null, //token ? `${token.scene.id}.${token.id}` : null,
       item: itemToRender,
-      data: itemToRender.getChatData({ rollData: rollData }, true)
+      data: itemToRender.getChatData({ rollData: rollData }, true),
+      usageClass: this._getUsageClass(itemToRender)
     };
 
     // Basic chat message data

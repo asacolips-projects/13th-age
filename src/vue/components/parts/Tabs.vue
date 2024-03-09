@@ -43,7 +43,7 @@ export default {
       }
 
       // Update the flag.
-      if (!this.actor.pack) {
+      if (typeof this.actor !== 'undefined' && !this.actor.pack) {
         getActor(this.actor).then(actor => {
           actor.setFlag('archmage', `sheetDisplay.tabs.${this.group}.value`, this.currentTab);
         });
