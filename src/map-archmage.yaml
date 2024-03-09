@@ -1941,3 +1941,30 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fey/nymph/dryad.webp
       scale: 1
+
+  # Eidolon
+  F1plK1r7Y1pidpeM: # Attached Eidolon
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/archon/star-archon.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/archon/star-archon.webp
+      scale: 1
+  QJRj6q4fAXmNCfpy: # Eidolon in Guardian Form
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/archon/shield-archon.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/archon/shield-archon.webp
+      scale: 2
+  1tMFiDJtGsnGMPs9: # Eidolon in Humanoid Form
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/archon/bastion-archon.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/archon/bastion-archon.webp
+      scale: 1
+  bRqy1o6Qnj2E9aWM: # Eidolon in Hunting Form
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/archon/hound-archon.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/archon/hound-archon.webp
+      scale: 1
+  GL7E0JXaz0A1Xeqc: # Eidolon in War Form
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/mechanical/radiant-warden.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/radiant-warden.webp
+      scale: 1.5
