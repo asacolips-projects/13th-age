@@ -1794,3 +1794,25 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/worm-that-walks-cultist.webp
       scale: 1.5
+
+  # Derro
+  FwVWLmUQAGzVMBYQ: # Derro Berserker
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/dero-strangler.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/dero-strangler.webp
+      scale: 1
+  xhiLWMsXzYsTGsy6: # Derro Seer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/dero-magister.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/dero-magister.webp
+      scale: 1.5
+  itsAJ217Z3zRUxkm: # Derro Whisperer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/dero-stalker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/dero-stalker.webp
+      scale: 1
+  bH1nh9QijQL0wJA4: # Fallen Derro
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/morlock.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/morlock.webp
+      scale: 1.5
