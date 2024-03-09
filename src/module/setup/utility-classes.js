@@ -526,42 +526,31 @@ export class MacroUtils {
    * TODO: change to core Foundry when (if) support comes
    */
   static setDuration(data, duration, options={}) {
-    let d = {
-      combat: undefined,
-      rounds: undefined,
-      seconds: undefined,
-      startRound: 0,
-      startTime: 0,
-      startTurn: 0,
-      turns: undefined
-    }
     switch(duration) {
       case CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn:
-        d.rounds = 1;
-        data['flags.dae.specialDuration'] = ["turnStart"];
+        data['flags.archmage.duration'] = ["StartOfNextTurn"]
         break;
       case CONFIG.ARCHMAGE.effectDurations.EndOfNextTurn:
-        d.rounds = 1;
-        d.turns = 1;
-        data['flags.dae.specialDuration'] = ["turnEnd"];
+        data['flags.archmage.duration'] = ["EndOfNextTurn"];
         break;
       case CONFIG.ARCHMAGE.effectDurations.StartOfNextSourceTurn:
-        d.rounds = 1;
-        data['flags.dae.specialDuration'] = ["turnStartSource"];
+        data['flags.archmage.duration'] = ["StartOfNextSourceTurn"];
         data.origin = options.sourceTurnUuid;
         break;
       case CONFIG.ARCHMAGE.effectDurations.EndOfNextSourceTurn:
-        d.rounds = 1;
-        d.turns = 1;
-        data['flags.dae.specialDuration'] = ["turnEndSource"];
+        data['flags.archmage.duration'] = ["EndOfNextSourceTurn"];
         data.origin = options.sourceTurnUuid;
         break;
-      case CONFIG.ARCHMAGE.effectDurations.SaveEnds:
-        //TODO: not yet supported, roll a save with target threshold
-        data['flags.dae.macroRepeat'] = "endEveryTurn";
+      case CONFIG.ARCHMAGE.effectDurations.EasySaveEnds:
+        data['flags.archmage.duration'] = "EasySaveEnds";
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.NormalSaveEnds:
+        data['flags.archmage.duration'] = "NormalSaveEnds";
+        break;
+      case CONFIG.ARCHMAGE.effectDurations.HardSaveEnds:
+        data['flags.archmage.duration'] = "HardSaveEnds";
         break;
     }
-    data.duration = d;
     return data;
   }
 

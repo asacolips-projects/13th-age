@@ -70,8 +70,7 @@ export class ItemArchmage extends Item {
     }, null);
 
     // Handle Monk AC bonus.
-    //TODO: remove dependency on times-up once core Foundry handles AE expiry
-    if (game.modules.get("times-up")?.active) await this._rollMonkAC(itemToRender);
+    await this._rollMonkAC(itemToRender);
 
     // Run embedded macro.
     let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);

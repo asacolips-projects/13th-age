@@ -392,7 +392,9 @@ ARCHMAGE.effectDurations = {
   EndOfNextTurn: 1,
   StartOfNextSourceTurn: 2,
   EndOfNextSourceTurn: 3,
-  SaveEnds: 4
+  EasySaveEnds: 4,
+  NormalSaveEnds: 5,
+  HardSaveEnds: 6,
 };
 
 ARCHMAGE.effectDurationTypes = {
