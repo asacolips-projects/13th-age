@@ -1983,3 +1983,40 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/radiant-warden.webp
       scale: 1.5
+
+  # Fey
+  eNMLeghrlFFqAItV: # Grandmother
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/gremlin/nuglub.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/gremlin/nuglub.webp
+      scale: 1
+  u128IpFMguDbUy56: # Great Hound
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/sod-hound.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/sod-hound.webp
+      scale: 1
+  R4MIOsKSIZSmgrHM: # Pixie Knight
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/fairy/pixie.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/pixie.webp
+      scale: 1.5
+  yNV75osf5R2lQLsS: # River-Spirit
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/living-waterfall.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/water/living-waterfall.webp
+      scale: 1
+  u8aj2nXg3k7GbUCj: # Spriggan
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/spriggan-bully.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/spriggan-bully.webp
+      scale: 1
+  PM40Vkuv98ya0n6b: # Sprite
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/fairy/sprite.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/sprite.webp
+      scale: 1
+  bGCMwbeU7CeMjInE: # The Rascal
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/gremlin/haniver.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/gremlin/haniver.webp
+      scale: 1
