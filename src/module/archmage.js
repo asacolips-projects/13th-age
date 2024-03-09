@@ -1124,11 +1124,12 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     const parent = event.currentTarget.closest(".effect");
     const uuid = parent.dataset.uuid;
     const actor = await fromUuid(uuid);
+    const effectId = parent.dataset.effectId;
     switch (action) {
       case "apply":
         const value = parent.dataset.value;
         await actor.update({ "data.attributes.hp.value": actor.system.attributes.hp.value - value });
-        await chatMessage.update({ "flags.archmage.effectApplied": true });
+        await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
         break;
       case "save":
         const duration = parent.dataset.save;
@@ -1138,15 +1139,15 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           "HardSaveEnds": "hard",
         }
         await actor.rollSave(durationToDifficulty[duration]);
-        await chatMessage.update({ "flags.archmage.effectSaved": true });
+        await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
         break;
       case "remove":
-        const effectId = parent.dataset.effectId;
         await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
-        await chatMessage.update({ "flags.archmage.effectRemoved": true });
+        await chatMessage.setFlag('archmage', `effectRemoved.${effectId}`, true);
         // Replace grayed-out with disabled
         event.currentTarget.classList.remove("grayed-out");
         event.currentTarget.classList.add("disabled");
+        event.currentTarget.setAttribute('disabled', true);
         break;
     }
     chatMessage.render();
@@ -1154,14 +1155,19 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
   // Gray out and disable the effect buttons if the effect has already been applied, saved, or removed
   html.find(".effect-control").each((i, el) => {
-    if (!chatMessage.data.flags.archmage) return;
+    if (!chatMessage.data?.flags?.archmage) return;
+    const flags = chatMessage.data.flags.archmage;
+    const parent = el.closest('.effect');
+    const effectId = parent.dataset.effectId;
+
     // TODO: This needs to be delineated by effect ID
-    if (el.dataset.action === "apply" && chatMessage.data.flags.archmage.effectApplied) {
+    if (el.dataset.action === "apply" && flags?.effectApplied?.[effectId] == true) {
       el.classList.add("grayed-out");
-    } else if (el.dataset.action === "save" && chatMessage.data.flags.archmage.effectSaved) {
+    } else if (el.dataset.action === "save" && flags?.effectSaved?.[effectId] == true) {
       el.classList.add("grayed-out");
-    } else if (el.dataset.action === "remove" && chatMessage.data.flags.archmage.effectRemoved) {
+    } else if (el.dataset.action === "remove" && flags?.effectRemoved?.[effectId] == true) {
       el.classList.add("disabled");
+      el.setAttribute('disabled', true);
     }
   });
 });

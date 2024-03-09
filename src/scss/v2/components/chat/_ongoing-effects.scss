@@ -80,5 +80,13 @@
       color: $c-white;
       border-color: $c-blue;
     }
+
+    &.grayed-out {
+      &:hover,
+      &:focus {
+        color: $c-white;
+        background-color: darken($c-blue, 25%);
+      }
+    }
   }
 }
