@@ -2268,3 +2268,23 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/angheuvore-flesh-gnawer.webp
       scale: 1.5
+  A09ECdNszfwyILij: # Star-Brain Dungeon Heart
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/ooze/amoeba-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/ooze/amoeba-giant.webp
+      scale: 1
+  cqmRBrs0pq8eo6W6: # Star-Mask Brain Zealot
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gosreg.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gosreg.webp
+      scale: 1.5
+  7gCISMH4WJQmnT0u: # Star-Mask Floating Brain
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/rhu-chalik.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/rhu-chalik.webp
+      scale: 1
+  egaJHVECNJso3CQL: # Star-Mask Omnipotent Brain
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/skrik-nettle.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/skrik-nettle.webp
+      scale: 1.5
