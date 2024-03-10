@@ -2345,3 +2345,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/living-landslide.webp
       scale: 1
+
+  # Hellcat
+  Rdgg1VSZaZFpKa9U: # Ember Imp
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/mephit-fire.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/mephit-fire.webp
+      scale: 1
+  z68BxNI0KxUSjCgT: # Hellcat
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/beast/hellcat.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/hellcat.webp
+      scale: 1
