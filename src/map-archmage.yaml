@@ -1612,6 +1612,21 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/xulgath-skulker.webp
       scale: 1.5
+  4DHx8DaPwfEymusg: # Trog Chieftain
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/xulgath-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/xulgath-warrior.webp
+      scale: 1
+  mj6WPCnNEKvMdaco: # Trog Fouler
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/xulgath-skulker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/xulgath-skulker.webp
+      scale: 1.5
+  TBqfPb9FuskxiF7G: # Trog Shaman
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/xulgath-leader.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/xulgath-leader.webp
+      scale: 1.5
   # Troll
   tdbQR7Lc3IZInESe:
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/troll/troll.webp
