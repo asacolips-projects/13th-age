@@ -2,7 +2,7 @@
   "name": "archmage",
   "id": "archmage",
   "title": "13th Age",
-  "version": "1.27.1",
+  "version": "1.28.0",
   "authors": [
     {
       "name": "Matt Smith",
@@ -458,7 +458,8 @@
   "socket": true,
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/archmage",
   "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/master/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.27.1/raw/archmage.zip?job=build-prod",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/jobs/artifacts/1.28.0/raw/archmage.zip?job=build-prod",
+  "changelog": "https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/CHANGELOG.md",
   "initiative": "1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value",
   "gridDistance": "1",
   "gridUnits": "",
