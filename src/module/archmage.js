@@ -590,8 +590,8 @@ function addEscalationDie() {
 
     switch (a.dataset.type) {
       case "condition":
-        const journalId = CONFIG.ARCHMAGE.statusEffects.find(x => x.id === id).journal;
-        doc = await game.packs.get("archmage.conditions").getDocument(journalId);
+        const journalId = CONFIG.ARCHMAGE.statusEffects.find(x => x.id === id)?.journal;
+        doc = journalId ? await game.packs.get("archmage.conditions").getDocument(journalId) : false;
         break;
       case "effect":
         console.warn("Effects not currently supported");
