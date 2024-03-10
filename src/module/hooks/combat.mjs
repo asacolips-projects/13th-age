@@ -76,6 +76,7 @@ export async function preDeleteCombat(combat, context, options) {
             const currentCombatantEffectData = {
                 selfEnded: [],
                 savesEnds: [],
+                selfTriggered: [],
                 otherEnded: []
             };
 

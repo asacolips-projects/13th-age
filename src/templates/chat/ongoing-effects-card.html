@@ -15,7 +15,7 @@
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
     {{#if effect.otherName}}
-        <span class="effect-on-other grid-span-3">on {{effect.otherName}}</span>
+        <span class="effect-on-other grid-span-7">on {{effect.otherName}}</span>
     {{/if}}
 </div>
 {{/inline}}
@@ -23,22 +23,22 @@
 {{!-- Save ends row partial. --}}
 {{#*inline "save-ends"}}
 <div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">
-    <a class="effect-link grid-span-3" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
+    <a class="effect-link grid-span-5" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
         data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
-    {{> effect-actions showApply=false showSave=true showD20=false showDel=true span=3}}
+    {{> effect-actions showApply=false showSave=true showD20=false showDel=true span=2}}
 </div>
 {{/inline}}
 
 {{!-- d20 row partial. --}}
 {{#*inline "d20-roll"}}
 <div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">
-    <a class="effect-link grid-span-3" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
+    <a class="effect-link grid-span-5" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
         data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
     </a>
-    {{> effect-actions showApply=false showSave=false showD20=true showDel=true span=3}}
+    {{> effect-actions showApply=false showSave=false showD20=true showDel=true span=2}}
 </div>
 {{/inline}}
 
