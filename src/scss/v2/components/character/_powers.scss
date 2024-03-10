@@ -217,6 +217,32 @@
     &.recharge { background: $c-power-recharge; }
     &.other { background: $c-power-other; }
 
+    &.cyclic {
+      position: relative;
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 5px;
+        bottom: 0;
+      }
+
+      &.once-per-battle {
+        &::after {
+          background: $c-power-will;
+        }
+      }
+
+      &.at-will {
+        &::after {
+          background: $c-power-battle;
+        }
+      }
+    }
+
     .feat-pip,
     .power-uses {
       cursor: pointer;
@@ -277,13 +303,7 @@
   }
 
   .power-content {
-    max-height: 0;
-    transition: all ease-in-out 0.25s;
     overflow: hidden;
-
-    &.active {
-      max-height: none;
-    }
   }
 }
 

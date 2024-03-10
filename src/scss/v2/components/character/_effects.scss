@@ -177,14 +177,12 @@
     }
   }
 
-  .effects-content {
-    max-height: 0;
-    transition: all ease-in-out 0.25s;
+  .effect-detail {
     overflow: hidden;
+  }
 
-    &.active {
-      max-height: none;
-    }
+  .effects-content {
+    overflow: hidden;
   }
 
   .effects-bonus {

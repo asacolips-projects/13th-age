@@ -41,7 +41,8 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
     }
 
     input[type="text"],
-    input[type="number"] {
+    input[type="number"],
+    textarea {
       color: $c-white;
       border-color: $c-white;
 
@@ -52,6 +53,14 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       &:hover,
       &:focus {
         color: $c-blue;
+        border-color: $c-blue;
+      }
+    }
+
+    .background-name {
+      border-color: $c-white;
+
+      &:hover {
         border-color: $c-blue;
       }
     }
