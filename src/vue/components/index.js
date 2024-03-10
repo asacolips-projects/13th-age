@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export { default as CharHeader } from '@/components/actor/character/top/CharHeader.vue';
 export { default as CharAttributes } from '@/components/actor/character/top/CharAttributes.vue';
 

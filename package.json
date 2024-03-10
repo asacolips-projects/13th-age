@@ -26,7 +26,12 @@
     "vite:build:preview": "vite build --config vite.config.preview.mjs",
     "vite:build:prod": "vite build --config vite.config.prod.mjs",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "eslint --ext .js,.cjs,.mjs .",
+    "lint:fix": "eslint --ext .js,.cjs,.mjs --fix .",
+    "lint:warnings": "eslint --max-warnings 0 --ext .js,.cjs,.mjs .",
+    "lint:errors": "eslint --quiet --ext .js,.cjs,.mjs .",
+    "lint:fix:errors": "eslint --quiet --ext .js,.cjs,.mjs --fix ."
   },
   "browserslist": [
     "> 1%",
@@ -44,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.23.10",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "@foundryvtt/foundryvtt-cli": "^1.0.2",
     "@storybook/addon-actions": "^6.5.9",
@@ -54,10 +60,13 @@
     "@storybook/builder-vite": "^0.1.39",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue3": "^6.5.9",
+    "@stylistic/eslint-plugin-js": "^1.6.3",
+    "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@whitespace/storybook-addon-html": "^5.0.0",
     "babel-loader": "^8.2.5",
-    "eslint": "^8.17.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsdoc": "^48.2.1",
     "eslint-plugin-vue": "^9.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -83,7 +92,8 @@
     "through2": "^4.0.2",
     "vite": "^5.1.4",
     "vue-loader": "^17.4.2",
-    "yargs": "^17.5.1"
+    "yargs": "^17.5.1",
+    "yarn": "^1.22.21"
   },
   "eslintConfig": {
     "root": true,
