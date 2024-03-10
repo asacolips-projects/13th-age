@@ -2303,3 +2303,45 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/skrik-nettle.webp
       scale: 1.5
+
+  # The Waking Stones
+  quaqrSQgPKggkKYy: # Broken Taranar
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/sturzstromer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/sturzstromer.webp
+      scale: 1
+  vprVsZBWiiBIwgOD: # Conglomerate
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/granite-glyptodont.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/granite-glyptodont.webp
+      scale: 1
+  jw1G0noQCrMcRbgi: # Taranar Avalanche
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/elemental-avalanche.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/elemental-avalanche.webp
+      scale: 1
+  TLNsYHC3IUdCvjWW: # Taranar Bugler
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/living-landslide.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/living-landslide.webp
+      scale: 1
+  hLfcoVZTJGON8CMm: # Taranar Coryphée
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/living-landslide.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/living-landslide.webp
+      scale: 1
+  dvutTIhqnM6k9dQW: # Taranar Great Stone
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/elemental-avalanche.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/elemental-avalanche.webp
+      scale: 1
+  M2s365uRr9tjk9es: # Taranar Hunter
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/living-landslide.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/living-landslide.webp
+      scale: 1
+  3NifRdU4sSAnhXbp: # Taranar Warrior
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/living-landslide.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/living-landslide.webp
+      scale: 1
