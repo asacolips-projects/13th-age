@@ -66,6 +66,9 @@ Each tab has its own set of sort options and filters. Some filters allow multipl
 
 > **Eyes Up, Fighters!**
 > The new _Trigger_ filter is especially useful for characters with flexible attacks or other powers with triggers (looking at you, Commanders and The Occultist!). For instance, if you use `even` as your trigger filter and `fighter` as your source name, you'll be able to see every flexible attack for fighters that trigger on an even roll!
+> <details><summary><strong>Triggers Example Screenshot</strong> (click to expand)</summary>
+> <img src="https://mattsmithin-files.s3.amazonaws.com/screenshots/compendium-browser-triggers.png" alt="Compendium Browser - Triggers"/>
+> </details>
 
 #### Compendium Entries
 
