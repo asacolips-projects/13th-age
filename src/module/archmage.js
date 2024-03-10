@@ -1128,7 +1128,9 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     switch (action) {
       case "apply":
         const value = parent.dataset.value;
-        await actor.update({ "data.attributes.hp.value": actor.system.attributes.hp.value - value });
+        // Healing always starts from 0 HP
+        const base = value >= 0 ? actor.system.attributes.hp.value : Math.max(actor.system.attributes.hp.value, 0);
+        await actor.update({ "data.attributes.hp.value": base - value });
         await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
         break;
       case "save":
