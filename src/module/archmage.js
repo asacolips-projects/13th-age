@@ -1153,6 +1153,10 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         await actor.rollSave(durationToDifficulty[duration] ?? "normal");
         await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
         break;
+      case "d20":
+        new Roll("d20").toMessage()
+        await chatMessage.setFlag('archmage', `effectRolled.${effectId}`, true);
+        break;
       case "remove":
         await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
         await chatMessage.setFlag('archmage', `effectRemoved.${effectId}`, true);
