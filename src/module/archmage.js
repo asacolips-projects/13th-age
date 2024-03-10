@@ -863,19 +863,29 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
   if ( data.type === "condition" ) {
     const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
+    if ( statusEffect ) {
 
-    // If we have a Token, just toggle the effect
-    // First load the token from a token actor (is null for linked)
-    let token = actor.token;
-    // If not, look for linked tokens in the scene
-    if ( !token ) token = canvas.scene.tokens.find(
-        t => (t.data.actorId === actor.id && t.isLinked)
+      // If we have a Token, just toggle the effect
+      // First load the token from a token actor (is null for linked)
+      let token = actor.token;
+      // If not, look for linked tokens in the scene
+      if (!token) token = canvas.scene.tokens.find(
+          t => (t.data.actorId === actor.id && t.isLinked)
       );
-    if ( token ) return token._object.toggleEffect(statusEffect);
+      if (token) return token._object.toggleEffect(statusEffect);
 
-    // Otherwise, create the AE
-    statusEffect.label = game.i18n.localize(statusEffect.label);
-    return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+      // Otherwise, create the AE
+      statusEffect.label = game.i18n.localize(statusEffect.label);
+      return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+    }
+    else {
+      // Just a generic condition, transfer the name
+      let effectData = {
+        name: data.name,
+        icon: 'icons/svg/aura.svg'
+      };
+      return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
   }
   else if ( data.type === "effect" ) {
     const actorId = data.actorId;
@@ -1140,7 +1150,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           "NormalSaveEnds": "normal",
           "HardSaveEnds": "hard",
         }
-        await actor.rollSave(durationToDifficulty[duration]);
+        await actor.rollSave(durationToDifficulty[duration] ?? "normal");
         await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
         break;
       case "remove":
@@ -1162,7 +1172,6 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     const parent = el.closest('.effect');
     const effectId = parent.dataset.effectId;
 
-    // TODO: This needs to be delineated by effect ID
     if (el.dataset.action === "apply" && flags?.effectApplied?.[effectId] == true) {
       el.classList.add("grayed-out");
     } else if (el.dataset.action === "save" && flags?.effectSaved?.[effectId] == true) {
