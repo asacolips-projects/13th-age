@@ -16,6 +16,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     const currentCombatantEffectData = {
         selfEnded: [],
         savesEnds: [],
+        selfTriggered: [],
         otherEnded: []
     };
     let effectsToDelete = [];
@@ -32,6 +33,8 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
             effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
+        } else if (duration === `${prefix}OfEachTurn`) {
+            currentCombatantEffectData.selfTriggered.push(effect);
         }
     }
     // Auto-delete AEs
@@ -129,7 +132,10 @@ function saveEndsNameToTarget(saveEnds) {
 
 async function renderOngoingEffectsCard(title, combatant, effectData) {
     // If no effects, return
-    if (effectData.selfEnded.length === 0 && effectData.savesEnds.length === 0 && effectData.otherEnded.length === 0) return;
+    if (effectData.selfEnded.length === 0
+        && effectData.savesEnds.length === 0
+        && effectData.selfTriggered.length === 0
+        && effectData.otherEnded.length === 0) return;
 
     const template = "systems/archmage/templates/chat/ongoing-effects-card.html";
     const renderData = {
@@ -139,6 +145,8 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         hasSelfEnded: effectData.selfEnded.length > 0,
         saveEnds: effectData.savesEnds,
         hasSaveEnds: effectData.savesEnds.length > 0,
+        selfTriggered: effectData.selfTriggered,
+        hasSelfTriggered: effectData.selfTriggered.length > 0,
         otherEnded: effectData.otherEnded,
         hasOtherEnded: effectData.otherEnded.length > 0
     };
