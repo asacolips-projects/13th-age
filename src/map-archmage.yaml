@@ -2409,3 +2409,25 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fey/ankou.webp
       scale: 1
+
+  # Salamander
+  6LuOZeMQFCRr1Ncc: # Blueflame Salamander
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/firewyrm.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/firewyrm.webp
+      scale: 1
+  G9FoFFSZckyd3bgw: # Doomlantern Salamander
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/firewyrm.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/firewyrm.webp
+      scale: 1
+  UmUfxsSJLOtRNEUp: # Horned Salamander
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/firewyrm.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/firewyrm.webp
+      scale: 1
+  k1MhkxKuWo5SmMlA: # Pyroclastic Salamander
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/firewyrm.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/firewyrm.webp
+      scale: 1
