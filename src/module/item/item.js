@@ -585,7 +585,7 @@ export class ItemArchmage extends Item {
     if (!itemToRender.system.sustainedEffect.value) return;
 
     const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower",
-      {power: itemToRender.name, target: itemToRender.system.sustainOn.value})
+      {power: itemToRender.name, target: itemToRender.system.sustainOn.value});
 
     // Check if we already have the effect
     let alreadyHasEffect = false;
@@ -595,7 +595,7 @@ export class ItemArchmage extends Item {
     if (!alreadyHasEffect) {
       let effectData = {
         label: name,
-        icon: "icons/svg/sound.svg",
+        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
         flags: {
           archmage: {
             tooltip: name
@@ -608,7 +608,28 @@ export class ItemArchmage extends Item {
   }
   async _handleBreathSpell(itemToRender){
     if (itemToRender.type != "power") return;
-    console.log("N.Y.I.");
+    if (!itemToRender.system.breathWeapon.value) return;
+
+    const name = game.i18n.format("ARCHMAGE.CHAT.reuseBreath", {power: itemToRender.name});
+
+    // Check if we already have the effect
+    let alreadyHasEffect = false;
+    itemToRender.actor.effects.forEach(e => {
+      if (e.data.label == name) alreadyHasEffect = true;
+    });
+    if (!alreadyHasEffect) {
+      let effectData = {
+        label: name,
+        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound-off.svg",
+        flags: {
+          archmage: {
+            tooltip: name
+          }
+        }
+      };
+      MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
+      await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
   }
 
   async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token) {

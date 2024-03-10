@@ -572,6 +572,7 @@ ARCHMAGE:
     rangeTitle: Range of the power, such as 'Meele attack' or 'Ranged spell'
     recharge: Recharge
     rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
+    reuseBreath: Reuse {power}
     rollD20: Roll d20
     RechargeFail: recharge failed
     RechargeLabel: Rolling recharge
