@@ -27,6 +27,7 @@ export class ArchmageMacros {
       // ui.notifications.info("Halo removed");
     } else {
       const effectData = {label: label, changes: effects, icon: archmage.item.img};
+      game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat)
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
       // ui.notifications.info("Halo applied");
     }
@@ -121,6 +122,7 @@ export class ArchmageMacros {
       changes: [
         { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
       ]};
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat)
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
