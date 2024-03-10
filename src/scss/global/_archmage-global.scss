@@ -3,11 +3,11 @@
 // Flexbox
 .visually-hidden {
   clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
+  height: 0;
   overflow: hidden;
   position: absolute !important;
   white-space: nowrap;
-  width: 1px;
+  width: 0;
 }
 
 .flexrow {
