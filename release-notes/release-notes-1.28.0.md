@@ -40,7 +40,13 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 ### How to Find it
 
-You can access the compendium browser by clicking the _Browse Creatures_ button on the **Actors** sidebar directory or the _Browse Powers_ / _Browse Items_ buttons on the **Items** sidebar directory tab. It's the same compendium browser regardless of which way you access it; the button just changes which tab is the default. If you'd like to access it via a macro, make a script macro with the following code:
+#### Buttons in the Actor / Items sidebars
+
+You can access the compendium browser by clicking the _Browse Creatures_ button at the bottom of the **Actors** sidebar directory or the _Browse Powers_ / _Browse Items_ buttons at the bottom of the **Items** sidebar directory tab. It's the same compendium browser regardless of which way you access it; the button just changes which tab is the default.
+
+#### Macro
+
+If you'd like to access it via a macro, make a script macro with the following code:
 
 ```js
 // Alternatively, swap out the default tab for 'powers' or 'items'.
