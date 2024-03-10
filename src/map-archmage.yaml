@@ -2357,3 +2357,25 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/hellcat.webp
       scale: 1
+
+  # Phoenix
+  0Hx6lHDEY2v4H0vf: # Flamebird Phoenix
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/phoenix.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/phoenix.webp
+      scale: 2
+  ECHt0HNq1krplJBu: # Resurgent Phoenix
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/phoenix.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/phoenix.webp
+      scale: 2
+  gxhHhZCWwTpApujq: # Solar Phoenix
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/phoenix.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/phoenix.webp
+      scale: 2
+  wHbW0XYZjPKue8eE: # Void Phoenix
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/ankou.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/ankou.webp
+      scale: 1
