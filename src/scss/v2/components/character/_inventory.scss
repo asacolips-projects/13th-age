@@ -217,13 +217,7 @@
   }
 
   .equipment-content {
-    max-height: 0;
-    transition: all ease-in-out 0.25s;
     overflow: hidden;
-
-    &.active {
-      max-height: none;
-    }
   }
 
   .equipment-bonus {

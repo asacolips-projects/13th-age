@@ -73,9 +73,13 @@
             </div>
           </div>
           <!-- Expanded equipment content. -->
-          <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))" :style="getEquipmentStyle(equipment._id)">
-            <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
-            <Loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
+          <div :class="concat('equipment-content', (activeEquipment[equipment._id] ? ' active' : ''))">
+            <Transition name="slide-fade">
+              <template v-if="activeEquipment[equipment._id]">
+                <Equipment v-if="equipment.type == 'equipment'" :equipment="equipment" :bonuses="getBonuses(equipment)" :ref="concat('equipment--', equipment._id)"/>
+                <Loot v-if="equipment.type != 'equipment'" :equipment="equipment" :ref="concat('equipment--', equipment._id)"/>
+              </template>
+            </Transition>
           </div>
         </li>
       </ul>
@@ -245,25 +249,6 @@ export default {
         }
       }
     },
-    /**
-     * Calculate CSS height of equipment.
-     */
-    getEquipmentStyle(equipmentId) {
-      // Retrieve the element from our refs.
-      let equipment = this.$refs[`equipment--${equipmentId}`];
-      let height = 0;
-
-      // Set the height if there's a ref.
-      if (equipment) {
-        const element = this.$el.querySelector(`.equipment-item--${equipmentId} .equipment-content .equipment`);
-        height = this.activeEquipment[equipmentId] ? `${element.offsetHeight}px` : `0px`;
-      }
-
-      // Return CSS style object.
-      return {
-        maxHeight: height
-      };
-    }
   },
   watch: {
     'actor.items': {
@@ -285,3 +270,22 @@ export default {
   }
 }
 </script>
+
+<style>
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-60%);
+}
+</style>

@@ -32,8 +32,10 @@
               <a class="effect-control" :data-item-id="effect._id" data-action="delete" :title="localize('ARCHMAGE.EFFECT.AE.delete')"><i class="fas fa-trash"></i></a>
             </div>
           </div>
-          <div v-if="effect.description" class="effect-detail effect-detail--description hidden">
-            <span class="effect-detail-value" v-html="effect.description"></span>
+          <div v-if="effect.description" class="effect-detail effect-detail--description">
+            <Transition name="slide-fade">
+              <div v-if="activeEffects[effect._id]" class="effect-detail-value" v-html="effect.description"></div>
+            </Transition>
           </div>
         </li>
       </ul>
@@ -119,7 +121,6 @@ export default {
         }
       }
       const element = this.$el.querySelector(`.effect-${id} > .effect-detail--description`);
-      if ( element ) element.classList.toggle('hidden');
     }
   },
   watch: {
@@ -136,3 +137,22 @@ export default {
   }
 }
 </script>
+
+<style>
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-60%);
+}
+</style>

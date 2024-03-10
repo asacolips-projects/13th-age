@@ -54,6 +54,7 @@ export class ArchmageCompendiumBrowserApplication extends Application {
     return {
       // @todo add more default options, like saved filters.
       defaultTab: this.options.defaultTab ?? 'creatures',
+      escalationDie: game.archmage.ArchmageUtility.getEscalation(),
     };
   }
 
