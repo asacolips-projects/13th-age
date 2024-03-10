@@ -2206,3 +2206,35 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/water/tidehawk.webp
       scale: 1.5
+
+  # Star-masks
+  dZInbX1FoD0gyvnS: # Brain-Absorber Xombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/squirming-swill.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/squirming-swill.webp
+      scale: 1
+  PBzjeNOc1o0GbO35: # Fast Xombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/zombie-void.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/zombie-void.webp
+      scale: 1
+  83WB6GsecZllMkpp: # Meteorite Xombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/zombie-shambler.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/zombie-shambler.webp
+      scale: 1
+  5EBJiAVZo7ITrbHj: # Skull Crab Xombie
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/lovelorn.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/lovelorn.webp
+      scale: 1
+  o5IYCV6zW6agTveM: # Xombie Egg Swarm
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/sportlebore-swarm.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/sportlebore-swarm.webp
+      scale: 1
+  FkrblWloZj1stnIF: # Xombie Spiders
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/tick-giant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/tick-giant.webp
+      scale: 1
