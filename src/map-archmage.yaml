@@ -2184,3 +2184,25 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hybrid/minotaur.webp
       scale: 1.5
+
+  # Flux Elemental
+  VOMmPqrT2EuYGHKb: # Big Flux Elemental
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/lerritan.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/lerritan.webp
+      scale: 2
+  YV2YxlxTm5J2F7hS: # Epic Flux Elemental
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/air/uthul.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/air/uthul.webp
+      scale: 1
+  K2U2DZShH2D1iZrl: # Flux Elemental
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/earth/mudwretch.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/mudwretch.webp
+      scale: 1
+  QBe6bc5EOVvLAobX: # Greater Flux Elemental
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/water/tidehawk.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/water/tidehawk.webp
+      scale: 1.5
