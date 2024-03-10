@@ -1151,7 +1151,11 @@ Hooks.on('updateCombat', (async (combat, update) => {
     for (let app of Object.values(ui.windows)) {
       const appType = app?.object?.type ?? null;
       if (appType == 'character' || appType == 'npc') {
-        app.render(true);
+        app.render();
+      }
+
+      if (app.constructor.name === 'ArchmageCompendiumBrowserApplication') {
+        app.render();
       }
     }
   }

@@ -69,8 +69,10 @@
             <div v-if="power.system.trigger.value" class="power-trigger power-trigger-tooltip"><strong>{{localize('ARCHMAGE.CHAT.trigger')}}:</strong> {{power.system.trigger.value}}</div>
           </div>
           <!-- Expanded power content. -->
-          <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))" :style="getPowerStyle(power._id)">
-            <Power :power="power" :actor="actor" :context="context" :ref="concat('power--', power._id)"/>
+          <div :class="concat('power-content', (activePowers[power._id] ? ' active' : ''))">
+            <Transition name="slide-fade">
+              <Power v-if="activePowers[power._id]" :power="power" :actor="actor" :context="context" :ref="concat('power--', power._id)"/>
+            </Transition>
           </div>
         </li>
       </ul>
@@ -316,25 +318,6 @@ export default {
       }
     },
     /**
-     * Calculate CSS height of power.
-     */
-    getPowerStyle(powerId) {
-      // Retrieve the element from our refs.
-      let power = this.$refs[`power--${powerId}`];
-      let height = 0;
-
-      // Set the height if there's a ref.
-      if (power) {
-        const element = this.$el.querySelector(`.power-item--${powerId} .power-content .power`);
-        height = this.activePowers[powerId] ? `${element.offsetHeight}px` : `0px`;
-      }
-
-      // Return CSS style object.
-      return {
-        maxHeight: height
-      };
-    },
-    /**
      * Filter which power groups are displayed:
      * - If sheet option isn't enabled, show unfiltered powers list
      * - Every group that is not empty
@@ -373,8 +356,8 @@ export default {
       else if (use == 'cyclic') {
         if (this.actor.system.attributes.escalation.value > 0
           && this.actor.system.attributes.escalation.value % 2 == 0) {
-          use = 'at-will';
-        } else use = 'once-per-battle';
+          use = 'at-will cyclic';
+        } else use = 'once-per-battle cyclic';
       }
       return use;
     }
@@ -404,3 +387,22 @@ export default {
   }
 }
 </script>
+
+<style>
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-60%);
+}
+</style>
