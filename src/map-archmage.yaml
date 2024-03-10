@@ -1392,6 +1392,36 @@ srd-Monsters:
   4rD0LAwTfYRLMLVH:
     actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
     token: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+  PO6VP1u7wJ0YmOFH: # Rakshasa Delver
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+      scale: 1
+  5FNrlsWwbHfkdT59: # Rakshasa Magician
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+      scale: 1
+  ZiqZjtpIkwGsCpel: # Rakshasa Mastermind
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+      scale: 1
+  34UHLo4WfqXWPkOk: # Rakshasa Saint
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+      scale: 1
+  x0IdF9y8BmFQyLo6: # Rakshasa Sybarite
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+      scale: 1
+  x9AWgtmaE4FlB0LY: # Rakshasa, Devourer of Wizards
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/raja-rakshasa.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/raja-rakshasa.webp
+      scale: 1
   # Redcaps
   qAMkW4I35HKwrbqK: # Crimsoncap
     actor: modules/pf2e-tokens-bestiaries/portraits/fey/redcap.webp
