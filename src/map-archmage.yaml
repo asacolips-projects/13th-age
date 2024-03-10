@@ -2238,3 +2238,33 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/tick-giant.webp
       scale: 1
+  Hol1uogoRUWzyZGc: # Scuttling Star-Mask
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/invertebrate/duneshaker-solifugid.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/invertebrate/duneshaker-solifugid.webp
+      scale: 1.5
+  JZyoMoybXedBdJMT: # Star-Mask Brainburster
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/incutilis.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/incutilis.webp
+      scale: 1
+  CjDQinrK0KtPLCdT: # Star-Mask Brute
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/isqulug.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/isqulug.webp
+      scale: 1
+  D2EFggGuOw1WU1Is: # Star-Mask Cult Leader
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gurgist-mauler.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gurgist-mauler.webp
+      scale: 1
+  rWCMstuGYa7mj05N: # Star-Mask Cult Puppet
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/skulk.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/skulk.webp
+      scale: 1
+  tuZo04nkQxaeYRlv: # Star-Mask Cultist
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/angheuvore-flesh-gnawer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/angheuvore-flesh-gnawer.webp
+      scale: 1.5
