@@ -12,7 +12,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 ## Changes
 
-- Implemented a new `cyclic` power usage mode and applied it to the **Color Spray** and **Rebuke** spells from the wizard spell compendium. If a power is set to `cyclic`, it will render on the character sheet as an at-will power when the escalation die is even, or a once-per-battle power when it's odd. In either case, there will be a small border on the right off the opposite color to indicate that it's a cyclic power and changes on some rounds.
+- Implemented a new `cyclic` power usage mode and applied it to the **Color Spray** and **Rebuke** spells from the wizard spell compendium. If a power is set to `cyclic`, it will behave (and render on the character sheet) as an at-will power when the escalation die is even, or a once-per-battle power when it's odd. In either case, there will be a small border on the right off the opposite color to indicate that it's a cyclic power and changes on some rounds.
 - Implemented a new **Compendiumb Browser**! This is inspired by the module of the same name (and the PF2e compendium browser!), but it's a browser that we built from scratch to be as fast and useful as we could make it for 13th Age. See the Compendium Browser section below for more details.
 
 ## Fixes
