@@ -2121,3 +2121,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/draconic/dragons/dragon-underworld-ancient.webp
       scale: 1.5
+
+  # Minotaur
+  ARakBWxakipyenJZ: # City Minotaur Guard
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hybrid/minotaur.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hybrid/minotaur.webp
+      scale: 1.5
+  eJ365eLOO7wgRv1o: # Minotaur Adept
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hybrid/minotaur.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hybrid/minotaur.webp
+      scale: 1.5
+  5P9TuEtuhEnd7k27: # Tribal Minotaur Berserker
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hybrid/minotaur.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hybrid/minotaur.webp
+      scale: 1.5
