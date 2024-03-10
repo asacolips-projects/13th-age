@@ -1072,6 +1072,52 @@ srd-Monsters:
   VJ1sqwMyR5EAyFJZ: # Kobold Hero
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-scout.webp
     token: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-scout.webp
+  FC78w7dT7l7cgnIN: # Demon Drake (Gold)
+    actor: modules/pf2e-tokens-bestiaries/portraits/draconic/drakes/flame-drake.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/draconic/drakes/flame-drake.webp
+      scale: 1
+  z3YgYuICsKbKjH5i: # Kobold Assassin (Black)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-mage-black.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-mage-black.webp
+      scale: 1.2
+  0mrlgIU5F6w06AIX: # Kobold Berserker (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-warrior.webp
+      scale: 1.2
+  H8AZo9QNUWJLdjTl: # Kobold Glinter (Blue)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-mage-blue.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-mage-blue.webp
+      scale: 1.2
+  u5JRrjXkocdc69Ao: # Protector Icon Cultist (Gold)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-scout.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-scout.webp
+      scale: 0.8
+  RynWrFI8W2mhkF7A: # Protector Icon Priest (Gold)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-scout.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-scout.webp
+      scale: 0.8
+  tkiBydA44ehz1chb: # Protector Icon Warrior (Gold)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-scout.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-scout.webp
+      scale: 0.8
+  DfpQbZBxZZIREcmb: # Really Angry Kobold (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-warrior.webp
+      scale: 1.2
+  tLtak3aID29F7ogt: # Red Haze Berserker (Red)
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/kobold/kobold-warrior.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/kobold/kobold-warrior.webp
+      scale: 1.2
+
   # Lammasu (using manticore in lieu of a better option)
   eJLzKl3r89V7ATUR: # Fallen Lammasu
     actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mythological/manticore.webp
