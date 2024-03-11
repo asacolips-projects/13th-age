@@ -2478,3 +2478,55 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/shadow.webp
       scale: 1
+
+  # Kroma Dragonic
+  u2QoWbnucoZa9DuY: # Blackscale Light-Killer
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-black.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-black.webp
+      scale: 1.5
+  02tbvQym1pbeAKGF: # Blackscale Shadow Dancer
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-black.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-black.webp
+      scale: 1.5
+  ZFQFPgG66s9ISLU2: # Bluescale Lightning Caller
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-black.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-black.webp
+      scale: 1.5
+  FRCLBNtIn4vQ2bRG: # Bluescale Orb-Bearer
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-black.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-black.webp
+      scale: 1.5
+  lXMrliSIqZZX0qwv: # Greenscale Spineback
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-green.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-green.webp
+      scale: 1.5
+  xHfk5dLQXU5j9nf5: # Greenscale Wild Stalker
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-green.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-green.webp
+      scale: 1.5
+  Z51O1F4o0dGkdhcy: # Redscale Fiery Vanquisher
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-red.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-red.webp
+      scale: 1.5
+  xQJjM3Haex8xZjib: # Redscale Flamewing
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-red.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-red.webp
+      scale: 1.5
+  u0JDIsN5niccxt56: # Whitescale Blighter
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-white.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-white.webp
+      scale: 1.5
+  77vSnD6MpZ6pY67L: # Whitescale Rime Walker
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/agathion/draconal-white.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-white.webp
+      scale: 1.5
