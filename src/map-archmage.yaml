@@ -2431,3 +2431,50 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/firewyrm.webp
       scale: 1
+
+  # Ghost
+  oQx62ASUgneGOMgi: # Disgraced Legionnaire
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/phantom-knight.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/phantom-knight.webp
+      scale: 1
+  odt07aRlgZPumv1b: # Epic Haunting
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/abandoned-zealot.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/abandoned-zealot.webp
+      scale: 1
+  gVVXcJyZj6kjlYxB: # Hungry Mouth Ghost
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/dread-wraith.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/dread-wraith.webp
+      scale: 1
+  ocy1dSLioIYI5njV: # Lesser Haunting
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/abandoned-zealot.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/abandoned-zealot.webp
+      scale: 1
+  BYmXO4i7m4W82E5P: # Major Haunting
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/abandoned-zealot.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/abandoned-zealot.webp
+      scale: 1
+  5VQSAHGtcSZsXxU9: # Most Hungry Ghost
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/dread-wraith.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/dread-wraith.webp
+      scale: 1
+  QfVuJ5UqFxhb5W12: # Petulant Never-Was
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/banshee.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/banshee.webp
+      scale: 1.5
+  4dnPbusAoZHE4FTf: # Sadsack
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/banshee.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/banshee.webp
+      scale: 1.5
+  oZIxx2NuhNrnwg7O: # Twisted Soul
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/shadow.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/shadow.webp
+      scale: 1
