@@ -283,7 +283,8 @@ ARCHMAGE:
     EasySaveEnds: Easy Save Ends
     NormalSaveEnds: Normal Save Ends
     HardSaveEnds: Hard Save Ends
-    EndOfCombat: End of Combat
+    EndOfCombat: End of Battle
+    StartOfEachTurn: Start of Each Turn
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to ability scores (3rd/6th/9th Level)
@@ -551,6 +552,7 @@ ARCHMAGE:
     ongoingSelfEnded: The following Effects <strong>have ended on this</strong> Actor
     ongoingOtherEnded: The following Effects <strong>have ended on another</strong> Actor
     ongoingSaveEnds: The following Effects <strong>require a Save</strong> to end
+    ongoingSelfTriggered: The following Effects <strong>triggered on this</strong> Actor
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
@@ -570,6 +572,8 @@ ARCHMAGE:
     rangeTitle: Range of the power, such as 'Meele attack' or 'Ranged spell'
     recharge: Recharge
     rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
+    reuseBreath: Reuse {power}
+    rollD20: Roll d20
     RechargeFail: recharge failed
     RechargeLabel: Rolling recharge
     RechargeRoll: Recharge Roll
@@ -605,6 +609,7 @@ ARCHMAGE:
     spellLevel10: 10th Level Spell
     spellLevel10Placeholder: "[[10d6]] damage"
     spellLevelTrigger: Level Spell
+    sustainPower: "Sustain {power} on {target}"
     rollTable: RollTable
     rollTablePlaceholder: Sneak Attack
     rollTableTitle: Name of a roll table to roll on use (only text supported)
