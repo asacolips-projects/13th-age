@@ -2530,3 +2530,25 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/divine/agathion/draconal-white.webp
       scale: 1.5
+
+  # Koruku
+  h4qiPjNWN78ZcrUb: # Koruku Landkiller
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/irlgaunt.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/irlgaunt.webp
+      scale: 1.5
+  qcWttkxneXE9vW2E: # Koruku Larva
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/chyzaedu.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/chyzaedu.webp
+      scale: 1
+  w1QlxgRe2yslBBWp: # Koruku Servitor
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/witchfire.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/witchfire.webp
+      scale: 1
+  JkhKv55xAnVeA4wK: # Koruku Symbiont
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/humanoid/incutilis.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/incutilis.webp
+      scale: 1
