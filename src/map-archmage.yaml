@@ -2627,3 +2627,35 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fiendish/japalisura.webp
       scale: 1
+
+  # Ebon Gauntlet
+  uYwxZwPiol3j5d2T: # Ebon Gauntlet Adjudicator
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-vanguard.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-vanguard.webp
+      scale: 2
+  ezV0DG0QK7JdrbCr: # Ebon Gauntlet Eye
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-caller.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-caller.webp
+      scale: 1.5
+  Xzp2UitGDw5AZZym: # Ebon Gauntlet Inquisitor
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-stalker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-stalker.webp
+      scale: 2
+  8eyQMkS4dJUqcNEr: # Ebon Gauntlet Sword
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/vilderavn.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/vilderavn.webp
+      scale: 1.5
+  w86cHSfZMk74ZCjk: # Greater Ebon Gauntlet Sword
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/vilderavn.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/vilderavn.webp
+      scale: 1.5
+  PAahQFnmgLN0FCM9: # Gauntlet’s Mascot
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/beast/yeth-hound.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/yeth-hound.webp
+      scale: 1
