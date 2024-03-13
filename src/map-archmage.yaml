@@ -2581,3 +2581,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/wooly-rhinoceros.webp
       scale: 1
+
+  # Shadow Mongoose
+  4L0M5AJJ7Eh2znxC: # Shadow Mongoose Destroyer of Fate
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/daemon/soul-eater.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/daemon/soul-eater.webp
+      scale: 1
+  H7iyQyTe1xvIH7Z9: # Shadow Mongoose Subverter of Fate
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/daemon/soul-eater.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/daemon/soul-eater.webp
+      scale: 1
+  pEhIcRz4eOA9prW2: # Shadow Mongoose Thief of Fate
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/daemon/soul-eater.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/daemon/soul-eater.webp
+      scale: 1
