@@ -2552,3 +2552,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/aberrant/humanoid/incutilis.webp
       scale: 1
+
+  # Hubris Devil
+  GfAWl9pum3sr8cgD: # Colossal Hubris Devil
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/devil/gylou.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/devil/gylou.webp
+      scale: 1
+  6HXa4eOkbnuLnk6d: # Great Hubris Devil
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/devil/gylou.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/devil/gylou.webp
+      scale: 1
+  g2LjsYJ3UpgM5MVW: # Wandering Hubris Devil
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/devil/gylou.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/devil/gylou.webp
+      scale: 1
