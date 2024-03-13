@@ -2610,3 +2610,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/wood-golem.webp
       scale: 1
+
+  # Laughing Demon
+  038AMzy2vul1tc05: # Cackling Demon
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/adhukait.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/adhukait.webp
+      scale: 1
+  N2Xc9ma2nrmUpikQ: # Giggling Demon
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/dandasuka.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/dandasuka.webp
+      scale: 1
+  nUiSIBtiWNYETpcD: # Laughing Demon
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/japalisura.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/japalisura.webp
+      scale: 1
