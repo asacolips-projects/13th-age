@@ -27,7 +27,7 @@ export class ArchmageMacros {
       // ui.notifications.info("Halo removed");
     } else {
       const effectData = {label: label, changes: effects, icon: archmage.item.img};
-      game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat)
+      game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
       // ui.notifications.info("Halo applied");
     }
@@ -61,7 +61,31 @@ export class ArchmageMacros {
         { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
       ]
     }
-    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  ////////////////////////////////////////////////
+  /**
+   * Cleric Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * Hammer of Faith (1e).
+   */
+  static async clericHammerOfFaith(speaker, actor, token, character, archmage) {
+    const bonus = actor.isMulticlass() ? "d10" : "d12";
+    const effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.weapon.melee.dice",
+        value: bonus ,
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
+      }]
+    };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
@@ -122,7 +146,7 @@ export class ArchmageMacros {
       changes: [
         { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
       ]};
-    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
@@ -148,7 +172,7 @@ export class ArchmageMacros {
     }
 
     let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };
-    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
 
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
