@@ -2569,3 +2569,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fiendish/devil/gylou.webp
       scale: 1
+
+  # Horned Azinth
+  E4ghAlzdLeHJFYxS: # Horned Azinth Adult
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/wooly-rhinoceros.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/wooly-rhinoceros.webp
+      scale: 1
+  AIsbGuvBeYOC1DmB: # Horned Azinth Calf
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/mammalian/wooly-rhinoceros.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/mammalian/wooly-rhinoceros.webp
+      scale: 1
