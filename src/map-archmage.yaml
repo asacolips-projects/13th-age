@@ -2598,3 +2598,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fiendish/daemon/soul-eater.webp
       scale: 1
+
+  # Spell Golem
+  3egdeM32UJDSfrrq: # Spell Golem Mage Hunter
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/wood-golem.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/wood-golem.webp
+      scale: 1
+  A1SdiTmRo3fWYlto: # Spell Golem Warder
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/golem/wood-golem.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/golem/wood-golem.webp
+      scale: 1
