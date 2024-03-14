@@ -2659,3 +2659,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/yeth-hound.webp
       scale: 1
+
+  # Hellwarped Beast
+  W6zauvHLbhf2JgWM: # Hellwarped Brute
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/beast/barghest.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/barghest.webp
+      scale: 1
+  mTxF2ZS6kLNyOGsx: # Hellwarped Spawn
+    actor: modules/pf2e-tokens-bestiaries/portraits/fiendish/beast/barghest.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/barghest.webp
+      scale: 1
