@@ -2671,3 +2671,30 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fiendish/beast/barghest.webp
       scale: 1
+
+  # The Fomori
+  4pL6dxCToYXWG5eo: # Fomori Torturer
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/quintessivore.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/quintessivore.webp
+      scale: 1
+  X6FFaDP5mpnLy01E: # Fomori Tyrant
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/quintessivore.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/quintessivore.webp
+      scale: 1
+  0GoJyZ7SkCOPcEr3: # Fomorian Brute
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gogiteth.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gogiteth.webp
+      scale: 1
+  S1qG5cq6aUA5ugif: # Fomorian Bully
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gogiteth.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gogiteth.webp
+      scale: 1
+  93lxGAhiJJswYgpt: # Fomorian Top-Cannibal
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/gogiteth.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gogiteth.webp
+      scale: 1
