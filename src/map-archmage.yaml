@@ -2720,3 +2720,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/tooth-fairy.webp
       scale: 1
+
+  # Kohwa
+  eb0H6U4udfba0qU0: # Kohwa Enforcer
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/elananx.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/elananx.webp
+      scale: 1
+  8rExRPQ3Pq47Lj50: # Kohwa Messenger
+    actor: modules/pf2e-tokens-bestiaries/portraits/elemental/fire/elananx.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/elananx.webp
+      scale: 1
