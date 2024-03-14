@@ -2698,3 +2698,25 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/gogiteth.webp
       scale: 1
+
+  # Bone Imp
+  GsaLjhm6bCOc374O: # Bone Imp Archer
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/fairy/tooth-fairy.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/tooth-fairy.webp
+      scale: 1
+  yKsOGGsL2JnQIEln: # Bone Imp Mage-Eater
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/fairy/tooth-fairy.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/tooth-fairy.webp
+      scale: 1
+  4DXoOYTwXyTkcn3w: # Bone Imp Skullbiter
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/fairy/tooth-fairy.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/tooth-fairy.webp
+      scale: 1
+  LoCY28MBhLmEXpNy: # Bone Imp Tormentor
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/fairy/tooth-fairy.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/fairy/tooth-fairy.webp
+      scale: 1
