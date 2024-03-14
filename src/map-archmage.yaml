@@ -2732,3 +2732,40 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/fire/elananx.webp
       scale: 1
+
+  # Thunder Lizard
+  Agk743BfUg6sVuJ4: # Clubtail
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/ankylosaurus.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/ankylosaurus.webp
+      scale: 1
+  dDwtXte5CVKJM8jN: # Dainty Lizard
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/compsognathus.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/compsognathus.webp
+      scale: 1
+  ZHSUc1eSQuETrz8f: # Earthshaker
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/brontosaurus.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/brontosaurus.webp
+      scale: 2
+  79OynB4yZM1RcUgu: # Spiketail
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/stegosaurus.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/stegosaurus.webp
+      scale: 1
+  TuhJW48dDmZdJdi5: # Stalker
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/velociraptor.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/velociraptor.webp
+      scale: 1
+  2YrdOSe3yOQG7gj5: # Trihorn
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/triceratops.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/triceratops.webp
+      scale: 1
+  5uLLeMWYvjIM5hmL: # Tyrant Lizard
+    actor: modules/pf2e-tokens-bestiaries/portraits/bestial/reptilian/tyrannosaurus.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/tyrannosaurus.webp
+      scale: 1
