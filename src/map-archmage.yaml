@@ -2769,3 +2769,30 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/bestial/reptilian/tyrannosaurus.webp
       scale: 1
+
+  # Reaver
+  lTJMBjAzaDFiSBHT: # Death Marker
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/dybbuk.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/dybbuk.webp
+      scale: 1.5
+  NfvNWt5La1heqKVW: # Death Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/nemhaith.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/nemhaith.webp
+      scale: 1
+  u7cl3mHNP6BiXWQQ: # Gruesome Death Shade
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/nemhaith.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/nemhaith.webp
+      scale: 1
+  f2wEMxC9C6IxM3Cl: # Gruesome Reaver
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/lesser-death.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/lesser-death.webp
+      scale: 1
+  orSumF0xupih1fHd: # Reaver
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/lesser-death.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/lesser-death.webp
+      scale: 1
