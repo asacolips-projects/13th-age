@@ -2840,3 +2840,50 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hellbound-attorney.webp
       scale: 1
+
+  # Fallen Icon - Underground
+  wv8AJ1CtADDBZDfn: # Bronze Errant
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/mechanical/clockwork-soldier.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/clockwork-soldier.webp
+      scale: 1
+  UnSiXcGkZFndgdeS: # Bronze Kingsguard
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/mechanical/clockwork-soldier.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/clockwork-soldier.webp
+      scale: 1
+  VdiSAmSElO0kLANY: # Fallen Icon – Underground
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/archon/shield-archon.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/archon/shield-archon.webp
+      scale: 2
+  FQwWQGNM46JnFxbx: # Glittering Bearer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/dero-magister.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/dero-magister.webp
+      scale: 1.5
+  LFEUcjgb1pBIcrC5: # Gray Hoarder
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/duergar-taskmaster.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/duergar-taskmaster.webp
+      scale: 1
+  yKDJtIsZAZXB2K5u: # Gray Raider
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/duergar-sharpshooter.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/duergar-sharpshooter.webp
+      scale: 1
+  Z6TbbOfECn03DkW7: # Loyal Gatherer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/duergar-taskmaster.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/duergar-taskmaster.webp
+      scale: 1
+  hZn9e9ipbxPZNSrn: # Royal Bearer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/dero-magister.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/dero-magister.webp
+      scale: 1.5
+  y1l3BzOYZFDHUVir: # Screaming Hoardling
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-creeper.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-creeper.webp
+      scale: 1
