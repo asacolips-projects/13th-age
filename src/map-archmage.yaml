@@ -2796,3 +2796,15 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/lesser-death.webp
       scale: 1
+
+  # Sunder Wraith
+  CQnSjucE1EKptDnD: # Great Sunder Wraith
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/devourer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/devourer.webp
+      scale: 1.5
+  0Erdf2OtYIuDoOrL: # Sunder Wraith
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/devourer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/devourer.webp
+      scale: 1.5
