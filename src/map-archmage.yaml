@@ -2808,3 +2808,35 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/undead/devourer.webp
       scale: 1.5
+
+  # Bonded
+  lraaoDdT2L0JTRP8: # Bonded Arcane Archer
+    actor: modules/pf2e-tokens-bestiaries/portraits/divine/azata/bralani.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/divine/azata/bralani.webp
+      scale: 1
+  UrbEcWJFwaPOmyDB: # Bonded Hero
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-vanguard.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-vanguard.webp
+      scale: 2
+  YUX07lFm16z41Dj8: # Bonded Hexknight
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/aasimar-redeemer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/aasimar-redeemer.webp
+      scale: 1
+  cdREcpckbGsRlDU7: # Bonded Prophet
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/duergar-taskmaster.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/duergar-taskmaster.webp
+      scale: 1
+  usqRkvKzNNXFlOuy: # Bonded Veil
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-caller.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-caller.webp
+      scale: 1.5
+  aCuNNSqRpHH8eTiq: # Bonded Warlock
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hellbound-attorney.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hellbound-attorney.webp
+      scale: 1
