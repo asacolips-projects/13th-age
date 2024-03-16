@@ -1151,7 +1151,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
           "HardSaveEnds": "hard",
         }
         await actor.rollSave(durationToDifficulty[duration] ?? "normal");
-        await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
+        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectSaved.${effectId}`});
         break;
       case "d20":
         new Roll("d20").toMessage()
@@ -1186,6 +1187,29 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     }
   });
 });
+
+function _handleCondButtonMsg(msg) {
+  if (!game.user.isGM) return;
+  const chatMessage = game.messages.get(msg.msg);
+  if (chatMessage) chatMessage.setFlag('archmage', msg.flg, true);
+}
+
+
+Hooks.once('ready', async function () {
+  game.socket.on("system.archmage", (msg) => {
+    switch (msg.type) {
+      case 'shareItem':
+        ItemArchmageSheet.handleShareItem(msg);
+        break;
+      case 'condButton':
+        _handleCondButtonMsg(msg);
+        break;
+      default:
+        console.log(msg);
+    }
+  });
+})
+
 
 Hooks.on("getChatLogEntryContext", (html, options) => {
   let canApply = li => {
