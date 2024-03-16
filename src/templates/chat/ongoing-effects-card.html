@@ -22,7 +22,7 @@
 
 {{!-- Save ends row partial. --}}
 {{#*inline "save-ends"}}
-<div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">
+<div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}" data-save="{{effect.flags.archmage.duration}}">
     <a class="effect-link grid-span-5" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
         data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
         <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
