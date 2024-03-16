@@ -2887,3 +2887,60 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-creeper.webp
       scale: 1
+
+  # Fallen Icon - Undead
+  Gj9ErpzF3j3rNlZT: # Fallen Icon’s Maw
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/eldritch/shoggoth.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/eldritch/shoggoth.webp
+      scale: 1
+  ot6DzpD6S4MAQZyW: # Fallen Icon’s Shadow
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/magical/unseen-servant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/magical/unseen-servant.webp
+      scale: 1
+  g1uPfvUAocCBsLNw: # Greater Summoned Ghoul
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+      scale: 1
+  k1pc8QwJNs9HutPr: # Jackal Bearer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-sergeant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-sergeant.webp
+      scale: 1
+  qyIa9bLDpKhVwAWf: # Jackal Gravewrecker
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-sergeant.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-sergeant.webp
+      scale: 1
+  g2Q1cMGf5J5t38le: # Jackal High Mage
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-cultist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-cultist.webp
+      scale: 1
+  1oP4VHTNYHodZE9A: # Jackal High Priest
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-cultist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-cultist.webp
+      scale: 1
+  uY4thtjJ3KSZIRqr: # Jackal Mage
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-cultist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-cultist.webp
+      scale: 1
+  ShMIwZ3xGhVHmoHg: # Jackal Priest
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-cultist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-cultist.webp
+      scale: 1
+  Xu7mWyouCPpEY9v2: # Jackal Scout
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/gnoll-hunter.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/gnoll-hunter.webp
+      scale: 1
+  DernpQd2tn8IUEkO: # Summoned Ghoul
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghoul.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
+      scale: 1
