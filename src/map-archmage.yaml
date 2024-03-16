@@ -2961,3 +2961,40 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hag/storm-hag.webp
       scale: 1
+
+  # Undead Cult
+  KBJlxEfOMeu3hwmF: # Death Knight
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-vanguard.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-vanguard.webp
+      scale: 2
+  Dyv4f8Q69rMs6Wg9: # Drudge Citizen
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/fetchling-scout.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/fetchling-scout.webp
+      scale: 1
+  IJBhLvzwIElYnwpe: # Golden Eye Necromancer
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/caligni-dancer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/caligni-dancer.webp
+      scale: 1.5
+  pRxX1lnJRIYeJHEt: # Phantom
+    actor: modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/poltergeist.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/poltergeist.webp
+      scale: 1.5
+  OXIM13fHxmy6L4sx: # Phantomaton
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/magical/scarecrow.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/magical/scarecrow.webp
+      scale: 1.5
+  kVuhdJDsCf7GRUXJ: # Tempter
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/darklands/munavri-spellblade.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/darklands/munavri-spellblade.webp
+      scale: 2
+  jb0okLdMFUGgYDCt: # Undead Icon Cultist
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/etioling-blightmage.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/etioling-blightmage.webp
+      scale: 1
