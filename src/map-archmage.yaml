@@ -836,6 +836,12 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/giant/fire-giant.webp
       scale: 1
+  ANpXNbsU1jhHjwB7: # Forge Wolf
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/mechanical/dig-widget.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/mechanical/dig-widget.webp
+      scale: 1
+
   # Giants, Frost
   Y1eomXamSryinrMI: # Bergship Raider
     actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/giant/frost-giant.webp
@@ -2005,6 +2011,11 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/elemental/earth/gargoyle.webp
       scale: 1.5
+  zcH0IOSOUVNcsnqt: # Temple Lion
+    actor: modules/pf2e-tokens-bestiaries/portraits/constructed/magical/stone-lion-cub.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/constructed/magical/stone-lion-cub.webp
+      scale: 1
 
   # Nymph
   jt8GK0RdpIj49zQ3: # Hill Nymph (Oread)
