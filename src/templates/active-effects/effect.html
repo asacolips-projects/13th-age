@@ -71,14 +71,13 @@
                         <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
                     </div>
 
-                    {{#if isNpc}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.toHitBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.attackMod.value" type="text" value="{{system.attributes.attackMod.value}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
 
-                    {{else}}
+                    {{#unless isNpc}}
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.meleeBonus'}}</strong>
                         <input class="attribute-input" name="system.attributes.attack.melee.bonus" type="text" value="{{system.attributes.attack.melee.bonus}}"
@@ -102,7 +101,7 @@
                         <input class="attribute-input" name="system.attributes.attack.arcane.bonus" type="text" value="{{system.attributes.attack.arcane.bonus}}"
                                data-dtype="Number" placeholder="0" />
                     </div>
-                    {{/if}}
+                    {{/unless}}
 
                     <div class="settings-group">
                         <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.critModBonus'}}</strong>
