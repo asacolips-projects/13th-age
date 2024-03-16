@@ -2998,3 +2998,30 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/humanoid/etioling-blightmage.webp
       scale: 1
+
+  # Naiad
+  uy137yOsbbPUEMOX: # Kelplet
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/cloaker.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/cloaker.webp
+      scale: 1
+  nF7doc2tNyEZ4HTN: # Kelpling
+    actor: modules/pf2e-tokens-bestiaries/portraits/aberrant/monstrous/skrik-nettle.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/aberrant/monstrous/skrik-nettle.webp
+      scale: 1.5
+  4bQTn6zZT3IXsQLw: # Melusine
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/aquatic/merfolk-wavecaller.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/aquatic/merfolk-wavecaller.webp
+      scale: 1
+  tzK6C9lzi0s22ynF: # Nix
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/aquatic/azarketi-explorer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/aquatic/azarketi-explorer.webp
+      scale: 1.5
+  lG0K7umpvjlwwUwx: # Waterhorse
+    actor: modules/pf2e-tokens-bestiaries/portraits/fey/kelpie.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/fey/kelpie.webp
+      scale: 1
