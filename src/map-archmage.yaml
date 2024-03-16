@@ -2944,3 +2944,20 @@ srd-Monsters:
     token:
       img: modules/pf2e-tokens-bestiaries/tokens/undead/ghoul.webp
       scale: 1
+
+  # Demonic Icon Cult
+  ZzHWbzEgJ4C5cSET: # Demonic Icon Fanatic
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/angheuvore-flesh-gnawer.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/angheuvore-flesh-gnawer.webp
+      scale: 1.5
+  gzw6jDEdq9yC20rb: # Demonic Icon Priest
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hag/winter-hag.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hag/winter-hag.webp
+      scale: 1
+  nc33yJT9Bnu4EI1X: # Demonic Icon Wizard
+    actor: modules/pf2e-tokens-bestiaries/portraits/humanoid/hag/storm-hag.webp
+    token:
+      img: modules/pf2e-tokens-bestiaries/tokens/humanoid/hag/storm-hag.webp
+      scale: 1
