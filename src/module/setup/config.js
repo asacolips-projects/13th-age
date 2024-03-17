@@ -7,14 +7,14 @@ ARCHMAGE.statusEffects = [
     id: "dead",
     name: "ARCHMAGE.EFFECT.StatusDead",
     icon: "icons/svg/skull.svg",
-    journal: "ig1kzvpojsk20dbt"
+    journal: "ig1kzvpojsk20dbt",
   },
   // Staggered
   {
     id: "staggered",
     name: "ARCHMAGE.EFFECT.StatusStaggered",
     icon: "icons/svg/blood.svg",
-    journal: "oqkyq1xn6xi2ajmi"
+    journal: "oqkyq1xn6xi2ajmi",
   },
   // Unconscious.
   {
@@ -38,14 +38,24 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Confused.
   {
     id: "confused",
     name: "ARCHMAGE.EFFECT.StatusConfused",
     icon: "icons/svg/stoned.svg",
-    journal: "21cEqzk92tflpW7N"
+    journal: "21cEqzk92tflpW7N",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Dazed.
   {
@@ -59,7 +69,12 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Fear.
   {
@@ -78,20 +93,35 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Hampered / Hindered.
   {
     id: "hampered",
     name: "ARCHMAGE.EFFECT.StatusHampered",
     icon: "icons/svg/paralysis.svg",
-    journal: "mk69wxlsqwnydwip"
+    journal: "mk69wxlsqwnydwip",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   {
     id: "hindered",
     name: "ARCHMAGE.EFFECT.StatusHindered",
     icon: "icons/svg/paralysis.svg",
-    journal: "FHDyJEb29LWnO2Dg"
+    journal: "FHDyJEb29LWnO2Dg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Helpless.
   {
@@ -115,21 +145,36 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Shocked.
   {
     id: "shocked",
     name: "ARCHMAGE.EFFECT.StatusShocked",
     icon: "icons/svg/lightning.svg",
-    journal: "m78aw2gepbc5ccgm"
+    journal: "m78aw2gepbc5ccgm",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Stuck.
   {
     id: "stuck",
     name: "ARCHMAGE.EFFECT.StatusStuck",
     icon: "icons/svg/net.svg",
-    journal: "ti7104njam2n18a5"
+    journal: "ti7104njam2n18a5",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Stunned.
   {
@@ -153,7 +198,12 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Vulnerable.
   {
@@ -167,7 +217,12 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '2'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Weakened.
   {
@@ -196,7 +251,12 @@ ARCHMAGE.statusEffects = [
         mode: CONST.ACTIVE_EFFECT_MODES.ADD,
         value: '-4'
       }
-    ]
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
 ];
 // Extended (optional) status effects
@@ -205,67 +265,122 @@ ARCHMAGE.extendedStatusEffects = [
   {
     id: "empowered",
     name: "ARCHMAGE.EFFECT.StatusEmpowered",
-    icon: "icons/svg/upgrade.svg"
+    icon: "icons/svg/upgrade.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Ongoing Damage.
   {
     id: "ongoingDamage",
     name: "ARCHMAGE.EFFECT.StatusOngoingDamage",
-    icon: "icons/svg/degen.svg"
+    icon: "icons/svg/degen.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Regen.
   {
     id: "regen",
     name: "ARCHMAGE.EFFECT.StatusRegen",
-    icon: "icons/svg/regen.svg"
+    icon: "icons/svg/regen.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Bonus defenses.
   {
     id: "bonusDefenses",
     name: "ARCHMAGE.EFFECT.StatusBonusDefenses",
-    icon: "icons/svg/shield.svg"
+    icon: "icons/svg/shield.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Reduced defenses.
   {
     id: "reducedDefenses",
     name: "ARCHMAGE.EFFECT.StatusReducedDefenses",
-    icon: "icons/svg/acid.svg" //ruins
+    icon: "icons/svg/acid.svg", //ruins
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Blessed.
   {
     id: "blessed",
     name: "ARCHMAGE.EFFECT.StatusBlessed",
-    icon: "icons/svg/angel.svg"
+    icon: "icons/svg/angel.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Cursed.
   {
     id: "cursed",
     name: "ARCHMAGE.EFFECT.StatusCursed",
-    icon: "icons/svg/dice-target.svg"
+    icon: "icons/svg/dice-target.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Hidden.
   {
     id: "invisible", //hidden - renamed to play nice with v11 statuses
     name: "ARCHMAGE.EFFECT.StatusHidden",
     icon: "icons/svg/mystery-man.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Flying.
   {
     id: "flying",
     name: "ARCHMAGE.EFFECT.StatusFlying",
-    icon: "icons/svg/wing.svg"
+    icon: "icons/svg/wing.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Grabbed.
   {
     id: "grabbed",
     name: "ARCHMAGE.EFFECT.StatusGrabbed",
-    icon: "icons/svg/item-bag.svg"
+    icon: "icons/svg/item-bag.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Last Gasps.
   {
     id: "lastgasps",
     name: "ARCHMAGE.EFFECT.StatusLastGasps",
-    icon: "icons/svg/clockwork.svg"
+    icon: "icons/svg/clockwork.svg",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
   },
   // Asleep.
   // {
@@ -387,13 +502,19 @@ ARCHMAGE.actionTypesShort = {
   'interrupt': 'INT'
 };
 
-ARCHMAGE.effectDurations = {
-  StartOfNextTurn: 0,
-  EndOfNextTurn: 1,
-  StartOfNextSourceTurn: 2,
-  EndOfNextSourceTurn: 3,
-  SaveEnds: 4
-}
+ARCHMAGE.effectDurationTypes = {
+  'Unknown': 'ARCHMAGE.DURATION.Unknown',
+  'Infinite': 'ARCHMAGE.DURATION.Infinite',
+  'StartOfNextTurn': "ARCHMAGE.DURATION.StartOfNextTurn",
+  'EndOfNextTurn': "ARCHMAGE.DURATION.EndOfNextTurn",
+  'StartOfNextSourceTurn': 'ARCHMAGE.DURATION.StartOfNextSourceTurn',
+  'EndOfNextSourceTurn': 'ARCHMAGE.DURATION.EndOfNextSourceTurn',
+  'EasySaveEnds': 'ARCHMAGE.DURATION.EasySaveEnds',
+  'NormalSaveEnds': 'ARCHMAGE.DURATION.NormalSaveEnds',
+  'HardSaveEnds': 'ARCHMAGE.DURATION.HardSaveEnds',
+  'EndOfCombat': 'ARCHMAGE.DURATION.EndOfCombat',
+  'StartOfEachTurn': 'ARCHMAGE.DURATION.StartOfEachTurn'
+};
 
 ARCHMAGE.creatureTypes = {
   'aberration': 'Aberration',
@@ -1014,6 +1135,12 @@ FLAGS.characterFlags = {
   "dexToInt": {
     name: "Mental Phenomenon",
     hint: "Wizard talent to use Int in place of Dex for AC, PD and initiative calculations.",
+    section: "Feats",
+    type: Boolean
+  },
+  "implacable": {
+    name: "Implacable",
+    hint: "Paladin talent to roll saves at the start of your turn instead of at the end of your turn.",
     section: "Feats",
     type: Boolean
   },

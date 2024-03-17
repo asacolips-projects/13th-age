@@ -21,9 +21,15 @@
             </a>
             <div class="effects-bonus flexrow">
               <div class="bonus" v-for="(bonus, bonusKey) in getChanges(effect)" :key="bonusKey">
-                <span class="bonus-label">{{bonus.label}} </span>
+                <span class="bonus-label"><i :class="bonus.icon"></i> {{bonus.label}} </span>
                 <span class="bonus-mode"><i :class="concat('fas fa-', bonus.mode)"></i> </span>
                 <span class="bonus-value">{{numberFormat(bonus.value, 0, false)}}</span>
+              </div>
+              <div class="bonus" v-if="effect.flags.archmage?.ongoingDamage">
+                <span class="bonus-label"><i class="fas fa-flask-round-poison"></i> {{getOngoingDamage(effect)}}</span>
+              </div>
+              <div class="bonus" v-if="effect.flags.archmage?.duration">
+                <span class="bonus-label"><i class="fas fa-timer"></i> {{getDuration(effect)}}</span>
               </div>
             </div>
             <div class="item-controls effect-controls">
@@ -77,8 +83,10 @@ export default {
       ]
       effect.changes.forEach(c => {
         if (c.key && c.value) {
+          const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
           let change = {
-            label: game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key),
+            label: label,
+            icon: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
             mode: modes[c.mode],
             value: c.value
           };
@@ -92,6 +100,14 @@ export default {
       return changes;
     }
 
+    function getDuration(effect) {
+      return game.i18n.localize(CONFIG.ARCHMAGE.effectDurationTypes[effect.flags.archmage.duration]);
+    }
+
+    function getOngoingDamage(effect) {
+      return `${effect.flags.archmage.ongoingDamage} ongoing ${effect.flags.archmage.ongoingDamageType} damage`;
+    }
+
     // Return our custom data, methods, and any imported methods.
     return {
       ...toRefs(componentData),
@@ -99,7 +115,9 @@ export default {
       localize,
       numberFormat,
       getEffects,
-      getChanges
+      getChanges,
+      getDuration,
+      getOngoingDamage
     }
   },
   methods: {

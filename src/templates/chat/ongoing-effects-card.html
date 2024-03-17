@@ -1,0 +1,128 @@
+{{!-- Buttons partial --}}
+{{#*inline "effect-actions"}}
+<div class="effect-actions flexrow grid-span-{{span}}">
+    {{#if showApply}}<button data-tooltip="{{localize 'ARCHMAGE.CHAT.applyDamage'}}" data-action="apply" class="effect-damage effect-control"><i class="fas fa-tint"></i><span class="visually-hidden">{{localize 'ARCHMAGE.CHAT.applyDamage'}}</span></button>{{/if}}
+    {{#if showSave}}<button data-tooltip="{{localize 'ARCHMAGE.SAVE.rollSave'}}" data-action="save" class="effect-save effect-control"><i class="fas fa-dice-d20"></i><span class="visually-hidden">{{localize 'ARCHMAGE.SAVE.rollSave'}}</span></button>{{/if}}
+    {{#if showD20}}<button data-tooltip="{{localize 'ARCHMAGE.CHAT.rollD20'}}" data-action="d20" class="effect-save effect-control"><i class="fas fa-dice-d20"></i><span class="visually-hidden">{{localize 'ARCHMAGE.CHAT.rollD20'}}</span></button>{{/if}}
+    {{#if showDel}}<button data-tooltip="{{localize 'ARCHMAGE.CHAT.removeEffect'}}" data-action="remove" class="effect-remove effect-control"><i class="fas fa-trash"></i><span class="visually-hidden">{{localize 'ARCHMAGE.CHAT.removeEffect'}}</span></button>{{/if}}
+</div>
+{{/inline}}
+
+{{!-- Condition row partial. --}}
+{{#*inline "condition"}}
+<div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">
+    <a class="effect-link {{#if effect.otherName}}grid-span-4{{else}}grid-span-7{{/if}}" draggable="true" data-type="condition" data-id="{{effect.id}}" title="" data-name="{{effect.name}}">
+        <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
+    </a>
+    {{#if effect.otherName}}
+        <span class="effect-on-other grid-span-7">on {{effect.otherName}}</span>
+    {{/if}}
+</div>
+{{/inline}}
+
+{{!-- Save ends row partial. --}}
+{{#*inline "save-ends"}}
+<div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}" data-save="{{effect.flags.archmage.duration}}">
+    <a class="effect-link grid-span-5" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
+        data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
+        <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
+    </a>
+    {{> effect-actions showApply=false showSave=true showD20=false showDel=true span=2}}
+</div>
+{{/inline}}
+
+{{!-- d20 row partial. --}}
+{{#*inline "d20-roll"}}
+<div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}">
+    <a class="effect-link grid-span-5" draggable="true" data-type="save-ends" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
+        data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
+        <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
+    </a>
+    {{> effect-actions showApply=false showSave=false showD20=true showDel=true span=2}}
+</div>
+{{/inline}}
+
+{{!-- Ongoing damage row partial. --}}
+{{#*inline "ongoing-damage"}}
+<div class="grid grid-7col effect" data-effect-id="{{effect._id}}" data-uuid="{{effect.parent.uuid}}" data-value="{{effect.flags.archmage.ongoingDamage}}" data-save="{{effect.flags.archmage.duration}}">
+    <a class="effect-link grid-span-4" draggable="true" data-type="ongoing-damage" data-id="{{effect.id}}" data-tooltip="{{effect.flags.archmage.tooltip}}" data-name="{{effect.name}}"
+        data-value="{{effect.flags.archmage.ongoingDamage}}" data-damage-type="{{effect.flags.archmage.ongoingDamageType}}" data-ends="{{effect.flags.archmage.duration}}" data-source="{{effect.origin}}">
+        <img class="effects-icon" src="{{effect.icon}}" /> <span class="effect-name">{{effect.name}}</span>
+    </a>
+    {{> effect-actions showApply=true showSave=true showD20=false showDel=true span=3}}
+</div>
+{{/inline}}
+
+{{!-- Start card template. --}}
+<div class="archmage chat-card ongoing-effects">
+    {{!-- Header --}}
+    <header class="card-header">
+        <h3 class="ability-usage ability-usage--recharge">{{title}}</h3>
+    </header>
+    {{!-- Content --}}
+    <div class="card-content">
+        {{!-- If triggered on self --}}
+        {{#if hasSelfTriggered}}
+        <div class="card-row save-ends">
+            <h4>{{{localize "ARCHMAGE.CHAT.ongoingSelfTriggered"}}}</h4>
+            <div class="effects-wrapper flexcol">
+                {{#each selfTriggered as |effect|}}
+                    {{> d20-roll effect=effect}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- If ended on self --}}
+        {{#if hasSelfEnded}}
+        <div class="card-row save-ends">
+            <h4>{{{localize "ARCHMAGE.CHAT.ongoingSelfEnded"}}}</h4>
+            <div class="effects-wrapper flexcol">
+                {{#each selfEnded as |effect|}}
+                    {{> condition effect=effect}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- If ended on other. --}}
+        {{#if hasOtherEnded}}
+        <div class="card-row other-ended">
+            <h4>{{{localize "ARCHMAGE.CHAT.ongoingOtherEnded"}}}</h4>
+            <div class="effects-wrapper flexcol">
+                {{#each otherEnded as |effect|}}
+                    {{> condition effect=effect}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- If save ends. --}}
+        {{#if hasSaveEnds}}
+        <div class="card-row save-ends">
+            <h4>{{{localize "ARCHMAGE.CHAT.ongoingSaveEnds"}}}</h4>
+            <div class="effects-wrapper flexcol">
+                {{#each saveEnds as |effect|}}
+                    {{#if effect.isOngoing}}
+                        {{> ongoing-damage effect=effect}}
+                    {{else}}
+                        {{> save-ends effect=effect}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- If unknown duration --}}
+        {{#if hasUnknown}}
+        <div class="card-row conditions">
+            <h4>{{{localize "ARCHMAGE.CHAT.hasUnknown"}}}</h4>
+            <div class="effects-wrapper flexcol">
+                {{#each unknown as |effect|}}
+                    {{> d20-roll effect=effect}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

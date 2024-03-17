@@ -174,6 +174,13 @@ ARCHMAGE:
   vulnerability: Vulnerability
   # Settings
   SETTINGS:
+    newSetting: New!
+    groups:
+      secondEdition: 2e Playtest
+      automation: Automation
+      appearance: Appearance
+      accessibility: Accessibility
+      general: General
     automateBaseStatsFromClassHint: Automatically populate AC, PD, MD, base HP, Recovery and Weapon dices based on class name(s).
     automateBaseStatsFromClassName: Automatically compute base stats
     automateHPConditionsHint: If enabled, the Staggered and Dead conditions will be automatically applied and removed after hp changes. Disable this if you are using custom conditions via modules such as Combat Utility Belt - it is implicitly disabled if that module is active.
@@ -220,6 +227,8 @@ ARCHMAGE:
     tourVisibilityOff: Tours are disabled
     UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
     UnboundEscDieName: Unlimited Escalation Die
+    enableOngoingEffectsMessagesName: Enable ongoing effects messages
+    enableOngoingEffectsMessagesHint: Enable chat messages for ongoing effects on actors at the start and end of their turns.
   AUTOLEVEL:
     confirm: Confirm (create duplicate)
     help: Use this form to create a copy of this actor with its stats (including attacks) adjusted to the new level.
@@ -274,6 +283,18 @@ ARCHMAGE:
     settings: Settings
     shield: Shield
     twohanded: Two-handed Weapon
+  DURATION:
+    Infinite: Infinite
+    Unknown: Unknown
+    StartOfNextTurn: Start of Next Turn
+    EndOfNextTurn: End of Next Turn
+    StartOfNextSourceTurn: Start of Next Source Turn
+    EndOfNextSourceTurn: End of Next Source Turn
+    EasySaveEnds: Easy Save Ends
+    NormalSaveEnds: Normal Save Ends
+    HardSaveEnds: Hard Save Ends
+    EndOfCombat: End of Battle
+    StartOfEachTurn: Start of Each Turn
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
     abilityScoreBonus2eHint: +1 to ability scores (3rd/6th/9th Level)
@@ -398,6 +419,7 @@ ARCHMAGE:
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
     chakraSlot: Chakra Slot
+    damageType: Damage Type
     defenseBonuses: Defense Bonuses
     disengageBonus: Disengage Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
@@ -410,12 +432,14 @@ ARCHMAGE:
     hpBonus: HP Bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
+    ongoingDamage: Ongoing Damage
     pdBonus: PD Bonus
     price: Price
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
+    toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
     saveBonusHPTreshold: Save Bonus HP Threshold
     usesMax: Maximum Uses
@@ -480,6 +504,7 @@ ARCHMAGE:
     attack: Attack
     attackPlaceholder: "[[d20+@str.mod+@std]] vs. AC"
     attackTitle: Attack formula, such as "[[d20+@str.mod+@std]] vs. AC"
+    applyDamage: Apply Damage
     breathWeapon: Breath Weapon
     Cancel: Cancel
     castBroadEffect: Cast for Broad Effect
@@ -533,6 +558,12 @@ ARCHMAGE:
     NoUsesMsg: No uses left, do you want to use this anyway?
     numbersOnly: Numbers only, such as '16'
     odd: odd
+    ongoingDamage: '{target} takes [[{damage}]] ongoing {type}damage due to {source}'
+    ongoingSelfEnded: The following Effects <strong>have ended on this</strong> Actor
+    ongoingOtherEnded: The following Effects <strong>have ended on another</strong> Actor
+    ongoingSaveEnds: The following Effects <strong>require a Save</strong> to end
+    ongoingSelfTriggered: The following Effects <strong>triggered on this</strong> Actor
+    hasUnknown: The following Effects with an <strong>unknown duration</strong> are currently active on this Actor
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name
@@ -552,12 +583,15 @@ ARCHMAGE:
     rangeTitle: Range of the power, such as 'Meele attack' or 'Ranged spell'
     recharge: Recharge
     rechargeHint: Numbers only, such as '16' (recharges on a roll of 16+)
+    reuseBreath: Reuse {power} on 16+
+    rollD20: Roll d20
     RechargeFail: recharge failed
     RechargeLabel: Rolling recharge
     RechargeRoll: Recharge Roll
     RechargeSucc: recharged
     resources: Resources
     resourcesPlaceholder: -2 command points
+    removeEffect: Remove Effect
     Rest: Rest
     Rests: Rests
     sequencerDesc: Configure a sequencer animation.
@@ -586,6 +620,7 @@ ARCHMAGE:
     spellLevel10: 10th Level Spell
     spellLevel10Placeholder: "[[10d6]] damage"
     spellLevelTrigger: Level Spell
+    sustainPower: "Sustain {power} on {target}+"
     rollTable: RollTable
     rollTablePlaceholder: Sneak Attack
     rollTableTitle: Name of a roll table to roll on use (only text supported)
@@ -639,6 +674,7 @@ ARCHMAGE:
     normal: Normal Save
     normalShort: Normal
     success: Succeeded
+    rollSave: Roll Save
   EFFECT:
     AE:
       arcane: Arcane

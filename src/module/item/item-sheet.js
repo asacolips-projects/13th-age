@@ -117,6 +117,7 @@ export class ItemArchmageSheet extends ItemSheet {
 
   shareItem() {
     game.socket.emit("system.archmage", {
+      type: "shareItem",
       itemId: this.item.id
     });
   }
@@ -124,7 +125,7 @@ export class ItemArchmageSheet extends ItemSheet {
   /**
    * Handle a received request to display an item.
    */
-  static _handleShareItem({itemId}={}) {
+  static handleShareItem({itemId}={}) {
     let item = game.items.get(itemId);
 
     if (item == undefined) {
@@ -291,10 +292,3 @@ export class ItemArchmageSheet extends ItemSheet {
     }).render(true);
   }
 }
-
-
-Hooks.once('ready', async function () {
-  game.socket.on("system.archmage", (msg) => {
-    ItemArchmageSheet._handleShareItem(msg);
-  });
-})

@@ -63,14 +63,16 @@ export class ItemArchmage extends Item {
       targets: targets,
       type: this.type,
       actor: this.actor,
+      item: this,
       token: token,
       powerLevel: this.system.powerLevel?.value,
       sequencer: this.system.sequencer
     }, null);
 
-    // Handle Monk AC bonus.
-    //TODO: remove dependency on times-up once core Foundry handles AE expiry
-    if (game.modules.get("times-up")?.active) await this._rollMonkAC(itemToRender);
+    // Handle special class triggers
+    await this._handleMonkAC(itemToRender);
+    await this._handleSong(itemToRender);
+    await this._handleBreathSpell(itemToRender);
 
     // Run embedded macro.
     let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);
@@ -536,7 +538,7 @@ export class ItemArchmage extends Item {
   /**
    * Check if we are rolling a monk form, add related AC active effect
    */
-  async _rollMonkAC(itemToRender) {
+  async _handleMonkAC(itemToRender) {
     if (itemToRender.type != "power") return;
     if (!itemToRender.actor.system.details.detectedClasses?.includes("monk")) return;
 
@@ -574,8 +576,60 @@ export class ItemArchmage extends Item {
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       }]
     }
-    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurations.StartOfNextTurn)
+    MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  async _handleSong(itemToRender) {
+    if (itemToRender.type != "power") return;
+    if (!itemToRender.system.sustainedEffect.value) return;
+
+    const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower",
+      {power: itemToRender.name, target: itemToRender.system.sustainOn.value});
+
+    // Check if we already have the effect
+    let alreadyHasEffect = false;
+    itemToRender.actor.effects.forEach(e => {
+      if (e.data.label == name) alreadyHasEffect = true;
+    });
+    if (!alreadyHasEffect) {
+      let effectData = {
+        label: name,
+        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
+        flags: {
+          archmage: {
+            tooltip: name
+          }
+        }
+      };
+      MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
+      await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
+  }
+  async _handleBreathSpell(itemToRender){
+    if (itemToRender.type != "power") return;
+    if (!itemToRender.system.breathWeapon.value) return;
+
+    const name = game.i18n.format("ARCHMAGE.CHAT.reuseBreath", {power: itemToRender.name});
+
+    // Check if we already have the effect
+    let alreadyHasEffect = false;
+    itemToRender.actor.effects.forEach(e => {
+      if (e.data.label == name) alreadyHasEffect = true;
+    });
+    if (!alreadyHasEffect) {
+      let effectData = {
+        label: name,
+        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound-off.svg",
+        flags: {
+          archmage: {
+            tooltip: name
+          }
+        }
+      };
+      MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
+      await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
   }
 
   async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token) {

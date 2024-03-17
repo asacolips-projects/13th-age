@@ -5,6 +5,7 @@ $c-white: #ffffff;
 $c-gray--25: rgba($c-black, 0.25);
 $c-gray--50: rgba($c-black, 0.5);
 $c-gray--75: rgba($c-black, 0.75);
+$c-gray: #666666;
 
 $color-text: $c-black;
 $color-text-night: $c-white;
@@ -25,6 +26,11 @@ $ct-border: rgba($c-black, 0.25);
 $ct-border-night: rgba($c-white, 0.25);
 
 $c-power-grad-max: 160%;
+
+$c-trigger-hit: #023602;
+$c-trigger-miss: #3c0000;
+$c-trigger-hit-bg: #6bb16b38;
+$c-trigger-miss-bg: #e78f8f33;
 
 $c-power-will: linear-gradient(45deg, #003c15, #5ee25e $c-power-grad-max);
 $c-power-battle: linear-gradient(45deg, #3c0000, #dc0000 $c-power-grad-max);

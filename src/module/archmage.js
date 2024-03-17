@@ -18,6 +18,7 @@ import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
+import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
 import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
 
 
@@ -345,6 +346,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register("archmage", "enableOngoingEffectsMessages", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   game.settings.register('archmage', 'roundUpDamageApplication', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
@@ -589,8 +599,8 @@ function addEscalationDie() {
 
     switch (a.dataset.type) {
       case "condition":
-        const journalId = CONFIG.ARCHMAGE.statusEffects.find(x => x.id === id).journal;
-        doc = await game.packs.get("archmage.conditions").getDocument(journalId);
+        const journalId = CONFIG.ARCHMAGE.statusEffects.find(x => x.id === id)?.journal;
+        doc = journalId ? await game.packs.get("archmage.conditions").getDocument(journalId) : false;
         break;
       case "effect":
         console.warn("Effects not currently supported");
@@ -613,11 +623,19 @@ Hooks.once('ready', () => {
   // Add effect link drag data
   document.addEventListener("dragstart", event => {
     if ( !event.target.classList.contains("effect-link") ) return;
+    const dataset = event.target.dataset;
     let data = {
-      type: event.target.dataset.type,
-      id: event.target.dataset.id
+      type: dataset.type,
+      id: dataset.id
     };
-    if ( event.target.dataset.actorId ) data.actorId = event.target.dataset.actorId;
+    if ( dataset.actorId ) data.actorId = dataset.actorId;
+    if ( dataset.damageType ) data.damageType = dataset.damageType;
+    if ( dataset.value ) data.value = dataset.value;
+    if ( dataset.ends ) data.ends = dataset.ends;
+    if ( dataset.source ) data.source = dataset.source;
+    if ( dataset.tooltip ) data.tooltip = dataset.tooltip;
+    if (dataset.name ) data.name = dataset.name;
+    data.text = event.target.innerText;
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
 
@@ -703,6 +721,85 @@ function renderSceneTerrains() {
 
 Hooks.on('canvasReady', (canvas) => {
   renderSceneTerrains();
+});
+
+Hooks.on('renderSettingsConfig', (app, html, data) => {
+  // Define groups for organization.
+  const groups = [
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.secondEdition',
+      settings: ['secondEdition'],
+      highlights: [],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.automation',
+      settings: [
+        'enableOngoingEffectsMessages',
+        'automateHPConditions',
+        'staggeredOverlay',
+        'multiTargetAttackRolls',
+        'hideExtraRolls',
+        'showDefensesInChat',
+        'hideInsteadOfOpaque',
+        'roundUpDamageApplication',
+        'rechargeOncePerDay',
+        'automateBaseStatsFromClass',
+        'showPrivateGMAttackRolls',
+      ],
+      highlights: [
+        'enableOngoingEffectsMessages',
+      ],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.appearance',
+      settings: [
+        'nightmode',
+        'sheetTooltips',
+      ],
+      highlights: [],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.accessibility',
+      settings: [
+        'colorBlindMode'
+      ],
+      highlights: [],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.general',
+      settings: [
+        'extendedStatusEffects',
+        'initiativeDexTiebreaker',
+        'initiativeStaticNpc',
+        'unboundEscDie',
+        'tourVisibility',
+      ],
+      highlights: [],
+    }
+  ];
+
+  // Find the parent category element.
+  const settingsElements = html.find('.form-group[data-setting-id*="archmage"]');
+  const parent = settingsElements.closest('.category');
+  parent.addClass('archmage-settings');
+
+  // Iterate through our groups and move all of their settings into the matching element.
+  for (let group of groups) {
+    const details = $(`<details><summary>${game.i18n.localize(group.label)}</summary><span class="slot"></span></details>`);
+    for (let setting of group.settings) {
+      const element = html.find(`[data-setting-id="archmage.${setting}"]`);
+      // Add a highlight if necessary.
+      if (group.highlights.includes(setting)) {
+        element.addClass('highlight');
+        element.find('label').append(`<span class="new-setting"> (${game.i18n.localize('ARCHMAGE.SETTINGS.newSetting')})</span>`);
+      }
+
+      // Move the element.
+      element.detach();
+      details.append(element);
+    }
+    parent.append(details);
+  }
 });
 
 /* -------------------------------------------- */
@@ -854,19 +951,29 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
   if ( data.type === "condition" ) {
     const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
+    if ( statusEffect ) {
 
-    // If we have a Token, just toggle the effect
-    // First load the token from a token actor (is null for linked)
-    let token = actor.token;
-    // If not, look for linked tokens in the scene
-    if ( !token ) token = canvas.scene.tokens.find(
-        t => (t.data.actorId === actor.id && t.isLinked)
+      // If we have a Token, just toggle the effect
+      // First load the token from a token actor (is null for linked)
+      let token = actor.token;
+      // If not, look for linked tokens in the scene
+      if (!token) token = canvas.scene.tokens.find(
+          t => (t.data.actorId === actor.id && t.isLinked)
       );
-    if ( token ) return token._object.toggleEffect(statusEffect);
+      if (token) return token._object.toggleEffect(statusEffect);
 
-    // Otherwise, create the AE
-    statusEffect.label = game.i18n.localize(statusEffect.label);
-    return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+      // Otherwise, create the AE
+      statusEffect.label = game.i18n.localize(statusEffect.label);
+      return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
+    }
+    else {
+      // Just a generic condition, transfer the name
+      let effectData = {
+        name: data.name,
+        icon: 'icons/svg/aura.svg'
+      };
+      return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
   }
   else if ( data.type === "effect" ) {
     const actorId = data.actorId;
@@ -876,48 +983,98 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     console.dir(effectData);
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
+  else if ( data.type == "ongoing-damage" ) {
+
+    // Load the source actor and grab its image if possible
+    let sourceActor = await fromUuid(data.source);
+    let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
+
+    let effectData = {
+      name: data.name,
+      icon: img,
+      origin: data.source,
+      flags: {
+        archmage: {
+          ongoingDamage: data.value,
+          ongoingDamageType: data.damageType,
+          duration: data.ends,
+          tooltip: data.tooltip
+        }
+      }
+    }
+    return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
 });
 
 /* ---------------------------------------------- */
 
-Hooks.on('dropCanvasData', (canvas, data) => {
+Hooks.on('dropCanvasData', async (canvas, data) => {
 
-  // Only process conditions for now
-  if (data.type != 'condition') return;
-
-  // Get the token at the drop point, if any
-  const x = data.x;
-  const y = data.y;
-  const gridSize = canvas.scene.grid.size;
-  // Get the set of targeted tokens
-  const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
-    if ( !t.visible ) return false;
-    return (t.x <= x
-            && (t.x + t.width * gridSize) >= x
-            && t.y <= y
-            && (t.y + t.height * gridSize) >= y);
-  });
-  if (targets.length == 0) return;
-
-  let token = targets[0];
-  if (targets.length > 1) {
-    // Select closest to center
-    token =  targets.reduce((a, b) => {
-      const cntr_x_a = a.x + a.width * gridSize / 2;
-      const cntr_y_a = a.y + a.height * gridSize / 2;
-      const dist_a = Math.sqrt(Math.pow(x - cntr_x_a, 2) + Math.pow(y - cntr_y_a, 2));
-      const cntr_x_b = b.x + b.width * gridSize / 2;
-      const cntr_y_b = b.y + b.height * gridSize / 2;
-      const dist_b = Math.sqrt(Math.pow(x - cntr_x_b, 2) + Math.pow(y - cntr_y_b, 2));
-      return ( dist_a < dist_b ? a : b );
+  function findToken() {
+    // Get the token at the drop point, if any
+    const x = data.x;
+    const y = data.y;
+    const gridSize = canvas.scene.grid.size;
+    // Get the set of targeted tokens
+    const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
+      if (!t.visible) return false;
+      return (t.x <= x
+          && (t.x + t.width * gridSize) >= x
+          && t.y <= y
+          && (t.y + t.height * gridSize) >= y);
     });
+    if (targets.length == 0) return null;
+
+    let token = targets[0];
+    if (targets.length > 1) {
+      // Select closest to center
+      token = targets.reduce((a, b) => {
+        const cntr_x_a = a.x + a.width * gridSize / 2;
+        const cntr_y_a = a.y + a.height * gridSize / 2;
+        const dist_a = Math.sqrt(Math.pow(x - cntr_x_a, 2) + Math.pow(y - cntr_y_a, 2));
+        const cntr_x_b = b.x + b.width * gridSize / 2;
+        const cntr_y_b = b.y + b.height * gridSize / 2;
+        const dist_b = Math.sqrt(Math.pow(x - cntr_x_b, 2) + Math.pow(y - cntr_y_b, 2));
+        return (dist_a < dist_b ? a : b);
+      });
+    }
+    return token;
   }
 
-  let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
+  if (data.type === 'condition') {
 
-  // For conditions just toggle the effect
-  return token._object.toggleEffect(statusEffect);
+    const token = findToken();
+    if (!token) return;
 
+    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
+
+    // For conditions just toggle the effect
+    return token._object.toggleEffect(statusEffect);
+  }
+  else if ( data.type == "ongoing-damage" ) {
+
+    const token = findToken();
+    if (!token) return;
+
+    // Load the source actor and grab its image if possible
+    let sourceActor = await fromUuid(data.source);
+    let img = sourceActor?.img ?? "icons/skills/toxins/symbol-poison-drop-skull-green.webp";
+
+    let effectData = {
+      name: data.name,
+      icon: img,
+      origin: data.source,
+      flags: {
+        archmage: {
+          ongoingDamage: data.value,
+          ongoingDamageType: data.damageType,
+          duration: data.ends,
+          tooltip: data.tooltip
+        }
+      }
+    }
+    return token.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
 });
 
 Hooks.on("renderJournalSheet", async (app, html, data) => {
@@ -933,10 +1090,11 @@ function uuidv4() {
   });
 }
 
-// Override the inline roll click behavior.
-Hooks.on('renderChatMessage', (chatMessage, html, options) => {
-  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
 
+Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+
+  // Override the inline roll click behavior.
+  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
   html.find('.inline-roll--archmage').each(function() {
     var uuid = uuidv4();
     // Add a way to uniquely identify this roll
@@ -1055,7 +1213,112 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
     }
 
   });
+
+  // Hook up Effect buttons
+  html.find(".effect-control").on("click", async (event) => {
+    const action = event.currentTarget.dataset.action;
+    event.currentTarget.classList.add("grayed-out");
+    // Get parent
+    const parent = event.currentTarget.closest(".effect");
+    const uuid = parent.dataset.uuid;
+    const actor = await fromUuid(uuid);
+    const effectId = parent.dataset.effectId;
+    switch (action) {
+      case "apply":
+        const value = parent.dataset.value;
+        // Healing always starts from 0 HP
+        const base = value >= 0 ? actor.system.attributes.hp.value : Math.max(actor.system.attributes.hp.value, 0);
+        await actor.update({ "data.attributes.hp.value": base - value });
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
+        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
+        break;
+      case "save":
+        const duration = parent.dataset.save;
+        const durationToDifficulty = {
+          "EasySaveEnds": "easy",
+          "NormalSaveEnds": "normal",
+          "HardSaveEnds": "hard",
+        }
+        await actor.rollSave(durationToDifficulty[duration] ?? "normal");
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
+        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectSaved.${effectId}`});
+        break;
+      case "d20":
+        new Roll("d20").toMessage()
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectRolled.${effectId}`, true);
+        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectRolled.${effectId}`});
+        break;
+      case "remove":
+        await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
+        if (chatMessage.isAuthor || game.user.isGM) {
+          await chatMessage.setFlag('archmage', `effectRemoved.${effectId}`, true);
+          // Replace grayed-out with disabled
+          event.currentTarget.classList.remove("grayed-out");
+          event.currentTarget.classList.add("disabled");
+          event.currentTarget.setAttribute('disabled', true);
+        } else {
+          game.socket.emit('system.archmage', {
+            type: 'condButton',
+            msg: chatMessage.id,
+            flg: `effectRolled.${effectId}`,
+            disable: event.currentTarget});
+        }
+        break;
+    }
+    chatMessage.render();
+  });
+
+  // Gray out and disable the effect buttons if the effect has already been applied, saved, or removed
+  html.find(".effect-control").each((i, el) => {
+    if (!chatMessage.data?.flags?.archmage) return;
+    const flags = chatMessage.data.flags.archmage;
+    const parent = el.closest('.effect');
+    const effectId = parent.dataset.effectId;
+
+    if (el.dataset.action === "apply" && flags?.effectApplied?.[effectId] == true) {
+      el.classList.add("grayed-out");
+    } else if (el.dataset.action === "save" && flags?.effectSaved?.[effectId] == true) {
+      el.classList.add("grayed-out");
+    } else if (el.dataset.action === "d20" && flags?.effectRolled?.[effectId] == true) {
+      el.classList.add("grayed-out");
+    } else if (el.dataset.action === "remove" && flags?.effectRemoved?.[effectId] == true) {
+      el.classList.add("disabled");
+      el.setAttribute('disabled', true);
+    }
+  });
 });
+
+function _handleCondButtonMsg(msg) {
+  if (!game.user.isGM) return;
+  const chatMessage = game.messages.get(msg.msg);
+  if (chatMessage) {
+    if (msg.disable) {
+      // Replace grayed-out with disabled
+      msg.disable.classList.remove("grayed-out");
+      msg.disable.classList.add("disabled");
+      msg.disable.setAttribute('disabled', true);
+    } else {
+      chatMessage.setFlag('archmage', msg.flg, true);
+    }
+  }
+}
+
+
+Hooks.once('ready', async function () {
+  game.socket.on("system.archmage", (msg) => {
+    switch (msg.type) {
+      case 'shareItem':
+        ItemArchmageSheet.handleShareItem(msg);
+        break;
+      case 'condButton':
+        _handleCondButtonMsg(msg);
+        break;
+      default:
+        console.log(msg);
+    }
+  });
+})
+
 
 Hooks.on("getChatLogEntryContext", (html, options) => {
   let canApply = li => {
@@ -1160,6 +1423,18 @@ Hooks.on('updateCombat', (async (combat, update) => {
     }
   }
 }));
+
+/* -------------------------------------------- */
+
+Hooks.on('combatTurn', combatTurn);
+
+/* -------------------------------------------- */
+
+Hooks.on('combatRound', combatRound);
+
+/* -------------------------------------------- */
+
+Hooks.on('preDeleteCombat', preDeleteCombat);
 
 /* ---------------------------------------------- */
 
