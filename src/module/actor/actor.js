@@ -1,4 +1,5 @@
 import { ArchmageUtility } from '../setup/utility-classes.js';
+import { MacroUtils } from '../setup/utility-classes.js';
 import { DiceArchmage } from './dice.js';
 
 /**
@@ -1371,6 +1372,7 @@ export class ActorArchmage extends Actor {
         createData.name = game.i18n.localize(effectData.name);
         createData["flags.core.overlay"] = true;
         createData.statuses = [createData.id];
+        MacroUtils.setDuration(createData, CONFIG.ARCHMAGE.effectDurationTypes.Infinite)
         delete createData.id;
         const cls = getDocumentClass("ActiveEffect");
         await cls.create(createData, {parent: this});
@@ -2070,6 +2072,22 @@ export class ActorArchmage extends Actor {
     actor.updateEmbeddedDocuments('Item', itemUpdates);
 
     return actor;
+  }
+
+  /**
+   * Helper method to determine if a character actor is multiclassed
+   *
+   * @return boolean
+   */
+  isMulticlass() {
+    // If not a character can't be MC
+    if (this.type != "character") return false;
+    // If we know two or more classes, is MC
+    if (this.system.details.detectedClasses?.length > 1) return true;
+    // If the KM is configured, is MC - catches 3pp classes
+    if (this.system.attributes.keyModifier.mod1 != this.system.attributes.keyModifier.mod2) return true;
+    // Is not MC
+    return false;
   }
 }
 

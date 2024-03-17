@@ -1,5 +1,9 @@
 @import 'init';
 
+// General layout.
+@import 'layout/grid';
+@import 'layout/flex';
+
 // Theme overrides.
 @import 'application/window';
 
@@ -75,6 +79,14 @@
       font-family: $font-stack-base;
     }
   }
+}
+
+.package-configuration {
+  @import 'application/settings';
+}
+
+.chat-sidebar {
+  @import 'components/chat/ongoing-effects';
 }
 
 @import 'theme/nightmode';

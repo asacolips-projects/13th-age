@@ -155,6 +155,17 @@ system:
     label: Uses
     value: 1
   feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.clericHammerOfFaith(speaker, actor, token,
+      character, archmage);
   group:
     value: null
 flags: {}
