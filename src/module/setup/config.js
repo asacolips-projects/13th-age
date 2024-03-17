@@ -503,8 +503,8 @@ ARCHMAGE.actionTypesShort = {
 };
 
 ARCHMAGE.effectDurationTypes = {
-  'Infinite': 'ARCHMAGE.DURATION.Infinite',
   'Unknown': 'ARCHMAGE.DURATION.Unknown',
+  'Infinite': 'ARCHMAGE.DURATION.Infinite',
   'StartOfNextTurn': "ARCHMAGE.DURATION.StartOfNextTurn",
   'EndOfNextTurn': "ARCHMAGE.DURATION.EndOfNextTurn",
   'StartOfNextSourceTurn': 'ARCHMAGE.DURATION.StartOfNextSourceTurn',
