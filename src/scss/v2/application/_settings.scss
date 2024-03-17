@@ -1,0 +1,62 @@
+.archmage-settings {
+  .border {
+    font-family: $font-stack-secondary;
+    font-size: 28px;
+  }
+
+  details {
+    margin-bottom: 10px;
+    border: 1px solid $c-gray--50;
+    padding: 4px;
+    border-radius: 2px;
+
+    summary {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 2px 2px 2px 6px;
+      transition: all ease-in-out 0.25s;
+      font-size: 16px;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: rgba($c-blue, 0.25);
+      }
+    }
+
+    &[open] {
+      summary {
+        background-color: $c-blue;
+        color: $c-white;
+      }
+    }
+  }
+
+  .form-group {
+    margin: 0;
+    padding: 10px;
+
+    &.highlight {
+      background: rgba($c-progress-full, 0.15);
+
+      .new-setting {
+        margin-left: 4px;
+        color: $c-red;
+      }
+    }
+
+    + .form-group {
+      // padding: 20px 10px;
+      border-top: 1px solid $c-gray--25;
+    }
+
+    .form-fields {
+      flex: 0 0 auto;
+    }
+
+    input[type="checkbox"]:checked,
+    input[type="radio"]:checked {
+      accent-color: $c-blue;
+    }
+  }
+}

@@ -81,6 +81,10 @@
   }
 }
 
+.package-configuration {
+  @import 'application/settings';
+}
+
 .chat-sidebar {
   @import 'components/chat/ongoing-effects';
 }

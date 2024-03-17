@@ -723,6 +723,85 @@ Hooks.on('canvasReady', (canvas) => {
   renderSceneTerrains();
 });
 
+Hooks.on('renderSettingsConfig', (app, html, data) => {
+  // Define groups for organization.
+  const groups = [
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.secondEdition',
+      settings: ['secondEdition'],
+      highlights: [],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.automation',
+      settings: [
+        'enableOngoingEffectsMessages',
+        'automateHPConditions',
+        'staggeredOverlay',
+        'multiTargetAttackRolls',
+        'hideExtraRolls',
+        'showDefensesInChat',
+        'hideInsteadOfOpaque',
+        'roundUpDamageApplication',
+        'rechargeOncePerDay',
+        'automateBaseStatsFromClass',
+        'showPrivateGMAttackRolls',
+      ],
+      highlights: [
+        'enableOngoingEffectsMessages',
+      ],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.appearance',
+      settings: [
+        'nightmode',
+        'sheetTooltips',
+      ],
+      highlights: [],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.accessibility',
+      settings: [
+        'colorBlindMode'
+      ],
+      highlights: [],
+    },
+    {
+      label: 'ARCHMAGE.SETTINGS.groups.general',
+      settings: [
+        'extendedStatusEffects',
+        'initiativeDexTiebreaker',
+        'initiativeStaticNpc',
+        'unboundEscDie',
+        'tourVisibility',
+      ],
+      highlights: [],
+    }
+  ];
+
+  // Find the parent category element.
+  const settingsElements = html.find('.form-group[data-setting-id*="archmage"]');
+  const parent = settingsElements.closest('.category');
+  parent.addClass('archmage-settings');
+
+  // Iterate through our groups and move all of their settings into the matching element.
+  for (let group of groups) {
+    const details = $(`<details><summary>${game.i18n.localize(group.label)}</summary><span class="slot"></span></details>`);
+    for (let setting of group.settings) {
+      const element = html.find(`[data-setting-id="archmage.${setting}"]`);
+      // Add a highlight if necessary.
+      if (group.highlights.includes(setting)) {
+        element.addClass('highlight');
+        element.find('label').append(`<span class="new-setting"> (${game.i18n.localize('ARCHMAGE.SETTINGS.newSetting')})</span>`);
+      }
+
+      // Move the element.
+      element.detach();
+      details.append(element);
+    }
+    parent.append(details);
+  }
+});
+
 /* -------------------------------------------- */
 
 Hooks.on('renderSceneConfig', (app, html, data) => {
