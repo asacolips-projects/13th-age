@@ -553,6 +553,9 @@ export class MacroUtils {
       case CONFIG.ARCHMAGE.effectDurationTypes.Infinite:
         data['flags.archmage.duration'] = "Infinite";
         break;
+      case CONFIG.ARCHMAGE.effectDurationTypes.Unknown:
+        data['flags.archmage.duration'] = "Unknown";
+        break;
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn:
         data['flags.archmage.duration'] = "StartOfEachTurn";
         break;

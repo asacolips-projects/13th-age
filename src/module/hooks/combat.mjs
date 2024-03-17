@@ -29,12 +29,12 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         savesEnds: [],
         selfTriggered: [],
         otherEnded: [],
-        conditions: [],
+        unknown: [],
     };
     let effectsToDelete = [];
 
     for (const effect of combatant.actor.effects) {
-        const duration = effect.flags.archmage?.duration;
+        const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
             console.log(`${prefix}OfNextTurn effect found`, effect);
             currentCombatantEffectData.selfEnded.push(effect);
@@ -46,19 +46,8 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             currentCombatantEffectData.savesEnds.push(effect);
         } else if (duration === `${prefix}OfEachTurn`) {
             currentCombatantEffectData.selfTriggered.push(effect);
-        } else if (prefix == "Start") {
-            // console.log(effect);
-            // Handle adding default conditions to the chat card.
-            if (effect?.statuses?.size > 0) {
-                const conditions = CONFIG.ARCHMAGE.statusEffects.map(e => e.id);
-                for (let status of effect.statuses) {
-                    if (conditions.includes(status)) {
-                        effect.isOngoing = false;
-                        currentCombatantEffectData.conditions.push(effect);
-                        // console.log('Pushed', effect);
-                    }
-                }
-            }
+        } else if (duration === "Unknown") {
+            currentCombatantEffectData.unknown.push(effect);
         }
     }
     // Auto-delete AEs
@@ -68,7 +57,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     for (const otherCombatant of combat.combatants) {
         effectsToDelete = [];
         for (const effect of otherCombatant.actor.effects) {
-            const duration = effect.flags.archmage?.duration;
+            const duration = effect.flags.archmage?.duration || "Unknown";
             if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
                 // console.log(`${prefix}OfNextSourceTurn effect found`, effect);
                 effect.otherName = otherCombatant.actor.name;
@@ -102,18 +91,22 @@ export async function preDeleteCombat(combat, context, options) {
                 savesEnds: [],
                 selfTriggered: [],
                 otherEnded: [],
-                conditions: [],
+                unknown: [],
             };
 
             for (const effect of combatant.actor.effects) {
-                const duration = effect.flags.archmage?.duration;
-                // If duration is "Infinite", skip
+                const duration = effect.flags.archmage?.duration || "Unknown";
+                // If duration is "Infinite" skip
                 if (duration === "Infinite") continue;
                 // If it's a save-ends effect store it as such
                 else if (saveEndsEffects.includes(duration)) {
                     const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
                     effect.isOngoing = isOngoing;
                     currentCombatantEffectData.savesEnds.push(effect);
+                }
+                // If it's unknown also store it as such
+                else if (duration === "Unknown") {
+                    currentCombatantEffectData.unknown.push(effect);
                 }
                 // Everything else should end with the battle
                 else {
@@ -162,7 +155,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         && effectData.savesEnds.length === 0
         && effectData.selfTriggered.length === 0
         && effectData.otherEnded.length === 0
-        && effectData.conditions.length === 0) return;
+        && effectData.unknown.length === 0) return;
 
     const template = "systems/archmage/templates/chat/ongoing-effects-card.html";
     const renderData = {
@@ -176,8 +169,8 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         hasSelfTriggered: effectData.selfTriggered.length > 0,
         otherEnded: effectData.otherEnded,
         hasOtherEnded: effectData.otherEnded.length > 0,
-        conditions: effectData.conditions,
-        hasConditions: effectData.conditions.length > 0,
+        unknown: effectData.unknown,
+        hasUnknown: effectData.unknown.length > 0,
     };
     // console.log("Render Data", renderData);
     const html = await renderTemplate(template, renderData);

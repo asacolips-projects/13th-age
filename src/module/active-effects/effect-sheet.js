@@ -45,7 +45,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     context.isNpc = this.object.parent.type === "npc";
 
     // Get data from flag
-    context.duration = context.effect.flags.archmage?.duration || "Infinite";
+    context.duration = context.effect.flags.archmage?.duration || "Unknown";
     context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
     context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
 

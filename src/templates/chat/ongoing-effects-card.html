@@ -97,18 +97,6 @@
         </div>
         {{/if}}
 
-        {{!-- If default conditions --}}
-        {{#if hasConditions}}
-        <div class="card-row conditions">
-            <h4>{{{localize "ARCHMAGE.CHAT.hasConditions"}}}</h4>
-            <div class="effects-wrapper flexcol">
-                {{#each conditions as |effect|}}
-                    {{> save-ends effect=effect}}
-                {{/each}}
-            </div>
-        </div>
-        {{/if}}
-
         {{!-- If save ends. --}}
         {{#if hasSaveEnds}}
         <div class="card-row save-ends">
@@ -120,6 +108,18 @@
                     {{else}}
                         {{> save-ends effect=effect}}
                     {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- If unknown duration --}}
+        {{#if hasUnknown}}
+        <div class="card-row conditions">
+            <h4>{{{localize "ARCHMAGE.CHAT.hasUnknown"}}}</h4>
+            <div class="effects-wrapper flexcol">
+                {{#each unknown as |effect|}}
+                    {{> save-ends effect=effect}}
                 {{/each}}
             </div>
         </div>
