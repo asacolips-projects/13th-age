@@ -45,7 +45,13 @@ ARCHMAGE.statusEffects = [
     id: "confused",
     name: "ARCHMAGE.EFFECT.StatusConfused",
     icon: "icons/svg/stoned.svg",
-    journal: "21cEqzk92tflpW7N"
+    journal: "21cEqzk92tflpW7N",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    }
   },
   // Dazed.
   {
@@ -53,6 +59,12 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusDazed",
     icon: "icons/svg/sun.svg",
     journal: "dk4ua6smvjafdrqm",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    },
     changes: [
       {
         key: 'system.attributes.attackMod.value',
@@ -67,6 +79,12 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusFear",
     icon: "icons/svg/terror.svg",
     journal: "gy68o7eat5p6bpgq",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    },
     changes: [
       {
         key: 'system.attributes.escalation.value',
@@ -85,13 +103,25 @@ ARCHMAGE.statusEffects = [
     id: "hampered",
     name: "ARCHMAGE.EFFECT.StatusHampered",
     icon: "icons/svg/paralysis.svg",
-    journal: "mk69wxlsqwnydwip"
+    journal: "mk69wxlsqwnydwip",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    }
   },
   {
     id: "hindered",
     name: "ARCHMAGE.EFFECT.StatusHindered",
     icon: "icons/svg/paralysis.svg",
-    journal: "FHDyJEb29LWnO2Dg"
+    journal: "FHDyJEb29LWnO2Dg",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    }
   },
   // Helpless.
   {
@@ -99,6 +129,12 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusHelpless",
     icon: "icons/svg/falling.svg",
     journal: "g20s05odo7v5mw2q",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    },
     changes: [
       {
         key: 'system.attributes.ac.value',
@@ -122,14 +158,26 @@ ARCHMAGE.statusEffects = [
     id: "shocked",
     name: "ARCHMAGE.EFFECT.StatusShocked",
     icon: "icons/svg/lightning.svg",
-    journal: "m78aw2gepbc5ccgm"
+    journal: "m78aw2gepbc5ccgm",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    }
   },
   // Stuck.
   {
     id: "stuck",
     name: "ARCHMAGE.EFFECT.StatusStuck",
     icon: "icons/svg/net.svg",
-    journal: "ti7104njam2n18a5"
+    journal: "ti7104njam2n18a5",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    }
   },
   // Stunned.
   {
@@ -137,6 +185,12 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusStunned",
     icon: "icons/svg/daze.svg",
     journal: "2rxwthymp5rl1dqe",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    },
     changes: [
       {
         key: 'system.attributes.ac.value',
@@ -161,6 +215,12 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusVulnerable",
     icon: "icons/svg/target.svg",
     journal: "bi9ye2usgfsdpubs",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    },
     changes: [
       {
         key: 'system.attributes.critMod.def.value',
@@ -175,6 +235,12 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusWeakened",
     icon: "icons/svg/downgrade.svg",
     journal: "3r2jt3c6skn7gw7d",
+    flags: {
+      archmage: {
+        duration: "NormalSaveEnds",
+        ongoingDamage: 0
+      }
+    },
     changes: [
       {
         key: 'system.attributes.attackMod.value',
