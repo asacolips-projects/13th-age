@@ -12,10 +12,18 @@
 async function registerModuleArt() {
   // First, clear out the existing map entries and get the active module list.
   game.archmage.system.moduleArt.map.clear();
-  const activeModules = [...game.modules.entries()].filter(([_key, m]) => m.active);
+  const activeModules = [
+    ['archmage', game.system],
+    ...game.modules.entries().filter(([_key, m]) => m.active)
+  ];
 
   // Iterate over each module and check to see if there's a map.
   for (const [moduleKey, foundryModule] of activeModules) {
+    // If the pf2e token pack isn't enabled, skip the system map.
+    if (moduleKey == 'archmage' && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
+      continue;
+    }
+    // Otherwise, load this module's art map.
     const moduleArt = await getArtMap(foundryModule.flags?.[moduleKey]?.["archmage-art"]);
     if (!moduleArt) continue;
 

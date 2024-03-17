@@ -38,6 +38,8 @@ styles:
   - css/lib/introjs.css
 
 flags:
+  archmage:
+    archmage-art: 'systems/archmage/map-archmage.json'
   hotReload:
     extensions:
       - css
