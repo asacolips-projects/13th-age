@@ -81,6 +81,9 @@ export async function combatRound(combat, context, options) {
 }
 
 export async function preDeleteCombat(combat, context, options) {
+    // Exit early if the feature is disabled.
+    if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
+
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
 
     // Remove all battle effects
