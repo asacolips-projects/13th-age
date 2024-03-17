@@ -105,8 +105,9 @@ prototypeToken:
     offsetX: 0
     offsetY: 0
     rotation: 0
-  width: 1
-  height: 1
+    tint: null
+  width: 2
+  height: 2
   lockRotation: false
   rotation: 0
   alpha: 1
