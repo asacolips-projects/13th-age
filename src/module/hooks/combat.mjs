@@ -4,19 +4,13 @@ export async function combatTurn(combat, context, options) {
     // If the direction is negative, ignore the turn
     if (options.direction < 0) return;
 
-    await handleTurnEffects("Start", combat, combat.nextCombatant, context, options);
-    await handleTurnEffects("End", combat, combat.combatant, context, options);
+    const endCombatant = combat.combatant;
+    const startCombatant = combat.nextCombatant;
+    await handleTurnEffects("End", combat, endCombatant, context, options);
+    await handleTurnEffects("Start", combat, startCombatant, context, options);
 }
 
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
-    // // @todo this doesn't quite work yet, but it's close.
-    // // Avoid duplicate turns due to actor updates.
-    // if (combat.previous.combatantId !== combat.nextCombatant._id) {
-    //     const actualCombatant = combat.combatants.get(combat.previous.combatantId);
-    //     if (actualCombatant) {
-    //         combatant = actualCombatant;
-    //     }
-    // }
 
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
     console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant, combat);
