@@ -23,6 +23,11 @@ async function registerModuleArt() {
     if (moduleKey == 'archmage' && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
       continue;
     }
+    // We can skip the pf2e-tokens-bestiaries map since we've provided our own in the
+    // system itself.
+    if (moduleKey == 'pf2e-tokens-bestiaries') {
+      continue;
+    }
     // Otherwise, load this module's art map.
     const moduleArt = await getArtMap(foundryModule.flags?.[moduleKey]?.["archmage-art"]);
     if (!moduleArt) continue;

@@ -76,7 +76,7 @@
         <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`creature-summary compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document actor`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
           <!-- Both the image and title have drag events. These are primarily separated so that -->
           <!-- if a user drags the token, it will only show the token as their drag preview. -->
-          <img :src="getActorModuleArt(entry)" @dragstart="startDrag($event, entry, 'Actor')" draggable="true"/>
+          <img :src="entry.img" @dragstart="startDrag($event, entry, 'Actor')" draggable="true"/>
           <div class="flexcol creature-contents" @dragstart="startDrag($event, entry, 'Actor')" draggable="true">
             <!-- First row is the title. -->
             <div class="creature-title-wrapper">
@@ -289,7 +289,15 @@ export default {
       'system.details.role.value',
       'system.details.size.value',
       'system.details.type.value'
-    ]).then(packIndex => this.packIndex = packIndex);
+    ]).then(packIndex => {
+      // Restore the pack art.
+      if (game.archmage.system?.moduleArt?.map?.size > 0) {
+        for (let record of packIndex) {
+          record.img = getActorModuleArt(record);
+        }
+      }
+      this.packIndex = packIndex;
+    });
 
     // Create our intersection observer for infinite scroll.
     this.observer = new IntersectionObserver(this.infiniteScroll, {
