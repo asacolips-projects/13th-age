@@ -9,8 +9,25 @@ export async function combatTurn(combat, context, options) {
 }
 
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
+    // // @todo this doesn't quite work yet, but it's close.
+    // // Avoid duplicate turns due to actor updates.
+    // if (combat.previous.combatantId !== combat.nextCombatant._id) {
+    //     const actualCombatant = combat.combatants.get(combat.previous.combatantId);
+    //     if (actualCombatant) {
+    //         combatant = actualCombatant;
+    //     }
+    // }
+
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
     console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant, combat);
+
+    console.log('Combatants', {
+        combatant: combatant._id,
+        current: combat.current.combatantId,
+        prev: combat.previous.combatantId,
+        next: combat.nextCombatant._id,
+    });
+
 
     const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
