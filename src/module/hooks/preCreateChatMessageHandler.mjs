@@ -194,6 +194,9 @@ export default class preCreateChatMessageHandler {
                         $row_self.addClass("trigger-unknown");
                     } else if (active) {
                         $row_self.addClass("trigger-active");
+                        if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':')) {
+                            $row_self.addClass("trigger-miss");
+                        }
                     } else {
                         $row_self.addClass("trigger-inactive");
                         if (game.settings.get("archmage", "hideInsteadOfOpaque")) {

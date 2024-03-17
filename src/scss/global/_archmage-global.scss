@@ -1996,7 +1996,19 @@ option[selected] {
 }
 
 .trigger-active {
-  color: #005800;
+  color: $c-trigger-hit;
+  background: $c-trigger-hit-bg;
+  border-radius: 2px;
+  text-decoration: underline;
+  text-decoration-color: rgba($c-trigger-hit, 0.25);
+}
+
+.trigger-miss {
+  color: $c-trigger-miss;
+  background: $c-trigger-miss-bg;
+  border-radius: 2px;
+  text-decoration: underline;
+  text-decoration-color: rgba($c-trigger-miss, 0.25);
 }
 
 .trigger-inactive {
