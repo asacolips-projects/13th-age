@@ -1141,7 +1141,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         // Healing always starts from 0 HP
         const base = value >= 0 ? actor.system.attributes.hp.value : Math.max(actor.system.attributes.hp.value, 0);
         await actor.update({ "data.attributes.hp.value": base - value });
-        await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
+        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
         break;
       case "save":
         const duration = parent.dataset.save;
@@ -1156,15 +1157,24 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         break;
       case "d20":
         new Roll("d20").toMessage()
-        await chatMessage.setFlag('archmage', `effectRolled.${effectId}`, true);
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectRolled.${effectId}`, true);
+        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectRolled.${effectId}`});
         break;
       case "remove":
         await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
-        await chatMessage.setFlag('archmage', `effectRemoved.${effectId}`, true);
-        // Replace grayed-out with disabled
-        event.currentTarget.classList.remove("grayed-out");
-        event.currentTarget.classList.add("disabled");
-        event.currentTarget.setAttribute('disabled', true);
+        if (chatMessage.isAuthor || game.user.isGM) {
+          await chatMessage.setFlag('archmage', `effectRemoved.${effectId}`, true);
+          // Replace grayed-out with disabled
+          event.currentTarget.classList.remove("grayed-out");
+          event.currentTarget.classList.add("disabled");
+          event.currentTarget.setAttribute('disabled', true);
+        } else {
+          game.socket.emit('system.archmage', {
+            type: 'condButton',
+            msg: chatMessage.id,
+            flg: `effectRolled.${effectId}`,
+            disable: event.currentTarget});
+        }
         break;
     }
     chatMessage.render();
@@ -1181,6 +1191,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       el.classList.add("grayed-out");
     } else if (el.dataset.action === "save" && flags?.effectSaved?.[effectId] == true) {
       el.classList.add("grayed-out");
+    } else if (el.dataset.action === "d20" && flags?.effectRolled?.[effectId] == true) {
+      el.classList.add("grayed-out");
     } else if (el.dataset.action === "remove" && flags?.effectRemoved?.[effectId] == true) {
       el.classList.add("disabled");
       el.setAttribute('disabled', true);
@@ -1191,7 +1203,16 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 function _handleCondButtonMsg(msg) {
   if (!game.user.isGM) return;
   const chatMessage = game.messages.get(msg.msg);
-  if (chatMessage) chatMessage.setFlag('archmage', msg.flg, true);
+  if (chatMessage) {
+    if (msg.disable) {
+      // Replace grayed-out with disabled
+      msg.disable.classList.remove("grayed-out");
+      msg.disable.classList.add("disabled");
+      msg.disable.setAttribute('disabled', true);
+    } else {
+      chatMessage.setFlag('archmage', msg.flg, true);
+    }
+  }
 }
 
 
