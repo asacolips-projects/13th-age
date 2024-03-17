@@ -38,7 +38,7 @@ export default class preCreateChatMessageHandler {
         // If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
         for (const row of $rows) {
-            console.log(row.innerHTML);
+            // console.log(row.innerHTML);
             const regex = /<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>(\d+)<\/a> ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
             let ongoingEffect = regex.exec(row.innerHTML);
             if (ongoingEffect) {

@@ -1,5 +1,5 @@
 export async function combatTurn(combat, context, options) {
-    console.log("Combat Turn", combat, context, options);
+    console.log("Combat Turn", combat.combatant.name, combat, context, options);
 
     // If the direction is negative, ignore the turn
     if (options.direction < 0) return;
@@ -10,14 +10,15 @@ export async function combatTurn(combat, context, options) {
 
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
-    console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant);
+    console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant, combat);
 
     const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
         selfEnded: [],
         savesEnds: [],
         selfTriggered: [],
-        otherEnded: []
+        otherEnded: [],
+        conditions: [],
     };
     let effectsToDelete = [];
 
@@ -27,14 +28,26 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             console.log(`${prefix}OfNextTurn effect found`, effect);
             currentCombatantEffectData.selfEnded.push(effect);
             effectsToDelete.push(effect.id);
-        } else if (saveEndsEffects.includes(duration) &&
-                (prefix == "End" || (prefix == "Start" && hasImplacable))) {
-            console.log("SaveEnds effect found", effect);
+        } else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
+            // console.log("SaveEnds effect found", effect, combatant);
             const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
             effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
         } else if (duration === `${prefix}OfEachTurn`) {
             currentCombatantEffectData.selfTriggered.push(effect);
+        } else if (prefix == "Start") {
+            // console.log(effect);
+            // Handle adding default conditions to the chat card.
+            if (effect?.statuses?.size > 0) {
+                const conditions = CONFIG.ARCHMAGE.statusEffects.map(e => e.id);
+                for (let status of effect.statuses) {
+                    if (conditions.includes(status)) {
+                        effect.isOngoing = false;
+                        currentCombatantEffectData.conditions.push(effect);
+                        // console.log('Pushed', effect);
+                    }
+                }
+            }
         }
     }
     // Auto-delete AEs
@@ -46,7 +59,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         for (const effect of otherCombatant.actor.effects) {
             const duration = effect.flags.archmage?.duration;
             if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
-                console.log(`${prefix}OfNextSourceTurn effect found`, effect);
+                // console.log(`${prefix}OfNextSourceTurn effect found`, effect);
                 effect.otherName = otherCombatant.actor.name;
                 currentCombatantEffectData.otherEnded.push(effect);
                 effectsToDelete.push(effect.id);
@@ -56,7 +69,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         await otherCombatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
     }
 
-    console.log("Current Combatant Effect Data", currentCombatantEffectData);
+    // console.log("Current Combatant Effect Data", currentCombatantEffectData);
     await renderOngoingEffectsCard(`${prefix} of Turn Effects`, combatant, currentCombatantEffectData);
 }
 
@@ -136,7 +149,8 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
     if (effectData.selfEnded.length === 0
         && effectData.savesEnds.length === 0
         && effectData.selfTriggered.length === 0
-        && effectData.otherEnded.length === 0) return;
+        && effectData.otherEnded.length === 0
+        && effectData.conditions.length === 0) return;
 
     const template = "systems/archmage/templates/chat/ongoing-effects-card.html";
     const renderData = {
@@ -149,9 +163,11 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         selfTriggered: effectData.selfTriggered,
         hasSelfTriggered: effectData.selfTriggered.length > 0,
         otherEnded: effectData.otherEnded,
-        hasOtherEnded: effectData.otherEnded.length > 0
+        hasOtherEnded: effectData.otherEnded.length > 0,
+        conditions: effectData.conditions,
+        hasConditions: effectData.conditions.length > 0,
     };
-    console.log("Render Data", renderData);
+    // console.log("Render Data", renderData);
     const html = await renderTemplate(template, renderData);
 
     // Create a chat card

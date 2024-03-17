@@ -553,6 +553,7 @@ ARCHMAGE:
     ongoingOtherEnded: The following Effects <strong>have ended on another</strong> Actor
     ongoingSaveEnds: The following Effects <strong>require a Save</strong> to end
     ongoingSelfTriggered: The following Effects <strong>triggered on this</strong> Actor
+    hasConditions: The following conditions are <strong>currently active</strong> on this Actor
     powerLevel: Level
     powerSource: Power Source
     powerSourceName: Source Name

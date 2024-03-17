@@ -48,7 +48,7 @@ ARCHMAGE.statusEffects = [
     journal: "21cEqzk92tflpW7N",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     }
@@ -61,7 +61,7 @@ ARCHMAGE.statusEffects = [
     journal: "dk4ua6smvjafdrqm",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     },
@@ -81,7 +81,7 @@ ARCHMAGE.statusEffects = [
     journal: "gy68o7eat5p6bpgq",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     },
@@ -106,7 +106,7 @@ ARCHMAGE.statusEffects = [
     journal: "mk69wxlsqwnydwip",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     }
@@ -118,7 +118,7 @@ ARCHMAGE.statusEffects = [
     journal: "FHDyJEb29LWnO2Dg",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     }
@@ -131,7 +131,7 @@ ARCHMAGE.statusEffects = [
     journal: "g20s05odo7v5mw2q",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     },
@@ -161,7 +161,7 @@ ARCHMAGE.statusEffects = [
     journal: "m78aw2gepbc5ccgm",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     }
@@ -174,7 +174,7 @@ ARCHMAGE.statusEffects = [
     journal: "ti7104njam2n18a5",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     }
@@ -187,7 +187,7 @@ ARCHMAGE.statusEffects = [
     journal: "2rxwthymp5rl1dqe",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     },
@@ -217,7 +217,7 @@ ARCHMAGE.statusEffects = [
     journal: "bi9ye2usgfsdpubs",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     },
@@ -237,7 +237,7 @@ ARCHMAGE.statusEffects = [
     journal: "3r2jt3c6skn7gw7d",
     flags: {
       archmage: {
-        duration: "NormalSaveEnds",
+        duration: "Infinite",
         ongoingDamage: 0
       }
     },
