@@ -90,7 +90,8 @@ export async function preDeleteCombat(combat, context, options) {
                 selfEnded: [],
                 savesEnds: [],
                 selfTriggered: [],
-                otherEnded: []
+                otherEnded: [],
+                conditions: [],
             };
 
             for (const effect of combatant.actor.effects) {
