@@ -1,6 +1,9 @@
 export async function combatTurn(combat, context, options) {
     console.log("Combat Turn", combat.combatant.name, combat, context, options);
 
+    // Exit early if the feature is disabled.
+    if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
+
     // If the direction is negative, ignore the turn
     if (options.direction < 0) return;
 

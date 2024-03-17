@@ -220,6 +220,8 @@ ARCHMAGE:
     tourVisibilityOff: Tours are disabled
     UnboundEscDieHint: Enable this setting to let the escalation die go above 6 and below 0 when manually adjusted (still remains limited when counting by the current round).
     UnboundEscDieName: Unlimited Escalation Die
+    enableOngoingEffectsMessagesName: Enable ongoing effects messages
+    enableOngoingEffectsMessagesHint: Enable chat messages for ongoing effects on actors at the start and end of their turns.
   AUTOLEVEL:
     confirm: Confirm (create duplicate)
     help: Use this form to create a copy of this actor with its stats (including attacks) adjusted to the new level.

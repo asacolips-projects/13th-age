@@ -346,6 +346,15 @@ Hooks.once('init', async function() {
     config: true
   });
 
+  game.settings.register("archmage", "enableOngoingEffectsMessages", {
+    name: game.i18n.localize("ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesName"),
+    hint: game.i18n.localize("ARCHMAGE.SETTINGS.enableOngoingEffectsMessagesHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   game.settings.register('archmage', 'roundUpDamageApplication', {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
