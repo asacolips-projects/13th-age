@@ -1,3 +1,13 @@
+/**
+ * All SCSS color variables defined in this file should have a matching
+ * CSS variable. It's a bit of extra work, but by using CSS variables, we
+ * override those in theming layers, like the `_colormodes.scss` partial
+ * that's used for changing colors when a color blind mode is enabled.
+ *
+ * It's a bit redundant to have both CSS variables and SCSS variables,
+ * but it's a bit faster to type `$c-feat-blue` rather than `var(--c-feat-blue)`
+ * everywhere throughout our SCSS.
+ */
 :root {
   // Legacy colors.
   --c-purple: #5e0080;
