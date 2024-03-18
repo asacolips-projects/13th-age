@@ -48,7 +48,7 @@
   }
   ::-webkit-scrollbar-track {
     box-shadow: none;
-    background: rgba($c-black, 0.1);
+    background: $c-gray--01;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb {
@@ -94,7 +94,7 @@ img[data-edit="img"] {
 }
 
 .editor-content {
-  background: rgba($c-black, 0.05);
+  background: $c-gray--05;
   padding: $padding-sm;
   border-radius: $padding-sm;
 }
@@ -149,7 +149,7 @@ button {
   cursor: pointer;
 
   &:hover {
-    background: rgba($c-blue, 0.7);
+    background: $c-blue-light;
     box-shadow: 0 0 5px $c-blue;
   }
 }

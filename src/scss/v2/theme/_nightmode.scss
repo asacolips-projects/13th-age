@@ -11,7 +11,7 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
     color: $c-white;
 
     .notes {
-      color: rgba($c-white, 0.6);
+      color: $c-white--60;
     }
 
     .slider-base {
@@ -47,7 +47,7 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       border-color: $c-white;
 
       &::placeholder {
-        color: rgba($c-white, 0.5);
+        color: $c-white--50;
       }
 
       &:hover,
@@ -66,7 +66,7 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
     }
 
     .icon-roll {
-      background-color: rgba($c-white, 0.1) !important;
+      background-color: $c-white--10 !important;
 
       &:hover {
         background-color: $c-blue !important;
@@ -101,7 +101,7 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
     }
 
     .editor-content {
-      background-color: rgba($c-white, 0.05);
+      background-color: $c-white--05;
     }
 
     .editor-edit {
@@ -123,7 +123,7 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
       }
 
       .tox-edit-area{
-        background: rgba($c-white, 0.85);
+        background: $c-white--85;
       }
 
       button {
@@ -150,7 +150,7 @@ $bx-night: inset 0 0 100px 0 $c-night-darker;
 
         &.tox-tbtn--disabled {
           svg * {
-            fill: rgba($c-white, 0.4) !important;
+            fill: $c-white--45 !important;
           }
         }
       }

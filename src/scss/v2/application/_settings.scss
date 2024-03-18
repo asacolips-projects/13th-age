@@ -11,7 +11,7 @@
     border-radius: 2px;
 
     summary {
-      background-color: rgba(0, 0, 0, 0.15);
+      background-color: $c-gray--15;
       padding: 2px 2px 2px 6px;
       transition: all ease-in-out 0.25s;
       font-size: 16px;
@@ -20,7 +20,7 @@
       &:hover,
       &:focus {
         cursor: pointer;
-        background-color: rgba($c-blue, 0.25);
+        background-color: $c-blue--25;
       }
     }
 
@@ -37,7 +37,7 @@
     padding: 10px;
 
     &.highlight {
-      background: rgba($c-progress-full, 0.15);
+      background: $c-hit-bg;
 
       .new-setting {
         margin-left: 4px;

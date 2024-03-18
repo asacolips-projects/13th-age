@@ -152,7 +152,7 @@
 
   .effects-summary {
     color: $c-white;
-    text-shadow: 0 0 10px rgba($c-black, 0.5);
+    text-shadow: 0 0 10px $c-gray--50;
     margin: 0 0 1px 0;
     background: $c-power-other;
 
@@ -194,7 +194,7 @@
   }
 
   .bonus {
-    background: rgba($c-black, 0.25);
+    background: $c-gray--25;
     border-radius: $padding-sm;
     margin: 1px 2px;
     font-size: $font-tiny;

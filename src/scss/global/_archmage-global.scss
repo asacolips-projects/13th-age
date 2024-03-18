@@ -125,7 +125,7 @@ option[selected] {
     background: url('../assets/ricepaper2_@2X.webp');
     background-attachment: local;
     background-size: 300px;
-    // box-shadow: inset 0 0 32px 4px $ct-black--45;
+    // box-shadow: inset 0 0 32px 4px $c-gray--45;
     font-size: 14px;
 
     &.whisper {
@@ -175,9 +175,6 @@ option[selected] {
 
 .ability-usage--at-will {
   background: $c-power-will;
-
-  .colorBlindRG & { background: $cb-rg-power-will; }
-  .colorBlindBY & { background: $cb-by-power-will; }
 }
 
 .ability-usage--header {
@@ -186,30 +183,18 @@ option[selected] {
 
 .ability-usage--once-per-battle {
   background: $c-power-battle;
-
-  .colorBlindRG & { background: $cb-rg-power-battle; }
-  .colorBlindBY & { background: $cb-by-power-battle; }
 }
 
 .ability-usage--daily {
   background: $c-power-daily;
-
-  .colorBlindRG & { background: $cb-rg-power-daily; }
-  .colorBlindBY & { background: $cb-by-power-daily; }
 }
 
 .ability-usage--recharge {
   background: $c-power-recharge;
-
-  .colorBlindRG & { background: $cb-rg-power-recharge; }
-  .colorBlindBY & { background: $cb-by-power-recharge; }
 }
 
 .ability-usage--other {
   background: $c-power-other;
-
-  .colorBlindRG & { background: $cb-rg-power-other; }
-  .colorBlindBY & { background: $cb-by-power-other; }
 }
 
 // Actor Sheet
@@ -228,7 +213,7 @@ option[selected] {
   }
 
   .editor-content {
-    background: rgba($c-black, 0.05);
+    background: $c-gray--05;
     padding: 4px;
     border-radius: 4px;
   }
@@ -310,7 +295,7 @@ option[selected] {
       background-position: 0px 130px;
       background-attachment: local;
       background-size: 300px;
-      box-shadow: inset 0 0 32px 4px $ct-black--45;
+      box-shadow: inset 0 0 32px 4px $c-gray--45;
       font-size: 13px;
       overflow-y: auto;
       padding: 5px;
@@ -571,16 +556,16 @@ option[selected] {
   &.item-sheet {
 
     .editor-content {
-      background-color: $ct-white--45;
-      border: 1px solid $ct-black--25;
+      background-color: $c-white--45;
+      border: 1px solid $c-gray--25;
       padding: 4px;
     }
 
     .form-group {
-      border-bottom: 1px solid $ct-black--25;
+      border-bottom: 1px solid $c-gray--25;
 
       > label {
-        border-right: 1px solid $ct-black--25;
+        border-right: 1px solid $c-gray--25;
         flex: 0 0 170px;
         font-weight: bold;
         margin-right: 4px;
@@ -624,7 +609,7 @@ option[selected] {
   }
 
   .mce-edit-area {
-    box-shadow: inset 0 -2px 0 -1px $ct-black--25;
+    box-shadow: inset 0 -2px 0 -1px $c-gray--25;
     height: 84%;
   }
 
@@ -810,7 +795,7 @@ option[selected] {
       }
 
       select {
-        background: $ct-black--05;
+        background: $c-gray--05;
         flex: 1;
         font-size: 10px;
         height: 18px;
@@ -1000,7 +985,7 @@ option[selected] {
     background: url('../assets/ricepaper2_@2X.webp') #fff;
     background-attachment: local;
     background-size: 300px;
-    box-shadow: inset 0 0 32px 4px $ct-black--45;
+    box-shadow: inset 0 0 32px 4px $c-gray--45;
   }
 }
 
@@ -1388,9 +1373,6 @@ option[selected] {
 
     .ability-usage--at-will {
       background: $c-power-will;
-
-      .colorBlindRG & { background: $cb-rg-power-will; }
-      .colorBlindBY & { background: $cb-by-power-will; }
     }
 
     .ability-usage--header {
@@ -1399,30 +1381,18 @@ option[selected] {
 
     .ability-usage--once-per-battle {
       background: $c-power-battle;
-
-      .colorBlindRG & { background: $cb-rg-power-battle; }
-      .colorBlindBY & { background: $cb-by-power-battle; }
     }
 
     .ability-usage--daily {
       background: $c-power-daily;
-
-      .colorBlindRG & { background: $cb-rg-power-daily; }
-      .colorBlindBY & { background: $cb-by-power-daily; }
     }
 
     .ability-usage--recharge {
       background: $c-power-recharge;
-
-      .colorBlindRG & { background: $cb-rg-power-recharge; }
-      .colorBlindBY & { background: $cb-by-power-recharge; }
     }
 
     .ability-usage--other {
       background: $c-power-other;
-
-      .colorBlindRG & { background: $cb-rg-power-other; }
-      .colorBlindBY & { background: $cb-by-power-other; }
     }
 
     .ability-usage--equipment {
@@ -1431,7 +1401,7 @@ option[selected] {
   }
 
   .inventory-header {
-    background: $ct-black--05;
+    background: $c-gray--05;
     font-weight: 700;
     line-height: 20px;
 
@@ -1460,7 +1430,7 @@ option[selected] {
 // Encumbrance Bar
 
 .encumbrance {
-  background: $ct-black--01;
+  background: $c-gray--01;
   border: 1px solid $c-gray--darker;
   border-radius: 3px;
   height: 12px;
@@ -1511,7 +1481,7 @@ option[selected] {
   overflow: hidden;
 
   .item {
-    background: $ct-black--03;
+    background: $c-gray--03;
     border: 1px solid $c-gray--lightest;
     border-radius: 2px;
     margin-bottom: 3px;
@@ -1582,7 +1552,7 @@ option[selected] {
 
 // Escalation die.
 .archmage-escalation {
-  background: $ct-black--75;
+  background: $c-gray--75;
   border: 1px solid $c-black;
   border-radius: 5px;
   box-shadow: 0 0 10px $c-black;
@@ -1634,7 +1604,7 @@ option[selected] {
     line-height: 1;
     margin: 0;
     padding: 0;
-    background: $ct-black--75;
+    background: $c-gray--75;
     border: 1px solid $c-black;
     border-radius: 5px;
     box-shadow: 0 0 10px $c-black;
@@ -1647,7 +1617,7 @@ option[selected] {
     }
 
     &:active {
-      background: $ct-black--45;
+      background: $c-gray--45;
     }
   }
 }
@@ -1655,7 +1625,7 @@ option[selected] {
 
 // Scene Terrains
 .archmage-terrains {
-  background: $ct-black--75;
+  background: $c-gray--75;
   border: 1px solid $c-black;
   border-radius: 5px;
   box-shadow: 0 0 10px $c-black;
@@ -1699,7 +1669,7 @@ option[selected] {
     background: url('../assets/ricepaper2_@2X.webp') #fff;
     background-attachment: local;
     background-size: 300px;
-    box-shadow: inset 0 0 32px 4px $ct-black--45;
+    box-shadow: inset 0 0 32px 4px $c-gray--45;
   }
 
   &::before {
@@ -1805,7 +1775,7 @@ option[selected] {
 
 .dc-inline-roll__result,
 .dc-inline-roll__parts {
-  background: $ct-black--75;
+  background: $c-gray--75;
   border-radius: 2px;
   color: $c-white;
   display: inline-block;
@@ -1826,7 +1796,7 @@ option[selected] {
 }
 
 .dc-inline-roll__parts {
-  background: $ct-black--75;
+  background: $c-gray--75;
   display: none;
   flex-direction: column;
   left: 0;
@@ -1838,7 +1808,7 @@ option[selected] {
 }
 
 .dc-formula {
-  border-bottom: 1px solid $ct-white--45;
+  border-bottom: 1px solid $c-white--45;
   line-height: 1;
   padding: 4px 0;
 }
@@ -1868,7 +1838,7 @@ option[selected] {
   .content-link,
   .inline-roll,
   .inline-roll--archmage {
-    background: $ct-black--75;
+    background: $c-gray--75;
     color: $c-white;
     border-color: $c-black;
     border-radius: 4px;
@@ -1996,19 +1966,19 @@ option[selected] {
 }
 
 .trigger-active {
-  color: $c-trigger-hit;
-  background: $c-trigger-hit-bg;
+  color: $c-hit;
+  background: $c-hit-bg;
   border-radius: 2px;
   text-decoration: underline;
-  text-decoration-color: rgba($c-trigger-hit, 0.25);
+  text-decoration-color: $c-hit-underline;
 }
 
 .trigger-miss {
-  color: $c-trigger-miss;
-  background: $c-trigger-miss-bg;
+  color: $c-miss;
+  background: $c-miss-bg;
   border-radius: 2px;
   text-decoration: underline;
-  text-decoration-color: rgba($c-trigger-miss, 0.25);
+  text-decoration-color: $c-miss-underline;
 }
 
 .trigger-inactive {

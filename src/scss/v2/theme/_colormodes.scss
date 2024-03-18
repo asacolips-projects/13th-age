@@ -1,13 +1,31 @@
 .colorBlindRG {
   --c-hit: #0c1d44;
   --c-hit-bg: #b1bbff;
+  --c-hit-underline: #0c1d446e;
   --c-miss: #3c3000;
   --c-miss-bg: #f3b93842;
+  --c-miss-underline: #3c30006e;
+
+  --c-power-will: linear-gradient(45deg, #003c15, #087830 var(--c-power-grad-max));
+  --c-power-battle: linear-gradient(45deg, #003854, #89cdef var(--c-power-grad-max));
+  --c-power-daily: linear-gradient(45deg, #005748, #42ac9a var(--c-power-grad-max));
+  --c-power-recharge: linear-gradient(45deg, #695702, #decd78 var(--c-power-grad-max));
+  --c-power-other: linear-gradient(45deg, #0d0145, #301c89 var(--c-power-grad-max));
+  --c-power-equipment: linear-gradient(45deg, #80361a, #efc44aa6 var(--c-power-grad-max));
 }
 
 .colorBlindBY {
   --c-hit: #023602;
-  --c-miss: #3c0000;
   --c-hit-bg: #2cb72c52;
+  --c-hit-underline: #0236026e;
+  --c-miss: #3c0000;
   --c-miss-bg: #e78f8f33;
+  --c-miss-underline: #3c00006e;
+
+  --c-power-will: linear-gradient(45deg, #796501, #efde89 var(--c-power-grad-max));
+  --c-power-battle: linear-gradient(45deg, #4e0129, #891c54 var(--c-power-grad-max));
+  --c-power-daily: linear-gradient(45deg, #333300, #9a9a30 var(--c-power-grad-max));
+  --c-power-recharge: linear-gradient(45deg, #01536e, #66cdef var(--c-power-grad-max));
+  --c-power-other: linear-gradient(45deg, #0d0145, #301c89 var(--c-power-grad-max));
+  --c-power-equipment: linear-gradient(45deg, #80361a, #efc44aa6 var(--c-power-grad-max));
 }

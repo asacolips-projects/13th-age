@@ -31,7 +31,7 @@
 }
 
 .archmage-import-power {
-  background: $ct-black--01;
+  background: $c-gray--01;
   border: 1px solid $c-gray--light;
   border-radius: 3px;
   box-shadow: 0 0 2px $c-white inset;
@@ -216,7 +216,7 @@
     position: absolute;
     width: 32%;
     height: 6px;
-    background: linear-gradient(-90deg, $c-blue--dark, rgba($c-blue--dark, .4) 60%, transparent);
+    background: linear-gradient(-90deg, $c-blue-dark, $c-blue-dark--45 60%, transparent);
     left: 0;
     bottom: 0;
     top: 0;
@@ -227,7 +227,7 @@
   &::after {
     left: auto;
     right: 0;
-    background: linear-gradient(90deg, $c-blue--dark, rgba($c-blue--dark, .4) 60%, transparent);
+    background: linear-gradient(90deg, $c-blue-dark, $c-blue-dark--45 60%, transparent);
     border-radius: 0 50px 0 50px;
   }
 }

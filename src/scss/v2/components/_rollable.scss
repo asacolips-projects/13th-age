@@ -12,7 +12,7 @@
 
   &:hover {
     color: $c-blue;
-    text-shadow: 0 0 5px rgba($c-blue, 0.5);
+    text-shadow: 0 0 5px $c-blue--50;
   }
 
   &.hide-icon {
