@@ -14,7 +14,6 @@ import { DiceArchmage } from './actor/dice.js';
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
 import { TourGuide } from './tours/tourguide.js';
 import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
-import { renderCompendium } from './hooks/renderCompendium.js';
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
 import { registerModuleArt } from './setup/register-module-art.js';
 import { TokenArchmage } from './actor/token.js';
@@ -797,9 +796,48 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       // Move the element.
       element.detach();
       details.append(element);
+
+      // Add listener for the colorblind selector.
+      if (setting === 'colorBlindMode') {
+        element.find('select').on('change', changeColorBlindPreview);
+      }
+    }
+
+    // Add special template for the a11y section.
+    if (group.label.includes('accessibility')) {
+      renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
+        details.append(tpl);
+      });
     }
     parent.append(details);
   }
+
+  // Event listener for the color blind selector.
+  function changeColorBlindPreview(event) {
+    const element = event.currentTarget;
+    const parent = element.closest('details');
+    const preview = parent?.querySelector('.archmage-settings-preview');
+    const value = element.value;
+
+    if (!preview) return;
+
+    switch (value) {
+      case 'colorBlindRG':
+        preview.classList.remove('colorBlindBY');
+        preview.classList.add('colorBlindRG');
+        break;
+
+      case 'colorBlindBY':
+        preview.classList.remove('colorBlindRG');
+        preview.classList.add('colorBlindBY');
+        break;
+    
+      default:
+        preview.classList.remove('colorBlindBY');
+        preview.classList.remove('colorBlindRG');
+        break;
+    }
+  };
 });
 
 /* -------------------------------------------- */
