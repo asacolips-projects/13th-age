@@ -14,7 +14,7 @@ async function registerModuleArt() {
   game.archmage.system.moduleArt.map.clear();
   const activeModules = [
     ['archmage', game.system],
-    ...game.modules.entries().filter(([_key, m]) => m.active)
+    ...[...game.modules.entries()].filter(([_key, m]) => m.active)
   ];
 
   // Iterate over each module and check to see if there's a map.
