@@ -37,6 +37,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     let effectsToDelete = [];
 
     for (const effect of combatant.actor.effects) {
+        if (!effect.active) continue;
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
             console.log(`${prefix}OfNextTurn effect found`, effect);
@@ -101,6 +102,7 @@ export async function preDeleteCombat(combat, context, options) {
             };
 
             for (const effect of combatant.actor.effects) {
+                if (!effect.active) continue;
                 const duration = effect.flags.archmage?.duration || "Unknown";
                 // If duration is "Infinite" skip
                 if (duration === "Infinite") continue;
