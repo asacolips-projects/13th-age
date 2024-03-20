@@ -5,12 +5,12 @@
   border-radius: 50px;
   overflow: hidden;
   position: relative;
-  border: 1px solid $c-gray--50;
+  border: 1px solid $c-black--50;
 
   .progress-track,
   .progress-current,
   .progress-temp {
-    background: $c-gray--15;
+    background: $c-black--15;
     position: absolute;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@
     border-radius: 50px;
     overflow: hidden;
     z-index: 3;
-    border-right: 1px solid $c-gray--50;
+    border-right: 1px solid $c-black--50;
 
     &.progress-hurt { background-color: $c-progress-hurt; }
     &.progress-staggered { background-color: $c-progress-staggered; }

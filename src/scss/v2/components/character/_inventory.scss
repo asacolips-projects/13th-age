@@ -197,7 +197,7 @@
 
   .equipment-summary {
     color: $c-white;
-    text-shadow: 0 0 10px $c-gray--50;
+    text-shadow: 0 0 10px $c-black--50;
     margin: 0 0 1px 0;
     background: $c-power-equipment;
 
@@ -229,7 +229,7 @@
   }
 
   .bonus {
-    background: $c-gray--25;
+    background: $c-black--25;
     border-radius: $padding-sm;
     margin: 4px 2px;
     font-size: $font-tiny;

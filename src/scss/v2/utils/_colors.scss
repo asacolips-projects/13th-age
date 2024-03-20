@@ -26,14 +26,14 @@
   --c-white: #ffffff;
 
   // Opacity hex codes: https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-  --c-gray--01: #00000003;
-  --c-gray--03: #00000008;
-  --c-gray--05: #0000000D;
-  --c-gray--15: #00000026;
-  --c-gray--25: #00000040;
-  --c-gray--45: #00000073;
-  --c-gray--50: #00000080;
-  --c-gray--75: #000000BF;
+  --c-black--01: #00000003;
+  --c-black--03: #00000008;
+  --c-black--05: #0000000D;
+  --c-black--15: #00000026;
+  --c-black--25: #00000040;
+  --c-black--45: #00000073;
+  --c-black--50: #00000080;
+  --c-black--75: #000000BF;
   --c-gray: #666666;
 
   --c-white--01: #ffffff03;
@@ -47,7 +47,7 @@
   --c-white--75: #ffffffbf;
   --c-white--85: #ffffffd9;
 
-  --c-blue--25: #1776D540;
+  --c-blue--25: #1776d52b;
   --c-blue--50: #1776D580;
   --c-blue-light: #35a7e9;
   --c-blue-dark: #074481;
@@ -80,7 +80,6 @@
   --c-power-equipment: linear-gradient(45deg, #80361a, #efc44aa6 var(--c-power-grad-max));
 }
 
-// @todo convert these into CSS variables.
 // Legacy colors.
 $c-purple: var(--c-purple);
 $c-yellow: var(--c-yellow);
@@ -90,28 +89,26 @@ $c-crit: var(--c-crit);
 $c-fail: var(--c-fail);
 $c-reroll: var(--c-reroll);
 $c-blue--dark: var(--c-blue--dark);
-$ct-blue--25: rgba(128,188,223,0.25);
-$c-gray--lightest: var(--c-gray--05);
-$c-gray--lighter: var(--c-gray--15);
-$c-gray--light: var(--c-gray--25);
-$c-gray--med: var(--c-gray--50);
-$c-gray--dark: var(--c-gray--50);
-$c-gray--darker: var(--c-gray--75);
-$c-tab-shadow: #a78f77;
+$c-black--lightest: var(--c-black--05);
+$c-black--lighter: var(--c-black--15);
+$c-black--light: var(--c-black--25);
+$c-black--med: var(--c-black--50);
+$c-black--dark: var(--c-black--50);
+$c-black--darker: var(--c-black--75);
 
 $c-blue: var(--c-blue);
 $c-red: var(--c-red);
 $c-black: var(--c-black);
 $c-white: var(--c-white);
 
-$c-gray--01: var(--c-gray--01);
-$c-gray--03: var(--c-gray--03);
-$c-gray--05: var(--c-gray--05);
-$c-gray--15: var(--c-gray--15);
-$c-gray--25: var(--c-gray--25);
-$c-gray--45: var(--c-gray--45);
-$c-gray--50: var(--c-gray--50);
-$c-gray--75: var(--c-gray--75);
+$c-black--01: var(--c-black--01);
+$c-black--03: var(--c-black--03);
+$c-black--05: var(--c-black--05);
+$c-black--15: var(--c-black--15);
+$c-black--25: var(--c-black--25);
+$c-black--45: var(--c-black--45);
+$c-black--50: var(--c-black--50);
+$c-black--75: var(--c-black--75);
 $c-gray: var(--c-gray);
 
 $c-white--01: var(--c-white--01);
@@ -144,7 +141,7 @@ $c-progress-hurt: var(--c-progress-hurt);
 $c-progress-staggered: var(--c-progress-staggered);
 $c-progress-dire: var(--c-progress-dire);
 
-$ct-border: $c-gray--25;
+$ct-border: $c-black--25;
 $ct-border-night: $c-white--25;
 
 $c-power-grad-max: 160%;

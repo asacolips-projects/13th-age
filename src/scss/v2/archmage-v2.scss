@@ -79,6 +79,11 @@
       font-family: $font-stack-base;
     }
   }
+
+  // @todo replace this when we make the v2 power sheet.
+  .item-sheet {
+    @import 'components/items/power-sheet';
+  }
 }
 
 .package-configuration {
