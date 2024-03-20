@@ -49,7 +49,7 @@ export default {
   }
 
   .action-detail {
-    border: 1px solid $c-gray--25;
+    border: 1px solid $c-black--25;
     border-radius: 4px;
     background: rgba($c-black, 0.05);
     margin-bottom: $padding-md;

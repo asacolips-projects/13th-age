@@ -64,14 +64,14 @@
       border-bottom: 2px solid $c-black;
 
       &[readonly] {
-        color: $c-gray--75;
-        border-bottom-color: $c-gray--25;
+        color: $c-black--75;
+        border-bottom-color: $c-black--25;
       }
     }
 
     span.defense-value,
     div.resource-max {
-      border-bottom: 2px solid $c-gray--25;
+      border-bottom: 2px solid $c-black--25;
     }
   }
 

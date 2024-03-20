@@ -11,7 +11,7 @@
 
   tr {
     &:nth-child(even) {
-      background: $ct-blue--25;
+      background: $c-blue--25;
     }
   }
 }
@@ -43,7 +43,7 @@ table {
       }
   
       &:nth-child(even) {
-        background: $ct-blue--25;
+        background: $c-blue--25;
       }
     }
   }

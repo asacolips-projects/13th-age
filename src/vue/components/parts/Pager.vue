@@ -115,7 +115,7 @@
     }
 
     .pager-input {
-      border: 1px solid $c-gray--75;
+      border: 1px solid $c-black--75;
       border-radius: 4px;
       margin: 0;
       padding: 0 2px;

@@ -104,7 +104,7 @@ export default {
     width: auto;
     min-width: 100%;
     background: $c-white;
-    box-shadow: 0 0 15px 5px $c-gray--50;
+    box-shadow: 0 0 15px 5px $c-black--50;
     padding: 13px;
     // height: 50px;
     border-radius: 8px;

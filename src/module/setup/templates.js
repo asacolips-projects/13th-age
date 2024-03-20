@@ -46,7 +46,7 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/archmage/templates/prepopulate/tabs-content.html",
 
     "systems/archmage/templates/sidebar/apps/archmage-help.html",
-    "systems/archmage/templates/sidebar/apps/compendium.html",
+    "systems/archmage/templates/sidebar/apps/a11y-preview.html"
   ];
 
   // Load the template parts

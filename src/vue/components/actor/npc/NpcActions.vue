@@ -324,7 +324,7 @@ export default {
         &::before {
           color: $c-white !important;
           text-shadow: 0 0 10px $c-white;
-          box-shadow: inset 0 0 0 10px $c-gray--75;
+          box-shadow: inset 0 0 0 10px $c-black--75;
           opacity: 0;
           transition: all ease-in-out 0.25s;
         }

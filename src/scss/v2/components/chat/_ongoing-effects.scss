@@ -95,7 +95,7 @@
       background: $c-white;
       box-shadow:
         0 0 0 2px $c-white inset,
-        0 0 5px 0 $c-gray--25 inset;
+        0 0 5px 0 $c-black--25 inset;
       border: 1px solid var(--color-border-light-2);
       border-radius: 3px;
 
@@ -103,7 +103,7 @@
       &:focus {
         box-shadow:
           0 0 0 2px $c-white inset,
-          0 0 5px 0 $c-gray--25 inset;
+          0 0 5px 0 $c-black--25 inset;
         background-color: $c-blue;
         color: $c-white;
         border-color: $c-blue;

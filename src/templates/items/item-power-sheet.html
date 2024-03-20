@@ -283,56 +283,58 @@
                               </a>
                           </span>
                           {{#each system.feats as |feat key|}}
-                          <span>
-                              <a class="feat-edit" title="Delete Feat" data-featKey="{{key}}" data-action="del">
-                                  <i class="fas fa-trash"></i>
-                              </a>
-                              <a class="feat-edit" title="Move Feat Up" data-featKey="{{key}}" data-action="up">
-                                  <i class="fas fa-angle-up"></i>
-                              </a>
-                              <a class="feat-edit" title="Move Feat Down" data-featKey="{{key}}" data-action="down">
-                                  <i class="fas fa-angle-down"></i>
-                              </a>
-                          </span>
-                          <div class="form-group">
-                            <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
-                            <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">
-                                {{#select this.tier.value}}
-                                {{#each ../featTiers as |name tier|}}
-                                <option value="{{tier}}">{{name}}</option>
-                                {{/each}}
-                                {{/select}}
-                            </select>
-                          </div>
-                          <div class="form-group">
-                              <label>{{localize 'ARCHMAGE.ITEM.active'}}</label>
-                              <input type="checkbox" name="system.feats.{{@key}}.isActive.value" value="1" data-dtype="{{this.isActive.type}}" {{checked this.isActive.value}}/>
-                          </div>
-                          <div class="form-group">
-                              {{editor this.description.value target=(concatenate "system.feats." @key ".description.value") button=true owner=../owner editable=../editable}}
-                          </div>
+                          <div class="feat-wrapper">
+                            <span>
+                                <a class="feat-edit" title="Delete Feat" data-featKey="{{key}}" data-action="del">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a class="feat-edit" title="Move Feat Up" data-featKey="{{key}}" data-action="up">
+                                    <i class="fas fa-angle-up"></i>
+                                </a>
+                                <a class="feat-edit" title="Move Feat Down" data-featKey="{{key}}" data-action="down">
+                                    <i class="fas fa-angle-down"></i>
+                                </a>
+                            </span>
+                            <div class="form-group">
+                                <label>{{localize 'ARCHMAGE.CHAT.tier'}}</label>
+                                <select name="system.feats.{{@key}}.tier.value" data-dtype="{{this.tier.type}}">
+                                    {{#select this.tier.value}}
+                                    {{#each ../featTiers as |name tier|}}
+                                    <option value="{{tier}}">{{name}}</option>
+                                    {{/each}}
+                                    {{/select}}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>{{localize 'ARCHMAGE.ITEM.active'}}</label>
+                                <input type="checkbox" name="system.feats.{{@key}}.isActive.value" value="1" data-dtype="{{this.isActive.type}}" {{checked this.isActive.value}}/>
+                            </div>
+                            <div class="form-group">
+                                {{editor this.description.value target=(concatenate "system.feats." @key ".description.value") button=true owner=../owner editable=../editable}}
+                            </div>
 
-                          <div class="form-group">
-                              <label>{{localize 'ARCHMAGE.CHAT.powerUsage'}}</label>
-                              <select name="system.feats.{{@key}}.powerUsage.value" data-dtype="{{this.powerUsage.type}}">
-                                  {{#select this.powerUsage.value}}
-                                  <option value="">- None -</option>
-                                  {{#each ../featUsages as |name type|}}
-                                  <option value="{{type}}">{{name}}</option>
-                                  {{/each}}
-                                  {{/select}}
-                              </select>
-                          </div>
+                            <div class="form-group">
+                                <label>{{localize 'ARCHMAGE.CHAT.powerUsage'}}</label>
+                                <select name="system.feats.{{@key}}.powerUsage.value" data-dtype="{{this.powerUsage.type}}">
+                                    {{#select this.powerUsage.value}}
+                                    <option value="">- None -</option>
+                                    {{#each ../featUsages as |name type|}}
+                                    <option value="{{type}}">{{name}}</option>
+                                    {{/each}}
+                                    {{/select}}
+                                </select>
+                            </div>
 
-                          <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}">
-                            <label>{{localize 'ARCHMAGE.ITEM.usesRemaining'}}</label>
-                            <input class="attribute-input" name="system.feats.{{@key}}.quantity.value" type="text" value="{{this.quantity.value}}"
-                                data-dtype="{{this.quantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}" />
-                          </div>
-                          <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
-                            <label>{{localize 'ARCHMAGE.ITEM.usesMax'}}</label>
-                            <input class="attribute-input" name="system.feats.{{@key}}.maxQuantity.value" type="text" value="{{this.maxQuantity.value}}"
-                                data-dtype="{{this.maxQuantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}" />
+                            <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}">
+                                <label>{{localize 'ARCHMAGE.ITEM.usesRemaining'}}</label>
+                                <input class="attribute-input" name="system.feats.{{@key}}.quantity.value" type="text" value="{{this.quantity.value}}"
+                                    data-dtype="{{this.quantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesRemainingHint'}}" />
+                            </div>
+                            <div class="form-group" title="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}">
+                                <label>{{localize 'ARCHMAGE.ITEM.usesMax'}}</label>
+                                <input class="attribute-input" name="system.feats.{{@key}}.maxQuantity.value" type="text" value="{{this.maxQuantity.value}}"
+                                    data-dtype="{{this.maxQuantity.type}}" placeholder="{{localize 'ARCHMAGE.ITEM.usesMaxHint'}}" />
+                            </div>
                           </div>
                           {{/each}}
                       </details>

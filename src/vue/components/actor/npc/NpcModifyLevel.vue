@@ -157,7 +157,7 @@
   .section--level-preview {
     padding: $padding-md;
     margin: $padding-md 0;
-    border: 1px solid $c-gray--25;
+    border: 1px solid $c-black--25;
     border-radius: 8px;
 
     .help-text {
@@ -170,7 +170,7 @@
     padding: 0;
 
     li + li {
-      border-top: 1px solid $c-gray--25;
+      border-top: 1px solid $c-black--25;
     }
   }
 
