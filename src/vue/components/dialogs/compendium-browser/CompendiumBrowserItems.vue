@@ -73,7 +73,7 @@
   <section class="section section--no-overflow">
     <!-- Items results. -->
     <section class="section section--main section--inventory flexcol">
-      <ul class="compendium-browser-results compendium-browser-items">
+      <ul v-if="loaded" class="compendium-browser-results compendium-browser-items">
         <!-- Individual items entries. -->
         <li v-for="(equipment, equipmentKey) in entries" :key="equipmentKey" :class="`equipment-summary equipment compendium-browser-row${equipmentKey >= pager.lastIndex - 1 && equipmentKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item equipment-item`" :data-document-id="equipment._id" @click="openDocument(equipment.uuid, 'Item')">
           <!-- Both the image and title have drag events. These are primarily separated so that -->
@@ -99,6 +99,7 @@
           </div>
         </li>
       </ul>
+      <div v-else class="compendium-browser-loading"><p><i class="fas fa-circle-notch fa-spin"></i>Please wait, loading...</p></div>
     </section>
   </section>
 </template>
@@ -146,6 +147,7 @@ export default {
     return {
       // Props used for infinite scroll and pagination.
       observer: null,
+      loaded: false,
       pager: {
         perPage: 50,
         firstIndex: 0,
@@ -441,7 +443,10 @@ export default {
       'system.attributes.recoveries',
       'system.attributes.save',
       'system.attributes.disengage',
-    ]).then(packIndex => this.packIndex = packIndex);
+    ]).then(packIndex => {
+      this.packIndex = packIndex;
+      this.loaded = true;
+    });
 
     // Create our intersection observer for infinite scroll.
     this.observer = new IntersectionObserver(this.infiniteScroll, {
