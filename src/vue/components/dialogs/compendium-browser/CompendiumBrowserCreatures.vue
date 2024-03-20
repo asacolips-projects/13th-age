@@ -299,7 +299,7 @@ export default {
         }
       }
       this.packIndex = packIndex;
-      // this.loaded = true;
+      this.loaded = true;
     });
 
     // Create our intersection observer for infinite scroll.

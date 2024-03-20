@@ -28,6 +28,8 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 - Removed Never Say Die from the Barbarian pregen, bringing it back in line with the Pelgrane version.
 - Fixed a subtle bug related to the Pathfinder token pack artwork not loading correctly if the compendium browser had been opened at least once.
+- Added a loading message to the compendium browser when first opening a tab in it.
+- Fixed a bug where hitting the enter key inside a compendium browser field would cause the page to refresh.
 
 ## Ongoing Effects
 
