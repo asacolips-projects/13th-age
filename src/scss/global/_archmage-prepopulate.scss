@@ -31,8 +31,8 @@
 }
 
 .archmage-import-power {
-  background: $c-gray--01;
-  border: 1px solid $c-gray--light;
+  background: $c-black--01;
+  border: 1px solid $c-black--light;
   border-radius: 3px;
   box-shadow: 0 0 2px $c-white inset;
   display: block;
@@ -154,14 +154,14 @@
   }
 
   // + .import-powers-item {
-  //   border-top: 1px solid $c-gray--light;
+  //   border-top: 1px solid $c-black--light;
   // }
 }
 
 .prepopulate-help {
   font-size: 16px;
   margin: 40px 0 0;
-  background: $ct-blue--25;
+  background: $c-blue--25;
   padding: 20px;
   border: 1px solid $c-blue--dark;
   border-radius: 5px;

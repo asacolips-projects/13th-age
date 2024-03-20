@@ -48,7 +48,7 @@
   }
   ::-webkit-scrollbar-track {
     box-shadow: none;
-    background: $c-gray--01;
+    background: $c-black--01;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb {
@@ -94,7 +94,7 @@ img[data-edit="img"] {
 }
 
 .editor-content {
-  background: $c-gray--05;
+  background: $c-black--05;
   padding: $padding-sm;
   border-radius: $padding-sm;
 }
