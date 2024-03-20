@@ -10,8 +10,8 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 
 ## Changes
 
+- Added support for ongoing effects and damage! This is one of our most powerful automation features yet. This is still an experimental feature, so we've added a system setting to enable or disable it. It's enabled by default, so make sure to try it out and let us know what works well and what could use improvement! See the **Ongoing Effects** section below for more details.
 - Updated the integration with the [Pathfinder Token Pack: Bestiaries](https://foundryvtt.com/packages/pf2e-tokens-bestiaries) module to include support for the recently added Bestiary 2 monsters.
-- Added support for ongoing effects and damage! This is one of our most powerful automation features yet. This is still an experimental feature, so we've added a system setting to enable or disable it. It's enabled by default, so make sure to try it out and let us know what works well and what could use improvement!
 - Updated chat card display as part of the ongoing effects changes. The two most significant changes are:
     - Hits and misses now have a background color and a slight underline to more clearly distinguish them. Misses also use a red background rather than being the same green as hits.
     - Active effects now render as an icon + normal text with a purple underline rather than being a button that would get weirdly split in two when breaking across multiple lines. It's not quite perfect yet, but they look quite a bit nicer now!
