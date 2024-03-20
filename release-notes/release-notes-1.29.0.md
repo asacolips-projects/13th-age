@@ -14,7 +14,7 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
 - Updated the integration with the [Pathfinder Token Pack: Bestiaries](https://foundryvtt.com/packages/pf2e-tokens-bestiaries) module to include support for the recently added Bestiary 2 monsters.
 - Updated chat card display as part of the ongoing effects changes. The two most significant changes are:
     - Hits and misses now have a background color and a slight underline to more clearly distinguish them. Misses also use a red background rather than being the same green as hits.
-    - Active effects now render as an icon + normal text with a purple underline rather than being a button that would get weirdly split in two when breaking across multiple lines. It's not quite perfect yet, but they look quite a bit nicer now!
+    - Updated the display of effects/conditions on chat cards to make them flow better with other text and make it more clear that they're draggable by changing the cursor style on hover. The new display removes the background and border and opts to go with a purple underline instead.
 - Redesigned the 13th Age system's settings to be organized into collapsible sections. The new sections are:
     - 2e Playtest
     - Automation
@@ -44,8 +44,6 @@ Manifest URL: https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/raw/
     - End of Battle
     - Start of Each Turn
 - Added logic to parse chat messages for ongoing damage and render them as effects that can be dropped onto tokens or character sheets.
-- Updated styling for hit and miss lines to be more visually distinct from other lines of the chat message. Also updated hit/miss to have different colors.
-- Updated the display of effects/conditions on chat card to make them flow better with other text and make it more clear that they're draggable by changing the cursor style on hover. The new display removes the background and border and opts to go with a purple underline instead.
 - Added new auto-generated chat messages for start of turn effects/sustain and end of turn effects which will render automatically based on when combatant turns end in the combat tracker. Effects that show up on these cards:
     - Can be dragged and dropped onto any actor or token to duplicate the effect.
     - Can apply their damage (if ongoing damage) to the actor via button click.
