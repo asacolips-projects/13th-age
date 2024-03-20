@@ -71,7 +71,7 @@
   <div class="section section--no-overflow">
     <!-- Creatures results. -->
     <section class="section section--creatures section--main flexcol">
-      <ul class="compendium-browser-results compendium-browser-creatures">
+      <ul v-if="loaded" class="compendium-browser-results compendium-browser-creatures">
         <!-- Individual creature entries. -->
         <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`creature-summary compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document actor`" :data-document-id="entry._id" @click="openDocument(entry.uuid)">
           <!-- Both the image and title have drag events. These are primarily separated so that -->
@@ -97,6 +97,7 @@
           </div>
         </li>
       </ul>
+      <div v-else class="compendium-browser-loading"><p><i class="fas fa-circle-notch fa-spin"></i>Please wait, loading...</p></div>
     </section>
   </div>
 </template>
@@ -140,6 +141,7 @@ export default {
     return {
       // Props used for infinite scroll and pagination.
       observer: null,
+      loaded: false,
       pager: {
         perPage: 50,
         firstIndex: 0,
@@ -297,6 +299,7 @@ export default {
         }
       }
       this.packIndex = packIndex;
+      // this.loaded = true;
     });
 
     // Create our intersection observer for infinite scroll.

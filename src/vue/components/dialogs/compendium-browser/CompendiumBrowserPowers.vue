@@ -84,7 +84,7 @@
   <section class="section section--no-overflow">
     <!-- Power results. -->
     <section class="section section--powers section--main flexcol">
-      <ul class="compendium-browser-results compendium-browser-powers" :key="escalation">
+      <ul v-if="loaded" class="compendium-browser-results compendium-browser-powers" :key="escalation">
         <!-- Individual powers entries. -->
         <li v-for="(entry, entryKey) in entries" :key="entryKey" :class="`power-summary ${powerUsageClass(entry)} compendium-browser-row${entryKey >= pager.lastIndex - 1 && entryKey < pager.totalRows - 1 ? ' compendium-browser-row-observe': ''} flexrow document item`" :data-document-id="entry._id" @click="openDocument(entry.uuid, 'Item')" :data-tooltip="CONFIG.ARCHMAGE.powerUsages[entry.system.powerUsage.value] ?? ''" data-tooltip-direction="RIGHT">
           <!-- Both the image and title have drag events. These are primarily separated so that -->
@@ -110,6 +110,7 @@
           </div>
         </li>
       </ul>
+      <div v-else class="compendium-browser-loading"><p><i class="fas fa-circle-notch fa-spin"></i>Please wait, loading...</p></div>
     </section>
   </section>
 </template>
@@ -152,6 +153,7 @@ export default {
     return {
       // Props used for infinited scroll and pagination.
       observer: null,
+      loaded: false,
       pager: {
         perPage: 50,
         firstIndex: 0,
@@ -377,7 +379,10 @@ export default {
       'system.recharge.value',
       'system.trigger.value',
       'system.feats'
-    ]).then(packIndex => this.packIndex = packIndex);
+    ]).then(packIndex => {
+      this.packIndex = packIndex;
+      this.loaded = true;
+    });
 
     // Create our intersection observer for infinite scroll.
     this.observer = new IntersectionObserver(this.infiniteScroll, {
