@@ -785,8 +785,12 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   // Iterate through our groups and move all of their settings into the matching element.
   for (let group of groups) {
     const details = $(`<details><summary>${game.i18n.localize(group.label)}</summary><span class="slot"></span></details>`);
+    let settingsCount = 0;
+
     for (let setting of group.settings) {
       const element = html.find(`[data-setting-id="archmage.${setting}"]`);
+      if (element.length < 1) continue;
+
       // Add a highlight if necessary.
       if (group.highlights.includes(setting)) {
         element.addClass('highlight');
@@ -796,6 +800,7 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       // Move the element.
       element.detach();
       details.append(element);
+      settingsCount++;
 
       // Add listener for the colorblind selector.
       if (setting === 'colorBlindMode') {
@@ -804,12 +809,14 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
     }
 
     // Add special template for the a11y section.
-    if (group.label.includes('accessibility')) {
-      renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
-        details.append(tpl);
-      });
+    if (settingsCount > 0) {
+      if (group.label.includes('accessibility')) {
+        renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
+          details.append(tpl);
+        });
+      }
+      parent.append(details);
     }
-    parent.append(details);
   }
 
   // Event listener for the color blind selector.

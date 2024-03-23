@@ -169,12 +169,8 @@ function copyFilesProd() {
     .pipe(replace('vue.esm-browser.js', 'vue.esm-browser.prod.js'))
     .pipe(gulp.dest('./dist'))
 }
-function copyManifest() {
-  return gulp.src('./dist/system.json')
-    .pipe(gulp.dest('./'))
-}
-const copyTask = gulp.series(copyFiles, copyManifest);
-const copyTaskProd = gulp.series(copyFilesProd, copyManifest);
+const copyTask = gulp.series(copyFiles);
+const copyTaskProd = gulp.series(copyFilesProd);
 
 /* ----------------------------------------- */
 /*  Compile Vue 3                            */
@@ -189,15 +185,11 @@ function viteBuild(cb) {
     cb(err);
   });
 }
-function copyFilesVite() {
-  return gulp.src('./dist/assets/**/*', {base: 'dist'})
-    .pipe(gulp.dest('./systems/archmage'))
-}
 function copyFoundryVite() {
   return gulp.src('./src/vue/foundry-shim/foundry-ui/**/*', {base: 'src/vue/foundry-shim/foundry-ui'})
     .pipe(gulp.dest('./dist/'));
 }
-const viteBuildTask = gulp.series(viteBuild, copyFilesVite);
+const viteBuildTask = gulp.series(viteBuild);
 // Prod builds.
 function viteBuildProd(cb) {
   return exec('npm run vite:build:prod', function(err, stdout, stderr) {
@@ -289,7 +281,6 @@ exports.noVite = gulp.series(
     compileImages,
     compileSvg,
     copyTaskProd,
-    copyFilesVite,
     copyFoundryVite
   )
 );
