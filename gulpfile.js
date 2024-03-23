@@ -144,6 +144,7 @@ const yamlTask = gulp.series(compileYaml);
 /* Copy files
 /* ----------------------------------------- */
 const SYSTEM_COPY = [
+  '!dist',
   'src/assets/**/*',
   '!src/assets/src/**/*.{png,jpeg,jpg}',
   'src/condition-maps/**/*',
