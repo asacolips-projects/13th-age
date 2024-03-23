@@ -23,14 +23,14 @@ export class ActorHelpersV2 {
   static _prepareIcons(actorData) {
     // Handle icons.
     if (actorData.system?.icons) {
-      for (let [k,v] of Object.entries(actorData.system.icons)) {
+      for (let [k, v] of Object.entries(actorData.system.icons)) {
         if (v.results) {
           let results = {};
           for (let i = 0; i < v.bonus.value; i++) {
             results[i] = {
               // TODO: Make this dynamic.
               value: 6
-            }
+            };
           }
           v.results = results;
         }
@@ -64,7 +64,7 @@ export class ActorHelpersV2 {
 
     if (actorData.items) {
       actorData.items.forEach((item) => {
-        if (item.type === 'equipment') {
+        if (item.type === "equipment") {
           acBonus += ActorHelpersV2._getBonusOr0(item?.data?.data?.attributes?.ac);
           mdBonus += ActorHelpersV2._getBonusOr0(item?.data?.data?.attributes?.md);
           pdBonus += ActorHelpersV2._getBonusOr0(item?.data?.data?.attributes?.pd);
@@ -86,29 +86,29 @@ export class ActorHelpersV2 {
   }
 
   static _activatePortraitArtContextMenu(app, element) {
-    ContextMenu.create(app, element, '.profile-img', [
+    ContextMenu.create(app, element, ".profile-img", [
       {
-        name: game.i18n.localize('ARCHMAGE.CHARACTER.showPortrait'),
+        name: game.i18n.localize("ARCHMAGE.CHARACTER.showPortrait"),
         icon: '<i class="fa fa-image-portrait"></i>',
         callback: () => {
           new ImagePopout(app.actor.img, {
-            title: game.i18n.format('ARCHMAGE.CHARACTER.showPortraitTitle', {name: app.actor.name}),
+            title: game.i18n.format("ARCHMAGE.CHARACTER.showPortraitTitle", { name: app.actor.name }),
             shareable: true,
-            uuid: app.actor.uuid,
+            uuid: app.actor.uuid
           }).render(true);
         }
       },
       {
-        name: game.i18n.localize('ARCHMAGE.CHARACTER.showToken'),
+        name: game.i18n.localize("ARCHMAGE.CHARACTER.showToken"),
         icon: '<i class="fas fa-circle-user"></i>',
         callback: () => {
           new ImagePopout(app.actor.prototypeToken.texture.src, {
-            title: game.i18n.format('ARCHMAGE.CHARACTER.showTokenTitle', {name: app.actor.name}),
+            title: game.i18n.format("ARCHMAGE.CHARACTER.showTokenTitle", { name: app.actor.name }),
             shareable: true,
-            uuid: app.actor.uuid,
+            uuid: app.actor.uuid
           }).render(true);
         }
       }
-    ])
+    ]);
   }
 }

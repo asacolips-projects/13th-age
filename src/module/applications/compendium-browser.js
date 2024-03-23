@@ -2,7 +2,6 @@
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCompendiumBrowser } from "../../vue/components.vue.es.js";
 
-
 /**
  * Application class for the Compendium Browser.
  *
@@ -25,25 +24,25 @@ export class ArchmageCompendiumBrowserApplication extends Application {
     this.vueRoot = null;
     this.vueListenersActive = false;
     this.vueComponents = {
-      'compendium-browser': ArchmageCompendiumBrowser
+      "compendium-browser": ArchmageCompendiumBrowser
     };
   }
 
   /** @override */
   static get defaultOptions() {
-    return {...super.defaultOptions,
+    return { ...super.defaultOptions,
       classes: [
-        'form',
-        'archmage-v2',
-        'archmage-dialog'
+        "form",
+        "archmage-v2",
+        "archmage-dialog"
       ],
       popOut: true,
       template: "systems/archmage/templates/dialog/compendium-browser.html",
-      id: 'archmage-compendium-browser',
-      title: game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.title'),
+      id: "archmage-compendium-browser",
+      title: game.i18n.localize("ARCHMAGE.COMPENDIUMBROWSER.title"),
       width: 1024,
       height: 775,
-      resizable: true,
+      resizable: true
     };
   }
 
@@ -53,8 +52,8 @@ export class ArchmageCompendiumBrowserApplication extends Application {
     // is loaded in the create() method of their respective components.
     return {
       // @todo add more default options, like saved filters.
-      defaultTab: this.options.defaultTab ?? 'creatures',
-      escalationDie: game.archmage.ArchmageUtility.getEscalation(),
+      defaultTab: this.options.defaultTab ?? "creatures",
+      escalationDie: game.archmage.ArchmageUtility.getEscalation()
     };
   }
 
@@ -76,8 +75,8 @@ export class ArchmageCompendiumBrowserApplication extends Application {
         // Initialize data.
         data() {
           return {
-            context: context,
-          }
+            context: context
+          };
         },
         // Define our character sheet component.
         components: this.vueComponents,
@@ -106,11 +105,11 @@ export class ArchmageCompendiumBrowserApplication extends Application {
 
     // If we don't have an active vueRoot, run Foundry's render and then mount
     // the Vue application to the form.
-    await this._render(force, options).catch(err => {
+    await this._render(force, options).catch((err) => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
       console.error(err);
       this._state = Application.RENDER_STATES.ERROR;
-    })
+    });
 
     // Mount our rendered app.
     let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
@@ -151,14 +150,15 @@ export class ArchmageCompendiumBrowserApplication extends Application {
   /**
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
+   * @param repeat
    */
   activateVueListeners(html, repeat = false) {
     if (!this.options.editable) {
-      html.find('input,select,textarea').attr('disabled', true);
+      html.find("input,select,textarea").attr("disabled", true);
       return;
     }
 
-    if (html.find('.archmage-v2-vue').length > 0) {
+    if (html.find(".archmage-v2-vue").length > 0) {
       this.vueListenersActive = true;
     }
 
@@ -167,9 +167,8 @@ export class ArchmageCompendiumBrowserApplication extends Application {
 
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';
-    html.on('focus', inputs, (event) => this._onFocus(event));
+    html.on("focus", inputs, (event) => this._onFocus(event));
   }
-
 
   /**
    * Handle focus events.
@@ -178,9 +177,9 @@ export class ArchmageCompendiumBrowserApplication extends Application {
    */
   _onFocus(event) {
     let target = event.currentTarget;
-    setTimeout(function() {
+    setTimeout(function () {
       if (target == document.activeElement) {
-        $(target).trigger('select');
+        $(target).trigger("select");
       }
     }, 100);
   }

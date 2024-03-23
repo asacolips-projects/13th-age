@@ -4,9 +4,9 @@ export default class ArchmageRolls {
     let rolls = [];
     let newTargetLine = undefined;
     let targets = 1;
-    let nlpMap = {}
+    let nlpMap = {};
     for (let i=2; i<=9; i++) {
-      nlpMap[game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)+" "] = i;
+      nlpMap[`${game.i18n.localize(`ARCHMAGE.TARGETING.${i}`)} `] = i;
       nlpMap[i.toString()] = i;
     }
 
@@ -16,36 +16,37 @@ export default class ArchmageRolls {
         let lineToParse = targetLine.toLowerCase();
         // First cleanup references to target HPs
         const stringHP = game.i18n.localize("ARCHMAGE.CHAT.HP").toLowerCase();
-        const regexHP = new RegExp("[0-9]+ " + stringHP, "g");
-        const regexHPInline = new RegExp("\\[\\[.+?\\]\\] " + stringHP, "g");
-        lineToParse = lineToParse.replace(regexHP, '');
-        lineToParse = lineToParse.replace(regexHPInline, '');
+        const regexHP = new RegExp(`[0-9]+ ${stringHP}`, "g");
+        const regexHPInline = new RegExp(`\\[\\[.+?\\]\\] ${stringHP}`, "g");
+        lineToParse = lineToParse.replace(regexHP, "");
+        lineToParse = lineToParse.replace(regexHPInline, "");
         // Then remove negative numbers
-        lineToParse = lineToParse.replace(/-[0-9]+/g, '');
+        lineToParse = lineToParse.replace(/-[0-9]+/g, "");
         // Remove all numbers with at least 2 digits (so 10+)
         // except for inline rolls (by checking for preceding '[[')
-        lineToParse = lineToParse.replace(/(?<!\[\[)[0-9]{2,}/g, '');
+        lineToParse = lineToParse.replace(/(?<!\[\[)[0-9]{2,}/g, "");
         rolls = ArchmageRolls.getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
           ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
           newTargetLine = foundry.utils.duplicate(targetLine);
-          rolls.forEach(r => {
+          rolls.forEach((r) => {
             targets += r.total;
             // Save outcomes in target line string
-            newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
+            newTargetLine = newTargetLine.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML);
           });
-        } else {
+        }
+ else {
           // Try NLP to guess targets
           let keys = Object.keys(nlpMap);
           for (let x = 0; x < keys.length; x++) {
             if (lineToParse.includes(keys[x])) targets = nlpMap[keys[x]];
           }
           // Handle "each" or "all" or "every" or the Crescendo spell
-          if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")
+          if (targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.each")} `)
+            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.all")} `)
+            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.every")} `)
             || item.system?.special?.value?.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.crescendoSpecial").toLowerCase())
             ) {
             targets = Math.max(game.user.targets.size, 1);
@@ -64,23 +65,24 @@ export default class ArchmageRolls {
           // Roll the targets now
           ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
-          rolls.forEach(r => targets += r.total);
-        } else {
+          rolls.forEach((r) => targets += r.total);
+        }
+ else {
           let keys = Object.keys(nlpMap);
           for (let x = 0; x < keys.length; x++) {
             if (targetLine.toLowerCase().includes(keys[x])) targets = nlpMap[keys[x]];
           }
           // Handle "each" or "all" or "every"
-          if (targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.each")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.all")+" ")
-            || targetLine.toLowerCase().includes(game.i18n.localize("ARCHMAGE.TARGETING.every")+" ")) {
+          if (targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.each")} `)
+            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.all")} `)
+            || targetLine.toLowerCase().includes(`${game.i18n.localize("ARCHMAGE.TARGETING.every")} `)) {
             targets = Math.max(game.user.targets.size, 1);
           }
         }
       }
     }
 
-    return {targets: targets, rolls: rolls, targetLine: newTargetLine};
+    return { targets: targets, rolls: rolls, targetLine: newTargetLine };
   }
 
   static addAttackMod(item) {
@@ -103,7 +105,7 @@ export default class ArchmageRolls {
     // selected targets or number listed on the power. If no targets are
     // selected, just use the number listed on the power.
     let targetsCount = numTargets.targets;
-    if (game.settings.get("archmage", "hideExtraRolls")){
+    if (game.settings.get("archmage", "hideExtraRolls")) {
       let selectedTargets = [...game.user.targets];
       if (selectedTargets.length > 0) targetsCount = Math.min(numTargets.targets, selectedTargets.length);
     }
@@ -119,17 +121,17 @@ export default class ArchmageRolls {
     if (match) {
       let roll = match[1];
       let vs = match[2];
-      newAttackLine = roll
+      newAttackLine = roll;
       for (let i = 1; i < targetsCount; i++) {
-        newAttackLine += ", " + roll;
+        newAttackLine += `, ${roll}`;
       }
       if (item.type == "action" && numTargets.rolls) {
-        numTargets.rolls.forEach(r => {
+        numTargets.rolls.forEach((r) => {
           // Embed pre-rolled targets
-          vs = vs.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML)
+          vs = vs.replace(/(\[\[.+?\]\])/, r.inlineRoll.outerHTML);
         });
       }
-      newAttackLine += " " + vs;
+      newAttackLine += ` ${vs}`;
     }
     return newAttackLine;
   }
@@ -139,12 +141,12 @@ export default class ArchmageRolls {
     // Special: You can choose more than one target for this spell,
     // but you take a –2 penalty when attacking two targets, a –3
     // penalty for three targets, and so on.
-    return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
+    return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`);
   }
 
   static rollAll(rolls, actor, key=undefined) {
     for (let i=0; i<rolls.length; i++) {
-      rolls[i].evaluate({async: false});
+      rolls[i].evaluate({ async: false });
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
     }
   }
@@ -154,22 +156,24 @@ export default class ArchmageRolls {
       if (!text) return undefined;
       const regex = /\[\[(\/[a-zA-Z]+\s)?(.*?)([\]]{2,3})/gi;
 
-      //if (!regex.test(text)) return undefined;
+      // if (!regex.test(text)) return undefined;
       let matches = [...text.matchAll(regex)];
       if (matches.length == 0) return undefined;
 
-      //let matches = regex.exec(text);
+      // let matches = regex.exec(text);
       let rolls = [];
       for (let x = 0; x < matches.length; x++) {
         let match = matches[x];
-        //console.log(match);
+        // console.log(match);
         let roll = new Roll(match[2], data);
-        //roll.formula = match[2];
+        // roll.formula = match[2];
         rolls.push(roll);
       }
       return rolls;
     }
-    catch (e) { return undefined; }
+    catch(e) {
+ return undefined;
+}
   }
 
   static _createInlineRollElementFromRoll(roll) {
@@ -185,10 +189,12 @@ export default class ArchmageRolls {
       data.title = roll.formula;
       data.dataset.roll = escape(JSON.stringify(roll));
     }
-    catch(err) { return null; }
+    catch(err) {
+ return null;
+}
 
     // Construct and return the formed link element
-    let a = document.createElement('a');
+    let a = document.createElement("a");
     a.classList.add(...data.cls);
     a.title = data.title;
     for (let [k, v] of Object.entries(data.dataset)) {

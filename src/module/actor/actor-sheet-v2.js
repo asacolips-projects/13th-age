@@ -1,8 +1,8 @@
-import { ArchmagePrepopulate } from '../setup/archmage-prepopulate.js';
+import { ArchmagePrepopulate } from "../setup/archmage-prepopulate.js";
 // Import Vue dependencies.
 import { createApp } from "../../scripts/lib/vue.esm-browser.js";
 import { ArchmageCharacterSheet } from "../../vue/components.vue.es.js";
-import { ActorHelpersV2 } from './helpers/actor-helpers-v2.js';
+import { ActorHelpersV2 } from "./helpers/actor-helpers-v2.js";
 
 export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
@@ -14,7 +14,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     this.vueRoot = null;
     this.vueListenersActive = false;
     this.vueComponents = {
-      'character-sheet': ArchmageCharacterSheet
+      "character-sheet": ArchmageCharacterSheet
     };
   }
 
@@ -22,12 +22,12 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     foundry.utils.mergeObject(options, {
-      classes: options.classes.concat(['archmage-v2', 'actor', 'character-sheet']).filter(c => c !== 'archmage'),
+      classes: options.classes.concat(["archmage-v2", "actor", "character-sheet"]).filter((c) => c !== "archmage"),
       width: 960,
       height: 960,
       submitOnClose: true,
       submitOnChange: true,
-      dragDrop: [{dragSelector: '.item-list .item', dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
     return options;
   }
@@ -61,8 +61,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Get drag data for later retrieval.
     const dragData = this.actor.toDragData();
-    if (dragData.uuid.includes('Token.') && dragData.type !== 'Token') {
-      dragData.type = 'Token';
+    if (dragData.uuid.includes("Token.") && dragData.type !== "Token") {
+      dragData.type = "Token";
     }
 
     context.dragData = dragData;
@@ -98,8 +98,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Retrieve a list of locked fields due to AEs.
     context.actor.lockedFields = [];
-    this.actor.effects.forEach(ae => {
-      const changes = ae.changes.map(c => c.key);
+    this.actor.effects.forEach((ae) => {
+      const changes = ae.changes.map((c) => c.key);
       context.actor.lockedFields = context.actor.lockedFields.concat(changes);
     });
 
@@ -122,8 +122,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         // Initialize data.
         data() {
           return {
-            context: context,
-          }
+            context: context
+          };
         },
         // Define our character sheet component.
         components: this.vueComponents,
@@ -152,13 +152,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // If we don't have an active vueRoot, run Foundry's render and then mount
     // the Vue application to the form.
-    this._render(force, options).catch(err => {
+    this._render(force, options).catch((err) => {
       err.message = `An error occurred while rendering ${this.constructor.name} ${this.appId}: ${err.message}`;
       console.error(err);
       this._state = Application.RENDER_STATES.ERROR;
     })
     // Run Vue's render, assign it to our prop for tracking.
-    .then(rendered => {
+    .then((rendered) => {
       // @todo Determine why this is necessary to avoid warnings during
       // actor/token migrations.
       let $selector = $(`[data-appid="${this.appId}"] .archmage-vue`);
@@ -207,24 +207,24 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    ActorHelpersV2._activatePortraitArtContextMenu(this, html)
+    ActorHelpersV2._activatePortraitArtContextMenu(this, html);
 
     if (!this.options.editable) return;
 
     // CRUD listeners.
-    html.on('click', '.item-create', (event) => this._createItem(event));
-    html.on('click', '.item-delete', (event) => this._deleteItem(event));
-    html.on('click', '.item-edit', (event) => this._editItem(event));
+    html.on("click", ".item-create", (event) => this._createItem(event));
+    html.on("click", ".item-delete", (event) => this._deleteItem(event));
+    html.on("click", ".item-edit", (event) => this._editItem(event));
 
     // Effects.
-    html.on('click', '.effect-control', (event) => this._onManageEffect(event));
+    html.on("click", ".effect-control", (event) => this._onManageEffect(event));
 
     // Support Image updates
-    if ( this.options.editable ) {
-      html.on('click', 'img[data-edit]', (event) => {
+    if (this.options.editable) {
+      html.on("click", "img[data-edit]", (event) => {
         // Handle Tokenizer integration since the delayed Vue render prevents it.
-        const tokenizer = game.modules.get('vtta-tokenizer')?.active ?? false;
-        let bypass = event.shiftKey ? true : false;
+        const tokenizer = game.modules.get("vtta-tokenizer")?.active ?? false;
+        let bypass = !!event.shiftKey;
         if (tokenizer && !bypass) {
           const doc = this.token ? this : this.document;
           event.stopPropagation();
@@ -233,40 +233,41 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         }
         // Otherwise, use the file picker.
         else {
-          this._onEditImage(event)
+          this._onEditImage(event);
         }
       });
     }
 
     // Roll listeners.
-    html.on('click', '.rollable', (event) => this._onRollable(event));
+    html.on("click", ".rollable", (event) => this._onRollable(event));
 
     // Other listeners.
-    html.on('click', '.item-import', (event) => this._importPowers(event));
-    html.on('click', '.death-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "deathFails"));
-    html.on('click', '.lastgasp-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "lastGaspFails"));
-    html.on('click', '.icon-roll', (event) => this._updateIconRoll(event));
-    html.on('click', '.rest', (event) => this._onRest(event));
+    html.on("click", ".item-import", (event) => this._importPowers(event));
+    html.on("click", '.death-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "deathFails"));
+    html.on("click", '.lastgasp-save-attempts input[type="checkbox"]', (event) => this._updateFails(event, "lastGaspFails"));
+    html.on("click", ".icon-roll", (event) => this._updateIconRoll(event));
+    html.on("click", ".rest", (event) => this._onRest(event));
 
     // Item listeners.
-    html.on('click', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, true));
-    html.on('contextmenu', '.power-uses, .equipment-quantity', (event) => this._updateQuantity(event, false));
-    html.on('click', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, true));
-    html.on('contextmenu', '.feat-uses-rollable', (event) => this._updateFeatQuantity(event, false));
-    html.on('click', '.feat-pip', (event) => this._updatePips(event));
+    html.on("click", ".power-uses, .equipment-quantity", (event) => this._updateQuantity(event, true));
+    html.on("contextmenu", ".power-uses, .equipment-quantity", (event) => this._updateQuantity(event, false));
+    html.on("click", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, true));
+    html.on("contextmenu", ".feat-uses-rollable", (event) => this._updateFeatQuantity(event, false));
+    html.on("click", ".feat-pip", (event) => this._updatePips(event));
   }
 
   /**
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
+   * @param repeat
    */
   activateVueListeners(html, repeat = false) {
     if (!this.options.editable) {
-      html.find('input,select,textarea').attr('disabled', true);
+      html.find("input,select,textarea").attr("disabled", true);
       return;
     }
 
-    if (html.find('.archmage-v2-vue').length > 0) {
+    if (html.find(".archmage-v2-vue").length > 0) {
       this.vueListenersActive = true;
     }
 
@@ -276,11 +277,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Place one-time executions after this line.
     if (repeat) return;
 
-    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+    html.find(".editor-content[data-edit]").each((i, div) => this._activateEditor(div));
 
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';
-    html.on('focus', inputs, (event) => this._onFocus(event));
+    html.on("focus", inputs, (event) => this._onFocus(event));
   }
 
   /*
@@ -315,14 +316,14 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let dataset = foundry.utils.duplicate(target.dataset);
 
     // Grab the item type from the dataset and then remove it.
-    let itemType = dataset.itemType ?? 'power';
+    let itemType = dataset.itemType ?? "power";
     delete dataset.itemType;
 
     // Handle the power group.
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
       let model = game.system.model.Item[itemType];
-      if (model[groupType] && groupType !== 'powerType') {
+      if (model[groupType] && groupType !== "powerType") {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;
       }
@@ -334,8 +335,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     // Initialize data.
     let data = {};
-    if (typeof dataset == 'object') {
-      for (let [k,v] of Object.entries(dataset)) {
+    if (typeof dataset == "object") {
+      for (let [k, v] of Object.entries(dataset)) {
         data[k] = { value: v };
       }
     }
@@ -350,7 +351,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       img: img,
       data: data
     };
-    await this.actor.createEmbeddedDocuments('Item', [itemData]);
+    await this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
   /**
@@ -367,7 +368,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let itemId = dataset.itemId;
     if (!itemId) return;
 
-    let bypass = event.shiftKey ? true : false;
+    let bypass = !!event.shiftKey;
     if (bypass) {
       let item = this.actor.items.get(itemId);
       item.delete();
@@ -382,15 +383,17 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       buttons: {
         del: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-          callback: () => {del = true;}
+          callback: () => {
+del = true;
+}
         },
         cancel: {
           label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
           callback: () => {}
         }
       },
-      default: 'cancel',
-      close: html => {
+      default: "cancel",
+      close: (html) => {
         if (del) {
           let item = this.actor.items.get(itemId);
           item.delete();
@@ -421,18 +424,18 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     const effect = dataset.itemId ? this.actor.effects.get(dataset.itemId) : null;
 
     switch (dataset.action) {
-      case 'create':
-        return this.actor.createEmbeddedDocuments('ActiveEffect', [{
+      case "create":
+        return this.actor.createEmbeddedDocuments("ActiveEffect", [{
           label: game.i18n.localize("ARCHMAGE.EFFECT.AE.new"),
-          icon: 'icons/svg/aura.svg',
+          icon: "icons/svg/aura.svg",
           origin: this.actor.uuid,
           disabled: false
         }]);
 
-      case 'edit':
+      case "edit":
         return effect.sheet.render(true);
 
-      case 'delete':
+      case "delete":
         let del = false;
         new Dialog({
           title: game.i18n.localize("ARCHMAGE.CHAT.DeleteConfirmTitle"),
@@ -440,20 +443,24 @@ export class ActorArchmageSheetV2 extends ActorSheet {
           buttons: {
             del: {
               label: game.i18n.localize("ARCHMAGE.CHAT.Delete"),
-              callback: () => {del = true;}
+              callback: () => {
+del = true;
+}
             },
             cancel: {
               label: game.i18n.localize("ARCHMAGE.CHAT.Cancel"),
               callback: () => {}
             }
           },
-          default: 'cancel',
-          close: html => { if (del) return effect.delete(); }
+          default: "cancel",
+          close: (html) => {
+ if (del) return effect.delete();
+}
         }).render(true);
         break;
 
-      case 'toggle':
-        return effect.update({disabled: !effect.disabled});
+      case "toggle":
+        return effect.update({ disabled: !effect.disabled });
     }
 
   }
@@ -464,6 +471,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /**
    * Handle rollable clicks.
+   * @param event
    */
   async _onRollable(event) {
     event.preventDefault;
@@ -475,16 +483,16 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let opt = dataset.rollOpt ?? null;
     let opt2 = dataset.rollOpt2 ?? null;
 
-    if (type == 'item' && opt) this._onItemRoll(opt);
-    else if (type == 'recovery') this._onRecoveryRoll(event);
-    else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
-    else if (type == 'init') this._onInitRoll();
-    else if (type == 'ability') this._onAbilityRoll(opt);
-    else if (type == 'background') this._onBackgroundRoll(opt);
-    else if (type == 'icon') this._onIconRoll(opt);
-    else if (type == 'command') this._onCommandRoll(opt);
-    else if (type == 'recharge') this._onRechargeRoll(opt);
-    else if (type == 'feat') this._onFeatRoll(opt, opt2);
+    if (type == "item" && opt) this._onItemRoll(opt);
+    else if (type == "recovery") this._onRecoveryRoll(event);
+    else if (type == "save" || type == "disengage") this._onSaveRoll(opt);
+    else if (type == "init") this._onInitRoll();
+    else if (type == "ability") this._onAbilityRoll(opt);
+    else if (type == "background") this._onBackgroundRoll(opt);
+    else if (type == "icon") this._onIconRoll(opt);
+    else if (type == "command") this._onCommandRoll(opt);
+    else if (type == "recharge") this._onRechargeRoll(opt);
+    else if (type == "feat") this._onFeatRoll(opt, opt2);
 
     // Fallback to a plain formula roll.
     else if (opt) await this._onFormulaRoll(opt);
@@ -497,7 +505,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    */
   async _onFormulaRoll(formula) {
     let roll = new Roll(formula, this.actor.getRollData());
-    await roll.roll({async: true});
+    await roll.roll({ async: true });
     roll.toMessage();
   }
 
@@ -513,11 +521,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /**
    * Roll a recovery for the actor.
+   * @param event
    */
   async _onRecoveryRoll(event) {
     this.actor.rollRecoveryDialog(event);
   }
-
 
   /**
    * Roll a saving throw for the actor.
@@ -539,10 +547,10 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       ui.notifications.error(game.i18n.localize("ARCHMAGE.UI.errNoInitiativeOutsideCombat"));
       return;
     }
-    let combatant = combat.combatants.find(c => c?.actor?._id == this.actor.id);
+    let combatant = combat.combatants.find((c) => c?.actor?._id == this.actor.id);
     // Create the combatant if needed.
     if (!combatant) {
-      await this.actor.rollInitiative({createCombatants: true});
+      await this.actor.rollInitiative({ createCombatants: true });
     }
     // Otherwise, determine if the existing combatant should roll init.
     else if (!combatant.initiative && combatant.initiative !== 0) {
@@ -552,6 +560,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /**
    * Roll ability check for the actor.
+   * @param ability
    */
   _onAbilityRoll(ability) {
     this.actor.rollAbility(ability);
@@ -559,6 +568,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /**
    * Roll background check for the actor.
+   * @param background
    */
    _onBackgroundRoll(background) {
     this.actor.rollAbility(null, background);
@@ -576,7 +586,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (actorData.icons[iconIndex]) {
       let icon = actorData.icons[iconIndex];
       let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = await roll.roll({async: true});
+      let result = await roll.roll({ async: true });
 
       let fives = 0;
       let sixes = 0;
@@ -585,7 +595,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       let actorIconResults = [];
 
       rollResults = result.terms[0].results;
-      rollResults.forEach(rollResult => {
+      rollResults.forEach((rollResult) => {
         if (rollResult.result == 5) {
           fives++;
           actorIconResults.push(5);
@@ -600,7 +610,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       });
 
       // Basic template rendering data
-      const template = `systems/archmage/templates/chat/icon-relationship-card.html`
+      const template = `systems/archmage/templates/chat/icon-relationship-card.html`;
       const token = this.actor.token;
 
       // Basic chat message data
@@ -623,7 +633,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       };
 
       // Render the template
-      chatData["content"] = await renderTemplate(template, templateData);
+      chatData.content = await renderTemplate(template, templateData);
 
       let message = await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
@@ -642,21 +652,26 @@ export class ActorArchmageSheetV2 extends ActorSheet {
           await addIconCard(icon.name.value, 6);
         }
 
+        /**
+         *
+         * @param icon
+         * @param value
+         */
         async function addIconCard(icon, value) {
           let decks = game.decks.decks;
           for (let deckId in decks) {
             let msg = {
               type: "GETALLCARDSBYDECK",
-              playerID: game.users.find(el => el.isGM && el.active).id,
+              playerID: game.users.find((el) => el.isGM && el.active).id,
               deckID: deckId
             };
 
-            const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+            const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
             let foundCard = undefined;
             game.socket.on("module.cardsupport", async (recieveMsg) => {
               if (recieveMsg?.cards == undefined || foundCard) return;
-              let card = recieveMsg.cards.find(x => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
+              let card = recieveMsg.cards.find((x) => x?.flags?.world?.cardData?.icon && x.flags.world.cardData.icon == icon && x.flags.world.cardData.value == value);
 
               if (card) {
                 await ui.cardHotbar.populator.addToPlayerHand([card]);
@@ -690,13 +705,13 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onCommandRoll(dice) {
     let actor = this.actor;
     let roll = new Roll(dice, this.actor.getRollData());
-    await roll.roll({async: true});
+    await roll.roll({ async: true });
 
     let pointsOld = actor.system.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;
 
     // Basic template rendering data
-    const template = `systems/archmage/templates/chat/command-card.html`
+    const template = `systems/archmage/templates/chat/command-card.html`;
     const token = actor.token;
 
     // Basic chat message data
@@ -714,11 +729,11 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     };
 
     // Render the template
-    chatData["content"] = await renderTemplate(template, templateData);
+    chatData.content = await renderTemplate(template, templateData);
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
-    await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
+    await actor.update({ "data.resources.perCombat.commandPoints.current": Number(pointsOld) + Number(pointsNew) });
   }
 
   async _onRechargeRoll(itemId) {
@@ -799,7 +814,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // TODO: Refactor the fallback to not be absurdly high after maxQuantity has become regularly used.
       let maxQuantity = item.system?.maxQuantity?.value ?? 99;
 
-      await item.update({'system.quantity.value': increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity)}, {});
+      await item.update({ "system.quantity.value": increase ? Math.min(maxQuantity, newQuantity) : Math.max(0, newQuantity) }, {});
     }
   }
 
@@ -860,6 +875,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   /**
    * Handle rests.
+   * @param event
    */
    _onRest(event) {
     event.preventDefault;
@@ -870,30 +886,30 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     let type = dataset.restType ?? null;
 
     // Exit if type is invalid;
-    if (type !== 'quick' && type !== 'full') return;
+    if (type !== "quick" && type !== "full") return;
 
     // Determine if we need to skip confirmation.
-    let bypass = event.shiftKey ? true : false;
+    let bypass = !!event.shiftKey;
     if (bypass) {
-      if (type == 'quick') this.actor.restQuick();
-      else if (type == 'full') this.actor.restFull();
+      if (type == "quick") this.actor.restQuick();
+      else if (type == "full") this.actor.restFull();
     }
     // Otherwise, we need to make a dialog.
     else {
       let options = {
         title: null,
-        confirmLabel: 'ARCHMAGE.CHAT.Rest',
-        cancelLabel: 'ARCHMAGE.CHAT.Cancel',
-        default: 'rest',
+        confirmLabel: "ARCHMAGE.CHAT.Rest",
+        cancelLabel: "ARCHMAGE.CHAT.Cancel",
+        default: "rest"
       };
 
-      if (type == 'quick') {
-        options.title = 'ARCHMAGE.CHAT.QuickRest';
-        options.content = 'ARCHMAGE.CHAT.QuickRestBody';
+      if (type == "quick") {
+        options.title = "ARCHMAGE.CHAT.QuickRest";
+        options.content = "ARCHMAGE.CHAT.QuickRestBody";
       }
-      else if (type == 'full') {
-        options.title = 'ARCHMAGE.CHAT.FullHeal';
-        options.content = 'ARCHMAGE.CHAT.FullHealBody';
+      else if (type == "full") {
+        options.title = "ARCHMAGE.CHAT.FullHeal";
+        options.content = "ARCHMAGE.CHAT.FullHealBody";
       }
 
       // Render the rest dialog.
@@ -904,18 +920,20 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         buttons: {
           rest: {
             label: game.i18n.localize(options.confirmLabel),
-            callback: () => {doRest = true;}
+            callback: () => {
+doRest = true;
+}
           },
           cancel: {
             label: game.i18n.localize(options.cancelLabel),
             callback: () => {}
           }
         },
-        default: 'rest',
-        close: html => {
+        default: "rest",
+        close: (html) => {
           if (doRest) {
-            if (type == 'quick') this.actor.restQuick();
-            else if (type == 'full') this.actor.restFull();
+            if (type == "quick") this.actor.restQuick();
+            else if (type == "full") this.actor.restFull();
           }
         }
       }).render(true);
@@ -927,18 +945,18 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * @param {jQuery} html
    */
   _dragHandler(html) {
-    let dragHandler = event => this._onDragStart(event);
+    let dragHandler = (event) => this._onDragStart(event);
     html.find('.item[data-draggable="true"]').each((i, li) => {
-      li.setAttribute('draggable', true);
-      li.addEventListener('dragstart', dragHandler, false);
+      li.setAttribute("draggable", true);
+      li.addEventListener("dragstart", dragHandler, false);
     });
   }
 
   _onFocus(event) {
     let target = event.currentTarget;
-    setTimeout(function() {
+    setTimeout(function () {
       if (target == document.activeElement) {
-        $(target).trigger('select');
+        $(target).trigger("select");
       }
     }, 100);
   }
@@ -967,24 +985,24 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         submit: {
           icon: '<i class="fas fa-check"></i>',
           label: game.i18n.localize("ARCHMAGE.importSubmit"),
-          callback: dlg => this._onImportPower(dlg, this.actor, classResults.powers)
+          callback: (dlg) => this._onImportPower(dlg, this.actor, classResults.powers)
         }
       },
-      render: html => {
+      render: (html) => {
         let tabs = new Tabs(classResults.tabs);
         tabs.bind(html[0]);
-        html.find('.import-powers-item').addClass('collapsed');
-        html.find('.import-powers-item .item-summary').css('max-height', 0);
-        html.find('.import-powers-item .ability-usage').on('click', event => {
+        html.find(".import-powers-item").addClass("collapsed");
+        html.find(".import-powers-item .item-summary").css("max-height", 0);
+        html.find(".import-powers-item .ability-usage").on("click", (event) => {
           event.preventDefault();
           let li = $(event.currentTarget).parents(".import-powers-item");
-          let summary = li.find('.item-summary');
-          li.toggleClass('collapsed');
-          if (li.hasClass('collapsed')) {
-            summary.css('max-height', 0);
+          let summary = li.find(".item-summary");
+          li.toggleClass("collapsed");
+          if (li.hasClass("collapsed")) {
+            summary.css("max-height", 0);
           }
           else {
-            summary.css('max-height', summary.find('.card-content').outerHeight() + 40)
+            summary.css("max-height", summary.find(".card-content").outerHeight() + 40);
           }
         });
       }
@@ -1009,16 +1027,16 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Retrieve the item entities.
       let powers = packData
         // Filter down the power items by id.
-        .filter(p => {
-          return powerIds.includes(p._id)
+        .filter((p) => {
+          return powerIds.includes(p._id);
         })
         // Prepare the items for saving.
-        .map(p => {
+        .map((p) => {
           return foundry.utils.duplicate(p);
         });
 
       // Create the owned items.
-      actor.createEmbeddedDocuments('Item', powers);
+      actor.createEmbeddedDocuments("Item", powers);
     }
   }
 }

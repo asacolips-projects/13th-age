@@ -2,7 +2,7 @@
  * @interface ITrigger
  */
 export default class ITrigger {
-    
+
     isActive(triggerText, rollResult, hitEvaluationResults) {
         throw new Error("A subclass of ITrigger must implement the isActive method");
     }

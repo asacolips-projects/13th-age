@@ -16,20 +16,23 @@ export default class HitEvaluation {
         let defense = HitEvaluation._getTargetDefense(row_text);
         let critRangeMin = 20 - attacker.system.attributes.critMod.atk.value;
 
-        let $rolls = $row_self.find('.inline-result');
+        let $rolls = $row_self.find(".inline-result");
         if ($rolls.length == 0) {
           // No rolls means it's an auto-hit
           targetsHit = targets;
-        } else {
+        }
+ else {
           let targetsToProcess = Math.min($rolls.length, targets.length);
           $rolls.each(function (roll_index) {
             let $roll_self = $(this);
-            let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
+            let roll_data = Roll.fromJSON(unescape($roll_self.data("roll")));
             let rollTotal = roll_data.total;
 
             // Skip if not a d20 roll
             let isD20 = false;
-            roll_data.terms.forEach(p => {if (p.faces === 20) isD20 = true;});
+            roll_data.terms.forEach((p) => {
+if (p.faces === 20) isD20 = true;
+});
             if (!isD20) return;
 
             // Crit/fumble check
@@ -46,26 +49,26 @@ export default class HitEvaluation {
                     rollResult = part.total;
                     // Crit
                     if (r.result >= critRangeMinTarget && !r.discarded) {
-                      $roll_self.addClass('dc-crit');
+                      $roll_self.addClass("dc-crit");
                       hasCrit = true;
                     }
                     // Natural 1.
                     else if (r.result === 1 && !r.discarded && !r.rerolled) {
-                      $roll_self.addClass('dc-fail');
+                      $roll_self.addClass("dc-fail");
                       hasFumbled = true;
                     }
                     // Barbarian crit.
                     else if (attacker?.system.details.detectedClasses?.includes("barbarian")
                       && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
                       && part.results[1].result > 10) {
-                      $roll_self.addClass('dc-crit');
+                      $roll_self.addClass("dc-crit");
                       hasCrit = true;
                     }
                     // Natural 2, if dual-wielding.
-                    else if (attacker && attacker.type === 'character'
+                    else if (attacker && attacker.type === "character"
                       && attacker.system.attributes.weapon.melee.dualwield
                       && r.result === 2 && !r.discarded && !r.rerolled) {
-                      $roll_self.addClass('dc-reroll');
+                      $roll_self.addClass("dc-reroll");
                     }
                   }
                 });
@@ -97,7 +100,7 @@ export default class HitEvaluation {
         }
 
         // Update row with roll classes
-        $row_self.find('.inline-result').replaceWith($rolls);
+        $row_self.find(".inline-result").replaceWith($rolls);
 
         return {
             targetsHit: targetsHit,
@@ -109,7 +112,7 @@ export default class HitEvaluation {
             defenses: defenses,
             $rolls: $rolls
         };
-        
+
     }
 
     // Get either the Token overridden value or the base sheet value
@@ -123,24 +126,24 @@ export default class HitEvaluation {
     }
 
     static _getTargetDefense(row_text) {
-        if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.ac.key"))) {
+        if (row_text.toUpperCase().includes(` ${game.i18n.localize("ARCHMAGE.ac.key")}`)) {
             return "ac";
         }
-        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.pd.key"))) {
+        else if (row_text.toUpperCase().includes(` ${game.i18n.localize("ARCHMAGE.pd.key")}`)) {
             return "pd";
         }
-        else if (row_text.toUpperCase().includes(" "+game.i18n.localize("ARCHMAGE.md.key"))) {
-            return  "md";
+        else if (row_text.toUpperCase().includes(` ${game.i18n.localize("ARCHMAGE.md.key")}`)) {
+            return "md";
         }
     }
 
   static getNames(targets, targetsSpecial) {
     let res = "";
     for (let i = 0; i < targets.length; i++) {
-      if (targetsSpecial[i]) res += "<b>"
+      if (targetsSpecial[i]) res += "<b>";
       res += targets[i].name;
-      if (targetsSpecial[i]) res += "</b>"
-      if (i+1 < targets.length) res += ", "
+      if (targetsSpecial[i]) res += "</b>";
+      if (i+1 < targets.length) res += ", ";
     }
     return res;
   }

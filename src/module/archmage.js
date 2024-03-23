@@ -1,88 +1,86 @@
-import { ARCHMAGE, FLAGS } from './setup/config.js';
-import { ActorArchmage } from './actor/actor.js';
-import { ActorArchmageNpcSheetV2 } from './actor/actor-npc-sheet-v2.js';
-import { ActorArchmageSheetV2 } from './actor/actor-sheet-v2.js';
-import { ItemArchmage } from './item/item.js';
-import { ItemArchmageSheet } from './item/item-sheet.js';
-import { ArchmageMacros } from './setup/macros.js';
-import { ArchmageUtility } from './setup/utility-classes.js';
-import { MacroUtils } from './setup/utility-classes.js';
-import { ArchmageReference } from './setup/utility-classes.js';
-import { ContextMenu2 } from './setup/contextMenu2.js';
-import { DamageApplicator } from './setup/damageApplicator.js';
-import { DiceArchmage } from './actor/dice.js';
+import { ARCHMAGE, FLAGS } from "./setup/config.js";
+import { ActorArchmage } from "./actor/actor.js";
+import { ActorArchmageNpcSheetV2 } from "./actor/actor-npc-sheet-v2.js";
+import { ActorArchmageSheetV2 } from "./actor/actor-sheet-v2.js";
+import { ItemArchmage } from "./item/item.js";
+import { ItemArchmageSheet } from "./item/item-sheet.js";
+import { ArchmageMacros } from "./setup/macros.js";
+import { ArchmageUtility } from "./setup/utility-classes.js";
+import { MacroUtils } from "./setup/utility-classes.js";
+import { ArchmageReference } from "./setup/utility-classes.js";
+import { ContextMenu2 } from "./setup/contextMenu2.js";
+import { DamageApplicator } from "./setup/damageApplicator.js";
+import { DiceArchmage } from "./actor/dice.js";
 import { preloadHandlebarsTemplates } from "./setup/templates.js";
-import { TourGuide } from './tours/tourguide.js';
-import { ActorHelpersV2 } from './actor/helpers/actor-helpers-v2.js';
+import { TourGuide } from "./tours/tourguide.js";
+import { ActorHelpersV2 } from "./actor/helpers/actor-helpers-v2.js";
 import { EffectArchmageSheet } from "./active-effects/effect-sheet.js";
-import { registerModuleArt } from './setup/register-module-art.js';
-import { TokenArchmage } from './actor/token.js';
-import {combatRound, combatTurn, preDeleteCombat} from "./hooks/combat.mjs";
-import { ArchmageCompendiumBrowserApplication } from './applications/compendium-browser.js';
+import { registerModuleArt } from "./setup/register-module-art.js";
+import { TokenArchmage } from "./actor/token.js";
+import { combatRound, combatTurn, preDeleteCombat } from "./hooks/combat.mjs";
+import { ArchmageCompendiumBrowserApplication } from "./applications/compendium-browser.js";
 
+Hooks.once("init", async function () {
 
-Hooks.once('init', async function() {
-
-  if (game.modules.get('_CodeMirror')?.active && typeof CodeMirror != undefined) {
-    var cssId = 'archmage-codemirror';
-    if (!document.getElementById(cssId))
-    {
-        var head  = document.getElementsByTagName('head')[0];
-        var link  = document.createElement('link');
-        link.id   = cssId;
-        link.rel  = 'stylesheet';
-        link.type = 'text/css';
-        link.href = '/modules/_CodeMirror/theme/monokai.css';
-        link.media = 'all';
+  if (game.modules.get("_CodeMirror")?.active && typeof CodeMirror != undefined) {
+    var cssId = "archmage-codemirror";
+    if (!document.getElementById(cssId)) {
+        var head = document.getElementsByTagName("head")[0];
+        var link = document.createElement("link");
+        link.id = cssId;
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "/modules/_CodeMirror/theme/monokai.css";
+        link.media = "all";
         head.appendChild(link);
     }
   }
 
-  String.prototype.safeCSSId = function() {
+  String.prototype.safeCSSId = function () {
     return encodeURIComponent(
       this.toLowerCase()
-    ).replace(/%[0-9A-F]{2}/gi, '-');
-  }
+    ).replace(/%[0-9A-F]{2}/gi, "-");
+  };
 
-  Handlebars.registerHelper('safeCSSId', (arg) => {
+  Handlebars.registerHelper("safeCSSId", (arg) => {
     return `${arg}`.safeCSSId();
   });
 
-  Handlebars.registerHelper('getPowerClass', (inputString) => {
+  Handlebars.registerHelper("getPowerClass", (inputString) => {
     // Get the appropriate usage. TODO: likely needs to be localized?
-    let usage = 'other';
-    let usageString = inputString !== null ? inputString.toLowerCase() : '';
-    if (usageString.includes('will')) {
-      usage = 'at-will';
+    let usage = "other";
+    let usageString = inputString !== null ? inputString.toLowerCase() : "";
+    if (usageString.includes("will")) {
+      usage = "at-will";
     }
-    else if (usageString.includes('recharge')) {
-      usage = 'recharge';
+    else if (usageString.includes("recharge")) {
+      usage = "recharge";
     }
-    else if (usageString.includes('battle')) {
-      usage = 'once-per-battle';
+    else if (usageString.includes("battle")) {
+      usage = "once-per-battle";
     }
-    else if (usageString.includes('daily')) {
-      usage = 'daily';
+    else if (usageString.includes("daily")) {
+      usage = "daily";
     }
 
     return usage;
   });
 
-  Handlebars.registerHelper('concatenate', function() {
-    var outStr = '';
+  Handlebars.registerHelper("concatenate", function () {
+    var outStr = "";
     for (var arg in arguments) {
-      if (typeof arguments[arg] != 'object') {
+      if (typeof arguments[arg] != "object") {
         outStr += arguments[arg];
       }
     }
     return outStr;
   });
 
-  Handlebars.registerHelper('iconSymbol', (iconKey) => {
+  Handlebars.registerHelper("iconSymbol", (iconKey) => {
       let symbols = {
-        'Positive': '+',
-        'Negative': '-',
-        'Conflicted': '~'
+        Positive: "+",
+        Negative: "-",
+        Conflicted: "~"
       };
       return symbols[iconKey];
   });
@@ -172,32 +170,36 @@ Hooks.once('init', async function() {
   // Replace sheets.
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("archmage", ItemArchmageSheet, {
-    label: game.i18n.localize('ARCHMAGE.sheetItem'),
+    label: game.i18n.localize("ARCHMAGE.sheetItem"),
     makeDefault: true
   });
 
   DocumentSheetConfig.registerSheet(ActiveEffect, "archmage", EffectArchmageSheet, {
-    label: game.i18n.localize('ARCHMAGE.sheetActiveEffect'),
+    label: game.i18n.localize("ARCHMAGE.sheetActiveEffect"),
     makeDefault: true
   });
 
   CONFIG.ARCHMAGE = ARCHMAGE;
 
   // Update status effects.
+  /**
+   *
+   * @param extended
+   */
   function _setArchmageStatusEffects(extended) {
-    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects)
+    if (extended) CONFIG.statusEffects = ARCHMAGE.statusEffects.concat(ARCHMAGE.extendedStatusEffects);
     else CONFIG.statusEffects = foundry.utils.duplicate(ARCHMAGE.statusEffects);
   }
-  game.settings.register('archmage', 'extendedStatusEffects', {
+  game.settings.register("archmage", "extendedStatusEffects", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.extendedStatusEffectsHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
     default: false,
     type: Boolean,
-    onChange: enable => _setArchmageStatusEffects(enable)
+    onChange: (enable) => _setArchmageStatusEffects(enable)
   });
-  _setArchmageStatusEffects(game.settings.get('archmage', 'extendedStatusEffects'));
+  _setArchmageStatusEffects(game.settings.get("archmage", "extendedStatusEffects"));
 
   // Update 2e constants
   if (game.settings.get("archmage", "secondEdition")) {
@@ -208,12 +210,12 @@ Hooks.once('init', async function() {
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
 
     // Remove AE from vulnerable
-    let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
+    let id = CONFIG.statusEffects.findIndex((e) => e.id == "vulnerable");
     delete CONFIG.statusEffects[id].changes;
     CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
 
     // Remove 1e hampered from context menu status effects
-    id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
+    id = CONFIG.statusEffects.findIndex((e) => e.id == "hampered");
     CONFIG.statusEffects.splice(id, 1);
 
     // Update class base stats
@@ -222,7 +224,8 @@ Hooks.once('init', async function() {
         CONFIG.ARCHMAGE.classes[cl][k] = CONFIG.ARCHMAGE.classes2e[cl][k];
       }
     }
-  } else {
+  }
+ else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
 
@@ -230,7 +233,7 @@ Hooks.once('init', async function() {
     delete CONFIG.ARCHMAGE.featTiers.iconic;
 
     // Remove 2e hindered from context menu status effects
-    let id = CONFIG.statusEffects.findIndex(e => e.id == "hindered");
+    let id = CONFIG.statusEffects.findIndex((e) => e.id == "hindered");
     CONFIG.statusEffects.splice(id, 1);
   }
 
@@ -244,17 +247,17 @@ Hooks.once('init', async function() {
   // Override CONFIG
   CONFIG.Item.sheetClass = ItemArchmageSheet;
 
-  Actors.unregisterSheet('core', ActorSheet);
+  Actors.unregisterSheet("core", ActorSheet);
 
   Actors.registerSheet("archmage", ActorArchmageNpcSheetV2, {
-    label: game.i18n.localize('ARCHMAGE.sheetNPC'),
+    label: game.i18n.localize("ARCHMAGE.sheetNPC"),
     types: ["npc"],
     makeDefault: true
   });
 
   // V2 actor sheet (See issue #118).
   Actors.registerSheet("archmage", ActorArchmageSheetV2, {
-    label: game.i18n.localize('ARCHMAGE.sheetCharacter'),
+    label: game.i18n.localize("ARCHMAGE.sheetCharacter"),
     types: ["character"],
     makeDefault: true
   });
@@ -265,22 +268,23 @@ Hooks.once('init', async function() {
 
   /**
    * Register Initiative formula setting
+   * @param tiebreaker
    */
   function _setArchmageInitiative(tiebreaker) {
     CONFIG.Combat.initiative.tiebreaker = tiebreaker;
     CONFIG.Combat.initiative.decimals = 0;
     if (ui.combat && ui.combat._rendered) ui.combat.render();
   }
-  game.settings.register('archmage', 'initiativeDexTiebreaker', {
+  game.settings.register("archmage", "initiativeDexTiebreaker", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeDexTiebreakerHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
     default: true,
     type: Boolean,
-    onChange: enable => _setArchmageInitiative(enable)
+    onChange: (enable) => _setArchmageInitiative(enable)
   });
-  _setArchmageInitiative(game.settings.get('archmage', 'initiativeDexTiebreaker'));
+  _setArchmageInitiative(game.settings.get("archmage", "initiativeDexTiebreaker"));
 
   game.settings.register("archmage", "initiativeStaticNpc", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.initiativeStaticNpcName"),
@@ -354,109 +358,110 @@ Hooks.once('init', async function() {
     config: true
   });
 
-  game.settings.register('archmage', 'roundUpDamageApplication', {
+  game.settings.register("archmage", "roundUpDamageApplication", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.RoundUpDamageApplicationHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
     default: true,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'rechargeOncePerDay', {
+  game.settings.register("archmage", "rechargeOncePerDay", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.rechargeOncePerDayHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
     default: false,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'unboundEscDie', {
+  game.settings.register("archmage", "unboundEscDie", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.UnboundEscDieHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
     default: false,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'automateBaseStatsFromClass', {
+  game.settings.register("archmage", "automateBaseStatsFromClass", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.automateBaseStatsFromClassHint"),
-    scope: 'client',
+    scope: "client",
     config: true,
     default: true,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'lastTourVersion', {
-    scope: 'client',
+  game.settings.register("archmage", "lastTourVersion", {
+    scope: "client",
     config: false,
     default: "1.6.0",
-    type: String,
+    type: String
   });
 
-  game.settings.register('archmage', 'tourVisibility', {
+  game.settings.register("archmage", "tourVisibility", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
-    default: 'all',
+    default: "all",
     type: String,
     choices: {
-      all: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityAll'),
-      gm: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityGM'),
-      off: game.i18n.localize('ARCHMAGE.SETTINGS.tourVisibilityOff'),
+      all: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityAll"),
+      gm: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityGM"),
+      off: game.i18n.localize("ARCHMAGE.SETTINGS.tourVisibilityOff")
     }
   });
 
-  game.settings.register('archmage', 'sheetTooltips', {
+  game.settings.register("archmage", "sheetTooltips", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.sheetTooltipsHint"),
-    scope: 'client',
+    scope: "client",
     config: true,
     default: false,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'showPrivateGMAttackRolls', {
+  game.settings.register("archmage", "showPrivateGMAttackRolls", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.showPrivateGMAttackRollsHint"),
-    scope: 'world',
+    scope: "world",
     config: true,
     default: false,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'nightmode', {
+  game.settings.register("archmage", "nightmode", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.nightmodeHint"),
-    scope: 'client',
+    scope: "client",
     config: true,
     default: false,
     type: Boolean
   });
 
-  game.settings.register('archmage', 'colorBlindMode', {
+  game.settings.register("archmage", "colorBlindMode", {
     name: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindName"),
     hint: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindHint"),
-    scope: 'client',
+    scope: "client",
     config: true,
-    default: 'default',
+    default: "default",
     type: String,
     choices: {
       default: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptionDefault"),
       colorBlindRG: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindRG"),
-      colorBlindBY: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY"),
+      colorBlindBY: game.i18n.localize("ARCHMAGE.SETTINGS.ColorblindOptioncolorBlindBY")
       // custom: game.i18n.localize("ARCHMAGE.SETTINGS.Custom"),
     },
     onChange: () => {
-      $('body').removeClass(['default', 'colorBlindRG', 'colorBlindBY', 'custom']).addClass(game.settings.get('archmage', 'colorBlindMode'));
+      $("body").removeClass(["default", "colorBlindRG", "colorBlindBY", "custom"])
+.addClass(game.settings.get("archmage", "colorBlindMode"));
     }
   });
-  //Adding the colorblind mode class at startup
-  $('body').addClass(game.settings.get('archmage', 'colorBlindMode'));
+  // Adding the colorblind mode class at startup
+  $("body").addClass(game.settings.get("archmage", "colorBlindMode"));
 
   // Track whether we overrode DsN's default inline roll parsing
   game.settings.register("archmage", "DsNInlineOverride", {
@@ -474,67 +479,67 @@ Hooks.once('init', async function() {
    * See Combat._getInitiativeFormula for more detail.
    * @private
    */
-  Combatant.prototype._getInitiativeFormula = function() {
+  Combatant.prototype._getInitiativeFormula = function () {
     const actor = this.actor;
     if (!actor) return "1d20";
     const init = actor.system.attributes.init.mod;
     // Init mod includes dex + level + misc bonuses.
     const parts = ["1d20", init];
     if (actor.getFlag("archmage", "initiativeAdv")) parts[0] = "2d20kh";
-    if (game.settings.get("archmage", "initiativeStaticNpc") &&  actor.type == 'npc') parts[0] = "10";
+    if (game.settings.get("archmage", "initiativeStaticNpc") && actor.type == "npc") parts[0] = "10";
     if (CONFIG.Combat.initiative.tiebreaker) parts.push(init / 100);
-    else parts.push((actor.type === 'npc' ? 0.01 : 0));
-    return parts.filter(p => p !== null).join(" + ");
-  }
+    else parts.push((actor.type === "npc" ? 0.01 : 0));
+    return parts.filter((p) => p !== null).join(" + ");
+  };
 
   ArchmageUtility.fixVuePopoutBug();
 });
 
-Hooks.on('setup', (data, options, id) => {
+Hooks.on("setup", (data, options, id) => {
   // Configure autocomplete inline properties module.
   const aip = game.modules.get("autocomplete-inline-properties")?.API;
   if (aip?.PACKAGE_CONFIG) {
     // Autocomplete Inline Rolls
     const aipKeys = [
-      'str',
-      'dex',
-      'con',
-      'int',
-      'wis',
-      'cha',
-      'ac',
-      'pd',
-      'md',
-      'hp',
-      'recoveries',
-      'wpn.m',
-      'wpn.r',
-      'wpn.p',
-      'wpn.k',
-      'wpn.j'
+      "str",
+      "dex",
+      "con",
+      "int",
+      "wis",
+      "cha",
+      "ac",
+      "pd",
+      "md",
+      "hp",
+      "recoveries",
+      "wpn.m",
+      "wpn.r",
+      "wpn.p",
+      "wpn.k",
+      "wpn.j"
     ];
     let filteredKeys = [
-      'standardBonuses',
-      'out',
-      'incrementals',
-      'icons',
-      'details',
-      'coins',
-      'backgrounds',
-      'attr',
-      'attributes',
-      'abilities',
-      'abil',
-      'tier',
-      'sheetGrouping',
-      'disengage',
+      "standardBonuses",
+      "out",
+      "incrementals",
+      "icons",
+      "details",
+      "coins",
+      "backgrounds",
+      "attr",
+      "attributes",
+      "abilities",
+      "abil",
+      "tier",
+      "sheetGrouping",
+      "disengage"
     ];
-    aipKeys.forEach(k => {
+    aipKeys.forEach((k) => {
       filteredKeys.push(`${k}.type`);
       filteredKeys.push(`${k}.label`);
     });
     const AIP = {
-      packageName: 'archmage',
+      packageName: "archmage",
       sheetClasses: [
         {
           name: "ItemArchmageSheet",
@@ -555,8 +560,8 @@ Hooks.on('setup', (data, options, id) => {
               selector: '.tab[data-tab="effects"] .key input[type="text"]',
               showButton: true,
               allowHotkey: true,
-              dataMode: 'owning-actor',
-              defaultPath: 'data'
+              dataMode: "owning-actor",
+              defaultPath: "data"
             }
           ]
         }
@@ -568,12 +573,15 @@ Hooks.on('setup', (data, options, id) => {
 
 /* ---------------------------------------------- */
 
+/**
+ *
+ */
 function addEscalationDie() {
   const escalation = ArchmageUtility.getEscalation();
-  const hide = game.combats.contents.length < 1 || escalation === 0 ? ' hide' : '';
-  const hideIfNotGM = !game.user.isGM ? ' hide' : '';
+  const hide = game.combats.contents.length < 1 || escalation === 0 ? " hide" : "";
+  const hideIfNotGM = !game.user.isGM ? " hide" : "";
   const text = game.i18n.localize("ARCHMAGE.escalationDieLabel");
-  $('.archmage-hotbar').prepend(
+  $(".archmage-hotbar").prepend(
     `<div class="archmage-escalation${hide}">
        <div class="ed-number" data-esc-die-text="${text}">${escalation}</div>
        <div class="ed-controls${hideIfNotGM}"">
@@ -583,14 +591,14 @@ function addEscalationDie() {
      </div>`);
 
   // Add click events for ed.
-  $('body').on('click', '.ed-control', (event) => {
+  $("body").on("click", ".ed-control", (event) => {
     let $self = $(event.currentTarget);
-    let isIncrease = $self.hasClass('ed-plus');
+    let isIncrease = $self.hasClass("ed-plus");
     ArchmageUtility.setEscalationOffset(game.combat, isIncrease);
   });
 
   // Add click events for effect links
-  $('body').on("click", "a.effect-link", async (event) => {
+  $("body").on("click", "a.effect-link", async (event) => {
     event.preventDefault();
     const a = event.currentTarget;
     let doc = null;
@@ -598,7 +606,7 @@ function addEscalationDie() {
 
     switch (a.dataset.type) {
       case "condition":
-        const journalId = CONFIG.ARCHMAGE.statusEffects.find(x => x.id === id)?.journal;
+        const journalId = CONFIG.ARCHMAGE.statusEffects.find((x) => x.id === id)?.journal;
         doc = journalId ? await game.packs.get("archmage.conditions").getDocument(journalId) : false;
         break;
       case "effect":
@@ -613,27 +621,27 @@ function addEscalationDie() {
 
 /* -------------------------------------------- */
 
-Hooks.once('ready', () => {
-  $('#ui-bottom').prepend(`<div class="archmage-hotbar"></div>`);
+Hooks.once("ready", () => {
+  $("#ui-bottom").prepend(`<div class="archmage-hotbar"></div>`);
   addEscalationDie();
-  $('body').append('<div class="archmage-preload"></div>');
+  $("body").append('<div class="archmage-preload"></div>');
   renderSceneTerrains();
 
   // Add effect link drag data
-  document.addEventListener("dragstart", event => {
-    if ( !event.target.classList.contains("effect-link") ) return;
+  document.addEventListener("dragstart", (event) => {
+    if (!event.target.classList.contains("effect-link")) return;
     const dataset = event.target.dataset;
     let data = {
       type: dataset.type,
       id: dataset.id
     };
-    if ( dataset.actorId ) data.actorId = dataset.actorId;
-    if ( dataset.damageType ) data.damageType = dataset.damageType;
-    if ( dataset.value ) data.value = dataset.value;
-    if ( dataset.ends ) data.ends = dataset.ends;
-    if ( dataset.source ) data.source = dataset.source;
-    if ( dataset.tooltip ) data.tooltip = dataset.tooltip;
-    if (dataset.name ) data.name = dataset.name;
+    if (dataset.actorId) data.actorId = dataset.actorId;
+    if (dataset.damageType) data.damageType = dataset.damageType;
+    if (dataset.value) data.value = dataset.value;
+    if (dataset.ends) data.ends = dataset.ends;
+    if (dataset.source) data.source = dataset.source;
+    if (dataset.tooltip) data.tooltip = dataset.tooltip;
+    if (dataset.name) data.name = dataset.name;
     data.text = event.target.innerText;
     event.dataTransfer.setData("text/plain", JSON.stringify(data));
   });
@@ -642,10 +650,10 @@ Hooks.once('ready', () => {
   document.addEventListener("click", (event) => {
     if (event?.target?.classList && event.target.classList.contains("open-archmage-browser")) {
       // Retrieve the existing compendium browser, if any.
-      let compendiumBrowser = Object.values(ui.windows).find(app => app.constructor.name == 'ArchmageCompendiumBrowserApplication');
+      let compendiumBrowser = Object.values(ui.windows).find((app) => app.constructor.name == "ArchmageCompendiumBrowserApplication");
       // Otherwise, build a new one.
       if (!compendiumBrowser) {
-        compendiumBrowser = new ArchmageCompendiumBrowserApplication({defaultTab: event.target.dataset.tab ?? 'creatures'});
+        compendiumBrowser = new ArchmageCompendiumBrowserApplication({ defaultTab: event.target.dataset.tab ?? "creatures" });
       }
       // Render the browser.
       compendiumBrowser.render(true);
@@ -654,13 +662,13 @@ Hooks.once('ready', () => {
 
   // Wait to register the hotbar macros until ready.
   Hooks.on("hotbarDrop", (bar, data, slot) => {
-    if (['Item'].includes(data.type)) {
+    if (["Item"].includes(data.type)) {
       createArchmageMacro(data, slot);
       return false;
     }
   });
 
-  $('.message').off("contextmenu");
+  $(".message").off("contextmenu");
 
   // Build the module art map. See module/setup/register-module-art.js for more details.
   registerModuleArt();
@@ -669,19 +677,19 @@ Hooks.once('ready', () => {
 /* ---------------------------------------------- */
 
 Hooks.on("renderDocumentDirectory", (app, html, options) => {
-  if (["actors", "items"].includes(options.tabName) && !options.cssId.toLowerCase().includes('compendium')) {
+  if (["actors", "items"].includes(options.tabName) && !options.cssId.toLowerCase().includes("compendium")) {
     const htmlElement = html[0];
-    let compendiumButton = '';
+    let compendiumButton = "";
 
     if (options.tabName == "items") {
       compendiumButton = `
       <div class="flexrow">
-        <button type="button" class="open-archmage-browser" data-tab="powers"><i class="fas fa-swords"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browsePowers')}</button>
-        <button type="button" class="open-archmage-browser" data-tab="items"><i class="fas fa-wand-magic-sparkles"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseItems')}</button>
+        <button type="button" class="open-archmage-browser" data-tab="powers"><i class="fas fa-swords"></i>${game.i18n.localize("ARCHMAGE.COMPENDIUMBROWSER.buttons.browsePowers")}</button>
+        <button type="button" class="open-archmage-browser" data-tab="items"><i class="fas fa-wand-magic-sparkles"></i>${game.i18n.localize("ARCHMAGE.COMPENDIUMBROWSER.buttons.browseItems")}</button>
       </div>`;
     }
     else {
-      compendiumButton = `<button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns"></i>${game.i18n.localize('ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures')}</button>`;
+      compendiumButton = `<button type="button" class="open-archmage-browser" data-tab="creatures"><i class="fas fa-face-smile-horns"></i>${game.i18n.localize("ARCHMAGE.COMPENDIUMBROWSER.buttons.browseCreatures")}</button>`;
     }
     // Append button. Click handler added in 'ready' hook.
     htmlElement.querySelector(".directory-footer").insertAdjacentHTML("beforeend", compendiumButton);
@@ -690,97 +698,100 @@ Hooks.on("renderDocumentDirectory", (app, html, options) => {
 
 /* -------------------------------------------- */
 
+/**
+ *
+ */
 function renderSceneTerrains() {
 
   // Remove any existing element
-  $('.archmage-terrains').remove();
+  $(".archmage-terrains").remove();
 
   let scene = game.scenes.viewed;
-  if ( !scene) return;
-  let flag = scene.getFlag('archmage', 'terrains');
-  if ( !flag) return;
-  let terrains = flag.filter(x => x !== 'none');
-  if ( !terrains || (terrains.length === 0) ) return;
+  if (!scene) return;
+  let flag = scene.getFlag("archmage", "terrains");
+  if (!flag) return;
+  let terrains = flag.filter((x) => x !== "none");
+  if (!terrains || (terrains.length === 0)) return;
 
-  const label = game.i18n.localize('ARCHMAGE.terrains');
-  const isGM = game.user.isGM ? ' gm' : '';
+  const label = game.i18n.localize("ARCHMAGE.terrains");
+  const isGM = game.user.isGM ? " gm" : "";
   const aside = $(`<aside class="archmage-terrains${isGM}" data-terrains-text="${label}"></aside>`);
-  if ( terrains ) {
-      terrains.forEach(t => {
-        const terrain = game.archmage.terrains.find(x => x.id === t);
+  if (terrains) {
+      terrains.forEach((t) => {
+        const terrain = game.archmage.terrains.find((x) => x.id === t);
         aside.append(`<div><i class="${terrain.icon}"></i> ${game.i18n.localize(terrain.name)}</div>`);
       });
   }
   // Set height based on number of terrains
-  aside.css('height', `${18 * (terrains.length + 1)}px`);
-  $('.archmage-hotbar').append(aside);
+  aside.css("height", `${18 * (terrains.length + 1)}px`);
+  $(".archmage-hotbar").append(aside);
 }
 
 /* -------------------------------------------- */
 
-Hooks.on('canvasReady', (canvas) => {
+Hooks.on("canvasReady", (canvas) => {
   renderSceneTerrains();
 });
 
-Hooks.on('renderSettingsConfig', (app, html, data) => {
+Hooks.on("renderSettingsConfig", (app, html, data) => {
   // Define groups for organization.
   const groups = [
     {
-      label: 'ARCHMAGE.SETTINGS.groups.secondEdition',
-      settings: ['secondEdition'],
-      highlights: [],
+      label: "ARCHMAGE.SETTINGS.groups.secondEdition",
+      settings: ["secondEdition"],
+      highlights: []
     },
     {
-      label: 'ARCHMAGE.SETTINGS.groups.automation',
+      label: "ARCHMAGE.SETTINGS.groups.automation",
       settings: [
-        'enableOngoingEffectsMessages',
-        'automateHPConditions',
-        'staggeredOverlay',
-        'multiTargetAttackRolls',
-        'hideExtraRolls',
-        'showDefensesInChat',
-        'hideInsteadOfOpaque',
-        'roundUpDamageApplication',
-        'rechargeOncePerDay',
-        'automateBaseStatsFromClass',
-        'showPrivateGMAttackRolls',
+        "enableOngoingEffectsMessages",
+        "automateHPConditions",
+        "staggeredOverlay",
+        "multiTargetAttackRolls",
+        "hideExtraRolls",
+        "showDefensesInChat",
+        "hideInsteadOfOpaque",
+        "roundUpDamageApplication",
+        "rechargeOncePerDay",
+        "automateBaseStatsFromClass",
+        "showPrivateGMAttackRolls"
       ],
       highlights: [
-        'enableOngoingEffectsMessages',
-      ],
+        "enableOngoingEffectsMessages"
+      ]
     },
     {
-      label: 'ARCHMAGE.SETTINGS.groups.appearance',
+      label: "ARCHMAGE.SETTINGS.groups.appearance",
       settings: [
-        'nightmode',
-        'sheetTooltips',
+        "nightmode",
+        "sheetTooltips"
       ],
-      highlights: [],
+      highlights: []
     },
     {
-      label: 'ARCHMAGE.SETTINGS.groups.accessibility',
+      label: "ARCHMAGE.SETTINGS.groups.accessibility",
       settings: [
-        'colorBlindMode'
+        "colorBlindMode"
       ],
-      highlights: [],
+      highlights: []
     },
     {
-      label: 'ARCHMAGE.SETTINGS.groups.general',
+      label: "ARCHMAGE.SETTINGS.groups.general",
       settings: [
-        'extendedStatusEffects',
-        'initiativeDexTiebreaker',
-        'initiativeStaticNpc',
-        'unboundEscDie',
-        'tourVisibility',
+        "extendedStatusEffects",
+        "initiativeDexTiebreaker",
+        "initiativeStaticNpc",
+        "unboundEscDie",
+        "tourVisibility"
       ],
-      highlights: [],
+      highlights: []
     }
   ];
 
   // Find the parent category element.
   const settingsElements = html.find('.form-group[data-setting-id*="archmage"]');
-  const parent = settingsElements.closest('.category');
-  parent.addClass('archmage-settings');
+  const parent = settingsElements.closest(".category");
+  parent.addClass("archmage-settings");
 
   // Iterate through our groups and move all of their settings into the matching element.
   for (let group of groups) {
@@ -793,8 +804,8 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
 
       // Add a highlight if necessary.
       if (group.highlights.includes(setting)) {
-        element.addClass('highlight');
-        element.find('label').append(`<span class="new-setting"> (${game.i18n.localize('ARCHMAGE.SETTINGS.newSetting')})</span>`);
+        element.addClass("highlight");
+        element.find("label").append(`<span class="new-setting"> (${game.i18n.localize("ARCHMAGE.SETTINGS.newSetting")})</span>`);
       }
 
       // Move the element.
@@ -803,15 +814,15 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
       settingsCount++;
 
       // Add listener for the colorblind selector.
-      if (setting === 'colorBlindMode') {
-        element.find('select').on('change', changeColorBlindPreview);
+      if (setting === "colorBlindMode") {
+        element.find("select").on("change", changeColorBlindPreview);
       }
     }
 
     // Add special template for the a11y section.
     if (settingsCount > 0) {
-      if (group.label.includes('accessibility')) {
-        renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then(tpl => {
+      if (group.label.includes("accessibility")) {
+        renderTemplate("systems/archmage/templates/sidebar/apps/a11y-preview.html", {}).then((tpl) => {
           details.append(tpl);
         });
       }
@@ -820,50 +831,54 @@ Hooks.on('renderSettingsConfig', (app, html, data) => {
   }
 
   // Event listener for the color blind selector.
+  /**
+   *
+   * @param event
+   */
   function changeColorBlindPreview(event) {
     const element = event.currentTarget;
-    const parent = element.closest('details');
-    const preview = parent?.querySelector('.archmage-settings-preview');
+    const parent = element.closest("details");
+    const preview = parent?.querySelector(".archmage-settings-preview");
     const value = element.value;
 
     if (!preview) return;
 
     switch (value) {
-      case 'colorBlindRG':
-        preview.classList.remove('colorBlindBY');
-        preview.classList.add('colorBlindRG');
+      case "colorBlindRG":
+        preview.classList.remove("colorBlindBY");
+        preview.classList.add("colorBlindRG");
         break;
 
-      case 'colorBlindBY':
-        preview.classList.remove('colorBlindRG');
-        preview.classList.add('colorBlindBY');
+      case "colorBlindBY":
+        preview.classList.remove("colorBlindRG");
+        preview.classList.add("colorBlindBY");
         break;
-    
+
       default:
-        preview.classList.remove('colorBlindBY');
-        preview.classList.remove('colorBlindRG');
+        preview.classList.remove("colorBlindBY");
+        preview.classList.remove("colorBlindRG");
         break;
     }
-  };
+  }
 });
 
 /* -------------------------------------------- */
 
-Hooks.on('renderSceneConfig', (app, html, data) => {
+Hooks.on("renderSceneConfig", (app, html, data) => {
 
   // Attach a list of Terrains to the scene config as a multi-select
-  const terrainOptions = game.archmage.terrains.map(t => {
+  const terrainOptions = game.archmage.terrains.map((t) => {
       return {
           value: t.id,
           label: game.i18n.localize(t.name)
       };
   });
-  const currentTerrains = data.document.getFlag('archmage', 'terrains') || [];
+  const currentTerrains = data.document.getFlag("archmage", "terrains") || [];
 
   // Create multiple select dom element
   const htmlSelect = $(`<select multiple="multiple" name="flags.archmage.terrains" data-dtype="String"></select>`);
-  terrainOptions.forEach(o => {
-      const attrs = ["value='"+o.value+"'", currentTerrains.includes(o.value) ? "selected=" : ""];
+  terrainOptions.forEach((o) => {
+      const attrs = [`value='${o.value}'`, currentTerrains.includes(o.value) ? "selected=" : ""];
       const option = $(`<option ${attrs.join(" ")}>${o.label}</option>`);
       htmlSelect.append(option);
   });
@@ -874,11 +889,11 @@ Hooks.on('renderSceneConfig', (app, html, data) => {
   htmlFormGroup.append(htmlSelect);
 
   // Attach the select after .initial-position
-  html.find('.initial-position').after(htmlFormGroup);
-  html.find('.initial-position').after('<hr>');
+  html.find(".initial-position").after(htmlFormGroup);
+  html.find(".initial-position").after("<hr>");
 
   // Update the height of the scene config by setting to auto
-  app._element.css('height', 'auto');
+  app._element.css("height", "auto");
 });
 
 /* -------------------------------------------- */
@@ -893,7 +908,7 @@ Hooks.on("renderSettings", async (app, html) => {
   let button = $(`<button id="archmage-reference-btn" type="button" data-action="archmage-help"><i class="fas fa-dice-d20"></i> Attributes and Inline Rolls Reference</button>`);
   html.find('button[data-action="controls"]').after(button);
 
-  button.on('click', ev => {
+  button.on("click", (ev) => {
     ev.preventDefault();
     new ArchmageReference().render(true);
   });
@@ -901,29 +916,28 @@ Hooks.on("renderSettings", async (app, html) => {
   let helpButton = $(`<button id="archmage-help-btn" type="button" data-action="archmage-help"><i class="fas fa-question-circle"></i> System Documentation</button>`);
   html.find('button[data-action="controls"]').after(helpButton);
 
-  helpButton.on('click', ev => {
+  helpButton.on("click", (ev) => {
     ev.preventDefault();
-    window.open('https://asacolips.gitbook.io/toolkit13-system/', 'archmageHelp', 'width=1032,height=720');
+    window.open("https://asacolips.gitbook.io/toolkit13-system/", "archmageHelp", "width=1032,height=720");
   });
 
-  let licenseButton = $(`<button id="archmage-license-btn" type="button" data-action="archmage-help"><i class="fas fa-book"></i> ${game.i18n.localize('ARCHMAGE.DIALOG.CUP.title')}</button>`);
+  let licenseButton = $(`<button id="archmage-license-btn" type="button" data-action="archmage-help"><i class="fas fa-book"></i> ${game.i18n.localize("ARCHMAGE.DIALOG.CUP.title")}</button>`);
   html.find('button[data-action="controls"]').after(licenseButton);
 
-  licenseButton.on('click', ev => {
+  licenseButton.on("click", (ev) => {
     ev.preventDefault();
     new Dialog({
-      title: game.i18n.localize('ARCHMAGE.DIALOG.CUP.title'),
-      content: game.i18n.localize('ARCHMAGE.DIALOG.CUP.content'),
-      buttons: {},
+      title: game.i18n.localize("ARCHMAGE.DIALOG.CUP.title"),
+      content: game.i18n.localize("ARCHMAGE.DIALOG.CUP.content"),
+      buttons: {}
     }).render(true);
   });
 
-
   // This is intentionally in renderSettings, as it is one of the last bits of HTML to get rendered, which is required for the Tour to hook in
-  let tourVisibility = game.settings.get('archmage', 'tourVisibility');
-  let showTours = tourVisibility !== 'off' ? true : false;
+  let tourVisibility = game.settings.get("archmage", "tourVisibility");
+  let showTours = tourVisibility !== "off";
 
-  if (tourVisibility == 'gm' && !game.user.isGM) {
+  if (tourVisibility == "gm" && !game.user.isGM) {
     showTours = false;
   }
 
@@ -935,11 +949,11 @@ Hooks.on("renderSettings", async (app, html) => {
   }
 });
 
-Hooks.on('diceSoNiceReady', (dice3d) => {
+Hooks.on("diceSoNiceReady", (dice3d) => {
   dice3d.addSystem({ id: "archmage", name: "Archmage" }, false);
 
   // Disable DsN's automatic parsing of inline rolls - let users enable it
-  if (foundry.utils.isNewerVersion(game.modules.get('dice-so-nice')?.version, "4.1.1")
+  if (foundry.utils.isNewerVersion(game.modules.get("dice-so-nice")?.version, "4.1.1")
     && !game.settings.get("archmage", "DsNInlineOverride")) {
     game.settings.set("dice-so-nice", "animateInlineRoll", false);
     game.settings.set("archmage", "DsNInlineOverride", true);
@@ -952,20 +966,20 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
   })
     .then(() => {
       dice3d.addColorset({
-        name: 'archmage',
+        name: "archmage",
         description: "Archmage Red/Gold",
         category: "Archmage",
         background: ["#9F8"],
-        texture: 'archmagered',
-        edge: '#9F8003',
-        foreground: '#9F8003',
+        texture: "archmagered",
+        edge: "#9F8003",
+        foreground: "#9F8003",
         default: true
       });
     });
 });
 
 /* ---------------------------------------------- */
-Hooks.on('preCreateToken', async (scene, data, options, id) => {
+Hooks.on("preCreateToken", async (scene, data, options, id) => {
   let actorId = data.actorId;
   // Attempt to get the actor.
   let actor = game.actors.get(actorId);
@@ -973,11 +987,11 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
   // If there's an actor, set the token size.
   if (actor) {
     let size = actor.system.details.size?.value;
-    if (size == 'large' && data.height == 1 && data.width == 1) {
+    if (size == "large" && data.height == 1 && data.width == 1) {
       data.height = 2;
       data.width = 2;
     }
-    if (size == 'huge' && data.height == 1 && data.width == 1) {
+    if (size == "huge" && data.height == 1 && data.width == 1) {
       data.height = 3;
       data.width = 3;
     }
@@ -987,17 +1001,17 @@ Hooks.on('preCreateToken', async (scene, data, options, id) => {
 /* -------------------------------------------- */
 
 // TODO: When we expand to support Duration, this probably will be more complicated
-Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
-  if ( data.type === "condition" ) {
-    const statusEffect = CONFIG.statusEffects.find(x => x.id === data.id);
-    if ( statusEffect ) {
+Hooks.on("dropActorSheetData", async (actor, sheet, data) => {
+  if (data.type === "condition") {
+    const statusEffect = CONFIG.statusEffects.find((x) => x.id === data.id);
+    if (statusEffect) {
 
       // If we have a Token, just toggle the effect
       // First load the token from a token actor (is null for linked)
       let token = actor.token;
       // If not, look for linked tokens in the scene
       if (!token) token = canvas.scene.tokens.find(
-          t => (t.data.actorId === actor.id && t.isLinked)
+          (t) => (t.data.actorId === actor.id && t.isLinked)
       );
       if (token) return token._object.toggleEffect(statusEffect);
 
@@ -1005,16 +1019,16 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
       statusEffect.label = game.i18n.localize(statusEffect.label);
       return actor.createEmbeddedDocuments("ActiveEffect", [statusEffect]);
     }
-    else {
+
       // Just a generic condition, transfer the name
       let effectData = {
         name: data.name,
-        icon: 'icons/svg/aura.svg'
+        icon: "icons/svg/aura.svg"
       };
       return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
-    }
+
   }
-  else if ( data.type === "effect" ) {
+  else if (data.type === "effect") {
     const actorId = data.actorId;
     const sourceActor = game.actors.get(actorId);
     const effect = sourceActor.effects.get(data.id);
@@ -1022,7 +1036,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
     console.dir(effectData);
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
-  else if ( data.type == "ongoing-damage" ) {
+  else if (data.type == "ongoing-damage") {
 
     // Load the source actor and grab its image if possible
     let sourceActor = await fromUuid(data.source);
@@ -1040,22 +1054,25 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
           tooltip: data.tooltip
         }
       }
-    }
+    };
     return actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 });
 
 /* ---------------------------------------------- */
 
-Hooks.on('dropCanvasData', async (canvas, data) => {
+Hooks.on("dropCanvasData", async (canvas, data) => {
 
+  /**
+   *
+   */
   function findToken() {
     // Get the token at the drop point, if any
     const x = data.x;
     const y = data.y;
     const gridSize = canvas.scene.grid.size;
     // Get the set of targeted tokens
-    const targets = Array.from(canvas.scene.tokens.values()).filter(t => {
+    const targets = Array.from(canvas.scene.tokens.values()).filter((t) => {
       if (!t.visible) return false;
       return (t.x <= x
           && (t.x + t.width * gridSize) >= x
@@ -1080,17 +1097,17 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
     return token;
   }
 
-  if (data.type === 'condition') {
+  if (data.type === "condition") {
 
     const token = findToken();
     if (!token) return;
 
-    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find(x => x.id === data.id));
+    let statusEffect = foundry.utils.duplicate(CONFIG.statusEffects.find((x) => x.id === data.id));
 
     // For conditions just toggle the effect
     return token._object.toggleEffect(statusEffect);
   }
-  else if ( data.type == "ongoing-damage" ) {
+  else if (data.type == "ongoing-damage") {
 
     const token = findToken();
     if (!token) return;
@@ -1111,7 +1128,7 @@ Hooks.on('dropCanvasData', async (canvas, data) => {
           tooltip: data.tooltip
         }
       }
-    }
+    };
     return token.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 });
@@ -1122,92 +1139,95 @@ Hooks.on("renderJournalSheet", async (app, html, data) => {
 
 /* ---------------------------------------------- */
 
+/**
+ *
+ */
 function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16 | 0; var v = c == "x" ? r : (r & 0x3 | 0x8);
     return v.toString(16);
   });
 }
 
-
-Hooks.on('renderChatMessage', (chatMessage, html, options) => {
+Hooks.on("renderChatMessage", (chatMessage, html, options) => {
 
   // Override the inline roll click behavior.
-  html.find('a.inline-roll').addClass('inline-roll--archmage').removeClass('inline-roll');
-  html.find('.inline-roll--archmage').each(function() {
+  html.find("a.inline-roll").addClass("inline-roll--archmage")
+.removeClass("inline-roll");
+  html.find(".inline-roll--archmage").each(function () {
     var uuid = uuidv4();
     // Add a way to uniquely identify this roll
     $(this).addClass(uuid);
     $(this).off("contextmenu");
 
-    const triggerTarget = game.i18n.localize("ARCHMAGE.CHAT.target") + ":";
-    const triggerCastPower = game.i18n.localize("ARCHMAGE.CHAT.castPower") + ":";
-    if ($(this).parent()[0].innerText.includes(triggerTarget) &&
-        !$(this).parent()[0].innerText.includes(triggerCastPower)) {
+    const triggerTarget = `${game.i18n.localize("ARCHMAGE.CHAT.target")}:`;
+    const triggerCastPower = `${game.i18n.localize("ARCHMAGE.CHAT.castPower")}:`;
+    if ($(this).parent()[0].innerText.includes(triggerTarget)
+        && !$(this).parent()[0].innerText.includes(triggerCastPower)) {
       // Ignore if this is a "Target:" line (but not if its "Cast for Power:",
       // which in some localizations contains "Target:").
       return;
     }
 
-    const triggerAttack = game.i18n.localize("ARCHMAGE.attack") + ":";
+    const triggerAttack = `${game.i18n.localize("ARCHMAGE.attack")}:`;
     if ($(this).parent()[0].innerText.includes(triggerAttack)) {
       // Ignore if this is a "Attack:" line.
       return;
     }
 
-    new ContextMenu2($(this).parent(), "." + uuid, [
+    new ContextMenu2($(this).parent(), `.${uuid}`, [
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
         icon: '<i class="fas fa-tint"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asDamage(inlineRoll, 1);
         }
       },
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
         icon: '<i class="fas fa-tint"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asDamage(inlineRoll, .5);
         }
       },
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
         icon: '<i class="fas fa-tint"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asDamage(inlineRoll, 2);
         }
       },
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
         icon: '<i class="fas fa-tint"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asDamage(inlineRoll, 3);
         }
       },
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
         icon: '<i class="fas fa-medkit"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asHealing(inlineRoll, 1);
         }
       },
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
         icon: '<i class="fas fa-medkit"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asHealing(inlineRoll, .5);
         }
       },
       {
         name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
         icon: '<i class="fas fa-heart"></i>',
-        callback: inlineRoll => {
+        callback: (inlineRoll) => {
           new DamageApplicator().asTempHealth(inlineRoll);
         }
       }
     ]);
   });
-  html.find('a.inline-roll--archmage').on('click', async event => {
+  html.find("a.inline-roll--archmage").on("click", async (event) => {
     event.preventDefault();
     const a = event.currentTarget;
 
@@ -1216,12 +1236,12 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       const roll = Roll.fromJSON(unescape(a.dataset.roll));
       // Build a die string of the die parts, including whether they're discarded.
       const dieTotal = roll.terms.reduce((string, r) => {
-        if (typeof string == 'object') {
-          string = '';
+        if (typeof string == "object") {
+          string = "";
         }
 
         if (r.results) {
-          string = `${string}${r.results.map(d => `<span class="${d.discarded || d.rerolled ? 'die die--discarded' : 'die'}">${d.result}</span>`).join('+')}`;
+          string = `${string}${r.results.map((d) => `<span class="${d.discarded || d.rerolled ? "die die--discarded" : "die"}">${d.result}</span>`).join("+")}`;
         }
         else {
           string = `${string}<span class="mod">${r.number ?? r.operator}</span>`;
@@ -1247,7 +1267,7 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
       // Execute the roll
       const roll = await new Roll(a.dataset.formula, rollData).roll();
       var message = roll.toMessage({ flavor: a.dataset.flavor }, { rollMode: a.dataset.mode });
-      $('.message').off("contextmenu");
+      $(".message").off("contextmenu");
       return message;
     }
 
@@ -1268,39 +1288,40 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         // Healing always starts from 0 HP
         const base = value >= 0 ? actor.system.attributes.hp.value : Math.max(actor.system.attributes.hp.value, 0);
         await actor.update({ "data.attributes.hp.value": base - value });
-        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
-        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag("archmage", `effectApplied.${effectId}`, true);
+        else game.socket.emit("system.archmage", { type: "condButton", msg: chatMessage.id, flg: `effectApplied.${effectId}` });
         break;
       case "save":
         const duration = parent.dataset.save;
         const durationToDifficulty = {
-          "EasySaveEnds": "easy",
-          "NormalSaveEnds": "normal",
-          "HardSaveEnds": "hard",
-        }
+          EasySaveEnds: "easy",
+          NormalSaveEnds: "normal",
+          HardSaveEnds: "hard"
+        };
         await actor.rollSave(durationToDifficulty[duration] ?? "normal");
-        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectSaved.${effectId}`, true);
-        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectSaved.${effectId}`});
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag("archmage", `effectSaved.${effectId}`, true);
+        else game.socket.emit("system.archmage", { type: "condButton", msg: chatMessage.id, flg: `effectSaved.${effectId}` });
         break;
       case "d20":
-        new Roll("d20").toMessage()
-        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectRolled.${effectId}`, true);
-        else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectRolled.${effectId}`});
+        new Roll("d20").toMessage();
+        if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag("archmage", `effectRolled.${effectId}`, true);
+        else game.socket.emit("system.archmage", { type: "condButton", msg: chatMessage.id, flg: `effectRolled.${effectId}` });
         break;
       case "remove":
         await actor.deleteEmbeddedDocuments("ActiveEffect", [effectId]);
         if (chatMessage.isAuthor || game.user.isGM) {
-          await chatMessage.setFlag('archmage', `effectRemoved.${effectId}`, true);
+          await chatMessage.setFlag("archmage", `effectRemoved.${effectId}`, true);
           // Replace grayed-out with disabled
           event.currentTarget.classList.remove("grayed-out");
           event.currentTarget.classList.add("disabled");
-          event.currentTarget.setAttribute('disabled', true);
-        } else {
-          game.socket.emit('system.archmage', {
-            type: 'condButton',
+          event.currentTarget.setAttribute("disabled", true);
+        }
+ else {
+          game.socket.emit("system.archmage", {
+            type: "condButton",
             msg: chatMessage.id,
             flg: `effectRolled.${effectId}`,
-            disable: event.currentTarget});
+            disable: event.currentTarget });
         }
         break;
     }
@@ -1311,22 +1332,29 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
   html.find(".effect-control").each((i, el) => {
     if (!chatMessage.data?.flags?.archmage) return;
     const flags = chatMessage.data.flags.archmage;
-    const parent = el.closest('.effect');
+    const parent = el.closest(".effect");
     const effectId = parent.dataset.effectId;
 
     if (el.dataset.action === "apply" && flags?.effectApplied?.[effectId] == true) {
       el.classList.add("grayed-out");
-    } else if (el.dataset.action === "save" && flags?.effectSaved?.[effectId] == true) {
+    }
+ else if (el.dataset.action === "save" && flags?.effectSaved?.[effectId] == true) {
       el.classList.add("grayed-out");
-    } else if (el.dataset.action === "d20" && flags?.effectRolled?.[effectId] == true) {
+    }
+ else if (el.dataset.action === "d20" && flags?.effectRolled?.[effectId] == true) {
       el.classList.add("grayed-out");
-    } else if (el.dataset.action === "remove" && flags?.effectRemoved?.[effectId] == true) {
+    }
+ else if (el.dataset.action === "remove" && flags?.effectRemoved?.[effectId] == true) {
       el.classList.add("disabled");
-      el.setAttribute('disabled', true);
+      el.setAttribute("disabled", true);
     }
   });
 });
 
+/**
+ *
+ * @param msg
+ */
 function _handleCondButtonMsg(msg) {
   if (!game.user.isGM) return;
   const chatMessage = game.messages.get(msg.msg);
@@ -1335,46 +1363,45 @@ function _handleCondButtonMsg(msg) {
       // Replace grayed-out with disabled
       msg.disable.classList.remove("grayed-out");
       msg.disable.classList.add("disabled");
-      msg.disable.setAttribute('disabled', true);
-    } else {
-      chatMessage.setFlag('archmage', msg.flg, true);
+      msg.disable.setAttribute("disabled", true);
+    }
+ else {
+      chatMessage.setFlag("archmage", msg.flg, true);
     }
   }
 }
 
-
-Hooks.once('ready', async function () {
+Hooks.once("ready", async function () {
   game.socket.on("system.archmage", (msg) => {
     switch (msg.type) {
-      case 'shareItem':
+      case "shareItem":
         ItemArchmageSheet.handleShareItem(msg);
         break;
-      case 'condButton':
+      case "condButton":
         _handleCondButtonMsg(msg);
         break;
       default:
         console.log(msg);
     }
   });
-})
-
+});
 
 Hooks.on("getChatLogEntryContext", (html, options) => {
-  let canApply = li => {
+  let canApply = (li) => {
     const message = game.messages.get(li.data("messageId"));
     return message?.isRoll && message?.isContentVisible;
   };
-  let getRoll = li => {
+  let getRoll = (li) => {
     const message = game.messages.get(li.data("messageId"));
     const roll = message?.rolls[0];
     return roll;
-  }
+  };
   options.push(
     {
       name: game.i18n.localize("ARCHMAGE.contextApplyDamage"),
       icon: '<i class="fas fa-tint"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asDamage(getRoll(li), 1);
       }
     },
@@ -1382,7 +1409,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       name: game.i18n.localize("ARCHMAGE.contextApplyDamageHalf"),
       icon: '<i class="fas fa-tint"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asDamage(getRoll(li), .5);
       }
     },
@@ -1390,7 +1417,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       name: game.i18n.localize("ARCHMAGE.contextApplyDamageDouble"),
       icon: '<i class="fas fa-tint"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asDamage(getRoll(li), 2);
       }
     },
@@ -1398,7 +1425,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       name: game.i18n.localize("ARCHMAGE.contextApplyDamageTriple"),
       icon: '<i class="fas fa-tint"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asDamage(getRoll(li), 3);
       }
     },
@@ -1406,7 +1433,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       name: game.i18n.localize("ARCHMAGE.contextApplyHealing"),
       icon: '<i class="fas fa-medkit"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asHealing(getRoll(li), 1);
       }
     },
@@ -1414,7 +1441,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       name: game.i18n.localize("ARCHMAGE.contextApplyHealingHalf"),
       icon: '<i class="fas fa-medkit"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asHealing(getRoll(li), .5);
       }
     },
@@ -1422,7 +1449,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
       name: game.i18n.localize("ARCHMAGE.contextApplyTempHealth"),
       icon: '<i class="fas fa-heart"></i>',
       condition: canApply,
-      callback: li => {
+      callback: (li) => {
         new DamageApplicator().asTempHealth(getRoll(li));
       }
     }
@@ -1434,7 +1461,7 @@ Hooks.on("getChatLogEntryContext", (html, options) => {
 
 // Update the escalation die tracker. Character values for the escalation die
 // are updated in their prepareData() and getRollData() functions.
-Hooks.on('updateCombat', (async (combat, update) => {
+Hooks.on("updateCombat", (async (combat, update) => {
   // Handle non-gm users.
   if (combat.current === undefined) {
     combat = game.combat;
@@ -1444,19 +1471,19 @@ Hooks.on('updateCombat', (async (combat, update) => {
     let escalation = ArchmageUtility.getEscalation(combat);
 
     // Update the escalation die tracker.
-    let $escalationDiv = $('.archmage-escalation');
-    $escalationDiv.attr('data-value', escalation);
-    $escalationDiv.removeClass('hide');
-    $escalationDiv.find('.ed-number').text(escalation);
+    let $escalationDiv = $(".archmage-escalation");
+    $escalationDiv.attr("data-value", escalation);
+    $escalationDiv.removeClass("hide");
+    $escalationDiv.find(".ed-number").text(escalation);
 
     // Update open sheets.
     for (let app of Object.values(ui.windows)) {
       const appType = app?.object?.type ?? null;
-      if (appType == 'character' || appType == 'npc') {
+      if (appType == "character" || appType == "npc") {
         app.render();
       }
 
-      if (app.constructor.name === 'ArchmageCompendiumBrowserApplication') {
+      if (app.constructor.name === "ArchmageCompendiumBrowserApplication") {
         app.render();
       }
     }
@@ -1465,44 +1492,44 @@ Hooks.on('updateCombat', (async (combat, update) => {
 
 /* -------------------------------------------- */
 
-Hooks.on('combatTurn', combatTurn);
+Hooks.on("combatTurn", combatTurn);
 
 /* -------------------------------------------- */
 
-Hooks.on('combatRound', combatRound);
+Hooks.on("combatRound", combatRound);
 
 /* -------------------------------------------- */
 
-Hooks.on('preDeleteCombat', preDeleteCombat);
+Hooks.on("preDeleteCombat", preDeleteCombat);
 
 /* ---------------------------------------------- */
 
 // Update escalation die values on scene change.
-Hooks.on('renderCombatTracker', (async () => {
+Hooks.on("renderCombatTracker", (async () => {
   // Handle non-gm users.
   let combat = game.combat;
   let escalation = 0;
-  let $escalationDiv = $('.archmage-escalation');
+  let $escalationDiv = $(".archmage-escalation");
 
   // Restore the escalation die.
   if (combat !== null) {
     escalation = ArchmageUtility.getEscalation(combat);
-    $escalationDiv.removeClass('hide');
+    $escalationDiv.removeClass("hide");
   }
   // Hide the escalation die.
   else {
-    $escalationDiv.addClass('hide');
+    $escalationDiv.addClass("hide");
   }
   // Update the value of the tracker.
-  $escalationDiv.attr('data-value', escalation);
-  $escalationDiv.find('.ed-number').text(escalation);
+  $escalationDiv.attr("data-value", escalation);
+  $escalationDiv.find(".ed-number").text(escalation);
 }));
 
 /* ---------------------------------------------- */
 
-Hooks.on('deleteCombat', (combat) => {
+Hooks.on("deleteCombat", (combat) => {
   // Clear the escalation die.
-  $('.archmage-escalation').addClass('hide');
+  $(".archmage-escalation").addClass("hide");
 
   if (!game.user.isGM) return;
 
@@ -1510,7 +1537,7 @@ Hooks.on('deleteCombat', (combat) => {
   let combatants = combat.combatants;
   if (combatants) {
     // Retrieve the character actors.
-    let actors = combatants.filter(c => c?.actor?.type == 'character');
+    let actors = combatants.filter((c) => c?.actor?.type == "character");
     let updatedActors = {};
     // Iterate over the actors for updates.
     actors.forEach(async (a) => {
@@ -1521,13 +1548,11 @@ Hooks.on('deleteCombat', (combat) => {
         // Perform the update.
         if (actor) {
           let updates = {};
-          updates['system.attributes.saves.deathFails.value'] = 0;
-          updates['system.attributes.hp.temp'] = 0;
+          updates["system.attributes.saves.deathFails.value"] = 0;
+          updates["system.attributes.hp.temp"] = 0;
           for (let k of Object.keys(actor.system.resources.perCombat)) {
-            if ( actor.system.resources.perCombat[k].default )
-              updates[`system.resources.perCombat.${k}.current`] = actor.system.resources.perCombat[k].default;
-            else
-              updates[`system.resources.perCombat.${k}.current`] = 0;
+            if (actor.system.resources.perCombat[k].default) updates[`system.resources.perCombat.${k}.current`] = actor.system.resources.perCombat[k].default;
+            else updates[`system.resources.perCombat.${k}.current`] = 0;
           }
           await actor.update(updates);
           updatedActors[actor._id];
@@ -1537,68 +1562,68 @@ Hooks.on('deleteCombat', (combat) => {
   }
 });
 
-Hooks.on('createCombatant', (document, data, options, id) => {
+Hooks.on("createCombatant", (document, data, options, id) => {
   if (!game.user.isGM) return;
   let actor = document.actor;
   // Add command points at start of combat.
-  if (actor && actor.type == 'character') {
+  if (actor && actor.type == "character") {
     let updates = {};
-    let hasStrategist = actor.items.find(i => i.system.name.label.safeCSSId().includes('strategist'));
+    let hasStrategist = actor.items.find((i) => i.system.name.label.safeCSSId().includes("strategist"));
     let basePoints = hasStrategist ? 2 : 1;
     // TODO: Add support for Forceful Command.
-    updates['system.resources.perCombat.commandPoints.current'] = basePoints;
+    updates["system.resources.perCombat.commandPoints.current"] = basePoints;
     actor.update(updates);
   }
 });
 
 /* ---------------------------------------------- */
 
-Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
+Hooks.on("dcCalcWhitelist", (whitelist, actor) => {
   // Add whitelist support for the calculator.
   whitelist.archmage = {
     flags: {
       adv: true
     },
     abilities: [
-      'str',
-      'dex',
-      'con',
-      'int',
-      'wis',
-      'cha'
+      "str",
+      "dex",
+      "con",
+      "int",
+      "wis",
+      "cha"
     ],
     attributes: [
-      'init',
-      'level',
-      'standardBonuses'
+      "init",
+      "level",
+      "standardBonuses"
     ],
     custom: {
       abilities: {},
       attributes: {
         levelHalf: {
-          label: 'level_half',
-          name: '1/2 Level',
+          label: "level_half",
+          name: "1/2 Level",
           formula: actor.system.attributes.level !== undefined ? Math.floor(actor.system.attributes.level.value / 2) : 0
         },
         escalation: {
-          label: 'escalation',
-          name: 'Esc. Die',
-          formula: '@attr.escalation.value'
+          label: "escalation",
+          name: "Esc. Die",
+          formula: "@attr.escalation.value"
         },
         melee: {
-          label: 'melee',
-          name: 'W [Melee]',
-          formula: '@attr.weapon.melee.value'
+          label: "melee",
+          name: "W [Melee]",
+          formula: "@attr.weapon.melee.value"
         },
         ranged: {
-          label: 'ranged',
-          name: 'W [Ranged]',
-          formula: '@attr.weapon.ranged.value'
+          label: "ranged",
+          name: "W [Ranged]",
+          formula: "@attr.weapon.ranged.value"
         },
         standardBonus: {
-          label: 'standard_bonuses',
-          name: 'Standard Bonuses',
-          formula: '@attr.standardBonuses.value'
+          label: "standard_bonuses",
+          name: "Standard Bonuses",
+          formula: "@attr.standardBonuses.value"
         }
       },
       custom: {}
@@ -1632,14 +1657,14 @@ Hooks.on('dcCalcWhitelist', (whitelist, actor) => {
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
+ * @param {object} data     The dropped data
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
 async function createArchmageMacro(data, slot) {
   // First, determine if this is a valid owned item.
   if (data.type !== "Item") return;
-  if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
+  if (!data.uuid.includes("Actor.") && !data.uuid.includes("Token.")) {
     return ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.warnMacroOnlyOwnedItems"));
   }
   // If it is, retrieve it based on the uuid.
@@ -1647,7 +1672,7 @@ async function createArchmageMacro(data, slot) {
 
   // Create the macro command
   const command = `game.archmage.rollItemMacro("${item.name}");`;
-  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command) && m.author.isSelf);
+  let macro = game.macros.find((m) => (m.name === item.name) && (m.command === command) && m.author.isSelf);
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
@@ -1668,21 +1693,21 @@ async function createArchmageMacro(data, slot) {
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
  * @param {string} itemData
- * @return {Promise}
+ * @returns {Promise}
  */
 function rollItemMacro(itemData) {
   // Reconstruct the drop data so that we can load the item.
   // @todo this section isn't currently used, the name section below is used.
-  if (itemData.includes('Actor.') || itemData.includes('Token.')) {
+  if (itemData.includes("Actor.") || itemData.includes("Token.")) {
     const dropData = {
-      type: 'Item',
+      type: "Item",
       uuid: itemData
     };
-    Item.fromDropData(dropData).then(item => {
+    Item.fromDropData(dropData).then((item) => {
       // Determine if the item loaded and if it's an owned item.
       if (!item || !item.parent) {
         const itemName = item?.name ?? itemData;
-        return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotFound", { item: itemName}));
+        return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotFound", { item: itemName }));
       }
 
       // Trigger the item roll
@@ -1696,8 +1721,8 @@ function rollItemMacro(itemData) {
     let actor;
     if (speaker.token) actor = game.actors.tokens[speaker.token];
     if (!actor) actor = game.actors.get(speaker.actor);
-    const item = actor ? actor.items.find(i => i.name === itemName) : null;
-    if (!item) return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotOnActor", { item: itemName}));
+    const item = actor ? actor.items.find((i) => i.name === itemName) : null;
+    if (!item) return ui.notifications.warn(game.i18n.format("ARCHMAGE.UI.warnMacroItemNotOnActor", { item: itemName }));
 
     // Trigger the item roll
     return item.roll();

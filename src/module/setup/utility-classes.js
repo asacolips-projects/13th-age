@@ -1,5 +1,4 @@
 
-
 // CONFIG.debug.hooks = true;
 
 /**
@@ -19,7 +18,7 @@ export class ArchmageUtility {
    * @param {boolean} waitForDice
    *   (Optional) Whether to wait for 3d dice rolls to finish before returning.
    *
-   * @return {Promise<Document>} The created ChatMessage document instance.
+   * @returns {Promise<Document>} The created ChatMessage document instance.
    */
   static async createChatMessage(chatData, context = {}, waitForDice = true) {
     if (!chatData.flags) {
@@ -50,8 +49,8 @@ export class ArchmageUtility {
     // Return early if there is nothing to wait on.
     // Our own inline rolls are handled separately,
     // so we only wait for roll messages or if default DSN inline rolls are used.
-    if (chatData.type !== CONST.CHAT_MESSAGE_TYPES.ROLL &&
-        !game.settings.get("dice-so-nice", "animateInlineRoll")) {
+    if (chatData.type !== CONST.CHAT_MESSAGE_TYPES.ROLL
+        && !game.settings.get("dice-so-nice", "animateInlineRoll")) {
       return ChatMessage.create(chatData, context);
     }
 
@@ -72,11 +71,12 @@ export class ArchmageUtility {
       user = game.user;
     }
     var hide = chatData?.whisper?.length ? chatData.whisper : null;
-    if (hide && game.user.isGM &&
-        game.settings.get("archmage", "showPrivateGMAttackRolls") &&
-        game.settings.get("core", "rollMode") === "gmroll") {
+    if (hide && game.user.isGM
+        && game.settings.get("archmage", "showPrivateGMAttackRolls")
+        && game.settings.get("core", "rollMode") === "gmroll") {
       hide = null;
-    } else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
+    }
+ else if (hide && game.user.isGM && game.settings.get("dice-so-nice", "showGhostDice")) {
       hide = null;
       roll.ghost = true;
     }
@@ -92,7 +92,7 @@ export class ArchmageUtility {
    * @param {object} combat
    *   (Optional) Combat to check the escalation for.
    *
-   * @return {int} The escalation die value.
+   * @returns {int} The escalation die value.
    */
   static getEscalation(combat = null) {
     // Get the current combat if one wasn't provided.
@@ -122,12 +122,12 @@ export class ArchmageUtility {
       }
 
       // Get the manual offset for this combat..
-      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+      let edOffset = combat.getFlag("archmage", "edOffset") ?? 0;
       if (edOffset) {
         result = result + edOffset;
 
         // If the escalation die isn't unlimited, set a min/max.
-        if (!game.settings.get('archmage', 'unboundEscDie')) {
+        if (!game.settings.get("archmage", "unboundEscDie")) {
           if (result > 6) {
             result = 6;
           }
@@ -147,7 +147,7 @@ export class ArchmageUtility {
    *
    * @param {object} combat
    *   (Optional) Combat to set the escalation die offset for.
-   * @param {Boolean} isIncrease
+   * @param {boolean} isIncrease
    *   (Optional) If true, increase the esc. die, otherwise decrease it.
    */
   static setEscalationOffset(combat = null, isIncrease = true) {
@@ -169,30 +169,26 @@ export class ArchmageUtility {
       if (round < 0) round = 0;
 
       // Retrieve the escalation die offset for this combat.
-      let edOffset = combat.getFlag('archmage', 'edOffset') ?? 0;
+      let edOffset = combat.getFlag("archmage", "edOffset") ?? 0;
 
       // By default, limit how far the escalation die can be adjusted.
-      if (!game.settings.get('archmage', 'unboundEscDie')) {
+      if (!game.settings.get("archmage", "unboundEscDie")) {
         if (isIncrease) {
           if (round + edOffset < 7) edOffset++;
         }
-        else {
-          if (round + edOffset > 0) edOffset--;
-        }
+        else if (round + edOffset > 0) edOffset--;
       }
       // If it's unbound, unlimited power!
-      else {
-        if (isIncrease) edOffset++;
+      else if (isIncrease) edOffset++;
         else edOffset--;
-      }
 
       // Update the escalation die offset flag.
-      combat.setFlag('archmage', 'edOffset', edOffset);
+      combat.setFlag("archmage", "edOffset", edOffset);
     }
   }
 
   static async updateCompendiums() {
-    let pack = game.packs.get('archmage.monsters-core');
+    let pack = game.packs.get("archmage.monsters-core");
     let monsters = pack ? await pack.getContent() : null;
 
     if (monsters) {
@@ -201,52 +197,52 @@ export class ArchmageUtility {
         let update = {};
 
         // Handle size.
-        let size = '';
+        let size = "";
         for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureSizes)) {
-          size += size == '' ? key : `|${key}`;
+          size += size == "" ? key : `|${key}`;
         }
         let sizeRegex = new RegExp(size);
         let sizeMatch = name.match(sizeRegex);
         if (sizeMatch && sizeMatch[0]) {
-          update['system.details.size.value'] = sizeMatch[0];
-          if (sizeMatch[0] == 'large') {
-            update['prototypeToken.width'] = 2;
-            update['prototypeToken.height'] = 2;
+          update["system.details.size.value"] = sizeMatch[0];
+          if (sizeMatch[0] == "large") {
+            update["prototypeToken.width"] = 2;
+            update["prototypeToken.height"] = 2;
           }
-          else if (sizeMatch[0] == 'huge') {
-            update['prototypeToken.width'] = 3;
-            update['prototypeToken.height'] = 3;
+          else if (sizeMatch[0] == "huge") {
+            update["prototypeToken.width"] = 3;
+            update["prototypeToken.height"] = 3;
           }
         }
         else {
-          update['system.details.size.value'] = 'normal';
+          update["system.details.size.value"] = "normal";
         }
         // Handle role.
-        let role = '';
+        let role = "";
         for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureRoles)) {
-          role += role == '' ? key : `|${key}`;
+          role += role == "" ? key : `|${key}`;
         }
         let roleRegex = new RegExp(role);
         let roleMatch = name.match(roleRegex);
         if (roleMatch && roleMatch[0]) {
-          update['system.details.role.value'] = roleMatch && roleMatch[0];
+          update["system.details.role.value"] = roleMatch && roleMatch[0];
         }
         // Handle type.
-        let type = '';
+        let type = "";
         for (let [key, value] of Object.entries(CONFIG.ARCHMAGE.creatureTypes)) {
-          type += type == '' ? key : `|${key}`;
+          type += type == "" ? key : `|${key}`;
         }
         let typeRegex = new RegExp(type);
         let typeMatch = name.match(typeRegex);
         if (typeMatch && typeMatch[0]) {
-          update['system.details.type.value'] = typeMatch[0];
+          update["system.details.type.value"] = typeMatch[0];
         }
         if (Object.keys(update).length > 0) {
-          update['_id'] = actor._id;
-          update['name'] = actor.name.replace(/( |)\[.*\]/g, '');
+          update._id = actor._id;
+          update.name = actor.name.replace(/( |)\[.*\]/g, "");
           await pack.updateEntity(update);
         }
-      };
+      }
     }
   }
 
@@ -299,8 +295,8 @@ export class ArchmageUtility {
   static detectClasses(className) {
     className = ArchmageUtility.prepareClassInputForDetection(className);
     let classList = Object.keys(CONFIG.ARCHMAGE.classList);
-    let classRegex = new RegExp(classList.join('|'), 'g');
-    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
+    let classRegex = new RegExp(classList.join("|"), "g");
+    className = className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, "") : "";
     let matchedClasses = className.match(classRegex);
     if (matchedClasses !== null) matchedClasses = [...new Set(matchedClasses)].sort();
     return matchedClasses;
@@ -320,18 +316,18 @@ export class ArchmageUtility {
     if (game.i18n.lang !== "en") {
       return number;
     }
-    var last = number % 10,
-        teens = number % 100;
+    var last = number % 10;
+        var teens = number % 100;
     if (last == 1 && teens != 11) {
-        return number + "st";
+        return `${number}st`;
     }
     if (last == 2 && teens != 12) {
-        return number + "nd";
+        return `${number}nd`;
     }
     if (last == 3 && teens != 13) {
-        return number + "rd";
+        return `${number}rd`;
     }
-    return number + "th";
+    return `${number}th`;
   }
 
   static cleanActiveEffectLabel(label) {
@@ -413,9 +409,9 @@ export class ArchmageUtility {
 
   static localizeEquipmentBonus(bonusProp) {
     const keys = [
-      "ARCHMAGE." + bonusProp.toLowerCase() + "Short",
-      "ARCHMAGE." + bonusProp.toLowerCase(),
-      "ARCHMAGE." + bonusProp.toLowerCase() + ".key"
+      `ARCHMAGE.${bonusProp.toLowerCase()}Short`,
+      `ARCHMAGE.${bonusProp.toLowerCase()}`,
+      `ARCHMAGE.${bonusProp.toLowerCase()}.key`
     ];
     for (const key of keys) {
       if (game.i18n.localize(key) !== key) {
@@ -431,9 +427,10 @@ export class ArchmageUtility {
     // Remove once Vue fixed event handling in iframes/windows.
     Hooks.on("PopOut:popout", async function (app, popout) {
       const handler = (e) => {
-        Object.defineProperty(e, "timeStamp", { get: () => performance.now() })
-      }
-      const events = Object.keys(window).filter(name => name.substring(0, 2) == 'on').map(name => name.substring(2));
+        Object.defineProperty(e, "timeStamp", { get: () => performance.now() });
+      };
+      const events = Object.keys(window).filter((name) => name.substring(0, 2) == "on")
+.map((name) => name.substring(2));
       events.forEach((name) => popout.addEventListener(name, handler, true));
     });
   }
@@ -458,13 +455,14 @@ export class ArchmageUtility {
    *   As above, but both keys are looked up and appended as paragraphs.
    * tooltip('attributes', 'charisma', {itemData: data})
    *   As above, but the given format data is inserted for each separate key.
+   * @param {...any} keys
    */
   static tooltip(...keys) {
     if (!game.settings.get("archmage", "sheetTooltips")) {
       return undefined;
     }
 
-    const isSecondEdition = game.settings.get('archmage', 'secondEdition');
+    const isSecondEdition = game.settings.get("archmage", "secondEdition");
     const keyPrefix = "ARCHMAGE.TOOLTIP.";
     const secondEditionSuffix = "V2";
 
@@ -488,29 +486,29 @@ export class ArchmageUtility {
         val = game.i18n.format(keyPrefix + key, format);
       }
 
-      out += "\n" + val.trim();
+      out += `\n${val.trim()}`;
     }
 
     // Some formatting for Foundry's tooltips
-    out = out.trim().replaceAll("\r\n", "<br><br>").replaceAll("\n", "<br><br>");
-    out = "<p style=\"text-align: left; margin: 0;\">" + out + "</p>";
+    out = out.trim().replaceAll("\r\n", "<br><br>")
+.replaceAll("\n", "<br><br>");
+    out = `<p style="text-align: left; margin: 0;">${out}</p>`;
 
     return out;
   }
 
   static getSpeaker(actor) {
-    const speaker = ChatMessage.getSpeaker({actor});
+    const speaker = ChatMessage.getSpeaker({ actor });
     if (!actor) return speaker;
     let token = actor.token;
     if (!token) token = actor.getActiveTokens()[0];
     if (token) {
       speaker.alias = token.name;
-    } else {
-      if (actor.prototypeToken) {
+    }
+ else if (actor.prototypeToken) {
         speaker.alias = actor.prototypeToken.name;
       }
-    }
-    return speaker
+    return speaker;
   }
 }
 
@@ -521,43 +519,46 @@ export class ArchmageUtility {
 export class MacroUtils {
   /**
    * Generate durations for active effects
+   * @param data
+   * @param duration
+   * @param options
    */
   static setDuration(data, duration, options={}) {
-    switch(duration) {
+    switch (duration) {
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn:
-        data['flags.archmage.duration'] = "StartOfNextTurn";
+        data["flags.archmage.duration"] = "StartOfNextTurn";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EndOfNextTurn:
-        data['flags.archmage.duration'] = "EndOfNextTurn";
+        data["flags.archmage.duration"] = "EndOfNextTurn";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn:
-        data['flags.archmage.duration'] = "StartOfNextSourceTurn";
+        data["flags.archmage.duration"] = "StartOfNextSourceTurn";
         data.origin = options.sourceTurnUuid;
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EndOfNextSourceTurn:
-        data['flags.archmage.duration'] = "EndOfNextSourceTurn";
+        data["flags.archmage.duration"] = "EndOfNextSourceTurn";
         data.origin = options.sourceTurnUuid;
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EasySaveEnds:
-        data['flags.archmage.duration'] = "EasySaveEnds";
+        data["flags.archmage.duration"] = "EasySaveEnds";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.NormalSaveEnds:
-        data['flags.archmage.duration'] = "NormalSaveEnds";
+        data["flags.archmage.duration"] = "NormalSaveEnds";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.HardSaveEnds:
-        data['flags.archmage.duration'] = "HardSaveEnds";
+        data["flags.archmage.duration"] = "HardSaveEnds";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat:
-        data['flags.archmage.duration'] = "EndOfCombat";
+        data["flags.archmage.duration"] = "EndOfCombat";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.Infinite:
-        data['flags.archmage.duration'] = "Infinite";
+        data["flags.archmage.duration"] = "Infinite";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.Unknown:
-        data['flags.archmage.duration'] = "Unknown";
+        data["flags.archmage.duration"] = "Unknown";
         break;
       case CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn:
-        data['flags.archmage.duration'] = "StartOfEachTurn";
+        data["flags.archmage.duration"] = "StartOfEachTurn";
         break;
       default:
         console.warn("Unknown duration ", duration);
@@ -568,6 +569,8 @@ export class MacroUtils {
 
   /**
    * Select all feats of a specific tier
+   * @param item
+   * @param tier
    */
   static getFeatsByTier(item, tier) {
     let res = [];
@@ -586,7 +589,7 @@ export class MacroUtils {
 export class ArchmageReference extends Application {
   static get defaultOptions() {
     const options = super.defaultOptions;
-    options.title = "Archmage Inline Rolls Reference"
+    options.title = "Archmage Inline Rolls Reference";
     options.id = "archmage-help";
     options.template = "systems/archmage/templates/sidebar/apps/archmage-help.html";
     options.width = 820;

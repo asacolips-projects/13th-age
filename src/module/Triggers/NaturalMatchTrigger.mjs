@@ -1,6 +1,6 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class NaturalMatchTrigger extends ITrigger{
+export default class NaturalMatchTrigger extends ITrigger {
     isActive(triggerText, rollResult, hitEvaluationResults) {
         let active = undefined;
 
@@ -21,10 +21,10 @@ export default class NaturalMatchTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ "+" ];
+        return ["+"];
     }
 
     doesntTriggerOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() ];
+        return [game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase()];
     }
 }

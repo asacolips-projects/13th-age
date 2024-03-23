@@ -1,11 +1,11 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class EvenTrigger extends ITrigger{
+export default class EvenTrigger extends ITrigger {
     isActive(triggerText, rollResult, hitEvaluationResults) {
         let active = undefined;
 
         if (rollResult == undefined) return active;
-        
+
         if (rollResult % 2 == 0) {
             active = true;
             if (hitEvaluationResults?.hasHit != undefined) {
@@ -27,10 +27,10 @@ export default class EvenTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.even").toLowerCase() ];
+        return [game.i18n.localize("ARCHMAGE.CHAT.even").toLowerCase()];
     }
 
     doesntTriggerOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.odd").toLowerCase() ];
+        return [game.i18n.localize("ARCHMAGE.CHAT.odd").toLowerCase()];
     }
 }

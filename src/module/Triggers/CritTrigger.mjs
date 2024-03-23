@@ -1,6 +1,6 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class CritTrigger extends ITrigger{
+export default class CritTrigger extends ITrigger {
     isActive(triggerText, rollResult, hitEvaluationResults) {
         // console.log(rollResult);
         let active = undefined;
@@ -12,10 +12,10 @@ export default class CritTrigger extends ITrigger{
     }
 
     triggersOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase() ];
+        return [game.i18n.localize("ARCHMAGE.CHAT.crit").toLowerCase()];
     }
 
     doesntTriggerOn() {
-        return [ ];
+        return [];
     }
 }

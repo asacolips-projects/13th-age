@@ -7,7 +7,7 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
       template: "systems/archmage/templates/active-effects/effect.html",
       width: 560,
       height: 550,
-      tabs: [{navSelector: ".tabs", contentSelector: "form", initial: "effects"}],
+      tabs: [{ navSelector: ".tabs", contentSelector: "form", initial: "effects" }],
       submitOnClose: true,
       submitOnChange: false
     });
@@ -18,27 +18,33 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
   async getData(options) {
     const context = await super.getData(options);
 
-    function setValue(obj,access,value){
-      if (typeof(access)=='string'){
-        access = access.split('.');
+    /**
+     *
+     * @param obj
+     * @param access
+     * @param value
+     */
+    function setValue(obj, access, value) {
+      if (typeof (access)=="string") {
+        access = access.split(".");
       }
-      if (access.length > 1){
+      if (access.length > 1) {
         const key = access.shift();
-        if ( !obj[key] ) obj[key] = {};
-        setValue(obj[key],access,value);
+        if (!obj[key]) obj[key] = {};
+        setValue(obj[key], access, value);
       }
-      else{
+      else {
         obj[access[0]] = value;
       }
     }
 
-    for ( const change of context.effect.changes ) {
-      if ( change.key === "system.attributes.escalation.value" ) continue;
+    for (const change of context.effect.changes) {
+      if (change.key === "system.attributes.escalation.value") continue;
       setValue(context, change.key, change.value);
     }
 
-    const edChange = context.effect.changes.find(x => x.key === "system.attributes.escalation.value");
-    //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
+    const edChange = context.effect.changes.find((x) => x.key === "system.attributes.escalation.value");
+    // effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
     context.supportsDescription = game.release.generation >= 11;
     context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
@@ -75,9 +81,13 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
     // Build an array of effects from the form data
     let newChanges = [];
 
+    /**
+     *
+     * @param key
+     */
     function addChange(key) {
       const value = foundry.utils.getProperty(formData, key);
-      if ( !value ) return;
+      if (!value) return;
       newChanges.push({
         key: key,
         value: value,
@@ -105,27 +115,27 @@ export class EffectArchmageSheet extends ActiveEffectConfig {
 
     // Update the existing changes to replace duplicates.
     for (let i = 0; i < changes.length; i++) {
-      const newChange = newChanges.find(c => c.key == changes[i].key);
+      const newChange = newChanges.find((c) => c.key == changes[i].key);
       if (newChange) {
         // Replace with the new change and update the array to prevent duplicates.
         changes[i] = newChange;
-        newChanges = newChanges.filter(c => c.key != changes[i].key);
+        newChanges = newChanges.filter((c) => c.key != changes[i].key);
       }
     }
 
     // Apply the combined effect changes.
     ae.changes = changes.concat(newChanges);
 
-    if ( formData.system.blockedFromEscalationDie ) {
+    if (formData.system.blockedFromEscalationDie) {
       ae.changes.push({
-        key: 'system.attributes.escalation.value',
+        key: "system.attributes.escalation.value",
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-        value: '0'
+        value: "0"
       });
     }
 
     // Filter changes for empty form fields.
-    ae.changes = ae.changes.filter(c => c.value !== null);
+    ae.changes = ae.changes.filter((c) => c.value !== null);
 
     return this.object.update(ae);
   }

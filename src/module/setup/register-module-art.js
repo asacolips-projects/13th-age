@@ -13,19 +13,19 @@ async function registerModuleArt() {
   // First, clear out the existing map entries and get the active module list.
   game.archmage.system.moduleArt.map.clear();
   const activeModules = [
-    ['archmage', game.system],
+    ["archmage", game.system],
     ...[...game.modules.entries()].filter(([_key, m]) => m.active)
   ];
 
   // Iterate over each module and check to see if there's a map.
   for (const [moduleKey, foundryModule] of activeModules) {
     // If the pf2e token pack isn't enabled, skip the system map.
-    if (moduleKey == 'archmage' && !game.modules.get('pf2e-tokens-bestiaries')?.active) {
+    if (moduleKey == "archmage" && !game.modules.get("pf2e-tokens-bestiaries")?.active) {
       continue;
     }
     // We can skip the pf2e-tokens-bestiaries map since we've provided our own in the
     // system itself.
-    if (moduleKey == 'pf2e-tokens-bestiaries') {
+    if (moduleKey == "pf2e-tokens-bestiaries") {
       continue;
     }
     // Otherwise, load this module's art map.
@@ -61,10 +61,10 @@ async function registerModuleArt() {
 
 /**
  * Get the art entry for usage in the system's art map.
- * 
+ *
  * @param {object|string|null} art Art object used for the map entry.
  *   If supplied as a string, assume it's a JSON file andtry to load it via fetch().
- * 
+ *
  * @returns {object|null} Art object, or null.
  */
 async function getArtMap(art) {
@@ -89,7 +89,7 @@ async function getArtMap(art) {
       return isModuleArt(map) ? map : null;
     }
     // Otherwise, output our error.
-    catch (error) {
+    catch(error) {
       if (error instanceof Error) {
         console.warn(`13th Age System | ${error.message}`);
       }
@@ -101,7 +101,7 @@ async function getArtMap(art) {
 
 /**
  * Determine if a given object matches the expected art structure.
- * 
+ *
  * @param {object} record Object to test and determine whether it's a
  *   valid art object or not.
  * @returns {boolean}
@@ -109,22 +109,22 @@ async function getArtMap(art) {
 function isModuleArt(record) {
   return (
     // If this is an object...
-    isObject(record) &&
+    isObject(record)
     // Iterate over the array and test each entry. We then repeat this general
     // structure for each layer of the object props, and our final test is whether
     // the art object has an `actor` string, a `token` string, and either no scale,
     // or a scale that's numeric.
-    Object.values(record).every(
+    && Object.values(record).every(
       (packToArt) =>
-        isObject(packToArt) &&
-        Object.values(packToArt).every(
+        isObject(packToArt)
+        && Object.values(packToArt).every(
           (art) =>
-            isObject(art) &&
-            typeof art.actor === "string" &&
-            (typeof art.token === "string" ||
-              (isObject(art.token) &&
-                typeof art.token.img === "string" &&
-                (art.token.scale === undefined || typeof art.token.scale === "number")
+            isObject(art)
+            && typeof art.actor === "string"
+            && (typeof art.token === "string"
+              || (isObject(art.token)
+                && typeof art.token.img === "string"
+                && (art.token.scale === undefined || typeof art.token.scale === "number")
               )
             ) // typeof art.token === "string"
         ) // Object.values(packToArt).every
@@ -134,12 +134,12 @@ function isModuleArt(record) {
 
 /**
  * Helper function to determine if the supplied variable is an object.
- * 
+ *
  * @param {mixed} obj Object to test.
  * @returns {boolean}
  */
 function isObject(obj) {
-  return typeof obj == 'object' && !Array.isArray(obj);
+  return typeof obj == "object" && !Array.isArray(obj);
 }
 
 export { registerModuleArt };

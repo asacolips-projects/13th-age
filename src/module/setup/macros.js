@@ -1,13 +1,18 @@
 export class ArchmageMacros {
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Races.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Halo.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async aasimarHalo(speaker, actor, token, character, archmage) {
     const label = archmage.item.name;
@@ -18,29 +23,37 @@ export class ArchmageMacros {
     ];
 
     // Check for previous effects
-    const aes = actor.effects.filter(e => e.label == label);
+    const aes = actor.effects.filter((e) => e.label == label);
     if (aes.length > 0) {
       archmage.suppressMessage = true;
       let effectsToDelete = [];
-      aes.forEach(e => {effectsToDelete.push(e.id)});
-      await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
+      aes.forEach((e) => {
+effectsToDelete.push(e.id);
+});
+      await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
       // ui.notifications.info("Halo removed");
-    } else {
-      const effectData = {label: label, changes: effects, icon: archmage.item.img};
+    }
+ else {
+      const effectData = { label: label, changes: effects, icon: archmage.item.img };
       game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
       actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
       // ui.notifications.info("Halo applied");
     }
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Barbarian Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Whirlwind.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async barbarianWhirlwind(speaker, actor, token, character, archmage) {
     if (!actor) return;
@@ -48,8 +61,8 @@ export class ArchmageMacros {
     let penalty = -4;
 
     // Reduce the penalty if we have the (1e) champion feat
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value
-      && !game.settings.get('archmage', 'secondEdition')) {
+    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value
+      && !game.settings.get("archmage", "secondEdition")) {
       penalty = -2;
     }
 
@@ -60,19 +73,24 @@ export class ArchmageMacros {
         { key: "data.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
         { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
       ]
-    }
+    };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Cleric Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Hammer of Faith (1e).
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async clericHammerOfFaith(speaker, actor, token, character, archmage) {
     const bonus = actor.isMulticlass() ? "d10" : "d12";
@@ -81,7 +99,7 @@ export class ArchmageMacros {
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.weapon.melee.dice",
-        value: bonus ,
+        value: bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE
       }]
     };
@@ -89,33 +107,43 @@ export class ArchmageMacros {
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Commander Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Outmaneuver.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async commanderOutmaneuver(speaker, actor, token, character, archmage) {
-    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value;
+    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value;
     const isEven = (archmage.hitEval.$rolls[0].d20result % 2 == 0);
     const bonus = (hasFeat && isEven) ? 2 : 1;
     const cp = actor?.system.resources.perCombat.commandPoints.current;
     if (archmage.hitEval.hasHit) {
-      await actor.update({'system.resources.perCombat.commandPoints.current': cp + bonus});
+      await actor.update({ "system.resources.perCombat.commandPoints.current": cp + bonus });
     }
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Fighter Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Carve an Opening.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async fighterCarveAnOpening(speaker, actor, token, character, archmage) {
     if (!actor) return;
@@ -123,51 +151,56 @@ export class ArchmageMacros {
     const label = archmage.item.name;
 
     // Compute bonus amount
-    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value;
+    const hasFeat = game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value;
     const bonus = hasFeat ? 2 : 1;
 
     // Check for previous effects
     let prev = 0;
     let effectsToDelete = [];
-    const aes = actor.effects.filter(e => e.label == label);
-    aes.forEach(e => {
+    const aes = actor.effects.filter((e) => e.label == label);
+    aes.forEach((e) => {
       effectsToDelete.push(e.id);
       if (e.disabled) return;
-      e.changes.forEach(c => {
-        if (c.key == 'system.attributes.critMod.atk.value') prev = Math.max(prev, Number(c.value));
+      e.changes.forEach((c) => {
+        if (c.key == "system.attributes.critMod.atk.value") prev = Math.max(prev, Number(c.value));
       });
     });
-    await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete)
+    await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
 
     // Make new effect
     let effectData = {
       label: label,
       icon: archmage.item.img,
       changes: [
-        { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
-      ]};
+        { key: "system.attributes.critMod.atk.value", value: bonus + prev, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+      ] };
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
   /**
    * Defensive Fighting.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async fighterDefensiveFighting(speaker, actor, token, character, archmage) {
     if (!actor) return;
 
     let bonus = 2;
     // If the champion feat in active increase the bonus
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value) bonus = 3;
+    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, "champion")[0].isActive.value) bonus = 3;
     let effects = [
       { key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
     ];
     // If the adventurer feat in active apply to PD
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'adventurer')[0].isActive.value) {
+    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, "adventurer")[0].isActive.value) {
       effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
     // If the epic feat in active apply to MD
-    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'epic')[0].isActive.value) {
+    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, "epic")[0].isActive.value) {
       effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
 
@@ -177,14 +210,19 @@ export class ArchmageMacros {
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
   /**
    * Wizard Macros.
    */
-  ////////////////////////////////////////////////
+  // //////////////////////////////////////////////
 
   /**
    * Light cantrip.
+   * @param speaker
+   * @param actor
+   * @param token
+   * @param character
+   * @param archmage
    */
   static async wizardLight(speaker, actor, token, character, archmage) {
     if (!token) return;
@@ -203,22 +241,23 @@ export class ArchmageMacros {
         speed: 2,
         intensity: 2,
         reverse: false,
-        type: "torch",
+        type: "torch"
       },
       darkness: {
         min: 0,
-        max: 1,
-      },
+        max: 1
+      }
     };
     if (token.data.light.bright != 0) {
       conf.bright = 0;
       conf.dim = 0;
-      await token.document.update({light: conf});
+      await token.document.update({ light: conf });
       archmage.suppressMessage = true;
-    } else {
+    }
+ else {
       conf.bright = radiusBright;
       conf.dim = radiusDim;
-      await token.document.update({light: conf});
+      await token.document.update({ light: conf });
     }
 
   }

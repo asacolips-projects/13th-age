@@ -13,7 +13,7 @@ export class DamageApplicator {
   asDamage(roll, modifier) {
     let toApply = this.getRollValue(roll);
 
-    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
+    if (game.settings.get("archmage", "roundUpDamageApplication")) {
       toApply = Math.ceil(toApply * modifier);
     }
     else {
@@ -25,7 +25,7 @@ export class DamageApplicator {
       ui.notifications.warn(game.i18n.localize("ARCHMAGE.UI.noToken"));
       return;
     }
-    selected.forEach(token => {
+    selected.forEach((token) => {
       let actorData = foundry.utils.duplicate(token.actor);
       actorData.system.attributes.hp.value -= toApply;
       token.actor.update(actorData);
@@ -36,7 +36,7 @@ export class DamageApplicator {
   asHealing(roll, modifier) {
     let toApply = this.getRollValue(roll);
 
-    if (game.settings.get('archmage', 'roundUpDamageApplication')) {
+    if (game.settings.get("archmage", "roundUpDamageApplication")) {
       toApply = Math.ceil(toApply * modifier);
     }
     else {
@@ -44,7 +44,7 @@ export class DamageApplicator {
     }
 
     let selected = canvas.tokens.controlled;
-    selected.forEach(token => {
+    selected.forEach((token) => {
       let actorData = foundry.utils.duplicate(token.actor);
       actorData.system.attributes.hp.value = Math.max(0, actorData.system.attributes.hp.value) + toApply;
       token.actor.update(actorData);
@@ -54,9 +54,9 @@ export class DamageApplicator {
   asTempHealth(roll) {
     let toApply = this.getRollValue(roll);
     let selected = canvas.tokens.controlled;
-    selected.forEach(token => {
+    selected.forEach((token) => {
       let actorData = foundry.utils.duplicate(token.actor);
-      let hp = actorData.system.attributes["hp"];
+      let hp = actorData.system.attributes.hp;
       if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
       hp.temp = Math.max(hp.temp, toApply);
       token.actor.update(actorData);

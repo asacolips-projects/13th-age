@@ -1,8 +1,14 @@
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function combatTurn(combat, context, options) {
     console.log("Combat Turn", combat.combatant.name, combat, context, options);
 
     // Exit early if the feature is disabled.
-    if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
+    if (!game.settings.get("archmage", "enableOngoingEffectsMessages")) return;
 
     // If the direction is negative, ignore the turn
     if (options.direction < 0) return;
@@ -13,18 +19,25 @@ export async function combatTurn(combat, context, options) {
     await handleTurnEffects("Start", combat, startCombatant, context, options);
 }
 
+/**
+ *
+ * @param prefix
+ * @param combat
+ * @param combatant
+ * @param context
+ * @param options
+ */
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
 
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
     console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant, combat);
 
-    console.log('Combatants', {
+    console.log("Combatants", {
         combatant: combatant._id,
         current: combat.current.combatantId,
         prev: combat.previous.combatantId,
-        next: combat.nextCombatant._id,
+        next: combat.nextCombatant._id
     });
-
 
     const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
@@ -32,7 +45,7 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         savesEnds: [],
         selfTriggered: [],
         otherEnded: [],
-        unknown: [],
+        unknown: []
     };
     let effectsToDelete = [];
 
@@ -43,14 +56,17 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
             console.log(`${prefix}OfNextTurn effect found`, effect);
             currentCombatantEffectData.selfEnded.push(effect);
             effectsToDelete.push(effect.id);
-        } else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
+        }
+ else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
             // console.log("SaveEnds effect found", effect, combatant);
             const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
             effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
-        } else if (duration === `${prefix}OfEachTurn`) {
+        }
+ else if (duration === `${prefix}OfEachTurn`) {
             currentCombatantEffectData.selfTriggered.push(effect);
-        } else if (duration === "Unknown") {
+        }
+ else if (duration === "Unknown") {
             currentCombatantEffectData.unknown.push(effect);
         }
     }
@@ -77,13 +93,25 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     await renderOngoingEffectsCard(`${prefix} of Turn Effects`, combatant, currentCombatantEffectData);
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function combatRound(combat, context, options) {
     await combatTurn(combat, context, options);
 }
 
+/**
+ *
+ * @param combat
+ * @param context
+ * @param options
+ */
 export async function preDeleteCombat(combat, context, options) {
     // Exit early if the feature is disabled.
-    if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
+    if (!game.settings.get("archmage", "enableOngoingEffectsMessages")) return;
 
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
 
@@ -98,7 +126,7 @@ export async function preDeleteCombat(combat, context, options) {
                 savesEnds: [],
                 selfTriggered: [],
                 otherEnded: [],
-                unknown: [],
+                unknown: []
             };
 
             for (const effect of combatant.actor.effects) {
@@ -126,7 +154,8 @@ export async function preDeleteCombat(combat, context, options) {
             // Render card
             await renderOngoingEffectsCard("End of Battle Effects", combatant, currentCombatantEffectData);
 
-        } else {
+        }
+ else {
             // Probably random monster, just delete silently
             for (const effect of combatant.actor.effects) {
                 // If duration is "Infinite", skip
@@ -143,13 +172,19 @@ export async function preDeleteCombat(combat, context, options) {
 
 /* -------------------------------------------- */
 
+/**
+ *
+ * @param saveEnds
+ */
 function saveEndsNameToTarget(saveEnds) {
     let target = 11;
     if (saveEnds === "EasySaveEnds") {
         target = 6;
-    } else if (saveEnds === "NormalSaveEnds") {
+    }
+ else if (saveEnds === "NormalSaveEnds") {
         target = 11;
-    } else if (saveEnds === "HardSaveEnds") {
+    }
+ else if (saveEnds === "HardSaveEnds") {
         target = 16;
     }
     return target;
@@ -157,6 +192,12 @@ function saveEndsNameToTarget(saveEnds) {
 
 /* -------------------------------------------- */
 
+/**
+ *
+ * @param title
+ * @param combatant
+ * @param effectData
+ */
 async function renderOngoingEffectsCard(title, combatant, effectData) {
     // If no effects, return
     if (effectData.selfEnded.length === 0
@@ -178,7 +219,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         otherEnded: effectData.otherEnded,
         hasOtherEnded: effectData.otherEnded.length > 0,
         unknown: effectData.unknown,
-        hasUnknown: effectData.unknown.length > 0,
+        hasUnknown: effectData.unknown.length > 0
     };
     // console.log("Render Data", renderData);
     const html = await renderTemplate(template, renderData);
@@ -186,7 +227,7 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
     // Create a chat card
     const chatData = {
         user: game.user.id,
-        speaker: ChatMessage.getSpeaker({actor: combatant.actor}),
+        speaker: ChatMessage.getSpeaker({ actor: combatant.actor }),
         content: html
     };
     ChatMessage.create(chatData, {});
