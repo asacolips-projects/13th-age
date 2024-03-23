@@ -43,7 +43,7 @@ jobs:
   ### Lint for Warnings ###############################################
   #####################################################################
   lint_warnings:
-    name: Lint Errors
+    name: Lint Warnings
     runs-on: ubuntu-latest
     container:
       image: node:20
