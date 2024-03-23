@@ -39,15 +39,14 @@ export default class preCreateChatMessageHandler {
 
         for (const row of $rows) {
             // console.log(row.innerHTML);
-            const regex = /<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>(\d+)<\/a> ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
+            const regex = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
             let ongoingEffect = regex.exec(row.innerHTML);
             if (ongoingEffect) {
-                console.dir(ongoingEffect);
-                let damageValue = ongoingEffect[1];
-                let damageType = ongoingEffect[2];
+                let damageValue = ongoingEffect[2];
+                let damageType = ongoingEffect[4];
                 if ( damageType ) damageType += " ";
-                let savesEndsText = ongoingEffect[3];
-                let saveEndsValue = ongoingEffect[4];
+                let savesEndsText = ongoingEffect[5];
+                let saveEndsValue = ongoingEffect[6];
                 let saveEndsConfigValue = "NormalSaveEnds";
                 if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
                 else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
