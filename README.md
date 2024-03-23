@@ -1,3 +1,5 @@
+![Foundry v11](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12](https://img.shields.io/badge/Foundry-v12-yellow)
+
 # Description
 
 Create characters in this FoundryVTT character sheet that is compatible with the _13th Age Roleplaying Game_. It has full support for players to easily create characters and GMs to easily create monsters, including both compendiums and easy to use rolls in power cards and monster actions. Compendium entries are based on the Open Game License (OGL) content for the _13th Age Roleplaying Game_, and conversion of them to FoundryVTT compendiums is still in progress for some classes. Rules unrelated to classes or monsters are not provided in this system, which means that the _13th Age Roleplaying Game_ is required to play it.
@@ -5,10 +7,7 @@ Create characters in this FoundryVTT character sheet that is compatible with the
 # Install
 
 1. Go to the setup page and choose Game Systems.
-2. Click the Install System button, and either search for Toolkit13 or paste in this manifest link:
-```
-https://gitlab.com/asacolips-projects/foundry-mods/archmage/raw/master/system.json
-```
+2. Click the Install System button and search for the `13th Age` system.
 3. Create a game world using the new sytem.
 
 # Inline Rolls
@@ -17,7 +16,7 @@ All powers and monster actions require usage of inline dice rolls, such as `[[d2
 
 # Contributing
 
-Contributions are accepted and encouraged! To contribute to the project, fork this repository and then submit your changes as a pull request against the `master` branch.
+Contributions are accepted and encouraged! To contribute to the project, fork this repository and then submit your changes as a pull request against the `main` branch.
 
 ## Building locally
 
