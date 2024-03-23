@@ -9,6 +9,7 @@
 /archmage/
 /archmage.zip
 .vscode/*
+.idea
 dist/vue-components.min.js
 foundry.js
 jsconfig.json
