@@ -35,7 +35,8 @@ jobs:
       uses: actions/cache@v4
       with:
         path: node_modules/
-        key: default
+        key: node-${{ hashFiles('package-lock.json') }}
+        restore-keys: node-
 
     - name: Lint for errors
       run: npm run lint:errors
@@ -62,7 +63,8 @@ jobs:
       uses: actions/cache@v4
       with:
         path: node_modules/
-        key: default
+        key: node-${{ hashFiles('package-lock.json') }}
+        restore-keys: node-
 
     - name: Lint for errors
       run: npm run lint:warnings
