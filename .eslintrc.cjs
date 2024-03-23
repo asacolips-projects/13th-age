@@ -30,6 +30,8 @@ module.exports = {
     "no-inner-declarations": "off",
     "no-var": "off",
     eqeqeq: ["off", "smart"],
+    indent: "off",
+    // indent: ["warn", "tab", { SwitchCase: 1 }],
     // Rules.
     "array-bracket-spacing": ["warn", "never"],
     "array-callback-return": "warn",
@@ -44,7 +46,6 @@ module.exports = {
     "func-call-spacing": "warn",
     "func-names": ["warn", "never"],
     "getter-return": "warn",
-    indent: ["warn", 2, { SwitchCase: 1 }],
     "lines-between-class-members": "warn",
     "new-parens": ["warn", "always"],
     "newline-per-chained-call": "warn",
