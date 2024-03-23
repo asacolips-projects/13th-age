@@ -1,7 +1,25 @@
+# 1.29.1
+
+## Release Notes
+https://github.com/asacolips-projects/13th-age/releases/tag/1.29.1
+
+![Foundry v11.315](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12](https://img.shields.io/badge/Foundry-v12-yellow)
+
+## Summary
+
+### Changes
+
+- Migrated to GitHub
+
+### Fixes
+
+- Fixed a bug with settings groups
+- Fixed a bug with ongoing damage parsing
+
 # 1.29.0
 
 ## Release Notes
-https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.29.0
+https://github.com/asacolips-projects/13th-age/releases/tag/1.29.0
 
 ![Foundry v11.315](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12](https://img.shields.io/badge/Foundry-v12-yellow)
 
@@ -23,7 +41,7 @@ https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.29.0
 # 1.28.0
 
 ## Release Notes
-https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/releases/1.28.0
+https://github.com/asacolips-projects/13th-age/releases/tag/1.28.0
 
 ![Foundry v11.315](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12](https://img.shields.io/badge/Foundry-v12-yellow)
 
