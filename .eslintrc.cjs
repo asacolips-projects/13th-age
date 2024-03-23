@@ -14,7 +14,12 @@ module.exports = {
 		jquery: true
 	},
 
-	extends: ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js/0.8.0"],
+	extends: [
+		"eslint:recommended",
+		"plugin:vue/vue3-essential",
+		"plugin:prettier-vue/recommended",
+		"@typhonjs-fvtt/eslint-config-foundry.js/0.8.0"
+	],
 
 	plugins: [
 		"@stylistic/js",
@@ -225,7 +230,20 @@ module.exports = {
 		"jsdoc/require-throws": "off",
 		"jsdoc/require-yields": "warn",
 		"jsdoc/require-yields-check": "warn",
-		"jsdoc/valid-types": "off"
+		"jsdoc/valid-types": "off",
+
+		// Vue rules.
+		"vue/html-indent": ["error", "tab", {
+			alignAttributesVertically: false
+		}],
+
+		// Prettier rules.
+		"prettier-vue/prettier": [
+			"warn",
+			{
+				useTabs: true
+			}
+		]
 	},
 
 	globals: {
@@ -248,6 +266,11 @@ module.exports = {
 			env: {
 				node: true
 			}
+		},
+		// Vue parser rules.
+		{
+			files: ["*.vue"],
+			parser: "vue-eslint-parser",
 		}
 	],
 
@@ -261,6 +284,14 @@ module.exports = {
 			tagNamePreference: {
 				augments: "extends"
 			}
+		},
+		'prettier-vue': {
+			SFCBlocks: {
+				template: false,
+				script: false,
+				style: true
+			},
+			usePrettierrc: true
 		}
 	}
 };
