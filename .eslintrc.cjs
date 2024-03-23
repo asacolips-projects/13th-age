@@ -24,8 +24,6 @@ module.exports = {
   ignorePatterns: ["foundry", "gulpfile.mjs", "update-build-tags.js"],
 
   rules: {
-    // Disabled due to issues with GitHub actions.
-    "eol-last": "off", //["error", "always"],
     // Temporarily disabled rules. These would require potentially
     // significant refactors and need testing first.
     "no-case-declarations": "off",
@@ -44,6 +42,7 @@ module.exports = {
     "constructor-super": "error",
     "default-param-last": "warn",
     "dot-location": ["warn", "property"],
+    "eol-last": ["error", "always"],
     "func-call-spacing": "warn",
     "func-names": ["warn", "never"],
     "getter-return": "warn",
