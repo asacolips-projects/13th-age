@@ -1,132 +1,142 @@
 export class EffectArchmageSheet extends ActiveEffectConfig {
 
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["sheet", "active-effect-sheet", "archmage", "item", "item-sheet"],
-      template: "systems/archmage/templates/active-effects/effect.html",
-      width: 560,
-      height: 550,
-      tabs: [{navSelector: ".tabs", contentSelector: "form", initial: "effects"}],
-      submitOnClose: true,
-      submitOnChange: false
-    });
-  }
+	/** @override */
+	static get defaultOptions() {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			classes: ["sheet", "active-effect-sheet", "archmage", "item", "item-sheet"],
+			template: "systems/archmage/templates/active-effects/effect.html",
+			width: 560,
+			height: 550,
+			tabs: [{ navSelector: ".tabs", contentSelector: "form", initial: "effects" }],
+			submitOnClose: true,
+			submitOnChange: false
+		});
+	}
 
-  /* -------------------------------------------- */
+	/* -------------------------------------------- */
 
-  async getData(options) {
-    const context = await super.getData(options);
+	async getData(options) {
+		const context = await super.getData(options);
 
-    function setValue(obj,access,value){
-      if (typeof(access)=='string'){
-        access = access.split('.');
-      }
-      if (access.length > 1){
-        const key = access.shift();
-        if ( !obj[key] ) obj[key] = {};
-        setValue(obj[key],access,value);
-      }
-      else{
-        obj[access[0]] = value;
-      }
-    }
+		/**
+		 *
+		 * @param obj
+		 * @param access
+		 * @param value
+		 */
+		function setValue(obj, access, value) {
+			if (typeof (access)=="string") {
+				access = access.split(".");
+			}
+			if (access.length > 1) {
+				const key = access.shift();
+				if (!obj[key]) obj[key] = {};
+				setValue(obj[key], access, value);
+			}
+			else {
+				obj[access[0]] = value;
+			}
+		}
 
-    for ( const change of context.effect.changes ) {
-      if ( change.key === "system.attributes.escalation.value" ) continue;
-      setValue(context, change.key, change.value);
-    }
+		for (const change of context.effect.changes) {
+			if (change.key === "system.attributes.escalation.value") continue;
+			setValue(context, change.key, change.value);
+		}
 
-    const edChange = context.effect.changes.find(x => x.key === "system.attributes.escalation.value");
-    //effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
+		const edChange = context.effect.changes.find((x) => x.key === "system.attributes.escalation.value");
+		// effect.system.blockedFromEscalationDie = edChange ? edChange.value === "0" : false;
 
-    context.supportsDescription = game.release.generation >= 11;
-    context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
-    context.isNpc = this.object.parent.type === "npc";
+		context.supportsDescription = game.release.generation >= 11;
+		context.durationOptions = CONFIG.ARCHMAGE.effectDurationTypes;
+		context.isNpc = this.object.parent.type === "npc";
 
-    // Get data from flag
-    context.duration = context.effect.flags.archmage?.duration || "Unknown";
-    context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
-    context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
+		// Get data from flag
+		context.duration = context.effect.flags.archmage?.duration || "Unknown";
+		context.ongoingDamage = context.effect.flags.archmage?.ongoingDamage || 0;
+		context.ongoingDamageType = context.effect.flags.archmage?.ongoingDamageType || "";
 
-    return context;
-  }
+		return context;
+	}
 
-  /* -------------------------------------------- */
+	/* -------------------------------------------- */
 
-  async _updateObject(event, formData) {
-    let ae = foundry.utils.duplicate(this.object);
-    ae.name = formData.name;
-    ae.icon = formData.icon;
-    ae.description = formData.description;
-    ae.origin = formData.origin;
+	async _updateObject(event, formData) {
+		let ae = foundry.utils.duplicate(this.object);
+		ae.name = formData.name;
+		ae.icon = formData.icon;
+		ae.description = formData.description;
+		ae.origin = formData.origin;
 
-    // Duration and ongoing damage goes on a flag
-    ae.flags.archmage = {
-      duration: formData.duration,
-      ongoingDamage: formData.ongoingDamage,
-      ongoingDamageType: formData.ongoingDamageType
-    };
+		// Duration and ongoing damage goes on a flag
+		ae.flags.archmage = {
+			duration: formData.duration,
+			ongoingDamage: formData.ongoingDamage,
+			ongoingDamageType: formData.ongoingDamageType
+		};
 
-    // Retrieve the existing effects.
-    const effectData = await this.getData();
-    let changes = effectData?.data?.changes ? effectData.data.changes : [];
+		// Retrieve the existing effects.
+		const effectData = await this.getData();
+		let changes = effectData?.data?.changes ? effectData.data.changes : [];
 
-    // Build an array of effects from the form data
-    let newChanges = [];
+		// Build an array of effects from the form data
+		let newChanges = [];
 
-    function addChange(key) {
-      const value = foundry.utils.getProperty(formData, key);
-      if ( !value ) return;
-      newChanges.push({
-        key: key,
-        value: value,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      });
-    }
+		/**
+		 *
+		 * @param key
+		 */
+		function addChange(key) {
+			const value = foundry.utils.getProperty(formData, key);
+			if (!value) return;
+			newChanges.push({
+				key: key,
+				value: value,
+				mode: CONST.ACTIVE_EFFECT_MODES.ADD
+			});
+		}
 
-    // Attacks
-    addChange("system.attributes.attackMod.value");
-    addChange("system.attributes.attack.melee.bonus");
-    addChange("system.attributes.attack.ranged.bonus");
-    addChange("system.attributes.attack.divine.bonus");
-    addChange("system.attributes.attack.arcane.bonus");
-    addChange("system.attributes.critMod.atk.value");
+		// Attacks
+		addChange("system.attributes.attackMod.value");
+		addChange("system.attributes.attack.melee.bonus");
+		addChange("system.attributes.attack.ranged.bonus");
+		addChange("system.attributes.attack.divine.bonus");
+		addChange("system.attributes.attack.arcane.bonus");
+		addChange("system.attributes.critMod.atk.value");
 
-    // Defenses
-    addChange("system.attributes.ac.value");
-    addChange("system.attributes.md.value");
-    addChange("system.attributes.pd.value");
-    addChange("system.attributes.hp.max");
-    addChange("system.attributes.recoveries.value");
-    addChange("system.attributes.saves.bonus");
-    addChange("system.attributes.disengage");
-    addChange("system.attributes.critMod.def.value");
+		// Defenses
+		addChange("system.attributes.ac.value");
+		addChange("system.attributes.md.value");
+		addChange("system.attributes.pd.value");
+		addChange("system.attributes.hp.max");
+		addChange("system.attributes.recoveries.value");
+		addChange("system.attributes.saves.bonus");
+		addChange("system.attributes.disengage");
+		addChange("system.attributes.critMod.def.value");
 
-    // Update the existing changes to replace duplicates.
-    for (let i = 0; i < changes.length; i++) {
-      const newChange = newChanges.find(c => c.key == changes[i].key);
-      if (newChange) {
-        // Replace with the new change and update the array to prevent duplicates.
-        changes[i] = newChange;
-        newChanges = newChanges.filter(c => c.key != changes[i].key);
-      }
-    }
+		// Update the existing changes to replace duplicates.
+		for (let i = 0; i < changes.length; i++) {
+			const newChange = newChanges.find((c) => c.key == changes[i].key);
+			if (newChange) {
+				// Replace with the new change and update the array to prevent duplicates.
+				changes[i] = newChange;
+				newChanges = newChanges.filter((c) => c.key != changes[i].key);
+			}
+		}
 
-    // Apply the combined effect changes.
-    ae.changes = changes.concat(newChanges);
+		// Apply the combined effect changes.
+		ae.changes = changes.concat(newChanges);
 
-    if ( formData.system.blockedFromEscalationDie ) {
-      ae.changes.push({
-        key: 'system.attributes.escalation.value',
-        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-        value: '0'
-      });
-    }
+		if (formData.system.blockedFromEscalationDie) {
+			ae.changes.push({
+				key: "system.attributes.escalation.value",
+				mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+				value: "0"
+			});
+		}
 
-    // Filter changes for empty form fields.
-    ae.changes = ae.changes.filter(c => c.value !== null);
+		// Filter changes for empty form fields.
+		ae.changes = ae.changes.filter((c) => c.value !== null);
 
-    return this.object.update(ae);
-  }
+		return this.object.update(ae);
+	}
 }

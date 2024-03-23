@@ -1,30 +1,30 @@
 import ITrigger from "./ITrigger.mjs";
 
-export default class NaturalMatchTrigger extends ITrigger{
-    isActive(triggerText, rollResult, hitEvaluationResults) {
-        let active = undefined;
+export default class NaturalMatchTrigger extends ITrigger {
+	isActive(triggerText, rollResult, hitEvaluationResults) {
+		let active = undefined;
 
-        // This regex just finds any numbers in the string, and we use the first one
-        var regex = new RegExp("\\d+");
-        var scoreToBeatArray = regex.exec(triggerText);
-        if (scoreToBeatArray && scoreToBeatArray.length == 1) {
-            var scoreToBeat = parseInt(scoreToBeatArray[0]);
-            if (rollResult >= scoreToBeat) {
-                active = true;
-            }
-            else {
-                active = false;
-            }
-        }
+		// This regex just finds any numbers in the string, and we use the first one
+		var regex = new RegExp("\\d+");
+		var scoreToBeatArray = regex.exec(triggerText);
+		if (scoreToBeatArray && scoreToBeatArray.length == 1) {
+			var scoreToBeat = parseInt(scoreToBeatArray[0]);
+			if (rollResult >= scoreToBeat) {
+				active = true;
+			}
+			else {
+				active = false;
+			}
+		}
 
-        return active;
-    }
+		return active;
+	}
 
-    triggersOn() {
-        return [ "+" ];
-    }
+	triggersOn() {
+		return ["+"];
+	}
 
-    doesntTriggerOn() {
-        return [ game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() ];
-    }
+	doesntTriggerOn() {
+		return [game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase(), game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase()];
+	}
 }
