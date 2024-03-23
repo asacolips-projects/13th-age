@@ -1,0 +1,16 @@
+name: PR Checks
+on:
+  # pull_request_target:
+  pull_request:
+
+concurrency:
+  group: "${{ github.ref }}"
+  cancel-in-progress: true
+jobs:
+
+  #####################################################################
+  ### Build Job #######################################################
+  #####################################################################
+  build:
+    if: github.repository_owner == 'asacolips-projects'
+    uses: ./.github/workflows/shared-build.yml

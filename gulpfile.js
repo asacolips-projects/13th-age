@@ -65,7 +65,7 @@ function extractPacks() {
   // Start a stream for all db files in the packs dir.
   const packs = gulp.src(`${PACK_DEST}/*`)
     .pipe(shell([
-      'fvtt package unpack <%= file.stem %> -c --yaml --out src/packs/src/<%= file.stem %>'
+      'fvtt package --id archmage --type System unpack <%= file.stem %> -c --yaml --in dist/packs --out src/packs/src/<%= file.stem %>'
     ]));
 
   // Call the streams.
