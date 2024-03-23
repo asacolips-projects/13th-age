@@ -38,31 +38,30 @@ export default class preCreateChatMessageHandler {
         // If there are ongoing effects, we need to find the ongoing effect and replace it with a link to the ongoing effect, pulling the value form the roll
 
         for (const row of $rows) {
-            // console.log(row.innerHTML);
-            const regex = /<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>(\d+)<\/a> ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
-            let ongoingEffect = regex.exec(row.innerHTML);
-            if (ongoingEffect) {
-                console.dir(ongoingEffect);
-                let damageValue = ongoingEffect[1];
-                let damageType = ongoingEffect[2];
-                if ( damageType ) damageType += " ";
-                let savesEndsText = ongoingEffect[3];
-                let saveEndsValue = ongoingEffect[4];
-                let saveEndsConfigValue = "NormalSaveEnds";
-                if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
-                else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
-                let source = uuid;
-                let message = `${damageValue} ongoing ${damageType}damage`;
-                let name = options.item.name;
-                // Replace any R: at the start of the name
-                name = name.replace(/^R: /, "");
-                let tooltip = message;
-                if ( savesEndsText ) tooltip += " " + savesEndsText;
-                let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
-                    data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
-                     data-tooltip="${tooltip}" data-source="${source}" data-name="${name}">
-                    <i class="fas fa-flask-round-poison"></i> ${message}</a>`;
-                row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
+            const regex = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
+            const ongoingEffects = row.innerHTML.matchAll(regex);
+            if (ongoingEffects) {
+                ongoingEffects.forEach((ongoingEffect) => {
+                    let damageValue = ongoingEffect[2];
+                    let damageType = ongoingEffect[4];
+                    if ( damageType ) damageType += " ";
+                    let savesEndsText = ongoingEffect[5];
+                    let saveEndsValue = ongoingEffect[6];
+                    let saveEndsConfigValue = "NormalSaveEnds";
+                    if ( saveEndsValue === "easy" ) saveEndsConfigValue = "EasySaveEnds";
+                    else if ( saveEndsValue === "hard" ) saveEndsConfigValue = "HardSaveEnds";
+                    let source = uuid;
+                    let message = `${damageValue} ongoing ${damageType}damage`;
+                    let name = options.item.name;
+                    // Replace any R: at the start of the name
+                    name = name.replace(/^R: /, "");
+                    let tooltip = message;
+                    if ( savesEndsText ) tooltip += " " + savesEndsText;
+                    let ongoingEffectLink = `<a class="effect-link" draggable="true" data-type="ongoing-damage" data-id="ongoing" title=""
+                        data-value="${damageValue}" data-damage-type="${damageType}" data-ends="${saveEndsConfigValue}"
+                        data-tooltip="${tooltip}" data-source="${source}" data-name="${name}"><i class="fas fa-flask-round-poison"></i> ${message}</a>`;
+                    row.innerHTML = row.innerHTML.replace(ongoingEffect[0], ongoingEffectLink);
+                });
             }
         }
     }
