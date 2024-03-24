@@ -39,8 +39,8 @@ export default class preCreateChatMessageHandler {
 
         for (const row of $rows) {
             const regex = /(<a (?:(?!<a ).)*?><i class="fas fa-dice-d20"><\/i>)*(\d+)(<\/a>)* ongoing ([a-zA-Z]*) ?damage( \((\w*) save ends, \d*\+\))?/g;
-            const ongoingEffects = row.innerHTML.matchAll(regex);
-            if (ongoingEffects) {
+            const ongoingEffects = Array.from(row.innerHTML.matchAll(regex));
+            if (ongoingEffects.length > 0) {
                 ongoingEffects.forEach((ongoingEffect) => {
                     let damageValue = ongoingEffect[2];
                     let damageType = ongoingEffect[4];
