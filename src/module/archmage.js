@@ -1315,8 +1315,8 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
 
   // Gray out and disable the effect buttons if the effect has already been applied, saved, or removed
   html.find(".effect-control").each((i, el) => {
-    if (!chatMessage.data?.flags?.archmage) return;
-    const flags = chatMessage.data.flags.archmage;
+    if (!chatMessage?.flags?.archmage) return;
+    const flags = chatMessage.flags.archmage;
     const parent = el.closest('.effect');
     const effectId = parent.dataset.effectId;
 

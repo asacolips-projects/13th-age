@@ -19,7 +19,8 @@ export class ItemArchmage extends Item {
     }
 
     if (this.type == 'loot' || this.type == 'tool') {
-      let model = game.system.model.Item[this.type];
+      // @todo update when v11 is dropped.
+      let model = (game?.system?.model || game?.data?.model).Item[this.type];
       if (!this.system.quantity) this.system.quantity = model.quantity;
     }
   }
@@ -555,7 +556,7 @@ export class ItemArchmage extends Item {
     let effectsToDelete = [];
     let alreadyHasBetterBonus = false;
     effects.forEach(e => {
-      if (e.data.label == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
+      if (e.name == game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel")) {
         if (Number(e.data.changes[0].value) <= bonusMagnitude) {
           effectsToDelete.push(e.id);
         }
@@ -568,8 +569,8 @@ export class ItemArchmage extends Item {
 
     // Now create new AC bonus effect
     let effectData = {
-      label: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
-      icon: "icons/svg/shield.svg",
+      name: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
+      img: "icons/svg/shield.svg",
       changes: [{
         key: "data.attributes.ac.value",
         value: bonusMagnitude,
@@ -590,12 +591,12 @@ export class ItemArchmage extends Item {
     // Check if we already have the effect
     let alreadyHasEffect = false;
     itemToRender.actor.effects.forEach(e => {
-      if (e.data.label == name) alreadyHasEffect = true;
+      if (e.name == name) alreadyHasEffect = true;
     });
     if (!alreadyHasEffect) {
       let effectData = {
-        label: name,
-        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
+        name: name,
+        img: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
         flags: {
           archmage: {
             tooltip: name
@@ -615,12 +616,12 @@ export class ItemArchmage extends Item {
     // Check if we already have the effect
     let alreadyHasEffect = false;
     itemToRender.actor.effects.forEach(e => {
-      if (e.data.label == name) alreadyHasEffect = true;
+      if (e.name == name) alreadyHasEffect = true;
     });
     if (!alreadyHasEffect) {
       let effectData = {
-        label: name,
-        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound-off.svg",
+        name: name,
+        img: itemToRender.img ? itemToRender.img : "icons/svg/sound-off.svg",
         flags: {
           archmage: {
             tooltip: name

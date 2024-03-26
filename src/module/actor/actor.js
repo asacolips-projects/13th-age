@@ -107,7 +107,8 @@ export class ActorArchmage extends Actor {
     const flags = actorData.flags;
 
     // Initialize the model for data calculations.
-    let model = game.system.model.Actor[actorData.type];
+    // @todo update when v11 is dropped.
+    let model = (game?.system?.model || game?.data?.model).Actor[actorData.type];
 
     // Level, experience, and proficiency
     data.attributes.level.value = parseInt(data.attributes.level.value);
@@ -579,7 +580,7 @@ export class ActorArchmage extends Actor {
     const data = foundry.utils.deepClone(origData);
 
     // Prepare a copy of the weapon model for old chat messages with undefined weapon attacks.
-    const model = game.system.model.Actor.character.attributes.weapon;
+    const model = (game?.system?.model || game?.data?.model).Actor.character.attributes.weapon;
 
     // Re-map all attributes onto the base roll data
     let newData = foundry.utils.mergeObject(data.attributes, data.abilities);
