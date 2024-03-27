@@ -28,7 +28,7 @@ export class ArchmageUtility {
     if (!chatData.flags.core) {
       chatData.flags.core = {};
     }
-    if (!chatData.flags.core.hasOwnProperty("canPopout")) {
+    if (!foundry.utils.hasProperty(chatData.flags.core, "canPopout")) {
       chatData.flags.core.canPopout = true;
     }
 
@@ -36,7 +36,7 @@ export class ArchmageUtility {
       context = {};
     }
 
-    if (!context.hasOwnProperty("rollMode")) {
+    if (!foundry.utils.hasProperty(context, "rollMode")) {
       // Default roll mode set via chat box.
       context.rollMode = game.settings.get("core", "rollMode");
     }
