@@ -962,12 +962,6 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
         default: true
       });
     });
-
-});
-
-
-Hooks.on('renderCompendium', (app, html, data) => {
-  renderCompendium.handle(app, html, data);
 });
 
 /* ---------------------------------------------- */

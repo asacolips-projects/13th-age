@@ -636,16 +636,16 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       // Card support
       if (game.decks) {
 
-        for (var x = 0; x < fives; x++) {
+        for (let x = 0; x < fives; x++) {
           await addIconCard(icon.name.value, 5);
         }
-        for (var x = 0; x < sixes; x++) {
+        for (let x = 0; x < sixes; x++) {
           await addIconCard(icon.name.value, 6);
         }
 
         async function addIconCard(icon, value) {
           let decks = game.decks.decks;
-          for (var deckId in decks) {
+          for (let deckId in decks) {
             let msg = {
               type: "GETALLCARDSBYDECK",
               playerID: game.users.find(el => el.isGM && el.active).id,
