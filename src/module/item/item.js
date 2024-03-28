@@ -56,8 +56,11 @@ export class ItemArchmage extends Item {
     // Get token.
     let token = this._rollGetToken(itemToRender);
 
+    console.log('Current:', itemToRender.toObject());
+
     // Render the chat card.
     let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token);
+    console.log('Chat Data:', chatData);
 
     // Evaluate outcomes and prepare animations.
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
@@ -199,7 +202,7 @@ export class ItemArchmage extends Item {
       let origResource = resource;
       if (ir) {
         rolls = ArchmageRolls.getInlineRolls(resource, itemToRender.actor.getRollData(itemToRender))
-        ArchmageRolls.rollAll(rolls, itemToRender.actor);
+        await ArchmageRolls.rollAll(rolls, itemToRender.actor);
         resource = resource.replace(ir[1], rolls[0].total);
       }
 
@@ -368,16 +371,19 @@ export class ItemArchmage extends Item {
     return stop;
   }
 
+  // @HERE
   async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
     if (this.type == "power" || this.type == "action") {
+      console.log('Pre:', itemToRender.system.attack.value);
       let attackLine = ArchmageRolls.addAttackMod(this);
       itemToRender.system.attack.value = attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
         numTargets = await ArchmageRolls.rollItemTargets(this);
         itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets);
         if (numTargets.targetLine) itemToRender.system.target.value = numTargets.targetLine;
+        console.log('Post:', itemToRender.system.attack.value);
       }
     }
     return numTargets.targets;
@@ -464,6 +470,7 @@ export class ItemArchmage extends Item {
     chatData = ChatMessage.applyRollMode(chatData, rollMode);
 
     // Render the template
+    console.log('Template Data:', templateData);
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
@@ -764,6 +771,8 @@ export class ItemArchmage extends Item {
 
   _powerChatData() {
     const data = foundry.utils.duplicate(this.system);
+    console.log('This', this);
+    console.log('Start', data);
     const tags = [
       {
         label: game.i18n.localize('ARCHMAGE.CHAT.actionType'),
@@ -867,6 +876,7 @@ export class ItemArchmage extends Item {
       label: game.i18n.localize(`ARCHMAGE.CHAT.special`),
       value: data.special.value
     };
+    console.log('End', data);
     return data;
   }
 
