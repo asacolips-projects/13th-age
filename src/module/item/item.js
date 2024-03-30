@@ -32,15 +32,18 @@ export class ItemArchmage extends Item {
     let itemUpdateData = {};
     let actorUpdateData = {};
 
+    // Understand what the user is trying to do
+    let usageMode = await this._rollUsageMode()
+
     // First check remaining uses.
-    let early_exit = await this._rollUsesCheck(itemUpdateData);
+    let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode);
     if (early_exit) return;
 
     // Make an ephemeral clone of the item which we can dirty during processing.
     let itemToRender = this.clone({}, {"save": false, "keepId": true});
 
     // Then check resources.
-    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
+    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode);
     if (early_exit) return;
 
     // Check targets.
@@ -154,7 +157,36 @@ export class ItemArchmage extends Item {
     return game.archmage.ArchmageUtility.createChatMessage(chatData);;
   }
 
-  async _rollUsesCheck(updateData) {
+  async _rollUsageMode() {
+    let retVal = undefined;
+
+    // If we have a song sustain reminder check what we want to do
+    if (this.type == "power"
+        && this.system.sustainedEffect.value
+        && this.system.finalVerse.value) {
+      let hasReminder = false;
+      const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower", {power: this.name, target: this.system.sustainOn.value});
+      this.actor.effects.forEach(e => {
+        if (e.label == name) hasReminder = true;
+      });
+
+      if (!hasReminder) return;
+
+      await Dialog.confirm({
+        title: game.i18n.localize("ARCHMAGE.CHAT.sustainedOrFinalTitle"),
+        content: game.i18n.localize("ARCHMAGE.CHAT.sustainedOrFinal"),
+        yes: () => {retVal = "finalverse";},
+        no: () => {retVal = "sustainedEffect";},
+        defaultYes: false
+      });
+    }
+
+    return retVal;
+  }
+
+  async _rollUsesCheck(updateData, usageMode) {
+    // If we have a special usage mode skip this check
+    if (usageMode) return false;
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
@@ -170,18 +202,20 @@ export class ItemArchmage extends Item {
       && this.system.powerUsage?.value != 'at-will') {
       let use = false;
       await Dialog.confirm({
-       title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
-       content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
-       yes: () => {use = true;},
-       no: () => {},
-       defaultYes: false
+        title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
+        content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
+        yes: () => {use = true;},
+        no: () => {},
+        defaultYes: false
       });
       return !use;
     }
     return false;
   }
 
-  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender) {
+  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
+    // If we have a special usage mode skip this check
+    if (usageMode) return false;
     // Updates resources if field is set
     let resStr = this.system.resources?.value;
     if (!resStr) return false;
