@@ -242,6 +242,7 @@ ARCHMAGE:
     label: Number of mooks
     button: Convert to Mob
     mob: mob
+    disabledButtonTooltip: This is only available on an unlocked mook with no multiattacks.
   # Characters
   CHARACTER:
     showPortrait: 'Show Portrait'

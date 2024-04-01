@@ -39,7 +39,7 @@
           <!-- Modify Level tab -->
           <Tab group="primary" :tab="tabs.primary.modifyLevel">
             <NpcModifyLevel :actor="actor" />
-            <NpcConvertToMob :actor="actor" v-if="isMook" />
+            <NpcConvertToMob :actor="actor" :context="this.context" v-if="isMook" />
           </Tab>
           <!-- Settings tab -->
           <Tab group="primary" :tab="tabs.primary.settings">
