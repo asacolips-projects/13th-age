@@ -21,6 +21,15 @@ export default {
 		const mookCount = ref(2)
 		return { mookCount, localize }
 	},
+	computed: {
+		mobConversionDisabled() {
+			for (const item of this.actor.items) {
+				if (item.type !== 'action') continue
+				if (item?.system?.attack?.value?.match?.(/\(.*? attacks\)/)) return true // Something is already marked as multiattack
+			}
+			return false
+		}
+	},
 }
 </script>
 
