@@ -238,7 +238,7 @@ ARCHMAGE:
     newLevel: New Level
   MOOKMOB:
     title: Convert to Mob
-    description: Converts this actor to a mob, with more HP and a multi-attack that loses attacks as the HP are drained.
+    description: Converts this actor to a mob, with more HP and a multi-attack that loses attacks as the HP are drained. You probably only want to do this to unlinked token actors.
     label: Number of mooks
     button: Convert to Mob
     mob: mob
