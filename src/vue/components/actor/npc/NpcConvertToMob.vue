@@ -30,6 +30,22 @@ export default {
 			return false
 		}
 	},
+	methods: {
+		async convertToMob(ev) {
+			const actor = await getActor(this.actor)
+			const baseHp = actor.system.attributes.hp.max
+			await actor.update({
+				name: `${actor.name} (${localize('ARCHMAGE.MOOKMOB.mob')})`,
+				'system.attributes.hp.max': baseHp * this.mookCount,
+				'system.attributes.hp.value': baseHp * this.mookCount,
+			})
+			for (const item of actor.items.contents) {
+				if (item.type !== 'action') continue
+				const attack = item.system.attack.value
+				await item.update({ 'system.attack.value': `${attack} ([[ceil(@hp.value/${this.mookCount})]] attacks)` })
+			}
+		}
+	},
 }
 </script>
 
