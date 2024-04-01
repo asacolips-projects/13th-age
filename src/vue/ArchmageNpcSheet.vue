@@ -39,7 +39,7 @@
           <!-- Modify Level tab -->
           <Tab group="primary" :tab="tabs.primary.modifyLevel">
             <NpcModifyLevel :actor="actor" />
-            <NpcConvertToMob :actor="actor" />
+            <NpcConvertToMob :actor="actor" v-if="isMook" />
           </Tab>
           <!-- Settings tab -->
           <Tab group="primary" :tab="tabs.primary.settings">
@@ -185,6 +185,9 @@ export default {
         }
       }
       return foundry.utils.mergeObject(baseFlags, flags);
+    },
+    isMook() {
+      return this.actor.system.details?.role?.value?.toLowerCase?.() === 'mook'
     }
   },
   watch: {},
