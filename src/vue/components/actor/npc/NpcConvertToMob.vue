@@ -23,7 +23,6 @@ export default {
 	},
 	computed: {
 		mobConversionDisabled() {
-			if (!this.context?.editable) return true // No updates if user can't edit the actor
 			for (const item of this.actor.items) {
 				if (item.type !== 'action') continue
 				if (item?.system?.attack?.value?.match?.(/\(.*? attacks\)/)) return true // Something is already marked as multiattack
@@ -38,25 +37,7 @@ export default {
 	methods: {
 		async convertToMob(ev) {
 			const actor = await getActor(this.actor)
-			const baseHp = actor.system.attributes.hp.max
-			const mobText = localize('ARCHMAGE.MOOKMOB.mob')
-			await actor.update({
-				name: `${actor.name} (${mobText})`,
-				'system.attributes.hp.max': baseHp * this.mookCount,
-				'system.attributes.hp.value': baseHp * this.mookCount,
-			})
-			if (actor.token) {
-				await actor.token.update({
-					name: `${actor.token.name} (${mobText})`,
-					width: actor.token.width + 1,
-					height: actor.token.height + 1,
-				})
-			}
-			for (const item of actor.items.contents) {
-				if (item.type !== 'action') continue
-				const attack = item.system.attack.value
-				await item.update({ 'system.attack.value': `${attack} ([[ceil(@hp.value/${baseHp})]] attacks)` })
-			}
+			await actor.mobify(this.mookCount)
 		}
 	},
 }
