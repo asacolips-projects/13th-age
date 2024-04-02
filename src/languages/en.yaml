@@ -233,6 +233,7 @@ ARCHMAGE:
     enableOngoingEffectsMessagesName: Enable ongoing effects messages
     enableOngoingEffectsMessagesHint: Enable chat messages for ongoing effects on actors at the start and end of their turns.
   AUTOLEVEL:
+    title: Adjust Level
     confirm: Confirm (create duplicate)
     help: Use this form to create a copy of this actor with its stats (including attacks) adjusted to the new level.
     newLevel: New Level
