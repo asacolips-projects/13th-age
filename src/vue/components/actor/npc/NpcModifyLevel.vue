@@ -1,5 +1,5 @@
 <template>
-  <h3>Adjust Level</h3>
+  <h3>{{localize('ARCHMAGE.AUTOLEVEL.title')}}</h3>
   <section class="section section--level-edit flexrow">
     <div class="unit unit--modify-level">
       <label><strong>{{localize('ARCHMAGE.AUTOLEVEL.newLevel')}}: {{newLevel}}</strong></label>
