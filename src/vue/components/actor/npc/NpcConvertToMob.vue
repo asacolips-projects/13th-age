@@ -55,7 +55,7 @@ export default {
 			for (const item of actor.items.contents) {
 				if (item.type !== 'action') continue
 				const attack = item.system.attack.value
-				await item.update({ 'system.attack.value': `${attack} ([[ceil(@hp.value/${this.mookCount})]] attacks)` })
+				await item.update({ 'system.attack.value': `${attack} ([[ceil(@hp.value/${baseHp})]] attacks)` })
 			}
 		}
 	},
