@@ -43,7 +43,7 @@ export class ItemArchmage extends Item {
     let itemToRender = this.clone({}, {"save": false, "keepId": true});
 
     // Then check resources.
-    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode);
+    early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
     if (early_exit) return;
 
     // Check targets.
@@ -74,7 +74,7 @@ export class ItemArchmage extends Item {
 
     // Handle special class triggers
     await this._handleMonkAC(itemToRender);
-    await this._handleSong(itemToRender);
+    await this._handleSong(itemToRender, usageMode);
     await this._handleBreathSpell(itemToRender);
 
     // Run embedded macro.
@@ -214,8 +214,6 @@ export class ItemArchmage extends Item {
   }
 
   async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
-    // If we have a special usage mode skip this check
-    if (usageMode) return false;
     // Updates resources if field is set
     let resStr = this.system.resources?.value;
     if (!resStr) return false;
@@ -614,30 +612,41 @@ export class ItemArchmage extends Item {
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  async _handleSong(itemToRender) {
+  async _handleSong(itemToRender, usageMode) {
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.sustainedEffect.value) return;
 
     const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower",
       {power: itemToRender.name, target: itemToRender.system.sustainOn.value});
 
-    // Check if we already have the effect
-    let alreadyHasEffect = false;
-    itemToRender.actor.effects.forEach(e => {
-      if (e.data.label == name) alreadyHasEffect = true;
-    });
-    if (!alreadyHasEffect) {
-      let effectData = {
-        label: name,
-        icon: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
-        flags: {
-          archmage: {
-            tooltip: name
+    if (usageMode == "finalverse") {
+      // Remove reminder if present
+      let effectsToDelete = [];
+      itemToRender.actor.effects.forEach(e => {
+        if (e.data.label == name) effectsToDelete.push(e.id);
+      });
+      await itemToRender.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+      // TODO: highlight final verse
+    } else {
+      // Check if we already have the effect
+      let alreadyHasEffect = false;
+      itemToRender.actor.effects.forEach(e => {
+        if (e.data.label == name) alreadyHasEffect = true;
+      });
+      if (!alreadyHasEffect) {
+        let effectData = {
+          label: name,
+          icon: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
+          flags: {
+            archmage: {
+              tooltip: name
+            }
           }
-        }
-      };
-      MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
-      await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+        };
+        MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
+        await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      }
+      // TODO: highlight sustain effect
     }
   }
   async _handleBreathSpell(itemToRender){
