@@ -69,11 +69,12 @@ export class ItemArchmage extends Item {
       item: this,
       token: token,
       powerLevel: this.system.powerLevel?.value,
-      sequencer: this.system.sequencer
+      sequencer: this.system.sequencer,
+      usageMode: usageMode
     }, null);
 
     // Handle special class triggers
-    await this._handleMonkAC(itemToRender);
+    await this._handleMonkFormAC(itemToRender);
     await this._handleSong(itemToRender, usageMode);
     await this._handleBreathSpell(itemToRender);
 
@@ -158,7 +159,7 @@ export class ItemArchmage extends Item {
   }
 
   async _rollUsageMode() {
-    let retVal = undefined;
+    let retVal = "";
 
     // If we have a song sustain reminder check what we want to do
     if (this.type == "power"
@@ -170,7 +171,7 @@ export class ItemArchmage extends Item {
         if (e.label == name) hasReminder = true;
       });
 
-      if (!hasReminder) return;
+      if (!hasReminder) return "openingEffect";
 
       await Dialog.confirm({
         title: game.i18n.localize("ARCHMAGE.CHAT.sustainedOrFinalTitle"),
@@ -186,7 +187,7 @@ export class ItemArchmage extends Item {
 
   async _rollUsesCheck(updateData, usageMode) {
     // If we have a special usage mode skip this check
-    if (usageMode) return false;
+    if (!["", "openingEffect"].includes(usageMode)) return false;
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
@@ -570,7 +571,7 @@ export class ItemArchmage extends Item {
   /**
    * Check if we are rolling a monk form, add related AC active effect
    */
-  async _handleMonkAC(itemToRender) {
+  async _handleMonkFormAC(itemToRender) {
     if (itemToRender.type != "power") return;
     if (!itemToRender.actor.system.details.detectedClasses?.includes("monk")) return;
 
@@ -626,14 +627,14 @@ export class ItemArchmage extends Item {
         if (e.data.label == name) effectsToDelete.push(e.id);
       });
       await itemToRender.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
-      // TODO: highlight final verse
     } else {
-      // Check if we already have the effect
+      // Check if we already have the reminder
       let alreadyHasEffect = false;
       itemToRender.actor.effects.forEach(e => {
         if (e.data.label == name) alreadyHasEffect = true;
       });
       if (!alreadyHasEffect) {
+        //Create the reminder
         let effectData = {
           label: name,
           icon: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
@@ -646,9 +647,9 @@ export class ItemArchmage extends Item {
         MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
         await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
       }
-      // TODO: highlight sustain effect
     }
   }
+
   async _handleBreathSpell(itemToRender){
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.breathWeapon.value) return;
