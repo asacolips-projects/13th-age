@@ -577,6 +577,20 @@ export class MacroUtils {
     }
     return res;
   }
+
+  /**
+   * Select all allies - approximated by all linked actors in combat
+   * If selfUuid is set it excludes the specified actor, otherwise it includes all likned tokens
+   */
+  static getAllies(selfUuid="") {
+    let res = [];
+    if (!game.combat) return res;
+    const combatants = [...game.combat.combatants.values()];
+    combatants.forEach(c => {
+      if (c.token.isLinked && c.token.actor.uuid != selfUuid) res.push(c.token);
+    });
+    return res;
+  }
 }
 
 /**

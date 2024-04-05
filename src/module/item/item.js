@@ -79,7 +79,7 @@ export class ItemArchmage extends Item {
     await this._handleBreathSpell(itemToRender);
 
     // Run embedded macro.
-    let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);
+    let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode);
     // Unpack macro data in case a sloppy macro replaces instead of modifying variables
     itemToRender = macro.item;
     itemUpdateData = macro.itemUpdates;
@@ -676,7 +676,7 @@ export class ItemArchmage extends Item {
     }
   }
 
-  async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token) {
+  async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode) {
     // Extra data accessible as "archmage" in embedded macros
     let macro_data = {
       item: itemToRender,
@@ -685,7 +685,8 @@ export class ItemArchmage extends Item {
       chat: chatData,
       hitEval: hitEvalRes,
       seqAnim: sequencerAnim,
-      suppressMessage: false
+      suppressMessage: false,
+      usageMode: usageMode
     };
     // If there is an embedded macro attempt to execute it
     if (itemToRender.system.embeddedMacro?.value.length > 0) {
