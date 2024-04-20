@@ -240,11 +240,11 @@ items:
       attack:
         type: ''
         label: Attack Roll
-        value: '[[d20 + 10]] vs. AC (up to [[2]] attacks)'
+        value: '[[d20 + 10]] vs. AC (up to [[2]] attacks, each against a different nearby enemy)'
       hit:
         type: ''
         label: Hit
-        value: each against a different nearby enemy);15 damage
+        value: '[[15]] damage'
       hit1:
         type: String
         label: Hit
@@ -431,10 +431,7 @@ items:
     _key: '!actors.items!mEZbOR2BrCd8hw9j.FRkYwEZHZ068wqH5'
   - _id: tK7dc00mmvlFiIF3
     flags: {}
-    name: >-
-      3. The cubahedron spits an engulfed creature into the air above it and
-      makes a shlup’n’schlorp attack against that creature with a +5 attack
-      bonus. Then the creature is engulfed again.
+    name: Instinctive - Spits
     type: trait
     img: icons/svg/mystery-man.svg
     system:
@@ -460,11 +457,7 @@ items:
     _key: '!actors.items!mEZbOR2BrCd8hw9j.tK7dc00mmvlFiIF3'
   - _id: yOwx6b0v0DI0fWGR
     flags: {}
-    name: >-
-      4. The cubahedron flattens itself slightly and crawls up a wall and
-      possibly across the ceiling. The cube falls at the end of its turn. Each
-      creature engulfed by the cube takes [[30]] damage, and it makes a gel drop
-      attack against enemies below it.
+    name: Instinctive - Crawl and Drop
     type: trait
     img: icons/svg/mystery-man.svg
     system:
