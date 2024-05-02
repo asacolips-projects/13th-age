@@ -1,0 +1,81 @@
+name: Iron Will
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: |-
+      <p>The default AC bonus applies to Mental Defense as well.</p>
+      <p>Quirk: Prone to abstract speculation.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 1
+    md:
+      bonus: 1
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: armor
+effects: []
+folder: xyEGAhEbvQAYa3A6
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647590203
+  modifiedTime: 1714647596412
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: xOn2RSkkodW5xjOx
+sort: 500000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!xOn2RSkkodW5xjOx'
+

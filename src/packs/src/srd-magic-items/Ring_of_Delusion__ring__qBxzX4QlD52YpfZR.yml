@@ -1,0 +1,85 @@
+name: Ring of Delusion (ring)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Ring made out of complex interlocking wooden pieces.</p>
+
+      <p>Always: Whenever there are two possible explanations and one is
+      obviously ridiculous, that is what you believe provided there is no
+      obvious and direct proof that contradicts your delusion. In addition, you
+      gain +3 bonus to checks to find traps and see through illusions.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: ring
+effects: []
+folder: 4kES6iUsw34OPUMb
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648071894
+  modifiedTime: 1714648080652
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: qBxzX4QlD52YpfZR
+sort: 200000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!qBxzX4QlD52YpfZR'
+

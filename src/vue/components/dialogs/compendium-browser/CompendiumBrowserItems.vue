@@ -412,25 +412,7 @@ export default {
 
     // Load the pack index with the fields we need.
     getPackIndex([
-      'archmage.srd-magic-items-armors',
-      'archmage.srd-magic-items-arrows',
-      'archmage.srd-magic-items-belts',
-      'archmage.srd-magic-items-books',
-      'archmage.srd-magic-items-boots',
-      'archmage.srd-magic-items-chuul-symbiotes',
-      'archmage.srd-magic-items-cloaks',
-      'archmage.srd-magic-items-consumables',
-      'archmage.srd-magic-items-cursed',
-      'archmage.srd-magic-items-gloves',
-      'archmage.srd-magic-items-helmets',
-      'archmage.srd-magic-items-necklaces',
-      'archmage.srd-magic-items-rings',
-      'archmage.srd-magic-items-shields',
-      'archmage.srd-magic-items-staffs',
-      'archmage.srd-magic-items-symbols',
-      'archmage.srd-magic-items-wands',
-      'archmage.srd-magic-items-weapons',
-      'archmage.srd-magic-items-wondrous-items',
+      'archmage.srd-magic-items',
     ], [
       'system.chackra',
       'system.recharge.value',

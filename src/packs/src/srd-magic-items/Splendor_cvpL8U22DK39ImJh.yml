@@ -1,0 +1,83 @@
+name: Splendor
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Enemies engaged with you take a &ndash;2 attack penalty against allies
+      without splendor.</p>
+
+      <p>Quirk: Fastidious about clothing and gear.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 1
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: armor
+effects: []
+folder: xyEGAhEbvQAYa3A6
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647596403
+  modifiedTime: 1714647596412
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: cvpL8U22DK39ImJh
+sort: 100000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!cvpL8U22DK39ImJh'
+
