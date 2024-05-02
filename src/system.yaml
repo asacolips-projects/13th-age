@@ -79,33 +79,12 @@ packFolders:
       - necromancer
       - necromancer-summons
       - occultist
+      - srd-magic-items
   - name: Creatures
     sorting: m
     packs:
       - srd-Monsters
       - srd-random-monster-abilities
-  - name: Magic Items
-    sorting: m
-    packs:
-      - srd-magic-items-armors
-      - srd-magic-items-arrows
-      - srd-magic-items-belts
-      - srd-magic-items-books
-      - srd-magic-items-boots
-      - srd-magic-items-chuul-symbiotes
-      - srd-magic-items-cloaks
-      - srd-magic-items-consumables
-      - srd-magic-items-cursed
-      - srd-magic-items-gloves
-      - srd-magic-items-helmets
-      - srd-magic-items-necklaces
-      - srd-magic-items-rings
-      - srd-magic-items-shields
-      - srd-magic-items-staffs
-      - srd-magic-items-symbols
-      - srd-magic-items-wands
-      - srd-magic-items-weapons
-      - srd-magic-items-wondrous-items
   - name: Misc
     sorting: m
     packs:
@@ -264,118 +243,10 @@ packs:
     path: packs/srd-monsters
     system: archmage
 
-  - label: SRD Magic Items - Armors
+  - label: SRD Magic Items
     type: Item
-    name: srd-magic-items-armors
-    path: packs/srd-magic-items-armors
-    system: archmage
-
-  - label: SRD Magic Items - Arrows
-    type: Item
-    name: srd-magic-items-arrows
-    path: packs/srd-magic-items-arrows
-    system: archmage
-
-  - label: SRD Magic Items - Belts
-    type: Item
-    name: srd-magic-items-belts
-    path: packs/srd-magic-items-belts
-    system: archmage
-
-  - label: SRD Magic Items - Books
-    type: Item
-    name: srd-magic-items-books
-    path: packs/srd-magic-items-books
-    system: archmage
-
-  - label: SRD Magic Items - Boots
-    type: Item
-    name: srd-magic-items-boots
-    path: packs/srd-magic-items-boots
-    system: archmage
-
-  - label: SRD Magic Items - Consumables
-    type: Item
-    name: srd-magic-items-consumables
-    path: packs/srd-magic-items-consumables
-    system: archmage
-
-  - label: SRD Magic Items - Chuul Symbiotes
-    type: Item
-    name: srd-magic-items-chuul-symbiotes
-    path: packs/srd-magic-items-chuul-symbiotes
-    system: archmage
-
-  - label: SRD Magic Items - Cloaks
-    type: Item
-    name: srd-magic-items-cloaks
-    path: packs/srd-magic-items-cloaks
-    system: archmage
-
-  - label: SRD Magic Items - Cursed
-    type: Item
-    name: srd-magic-items-cursed
-    path: packs/srd-magic-items-cursed
-    system: archmage
-
-  - label: SRD Magic Items - Gloves
-    type: Item
-    name: srd-magic-items-gloves
-    path: packs/srd-magic-items-gloves
-    system: archmage
-
-  - label: SRD Magic Items - Helmets
-    type: Item
-    name: srd-magic-items-helmets
-    path: packs/srd-magic-items-helmets
-    system: archmage
-
-  - label: SRD Magic Items - Necklaces
-    type: Item
-    name: srd-magic-items-necklaces
-    path: packs/srd-magic-items-necklaces
-    system: archmage
-
-  - label: SRD Magic Items - Rings
-    type: Item
-    name: srd-magic-items-rings
-    path: packs/srd-magic-items-rings
-    system: archmage
-
-  - label: SRD Magic Items - Shields
-    type: Item
-    name: srd-magic-items-shields
-    path: packs/srd-magic-items-shields
-    system: archmage
-
-  - label: SRD Magic Items - Staffs
-    type: Item
-    name: srd-magic-items-staffs
-    path: packs/srd-magic-items-staffs
-    system: archmage
-
-  - label: SRD Magic Items - Symbols
-    type: Item
-    name: srd-magic-items-symbols
-    path: packs/srd-magic-items-symbols
-    system: archmage
-
-  - label: SRD Magic Items - Wands
-    type: Item
-    name: srd-magic-items-wands
-    path: packs/srd-magic-items-wands
-    system: archmage
-
-  - label: SRD Magic Items - Weapons
-    type: Item
-    name: srd-magic-items-weapons
-    path: packs/srd-magic-items-weapons
-    system: archmage
-
-  - label: SRD Magic Items - Wondrous Items
-    type: Item
-    name: srd-magic-items-wondrous-items
-    path: packs/srd-magic-items-wondrous-items
+    name: srd-magic-items
+    path: packs/srd-magic-items
     system: archmage
 
   - label: SRD Random Monster Abilities

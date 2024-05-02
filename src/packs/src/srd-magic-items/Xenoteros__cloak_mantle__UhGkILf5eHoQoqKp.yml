@@ -1,0 +1,89 @@
+name: Xenoteros (cloak/mantle)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Insectile wings hide in slits under the always itching skin of your
+      back.</p>
+
+      <p>Always: +1 PD (adventurer); +2 PD (champion); +3 PD (epic).</p>
+
+      <p>Chuulish recharge: As a standard action, you can fly clumsily for one
+      round (champion: [[1d3 + 1]] rounds; epic: [[2d4]] rounds).</p>
+
+      <p>Quirk: Insectile mouthparts grow at the back of the throat and squiggle
+      out when wearer talks excitedly.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '16'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 1
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: cloak
+effects: []
+folder: uGMLSN6ivBLGtUfv
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647945221
+  modifiedTime: 1714647945221
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: UhGkILf5eHoQoqKp
+sort: 0
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!UhGkILf5eHoQoqKp'
+

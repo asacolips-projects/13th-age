@@ -1,0 +1,86 @@
+name: Paragon
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 16+) This necklace changes shape and jewels depending on the
+      race of the wearer. When you use this necklace, you gain another use of
+      your racial power in the battle.</p>
+
+      <p>Quirk: Sometimes unwittingly speaks in a language that sounds like it
+      could be the original language of their race, if anyone else could
+      understand it.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '16'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 1
+      threshold: 10
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: necklace
+effects: []
+folder: IBGzYvealgID1OwQ
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648164021
+  modifiedTime: 1714648165074
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: e9uNWg0t4AhgLLiK
+sort: 400000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!e9uNWg0t4AhgLLiK'
+

@@ -1,0 +1,90 @@
+name: Scroll of Seven Subtle Serpents
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 6+) When you make a melee attack based on Dexterity,
+      Intelligence, or Wisdom, evoke a special ability of your choice. Pick the
+      ability from one of the following options after seeing whether the attack
+      is a hit.</p><ul><li>Deal +[[1d6]] damage on a hit (champion: +[[2d8]];
+      epic: +[[4d10]]).</li><li>Deal +[[1d4]] damage on a miss (champion:
+      +[[2d6]]; epic: +[[4d8]].</li><li>Gain a +1 bonus to all defenses until
+      the end of your next turn.</li><li>Pop free from one enemy.</li><li>Gain
+      [[1d10]] temporary hit points (champion: [[3d8]]; epic:
+      [[8d8]]).</li><li>Roll a save against an ongoing save ends
+      effect.</li></ul><p>Quirk: Always in constant motion, or swaying gently
+      when still.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '6'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: book
+effects: []
+folder: ZROEuvUmPPM5izdo
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647685601
+  modifiedTime: 1714647692625
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: mkxXuFfeLoPHCPVB
+sort: 200000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!mkxXuFfeLoPHCPVB'
+

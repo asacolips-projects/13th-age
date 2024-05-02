@@ -1,0 +1,81 @@
+name: Brutal Vigor
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: |-
+      <p>(Recharge 6+) When you rally, make a basic attack.</p>
+      <p>Quirk: Plays with their weapons.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '6'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 1
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: belt
+effects: []
+folder: yyTzewZiGJj1uSbs
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647648877
+  modifiedTime: 1714647667230
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: GPcxLB6Oml51aDTK
+sort: 1100000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!GPcxLB6Oml51aDTK'
+

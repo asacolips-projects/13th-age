@@ -1,0 +1,85 @@
+name: Skullcap of Wit
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>You can banter with a lively wit. If you already have a lively wit, it
+      doesn&rsquo;t make much of a difference. Interpret this ability narrowly
+      enough that it might provide a bonus to a die roll that anyone really
+      cares about only once in a campaign.</p>
+
+      <p>Quirk: Banters with lively wit.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 1
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: helmet
+effects: []
+folder: 6MQpEp3NjY3Z0S8G
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648133848
+  modifiedTime: 1714648133848
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: 7C2mt83RVqpz619I
+sort: 0
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!7C2mt83RVqpz619I'
+
