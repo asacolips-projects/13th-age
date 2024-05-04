@@ -232,7 +232,11 @@ items:
       description:
         type: ''
         label: Description
-        value: 1. *confused*; 2. *weakened*; 3. *dazed*; 4. *vulnerable*.
+        value: >-
+            When a creature fails a save against the hellwasp’s ongoing acid damage,
+            it gains a random condition until it saves against that damage.
+            Have the player roll a d4 to determine the condition:
+            1. *confused*; 2. *weakened*; 3. *dazed*; 4. *vulnerable*.
       group:
         type: String
         label: Group
