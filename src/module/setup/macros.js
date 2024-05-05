@@ -113,17 +113,7 @@ export class ArchmageMacros {
     );
 
     // Apply effect to all targets - make the GM do it to bypass permissions
-    if (!game.user.isGM) {
-      game.socket.emit('system.archmage', {
-        type: 'createAEs',
-        actorIds: targets.map(t => t.actorId),
-        effects: [effectData]
-      });
-    } else {
-      targets.forEach(t => {
-        t.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
-      });
-    }
+    game.archmage.MacroUtils.applyActiveEffectsToTokens(targets, [effectData]);
   }
 
   ////////////////////////////////////////////////

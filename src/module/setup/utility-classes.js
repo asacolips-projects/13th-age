@@ -591,6 +591,24 @@ export class MacroUtils {
     });
     return res;
   }
+
+  /**
+   * Create one or more AEs on a set of tokens - via a message to the GM's account to bypass
+   * persmissions if needed.
+   */
+  static applyActiveEffectsToTokens(tokens, effects) {
+    if (!game.user.isGM) {
+      game.socket.emit('system.archmage', {
+        type: 'createAEs',
+        actorIds: tokens.map(t => t.actorId),
+        effects: effects
+      });
+    } else {
+      targets.forEach(t => {
+        t.actor.createEmbeddedDocuments("ActiveEffect", effects);
+      });
+    }
+  }
 }
 
 /**
