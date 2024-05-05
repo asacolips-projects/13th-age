@@ -580,7 +580,7 @@ export class MacroUtils {
 
   /**
    * Select all allies - approximated by all linked actors in combat
-   * If selfUuid is set it excludes the specified actor, otherwise it includes all likned tokens
+   * If selfUuid is set it excludes the specified actor, otherwise it includes all linked tokens
    */
   static getAllies(selfUuid="") {
     let res = [];

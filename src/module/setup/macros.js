@@ -112,10 +112,18 @@ export class ArchmageMacros {
       {sourceTurnUuid: actor.uuid}
     );
 
-    // Apply effect to all targets
-    targets.forEach(t => {
-      t.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
-    });
+    // Apply effect to all targets - make the GM do it to bypass permissions
+    if (!game.user.isGM) {
+      game.socket.emit('system.archmage', {
+        type: 'createAEs',
+        actorIds: targets.map(t => t.actorId),
+        effects: [effectData]
+      });
+    } else {
+      targets.forEach(t => {
+        t.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      });
+    }
   }
 
   ////////////////////////////////////////////////
