@@ -604,7 +604,7 @@ export class MacroUtils {
         effects: effects
       });
     } else {
-      targets.forEach(t => {
+      tokens.forEach(t => {
         t.actor.createEmbeddedDocuments("ActiveEffect", effects);
       });
     }
