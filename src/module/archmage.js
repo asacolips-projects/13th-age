@@ -1362,6 +1362,7 @@ Hooks.once('ready', async function () {
         break;
       case 'createAEs':
         _handlecreateAEsMsg(msg);
+        break;
       default:
         console.log(msg);
     }
