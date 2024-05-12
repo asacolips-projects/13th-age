@@ -204,7 +204,7 @@ export class ItemArchmageSheet extends ItemSheet {
     let item = this.item;
     if (item.type != "power") return;
 
-    let featIndex = dataset.featkey;
+    let featIndex = Number(dataset.featkey);
     let feats = item.system.feats;
 
     let change = (async () => {return;});
@@ -242,17 +242,17 @@ export class ItemArchmageSheet extends ItemSheet {
         return;
       case 'del':
         change = (async () => {
-          delete feats[featIndex];
-          feats = Object.assign({}, Object.values(feats));
-          let updateData = {'system.feats': feats};
+          let newFeats = foundry.utils.deepClone(feats);
+          delete newFeats[featIndex];
+          newFeats = Object.assign({}, Object.values(newFeats));  // Re-index from 0
+          let updateData = {'system.feats': newFeats};
           for (let key of Object.keys(item.system.feats)) {
-            if (!feats[key]) updateData[`system.feats.-=${key}`] = null;
+            if (!newFeats[key]) updateData[`system.feats.-=${key}`] = null;
           }
           await item.update(updateData);
         });
         break;
       case 'up':
-        featIndex = Number(featIndex);
         if (featIndex == 0) return;
         feats = Object.values(feats);
         [feats[featIndex], feats[featIndex - 1]] = [feats[featIndex - 1], feats[featIndex]]
@@ -260,7 +260,6 @@ export class ItemArchmageSheet extends ItemSheet {
         return;
       case 'down':
         feats = Object.values(feats);
-        featIndex = Number(featIndex);
         if (featIndex >= feats.length - 1) return;
         [feats[featIndex + 1], feats[featIndex]] = [feats[featIndex], feats[featIndex + 1]]
         await item.update({'system.feats': Object.assign({}, feats)});
