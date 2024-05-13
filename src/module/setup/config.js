@@ -894,25 +894,20 @@ ARCHMAGE.classes = {
 ARCHMAGE.classes2e = {
   barbarian: {
     rec_die: 12,
-    rec_num: 7
+    hp: 8
   },
   bard: {
-    // rec_die: 8,
-    // rec_num: 8
   },
   chaosmage: {
   },
   cleric: {
-    rec_die: 10,
-    rec_num: 7
+    ac_hvy_pen: -2,
   },
   commander: {
   },
   druid: {
   },
   fighter: {
-    // rec_die: 10,
-    // rec_num: 8
   },
   monk: {
   },
@@ -921,24 +916,14 @@ ARCHMAGE.classes2e = {
   occultist: {
   },
   paladin: {
-    rec_die: 12,
-    rec_num: 7
   },
   ranger: {
-    rec_die: 10,
-    rec_num: 7
   },
   rogue: {
-    rec_die: 6,
-    rec_num: 10
   },
   sorcerer: {
-    // rec_die: 6,
-    // rec_num: 8
   },
   wizard: {
-    rec_die: 4,
-    rec_num: 10
   }
 }
 
