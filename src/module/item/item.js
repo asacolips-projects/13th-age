@@ -607,6 +607,9 @@ export class ItemArchmage extends Item {
     }
   }
   async _handleBreathSpell(itemToRender){
+    // This is only relevant for 1e
+    if (game.settings.get("archmage", "secondEdition")) return;
+
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.breathWeapon.value) return;
 
