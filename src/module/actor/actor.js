@@ -445,6 +445,7 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.disengageBonus = disengageBonus;
 
     // Defenses (second element of sorted triple equal median)
+    // Wizards can use In in place of Dex with a talent
     if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
       data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod,
         data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
@@ -458,6 +459,16 @@ export class ActorArchmage extends Actor {
     }
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
       data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
+
+    // Barbarians gets a bonus based on 'skulls' as of 2e beta
+    if (this.getFlag("archmage", "grimDetermination") && game.settings.get("archmage", "secondEdition")) {
+      let bonus = 0;
+      if (data.attributes.saves.deathFails.value >= 1) bonus = 1;
+      if (data.attributes.saves.deathFails.value >= 3) bonus = 2;
+      data.attributes.ac.value += bonus;
+      data.attributes.pd.value += bonus;
+      data.attributes.md.value += bonus;
+    }
 
     // Damage Modifiers
     data.tier = 1;

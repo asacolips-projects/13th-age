@@ -1126,7 +1126,7 @@ ARCHMAGE.tokenHPColors = {
 FLAGS.characterFlags = {
   "initiativeAdv": {
     name: "Quick to Fight",
-    hint: "Human racial feat to roll 2d20 for initiative and keep the higher roll.",
+    hint: "Human kin power to roll 2d20 for initiative and keep the higher roll.",
     section: "Feats",
     type: Boolean
   },
@@ -1139,6 +1139,12 @@ FLAGS.characterFlags = {
   "toughness": {
     name: "Toughness",
     hint: "General feat to increase your max HP based on your base HP.",
+    section: "Feats",
+    type: Boolean
+  },
+  "grimDetermination": {
+    name: "Grim Determination",
+    hint: "Barbarian feature to get extra defences when you have one or more skulls.",
     section: "Feats",
     type: Boolean
   },

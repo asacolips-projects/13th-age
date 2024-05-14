@@ -233,6 +233,8 @@ Hooks.once('init', async function() {
   } else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
+    // Remove Grim Determination flag
+    delete FLAGS.characterFlags.grimDetermination;
 
     // Remove 11th level feat tier
     delete CONFIG.ARCHMAGE.featTiers.iconic;
