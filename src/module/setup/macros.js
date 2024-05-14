@@ -89,6 +89,24 @@ export class ArchmageMacros {
     actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
+  static async clericHammerOfFaith2e(speaker, actor, token, character, archmage) {
+    let bonus = archmage.item.system.hit.value;
+    if (archmage.item.system.powerLevel.value > 1) {
+      bonus = archmage.item.system[`spellLevel${archmage.item.system.powerLevel.value}`].value;
+    }
+    const effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.weapon.melee.dice",
+        value: bonus,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      }]
+    };
+    game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.EndOfCombat);
+    actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
   ////////////////////////////////////////////////
   /**
    * Commander Macros.
