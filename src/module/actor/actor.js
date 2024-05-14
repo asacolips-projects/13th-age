@@ -535,7 +535,10 @@ export class ActorArchmage extends Actor {
     }
 
     if (game.settings.get("archmage", "secondEdition")) {
+      // Item recovery bonus is applied here, per level
       formulaConst += recoveriesBonus * Number(data.attributes.level?.value);
+      // If we are high level, also add stati extra as per the beta rules
+      formulaConst += Math.max(0, 10*(data.attributes.level?.value - 7));
     }
     data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
@@ -625,6 +628,19 @@ export class ActorArchmage extends Actor {
             delete data.wpn[wpn].value;
             delete data.wpn[wpn].attack;
           });
+
+          // In 2e add extra at epic tier
+          if (game.settings.get("archmage", "secondEdition")) {
+            data.wpn.epicbonus = 0;
+            if (actor.system.attributes.level.value == 8) data.wpn.epicbonus = 10;
+            else if (actor.system.attributes.level.value == 9) data.wpn.epicbonus = 20;
+            else if (actor.system.attributes.level.value >= 10) data.wpn.epicbonus = 30;
+            if (data.wpn.epicbonus) {
+              wpnTypes.forEach(wpn => {
+                data.wpn[wpn].dice += `+${data.wpn.epicbonus}`
+              });
+            }
+          }
 
           break;
 

@@ -440,7 +440,9 @@ ARCHMAGE.featTiers = {
 }
 
 ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+// ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+// TODO: keep this handy for now until we know where the rules settle
+ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10];
 
 ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3];
 ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
@@ -896,35 +898,22 @@ ARCHMAGE.classes2e = {
     rec_die: 12,
     hp: 8
   },
-  bard: {
-  },
-  chaosmage: {
-  },
+  bard: {},
+  chaosmage: {},
   cleric: {
     ac_hvy_pen: -2,
   },
-  commander: {
-  },
-  druid: {
-  },
-  fighter: {
-  },
-  monk: {
-  },
-  necromancer: {
-  },
-  occultist: {
-  },
-  paladin: {
-  },
-  ranger: {
-  },
-  rogue: {
-  },
-  sorcerer: {
-  },
-  wizard: {
-  }
+  commander: {},
+  druid: {},
+  fighter: {},
+  monk: {},
+  necromancer: {},
+  occultist: {},
+  paladin: {},
+  ranger: {},
+  rogue: {},
+  sorcerer: {},
+  wizard: {}
 }
 
 ARCHMAGE.classResources = {
