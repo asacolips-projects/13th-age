@@ -691,6 +691,7 @@ ARCHMAGE:
     StatusBlessed: Blessed
     StatusBonusDefenses: Bonus Defenses
     StatusBuffed: Buffed
+    StatusCharmed: Charmed
     StatusConfused: Confused
     StatusCursed: Cursed
     StatusDazed: Dazed
@@ -698,6 +699,7 @@ ARCHMAGE:
     StatusDebuffed: Debuffed
     StatusEmpowered: Empowered
     StatusFear: Fear
+    StatusFrenzied: Frenzied
     StatusFireShield: Fire Shield
     StatusFlying: Flying
     StatusGrabbed: Grabbed
@@ -714,6 +716,7 @@ ARCHMAGE:
     StatusRegen: Regeneration
     StatusShining: Radiating Light
     StatusShocked: Shocked
+    StatusSilenced: Silenced
     StatusStaggered: Staggered
     StatusStuck: Stuck
     StatusStunned: Stunned

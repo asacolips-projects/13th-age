@@ -295,9 +295,7 @@ items:
       description:
         type: String
         label: Description
-        value: >-
-          <p>Until the bonded is hit, it has a +4 bonus to
-          all defenses.</p>
+        value: <p>Until the bonded is hit, it has a +4 bonus to all defenses.</p>
       group:
         type: String
         label: Group

@@ -45,6 +45,18 @@ ARCHMAGE.statusEffects = [
       }
     }
   },
+  // Charmed.
+  {
+    id: "charmed",
+    name: "ARCHMAGE.EFFECT.StatusCharmed",
+    icon: "icons/svg/heal.svg",
+    journal: "21cEqzk92tflpW7P",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
   // Confused.
   {
     id: "confused",
@@ -82,6 +94,30 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusFear",
     icon: "icons/svg/terror.svg",
     journal: "gy68o7eat5p6bpgq",
+    changes: [
+      {
+        key: 'system.attributes.escalation.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        value: '0'
+      },
+      {
+        key: 'system.attributes.attackMod.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
+  // Frenzied.
+  {
+    id: "frenzied",
+    name: "ARCHMAGE.EFFECT.StatusFrenzied",
+    icon: "icons/svg/pill.svg",
+    journal: "gy68o7eat5p6bpgr",
     changes: [
       {
         key: 'system.attributes.escalation.value',
@@ -383,41 +419,41 @@ ARCHMAGE.extendedStatusEffects = [
     }
   },
   // Asleep.
-  // {
-    // id: "blind", //asleep - renamed to play nice with v11 statuses
-    // name: "ARCHMAGE.EFFECT.StatusAsleep",
-    // icon: "icons/svg/sleep.svg",
-  // },
-  // Shining.
-  // {
-    // id: "shining",
-    // name: "ARCHMAGE.EFFECT.StatusShining",
-    // icon: "icons/svg/aura.svg"
-  // },
+  {
+    id: "sleep", //asleep - renamed to play nice with v11 statuses
+    name: "ARCHMAGE.EFFECT.StatusAsleep",
+    icon: "icons/svg/sleep.svg",
+  },
+  // Silenced.
+  {
+    id: "silenced",
+    name: "ARCHMAGE.EFFECT.StatusSilenced",
+    icon: "icons/svg/silenced.svg",
+  },
   // Holy Shield.
-  // {
-    // id: "holyshield",
-    // name: "ARCHMAGE.EFFECT.StatusHolyShield",
-    // icon: "icons/svg/holy-shield.svg"
-  // },
+  {
+    id: "holyshield",
+    name: "ARCHMAGE.EFFECT.StatusHolyShield",
+    icon: "icons/svg/holy-shield.svg"
+  },
   // Fire Shield.
-  // {
-    // id: "fireshield",
-    // name: "ARCHMAGE.EFFECT.StatusFireShield",
-    // icon: "icons/svg/fire-shield.svg"
-  // },
+  {
+    id: "fireshield",
+    name: "ARCHMAGE.EFFECT.StatusFireShield",
+    icon: "icons/svg/fire-shield.svg"
+  },
   // Ice Shield.
-  // {
-    // id: "iceshield",
-    // name: "ARCHMAGE.EFFECT.StatusIceShield",
-    // icon: "icons/svg/ice-shield.svg"
-  // },
+  {
+    id: "iceshield",
+    name: "ARCHMAGE.EFFECT.StatusIceShield",
+    icon: "icons/svg/ice-shield.svg"
+  },
   // Mage Shield.
-  // {
-    // id: "mageshield",
-    // name: "ARCHMAGE.EFFECT.StatusMageShield",
-    // icon: "icons/svg/mage-shield.svg"
-  // },
+  {
+    id: "mageshield",
+    name: "ARCHMAGE.EFFECT.StatusMageShield",
+    icon: "icons/svg/mage-shield.svg"
+  },
   // Buffed.
   // {
     // id: "buffed",

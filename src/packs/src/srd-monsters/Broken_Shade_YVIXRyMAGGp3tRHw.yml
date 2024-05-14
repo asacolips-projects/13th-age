@@ -224,8 +224,7 @@ items:
       description:
         type: String
         label: Description
-        value: |-
-          <p>Broken shades do not take miss damage from weapons.</p>
+        value: <p>Broken shades do not take miss damage from weapons.</p>
       group:
         type: String
         label: Group

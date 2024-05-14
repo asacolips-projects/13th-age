@@ -4,10 +4,15 @@ permission:
 folder: ''
 flags: {}
 content: >-
-  <p>The first time an attack you are vulnerable to misses you each turn, the
-  attacker can reroll the attack once. You don’t get to reroll every attack
-  against a creature that’s vulnerable to your attacks, just the first missed
-  attack each turn.</p>
+  <p>When you attack a creature that’s
+  vulnerable to that attack, you deal bonus
+  damage equal to double your level as you
+  attack. In other words, hit or miss, crit or
+  fumble, deal bonus damage equal to double
+  your level before applying any other damage
+  from the attack. (<i>Exception</i>: Mooks and
+  weaklings only deal damage equal to their
+  level, not twice their level.)</p>
 img: ''
 _id: uHqgXlfj0rkf0XRE
 pages: []
