@@ -110,6 +110,12 @@ export default class preCreateChatMessageHandler {
         if (options.actor) actor = options.actor;
         if (options.token) token = options.token;
 
+        // In 2e sorcerer breath spells add the E.D. to their crit range
+        let addEdToCritRange = false;
+        if (game.settings.get("archmage", "secondEdition")) {
+          addEdToCritRange = options.item.system.breathWeapon.value.length > 0;
+        }
+
         $content = $(`<div class="wrapper">${data.content}</div>`);
         let $rows = $content.find('.card-prop');  // Updated later
 
@@ -152,7 +158,7 @@ export default class preCreateChatMessageHandler {
                 }
 
                 if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
-                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor);
+                    hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, addEdToCritRange);
                 }
 
                 if (hitEvaluationResults) {
