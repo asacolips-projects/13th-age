@@ -530,9 +530,11 @@ ARCHMAGE:
     hit: Hit
     hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
     hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"
-    hit1: Special Hit (1)
-    hit2: Special Hit (2)
-    hit3: Special Hit (3)
+    hit1: Special Roll (1)
+    hit2: Special Roll (2)
+    hit3: Special Roll (3)
+    hit4: Special Roll (4)
+    hit5: Special Roll (5)
     hitEven: Even Hit
     hitEvenTitle: Effects that happen on even hits
     hitOdd: Odd Hit
