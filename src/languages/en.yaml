@@ -419,18 +419,22 @@ ARCHMAGE:
     active: Active
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
+    chaBonus: Charisma checks bonus
     chakraSlot: Chakra Slot
+    conBonus: Constitution checks bonus
+    critDefBonus: Critical Hit Defense Bonus
+    critDefBonusHint: +1 means something that would crit you on 20 crits you on 19+, etc.
+    critModBonus: Critical Hit Modifier Bonus
+    critModBonusHint: +1 means you would crit on 19+, etc.
     damageType: Damage Type
     defenseBonuses: Defense Bonuses
+    dexBonus: Dexterity checks bonus
     disengageBonus: Disengage Bonus
     divineBonus: Divine Spell / Divine Attack Bonus
     escalationBlockedHint: Denies usage of Escalation Die
-    critModBonus: Critical Hit Modifier Bonus
-    critModBonusHint: +1 means you would crit on 19+, etc.
-    critDefBonus: Critical Hit Defense Bonus
-    critDefBonusHint: +1 means something that would crit you on 20 crits you on 19+, etc.
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
+    intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
     ongoingDamage: Ongoing Damage
@@ -440,6 +444,7 @@ ARCHMAGE:
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
+    strBonus: Strength checks bonus
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
     saveBonusHPTreshold: Save Bonus HP Threshold
@@ -447,6 +452,7 @@ ARCHMAGE:
     usesMaxHint: Number of uses per battle/day, usually 1
     usesRemaining: Uses Remaining
     usesRemainingHint: Number of remaining uses, usually the same as Max Uses
+    wisBonus: Wisdom checks bonus
   CHAKRA:
     armor: Armor, robe, shirt, tunic
     armorBonus: "Default Bonus: Armor Class"

@@ -752,4 +752,16 @@ Item:
         threshold: 0
       disengage:
         bonus: 0
+      str:
+        bonus: 0
+      dex:
+        bonus: 0
+      con:
+        bonus: 0
+      int:
+        bonus: 0
+      wis:
+        bonus: 0
+      cha:
+        bonus: 0
     isActive: true

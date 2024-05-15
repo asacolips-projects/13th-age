@@ -404,6 +404,13 @@ export class ActorArchmage extends Actor {
     var saveBonus = 0;
     var disengageBonus = 0;
 
+    var strBonus = 0;
+    var dexBonus = 0;
+    var conBonus = 0;
+    var intBonus = 0;
+    var wisBonus = 0;
+    var chaBonus = 0;
+
     function getBonusOr0(type) {
       if (type && type.bonus) return type.bonus;
       return 0;
@@ -424,6 +431,13 @@ export class ActorArchmage extends Actor {
           hpBonus += getBonusOr0(item.system.attributes.hp);
           recoveriesBonus += getBonusOr0(item.system.attributes.recoveries);
 
+          strBonus += getBonusOr0(item.system.attributes.str);
+          dexBonus += getBonusOr0(item.system.attributes.dex);
+          conBonus += getBonusOr0(item.system.attributes.con);
+          intBonus += getBonusOr0(item.system.attributes.int);
+          wisBonus += getBonusOr0(item.system.attributes.wis);
+          chaBonus += getBonusOr0(item.system.attributes.cha);
+
           if (!item.system.attributes.save.threshold
             || data.attributes.hp.value <= item.system.attributes.save.threshold) {
             saveBonus += getBonusOr0(item.system.attributes.save);
@@ -443,6 +457,14 @@ export class ActorArchmage extends Actor {
     // Saves
     data.attributes.saves.bonus = saveBonus;
     data.attributes.saves.disengageBonus = disengageBonus;
+
+    // Ability score bonuses from items
+    data.abilities.str.bonus = strBonus;
+    data.abilities.dex.bonus = dexBonus;
+    data.abilities.con.bonus = conBonus;
+    data.abilities.int.bonus = intBonus;
+    data.abilities.wis.bonus = wisBonus;
+    data.abilities.cha.bonus = chaBonus;
 
     // Defenses (second element of sorted triple equal median)
     // Wizards can use In in place of Dex with a talent
@@ -1345,7 +1367,7 @@ export class ActorArchmage extends Actor {
       event: event,
       terms: terms,
       data: {
-        abil: abl ? abl.nonKey.mod : 0,
+        abil: abl ? abl.nonKey.mod + abl.bonus : 0,
         lvl: this.system.attributes.level.value +
           ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
           || this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
