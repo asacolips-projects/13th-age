@@ -113,7 +113,7 @@ export default class preCreateChatMessageHandler {
         // In 2e sorcerer breath spells add the E.D. to their crit range
         let addEdToCritRange = false;
         if (game.settings.get("archmage", "secondEdition")) {
-          addEdToCritRange = options.item.system.breathWeapon.value.length > 0;
+          addEdToCritRange = options.item.system.breathWeapon?.value?.length > 0;
         }
 
         $content = $(`<div class="wrapper">${data.content}</div>`);
