@@ -482,7 +482,7 @@ export class ActorArchmage extends Actor {
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
       data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
-    // Barbarians gets a bonus based on 'skulls' as of 2e beta
+    // Barbarians get a bonus based on 'skulls' as of 2e beta
     if (this.getFlag("archmage", "grimDetermination") && game.settings.get("archmage", "secondEdition")) {
       let bonus = 0;
       if (data.attributes.saves.deathFails.value >= 1) bonus = 1;
@@ -577,10 +577,15 @@ export class ActorArchmage extends Actor {
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
 
     // Initiative
-    let incrInit = this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition") ? 1 : 0;
+    let incrInit = 0;
     let statInit = data.abilities?.dex?.nonKey?.mod || 0;
-    if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
-      statInit = data.abilities?.int?.nonKey?.mod || 0;
+    if (game.settings.get("archmage", "secondEdition")) {
+      // In 2e the skills incremental also increases initiative
+      if (this.system.incrementals?.skillInitiative) incrInit = 1;
+      // In 2e wizards have a talent to use Int instead of Dex
+      if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
+      // In 2e beta the bonus to disengage also applies to initiative
+      incrInit += disengageBonus;
     }
     data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
   }

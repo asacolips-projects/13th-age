@@ -104,7 +104,11 @@
                   </div>
 
                   <div class="settings-group">
+                    {{#if data.secondEdition}}
                     <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageBonus'}}</strong>
+                    {{else}}
+                    <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.disengageInitBonus'}}</strong>
+                    {{/if}}
                     <input class="attribute-input" name="system.attributes.disengage.bonus" type="text" value="{{system.attributes.disengage.bonus}}"
                         data-dtype="Number" placeholder="0" />
                   </div>

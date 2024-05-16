@@ -48,6 +48,9 @@ export class ItemArchmageSheet extends ItemSheet {
   async getData(options) {
     const context = super.getData(options);
 
+    // Edition
+    context.secondEdition = game.settings.get("archmage", "secondEdition");
+
     // Sequencer support
     context.sequencerEnabled = game.modules.get("sequencer")?.active;
 
