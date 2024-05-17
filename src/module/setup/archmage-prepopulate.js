@@ -39,24 +39,29 @@ export class ArchmagePrepopulate {
 
     // Load racial powers
     if (race != '') {
+      let raceAr = [race];
+      // if (race.includes("-")) raceAr.push(race.replace("-", " "));
+      if (race.includes(" ")) raceAr.push(race.replace(" ", "-"));
       for (let i=0; i < validRaces.length; i++) {
         let regexRace = new RegExp("(\\W|^)(" + validRaces[i] + ")(\\W|$)", "i");
-        if (race.match(regexRace)) {
-          let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
-          for (let j = 0; j < racePacks.length; j++) {
-            let pack = await racePacks[j].getDocuments();
-            for (let entry of pack) {
-              let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;
-              let raceNamesArray = sourceName.split('/');
-              if (raceNamesArray.some(n => regexRace.test(n))) {
-                let raceName = race.match(regexRace)[0].toLowerCase().replaceAll(/\(|\)|\//g,"").trim();
-                if (raceName in content) {
-                  content[raceName].content.push(entry);
-                } else {
-                  content[raceName] = {
-                    name: raceName,
-                    content: [entry]
-                  };
+        for (const race of raceAr) {
+          if (race.match(regexRace)) {
+            let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
+            for (let j = 0; j < racePacks.length; j++) {
+              let pack = await racePacks[j].getDocuments();
+              for (let entry of pack) {
+                let sourceName = entry.system?.powerSourceName?.value ?? entry.system.group.value;
+                let raceNamesArray = sourceName.split('/');
+                if (raceNamesArray.some(n => regexRace.test(n))) {
+                  let raceName = race.match(regexRace)[0].toLowerCase().replaceAll(/\(|\)|\//g,"").trim();
+                  if (raceName in content) {
+                    content[raceName].content.push(entry);
+                  } else {
+                    content[raceName] = {
+                      name: raceName,
+                      content: [entry]
+                    };
+                  }
                 }
               }
             }
