@@ -587,7 +587,9 @@ export class MacroUtils {
     if (!game.combat) return res;
     const combatants = [...game.combat.combatants.values()];
     combatants.forEach(c => {
-      if (c.token.isLinked && c.token.actor.uuid != selfUuid) res.push(c.token);
+      if ((c.token.isLinked || c.token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY) && c.token.actor.uuid != selfUuid) {
+        res.push(c.token);
+      }
     });
     return res;
   }
