@@ -1,0 +1,84 @@
+name: Flaring Wand
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Quick action &ndash; recharge 11+) When the escalation die is 5+, cast
+      one of your arcane spells. That spell will miss on any natural odd
+      roll.</p>
+
+      <p>Quirk: Often looks frazzled.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '11'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 1
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: wand
+effects: []
+folder: S3zYrTXKi6Ffsb52
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648298941
+  modifiedTime: 1714648314580
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: GwH4ZzLfpiE4pL3r
+sort: 600000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!GwH4ZzLfpiE4pL3r'
+

@@ -1,0 +1,39 @@
+name: Healing Potion (Iconic)
+type: loot
+img: systems/archmage/assets/icons/items/potions/magic-red.jpg
+effects: []
+flags:
+  core: {}
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>As a standard action, spend a recovery and regain 4d8 additional hp
+      (max 130).</p>
+  quantity:
+    type: Number
+    label: Quantity
+    value: 1
+  price:
+    type: Number
+    label: Price
+    value: 300
+folder: 0mcnzVgWo4dqvS1l
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647891221
+  modifiedTime: 1714647897771
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: UpPrOgojlARTyh3L
+sort: 600000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!UpPrOgojlARTyh3L'
+

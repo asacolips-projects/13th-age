@@ -1,0 +1,87 @@
+name: Momentous Harmony
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>The pendant brings out the best in other magic items you carry, so that
+      their quirks turn more positive, or at least become weaker if they cause
+      trouble. If you go over your magic item limit, the pendant ceases to
+      function (including the default bonus) and the formerly subdued magic
+      items express themselves with renewed fervor.</p>
+
+      <p>Quirk: Treats all their magic items well&mdash;talks to them as if
+      they&rsquo;re alive, refers to them as &ldquo;children,&rdquo; etc.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 1
+      threshold: 10
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: necklace
+effects: []
+folder: IBGzYvealgID1OwQ
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648163047
+  modifiedTime: 1714648165074
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: eCRxf6CzDnyl3Erh
+sort: 300000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!eCRxf6CzDnyl3Erh'
+

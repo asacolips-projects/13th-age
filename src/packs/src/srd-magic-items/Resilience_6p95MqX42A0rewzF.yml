@@ -1,0 +1,83 @@
+name: Resilience
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 11+) When you make a basic melee attack, heal using a
+      recovery.</p>
+
+      <p>Quirk: Eats an odd vegetarian diet and advocates it loudly.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '11'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 4
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: shield
+effects: []
+folder: o41SESZhM8MCicod
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648213953
+  modifiedTime: 1714648213969
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: 6p95MqX42A0rewzF
+sort: 100000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!6p95MqX42A0rewzF'
+
