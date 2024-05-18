@@ -1,0 +1,91 @@
+name: Evil Eyes (gloves)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>This gauntlet has eyes on the knuckles, aiding archers and
+      spellcasters.</p>
+
+      <p>Always: Bonus to attacks and damage with ranged attacks: +1
+      (adventurer); +2 (champion); +3 (epic). The bonus doesn&rsquo;t stack with
+      bonuses from magic weapons or implements.</p>
+
+      <p>Chuulish recharge: Until the end of the battle or for five minutes, you
+      can see the unseen. Invisible creatures are visible to you, and you spot
+      illusions for what they are.</p>
+
+      <p>Quirk: Bone ridges and oddly patterned callouses on the arms.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '16'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 1
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: glove
+effects: []
+folder: uGMLSN6ivBLGtUfv
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647934042
+  modifiedTime: 1714647940826
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: 9k4aivHQPWZMKfWO
+sort: 300000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!9k4aivHQPWZMKfWO'
+

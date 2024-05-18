@@ -107,7 +107,7 @@ token:
   name: Animal Companion (0)
   img: systems/archmage/assets/icons/tokens/monsters/beast.webp
   displayName: 0
-  actorLink: false
+  actorLink: true
   width: 1
   height: 1
   scale: 1

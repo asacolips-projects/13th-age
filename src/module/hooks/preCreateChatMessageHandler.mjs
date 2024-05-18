@@ -94,11 +94,9 @@ export default class preCreateChatMessageHandler {
             game.i18n.localize("ARCHMAGE.CHAT.resources") + ':',
             game.i18n.localize("ARCHMAGE.ITEM.usesRemaining") + ':',
             game.i18n.localize("ARCHMAGE.CHAT.special") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.effect") + ':',
+            // game.i18n.localize("ARCHMAGE.CHAT.effect"),  // Handled separately to avoid overlap with Opening/Sustained Effect
             game.i18n.localize("ARCHMAGE.CHAT.castBroadEffect") + ':',
             game.i18n.localize("ARCHMAGE.CHAT.castPower") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect") + ':',
-            game.i18n.localize("ARCHMAGE.CHAT.finalVerse") + ':',
             game.i18n.localize("ARCHMAGE.CHAT.spellChain") + ':',
             game.i18n.localize("ARCHMAGE.CHAT.breathWeapon") + ':'
         ];
@@ -143,6 +141,10 @@ export default class preCreateChatMessageHandler {
                 let row_text = $row_self.html();
 
                 if (rowsToSkip.filter(x => row_text.includes(x)).length > 0) {
+                    return;
+                }
+                if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.effect"))
+                  && !row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect"))) {
                     return;
                 }
 
@@ -216,6 +218,14 @@ export default class preCreateChatMessageHandler {
                         row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
                         $row_self.addClass("trigger-active");
                     }
+                }
+
+                // Highlight sustain / final verse for songs
+                if ((["sustainedEffect", "openingEffect"].includes(options.usageMode)
+                    && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect") + ':'))
+                    || (options.usageMode == "finalverse"
+                    && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.finalVerse") + ':'))) {
+                    $row_self.addClass("trigger-active");
                 }
             });
 

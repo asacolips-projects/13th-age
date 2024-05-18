@@ -1,0 +1,49 @@
+name: Rune (Champion)
+type: loot
+img: systems/archmage/assets/icons/spells/runes-blue-2.jpg
+effects: []
+flags:
+  core: {}
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Works as a @UUID[Compendium.world.consumables.eN1gdL3aMG7iALnX]{Magic
+      Oil (Champion)} and provides an additional effect based on what it is
+      applied to:</p>
+
+      <p>@UUID[Compendium.archmage.system-rolltables.djAMvJnznazPb52v]{Random
+      Rune Effect on Armor}</p>
+
+      <p>@UUID[Compendium.archmage.system-rolltables.HlqbChfomypWhoL2]{Random
+      Rune Effect on Weapon}</p>
+
+      <p>@UUID[Compendium.archmage.system-rolltables.1To7U9r1mJ9767qW]{Random
+      Rune Effect on Spellcasting Implement}</p>
+  quantity:
+    type: Number
+    label: Quantity
+    value: 1
+  price:
+    type: Number
+    label: Price
+    value: 300
+folder: 0mcnzVgWo4dqvS1l
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647899650
+  modifiedTime: 1714647899650
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: 5btRdwk6I87mcK4N
+sort: 0
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!5btRdwk6I87mcK4N'
+

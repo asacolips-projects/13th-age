@@ -1,0 +1,85 @@
+name: Boots of Sure Feet
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>You can walk or run normally through terrain that would usually slow
+      one down, such as rubble, undergrowth, muck, etc. The boots don&rsquo;t
+      protect you against damage or similar effects incurred from inhospitable
+      terrain.</p>
+
+      <p>Quirk: Becomes exceptionally picky about diet.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 1
+  isActive: true
+  price:
+    value: ''
+  chackra: boots
+effects: []
+folder: oEtqWlOkypylr6Am
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647846304
+  modifiedTime: 1714647846304
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: jbMav0pEopdyZl5i
+sort: 0
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!jbMav0pEopdyZl5i'
+

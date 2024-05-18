@@ -1,0 +1,86 @@
+name: Perseverance
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Quick action &ndash; daily) If you are staggered, you regain an
+      expended power as if you had taken a quick rest. You automatically regain
+      a once-per-battle power, but a recharge power requires a successful
+      recharge roll. You can regain a racial power, class power, or magic item
+      power this way.</p>
+
+      <p>Quirk: Repeats stories over and over.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: daily
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 1
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: armor
+effects: []
+folder: xyEGAhEbvQAYa3A6
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647594899
+  modifiedTime: 1714647596412
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: r3kIH0Qwjtd089VO
+sort: 400000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!r3kIH0Qwjtd089VO'
+

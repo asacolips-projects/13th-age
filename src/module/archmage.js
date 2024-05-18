@@ -1360,6 +1360,14 @@ function _handleCondButtonMsg(msg) {
   }
 }
 
+function _handlecreateAEsMsg(msg) {
+  if (!game.user.isGM) return;
+  msg.actorIds.forEach(id => {
+    const actor = game.actors.get(id);
+    actor.createEmbeddedDocuments("ActiveEffect", msg.effects);
+  });
+}
+
 
 Hooks.once('ready', async function () {
   game.socket.on("system.archmage", (msg) => {
@@ -1369,6 +1377,9 @@ Hooks.once('ready', async function () {
         break;
       case 'condButton':
         _handleCondButtonMsg(msg);
+        break;
+      case 'createAEs':
+        _handlecreateAEsMsg(msg);
         break;
       default:
         console.log(msg);

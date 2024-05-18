@@ -156,6 +156,17 @@ system:
     label: Max Uses
     value: 1
   feats: null
+  embeddedMacro:
+    type: String
+    label: Embedded Macro
+    value: >-
+      // For the code executed in this macro, see
+
+      //
+      https://gitlab.com/asacolips-projects/foundry-mods/archmage/-/blob/master/src/module/setup/macros.js
+
+      game.archmage.ArchmageMacros.bardSongOfHeroes(speaker, actor, token,
+      character, archmage);
 flags: {}
 img: icons/environment/people/infantry-army.webp
 _id: hPiVDKoKCVNQN7sD

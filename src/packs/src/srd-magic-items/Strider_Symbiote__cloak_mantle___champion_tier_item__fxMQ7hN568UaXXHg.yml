@@ -1,0 +1,91 @@
+name: Strider Symbiote (cloak/mantle – champion tier item)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>This living &ldquo;backpack&rdquo; clings to you with tentacles and
+      inserts mouthparts into the top of your spine. The segmented limbs of the
+      strider usually lie flat against your body but may be commanded to spring
+      out and carry you like a long-legged spider</p>
+
+      <p>Always: +2 PD (champion); +3 PD (epic).</p>
+
+      <p>Chuulish recharge: Until the end of the battle or for five minutes, you
+      can move on walls or ceilings as easily as you do across the ground.
+      (epic: chuulish recharge starts at 11+)</p>
+
+      <p>Quirk: Twitching antenna.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '16'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 2
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: cloak
+effects: []
+folder: uGMLSN6ivBLGtUfv
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714647944185
+  modifiedTime: 1714647944185
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: fxMQ7hN568UaXXHg
+sort: 0
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!fxMQ7hN568UaXXHg'
+
