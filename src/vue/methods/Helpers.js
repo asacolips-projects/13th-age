@@ -50,7 +50,7 @@ export function concat(...args) {
  *
  * @returns {string}
  */
-export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null) {
+export async function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null) {
   // Unproxy the roll data object.
   rollData = rollData ? JSON.parse(JSON.stringify(rollData)) : {};
 
@@ -95,7 +95,8 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   ]);
 
   // Remove whitespace from inline rolls.
-  let clean = text.toString();  // cast to string, could be e.g. number
+  // @todo this isn't playing well with v12.
+  let clean = text ? text?.toString() ?? '' : '';  // cast to string, could be e.g. number
 
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
   if (diceFormulaMode == 'short') {
@@ -152,7 +153,7 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   }
 
   // Call TextEditor.enrichHTML to process remaining object links
-  clean = TextEditor.enrichHTML(clean, { async: false})
+  clean = await TextEditor.enrichHTML(clean, { async: false });
 
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);

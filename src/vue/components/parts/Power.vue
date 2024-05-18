@@ -17,7 +17,7 @@
         <span class="power-detail-value" v-html="power.system.description.value"></span>
       </div>
       <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.system[field].value, [], diceFormulaMode, context.rollData, field)"></span>
+        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong> <span class="power-detail-value" v-html="enrichedPowers[field]"></span>
       </div>
     </section>
     <!-- Feats. -->
@@ -49,17 +49,8 @@ export default {
     }
   },
   data() {
-    return {}
-  },
-  computed: {
-    constants() {
-      return CONFIG.ARCHMAGE;
-    },
-    diceFormulaMode() {
-      return this.actor?.flags?.archmage?.diceFormulaMode ?? 'short';
-    },
-    powerDetailFields() {
-      let powerFields = [
+    return {
+      powerFields: [
         'trigger',
         'sustainOn',
         'target',
@@ -86,12 +77,21 @@ export default {
         'spellChain',
         'breathWeapon',
         'recharge',
-      ];
-
-      powerFields = powerFields.filter(p => this.power.system[p].value);
-
-      return powerFields;
+      ],
+      enrichedPowers: {},
+      enrichedFeats: {},
     }
+  },
+  computed: {
+    constants() {
+      return CONFIG.ARCHMAGE;
+    },
+    diceFormulaMode() {
+      return this.actor?.flags?.archmage?.diceFormulaMode ?? 'short';
+    },
+    powerDetailFields() {
+      return this.powerFields.filter(p => this.power.system[p].value);
+    },
   },
   methods: {
     /**
@@ -106,6 +106,17 @@ export default {
       return res;
     }
   },
-  async mounted() {}
+  async mounted() {
+    for (let field of this.powerFields) {
+      wrapRolls(this.power.system[field].value, [], this.diceFormulaMode, this.context.rollData, field).then(enrichedPower => {
+        this.enrichedPowers[field] = enrichedPower;
+      });
+    }
+
+    // @todo enrich feats.
+    for (let [featKey, featValue] of Object.entries(this.power.system.feats)) {
+      console.log(featKey, featValue);
+    }
+  }
 }
 </script>
