@@ -155,7 +155,6 @@ export default class preCreateChatMessageHandler {
 
                 if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
                     hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor);
-                    console.log('Evaluate hit:', hitEvaluationResults);
                 }
 
                 if (hitEvaluationResults) {

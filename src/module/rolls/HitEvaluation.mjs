@@ -19,7 +19,6 @@ export default class HitEvaluation {
         let $rolls = $row_self.find('.inline-result');
         if ($rolls.length == 0) {
           // No rolls means it's an auto-hit
-          console.log('No hit', $row_self[0]);
           targetsHit = targets;
         } else {
           let targetsToProcess = Math.min($rolls.length, targets.length);
@@ -27,8 +26,6 @@ export default class HitEvaluation {
             let $roll_self = $(this);
             let roll_data = Roll.fromJSON(unescape($roll_self.data('roll')));
             let rollTotal = roll_data.total;
-
-            console.log('Rolls', $rolls[0]);
 
             // Skip if not a d20 roll
             let isD20 = false;
@@ -101,17 +98,6 @@ export default class HitEvaluation {
 
         // Update row with roll classes
         $row_self.find('.inline-result').replaceWith($rolls);
-
-        console.log('Results:', {
-          targetsHit: targetsHit,
-          targetsCrit: targetsCrit,
-          targetsMissed: targetsMissed,
-          targetsFumbled: targetsFumbled,
-          hasHit: hasHit,
-          hasMissed: hasMissed,
-          defenses: defenses,
-          $rolls: $rolls
-        });
 
         return {
             targetsHit: targetsHit,
