@@ -25,7 +25,6 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         next: combat.nextCombatant._id,
     });
 
-
     const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
         selfEnded: [],
@@ -35,9 +34,11 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         unknown: [],
     };
     let effectsToDelete = [];
+    let isDead = false;
 
     for (const effect of combatant.actor.effects) {
         if (!effect.active) continue;
+        if (effect.name === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead")) isDead = true;
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
             console.log(`${prefix}OfNextTurn effect found`, effect);
@@ -74,7 +75,9 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
     }
 
     // console.log("Current Combatant Effect Data", currentCombatantEffectData);
-    await renderOngoingEffectsCard(`${prefix} of Turn Effects`, combatant, currentCombatantEffectData);
+    if (!isDead) {
+        await renderOngoingEffectsCard(`${prefix} of Turn Effects`, combatant, currentCombatantEffectData);
+    }
 }
 
 export async function combatRound(combat, context, options) {

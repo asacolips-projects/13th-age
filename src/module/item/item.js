@@ -33,8 +33,11 @@ export class ItemArchmage extends Item {
     let itemUpdateData = {};
     let actorUpdateData = {};
 
+    // Understand what the user is trying to do
+    let usageMode = await this._rollUsageMode()
+
     // First check remaining uses.
-    let early_exit = await this._rollUsesCheck(itemUpdateData);
+    let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode);
     if (early_exit) return;
 
     // Make an ephemeral clone of the item which we can dirty during processing.
@@ -70,16 +73,17 @@ export class ItemArchmage extends Item {
       item: this,
       token: token,
       powerLevel: this.system.powerLevel?.value,
-      sequencer: this.system.sequencer
+      sequencer: this.system.sequencer,
+      usageMode: usageMode
     }, null);
 
     // Handle special class triggers
-    await this._handleMonkAC(itemToRender);
-    await this._handleSong(itemToRender);
+    await this._handleMonkFormAC(itemToRender);
+    await this._handleSong(itemToRender, usageMode);
     await this._handleBreathSpell(itemToRender);
 
     // Run embedded macro.
-    let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token);
+    let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode);
     // Unpack macro data in case a sloppy macro replaces instead of modifying variables
     itemToRender = macro.item;
     itemUpdateData = macro.itemUpdates;
@@ -158,7 +162,36 @@ export class ItemArchmage extends Item {
     return game.archmage.ArchmageUtility.createChatMessage(chatData);;
   }
 
-  async _rollUsesCheck(updateData) {
+  async _rollUsageMode() {
+    let retVal = "";
+
+    // If we have a song sustain reminder check what we want to do
+    if (this.type == "power"
+        && this.system.sustainedEffect.value
+        && this.system.finalVerse.value) {
+      let hasReminder = false;
+      const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower", {power: this.name, target: this.system.sustainOn.value});
+      this.actor.effects.forEach(e => {
+        if (e.label == name) hasReminder = true;
+      });
+
+      if (!hasReminder) return "openingEffect";
+
+      await Dialog.confirm({
+        title: game.i18n.localize("ARCHMAGE.CHAT.sustainedOrFinalTitle"),
+        content: game.i18n.localize("ARCHMAGE.CHAT.sustainedOrFinal"),
+        yes: () => {retVal = "finalverse";},
+        no: () => {retVal = "sustainedEffect";},
+        defaultYes: false
+      });
+    }
+
+    return retVal;
+  }
+
+  async _rollUsesCheck(updateData, usageMode) {
+    // If we have a special usage mode skip this check
+    if (!["", "openingEffect"].includes(usageMode)) return false;
     // Update uses left
     let uses = this.system.quantity?.value;
     if (uses == null) return false;
@@ -174,18 +207,18 @@ export class ItemArchmage extends Item {
       && this.system.powerUsage?.value != 'at-will') {
       let use = false;
       await Dialog.confirm({
-       title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
-       content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
-       yes: () => {use = true;},
-       no: () => {},
-       defaultYes: false
+        title: game.i18n.localize("ARCHMAGE.CHAT.NoUses"),
+        content: game.i18n.localize("ARCHMAGE.CHAT.NoUsesMsg"),
+        yes: () => {use = true;},
+        no: () => {},
+        defaultYes: false
       });
       return !use;
     }
     return false;
   }
 
-  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender) {
+  async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
     // Updates resources if field is set
     let resStr = this.system.resources?.value;
     if (!resStr) return false;
@@ -546,7 +579,7 @@ export class ItemArchmage extends Item {
   /**
    * Check if we are rolling a monk form, add related AC active effect
    */
-  async _handleMonkAC(itemToRender) {
+  async _handleMonkFormAC(itemToRender) {
     if (itemToRender.type != "power") return;
     if (!itemToRender.actor.system.details.detectedClasses?.includes("monk")) return;
 
@@ -588,32 +621,43 @@ export class ItemArchmage extends Item {
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
-  async _handleSong(itemToRender) {
+  async _handleSong(itemToRender, usageMode) {
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.sustainedEffect.value) return;
 
     const name = game.i18n.format("ARCHMAGE.CHAT.sustainPower",
       {power: itemToRender.name, target: itemToRender.system.sustainOn.value});
 
-    // Check if we already have the effect
-    let alreadyHasEffect = false;
-    itemToRender.actor.effects.forEach(e => {
-      if (e.name == name) alreadyHasEffect = true;
-    });
-    if (!alreadyHasEffect) {
-      let effectData = {
-        name: name,
-        img: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
-        flags: {
-          archmage: {
-            tooltip: name
+    if (usageMode == "finalverse") {
+      // Remove reminder if present
+      let effectsToDelete = [];
+      itemToRender.actor.effects.forEach(e => {
+        if (e.name == name) effectsToDelete.push(e.id);
+      });
+      await itemToRender.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
+    } else {
+      // Check if we already have the reminder
+      let alreadyHasEffect = false;
+      itemToRender.actor.effects.forEach(e => {
+        if (e.name == name) alreadyHasEffect = true;
+      });
+      if (!alreadyHasEffect) {
+        //Create the reminder
+        let effectData = {
+          name: name,
+          img: itemToRender.img ? itemToRender.img : "icons/svg/sound.svg",
+          flags: {
+            archmage: {
+              tooltip: name
+            }
           }
-        }
-      };
-      MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
-      await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+        };
+        MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfEachTurn);
+        await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+      }
     }
   }
+
   async _handleBreathSpell(itemToRender){
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.breathWeapon.value) return;
@@ -640,7 +684,7 @@ export class ItemArchmage extends Item {
     }
   }
 
-  async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token) {
+  async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode) {
     // Extra data accessible as "archmage" in embedded macros
     let macro_data = {
       item: itemToRender,
@@ -649,7 +693,8 @@ export class ItemArchmage extends Item {
       chat: chatData,
       hitEval: hitEvalRes,
       seqAnim: sequencerAnim,
-      suppressMessage: false
+      suppressMessage: false,
+      usageMode: usageMode
     };
     // If there is an embedded macro attempt to execute it
     if (itemToRender.system.embeddedMacro?.value.length > 0) {

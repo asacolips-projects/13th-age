@@ -1,0 +1,85 @@
+name: Backbiter Bow (bow)
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>Gold bow with no string. It creates a glowing string and &ldquo;energy
+      arrows.&rdquo;</p>
+
+      <p>Always: Bonus to attacks and damage: +2 (adventurer). In addition, when
+      you miss with an attack and the escalation die is odd, roll a save; on a
+      failure, you instead hit yourself with the attack.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: '0'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 2
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: ranged
+effects: []
+folder: 4kES6iUsw34OPUMb
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648052331
+  modifiedTime: 1714648080652
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: 96OPIT2cN2Hcs3b2
+sort: 1400000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!96OPIT2cN2Hcs3b2'
+

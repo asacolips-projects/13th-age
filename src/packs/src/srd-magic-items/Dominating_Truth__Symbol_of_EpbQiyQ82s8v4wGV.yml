@@ -1,0 +1,85 @@
+name: Dominating Truth, Symbol of
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>(Recharge 11+) When you cast a divine spell that affects one target
+      with a limited amount of hit points (for example, turn undead), you can
+      instead have that spell affect two targets with half the hit point
+      requirement or less.</p>
+
+      <p>Quirk: Never admits they&rsquo;re wrong.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: recharge
+  recharge:
+    type: Number
+    label: Recharge
+    value: '11'
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: '1'
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: '1'
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 0
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 1
+      arcane:
+        bonus: 0
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: symbol
+effects: []
+folder: g4tr4OTbLzXhctY5
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648274045
+  modifiedTime: 1714648280706
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: EpbQiyQ82s8v4wGV
+sort: 200000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!EpbQiyQ82s8v4wGV'
+

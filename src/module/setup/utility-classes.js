@@ -577,6 +577,40 @@ export class MacroUtils {
     }
     return res;
   }
+
+  /**
+   * Select all allies - approximated by all linked actors in combat
+   * If selfUuid is set it excludes the specified actor, otherwise it includes all linked tokens
+   */
+  static getAllies(selfUuid="") {
+    let res = [];
+    if (!game.combat) return res;
+    const combatants = [...game.combat.combatants.values()];
+    combatants.forEach(c => {
+      if ((c.token.isLinked || c.token.disposition == CONST.TOKEN_DISPOSITIONS.FRIENDLY) && c.token.actor.uuid != selfUuid) {
+        res.push(c.token);
+      }
+    });
+    return res;
+  }
+
+  /**
+   * Create one or more AEs on a set of tokens - via a message to the GM's account to bypass
+   * persmissions if needed.
+   */
+  static applyActiveEffectsToTokens(tokens, effects) {
+    if (!game.user.isGM) {
+      game.socket.emit('system.archmage', {
+        type: 'createAEs',
+        actorIds: tokens.map(t => t.actorId),
+        effects: effects
+      });
+    } else {
+      tokens.forEach(t => {
+        t.actor.createEmbeddedDocuments("ActiveEffect", effects);
+      });
+    }
+  }
 }
 
 /**

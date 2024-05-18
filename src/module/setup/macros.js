@@ -67,6 +67,57 @@ export class ArchmageMacros {
 
   ////////////////////////////////////////////////
   /**
+   * Bard Macros.
+   */
+  ////////////////////////////////////////////////
+
+  /**
+   * Song of Heroes.
+   */
+  static async bardSongOfHeroes(speaker, actor, token, character, archmage) {
+    if (!actor) return;
+    if (archmage.usageMode == "finalverse") return;
+
+    // Select target tokens
+    let targets = [...game.user.targets.values()];
+    if (targets.length == 0) targets = game.archmage.MacroUtils.getAllies();
+
+    // Prepare effect data
+    let effectData = {
+      label: archmage.item.name,
+      icon: archmage.item.img,
+      changes: [{
+        key: "system.attributes.attackMod.value",
+        value: 1,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      },]
+    };
+    if (archmage.item.system.powerLevel.value >= 3) {
+      effectData.changes.push({
+        key: "system.attributes.saves.bonus",
+        value: 1,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      });
+    }
+    if (archmage.item.system.powerLevel.value >= 9) {
+      effectData.changes.push({
+        key: "system.attributes.md.value",
+        value: 1,
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD
+      });
+    }
+    game.archmage.MacroUtils.setDuration(
+      effectData,
+      CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn,
+      {sourceTurnUuid: actor.uuid}
+    );
+
+    // Apply effect to all targets - make the GM do it to bypass permissions
+    game.archmage.MacroUtils.applyActiveEffectsToTokens(targets, [effectData]);
+  }
+
+  ////////////////////////////////////////////////
+  /**
    * Cleric Macros.
    */
   ////////////////////////////////////////////////

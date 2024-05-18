@@ -1,0 +1,86 @@
+name: Body Breaking, Dagger of
+type: equipment
+img: icons/svg/item-bag.svg
+system:
+  name:
+    type: String
+    label: Name
+  description:
+    type: String
+    label: Description
+    value: >-
+      <p>This rune-covered bronze dagger also works as a wand. When you cast an
+      arcane attack spell using this dagger/wand, you gain a +1 bonus to attack
+      and damage with that spell if it targets PD.</p>
+
+      <p>Quirk: Scratches self unnervingly.</p>
+  powerUsage:
+    type: String
+    label: Power Usage
+    value: other
+  recharge:
+    type: Number
+    label: Recharge
+    value: 0
+  rechargeAttempts:
+    type: Number
+    label: Number of Recharges Attempted
+    value: 0
+  quantity:
+    type: Number
+    label: Uses
+    value: null
+  maxQuantity:
+    type: Number
+    label: Max Uses
+    value: null
+  properties: {}
+  attributes:
+    attack:
+      melee:
+        bonus: 1
+      ranged:
+        bonus: 0
+      divine:
+        bonus: 0
+      arcane:
+        bonus: 1
+    ac:
+      bonus: 0
+    md:
+      bonus: 0
+    pd:
+      bonus: 0
+    hp:
+      bonus: 0
+    recoveries:
+      bonus: 0
+    save:
+      bonus: 0
+      threshold: 0
+    disengage:
+      bonus: 0
+  isActive: true
+  price:
+    value: ''
+  chackra: wand
+  embeddedMacro:
+    value: ''
+effects: []
+folder: S3zYrTXKi6Ffsb52
+flags:
+  core: {}
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: 1714648296508
+  modifiedTime: 1714648314580
+  lastModifiedBy: zQqK0qgL2au7apj0
+_id: DjmtneqgPskZE33p
+sort: 500000
+ownership:
+  default: 0
+  zQqK0qgL2au7apj0: 3
+_key: '!items!DjmtneqgPskZE33p'
+
