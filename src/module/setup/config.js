@@ -577,10 +577,15 @@ ARCHMAGE.creatureSizes = {
   'normal': 'Normal',
   'large': 'Large',
   'huge': 'Huge',
+  'small': 'Small',
+};
+
+ARCHMAGE.creatureStrengths = {
+  'normal': 'Normal',
   'double': 'Double-strength',
   'triple': 'Triple-strength',
   'weakling': 'Weakling',
-  'elite': 'Elite'
+  'elite': 'Elite',
 };
 
 ARCHMAGE.creatureRoles = {

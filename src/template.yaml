@@ -431,7 +431,9 @@ Actor:
       role:
         value: ''
       size:
-        value: Normal
+        value: ''
+      strength:
+        value: ''
       type:
         value: ''
       resistance:
