@@ -230,6 +230,13 @@ Hooks.once('init', async function() {
         CONFIG.ARCHMAGE.classes[cl][k] = CONFIG.ARCHMAGE.classes2e[cl][k];
       }
     }
+
+    // Update daily -> arc
+    CONFIG.ARCHMAGE.powerUsages['daily'] = 'Arc';
+    CONFIG.ARCHMAGE.powerUsages['daily-desperate'] = 'Arc/Desperate';
+    CONFIG.ARCHMAGE.equipUsages['daily'] = 'Arc';
+    CONFIG.ARCHMAGE.equipUsages['daily-desperate'] = 'Arc/Desperate';
+    CONFIG.ARCHMAGE.featUsages['daily'] = 'Arc';
   } else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
