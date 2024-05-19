@@ -82,30 +82,42 @@ export class ArchmageMacros {
     let targets = [...game.user.targets.values()];
     if (targets.length == 0) targets = game.archmage.MacroUtils.getAllies();
 
+    let bonus = 1;
+    // Increase bonuse if we have the (2e) champion feat
+    if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value
+      && game.settings.get('archmage', 'secondEdition')) {
+      bonus = 2;
+    }
+
     // Prepare effect data
     let effectData = {
       label: archmage.item.name,
       icon: archmage.item.img,
       changes: [{
         key: "system.attributes.attackMod.value",
-        value: 1,
+        value: bonus,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       },]
     };
-    if (archmage.item.system.powerLevel.value >= 3) {
-      effectData.changes.push({
-        key: "system.attributes.saves.bonus",
-        value: 1,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      });
+
+    // Add extra effects for (1e) higher levels
+    if (!game.settings.get('archmage', 'secondEdition')) {
+      if (archmage.item.system.powerLevel.value >= 3) {
+        effectData.changes.push({
+          key: "system.attributes.saves.bonus",
+          value: 1,
+          mode: CONST.ACTIVE_EFFECT_MODES.ADD
+        });
+      }
+      if (archmage.item.system.powerLevel.value >= 9) {
+        effectData.changes.push({
+          key: "system.attributes.md.value",
+          value: 1,
+          mode: CONST.ACTIVE_EFFECT_MODES.ADD
+        });
+      }
     }
-    if (archmage.item.system.powerLevel.value >= 9) {
-      effectData.changes.push({
-        key: "system.attributes.md.value",
-        value: 1,
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD
-      });
-    }
+
     game.archmage.MacroUtils.setDuration(
       effectData,
       CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextSourceTurn,
