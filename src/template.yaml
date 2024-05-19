@@ -629,6 +629,10 @@ Item:
       type: String
       label: 10th Level Spell
       value: ''
+    spellLevel11:
+      type: String
+      label: 11th Level Spell
+      value: ''
     spellChain:
       type: String
       label: Chain Spell
