@@ -1048,7 +1048,14 @@ export class ActorArchmage extends Actor {
     }
 
     // Resources
-    // Focus, Momentum and Command Points handled on end combat hook
+    // Focus, Momentum and Command Points
+    for (let k of Object.keys(this.system.resources.perCombat)) {
+      if ( this.system.resources.perCombat[k].default )
+        updateData[`system.resources.perCombat.${k}.current`] = this.system.resources.perCombat[k].default;
+      else
+        updateData[`system.resources.perCombat.${k}.current`] = 0;
+    }
+    // Custom resources
     for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
       let resourcePathName = "custom"+idx;
       let resourceName = this.system.resources.spendable[resourcePathName].label;
@@ -1176,6 +1183,7 @@ export class ActorArchmage extends Actor {
     updateData['system.attributes.saves.lastGaspFails.value'] = 0;
 
     // Resources
+    // Ki
     if (this.system.resources.spendable.ki.enabled
       && this.system.resources.spendable.ki.current < this.system.resources.spendable.ki.max) {
       updateData['system.resources.spendable.ki.current'] = this.system.resources.spendable.ki.max;
@@ -1184,6 +1192,14 @@ export class ActorArchmage extends Actor {
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.ki.max}`
       });
     }
+    // Focus, Momentum and Command Points
+    for (let k of Object.keys(this.system.resources.perCombat)) {
+      if ( this.system.resources.perCombat[k].default )
+        updateData[`system.resources.perCombat.${k}.current`] = this.system.resources.perCombat[k].default;
+      else
+        updateData[`system.resources.perCombat.${k}.current`] = 0;
+    }
+    // Custom Resources
     for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
       let resourcePathName = "custom"+idx;
       let resourceName = this.system.resources.spendable[resourcePathName].label;

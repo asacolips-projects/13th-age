@@ -1558,12 +1558,6 @@ Hooks.on('deleteCombat', (combat) => {
         if (actor) {
           let updates = {};
           updates['system.attributes.hp.temp'] = 0;
-          // for (let k of Object.keys(actor.system.resources.perCombat)) {
-            // if ( actor.system.resources.perCombat[k].default )
-              // updates[`system.resources.perCombat.${k}.current`] = actor.system.resources.perCombat[k].default;
-            // else
-              // updates[`system.resources.perCombat.${k}.current`] = 0;
-          // }
           await actor.update(updates);
           updatedActors[actor._id];
         }
