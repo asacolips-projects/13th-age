@@ -34,9 +34,9 @@
                 <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
               </a>
               <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
-                <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="wrapRolls(action.system.attack.value, attackReplacer)"></span>
-                <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + wrapRolls(action.system.hit.value)"></span>
-                <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="wrapRolls(action.system.description.value)"></span>
+                <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="enrichedActions[groupKey][action._id]['attack']"></span>
+                <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + enrichedActions[groupKey][action._id]['hit']"></span>
+                <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="enrichedActions[groupKey][action._id]['description']"></span>
               </span>
               <div class="item-controls">
                 <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
@@ -76,6 +76,11 @@ export default {
       sortBy: 'custom',
       searchValue: null,
       activeActions: {},
+      enrichedActions: {
+        'action': {},
+        'nastierSpecial': {},
+        'trait': {},
+      },
     }
   },
   setup() {
@@ -248,6 +253,38 @@ export default {
   },
   async mounted() {
     this.getActions();
+    const actionTypes = Object.keys(this.enrichedActions);
+    console.log('Item Types', this.actor.items);
+
+    for (let [actionType, actions] of Object.entries(this.actionGroups)) {
+      console.log(actionType);
+      if (!actionTypes.includes(actionType)) continue;
+
+      if (actions.length > 0) {
+        for (let action of actions) {
+          this.enrichedActions[actionType][action._id] = {};
+
+          if (action.system?.attack?.value) {
+            wrapRolls(action.system.attack.value, this.attackReplacer).then(enrichedAction => {
+              this.enrichedActions[actionType][action._id]['attack'] = enrichedAction;
+            })
+          }
+
+          if (action.system?.hit?.value) {
+            wrapRolls(action.system.hit.value).then(enrichedAction => {
+              this.enrichedActions[actionType][action._id]['hit'] = enrichedAction;
+            })
+          }
+
+          if (action.system?.description?.value) {
+            wrapRolls(action.system.description.value).then(enrichedAction => {
+              this.enrichedActions[actionType][action._id]['description'] = enrichedAction;
+            })
+          }
+        }
+      }
+    }
+
     this.sortBy = this.flags?.sheetDisplay?.actions?.sortBy?.value ?? 'custom';
   }
 }
