@@ -687,7 +687,12 @@ export class ItemArchmage extends Item {
       const naturalRoll = hitEvalRes.$rolls[0].d20result
       if (naturalRoll >= low && naturalRoll <= high) {
         delete actorUpdateData['system.resources.perCombat.focus.current']
-        // TODO: highlight the "always" part of chatData
+
+        const labelText = game.i18n.localize(`ARCHMAGE.CHAT.always`)
+        chatData.content = chatData.content.replace(
+          `<div class="card-prop"><strong>${labelText}:`,
+          `<div class="card-prop trigger-active"><strong>${labelText}:`
+        )
       }
     }
   }
