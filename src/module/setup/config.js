@@ -577,7 +577,9 @@ ARCHMAGE.creatureSizes = {
   'normal': 'Normal',
   'large': 'Large',
   'huge': 'Huge',
+  'gargantuan': 'Gargantuan',
   'small': 'Small',
+  'tiny': 'Tiny',
 };
 
 ARCHMAGE.creatureStrengths = {

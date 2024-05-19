@@ -349,7 +349,9 @@ class ArchmageUpdateHandler {
       if (size == 'normal') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'normal'});
       if (size == 'large') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'double'});
       if (size == 'huge') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'triple'});
-      // skip 'small' as it's new with this releaseCapture
+      // skip 'gargantuan' as it's new with this release
+      // skip 'small' as it's new with this release
+      // skip 'tiny' as it's new with this release
       if (size == 'double') {
         foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'double'});
         foundry.utils.mergeObject(updateData, {'system.details.size.value': 'normal'});
