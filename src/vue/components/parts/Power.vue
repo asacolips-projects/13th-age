@@ -25,7 +25,7 @@
       <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="feat-detail-label">{{localize(concat('ARCHMAGE.CHAT.', feat.tier?.value))}}:</strong>
         <div class="flexrow">
-          <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
+          <div class="power-detail-content" v-html="this.enrichedFeats[index]"></div>
           <div class="feat-uses" v-if="feat.isActive.value">
             <a class="rollable" data-roll-type="feat" :data-roll-opt="power._id" :data-roll-opt2="index"></a>
             <span v-if="feat.quantity?.value !== null" class="feat-uses-rollable" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity?.value">{{feat.quantity?.value}}</span>
@@ -107,15 +107,18 @@ export default {
     }
   },
   async mounted() {
-    for (let field of this.powerFields) {
+    // Handle enriched fields.
+    for (let field of this.powerDetailFields) {
       wrapRolls(this.power.system[field].value, [], this.diceFormulaMode, this.context.rollData, field).then(enrichedPower => {
         this.enrichedPowers[field] = enrichedPower;
       });
     }
-
-    // @todo enrich feats.
-    for (let [featKey, featValue] of Object.entries(this.power.system.feats)) {
-      console.log(featKey, featValue);
+    if (this.power.system.feats) {
+      for (let [featKey, feat] of Object.entries(this.power.system.feats)) {
+        wrapRolls(feat.description.value, [], this.diceFormulaMode, this.context.rollData).then(enrichedFeat => {
+          this.enrichedFeats[featKey] = enrichedFeat;
+        });
+      }
     }
   }
 }

@@ -95,7 +95,6 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   ]);
 
   // Remove whitespace from inline rolls.
-  // @todo this isn't playing well with v12.
   let clean = text ? text?.toString() ?? '' : '';  // cast to string, could be e.g. number
 
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
@@ -130,9 +129,9 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
       let roll = null;
       try {
         roll = new Roll(rollFormula, rollData);
-        // @todo this will need to be updated to work with async, but that's
-        // complicated in a regex.
-        roll.evaluate({async: false});
+        // @todo this sort of works in v12? It's aysnc, which should be problematic
+        // in this context.
+        roll.evaluate();
       } catch (error) {
         roll = null;
         if (rollFormula.startsWith('/')) {
@@ -184,10 +183,10 @@ function termCondenser(terms) {
     return false;
   }
   // Create a new term from the total.
-  let t = new NumericTerm({number: r.total}).toJSON();
+  let t = new foundry.dice.terms.NumericTerm({number: r.total}).toJSON();
   t.evaluated = true;
   // Return the new NumericTerm instance.
-  return NumericTerm.fromJSON(JSON.stringify(t));
+  return foundry.dice.terms.NumericTerm.fromJSON(JSON.stringify(t));
 }
 
 /**
@@ -209,6 +208,9 @@ function rollCondenser(roll) {
 
   // Iterate over the original terms.
   originalTerms.forEach(term => {
+    // Force the terms to be considered evaluated.
+    term.evaluated = true;
+    term._evaluated = true;
     // Check to see what kind of term this is.
     switch (term.constructor.name) {
       // If this is a numeric term, push it to our temporary nestedTerms array.
@@ -253,9 +255,10 @@ function rollCondenser(roll) {
         // Make sure that there's an operator if we're appending a dice after
         // we previously appended a non-operator.
         if (newTerms.length > 0 && !newTerms[newTerms.length - 1]?.operator) {
-          operator = OperatorTerm.fromJSON(JSON.stringify({
+          operator = foundry.dice.terms.OperatorTerm.fromJSON(JSON.stringify({
             class: 'OperatorTerm',
             evaluated: true,
+            _evaluated: true,
             operator: '+'
           }));
           newTerms.push(operator);
@@ -277,6 +280,8 @@ function rollCondenser(roll) {
   // nestedTerms if there are any stragglers.
   if (nestedTerms.length > 0) {
     if (operator) {
+      operator.evaluated = true;
+      operator._evaluated = true;
       newTerms.push(operator);
     }
     condensedTerm = nestedTerms.length > 1 ? termCondenser(nestedTerms) : nestedTerms[0];
