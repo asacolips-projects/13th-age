@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131917166
-      modifiedTime: 1708131929776
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tkiBydA44ehz1chb.WlPiT5jzSSltgbEz'
   - name: 'R: Shortbow'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131918818
-      modifiedTime: 1708131945089
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tkiBydA44ehz1chb.0OHWhcmRqpL5QEBj'
   - name: 'R: Longshot'
     type: action
@@ -336,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131918965
-      modifiedTime: 1708131953967
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tkiBydA44ehz1chb.3Oa8zScRa10qAkoW'
   - name: Mutually destructive
     type: trait
@@ -374,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131919881
-      modifiedTime: 1708131967895
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tkiBydA44ehz1chb.RYkctZ80nXajdXHz'
 effects: []
 folder: null
@@ -391,12 +363,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708131899503
-  modifiedTime: 1716115637304
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!tkiBydA44ehz1chb'
 

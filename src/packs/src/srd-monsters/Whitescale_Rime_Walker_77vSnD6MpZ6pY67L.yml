@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129413862
-      modifiedTime: 1708129438885
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!77vSnD6MpZ6pY67L.VSo6NnlHaJvfjToy'
   - name: 'C: Frost breath'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129414014
-      modifiedTime: 1708129461508
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!77vSnD6MpZ6pY67L.8nT5Wl8PdEKNiqds'
   - name: Coated in rime
     type: trait
@@ -308,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129415050
-      modifiedTime: 1708129474303
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!77vSnD6MpZ6pY67L.0pvwaOh4VBPWlVBx'
   - name: Resist cold 14+
     type: trait
@@ -342,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129415213
-      modifiedTime: 1708129480461
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!77vSnD6MpZ6pY67L.NFuzUGFj7sgVUw4K'
   - name: Limited flight
     type: nastierSpecial
@@ -385,13 +357,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708129483732
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!77vSnD6MpZ6pY67L.xQGUgJevbnLNJEpb'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -424,13 +389,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708129484551
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!77vSnD6MpZ6pY67L.dIi76o7Nujhmg0J7'
 effects: []
 folder: null
@@ -441,12 +399,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708129398159
-  modifiedTime: 1716115629638
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!77vSnD6MpZ6pY67L'
 

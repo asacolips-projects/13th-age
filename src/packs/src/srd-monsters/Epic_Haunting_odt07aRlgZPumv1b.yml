@@ -177,13 +177,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091575679
-      modifiedTime: 1708091596195
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.CXkuTZN61YG9ciDl'
   - name: Ghostly
     type: trait
@@ -212,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091575837
-      modifiedTime: 1708091603416
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.WDnkTZKVknP6i9YR'
   - name: Fear-boosters
     type: trait
@@ -247,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091575982
-      modifiedTime: 1708091611197
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.KsZaJqaivQ53Oxu4'
   - name: Terrible touch
     type: action
@@ -311,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091576581
-      modifiedTime: 1708091584433
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.H8Vw5kImt1ADbcEy'
   - name: General Ghost Abilities
     type: trait
@@ -345,13 +317,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.D7Rfwqnis7wIMhb7
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090626422
-      modifiedTime: 1708091612649
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.PIDEPbA33sq2tHVc'
   - name: Bound hauntings
     type: trait
@@ -393,13 +358,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.Hx2P7xMeCNEwpewo
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571826
-      modifiedTime: 1708091613585
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.GYmnYBaZ09ycrjri'
   - name: Flight
     type: trait
@@ -435,13 +393,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.wX9g5ojc4D0faie0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571952
-      modifiedTime: 1708091614698
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.VUB1PHU0Dv5mcGND'
   - name: Unnatural touch
     type: trait
@@ -480,13 +431,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.1gphpVgsE4AJt6cT
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090572095
-      modifiedTime: 1708091616296
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!odt07aRlgZPumv1b.8ZWZpaaPPR3mIDNr'
 effects: []
 folder: null
@@ -497,12 +441,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708091551128
-  modifiedTime: 1716115636595
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!odt07aRlgZPumv1b'
 

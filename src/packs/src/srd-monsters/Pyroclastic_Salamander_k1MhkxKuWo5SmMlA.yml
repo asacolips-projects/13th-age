@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933245164
-      modifiedTime: 1707933269253
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.Kld3SQpAXV3sguCa'
   - name: 'R: Pyroclastic roar'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933245853
-      modifiedTime: 1707933291597
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.Xj5D52U7h0eg3rVP'
   - name: Spreading flames
     type: trait
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933247126
-      modifiedTime: 1707933306689
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.dmnfZRmsPgEGIDEv'
   - name: Building fire
     type: nastierSpecial
@@ -340,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933247814
-      modifiedTime: 1707933315060
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.LZ1cOtKPdBtgj4fK'
   - name: Igneous aura
     type: nastierSpecial
@@ -375,13 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933247944
-      modifiedTime: 1707933325667
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.Gi23GluwNSiNd3ek'
   - name: Escalating inferno
     type: trait
@@ -417,13 +382,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.4NviszfyXGmhIUFI
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933356451
-      modifiedTime: 1707933494179
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.5RGcTTEZ0JLgwd3I'
   - name: Resist fire 16+
     type: trait
@@ -455,13 +413,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.7dLP5azluYv2oUGv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933356576
-      modifiedTime: 1707933500193
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.8AU9ZuxmERoPAzPq'
   - name: Heat metal
     type: nastierSpecial
@@ -494,13 +445,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.d0PBmnet1p1tKZKw
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933358448
-      modifiedTime: 1707933515632
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1MhkxKuWo5SmMlA.YgvglMKFfoAq3sq8'
 effects: []
 folder: null
@@ -511,12 +455,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707933223844
-  modifiedTime: 1716115635867
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!k1MhkxKuWo5SmMlA'
 

@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866854365
-      modifiedTime: 1707866868605
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cqmRBrs0pq8eo6W6.vIpFwOmV3yK68Ylx'
   - name: 'R: Phased blast'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866854563
-      modifiedTime: 1707866892210
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cqmRBrs0pq8eo6W6.65DNZaPhBFaWVRpQ'
   - name: Warpwalk
     type: trait
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866855400
-      modifiedTime: 1707866907320
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cqmRBrs0pq8eo6W6.8OgPBjCjSQjcELSb'
 effects: []
 folder: null
@@ -324,12 +303,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707866830414
-  modifiedTime: 1716115634629
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!cqmRBrs0pq8eo6W6'
 

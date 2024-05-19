@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108335719
-      modifiedTime: 1708108349390
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R6lhAiA1q9McUYhy.YvWNVGSaZ0qpI2OO'
   - name: Drop like a stone
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108335843
-      modifiedTime: 1708108381772
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R6lhAiA1q9McUYhy.YxMmnDWscsYEf3VU'
   - name: Flight
     type: trait
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108336963
-      modifiedTime: 1708108397159
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R6lhAiA1q9McUYhy.lXtwFERHlKht6V5t'
   - name: Rocky hide
     type: trait
@@ -341,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108337101
-      modifiedTime: 1708108406866
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R6lhAiA1q9McUYhy.dKgeCSYaDvZj9Nqf'
   - name: Mirrored aggression
     type: nastierSpecial
@@ -377,13 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108426722
-      modifiedTime: 1708108436729
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R6lhAiA1q9McUYhy.tLHf2HblAFUJNrWI'
   - name: Statues, statues, everywhere
     type: nastierSpecial
@@ -416,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108427023
-      modifiedTime: 1708108454687
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R6lhAiA1q9McUYhy.kKLndh5ZO3uD0yxF'
 effects: []
 folder: null
@@ -433,12 +391,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708108282393
-  modifiedTime: 1716115632591
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!R6lhAiA1q9McUYhy'
 

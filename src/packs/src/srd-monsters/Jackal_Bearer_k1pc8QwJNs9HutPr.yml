@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105756257
-      modifiedTime: 1708105768588
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1pc8QwJNs9HutPr.6W5Rlah1DfODlTeq'
   - name: '[Group ability] R: Sack full of bonegrit'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105756372
-      modifiedTime: 1708105785925
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1pc8QwJNs9HutPr.njXt1Hjt4Ym6GukO'
   - name: Group ability
     type: trait
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105757510
-      modifiedTime: 1708105798898
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!k1pc8QwJNs9HutPr.pXiM8PFmffD4GMgu'
 effects: []
 folder: null
@@ -324,12 +303,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708105730682
-  modifiedTime: 1716115635883
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!k1pc8QwJNs9HutPr'
 

@@ -207,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032464619
-      modifiedTime: 1708032481113
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.nE2rfIdWukl9YGxg'
   - name: Overbear
     type: action
@@ -271,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032464761
-      modifiedTime: 1708032501249
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.Xnsuu6x68Bj3uqzO'
   - name: Power of a name
     type: trait
@@ -308,13 +294,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032156998
-      modifiedTime: 1708032467049
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.Ezil397ytc7lESp6'
   - name: Barghest
     type: trait
@@ -342,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032468618
-      modifiedTime: 1708032516031
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.AU1TIPFMz4GnCFBB'
   - name: Grim
     type: trait
@@ -376,13 +348,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032468794
-      modifiedTime: 1708032529469
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.FYO2RTE6n3mdzxv2'
   - name: Warg
     type: trait
@@ -413,13 +378,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032468914
-      modifiedTime: 1708032548137
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.qBcz4AbeV8Q5hJLj'
   - name: Dire Feature
     type: nastierSpecial
@@ -452,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032472686
-      modifiedTime: 1708032774525
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.UFQ8ZyIapPQz8bpC'
   - name: Armor plates
     type: nastierSpecial
@@ -484,13 +435,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032632951
-      modifiedTime: 1708032661910
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.k0p5vGHCQ3U21epB'
   - name: Spiky bits
     type: nastierSpecial
@@ -518,13 +462,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032633128
-      modifiedTime: 1708032683464
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.dZRb0tMrn742JvTW'
   - name: Carnage
     type: nastierSpecial
@@ -552,13 +489,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032633317
-      modifiedTime: 1708032712458
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.qRw0ANaGLpPH6lmn'
   - name: Poison
     type: nastierSpecial
@@ -584,13 +514,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032633483
-      modifiedTime: 1708032726164
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.KhPuoG5G40AUBRvv'
   - name: Dire regeneration
     type: nastierSpecial
@@ -616,13 +539,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032633645
-      modifiedTime: 1708032740929
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.Y6u21fSSPAS1QRQR'
   - name: Fury
     type: nastierSpecial
@@ -651,13 +567,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032633800
-      modifiedTime: 1708032770347
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u128IpFMguDbUy56.CsD58sgOG7PVjE5g'
 effects: []
 folder: null
@@ -668,12 +577,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708032444186
-  modifiedTime: 1716115637384
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!u128IpFMguDbUy56'
 

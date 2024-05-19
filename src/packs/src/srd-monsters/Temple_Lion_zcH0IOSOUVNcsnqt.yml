@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108963403
-      modifiedTime: 1708108986382
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.Q6yACiBRmdTwsfeX'
   - name: (Each temple lion has one of the following attacks)
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108963966
-      modifiedTime: 1708109023058
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.LMP0Aua0od1Ze1xR'
   - name: 'C: Great roar'
     type: action
@@ -341,13 +327,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108964121
-      modifiedTime: 1708109051239
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.QVNnNI2S8zGwaN7H'
   - name: 'R: Magic missiles'
     type: action
@@ -405,13 +384,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108964249
-      modifiedTime: 1708109070167
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.GPcpyGMzwUoDl3K5'
   - name: Haloed mane
     type: trait
@@ -441,13 +413,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108968302
-      modifiedTime: 1708109109455
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.uH7OcYFQclOl2ya5'
   - name: Rocky hide
     type: trait
@@ -475,13 +440,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108968449
-      modifiedTime: 1708109116777
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.XSEmzXi6phyPqRSf'
   - name: 'C: Rumbling omens'
     type: action
@@ -542,13 +500,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109053609
-      modifiedTime: 1708109099423
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.ufSPhzS0dxCFw7jv'
   - name: Mirrored aggression
     type: nastierSpecial
@@ -581,13 +532,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.tLHf2HblAFUJNrWI
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108426722
-      modifiedTime: 1708109120228
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.E0IMBe58ma0jEHbv'
   - name: Statues, statues, everywhere
     type: nastierSpecial
@@ -623,13 +567,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.kKLndh5ZO3uD0yxF
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108427023
-      modifiedTime: 1708109121225
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!zcH0IOSOUVNcsnqt.DP5vUUVPNhBHadTB'
 effects: []
 folder: null
@@ -640,12 +577,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708108944593
-  modifiedTime: 1716115638368
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!zcH0IOSOUVNcsnqt'
 

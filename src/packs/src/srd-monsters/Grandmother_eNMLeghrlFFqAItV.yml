@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033356925
-      modifiedTime: 1708033411449
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.FTIl4bRrfo7zdI7D'
   - name: Pestle
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033357051
-      modifiedTime: 1708033484051
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.cKmWVN1WXipoYyp9'
   - name: Power of a name
     type: trait
@@ -307,13 +293,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032156998
-      modifiedTime: 1708033358594
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.zq2ogf2SWCnsYcHP'
   - name: Fairy godmother
     type: trait
@@ -343,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033365633
-      modifiedTime: 1708033436635
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.oT7P1ffcyw0dsWhu'
   - name: Fate
     type: trait
@@ -378,13 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033365767
-      modifiedTime: 1708033451333
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.3dZHSkhUXzmaGHjC'
   - name: Grandmother-witch
     type: trait
@@ -414,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033365900
-      modifiedTime: 1708033472133
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.WOohctpbGmrzTRHt'
   - name: Flight
     type: trait
@@ -448,13 +406,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033374667
-      modifiedTime: 1708033538314
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.rGMgVaFuyoVZqmzW'
   - name: Bad idea
     type: trait
@@ -483,13 +434,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033374785
-      modifiedTime: 1708033523584
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eNMLeghrlFFqAItV.p9gw1xF7aQDoo4qB'
 effects: []
 folder: null
@@ -500,12 +444,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708033331437
-  modifiedTime: 1708033538314
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!eNMLeghrlFFqAItV'
 

@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129540319
-      modifiedTime: 1708129552199
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.HSkZf8bSnfBqZ24Y'
   - name: 'C: Shadow vapors'
     type: action
@@ -274,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129540469
-      modifiedTime: 1708129582384
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.XnqZ5bR0G8VkZpWA'
   - name: 'R: Hand crossbow'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129540603
-      modifiedTime: 1708129593174
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.zufZhxAPcg1msbQZ'
   - name: Step into the shadows
     type: trait
@@ -375,13 +354,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129541420
-      modifiedTime: 1708129607344
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.KgLjnlFrC3018vvc'
   - name: Resist acid 14+
     type: trait
@@ -409,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129541554
-      modifiedTime: 1708129613535
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.tbpzt695ei24m5VS'
   - name: Limited flight
     type: nastierSpecial
@@ -452,13 +417,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708129616607
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.15IFMv54XCrD2Pj3'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -491,13 +449,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708129617379
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!02tbvQym1pbeAKGF.81C1dJdrw38lLyU1'
 effects: []
 folder: null
@@ -508,12 +459,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708129522824
-  modifiedTime: 1716115627955
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!02tbvQym1pbeAKGF'
 

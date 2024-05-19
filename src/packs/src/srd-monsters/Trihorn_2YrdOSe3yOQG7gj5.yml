@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700624033
-      modifiedTime: 1707700661269
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2YrdOSe3yOQG7gj5.RxHXrnY24r11N3Nk'
   - name: Furious charge
     type: trait
@@ -241,13 +234,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700624780
-      modifiedTime: 1707700689079
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2YrdOSe3yOQG7gj5.GEHveMeQl39x03Jm'
   - name: Knocked flying
     type: nastierSpecial
@@ -278,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700625916
-      modifiedTime: 1707700718070
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2YrdOSe3yOQG7gj5.OdGrr9kttLRSrBtl'
 effects: []
 folder: null
@@ -295,12 +274,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707700602713
-  modifiedTime: 1716115628676
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!2YrdOSe3yOQG7gj5'
 

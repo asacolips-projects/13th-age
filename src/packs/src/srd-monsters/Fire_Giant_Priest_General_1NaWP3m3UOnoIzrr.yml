@@ -207,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034358888
-      modifiedTime: 1708034437659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.CEm9FcdIKG6TAgfL'
   - name: 'R: Unyr’s divine fist'
     type: action
@@ -271,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034359076
-      modifiedTime: 1708034468570
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.DOZ2M3pT88Yhyi5L'
   - name: Free the sacred flame
     type: trait
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034359846
-      modifiedTime: 1708034481241
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.8ItN7IInZIDh2MEv'
   - name: Resist fire 18+
     type: trait
@@ -340,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034360004
-      modifiedTime: 1708034490458
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.xyVAhavtvzy8OmNi'
   - name: Superior fire aura
     type: trait
@@ -377,13 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034360129
-      modifiedTime: 1708034511537
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.8jdVFHfuiYadyORA'
   - name: Greater fist of Unyr
     type: nastierSpecial
@@ -411,13 +376,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034363105
-      modifiedTime: 1708034528003
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.wOfj59246f9huPCX'
   - name: Building flame
     type: nastierSpecial
@@ -446,13 +404,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034363258
-      modifiedTime: 1708034539602
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.f3Wx2aQTS9ljspYx'
   - name: Incandescent holy blaze
     type: nastierSpecial
@@ -481,13 +432,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034363397
-      modifiedTime: 1708034565101
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1NaWP3m3UOnoIzrr.iFQuGK2wnYSo3ytj'
 effects: []
 folder: null
@@ -498,12 +442,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708034321667
-  modifiedTime: 1716115628395
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!1NaWP3m3UOnoIzrr'
 

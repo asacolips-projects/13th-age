@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867422531
-      modifiedTime: 1707867452911
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.RSAFufjA1i4SIsf9'
   - name: 'C: Sickly sweet feelings'
     type: action
@@ -280,13 +273,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867422724
-      modifiedTime: 1707867506560
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.eNiVZzQfSwbA1Thj'
   - name: '[Special trigger] R: Mind-erasing blast'
     type: action
@@ -344,13 +330,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867423415
-      modifiedTime: 1707867530804
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.5rMRibaAMuLg4duw'
   - name: Mental scream
     type: trait
@@ -378,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867425416
-      modifiedTime: 1707867553496
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.o3a3zDZRqPl1jbVC'
   - name: Lost opportunity
     type: trait
@@ -410,13 +382,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867425786
-      modifiedTime: 1707867562665
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.e8ifQzgNtCsrVzec'
   - name: Neuralogenic
     type: trait
@@ -446,13 +411,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867426288
-      modifiedTime: 1707867592266
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.xsjFFOO1EBZsVbKI'
   - name: Flesh absorption
     type: nastierSpecial
@@ -480,13 +438,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867428882
-      modifiedTime: 1707867614220
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.73PNxcqTctzJZj4Y'
   - name: Soul drain
     type: nastierSpecial
@@ -516,13 +467,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707867429034
-      modifiedTime: 1707867627730
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A09ECdNszfwyILij.qJ84KiNGfHX2yI3X'
 effects: []
 folder: null
@@ -533,12 +477,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707867393787
-  modifiedTime: 1716115630055
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!A09ECdNszfwyILij'
 

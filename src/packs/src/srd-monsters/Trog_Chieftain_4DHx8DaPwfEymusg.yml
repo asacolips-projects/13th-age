@@ -210,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699707869
-      modifiedTime: 1707699777154
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4DHx8DaPwfEymusg.EGLishlC1q0oMjJE'
   - name: 'C: Bellow of dominance'
     type: action
@@ -276,13 +269,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699708248
-      modifiedTime: 1707699801799
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4DHx8DaPwfEymusg.lcxxVpc9KpSP41Wl'
   - name: War cackle
     type: trait
@@ -311,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699711534
-      modifiedTime: 1707699818281
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4DHx8DaPwfEymusg.stBYKROky6DY1Vmt'
   - name: Chameleon
     type: trait
@@ -346,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699711700
-      modifiedTime: 1707699830094
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4DHx8DaPwfEymusg.gNKhl8oZ3vgudnzo'
   - name: Trog stench
     type: trait
@@ -446,13 +418,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699712198
-      modifiedTime: 1707699860775
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4DHx8DaPwfEymusg.aqmrQxll8BAMQv99'
   - name: Scuzzy-toothed yawp
     type: nastierSpecial
@@ -481,13 +446,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699713768
-      modifiedTime: 1707699847450
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4DHx8DaPwfEymusg.FM21rDuAvnwUqIcV'
 effects: []
 folder: null
@@ -498,12 +456,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707699684453
-  modifiedTime: 1716115629097
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!4DHx8DaPwfEymusg'
 

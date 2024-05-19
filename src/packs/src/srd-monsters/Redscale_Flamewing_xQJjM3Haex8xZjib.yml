@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130724358
-      modifiedTime: 1708130755268
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.C21cie5a7QzUTYBK'
   - name: 'R: Fireball breath (careful)'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130724571
-      modifiedTime: 1708130810681
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.3A3LBPCabGkCRAeE'
   - name: 'R: Fireball breath (big)'
     type: action
@@ -340,13 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130725019
-      modifiedTime: 1708130887461
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.tjiT9BCfkBiVRZAC'
   - name: Attack on the wing
     type: trait
@@ -378,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130728120
-      modifiedTime: 1708130926583
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.vQFnD7X1dEgLzuF6'
   - name: Fiery temper
     type: trait
@@ -412,13 +384,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130728271
-      modifiedTime: 1708130938324
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.TTEMvvk5d8F54Erv'
   - name: Flight
     type: trait
@@ -449,13 +414,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130728420
-      modifiedTime: 1708130951615
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.SsPF6jsXcIQ50kZT'
   - name: Resist fire 16+
     type: trait
@@ -483,13 +441,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130728606
-      modifiedTime: 1708130960353
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.df9H8ztFvSOcwMPb'
   - name: Healed by fire
     type: nastierSpecial
@@ -517,13 +468,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130730907
-      modifiedTime: 1708130971107
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.Yxv4vYCtTNMIrJeE'
   - name: Tail whip
     type: nastierSpecial
@@ -551,13 +495,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130731057
-      modifiedTime: 1708130981387
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.yOEL4yFu6huxoISF'
   - name: 'C: Fiery wings'
     type: action
@@ -615,13 +552,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130782846
-      modifiedTime: 1708130902482
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.PnIpwbjpR9WNJqN0'
   - name: Limited flight
     type: nastierSpecial
@@ -658,13 +588,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708130994216
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.MPWdAML5r6xYBvyD'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -697,13 +620,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708130995163
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xQJjM3Haex8xZjib.P2sR30ECr6OLaxPB'
 effects: []
 folder: null
@@ -714,12 +630,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708130706579
-  modifiedTime: 1716115638045
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!xQJjM3Haex8xZjib'
 

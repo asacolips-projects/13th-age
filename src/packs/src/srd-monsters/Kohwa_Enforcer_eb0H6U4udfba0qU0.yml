@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122183011
-      modifiedTime: 1708122204250
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.qscskN2Be9q3HGAr'
   - name: 'R: Spit shot'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122183179
-      modifiedTime: 1708122226627
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.zRVP7Ht74NTYbCjn'
   - name: '[Special trigger] Pitter patter'
     type: action
@@ -337,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122185796
-      modifiedTime: 1708122277837
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.vD9N52EIld6CrLsu'
   - name: '[Special trigger] Leaping strike'
     type: action
@@ -401,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122185962
-      modifiedTime: 1708122305238
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.ed9zIdWRlX8kmuTy'
   - name: Fury of the gods
     type: trait
@@ -435,13 +407,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122187950
-      modifiedTime: 1708122245247
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.cyDaLLpAeWhrnl1b'
   - name: Acid rain
     type: trait
@@ -470,13 +435,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122188100
-      modifiedTime: 1708122261453
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.Bc7CunV4Nhf7Cjy6'
   - name: Leaps and bounds
     type: nastierSpecial
@@ -504,13 +462,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122189254
-      modifiedTime: 1708122290449
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.cCD3Snnp4mGicBsw'
   - name: Flight
     type: trait
@@ -543,13 +494,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.8rExRPQ3Pq47Lj50.Item.66dcA6WBSHggpjBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122072832
-      modifiedTime: 1708122316642
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.xRrdZ6JZHbEWXxja'
   - name: Swimming
     type: trait
@@ -580,13 +524,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.8rExRPQ3Pq47Lj50.Item.nmFFNWLoHjm6jCtz
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122073083
-      modifiedTime: 1708122317514
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.Fvg3CNRkN7tPHUE2'
   - name: Telepathy
     type: trait
@@ -620,13 +557,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.8rExRPQ3Pq47Lj50.Item.D0GVHu6urDrXc0LL
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122073232
-      modifiedTime: 1708122318382
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eb0H6U4udfba0qU0.ISJOpfdigR12Q0fx'
 effects: []
 folder: null
@@ -637,12 +567,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708122167776
-  modifiedTime: 1716115634935
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!eb0H6U4udfba0qU0'
 

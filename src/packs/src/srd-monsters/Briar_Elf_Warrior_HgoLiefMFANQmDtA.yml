@@ -207,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149971944
-      modifiedTime: 1689150118787
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.BvLJNL0NwFdcRjjL'
   - name: The poison builds
     type: trait
@@ -242,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149972767
-      modifiedTime: 1689150133204
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.snAbHxOgGkEK0ePS'
   - name: '[Special Trigger] R: Bramble bow'
     type: action
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149981386
-      modifiedTime: 1689150217747
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.1s38Tmee9NHmKFTE'
   - name: 'Choose one:'
     type: trait
@@ -340,13 +319,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874588472
-      modifiedTime: 1689150140956
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.8wjkjmaHmt0u98ZX'
   - name: Humanoid
     type: trait
@@ -383,13 +355,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874617930
-      modifiedTime: 1689150233548
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.YuYcXh8WdZdWJkg3'
   - name: Plant
     type: trait
@@ -421,13 +386,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874618286
-      modifiedTime: 1689150252067
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.QXmLJVJyxrjpLeij'
   - name: Undead
     type: trait
@@ -459,13 +417,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874620567
-      modifiedTime: 1689150263609
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.KeTGUN8j8XQbQjuK'
   - name: Thorny carapace
     type: nastierSpecial
@@ -493,13 +444,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689150269126
-      modifiedTime: 1689150285780
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.QvIptaS4X0D4bztk'
   - name: Fear Aura
     type: nastierSpecial
@@ -531,13 +475,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597558
-      modifiedTime: 1689150331075
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.jqqz6yv7tR6HEjMP'
   - name: Dark Escalator
     type: nastierSpecial
@@ -569,13 +506,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.4XWng8pvkzI4tHWH
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597912
-      modifiedTime: 1689150345637
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.XLf40125tBJVuUUc'
   - name: Poison is Life
     type: nastierSpecial
@@ -604,13 +534,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689150304204
-      modifiedTime: 1689150317405
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!HgoLiefMFANQmDtA.u67031XOywHq7qwF'
 effects: []
 folder: null
@@ -621,14 +544,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1689149922882
-  modifiedTime: 1716115631399
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: HgoLiefMFANQmDtA
-sort: 400000
 _key: '!actors!HgoLiefMFANQmDtA'
 

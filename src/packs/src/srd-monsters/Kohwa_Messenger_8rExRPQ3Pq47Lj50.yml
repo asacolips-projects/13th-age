@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121827551
-      modifiedTime: 1708121839722
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.z17PFM8ye1Q4ADLY'
   - name: 'R: Piercing gaze'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121827698
-      modifiedTime: 1708121934011
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.468lc76cl1iBCJHh'
   - name: 'C: Judgment of the gods'
     type: action
@@ -337,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121827850
-      modifiedTime: 1708121977856
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.eLhy1OEtL5jT6q2Y'
   - name: Invocation of the gods’ protection
     type: nastierSpecial
@@ -377,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121830682
-      modifiedTime: 1708122006039
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.utboRel9HST5b6JE'
   - name: Implacable dread
     type: nastierSpecial
@@ -411,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121830816
-      modifiedTime: 1708122028994
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.VZVhOpevFWSKKsoV'
   - name: 'R: Implacable dread'
     type: action
@@ -481,13 +446,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121957028
-      modifiedTime: 1708122065102
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.IXMZSIP71iBwV3t4'
   - name: Flight
     type: trait
@@ -517,13 +475,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122072832
-      modifiedTime: 1708122094039
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.66dcA6WBSHggpjBN'
   - name: Swimming
     type: trait
@@ -551,13 +502,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122073083
-      modifiedTime: 1708122101870
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.nmFFNWLoHjm6jCtz'
   - name: Telepathy
     type: trait
@@ -588,13 +532,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708122073232
-      modifiedTime: 1708122112366
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8rExRPQ3Pq47Lj50.D0GVHu6urDrXc0LL'
 effects: []
 folder: null
@@ -605,12 +542,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708121811144
-  modifiedTime: 1716115629898
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!8rExRPQ3Pq47Lj50'
 

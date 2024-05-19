@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131741024
-      modifiedTime: 1708131755663
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.t2iLqHudaRevRhvR'
   - name: 'R: Stick-launched dart'
     type: action
@@ -275,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131741188
-      modifiedTime: 1708131772256
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.ztSAAHK16229whiN'
   - name: Home turf tricks
     type: trait
@@ -314,13 +300,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131742487
-      modifiedTime: 1708131789058
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.FAIqVADHmZ70aUs2'
   - name: Stubborn resilience
     type: trait
@@ -349,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131742888
-      modifiedTime: 1708131802786
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.K1OnN9d46DH7nl7W'
   - name: Free-form ability—Unstoppability
     type: trait
@@ -386,13 +358,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131743194
-      modifiedTime: 1708131812468
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.NRhHrauTV3oj3x7y'
   - name: Bitter resolve
     type: nastierSpecial
@@ -421,13 +386,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131743889
-      modifiedTime: 1708131822760
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.DOjaww5CZffRyGrS'
   - name: Coordinated strike
     type: nastierSpecial
@@ -456,13 +414,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131744020
-      modifiedTime: 1708131830776
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H8AZo9QNUWJLdjTl.SHoELDBCWn8R3d6p'
 effects: []
 folder: null
@@ -473,12 +424,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708131727545
-  modifiedTime: 1716115631334
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!H8AZo9QNUWJLdjTl'
 

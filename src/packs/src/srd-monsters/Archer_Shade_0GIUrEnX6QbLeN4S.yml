@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602696510
-      modifiedTime: 1707602720224
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0GIUrEnX6QbLeN4S.XYo2LuYNPrxDNEeh'
   - name: 'R: Rain of ghostly arrows'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602696830
-      modifiedTime: 1707602748942
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0GIUrEnX6QbLeN4S.wEFyTcLVnRF6xJAl'
   - name: Earthen assault
     type: trait
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602698081
-      modifiedTime: 1707602776526
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0GIUrEnX6QbLeN4S.3hZpXhEaq03Y6cJg'
 effects: []
 folder: null
@@ -326,12 +305,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707602640083
-  modifiedTime: 1716115628130
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!0GIUrEnX6QbLeN4S'
 

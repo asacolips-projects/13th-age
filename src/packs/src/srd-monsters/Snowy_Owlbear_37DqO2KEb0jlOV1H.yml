@@ -211,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954496739
-      modifiedTime: 1707954532019
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!37DqO2KEb0jlOV1H.jPhWVNeoQQF4gUSM'
   - name: New Trait
     type: trait
@@ -248,13 +241,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954497459
-      modifiedTime: 1707954610656
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!37DqO2KEb0jlOV1H.tvDTuK7Xm1Xk3q8N'
   - name: Protect the cubs
     type: trait
@@ -282,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954497720
-      modifiedTime: 1707954621846
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!37DqO2KEb0jlOV1H.isbylY66bI3gcoaa'
   - name: Resist cold 14+
     type: trait
@@ -316,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954498054
-      modifiedTime: 1707954634578
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!37DqO2KEb0jlOV1H.SNNs9b040Y8KUaBz'
   - name: Silent hunter
     type: trait
@@ -348,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954498269
-      modifiedTime: 1707954645492
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!37DqO2KEb0jlOV1H.uVvAmiiwxjiPldG0'
 effects: []
 folder: null
@@ -365,12 +330,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707954477347
-  modifiedTime: 1716115628852
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!37DqO2KEb0jlOV1H'
 

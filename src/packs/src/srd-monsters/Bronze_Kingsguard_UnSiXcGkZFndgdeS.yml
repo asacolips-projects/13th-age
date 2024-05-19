@@ -177,13 +177,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092709543
-      modifiedTime: 1708092768575
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UnSiXcGkZFndgdeS.BMTAOJ10BTKYElWY'
   - name: Perfect immunity
     type: trait
@@ -212,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092709684
-      modifiedTime: 1708092782057
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UnSiXcGkZFndgdeS.YVon3G2jNw1DumG9'
   - name: Whistling axe
     type: action
@@ -276,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092710487
-      modifiedTime: 1708092718155
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UnSiXcGkZFndgdeS.rN5SLJ3OamQpHN07'
   - name: 'R: Returning axe'
     type: action
@@ -340,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092710634
-      modifiedTime: 1708092729109
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UnSiXcGkZFndgdeS.FCtl1Tr0SzcieN9Z'
   - name: 'C: Gleaming perfection'
     type: action
@@ -409,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092710774
-      modifiedTime: 1708092754089
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UnSiXcGkZFndgdeS.xUHvOx4bVQcMLHDu'
 effects: []
 folder: null
@@ -426,12 +391,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708092685524
-  modifiedTime: 1716115633115
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!UnSiXcGkZFndgdeS'
 

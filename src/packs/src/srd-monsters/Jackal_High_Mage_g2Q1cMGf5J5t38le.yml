@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106361183
-      modifiedTime: 1708106373697
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2Q1cMGf5J5t38le.NozYvnOWLKf1xKzp'
   - name: New Action
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106361318
-      modifiedTime: 1708106394825
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2Q1cMGf5J5t38le.19RfA4XnS81ORuUv'
   - name: 'C: Death’s grasp'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106361598
-      modifiedTime: 1708106414148
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2Q1cMGf5J5t38le.6kD3pmd0zP9hNhIy'
   - name: Warding
     type: trait
@@ -372,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106362398
-      modifiedTime: 1708106429386
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2Q1cMGf5J5t38le.Dgur9qsqbqneLjmE'
 effects: []
 folder: null
@@ -389,12 +361,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708106346396
-  modifiedTime: 1716115635188
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!g2Q1cMGf5J5t38le'
 

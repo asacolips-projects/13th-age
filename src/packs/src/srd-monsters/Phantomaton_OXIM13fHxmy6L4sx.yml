@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870677305
-      modifiedTime: 1707870713991
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!OXIM13fHxmy6L4sx.ySBOJTliM0YiR1v4'
   - name: Iron hoe
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870678403
-      modifiedTime: 1707870764395
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!OXIM13fHxmy6L4sx.fSQsSmNxjORO2uPh'
   - name: 'R: Spike-thrower'
     type: action
@@ -339,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870679055
-      modifiedTime: 1707870827741
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!OXIM13fHxmy6L4sx.Qj0KBkmxN0PZyZl6'
   - name: Iron hoe (worker type)
     type: nastierSpecial
@@ -373,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870683475
-      modifiedTime: 1707870747001
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!OXIM13fHxmy6L4sx.L2qneQ7KtHBgyUXC'
   - name: Built to last (beast type)
     type: nastierSpecial
@@ -407,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870684319
-      modifiedTime: 1707870784671
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!OXIM13fHxmy6L4sx.MuQkx36oqNj9zi5N'
   - name: Built-in spike-thrower (guard type)
     type: nastierSpecial
@@ -441,13 +406,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870685425
-      modifiedTime: 1707870807194
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!OXIM13fHxmy6L4sx.VJODYEdZ6vrDVOjP'
 effects: []
 folder: null
@@ -458,12 +416,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707870660378
-  modifiedTime: 1716115632215
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!OXIM13fHxmy6L4sx'
 

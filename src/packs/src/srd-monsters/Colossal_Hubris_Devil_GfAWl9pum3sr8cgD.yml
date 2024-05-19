@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115214719
-      modifiedTime: 1708115236602
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.Fc1KZRfiJvxE4ta1'
   - name: Folding the land
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115215002
-      modifiedTime: 1708115264097
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.CliuJ7LzLzt5OmSS'
   - name: 'C: Suffocating fear'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115215463
-      modifiedTime: 1708115291287
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.Kv5ibkoAJQhxDdsI'
   - name: Devil’s due (Terror)
     type: trait
@@ -377,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115216302
-      modifiedTime: 1708115309784
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.2OJqTgrq1s6ggoZb'
   - name: Resist holy 13+
     type: trait
@@ -411,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115216471
-      modifiedTime: 1708115316693
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.Pp4fTqIR7OV6rwz3'
   - name: Friend or enemy?
     type: nastierSpecial
@@ -451,13 +416,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.g2LjsYJ3UpgM5MVW.Item.7rt3Dq83ZNcLsx20
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114765852
-      modifiedTime: 1708115319298
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.2KCylHXTX1cJ8zTQ'
   - name: Surprise!
     type: nastierSpecial
@@ -489,13 +447,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.g2LjsYJ3UpgM5MVW.Item.nFZ4ifYG7bnK2S33
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114765983
-      modifiedTime: 1708115320236
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.gEFxeESiLq2JBkE5'
   - name: Final-gasp soul snatch & escape
     type: nastierSpecial
@@ -588,13 +539,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.g2LjsYJ3UpgM5MVW.Item.IiAid2bYnCFyC4qM
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114766114
-      modifiedTime: 1708115321112
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GfAWl9pum3sr8cgD.A4wpI2BvZfQlrxiz'
 effects: []
 folder: null
@@ -605,12 +549,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708115198172
-  modifiedTime: 1716115631235
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!GfAWl9pum3sr8cgD'
 

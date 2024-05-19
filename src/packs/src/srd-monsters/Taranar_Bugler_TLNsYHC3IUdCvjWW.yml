@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662130919
-      modifiedTime: 1707662148624
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TLNsYHC3IUdCvjWW.P2MRvLT1JqCf7ZHu'
   - name: 'R: Call to the storm'
     type: action
@@ -274,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662131075
-      modifiedTime: 1707662184984
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TLNsYHC3IUdCvjWW.Dpv488RukNI5cIpS'
   - name: 'R: Song of summoned stones'
     type: action
@@ -346,13 +332,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662131201
-      modifiedTime: 1707662248395
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TLNsYHC3IUdCvjWW.VnS7zNObILnAYNBv'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -383,13 +362,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663391139
-      modifiedTime: 1707663398873
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TLNsYHC3IUdCvjWW.ON9JAIwWdxAcdQim'
   - name: Lightning-flare
     type: trait
@@ -425,13 +397,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663391275
-      modifiedTime: 1707663412210
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TLNsYHC3IUdCvjWW.G4k15TLMS2AhE7e0'
   - name: Thick-skinned
     type: trait
@@ -462,13 +427,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663581870
-      modifiedTime: 1707663588501
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TLNsYHC3IUdCvjWW.MqvZgzJXSnmmXBTm'
 effects: []
 folder: null
@@ -479,12 +437,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707662040549
-  modifiedTime: 1716115632920
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!TLNsYHC3IUdCvjWW'
 

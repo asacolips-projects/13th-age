@@ -219,13 +219,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106806707
-      modifiedTime: 1708106834910
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.ch4AF8F78bKD7scW'
   - name: 'R: Charnel storm'
     type: action
@@ -287,13 +280,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106807021
-      modifiedTime: 1708106883929
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.lFjtcSdvN5H7wPwu'
   - name: 'C: Snapping jaws'
     type: action
@@ -351,13 +337,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106807356
-      modifiedTime: 1708106916299
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.gdcaBhF7A9AxA4GD'
   - name: Charnel breath
     type: action
@@ -415,13 +394,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106807689
-      modifiedTime: 1708106932394
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.Nlsqh4bHqInxirur'
   - name: Empowered by death
     type: trait
@@ -451,13 +423,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106809723
-      modifiedTime: 1708106948123
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.rYHVkqNrwxuv5mKF'
   - name: Sweeping shadow
     type: trait
@@ -491,13 +456,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106809840
-      modifiedTime: 1708106970233
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.G7Vwf147DLwdeFtU'
   - name: Fear aura
     type: nastierSpecial
@@ -526,13 +484,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106812456
-      modifiedTime: 1708107011278
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Gj9ErpzF3j3rNlZT.TEJNHXMsSnSeMO1p'
 effects: []
 folder: null
@@ -543,12 +494,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708106791672
-  modifiedTime: 1716115631269
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Gj9ErpzF3j3rNlZT'
 

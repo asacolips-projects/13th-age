@@ -178,13 +178,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690465854251
-      modifiedTime: 1690466010960
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!clCdy1qTfHeM5CER.t7tAeLswpYFZpKwy'
   - name: Nicer special
     type: nastierSpecial
@@ -215,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690465856935
-      modifiedTime: 1690466058997
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!clCdy1qTfHeM5CER.naff54OH7LXKr4jI'
   - name: Greedy claw
     type: action
@@ -282,13 +268,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690466163349
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!clCdy1qTfHeM5CER.nSfO66W72sMoLwQr'
   - name: 'Limited Use: Lethal Jackpot'
     type: action
@@ -356,13 +335,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690466032768
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!clCdy1qTfHeM5CER.iixKsOSUEjD6WVUd'
 effects: []
 folder: null
@@ -373,14 +345,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1690465773984
-  modifiedTime: 1716115634566
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: clCdy1qTfHeM5CER
-sort: 100000
 _key: '!actors!clCdy1qTfHeM5CER'
 

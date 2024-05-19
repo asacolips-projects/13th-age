@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129219405
-      modifiedTime: 1708129229053
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.wAfjlQU2iydTwirM'
   - name: 'R: Jagged lightning'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129219671
-      modifiedTime: 1708129250511
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.vLHL0AT7yD1AMVEV'
   - name: 'C: Lightning breath'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129219908
-      modifiedTime: 1708129271398
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.ntoZa24UcdqAWfeW'
   - name: Lightning zap
     type: action
@@ -404,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129220076
-      modifiedTime: 1708129305608
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.xayObUKuQZUUJ28j'
   - name: Resist lightning 14+
     type: trait
@@ -439,13 +411,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129221574
-      modifiedTime: 1708129334203
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.ebsqAMVmvvyIkMqk'
   - name: Call lightning minion
     type: trait
@@ -477,13 +442,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129221689
-      modifiedTime: 1708129354614
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.pBFp4WPvGbl63Tjf'
   - name: Limited flight
     type: nastierSpecial
@@ -520,13 +478,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708129356640
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.tH9GV3lrpHebJ1wa'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -559,13 +510,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708129357426
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZFQFPgG66s9ISLU2.WvebAvDBXLpybXbz'
 effects: []
 folder: null
@@ -576,12 +520,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708129203723
-  modifiedTime: 1716115633883
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!ZFQFPgG66s9ISLU2'
 

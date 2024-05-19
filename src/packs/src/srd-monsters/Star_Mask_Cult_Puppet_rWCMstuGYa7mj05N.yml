@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866224170
-      modifiedTime: 1707866237115
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!rWCMstuGYa7mj05N.S7LzkGcsmjJscPwO'
   - name: 'C: Tentacle whip'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866224316
-      modifiedTime: 1707866254349
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!rWCMstuGYa7mj05N.LlMqp9mopkYgK7KH'
   - name: Psychic coordination
     type: trait
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866225261
-      modifiedTime: 1707866265601
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!rWCMstuGYa7mj05N.93MpkC543240YW7O'
   - name: Wall-crawler
     type: trait
@@ -341,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866225402
-      modifiedTime: 1707866275367
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!rWCMstuGYa7mj05N.oAbKhcsH16Bb69QW'
   - name: Psychic chaff
     type: trait
@@ -381,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866225665
-      modifiedTime: 1707866295983
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!rWCMstuGYa7mj05N.oVJmTsDFhD5kPV0K'
 effects: []
 folder: null
@@ -398,12 +363,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707866204926
-  modifiedTime: 1716115637034
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!rWCMstuGYa7mj05N'
 

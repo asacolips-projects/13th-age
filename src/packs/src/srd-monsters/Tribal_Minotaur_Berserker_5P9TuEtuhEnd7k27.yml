@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959943348
-      modifiedTime: 1707959967357
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5P9TuEtuhEnd7k27.oKSqfRAU9XiOaNSk'
   - name: Stampede
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959944107
-      modifiedTime: 1707959994472
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5P9TuEtuhEnd7k27.2txVWGwKbLyDmyUB'
   - name: Blood frenzy
     type: trait
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959944992
-      modifiedTime: 1707960003228
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5P9TuEtuhEnd7k27.x81c7XmltIBKShBH'
   - name: Gore
     type: nastierSpecial
@@ -341,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959945964
-      modifiedTime: 1707960015012
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5P9TuEtuhEnd7k27.2PorqrDID2674rfK'
   - name: Prey or predator
     type: nastierSpecial
@@ -375,13 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959946127
-      modifiedTime: 1707960024279
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5P9TuEtuhEnd7k27.oKOQSGrRzSnJnk0H'
   - name: Gladiator’s brand
     type: nastierSpecial
@@ -410,13 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959946278
-      modifiedTime: 1707960036056
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5P9TuEtuhEnd7k27.b5Tzd3t4Es6pniBl'
 effects: []
 folder: null
@@ -427,12 +385,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707959927348
-  modifiedTime: 1716115629349
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!5P9TuEtuhEnd7k27'
 

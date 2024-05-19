@@ -205,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687864890838
-      modifiedTime: 1687864920794
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!hWeK3ukWMNbf0QuB.MRpJKs97R8Cn5L4u'
   - name: 'C: Waves of Anguish'
     type: action
@@ -269,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687864891372
-      modifiedTime: 1687864980094
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!hWeK3ukWMNbf0QuB.Q2fgn7wnBwzGv9ou'
   - name: Rooted in place
     type: trait
@@ -304,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687864894040
-      modifiedTime: 1687864993598
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!hWeK3ukWMNbf0QuB.ICKWsPCxbDiXN7ck'
   - name: Sheltering thorns
     type: trait
@@ -339,13 +318,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687864894174
-      modifiedTime: 1687865008816
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!hWeK3ukWMNbf0QuB.xoCRQ0tRnAwIoSW4'
   - name: Mobile roots
     type: nastierSpecial
@@ -373,13 +345,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687864894865
-      modifiedTime: 1687865022223
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!hWeK3ukWMNbf0QuB.LAv5iVHRxl74jib2'
 effects: []
 folder: null
@@ -390,14 +355,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1687864844292
-  modifiedTime: 1716115635506
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: hWeK3ukWMNbf0QuB
-sort: 200000
 _key: '!actors!hWeK3ukWMNbf0QuB'
 

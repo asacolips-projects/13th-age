@@ -179,13 +179,6 @@ items:
     folder: null
     ownership:
       default: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: null
-      modifiedTime: 1707954888230
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!J4f9G9GgZjWAw6jC.2vFITgBbK1RftMLT'
   - _id: hI7gOWtVDyRzRDBk
     flags: {}
@@ -213,13 +206,6 @@ items:
     folder: null
     ownership:
       default: 0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: null
-      modifiedTime: 1707954895039
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!J4f9G9GgZjWAw6jC.hI7gOWtVDyRzRDBk'
   - _id: MtBcgXdJYGOL1qBP
     flags: {}
@@ -247,13 +233,6 @@ items:
     folder: null
     ownership:
       default: 0
-    _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
     _key: '!actors.items!J4f9G9GgZjWAw6jC.MtBcgXdJYGOL1qBP'
   - _id: msLNm8TIYDKk9pv7
     flags: {}
@@ -279,13 +258,6 @@ items:
     folder: null
     ownership:
       default: 0
-    _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: null
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
     _key: '!actors.items!J4f9G9GgZjWAw6jC.msLNm8TIYDKk9pv7'
 effects: []
 folder: null
@@ -355,14 +327,5 @@ prototypeToken:
   appendNumber: false
   prependAdjective: false
   detectionModes: []
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707954768845
-  modifiedTime: 1716115631523
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: J4f9G9GgZjWAw6jC
-sort: 0
 _key: '!actors!J4f9G9GgZjWAw6jC'
 

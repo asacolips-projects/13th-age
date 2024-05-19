@@ -179,13 +179,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708026683293
-      modifiedTime: 1708027694986
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.2ZDmQojC3HYdJYm3'
   - name: Thief’s dagger
     type: action
@@ -245,13 +238,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027712198
-      modifiedTime: 1708027729458
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.676gDfK6OfWBEulZ'
   - name: Feint & dodge
     type: action
@@ -311,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027712344
-      modifiedTime: 1708027753592
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.2FwYZCAzNg4z0jQV'
   - name: Path of the Sword
     type: trait
@@ -345,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027714031
-      modifiedTime: 1708027769045
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.Sr6CtP3gdvMsDZD1'
   - name: Path of Song
     type: trait
@@ -382,13 +354,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027714176
-      modifiedTime: 1708027785947
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.ldShDIisqvZYRpTF'
   - name: Full destiny
     type: nastierSpecial
@@ -416,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027715299
-      modifiedTime: 1708027794386
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.B9z56Kw8ETQZgnar'
   - name: Fleet of foot
     type: nastierSpecial
@@ -451,13 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027715432
-      modifiedTime: 1708027805259
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!XgbQUmZFG7L74XZ2.SU9UyOcrruQg3fyY'
 effects: []
 folder: null
@@ -468,12 +419,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708027690240
-  modifiedTime: 1716115633558
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!XgbQUmZFG7L74XZ2'
 

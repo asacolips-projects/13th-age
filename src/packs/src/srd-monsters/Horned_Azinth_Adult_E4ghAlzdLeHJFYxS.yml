@@ -211,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114381417
-      modifiedTime: 1708114405328
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!E4ghAlzdLeHJFYxS.egccrXevmBCCfrhQ'
   - name: Trample
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114381568
-      modifiedTime: 1708114422005
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!E4ghAlzdLeHJFYxS.1vyoQyEydavpkstP'
   - name: Natural blurring
     type: trait
@@ -313,13 +299,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114383399
-      modifiedTime: 1708114436757
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!E4ghAlzdLeHJFYxS.XwvMk8Rs3ir9MIcM'
   - name: Increasing blurriness
     type: nastierSpecial
@@ -347,13 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114384763
-      modifiedTime: 1708114469093
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!E4ghAlzdLeHJFYxS.Tjdq0iPYyO64bASF'
   - name: Reactive camouflage
     type: nastierSpecial
@@ -382,13 +354,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114384902
-      modifiedTime: 1708114482524
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!E4ghAlzdLeHJFYxS.ii9AKrHnC1L7lIeh'
 effects: []
 folder: null
@@ -399,12 +364,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708114366342
-  modifiedTime: 1716115630802
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!E4ghAlzdLeHJFYxS'
 

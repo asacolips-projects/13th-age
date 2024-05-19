@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124528920
-      modifiedTime: 1708124549998
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qcWttkxneXE9vW2E.y5DzFvGKycC4u5bi'
   - name: Blood-sucking proboscis
     type: action
@@ -274,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124530396
-      modifiedTime: 1708124569891
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qcWttkxneXE9vW2E.hwsnJhHIDS19ELhR'
   - name: Acid blood
     type: trait
@@ -308,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124531413
-      modifiedTime: 1708124585667
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qcWttkxneXE9vW2E.HU1PqX7VY2Oe0IMN'
   - name: Join with us
     type: trait
@@ -343,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124531557
-      modifiedTime: 1708124596492
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qcWttkxneXE9vW2E.szhpnVS3hjjn7cN9'
 effects: []
 folder: null
@@ -360,12 +332,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708124515190
-  modifiedTime: 1716115636941
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!qcWttkxneXE9vW2E'
 

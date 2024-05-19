@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092512333
-      modifiedTime: 1708092534292
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!y1l3BzOYZFDHUVir.mFLs0pfSF1uFp71t'
   - name: 'R: Returning axe or hammer'
     type: action
@@ -274,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092512489
-      modifiedTime: 1708092552228
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!y1l3BzOYZFDHUVir.NsPWMIqPgqDFRcom'
   - name: '[Special trigger only] C: Howl of emptiness'
     type: action
@@ -341,13 +327,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092512647
-      modifiedTime: 1708092585659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!y1l3BzOYZFDHUVir.f7XXadFeE32ovVLs'
   - name: Piecemeal armor
     type: trait
@@ -376,13 +355,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092515710
-      modifiedTime: 1708092603773
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!y1l3BzOYZFDHUVir.jCUy0LWB8QpCt7IM'
   - name: Eternal greed
     type: nastierSpecial
@@ -416,13 +388,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092516493
-      modifiedTime: 1708092640522
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!y1l3BzOYZFDHUVir.jSgOznRqIFrPbiyn'
 effects: []
 folder: null
@@ -433,12 +398,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708092486604
-  modifiedTime: 1716115638109
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!y1l3BzOYZFDHUVir'
 

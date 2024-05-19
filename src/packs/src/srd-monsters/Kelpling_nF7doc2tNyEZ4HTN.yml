@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956916613
-      modifiedTime: 1707956932619
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nF7doc2tNyEZ4HTN.aVkFl0x0ULLYrLpb'
   - name: '[Special trigger] Stings a bit'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956916762
-      modifiedTime: 1707956985208
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nF7doc2tNyEZ4HTN.GGnKxvCjHQjMUOzx'
   - name: Bladderwreck!
     type: trait
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956918302
-      modifiedTime: 1707956968005
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nF7doc2tNyEZ4HTN.SoJ31HG9leIIA3Nm'
   - name: The sum of its parts
     type: nastierSpecial
@@ -341,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956919234
-      modifiedTime: 1707957000905
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nF7doc2tNyEZ4HTN.2QYuqrNsgDvv2gBa'
 effects: []
 folder: null
@@ -358,12 +330,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707956896797
-  modifiedTime: 1707957000905
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!nF7doc2tNyEZ4HTN'
 

@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131412966
-      modifiedTime: 1708131446233
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0mrlgIU5F6w06AIX.ZvvBxrbaovWJgj22'
   - name: Group ability
     type: trait
@@ -246,13 +239,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131414172
-      modifiedTime: 1708131469999
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0mrlgIU5F6w06AIX.L3of0NTESdqJ0SPr'
   - name: Berserker transformation
     type: trait
@@ -282,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131414323
-      modifiedTime: 1708131486133
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0mrlgIU5F6w06AIX.wppfj0bVsv0Ursix'
   - name: Red rage
     type: nastierSpecial
@@ -316,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131415607
-      modifiedTime: 1708131493169
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0mrlgIU5F6w06AIX.pC84ohbz1wmIDMlk'
 effects: []
 folder: null
@@ -333,12 +305,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708131399416
-  modifiedTime: 1716115628278
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!0mrlgIU5F6w06AIX'
 

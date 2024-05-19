@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109511603
-      modifiedTime: 1708109524091
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.Zi85X8SAS5qca5f2'
   - name: Blazing pounce
     type: action
@@ -276,13 +269,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109511750
-      modifiedTime: 1708109592810
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.PVd2rnCIQ9BnsbAh'
   - name: 'C: Fiery breath'
     type: action
@@ -340,13 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109511903
-      modifiedTime: 1708109607667
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.5rBdr0egvGlCkrh2'
   - name: Devil’s due (stalker)
     type: trait
@@ -377,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109514452
-      modifiedTime: 1708109847793
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.owJDAIT2IhQqgVG9'
   - name: Fire fur
     type: trait
@@ -411,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109514596
-      modifiedTime: 1708109858182
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.Whn0t6vYtGUWD464'
   - name: Invisible
     type: trait
@@ -445,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109514734
-      modifiedTime: 1708109867596
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.iccMxSOUKXyUx4Z7'
   - name: Resist fire 13+
     type: trait
@@ -479,13 +437,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109514867
-      modifiedTime: 1708109876244
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.g1iH5RdEoz9DcKht'
   - name: Corona aura
     type: nastierSpecial
@@ -515,13 +466,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109515753
-      modifiedTime: 1708109894812
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.VWAXX26rRm1vG6yW'
   - name: Fearless pursuer
     type: nastierSpecial
@@ -547,13 +491,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708109515890
-      modifiedTime: 1708109909623
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z68BxNI0KxUSjCgT.tfeJrncJ7F627tQc'
 effects: []
 folder: null
@@ -564,12 +501,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708109489386
-  modifiedTime: 1716115638306
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!z68BxNI0KxUSjCgT'
 

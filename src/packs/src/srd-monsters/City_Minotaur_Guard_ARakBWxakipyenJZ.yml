@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959585550
-      modifiedTime: 1707959605718
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ARakBWxakipyenJZ.yYp1FuU7DZdW4mbE'
   - name: 'R: Repeating crossbow'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959585711
-      modifiedTime: 1707959628458
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ARakBWxakipyenJZ.KOpqxq3yEK7Kv7CP'
   - name: 'R: Sling'
     type: action
@@ -336,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959585961
-      modifiedTime: 1707959639645
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ARakBWxakipyenJZ.xZPSykUI5ey12mW2'
   - name: Stand strong
     type: trait
@@ -371,13 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959587281
-      modifiedTime: 1707959648164
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ARakBWxakipyenJZ.YuOXd1pHUMAKU5cl'
 effects: []
 folder: null
@@ -388,12 +360,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707959565703
-  modifiedTime: 1716115630167
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!ARakBWxakipyenJZ'
 

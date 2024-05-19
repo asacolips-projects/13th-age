@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946986131
-      modifiedTime: 1707947011391
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.nH0xJERkXV44B3Uk'
   - name: 'C: Powders, potions, and lotions'
     type: action
@@ -289,13 +282,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946986273
-      modifiedTime: 1707947156659
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.YYFKMZJYeQwzEJ7H'
   - name: 'C: Psychic seduction'
     type: action
@@ -357,13 +343,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946986423
-      modifiedTime: 1707947204185
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.xToZTuvTjqe03ntb'
   - name: Shapechange
     type: trait
@@ -392,13 +371,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946987567
-      modifiedTime: 1707947236662
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.u7vOBBqaC68znyez'
   - name: Contrabando
     type: nastierSpecial
@@ -429,13 +401,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946990701
-      modifiedTime: 1707947262057
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.JqRTQfhVIzJJqZDu'
   - name: Shapechanger’s surprise
     type: nastierSpecial
@@ -465,13 +430,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946990852
-      modifiedTime: 1707947275979
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.CjCL0ZX9eoUmYJBB'
   - name: Lockheart
     type: nastierSpecial
@@ -511,13 +469,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946990978
-      modifiedTime: 1707947485430
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.wXl59oIutrrYcWP5'
   - name: Backwards palms
     type: nastierSpecial
@@ -551,13 +502,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947412323
-      modifiedTime: 1707947535705
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x0IdF9y8BmFQyLo6.ZmPEgSOjUDCmo9l7'
 effects: []
 folder: null
@@ -568,12 +512,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707946922382
-  modifiedTime: 1707947535705
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!x0IdF9y8BmFQyLo6'
 

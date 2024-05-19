@@ -211,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034064998
-      modifiedTime: 1708034124703
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.r6fxgrUd2hsn9qCa'
   - name: 'C: Awaken the primal fire'
     type: action
@@ -278,13 +271,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034065147
-      modifiedTime: 1708034156468
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.1R9cRk64rALStKxI'
   - name: 'R: Reforge the firmament'
     type: action
@@ -344,13 +330,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034065297
-      modifiedTime: 1708034182669
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.TEgBBmqzBrmlu6Lp'
   - name: Heat metal
     type: trait
@@ -383,13 +362,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034080639
-      modifiedTime: 1708034227958
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.aMy5iCCCLD4jd5D2'
   - name: Resist fire 16+
     type: trait
@@ -417,13 +389,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034080781
-      modifiedTime: 1708034235464
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.YocRk44NjzBdz1tf'
   - name: Fire aura
     type: trait
@@ -457,13 +422,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.qSPzqbjstcYA04gv.Item.yaNv3aHyuJE82rqC
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033887227
-      modifiedTime: 1708034082137
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.tnW9sQ8j73R7CyTI'
   - name: Holy blaze
     type: nastierSpecial
@@ -492,13 +450,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708034084098
-      modifiedTime: 1708034255853
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0qTh4ckibHXFIiMb.pcJr5O8NylDyMPgU'
 effects: []
 folder: null
@@ -509,12 +460,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708034045243
-  modifiedTime: 1716115628311
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!0qTh4ckibHXFIiMb'
 

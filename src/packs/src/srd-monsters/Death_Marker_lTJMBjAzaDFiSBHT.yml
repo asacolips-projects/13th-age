@@ -211,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707940963038
-      modifiedTime: 1707940985865
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lTJMBjAzaDFiSBHT.PyoFZgTDb7JVpKby'
   - name: Phasing flight
     type: trait
@@ -247,13 +240,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707940963773
-      modifiedTime: 1707941008048
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lTJMBjAzaDFiSBHT.DKyGo8avaUU22q49'
 effects: []
 folder: null
@@ -264,12 +250,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707940944346
-  modifiedTime: 1716115636097
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!lTJMBjAzaDFiSBHT'
 

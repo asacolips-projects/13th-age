@@ -205,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863635845
-      modifiedTime: 1687863678341
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!aiQAeHLj31uboPt5.9lwtc9rGmMyMn4Ra'
   - name: Rooted in place
     type: trait
@@ -240,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863637483
-      modifiedTime: 1687863693973
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!aiQAeHLj31uboPt5.uIsa8z8p3UU5TL2k'
   - name: Expanding reach
     type: trait
@@ -276,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863637617
-      modifiedTime: 1687863710650
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!aiQAeHLj31uboPt5.Ir2BugZ1SaELAnFZ'
   - name: Mobile roots
     type: nastierSpecial
@@ -310,13 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863638451
-      modifiedTime: 1687863729301
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!aiQAeHLj31uboPt5.OezyPKBy6eSuwPUA'
 effects: []
 folder: null
@@ -327,14 +299,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1687863582946
-  modifiedTime: 1716115634163
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: aiQAeHLj31uboPt5
-sort: 0
 _key: '!actors!aiQAeHLj31uboPt5'
 

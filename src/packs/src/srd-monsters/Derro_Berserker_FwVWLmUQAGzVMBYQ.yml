@@ -208,13 +208,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690654700369
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!FwVWLmUQAGzVMBYQ.yKdoqYGACARKmuzS'
   - name: Bad laughter
     type: trait
@@ -242,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690654660961
-      modifiedTime: 1690654711626
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!FwVWLmUQAGzVMBYQ.R9YTOtSl2BSKDMq7'
   - name: What pain?
     type: trait
@@ -276,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690654661730
-      modifiedTime: 1690654723144
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!FwVWLmUQAGzVMBYQ.IAtR7nwDPTL3T1JW'
   - name: Dead but still laughing
     type: nastierSpecial
@@ -311,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690654662777
-      modifiedTime: 1690654738954
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!FwVWLmUQAGzVMBYQ.WMWISVaITulHM9K2'
   - name: Wrong head
     type: nastierSpecial
@@ -347,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690654662952
-      modifiedTime: 1690654757092
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!FwVWLmUQAGzVMBYQ.Ji26EI2qnkVXW2NY'
 effects: []
 folder: null
@@ -364,14 +329,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1690475773055
-  modifiedTime: 1716115631124
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: FwVWLmUQAGzVMBYQ
-sort: 0
 _key: '!actors!FwVWLmUQAGzVMBYQ'
 

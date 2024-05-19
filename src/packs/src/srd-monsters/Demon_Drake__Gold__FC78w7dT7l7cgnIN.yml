@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132232509
-      modifiedTime: 1708132247072
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FC78w7dT7l7cgnIN.1FdFytcaKn5ssgzr'
   - name: 'C: Borrowed fire'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132233411
-      modifiedTime: 1708132261992
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FC78w7dT7l7cgnIN.UgkmZZHwsRBRZPJm'
   - name: Mutually destructive
     type: trait
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132234309
-      modifiedTime: 1708132268544
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FC78w7dT7l7cgnIN.Erqr7m0JBrQPdosG'
   - name: Flight
     type: trait
@@ -341,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132234427
-      modifiedTime: 1708132278347
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FC78w7dT7l7cgnIN.OJ0AMNTIMz3RntpL'
 effects: []
 folder: null
@@ -358,12 +330,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708132219219
-  modifiedTime: 1716115630981
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!FC78w7dT7l7cgnIN'
 

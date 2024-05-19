@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864798725
-      modifiedTime: 1707864824042
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!83WB6GsecZllMkpp.KRyz0zjKSrP71Oz5'
   - name: '[Group ability] C: Vomit tentacles'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864800080
-      modifiedTime: 1707864840287
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!83WB6GsecZllMkpp.noizEZZEMYWUOdHj'
   - name: Group ability
     type: trait
@@ -304,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864800882
-      modifiedTime: 1707864859959
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!83WB6GsecZllMkpp.aHgHEwwWzdt09os5'
   - name: Resist fire 16+
     type: nastierSpecial
@@ -338,13 +317,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864801612
-      modifiedTime: 1707864869468
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!83WB6GsecZllMkpp.Cj5yIyHuGQsXvNPP'
 effects: []
 folder: null
@@ -355,12 +327,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707864733920
-  modifiedTime: 1716115629833
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!83WB6GsecZllMkpp'
 

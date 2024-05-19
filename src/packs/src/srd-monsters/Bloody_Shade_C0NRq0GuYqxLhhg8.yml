@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602216424
-      modifiedTime: 1707602240615
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!C0NRq0GuYqxLhhg8.xO7PbOBrdjJnJ410'
   - name: 'R: Terrible blood'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602216608
-      modifiedTime: 1707602270871
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!C0NRq0GuYqxLhhg8.KL1Wq0ZrLcxOiUsm'
   - name: Blood of the fallen
     type: trait
@@ -302,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602218593
-      modifiedTime: 1707602278770
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!C0NRq0GuYqxLhhg8.MmtajAsoGtOEjwLG'
 effects: []
 folder: null
@@ -319,12 +298,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707602175914
-  modifiedTime: 1707602278770
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!C0NRq0GuYqxLhhg8'
 

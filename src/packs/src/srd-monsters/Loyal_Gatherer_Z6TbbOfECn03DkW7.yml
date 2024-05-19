@@ -177,13 +177,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092830828
-      modifiedTime: 1708092861397
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z6TbbOfECn03DkW7.bymLmyOwy97aOGIr'
   - name: Grasping iron claws
     type: action
@@ -243,13 +236,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092831323
-      modifiedTime: 1708092851241
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z6TbbOfECn03DkW7.FgXaLjz2s57Iic8A'
 effects: []
 folder: null
@@ -260,12 +246,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708092804532
-  modifiedTime: 1716115633836
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Z6TbbOfECn03DkW7'
 

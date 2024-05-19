@@ -184,13 +184,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126542723
-      modifiedTime: 1708126564599
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.9w6BotoYlEOBuJix'
   - name: (Choose one or two of the following)
     type: trait
@@ -215,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126571250
-      modifiedTime: 1708126586719
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.qJXcI4QplV8RDHza'
   - name: Ugly physique
     type: trait
@@ -250,13 +236,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126591498
-      modifiedTime: 1708126629403
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.TqPJJlV4n5cNNxLV'
   - name: Uncanny speed
     type: trait
@@ -285,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126591781
-      modifiedTime: 1708126643589
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.lW8OfVr4wCbcbvDJ'
   - name: Unearthly beauty
     type: trait
@@ -319,13 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126591942
-      modifiedTime: 1708126654808
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.udMvzIx4g8E1OWbg'
   - name: Unhealthy vigor
     type: trait
@@ -354,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126592080
-      modifiedTime: 1708126674914
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.t1QzioXgLRnZXqqr'
   - name: Unhinged joints
     type: trait
@@ -389,13 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126592349
-      modifiedTime: 1708126685504
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.DiYbu4uPJfEq5Zy2'
   - name: Unholy regeneration
     type: trait
@@ -424,13 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126592481
-      modifiedTime: 1708126711209
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.psPEZB6VyJ7YdojC'
   - name: Unnatural strength
     type: trait
@@ -462,13 +406,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126592610
-      modifiedTime: 1708126757564
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.TGpOwogFBlsumjGz'
   - name: Unreal scent
     type: trait
@@ -501,13 +438,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708126592773
-      modifiedTime: 1708126790289
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dx7sXYPwmOBoEZ2X.GAbEAz3VnyYl4yMM'
 effects: []
 folder: null
@@ -518,12 +448,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708126462110
-  modifiedTime: 1708126806763
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!dx7sXYPwmOBoEZ2X'
 

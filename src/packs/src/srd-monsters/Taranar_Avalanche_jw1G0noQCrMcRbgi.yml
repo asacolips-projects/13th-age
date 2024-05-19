@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662344277
-      modifiedTime: 1707662414102
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jw1G0noQCrMcRbgi.bLH3cAASEKe4fCX3'
   - name: No lightning flare ability
     type: trait
@@ -241,13 +234,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662344882
-      modifiedTime: 1707663441115
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jw1G0noQCrMcRbgi.JyRMsgPCX2ZfvteH'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -278,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663427610
-      modifiedTime: 1707663436653
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jw1G0noQCrMcRbgi.e518vSss6w0CkPx2'
   - name: Thick-skinned
     type: trait
@@ -315,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663595288
-      modifiedTime: 1707663608012
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jw1G0noQCrMcRbgi.m3BISrzV1s7OpqPe'
 effects: []
 folder: null
@@ -332,12 +304,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707662278686
-  modifiedTime: 1716115635787
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!jw1G0noQCrMcRbgi'
 

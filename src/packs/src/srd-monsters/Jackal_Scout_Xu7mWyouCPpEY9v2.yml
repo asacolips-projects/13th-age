@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105859025
-      modifiedTime: 1708105867571
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Xu7mWyouCPpEY9v2.kWHvofeRpPoVbzg2'
   - name: 'R: Shortbow, nasty arrow'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105859172
-      modifiedTime: 1708105892025
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Xu7mWyouCPpEY9v2.xG3qSNef6QxdI9gs'
   - name: Rally
     type: trait
@@ -311,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105859991
-      modifiedTime: 1708105928278
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Xu7mWyouCPpEY9v2.KJ3AnSt2b8lgn0HQ'
 effects: []
 folder: null
@@ -328,12 +307,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708105842090
-  modifiedTime: 1716115633590
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Xu7mWyouCPpEY9v2'
 

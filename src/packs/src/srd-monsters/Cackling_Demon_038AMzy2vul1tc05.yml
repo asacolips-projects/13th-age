@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121432756
-      modifiedTime: 1708121442975
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!038AMzy2vul1tc05.yBcHQNxkfwKZx8ut'
   - name: 'C: Screams of laughter'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121432991
-      modifiedTime: 1708121471388
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!038AMzy2vul1tc05.R44gldAGTvpsdd44'
   - name: '[Once per battle] My what big teeth you have'
     type: trait
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121434504
-      modifiedTime: 1708121507418
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!038AMzy2vul1tc05.oNKvLkTd17SM2uAD'
 effects: []
 folder: null
@@ -326,12 +305,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708121414481
-  modifiedTime: 1716115627991
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!038AMzy2vul1tc05'
 

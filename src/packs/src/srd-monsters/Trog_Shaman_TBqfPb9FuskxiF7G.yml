@@ -210,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699486645
-      modifiedTime: 1707699531393
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TBqfPb9FuskxiF7G.nI32ny4zKFNhFIph'
   - name: 'C: Sibilant curse'
     type: action
@@ -276,13 +269,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699486796
-      modifiedTime: 1707699556935
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TBqfPb9FuskxiF7G.nRK52v98EOOpGvj2'
   - name: Primeval grudge
     type: trait
@@ -311,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699491516
-      modifiedTime: 1707699582483
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TBqfPb9FuskxiF7G.k2YKAW5ZLrEGxL69'
   - name: Chameleon
     type: trait
@@ -346,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699491671
-      modifiedTime: 1707699599029
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TBqfPb9FuskxiF7G.8MSvPpEwNBTAT9Iy'
   - name: Trog stench
     type: trait
@@ -446,13 +418,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699491837
-      modifiedTime: 1707699657670
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TBqfPb9FuskxiF7G.dh39v33CxOvm58CS'
   - name: Extra grime
     type: nastierSpecial
@@ -480,13 +445,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707699493267
-      modifiedTime: 1707699643357
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TBqfPb9FuskxiF7G.MC9OSuNv3NPFUx0p'
 effects: []
 folder: null
@@ -497,12 +455,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707699413239
-  modifiedTime: 1716115632904
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!TBqfPb9FuskxiF7G'
 

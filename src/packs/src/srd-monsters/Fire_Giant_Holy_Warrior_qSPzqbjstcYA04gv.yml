@@ -207,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033884537
-      modifiedTime: 1708033898330
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qSPzqbjstcYA04gv.k7Go1MXq09SqcXBF'
   - name: 'C: Breath of Unyr'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033884686
-      modifiedTime: 1708033918259
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qSPzqbjstcYA04gv.47kkgMvdMhLqYl4Z'
   - name: Resist fire 16+
     type: trait
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033887069
-      modifiedTime: 1708033925114
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qSPzqbjstcYA04gv.gp5if6Rv8tkHZJXv'
   - name: Fire aura
     type: trait
@@ -344,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033887227
-      modifiedTime: 1708033955185
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qSPzqbjstcYA04gv.yaNv3aHyuJE82rqC'
   - name: Unyr’s consecration
     type: nastierSpecial
@@ -378,13 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033887805
-      modifiedTime: 1708033979415
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qSPzqbjstcYA04gv.vsKhRMGyE4irL3dL'
 effects: []
 folder: null
@@ -395,12 +360,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708033857446
-  modifiedTime: 1716115636909
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!qSPzqbjstcYA04gv'
 

@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707661652146
-      modifiedTime: 1707661673933
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hLfcoVZTJGON8CMm.Sg9rmXtgl5LEcQQq'
   - name: 'C: Stoneshoe shuffle'
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707661652278
-      modifiedTime: 1707661727281
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hLfcoVZTJGON8CMm.A4sbsXrY2TNewkjP'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -314,13 +300,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663365458
-      modifiedTime: 1707663374669
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hLfcoVZTJGON8CMm.l5BNddoIK5ecnYrc'
   - name: Lightning-flare
     type: trait
@@ -356,13 +335,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663365598
-      modifiedTime: 1707663386819
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hLfcoVZTJGON8CMm.0ps8H5tihZgyFDGN'
   - name: Thick-skinned
     type: trait
@@ -393,13 +365,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663569020
-      modifiedTime: 1707663575953
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hLfcoVZTJGON8CMm.mCEAwc2AvNghQUjR'
 effects: []
 folder: null
@@ -410,12 +375,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707661258531
-  modifiedTime: 1716115635473
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!hLfcoVZTJGON8CMm'
 

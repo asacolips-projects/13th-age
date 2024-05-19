@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870551782
-      modifiedTime: 1707870580249
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Dyv4f8Q69rMs6Wg9.469AlVz0VkuCw6LL'
   - name: Sudden intelligence
     type: trait
@@ -244,13 +237,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870552579
-      modifiedTime: 1707870591799
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Dyv4f8Q69rMs6Wg9.fliEn64msz9vAkI4'
   - name: Smarter than it looks
     type: nastierSpecial
@@ -278,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870553246
-      modifiedTime: 1707870606790
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Dyv4f8Q69rMs6Wg9.Vn5hhXVazAEQX7De'
 effects: []
 folder: null
@@ -295,12 +274,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707870532905
-  modifiedTime: 1716115630786
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Dyv4f8Q69rMs6Wg9'
 

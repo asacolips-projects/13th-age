@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606500745
-      modifiedTime: 1707606527844
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.tMAWJDXZZafWNCPp'
   - name: Bite
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606501347
-      modifiedTime: 1707606546532
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.wmbZfVTiWIIe3JlN'
   - name: Eruption
     type: nastierSpecial
@@ -302,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606502062
-      modifiedTime: 1707606563286
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.z9rtyRov0fmRJTxf'
   - name: Rock swimming
     type: trait
@@ -336,13 +315,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606567474
-      modifiedTime: 1707606599197
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.Wq81MTKMqVaP5NER'
   - name: 360 degree vision
     type: trait
@@ -370,13 +342,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606569273
-      modifiedTime: 1707606611968
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.XRINvuKB2sqQ9SMs'
   - name: Penetrating vision
     type: trait
@@ -404,13 +369,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606569694
-      modifiedTime: 1707606630745
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.DLDWAsVKTrwzz91o'
   - name: Resist cold and fire 16+
     type: trait
@@ -440,13 +398,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606570190
-      modifiedTime: 1707606646566
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!knPjTlizqzrvjmCw.tSZNl15XW0QoTeZd'
 effects: []
 folder: null
@@ -457,12 +408,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707606428669
-  modifiedTime: 1707661353618
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!knPjTlizqzrvjmCw'
 

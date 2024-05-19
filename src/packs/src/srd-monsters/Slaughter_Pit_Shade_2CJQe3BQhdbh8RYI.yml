@@ -213,13 +213,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602845246
-      modifiedTime: 1707602914835
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2CJQe3BQhdbh8RYI.NQ10vNNRbhzCaWOf'
   - name: All are one
     type: trait
@@ -247,13 +240,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707602846116
-      modifiedTime: 1707602927624
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2CJQe3BQhdbh8RYI.dQgGlg96kWw3CBpw'
 effects: []
 folder: null
@@ -264,12 +250,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707602788200
-  modifiedTime: 1716115628591
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!2CJQe3BQhdbh8RYI'
 

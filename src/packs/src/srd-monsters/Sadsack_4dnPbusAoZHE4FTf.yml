@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090452685
-      modifiedTime: 1708090469922
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.PHtyLdi5mHL4wCho'
   - name: Contagious ennui
     type: trait
@@ -242,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090453376
-      modifiedTime: 1708090483140
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.vM9O7tdcZPLAoo2J'
   - name: Ghostly
     type: trait
@@ -277,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090453508
-      modifiedTime: 1708090493647
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.M3ibN4sor1LhW9Au'
   - name: Relic affinity
     type: trait
@@ -311,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090453662
-      modifiedTime: 1708090503672
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.l08bTs5es8llOW0U'
   - name: Flight
     type: trait
@@ -345,13 +317,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090453794
-      modifiedTime: 1708090517340
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.Omip6g5J8aoVEv7p'
   - name: Bound hauntings
     type: trait
@@ -390,13 +355,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571826
-      modifiedTime: 1708090662844
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.Hx2P7xMeCNEwpewo'
   - name: Flight
     type: trait
@@ -429,13 +387,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571952
-      modifiedTime: 1708090659749
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.wX9g5ojc4D0faie0'
   - name: Unnatural touch
     type: trait
@@ -471,13 +422,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090572095
-      modifiedTime: 1708090656848
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.1gphpVgsE4AJt6cT'
   - name: General Ghost Abilities
     type: trait
@@ -502,13 +446,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090626422
-      modifiedTime: 1708090655161
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!4dnPbusAoZHE4FTf.D7Rfwqnis7wIMhb7'
 effects: []
 folder: null
@@ -519,12 +456,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708090430692
-  modifiedTime: 1716115629212
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!4dnPbusAoZHE4FTf'
 

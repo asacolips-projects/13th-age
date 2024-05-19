@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042988089
-      modifiedTime: 1708043009578
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LZ9sOg7FU5wsmBkU.C9vYN2IPoibUYTG3'
   - name: Pack tactics
     type: trait
@@ -240,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042988828
-      modifiedTime: 1708043017163
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LZ9sOg7FU5wsmBkU.2rU0GDlGAVqefK6C'
 effects: []
 folder: null
@@ -257,12 +243,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708042971054
-  modifiedTime: 1716115631914
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!LZ9sOg7FU5wsmBkU'
 

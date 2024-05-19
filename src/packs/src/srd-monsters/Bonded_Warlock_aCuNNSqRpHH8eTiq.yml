@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605460292
-      modifiedTime: 1707605495863
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aCuNNSqRpHH8eTiq.D14BZzYxtkO31wE7'
   - name: 'C: Violent dispelling'
     type: action
@@ -275,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605460440
-      modifiedTime: 1707605512745
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aCuNNSqRpHH8eTiq.Ld8JLmCNOx7fYzoE'
   - name: 'R: Hexplosion'
     type: action
@@ -344,13 +330,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605460596
-      modifiedTime: 1707605546961
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aCuNNSqRpHH8eTiq.Otfx22wGO41ZithE'
   - name: Spell absorption
     type: nastierSpecial
@@ -380,13 +359,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605464068
-      modifiedTime: 1707605562001
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aCuNNSqRpHH8eTiq.WyyYwAkCAEckKic1'
   - name: Warlock’s warp
     type: nastierSpecial
@@ -414,13 +386,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605464309
-      modifiedTime: 1707605572437
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aCuNNSqRpHH8eTiq.MH87aufLOt8vrnom'
   - name: Violent undoing
     type: nastierSpecial
@@ -451,13 +416,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605464477
-      modifiedTime: 1707605593928
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aCuNNSqRpHH8eTiq.b2kVkFfdJ9NDFKGm'
 effects: []
 folder: null
@@ -468,12 +426,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707605194785
-  modifiedTime: 1707605593928
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!aCuNNSqRpHH8eTiq'
 

@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941425594
-      modifiedTime: 1707941445648
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u7cl3mHNP6BiXWQQ.pEpKi3L9GPLBkTJJ'
   - name: Flight
     type: trait
@@ -238,13 +231,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941426154
-      modifiedTime: 1707941454000
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u7cl3mHNP6BiXWQQ.fZbGjVldR3FGU0n5'
   - name: Partial phasing
     type: trait
@@ -274,13 +260,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941426287
-      modifiedTime: 1707941467742
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u7cl3mHNP6BiXWQQ.MFy3VyqJTIoe6eV8'
   - name: Shadow of death
     type: trait
@@ -310,13 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941426438
-      modifiedTime: 1707941483232
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u7cl3mHNP6BiXWQQ.ZkYMcTVEDHQRE8xl'
 effects: []
 folder: null
@@ -327,12 +299,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707941403016
-  modifiedTime: 1716115637429
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!u7cl3mHNP6BiXWQQ'
 

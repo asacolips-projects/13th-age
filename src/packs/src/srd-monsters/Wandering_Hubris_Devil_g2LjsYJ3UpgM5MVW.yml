@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114652769
-      modifiedTime: 1708114667621
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.uiVubbgl6RUtE7Bo'
   - name: Crash and bash
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114653098
-      modifiedTime: 1708114688241
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.oahomWmc3sTvGQ0p'
   - name: 'C: Looming fear'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114653263
-      modifiedTime: 1708114720267
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.R8oMftB4ppMhRbsQ'
   - name: Devil’s due (Chakra suppression)
     type: trait
@@ -374,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114654234
-      modifiedTime: 1708114731717
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.4QVH7p5cCLUigM0U'
   - name: Resist holy 13+
     type: trait
@@ -408,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114654355
-      modifiedTime: 1708114741085
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.kMglKbrGN1asflNM'
   - name: Friend or enemy?
     type: nastierSpecial
@@ -445,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114765852
-      modifiedTime: 1708114780893
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.7rt3Dq83ZNcLsx20'
   - name: Surprise!
     type: nastierSpecial
@@ -480,13 +438,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114765983
-      modifiedTime: 1708114792532
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.nFZ4ifYG7bnK2S33'
   - name: Final-gasp soul snatch & escape
     type: nastierSpecial
@@ -576,13 +527,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114766114
-      modifiedTime: 1708114903707
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!g2LjsYJ3UpgM5MVW.IiAid2bYnCFyC4qM'
 effects: []
 folder: null
@@ -593,12 +537,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708114631814
-  modifiedTime: 1716115635172
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!g2LjsYJ3UpgM5MVW'
 

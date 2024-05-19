@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959719345
-      modifiedTime: 1707959747407
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eJ365eLOO7wgRv1o.MAtj0gFnRiDfm5Mz'
   - name: 'R: Sun beams'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959719904
-      modifiedTime: 1707959763894
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eJ365eLOO7wgRv1o.ypUoxN8SnVgdWi2y'
   - name: 'C: Jagged spark'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959720422
-      modifiedTime: 1707959786673
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eJ365eLOO7wgRv1o.ctgpAk06l86Zxks4'
   - name: Natural move
     type: trait
@@ -375,13 +354,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959721792
-      modifiedTime: 1707959807315
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eJ365eLOO7wgRv1o.nLFBCMoI1dWdj8Ft'
   - name: Circle’s strength
     type: trait
@@ -407,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707959721957
-      modifiedTime: 1707959816969
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!eJ365eLOO7wgRv1o.JClT79f2vhOIw3NA'
 effects: []
 folder: null
@@ -424,12 +389,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707959703581
-  modifiedTime: 1716115634860
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!eJ365eLOO7wgRv1o'
 

@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024441188
-      modifiedTime: 1708024461239
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Pc4D7fVAATI2Lgoe.dxN4w8jUNvOoSItC'
   - name: 'R: Venom spit'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024441314
-      modifiedTime: 1708024481656
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Pc4D7fVAATI2Lgoe.1bo9TeJl8CrmUKs1'
   - name: Erratic movement
     type: trait
@@ -304,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024442208
-      modifiedTime: 1708024488421
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Pc4D7fVAATI2Lgoe.wVS4CsFT9iOc9jqt'
   - name: Poisonous skin
     type: nastierSpecial
@@ -338,13 +317,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024443404
-      modifiedTime: 1708024497880
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Pc4D7fVAATI2Lgoe.mIcrtxuN47t08pkI'
   - name: Shed skin
     type: nastierSpecial
@@ -372,13 +344,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024443553
-      modifiedTime: 1708024509230
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Pc4D7fVAATI2Lgoe.Pjgq1iQ9HixHiiFS'
 effects: []
 folder: null
@@ -389,12 +354,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708024424732
-  modifiedTime: 1716115632357
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Pc4D7fVAATI2Lgoe'
 

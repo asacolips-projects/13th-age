@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131578235
-      modifiedTime: 1708131592888
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!DfpQbZBxZZIREcmb.6OvTtGIgLoDV2mOD'
   - name: Weakling
     type: trait
@@ -240,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131578835
-      modifiedTime: 1708131600759
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!DfpQbZBxZZIREcmb.bU5B38sIzsYOJ1mX'
   - name: Red rage
     type: nastierSpecial
@@ -274,13 +260,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131579564
-      modifiedTime: 1708131612347
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!DfpQbZBxZZIREcmb.3hEVPZND13Sm79xg'
 effects: []
 folder: null
@@ -291,12 +270,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708131525717
-  modifiedTime: 1708131612347
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!DfpQbZBxZZIREcmb'
 

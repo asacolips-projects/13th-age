@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956850632
-      modifiedTime: 1707956866128
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uy137yOsbbPUEMOX.xXQt0IqSLAd7ViZ8'
 effects: []
 folder: null
@@ -223,12 +216,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707956830714
-  modifiedTime: 1716115637629
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!uy137yOsbbPUEMOX'
 

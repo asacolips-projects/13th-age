@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090862871
-      modifiedTime: 1708090879412
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.hkxMqY0Zzq8ks6Fb'
   - name: Distending jaw
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090863041
-      modifiedTime: 1708090893185
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.qOhKjsnPHyvxtkcc'
   - name: 'R: Exploding pustules'
     type: action
@@ -334,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090863188
-      modifiedTime: 1708090910494
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.oHHQcy092q30TIxX'
   - name: Ghostly
     type: trait
@@ -369,13 +348,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090863881
-      modifiedTime: 1708090917255
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.4E9z2aNG64V25FOG'
   - name: Fearsome jaws
     type: nastierSpecial
@@ -404,13 +376,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090864385
-      modifiedTime: 1708090926604
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.4X7HcVtjcdOilyb4'
   - name: General Ghost Abilities
     type: trait
@@ -438,13 +403,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.D7Rfwqnis7wIMhb7
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090626422
-      modifiedTime: 1708090929726
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.yDs42ZoNBaFaBEY2'
   - name: Bound hauntings
     type: trait
@@ -486,13 +444,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.Hx2P7xMeCNEwpewo
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571826
-      modifiedTime: 1708090930798
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.TdettkREiXsfMwEY'
   - name: Flight
     type: trait
@@ -528,13 +479,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.wX9g5ojc4D0faie0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571952
-      modifiedTime: 1708090933092
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.8ZoLes8EgT0hj6Qo'
   - name: Unnatural touch
     type: trait
@@ -573,13 +517,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.1gphpVgsE4AJt6cT
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090572095
-      modifiedTime: 1708090934118
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gVVXcJyZj6kjlYxB.MpeQVdYptnMjlqDC'
 effects: []
 folder: null
@@ -590,12 +527,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708090844331
-  modifiedTime: 1716115635349
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!gVVXcJyZj6kjlYxB'
 

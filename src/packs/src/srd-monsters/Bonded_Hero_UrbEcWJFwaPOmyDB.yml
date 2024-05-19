@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604298680
-      modifiedTime: 1707604325724
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UrbEcWJFwaPOmyDB.68sTYRVfvZkpL91Z'
   - name: 'C: Energy shroud'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604299260
-      modifiedTime: 1707604354836
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UrbEcWJFwaPOmyDB.YC7oqTS7J8W9kvXT'
   - name: Hex hammer
     type: action
@@ -334,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604299728
-      modifiedTime: 1707604436817
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UrbEcWJFwaPOmyDB.SSyFjP4DIBCSBMw4'
   - name: Touch of the divine
     type: action
@@ -398,13 +377,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604300243
-      modifiedTime: 1707604426185
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UrbEcWJFwaPOmyDB.ptW5s1oFXXJH5YKi'
   - name: Mystic shield
     type: action
@@ -464,13 +436,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604300778
-      modifiedTime: 1707604415199
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UrbEcWJFwaPOmyDB.75ynPmZjI6cxSNMk'
   - name: 'R: Storm gaze'
     type: action
@@ -528,13 +493,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604301261
-      modifiedTime: 1707604467188
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UrbEcWJFwaPOmyDB.NJU4BDpRUQSn7HWn'
 effects: []
 folder: null
@@ -545,12 +503,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707604215357
-  modifiedTime: 1707604467188
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!UrbEcWJFwaPOmyDB'
 

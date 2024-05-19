@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032154662
-      modifiedTime: 1708032173323
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bGCMwbeU7CeMjInE.i9A0VwMknDNxrowM'
   - name: Power of a name
     type: trait
@@ -240,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032156998
-      modifiedTime: 1708032180268
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bGCMwbeU7CeMjInE.K3BWgRJHz9NgFipv'
   - name: Brownie
     type: trait
@@ -275,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032157363
-      modifiedTime: 1708032189016
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bGCMwbeU7CeMjInE.wmoT33ajWpTg5pzD'
   - name: Boggart
     type: trait
@@ -309,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032157513
-      modifiedTime: 1708032257945
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bGCMwbeU7CeMjInE.dknp3vSzAauGVXjY'
   - name: Gremlin
     type: trait
@@ -345,13 +317,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032157638
-      modifiedTime: 1708032235119
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bGCMwbeU7CeMjInE.Oe135T0w3Nn3KiK8'
 effects: []
 folder: null
@@ -362,12 +327,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708032134580
-  modifiedTime: 1716115634285
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!bGCMwbeU7CeMjInE'
 

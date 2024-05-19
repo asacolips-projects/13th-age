@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024688830
-      modifiedTime: 1708024714560
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!leuevBxooToL4QIA.PstRhIEHfzjZpbFJ'
   - name: Paw swat
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024688973
-      modifiedTime: 1708024728644
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!leuevBxooToL4QIA.mqAIOcHNnvNmOlf9'
   - name: 'C: Unnerving roar'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024689191
-      modifiedTime: 1708024773721
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!leuevBxooToL4QIA.JxJUgwT3wI7NdBGA'
   - name: Powerful leap
     type: trait
@@ -373,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024690308
-      modifiedTime: 1708024739934
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!leuevBxooToL4QIA.lZdvtYGudd70wtsl'
   - name: Stunning roar
     type: nastierSpecial
@@ -407,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024691544
-      modifiedTime: 1708024757027
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!leuevBxooToL4QIA.OfFCI9lo47V5aJfK'
   - name: New Nastier Special
     type: nastierSpecial
@@ -436,13 +401,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024692657
-      modifiedTime: 1708024692657
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!leuevBxooToL4QIA.SJj2C6i0xyMOTLHR'
 effects: []
 folder: null
@@ -453,12 +411,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708024651683
-  modifiedTime: 1716115636129
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!leuevBxooToL4QIA'
 

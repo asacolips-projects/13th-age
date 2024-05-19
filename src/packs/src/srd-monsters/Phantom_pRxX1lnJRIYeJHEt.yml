@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870883462
-      modifiedTime: 1707870901135
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pRxX1lnJRIYeJHEt.nopyfTDqYD7faIft'
   - name: 'C: Poltergeist activity'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870883629
-      modifiedTime: 1707870918261
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pRxX1lnJRIYeJHEt.Zed2C06R0ITk0RG5'
   - name: Immaterial
     type: trait
@@ -308,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870885063
-      modifiedTime: 1707870940305
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pRxX1lnJRIYeJHEt.uFHhiaDQGeKCuuaI'
   - name: Face of death
     type: trait
@@ -348,13 +327,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870885477
-      modifiedTime: 1707870974558
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pRxX1lnJRIYeJHEt.fkMZUYeUtTUWwppm'
   - name: Flight
     type: trait
@@ -380,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870885844
-      modifiedTime: 1707870985611
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pRxX1lnJRIYeJHEt.NcceDN3Ryi7u4Nrv'
   - name: Personalized terror
     type: nastierSpecial
@@ -414,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707870886611
-      modifiedTime: 1707870997130
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pRxX1lnJRIYeJHEt.0PKW8zVbeh2zHe0M'
 effects: []
 folder: null
@@ -431,12 +389,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707870865483
-  modifiedTime: 1716115636734
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!pRxX1lnJRIYeJHEt'
 

@@ -208,13 +208,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.1mZmMIDaa4Yp14AV
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874572268
-      modifiedTime: 1688974494404
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.9Yhz2HAWdwDro7FK'
   - name: Barbed arrows
     type: action
@@ -278,13 +271,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.0EzLqYE23l2nyP0a
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874616281
-      modifiedTime: 1688976746766
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.MF33oSDntnZeWa0x'
   - name: Green Walk
     type: trait
@@ -318,13 +304,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.QiESpgLQ7WUsrIs3
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874573804
-      modifiedTime: 1688976779771
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.eg81qvGTDB5Ir3w8'
   - name: 'Choose one:'
     type: trait
@@ -352,13 +331,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874588472
-      modifiedTime: 1688974280814
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.QJYdYczSydPQQdI0'
   - name: Humanoid
     type: trait
@@ -389,13 +361,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874617930
-      modifiedTime: 1688976824435
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.8Dyov51PlsM2zAuX'
   - name: Plant
     type: trait
@@ -427,13 +392,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874618286
-      modifiedTime: 1688976836420
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.VRfphwgwTs8waYsJ'
   - name: Undead
     type: trait
@@ -465,13 +423,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874620567
-      modifiedTime: 1688976850840
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.qTTNDDjITQ3R1MPX'
   - name: Strength of the Forest
     type: nastierSpecial
@@ -500,13 +451,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1688974297237
-      modifiedTime: 1688976872612
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.nUc5YmuuwHEfLAa5'
   - name: Fear Aura
     type: nastierSpecial
@@ -538,13 +482,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597558
-      modifiedTime: 1688976892141
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!3Hy9FJ1iym1SKrXM.ygQRftqriZEnJTve'
 effects: []
 folder: null
@@ -555,14 +492,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1688974237665
-  modifiedTime: 1716115628902
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: 3Hy9FJ1iym1SKrXM
-sort: 600000
 _key: '!actors!3Hy9FJ1iym1SKrXM'
 

@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708016174492
-      modifiedTime: 1708016195118
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uYwxZwPiol3j5d2T.hgeCwvcxGv2RsIcc'
   - name: 'C: Echo of decay'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708016174633
-      modifiedTime: 1708016211047
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uYwxZwPiol3j5d2T.XL7n9Fb8XI6SMpWB'
   - name: Trollish regeneration 10
     type: trait
@@ -312,13 +298,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708016175189
-      modifiedTime: 1708016231418
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uYwxZwPiol3j5d2T.WIVLORmu10a6ZhJT'
   - name: Fear of the Echo
     type: nastierSpecial
@@ -346,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708016175683
-      modifiedTime: 1708016240970
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uYwxZwPiol3j5d2T.YpmRqTYInZgulNg0'
 effects: []
 folder: null
@@ -363,12 +335,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708016154568
-  modifiedTime: 1716115637524
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!uYwxZwPiol3j5d2T'
 

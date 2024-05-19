@@ -209,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131285631
-      modifiedTime: 1708131314602
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z3YgYuICsKbKjH5i.XuIZeGIjpExrQshw'
   - name: 'R: Blackscale throwing star'
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131285761
-      modifiedTime: 1708131341514
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z3YgYuICsKbKjH5i.NXfkEuuKHee8W70J'
   - name: Skitter
     type: trait
@@ -313,13 +299,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131286511
-      modifiedTime: 1708131359513
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!z3YgYuICsKbKjH5i.faT8cnwZ6MwhVsYA'
 effects: []
 folder: null
@@ -330,12 +309,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708131269218
-  modifiedTime: 1716115638274
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!z3YgYuICsKbKjH5i'
 

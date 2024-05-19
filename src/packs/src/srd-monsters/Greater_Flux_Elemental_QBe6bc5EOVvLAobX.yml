@@ -196,13 +196,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035634900
-      modifiedTime: 1708036183647
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QBe6bc5EOVvLAobX.Skcm8k6i7E7WJzAi'
   - name: Power-up
     type: trait
@@ -230,13 +223,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035766232
-      modifiedTime: 1708035773081
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QBe6bc5EOVvLAobX.5DfHXkf3wwDvybS7'
   - name: Wind touch
     type: action
@@ -294,13 +280,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812104
-      modifiedTime: 1708036106418
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QBe6bc5EOVvLAobX.mbdCfnICcKSHQ2GV'
   - name: Rocky fist
     type: action
@@ -358,13 +337,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812389
-      modifiedTime: 1708036115074
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QBe6bc5EOVvLAobX.P8QqgigGnYzfa1fw'
   - name: Scorching hands
     type: action
@@ -422,13 +394,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812564
-      modifiedTime: 1708036131583
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QBe6bc5EOVvLAobX.DNrI8aOpcDAbCbAe'
   - name: Whoosh and a slam
     type: action
@@ -488,13 +453,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812681
-      modifiedTime: 1708036144963
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QBe6bc5EOVvLAobX.3Gnq67NiNhLNroRH'
 effects: []
 folder: null
@@ -509,14 +467,5 @@ flags:
         primary:
           value: actions
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708035589622
-  modifiedTime: 1716115632467
-  lastModifiedBy: zQqK0qgL2au7apj0
-_id: QBe6bc5EOVvLAobX
-sort: 0
 _key: '!actors!QBe6bc5EOVvLAobX'
 

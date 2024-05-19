@@ -211,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662697515
-      modifiedTime: 1707662738502
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.tQnPHqSBLVD0vWNH'
   - name: 'C: Seism'
     type: action
@@ -275,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662697672
-      modifiedTime: 1707662755136
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.1AhhJveQ5IVNtOeq'
   - name: Heave
     type: action
@@ -342,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662697810
-      modifiedTime: 1707662827543
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.j5LRztTftoJ1DvV9'
   - name: Throw enemy
     type: trait
@@ -376,13 +355,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662758213
-      modifiedTime: 1707662779928
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.OujXqhqIrx1nbcD7'
   - name: Thrown adventurer
     type: action
@@ -440,13 +412,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662830940
-      modifiedTime: 1707662858373
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.PqM6ZAysW8beM6Di'
   - name: Blade breaker
     type: nastierSpecial
@@ -478,13 +443,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707662887315
-      modifiedTime: 1707662908844
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.p1XmmYXrN1o5imJO'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -515,13 +473,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663335187
-      modifiedTime: 1707663344761
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.zpjUyAhQoI4I5Eh1'
   - name: Lightning-flare
     type: trait
@@ -557,13 +508,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663335314
-      modifiedTime: 1707663360328
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.Udb3CIXOo32j5XIc'
   - name: Thick-skinned
     type: trait
@@ -594,13 +538,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663554496
-      modifiedTime: 1707663562165
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dvutTIhqnM6k9dQW.raGusBwGChStffBE'
 effects: []
 folder: null
@@ -611,12 +548,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707662617608
-  modifiedTime: 1716115634798
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!dvutTIhqnM6k9dQW'
 

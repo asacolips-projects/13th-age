@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866356125
-      modifiedTime: 1707866390904
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JZyoMoybXedBdJMT.6sZg4dXk6py4mWCO'
   - name: 'C: Astral tentacles'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866356888
-      modifiedTime: 1707866429877
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JZyoMoybXedBdJMT.68wNO5tZpdpOWBjN'
 effects: []
 folder: null
@@ -289,12 +275,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707866339159
-  modifiedTime: 1716115631617
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!JZyoMoybXedBdJMT'
 

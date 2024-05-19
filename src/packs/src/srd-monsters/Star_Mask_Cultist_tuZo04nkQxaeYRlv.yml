@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865905049
-      modifiedTime: 1707865916420
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tuZo04nkQxaeYRlv.onOOtyifOxUymNyN'
   - name: 'R: Bow'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865905195
-      modifiedTime: 1707865940790
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tuZo04nkQxaeYRlv.SuQJF2r7ywULwmAZ'
   - name: 'C: Psychic blast'
     type: action
@@ -336,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865905348
-      modifiedTime: 1707866007670
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tuZo04nkQxaeYRlv.IVZr7Iv9jPpIbAYb'
   - name: Group ability
     type: trait
@@ -371,13 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865906734
-      modifiedTime: 1707866027205
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tuZo04nkQxaeYRlv.kIHIb69HaQZU2kSV'
   - name: Coordinated attack (group)
     type: trait
@@ -406,13 +378,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865906851
-      modifiedTime: 1707866037426
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tuZo04nkQxaeYRlv.Kh9eGdTkHoFBPhQk'
   - name: New host
     type: nastierSpecial
@@ -442,13 +407,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865907486
-      modifiedTime: 1707866054740
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tuZo04nkQxaeYRlv.d4hlhnV3b3LcQyVV'
 effects: []
 folder: null
@@ -459,12 +417,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707865886301
-  modifiedTime: 1716115637320
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!tuZo04nkQxaeYRlv'
 

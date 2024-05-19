@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128947112
-      modifiedTime: 1708128977102
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xHfk5dLQXU5j9nf5.e1cD9Y01rDCOWYeS'
   - name: 'R: Poisonous spit'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128947256
-      modifiedTime: 1708128991856
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xHfk5dLQXU5j9nf5.Dnsx8EyzwwZIWyJo'
   - name: Superior camouflage
     type: trait
@@ -310,13 +296,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128948493
-      modifiedTime: 1708129016146
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xHfk5dLQXU5j9nf5.TFqdXLDCnuDyEojv'
   - name: Resist poison 14+
     type: trait
@@ -344,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128948619
-      modifiedTime: 1708129022945
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xHfk5dLQXU5j9nf5.ImcNf13CLVlr1FKp'
   - name: Limited flight
     type: nastierSpecial
@@ -384,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708129068420
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xHfk5dLQXU5j9nf5.7ekSmVD8a9NxPZBN'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -420,13 +385,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708129154511
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xHfk5dLQXU5j9nf5.0CnlTZCBlF984SNa'
 effects: []
 folder: null
@@ -437,12 +395,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708128930271
-  modifiedTime: 1716115638014
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!xHfk5dLQXU5j9nf5'
 

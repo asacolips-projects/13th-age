@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955923825
-      modifiedTime: 1707955950705
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.F34XVUHiAD2oZIJu'
   - name: 'C: Hard words'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955923991
-      modifiedTime: 1707955986446
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.eLn6zcjfhk4PzwwB'
   - name: Earth’s embrace
     type: trait
@@ -313,13 +299,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955925274
-      modifiedTime: 1707956013235
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.n5u4B7qK5LLUJHsJ'
   - name: Resist weapon damage 12+
     type: nastierSpecial
@@ -347,13 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955926140
-      modifiedTime: 1707956022672
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.eobXoSAXn8Mvcdxw'
   - name: Domain bound
     type: trait
@@ -385,13 +357,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.dZNuOXlFpnn1OzQ2
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415347
-      modifiedTime: 1707956034591
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.3YXzu9wI6BDeIp3y'
   - name: Limited immortality
     type: trait
@@ -426,13 +391,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.VQalLgUCLGaLnDvR
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415395
-      modifiedTime: 1707956035478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.Y5V3iyxGlO2jxW5i'
   - name: Note on types
     type: trait
@@ -464,13 +422,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.5DtwntvmiSLGrcNT
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415812
-      modifiedTime: 1707956036571
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!jt8GK0RdpIj49zQ3.OBEwK13HCpGip0JY'
 effects: []
 folder: null
@@ -481,12 +432,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707955899781
-  modifiedTime: 1707956036571
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!jt8GK0RdpIj49zQ3'
 

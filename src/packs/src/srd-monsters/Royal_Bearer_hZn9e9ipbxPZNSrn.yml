@@ -177,13 +177,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092936044
-      modifiedTime: 1708093010533
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hZn9e9ipbxPZNSrn.vg9xQBpyWJDUEcHR'
   - name: Lost opportunity
     type: trait
@@ -209,13 +202,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092936205
-      modifiedTime: 1708093017631
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hZn9e9ipbxPZNSrn.AxDD0sayDze2uQY3'
   - name: Ghostly
     type: trait
@@ -245,13 +231,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092936365
-      modifiedTime: 1708093025972
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hZn9e9ipbxPZNSrn.H26ubl5ebnirZT6m'
   - name: 'R: Lash for thieves'
     type: action
@@ -311,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092937069
-      modifiedTime: 1708092950514
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hZn9e9ipbxPZNSrn.O7ZK2TdRv9B0yrfY'
   - name: 'C: Crushing weight of wealth'
     type: action
@@ -377,13 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092937203
-      modifiedTime: 1708092972317
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hZn9e9ipbxPZNSrn.LD1Z4q5GSlVvQwrH'
   - name: 'R: The Icon’s due'
     type: action
@@ -447,13 +412,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092937342
-      modifiedTime: 1708093002320
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!hZn9e9ipbxPZNSrn.U2j5uzmiyvHQyBqH'
 effects: []
 folder: null
@@ -464,12 +422,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708092914448
-  modifiedTime: 1716115635524
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!hZn9e9ipbxPZNSrn'
 

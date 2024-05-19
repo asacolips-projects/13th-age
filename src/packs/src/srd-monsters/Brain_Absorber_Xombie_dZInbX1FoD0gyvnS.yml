@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865456244
-      modifiedTime: 1707865512226
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.tu6zEbWQY8nPmA5r'
   - name: '[Group ability] Brain-ripping tentacles'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865456712
-      modifiedTime: 1707865542794
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.mvX9oGAiwGp19ce9'
   - name: '[Group ability] C: Mass confusion'
     type: action
@@ -339,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865457094
-      modifiedTime: 1707865570125
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.JTBihvjuua5bHCw6'
   - name: '[Group ability] C: Psychic crush'
     type: action
@@ -403,13 +382,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865457496
-      modifiedTime: 1707865591373
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.5HtaE7sXKfGUD0p9'
   - name: Group ability
     type: trait
@@ -438,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865458996
-      modifiedTime: 1707865613911
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.blrgjNuKTeodhB5S'
   - name: Harvest
     type: trait
@@ -475,13 +440,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865459151
-      modifiedTime: 1707865627808
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.huyfYJjhstpq3z3H'
   - name: Re-broadcaster
     type: trait
@@ -510,13 +468,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865459783
-      modifiedTime: 1707865647232
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dZInbX1FoD0gyvnS.RRdnwsFvTb1BN7mO'
 effects: []
 folder: null
@@ -527,12 +478,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707865440830
-  modifiedTime: 1716115634738
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!dZInbX1FoD0gyvnS'
 

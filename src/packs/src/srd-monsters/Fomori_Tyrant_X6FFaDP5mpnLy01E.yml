@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127553112
-      modifiedTime: 1708127576690
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.lD4mQky0TLvDCkS7'
   - name: '[Special trigger] C: Skin-twisting breath'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127553551
-      modifiedTime: 1708127591923
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.mzY76UC1HSQGTkPs'
   - name: 'C: “I command you to eat your own flesh”'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127554163
-      modifiedTime: 1708127621626
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.UOXvHxJvIDhZHcGn'
   - name: Chaos aura
     type: trait
@@ -388,13 +367,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127559418
-      modifiedTime: 1708127671279
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.oGd7lsd6Ko4muLS4'
   - name: Fear aura
     type: trait
@@ -422,13 +394,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127559566
-      modifiedTime: 1708127690526
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.34YxkV1adMSBpv60'
   - name: Power from worship
     type: trait
@@ -458,13 +423,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127559701
-      modifiedTime: 1708127712287
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.jLRqUngqgQ7QEJIw'
   - name: —House of Songs—
     type: nastierSpecial
@@ -490,13 +448,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127722974
-      modifiedTime: 1708127841904
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.dN6joTRlDFDYMgtC'
   - name: Song of the House
     type: nastierSpecial
@@ -527,13 +478,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127726675
-      modifiedTime: 1708127863011
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.lwMsAjpoVncFYAgg'
   - name: Ear-bleed
     type: nastierSpecial
@@ -563,13 +507,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127726829
-      modifiedTime: 1708127875363
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.4NLrMUdw30hYLVs9'
   - name: Discordancy
     type: nastierSpecial
@@ -598,13 +535,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127726962
-      modifiedTime: 1708127886621
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.NJICCbfIt5VApMJ4'
   - name: —House of Eyes—
     type: nastierSpecial
@@ -632,13 +562,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127729836
-      modifiedTime: 1708127895708
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.sXBuEqKc3ekPlfdk'
   - name: Hovering flight
     type: nastierSpecial
@@ -666,13 +589,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127730430
-      modifiedTime: 1708127903264
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.xXoWOfvLbPysEIrw'
   - name: Eye beam
     type: nastierSpecial
@@ -700,13 +616,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127730747
-      modifiedTime: 1708127920702
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.NWpJfT8hRTMHF03A'
   - name: Eye theft
     type: nastierSpecial
@@ -737,13 +646,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127731781
-      modifiedTime: 1708127932446
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.eOT4VnuAvr3f8INX'
   - name: —House of Nightmares—
     type: nastierSpecial
@@ -771,13 +673,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127733276
-      modifiedTime: 1708127942619
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.HPxXB7cJx3xXqgV2'
   - name: Shifting from Nightmares
     type: nastierSpecial
@@ -806,13 +701,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127736515
-      modifiedTime: 1708127953076
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.bFvzaY4bI6Za4D1W'
   - name: Nightmares
     type: nastierSpecial
@@ -842,13 +730,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127736670
-      modifiedTime: 1708127969066
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.LzayEDAGBYlxSzBk'
   - name: Skin theft
     type: nastierSpecial
@@ -879,13 +760,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127736818
-      modifiedTime: 1708127998454
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.oE8Nsyn0FrIZeNjB'
   - name: —House of Spiders—
     type: nastierSpecial
@@ -913,13 +787,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127737620
-      modifiedTime: 1708128011364
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.MSSKcOq4lt4PDTuW'
   - name: Scuttle
     type: nastierSpecial
@@ -947,13 +814,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127741571
-      modifiedTime: 1708128019389
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.ktGG8Tsg4CyoUQw7'
   - name: Bite
     type: nastierSpecial
@@ -982,13 +842,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127741731
-      modifiedTime: 1708128040147
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.g0j1S6Pf89WJJtfY'
   - name: Sun-eating
     type: nastierSpecial
@@ -1021,13 +874,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127742332
-      modifiedTime: 1708128061214
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.fWS8WcIc5nAvprxA'
   - name: —House of Colors—
     type: nastierSpecial
@@ -1055,13 +901,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127743540
-      modifiedTime: 1708128072399
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.9IdRAVz2G0BbZW75'
   - name: Color out of time
     type: nastierSpecial
@@ -1090,13 +929,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127744443
-      modifiedTime: 1708128086572
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.OyptndEigSBlbvui'
   - name: Color drain
     type: nastierSpecial
@@ -1128,13 +960,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127744581
-      modifiedTime: 1708128104702
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.3AKolXVUg2okfjyG'
   - name: 'R: Eye beam'
     type: action
@@ -1194,13 +1019,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128109575
-      modifiedTime: 1708128226056
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.IibDY22I36W2wX8U'
   - name: Draining bite
     type: action
@@ -1260,13 +1078,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128109680
-      modifiedTime: 1708128237985
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!X6FFaDP5mpnLy01E.eswlNTs98Y6wiZJV'
 effects: []
 folder: null
@@ -1277,12 +1088,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708127538467
-  modifiedTime: 1716115633444
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!X6FFaDP5mpnLy01E'
 

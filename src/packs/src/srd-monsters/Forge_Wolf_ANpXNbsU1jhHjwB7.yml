@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033751013
-      modifiedTime: 1708033769671
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ANpXNbsU1jhHjwB7.vfNDJK0JwW5nnBFY'
   - name: Implacable
     type: trait
@@ -240,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033751662
-      modifiedTime: 1708033782214
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ANpXNbsU1jhHjwB7.F5W4DbgKlMkxOJuY'
   - name: Resist fire 16+
     type: trait
@@ -274,13 +260,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033751792
-      modifiedTime: 1708033791923
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ANpXNbsU1jhHjwB7.Yc89vvn9RGI7Le1a'
   - name: Furnace-like interior
     type: nastierSpecial
@@ -309,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033752421
-      modifiedTime: 1708033807887
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ANpXNbsU1jhHjwB7.GOky8MsbGGhzUSrb'
 effects: []
 folder: null
@@ -326,12 +298,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708033727821
-  modifiedTime: 1716115630134
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!ANpXNbsU1jhHjwB7'
 

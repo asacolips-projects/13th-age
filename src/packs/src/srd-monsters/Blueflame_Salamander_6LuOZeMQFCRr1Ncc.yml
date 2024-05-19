@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707932711697
-      modifiedTime: 1707932725582
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.g6CxCTEvCixS7lrK'
   - name: Heat haze aura
     type: trait
@@ -242,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707932712307
-      modifiedTime: 1707933558054
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.UN9NjhwOJRvqutYy'
   - name: Enduring flame
     type: nastierSpecial
@@ -276,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707932712843
-      modifiedTime: 1707933531441
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.kNf9oCS5foUNsIzl'
   - name: Escalating inferno
     type: trait
@@ -315,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933356451
-      modifiedTime: 1707933583656
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.4NviszfyXGmhIUFI'
   - name: Resist fire 16+
     type: trait
@@ -350,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933356576
-      modifiedTime: 1707933586000
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.7dLP5azluYv2oUGv'
   - name: Heat metal
     type: nastierSpecial
@@ -386,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933358448
-      modifiedTime: 1707933589066
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!6LuOZeMQFCRr1Ncc.d0PBmnet1p1tKZKw'
 effects: []
 folder: null
@@ -403,12 +361,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707932669735
-  modifiedTime: 1716115629573
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!6LuOZeMQFCRr1Ncc'
 

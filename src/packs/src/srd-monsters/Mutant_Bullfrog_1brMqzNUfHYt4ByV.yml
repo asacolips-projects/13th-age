@@ -207,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044475479
-      modifiedTime: 1708044505216
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.PIXR8TPTPMhCgbsp'
   - name: 'C: Tongue grab'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044475597
-      modifiedTime: 1708044529957
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.KTB76Nm7gIkiq4Pg'
   - name: '[Special trigger] Bite'
     type: action
@@ -340,13 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044477017
-      modifiedTime: 1708044557640
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.pO0bcgucPkUdyIEp'
   - name: '[Special trigger] C: Bellow'
     type: action
@@ -404,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044477168
-      modifiedTime: 1708044595433
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.GKDSwmqBSevZmpW8'
   - name: Roar of pain
     type: trait
@@ -438,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044480401
-      modifiedTime: 1708044582715
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.PfIeC57dttazWRHq'
   - name: Frenzy
     type: nastierSpecial
@@ -472,13 +437,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044481492
-      modifiedTime: 1708044604097
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.aCmAwTHcI1ubfsc9'
   - name: Frogspawn abilities
     type: trait
@@ -510,13 +468,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.TjQLDeO52fYaZ4hP
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043699239
-      modifiedTime: 1708044608913
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.XU8EOeAAeeI8RhYN'
   - name: Disgusting tongue
     type: trait
@@ -548,13 +499,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.q6D3Ml0NO5Kw5nLv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043701908
-      modifiedTime: 1708044609847
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.qjo8DpRtykr8FZKy'
   - name: Dunk and cover
     type: trait
@@ -588,13 +532,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.WLVqaKLXJqR6daoV
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702240
-      modifiedTime: 1708044610648
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.2eUJeTgqxMXLV2kE'
   - name: Erratic leap (move action)
     type: trait
@@ -627,13 +564,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.iRpogwvTnxm3Viw8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702693
-      modifiedTime: 1708044611465
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.fUg0sfgwsvrqZxrE'
   - name: Paranoid destroyer
     type: trait
@@ -669,13 +599,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.MakJV6Gb9TGBrkTW
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043703121
-      modifiedTime: 1708044612314
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1brMqzNUfHYt4ByV.unBwqLVTokhc5lpD'
 effects: []
 folder: null
@@ -686,12 +609,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708044458948
-  modifiedTime: 1716115628445
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!1brMqzNUfHYt4ByV'
 

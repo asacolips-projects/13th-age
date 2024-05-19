@@ -219,13 +219,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570433546
-      modifiedTime: 1671570715059
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.ofMDR0oMKXiaibcR'
   - name: 'R: Magi''s lightning chain'
     type: action
@@ -287,13 +280,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570574229
-      modifiedTime: 1671570657658
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.3lJ8CDph1me81jNg'
   - name: 'C: Cone of Cold'
     type: action
@@ -354,13 +340,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570719462
-      modifiedTime: 1671570766064
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.LYtCCTqF6NsOnwt9'
   - name: 'C: Lightning pulse'
     type: action
@@ -419,13 +398,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570771001
-      modifiedTime: 1671570819880
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.yM3pJrwcwE3AiLvP'
   - name: Voice of thunder
     type: action
@@ -484,13 +456,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570854297
-      modifiedTime: 1671570882407
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.YfHdk7CPDThTH247'
   - name: Resist exceptional attacks 16+
     type: trait
@@ -518,13 +483,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570884335
-      modifiedTime: 1671570910172
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.Rd2eWJBa7AXFWrwG'
   - name: Trollish regeneration 15
     type: trait
@@ -558,13 +516,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570888089
-      modifiedTime: 1671570938451
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.xArIwOvppJbItiOJ'
   - name: Ki
     type: nastierSpecial
@@ -593,13 +544,6 @@ items:
       default: 0
       WYU73coo5rYxuFle: 3
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.23.1
-      coreVersion: '10.291'
-      createdTime: 1671570951942
-      modifiedTime: 1671571003877
-      lastModifiedBy: WYU73coo5rYxuFle
     _key: '!actors.items!w8BypgDqfYlY2qb3.otbZn08rb8s8wl73'
 effects: []
 folder: null
@@ -608,12 +552,5 @@ flags:
   archmage: {}
 ownership:
   default: 0
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: null
-  modifiedTime: 1716115637784
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!w8BypgDqfYlY2qb3'
 

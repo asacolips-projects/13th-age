@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947767345
-      modifiedTime: 1707947791267
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.L4LFhPMCqKy63tB8'
   - name: 'R: Psychic freeze'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947767502
-      modifiedTime: 1707947817045
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.ueJbsC8RwyZeaDVG'
   - name: A taste for high magic
     type: trait
@@ -305,13 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947769288
-      modifiedTime: 1707947831168
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.Kt5gz3UJQeNI0L75'
   - name: Unstoppable pounce
     type: trait
@@ -342,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947769420
-      modifiedTime: 1707947844861
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.lkgHE5jTAgCGm5vP'
   - name: Shapechange
     type: trait
@@ -377,13 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947769552
-      modifiedTime: 1707947854595
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.6spBWidedJGETlAO'
   - name: Lockheart
     type: nastierSpecial
@@ -426,13 +391,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946990978
-      modifiedTime: 1707947860188
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.zmOQn7xwW7AgzlEl'
   - name: Backwards palms
     type: nastierSpecial
@@ -469,13 +427,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947412323
-      modifiedTime: 1707947863067
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!x9AWgtmaE4FlB0LY.J3EZGLFTw2W5lFgM'
 effects: []
 folder: null
@@ -486,12 +437,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707947751641
-  modifiedTime: 1707947863067
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!x9AWgtmaE4FlB0LY'
 

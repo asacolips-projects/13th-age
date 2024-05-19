@@ -223,13 +223,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708041999682
-      modifiedTime: 1708042100879
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.BOCukC80GxN4vcHH'
   - name: 'C: Breath weapon'
     type: action
@@ -287,13 +280,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708041999813
-      modifiedTime: 1708042421489
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.grxsDVMXJos4pnT7'
   - name: Melee breaker
     type: trait
@@ -325,13 +311,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042006452
-      modifiedTime: 1708042137540
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.lCiQTrrPc20QGJkf'
   - name: Wild Ability
     type: trait
@@ -357,13 +336,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042007069
-      modifiedTime: 1708042224605
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.JsrMWIR1vxorhusr'
   - name: Amphibious
     type: trait
@@ -389,13 +361,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042007569
-      modifiedTime: 1708042222389
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.KYbjWrxJAIzKDPCO'
   - name: Burrowing
     type: trait
@@ -423,13 +388,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042007789
-      modifiedTime: 1708042219926
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.SaIZzHCK7OBWElcr'
   - name: Flight
     type: trait
@@ -455,13 +413,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042008153
-      modifiedTime: 1708042218009
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.yRr3TBulMFKjTBPo'
   - name: Mountain Shell
     type: trait
@@ -489,13 +440,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042008508
-      modifiedTime: 1708042214786
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.Al0lwr8YvLCiWd8Y'
   - name: Regrowth
     type: trait
@@ -523,13 +467,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042008809
-      modifiedTime: 1708042211782
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.R9AzNEg2gjCrqp5j'
   - name: If it bleeds
     type: trait
@@ -559,13 +496,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042009894
-      modifiedTime: 1708042336866
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.JsEarRnZozlbAOZt'
   - name: Big enough
     type: trait
@@ -595,13 +525,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042010446
-      modifiedTime: 1708042350500
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.0CMWbOf8XzPVytRW'
   - name: Beast surge
     type: trait
@@ -645,13 +568,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042014414
-      modifiedTime: 1708042287347
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.ZPfOH0DFrt9PV8to'
   - name: Beast resilience
     type: trait
@@ -682,13 +598,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042014582
-      modifiedTime: 1708042298729
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.SnzDTVQggve8PJM2'
   - name: Shrug
     type: trait
@@ -714,13 +623,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042015028
-      modifiedTime: 1708042320256
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.WJfSr1fjQWP3Cfz1'
   - name: Wilder beast
     type: nastierSpecial
@@ -749,13 +651,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042018599
-      modifiedTime: 1708042367022
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.qfQJfIBGqHn7Wa9I'
   - name: Breath weapon
     type: nastierSpecial
@@ -786,13 +681,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708042018750
-      modifiedTime: 1708042395255
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!brXMs9d1FL5oovSW.WR2Lczbzcc1ihN1u'
 effects: []
 folder: null
@@ -803,12 +691,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708041971957
-  modifiedTime: 1716115634425
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!brXMs9d1FL5oovSW'
 

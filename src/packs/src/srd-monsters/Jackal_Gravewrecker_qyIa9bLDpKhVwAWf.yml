@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105645306
-      modifiedTime: 1708105663178
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qyIa9bLDpKhVwAWf.o3alOdLGXUXuYGol'
   - name: '[Group ability] Shovel to the face'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105645423
-      modifiedTime: 1708105680700
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qyIa9bLDpKhVwAWf.xvlskG8oyJCiJUIk'
   - name: Group ability
     type: trait
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105646444
-      modifiedTime: 1708105694786
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qyIa9bLDpKhVwAWf.oMk4cbchJxiSBWa8'
   - name: Still a jackal
     type: trait
@@ -341,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105646596
-      modifiedTime: 1708105704671
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!qyIa9bLDpKhVwAWf.qHukVvNdP372pFUK'
 effects: []
 folder: null
@@ -358,12 +330,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708105615504
-  modifiedTime: 1716115637003
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!qyIa9bLDpKhVwAWf'
 

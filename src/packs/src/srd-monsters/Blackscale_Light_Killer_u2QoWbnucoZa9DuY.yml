@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130188009
-      modifiedTime: 1708130207777
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.51CcescUvBv0WzU3'
   - name: 'R: Acidic breath'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130188160
-      modifiedTime: 1708130230446
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.EozVws1i2H9ktodH'
   - name: Darkness spreads
     type: trait
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130188876
-      modifiedTime: 1708130248290
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.bdcb0xtYn7LB2pWu'
   - name: Resist acid 16+
     type: trait
@@ -340,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130189006
-      modifiedTime: 1708130255907
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.u9vT4NGFYH7aoRHv'
   - name: Darkling maw
     type: nastierSpecial
@@ -374,13 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130190044
-      modifiedTime: 1708130264559
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.oUwIvn9IJQ4ns66J'
   - name: Speed of dark
     type: nastierSpecial
@@ -408,13 +373,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130190157
-      modifiedTime: 1708130275256
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.rXc1wOAYno47OU4y'
   - name: Tail whip
     type: nastierSpecial
@@ -442,13 +400,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130190308
-      modifiedTime: 1708130286808
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.N8xid4Yqcr2eYcEo'
   - name: Limited flight
     type: nastierSpecial
@@ -485,13 +436,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708130289127
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.g3VPWWZAUs0fjNqQ'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -524,13 +468,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708130289971
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u2QoWbnucoZa9DuY.SQboiw8nQxDaqP0N'
 effects: []
 folder: null
@@ -541,12 +478,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708130171874
-  modifiedTime: 1716115637400
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!u2QoWbnucoZa9DuY'
 

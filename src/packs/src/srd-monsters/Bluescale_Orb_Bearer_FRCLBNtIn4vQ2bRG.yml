@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130374044
-      modifiedTime: 1708130393806
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.8fu9ywxzZSPSd2Nf'
   - name: 'C: Lightning breath'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130374208
-      modifiedTime: 1708130422743
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.uhUd2Es01nrvKsUe'
   - name: 'R: Force barbs'
     type: action
@@ -337,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130374378
-      modifiedTime: 1708130435498
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.w8smuO7XFwzZlCYD'
   - name: 'C: Arcane discharge'
     type: action
@@ -403,13 +382,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130374527
-      modifiedTime: 1708130496172
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.NHZHGEuAVK2GXeHw'
   - name: Absorb magic
     type: trait
@@ -440,13 +412,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130375886
-      modifiedTime: 1708130479241
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.DC90baAS0d7uL7WV'
   - name: Resist lightning 16+
     type: trait
@@ -475,13 +440,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130376146
-      modifiedTime: 1708130506470
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.Vpf0MxPvDEn2kPyx'
   - name: Tail whip
     type: nastierSpecial
@@ -509,13 +467,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130379877
-      modifiedTime: 1708130516744
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.WWXa9yBA7kDHTcgS'
   - name: Esoteric expulsion
     type: nastierSpecial
@@ -571,13 +522,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708130380033
-      modifiedTime: 1708130614172
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.uVMaol2S1kvpVTPg'
   - name: Limited flight
     type: nastierSpecial
@@ -614,13 +558,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708130617162
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.ICkO9AAlK4MeTiX9'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -653,13 +590,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708130617990
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FRCLBNtIn4vQ2bRG.ljKT1bqBKI0q4MwT'
 effects: []
 folder: null
@@ -670,12 +600,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708130358263
-  modifiedTime: 1716115631030
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!FRCLBNtIn4vQ2bRG'
 

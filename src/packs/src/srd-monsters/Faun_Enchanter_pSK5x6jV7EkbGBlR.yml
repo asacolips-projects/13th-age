@@ -179,13 +179,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708026683293
-      modifiedTime: 1708027517104
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pSK5x6jV7EkbGBlR.kZ99ODMd3UEAxmNB'
   - name: Swift hoof
     type: action
@@ -243,13 +236,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027535544
-      modifiedTime: 1708027548077
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pSK5x6jV7EkbGBlR.04l0nDgn3S1b4a0y'
   - name: 'R: Whispered sonata'
     type: action
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027535695
-      modifiedTime: 1708027568954
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pSK5x6jV7EkbGBlR.pMu3nuJckvGcLOrh'
   - name: Path of the Sword
     type: trait
@@ -342,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027537032
-      modifiedTime: 1708027611884
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pSK5x6jV7EkbGBlR.5v3TIZxvDjgtpRPF'
   - name: Path of Song
     type: trait
@@ -379,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027537167
-      modifiedTime: 1708027622772
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pSK5x6jV7EkbGBlR.G8DYSiau6XxCWTQT'
   - name: Full destiny
     type: nastierSpecial
@@ -413,13 +378,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027538184
-      modifiedTime: 1708027645916
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!pSK5x6jV7EkbGBlR.lGZyFlkl3ZWFf8dl'
 effects: []
 folder: null
@@ -430,12 +388,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708027509117
-  modifiedTime: 1716115636750
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!pSK5x6jV7EkbGBlR'
 

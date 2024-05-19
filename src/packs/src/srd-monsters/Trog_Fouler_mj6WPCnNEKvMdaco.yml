@@ -211,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663913615
-      modifiedTime: 1707663948169
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!mj6WPCnNEKvMdaco.Yi61cDK7N5RfusCY'
   - name: Chameleon
     type: trait
@@ -246,13 +239,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663914266
-      modifiedTime: 1707663975551
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!mj6WPCnNEKvMdaco.udB2H24Fmkzm5T4a'
   - name: Pungent pugilist
     type: trait
@@ -281,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663914391
-      modifiedTime: 1707663995915
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!mj6WPCnNEKvMdaco.0lZS2NltR0uF5XY3'
   - name: Dead stench
     type: nastierSpecial
@@ -318,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663915019
-      modifiedTime: 1707664010707
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!mj6WPCnNEKvMdaco.pirLsVftwbwHmiPy'
   - name: Trog stench
     type: trait
@@ -417,13 +389,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707664069291
-      modifiedTime: 1707664082260
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!mj6WPCnNEKvMdaco.VVcYa052I4aUGwkE'
 effects: []
 folder: null
@@ -434,12 +399,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1707663851268
-  modifiedTime: 1716115636286
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!mj6WPCnNEKvMdaco'
 

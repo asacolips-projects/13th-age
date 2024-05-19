@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043626238
-      modifiedTime: 1708043635897
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.vuxUH33EhYglkLts'
   - name: Poisoned spears
     type: nastierSpecial
@@ -240,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043627338
-      modifiedTime: 1708043651884
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.cMjybxYzA8rmRwGb'
   - name: Frogspawn abilities
     type: trait
@@ -275,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043699239
-      modifiedTime: 1708043813889
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.TjQLDeO52fYaZ4hP'
   - name: Disgusting tongue
     type: trait
@@ -310,13 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043701908
-      modifiedTime: 1708043742293
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.q6D3Ml0NO5Kw5nLv'
   - name: Dunk and cover
     type: trait
@@ -347,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702240
-      modifiedTime: 1708043765353
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.WLVqaKLXJqR6daoV'
   - name: Erratic leap (move action)
     type: trait
@@ -383,13 +348,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702693
-      modifiedTime: 1708043777972
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.iRpogwvTnxm3Viw8'
   - name: Paranoid destroyer
     type: trait
@@ -422,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043703121
-      modifiedTime: 1708043805137
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!KTsRo8aldE8eHwjk.MakJV6Gb9TGBrkTW'
 effects: []
 folder: null
@@ -439,12 +390,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.29.2
-  coreVersion: '11.315'
-  createdTime: 1708043606915
-  modifiedTime: 1716115631741
-  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!KTsRo8aldE8eHwjk'
 
