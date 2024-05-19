@@ -483,10 +483,10 @@ export class ActorArchmage extends Actor {
       data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
 
     // Barbarians get a bonus based on 'skulls' as of 2e beta
-    if (this.getFlag("archmage", "grimDetermination") && game.settings.get("archmage", "secondEdition")) {
-      let bonus = 0;
-      if (data.attributes.saves.deathFails.value >= 1) bonus = 1;
-      if (data.attributes.saves.deathFails.value >= 3) bonus = 2;
+    if (this.getFlag("archmage", "grimDetermination")
+      && game.settings.get("archmage", "secondEdition")
+      && data.attributes.saves.deathFails.value > 0) {
+      const bonus = data.attributes.saves.deathFails.value >= 3 ? 2 : 1;
       data.attributes.ac.value += bonus;
       data.attributes.pd.value += bonus;
       data.attributes.md.value += bonus;
@@ -1038,15 +1038,13 @@ export class ActorArchmage extends Actor {
     updateData['system.attributes.hp.value'] = Math.min(this.system.attributes.hp.max, Math.max(this.system.attributes.hp.value, 0) + templateData.gainedHp);
 
     // Death saves.
-    if (game.settings.get('archmage', 'secondEdition')) {
-      if (this.system.attributes.saves.deathFails.value > 1) {
+    if (this.system.attributes.saves.deathFails.value > 0
+      && this.system.attributes.saves.deathFails.value < this.system.attributes.saves.deathFails.max) {
+      if (game.settings.get('archmage', 'secondEdition')
+        && this.system.attributes.saves.deathFails.value >= 1) {
         updateData['system.attributes.saves.deathFails.value'] = 1;
       }
-    }
-    else {
-      if (this.system.attributes.saves.deathFails.value > 0) {
-        updateData['system.attributes.saves.deathFails.value'] = 0;
-      }
+      else updateData['system.attributes.saves.deathFails.value'] = 0;
     }
 
     // Resources
