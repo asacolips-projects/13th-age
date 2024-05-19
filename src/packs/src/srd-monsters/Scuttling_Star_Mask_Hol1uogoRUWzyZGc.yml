@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -364,10 +366,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1707865715870
-  modifiedTime: 1707865823029
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115631416
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Hol1uogoRUWzyZGc'
 

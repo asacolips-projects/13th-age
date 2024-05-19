@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -325,10 +327,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708024318338
-  modifiedTime: 1708024376906
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115634409
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!bnk1gkoRLv8V0e2T'
 

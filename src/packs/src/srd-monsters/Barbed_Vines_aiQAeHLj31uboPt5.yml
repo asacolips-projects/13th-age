@@ -85,6 +85,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: plant
     resistance:
@@ -327,11 +329,11 @@ flags:
   core: {}
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1687863582946
-  modifiedTime: 1708007121557
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115634163
+  lastModifiedBy: zQqK0qgL2au7apj0
 _id: aiQAeHLj31uboPt5
 sort: 0
 _key: '!actors!aiQAeHLj31uboPt5'

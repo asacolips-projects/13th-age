@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: large
+    strength:
+      value: double
     type:
       value: aberration
     resistance:
@@ -1000,10 +1002,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708113087603
-  modifiedTime: 1708114092344
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115636254
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!mTxF2ZS6kLNyOGsx'
 

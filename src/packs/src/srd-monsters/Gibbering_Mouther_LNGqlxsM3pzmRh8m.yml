@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -592,10 +594,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708045337038
-  modifiedTime: 1708045538847
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115631897
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!LNGqlxsM3pzmRh8m'
 

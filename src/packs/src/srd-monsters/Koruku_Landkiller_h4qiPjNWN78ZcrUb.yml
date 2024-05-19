@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: beast
     resistance:
@@ -858,10 +860,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708124919964
-  modifiedTime: 1708125337779
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115635441
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!h4qiPjNWN78ZcrUb'
 

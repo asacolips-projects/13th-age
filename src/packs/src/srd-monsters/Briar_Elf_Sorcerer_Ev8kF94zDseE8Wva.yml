@@ -85,6 +85,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -616,11 +618,11 @@ flags:
   core: {}
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1689149218872
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115630916
+  lastModifiedBy: zQqK0qgL2au7apj0
 _id: Ev8kF94zDseE8Wva
 sort: 700000
 _key: '!actors!Ev8kF94zDseE8Wva'

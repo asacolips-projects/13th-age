@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: large
+    strength:
+      value: double
     type:
       value: undead
     resistance:
@@ -398,10 +400,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708107095631
-  modifiedTime: 1708107210406
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115636640
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!ot6DzpD6S4MAQZyW'
 

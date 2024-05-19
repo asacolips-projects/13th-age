@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: elemental
     resistance:
@@ -403,10 +405,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1707932669735
-  modifiedTime: 1707933589066
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115629573
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!6LuOZeMQFCRr1Ncc'
 

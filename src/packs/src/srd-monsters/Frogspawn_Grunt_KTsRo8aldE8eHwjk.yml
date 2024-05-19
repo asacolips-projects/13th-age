@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -439,10 +441,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708043606915
-  modifiedTime: 1708043813889
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115631741
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!KTsRo8aldE8eHwjk'
 

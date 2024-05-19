@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: devil
     resistance:
@@ -137,7 +139,7 @@ prototypeToken:
       max: 1
   sight:
     enabled: false
-    range: null
+    range: 0
     angle: 360
     visionMode: basic
     color: null
@@ -148,6 +150,8 @@ prototypeToken:
   detectionModes: []
   flags: {}
   randomImg: false
+  appendNumber: false
+  prependAdjective: false
 items:
   - name: Dire Embrace
     type: action
@@ -489,9 +493,16 @@ items:
 effects: []
 folder: null
 sort: 100001
-permission:
-  default: 0
 flags:
   archmage: {}
+ownership:
+  default: 0
+_stats:
+  systemId: archmage
+  systemVersion: 1.29.2
+  coreVersion: '11.315'
+  createdTime: null
+  modifiedTime: 1716115633479
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!XBuW0KQtlgAKHj8b'
 

@@ -85,6 +85,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -374,11 +376,11 @@ flags:
   core: {}
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1690654390070
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115632825
+  lastModifiedBy: zQqK0qgL2au7apj0
 _id: SVktQNf3ZxOYxAxQ
 sort: 300000
 _key: '!actors!SVktQNf3ZxOYxAxQ'

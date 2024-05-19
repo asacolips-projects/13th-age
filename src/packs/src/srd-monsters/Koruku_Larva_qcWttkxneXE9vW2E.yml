@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -360,10 +362,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708124515190
-  modifiedTime: 1708124596492
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115636941
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!qcWttkxneXE9vW2E'
 

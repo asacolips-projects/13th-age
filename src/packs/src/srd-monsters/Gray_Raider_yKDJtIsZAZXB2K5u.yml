@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -260,10 +262,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708092058205
-  modifiedTime: 1708092104016
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115638124
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!yKDJtIsZAZXB2K5u'
 

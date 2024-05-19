@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: large
+    strength:
+      value: double
     type:
       value: aberration
     resistance:
@@ -527,10 +529,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1707865440830
-  modifiedTime: 1707865647232
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115634738
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!dZInbX1FoD0gyvnS'
 

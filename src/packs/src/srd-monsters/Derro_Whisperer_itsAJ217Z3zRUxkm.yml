@@ -86,6 +86,8 @@ system:
       value: archer
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -390,10 +392,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708007972829
-  modifiedTime: 1708008053586
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115635649
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!itsAJ217Z3zRUxkm'
 

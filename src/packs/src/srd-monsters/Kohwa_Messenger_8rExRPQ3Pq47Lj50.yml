@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: large
+    strength:
+      value: double
     type:
       value: beast
     resistance:
@@ -605,10 +607,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708121811144
-  modifiedTime: 1708122112366
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115629898
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!8rExRPQ3Pq47Lj50'
 

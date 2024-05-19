@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -464,10 +466,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708092914448
-  modifiedTime: 1708093025972
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115635524
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!hZn9e9ipbxPZNSrn'
 

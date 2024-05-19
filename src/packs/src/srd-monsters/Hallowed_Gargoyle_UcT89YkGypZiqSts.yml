@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: construct
     resistance:
@@ -747,10 +749,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708108577404
-  modifiedTime: 1708108842561
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115633048
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!UcT89YkGypZiqSts'
 

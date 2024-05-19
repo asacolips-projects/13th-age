@@ -99,6 +99,8 @@ system:
       value: large
       type: String
       label: Size
+    strength:
+      value: double
     type:
       value: humanoid
       type: String
@@ -335,10 +337,10 @@ prototypeToken:
   detectionModes: []
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: null
-  modifiedTime: 1707959664216
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115636040
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!kihDm8d9NIwdJHRn'
 

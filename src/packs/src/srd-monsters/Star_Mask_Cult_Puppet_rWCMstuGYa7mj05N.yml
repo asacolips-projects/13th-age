@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -398,10 +400,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1707866204926
-  modifiedTime: 1707866295983
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115637034
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!rWCMstuGYa7mj05N'
 

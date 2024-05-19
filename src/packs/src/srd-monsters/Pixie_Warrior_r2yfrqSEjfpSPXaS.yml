@@ -101,6 +101,8 @@ system:
       value: normal
       type: String
       label: Size
+    strength:
+      value: normal
     type:
       value: humanoid
       type: String
@@ -483,10 +485,10 @@ prototypeToken:
   detectionModes: []
 _stats:
   systemId: archmage
-  systemVersion: 1.27.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: null
-  modifiedTime: 1710013490037
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115637018
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!r2yfrqSEjfpSPXaS'
 

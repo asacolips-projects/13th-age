@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -260,10 +262,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708092804532
-  modifiedTime: 1708092861397
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115633836
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!Z6TbbOfECn03DkW7'
 

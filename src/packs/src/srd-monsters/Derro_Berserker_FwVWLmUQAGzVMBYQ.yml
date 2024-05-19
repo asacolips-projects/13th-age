@@ -85,6 +85,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -364,11 +366,11 @@ flags:
   core: {}
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1690475773055
-  modifiedTime: 1708006758398
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115631124
+  lastModifiedBy: zQqK0qgL2au7apj0
 _id: FwVWLmUQAGzVMBYQ
 sort: 0
 _key: '!actors!FwVWLmUQAGzVMBYQ'

@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: devil
     resistance:
@@ -600,10 +602,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708115033662
-  modifiedTime: 1708115146930
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115629557
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!6HXa4eOkbnuLnk6d'
 

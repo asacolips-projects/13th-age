@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -429,10 +431,10 @@ flags:
     portraitFrame: false
 _stats:
   systemId: archmage
-  systemVersion: 1.26.1
+  systemVersion: 1.29.2
   coreVersion: '11.315'
   createdTime: 1708007824932
-  modifiedTime: 1708007934304
-  lastModifiedBy: tWJ6KkFBgXXy34it
+  modifiedTime: 1716115638093
+  lastModifiedBy: zQqK0qgL2au7apj0
 _key: '!actors!xhiLWMsXzYsTGsy6'
 
