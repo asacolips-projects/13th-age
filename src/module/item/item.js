@@ -681,7 +681,7 @@ export class ItemArchmage extends Item {
 
   async _handleRetainFocus(itemToRender, hitEvalRes, actorUpdateData, chatData) {
     if (itemToRender.type != "power") return;
-    if (!itemToRender.actor.system.resources?.perCombat?.focus?.enabled != true) return;
+    if (itemToRender.actor.system.resources?.perCombat?.focus?.enabled != true) return;
 
     const match = itemToRender.system.always?.value?.match(RETAIN_FOCUS_REGEX);
     if (match) {
