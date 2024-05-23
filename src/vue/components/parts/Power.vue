@@ -69,6 +69,7 @@ export default {
           'spellLevel7',
           'spellLevel8',
           'spellLevel9',
+          'spellLevel10',
         ]
         : [
           'spellLevel3',
