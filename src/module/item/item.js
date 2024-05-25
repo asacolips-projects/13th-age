@@ -39,8 +39,14 @@ export class ItemArchmage extends Item {
     let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode);
     if (early_exit) return;
 
+    // Determine level item is used at
+    const lvl = await this._rollGetLevel()
+
     // Make an ephemeral clone of the item which we can dirty during processing.
-    let itemToRender = this.clone({}, {"save": false, "keepId": true});
+    let itemToRender = this.clone(
+      {'system.powerLevel.value': lvl, 'name': this.name + ' (+1)'},
+      {"save": false, "keepId": true}
+    );
 
     // Then check resources.
     early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
@@ -212,6 +218,14 @@ export class ItemArchmage extends Item {
       return !use;
     }
     return false;
+  }
+
+  async _rollGetLevel() {
+    if (this.system.powerLevel?.value != undefined) {
+      if (!event.ctrlKey) return this.system.powerLevel.value;
+      // else return Math.min(10, this.system.powerLevel.value + 1);
+      else return this.system.powerLevel.value + 1;
+    }
   }
 
   async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
