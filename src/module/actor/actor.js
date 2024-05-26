@@ -769,10 +769,6 @@ export class ActorArchmage extends Actor {
     let formula = 'd20';
     // Add bonuses, if any
     let bonus = this.system.attributes.saves.bonus;
-    if (difficulty == 'disengage') {
-      bonus = this.system.attributes.saves.disengageBonus; // From items
-      bonus += (this.system.attributes?.disengageBonus || 0); // From sheet
-    }
     if (bonus != 0) formula = formula + "+" + bonus.toString();
     let roll = new Roll(formula);
     let result = await roll.roll({async: true});
@@ -840,6 +836,154 @@ export class ActorArchmage extends Actor {
       // Condition shaken off, clear all last gasp saves
       await this.update({ 'data.attributes.saves.lastGaspFails.value': 0 });
     }
+  }
+
+  async rollDisengage() {
+    const target = 11;
+
+    let terms = ['d20'];
+    // Add bonuses, if any
+    let bonus = this.system.attributes.saves.disengageBonus; // From items
+    bonus += (this.system.attributes?.disengageBonus || 0); // From sheet
+    if (bonus != 0) terms.push(bonus.toString());
+
+    const dialogOptions = {width: 420};
+    let situational = 0;
+    let data = {};
+
+    // Create the chat message title.
+    let title = game.i18n.localize('ARCHMAGE.CHAT.disengage');
+
+    // Inner roll function
+    let rollMode = game.settings.get("core", "rollMode");
+    let rolled = false;
+    let roll = (html = null, data = {}) => {
+      // Don't include situational bonus unless it is defined
+      if (!data.bonus && terms.indexOf('@bonus') !== -1) {
+        terms.pop();
+      }
+
+      if (situational != 0) {
+        terms.push(situational);
+      }
+
+      let form = html ? html.find('form')[0] : null;
+      rollMode = form ? form.rollMode.value : rollMode;
+
+      // Execute the roll
+      let roll = new Roll(terms.join('+'), data).roll({async: false});
+
+      // Determine the roll result.
+      let rollResult = roll.total;
+      let success = rollResult >= target;
+
+      // Grab the template.
+      const template = `systems/archmage/templates/chat/save-card.html`;
+      const token = this.token;
+
+      // Prepare chat data for the template.
+      const chatData = {
+        user: game.user.id,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        roll: roll,
+        speaker: game.archmage.ArchmageUtility.getSpeaker(this)
+      };
+
+      // Prepare template data.
+      const templateData = {
+        actor: this,
+        tokenId: token ? `${token.id}` : null,
+        saveType: title,
+        success: success,
+        data: chatData,
+        target
+      };
+
+      // Render the template.
+      renderTemplate(template, templateData).then(content => {
+        chatData.content = content;
+        game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
+      });
+    };
+
+    // Modify the roll and handle fast-forwarding
+    if (event.shiftKey) return roll(null, data);
+    else terms = terms.concat(['@bonus']);
+
+    // Render modal dialog
+    const template = 'systems/archmage/templates/chat/roll-dialog.html';
+    let dialogData = {
+      formula: terms.join(' + '),
+      data: data,
+      defaultRollMode: rollMode,
+      // abilities: abilities ?? {},
+      rollModes: CONFIG.Dice.rollModes
+    };
+
+    renderTemplate(template, dialogData).then(dlg => {
+      new Dialog({
+        title: title,
+        content: dlg,
+        buttons: {
+          normal: {
+            label: game.i18n.localize("ARCHMAGE.rollNormal"),
+            callback: () => {
+              rolled = true;
+            }
+          },
+          pen1: {
+            label: '-1',
+            callback: () => {
+              situational = -1;
+              rolled = true;
+            }
+          },
+          pen2: {
+            label: '-2',
+            callback: () => {
+              situational = -2;
+              rolled = true;
+            }
+          },
+          pen3: {
+            label: '-3',
+            callback: () => {
+              situational = -3;
+              rolled = true;
+            }
+          },
+          pen4: {
+            label: '-4',
+            callback: () => {
+              situational = -4;
+              rolled = true;
+            }
+          },
+          pen5: {
+            label: '-5',
+            callback: () => {
+              situational = -5;
+              rolled = true;
+            }
+          },
+          pen6: {
+            label: '-6',
+            callback: () => {
+              situational = -6;
+              rolled = true;
+            }
+          },
+        },
+        default: 'normal',
+        close: html => {
+          if (rolled) {
+            rollMode = html.find('[name="rollMode"]').val();
+            data['bonus'] = html.find('[name="bonus"]').val();
+            roll(html, data);
+          }
+        }
+      }, dialogOptions).render(true);
+    });
   }
 
   /* -------------------------------------------- */

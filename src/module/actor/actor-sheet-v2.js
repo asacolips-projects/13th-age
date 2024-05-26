@@ -477,7 +477,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (type == 'item' && opt) this._onItemRoll(opt);
     else if (type == 'recovery') this._onRecoveryRoll(event);
-    else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
+    else if (type == 'save') this._onSaveRoll(opt);
+    else if (type == 'disengage') this._onDisengageRoll(opt);
     else if (type == 'init') this._onInitRoll();
     else if (type == 'ability') this._onAbilityRoll(opt);
     else if (type == 'background') this._onBackgroundRoll(opt);
@@ -523,10 +524,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * Roll a saving throw for the actor.
    *
    * @param {string} difficulty
-   *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
+   *   The save type, such as 'easy', 'normal', 'hard', or 'death'.
    */
   async _onSaveRoll(difficulty) {
     this.actor.rollSave(difficulty);
+  }
+
+
+  /**
+   * Roll a disengage check for the actor.
+   *
+   * @param {string} difficulty
+   *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
+   */
+  async _onDisengageRoll() {
+    this.actor.rollDisengage();
   }
 
   /**
