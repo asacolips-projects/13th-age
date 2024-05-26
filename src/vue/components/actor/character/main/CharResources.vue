@@ -66,17 +66,6 @@
         <input type="number" name="system.resources.spendable.rerolls.save.max" class="resource-max" v-model="rerolls.save.max">
       </div>
     </section>
-    <!-- Disengage -->
-    <section class="unit unit--disengage" :data-tooltip="tooltip('pcEngagement')">
-      <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
-      <div class="resource flexcol">
-        <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
-        <div class="disengage-bonus flexrow">
-          <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
-          <input type="number" name="system.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
-        </div>
-      </div>
-    </section>
     <!-- Rests -->
     <section class="unit unit--rest">
       <h2 class="unit-title">{{localize('ARCHMAGE.CHAT.Rests')}}</h2>
@@ -134,10 +123,6 @@ export default {
           max: 0
         }
       },
-      disengage: {
-        value: 11,
-        bonus: 0
-      },
       rhythm: 'none'
     }
   },
@@ -180,10 +165,6 @@ export default {
       if ( game.settings.get('archmage', 'secondEdition') ) {
         this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
       }
-      this.disengage = {
-        value: this.actor.system.attributes.disengage,
-        bonus: this.actor.system.attributes.disengageBonus
-      };
     }
   },
   watch: {
