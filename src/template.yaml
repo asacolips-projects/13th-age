@@ -766,8 +766,10 @@ Item:
         bonus: 0
       rerollAc:
         bonus: 0
+        current: 0
       rerollSave:
         bonus: 0
+        current: 0
       str:
         bonus: 0
       dex:
