@@ -49,6 +49,23 @@
         </select>
       </div>
     </section>
+    <!-- Rerolls -->
+    <section v-if="actor.system.resources.spendable.rerolls?.enabled" class="unit unit--has-max unit--rerolls">
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc')}}</h2>
+      <Progress name="rerollAc" :current="actor.system.resources.spendable.rerolls.AC.current" :max="actor.system.resources.spendable.rerolls.AC.max"/>
+      <div class="resource flexrow">
+        <input type="number" name="system.resources.spendable.rerolls.AC.current" class="resource-current" v-model="rerolls.AC.current">
+        <span class="resource-separator">/</span>
+        <input type="number" name="system.resources.spendable.rerolls.AC.max" class="resource-max" v-model="rerolls.AC.max">
+      </div>
+      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave')}}</h2>
+      <Progress name="rerollSave" :current="actor.system.resources.spendable.rerolls.save.current" :max="actor.system.resources.spendable.rerolls.save.max"/>
+      <div class="resource flexrow">
+        <input type="number" name="system.resources.spendable.rerolls.save.current" class="resource-current" v-model="rerolls.save.current">
+        <span class="resource-separator">/</span>
+        <input type="number" name="system.resources.spendable.rerolls.save.max" class="resource-max" v-model="rerolls.save.max">
+      </div>
+    </section>
     <!-- Disengage -->
     <section class="unit unit--disengage" :data-tooltip="tooltip('pcEngagement')">
       <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
@@ -107,6 +124,16 @@ export default {
         value: 0,
         max: 0
       },
+      rerolls: {
+        AC: {
+          value: 0,
+          max: 0
+        },
+        save: {
+          value: 0,
+          max: 0
+        }
+      },
       disengage: {
         value: 11,
         bonus: 0
@@ -130,6 +157,7 @@ export default {
       let count = 0;
       if (this.actor.system.resources.perCombat.commandPoints.enabled) count++;
       if (this.actor.system.resources.spendable.ki.enabled) count++;
+      if (this.actor.system.resources.spendable.rerolls.enabled) count++;
       if (this.actor.system.resources.perCombat.focus.enabled) count++;
       if (this.actor.system.resources.perCombat.momentum.enabled) count++;
       if ( game.settings.get('archmage', 'secondEdition') ) {
@@ -148,6 +176,7 @@ export default {
       this.momentum = this.actor.system.resources.perCombat.momentum.current;
       this.focus = this.actor.system.resources.perCombat.focus.current;
       this.ki = this.actor.system.resources.spendable.ki;
+      this.rerolls = this.actor.system.resources.spendable.rerolls;
       if ( game.settings.get('archmage', 'secondEdition') ) {
         this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
       }

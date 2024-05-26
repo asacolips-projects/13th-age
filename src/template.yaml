@@ -401,6 +401,14 @@ Actor:
           max: 0
           enabled: false
           rest: "none"
+        rerolls:
+          enabled: false
+          AC:
+            current: 0
+            max: 0
+          save:
+            current: 0
+            max: 0
     incrementals:
       abilityScoreBonus: false
       extraMagicItem: false
@@ -756,6 +764,10 @@ Item:
         threshold: 0
       disengage:
         bonus: 0
+      rerollAc:
+        bonus: 0
+      rerollSave:
+        bonus: 0
       str:
         bonus: 0
       dex:
@@ -768,4 +780,5 @@ Item:
         bonus: 0
       cha:
         bonus: 0
+    icons: ''
     isActive: true

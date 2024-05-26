@@ -70,6 +70,7 @@ ARCHMAGE:
   health: Health
   hit: Hit
   hitPoints: Hit Points
+  icon: Icon
   iconRelationships: Icon Relationships
   import: Import Powers
   importSubmit: Import
@@ -258,6 +259,8 @@ ARCHMAGE:
       momentum: Momentum
       recoveries: Recoveries
       recovery: Recovery
+      rerollAc: Reroll vs. AC
+      rerollSave: Reroll Save
       rhythm: Combat Rhythm
     RHYTHMCHOICES:
       none: None
@@ -435,16 +438,20 @@ ARCHMAGE:
     escalationBlockedHint: Denies usage of Escalation Die
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
+    icons: Associated Icon(s)
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
     ongoingDamage: Ongoing Damage
+    otherBonuses: Other Bonuses
     pdBonus: PD Bonus
     price: Price
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
+    rerollAc: Force reroll attack vs. AC
+    rerollSave: Reroll Save
     strBonus: Strength checks bonus
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus

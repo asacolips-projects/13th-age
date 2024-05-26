@@ -404,6 +404,9 @@ export class ActorArchmage extends Actor {
     var saveBonus = 0;
     var disengageBonus = 0;
 
+    var rerollAcMax = 0;
+    var rerollSaveMax = 0;
+
     var strBonus = 0;
     var dexBonus = 0;
     var conBonus = 0;
@@ -431,6 +434,9 @@ export class ActorArchmage extends Actor {
           hpBonus += getBonusOr0(item.system.attributes.hp);
           recoveriesBonus += getBonusOr0(item.system.attributes.recoveries);
 
+          rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
+          rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
+
           strBonus += getBonusOr0(item.system.attributes.str);
           dexBonus += getBonusOr0(item.system.attributes.dex);
           conBonus += getBonusOr0(item.system.attributes.con);
@@ -457,6 +463,13 @@ export class ActorArchmage extends Actor {
     // Saves
     data.attributes.saves.bonus = saveBonus;
     data.attributes.saves.disengageBonus = disengageBonus;
+
+    // 2e rerolls
+    if (data.resources.spendable.rerolls.AC.max == 0) data.resources.spendable.rerolls.AC.current = rerollAcMax;
+    if (data.resources.spendable.rerolls.save.max == 0) data.resources.spendable.rerolls.save.current = rerollSaveMax;
+    data.resources.spendable.rerolls.AC.max = rerollAcMax;
+    data.resources.spendable.rerolls.save.max = rerollSaveMax;
+    data.resources.spendable.rerolls.enabled = (rerollAcMax + rerollSaveMax) > 0 ? true : false;
 
     // Ability score bonuses from items
     data.abilities.str.bonus = strBonus;
@@ -1191,6 +1204,23 @@ export class ActorArchmage extends Actor {
         key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.ki"),
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.ki.max}`
       });
+    }
+    // 2e rerolls
+    if (this.system.resources.spendable.rerolls.enabled) {
+      if (this.system.resources.spendable.rerolls.AC.current < this.system.resources.spendable.rerolls.AC.max) {
+        updateData['system.resources.spendable.rerolls.AC.current'] = this.system.resources.spendable.rerolls.AC.max;
+        templateData.resources.push({
+          key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rerollAc"),
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.rerolls.AC.max}`
+        });
+      }
+      if (this.system.resources.spendable.rerolls.save.current < this.system.resources.spendable.rerolls.save.max) {
+        updateData['system.resources.spendable.rerolls.save.current'] = this.system.resources.spendable.rerolls.save.max;
+        templateData.resources.push({
+          key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rerollSave"),
+          message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.rerolls.save.max}`
+        });
+      }
     }
     // Focus, Momentum and Command Points
     for (let k of Object.keys(this.system.resources.perCombat)) {
