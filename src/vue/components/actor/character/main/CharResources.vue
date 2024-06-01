@@ -51,19 +51,27 @@
     </section>
     <!-- Rerolls -->
     <section v-if="actor.system.resources.spendable.rerolls?.enabled" class="unit unit--has-max unit--rerolls">
-      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc')}}</h2>
+      <h2 class="unit-title">
+        <a class="rollable rollable--reroll" data-roll-type="reroll" data-roll-opt="AC">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc')}}</a>
+      </h2>
       <Progress name="rerollAc" :current="actor.system.resources.spendable.rerolls.AC.current" :max="actor.system.resources.spendable.rerolls.AC.max"/>
       <div class="resource flexrow">
-        <input type="number" name="system.resources.spendable.rerolls.AC.current" class="resource-current" v-model="rerolls.AC.current">
+        <!-- <input type="number" name="system.resources.spendable.rerolls.AC.current" class="resource-current" v-model="rerolls.AC.current"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.AC.current}}</div>
         <span class="resource-separator">/</span>
-        <input type="number" name="system.resources.spendable.rerolls.AC.max" class="resource-max" v-model="rerolls.AC.max">
+        <!-- <input type="number" name="system.resources.spendable.rerolls.AC.max" class="resource-max" v-model="rerolls.AC.max"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.AC.max}}</div>
       </div>
-      <h2 class="unit-title">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave')}}</h2>
+      <h2 class="unit-title">
+        <a class="rollable rollable--reroll" data-roll-type="reroll" data-roll-opt="save">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave')}}</a>
+      </h2>
       <Progress name="rerollSave" :current="actor.system.resources.spendable.rerolls.save.current" :max="actor.system.resources.spendable.rerolls.save.max"/>
       <div class="resource flexrow">
-        <input type="number" name="system.resources.spendable.rerolls.save.current" class="resource-current" v-model="rerolls.save.current">
+        <!-- <input type="number" name="system.resources.spendable.rerolls.save.current" class="resource-current" v-model="rerolls.save.current"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.save.current}}</div>
         <span class="resource-separator">/</span>
-        <input type="number" name="system.resources.spendable.rerolls.save.max" class="resource-max" v-model="rerolls.save.max">
+        <!-- <input type="number" name="system.resources.spendable.rerolls.save.max" class="resource-max" v-model="rerolls.save.max"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.save.max}}</div>
       </div>
     </section>
     <!-- Rests -->

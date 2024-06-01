@@ -486,6 +486,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else if (type == 'command') this._onCommandRoll(opt);
     else if (type == 'recharge') this._onRechargeRoll(opt);
     else if (type == 'feat') this._onFeatRoll(opt, opt2);
+    else if (type == 'reroll') console.log("N.Y.I.");//this._onFeatRoll(opt, opt2);
 
     // Fallback to a plain formula roll.
     else if (opt) await this._onFormulaRoll(opt);
