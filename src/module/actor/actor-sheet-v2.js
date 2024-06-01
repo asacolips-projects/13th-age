@@ -486,7 +486,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else if (type == 'command') this._onCommandRoll(opt);
     else if (type == 'recharge') this._onRechargeRoll(opt);
     else if (type == 'feat') this._onFeatRoll(opt, opt2);
-    else if (type == 'reroll') console.log("N.Y.I.");//this._onFeatRoll(opt, opt2);
+    else if (type == 'reroll') this._onRerollRoll(opt);
 
     // Fallback to a plain formula roll.
     else if (opt) await this._onFormulaRoll(opt);
@@ -742,6 +742,54 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onFeatRoll(itemId, featId) {
     let item = this.actor.items.get(itemId);
     if (item) item.rollFeat(featId);
+  }
+
+  async _onRerollRoll(kind) {
+    let res = this.actor.system.resources.spendable.rerolls[kind];
+    if (res.current <= 0) return;
+
+    // We have uses to spend, find source item
+    let prop = "";
+    switch (kind) {
+      case "AC":
+        prop = "rerollAc";
+        break
+      case "save":
+        prop = "rerollSave";
+        break
+    }
+    this.actor.items.forEach(item => {
+      if (item.type === 'equipment' && item.system.isActive && item.system.attributes[prop].current > 0) {
+        // Found source of the bonus, update it
+        let itemOverrideData = {'_id': item.id};
+        itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
+        this.actor.updateEmbeddedDocuments('Item', [itemOverrideData]);
+      }
+    });
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/reroll-card.html`
+    const token = this.actor.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
+      title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
+      desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
+    };
+
+    const templateData = {
+      actor: this.actor,
+      tokenId: token ? `${token.id}` : null,
+      data: chatData
+    };
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
+
   }
 
   /* ------------------------------------------------------------------------ */
