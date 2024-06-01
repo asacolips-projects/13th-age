@@ -477,7 +477,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     if (type == 'item' && opt) this._onItemRoll(opt);
     else if (type == 'recovery') this._onRecoveryRoll(event);
-    else if (type == 'save' || type == 'disengage') this._onSaveRoll(opt);
+    else if (type == 'save') this._onSaveRoll(opt);
+    else if (type == 'disengage') this._onDisengageRoll(opt);
     else if (type == 'init') this._onInitRoll();
     else if (type == 'ability') this._onAbilityRoll(opt);
     else if (type == 'background') this._onBackgroundRoll(opt);
@@ -485,6 +486,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else if (type == 'command') this._onCommandRoll(opt);
     else if (type == 'recharge') this._onRechargeRoll(opt);
     else if (type == 'feat') this._onFeatRoll(opt, opt2);
+    else if (type == 'reroll') this._onRerollRoll(opt);
 
     // Fallback to a plain formula roll.
     else if (opt) await this._onFormulaRoll(opt);
@@ -523,10 +525,21 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    * Roll a saving throw for the actor.
    *
    * @param {string} difficulty
-   *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
+   *   The save type, such as 'easy', 'normal', 'hard', or 'death'.
    */
   async _onSaveRoll(difficulty) {
     this.actor.rollSave(difficulty);
+  }
+
+
+  /**
+   * Roll a disengage check for the actor.
+   *
+   * @param {string} difficulty
+   *   The save type, such as 'easy', 'normal', 'hard', 'death', or 'disengage'.
+   */
+  async _onDisengageRoll() {
+    this.actor.rollDisengage();
   }
 
   /**
@@ -729,6 +742,54 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onFeatRoll(itemId, featId) {
     let item = this.actor.items.get(itemId);
     if (item) item.rollFeat(featId);
+  }
+
+  async _onRerollRoll(kind) {
+    let res = this.actor.system.resources.spendable.rerolls[kind];
+    if (res.current <= 0) return;
+
+    // We have uses to spend, find source item
+    let prop = "";
+    switch (kind) {
+      case "AC":
+        prop = "rerollAc";
+        break
+      case "save":
+        prop = "rerollSave";
+        break
+    }
+    this.actor.items.forEach(item => {
+      if (item.type === 'equipment' && item.system.isActive && item.system.attributes[prop].current > 0) {
+        // Found source of the bonus, update it
+        let itemOverrideData = {'_id': item.id};
+        itemOverrideData[`system.attributes.${prop}.current`] = res.current - 1;
+        this.actor.updateEmbeddedDocuments('Item', [itemOverrideData]);
+      }
+    });
+
+    // Basic template rendering data
+    const template = `systems/archmage/templates/chat/reroll-card.html`
+    const token = this.actor.token;
+
+    // Basic chat message data
+    const chatData = {
+      user: game.user.id,
+      speaker: game.archmage.ArchmageUtility.getSpeaker(this.actor),
+      title: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}`),
+      desc: game.i18n.localize(`ARCHMAGE.CHARACTER.RESOURCES.${prop}Desc`)
+    };
+
+    const templateData = {
+      actor: this.actor,
+      tokenId: token ? `${token.id}` : null,
+      data: chatData
+    };
+
+    // Render the template
+    chatData["content"] = await renderTemplate(template, templateData);
+
+    await game.archmage.ArchmageUtility.createChatMessage(chatData);
+
   }
 
   /* ------------------------------------------------------------------------ */

@@ -47,7 +47,7 @@
       <section class="unit unit--disengage">
         <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
         <div class="resource flexcol">
-          <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
+          <a class="rollable rollable--disengage disengage-value" data-roll-type="disengage" data-roll-opt="disengage">{{disengage.value}}+</a>
           <div class="disengage-bonus flexrow">
             <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
             <Input type="number" name="system.attributes.disengageBonus" class="disengage-bonus" :actor="actor"/>

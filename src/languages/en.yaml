@@ -70,6 +70,7 @@ ARCHMAGE:
   health: Health
   hit: Hit
   hitPoints: Hit Points
+  icon: Icon
   iconRelationships: Icon Relationships
   import: Import Powers
   importSubmit: Import
@@ -259,6 +260,10 @@ ARCHMAGE:
       momentum: Momentum
       recoveries: Recoveries
       recovery: Recovery
+      rerollAc: Reroll vs. AC
+      rerollAcDesc: Reroll an attack that targeted your AC
+      rerollSave: Reroll Save
+      rerollSaveDesc: Reroll a save
       rhythm: Combat Rhythm
     RHYTHMCHOICES:
       none: None
@@ -436,16 +441,20 @@ ARCHMAGE:
     escalationBlockedHint: Denies usage of Escalation Die
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
+    icons: Associated Icon(s)
     intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
     ongoingDamage: Ongoing Damage
+    otherBonuses: Other Bonuses
     pdBonus: PD Bonus
     price: Price
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
+    rerollAc: Force reroll attack vs. AC
+    rerollSave: Reroll Save
     strBonus: Strength checks bonus
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
@@ -527,6 +536,7 @@ ARCHMAGE:
     DeleteConfirm: Are you sure you want to delete this?
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
+    disengage: Disengage Check
     effect: Effect
     epic: Epic Feat
     even: even
@@ -630,6 +640,8 @@ ARCHMAGE:
     spellLevel9Placeholder: "[[9d6]] damage"
     spellLevel10: 10th Level Spell
     spellLevel10Placeholder: "[[10d6]] damage"
+    spellLevel11: 11th Level Spell
+    spellLevel11Placeholder: "[[11d6]] damage"
     spellLevelTrigger: Level Spell
     sustainedOrFinal: "Do you want to use the Final Verse instead of the Sustained Effect?"
     sustainedOrFinalTitle: "Use Final Verse"

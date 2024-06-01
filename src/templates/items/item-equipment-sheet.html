@@ -29,6 +29,12 @@
                       <input type="checkbox" name="system.isActive" value="1" data-dtype="Boolean" {{checked system.isActive}} />
                   </div>
 
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.icons'}}</strong>
+                      <input class="attribute-name" name="system.icons" type="text" value="{{system.icons}}"
+                          data-dtype="String" placeholder="Archmage" />
+                  </div>
+
                   <div class="settings-group form-group">
                       <label>{{localize 'ARCHMAGE.ITEM.attackBonuses'}}</label>
                   </div>
@@ -111,6 +117,28 @@
                     {{/if}}
                     <input class="attribute-input" name="system.attributes.disengage.bonus" type="text" value="{{system.attributes.disengage.bonus}}"
                         data-dtype="Number" placeholder="0" />
+                  </div>
+
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rerollAc'}}</strong>
+                      <input class="attribute-input" name="system.attributes.rerollAc.current" type="text" value="{{system.attributes.rerollAc.current}}"
+                          data-dtype="Number" placeholder="0" />
+                      /
+                      <input class="attribute-input" name="system.attributes.rerollAc.bonus" type="text" value="{{system.attributes.rerollAc.bonus}}"
+                          data-dtype="Number" placeholder="0" />
+                  </div>
+
+                  <div class="settings-group">
+                      <strong class="attribute-name">{{localize 'ARCHMAGE.ITEM.rerollSave'}}</strong>
+                      <input class="attribute-input" name="system.attributes.rerollSave.current" type="text" value="{{system.attributes.rerollSave.current}}"
+                          data-dtype="Number" placeholder="0" />
+                      /
+                      <input class="attribute-input" name="system.attributes.rerollSave.bonus" type="text" value="{{system.attributes.rerollSave.bonus}}"
+                          data-dtype="Number" placeholder="0" />
+                  </div>
+
+                  <div class="settings-group form-group" style="padding-top: 10px;">
+                      <label>{{localize 'ARCHMAGE.ITEM.otherBonuses'}}</label>
                   </div>
 
                   <div class="settings-group">

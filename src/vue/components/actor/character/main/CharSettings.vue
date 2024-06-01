@@ -40,6 +40,10 @@
           <strong class="unit-subtitle">{{localize('ARCHMAGE.initAdjustment')}}</strong>
           <input type="number" name="system.attributes.init.value" v-model="actor.system.attributes.init.value" :disabled="overrides.includes('system.attributes.init.value')" placeholder="0"/>
         </div>
+        <div class="sub-unit sub-unit--initiative-adjustment flexrow">
+          <strong class="unit-subtitle">{{localize('ARCHMAGE.disengageAdjustment')}}</strong>
+          <input type="number" name="system.attributes.disengageBonus" v-model="actor.system.attributes.disengageBonus" :disabled="overrides.includes('system.attributes.disengageBonus')" placeholder="0"/>
+        </div>
         <div class="sub-unit sub-unit--attackMod flexrow">
           <strong class="unit-subtitle">{{localize('ARCHMAGE.attackMod')}}</strong>
           <input type="number" name="system.attributes.attackMod.value" v-model="actor.system.attributes.attackMod.value" :disabled="overrides.includes('system.attributes.attackMod.value')"/>

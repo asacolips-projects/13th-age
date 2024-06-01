@@ -39,8 +39,11 @@ export class ItemArchmage extends Item {
     let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode);
     if (early_exit) return;
 
+    // Determine level item is used at
+    const tempOverrides = await this._rollTemporaryOverrides()
+
     // Make an ephemeral clone of the item which we can dirty during processing.
-    let itemToRender = this.clone({}, {"save": false, "keepId": true});
+    let itemToRender = this.clone(tempOverrides, {"save": false, "keepId": true});
 
     // Then check resources.
     early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
@@ -212,6 +215,17 @@ export class ItemArchmage extends Item {
       return !use;
     }
     return false;
+  }
+
+  async _rollTemporaryOverrides() {
+    if (event.altKey && this.system.powerLevel?.value != undefined) {
+      return {
+        // 'system.powerLevel.value': Math.min(10, this.system.powerLevel.value + 1);,
+        'system.powerLevel.value': this.system.powerLevel.value + 1,
+        'name': this.name + ' (+1)'
+      };
+    }
+    return {};
   }
 
   async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
@@ -883,13 +897,14 @@ export class ItemArchmage extends Item {
       'spellLevel8',
       'spellLevel9',
       'spellLevel10',
+      'spellLevel11',
       'spellChain',
       'breathWeapon',
       'special',
     ];
 
     // Add spell level entries only if the current spell level is high enough
-    [2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(i => {
+    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(i => {
       if (Number(data.powerLevel.value) < i) {
         effectKeys = effectKeys.filter(x => x != `spellLevel${i}`)
       }

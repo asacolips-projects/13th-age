@@ -37,6 +37,10 @@
             <h3 class="unit-subtitle" :title="concat(localize('ARCHMAGE.md.label'), ' (', localize('ARCHMAGE.md.stats'), ')')">{{localize('ARCHMAGE.md.key')}}</h3>
           </div>
         </div>
+        <!-- Disengage -->
+        <div class="resource flexcol">
+          <a class="rollable rollable--disengage disengage-value" data-roll-type="disengage" data-roll-opt="disengage">{{disengage.value}}+&nbsp;{{localize('ARCHMAGE.SAVE.disengage')}}</a>
+        </div>
       </div>
       <!-- Recoveries -->
       <div class="unit unit--has-max unit--recoveries" :data-tooltip="tooltip('pcRecoveries')">
@@ -106,7 +110,11 @@ export default {
     return {
       avatarClass: 'avatar',
       avatarWidth: 105,
-      avatarHeight: 105
+      avatarHeight: 105,
+      disengage: {
+        value: 11,
+        bonus: 0
+      },
     }
   },
   components: {
@@ -155,6 +163,12 @@ export default {
           this.getAvatarDimensions();
         });
       }
+    },
+    updateResourceProps() {
+      this.disengage = {
+        value: this.actor.system.attributes.disengage,
+        bonus: this.actor.system.attributes.disengageBonus
+      };
     }
   },
   watch: {
@@ -170,6 +184,12 @@ export default {
       deep: true,
       handler() {
         this.getAvatarDimensions();
+      }
+    },
+    'actor.system.attributes': {
+      deep: true,
+      handler() {
+        this.updateResourceProps();
       }
     }
   },
