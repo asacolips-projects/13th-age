@@ -1731,6 +1731,7 @@ export class ActorArchmage extends Actor {
     if (data.system?.details?.size?.value && this.type == "npc") {
       let h = 1;
       let w = 1;
+      let s = 1;
       switch (data.system.details.size.value) {
         case "large":
           h = 2;
@@ -1745,8 +1746,7 @@ export class ActorArchmage extends Actor {
           w = 5;
           break
         case "small":
-          h = 0.8;
-          w = 0.8;
+          s = 0.8;
           break
         case "tiny":
           h = 0.5;
@@ -1755,7 +1755,13 @@ export class ActorArchmage extends Actor {
         default:
           break
       }
-      const tokenData = {height: h, width: w};
+      const tokenData = {
+        height: h,
+        width: w,
+        texture: {
+          scaleX: s,
+          scaleY: s,
+        }};
 
       // Update tokens.
       let tokens = this.getActiveTokens();
