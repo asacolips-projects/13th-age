@@ -237,6 +237,12 @@ Hooks.once('init', async function() {
     CONFIG.ARCHMAGE.equipUsages['daily'] = 'Arc';
     CONFIG.ARCHMAGE.equipUsages['daily-desperate'] = 'Arc/Desperate';
     CONFIG.ARCHMAGE.featUsages['daily'] = 'Arc';
+
+    // Add additional classResources
+    CONFIG.ARCHMAGE.classResources = foundry.utils.mergeObject(
+      CONFIG.ARCHMAGE.classResources,
+      CONFIG.ARCHMAGE.classResources2e
+    );
   } else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;

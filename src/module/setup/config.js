@@ -959,6 +959,13 @@ ARCHMAGE.classResources = {
   'druid' : [["TC Daily Spells", "full"]]
 }
 
+ARCHMAGE.classResources2e = {
+  // List custom resources to configure for classes that use them - added if 2e enabled
+  // Stored as an array of two-element arrays with label and reset
+  'barbarian': [["Rage Points", "full"]],
+  'bard' : [["Combat Riffs", "quick"], ["Healing Magics", "quick"], ["Miss Me Effects", "quick"]]
+}
+
 ARCHMAGE.keyModifiers = {
   // Symmetrical dense matrix, store only lower triangle
   // Assumption: classes are stored in actors sorted in alphabetical order
