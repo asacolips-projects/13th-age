@@ -1,0 +1,20 @@
+<template>
+  <component :is="tag" :class="class" v-html="wrappedRolls"/>
+</template>
+
+<script>
+import { wrapRolls } from '@/methods/Helpers';
+export default {
+  name: 'Enriched',
+  props: ['tag', 'text', 'replacements', 'diceFormulaMode', 'rollData', 'field'],
+  async setup(props) {
+    const wrappedRolls = await wrapRolls(props.text, props.replacements, props.diceFormulaMode, props.rollData, props.field);
+    console.log('wrappedRolls', wrappedRolls);
+    return {
+      wrappedRolls
+    };
+  },
+  computed: {},
+  methods: {},
+}
+</script>
