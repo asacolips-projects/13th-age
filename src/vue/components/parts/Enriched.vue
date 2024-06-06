@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="class" v-html="wrappedRolls"/>
+  <component :is="tag" v-html="wrappedRolls"/>
 </template>
 
 <script>

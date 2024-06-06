@@ -100,7 +100,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
   if (diceFormulaMode == 'short') {
     // Remove additional whitespace.
-    text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+    clean.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
       clean = clean.replace(match, match.replaceAll(' ', ''));
     });
     // Iterate over all of our potential replacements and replace them if
@@ -113,7 +113,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   // roll. Ex: [[@wpn.m.dice+@dex+@lvl]]
   else if (diceFormulaMode == 'long') {
     // Run a regex over all inline rolls.
-    clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+    clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       return `<span class="expression">[${p2}]</span>`;
     });
   }
@@ -122,7 +122,7 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
   // possible. Ex: 5d8+9
   else if (diceFormulaMode == 'numeric') {
     // Run a regex over all inline rolls.
-    clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+    clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       // Get the roll formula. If this is an attack, append the attack mod.
       let rollFormula = field == 'attack' && p2.includes('d20') ? `${p2} + @atk.mod` : p2;
       // Create the roll and evaluate it.

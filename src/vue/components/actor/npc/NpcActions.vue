@@ -1,66 +1,55 @@
 <template>
-  <section :class="classes">
-    <!-- Sorts and filters. -->
-    <!-- <header class="action-filters flexrow">
-      <div class="sort-action">
-        <input type="hidden" name="flags.archmage.sheetDisplay.actions.sortBy.value" v-model="sortBy"/>
-        <label for="action-sort">{{localize('ARCHMAGE.sort')}}</label>
-        <select name="action-sort" v-model="sortBy">
-          <option v-for="(option, index) in sortOptions" :key="index" :value="option.value">{{localize(concat('ARCHMAGE.SORTS.', option.value))}}</option>
-        </select>
-      </div>
-      <div class="filter-search-action">
-        <label for="action-filter-search">{{localize('ARCHMAGE.filter')}}</label>
-        <input type="text" name="action-filter-search" v-model="searchValue" :placeholder="localize('ARCHMAGE.filterName')"/>
-      </div>
-    </header> -->
-    <!-- Actions, by group. -->
-    <span v-for="(group, groupKey) in groups" :key="groupKey">
-      <section class="action-group" v-if="groupKey !== 'misc' || actionGroups[groupKey]">
-        <div class="action-group-header">
-          <!-- Group title and add button. -->
-          <div class="action-header-title flexrow">
-            <h2 class="action-group-title unit-title">{{localize(group)}}</h2>
-            <div class="item-controls" v-if="groupKey !== 'misc'">
-              <a class="item-control item-create" :data-item-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
-            </div>
-          </div>
-        </div>
-        <ul class="action-group-content flexcol">
-          <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" :data-draggable="draggable" :draggable="draggable">
-            <!-- Clickable action header. -->
-            <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
-              <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
-                <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
-              </a>
-              <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
-                <strong class="action-title unit-subtitle">{{action.name}}</strong> <span v-if="action.system?.attack?.value" class="action-roll" v-html="enrichedActions[groupKey][action._id]['attack']"></span>
-                <span v-if="action.system?.hit?.value" class="action-damage" v-html="' — ' + enrichedActions[groupKey][action._id]['hit']"></span>
-                <span v-if="action.type !== 'action' && action.system?.description?.value" v-html="enrichedActions[groupKey][action._id]['description']"></span>
-              </span>
-              <div class="item-controls">
-                <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
-                <a class="item-control item-edit" :data-item-id="action._id"><i class="fas fa-edit"></i></a>
-                <a class="item-control item-delete" :data-item-id="action._id"><i class="fas fa-trash"></i></a>
+  <Suspense>
+    <section :class="classes">
+      <!-- Actions, by group. -->
+      <span v-for="(group, groupKey) in groups" :key="groupKey">
+        <section class="action-group" v-if="groupKey !== 'misc' || actionGroups[groupKey]">
+          <div class="action-group-header">
+            <!-- Group title and add button. -->
+            <div class="action-header-title flexrow">
+              <h2 class="action-group-title unit-title">{{localize(group)}}</h2>
+              <div class="item-controls" v-if="groupKey !== 'misc'">
+                <a class="item-control item-create" :data-item-type="groupKey"><i class="fas fa-plus"></i> {{localize('ARCHMAGE.add')}}</a>
               </div>
             </div>
-            <!-- Expanded action content. -->
-            <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))">
-              <Transition name="slide-fade">
-                <Action v-if="activeActions[action._id]" :action="action" :ref="concat('action--', action._id)"/>
-              </Transition>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </span>
-  </section>
+          </div>
+          <ul class="action-group-content flexcol">
+            <li v-for="(action, actionKey) in actionGroups[groupKey]" :key="actionKey" :class="concat('item action-item action-item--', action._id)" :data-item-id="action._id" :data-draggable="draggable" :draggable="draggable">
+              <!-- Clickable action header. -->
+              <div :class="'action-summary flexrow action' + (activeActions[action._id] ? ' active' : '')">
+                <a :class="'rollable' + (action.type != 'action' ? ' rollable--message' : '') + (imageNotEmpty(action) ? ' has-image' : '')" data-roll-type="item" :data-roll-opt="action._id">
+                  <img v-if="imageNotEmpty(action)" :src="action.img" class="action-image" />
+                </a>
+                <span :class="'hanging-indent action-name' + (canExpand(action) ? ' is-action' : '')" @click="toggleAction" :data-item-id="action._id">
+                  <strong class="action-title unit-subtitle">{{action.name}}</strong>
+                  <Enriched v-if="action.system?.attack?.value" tag="span" class="action-roll" :text="action.system.attack.value" :replacements="attackReplacer"/>
+                  <Enriched v-if="action.system?.hit?.value" tag="span" class="action-damage" :text="' — ' + action.system.hit.value"/>
+                  <Enriched v-if="action.type !== 'action' && action.system?.description?.value" tag="span" class="action-description" :text="action.system.description.value"/>
+                </span>
+                <div class="item-controls">
+                  <a v-if="canExpand(action)" class="item-toggle" @click="toggleAction" :data-item-id="action._id"><i class="fas fa-chevron fa-chevron-down"></i></a>
+                  <a class="item-control item-edit" :data-item-id="action._id"><i class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" :data-item-id="action._id"><i class="fas fa-trash"></i></a>
+                </div>
+              </div>
+              <!-- Expanded action content. -->
+              <div :class="concat('action-content', (activeActions[action._id] ? ' active' : ''))">
+                <Transition name="slide-fade">
+                  <Action v-if="activeActions[action._id]" :action="action" :ref="concat('action--', action._id)"/>
+                </Transition>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </span>
+    </section>
+  </Suspense>
 </template>
 
 <script>
-import { concat, localize, numberFormat, wrapRolls } from '@/methods/Helpers';
+import { concat, localize, numberFormat } from '@/methods/Helpers';
 import Action from '@/components/parts/Action.vue';
-import Rollable from '@/components/parts/Rollable.vue';
+import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'NpcActions',
   props: ['actor', 'tab', 'flags'],
@@ -76,11 +65,6 @@ export default {
       sortBy: 'custom',
       searchValue: null,
       activeActions: {},
-      enrichedActions: {
-        'action': {},
-        'nastierSpecial': {},
-        'trait': {},
-      },
     }
   },
   setup() {
@@ -94,12 +78,12 @@ export default {
       concat,
       localize,
       numberFormat,
-      wrapRolls,
       attackReplacer
     }
   },
   components: {
     Action,
+    Enriched
   },
   computed: {
     draggable() {
@@ -253,38 +237,6 @@ export default {
   },
   async mounted() {
     this.getActions();
-    const actionTypes = Object.keys(this.enrichedActions);
-    console.log('Item Types', this.actor.items);
-
-    for (let [actionType, actions] of Object.entries(this.actionGroups)) {
-      console.log(actionType);
-      if (!actionTypes.includes(actionType)) continue;
-
-      if (actions.length > 0) {
-        for (let action of actions) {
-          this.enrichedActions[actionType][action._id] = {};
-
-          if (action.system?.attack?.value) {
-            wrapRolls(action.system.attack.value, this.attackReplacer).then(enrichedAction => {
-              this.enrichedActions[actionType][action._id]['attack'] = enrichedAction;
-            })
-          }
-
-          if (action.system?.hit?.value) {
-            wrapRolls(action.system.hit.value).then(enrichedAction => {
-              this.enrichedActions[actionType][action._id]['hit'] = enrichedAction;
-            })
-          }
-
-          if (action.system?.description?.value) {
-            wrapRolls(action.system.description.value).then(enrichedAction => {
-              this.enrichedActions[actionType][action._id]['description'] = enrichedAction;
-            })
-          }
-        }
-      }
-    }
-
     this.sortBy = this.flags?.sheetDisplay?.actions?.sortBy?.value ?? 'custom';
   }
 }
