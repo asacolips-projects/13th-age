@@ -9,7 +9,6 @@ export default {
   props: ['tag', 'text', 'replacements', 'diceFormulaMode', 'rollData', 'field'],
   async setup(props) {
     const wrappedRolls = await wrapRolls(props.text, props.replacements, props.diceFormulaMode, props.rollData, props.field);
-    console.log('wrappedRolls', wrappedRolls);
     return {
       wrappedRolls
     };
