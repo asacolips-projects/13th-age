@@ -49,6 +49,9 @@ export class ItemArchmage extends Item {
     early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
     if (early_exit) return;
 
+    // Handle special class triggers
+    await this._handleFighterCombatRhythm(itemToRender, actorUpdateData);
+
     // Check targets.
     let targets = await this._rollMultiTargets(itemToRender);
 
@@ -417,12 +420,12 @@ export class ItemArchmage extends Item {
   async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
-    if (this.type == "power" || this.type == "action") {
-      let attackLine = ArchmageRolls.addAttackMod(this);
+    if (itemToRender.type == "power" || itemToRender.type == "action") {
+      let attackLine = ArchmageRolls.addAttackMod(itemToRender);
       itemToRender.system.attack.value = attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
-        numTargets = await ArchmageRolls.rollItemTargets(this);
-        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets);
+        numTargets = await ArchmageRolls.rollItemTargets(itemToRender);
+        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(itemToRender, attackLine, numTargets);
         if (numTargets.targetLine) itemToRender.system.target.value = numTargets.targetLine;
       }
     }
@@ -625,6 +628,24 @@ export class ItemArchmage extends Item {
     }
     MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn)
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  async _handleFighterCombatRhythm(itemToRender, actorUpdateData) {
+    if (itemToRender.type != "power") return;
+    if (!itemToRender.actor.system.resources.perCombat.rhythm.enabled) return;
+    if (!actorUpdateData["system.resources.perCombat.rhythm.current"]) return;
+
+    // If this power sets offense and we are in defense and vice-versa roll 2d20kh.
+    if (
+      (itemToRender.actor.system.resources.perCombat.rhythm.current == "defense"
+      && actorUpdateData["system.resources.perCombat.rhythm.current"] == "offense") ||
+      (itemToRender.actor.system.resources.perCombat.rhythm.current == "offense"
+      && actorUpdateData["system.resources.perCombat.rhythm.current"] == "defense")
+    ) {
+      // Replace "1d20" and "d20" in the attack line with "2d20kh"
+      const attackLine = itemToRender.system.attack.value;
+      itemToRender.system.attack.value = attackLine.replace("1d20", "d20").replace("d20", "2d20kh");
+    }
   }
 
   async _handleSong(itemToRender, usageMode) {

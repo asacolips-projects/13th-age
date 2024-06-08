@@ -57,6 +57,7 @@ export default class HitEvaluation {
                     }
                     // Barbarian crit.
                     else if (attacker?.system.details.detectedClasses?.includes("barbarian")
+                      && game.settings.get("archmage", "secondEdition")
                       && roll_data.formula.match(/^2d20kh/g) && part.results[0].result > 10
                       && part.results[1].result > 10) {
                       $roll_self.addClass('dc-crit');
