@@ -12,6 +12,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Properties that we'll use for the Vue app.
     this.vueApp = null;
     this.vueRoot = null;
+    this.updateKey = 0;
     this.vueListenersActive = false;
     this.vueComponents = {
       'character-sheet': ArchmageCharacterSheet
@@ -44,6 +45,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Basic data
     let isOwner = this.actor.isOwner;
     const context = {
+      updateKey: this.updateKey,
       appId: this.appId,
       owner: isOwner,
       limited: this.actor.limited,
@@ -113,6 +115,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   render(force=false, options={}) {
     const context = this.getData();
+    this.updateKey++;
+    context.updateKey = this.updateKey;
 
     // Render the vue application after loading. We'll need to destroy this
     // later in the this.close() method for the sheet.
@@ -141,6 +145,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     else {
       // Pass new values from this.getData() into the app.
       this.vueRoot.updateContext(context);
+      console.log(context);
       // Reactivate the listeners if we need to.
       if (!this.vueListenersActive) {
         setTimeout(() => {
@@ -190,6 +195,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
   // Update initial content throughout all editors.
   _updateEditors(html) {
+    console.log('foobar');
     for (let [name, editor] of Object.entries(this.editors)) {
       // const data = this.object instanceof Document ? this.object.data : this.object;
       const data = this.object;
@@ -256,6 +262,19 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     html.on('click', '.feat-pip', (event) => this._updatePips(event));
   }
 
+  /** @override */
+  async saveEditor(name, {remove=true, preventRender}={}) {
+    preventRender = false;
+    remove = false;
+    super.saveEditor(name, {remove, preventRender});
+    const editor = this.editors[name];
+    const newEditorHTML = foundry.applications.fields.createEditorInput(editor.options);
+    editor.instance.destroy();
+    this.render(true);
+    console.log(name);
+    console.log(this.editors);
+  }
+
   /**
    * Activate additional listeners on the rendered Vue app.
    * @param {jQuery} html
@@ -272,11 +291,15 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     this._dragHandler(html);
     this._lockEffectsFields(html);
+    html.find('.editor-content[data-edit]').each((i, div) => {
+      console.log(i);
+      console.log(div);
+      this._activateEditor(div)
+    });
 
     // Place one-time executions after this line.
     if (repeat) return;
 
-    html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
 
     // Input listeners.
     let inputs = '.section input[type="text"], .section input[type="number"]';

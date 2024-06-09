@@ -26,7 +26,7 @@
         <section class="section section--tabs-content flexcol">
           <!-- Details tab -->
           <Tab group="primary" :tab="tabs.primary.details" classes="flexcol">
-            <CharDetails :actor="actor" :owner="owner" :flags="flags"/>
+            <CharDetails :context="context" :actor="actor" :owner="owner" :flags="flags"/>
           </Tab>
           <!-- Actions tab -->
           <Tab group="primary" :tab="tabs.primary.actions">

@@ -1,10 +1,5 @@
 <template>
-  <div class="editor-wrapper">
-    <div class="editor">
-      <a class="editor-edit" v-if="canEdit"><i class="fas fa-edit"></i></a>
-      <div class="editor-content" :data-edit="target" v-html="editor"></div>
-    </div>
-  </div>
+  <div class="editor-wrapper" v-html="editor"></div>
 </template>
 
 <script>
@@ -15,7 +10,7 @@ export default {
     const button = Boolean(props.button);
     const editable = Boolean(props.editable);
     const canEdit = (button && editable);
-    const editor = await TextEditor.enrichHTML(props.content || '', {
+    const editorContent = await TextEditor.enrichHTML(props.content || '', {
       secrets: props.owner,
       documents: props.documents ?? true,
       links: props.links ?? true,
@@ -23,9 +18,25 @@ export default {
       rollData: props.rollData ?? {},
       async: false
     });
+
+    console.log(props);
+
+    const options = {
+      name: props.target,
+      value: editorContent,
+      button: !!props.button,
+      editable: !!props.editable,
+      collaborate: false,
+      engine: 'prosemirror',
+    };
+
+    console.log(options);
+    const editor = foundry.applications.fields.createEditorInput(options).outerHTML;
+
     return {
       canEdit,
-      editor
+      editorContent,
+      editor,
     };
   },
   computed: {},
