@@ -719,7 +719,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
-    await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
+    await actor.update({'system.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
   }
 
   async _onRechargeRoll(itemId) {

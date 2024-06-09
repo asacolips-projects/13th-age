@@ -739,7 +739,7 @@ export class ActorArchmage extends Actor {
       if (success) {
         if (this.system.attributes.hp.value <= 0) this.rollRecovery({}, true);
       } else {
-        await this.update({'data.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
+        await this.update({'system.attributes.saves.deathFails.value': Math.min(Number(this.system.attributes.saves.deathFails.max), Number(this.system.attributes.saves.deathFails.value) + 1)});
         // Handle desperate recharge
         await this.rechargeDesperate();
       }
@@ -748,7 +748,7 @@ export class ActorArchmage extends Actor {
     // Handle failures of last gasp saves.
     if (difficulty == 'lastGasp' && !success) {
       await this.update({
-        'data.attributes.saves.lastGaspFails.value': Math.min(4, Number(this.system.attributes.saves.lastGaspFails.value) + 1)
+        'system.attributes.saves.lastGaspFails.value': Math.min(4, Number(this.system.attributes.saves.lastGaspFails.value) + 1)
       });
       // If this is the first failed last gasps save, add helpless
       let filtered = this.effects.filter(x => x.label === game.i18n.localize("ARCHMAGE.EFFECT.StatusHelpless"));
@@ -763,7 +763,7 @@ export class ActorArchmage extends Actor {
       }
     } else if (difficulty == 'lastGasp' && success) {
       // Condition shaken off, clear all last gasp saves
-      await this.update({ 'data.attributes.saves.lastGaspFails.value': 0 });
+      await this.update({ 'system.attributes.saves.lastGaspFails.value': 0 });
     }
   }
 
@@ -2023,7 +2023,7 @@ export class ActorArchmage extends Actor {
     }
     // Unlinked tokens.
     else {
-      actor = await Actor.create(mergeObject(this.toObject(false), overrideData));
+      actor = await Actor.create(foundry.utils.mergeObject(this.toObject(false), overrideData));
     }
 
     // Fix attack and damage

@@ -1267,7 +1267,9 @@ Hooks.on('renderChatMessage', (chatMessage, html, options) => {
         const value = parent.dataset.value;
         // Healing always starts from 0 HP
         const base = value >= 0 ? actor.system.attributes.hp.value : Math.max(actor.system.attributes.hp.value, 0);
-        await actor.update({ "data.attributes.hp.value": base - value });
+        console.log(base);
+        console.log(actor);
+        await actor.update({ "system.attributes.hp.value": base - value });
         if (chatMessage.isAuthor || game.user.isGM) await chatMessage.setFlag('archmage', `effectApplied.${effectId}`, true);
         else game.socket.emit('system.archmage', {type: 'condButton', msg: chatMessage.id, flg: `effectApplied.${effectId}`});
         break;
