@@ -343,8 +343,9 @@ class ArchmageUpdateHandler {
     if (!actor || actor.type != "npc") return updateData;
     const size = actor.system.details.size.value ?? '';
     const strength = actor.system.details?.strength?.value ?? '';
-    if (!Object.keys(CONFIG.ARCHMAGE.creatureStrengths).includes(strength)
-      && Object.keys(CONFIG.ARCHMAGE.creatureSizes).includes(size)) {
+    const sizes = Object.keys(CONFIG.ARCHMAGE.creatureSizes);
+    const strengths = Object.keys(CONFIG.ARCHMAGE.creatureStrengths);
+    if (!!size && !strength && (strengths.includes(size) || sizes.includes(size))) {
       // We have a size but not a strength
       if (size == 'normal') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'normal'});
       if (size == 'large') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'double'});
@@ -353,20 +354,28 @@ class ArchmageUpdateHandler {
       // skip 'small' as it's new with this release
       // skip 'tiny' as it's new with this release
       if (size == 'double') {
-        foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'double'});
-        foundry.utils.mergeObject(updateData, {'system.details.size.value': 'normal'});
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'double',
+          'system.details.size.value': 'normal'
+        });
       }
       if (size == 'triple') {
-        foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'triple'});
-        foundry.utils.mergeObject(updateData, {'system.details.size.value': 'normal'});
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'triple',
+          'system.details.size.value': 'normal'
+        });
       }
       if (size == 'weakling') {
-        foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'weakling'});
-        foundry.utils.mergeObject(updateData, {'system.details.size.value': 'normal'});
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'weakling',
+          'system.details.size.value': 'normal'
+        });
       }
       if (size == 'elite') {
-        foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'elite'});
-        foundry.utils.mergeObject(updateData, {'system.details.size.value': 'normal'});
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'elite',
+          'system.details.size.value': 'normal'
+        });
       }
     }
 
