@@ -91,6 +91,8 @@ system:
       value: large
       type: String
       label: Size
+    strength:
+      value: double
     type:
       value: beast
       type: String
@@ -411,12 +413,5 @@ prototypeToken:
   appendNumber: false
   prependAdjective: false
   detectionModes: []
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: null
-  modifiedTime: 1707335792405
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!acdLcpev3KnflNCr'
 

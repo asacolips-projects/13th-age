@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: elemental
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707661410995
-      modifiedTime: 1707661433770
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vprVsZBWiiBIwgOD.62Yyv5WyIgN3qk8I'
   - name: 'C: Throwing stones'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707661411116
-      modifiedTime: 1707661548132
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vprVsZBWiiBIwgOD.Bv9p9hlhDp3X5eLA'
   - name: Rock pile
     type: nastierSpecial
@@ -304,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707661419401
-      modifiedTime: 1707661561686
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vprVsZBWiiBIwgOD.l8jFuMHMGhxlC0Qz'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -341,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663105289
-      modifiedTime: 1707663148328
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vprVsZBWiiBIwgOD.BCG2pTru7RPjxE6t'
   - name: Lightning-flare
     type: trait
@@ -383,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663105426
-      modifiedTime: 1707663201330
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vprVsZBWiiBIwgOD.KMLROvaDTw2m2iq4'
   - name: Thick-skinned
     type: trait
@@ -420,13 +387,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663464595
-      modifiedTime: 1707663493525
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vprVsZBWiiBIwgOD.yx6OCm2yogjuEAjF'
 effects: []
 folder: null
@@ -437,12 +397,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707661305646
-  modifiedTime: 1707663512503
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!vprVsZBWiiBIwgOD'
 

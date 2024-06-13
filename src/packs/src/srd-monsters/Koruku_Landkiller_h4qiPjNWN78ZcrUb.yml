@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: beast
     resistance:
@@ -208,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124936779
-      modifiedTime: 1708125074964
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.iIemtd42r4L27lYG'
   - name: Earth-gouging plates
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124937019
-      modifiedTime: 1708125086858
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.bWG9wq5pwgpJOmLM'
   - name: Escalating saves
     type: trait
@@ -306,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124939233
-      modifiedTime: 1708125294745
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.pVMebtfntKZyazIB'
   - name: Stolen magic (see below)
     type: action
@@ -370,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124940163
-      modifiedTime: 1708124945198
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.jrJXYh1V6aDVoWSp'
   - name: 'C: Flame of the Magic Icon'
     type: action
@@ -436,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124958211
-      modifiedTime: 1708125110201
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.YqPlZC2gxfEJ3qo0'
   - name: 'C: Snare of the Nature Icon'
     type: action
@@ -502,13 +469,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124958375
-      modifiedTime: 1708125134634
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.9RlRKuTc4WSVsUc2'
   - name: 'C: Roar of the Brute Icon'
     type: action
@@ -568,13 +528,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124958557
-      modifiedTime: 1708125155198
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.rB9GLZQK9s343sap'
   - name: 'C: Treachery of the Draconic Icon'
     type: action
@@ -634,13 +587,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124958741
-      modifiedTime: 1708125179770
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.1xJbX1J1KSkBxtcP'
   - name: 'C: Storm of the Zealous Icon'
     type: action
@@ -700,13 +646,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124959040
-      modifiedTime: 1708125199679
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.z5DKzXRwHJYifioG'
   - name: 'C: Wrath of the sea'
     type: action
@@ -764,13 +703,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124959174
-      modifiedTime: 1708125226011
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.9aFMMgxUsq4SNYGZ'
   - name: Stolen magic
     type: trait
@@ -805,13 +737,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124965877
-      modifiedTime: 1708125337779
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.rebKxseQuhaK3GsX'
   - name: So many servitors
     type: nastierSpecial
@@ -839,13 +764,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124969214
-      modifiedTime: 1708125268266
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!h4qiPjNWN78ZcrUb.DgBb5BBCYFWzQhed'
 effects: []
 folder: null
@@ -856,12 +774,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708124919964
-  modifiedTime: 1708125337779
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!h4qiPjNWN78ZcrUb'
 

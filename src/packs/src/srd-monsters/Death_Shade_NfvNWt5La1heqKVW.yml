@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941073006
-      modifiedTime: 1707941103172
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!NfvNWt5La1heqKVW.PkpddpNKVlTrZVFa'
   - name: Flight
     type: trait
@@ -236,13 +231,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941073627
-      modifiedTime: 1707941112194
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!NfvNWt5La1heqKVW.rThUZYmJhEaqe6El'
   - name: Partial phasing
     type: trait
@@ -272,13 +260,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941073763
-      modifiedTime: 1707941127854
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!NfvNWt5La1heqKVW.mLb167GsIyAx3XBq'
   - name: Shadow of death
     type: trait
@@ -308,13 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941073905
-      modifiedTime: 1707941144600
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!NfvNWt5La1heqKVW.8hs0zNGb3KNi6CQz'
 effects: []
 folder: null
@@ -325,12 +299,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707941036752
-  modifiedTime: 1707941219462
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!NfvNWt5La1heqKVW'
 

@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -208,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864672263
-      modifiedTime: 1707864695621
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PBzjeNOc1o0GbO35.O1JoTL0qV3qSOeBx'
   - name: Unnatural leap
     type: trait
@@ -242,13 +237,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864673055
-      modifiedTime: 1707864711832
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PBzjeNOc1o0GbO35.d67dtqFg0lW4KkUj'
   - name: Resist fire 16+
     type: nastierSpecial
@@ -276,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864673872
-      modifiedTime: 1707864722044
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PBzjeNOc1o0GbO35.1Xw4ZNCBSoVd3ju9'
 effects: []
 folder: null
@@ -293,12 +274,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707864626488
-  modifiedTime: 1707864722044
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!PBzjeNOc1o0GbO35'
 

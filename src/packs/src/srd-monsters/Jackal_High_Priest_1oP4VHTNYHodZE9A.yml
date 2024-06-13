@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106544614
-      modifiedTime: 1708106564959
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1oP4VHTNYHodZE9A.ys0TnIqfkV6Dt9XO'
   - name: 'R: Charnel wind'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106544801
-      modifiedTime: 1708106586095
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1oP4VHTNYHodZE9A.uwUec62SJflH3mje'
   - name: '[Special trigger] C: Cull the weak'
     type: action
@@ -334,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106545302
-      modifiedTime: 1708106601708
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1oP4VHTNYHodZE9A.kT9uwqkhrWH4ziEa'
   - name: Summon ghouls
     type: trait
@@ -378,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106546989
-      modifiedTime: 1708106678113
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1oP4VHTNYHodZE9A.2sEz0XTJPdPASKoR'
   - name: Fear aura
     type: nastierSpecial
@@ -413,13 +385,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106547579
-      modifiedTime: 1708106649167
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1oP4VHTNYHodZE9A.6dRcYVdBSMjILRlX'
   - name: Last rites
     type: nastierSpecial
@@ -449,13 +414,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106547720
-      modifiedTime: 1708106687888
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!1oP4VHTNYHodZE9A.DTzms6NA4XtBtnkT'
 effects: []
 folder: null
@@ -466,12 +424,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708106529548
-  modifiedTime: 1708106687888
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!1oP4VHTNYHodZE9A'
 

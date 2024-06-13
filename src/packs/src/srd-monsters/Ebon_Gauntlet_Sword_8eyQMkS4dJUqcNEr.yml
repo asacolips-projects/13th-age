@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -210,13 +212,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708016091825
-      modifiedTime: 1708016107235
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!8eyQMkS4dJUqcNEr.gZcvILHQObndkfg4'
 effects: []
 folder: null
@@ -227,12 +222,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708016065802
-  modifiedTime: 1708016107235
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!8eyQMkS4dJUqcNEr'
 

@@ -85,6 +85,8 @@ system:
     role:
       value: troop
     size:
+      value: small
+    strength:
       value: weakling
     type:
       value: beast
@@ -100,14 +102,14 @@ prototypeToken:
   prependAdjective: false
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/beast.webp
-    scaleX: 1
-    scaleY: 1
+    scaleX: 0.8
+    scaleY: 0.8
     offsetX: 0
     offsetY: 0
     rotation: 0
     tint: null
-  width: 0.5
-  height: 0.5
+  width: 1
+  height: 1
   lockRotation: false
   rotation: 0
   alpha: 1
@@ -205,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954696608
-      modifiedTime: 1707954708540
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xB9kvLogSmVmHlF6.KiWMYa0hK8eiUzFj'
   - name: Rolly-polly
     type: trait
@@ -239,13 +234,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954700275
-      modifiedTime: 1707954721038
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xB9kvLogSmVmHlF6.YWq1GW434YsdMzx1'
   - name: Resist cold 12+
     type: trait
@@ -273,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954700445
-      modifiedTime: 1707954731010
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xB9kvLogSmVmHlF6.G8TCCf4PwzLkTjVp'
   - name: Weakling
     type: trait
@@ -307,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707954700598
-      modifiedTime: 1707954738960
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xB9kvLogSmVmHlF6.1X5DEx41khhe6pve'
 effects: []
 folder: null
@@ -324,12 +298,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707954675276
-  modifiedTime: 1707954738960
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!xB9kvLogSmVmHlF6'
 

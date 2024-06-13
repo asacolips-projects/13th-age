@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950036579
-      modifiedTime: 1707950086635
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.mjcWsHz16iVseUeh'
   - name: >-
       [Usually special trigger, but also possible as a standard action] C:
@@ -274,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950037254
-      modifiedTime: 1707950104002
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.Cu0m0NMOuNAgOXTP'
   - name: Conflagration of rebirth
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950038494
-      modifiedTime: 1707950204839
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.SpNVY4uMqHcPX9PX'
   - name: Flight
     type: trait
@@ -370,13 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950040339
-      modifiedTime: 1707950114209
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.OQNxe1UAfNurV1eQ'
   - name: Flaming wings
     type: trait
@@ -404,13 +376,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950040611
-      modifiedTime: 1707950125128
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.OM4qOXsCD9XEAsi5'
   - name: Resist fire 16+
     type: trait
@@ -438,13 +403,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950041126
-      modifiedTime: 1707950134850
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.uZyPZgWwAIxSDrPg'
   - name: Spectacular effects
     type: trait
@@ -473,13 +431,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950041542
-      modifiedTime: 1707950153707
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.QYcNdfmtTDMhDjT2'
   - name: Reborn in fire
     type: trait
@@ -532,13 +483,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950041925
-      modifiedTime: 1707950995035
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.oeyzDa97nafRmcSm'
   - name: Fire eater
     type: nastierSpecial
@@ -567,13 +511,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950046547
-      modifiedTime: 1707950224925
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!0Hx6lHDEY2v4H0vf.dYwS7LDDb29XD9hE'
 effects: []
 folder: null
@@ -584,12 +521,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707950014979
-  modifiedTime: 1707950995035
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!0Hx6lHDEY2v4H0vf'
 

@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957592843
-      modifiedTime: 1707957607121
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tzK6C9lzi0s22ynF.BdLLwPCTe1Kn2ZoU'
   - name: 'C: Mellifluous music'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957593114
-      modifiedTime: 1707957650434
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tzK6C9lzi0s22ynF.4c6BIydKaio7MNZs'
   - name: '[Special trigger] What lies beneath'
     type: action
@@ -342,13 +330,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957593314
-      modifiedTime: 1707957668409
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tzK6C9lzi0s22ynF.66SGsx2o2SbhWyiD'
   - name: Shapechanger
     type: trait
@@ -380,13 +361,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957594731
-      modifiedTime: 1707957682640
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tzK6C9lzi0s22ynF.aM9DjUX9BzSsrNhV'
 effects: []
 folder: null
@@ -397,12 +371,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707957574387
-  modifiedTime: 1707957682640
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!tzK6C9lzi0s22ynF'
 

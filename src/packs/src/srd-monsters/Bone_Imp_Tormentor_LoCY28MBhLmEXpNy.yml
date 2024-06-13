@@ -85,6 +85,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: demon
     resistance:
@@ -203,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687862907775
-      modifiedTime: 1687862949438
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!LoCY28MBhLmEXpNy.Lj2nmSuJjLi7DwL6'
   - name: 'R: Bone dust'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687862908152
-      modifiedTime: 1687862986362
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!LoCY28MBhLmEXpNy.c0RFHV2FtMwqe8cD'
   - name: Tormentor´s Mark
     type: trait
@@ -305,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687862909211
-      modifiedTime: 1687863003748
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!LoCY28MBhLmEXpNy.8oNnSOTvHGY5BnXW'
   - name: Freakish Leap
     type: trait
@@ -340,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687862909390
-      modifiedTime: 1687863017671
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!LoCY28MBhLmEXpNy.6bH3XJfF5F2SqvnE'
   - name: Resist magic 13+
     type: nastierSpecial
@@ -376,13 +350,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687862911293
-      modifiedTime: 1687863034551
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!LoCY28MBhLmEXpNy.YSLUhhOOq2aYuHPJ'
 effects: []
 folder: null
@@ -393,14 +360,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1687861929461
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: LoCY28MBhLmEXpNy
-sort: 1000000
 _key: '!actors!LoCY28MBhLmEXpNy'
 

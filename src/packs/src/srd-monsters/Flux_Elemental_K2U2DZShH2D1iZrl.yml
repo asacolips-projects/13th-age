@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: elemental
     resistance:
@@ -195,13 +197,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035634900
-      modifiedTime: 1708035759931
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!K2U2DZShH2D1iZrl.Skcm8k6i7E7WJzAi'
   - name: Power-up
     type: trait
@@ -229,13 +224,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035766232
-      modifiedTime: 1708035773081
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!K2U2DZShH2D1iZrl.5DfHXkf3wwDvybS7'
   - name: Wind touch
     type: action
@@ -293,13 +281,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812104
-      modifiedTime: 1708035829453
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!K2U2DZShH2D1iZrl.mbdCfnICcKSHQ2GV'
   - name: Rocky fist
     type: action
@@ -357,13 +338,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812389
-      modifiedTime: 1708035839050
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!K2U2DZShH2D1iZrl.P8QqgigGnYzfa1fw'
   - name: Scorching hands
     type: action
@@ -421,13 +395,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812564
-      modifiedTime: 1708035858892
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!K2U2DZShH2D1iZrl.DNrI8aOpcDAbCbAe'
   - name: Whoosh and a slam
     type: action
@@ -487,13 +454,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708035812681
-      modifiedTime: 1708035874984
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!K2U2DZShH2D1iZrl.3Gnq67NiNhLNroRH'
 effects: []
 folder: null
@@ -504,12 +464,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708035589622
-  modifiedTime: 1708035888560
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!K2U2DZShH2D1iZrl'
 

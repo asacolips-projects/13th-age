@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027198678
-      modifiedTime: 1708027214478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3HJvPqBvWUmt62lo.tkJb2pPimd6umT6Y'
   - name: Baton of office
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027199831
-      modifiedTime: 1708027224719
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3HJvPqBvWUmt62lo.ZbGJbmAWzxpazlnD'
   - name: Full destiny
     type: nastierSpecial
@@ -304,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027202211
-      modifiedTime: 1708027279883
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3HJvPqBvWUmt62lo.dZg99yG5J3xPFTNF'
   - name: Destiny
     type: trait
@@ -341,13 +322,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708026683293
-      modifiedTime: 1708027227927
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3HJvPqBvWUmt62lo.kYdStZQ0FANUcLpv'
   - name: Path of the Sword
     type: trait
@@ -373,13 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027233309
-      modifiedTime: 1708027244027
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3HJvPqBvWUmt62lo.EQJ4uLEx1MrfPcz3'
   - name: Path of Song
     type: trait
@@ -410,13 +377,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027233457
-      modifiedTime: 1708027262206
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3HJvPqBvWUmt62lo.pgZVf7Z26zW7nlWK'
 effects: []
 folder: null
@@ -427,12 +387,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708027166422
-  modifiedTime: 1708027279883
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!3HJvPqBvWUmt62lo'
 

@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708007829121
-      modifiedTime: 1708007855555
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xhiLWMsXzYsTGsy6.J4exRfQwmul3ZpNR'
   - name: 'C: Ripples of dark magic'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708007829247
-      modifiedTime: 1708007884483
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xhiLWMsXzYsTGsy6.AL9qIBq1EMDI5met'
   - name: I did not see that
     type: nastierSpecial
@@ -305,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708007830278
-      modifiedTime: 1708007921522
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xhiLWMsXzYsTGsy6.xCQ5XRhsE6VyY0fE'
   - name: Not how it should be
     type: nastierSpecial
@@ -339,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708007830414
-      modifiedTime: 1708007934304
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xhiLWMsXzYsTGsy6.omIebyhEfSIZVOAy'
   - name: Not here but there
     type: trait
@@ -373,13 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708007831058
-      modifiedTime: 1708007893269
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xhiLWMsXzYsTGsy6.lZ5vOyOQzKpPfqlE'
   - name: Prophecy of death
     type: trait
@@ -410,13 +377,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708007831174
-      modifiedTime: 1708007912522
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!xhiLWMsXzYsTGsy6.M5ysxxeNVSnesznp'
 effects: []
 folder: null
@@ -427,12 +387,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708007824932
-  modifiedTime: 1708007934304
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!xhiLWMsXzYsTGsy6'
 

@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948770389
-      modifiedTime: 1707948791762
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.X3JFIF0iJqhMgmMv'
   - name: 'R: Striped lightning bolts'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948770558
-      modifiedTime: 1707948823106
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.5aklXayLUhGWkmC0'
   - name: 'C: Rend mind'
     type: action
@@ -336,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948770740
-      modifiedTime: 1707948841104
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.FNoRKRMnf6wHatxP'
   - name: Shapechange
     type: trait
@@ -371,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948772674
-      modifiedTime: 1707948853067
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.f6WNuESyX0BsipfZ'
   - name: Master of chaos
     type: trait
@@ -405,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948772844
-      modifiedTime: 1707948861038
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.zZjF7WzZ0B3e4CIn'
   - name: Reversal of fate
     type: nastierSpecial
@@ -442,13 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948773449
-      modifiedTime: 1707948877473
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.AzeqaLYNcQZlvhu9'
   - name: Lockheart
     type: nastierSpecial
@@ -491,13 +451,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946990978
-      modifiedTime: 1707948882075
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.2pqntVFBYAM8CvbA'
   - name: Backwards palms
     type: nastierSpecial
@@ -534,13 +487,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947412323
-      modifiedTime: 1707948883269
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5FNrlsWwbHfkdT59.yAa4veHP2Od4HkAY'
 effects: []
 folder: null
@@ -551,12 +497,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707948748560
-  modifiedTime: 1707948883269
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!5FNrlsWwbHfkdT59'
 

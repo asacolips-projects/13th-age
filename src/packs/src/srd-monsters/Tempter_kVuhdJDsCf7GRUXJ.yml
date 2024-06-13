@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871074544
-      modifiedTime: 1707871100006
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!kVuhdJDsCf7GRUXJ.EZQQPiz0YLvt9Jdo'
   - name: 'C: Steal breath'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871075065
-      modifiedTime: 1707871136827
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!kVuhdJDsCf7GRUXJ.xZyjyMmbmwqLyaJW'
   - name: Shatter
     type: nastierSpecial
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871076097
-      modifiedTime: 1707871165155
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!kVuhdJDsCf7GRUXJ.bGwop6i6EfAmmNa0'
 effects: []
 folder: null
@@ -326,12 +305,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707871051240
-  modifiedTime: 1707871165155
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!kVuhdJDsCf7GRUXJ'
 

@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091207028
-      modifiedTime: 1708091227284
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.ygyapfmnrOWxWVeN'
   - name: 'C: Confusing orders'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091210772
-      modifiedTime: 1708091254777
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.kYSlOAUfOrvJuVrN'
   - name: Ghostly
     type: trait
@@ -307,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091211329
-      modifiedTime: 1708091262193
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.IVDsqH33QNh7FnIX'
   - name: Iconic sadsack
     type: trait
@@ -342,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708091211469
-      modifiedTime: 1708091270137
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.GOpOGl6ONNSNWmAA'
   - name: General Ghost Abilities
     type: trait
@@ -376,13 +348,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.D7Rfwqnis7wIMhb7
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090626422
-      modifiedTime: 1708091275276
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.edW61CAcr5OkOOWS'
   - name: Bound hauntings
     type: trait
@@ -424,13 +389,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.Hx2P7xMeCNEwpewo
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571826
-      modifiedTime: 1708091276195
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.RSU9H6f9wBOESW8K'
   - name: Flight
     type: trait
@@ -466,13 +424,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.wX9g5ojc4D0faie0
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090571952
-      modifiedTime: 1708091277855
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.NvW8TarBKEU5eUzn'
   - name: Unnatural touch
     type: trait
@@ -511,13 +462,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.4dnPbusAoZHE4FTf.Item.1gphpVgsE4AJt6cT
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708090572095
-      modifiedTime: 1708091278784
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!oQx62ASUgneGOMgi.zDp78jjkOJpC5yhI'
 effects: []
 folder: null
@@ -528,12 +472,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708091183513
-  modifiedTime: 1708091278784
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!oQx62ASUgneGOMgi'
 

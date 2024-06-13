@@ -1727,6 +1727,51 @@ export class ActorArchmage extends Actor {
         token.document.update(updateData);
       });
     }
+    // Update the prototype token size.
+    if (data.system?.details?.size?.value && this.type == "npc") {
+      let h = 1;
+      let w = 1;
+      let s = 1;
+      switch (data.system.details.size.value) {
+        case "large":
+          h = 2;
+          w = 2;
+          break
+        case "huge":
+          h = 3;
+          w = 3;
+          break
+        case "gargantuan":
+          h = 5;
+          w = 5;
+          break
+        case "small":
+          s = 0.8;
+          break
+        case "tiny":
+          h = 0.5;
+          w = 0.5;
+          break
+        default:
+          break
+      }
+      const tokenData = {
+        height: h,
+        width: w,
+        texture: {
+          scaleX: s,
+          scaleY: s,
+        }};
+
+      // Update tokens.
+      let tokens = this.getActiveTokens();
+      tokens.forEach(token => {
+        const updateData = foundry.utils.duplicate(tokenData);
+        token.document.update(updateData);
+      });
+
+      data.prototypeToken = tokenData;
+    }
 
     if (data.system === undefined) return; // Nothing more to do
 

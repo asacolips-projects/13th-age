@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: construct
     resistance:
@@ -207,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112401474
-      modifiedTime: 1708112434206
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.k9Vblyk5tGwgTmKR'
   - name: 'R: Foul waterspout'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112401603
-      modifiedTime: 1708112457784
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.pqIyiFRRYNQokpaR'
   - name: Cloud of dust
     type: trait
@@ -309,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112404121
-      modifiedTime: 1708112499857
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.eQXZLxYlwMJJqTPk'
   - name: Not-quite-flight
     type: trait
@@ -343,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112404259
-      modifiedTime: 1708112511705
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.b4s0H3jqhzXf5o5A'
   - name: Part of the scenery
     type: trait
@@ -378,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112404388
-      modifiedTime: 1708112521560
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.qJO4IkGO4wkMNaqz'
   - name: Grotesque visage
     type: nastierSpecial
@@ -413,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112405342
-      modifiedTime: 1708112532834
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.7NYSrP6ipDGHJDb7'
   - name: Extra-toxic
     type: nastierSpecial
@@ -445,13 +405,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708112405458
-      modifiedTime: 1708112544041
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2XCtGbD1H5gxTrF.TeLCXMu079XjoNzv'
 effects: []
 folder: null
@@ -462,12 +415,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708112378593
-  modifiedTime: 1708112544041
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!f2XCtGbD1H5gxTrF'
 

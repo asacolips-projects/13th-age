@@ -86,6 +86,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865259093
-      modifiedTime: 1707865286139
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FkrblWloZj1stnIF.TjI0BZRhlCcUoFPv'
   - name: 'C: Chittering call'
     type: action
@@ -275,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865259585
-      modifiedTime: 1707865339278
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FkrblWloZj1stnIF.5eqchhO1pbA2jAWi'
   - name: Group ability
     type: trait
@@ -309,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865261953
-      modifiedTime: 1707865384330
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FkrblWloZj1stnIF.Zq8CQXR5jDDT73yN'
   - name: '[Group ability] Tendril web'
     type: action
@@ -375,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865265973
-      modifiedTime: 1707865371163
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FkrblWloZj1stnIF.lhvJYFsJPVXWcR13'
 effects: []
 folder: null
@@ -392,12 +366,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707865241679
-  modifiedTime: 1707865384330
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!FkrblWloZj1stnIF'
 

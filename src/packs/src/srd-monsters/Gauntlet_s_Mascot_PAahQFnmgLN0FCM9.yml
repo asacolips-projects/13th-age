@@ -86,6 +86,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708017276451
-      modifiedTime: 1708017288713
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PAahQFnmgLN0FCM9.6112CYUbJFb50aAZ'
 effects: []
 folder: null
@@ -223,12 +218,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708017253318
-  modifiedTime: 1708017288713
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!PAahQFnmgLN0FCM9'
 

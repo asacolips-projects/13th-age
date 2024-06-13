@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956371918
-      modifiedTime: 1707956394508
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!b75kXznM7zzAROAu.IYNzBzbZ7UM1gsAz'
   - name: Stoneflow
     type: trait
@@ -241,13 +234,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956372713
-      modifiedTime: 1707956402649
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!b75kXznM7zzAROAu.hNXyoUW1978Ux8PN'
   - name: Resist weapon damage 14+
     type: nastierSpecial
@@ -275,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956373532
-      modifiedTime: 1707956410702
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!b75kXznM7zzAROAu.YjryV7DG1w7SoRqO'
   - name: Domain bound
     type: trait
@@ -313,13 +292,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.dZNuOXlFpnn1OzQ2
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415347
-      modifiedTime: 1707956415693
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!b75kXznM7zzAROAu.sXAOlNzOJr0mfvJq'
   - name: Limited immortality
     type: trait
@@ -354,13 +326,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.VQalLgUCLGaLnDvR
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415395
-      modifiedTime: 1707956416668
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!b75kXznM7zzAROAu.xidQS9uS6lAFpRZR'
   - name: Note on types
     type: trait
@@ -392,13 +357,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.5DtwntvmiSLGrcNT
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415812
-      modifiedTime: 1707956417701
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!b75kXznM7zzAROAu.hIqRRqlrDcB9ijUD'
 effects: []
 folder: null
@@ -409,12 +367,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707956348761
-  modifiedTime: 1707956417701
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!b75kXznM7zzAROAu'
 

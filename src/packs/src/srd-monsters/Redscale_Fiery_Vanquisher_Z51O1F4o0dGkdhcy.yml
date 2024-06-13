@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129662936
-      modifiedTime: 1708129680575
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z51O1F4o0dGkdhcy.jyov5y4yZZOAricF'
   - name: '[Special trigger] C: Burning breath'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129663094
-      modifiedTime: 1708129694481
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z51O1F4o0dGkdhcy.PiDe9XyXy0Yo5ZmC'
   - name: Red rage
     type: trait
@@ -304,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129663870
-      modifiedTime: 1708129706381
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z51O1F4o0dGkdhcy.OasY9ba7kLP37JmR'
   - name: Resist fire 14+
     type: trait
@@ -338,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129663994
-      modifiedTime: 1708129713475
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z51O1F4o0dGkdhcy.gVyDwyUPd58KtsBQ'
   - name: Limited flight
     type: nastierSpecial
@@ -381,13 +355,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708129714974
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z51O1F4o0dGkdhcy.nvUhsU6AgoO6a7j5'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -420,13 +387,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708129715874
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Z51O1F4o0dGkdhcy.rbNVI3fJnP7lqU9O'
 effects: []
 folder: null
@@ -437,12 +397,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708129646058
-  modifiedTime: 1708129715874
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!Z51O1F4o0dGkdhcy'
 

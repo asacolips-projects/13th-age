@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043220217
-      modifiedTime: 1708043240012
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!NzvGlWReJyA69rqt.b098pq6mIMhR7N2O'
   - name: 'R: Rain of arrows'
     type: action
@@ -268,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043220333
-      modifiedTime: 1708043267339
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!NzvGlWReJyA69rqt.4lrikTLqdE8YIXbn'
 effects: []
 folder: null
@@ -285,12 +273,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708043201246
-  modifiedTime: 1708043267339
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!NzvGlWReJyA69rqt'
 

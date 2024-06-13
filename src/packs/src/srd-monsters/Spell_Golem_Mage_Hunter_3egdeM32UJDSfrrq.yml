@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: large
+    strength:
+      value: double
     type:
       value: construct
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868610656
-      modifiedTime: 1707868639191
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3egdeM32UJDSfrrq.7Urr5diYkXF5k2SB'
   - name: 'R: Ray of disjunction'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868610869
-      modifiedTime: 1707868684035
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3egdeM32UJDSfrrq.9QNNXQXVuYyM5fqP'
   - name: Limited golem immunity
     type: trait
@@ -308,13 +296,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868613006
-      modifiedTime: 1707868702216
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3egdeM32UJDSfrrq.3OhkuXM2nXIIw12C'
   - name: Spell deflection
     type: trait
@@ -349,13 +330,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868613161
-      modifiedTime: 1707868744762
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3egdeM32UJDSfrrq.zfXyvjTAEOKYLFxw'
   - name: Made of tougher stuff
     type: nastierSpecial
@@ -384,13 +358,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868613740
-      modifiedTime: 1707868777746
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3egdeM32UJDSfrrq.JUkFL4uxqXbH99mW'
 effects: []
 folder: null
@@ -401,12 +368,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707868590879
-  modifiedTime: 1707868777746
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!3egdeM32UJDSfrrq'
 

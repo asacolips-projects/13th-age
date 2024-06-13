@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043058136
-      modifiedTime: 1708043075390
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aPdXaYKs15MFSH7m.z3OIyowQfRXvasa9'
   - name: Horde tactics
     type: trait
@@ -238,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043058960
-      modifiedTime: 1708043082973
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!aPdXaYKs15MFSH7m.TlQufDzaOCGK0LqX'
 effects: []
 folder: null
@@ -255,12 +243,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708043039984
-  modifiedTime: 1708043082973
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!aPdXaYKs15MFSH7m'
 

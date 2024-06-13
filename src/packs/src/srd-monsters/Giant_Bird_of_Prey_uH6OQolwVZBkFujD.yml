@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024833625
-      modifiedTime: 1708024848654
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uH6OQolwVZBkFujD.GgW1DfObbgjhkXCY'
   - name: Diving strike
     type: action
@@ -268,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024833957
-      modifiedTime: 1708024864280
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uH6OQolwVZBkFujD.Bogg0Bd4n5HbCDmy'
   - name: Wing buffet
     type: action
@@ -332,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024834372
-      modifiedTime: 1708024883834
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uH6OQolwVZBkFujD.oxIurV8Cg3NkAsPM'
   - name: Talon grab
     type: action
@@ -400,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024834876
-      modifiedTime: 1708024957446
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uH6OQolwVZBkFujD.KzRd09nbfirxpeaN'
   - name: Flight
     type: trait
@@ -435,13 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024835806
-      modifiedTime: 1708024893620
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uH6OQolwVZBkFujD.7UqNSTwTxRtv46VX'
   - name: Talon grab
     type: nastierSpecial
@@ -467,13 +434,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024837909
-      modifiedTime: 1708024913326
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uH6OQolwVZBkFujD.D23UT2bAIUyRthzn'
 effects: []
 folder: null
@@ -484,12 +444,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708024818673
-  modifiedTime: 1708024957446
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!uH6OQolwVZBkFujD'
 

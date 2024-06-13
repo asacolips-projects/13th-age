@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021053326
-      modifiedTime: 1708021078819
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.k7XyBF5fU68vMciA'
   - name: 'R: See the awful truth'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021053844
-      modifiedTime: 1708021104398
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.g0nFfOaLwCQjUR9X'
   - name: 'C: The awful nature of reality'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021054007
-      modifiedTime: 1708021134158
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.34VVWGFWSJQl8l1n'
   - name: Undying
     type: trait
@@ -381,13 +360,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020710313
-      modifiedTime: 1708021137551
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.Ut4qIRCoFHt4qtan'
   - name: Split reality
     type: nastierSpecial
@@ -425,13 +397,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712330
-      modifiedTime: 1708021138295
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.xsWS01vQ324Ic462'
   - name: Warp time
     type: nastierSpecial
@@ -464,13 +429,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712581
-      modifiedTime: 1708021139143
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.ZN7rkb5teelgs4BX'
   - name: Reshuffle space
     type: nastierSpecial
@@ -503,13 +461,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712713
-      modifiedTime: 1708021140131
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!GL7E0JXaz0A1Xeqc.LIM03vB1N4YK13v2'
 effects: []
 folder: null
@@ -520,12 +471,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708021036927
-  modifiedTime: 1708021140131
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!GL7E0JXaz0A1Xeqc'
 

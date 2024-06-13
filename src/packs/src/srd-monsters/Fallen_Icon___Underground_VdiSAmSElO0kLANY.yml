@@ -218,13 +218,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093164510
-      modifiedTime: 1708093195758
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.1ZVWgnWWJ2PXKgH7'
   - name: 'C: Behind the mask'
     type: action
@@ -284,13 +277,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093164665
-      modifiedTime: 1708093225957
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.Auc977EQ3fWEB4zC'
   - name: '[Special trigger] C: Golden greed'
     type: action
@@ -353,13 +339,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093164810
-      modifiedTime: 1708093272554
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.MXcdq2TuV9oRyjSD'
   - name: The mask slips
     type: trait
@@ -388,13 +367,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093165530
-      modifiedTime: 1708093308477
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.bl8qGiBmV3I46w4Z'
   - name: The wandering king
     type: trait
@@ -422,13 +394,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093165689
-      modifiedTime: 1708093324519
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.6dbza1bJUCvn8aHp'
   - name: Sticks and rags
     type: trait
@@ -460,13 +425,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093165978
-      modifiedTime: 1708093340273
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.EXtfVvVTyxoBlUzU'
   - name: Even worse
     type: trait
@@ -495,13 +453,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093166137
-      modifiedTime: 1708093352324
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.WDPH1oWaNLo0DPTp'
   - name: Fallen icon
     type: trait
@@ -534,13 +485,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093166308
-      modifiedTime: 1708093379578
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.dBoeCucSWKuD7WKU'
   - name: Compel fealty
     type: trait
@@ -569,13 +513,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093166456
-      modifiedTime: 1708093392509
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.FOzph4r3MH76tG2e'
   - name: Eternal kingdom
     type: trait
@@ -608,13 +545,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093294540
-      modifiedTime: 1708093409338
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.BGFEH1fHBD6fMsbE'
   - name: Fealty owed
     type: nastierSpecial
@@ -644,13 +574,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093296329
-      modifiedTime: 1708093443711
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.wIUDDPi9WoOYsimn'
   - name: Fealty shown
     type: nastierSpecial
@@ -682,13 +605,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093296482
-      modifiedTime: 1708093462871
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.k68C4oYL7yneLDrd'
   - name: Long Live the Icon
     type: nastierSpecial
@@ -721,13 +637,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708093296631
-      modifiedTime: 1708093487425
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!VdiSAmSElO0kLANY.0tYNKjJTBCGHcf2Y'
 effects: []
 folder: null
@@ -738,12 +647,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708093132530
-  modifiedTime: 1708093541379
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!VdiSAmSElO0kLANY'
 

@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956087862
-      modifiedTime: 1707956100600
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.MLvDTESQouYBrn3l'
   - name: 'C: Rippling words'
     type: action
@@ -271,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956088012
-      modifiedTime: 1707956119004
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.xUEeLlIkcWi1jbiN'
   - name: Call of the sea
     type: trait
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956089549
-      modifiedTime: 1707956135586
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.Pk1xwK8Sluvz5gQx'
   - name: Child of the sea
     type: trait
@@ -344,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707956089681
-      modifiedTime: 1707956143846
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.JAxMZRSFPPHYpt7t'
   - name: Domain bound
     type: trait
@@ -382,13 +354,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.dZNuOXlFpnn1OzQ2
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415347
-      modifiedTime: 1707956145600
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.dOppLdxJmyGbW9H1'
   - name: Limited immortality
     type: trait
@@ -423,13 +388,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.VQalLgUCLGaLnDvR
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415395
-      modifiedTime: 1707956146556
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.9BNSGy3eve4nUN7b'
   - name: Note on types
     type: trait
@@ -461,13 +419,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.MmAQh2bxjyj0Kj5Y.Item.5DtwntvmiSLGrcNT
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415812
-      modifiedTime: 1707956147607
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gWTWOtLO9v2OO09N.qJP7LvYbUqh1TVW4'
 effects: []
 folder: null
@@ -478,12 +429,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707956070600
-  modifiedTime: 1707956147607
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!gWTWOtLO9v2OO09N'
 

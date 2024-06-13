@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106149837
-      modifiedTime: 1708106164926
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ShMIwZ3xGhVHmoHg.OEPEFcedbl5XRdQR'
   - name: 'R: Charnel shadow'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106149969
-      modifiedTime: 1708106180005
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ShMIwZ3xGhVHmoHg.4roToKVWVIcDby9T'
   - name: Summon ghouls
     type: trait
@@ -311,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106151237
-      modifiedTime: 1708106228282
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ShMIwZ3xGhVHmoHg.betYPyFH2iEmBNqY'
   - name: Elite
     type: trait
@@ -345,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106151421
-      modifiedTime: 1708106236495
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ShMIwZ3xGhVHmoHg.j5x0VFIvpRkSmaGf'
   - name: Last breath
     type: nastierSpecial
@@ -379,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106152191
-      modifiedTime: 1708106244729
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ShMIwZ3xGhVHmoHg.Z3f4o2WKAQS2erRT'
 effects: []
 folder: null
@@ -396,12 +361,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708106135454
-  modifiedTime: 1708106244729
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ShMIwZ3xGhVHmoHg'
 

@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: dragon
     resistance:
@@ -209,13 +211,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966207300
-      modifiedTime: 1707966240734
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.2eIXwBVEt0ysJXS5'
   - name: 'R: Bedazzling deceptions'
     type: action
@@ -277,13 +272,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966209036
-      modifiedTime: 1707966278117
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.O0MPd0LbvQywSwkx'
   - name: '[Once per battle] “No, they’re the real Purple Dragon, shoot them”'
     type: trait
@@ -312,13 +300,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966209685
-      modifiedTime: 1707966298719
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.heMK08L3sB4VBPGz'
   - name: Painted claws
     type: action
@@ -376,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966354887
-      modifiedTime: 1707966370873
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.U6LUXpyXjw2On3Z7'
   - name: 'C: Psychoactive breath'
     type: action
@@ -442,13 +416,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966355022
-      modifiedTime: 1707966401599
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.gww5UgcSNrHlsDVH'
   - name: Intermittent breath
     type: trait
@@ -479,13 +446,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966408075
-      modifiedTime: 1707966436767
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.lCDAGde5F0aUrSCB'
   - name: Wing buffet
     type: trait
@@ -515,13 +475,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966442232
-      modifiedTime: 1707966458343
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.jf3Cib7Gapl86XB6'
   - name: '[Once per battle] Cloak of illusion'
     type: trait
@@ -550,13 +503,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966477834
-      modifiedTime: 1707966489552
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.qWZEWRyqZkVvdjna'
   - name: Shape-shifter supreme
     type: trait
@@ -589,13 +535,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966562606
-      modifiedTime: 1707966597905
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.6FIQ6Cpm36gjiAk2'
   - name: Cunning escapes
     type: trait
@@ -628,13 +567,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966580412
-      modifiedTime: 1707966621667
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.cHYObdpv2qnaMxNS'
   - name: Flight
     type: trait
@@ -663,13 +595,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966626639
-      modifiedTime: 1707966641257
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.cA1Kbd7l1SBlMhVN'
   - name: Illusionary soiree
     type: trait
@@ -710,13 +635,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707966628485
-      modifiedTime: 1707966689160
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3R3df3IVw2AqTPKh.64kKfZlY5Qj4wyvh'
 effects: []
 folder: null
@@ -727,12 +645,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707966158403
-  modifiedTime: 1707966689160
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!3R3df3IVw2AqTPKh'
 

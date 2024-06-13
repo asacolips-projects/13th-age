@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957105619
-      modifiedTime: 1707957133298
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lG0K7umpvjlwwUwx.WJqjAHkAEXfQDdC9'
   - name: Crushing grasp
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957105901
-      modifiedTime: 1707957152531
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lG0K7umpvjlwwUwx.ISplVtD1zUCFs1RT'
   - name: 'C: A truly wild ride'
     type: action
@@ -353,13 +339,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957106052
-      modifiedTime: 1707957248249
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lG0K7umpvjlwwUwx.euL5BCsk2Qy7RWXO'
   - name: '[Special trigger] Watery grave'
     type: action
@@ -422,13 +401,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957110071
-      modifiedTime: 1707957277570
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lG0K7umpvjlwwUwx.BRyfX748y7tk1EO6'
   - name: Shapechanger
     type: trait
@@ -460,13 +432,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957112103
-      modifiedTime: 1707957292976
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lG0K7umpvjlwwUwx.3fMyQV372zbD2RDX'
   - name: Not the first rodeo
     type: nastierSpecial
@@ -492,13 +457,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707957115004
-      modifiedTime: 1707957309297
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lG0K7umpvjlwwUwx.uVq2m0bckWnOHw71'
 effects: []
 folder: null
@@ -509,12 +467,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707957082862
-  modifiedTime: 1707957309297
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!lG0K7umpvjlwwUwx'
 

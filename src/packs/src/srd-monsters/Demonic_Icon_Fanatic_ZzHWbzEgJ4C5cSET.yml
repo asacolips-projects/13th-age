@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110164841
-      modifiedTime: 1708110190650
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZzHWbzEgJ4C5cSET.ECn3XNc2PUP7RCPR'
   - name: Strangling cord
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110164987
-      modifiedTime: 1708110234929
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZzHWbzEgJ4C5cSET.nMvPNOCQ2TU2QBDD'
   - name: 'R: Blowgun'
     type: action
@@ -336,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110165265
-      modifiedTime: 1708110258140
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZzHWbzEgJ4C5cSET.lSjOIKA0Yf2GSyFo'
 effects: []
 folder: null
@@ -353,12 +334,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708110157045
-  modifiedTime: 1708110258140
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ZzHWbzEgJ4C5cSET'
 

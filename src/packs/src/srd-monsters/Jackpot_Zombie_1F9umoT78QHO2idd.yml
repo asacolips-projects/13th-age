@@ -85,6 +85,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -179,13 +181,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.naff54OH7LXKr4jI
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690465856935
-      modifiedTime: 1690466080600
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!1F9umoT78QHO2idd.pUpspyq6ghGJQycG'
   - name: Headshot
     type: trait
@@ -219,13 +214,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.t7tAeLswpYFZpKwy
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690465854251
-      modifiedTime: 1690466102149
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!1F9umoT78QHO2idd.TKT2bq6N3mqtzu9Q'
   - name: Greedy claw
     type: action
@@ -286,13 +274,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690466158052
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!1F9umoT78QHO2idd.0ulkWJ8cqrTK4HT0'
   - name: 'Limited Use: Lethal Jackpot'
     type: action
@@ -360,13 +341,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690466197535
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!1F9umoT78QHO2idd.KHdm9bjbVB8lUKmb'
 effects: []
 folder: null
@@ -377,14 +351,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1690466071034
-  modifiedTime: 1708006752268
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: 1F9umoT78QHO2idd
-sort: 0
 _key: '!actors!1F9umoT78QHO2idd'
 

@@ -85,6 +85,8 @@ system:
       value: archer
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: demon
     resistance:
@@ -203,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863079445
-      modifiedTime: 1687863134234
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!GsaLjhm6bCOc374O.EkIj4WKbWE8G8Uli'
   - name: 'R: Ossifying arrow'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863079669
-      modifiedTime: 1687863161948
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!GsaLjhm6bCOc374O.9G4KnZxt6U8MQKOc'
   - name: Freakish speed
     type: trait
@@ -305,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863081498
-      modifiedTime: 1687863175411
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!GsaLjhm6bCOc374O.DvAM6QeL4uMFpVLo'
   - name: Resist magic 13+
     type: nastierSpecial
@@ -341,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863082235
-      modifiedTime: 1687863193194
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!GsaLjhm6bCOc374O.fX3DZwSAdjpy8GjG'
 effects: []
 folder: null
@@ -358,14 +332,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1687863044714
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: GsaLjhm6bCOc374O
-sort: 1300000
 _key: '!actors!GsaLjhm6bCOc374O'
 

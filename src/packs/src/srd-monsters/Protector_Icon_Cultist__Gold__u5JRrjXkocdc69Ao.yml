@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132019983
-      modifiedTime: 1708132028743
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u5JRrjXkocdc69Ao.Mud3GghlLGNSn029'
   - name: 'R: Dart'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132020077
-      modifiedTime: 1708132038970
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u5JRrjXkocdc69Ao.c2PMgwylBXEvWuBp'
   - name: Mutually destructive
     type: trait
@@ -306,13 +292,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132021045
-      modifiedTime: 1708132046089
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u5JRrjXkocdc69Ao.L2TNRooGJZNVauZz'
   - name: Mystically expendable
     type: trait
@@ -340,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708132021163
-      modifiedTime: 1708132056628
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u5JRrjXkocdc69Ao.F3o39ODoRl6ek86P'
 effects: []
 folder: null
@@ -357,12 +329,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708132000354
-  modifiedTime: 1708132056628
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!u5JRrjXkocdc69Ao'
 

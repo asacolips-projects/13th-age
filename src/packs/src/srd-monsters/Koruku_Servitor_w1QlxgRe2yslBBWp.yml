@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: spirit
     resistance:
@@ -250,13 +252,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708125417882
-      modifiedTime: 1708125518910
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!w1QlxgRe2yslBBWp.Dao7S9QHL2qX73Nh'
   - name: 'C: Wild magic burst'
     type: action
@@ -314,13 +309,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708125418430
-      modifiedTime: 1708125556226
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!w1QlxgRe2yslBBWp.L90d87EhTJP53ybU'
   - name: 'R: Wild magic blast'
     type: action
@@ -378,13 +366,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708125418578
-      modifiedTime: 1708125565571
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!w1QlxgRe2yslBBWp.cs6Mli6qSOSLv2uL'
   - name: Flight
     type: trait
@@ -412,13 +393,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708125419744
-      modifiedTime: 1708125574052
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!w1QlxgRe2yslBBWp.ez3H553jt0ejDo2S'
 effects: []
 folder: null
@@ -429,12 +403,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708125401778
-  modifiedTime: 1708125574052
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!w1QlxgRe2yslBBWp'
 

@@ -92,6 +92,8 @@ system:
       value: wrecker
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: beast
     resistance:
@@ -183,13 +185,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115915852
-      modifiedTime: 1708116375057
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.IsDQxGy0AgFqMRd9'
   - name: Wild thrasher
     type: trait
@@ -219,13 +214,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115915993
-      modifiedTime: 1708116388061
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.lnpR6s8Nr5O6ycWH'
   - name: Too tough to trick
     type: trait
@@ -254,13 +242,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115916160
-      modifiedTime: 1708116401186
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.SiQWWOnIiZ9XcVGj'
   - name: Sprout fifth head
     type: trait
@@ -292,13 +273,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115916278
-      modifiedTime: 1708116422894
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.9mscNgbqfInJdyBw'
   - name: Sprout sixth head
     type: trait
@@ -328,13 +302,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115920551
-      modifiedTime: 1708116435852
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.taHdTRJwLicEVw6u'
   - name: '1-2: Reptile head'
     type: action
@@ -393,13 +360,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115928398
-      modifiedTime: 1708115972646
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.79QH6d0ENBDrPmAt'
   - name: Cutting teeth
     type: action
@@ -459,13 +419,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115929333
-      modifiedTime: 1708116003544
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.BXxHeWUDyRLNAIoY'
   - name: '3: Serpent head'
     type: action
@@ -524,13 +477,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115930175
-      modifiedTime: 1708116018929
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.dI7f4ihzw7ihP9Jj'
   - name: Serpent teeth
     type: action
@@ -590,13 +536,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115930341
-      modifiedTime: 1708116049674
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.kaJELKRPbsVVHktk'
   - name: '4: Great monstrous head'
     type: action
@@ -659,13 +598,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708115931605
-      modifiedTime: 1708116247226
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.V2eCdSP7xscJBmXR'
   - name: Monstrous teeth
     type: action
@@ -725,13 +657,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116069628
-      modifiedTime: 1708116136240
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.xpZCbpVqUGMdOgka'
   - name: '5: Draconic head'
     type: action
@@ -793,13 +718,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116071760
-      modifiedTime: 1708116165785
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.H8TCYfVEo4Lo99wT'
   - name: Draconic teeth
     type: action
@@ -859,13 +777,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116072173
-      modifiedTime: 1708116182604
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.UM3Muxy9Sk9dG9fn'
   - name: 'C: Minor breath weapon'
     type: action
@@ -929,13 +840,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116072316
-      modifiedTime: 1708116239155
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.QdPPU6l0WvHyrUN7'
   - name: '6: Chaos ray head'
     type: action
@@ -996,13 +900,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116073237
-      modifiedTime: 1708116275489
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.BFS6vTdalZ6rDApE'
   - name: Chaotic teeth
     type: action
@@ -1062,13 +959,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116073506
-      modifiedTime: 1708116299084
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.fZITexuiKiGEBzRs'
   - name: 'R: Chaotic ray'
     type: action
@@ -1135,13 +1025,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708116073636
-      modifiedTime: 1708116347429
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!2NoVAOndXBpQUNKV.GcyVwc0KF3ir0Tun'
 effects: []
 folder: null
@@ -1152,12 +1035,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708115677771
-  modifiedTime: 1708116435852
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!2NoVAOndXBpQUNKV'
 

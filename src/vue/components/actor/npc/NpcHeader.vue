@@ -25,8 +25,9 @@
             <!-- Display version of creature details. -->
             <template v-slot:display>
               <ul>
-                <li v-if="sizeFormatted" class="details">{{sizeFormatted}}</li>
                 <li class="level">{{levelFormatted}}</li>
+                <li v-if="sizeFormatted" class="details">{{sizeFormatted}}</li>
+                <li v-if="strengthFormatted" class="details">{{strengthFormatted}}</li>
                 <li v-if="roleFormatted" class="role">{{roleFormatted}}</li>
                 <li v-if="typeFormatted" class="type">[{{typeFormatted}}]</li>
               </ul>
@@ -37,14 +38,22 @@
                 <label for="system.attributes.level.value">{{localize('ARCHMAGE.level')}}</label>
                 <Input type="number" name="system.attributes.level.value" :actor="actor" reactive="false"/>
               </span>
-              <!-- @todo write a migration to let this become a flat value -->
               <span class="unit unit--input">
                 <label for="system.attributes.init.value">{{localize('ARCHMAGE.initiative')}}</label>
                 <Input type="number" name="system.attributes.init.value" :actor="actor" reactive="false"/>
               </span>
+              {{localize("ARCHMAGE.size")}}
               <Select name="system.details.size.value" :actor="actor" :options="getOptions('creatureSizes')"/>
+              <br/>
+              {{localize("ARCHMAGE.strength")}}
+              <Select name="system.details.strength.value" :actor="actor" :options="getOptions('creatureStrengths')"/>
+              <br/>
+              {{localize("ARCHMAGE.role")}}
               <Select name="system.details.role.value" :actor="actor" :options="getOptions('creatureRoles')"/>
+              <br/>
+              {{localize("ARCHMAGE.type")}}
               <Select name="system.details.type.value" :actor="actor" :options="getOptions('creatureTypes')"/>
+              <br/>
             </template>
           </ToggleInput>
         </div>
@@ -102,6 +111,9 @@
       },
       sizeFormatted() {
         return CONFIG.ARCHMAGE.creatureSizes[this.actor.system.details?.size?.value] ?? this.actor.system.details?.size?.value;
+      },
+      strengthFormatted() {
+        return CONFIG.ARCHMAGE.creatureStrengths[this.actor.system.details?.strength?.value] ?? this.actor.system.details?.strength?.value;
       },
       roleFormatted() {
         return CONFIG.ARCHMAGE.creatureRoles[this.actor.system.details?.role?.value] ?? this.actor.system.details?.role?.value;
@@ -304,6 +316,7 @@
         align-items: flex-start;
         padding: 0;
         margin: 0;
+        flex-wrap: wrap;
       }
 
       li {

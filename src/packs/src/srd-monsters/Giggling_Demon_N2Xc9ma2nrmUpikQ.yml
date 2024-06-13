@@ -85,6 +85,8 @@ system:
     role:
       value: mook
     size:
+      value: small
+    strength:
       value: weakling
     type:
       value: demon
@@ -100,8 +102,8 @@ prototypeToken:
   prependAdjective: false
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
-    scaleX: 1
-    scaleY: 1
+    scaleX: 0.8
+    scaleY: 0.8
     offsetX: 0
     offsetY: 0
     rotation: 0
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121547187
-      modifiedTime: 1708121558491
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!N2Xc9ma2nrmUpikQ.RhJjMk632UP5uB1p'
   - name: Pinned down
     type: trait
@@ -240,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121548788
-      modifiedTime: 1708121570179
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!N2Xc9ma2nrmUpikQ.tjsTpgiVKNhBANme'
   - name: Weakling
     type: trait
@@ -274,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121548901
-      modifiedTime: 1708121576620
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!N2Xc9ma2nrmUpikQ.XmQvXSn78JP6mLhL'
   - name: Invisibility
     type: nastierSpecial
@@ -312,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708121549585
-      modifiedTime: 1708121592328
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!N2Xc9ma2nrmUpikQ.mbAM3qR9JL8KXjxC'
 effects: []
 folder: null
@@ -329,12 +303,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708121529724
-  modifiedTime: 1708121592328
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!N2Xc9ma2nrmUpikQ'
 

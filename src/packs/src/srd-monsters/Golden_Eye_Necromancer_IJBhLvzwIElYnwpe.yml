@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871602557
-      modifiedTime: 1707871634304
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!IJBhLvzwIElYnwpe.epUyiJMb3S7ufIfL'
   - name: 'R: Call the dead'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871602706
-      modifiedTime: 1707871679828
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!IJBhLvzwIElYnwpe.hgbM3xNygS4wCMGX'
   - name: Control undead
     type: trait
@@ -311,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871604124
-      modifiedTime: 1707871704871
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!IJBhLvzwIElYnwpe.WjOGOmreyqjUDBdR'
   - name: '[Once per battle] Undying melody'
     type: nastierSpecial
@@ -345,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871605523
-      modifiedTime: 1707871716375
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!IJBhLvzwIElYnwpe.pSK223q8juIH2yp7'
   - name: '[Once per battle] Revolving door of undeath'
     type: nastierSpecial
@@ -380,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707871605639
-      modifiedTime: 1707871734797
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!IJBhLvzwIElYnwpe.C7ESN2kw5RppiHlX'
 effects: []
 folder: null
@@ -397,12 +362,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707871565527
-  modifiedTime: 1707871734797
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!IJBhLvzwIElYnwpe'
 

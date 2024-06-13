@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124677213
-      modifiedTime: 1708124697822
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JkhKv55xAnVeA4wK.0D9jcjShpTQOvddZ'
   - name: Stinging tentacles
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124677375
-      modifiedTime: 1708124747364
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JkhKv55xAnVeA4wK.zoPN0UdYeOdd0WVI'
   - name: 'C: Wrathful tsunami'
     type: action
@@ -334,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124678242
-      modifiedTime: 1708124813595
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JkhKv55xAnVeA4wK.vDi37yPTyBcBVlmw'
   - name: '[Special trigger] C: Acid spew'
     type: action
@@ -398,13 +379,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124678379
-      modifiedTime: 1708124783211
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JkhKv55xAnVeA4wK.sqyBq9K881D5lS3y'
   - name: Scuttle forth
     type: trait
@@ -436,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124682332
-      modifiedTime: 1708124834887
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JkhKv55xAnVeA4wK.bHFwJPzTAXsdnJvt'
   - name: It’s been fun
     type: trait
@@ -473,13 +440,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708124682481
-      modifiedTime: 1708124854810
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!JkhKv55xAnVeA4wK.XXNuOxCMETjQfH7A'
 effects: []
 folder: null
@@ -490,12 +450,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708124661291
-  modifiedTime: 1708124854810
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!JkhKv55xAnVeA4wK'
 

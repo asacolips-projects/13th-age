@@ -86,6 +86,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: construct
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868335930
-      modifiedTime: 1707868360109
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A1SdiTmRo3fWYlto.z7zbF4ofsl0YdxTu'
   - name: '[Special trigger] Empowered slam'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868336252
-      modifiedTime: 1707868383439
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A1SdiTmRo3fWYlto.a91km5kyqhoEs1Ah'
   - name: Limited golem immunity
     type: trait
@@ -305,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868337153
-      modifiedTime: 1707868396694
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A1SdiTmRo3fWYlto.kkDE3XKX9XaQfaqT'
   - name: Protect the master
     type: trait
@@ -341,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868337415
-      modifiedTime: 1707868409289
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A1SdiTmRo3fWYlto.tdi2NWAlskgX6GRI'
   - name: Spellward
     type: trait
@@ -383,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868338099
-      modifiedTime: 1707868529536
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A1SdiTmRo3fWYlto.skNgzf4mseWHAnnC'
   - name: Hard to destroy
     type: nastierSpecial
@@ -415,13 +382,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707868339522
-      modifiedTime: 1707868458840
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!A1SdiTmRo3fWYlto.VaJtS3Q8Ze3LjPFu'
 effects: []
 folder: null
@@ -432,12 +392,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707868317326
-  modifiedTime: 1707868529536
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!A1SdiTmRo3fWYlto'
 

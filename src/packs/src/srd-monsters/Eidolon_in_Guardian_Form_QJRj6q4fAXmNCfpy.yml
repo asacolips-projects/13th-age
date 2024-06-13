@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021281022
-      modifiedTime: 1708021302779
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.XVVOfaUJGpZdbsxJ'
   - name: '[Once per battle] C: Divine proclamation'
     type: action
@@ -274,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021281441
-      modifiedTime: 1708021331007
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.TWunB0CiPxaKg20v'
   - name: '[Once per battle] R: Word of judgement'
     type: action
@@ -338,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021281964
-      modifiedTime: 1708021350583
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.147mu5CWjvGJwa1P'
   - name: Flight
     type: trait
@@ -372,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021283676
-      modifiedTime: 1708021359208
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.ZVtbE8QHbl8GLvfD'
   - name: Chosen ones
     type: trait
@@ -409,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021283823
-      modifiedTime: 1708021373456
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.T9ZLOjYV2vo6mo6M'
   - name: Mission from the gods
     type: nastierSpecial
@@ -443,13 +408,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021285376
-      modifiedTime: 1708021381355
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.PAAiEU8qOesYMZRN'
   - name: Undying
     type: trait
@@ -486,13 +444,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020710313
-      modifiedTime: 1708021388011
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.Qlddq7YCa2Ms8l3q'
   - name: Split reality
     type: nastierSpecial
@@ -530,13 +481,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712330
-      modifiedTime: 1708021390987
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.YLFI485QcFnozcNS'
   - name: Warp time
     type: nastierSpecial
@@ -569,13 +513,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712581
-      modifiedTime: 1708021391988
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.12mdy75MCpynbdPW'
   - name: Reshuffle space
     type: nastierSpecial
@@ -608,13 +545,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712713
-      modifiedTime: 1708021393004
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!QJRj6q4fAXmNCfpy.WZre6GKGwKwwMs9T'
 effects: []
 folder: null
@@ -625,12 +555,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708021263898
-  modifiedTime: 1708021393004
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!QJRj6q4fAXmNCfpy'
 

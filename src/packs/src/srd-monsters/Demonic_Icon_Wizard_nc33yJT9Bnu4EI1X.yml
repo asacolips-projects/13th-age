@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110638837
-      modifiedTime: 1708110653637
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.iruaTktWWm999O5x'
   - name: 'R: Accursed bolt'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110639812
-      modifiedTime: 1708110686282
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.Ate36zC3aInIjY9P'
   - name: '[Special trigger] Abyssal curse'
     type: action
@@ -337,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110640069
-      modifiedTime: 1708110703996
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.twcTNo5aCzOnrvWo'
   - name: 'R: Hellfireball'
     type: action
@@ -405,13 +386,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110640503
-      modifiedTime: 1708110731371
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.gH7Gv3gguT7RZBKQ'
   - name: 'C: Corrupting grasp'
     type: action
@@ -469,13 +443,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110640739
-      modifiedTime: 1708110749428
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.iMHoq7mljUiNtBI1'
   - name: The Demonic Icon’s knowledge
     type: trait
@@ -510,13 +477,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110645087
-      modifiedTime: 1708110769117
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.GxOYbxyC00UsukWR'
   - name: The Demonic Icon’s blessing
     type: trait
@@ -615,13 +575,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110645243
-      modifiedTime: 1708111086693
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.ikkK6kYHWN6mQ84w'
   - name: Ye called in Their name, and I came hither
     type: trait
@@ -661,13 +614,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110645380
-      modifiedTime: 1708110904346
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!nc33yJT9Bnu4EI1X.Ehx8HcJnPzgdl9yb'
 effects: []
 folder: null
@@ -678,12 +624,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708110622405
-  modifiedTime: 1708111086693
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!nc33yJT9Bnu4EI1X'
 

@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044812787
-      modifiedTime: 1708044826693
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.3UomeyQywXytfRUz'
   - name: Double-strength mook
     type: trait
@@ -236,13 +229,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044813435
-      modifiedTime: 1708044832945
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.P8pZBD9ZFPT1V7XS'
   - name: Frogspawn abilities
     type: trait
@@ -274,13 +260,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.TjQLDeO52fYaZ4hP
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043699239
-      modifiedTime: 1708044837153
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.i0kaSD5INkR6Oiyg'
   - name: Disgusting tongue
     type: trait
@@ -312,13 +291,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.q6D3Ml0NO5Kw5nLv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043701908
-      modifiedTime: 1708044838080
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.vETkg449fgBk6oVu'
   - name: Dunk and cover
     type: trait
@@ -352,13 +324,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.WLVqaKLXJqR6daoV
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702240
-      modifiedTime: 1708044838835
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.B5pOcpUEzx2nUYR3'
   - name: Erratic leap (move action)
     type: trait
@@ -391,13 +356,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.iRpogwvTnxm3Viw8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702693
-      modifiedTime: 1708044839532
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.yEKOrJj6zmjWV445'
   - name: Paranoid destroyer
     type: trait
@@ -433,13 +391,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.MakJV6Gb9TGBrkTW
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043703121
-      modifiedTime: 1708044840300
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!avR7Zo988kzFmvvQ.xUAD1TOBEr1fyrsx'
 effects: []
 folder: null
@@ -450,12 +401,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708044795937
-  modifiedTime: 1708044840300
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!avR7Zo988kzFmvvQ'
 

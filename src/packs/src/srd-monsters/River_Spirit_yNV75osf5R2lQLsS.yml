@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033145118
-      modifiedTime: 1708033169810
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.TOnmyMoaBiReN5xl'
   - name: 'R: Otherworldly aria'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033145250
-      modifiedTime: 1708033188086
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.iJEqt2GLShdAIRwj'
   - name: Fear Aura
     type: trait
@@ -305,13 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033146142
-      modifiedTime: 1708033227686
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.1zcI7q7SG10NVpFu'
   - name: Siren
     type: trait
@@ -339,13 +318,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033146310
-      modifiedTime: 1708033245163
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.BCzxKPgrBgyRSNYU'
   - name: Rusalka
     type: trait
@@ -375,13 +347,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033146449
-      modifiedTime: 1708033258216
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.GCzkTV8K3mnJNkKA'
   - name: Banshee
     type: trait
@@ -410,13 +375,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708033146590
-      modifiedTime: 1708033275179
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.dFWskiVUJ6yPuUnB'
   - name: Power of a name
     type: trait
@@ -447,13 +405,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.bGCMwbeU7CeMjInE.Item.K3BWgRJHz9NgFipv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032156998
-      modifiedTime: 1708033211504
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!yNV75osf5R2lQLsS.P4BETyPzhVBZcCBO'
 effects: []
 folder: null
@@ -464,12 +415,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708033121230
-  modifiedTime: 1708033275179
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!yNV75osf5R2lQLsS'
 
