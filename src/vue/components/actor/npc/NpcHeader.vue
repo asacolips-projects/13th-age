@@ -316,6 +316,7 @@
         align-items: flex-start;
         padding: 0;
         margin: 0;
+        flex-wrap: wrap;
       }
 
       li {
