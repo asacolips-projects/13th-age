@@ -341,8 +341,8 @@ class ArchmageUpdateHandler {
 
   __migrateNPCSplitSizeStrength(actor, updateData={}) {
     if (!actor || actor.type != "npc") return updateData;
-    const size = actor.system.details.size.value;
-    const strength = actor.system.details.strength.value;
+    const size = actor.system.details.size.value ?? '';
+    const strength = actor.system.details?.strength?.value ?? '';
     if (!Object.keys(CONFIG.ARCHMAGE.creatureStrengths).includes(strength)
       && Object.keys(CONFIG.ARCHMAGE.creatureSizes).includes(size)) {
       // We have a size but not a strength
