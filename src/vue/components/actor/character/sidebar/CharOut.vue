@@ -2,7 +2,9 @@
   <section class="section section--out flexcol" v-if="!actor.flags.archmage?.hideOneUniqueThing">
     <h2 class="unit-title">{{localize('ARCHMAGE.oneUniqueThing')}}</h2>
     <div class="out">
-      <Editor :owner="actor.owner" target='system.details.out.value' button="true" editable="true" :content="actor.system.details.out.value"/>
+      <Suspense>
+        <Editor :owner="actor.owner" target='system.details.out.value' button="true" editable="true" :content="actor.system.details.out.value"/>
+      </Suspense>
     </div>
   </section>
 </template>

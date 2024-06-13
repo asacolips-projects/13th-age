@@ -2,7 +2,7 @@
   <div class="editor-wrapper">
     <div class="editor">
       <a class="editor-edit" v-if="canEdit"><i class="fas fa-edit"></i></a>
-      <div class="editor-content" :data-edit="target" v-html="enrichHTML()"></div>
+      <div class="editor-content" :data-edit="target" v-html="editor"></div>
     </div>
   </div>
 </template>
@@ -11,28 +11,25 @@
 export default {
   name: 'Editor',
   props: ['owner', 'target', 'content', 'button', 'editable', 'documents', 'links', 'rolls', 'rollData'],
-  data() {
+  async setup(props) {
+    const button = Boolean(props.button);
+    const editable = Boolean(props.editable);
+    const canEdit = (button && editable);
+    const editor = await TextEditor.enrichHTML(props.content || '', {
+      secrets: props.owner,
+      documents: props.documents ?? true,
+      links: props.links ?? true,
+      rolls: props.rolls ?? true,
+      rollData: props.rollData ?? {},
+      async: false
+    });
     return {
-      canEdit: false
-    }
+      canEdit,
+      editor
+    };
   },
   computed: {},
-  methods: {
-    enrichHTML() {
-      const button = Boolean(this.button);
-      const editable = Boolean(this.editable);
-      this.canEdit = (button && editable);
-      const editor = TextEditor.enrichHTML(this.content || '', {
-        secrets: this.owner,
-        documents: this.documents ?? true,
-        links: this.links ?? true,
-        rolls: this.rolls ?? true,
-        rollData: this.rollData ?? {},
-        async: false
-      });
-      return editor;
-    }
-  }
+  methods: {},
 }
 </script>
 

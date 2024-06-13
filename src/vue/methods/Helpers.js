@@ -50,7 +50,7 @@ export function concat(...args) {
  *
  * @returns {string}
  */
-export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null) {
+export async function wrapRolls(text, replacements = [], diceFormulaMode = 'short', rollData = null, field = null) {
   // Unproxy the roll data object.
   rollData = rollData ? JSON.parse(JSON.stringify(rollData)) : {};
 
@@ -95,12 +95,12 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   ]);
 
   // Remove whitespace from inline rolls.
-  let clean = text.toString();  // cast to string, could be e.g. number
+  let clean = text ? text?.toString() ?? '' : '';  // cast to string, could be e.g. number
 
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
   if (diceFormulaMode == 'short') {
     // Remove additional whitespace.
-    text.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
+    clean.toString().replace(/(\[\[)([^\[]*)(\]\])/g, (match) => {
       clean = clean.replace(match, match.replaceAll(' ', ''));
     });
     // Iterate over all of our potential replacements and replace them if
@@ -113,7 +113,7 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   // roll. Ex: [[@wpn.m.dice+@dex+@lvl]]
   else if (diceFormulaMode == 'long') {
     // Run a regex over all inline rolls.
-    clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+    clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       return `<span class="expression">[${p2}]</span>`;
     });
   }
@@ -122,16 +122,16 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   // possible. Ex: 5d8+9
   else if (diceFormulaMode == 'numeric') {
     // Run a regex over all inline rolls.
-    clean = text.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
+    clean = clean.toString().replaceAll(/(\[\[)([^\[]*)(\]\])/g, (match, p1, p2, p3) => {
       // Get the roll formula. If this is an attack, append the attack mod.
       let rollFormula = field == 'attack' && p2.includes('d20') ? `${p2} + @atk.mod` : p2;
       // Create the roll and evaluate it.
       let roll = null;
       try {
         roll = new Roll(rollFormula, rollData);
-        // @todo this will need to be updated to work with async, but that's
-        // complicated in a regex.
-        roll.evaluate({async: false});
+        // @todo this sort of works in v12? It's aysnc, which should be problematic
+        // in this context.
+        roll.evaluate();
       } catch (error) {
         roll = null;
         if (rollFormula.startsWith('/')) {
@@ -152,7 +152,7 @@ export function wrapRolls(text, replacements = [], diceFormulaMode = 'short', ro
   }
 
   // Call TextEditor.enrichHTML to process remaining object links
-  clean = TextEditor.enrichHTML(clean, { async: false})
+  clean = await TextEditor.enrichHTML(clean, { async: false });
 
   // Return the revised text and convert markdown to HTML.
   return parseMarkdown(clean);
@@ -183,10 +183,10 @@ function termCondenser(terms) {
     return false;
   }
   // Create a new term from the total.
-  let t = new NumericTerm({number: r.total}).toJSON();
+  let t = new foundry.dice.terms.NumericTerm({number: r.total}).toJSON();
   t.evaluated = true;
   // Return the new NumericTerm instance.
-  return NumericTerm.fromJSON(JSON.stringify(t));
+  return foundry.dice.terms.NumericTerm.fromJSON(JSON.stringify(t));
 }
 
 /**
@@ -208,6 +208,9 @@ function rollCondenser(roll) {
 
   // Iterate over the original terms.
   originalTerms.forEach(term => {
+    // Force the terms to be considered evaluated.
+    term.evaluated = true;
+    term._evaluated = true;
     // Check to see what kind of term this is.
     switch (term.constructor.name) {
       // If this is a numeric term, push it to our temporary nestedTerms array.
@@ -252,9 +255,10 @@ function rollCondenser(roll) {
         // Make sure that there's an operator if we're appending a dice after
         // we previously appended a non-operator.
         if (newTerms.length > 0 && !newTerms[newTerms.length - 1]?.operator) {
-          operator = OperatorTerm.fromJSON(JSON.stringify({
+          operator = foundry.dice.terms.OperatorTerm.fromJSON(JSON.stringify({
             class: 'OperatorTerm',
             evaluated: true,
+            _evaluated: true,
             operator: '+'
           }));
           newTerms.push(operator);
@@ -276,6 +280,8 @@ function rollCondenser(roll) {
   // nestedTerms if there are any stragglers.
   if (nestedTerms.length > 0) {
     if (operator) {
+      operator.evaluated = true;
+      operator._evaluated = true;
       newTerms.push(operator);
     }
     condensedTerm = nestedTerms.length > 1 ? termCondenser(nestedTerms) : nestedTerms[0];

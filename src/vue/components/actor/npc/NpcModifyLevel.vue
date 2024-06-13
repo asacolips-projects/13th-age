@@ -85,7 +85,7 @@
 
         // Update the fields.
         for (let [key, value] of Object.entries(overrideData)) {
-          setProperty(previewActor, key, value);
+          foundry.utils.setProperty(previewActor, key, value);
         }
 
         return previewActor;

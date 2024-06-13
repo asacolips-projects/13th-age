@@ -17,7 +17,10 @@
         <span class="power-detail-value" v-html="power.system.description.value"></span>
       </div>
       <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
-        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong> <span class="power-detail-value" v-html="wrapRolls(power.system[field].value, [], diceFormulaMode, context.rollData, field)"></span>
+        <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong>
+        <Suspense>
+          <Enriched tag="span" class="power-detail-value" :text="power.system[field].value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData" :field="field"/>
+        </Suspense>
       </div>
     </section>
     <!-- Feats. -->
@@ -25,7 +28,9 @@
       <div v-for="(feat, index) in filterFeats(power.system.feats)" :key="index" :class="concat('power-feat ', (feat.isActive.value ? 'active' : ''))">
         <strong class="feat-detail-label">{{localize(concat('ARCHMAGE.CHAT.', feat.tier?.value))}}:</strong>
         <div class="flexrow">
-          <div class="power-detail-content" v-html="wrapRolls(feat.description.value, [], diceFormulaMode, context.rollData)"></div>
+          <Suspense>
+            <Enriched tag="div" class="power-detail-content" :text="feat.description.value" :replacements="[]" :diceFormulaMode="diceFormulaMode" :rollData="context.rollData"/>
+          </Suspense>
           <div class="feat-uses" v-if="feat.isActive.value">
             <a class="rollable" data-roll-type="feat" :data-roll-opt="power._id" :data-roll-opt2="index"></a>
             <span v-if="feat.quantity?.value !== null" class="feat-uses-rollable" :data-item-id="power._id" :data-item-featKey="index" :data-quantity="feat.quantity?.value">{{feat.quantity?.value}}</span>
@@ -37,15 +42,18 @@
 </template>
 
 <script>
-import { concat, localize, wrapRolls } from '@/methods/Helpers';
+import { concat, localize } from '@/methods/Helpers';
+import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'Power',
   props: ['power', 'actor', 'context'],
+  components: {
+    Enriched
+  },
   setup() {
     return {
       concat,
       localize,
-      wrapRolls
     }
   },
   data() {
@@ -105,7 +113,6 @@ export default {
       ];
 
       powerFields = powerFields.filter(p => this.power.system[p].value);
-
       return powerFields;
     }
   },
