@@ -49,15 +49,29 @@
         </select>
       </div>
     </section>
-    <!-- Disengage -->
-    <section class="unit unit--disengage" :data-tooltip="tooltip('pcEngagement')">
-      <h2 class="unit-title">{{localize('ARCHMAGE.SAVE.disengage')}}</h2>
-      <div class="resource flexcol">
-        <a class="rollable rollable--disengage disengage-value" data-roll-type="save" data-roll-opt="disengage">{{disengage.value}}+</a>
-        <div class="disengage-bonus flexrow">
-          <span class="disengage-label">{{localize('ARCHMAGE.bonus')}}</span>
-          <input type="number" name="system.attributes.disengageBonus" class="disengage-bonus" v-model="disengage.bonus">
-        </div>
+    <!-- Rerolls -->
+    <section v-if="actor.system.resources.spendable.rerolls?.enabled" class="unit unit--has-max unit--rerolls">
+      <h2 class="unit-title">
+        <a class="rollable rollable--reroll" data-roll-type="reroll" data-roll-opt="AC">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollAc')}}</a>
+      </h2>
+      <Progress name="rerollAc" :current="actor.system.resources.spendable.rerolls.AC.current" :max="actor.system.resources.spendable.rerolls.AC.max"/>
+      <div class="resource flexrow">
+        <!-- <input type="number" name="system.resources.spendable.rerolls.AC.current" class="resource-current" v-model="rerolls.AC.current"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.AC.current}}</div>
+        <span class="resource-separator">/</span>
+        <!-- <input type="number" name="system.resources.spendable.rerolls.AC.max" class="resource-max" v-model="rerolls.AC.max"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.AC.max}}</div>
+      </div>
+      <h2 class="unit-title">
+        <a class="rollable rollable--reroll" data-roll-type="reroll" data-roll-opt="save">{{localize('ARCHMAGE.CHARACTER.RESOURCES.rerollSave')}}</a>
+      </h2>
+      <Progress name="rerollSave" :current="actor.system.resources.spendable.rerolls.save.current" :max="actor.system.resources.spendable.rerolls.save.max"/>
+      <div class="resource flexrow">
+        <!-- <input type="number" name="system.resources.spendable.rerolls.save.current" class="resource-current" v-model="rerolls.save.current"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.save.current}}</div>
+        <span class="resource-separator">/</span>
+        <!-- <input type="number" name="system.resources.spendable.rerolls.save.max" class="resource-max" v-model="rerolls.save.max"> -->
+        <div class="resource-current">{{actor.system.resources.spendable.rerolls.save.max}}</div>
       </div>
     </section>
     <!-- Rests -->
@@ -107,9 +121,15 @@ export default {
         value: 0,
         max: 0
       },
-      disengage: {
-        value: 11,
-        bonus: 0
+      rerolls: {
+        AC: {
+          value: 0,
+          max: 0
+        },
+        save: {
+          value: 0,
+          max: 0
+        }
       },
       rhythm: 'none'
     }
@@ -130,6 +150,7 @@ export default {
       let count = 0;
       if (this.actor.system.resources.perCombat.commandPoints.enabled) count++;
       if (this.actor.system.resources.spendable.ki.enabled) count++;
+      if (this.actor.system.resources.spendable.rerolls.enabled) count++;
       if (this.actor.system.resources.perCombat.focus.enabled) count++;
       if (this.actor.system.resources.perCombat.momentum.enabled) count++;
       if ( game.settings.get('archmage', 'secondEdition') ) {
@@ -148,13 +169,10 @@ export default {
       this.momentum = this.actor.system.resources.perCombat.momentum.current;
       this.focus = this.actor.system.resources.perCombat.focus.current;
       this.ki = this.actor.system.resources.spendable.ki;
+      this.rerolls = this.actor.system.resources.spendable.rerolls;
       if ( game.settings.get('archmage', 'secondEdition') ) {
         this.rhythm = this.actor.system.resources.perCombat.rhythm.current;
       }
-      this.disengage = {
-        value: this.actor.system.attributes.disengage,
-        bonus: this.actor.system.attributes.disengageBonus
-      };
     }
   },
   watch: {

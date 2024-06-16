@@ -86,6 +86,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -207,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707845149377
-      modifiedTime: 1707845202306
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!CQnSjucE1EKptDnD.GHCEgEK78CZV6ZCo'
   - name: 'C: Sundering'
     type: action
@@ -275,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707845149777
-      modifiedTime: 1707845220951
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!CQnSjucE1EKptDnD.Ep9013kF6yTRukWb'
   - name: Flight
     type: trait
@@ -309,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707845150578
-      modifiedTime: 1707845231365
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!CQnSjucE1EKptDnD.wdkwHUskwuOXXVj9'
   - name: Ghostly
     type: trait
@@ -347,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707845150729
-      modifiedTime: 1707845249690
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!CQnSjucE1EKptDnD.rGsgjwdulXtu9WsP'
   - name: Destroyer
     type: trait
@@ -383,13 +357,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707845150840
-      modifiedTime: 1707845264749
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!CQnSjucE1EKptDnD.1QxUDkUWLeQzVTYM'
 effects: []
 folder: null
@@ -400,12 +367,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707845126628
-  modifiedTime: 1707845264749
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!CQnSjucE1EKptDnD'
 

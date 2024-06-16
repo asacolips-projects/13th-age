@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: large
+    strength:
+      value: double
     type:
       value: giant
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127393656
-      modifiedTime: 1708127408679
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.rXWTcWcVrTSRuaem'
   - name: Eat the dead
     type: trait
@@ -238,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127394643
-      modifiedTime: 1708127426259
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.68PCsQfdx0xranhS'
   - name: Strength from the dead
     type: nastierSpecial
@@ -273,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127395473
-      modifiedTime: 1708127439943
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.5wLGkbFVGTvAmd0X'
   - name: 'C: Evil eye'
     type: action
@@ -349,13 +330,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.uzvwbl0AuBWlujZE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127284397
-      modifiedTime: 1708127450436
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.iSF24eG1WPkLMwk7'
   - name: Fomorian Mutation Nastier Specials
     type: nastierSpecial
@@ -435,13 +409,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.RPSHPuDxI8xAbkrx
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127111533
-      modifiedTime: 1708127452028
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.hOt22ErlQxSOJZHC'
   - name: Extra arm
     type: nastierSpecial
@@ -472,13 +439,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.7gNbOjGT0ObwY5io
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127208645
-      modifiedTime: 1708127453318
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.YjQGD5yWA9UUXBgF'
   - name: Extra eyes
     type: nastierSpecial
@@ -511,13 +471,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.eaGDoO0uXwXEMCi4
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127247899
-      modifiedTime: 1708127454202
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.JQsWwdsIES4fBJG4'
   - name: Fair is foul
     type: nastierSpecial
@@ -548,13 +501,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.dVpx0j28FHVjSHyS
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127248044
-      modifiedTime: 1708127455123
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.10SdbVfzwe1uET0n'
   - name: Thick skin
     type: nastierSpecial
@@ -583,13 +529,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.0yLDKkZjdbi5lirC
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127248363
-      modifiedTime: 1708127456456
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!93lxGAhiJJswYgpt.WRHNvsASSxldAHaz'
 effects: []
 folder: null
@@ -600,12 +539,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708127379595
-  modifiedTime: 1708127456456
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!93lxGAhiJJswYgpt'
 

@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110333750
-      modifiedTime: 1708110348858
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gzw6jDEdq9yC20rb.xUter262UGcB2mEr'
   - name: 'C: Liturgy of the Abyss'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110333909
-      modifiedTime: 1708110392616
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gzw6jDEdq9yC20rb.mBG4B6dPEq4zHgfn'
   - name: 'R: Kill the soul'
     type: action
@@ -339,13 +327,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110334041
-      modifiedTime: 1708110414608
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gzw6jDEdq9yC20rb.VP1ArjCOojqaLnvP'
   - name: The Demonic Icon’s mercy
     type: trait
@@ -383,13 +364,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110336078
-      modifiedTime: 1708110451988
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gzw6jDEdq9yC20rb.dFrDdhpdCHuE5y8x'
   - name: Ye called in Their name, and I came hither
     type: trait
@@ -428,13 +402,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708110336227
-      modifiedTime: 1708110513818
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!gzw6jDEdq9yC20rb.3uSoXIJnFQnSfils'
 effects: []
 folder: null
@@ -445,12 +412,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708110313902
-  modifiedTime: 1708110513818
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!gzw6jDEdq9yC20rb'
 

@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045358368
-      modifiedTime: 1708045384392
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.XgSDn6fMp9ExhBRi'
   - name: 'C: Pseudopod grasp'
     type: action
@@ -268,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045358649
-      modifiedTime: 1708045401043
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.7f097weVaXq42Tv7'
   - name: Absorb
     type: action
@@ -336,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045359050
-      modifiedTime: 1708045424612
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.t5MO8N9IL4Z94fJP'
   - name: 'C: Gibbering insanity'
     type: action
@@ -402,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045359432
-      modifiedTime: 1708045449259
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.7bhTTctjSbI1HFTF'
   - name: Insane terrain
     type: nastierSpecial
@@ -438,13 +412,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045360464
-      modifiedTime: 1708045470001
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.WJmggCCKVe6V43pr'
   - name: Stone to flesh
     type: nastierSpecial
@@ -474,13 +441,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045360616
-      modifiedTime: 1708045485693
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.NJgGIlE6EQiClF1J'
   - name: Eyes everywhere
     type: trait
@@ -506,13 +466,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045516437
-      modifiedTime: 1708045523509
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.Bs6KWdjhVvo3QnHs'
   - name: Flows where it likes
     type: trait
@@ -538,13 +491,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045516570
-      modifiedTime: 1708045530526
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.iNhGjuHDREjvvYPx'
   - name: Ooze
     type: trait
@@ -573,13 +519,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708045516703
-      modifiedTime: 1708045538847
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!LNGqlxsM3pzmRh8m.GJcX8w4n8gdrOIXm'
 effects: []
 folder: null
@@ -590,12 +529,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708045337038
-  modifiedTime: 1708045538847
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!LNGqlxsM3pzmRh8m'
 

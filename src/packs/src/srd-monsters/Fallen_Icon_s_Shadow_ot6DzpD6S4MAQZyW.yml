@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: large
+    strength:
+      value: double
     type:
       value: undead
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708107114444
-      modifiedTime: 1708107152585
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ot6DzpD6S4MAQZyW.aurfSVoDLfEZVylj'
   - name: 'R: Fanged shadows'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708107114598
-      modifiedTime: 1708107174746
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ot6DzpD6S4MAQZyW.W3zOvnvP6uYgCS32'
   - name: Empowered by death
     type: trait
@@ -306,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708107115393
-      modifiedTime: 1708107183167
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ot6DzpD6S4MAQZyW.aEgqSp9S9DHrwgF2'
   - name: Open maw
     type: trait
@@ -344,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708107115510
-      modifiedTime: 1708107197558
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ot6DzpD6S4MAQZyW.n8g6jyjuwnqwxUGk'
   - name: Fear aura
     type: nastierSpecial
@@ -379,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708107116098
-      modifiedTime: 1708107210406
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ot6DzpD6S4MAQZyW.W7k2g5s0kpp1AWoT'
 effects: []
 folder: null
@@ -396,12 +363,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708107095631
-  modifiedTime: 1708107210406
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ot6DzpD6S4MAQZyW'
 

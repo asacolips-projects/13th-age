@@ -401,6 +401,14 @@ Actor:
           max: 0
           enabled: false
           rest: "none"
+        rerolls:
+          enabled: false
+          AC:
+            current: 0
+            max: 0
+          save:
+            current: 0
+            max: 0
     incrementals:
       abilityScoreBonus: false
       extraMagicItem: false
@@ -431,7 +439,9 @@ Actor:
       role:
         value: ''
       size:
-        value: Normal
+        value: ''
+      strength:
+        value: ''
       type:
         value: ''
       resistance:
@@ -629,6 +639,10 @@ Item:
       type: String
       label: 10th Level Spell
       value: ''
+    spellLevel11:
+      type: String
+      label: 11th Level Spell
+      value: ''
     spellChain:
       type: String
       label: Chain Spell
@@ -752,4 +766,23 @@ Item:
         threshold: 0
       disengage:
         bonus: 0
+      rerollAc:
+        bonus: 0
+        current: 0
+      rerollSave:
+        bonus: 0
+        current: 0
+      str:
+        bonus: 0
+      dex:
+        bonus: 0
+      con:
+        bonus: 0
+      int:
+        bonus: 0
+      wis:
+        bonus: 0
+      cha:
+        bonus: 0
+    icons: ''
     isActive: true

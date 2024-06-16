@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948030576
-      modifiedTime: 1707948057294
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.4U1MtUhPhQudYa1Z'
   - name: 'C: Ten-foot collapsing staff'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948030776
-      modifiedTime: 1707948080233
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.F1nL2RkPf5NF1Exb'
   - name: 'C: Ten-foot collapsing staff (2 targets)'
     type: action
@@ -336,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948031162
-      modifiedTime: 1707948128161
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.m0yzDRZnJLSrmN8F'
   - name: Shadowy step
     type: trait
@@ -372,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948035393
-      modifiedTime: 1707948180069
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.Z8hMUtsKpMutYVwN'
   - name: Shadow pounce
     type: trait
@@ -408,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948035546
-      modifiedTime: 1707948193918
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.v1MTmp5gS5VkIOS2'
   - name: Shapechange
     type: trait
@@ -443,13 +408,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948035717
-      modifiedTime: 1707948203208
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.kr7PX0vvBYyCYTk2'
   - name: Allies
     type: nastierSpecial
@@ -479,13 +437,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948036464
-      modifiedTime: 1707948216117
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.fKZA1H5GH2EzhR83'
   - name: 'R: Mesmerizing magic'
     type: action
@@ -547,13 +498,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707948090178
-      modifiedTime: 1707948161358
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.COEZImHj4GpwD0pk'
   - name: Lockheart
     type: nastierSpecial
@@ -596,13 +540,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.wXl59oIutrrYcWP5
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707946990978
-      modifiedTime: 1707948221389
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.dEZYRu0OMx93nlQm'
   - name: Backwards palms
     type: nastierSpecial
@@ -639,13 +576,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.x0IdF9y8BmFQyLo6.Item.ZmPEgSOjUDCmo9l7
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707947412323
-      modifiedTime: 1707948223267
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!PO6VP1u7wJ0YmOFH.BupEkUE6bXvuo8Gq'
 effects: []
 folder: null
@@ -656,12 +586,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707948009326
-  modifiedTime: 1707948223267
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!PO6VP1u7wJ0YmOFH'
 

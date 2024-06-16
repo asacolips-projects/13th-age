@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: large
+    strength:
+      value: double
     type:
       value: elemental
     resistance:
@@ -208,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950529942
-      modifiedTime: 1707950624376
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.43SXZlXcMbBz3Nga'
   - name: >-
       [Usually special trigger, but also possible as a standard action] C:
@@ -278,13 +273,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950530081
-      modifiedTime: 1707950648735
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.6KA1Z1kU9XN1NMrG'
   - name: Ignition
     type: action
@@ -344,13 +332,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950530210
-      modifiedTime: 1707950673130
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.HIdvtC8YEyFhE9Xb'
   - name: Flight
     type: trait
@@ -378,13 +359,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950533296
-      modifiedTime: 1707950882410
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.2kVQTuBDv8LQSfQG'
   - name: Flaming wings
     type: trait
@@ -412,13 +386,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950533560
-      modifiedTime: 1707950894153
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.GwtxFdk40puvzwqH'
   - name: Resist fire 16+
     type: trait
@@ -446,13 +413,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950533766
-      modifiedTime: 1707950904102
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.5XvFLjVHpmmtuPTw'
   - name: Spectacular effects
     type: trait
@@ -481,13 +441,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950534512
-      modifiedTime: 1707950916191
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.gzLKQkluZYJbGGVn'
   - name: Reborn in fire
     type: trait
@@ -543,13 +496,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0Hx6lHDEY2v4H0vf.Item.oeyzDa97nafRmcSm
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950041925
-      modifiedTime: 1707951105514
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.99SpZWDSWQI9Cc6v'
   - name: Conflagration of rebirth
     type: action
@@ -610,13 +556,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0Hx6lHDEY2v4H0vf.Item.SpNVY4uMqHcPX9PX
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707950038494
-      modifiedTime: 1707950955876
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ECHt0HNq1krplJBu.7zjmAdegrLmgTUqF'
 effects: []
 folder: null
@@ -627,12 +566,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707950498446
-  modifiedTime: 1707951105514
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ECHt0HNq1krplJBu'
 

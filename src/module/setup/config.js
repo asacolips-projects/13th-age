@@ -45,6 +45,18 @@ ARCHMAGE.statusEffects = [
       }
     }
   },
+  // Charmed.
+  {
+    id: "charmed",
+    name: "ARCHMAGE.EFFECT.StatusCharmed",
+    icon: "icons/svg/heal.svg",
+    journal: "21cEqzk92tflpW7P",
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
   // Confused.
   {
     id: "confused",
@@ -82,6 +94,30 @@ ARCHMAGE.statusEffects = [
     name: "ARCHMAGE.EFFECT.StatusFear",
     icon: "icons/svg/terror.svg",
     journal: "gy68o7eat5p6bpgq",
+    changes: [
+      {
+        key: 'system.attributes.escalation.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+        value: '0'
+      },
+      {
+        key: 'system.attributes.attackMod.value',
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: '-4'
+      }
+    ],
+    flags: {
+      archmage: {
+        duration: "Unknown",
+      }
+    }
+  },
+  // Frenzied.
+  {
+    id: "frenzied",
+    name: "ARCHMAGE.EFFECT.StatusFrenzied",
+    icon: "icons/svg/pill.svg",
+    journal: "gy68o7eat5p6bpgr",
     changes: [
       {
         key: 'system.attributes.escalation.value',
@@ -383,41 +419,41 @@ ARCHMAGE.extendedStatusEffects = [
     }
   },
   // Asleep.
-  // {
-    // id: "blind", //asleep - renamed to play nice with v11 statuses
-    // name: "ARCHMAGE.EFFECT.StatusAsleep",
-    // icon: "icons/svg/sleep.svg",
-  // },
-  // Shining.
-  // {
-    // id: "shining",
-    // name: "ARCHMAGE.EFFECT.StatusShining",
-    // icon: "icons/svg/aura.svg"
-  // },
+  {
+    id: "sleep", //asleep - renamed to play nice with v11 statuses
+    name: "ARCHMAGE.EFFECT.StatusAsleep",
+    icon: "icons/svg/sleep.svg",
+  },
+  // Silenced.
+  {
+    id: "silenced",
+    name: "ARCHMAGE.EFFECT.StatusSilenced",
+    icon: "icons/svg/silenced.svg",
+  },
   // Holy Shield.
-  // {
-    // id: "holyshield",
-    // name: "ARCHMAGE.EFFECT.StatusHolyShield",
-    // icon: "icons/svg/holy-shield.svg"
-  // },
+  {
+    id: "holyshield",
+    name: "ARCHMAGE.EFFECT.StatusHolyShield",
+    icon: "icons/svg/holy-shield.svg"
+  },
   // Fire Shield.
-  // {
-    // id: "fireshield",
-    // name: "ARCHMAGE.EFFECT.StatusFireShield",
-    // icon: "icons/svg/fire-shield.svg"
-  // },
+  {
+    id: "fireshield",
+    name: "ARCHMAGE.EFFECT.StatusFireShield",
+    icon: "icons/svg/fire-shield.svg"
+  },
   // Ice Shield.
-  // {
-    // id: "iceshield",
-    // name: "ARCHMAGE.EFFECT.StatusIceShield",
-    // icon: "icons/svg/ice-shield.svg"
-  // },
+  {
+    id: "iceshield",
+    name: "ARCHMAGE.EFFECT.StatusIceShield",
+    icon: "icons/svg/ice-shield.svg"
+  },
   // Mage Shield.
-  // {
-    // id: "mageshield",
-    // name: "ARCHMAGE.EFFECT.StatusMageShield",
-    // icon: "icons/svg/mage-shield.svg"
-  // },
+  {
+    id: "mageshield",
+    name: "ARCHMAGE.EFFECT.StatusMageShield",
+    icon: "icons/svg/mage-shield.svg"
+  },
   // Buffed.
   // {
     // id: "buffed",
@@ -436,11 +472,13 @@ ARCHMAGE.featTiers = {
   'adventurer': 'Adventurer',
   'champion': 'Champion',
   'epic': 'Epic',
-  'iconic': 'Omega'
+  'iconic': 'Iconic'
 }
 
 ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+// ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20];
+// TODO: keep this handy for now until we know where the rules settle
+ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10];
 
 ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3];
 ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
@@ -539,10 +577,17 @@ ARCHMAGE.creatureSizes = {
   'normal': 'Normal',
   'large': 'Large',
   'huge': 'Huge',
+  'gargantuan': 'Gargantuan',
+  'small': 'Small',
+  'tiny': 'Tiny',
+};
+
+ARCHMAGE.creatureStrengths = {
+  'normal': 'Normal',
   'double': 'Double-strength',
   'triple': 'Triple-strength',
   'weakling': 'Weakling',
-  'elite': 'Elite'
+  'elite': 'Elite',
 };
 
 ARCHMAGE.creatureRoles = {
@@ -894,52 +939,24 @@ ARCHMAGE.classes = {
 ARCHMAGE.classes2e = {
   barbarian: {
     rec_die: 12,
-    rec_num: 7
+    hp: 8
   },
-  bard: {
-    // rec_die: 8,
-    // rec_num: 8
-  },
-  chaosmage: {
-  },
+  bard: {},
+  chaosmage: {},
   cleric: {
-    rec_die: 10,
-    rec_num: 7
+    ac_hvy_pen: -2,
   },
-  commander: {
-  },
-  druid: {
-  },
-  fighter: {
-    // rec_die: 10,
-    // rec_num: 8
-  },
-  monk: {
-  },
-  necromancer: {
-  },
-  occultist: {
-  },
-  paladin: {
-    rec_die: 12,
-    rec_num: 7
-  },
-  ranger: {
-    rec_die: 10,
-    rec_num: 7
-  },
-  rogue: {
-    rec_die: 6,
-    rec_num: 10
-  },
-  sorcerer: {
-    // rec_die: 6,
-    // rec_num: 8
-  },
-  wizard: {
-    rec_die: 4,
-    rec_num: 10
-  }
+  commander: {},
+  druid: {},
+  fighter: {},
+  monk: {},
+  necromancer: {},
+  occultist: {},
+  paladin: {},
+  ranger: {},
+  rogue: {},
+  sorcerer: {},
+  wizard: {}
 }
 
 ARCHMAGE.classResources = {
@@ -947,6 +964,13 @@ ARCHMAGE.classResources = {
   // Stored as an array of two-element arrays with label and reset
   'chaosmage': [["CM Daily Spells", "full"], ["CM Per-Battle Spells", "quick"]],
   'druid' : [["TC Daily Spells", "full"]]
+}
+
+ARCHMAGE.classResources2e = {
+  // List custom resources to configure for classes that use them - added if 2e enabled
+  // Stored as an array of two-element arrays with label and reset
+  'barbarian': [["Rage Points", "full"]],
+  'bard' : [["Combat Riffs", "quick"], ["Healing Magics", "quick"], ["Miss Me Effects", "quick"]]
 }
 
 ARCHMAGE.keyModifiers = {
@@ -1116,7 +1140,7 @@ ARCHMAGE.tokenHPColors = {
 FLAGS.characterFlags = {
   "initiativeAdv": {
     name: "Quick to Fight",
-    hint: "Human racial feat to roll 2d20 for initiative and keep the higher roll.",
+    hint: "Human kin power to roll 2d20 for initiative and keep the higher roll.",
     section: "Feats",
     type: Boolean
   },
@@ -1129,6 +1153,12 @@ FLAGS.characterFlags = {
   "toughness": {
     name: "Toughness",
     hint: "General feat to increase your max HP based on your base HP.",
+    section: "Feats",
+    type: Boolean
+  },
+  "grimDetermination": {
+    name: "Grim Determination",
+    hint: "Barbarian feature to get extra defences when you have one or more skulls.",
     section: "Feats",
     type: Boolean
   },

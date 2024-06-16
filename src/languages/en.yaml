@@ -70,6 +70,7 @@ ARCHMAGE:
   health: Health
   hit: Hit
   hitPoints: Hit Points
+  icon: Icon
   iconRelationships: Icon Relationships
   import: Import Powers
   importSubmit: Import
@@ -162,6 +163,7 @@ ARCHMAGE:
   spell: Spell
   spells: Spells
   standard: Standard Action
+  strength: Strength
   talent: Talent
   talents: Talents
   terrains: Terrains
@@ -210,7 +212,7 @@ ARCHMAGE:
     RoundUpDamageApplicationHint: When applying damage (or healing) via the right-click context menu, should it round up (true) or round down (false)? Default is true (round up). This will be applied the same way for both characters and NPCs.
     RoundUpDamageApplicationName: Round damage/healing up (true) or down (false)
     secondEditionHint: Turn this on to use the 13th Age second edition playtest rules, off if you'd prefer the regular rules.
-    secondEditionName: Use 2e Playtest Rules
+    secondEditionName: Use 2e Beta Playtest Rules
     ShowDebugLogsHint: Turn this on for bug reports
     ShowDebugLogsName: Show debug logs?
     showDefensesInChatHint: Enable this to display a list of targeted defenses in the attack line of chat power cards.
@@ -258,6 +260,10 @@ ARCHMAGE:
       momentum: Momentum
       recoveries: Recoveries
       recovery: Recovery
+      rerollAc: Reroll vs. AC
+      rerollAcDesc: Reroll an attack that targeted your AC
+      rerollSave: Reroll Save
+      rerollSaveDesc: Reroll a save
       rhythm: Combat Rhythm
     RHYTHMCHOICES:
       none: None
@@ -298,7 +304,7 @@ ARCHMAGE:
     StartOfEachTurn: Start of Each Turn
   INCREMENTALS:
     abilityScoreBonusHint: +1 to 3 abilities (3rd/6th/9th Level)
-    abilityScoreBonus2eHint: +1 to ability scores (3rd/6th/9th Level)
+    abilityScoreBonus2eHint: +1 to 3/4/5 ability scores (3rd/6th/9th Level)
     abilityScoreBonusName: Ability Score Bonus
     extraMagicItemHint: Carry an extra Magic Item without becoming overwhelmed by Quirks
     extraMagicItemName: Magic Item
@@ -419,27 +425,37 @@ ARCHMAGE:
     active: Active
     arcaneBonus: Arcane Spell / Arcane Attack Bonus
     attackBonuses: Attack Bonuses
+    chaBonus: Charisma checks bonus
     chakraSlot: Chakra Slot
-    damageType: Damage Type
-    defenseBonuses: Defense Bonuses
-    disengageBonus: Disengage Bonus
-    divineBonus: Divine Spell / Divine Attack Bonus
-    escalationBlockedHint: Denies usage of Escalation Die
-    critModBonus: Critical Hit Modifier Bonus
-    critModBonusHint: +1 means you would crit on 19+, etc.
+    conBonus: Constitution checks bonus
     critDefBonus: Critical Hit Defense Bonus
     critDefBonusHint: +1 means something that would crit you on 20 crits you on 19+, etc.
+    critModBonus: Critical Hit Modifier Bonus
+    critModBonusHint: +1 means you would crit on 19+, etc.
+    damageType: Damage Type
+    defenseBonuses: Defense Bonuses
+    dexBonus: Dexterity checks bonus
+    disengageBonus: Disengage Bonus
+    disengageInitBonus: Disengage and Initiative Bonus
+    divineBonus: Divine Spell / Divine Attack Bonus
+    escalationBlockedHint: Denies usage of Escalation Die
     group: Things with the same group will be grouped together
     hpBonus: HP Bonus
+    icons: Associated Icon(s)
+    intBonus: Intelligence checks bonus
     mdBonus: MD Bonus
     meleeBonus: Melee Attack Bonus
     ongoingDamage: Ongoing Damage
+    otherBonuses: Other Bonuses
     pdBonus: PD Bonus
     price: Price
     pricePlaceholder: 1,000gp
     quantity: Quantity
     rangedBonus: Ranged Attack Bonus
     recoveriesBonus: Recoveries Bonus
+    rerollAc: Force reroll attack vs. AC
+    rerollSave: Reroll Save
+    strBonus: Strength checks bonus
     toHitBonus: To-Hit Bonus
     saveBonus: Save Bonus
     saveBonusHPTreshold: Save Bonus HP Threshold
@@ -447,6 +463,7 @@ ARCHMAGE:
     usesMaxHint: Number of uses per battle/day, usually 1
     usesRemaining: Uses Remaining
     usesRemainingHint: Number of remaining uses, usually the same as Max Uses
+    wisBonus: Wisdom checks bonus
   CHAKRA:
     armor: Armor, robe, shirt, tunic
     armorBonus: "Default Bonus: Armor Class"
@@ -519,6 +536,7 @@ ARCHMAGE:
     DeleteConfirm: Are you sure you want to delete this?
     DeleteConfirmTitle: Confirm deletion
     desperateRecharge: Desperate Recharge
+    disengage: Disengage Check
     effect: Effect
     epic: Epic Feat
     even: even
@@ -530,15 +548,17 @@ ARCHMAGE:
     hit: Hit
     hitPlaceholder: "[[@wpn.m.dice+@str.dmg]] damage"
     hitTitle: Effects on successful hit, for example "[[@wpn.m.dice+@str.dmg]] damage"
-    hit1: Special Hit (1)
-    hit2: Special Hit (2)
-    hit3: Special Hit (3)
+    hit1: Special Roll (1)
+    hit2: Special Roll (2)
+    hit3: Special Roll (3)
+    hit4: Special Roll (4)
+    hit5: Special Roll (5)
     hitEven: Even Hit
     hitEvenTitle: Effects that happen on even hits
     hitOdd: Odd Hit
     hitOddTitle: Effects that happen on odd hits
     HP: HP
-    iconic: Omega Feat
+    iconic: Iconic Feat
     ItemReset: uses restored to
     KiReset: reset to
     embeddedMacro: Embedded Macro
@@ -620,6 +640,8 @@ ARCHMAGE:
     spellLevel9Placeholder: "[[9d6]] damage"
     spellLevel10: 10th Level Spell
     spellLevel10Placeholder: "[[10d6]] damage"
+    spellLevel11: 11th Level Spell
+    spellLevel11Placeholder: "[[11d6]] damage"
     spellLevelTrigger: Level Spell
     sustainedOrFinal: "Do you want to use the Final Verse instead of the Sustained Effect?"
     sustainedOrFinalTitle: "Use Final Verse"
@@ -693,6 +715,7 @@ ARCHMAGE:
     StatusBlessed: Blessed
     StatusBonusDefenses: Bonus Defenses
     StatusBuffed: Buffed
+    StatusCharmed: Charmed
     StatusConfused: Confused
     StatusCursed: Cursed
     StatusDazed: Dazed
@@ -700,6 +723,7 @@ ARCHMAGE:
     StatusDebuffed: Debuffed
     StatusEmpowered: Empowered
     StatusFear: Fear
+    StatusFrenzied: Frenzied
     StatusFireShield: Fire Shield
     StatusFlying: Flying
     StatusGrabbed: Grabbed
@@ -716,6 +740,7 @@ ARCHMAGE:
     StatusRegen: Regeneration
     StatusShining: Radiating Light
     StatusShocked: Shocked
+    StatusSilenced: Silenced
     StatusStaggered: Staggered
     StatusStuck: Stuck
     StatusStunned: Stunned
@@ -755,6 +780,7 @@ ARCHMAGE:
     '1_24_0': "13th Age 1.24.0: Updating PC initiative to remove the Improved Initiative flag."
     '1_25_0': "13th Age 1.25.0: Updating Powers cost field to new resources syntax."
     '1_26_0': "13th Age 1.26.0: Updating Powers feat structure."
+    '1_31_0': "13th Age 1.31.0: Updating NPC actors to separate Size and Strength."
   TOOLTIP:
     portrait: Portrait image.<br>Click to edit (may need permissions).
     pcAbility: |

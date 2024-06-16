@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: large
+    strength:
+      value: double
     type:
       value: beast
     resistance:
@@ -207,13 +209,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700865354
-      modifiedTime: 1707700928501
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TuhJW48dDmZdJdi5.ghROi2xLYxNv266w'
   - name: '[Special trigger] Tearing claws'
     type: action
@@ -271,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700865790
-      modifiedTime: 1707700952978
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TuhJW48dDmZdJdi5.7gQDLMPcQzUbTPSc'
   - name: Surprise!
     type: nastierSpecial
@@ -306,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700868318
-      modifiedTime: 1707700975619
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!TuhJW48dDmZdJdi5.MZEHoKCW2nKZFRV8'
 effects: []
 folder: null
@@ -323,12 +304,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707700842595
-  modifiedTime: 1707700975619
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!TuhJW48dDmZdJdi5'
 

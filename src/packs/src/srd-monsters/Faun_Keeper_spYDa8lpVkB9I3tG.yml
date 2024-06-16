@@ -86,6 +86,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -177,13 +179,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.oK3jWzxv8YQoNyME.Item.TtwiXDnkKbmfOZND
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708026683293
-      modifiedTime: 1708027324968
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!spYDa8lpVkB9I3tG.sCX0emzuMFh12AHT'
   - name: Gnarled staff
     type: action
@@ -241,13 +236,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027341726
-      modifiedTime: 1708027358289
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!spYDa8lpVkB9I3tG.khLcc04DJy8AbszP'
   - name: 'C: Snare'
     type: action
@@ -305,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027341871
-      modifiedTime: 1708027375340
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!spYDa8lpVkB9I3tG.2WcKY52kDubAIP26'
   - name: Path of the Sword
     type: trait
@@ -339,13 +320,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027343961
-      modifiedTime: 1708027395870
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!spYDa8lpVkB9I3tG.oBhYZ6eUppwUSitA'
   - name: Path of Song
     type: trait
@@ -379,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027344123
-      modifiedTime: 1708027427468
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!spYDa8lpVkB9I3tG.Kmn1eNvQROGpoWSj'
   - name: Full destiny
     type: nastierSpecial
@@ -413,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708027346327
-      modifiedTime: 1708027468743
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!spYDa8lpVkB9I3tG.S5uRCmLHXnxOkSJ4'
 effects: []
 folder: null
@@ -430,12 +390,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708027321362
-  modifiedTime: 1708027468743
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!spYDa8lpVkB9I3tG'
 

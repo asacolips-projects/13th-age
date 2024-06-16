@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024205161
-      modifiedTime: 1708024232708
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vRFt14INIW98oq7w.onXGunr1mHTAmAHd'
   - name: Kicking claw
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024205315
-      modifiedTime: 1708024242066
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vRFt14INIW98oq7w.7AOO0JU1EpuBtUqO'
   - name: Burrower
     type: trait
@@ -305,13 +293,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024206980
-      modifiedTime: 1708024253114
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vRFt14INIW98oq7w.uX0cGGLbIm18rSVQ'
   - name: Persistent predator
     type: trait
@@ -340,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024207140
-      modifiedTime: 1708024261377
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vRFt14INIW98oq7w.rGZYUfegxK2tZtw9'
   - name: Little ball of rage
     type: nastierSpecial
@@ -374,13 +348,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024207845
-      modifiedTime: 1708024272437
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vRFt14INIW98oq7w.n2RNBSQP8vP6MOlK'
   - name: Thick hide
     type: nastierSpecial
@@ -406,13 +373,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024207992
-      modifiedTime: 1708024281545
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!vRFt14INIW98oq7w.1UhWcEbqAGAPA08q'
 effects: []
 folder: null
@@ -423,12 +383,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708024188145
-  modifiedTime: 1708024281545
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!vRFt14INIW98oq7w'
 

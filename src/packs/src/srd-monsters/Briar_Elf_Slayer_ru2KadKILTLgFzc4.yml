@@ -85,6 +85,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -205,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874572268
-      modifiedTime: 1688973947939
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.1mZmMIDaa4Yp14AV'
   - name: Counterstrike
     type: trait
@@ -240,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874573804
-      modifiedTime: 1688973965325
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.QiESpgLQ7WUsrIs3'
   - name: 'Choose one:'
     type: trait
@@ -271,13 +259,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874588472
-      modifiedTime: 1688973979842
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.94SusmDV6M5tpKXO'
   - name: Thorny carapace
     type: nastierSpecial
@@ -305,13 +286,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874596956
-      modifiedTime: 1688974189395
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.xRpAzzjuruYzGHug'
   - name: Fear Aura
     type: nastierSpecial
@@ -340,13 +314,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597558
-      modifiedTime: 1688974203291
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.8EMxGqQyHALSOSg8'
   - name: Dark Escalator
     type: nastierSpecial
@@ -375,13 +342,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597912
-      modifiedTime: 1688974217323
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.4XWng8pvkzI4tHWH'
   - name: '[Special Trigger] R: Bramble bow'
     type: action
@@ -439,13 +399,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874616281
-      modifiedTime: 1688974102298
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.0EzLqYE23l2nyP0a'
   - name: Humanoid
     type: trait
@@ -473,13 +426,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874617930
-      modifiedTime: 1688974112599
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.G3hiBmiknFc0hUZL'
   - name: Plant
     type: trait
@@ -509,13 +455,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874618286
-      modifiedTime: 1688974128835
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.iSCeSCPEgrBR5MsN'
   - name: Undead
     type: trait
@@ -544,13 +483,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874620567
-      modifiedTime: 1688974146155
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!ru2KadKILTLgFzc4.Eky9hI2mlBEeN9aU'
 effects: []
 folder: null
@@ -561,14 +493,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1687874520390
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: ru2KadKILTLgFzc4
-sort: 900000
 _key: '!actors!ru2KadKILTLgFzc4'
 

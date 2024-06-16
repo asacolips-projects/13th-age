@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605260505
-      modifiedTime: 1707605291701
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cdREcpckbGsRlDU7.F13ZdQAIBa9SRJCc'
   - name: 'R: Eerie radiance'
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605260868
-      modifiedTime: 1707605329019
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cdREcpckbGsRlDU7.gUN2MBPhVR6tDoHk'
   - name: 'C: Malediction'
     type: action
@@ -343,13 +329,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605261255
-      modifiedTime: 1707605348315
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cdREcpckbGsRlDU7.cdf7rzh1SGFymPPW'
   - name: Returned saints
     type: nastierSpecial
@@ -379,13 +358,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605262388
-      modifiedTime: 1707605365247
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cdREcpckbGsRlDU7.sl77CwBke1YDx6cQ'
   - name: Divine retribution
     type: nastierSpecial
@@ -415,13 +387,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605262550
-      modifiedTime: 1707605385834
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!cdREcpckbGsRlDU7.hin1AY6ksBImXGiE'
 effects: []
 folder: null
@@ -432,12 +397,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707605189560
-  modifiedTime: 1707605385834
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!cdREcpckbGsRlDU7'
 

@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: large
+    strength:
+      value: double
     type:
       value: giant
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127075366
-      modifiedTime: 1708127084241
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.YSBmQaB6HYPIghY5'
   - name: Resist mental attacks 16+
     type: trait
@@ -239,13 +234,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127076183
-      modifiedTime: 1708127092189
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.zHVyLDpGRPlA0qdM'
   - name: Too stupid to notice
     type: trait
@@ -274,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127076283
-      modifiedTime: 1708127103147
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.C7tudPJEObWASJoX'
   - name: 'C: Evil eye'
     type: action
@@ -350,13 +331,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.uzvwbl0AuBWlujZE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127284397
-      modifiedTime: 1708127341273
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.2luiEpf3OyidXARy'
   - name: Fomorian Mutation Nastier Specials
     type: nastierSpecial
@@ -436,13 +410,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.RPSHPuDxI8xAbkrx
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127111533
-      modifiedTime: 1708127344223
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.xakbUxRP99B9TbRi'
   - name: Extra arm
     type: nastierSpecial
@@ -473,13 +440,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.7gNbOjGT0ObwY5io
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127208645
-      modifiedTime: 1708127345586
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.BBTCNbhyaMdRfqld'
   - name: Extra eyes
     type: nastierSpecial
@@ -512,13 +472,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.eaGDoO0uXwXEMCi4
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127247899
-      modifiedTime: 1708127346526
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.83dusH80i0QxbQzk'
   - name: Fair is foul
     type: nastierSpecial
@@ -549,13 +502,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.dVpx0j28FHVjSHyS
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127248044
-      modifiedTime: 1708127347607
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.0RC3wbWwp7QUZBfr'
   - name: Thick skin
     type: nastierSpecial
@@ -584,13 +530,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.0GoJyZ7SkCOPcEr3.Item.0yLDKkZjdbi5lirC
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708127248363
-      modifiedTime: 1708127349024
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!S1qG5cq6aUA5ugif.kseCYL60EkzYIfqD'
 effects: []
 folder: null
@@ -601,12 +540,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708127057062
-  modifiedTime: 1708127349024
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!S1qG5cq6aUA5ugif'
 

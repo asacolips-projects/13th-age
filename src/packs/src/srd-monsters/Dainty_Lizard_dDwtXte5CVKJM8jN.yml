@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700154760
-      modifiedTime: 1707700171175
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dDwtXte5CVKJM8jN.aYwxYeXdhoSAY8nZ'
   - name: Soporific bite
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700154908
-      modifiedTime: 1707700237248
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dDwtXte5CVKJM8jN.KJfL4krAl0FlAeie'
   - name: Sweet dreams
     type: nastierSpecial
@@ -309,13 +297,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700158730
-      modifiedTime: 1707700203464
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!dDwtXte5CVKJM8jN.w6Swt6pkG7UKDLqq'
 effects: []
 folder: null
@@ -326,12 +307,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707700110862
-  modifiedTime: 1707700237248
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!dDwtXte5CVKJM8jN'
 

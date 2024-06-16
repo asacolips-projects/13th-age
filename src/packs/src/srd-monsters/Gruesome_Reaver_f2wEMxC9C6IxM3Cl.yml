@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941552782
-      modifiedTime: 1707941577308
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.HjcCJYSKaxpzKXdm'
   - name: Phasing
     type: trait
@@ -252,13 +245,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941553834
-      modifiedTime: 1707941616480
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.6H7bA8j6A4Gc5rZw'
   - name: Call upon death shades
     type: trait
@@ -288,13 +274,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941554346
-      modifiedTime: 1707941634740
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.8bVK7KJKcIoXI1Td'
   - name: Death aura
     type: trait
@@ -322,13 +301,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941554779
-      modifiedTime: 1707941646025
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.8uIuguCX034cGb8L'
   - name: Fear aura
     type: trait
@@ -356,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941555050
-      modifiedTime: 1707941661748
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.MBCSWuE00IXFJV3I'
   - name: Flight
     type: trait
@@ -390,13 +355,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941558135
-      modifiedTime: 1707941669468
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.kFdkLgggvrLwtrRr'
   - name: Marked by death
     type: trait
@@ -425,13 +383,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941558321
-      modifiedTime: 1707941679592
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.BywBqRFmA2MWAiTO'
   - name: Unholy backlash
     type: trait
@@ -459,13 +410,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941558490
-      modifiedTime: 1707941696003
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!f2wEMxC9C6IxM3Cl.HePt62WTWNucfwmJ'
 effects: []
 folder: null
@@ -476,12 +420,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707941527176
-  modifiedTime: 1707941696003
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!f2wEMxC9C6IxM3Cl'
 

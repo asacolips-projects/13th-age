@@ -86,6 +86,8 @@ system:
       value: leader
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: construct
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108594651
-      modifiedTime: 1708108619782
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.OuBN7mYD7903mF65'
   - name: Drop like a stone
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108595135
-      modifiedTime: 1708108652193
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.zr61WJcgm4jjv26J'
   - name: (Each hallowed gargoyle has one of the following attacks)
     type: action
@@ -339,13 +327,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108595694
-      modifiedTime: 1708108689523
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.4FR4OV4U7L8zr0qk'
   - name: 'C: Bizarrely beautiful chant'
     type: action
@@ -406,13 +387,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108595843
-      modifiedTime: 1708108728456
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.EX0jpgZBkEP5XjbT'
   - name: 'R: Magic missiles'
     type: action
@@ -470,13 +444,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108595995
-      modifiedTime: 1708108744822
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.zYMhK6E5zIZY1yLI'
   - name: 'C: Denunciation'
     type: action
@@ -536,13 +503,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108597269
-      modifiedTime: 1708108777100
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.BmoBqg21krbpO5XY'
   - name: Halo
     type: trait
@@ -572,13 +532,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108601451
-      modifiedTime: 1708108802530
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.92q9JRaCgwah0Hg6'
   - name: Flight
     type: trait
@@ -610,13 +563,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.lXtwFERHlKht6V5t
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108336963
-      modifiedTime: 1708108831323
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.ytb8qsfxgGb9WDcH'
   - name: Rocky hide
     type: trait
@@ -647,13 +593,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.dKgeCSYaDvZj9Nqf
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108337101
-      modifiedTime: 1708108839447
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.D2wZmfdFXs52eTWf'
   - name: Mirrored aggression
     type: nastierSpecial
@@ -686,13 +625,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.tLHf2HblAFUJNrWI
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108426722
-      modifiedTime: 1708108841703
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.WqGkOZuiQpKXDySw'
   - name: Statues, statues, everywhere
     type: nastierSpecial
@@ -728,13 +660,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.R6lhAiA1q9McUYhy.Item.kKLndh5ZO3uD0yxF
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708108427023
-      modifiedTime: 1708108842561
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UcT89YkGypZiqSts.b03AH5mHz0CeXyJE'
 effects: []
 folder: null
@@ -745,12 +670,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708108577404
-  modifiedTime: 1708108842561
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!UcT89YkGypZiqSts'
 

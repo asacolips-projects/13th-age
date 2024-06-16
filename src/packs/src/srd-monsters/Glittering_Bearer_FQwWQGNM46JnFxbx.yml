@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -174,13 +176,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092180141
-      modifiedTime: 1708092276272
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FQwWQGNM46JnFxbx.lBB5CzfWxe737tRd'
   - name: Ghostly
     type: trait
@@ -210,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092180484
-      modifiedTime: 1708092284324
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FQwWQGNM46JnFxbx.BguYafX3IhMnwHdY'
   - name: Lost opportunity
     type: trait
@@ -242,13 +230,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092180616
-      modifiedTime: 1708092291694
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FQwWQGNM46JnFxbx.SS2aYD3fL6ZKyLiB'
   - name: 'R: Lash the thief'
     type: action
@@ -308,13 +289,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092181216
-      modifiedTime: 1708092197455
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FQwWQGNM46JnFxbx.Zfa0Tci92ImvY0Y8'
   - name: 'C: Weight of wealth'
     type: action
@@ -372,13 +346,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092181360
-      modifiedTime: 1708092215428
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FQwWQGNM46JnFxbx.mqvrLWLSVHdPBEac'
   - name: 'R: The Icon’s due'
     type: action
@@ -442,13 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708092181503
-      modifiedTime: 1708092267307
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!FQwWQGNM46JnFxbx.bTmGon0mM03jSZyY'
 effects: []
 folder: null
@@ -459,12 +419,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708092157925
-  modifiedTime: 1708092291694
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!FQwWQGNM46JnFxbx'
 

@@ -86,6 +86,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032965152
-      modifiedTime: 1708032983270
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u8aj2nXg3k7GbUCj.kRcIUgvMEVQtHaHI'
   - name: 'R: Fairy lights'
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032965304
-      modifiedTime: 1708033007157
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u8aj2nXg3k7GbUCj.fIc7N2DBYJXesRds'
   - name: Giant-sized slap
     type: action
@@ -340,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032965460
-      modifiedTime: 1708033040235
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u8aj2nXg3k7GbUCj.nWbOzedvtlwrLF6B'
   - name: Hidden guardian
     type: trait
@@ -380,13 +361,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032966392
-      modifiedTime: 1708033058928
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u8aj2nXg3k7GbUCj.l2tbwyv9nUfTYuGc'
   - name: Embiggen
     type: trait
@@ -417,13 +391,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032966528
-      modifiedTime: 1708033076191
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!u8aj2nXg3k7GbUCj.AGMYvwVy0pH7JYq0'
 effects: []
 folder: null
@@ -434,12 +401,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708032947520
-  modifiedTime: 1708033076191
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!u8aj2nXg3k7GbUCj'
 

@@ -15,6 +15,12 @@
       <input type="text" name="compendiumBrowser.itemName" v-model="name" placeholder="Sword"/>
     </div>
 
+    <!-- Icons filter. -->
+    <!-- <div class="unit unit--input"> -->
+      <!-- <label class="unit-title" for="compendiumBrowser.itemIcons">{{ localize('ARCHMAGE.icon') }}</label> -->
+      <!-- <input type="text" name="compendiumBrowser.itemIcon" v-model="icon" placeholder="Archmage"/> -->
+    <!-- </div> -->
+
     <!-- Chakra filter. -->
     <div class="unit unit--input">
       <label class="unit-title" for="compendiumBrowser.chakra">{{ localize('ARCHMAGE.chakra') }}</label>

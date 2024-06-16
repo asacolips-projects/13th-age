@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864925387
-      modifiedTime: 1707864938965
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!o5IYCV6zW6agTveM.9lFXBuKaCPgm7SMu'
   - name: '[Group ability] C: Puppeteer tentacles'
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864925786
-      modifiedTime: 1707864976178
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!o5IYCV6zW6agTveM.OQMORVcpIgWALR20'
   - name: Swarm rush
     type: trait
@@ -307,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864926875
-      modifiedTime: 1707864997286
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!o5IYCV6zW6agTveM.EPV6zNeEOhWy2wzl'
   - name: Group ability
     type: trait
@@ -341,13 +322,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864927037
-      modifiedTime: 1707865007859
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!o5IYCV6zW6agTveM.yK077JGOAlIJw6Iy'
   - name: Corpse puppet
     type: nastierSpecial
@@ -379,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707864928237
-      modifiedTime: 1707865030719
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!o5IYCV6zW6agTveM.vFnrCRLi3w5LpWC4'
 effects: []
 folder: null
@@ -396,12 +363,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707864879392
-  modifiedTime: 1707865030719
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!o5IYCV6zW6agTveM'
 

@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865737871
-      modifiedTime: 1707865760506
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Hol1uogoRUWzyZGc.qm0KVP8PKiSop0Gi'
   - name: '[Group ability] C: Suffocating thoughts'
     type: action
@@ -277,13 +272,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865738037
-      modifiedTime: 1707865795209
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Hol1uogoRUWzyZGc.ULXlItrTLAJgGhoC'
   - name: Group ability
     type: trait
@@ -311,13 +299,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865740126
-      modifiedTime: 1707865810555
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Hol1uogoRUWzyZGc.JUCBeXSYT9MqzH7c'
   - name: Leap
     type: trait
@@ -345,13 +326,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865740254
-      modifiedTime: 1707865823029
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!Hol1uogoRUWzyZGc.9b0JAQVqiFHPAWzv'
 effects: []
 folder: null
@@ -362,12 +336,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707865715870
-  modifiedTime: 1707865823029
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!Hol1uogoRUWzyZGc'
 

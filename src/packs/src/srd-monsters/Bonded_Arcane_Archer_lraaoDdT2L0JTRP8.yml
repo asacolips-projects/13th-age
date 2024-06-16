@@ -206,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605041756
-      modifiedTime: 1707605066121
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lraaoDdT2L0JTRP8.rFkkPwvAfBWvzeOH'
   - name: 'R: Arrows of fate'
     type: action
@@ -273,13 +266,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605042024
-      modifiedTime: 1707605092096
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lraaoDdT2L0JTRP8.XvPD7c9G0kweAOXq'
   - name: '(NS) C: Overwatch shot'
     type: action
@@ -337,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605042295
-      modifiedTime: 1707605161770
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lraaoDdT2L0JTRP8.Gxujha3rqWFAqAwz'
   - name: Doesn’t provoke
     type: nastierSpecial
@@ -372,13 +351,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605044339
-      modifiedTime: 1707605107919
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lraaoDdT2L0JTRP8.5jlT7LmuBDJnAABi'
   - name: Overwatch
     type: nastierSpecial
@@ -409,13 +381,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707605044782
-      modifiedTime: 1707605139540
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lraaoDdT2L0JTRP8.uHWBWaiPCZJLxKvw'
 effects: []
 folder: null
@@ -426,12 +391,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707604921668
-  modifiedTime: 1707605161770
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!lraaoDdT2L0JTRP8'
 

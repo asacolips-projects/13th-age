@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: aberration
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113912586
-      modifiedTime: 1708113933196
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.62hwTCH0yUIqcBWb'
   - name: Aberrant attacks - only one (see below)
     type: action
@@ -273,13 +268,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.ONEm1HKMzU590qNA
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113153195
-      modifiedTime: 1708113954386
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.cySBzE7z5aqxXrQ1'
   - name: Biting mandibles
     type: action
@@ -344,13 +332,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.KEjdMw1kOd5BqPyC
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113153347
-      modifiedTime: 1708113955879
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.RXzljgsoCNbnfCTz'
   - name: Extra claw
     type: action
@@ -411,13 +392,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.ZOfpkNlEpkFcinsC
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113153513
-      modifiedTime: 1708113957037
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.1QTollkqLNE7hpV7'
   - name: Lashing tentacle
     type: action
@@ -481,13 +455,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.KgqSzRYkG1HdaC3g
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113154417
-      modifiedTime: 1708113958010
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.IehWGRYqop7F8bfr'
   - name: 'C: Antennae waveburst'
     type: action
@@ -550,13 +517,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.1Y8HzRGTa5JbWHwH
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113154585
-      modifiedTime: 1708113959058
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.mKNNAx0Dvfz0tPGo'
   - name: 'R: Shooting quills'
     type: action
@@ -619,13 +579,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.h74OxExuT0qBDSOG
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113154699
-      modifiedTime: 1708113960612
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.EBaNBBbXaTsp1LSY'
   - name: '[use only when triggered as an aberrant attack] Charging horn slam'
     type: action
@@ -689,13 +642,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.7kwCVfBktj8PvFkE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113733693
-      modifiedTime: 1708113963830
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.HtVymbGAAQoSDbPU'
   - name: Aberrant attacks
     type: trait
@@ -793,13 +739,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.oV0f8XbVmyt4vVO5
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113156297
-      modifiedTime: 1708113971099
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.Nn0O1KrxPg7R51KS'
   - name: Infected by hell
     type: trait
@@ -833,13 +772,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.UzT4u2wuM2x8jIJg
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113157531
-      modifiedTime: 1708113981024
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.hqTeIE7TdRIWn0nf'
   - name: Mutated form
     type: trait
@@ -944,13 +876,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.jrfzmttzSRRizG9e
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113157683
-      modifiedTime: 1708113982522
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.Lg8tcSFBTVJzeSD0'
   - name: Special movement
     type: nastierSpecial
@@ -983,13 +908,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.0KSb9Qw38BldTs7K
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113161003
-      modifiedTime: 1708113990679
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.PHVL9U6ZbPiMcar5'
   - name: Tough for its kind
     type: nastierSpecial
@@ -1018,13 +936,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.mTxF2ZS6kLNyOGsx.Item.tDCpNUQq5MKOFaN6
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708113363186
-      modifiedTime: 1708113991728
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!W6zauvHLbhf2JgWM.ovdPpFjyb7U48YZD'
 effects: []
 folder: null
@@ -1035,12 +946,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708113880117
-  modifiedTime: 1708113991728
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!W6zauvHLbhf2JgWM'
 

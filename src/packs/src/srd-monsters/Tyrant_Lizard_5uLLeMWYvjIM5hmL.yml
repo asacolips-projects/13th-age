@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: large
+    strength:
+      value: double
     type:
       value: beast
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707701037663
-      modifiedTime: 1707701053984
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5uLLeMWYvjIM5hmL.QegCrO14OLttRr7T'
   - name: 'C: Earsplitting roar'
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707701037806
-      modifiedTime: 1707701089222
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5uLLeMWYvjIM5hmL.OL6LgS9iz0R03uDO'
   - name: Terrifying bellow
     type: nastierSpecial
@@ -306,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707701038439
-      modifiedTime: 1707701111481
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5uLLeMWYvjIM5hmL.dGcIoimLETYSp052'
 effects: []
 folder: null
@@ -323,12 +304,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707700983794
-  modifiedTime: 1707701111481
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!5uLLeMWYvjIM5hmL'
 

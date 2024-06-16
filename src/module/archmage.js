@@ -207,10 +207,18 @@ Hooks.once('init', async function() {
     // Update tier multiplier Array
     CONFIG.ARCHMAGE.tierMultPerLevel = CONFIG.ARCHMAGE.tierMultPerLevel2e;
 
-    // Remove AE from vulnerable
+    // Remove AE from and update vulnerable
     let id = CONFIG.statusEffects.findIndex(e => e.id == "vulnerable");
     delete CONFIG.statusEffects[id].changes;
     CONFIG.statusEffects[id].journal = "uHqgXlfj0rkf0XRE";
+
+    // Update stunned
+    id = CONFIG.statusEffects.findIndex(e => e.id == "stunned");
+    CONFIG.statusEffects[id].journal = "2rxwthymp5rl1dqf";
+
+    // Update confused
+    id = CONFIG.statusEffects.findIndex(e => e.id == "confused");
+    CONFIG.statusEffects[id].journal = "21cEqzk92tflpW7O";
 
     // Remove 1e hampered from context menu status effects
     id = CONFIG.statusEffects.findIndex(e => e.id == "hampered");
@@ -222,15 +230,38 @@ Hooks.once('init', async function() {
         CONFIG.ARCHMAGE.classes[cl][k] = CONFIG.ARCHMAGE.classes2e[cl][k];
       }
     }
+
+    // Update daily -> arc
+    CONFIG.ARCHMAGE.powerUsages['daily'] = 'Arc';
+    CONFIG.ARCHMAGE.powerUsages['daily-desperate'] = 'Arc/Desperate';
+    CONFIG.ARCHMAGE.equipUsages['daily'] = 'Arc';
+    CONFIG.ARCHMAGE.equipUsages['daily-desperate'] = 'Arc/Desperate';
+    CONFIG.ARCHMAGE.featUsages['daily'] = 'Arc';
+
+    // Add additional classResources
+    CONFIG.ARCHMAGE.classResources = foundry.utils.mergeObject(
+      CONFIG.ARCHMAGE.classResources,
+      CONFIG.ARCHMAGE.classResources2e
+    );
   } else {
     // Remove Mental Phenomenon flag
     delete FLAGS.characterFlags.dexToInt;
+    // Remove Grim Determination flag
+    delete FLAGS.characterFlags.grimDetermination;
 
     // Remove 11th level feat tier
     delete CONFIG.ARCHMAGE.featTiers.iconic;
 
     // Remove 2e hindered from context menu status effects
     let id = CONFIG.statusEffects.findIndex(e => e.id == "hindered");
+    CONFIG.statusEffects.splice(id, 1);
+
+    // Remove 2e charmed from context menu status effects
+    id = CONFIG.statusEffects.findIndex(e => e.id == "charmed");
+    CONFIG.statusEffects.splice(id, 1);
+
+    // Remove 2e frenzied from context menu status effects
+    id = CONFIG.statusEffects.findIndex(e => e.id == "frenzied");
     CONFIG.statusEffects.splice(id, 1);
   }
 
@@ -1532,14 +1563,7 @@ Hooks.on('deleteCombat', (combat) => {
         // Perform the update.
         if (actor) {
           let updates = {};
-          updates['system.attributes.saves.deathFails.value'] = 0;
           updates['system.attributes.hp.temp'] = 0;
-          for (let k of Object.keys(actor.system.resources.perCombat)) {
-            if ( actor.system.resources.perCombat[k].default )
-              updates[`system.resources.perCombat.${k}.current`] = actor.system.resources.perCombat[k].default;
-            else
-              updates[`system.resources.perCombat.${k}.current`] = 0;
-          }
           await actor.update(updates);
           updatedActors[actor._id];
         }

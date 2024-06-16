@@ -186,13 +186,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941243335
-      modifiedTime: 1707941329059
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!orSumF0xupih1fHd.WsyLaOi8CfaB2pLL'
   - name: Call upon death shades
     type: trait
@@ -222,13 +215,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941244369
-      modifiedTime: 1707941341618
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!orSumF0xupih1fHd.A1Zpe3yWI4SRXbsh'
   - name: Fear aura
     type: trait
@@ -256,13 +242,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941244775
-      modifiedTime: 1707941360095
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!orSumF0xupih1fHd.qs9uRQx4bx5zvQ8H'
   - name: Flight
     type: trait
@@ -290,13 +269,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941244936
-      modifiedTime: 1707941371847
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!orSumF0xupih1fHd.HQiI7K086Ps5XPUH'
   - name: Reaping scythe
     type: action
@@ -356,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707941246037
-      modifiedTime: 1707941285430
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!orSumF0xupih1fHd.lEI3oMuaTkNB8B4G'
 effects: []
 folder: null
@@ -373,12 +338,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707941183823
-  modifiedTime: 1707941371847
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!orSumF0xupih1fHd'
 

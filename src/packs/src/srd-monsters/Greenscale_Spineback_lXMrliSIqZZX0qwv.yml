@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -208,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129987268
-      modifiedTime: 1708130020136
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.G2g7d8Kug7lQPeuL'
   - name: 'R: Spine barrage'
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129987549
-      modifiedTime: 1708130038591
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.csi4Q4UlkyzffT5J'
   - name: 'C: Poison cloud'
     type: action
@@ -336,13 +324,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129987865
-      modifiedTime: 1708130058300
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.78jGPPovixi1hD1q'
   - name: Hallucinogenic exhalation
     type: trait
@@ -372,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129989145
-      modifiedTime: 1708130078376
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.tI5bmiI111ndxXZp'
   - name: Resist poison 16+
     type: trait
@@ -406,13 +380,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129989282
-      modifiedTime: 1708130086180
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.FQwFiJkgrt0jb4qf'
   - name: Elf killer
     type: nastierSpecial
@@ -440,13 +407,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129989883
-      modifiedTime: 1708130093499
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.c5WL5PSaD4fgR4vG'
   - name: Tail whip
     type: nastierSpecial
@@ -474,13 +434,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129990019
-      modifiedTime: 1708130102787
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.QinMfq8cHin1AbPa'
   - name: Toxic skin
     type: nastierSpecial
@@ -510,13 +463,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708129992219
-      modifiedTime: 1708130117761
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.dpXxQ2CnWJFWm6uj'
   - name: Limited flight
     type: nastierSpecial
@@ -553,13 +499,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.7ekSmVD8a9NxPZBN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953113
-      modifiedTime: 1708130120486
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.NUi6oeaBx3kXxdaq'
   - name: Blood of the wyrm
     type: nastierSpecial
@@ -592,13 +531,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.xHfk5dLQXU5j9nf5.Item.0CnlTZCBlF984SNa
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708128953245
-      modifiedTime: 1708130121215
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!lXMrliSIqZZX0qwv.zAg9HbdrZqCIyT8M'
 effects: []
 folder: null
@@ -609,12 +541,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708129971295
-  modifiedTime: 1708130121215
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!lXMrliSIqZZX0qwv'
 

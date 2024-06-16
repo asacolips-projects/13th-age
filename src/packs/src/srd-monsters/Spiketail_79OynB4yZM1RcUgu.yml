@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: large
+    strength:
+      value: double
     type:
       value: beast
     resistance:
@@ -208,13 +210,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700375471
-      modifiedTime: 1707700459674
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!79OynB4yZM1RcUgu.jFcJ0Oe6ABiNvzMZ'
   - name: 'R: Rear and stomp!'
     type: action
@@ -272,13 +267,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700375617
-      modifiedTime: 1707700497086
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!79OynB4yZM1RcUgu.EuDQVgYLseIPhpbJ'
   - name: Whoooosh
     type: trait
@@ -306,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700376170
-      modifiedTime: 1707700514438
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!79OynB4yZM1RcUgu.1LKiEO2N6r0VSZHW'
 effects: []
 folder: null
@@ -323,12 +304,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707700355598
-  modifiedTime: 1707700514438
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!79OynB4yZM1RcUgu'
 

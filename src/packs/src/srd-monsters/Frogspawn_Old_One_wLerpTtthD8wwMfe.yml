@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044917208
-      modifiedTime: 1708044931930
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.vFcSBEzSeATfc7Lf'
   - name: 'C: Mental whip'
     type: action
@@ -270,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044917578
-      modifiedTime: 1708044960000
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.6ITe36ycRJNOtcXZ'
   - name: 'C: Mindblast'
     type: action
@@ -337,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044917973
-      modifiedTime: 1708044996332
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.pA9UFUEu31RdOm4D'
   - name: Levitating throne
     type: trait
@@ -374,13 +353,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044919201
-      modifiedTime: 1708045009180
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.xfyZ6yMhXjE0kM5u'
   - name: Hallucinogenic sweat
     type: nastierSpecial
@@ -410,13 +382,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708044920937
-      modifiedTime: 1708045022174
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.Yibztt8unw8Ua7PR'
   - name: Frogspawn abilities
     type: trait
@@ -448,13 +413,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.TjQLDeO52fYaZ4hP
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043699239
-      modifiedTime: 1708045024385
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.l8vt8psd8Z0V1dB4'
   - name: Disgusting tongue
     type: trait
@@ -486,13 +444,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.q6D3Ml0NO5Kw5nLv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043701908
-      modifiedTime: 1708045025403
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.KW3zWdUutYcEo3Bg'
   - name: Dunk and cover
     type: trait
@@ -526,13 +477,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.WLVqaKLXJqR6daoV
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702240
-      modifiedTime: 1708045026272
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.393lhjUsWlUDfalb'
   - name: Erratic leap (move action)
     type: trait
@@ -565,13 +509,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.iRpogwvTnxm3Viw8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043702693
-      modifiedTime: 1708045027056
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.bgAyeg4QFoZgJMKJ'
   - name: Paranoid destroyer
     type: trait
@@ -607,13 +544,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.KTsRo8aldE8eHwjk.Item.MakJV6Gb9TGBrkTW
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708043703121
-      modifiedTime: 1708045027904
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wLerpTtthD8wwMfe.dzmzyMjDhr69Infv'
 effects: []
 folder: null
@@ -624,12 +554,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708044900209
-  modifiedTime: 1708045027904
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!wLerpTtthD8wwMfe'
 

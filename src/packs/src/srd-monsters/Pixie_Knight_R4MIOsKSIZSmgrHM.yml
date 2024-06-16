@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032836490
-      modifiedTime: 1708032855129
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R4MIOsKSIZSmgrHM.jmzmo7GOZNJknAU9'
   - name: 'R: Fairy bow'
     type: action
@@ -268,13 +263,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032836639
-      modifiedTime: 1708032863794
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R4MIOsKSIZSmgrHM.yV2EyG1dIJYEenTB'
   - name: Fluttering
     type: trait
@@ -300,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032839639
-      modifiedTime: 1708032872607
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R4MIOsKSIZSmgrHM.ItX0WH2Hcy9nNeUO'
   - name: Dancing mote
     type: trait
@@ -334,13 +315,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708032839997
-      modifiedTime: 1708032878990
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!R4MIOsKSIZSmgrHM.7pA37Fio1e23nR3e'
 effects: []
 folder: null
@@ -351,12 +325,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708032811666
-  modifiedTime: 1708032878990
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!R4MIOsKSIZSmgrHM'
 

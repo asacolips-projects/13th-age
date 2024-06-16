@@ -85,6 +85,8 @@ system:
       value: troop
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: demon
     resistance:
@@ -203,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863243772
-      modifiedTime: 1687863285868
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!4DXoOYTwXyTkcn3w.rR3FyydYqp3BR6YI'
   - name: 'C: Bone splinters'
     type: action
@@ -267,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863243999
-      modifiedTime: 1687863325163
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!4DXoOYTwXyTkcn3w.3sYoHF0sOBR25cDS'
   - name: Freakish speed
     type: trait
@@ -302,13 +290,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863245225
-      modifiedTime: 1687863337613
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!4DXoOYTwXyTkcn3w.x6tUssAMPiK3dIil'
   - name: Resist magic 13+
     type: nastierSpecial
@@ -338,13 +319,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687863246175
-      modifiedTime: 1687863351328
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!4DXoOYTwXyTkcn3w.euiX29g7hhsyYld9'
 effects: []
 folder: null
@@ -355,14 +329,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1687863211074
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: 4DXoOYTwXyTkcn3w
-sort: 1200000
 _key: '!actors!4DXoOYTwXyTkcn3w'
 

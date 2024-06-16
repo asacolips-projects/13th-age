@@ -99,6 +99,8 @@ system:
       value: large
       type: String
       label: Size
+    strength:
+      value: double
     type:
       value: beast
       type: String
@@ -117,55 +119,6 @@ system:
       value: 5
       min: 0
       max: 12
-token:
-  flags: {}
-  name: Mantikumhar
-  displayName: 0
-  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
-  width: 2
-  height: 2
-  scale: 1
-  lockRotation: false
-  rotation: 0
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 0
-  lightAngle: 360
-  lightAlpha: 1
-  actorId: F5L9rK0jWgRdmpcv
-  actorLink: false
-  actorData: {}
-  disposition: -1
-  displayBars: 0
-  bar1:
-    attribute: null
-  bar2:
-    attribute: null
-  randomImg: false
-  mirrorX: false
-  mirrorY: false
-  alpha: 1
-  light:
-    alpha: 0.5
-    angle: 0
-    bright: 0
-    coloration: 1
-    dim: 0
-    gradual: true
-    luminosity: 0.5
-    saturation: 0
-    contrast: 0
-    shadows: 0
-    animation:
-      speed: 5
-      intensity: 5
-      reverse: false
-    darkness:
-      min: 0
-      max: 1
 items:
   - _id: nzZ4SiehND5u6KA0
     flags: {}
@@ -505,9 +458,64 @@ items:
 effects: []
 folder: null
 sort: 100001
-permission:
-  default: 0
 flags:
   archmage: {}
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Mantikumhar
+  displayName: 0
+  width: 2
+  height: 2
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: null
+  bar2:
+    attribute: null
+  randomImg: false
+  alpha: 1
+  light:
+    alpha: 1
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      speed: 5
+      intensity: 5
+      reverse: false
+      type: null
+    darkness:
+      min: 0
+      max: 1
+    attenuation: 0.5
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  detectionModes: []
 _key: '!actors!BnuMJkGA4D5Ozwm3'
 

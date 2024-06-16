@@ -219,7 +219,8 @@ export default {
       let bonuses = {};
       for (let [prop, value] of Object.entries(equipment.system.attributes)) {
         if (value.bonus) {
-          bonuses[prop] = value.bonus
+          if (prop == 'disengage' && game.settings.get("archmage", "secondEdition")) prop = 'disengage&initiative';
+          bonuses[prop] = value.bonus;
         }
         else if (prop == 'attack') {
           for (let [atkProp, atkValue] of Object.entries(value)) {

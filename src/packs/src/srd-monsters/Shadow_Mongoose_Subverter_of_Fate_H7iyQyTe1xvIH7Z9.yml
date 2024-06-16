@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: spirit
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931915158
-      modifiedTime: 1707931939320
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.5q2eXbVXMnrqObZF'
   - name: Subversion of fate
     type: action
@@ -279,13 +274,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931915459
-      modifiedTime: 1707931970870
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.wdytXae4xbkzbQJ5'
   - name: Shadow’s flight
     type: trait
@@ -313,13 +301,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931918257
-      modifiedTime: 1707931989107
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.fWpJS7tgvwDUjbi5'
   - name: Play dead
     type: trait
@@ -354,13 +335,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931918409
-      modifiedTime: 1707932006168
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.2RLrj0viZEnEUGuD'
   - name: Trader
     type: trait
@@ -391,13 +365,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931918563
-      modifiedTime: 1707932018540
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.zU3A6S7bzncAAHZx'
   - name: Shadow fate
     type: trait
@@ -427,13 +394,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931918694
-      modifiedTime: 1707932029715
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.MkUiTPZhVmii0kGv'
   - name: Drop the loot
     type: nastierSpecial
@@ -462,13 +422,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931919315
-      modifiedTime: 1707932039526
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.OO2KExDV01QqA96O'
   - name: Shadow dancer
     type: nastierSpecial
@@ -498,13 +451,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707931919442
-      modifiedTime: 1707932050827
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!H7iyQyTe1xvIH7Z9.jthX73tgb9MVbVAU'
 effects: []
 folder: null
@@ -515,12 +461,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707931892806
-  modifiedTime: 1707932050827
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!H7iyQyTe1xvIH7Z9'
 

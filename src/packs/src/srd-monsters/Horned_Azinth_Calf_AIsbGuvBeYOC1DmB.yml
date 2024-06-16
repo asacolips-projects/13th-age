@@ -207,13 +207,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114277320
-      modifiedTime: 1708114293019
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!AIsbGuvBeYOC1DmB.0TGbklaRPs5NJ3Rj'
   - name: Natural blurring
     type: trait
@@ -243,13 +236,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114278032
-      modifiedTime: 1708114312449
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!AIsbGuvBeYOC1DmB.QKRIs1jwfbjFS1Jy'
   - name: Protect the young
     type: nastierSpecial
@@ -278,13 +264,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708114278450
-      modifiedTime: 1708114320774
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!AIsbGuvBeYOC1DmB.FYVYp5Y57xXtTblg'
 effects: []
 folder: null
@@ -295,12 +274,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708114263483
-  modifiedTime: 1708114320774
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!AIsbGuvBeYOC1DmB'
 

@@ -86,6 +86,8 @@ system:
       value: mook
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708106284665
-      modifiedTime: 1708106299008
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!DernpQd2tn8IUEkO.L1i77fKLfcjFPeaE'
 effects: []
 folder: null
@@ -221,12 +216,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708106259531
-  modifiedTime: 1708106299008
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!DernpQd2tn8IUEkO'
 

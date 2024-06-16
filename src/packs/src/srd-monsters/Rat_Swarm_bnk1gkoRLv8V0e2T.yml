@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: beast
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024335021
-      modifiedTime: 1708024352448
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bnk1gkoRLv8V0e2T.koVr5mSnybt0QgTh'
   - name: Small and nimble
     type: trait
@@ -238,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024336005
-      modifiedTime: 1708024361263
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bnk1gkoRLv8V0e2T.y8SdDM0Vm1Xokqph'
   - name: Disease carrier
     type: nastierSpecial
@@ -272,13 +260,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024337306
-      modifiedTime: 1708024369957
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bnk1gkoRLv8V0e2T.KdBmcdgUa1tCkEpc'
   - name: Overwhelming distraction
     type: nastierSpecial
@@ -306,13 +287,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708024337467
-      modifiedTime: 1708024376906
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bnk1gkoRLv8V0e2T.1YRWCny6hMuZ9rBc'
 effects: []
 folder: null
@@ -323,12 +297,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708024318338
-  modifiedTime: 1708024376906
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!bnk1gkoRLv8V0e2T'
 

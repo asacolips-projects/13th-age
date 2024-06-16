@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105990403
-      modifiedTime: 1708106006539
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uY4thtjJ3KSZIRqr.s70cerJyEV8N1sNa'
   - name: 'R: Breath of the dead'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105990599
-      modifiedTime: 1708106074925
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uY4thtjJ3KSZIRqr.mVRWDPOR0YRuWrQc'
   - name: 'C: Those you left behind'
     type: action
@@ -337,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105991569
-      modifiedTime: 1708106062560
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uY4thtjJ3KSZIRqr.qcpmXyezQ86X91Eo'
   - name: Those you left behind
     type: nastierSpecial
@@ -371,13 +352,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708105992319
-      modifiedTime: 1708106092297
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!uY4thtjJ3KSZIRqr.Yni6M701sAJ0qk1q'
 effects: []
 folder: null
@@ -388,12 +362,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708105973800
-  modifiedTime: 1708106092297
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!uY4thtjJ3KSZIRqr'
 

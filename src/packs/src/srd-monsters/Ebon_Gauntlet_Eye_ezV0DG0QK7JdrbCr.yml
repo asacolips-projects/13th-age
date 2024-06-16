@@ -86,6 +86,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708017098476
-      modifiedTime: 1708017116012
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ezV0DG0QK7JdrbCr.yAZyucKpQb6SKgSY'
   - name: 'R: Mind spike'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708017098872
-      modifiedTime: 1708017136164
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ezV0DG0QK7JdrbCr.j5P9Zjoe5zvl0Z9r'
   - name: 'R: Echo of nightmares'
     type: action
@@ -341,13 +329,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708017099044
-      modifiedTime: 1708017207136
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ezV0DG0QK7JdrbCr.iASA9NLdzbiCKy8X'
   - name: Gray shift
     type: trait
@@ -375,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708017100423
-      modifiedTime: 1708017217764
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ezV0DG0QK7JdrbCr.nLRATuHnyIyQtHhg'
   - name: Echo fade
     type: trait
@@ -410,13 +384,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708017100541
-      modifiedTime: 1708017227829
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ezV0DG0QK7JdrbCr.xSJorOi1xnyxlEvN'
 effects: []
 folder: null
@@ -427,12 +394,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708017078040
-  modifiedTime: 1708017227829
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ezV0DG0QK7JdrbCr'
 

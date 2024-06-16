@@ -1,10 +1,18 @@
 _id: BUGhPpkGiTWVhrI5
 name: Squib Swarm
-permission:
-  default: 0
 type: npc
 system:
   attributes:
+    attackMod:
+      type: Number
+      value: 0
+    critMod:
+      atk:
+        type: Number
+        value: 0
+      def:
+        type: Number
+        value: 0
     ac:
       type: Number
       label: Armor Class
@@ -32,12 +40,7 @@ system:
       temp: 0
       tempmax: 0
       base: 10
-    recoveries:
-      type: Number
-      label: Recoveries
-      value: 8
-      max: 8
-      dice: d8
+      automatic: true
     init:
       type: Number
       label: Initiative Modifier
@@ -49,6 +52,33 @@ system:
       value: 0
       min: 0
       max: 12
+    disengage: 11
+    disengageBonus: 0
+    saves:
+      bonus: 0
+      disengageBonus: 0
+      deathFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+      lastGaspFails:
+        value: 0
+        max: 4
+        steps:
+          - false
+          - false
+          - false
+          - false
+    recoveries:
+      type: Number
+      label: Recoveries
+      value: 8
+      max: 8
+      dice: d8
     escalation:
       value: 6
   details:
@@ -58,26 +88,30 @@ system:
     biography:
       type: String
       label: Biography
+    flavor:
+      value: ''
     role:
+      value: mook
       type: String
       label: Role
-      value: mook
     size:
+      value: normal
       type: String
       label: Size
+    strength:
       value: normal
     type:
+      value: beast
       type: String
       label: Type
-      value: beast
     resistance:
+      value: ''
       type: String
       label: Resistance
-      value: ''
     vulnerability:
+      value: ''
       type: String
       label: Vulnerability
-      value: ''
     level:
       type: Number
       label: Level
@@ -88,32 +122,6 @@ sort: 100001
 flags:
   archmage: {}
 img: systems/archmage/assets/icons/tokens/monsters/beast.webp
-token:
-  flags: {}
-  name: Squib Swarm
-  displayName: 0
-  img: systems/archmage/assets/icons/tokens/monsters/beast.webp
-  width: 1
-  height: 1
-  scale: 1
-  lockRotation: false
-  rotation: 0
-  vision: false
-  dimSight: 0
-  brightSight: 0
-  dimLight: 0
-  brightLight: 0
-  sightAngle: 360
-  lightAngle: 360
-  lightAlpha: 1
-  actorId: XKl3fo3vQ8NbRU9X
-  actorLink: false
-  actorData: {}
-  disposition: -1
-  displayBars: 0
-  bar1: {}
-  bar2: {}
-  randomImg: false
 items:
   - _id: atbxsvJAO7C2iZ9h
     flags: {}
@@ -176,5 +184,63 @@ items:
     effects: []
     _key: '!actors.items!BUGhPpkGiTWVhrI5.6Dz0wIMwXsu1ZY0B'
 effects: []
+ownership:
+  default: 0
+prototypeToken:
+  flags: {}
+  name: Squib Swarm
+  displayName: 0
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  actorLink: false
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  randomImg: false
+  light:
+    dim: 0
+    bright: 0
+    angle: 360
+    alpha: 1
+    coloration: 1
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+  texture:
+    src: systems/archmage/assets/icons/tokens/monsters/beast.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+  sight:
+    angle: 360
+    enabled: false
+    range: 0
+    brightness: 1
+    visionMode: basic
+    attenuation: 0.1
+    saturation: 0
+    contrast: 0
+  appendNumber: false
+  prependAdjective: false
+  alpha: 1
+  detectionModes: []
+folder: null
 _key: '!actors!BUGhPpkGiTWVhrI5'
 

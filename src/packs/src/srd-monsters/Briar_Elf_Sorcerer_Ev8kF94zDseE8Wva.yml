@@ -85,6 +85,8 @@ system:
       value: caster
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -177,13 +179,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597558
-      modifiedTime: 1689149795361
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.Uyo4O6WT7pe8H2Z4'
   - name: Dark Escalator
     type: nastierSpecial
@@ -215,13 +210,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.4XWng8pvkzI4tHWH
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874597912
-      modifiedTime: 1689149814961
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.o5RouID4HVURbRrk'
   - name: Blood to sap
     type: action
@@ -281,13 +269,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149363985
-      modifiedTime: 1689149402346
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.A86AUBN9akAOKWVP'
   - name: 'C: Flesh to bark'
     type: action
@@ -347,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149364182
-      modifiedTime: 1689149607723
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.lXzMtOnMlbgE6IVJ'
   - name: 'R: Storm of thorns'
     type: action
@@ -411,13 +385,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149364612
-      modifiedTime: 1689149679906
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.fijlHlPGItWysk9A'
   - name: Forest-shape
     type: trait
@@ -448,13 +415,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1689149692148
-      modifiedTime: 1689149738173
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.qs2aW7Y19PJt6iaN'
   - name: 'Choose one:'
     type: trait
@@ -482,13 +442,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874588472
-      modifiedTime: 1689149716812
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.PfrhuG3q1rSH4ikI'
   - name: Humanoid
     type: trait
@@ -519,13 +472,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874617930
-      modifiedTime: 1689149750165
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.CqJjtdXZ4iQWv892'
   - name: Plant
     type: trait
@@ -557,13 +503,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874618286
-      modifiedTime: 1689149760469
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.QoCSYZYeMzOeUYtR'
   - name: Undead
     type: trait
@@ -597,13 +536,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.305'
-      createdTime: 1687874620567
-      modifiedTime: 1689149778798
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!Ev8kF94zDseE8Wva.iJc8ofaQYkdnxfbL'
 effects: []
 folder: null
@@ -614,14 +546,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1689149218872
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: Ev8kF94zDseE8Wva
-sort: 700000
 _key: '!actors!Ev8kF94zDseE8Wva'
 

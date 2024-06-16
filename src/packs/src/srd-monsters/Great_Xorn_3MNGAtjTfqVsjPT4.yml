@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606750191
-      modifiedTime: 1707606773634
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.U0Ca4ZsuyuBzsBad'
   - name: Bite
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606750336
-      modifiedTime: 1707606792683
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.Tz9bHxrC73kc3IyQ'
   - name: Eruption
     type: nastierSpecial
@@ -302,13 +288,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606753003
-      modifiedTime: 1707606824515
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.3q2OHGKuTumoRVzj'
   - name: Xorn ‘cleric’
     type: nastierSpecial
@@ -336,13 +315,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606753694
-      modifiedTime: 1707606839318
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.kxIKYitJoFY2s30b'
   - name: Xorn ‘fighter’
     type: nastierSpecial
@@ -368,13 +340,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606754179
-      modifiedTime: 1707606847952
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.eeT4mZT34b6amqyJ'
   - name: Xorn ‘rogue’
     type: nastierSpecial
@@ -402,13 +367,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606754646
-      modifiedTime: 1707606860364
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.8g8zMPhAI4bvWvNR'
   - name: Xorn ‘wizard’
     type: nastierSpecial
@@ -438,13 +396,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606754993
-      modifiedTime: 1707606878038
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.TWv9gQkrC4Q8ujmO'
   - name: Rock swimming
     type: trait
@@ -472,13 +423,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606890735
-      modifiedTime: 1707606916755
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.brE5KwOFN1xnzAJD'
   - name: 360 degree vision
     type: trait
@@ -506,13 +450,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606890904
-      modifiedTime: 1707606928624
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.AcErrai3rCH4VWIG'
   - name: Penetrating vision
     type: trait
@@ -540,13 +477,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606891055
-      modifiedTime: 1707606937846
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.R69y4t8kBoGW9XbT'
   - name: Resist cold and fire 16+
     type: trait
@@ -576,13 +506,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707606891186
-      modifiedTime: 1707606948658
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3MNGAtjTfqVsjPT4.6yScYv375aiAevtz'
 effects: []
 folder: null
@@ -593,12 +516,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707606662139
-  modifiedTime: 1707661361928
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!3MNGAtjTfqVsjPT4'
 

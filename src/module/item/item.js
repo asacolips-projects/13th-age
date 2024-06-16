@@ -41,12 +41,18 @@ export class ItemArchmage extends Item {
     let early_exit = await this._rollUsesCheck(itemUpdateData, usageMode);
     if (early_exit) return;
 
+    // Determine level item is used at
+    const tempOverrides = await this._rollTemporaryOverrides()
+
     // Make an ephemeral clone of the item which we can dirty during processing.
-    let itemToRender = this.clone({}, {"save": false, "keepId": true});
+    let itemToRender = this.clone(tempOverrides, {"save": false, "keepId": true});
 
     // Then check resources.
     early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
     if (early_exit) return;
+
+    // Handle special class triggers
+    await this._handleFighterCombatRhythm(itemToRender, actorUpdateData);
 
     // Check targets.
     let targets = await this._rollMultiTargets(itemToRender);
@@ -215,6 +221,17 @@ export class ItemArchmage extends Item {
       return !use;
     }
     return false;
+  }
+
+  async _rollTemporaryOverrides() {
+    if (event.altKey && this.system.powerLevel?.value != undefined) {
+      return {
+        // 'system.powerLevel.value': Math.min(10, this.system.powerLevel.value + 1);,
+        'system.powerLevel.value': this.system.powerLevel.value + 1,
+        'name': this.name + ' (+1)'
+      };
+    }
+    return {};
   }
 
   async _rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender, usageMode) {
@@ -406,12 +423,12 @@ export class ItemArchmage extends Item {
   async _rollMultiTargets(itemToRender) {
     // Replicate attack rolls as needed for attacks
     let numTargets = {targets: 1, rolls: []};
-    if (this.type == "power" || this.type == "action") {
-      let attackLine = ArchmageRolls.addAttackMod(this);
+    if (itemToRender.type == "power" || itemToRender.type == "action") {
+      let attackLine = ArchmageRolls.addAttackMod(itemToRender);
       itemToRender.system.attack.value = attackLine;
       if (game.settings.get("archmage", "multiTargetAttackRolls")){
-        numTargets = await ArchmageRolls.rollItemTargets(this);
-        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(this, attackLine, numTargets);
+        numTargets = await ArchmageRolls.rollItemTargets(itemToRender);
+        itemToRender.system.attack.value = ArchmageRolls.rollItemAdjustAttacks(itemToRender, attackLine, numTargets);
         if (numTargets.targetLine) itemToRender.system.target.value = numTargets.targetLine;
       }
     }
@@ -616,6 +633,24 @@ export class ItemArchmage extends Item {
     await itemToRender.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
   }
 
+  async _handleFighterCombatRhythm(itemToRender, actorUpdateData) {
+    if (itemToRender.type != "power") return;
+    if (!itemToRender.actor.system.resources.perCombat.rhythm.enabled) return;
+    if (!actorUpdateData["system.resources.perCombat.rhythm.current"]) return;
+
+    // If this power sets offense and we are in defense and vice-versa roll 2d20kh.
+    if (
+      (itemToRender.actor.system.resources.perCombat.rhythm.current == "defense"
+      && actorUpdateData["system.resources.perCombat.rhythm.current"] == "offense") ||
+      (itemToRender.actor.system.resources.perCombat.rhythm.current == "offense"
+      && actorUpdateData["system.resources.perCombat.rhythm.current"] == "defense")
+    ) {
+      // Replace "1d20" and "d20" in the attack line with "2d20kh"
+      const attackLine = itemToRender.system.attack.value;
+      itemToRender.system.attack.value = attackLine.replace("1d20", "d20").replace("d20", "2d20kh");
+    }
+  }
+
   async _handleSong(itemToRender, usageMode) {
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.sustainedEffect.value) return;
@@ -654,6 +689,9 @@ export class ItemArchmage extends Item {
   }
 
   async _handleBreathSpell(itemToRender){
+    // This is only relevant for 1e
+    if (game.settings.get("archmage", "secondEdition")) return;
+
     if (itemToRender.type != "power") return;
     if (!itemToRender.system.breathWeapon.value) return;
 
@@ -904,13 +942,14 @@ export class ItemArchmage extends Item {
       'spellLevel8',
       'spellLevel9',
       'spellLevel10',
+      'spellLevel11',
       'spellChain',
       'breathWeapon',
       'special',
     ];
 
     // Add spell level entries only if the current spell level is high enough
-    [2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(i => {
+    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(i => {
       if (Number(data.powerLevel.value) < i) {
         effectKeys = effectKeys.filter(x => x != `spellLevel${i}`)
       }

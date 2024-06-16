@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604535363
-      modifiedTime: 1707604676864
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!usqRkvKzNNXFlOuy.PSUQjEWGIF4I5DQR'
   - name: Cut to ribbons
     type: action
@@ -277,13 +270,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604535748
-      modifiedTime: 1707604729242
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!usqRkvKzNNXFlOuy.a7KVeGIRqy17UW1N'
   - name: Veiled
     type: nastierSpecial
@@ -295,9 +281,7 @@ items:
       description:
         type: String
         label: Description
-        value: >-
-          <p>Until the bonded is hit, it has a +4 bonus to
-          all defenses.</p>
+        value: <p>Until the bonded is hit, it has a +4 bonus to all defenses.</p>
       group:
         type: String
         label: Group
@@ -311,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604539363
-      modifiedTime: 1707604753197
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!usqRkvKzNNXFlOuy.XrOk3n0SGw79EXsx'
 effects: []
 folder: null
@@ -328,12 +305,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707604485147
-  modifiedTime: 1707604753197
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!usqRkvKzNNXFlOuy'
 

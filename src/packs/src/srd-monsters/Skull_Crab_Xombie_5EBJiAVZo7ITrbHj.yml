@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: aberration
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865097436
-      modifiedTime: 1707865109814
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5EBJiAVZo7ITrbHj.G8lzZMO10lB0wqF5'
   - name: Scrabbling tentacles
     type: action
@@ -274,13 +269,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865097566
-      modifiedTime: 1707865141475
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5EBJiAVZo7ITrbHj.gPHa9dUFaCKJgBGM'
   - name: Meat puppet
     type: trait
@@ -310,13 +298,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865098849
-      modifiedTime: 1707865159431
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5EBJiAVZo7ITrbHj.3onVDPr8dMdo0oXZ'
   - name: Sudden leap
     type: trait
@@ -344,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865098987
-      modifiedTime: 1707865177624
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5EBJiAVZo7ITrbHj.uwH8yI74eFWe4Egs'
   - name: New host
     type: nastierSpecial
@@ -381,13 +355,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707865099880
-      modifiedTime: 1707865191526
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5EBJiAVZo7ITrbHj.0swcXD3Zjp4RnLpv'
 effects: []
 folder: null
@@ -398,12 +365,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707865078509
-  modifiedTime: 1707865191526
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!5EBJiAVZo7ITrbHj'
 

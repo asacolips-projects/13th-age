@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021175178
-      modifiedTime: 1708021185438
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bRqy1o6Qnj2E9aWM.3SM2Tu9OWJNhSmG4'
   - name: Fading
     type: trait
@@ -242,13 +235,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708021175591
-      modifiedTime: 1708021201553
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bRqy1o6Qnj2E9aWM.ULOy7IxJIpWB6tU4'
   - name: Undying
     type: trait
@@ -285,13 +271,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.M6ZLFPLEGV48vWVg
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020710313
-      modifiedTime: 1708021205489
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bRqy1o6Qnj2E9aWM.B1JnbkCF0dg6WN9T'
   - name: Split reality
     type: nastierSpecial
@@ -329,13 +308,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.P7udVnaftd8VyYjW
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712330
-      modifiedTime: 1708021206254
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bRqy1o6Qnj2E9aWM.GEooGtBkQ8jNAPDg'
   - name: Warp time
     type: nastierSpecial
@@ -368,13 +340,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.nT6UIUO1wMDlyniG
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712581
-      modifiedTime: 1708021207061
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bRqy1o6Qnj2E9aWM.7dLeRtdYIMAcweci'
   - name: Reshuffle space
     type: nastierSpecial
@@ -407,13 +372,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.1tMFiDJtGsnGMPs9.Item.7owHV0Wz8NseRCce
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708020712713
-      modifiedTime: 1708021208343
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!bRqy1o6Qnj2E9aWM.P6qxXkbAfJxUrrqd'
 effects: []
 folder: null
@@ -424,12 +382,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708021156328
-  modifiedTime: 1708021208343
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!bRqy1o6Qnj2E9aWM'
 

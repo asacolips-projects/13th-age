@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955244443
-      modifiedTime: 1707955256773
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.mAoBXFQkWUB1Ntbk'
   - name: 'R: Spiked acorn'
     type: action
@@ -268,13 +261,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955244631
-      modifiedTime: 1707955269092
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.yX5McqvtdoOyvbEK'
   - name: 'C: Willowy words'
     type: action
@@ -335,13 +321,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955244828
-      modifiedTime: 1707955300938
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.kMCTZ4C9Jph7jBKG'
   - name: Tree stride
     type: trait
@@ -370,13 +349,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955246236
-      modifiedTime: 1707955312127
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.8YoxaYBSiWXctVct'
   - name: Call tree friends
     type: nastierSpecial
@@ -404,13 +376,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955247278
-      modifiedTime: 1707955324502
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.6oC058TnY4fTXZhf'
   - name: Entrancing beauty
     type: nastierSpecial
@@ -444,13 +409,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955247429
-      modifiedTime: 1707955368344
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.Y3b0nQeT6EVGWiJs'
   - name: Woodland grace
     type: nastierSpecial
@@ -478,13 +436,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955247550
-      modifiedTime: 1707955378149
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.BkOfeTX1lE6oHFII'
   - name: Domain bound
     type: trait
@@ -513,13 +464,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415347
-      modifiedTime: 1707955427584
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.dZNuOXlFpnn1OzQ2'
   - name: Limited immortality
     type: trait
@@ -551,13 +495,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415395
-      modifiedTime: 1707955444390
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.VQalLgUCLGaLnDvR'
   - name: Note on types
     type: trait
@@ -586,13 +523,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707955415812
-      modifiedTime: 1707955462118
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!MmAQh2bxjyj0Kj5Y.5DtwntvmiSLGrcNT'
 effects: []
 folder: null
@@ -603,12 +533,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707955223771
-  modifiedTime: 1707955462118
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!MmAQh2bxjyj0Kj5Y'
 

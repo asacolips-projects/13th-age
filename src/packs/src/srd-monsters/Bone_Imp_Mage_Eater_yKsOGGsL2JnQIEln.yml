@@ -84,6 +84,8 @@ system:
     role:
       value: mook
     size:
+      value: small
+    strength:
       value: weakling
     type:
       value: demon
@@ -99,8 +101,8 @@ prototypeToken:
   prependAdjective: false
   texture:
     src: systems/archmage/assets/icons/tokens/monsters/demon.webp
-    scaleX: 1
-    scaleY: 1
+    scaleX: 0.8
+    scaleY: 0.8
     offsetX: 0
     offsetY: 0
     rotation: 0
@@ -203,13 +205,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687861032549
-      modifiedTime: 1687861126895
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!yKsOGGsL2JnQIEln.4aYeQYWlMUKMx59E'
   - name: Freakish Speed
     type: trait
@@ -238,13 +233,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687861033724
-      modifiedTime: 1687861137943
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!yKsOGGsL2JnQIEln.lx7aHhuwAuk7P1Kh'
   - name: Resist Magic 13+
     type: trait
@@ -274,13 +262,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687861034112
-      modifiedTime: 1687861151345
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!yKsOGGsL2JnQIEln.Bwt0T5bYdKMZQq6y'
   - name: Magic eater
     type: nastierSpecial
@@ -310,13 +291,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.25.2
-      coreVersion: '11.302'
-      createdTime: 1687861036850
-      modifiedTime: 1687861174525
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!yKsOGGsL2JnQIEln.kyRpM0DFjCfKVqiY'
 effects: []
 folder: null
@@ -327,14 +301,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1687860987716
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: yKsOGGsL2JnQIEln
-sort: 1100000
 _key: '!actors!yKsOGGsL2JnQIEln'
 

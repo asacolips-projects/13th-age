@@ -86,6 +86,8 @@ system:
       value: wrecker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: humanoid
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708131654803
-      modifiedTime: 1708131669131
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!tLtak3aID29F7ogt.alVZennQMFkytTub'
 effects: []
 folder: null
@@ -221,12 +216,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708131640053
-  modifiedTime: 1708131669131
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!tLtak3aID29F7ogt'
 

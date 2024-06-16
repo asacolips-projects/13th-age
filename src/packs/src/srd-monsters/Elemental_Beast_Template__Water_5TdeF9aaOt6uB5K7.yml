@@ -195,13 +195,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.mwerhcLmaKCzPx6r
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022799713
-      modifiedTime: 1708025956457
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.mwerhcLmaKCzPx6r'
   - name: Resist cold 16+
     type: trait
@@ -229,13 +222,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.oOtiidLYq6FTEI6W
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022799991
-      modifiedTime: 1708025962773
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.oOtiidLYq6FTEI6W'
   - name: Resist acid 16+
     type: trait
@@ -263,13 +249,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.L7yKyY7hgut2ffmP
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022800163
-      modifiedTime: 1708025967000
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.L7yKyY7hgut2ffmP'
   - name: Torrent
     type: trait
@@ -297,13 +276,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022888535
-      modifiedTime: 1708026016872
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.BJgSAItIlxRVq1kE'
   - name: Flow like water
     type: trait
@@ -331,13 +303,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022889919
-      modifiedTime: 1708026025626
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.NTW89gXBDcqgijDW'
   - name: Blood streams freely
     type: trait
@@ -363,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022890333
-      modifiedTime: 1708026033976
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.98qBzazCC9SYOItI'
   - name: Fish in the sea
     type: trait
@@ -398,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708022891183
-      modifiedTime: 1708026044295
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.6rx0QHVsfCDItU5t'
   - name: (Choose 1-3 of these)
     type: trait
@@ -432,13 +383,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.on0tD6JEDRgJR78z
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708023489977
-      modifiedTime: 1708025979955
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.on0tD6JEDRgJR78z'
   - name: 'Vulnerability: fire'
     type: trait
@@ -466,13 +410,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.dPromlCaBfcllsNn.Item.qzyEoFZ8qlbsgFGN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708025500236
-      modifiedTime: 1708025972123
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.qzyEoFZ8qlbsgFGN'
   - name: Splashback
     type: trait
@@ -502,13 +439,6 @@ items:
     flags:
       core:
         sourceId: Actor.jlrVFj5NCOuw90xj.Item.P9XJLsZlbNADpDJP
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1708026046951
-      modifiedTime: 1708026057655
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!5TdeF9aaOt6uB5K7.P9XJLsZlbNADpDJP'
 effects: []
 folder: null
@@ -523,14 +453,5 @@ flags:
         primary:
           value: actions
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1708022638972
-  modifiedTime: 1708032016655
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: 5TdeF9aaOt6uB5K7
-sort: 0
 _key: '!actors!5TdeF9aaOt6uB5K7'
 

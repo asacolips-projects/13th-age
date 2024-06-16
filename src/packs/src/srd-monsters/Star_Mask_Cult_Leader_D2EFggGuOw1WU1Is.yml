@@ -204,13 +204,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866104764
-      modifiedTime: 1707866114893
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!D2EFggGuOw1WU1Is.o5wFoPo4eyv37uhr'
   - name: Mark of the stars
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866104946
-      modifiedTime: 1707866134302
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!D2EFggGuOw1WU1Is.GIQMiOLNO50DQQdM'
   - name: 'R: Psychic domination'
     type: action
@@ -339,13 +325,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707866106163
-      modifiedTime: 1707866164497
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!D2EFggGuOw1WU1Is.d1NkzsvF2vILc1wo'
 effects: []
 folder: null
@@ -356,12 +335,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707866085194
-  modifiedTime: 1707866164497
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!D2EFggGuOw1WU1Is'
 

@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: large
+    strength:
+      value: double
     type:
       value: elemental
     resistance:
@@ -210,13 +212,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951129444
-      modifiedTime: 1707951163237
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.W6N3NKrFeVEcscVR'
   - name: >-
       [Usually special trigger, but also possible as a standard action] C: Void
@@ -278,13 +273,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951130171
-      modifiedTime: 1707951192008
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.bwNqNcNuLd9Ibjlr'
   - name: Flight
     type: trait
@@ -312,13 +300,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951131541
-      modifiedTime: 1707951202478
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.cELbZRCTz8GyO4rC'
   - name: Void aura
     type: trait
@@ -347,13 +328,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951131926
-      modifiedTime: 1707951215225
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.FZgMzP1VpGU9vlAW'
   - name: Resist fire and negative energy 16+
     type: trait
@@ -382,13 +356,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951132364
-      modifiedTime: 1707951225185
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.WW2TEttwI6qs8dw6'
   - name: Spectacular effects
     type: trait
@@ -417,13 +384,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951132811
-      modifiedTime: 1707951235776
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.vM8z2h5VcsYYWXsQ'
   - name: Reborn in void
     type: trait
@@ -477,13 +437,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951133632
-      modifiedTime: 1707951309929
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.ZUQU1Hv5tETviUtu'
   - name: Void rebirth
     type: action
@@ -541,13 +494,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707951323918
-      modifiedTime: 1707951333465
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!wHbW0XYZjPKue8eE.gJXZeoNXdXGfVPSd'
 effects: []
 folder: null
@@ -558,12 +504,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707951109961
-  modifiedTime: 1707951333465
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!wHbW0XYZjPKue8eE'
 

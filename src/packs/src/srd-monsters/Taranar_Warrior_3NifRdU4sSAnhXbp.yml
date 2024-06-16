@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: large
+    strength:
+      value: double
     type:
       value: elemental
     resistance:
@@ -206,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663001351
-      modifiedTime: 1707663022714
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3NifRdU4sSAnhXbp.2BGiTqxFfKOwQ5wn'
   - name: 'R: Lightning strike'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663001569
-      modifiedTime: 1707663060736
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3NifRdU4sSAnhXbp.xYwozB1NpdSnOg6f'
   - name: All-rock (resist weapons and negative energy 16+)
     type: trait
@@ -310,13 +298,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663249991
-      modifiedTime: 1707663259116
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3NifRdU4sSAnhXbp.m6DhrZGVyozkLwmv'
   - name: Lightning-flare
     type: trait
@@ -352,13 +333,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663250125
-      modifiedTime: 1707663283959
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3NifRdU4sSAnhXbp.kVZyfFfMhFsQFpRp'
   - name: Thick-skinned
     type: trait
@@ -389,13 +363,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707663522320
-      modifiedTime: 1707663532563
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!3NifRdU4sSAnhXbp.dOhVUGTuacWY7UkL'
 effects: []
 folder: null
@@ -406,12 +373,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707662954372
-  modifiedTime: 1707663532563
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!3NifRdU4sSAnhXbp'
 

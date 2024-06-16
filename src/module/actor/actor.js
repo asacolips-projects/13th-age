@@ -404,6 +404,18 @@ export class ActorArchmage extends Actor {
     var saveBonus = 0;
     var disengageBonus = 0;
 
+    var rerollAcCurr = 0;
+    var rerollAcMax = 0;
+    var rerollSaveCurr = 0;
+    var rerollSaveMax = 0;
+
+    var strBonus = 0;
+    var dexBonus = 0;
+    var conBonus = 0;
+    var intBonus = 0;
+    var wisBonus = 0;
+    var chaBonus = 0;
+
     function getBonusOr0(type) {
       if (type && type.bonus) return type.bonus;
       return 0;
@@ -423,6 +435,23 @@ export class ActorArchmage extends Actor {
 
           hpBonus += getBonusOr0(item.system.attributes.hp);
           recoveriesBonus += getBonusOr0(item.system.attributes.recoveries);
+
+          // Enforce only one of this group
+          if (rerollAcMax == 0) {
+            rerollAcCurr += item.system.attributes.rerollAc.current ? item.system.attributes.rerollAc.current : 0;
+            rerollAcMax += getBonusOr0(item.system.attributes.rerollAc);
+          }
+          if (rerollSaveMax == 0) {
+            rerollSaveCurr += item.system.attributes.rerollSave.current ? item.system.attributes.rerollSave.current : 0;
+            rerollSaveMax += getBonusOr0(item.system.attributes.rerollSave);
+          }
+
+          strBonus += getBonusOr0(item.system.attributes.str);
+          dexBonus += getBonusOr0(item.system.attributes.dex);
+          conBonus += getBonusOr0(item.system.attributes.con);
+          intBonus += getBonusOr0(item.system.attributes.int);
+          wisBonus += getBonusOr0(item.system.attributes.wis);
+          chaBonus += getBonusOr0(item.system.attributes.cha);
 
           if (!item.system.attributes.save.threshold
             || data.attributes.hp.value <= item.system.attributes.save.threshold) {
@@ -444,7 +473,23 @@ export class ActorArchmage extends Actor {
     data.attributes.saves.bonus = saveBonus;
     data.attributes.saves.disengageBonus = disengageBonus;
 
+    // 2e rerolls
+    data.resources.spendable.rerolls.AC.current = rerollAcCurr;
+    data.resources.spendable.rerolls.AC.max = rerollAcMax;
+    data.resources.spendable.rerolls.save.current = rerollSaveCurr;
+    data.resources.spendable.rerolls.save.max = rerollSaveMax;
+    data.resources.spendable.rerolls.enabled = (rerollAcMax + rerollSaveMax) > 0 ? true : false;
+
+    // Ability score bonuses from items
+    data.abilities.str.bonus = strBonus;
+    data.abilities.dex.bonus = dexBonus;
+    data.abilities.con.bonus = conBonus;
+    data.abilities.int.bonus = intBonus;
+    data.abilities.wis.bonus = wisBonus;
+    data.abilities.cha.bonus = chaBonus;
+
     // Defenses (second element of sorted triple equal median)
+    // Wizards can use In in place of Dex with a talent
     if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
       data.attributes.ac.value = Number(data.attributes.ac.base) + Number([data.abilities.int.nonKey.lvlmod,
         data.abilities.con.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(acBonus);
@@ -458,6 +503,16 @@ export class ActorArchmage extends Actor {
     }
     data.attributes.md.value = Number(data.attributes.md.base) + Number([data.abilities.int.nonKey.lvlmod,
       data.abilities.cha.nonKey.lvlmod, data.abilities.wis.nonKey.lvlmod].sort((a, b) => a - b)[1]) + Number(mdBonus);
+
+    // Barbarians get a bonus based on 'skulls' as of 2e beta
+    if (this.getFlag("archmage", "grimDetermination")
+      && game.settings.get("archmage", "secondEdition")
+      && data.attributes.saves.deathFails.value > 0) {
+      const bonus = data.attributes.saves.deathFails.value >= 3 ? 2 : 1;
+      data.attributes.ac.value += bonus;
+      data.attributes.pd.value += bonus;
+      data.attributes.md.value += bonus;
+    }
 
     // Damage Modifiers
     data.tier = 1;
@@ -535,16 +590,24 @@ export class ActorArchmage extends Actor {
     }
 
     if (game.settings.get("archmage", "secondEdition")) {
+      // Item recovery bonus is applied here, per level
       formulaConst += recoveriesBonus * Number(data.attributes.level?.value);
+      // If we are high level, also add stati extra as per the beta rules
+      formulaConst += Math.max(0, 10*(data.attributes.level?.value - 7));
     }
     data.attributes.recoveries.avg = Math.round(recoveryAvg + formulaConst);
     data.attributes.recoveries.formula = formulaDice + "+" + formulaConst.toString();
 
     // Initiative
-    let incrInit = this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition") ? 1 : 0;
+    let incrInit = 0;
     let statInit = data.abilities?.dex?.nonKey?.mod || 0;
-    if (this.getFlag("archmage", "dexToInt") && game.settings.get("archmage", "secondEdition")) {
-      statInit = data.abilities?.int?.nonKey?.mod || 0;
+    if (game.settings.get("archmage", "secondEdition")) {
+      // In 2e the skills incremental also increases initiative
+      if (this.system.incrementals?.skillInitiative) incrInit = 1;
+      // In 2e wizards have a talent to use Int instead of Dex
+      if (this.getFlag("archmage", "dexToInt")) statInit = data.abilities?.int?.nonKey?.mod || 0;
+      // In 2e beta the bonus to disengage also applies to initiative
+      incrInit += disengageBonus;
     }
     data.attributes.init.mod = statInit + data.attributes.init.value + data.attributes.level.value + incrInit;
   }
@@ -626,6 +689,19 @@ export class ActorArchmage extends Actor {
             delete data.wpn[wpn].attack;
           });
 
+          // In 2e add extra at epic tier
+          if (game.settings.get("archmage", "secondEdition")) {
+            data.wpn.epicbonus = 0;
+            if (actor.system.attributes.level.value == 8) data.wpn.epicbonus = 10;
+            else if (actor.system.attributes.level.value == 9) data.wpn.epicbonus = 20;
+            else if (actor.system.attributes.level.value >= 10) data.wpn.epicbonus = 30;
+            if (data.wpn.epicbonus) {
+              wpnTypes.forEach(wpn => {
+                data.wpn[wpn].dice += `+${data.wpn.epicbonus}`
+              });
+            }
+          }
+
           break;
 
         case 'attack':
@@ -693,10 +769,6 @@ export class ActorArchmage extends Actor {
     let formula = 'd20';
     // Add bonuses, if any
     let bonus = this.system.attributes.saves.bonus;
-    if (difficulty == 'disengage') {
-      bonus = this.system.attributes.saves.disengageBonus; // From items
-      bonus += (this.system.attributes?.disengageBonus || 0); // From sheet
-    }
     if (bonus != 0) formula = formula + "+" + bonus.toString();
     let roll = new Roll(formula);
     let result = await roll.roll({async: true});
@@ -764,6 +836,154 @@ export class ActorArchmage extends Actor {
       // Condition shaken off, clear all last gasp saves
       await this.update({ 'data.attributes.saves.lastGaspFails.value': 0 });
     }
+  }
+
+  async rollDisengage() {
+    const target = 11;
+
+    let terms = ['d20'];
+    // Add bonuses, if any
+    let bonus = this.system.attributes.saves.disengageBonus; // From items
+    bonus += (this.system.attributes?.disengageBonus || 0); // From sheet
+    if (bonus != 0) terms.push(bonus.toString());
+
+    const dialogOptions = {width: 420};
+    let situational = 0;
+    let data = {};
+
+    // Create the chat message title.
+    let title = game.i18n.localize('ARCHMAGE.CHAT.disengage');
+
+    // Inner roll function
+    let rollMode = game.settings.get("core", "rollMode");
+    let rolled = false;
+    let roll = (html = null, data = {}) => {
+      // Don't include situational bonus unless it is defined
+      if (!data.bonus && terms.indexOf('@bonus') !== -1) {
+        terms.pop();
+      }
+
+      if (situational != 0) {
+        terms.push(situational);
+      }
+
+      let form = html ? html.find('form')[0] : null;
+      rollMode = form ? form.rollMode.value : rollMode;
+
+      // Execute the roll
+      let roll = new Roll(terms.join('+'), data).roll({async: false});
+
+      // Determine the roll result.
+      let rollResult = roll.total;
+      let success = rollResult >= target;
+
+      // Grab the template.
+      const template = `systems/archmage/templates/chat/save-card.html`;
+      const token = this.token;
+
+      // Prepare chat data for the template.
+      const chatData = {
+        user: game.user.id,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        roll: roll,
+        speaker: game.archmage.ArchmageUtility.getSpeaker(this)
+      };
+
+      // Prepare template data.
+      const templateData = {
+        actor: this,
+        tokenId: token ? `${token.id}` : null,
+        saveType: title,
+        success: success,
+        data: chatData,
+        target
+      };
+
+      // Render the template.
+      renderTemplate(template, templateData).then(content => {
+        chatData.content = content;
+        game.archmage.ArchmageUtility.createChatMessage(chatData, { rollMode: rollMode });
+      });
+    };
+
+    // Modify the roll and handle fast-forwarding
+    if (event.shiftKey) return roll(null, data);
+    else terms = terms.concat(['@bonus']);
+
+    // Render modal dialog
+    const template = 'systems/archmage/templates/chat/roll-dialog.html';
+    let dialogData = {
+      formula: terms.join(' + '),
+      data: data,
+      defaultRollMode: rollMode,
+      // abilities: abilities ?? {},
+      rollModes: CONFIG.Dice.rollModes
+    };
+
+    renderTemplate(template, dialogData).then(dlg => {
+      new Dialog({
+        title: title,
+        content: dlg,
+        buttons: {
+          normal: {
+            label: game.i18n.localize("ARCHMAGE.rollNormal"),
+            callback: () => {
+              rolled = true;
+            }
+          },
+          pen1: {
+            label: '-1',
+            callback: () => {
+              situational = -1;
+              rolled = true;
+            }
+          },
+          pen2: {
+            label: '-2',
+            callback: () => {
+              situational = -2;
+              rolled = true;
+            }
+          },
+          pen3: {
+            label: '-3',
+            callback: () => {
+              situational = -3;
+              rolled = true;
+            }
+          },
+          pen4: {
+            label: '-4',
+            callback: () => {
+              situational = -4;
+              rolled = true;
+            }
+          },
+          pen5: {
+            label: '-5',
+            callback: () => {
+              situational = -5;
+              rolled = true;
+            }
+          },
+          pen6: {
+            label: '-6',
+            callback: () => {
+              situational = -6;
+              rolled = true;
+            }
+          },
+        },
+        default: 'normal',
+        close: html => {
+          if (rolled) {
+            rollMode = html.find('[name="rollMode"]').val();
+            data['bonus'] = html.find('[name="bonus"]').val();
+            roll(html, data);
+          }
+        }
+      }, dialogOptions).render(true);
+    });
   }
 
   /* -------------------------------------------- */
@@ -984,19 +1204,24 @@ export class ActorArchmage extends Actor {
     updateData['system.attributes.hp.value'] = Math.min(this.system.attributes.hp.max, Math.max(this.system.attributes.hp.value, 0) + templateData.gainedHp);
 
     // Death saves.
-    if (game.settings.get('archmage', 'secondEdition')) {
-      if (this.system.attributes.saves.deathFails.value > 1) {
+    if (this.system.attributes.saves.deathFails.value > 0
+      && this.system.attributes.saves.deathFails.value < this.system.attributes.saves.deathFails.max) {
+      if (game.settings.get('archmage', 'secondEdition')
+        && this.system.attributes.saves.deathFails.value >= 1) {
         updateData['system.attributes.saves.deathFails.value'] = 1;
       }
-    }
-    else {
-      if (this.system.attributes.saves.deathFails.value > 0) {
-        updateData['system.attributes.saves.deathFails.value'] = 0;
-      }
+      else updateData['system.attributes.saves.deathFails.value'] = 0;
     }
 
     // Resources
-    // Focus, Momentum and Command Points handled on end combat hook
+    // Focus, Momentum and Command Points
+    for (let k of Object.keys(this.system.resources.perCombat)) {
+      if ( this.system.resources.perCombat[k].default )
+        updateData[`system.resources.perCombat.${k}.current`] = this.system.resources.perCombat[k].default;
+      else
+        updateData[`system.resources.perCombat.${k}.current`] = 0;
+    }
+    // Custom resources
     for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
       let resourcePathName = "custom"+idx;
       let resourceName = this.system.resources.spendable[resourcePathName].label;
@@ -1124,6 +1349,7 @@ export class ActorArchmage extends Actor {
     updateData['system.attributes.saves.lastGaspFails.value'] = 0;
 
     // Resources
+    // Ki
     if (this.system.resources.spendable.ki.enabled
       && this.system.resources.spendable.ki.current < this.system.resources.spendable.ki.max) {
       updateData['system.resources.spendable.ki.current'] = this.system.resources.spendable.ki.max;
@@ -1132,6 +1358,14 @@ export class ActorArchmage extends Actor {
         message: `${game.i18n.localize("ARCHMAGE.CHAT.KiReset")} ${this.system.resources.spendable.ki.max}`
       });
     }
+    // Focus, Momentum and Command Points
+    for (let k of Object.keys(this.system.resources.perCombat)) {
+      if ( this.system.resources.perCombat[k].default )
+        updateData[`system.resources.perCombat.${k}.current`] = this.system.resources.perCombat[k].default;
+      else
+        updateData[`system.resources.perCombat.${k}.current`] = 0;
+    }
+    // Custom Resources
     for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
       let resourcePathName = "custom"+idx;
       let resourceName = this.system.resources.spendable[resourcePathName].label;
@@ -1177,8 +1411,8 @@ export class ActorArchmage extends Actor {
       let maxQuantity = item.system?.maxQuantity?.value ?? fallbackQuantity;
       if (maxQuantity && usageArray.includes(item.system.powerUsage?.value)
         && (item.system.quantity.value < maxQuantity || item.system.rechargeAttempts.value > 0)) {
-        itemUpdateData['system.quantity'] = {value: maxQuantity}
-        itemUpdateData['system.rechargeAttempts'] = {value: 0}
+        itemUpdateData['system.quantity'] = {value: maxQuantity};
+        itemUpdateData['system.rechargeAttempts'] = {value: 0};
         templateData.items.push({
           key: item.name,
           message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
@@ -1198,6 +1432,23 @@ export class ActorArchmage extends Actor {
               message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${maxQuantity}`
             });
           }
+        }
+      }
+      // 2e shields and necklaces
+      if (item.type == 'equipment') {
+        if (item.system.attributes.rerollAc.current != item.system.attributes.rerollAc.bonus) {
+          itemUpdateData['system.attributes.rerollAc.current'] = item.system.attributes.rerollAc.bonus;
+          templateData.resources.push({
+            key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rerollAc"),
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.system.attributes.rerollAc.bonus}`
+          });
+        }
+        if (item.system.attributes.rerollSave.current != item.system.attributes.rerollSave.bonus) {
+          itemUpdateData['system.attributes.rerollSave.current'] = item.system.attributes.rerollSave.bonus;
+          templateData.resources.push({
+            key: game.i18n.localize("ARCHMAGE.CHARACTER.RESOURCES.rerollSave"),
+            message: `${game.i18n.localize("ARCHMAGE.CHAT.ItemReset")} ${item.system.attributes.rerollSave.bonus}`
+          });
         }
       }
       // Update item
@@ -1318,7 +1569,7 @@ export class ActorArchmage extends Actor {
       event: event,
       terms: terms,
       data: {
-        abil: abl ? abl.nonKey.mod : 0,
+        abil: abl ? abl.nonKey.mod + abl.bonus : 0,
         lvl: this.system.attributes.level.value +
           ((this.system.incrementals?.skills && !game.settings.get("archmage", "secondEdition")
           || this.system.incrementals?.skillInitiative && game.settings.get("archmage", "secondEdition")) ? 1 : 0),
@@ -1475,6 +1726,51 @@ export class ActorArchmage extends Actor {
         }
         token.document.update(updateData);
       });
+    }
+    // Update the prototype token size.
+    if (data.system?.details?.size?.value && this.type == "npc") {
+      let h = 1;
+      let w = 1;
+      let s = 1;
+      switch (data.system.details.size.value) {
+        case "large":
+          h = 2;
+          w = 2;
+          break
+        case "huge":
+          h = 3;
+          w = 3;
+          break
+        case "gargantuan":
+          h = 5;
+          w = 5;
+          break
+        case "small":
+          s = 0.8;
+          break
+        case "tiny":
+          h = 0.5;
+          w = 0.5;
+          break
+        default:
+          break
+      }
+      const tokenData = {
+        height: h,
+        width: w,
+        texture: {
+          scaleX: s,
+          scaleY: s,
+        }};
+
+      // Update tokens.
+      let tokens = this.getActiveTokens();
+      tokens.forEach(token => {
+        const updateData = foundry.utils.duplicate(tokenData);
+        token.document.update(updateData);
+      });
+
+      data.prototypeToken = tokenData;
     }
 
     if (data.system === undefined) return; // Nothing more to do

@@ -208,13 +208,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604826617
-      modifiedTime: 1707604861979
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!YUX07lFm16z41Dj8.snzJE7pGsasBS3qe'
   - name: 'C: Whirling steel'
     type: action
@@ -272,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604827246
-      modifiedTime: 1707604886517
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!YUX07lFm16z41Dj8.8BrmK4WebpIyjZwO'
   - name: Puissance
     type: nastierSpecial
@@ -309,13 +295,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707604828215
-      modifiedTime: 1707604903510
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!YUX07lFm16z41Dj8.ybCy5ZUBQMKbuNKN'
 effects: []
 folder: null
@@ -326,12 +305,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707604769185
-  modifiedTime: 1707604903510
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!YUX07lFm16z41Dj8'
 

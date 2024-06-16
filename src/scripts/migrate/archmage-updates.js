@@ -158,6 +158,11 @@ class ArchmageUpdateHandler {
       updateData = this.__migratePCImprovedInitFlag(actor, updateData);
     }
 
+    // Append NPC migration for version 1.31.0
+    if (this.versionBelow('1.31.0')) {
+      updateData = this.__migrateNPCSplitSizeStrength(actor, updateData);
+    }
+
     // Future updates will go here.
 
     // Return the final update object.
@@ -326,12 +331,66 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
+   * 1.31.0: Update NPC structure to separate strength and size.
+   *
+   * @param {object} actor Actor document to update.
+   * @param {object} updateData Update data object to merge changes into.
+   * @returns
+   *   Update object.
+   */
+
+  __migrateNPCSplitSizeStrength(actor, updateData={}) {
+    if (!actor || actor.type != "npc") return updateData;
+    const size = actor.system.details.size.value ?? '';
+    const strength = actor.system.details?.strength?.value ?? '';
+    const sizes = Object.keys(CONFIG.ARCHMAGE.creatureSizes);
+    const strengths = Object.keys(CONFIG.ARCHMAGE.creatureStrengths);
+    if (!!size && !strength && (strengths.includes(size) || sizes.includes(size))) {
+      // We have a size but not a strength
+      if (size == 'normal') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'normal'});
+      if (size == 'large') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'double'});
+      if (size == 'huge') foundry.utils.mergeObject(updateData, {'system.details.strength.value': 'triple'});
+      // skip 'gargantuan' as it's new with this release
+      // skip 'small' as it's new with this release
+      // skip 'tiny' as it's new with this release
+      if (size == 'double') {
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'double',
+          'system.details.size.value': 'normal'
+        });
+      }
+      if (size == 'triple') {
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'triple',
+          'system.details.size.value': 'normal'
+        });
+      }
+      if (size == 'weakling') {
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'weakling',
+          'system.details.size.value': 'normal'
+        });
+      }
+      if (size == 'elite') {
+        foundry.utils.mergeObject(updateData, {
+          'system.details.strength.value': 'elite',
+          'system.details.size.value': 'normal'
+        });
+      }
+    }
+
+    return updateData;
+  }
+
+  /* -------------------------------------------*/
+
+  /**
    * Main entrypoint to execute migrations.
    */
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this for each new version that requires a migration.
-    if (!this.versionBelow('1.26.0')) {
+    if (!this.versionBelow('1.31.0')) {
       return;
     }
 
@@ -358,6 +417,10 @@ class ArchmageUpdateHandler {
 
     if (this.versionBelow('1.26.0')) {
       ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_26_0'), {permanent: true});
+    }
+
+    if (this.versionBelow('1.31.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_31_0'), {permanent: true});
     }
 
     // 1. Update world actors.

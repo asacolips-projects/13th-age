@@ -85,6 +85,8 @@ system:
       value: blocker
     size:
       value: normal
+    strength:
+      value: normal
     type:
       value: undead
     resistance:
@@ -206,13 +208,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690654486054
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.OtDoqlaHXFZEFpFf'
   - name: 'Limited Use: Lethal Payout'
     type: action
@@ -280,13 +275,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.RXHiQwf4EcCEQpLX.Item.J6TBvBZhcIdT9DqE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687116112976
-      modifiedTime: 1690654534259
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.yRWIdVlK4dI9Uk0m'
   - name: Coin eater
     type: trait
@@ -317,13 +305,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690654450203
-      modifiedTime: 1690654556689
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.kZNVUCWVIqy2DJj8'
   - name: Headshot
     type: trait
@@ -355,13 +336,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.i3KF75smgbbfm5rt.Item.t7tAeLswpYFZpKwy
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690465854251
-      modifiedTime: 1690654568570
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!SVktQNf3ZxOYxAxQ.QvPSfR3e4EMZRLnC'
 effects: []
 folder: null
@@ -372,14 +346,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1690654390070
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: SVktQNf3ZxOYxAxQ
-sort: 300000
 _key: '!actors!SVktQNf3ZxOYxAxQ'
 

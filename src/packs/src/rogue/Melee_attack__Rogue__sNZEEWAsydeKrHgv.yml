@@ -144,7 +144,7 @@ system:
   rollTable:
     type: String
     label: Roll Table
-    value: 'Sneak Attack Damage'
+    value: Sneak Attack Damage
   recharge:
     type: Number
     label: Recharge

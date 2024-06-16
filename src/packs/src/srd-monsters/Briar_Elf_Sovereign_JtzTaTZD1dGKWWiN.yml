@@ -210,13 +210,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.BvLJNL0NwFdcRjjL
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1689149971944
-      modifiedTime: 1690446212709
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.c0llzSPnYqfAvYPW'
   - name: 'C: Verdant evolution'
     type: action
@@ -282,13 +275,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.W0KXAcXTnNHmNG9H.Item.1s38Tmee9NHmKFTE
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1689149981386
-      modifiedTime: 1690446333634
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.vNnYnyWtYnyTzr7m'
   - name: The sovereign´s orders
     type: action
@@ -355,13 +341,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.eT6ZEHlcG4hTK1R9.Item.zAQho2qb2R8Ur83x
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690395742004
-      modifiedTime: 1690446354130
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.cpnmOdbZ957ogNSA'
   - name: 'Choose one:'
     type: trait
@@ -389,13 +368,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.94SusmDV6M5tpKXO
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687874588472
-      modifiedTime: 1690445628545
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.g9WFu70MPvy7Edct'
   - name: Humanoid
     type: trait
@@ -432,13 +404,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.G3hiBmiknFc0hUZL
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687874617930
-      modifiedTime: 1690446377407
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.r3H66KMdQEzae6yl'
   - name: Plant
     type: trait
@@ -470,13 +435,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.iSCeSCPEgrBR5MsN
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687874618286
-      modifiedTime: 1690446389641
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.AaFMVCbl2yTnhtwZ'
   - name: Undead
     type: trait
@@ -509,13 +467,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.Eky9hI2mlBEeN9aU
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687874620567
-      modifiedTime: 1690446405027
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.5Q8rJmJ8eCiBchFS'
   - name: Royal command
     type: nastierSpecial
@@ -548,13 +499,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690445641014
-      modifiedTime: 1690446423547
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.LLo7duBPxyzVuLdb'
   - name: Fear Aura
     type: nastierSpecial
@@ -586,13 +530,6 @@ items:
       core:
         sourceId: >-
           Compendium.world.bestiary-2.Actor.31u0AvsAZA5WlJXi.Item.8EMxGqQyHALSOSg8
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1687874597558
-      modifiedTime: 1690446435226
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.4pLgb2qnEz4NVaIo'
   - name: Dark escalator
     type: nastierSpecial
@@ -621,13 +558,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.0
-      coreVersion: '11.306'
-      createdTime: 1690445645243
-      modifiedTime: 1690446451859
-      lastModifiedBy: 24IckEQPEIEklVti
     _key: '!actors.items!JtzTaTZD1dGKWWiN.NdLGUsMZt4S8XLFt'
 effects: []
 folder: null
@@ -638,14 +568,5 @@ flags:
     portraitRound: false
     portraitFrame: false
   core: {}
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1690445374563
-  modifiedTime: 1708006750710
-  lastModifiedBy: tWJ6KkFBgXXy34it
-_id: JtzTaTZD1dGKWWiN
-sort: 500000
 _key: '!actors!JtzTaTZD1dGKWWiN'
 

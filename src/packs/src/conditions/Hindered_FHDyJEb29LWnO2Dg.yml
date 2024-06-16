@@ -3,7 +3,22 @@ permission:
   default: 0
 folder: ''
 flags: {}
-content: <p>You can only make basic attacks. You can still move normally.</p>
+content: >-
+  <p>You can’t cast spells, use powers (not even kin powers), use limited use
+  abilities, or make attacks other than basic attacks. You can move normally but
+  you can’t use limited use abilities or powers to move.</p> <p>This condition
+  has a huge impact on spellcasters and monsters with powerful special abilities
+  and less impact, though still appreciable, on creatures that rely on their
+  basic attacks.</p> <p>For clarity’s sake, here are some things that characters
+  and monsters have no problem doing when hindered:<p> <p>Drink a potion.</p>
+  <p>Rally.</p> <p>Intercept; but not using the Skilled Interceptor fighter
+  talent.</p> <p>Make an opportunity attack.</p> <p>Make a save.</p> <p>Heal if
+  some other non-hindered character has healed them with a healing spell.</p>
+  <p>Benefit from a kin power like the forgeborn’s rugged, a statistical
+  adjustment to recovery dice that’s built into the hero rather than having to
+  be activated or triggered or ‘used.’</p> <p>Deal automatic damage if they
+  already have an enemy grabbed! (There could be an argument against this, but
+  it seems OK to us.)</p> <p>Try to disengage.</p>
 img: ''
 _id: FHDyJEb29LWnO2Dg
 pages: []

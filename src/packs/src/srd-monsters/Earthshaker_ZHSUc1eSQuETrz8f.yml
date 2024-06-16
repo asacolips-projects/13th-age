@@ -86,6 +86,8 @@ system:
       value: spoiler
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: beast
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700771977
-      modifiedTime: 1707700785457
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZHSUc1eSQuETrz8f.f7yIMSjBxq0o78nr'
   - name: 'C: Whipcrack of a tail'
     type: action
@@ -273,13 +268,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707700772127
-      modifiedTime: 1707700823368
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!ZHSUc1eSQuETrz8f.5mKu31HMvXjAgxOr'
 effects: []
 folder: null
@@ -290,12 +278,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707700731218
-  modifiedTime: 1707700823368
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!ZHSUc1eSQuETrz8f'
 

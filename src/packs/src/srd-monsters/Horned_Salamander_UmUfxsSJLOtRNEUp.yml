@@ -86,6 +86,8 @@ system:
       value: troop
     size:
       value: huge
+    strength:
+      value: triple
     type:
       value: elemental
     resistance:
@@ -204,13 +206,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933051677
-      modifiedTime: 1707933070992
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.dnCRd5ZSz6b2X9Oj'
   - name: 'R: Burning gaze'
     type: action
@@ -270,13 +265,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933051809
-      modifiedTime: 1707933086081
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.9T2DgnsnBBIqS1kV'
   - name: Heat haze aura
     type: trait
@@ -306,13 +294,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933052492
-      modifiedTime: 1707933110190
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.26Mhjfa3q9I5HJG8'
   - name: Ferrous furnace
     type: nastierSpecial
@@ -342,13 +323,6 @@ items:
     ownership:
       default: 0
     flags: {}
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933053046
-      modifiedTime: 1707933131151
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.xn8VaAFiqFllBT2A'
   - name: Heat metal
     type: nastierSpecial
@@ -381,13 +355,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.d0PBmnet1p1tKZKw
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933358448
-      modifiedTime: 1707933532272
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.OOuOUt8PFvZ9A8us'
   - name: Escalating inferno
     type: trait
@@ -423,13 +390,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.4NviszfyXGmhIUFI
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933356451
-      modifiedTime: 1707933538111
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.QijNlTriFpqb8fEX'
   - name: Resist fire 16+
     type: trait
@@ -461,13 +421,6 @@ items:
       core:
         sourceId: >-
           Compendium.archmage.srd-Monsters.Actor.6LuOZeMQFCRr1Ncc.Item.7dLP5azluYv2oUGv
-    _stats:
-      systemId: archmage
-      systemVersion: 1.26.1
-      coreVersion: '11.315'
-      createdTime: 1707933356576
-      modifiedTime: 1707933542312
-      lastModifiedBy: tWJ6KkFBgXXy34it
     _key: '!actors.items!UmUfxsSJLOtRNEUp.0KZ8XhpXtXca7C7u'
 effects: []
 folder: null
@@ -478,12 +431,5 @@ flags:
   archmage:
     portraitRound: false
     portraitFrame: false
-_stats:
-  systemId: archmage
-  systemVersion: 1.26.1
-  coreVersion: '11.315'
-  createdTime: 1707933037168
-  modifiedTime: 1707933542312
-  lastModifiedBy: tWJ6KkFBgXXy34it
 _key: '!actors!UmUfxsSJLOtRNEUp'
 
