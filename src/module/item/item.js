@@ -2,6 +2,8 @@ import ArchmageRolls from "../rolls/ArchmageRolls.mjs";
 import { MacroUtils } from '../setup/utility-classes.js';
 import preCreateChatMessageHandler from "../hooks/preCreateChatMessageHandler.mjs";
 
+const RETAIN_FOCUS_REGEX = /retain focus.+(\d+)[^\d]+(\d+)/i;
+
 /**
  * Override and extend the basic :class:`Item` implementation
  */
@@ -77,6 +79,7 @@ export class ItemArchmage extends Item {
     await this._handleMonkFormAC(itemToRender);
     await this._handleSong(itemToRender, usageMode);
     await this._handleBreathSpell(itemToRender);
+    await this._handleRetainFocus(itemToRender, hitEvalRes, actorUpdateData, chatData);
 
     // Run embedded macro.
     let macro = await this._rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode);
@@ -676,6 +679,27 @@ export class ItemArchmage extends Item {
     }
   }
 
+  async _handleRetainFocus(itemToRender, hitEvalRes, actorUpdateData, chatData) {
+    if (itemToRender.type != "power") return;
+    if (itemToRender.actor.system.resources?.perCombat?.focus?.enabled != true) return;
+
+    const match = itemToRender.system.always?.value?.match(RETAIN_FOCUS_REGEX);
+    if (match) {
+      const low = parseInt(match[1])
+      const high = parseInt(match[2])
+      const naturalRoll = hitEvalRes.$rolls[0].d20result
+      if (naturalRoll >= low && naturalRoll <= high) {
+        delete actorUpdateData['system.resources.perCombat.focus.current']
+
+        const labelText = game.i18n.localize(`ARCHMAGE.CHAT.always`)
+        chatData.content = chatData.content.replace(
+          `<div class="card-prop"><strong>${labelText}:`,
+          `<div class="card-prop trigger-active"><strong>${labelText}:`
+        )
+      }
+    }
+  }
+
   async _rollExecuteMacro(itemToRender, itemUpdateData, actorUpdateData, chatData, hitEvalRes, sequencerAnim, token, usageMode) {
     // Extra data accessible as "archmage" in embedded macros
     let macro_data = {
@@ -1007,3 +1031,4 @@ export class ItemArchmage extends Item {
     });
   } */
 }
+
