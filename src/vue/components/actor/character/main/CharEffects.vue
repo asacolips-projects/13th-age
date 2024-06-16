@@ -13,11 +13,10 @@
         <li v-for="(effect, effectKey) in effects" :key="effectKey" :class="concat('item effects-item ', concat('effect-', effect._id), (effect.disabled ? ' effects-disabled' : ''))" :data-effect-id="effect._id" data-draggable="true" draggable="true">
           <div class="effects-summary grid effects-grid effects">
             <div class="effects-icon">
-              <img :src="effect.icon" class="effects-image"/>
+              <img :src="effect.img" class="effects-image"/>
             </div>
             <a class="effects-name" v-on:click="toggleEffect" :data-effects-id="effect._id">
-              <!-- @todo: Remove the effect.label fallback when v10 support is dropped -->
-              <h3 class="effects-title unit-subtitle">{{effect?.name ?? effect.label}}</h3>
+              <h3 class="effects-title unit-subtitle">{{effect?.name}}</h3>
             </a>
             <div class="effects-bonus flexrow">
               <div class="bonus" v-for="(bonus, bonusKey) in getChanges(effect)" :key="bonusKey">
@@ -85,8 +84,8 @@ export default {
         if (c.key && c.value) {
           const label = game.archmage.ArchmageUtility.cleanActiveEffectLabel(c.key);
           let change = {
-            label: label,
-            icon: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
+            name: label,
+            img: game.archmage.ArchmageUtility.getActiveEffectLabelIcon(label),
             mode: modes[c.mode],
             value: c.value
           };

@@ -28,7 +28,7 @@ export default class ArchmageRolls {
         rolls = ArchmageRolls.getInlineRolls(lineToParse, item.actor.getRollData());
         if (rolls != undefined) {
           // Roll the targets now
-          ArchmageRolls.rollAll(rolls, item.actor);
+          await ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
           newTargetLine = foundry.utils.duplicate(targetLine);
           rolls.forEach(r => {
@@ -62,7 +62,7 @@ export default class ArchmageRolls {
         rolls = ArchmageRolls.getInlineRolls(targetLine, item.actor.getRollData());
         if (rolls !== undefined) {
           // Roll the targets now
-          ArchmageRolls.rollAll(rolls, item.actor);
+          await ArchmageRolls.rollAll(rolls, item.actor);
           targets = 0;
           rolls.forEach(r => targets += r.total);
         } else {
@@ -142,9 +142,9 @@ export default class ArchmageRolls {
     return newAttackLine.replace("]]", ` -${game.user.targets.size}]]`)
   }
 
-  static rollAll(rolls, actor, key=undefined) {
+  static async rollAll(rolls, actor, key=undefined) {
     for (let i=0; i<rolls.length; i++) {
-      rolls[i].evaluate({async: false});
+      await rolls[i].evaluate();
       rolls[i].inlineRoll = ArchmageRolls._createInlineRollElementFromRoll(rolls[i]);
     }
   }

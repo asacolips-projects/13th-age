@@ -321,7 +321,8 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     // Handle the power group.
     if (dataset?.groupType && dataset?.powerType) {
       let groupType = dataset.groupType;
-      let model = game.system.model.Item[itemType];
+      // @todo update when v11 is dropped.
+      let model = (game?.system?.model || game?.data?.model).Item[itemType];
       if (model[groupType] && groupType !== 'powerType') {
         dataset[groupType] = foundry.utils.duplicate(dataset.powerType);
         delete dataset.powerType;
@@ -731,7 +732,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
     await game.archmage.ArchmageUtility.createChatMessage(chatData);
 
-    await actor.update({'data.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
+    await actor.update({'system.resources.perCombat.commandPoints.current': Number(pointsOld) + Number(pointsNew)});
   }
 
   async _onRechargeRoll(itemId) {

@@ -9,11 +9,11 @@ export default {
   computed: {
     value: {
       get() {
-        return getProperty(this.actor, this.name);
+        return foundry.utils.getProperty(this.actor, this.name);
       },
       set(value) {
         if (this.reactive) {
-          setProperty(this.actor, this.name, value);
+          foundry.utils.setProperty(this.actor, this.name, value);
         }
         else {
           return false;

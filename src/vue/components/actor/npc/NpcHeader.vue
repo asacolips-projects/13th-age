@@ -16,7 +16,9 @@
         <!-- Flavor text -->
         <div class="unit unit--hide-label unit--flavor">
           <label for="system.details.flavor.value">{{localize("ARCHMAGE.flavor")}}</label>
-          <Editor :owner="actor.owner" target='system.details.flavor.value' button="true" editable="true" :title="localize('ARCHMAGE.flavor')" :content="actor.system.details.flavor.value"/>
+          <Suspense>
+            <Editor :owner="actor.owner" target='system.details.flavor.value' button="true" editable="true" :title="localize('ARCHMAGE.flavor')" :content="actor.system.details.flavor.value"/>
+          </Suspense>
         </div>
         <!-- Creature details -->
         <div class="unit unit--roles">

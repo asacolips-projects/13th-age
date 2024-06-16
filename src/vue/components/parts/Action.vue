@@ -1,22 +1,43 @@
 <template>
   <section class="action">
     <!-- Primary properties (attack, hit, effect, etc.). -->
-    <section class="action-details flexcol">
-      <div v-if="action.system?.hit1?.value" class="hanging-indent action-hit1"><em v-html="getLabel(action.system?.hit1?.name)"></em><span v-html="wrapRolls(action.system.hit1.value)"></span></div>
-      <div v-if="action.system?.hit2?.value" class="hanging-indent action-hit2"><em v-html="getLabel(action.system?.hit2?.name)"></em><span v-html="wrapRolls(action.system.hit2.value)"></span></div>
-      <div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3"><em v-html="getLabel(action.system?.hit3?.name)"></em><span v-html="wrapRolls(action.system.hit3.value)"></span></div>
-      <div v-if="action.system?.hit4?.value" class="hanging-indent action-hit4"><em v-html="getLabel(action.system?.hit4?.name)"></em><span v-html="wrapRolls(action.system.hit4.value)"></span></div>
-      <div v-if="action.system?.hit5?.value" class="hanging-indent action-hit5"><em v-html="getLabel(action.system?.hit5?.name)"></em><span v-html="wrapRolls(action.system.hit5.value)"></span></div>
-      <div v-if="action.system?.miss?.value" class="hanging-indent action-miss"><em>{{localize('ARCHMAGE.miss')}}:</em> <span v-html="wrapRolls(action.system.miss.value)"></span></div>
-      <div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
-        <span class="action-detail-value" v-html="wrapRolls(action.system.description.value)"></span>
-      </div>
-    </section>
+    <Suspense>
+      <section class="action-details flexcol">
+        <div v-if="action.system?.hit1?.value" class="hanging-indent action-hit1">
+          <Enriched tag="em" :text="action.system?.hit1?.name + ':'"/>
+          <Enriched tag="span" :text="action.system.hit1.value"/>
+        </div>
+        <div v-if="action.system?.hit2?.value" class="hanging-indent action-hit2">
+          <Enriched tag="em" :text="action.system?.hit2?.name + ':'"/>
+          <Enriched tag="span" :text="action.system.hit2.value"/>
+        </div>
+        <div v-if="action.system?.hit3?.value" class="hanging-indent action-hit3">
+          <Enriched tag="em" :text="action.system?.hit3?.name + ':'"/>
+          <Enriched tag="span" :text="action.system.hit3.value"/>
+        </div>
+        <div v-if="action.system?.hit4?.value" class="hanging-indent action-hit4">
+          <Enriched tag="em" :text="action.system?.hit4?.name + ':'"/>
+          <Enriched tag="span" :text="action.system.hit4.value"/>
+        </div>
+        <div v-if="action.system?.hit5?.value" class="hanging-indent action-hit5">
+          <Enriched tag="em" :text="action.system?.hit5?.name + ':'"/>
+          <Enriched tag="span" :text="action.system.hit5.value"/>
+        </div>
+        <div v-if="action.system?.miss?.value" class="hanging-indent action-miss">
+          <em>{{localize('ARCHMAGE.miss')}}:</em>
+          <Enriched tag="span" :text="action.system.miss.value"/>
+        </div>
+        <div v-if="action.system?.description?.value && action.type == 'action'" class="hanging-indent action-detail">
+          <Enriched tag="span" class="action-detail-value" :text="action.system.description.value"/>
+        </div>
+      </section>
+    </Suspense>
   </section>
 </template>
 
 <script>
-import { concat, localize, wrapRolls } from '@/methods/Helpers';
+import { concat, localize } from '@/methods/Helpers';
+import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'Action',
   props: ['action'],
@@ -24,22 +45,22 @@ export default {
     return {
       concat,
       localize,
-      wrapRolls
     }
   },
+  components: {
+    Enriched,
+  },
   data() {
-    return {}
+    return {
+      enrichedActions: {}
+    }
   },
   computed: {
     constants() {
       return CONFIG.ARCHMAGE;
     },
   },
-  methods: {
-    getLabel(label) {
-      return label ? `${wrapRolls(label)}: ` : '';
-    }
-  },
+  methods: {},
   async mounted() {}
 }
 </script>
