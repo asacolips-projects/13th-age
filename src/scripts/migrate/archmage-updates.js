@@ -158,7 +158,7 @@ class ArchmageUpdateHandler {
       updateData = this.__migratePCImprovedInitFlag(actor, updateData);
     }
 
-    // Append NPC migration for version 1.31.0
+    // Append NPC migration for version 1.30.0
     if (this.versionBelow('1.30.0')) {
       updateData = this.__migrateNPCSplitSizeStrength(actor, updateData);
     }
@@ -331,7 +331,7 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
-   * 1.31.0: Update NPC structure to separate strength and size.
+   * 1.30.0: Update NPC structure to separate strength and size.
    *
    * @param {object} actor Actor document to update.
    * @param {object} updateData Update data object to merge changes into.
