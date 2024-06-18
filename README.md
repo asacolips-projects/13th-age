@@ -1,4 +1,4 @@
-![Foundry v11](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12](https://img.shields.io/badge/Foundry-v12-yellow)
+![Foundry v11.315](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12.327](https://img.shields.io/badge/Foundry-v12.327-green)
 
 # Description
 

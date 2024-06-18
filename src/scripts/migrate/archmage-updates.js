@@ -158,8 +158,8 @@ class ArchmageUpdateHandler {
       updateData = this.__migratePCImprovedInitFlag(actor, updateData);
     }
 
-    // Append NPC migration for version 1.31.0
-    if (this.versionBelow('1.31.0')) {
+    // Append NPC migration for version 1.30.0
+    if (this.versionBelow('1.30.0')) {
       updateData = this.__migrateNPCSplitSizeStrength(actor, updateData);
     }
 
@@ -331,7 +331,7 @@ class ArchmageUpdateHandler {
   /* -------------------------------------------*/
 
   /**
-   * 1.31.0: Update NPC structure to separate strength and size.
+   * 1.30.0: Update NPC structure to separate strength and size.
    *
    * @param {object} actor Actor document to update.
    * @param {object} updateData Update data object to merge changes into.
@@ -390,7 +390,7 @@ class ArchmageUpdateHandler {
   async executeMigration() {
     // Exit early if the version matches.
     // @todo Update this for each new version that requires a migration.
-    if (!this.versionBelow('1.31.0')) {
+    if (!this.versionBelow('1.30.0')) {
       return;
     }
 
@@ -419,8 +419,8 @@ class ArchmageUpdateHandler {
       ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_26_0'), {permanent: true});
     }
 
-    if (this.versionBelow('1.31.0')) {
-      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_31_0'), {permanent: true});
+    if (this.versionBelow('1.30.0')) {
+      ui.notifications.info(game.i18n.localize('ARCHMAGE.MIGRATIONS.1_30_0'), {permanent: true});
     }
 
     // 1. Update world actors.
@@ -534,7 +534,8 @@ class ArchmageUpdateHandler {
 
   async migrateCompendiums() {
     for ( let pack of game.packs ) {
-      if ( pack.metadata.packageType !== "world" ) continue;
+      // Skip compendiums that ship with the system.
+      if ( pack.metadata.packageType == "system" ) continue;
       // if ( pack.metadata.packageType !== "system" ) continue; // Auto-update system compendiums
       if ( !["Actor", "Scene", "Item"].includes(pack.documentName) ) continue;
 
