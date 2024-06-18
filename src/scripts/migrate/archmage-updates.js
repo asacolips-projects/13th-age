@@ -534,7 +534,8 @@ class ArchmageUpdateHandler {
 
   async migrateCompendiums() {
     for ( let pack of game.packs ) {
-      if ( pack.metadata.packageType !== "world" ) continue;
+      // Skip compendiums that ship with the system.
+      if ( pack.metadata.packageType == "system" ) continue;
       // if ( pack.metadata.packageType !== "system" ) continue; // Auto-update system compendiums
       if ( !["Actor", "Scene", "Item"].includes(pack.documentName) ) continue;
 
