@@ -1083,4 +1083,22 @@ export class ActorArchmageSheetV2 extends ActorSheet {
       actor.createEmbeddedDocuments('Item', powers);
     }
   }
+
+  /** @override */
+  _getSubmitData(updateData={}) {
+    // Bugfix for Foundry v12.
+    if (foundry.utils.isNewerVersion(game.version, '12')) {
+      // Retrieve the data from the upstream method.
+      let newData = super._getSubmitData(updateData);
+      // Retrieve a copy of the existing actor data.
+      let oldData = foundry.utils.flattenObject(this.object);
+  
+      // Limit data to just the new data.
+      return foundry.utils.diffObject(oldData, newData);
+    }
+    // Keep old behavior for v11.
+    else {
+      return super._getSubmitData(updateData);
+    }
+  }
 }
