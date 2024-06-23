@@ -640,7 +640,7 @@ export class ItemArchmage extends Item {
 
   async _handleFighterCombatRhythm(itemToRender, actorUpdateData) {
     if (itemToRender.type != "power") return;
-    if (!itemToRender.actor.system.resources.perCombat.rhythm.enabled) return;
+    if (!itemToRender.actor.system.resources?.perCombat.rhythm.enabled) return;
     if (!actorUpdateData["system.resources.perCombat.rhythm.current"]) return;
 
     // If this power sets offense and we are in defense and vice-versa roll 2d20kh.
