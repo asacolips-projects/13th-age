@@ -59,7 +59,7 @@ export class DiceArchmage {
     // Inner roll function
     let rollMode = game.settings.get("core", "rollMode");
     let rolled = false;
-    let roll = (html = null, data = {}) => {
+    let roll = async (html = null, data = {}) => {
       let flav = (flavor instanceof Function) ? flavor(terms, data) : title;
 
       // Don't include situational bonus unless it is defined
@@ -86,7 +86,8 @@ export class DiceArchmage {
       rollMode = form ? form.rollMode.value : rollMode;
 
       // Execute the roll
-      let roll = new Roll(terms.join('+'), data).roll({async: false});
+      let roll = new Roll(terms.join('+'), data);
+      await roll.evaluate({async: true});
 
       // Grab the template.
       const template = `systems/archmage/templates/chat/skill-check-card.html`;
@@ -97,6 +98,7 @@ export class DiceArchmage {
         user: game.user.id,
         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
         roll: roll,
+        rolls: [roll],
         speaker: game.archmage.ArchmageUtility.getSpeaker(actor)
       };
 
