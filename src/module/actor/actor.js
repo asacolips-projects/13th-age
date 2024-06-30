@@ -1699,6 +1699,14 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data === undefined) return; // Nothing to do
 
+    // @todo Bizarre bug in v12 where token updates come through as data.data
+    // instead of data.system.
+    if (game.release.generation >= 12) {
+      if (data?.data && !data?.system) {
+        data.system = data.data;
+      }
+    }
+
     // Update default images on npc type change
     if (data.system?.details?.type?.value
       && this.type == "npc"
