@@ -1087,7 +1087,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   _getSubmitData(updateData={}) {
     // Bugfix for Foundry v12.
-    if (foundry.utils.isNewerVersion(game.version, '12')) {
+    if (game.release.version >= 12) {
       // Retrieve the data from the upstream method.
       let newData = super._getSubmitData(updateData);
       // Retrieve a copy of the existing actor data.
