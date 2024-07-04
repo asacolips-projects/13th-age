@@ -472,7 +472,7 @@ ARCHMAGE.featTiers = {
   'adventurer': 'Adventurer',
   'champion': 'Champion',
   'epic': 'Epic',
-  'iconic': 'Iconic'
+  'iconic': 'Zenith'
 }
 
 ARCHMAGE.numDicePerLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -939,7 +939,6 @@ ARCHMAGE.classes = {
 ARCHMAGE.classes2e = {
   barbarian: {
     rec_die: 12,
-    hp: 8
   },
   bard: {},
   chaosmage: {},
@@ -969,7 +968,6 @@ ARCHMAGE.classResources = {
 ARCHMAGE.classResources2e = {
   // List custom resources to configure for classes that use them - added if 2e enabled
   // Stored as an array of two-element arrays with label and reset
-  'barbarian': [["Rage Points", "full"]],
   'bard' : [["Combat Riffs", "quick"], ["Healing Magics", "quick"], ["Miss Me Effects", "quick"]]
 }
 
