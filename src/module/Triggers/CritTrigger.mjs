@@ -2,7 +2,6 @@ import ITrigger from "./ITrigger.mjs";
 
 export default class CritTrigger extends ITrigger{
     isActive(triggerText, rollResult, hitEvaluationResults) {
-        // console.log(rollResult);
         let active = undefined;
 
         if (rollResult == undefined) return active;

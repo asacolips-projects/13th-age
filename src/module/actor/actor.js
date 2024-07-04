@@ -772,7 +772,7 @@ export class ActorArchmage extends Actor {
     let bonus = this.system.attributes.saves.bonus;
     if (bonus != 0) formula = formula + "+" + bonus.toString();
     let roll = new Roll(formula);
-    let result = await roll.roll({async: true});
+    let result = await roll.roll();
 
     // Create the chat message title.
     let label = game.i18n.localize(`ARCHMAGE.SAVE.${difficulty}`);
@@ -873,7 +873,7 @@ export class ActorArchmage extends Actor {
 
       // Execute the roll
       let roll = new Roll(terms.join('+'), data);
-      await roll.evaluate({async: true});
+      await roll.evaluate();
 
       // Determine the roll result.
       let rollResult = roll.total;
@@ -1147,7 +1147,7 @@ export class ActorArchmage extends Actor {
 
       // Render the template
       chatData.content = await renderTemplate(template, templateData);
-      chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData(), async: true });
+      chatData.content = await TextEditor.enrichHTML(chatData.content, { rollData: this.getRollData() });
       // Create the chat message
       msg = await game.archmage.ArchmageUtility.createChatMessage(chatData);
       // Get the roll from the chat message
@@ -1157,7 +1157,7 @@ export class ActorArchmage extends Actor {
       roll = Roll.fromJSON(unescape(roll_html.data('roll')));
     } else {
       // Perform the roll ourselves
-      await roll.roll({async: true});
+      await roll.roll();
     }
 
     // If 3d dice are enabled, handle them
@@ -1604,7 +1604,7 @@ export class ActorArchmage extends Actor {
         value = Number(current.value) + value;
         if ( current.value < 0 ) value -= current.value;
       }
-      let updates = {[`data.${attribute}.value`]: value};
+      let updates = {[`system.${attribute}.value`]: value};
       const allowed = Hooks.call("modifyTokenAttribute", {attribute, value, isDelta, isBar}, updates);
       return allowed !== false ? this.update(updates) : this;
     } else {
@@ -1698,14 +1698,6 @@ export class ActorArchmage extends Actor {
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data === undefined) return; // Nothing to do
-
-    // @todo Bizarre bug in v12 where token updates come through as data.data
-    // instead of data.system.
-    if (game.release.generation >= 12) {
-      if (data?.data && !data?.system) {
-        data.system = data.data;
-      }
-    }
 
     // Update default images on npc type change
     if (data.system?.details?.type?.value
@@ -1915,10 +1907,10 @@ export class ActorArchmage extends Actor {
         const effectData = {
           label: negRecoveryLabel,
           changes: [
-            {key: "data.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "data.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "data.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
-            {key: "data.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
+            {key: "system.attributes.ac.value",value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
+            {key: "system.attributes.pd.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
+            {key: "system.attributes.md.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD},
+            {key: "system.attributes.attackMod.value", value: newRec, mode: CONST.ACTIVE_EFFECT_MODES.ADD}
           ]
         };
         this.createEmbeddedDocuments("ActiveEffect", [effectData]);

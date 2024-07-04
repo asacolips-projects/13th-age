@@ -21,8 +21,6 @@ export default class Targeting {
 
         if (numberOfTargets && numberOfTargets.length == 1) {
             let maxTargets = parseInt(numberOfTargets[0]);
-            //console.log("MaxTargets " + maxTargets);
-
             targets = targets.slice(0, maxTargets);
         }
 

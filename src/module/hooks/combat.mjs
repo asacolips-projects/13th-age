@@ -1,6 +1,4 @@
 export async function combatTurn(combat, context, options) {
-    console.log("Combat Turn", combat.combatant.name, combat, context, options);
-
     // Exit early if the feature is disabled.
     if (!game.settings.get('archmage', 'enableOngoingEffectsMessages')) return;
 
@@ -16,8 +14,6 @@ export async function combatTurn(combat, context, options) {
 export async function handleTurnEffects(prefix, combat, combatant, context, options) {
 
     const saveEndsEffects = ["EasySaveEnds", "NormalSaveEnds", "HardSaveEnds"];
-    console.log(`Handling ${prefix} of Turn for combatant`, combatant.name, combatant, combat);
-
     const hasImplacable = combatant.actor.flags.archmage?.implacable ?? false;
     const currentCombatantEffectData = {
         selfEnded: [],
@@ -34,11 +30,9 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         if (effect.name === game.i18n.localize("ARCHMAGE.EFFECT.StatusDead")) isDead = true;
         const duration = effect.flags.archmage?.duration || "Unknown";
         if (duration === `${prefix}OfNextTurn`) {
-            console.log(`${prefix}OfNextTurn effect found`, effect);
             currentCombatantEffectData.selfEnded.push(effect);
             effectsToDelete.push(effect.id);
         } else if (saveEndsEffects.includes(duration) && (prefix == "End" || (prefix == "Start" && hasImplacable))) {
-            // console.log("SaveEnds effect found", effect, combatant);
             const isOngoing = effect.flags.archmage?.ongoingDamage != 0;
             effect.isOngoing = isOngoing;
             currentCombatantEffectData.savesEnds.push(effect);
@@ -57,7 +51,6 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         for (const effect of otherCombatant.actor.effects) {
             const duration = effect.flags.archmage?.duration || "Unknown";
             if (duration === `${prefix}OfNextSourceTurn` && effect.origin === combatant.actor.uuid) {
-                // console.log(`${prefix}OfNextSourceTurn effect found`, effect);
                 effect.otherName = otherCombatant.actor.name;
                 currentCombatantEffectData.otherEnded.push(effect);
                 effectsToDelete.push(effect.id);
@@ -67,7 +60,6 @@ export async function handleTurnEffects(prefix, combat, combatant, context, opti
         await otherCombatant.actor.deleteEmbeddedDocuments("ActiveEffect", effectsToDelete);
     }
 
-    // console.log("Current Combatant Effect Data", currentCombatantEffectData);
     if (!isDead) {
         await renderOngoingEffectsCard(`${prefix} of Turn Effects`, combatant, currentCombatantEffectData);
     }
@@ -176,7 +168,6 @@ async function renderOngoingEffectsCard(title, combatant, effectData) {
         unknown: effectData.unknown,
         hasUnknown: effectData.unknown.length > 0,
     };
-    // console.log("Render Data", renderData);
     const html = await renderTemplate(template, renderData);
 
     // Create a chat card
