@@ -67,11 +67,8 @@ export class ItemArchmage extends Item {
     // Get token.
     let token = this._rollGetToken(itemToRender);
 
-    console.log('Current:', itemToRender.toObject());
-
     // Render the chat card.
     let chatData = await this._rollRender(itemUpdateData, actorUpdateData, itemToRender, rollData, token);
-    console.log('Chat Data:', chatData);
 
     // Evaluate outcomes and prepare animations.
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
@@ -163,7 +160,7 @@ export class ItemArchmage extends Item {
 
     // Enrich the message to parse inline rolls.
     let rollData = this.actor.getRollData(this);
-    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
+    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     // Perform updates.
     if (!foundry.utils.isEmpty(updateData)) this.update(updateData, {});
@@ -524,7 +521,7 @@ export class ItemArchmage extends Item {
     chatData["content"] = await renderTemplate(template, templateData);
 
     // Enrich the message to parse inline rolls.
-    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData, async: true });
+    chatData.content = await TextEditor.enrichHTML(chatData.content, { rolls: true, rollData: rollData });
 
     return chatData;
   }
@@ -629,7 +626,7 @@ export class ItemArchmage extends Item {
       name: game.i18n.localize("ARCHMAGE.MONKFORMS.aelabel"),
       img: "icons/svg/shield.svg",
       changes: [{
-        key: "data.attributes.ac.value",
+        key: "system.attributes.ac.value",
         value: bonusMagnitude,
         mode: CONST.ACTIVE_EFFECT_MODES.ADD
       }]

@@ -87,7 +87,7 @@ export class DiceArchmage {
 
       // Execute the roll
       let roll = new Roll(terms.join('+'), data);
-      await roll.evaluate({async: true});
+      await roll.evaluate();
 
       // Grab the template.
       const template = `systems/archmage/templates/chat/skill-check-card.html`;

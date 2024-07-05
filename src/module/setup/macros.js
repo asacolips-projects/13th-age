@@ -12,9 +12,9 @@ export class ArchmageMacros {
   static async aasimarHalo(speaker, actor, token, character, archmage) {
     const label = archmage.item.name;
     const effects = [
-      { key: "data.attributes.ac.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
-      { key: "data.attributes.pd.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
-      { key: "data.attributes.md.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+      { key: "system.attributes.ac.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+      { key: "system.attributes.pd.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+      { key: "system.attributes.md.value", value: 2, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
     ];
 
     // Check for previous effects
@@ -57,8 +57,8 @@ export class ArchmageMacros {
       label: archmage.item.name,
       icon: archmage.item.img,
       changes: [
-        { key: "data.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
-        { key: "data.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+        { key: "system.attributes.ac.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD },
+        { key: "system.attributes.pd.value", value: penalty, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
       ]
     }
     game.archmage.MacroUtils.setDuration(effectData, CONFIG.ARCHMAGE.effectDurationTypes.StartOfNextTurn);
@@ -264,15 +264,15 @@ export class ArchmageMacros {
     // If the champion feat in active increase the bonus
     if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'champion')[0].isActive.value) bonus = 3;
     let effects = [
-      { key: "data.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
+      { key: "system.attributes.ac.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD }
     ];
     // If the adventurer feat in active apply to PD
     if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'adventurer')[0].isActive.value) {
-      effects.push({ key: "data.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      effects.push({ key: "system.attributes.pd.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
     // If the epic feat in active apply to MD
     if (game.archmage.MacroUtils.getFeatsByTier(archmage.item, 'epic')[0].isActive.value) {
-      effects.push({ key: "data.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
+      effects.push({ key: "system.attributes.md.value", value: bonus, mode: CONST.ACTIVE_EFFECT_MODES.ADD });
     }
 
     let effectData = { label: archmage.item.name, icon: archmage.item.img, changes: effects };

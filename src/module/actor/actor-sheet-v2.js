@@ -500,7 +500,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
    */
   async _onFormulaRoll(formula) {
     let roll = new Roll(formula, this.actor.getRollData());
-    await roll.roll({async: true});
+    await roll.roll();
     roll.toMessage();
   }
 
@@ -590,7 +590,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
     if (actorData.icons[iconIndex]) {
       let icon = actorData.icons[iconIndex];
       let roll = new Roll(`${icon.bonus.value}d6`);
-      let result = await roll.roll({async: true});
+      let result = await roll.roll();
 
       let fives = 0;
       let sixes = 0;
@@ -643,7 +643,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
 
       // Update actor.
       let updateData = {};
-      updateData[`data.icons.${iconIndex}.results`] = actorIconResults;
+      updateData[`system.icons.${iconIndex}.results`] = actorIconResults;
       await this.actor.update(updateData);
 
       // Card support
@@ -704,7 +704,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   async _onCommandRoll(dice) {
     let actor = this.actor;
     let roll = new Roll(dice, this.actor.getRollData());
-    await roll.roll({async: true});
+    await roll.roll();
 
     let pointsOld = actor.system.resources.perCombat.commandPoints.current;
     let pointsNew = roll.total;
@@ -807,7 +807,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
         count = Math.max(0, count - 1);
       }
       let updateData = {};
-      let path = `data.attributes.saves.${saveType}.value`;
+      let path = `system.attributes.saves.${saveType}.value`;
       updateData[path] = count;
       let update = await this.actor.update(updateData);
     }
@@ -1087,7 +1087,7 @@ export class ActorArchmageSheetV2 extends ActorSheet {
   /** @override */
   _getSubmitData(updateData={}) {
     // Bugfix for Foundry v12.
-    if (foundry.utils.isNewerVersion(game.version, '12')) {
+    if (game.release.version >= 12) {
       // Retrieve the data from the upstream method.
       let newData = super._getSubmitData(updateData);
       // Retrieve a copy of the existing actor data.

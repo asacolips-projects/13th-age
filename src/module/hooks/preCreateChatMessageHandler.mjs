@@ -187,7 +187,6 @@ export default class preCreateChatMessageHandler {
 
                 // Determine if this line is a "Trigger" - something like "Natural 16+:" or "Even Miss:"
                 var triggerText = row_text.toLowerCase();
-                //console.log(triggerText);
                 if (triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.natural").toLowerCase()) ||
                     triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.miss").toLowerCase() + ':') ||
                     triggerText.includes(game.i18n.localize("ARCHMAGE.CHAT.hit").toLowerCase() + ':') ||
