@@ -278,7 +278,7 @@ socket: true
 url: https://github.com/asacolips-projects/13th-age
 manifest: https://asacolips-artifacts.s3.amazonaws.com/archmage/latest/system.json
 download: https://asacolips-artifacts.s3.amazonaws.com/archmage/1.30.3/archmage.zip
-changelog: https://github.com/asacolips-projects/13th-age/blob/main/CHANGELOG.md
+changelog: https://github.com/asacolips-projects/13th-age/releases
 initiative: 1d20 + (@abilities?.dex.mod || 0) + @attributes.init.value + @attributes.level.value
 gridDistance: "1"
 gridUnits: ''
