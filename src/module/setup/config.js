@@ -483,6 +483,12 @@ ARCHMAGE.numDicePerLevel2e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10];
 ARCHMAGE.tierMultPerLevel = [0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3];
 ARCHMAGE.tierMultPerLevel2e = [0, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 4];
 
+// Animal companion data
+ARCHMAGE.animalCompanion = {
+  attack: [5, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 20],
+  damage: ["2d8", "3d8", "4d6", " 4d8", "4d10", "6d10", "40", "50", "66", "80", "100", "130", "160"]  
+};
+
 // Power Settings
 ARCHMAGE.powerSources = {
   'class': 'Class',

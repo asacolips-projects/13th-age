@@ -92,10 +92,16 @@ export async function wrapRolls(text, replacements = [], diceFormulaMode = 'shor
     ['@atk.r.bonus', 'ITM'], //ITM_RNG
     ['@atk.a.bonus', 'ITM'], //ITM_ARC
     ['@atk.d.bonus', 'ITM'], //ITM_DIV
+    ['@animalCompanion.atk', 'Animal Atk'],
+    ['@animalCompanion.dmg', 'Animal Dmg'],
+    // Do this last to remove stray multiplication symbols
+    ['*', '×']
   ]);
 
   // Remove whitespace from inline rolls.
   let clean = text ? text?.toString() ?? '' : '';  // cast to string, could be e.g. number
+
+  // TODO: process condition links
 
   // Handle replacements for the 'short' syntax. Ex: WPN+DEX+LVL
   if (diceFormulaMode == 'short') {
