@@ -1699,6 +1699,18 @@ export class ActorArchmage extends Actor {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data === undefined) return; // Nothing to do
 
+    // Foundry v12 no longer has diffed data during _preUpdate, so we need
+    // to compute it ourselves.
+    if (game.release.version >= 12) {
+      // Retrieve a copy of the existing actor data.
+      let newData = foundry.utils.flattenObject(data);
+      let oldData = foundry.utils.flattenObject(this);
+  
+      // Limit data to just the new data.
+      const diffData = foundry.utils.diffObject(oldData, newData);
+      data = foundry.utils.expandObject(diffData);
+    }
+
     // Update default images on npc type change
     if (data.system?.details?.type?.value
       && this.type == "npc"

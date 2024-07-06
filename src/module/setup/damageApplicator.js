@@ -30,7 +30,6 @@ export class DamageApplicator {
       actorData.system.attributes.hp.value -= toApply;
       token.actor.update(actorData);
     });
-
   }
 
   asHealing(roll, modifier) {
