@@ -1715,6 +1715,8 @@ export class ActorArchmage extends Actor {
       changes = foundry.utils.duplicate(data);
     }
 
+    console.log('_preUpdate::preChanges', changes?.system, data?.system);
+
     // Update default images on npc type change
     if (changes.system?.details?.type?.value
       && this.type == "npc"

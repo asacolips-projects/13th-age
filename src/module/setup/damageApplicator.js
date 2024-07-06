@@ -27,8 +27,9 @@ export class DamageApplicator {
     }
     selected.forEach(token => {
       let actorData = foundry.utils.duplicate(token.actor);
-      actorData.system.attributes.hp.value -= toApply;
-      token.actor.update(actorData);
+      token.actor.update({
+        "system.attributes.hp.value": actorData.system.attributes.hp.value - toApply,
+      });
     });
   }
 
@@ -45,8 +46,9 @@ export class DamageApplicator {
     let selected = canvas.tokens.controlled;
     selected.forEach(token => {
       let actorData = foundry.utils.duplicate(token.actor);
-      actorData.system.attributes.hp.value = Math.max(0, actorData.system.attributes.hp.value) + toApply;
-      token.actor.update(actorData);
+      token.actor.update({
+        "system.attributes.hp.value": Math.max(0, actorData.system.attributes.hp.value) + toApply,
+      });
     });
   }
 
@@ -58,7 +60,9 @@ export class DamageApplicator {
       let hp = actorData.system.attributes["hp"];
       if (isNaN(hp.temp) || hp.temp === undefined) hp.temp = 0;
       hp.temp = Math.max(hp.temp, toApply);
-      token.actor.update(actorData);
+      token.actor.update({
+        "system.attributes.hp.temp": hp.temp,
+      });
     });
   }
 }
