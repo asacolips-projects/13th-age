@@ -1698,6 +1698,7 @@ export class ActorArchmage extends Actor {
   async _preUpdate(data, options, userId) {
     await super._preUpdate(data, options, userId);
     if (!options.diff || data === undefined) return; // Nothing to do
+    let changes = {};
 
     // Foundry v12 no longer has diffed data during _preUpdate, so we need
     // to compute it ourselves.
@@ -1708,26 +1709,29 @@ export class ActorArchmage extends Actor {
   
       // Limit data to just the new data.
       const diffData = foundry.utils.diffObject(oldData, newData);
-      data = foundry.utils.expandObject(diffData);
+      changes = foundry.utils.expandObject(diffData);
+    }
+    else {
+      changes = foundry.utils.duplicate(data);
     }
 
     // Update default images on npc type change
-    if (data.system?.details?.type?.value
+    if (changes.system?.details?.type?.value
       && this.type == "npc"
       && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)
       && CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value]) {
       data.img = CONFIG.ARCHMAGE.defaultMonsterTokens[data.system.details.type.value];
     }
     // Update the prototype token.
-    if (data.img || data.name) {
+    if (changes.img || changes.name) {
       let tokenData = {};
       // Propagate image update to token for default images
-      if (data.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)) {
+      if (changes.img && Object.values(CONFIG.ARCHMAGE.defaultMonsterTokens).includes(this.img)) {
         tokenData.texture = {src: data.img};
         data.prototypeToken = {texture: {src: data.img}};
       }
       // Propagate name update to token if same as actor
-      if (data.name && this.name == this.prototypeToken.name) {
+      if (changes.name && this.name == this.prototypeToken.name) {
         data.prototypeToken = {name: data.name};
       }
 
@@ -1743,7 +1747,7 @@ export class ActorArchmage extends Actor {
       });
     }
     // Update the prototype token size.
-    if (data.system?.details?.size?.value && this.type == "npc") {
+    if (changes.system?.details?.size?.value && this.type == "npc") {
       let h = 1;
       let w = 1;
       let s = 1;
@@ -1788,7 +1792,7 @@ export class ActorArchmage extends Actor {
       data.prototypeToken = tokenData;
     }
 
-    if (data.system === undefined) return; // Nothing more to do
+    if (changes.system === undefined) return; // Nothing more to do
 
     // Deltas, needed for scrolling text later
     let deltaActual = 0;
@@ -1796,12 +1800,12 @@ export class ActorArchmage extends Actor {
     let deltaRec = 0;
     let maxHp = data.system.attributes?.hp?.max || this.system.attributes.hp.max;
 
-    if (data.system.attributes?.hp?.temp !== undefined) {
+    if (changes.system.attributes?.hp?.temp !== undefined) {
       // Store for later display
       deltaTemp = data.system.attributes.hp.temp - this.system.attributes.hp.temp;
     }
 
-    if (data.system.attributes?.hp?.max !== undefined) {
+    if (changes.system.attributes?.hp?.max !== undefined) {
       // Here we received an update of the max hp
       // Check that the current value does not exceed it
       let deltaMax = maxHp - this.system.attributes.hp.max;
@@ -1809,12 +1813,13 @@ export class ActorArchmage extends Actor {
       data.system.attributes.hp.value = Math.min(hp + deltaMax, maxHp);
     }
 
-    if (data.system.attributes?.hp?.value !== undefined
-      && data.system.attributes?.hp?.temp == undefined) {
+    if (changes.system.attributes?.hp?.value !== undefined
+      && changes.system.attributes?.hp?.temp == undefined) {
+      console.log('foobar', data.system.attributes.hp);
       // Here we received an update of the total hp but not the temp, check them
       let hp = foundry.utils.duplicate(this.system.attributes.hp);
-      if (data.system.attributes.hp.value === null
-        || isNaN(data.system.attributes.hp.value)) {
+      if (changes.system.attributes.hp.value === null
+        || isNaN(changes.system.attributes.hp.value)) {
         //If the update is nonsensical ignore it
         data.system.attributes.hp.value = hp.value;
       }
@@ -1852,8 +1857,8 @@ export class ActorArchmage extends Actor {
 
       // Handle first skull in 2e.
       if (game.settings.get('archmage', 'secondEdition')) {
-        if (this.system.attributes.hp.value > 0 && data.system.attributes.hp.value <= 0) {
-          if (!data.system.attributes?.saves?.deathFails?.value) {
+        if (this.system.attributes.hp.value > 0 && changes.system.attributes.hp.value <= 0) {
+          if (!changes.system.attributes?.saves?.deathFails?.value) {
             data.system.attributes.saves = this.system.attributes.saves;
           }
           data.system.attributes.saves.deathFails.value += 1;
@@ -1870,7 +1875,7 @@ export class ActorArchmage extends Actor {
 
     if (this.type == 'npc'){
 
-      if (data.system.attributes?.level?.value) {
+      if (changes.system.attributes?.level?.value) {
         // Clamp NPC level to [0, 15]
         data.system.attributes.level.value = Math.min(15, Math.max(0, data.system.attributes.level.value));
       }
@@ -1881,9 +1886,9 @@ export class ActorArchmage extends Actor {
     // Character-specific processing
 
     // Remove commas from custom resource names
-    if (data.system.resources?.spendable) {
+    if (changes.system.resources?.spendable) {
       for (let idx of ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) {
-        if (data.system.resources.spendable["custom"+idx]) {
+        if (changes.system.resources.spendable["custom"+idx]) {
           let label = data.system.resources.spendable["custom"+idx].label;
           if (label) data.system.resources.spendable["custom"+idx].label = label.replace(",", "");
         }
@@ -1891,11 +1896,11 @@ export class ActorArchmage extends Actor {
     }
 
     // Clamp PC level to [1, 10]
-    if (!isNaN(data.system.attributes?.level?.value)) {
+    if (!isNaN(changes.system.attributes?.level?.value)) {
       data.system.attributes.level.value = Math.min(10, Math.max(1, data.system.attributes.level.value));
     }
 
-    if (data.system.attributes?.recoveries?.value) {
+    if (changes.system.attributes?.recoveries?.value) {
       // Here we received an update involving the number of remaining recoveries
       // Make sure we are not exceeding the maximum
       if (this.system.attributes.recoveries.max) {
@@ -1930,9 +1935,9 @@ export class ActorArchmage extends Actor {
     }
     options.fromPreUpdate.rec = deltaRec;
 
-    if (data.system.attributes?.weapon?.melee?.shield !== undefined
-      || data.system.attributes?.weapon?.melee?.dualwield !== undefined
-      || data.system.attributes?.weapon?.melee?.twohanded !== undefined) {
+    if (changes.system.attributes?.weapon?.melee?.shield !== undefined
+      || changes.system.attributes?.weapon?.melee?.dualwield !== undefined
+      || changes.system.attributes?.weapon?.melee?.twohanded !== undefined) {
       // Here we received an update of the melee weapon checkboxes
 
       // Fallback for sheet closure bug
@@ -1992,9 +1997,9 @@ export class ActorArchmage extends Actor {
         }
       }
 
-      if (data.system.attributes.weapon.melee.shield !== undefined) {
+      if (changes.system.attributes.weapon.melee.shield !== undefined) {
         // Here we received an update of the shield checkbox
-        if (data.system.attributes.weapon.melee.shield) {
+        if (changes.system.attributes.weapon.melee.shield) {
           // Adding a shield
           data.system.attributes.ac = {base: this.system.attributes.ac.base + 1};
           data.system.attributes.attackMod.value += wpn.shieldPen;
@@ -2014,9 +2019,9 @@ export class ActorArchmage extends Actor {
         }
       }
 
-      else if (data.system.attributes.weapon.melee.dualwield !== undefined) {
+      else if (changes.system.attributes.weapon.melee.dualwield !== undefined) {
         // Here we received an update of the dual wield checkbox
-        if (data.system.attributes.weapon.melee.dualwield) {
+        if (changes.system.attributes.weapon.melee.dualwield) {
           if (this.system.attributes.weapon.melee.twohanded) {
             // Can't wield two two-handed weapons
             mWpn = wpn.mWpn1h;
@@ -2032,9 +2037,9 @@ export class ActorArchmage extends Actor {
         }
       }
 
-      else if (data.system.attributes.weapon.melee.twohanded !== undefined) {
+      else if (changes.system.attributes.weapon.melee.twohanded !== undefined) {
         // Here we received an update of the two-handed checkbox
-        if (data.system.attributes.weapon.melee.twohanded) {
+        if (changes.system.attributes.weapon.melee.twohanded) {
           mWpn = wpn.mWpn2h;
           data.system.attributes.attackMod.value += wpn.twohandedPen;
           if (this.system.attributes.weapon.melee.shield) {
@@ -2056,8 +2061,8 @@ export class ActorArchmage extends Actor {
       data.system.attributes.weapon.melee.dice = `d${mWpn}`;
     }
 
-    else if (data.system.details !== undefined
-      && data.system.details.class !== undefined) {
+    else if (changes.system.details !== undefined
+      && changes.system.details.class !== undefined) {
       // Here we received an update of the class name for a character
 
       let matchedClasses = ArchmageUtility.detectClasses(data.system.details.class.value);
@@ -2218,6 +2223,16 @@ export class ActorArchmage extends Actor {
       // Store matched classes for future reference
       data.system.details.detectedClasses = matchedClasses;
     }
+
+    // Store HP for later.
+    if (data?.system?.attributes?.hp) {
+      console.log('_preUpdate::data', data);
+      console.log('_preUpdate::options', options);
+    }
+
+    console.log('_preUpdate::changes', changes);
+
+    return data;
   }
 
   // Set up custom resources
