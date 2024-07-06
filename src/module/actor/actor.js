@@ -1715,8 +1715,6 @@ export class ActorArchmage extends Actor {
       changes = foundry.utils.duplicate(data);
     }
 
-    console.log('_preUpdate::preChanges', changes?.system, data?.system);
-
     // Update default images on npc type change
     if (changes.system?.details?.type?.value
       && this.type == "npc"
@@ -1817,7 +1815,6 @@ export class ActorArchmage extends Actor {
 
     if (changes.system.attributes?.hp?.value !== undefined
       && changes.system.attributes?.hp?.temp == undefined) {
-      console.log('foobar', data.system.attributes.hp);
       // Here we received an update of the total hp but not the temp, check them
       let hp = foundry.utils.duplicate(this.system.attributes.hp);
       if (changes.system.attributes.hp.value === null
@@ -2225,14 +2222,6 @@ export class ActorArchmage extends Actor {
       // Store matched classes for future reference
       data.system.details.detectedClasses = matchedClasses;
     }
-
-    // Store HP for later.
-    if (data?.system?.attributes?.hp) {
-      console.log('_preUpdate::data', data);
-      console.log('_preUpdate::options', options);
-    }
-
-    console.log('_preUpdate::changes', changes);
 
     return data;
   }
