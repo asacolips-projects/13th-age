@@ -693,7 +693,8 @@ ARCHMAGE.raceList = {
 };
 
 ARCHMAGE.classPacks = [
-  'classes'
+  'classes',
+  'classes-2e'
 ];
 
 ARCHMAGE.classList = {
