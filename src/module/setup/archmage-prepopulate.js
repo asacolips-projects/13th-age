@@ -16,8 +16,9 @@ export class ArchmagePrepopulate {
    * @returns {string}
    *   Clean class name, such as 'chaosmage'.
    */
-  cleanClassName(className) {
-    return className ? className.toLowerCase().split("-")[0].replace(/[^a-zA-z\d]/g, '') : '';
+  cleanClassName(className, drop2e=false) {
+    if (drop2e) className = className.toLowerCase().replace('-2e','').replace('2e','');
+    return className ? className.toLowerCase().replace(/[^a-zA-z\d]/g, '') : '';
   }
 
   /**
@@ -34,10 +35,10 @@ export class ArchmagePrepopulate {
    */
   async getCompendiums(classes = [], race = '') {
     let validRaces = Object.values(CONFIG.ARCHMAGE.raceList);
-    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)) && !p.metadata.name.includes("2e"));
+    let classPacks = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && !p.metadata.name.includes("2e"));
     let racePacks = await game.packs.filter(p => p.metadata.name == 'races');
     if (game.settings.get('archmage', 'secondEdition')) {
-      let classPacks2e = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name)) && p.metadata.name.includes("2e"));
+      let classPacks2e = await game.packs.filter(p => classes.includes(this.cleanClassName(p.metadata.name, true)) && p.metadata.name.includes("2e"));
       if (classPacks2e.length > 0) classPacks = classPacks2e;
       let racePacks2e = await game.packs.filter(p => p.metadata.name == 'kin-powers-2e');
       if (racePacks2e.length > 0) racePacks = racePacks2e;
@@ -78,7 +79,7 @@ export class ArchmagePrepopulate {
     // Load class powers
     for (let i = 0; i < classPacks.length; i++) {
       let pack = await classPacks[i].getDocuments();
-      let className = this.cleanClassName(classPacks[i].metadata.name);
+      let className = this.cleanClassName(classPacks[i].metadata.name, true);
       content[className] = {
         name: CONFIG.ARCHMAGE.classList[className],
         content: pack.concat(content[className]?.content || [])
@@ -100,7 +101,7 @@ export class ArchmagePrepopulate {
       let pack = await game.packs.find(p => p.metadata.label == key).getDocuments();
       let powers = pack.filter(e => {
         let sourceName = e.system?.powerSourceName?.value ?? e.system.group.value;
-        return classes.includes(this.cleanClassName(sourceName))
+        return classes.includes(this.cleanClassName(sourceName, true))
       });
       if (powers.length > 0) {content[key] = {name: key, content: powers};}
     }
@@ -333,6 +334,7 @@ export class ArchmagePrepopulate {
     };
 
     for (let [classKey, classObject] of Object.entries(classCompendiums)) {
+      classKey = this.cleanClassName(classKey);
       let classPowerPage = await this.renderPowerPage({
         powers: this.getPowersFromPack(classObject.content, actor),
         className: classObject.name,
