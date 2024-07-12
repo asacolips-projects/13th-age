@@ -139,17 +139,18 @@ export default class preCreateChatMessageHandler {
                 // Determine if this line is for an attack and if it's a crit/fail.
                 let $row_self = $(this);
                 let row_text = $row_self.html();
+                const row_text_clean = $row_self.text();
 
-                if (rowsToSkip.filter(x => row_text.includes(x)).length > 0) {
+                if (rowsToSkip.filter(x => row_text_clean.startsWith(x)).length > 0) {
                     return;
                 }
-                if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.effect"))
-                  && !row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect"))) {
+                if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.effect"))
+                  && !row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect"))) {
                     return;
                 }
 
-                if ((type == "power" && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.target") + ':')) ||
-                    (type == "action" && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':'))) {
+                if ((type == "power" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.target") + ':')) ||
+                    (type == "action" && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':'))) {
 
                     targets = Targeting.getTargetsFromRowText(row_text, $row_self, numTargets);
 
@@ -159,7 +160,7 @@ export default class preCreateChatMessageHandler {
                     }
                 }
 
-                if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
+                if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':')) {
                     hitEvaluationResults = HitEvaluation.processRowText(row_text, targets, $row_self, actor, addEdToCritRange);
                 }
 
@@ -167,19 +168,19 @@ export default class preCreateChatMessageHandler {
                     $rolls = hitEvaluationResults.$rolls;
 
                     // Append hit targets to text
-                    if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
+                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.hit") + ':') && hitEvaluationResults.targetsHit.length > 0) {
                         $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
                             hitEvaluationResults.targetsHit,
                             hitEvaluationResults.targetsCrit) + ") </span>")
                     }
                     // Append missed targets to text
-                    if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.miss") + ':') && hitEvaluationResults.targetsMissed.length > 0) {
+                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.miss") + ':') && hitEvaluationResults.targetsMissed.length > 0) {
                         $row_self.find('strong').after("<span> (" + HitEvaluation.getNames(
                             hitEvaluationResults.targetsMissed,
                             hitEvaluationResults.targetsFumbled) + ") </span>")
                     }
                     // Append target defenses to text
-                    if (row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':') && hitEvaluationResults.defenses.length > 0
+                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.attack") + ':') && hitEvaluationResults.defenses.length > 0
                         && game.settings.get("archmage", "showDefensesInChat")) {
                         $row_self.append("<span> (" + hitEvaluationResults.defenses.join(", ") + ") </span>")
                     }
@@ -214,16 +215,16 @@ export default class preCreateChatMessageHandler {
                 // Highlight lines for higher level effects
                 for (let x of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
                     if (x == options.powerLevel &&
-                        row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
+                        row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
                         $row_self.addClass("trigger-active");
                     }
                 }
 
                 // Highlight sustain / final verse for songs
                 if ((["sustainedEffect", "openingEffect"].includes(options.usageMode)
-                    && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect") + ':'))
+                    && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.sustainedEffect") + ':'))
                     || (options.usageMode == "finalverse"
-                    && row_text.includes(game.i18n.localize("ARCHMAGE.CHAT.finalVerse") + ':'))) {
+                    && row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.finalVerse") + ':'))) {
                     $row_self.addClass("trigger-active");
                 }
             });

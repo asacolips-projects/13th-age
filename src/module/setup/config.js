@@ -1145,6 +1145,12 @@ ARCHMAGE.tokenHPColors = {
 };
 
 FLAGS.characterFlags = {
+  "overridePowerLevel": {
+    name: "Use Actor Level for all Powers",
+    hint: "Ignore individual power's level, use your character's level instead.",
+    section: "Feats",
+    type: Boolean
+  },
   "initiativeAdv": {
     name: "Quick to Fight",
     hint: "Human kin power to roll 2d20 for initiative and keep the higher roll.",

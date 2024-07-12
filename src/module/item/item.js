@@ -48,6 +48,11 @@ export class ItemArchmage extends Item {
     // Make an ephemeral clone of the item which we can dirty during processing.
     let itemToRender = this.clone(tempOverrides, {"save": false, "keepId": true});
 
+    // Override level if the actor has the related flag
+    if (this.actor.getFlag("archmage", "overridePowerLevel") && this.type == 'power') {
+      itemToRender.system.powerLevel.value = this.actor.system.attributes.level.value;
+    }
+
     // Then check resources.
     early_exit = await this._rollResourceCheck(itemUpdateData, actorUpdateData, itemToRender);
     if (early_exit) return;
@@ -73,12 +78,12 @@ export class ItemArchmage extends Item {
     // Evaluate outcomes and prepare animations.
     let [ sequencerAnim, hitEvalRes ] = preCreateChatMessageHandler.handle(chatData, {
       targets: targets,
-      type: this.type,
-      actor: this.actor,
-      item: this,
+      type: itemToRender.type,
+      actor: itemToRender.actor,
+      item: itemToRender,
       token: token,
-      powerLevel: this.system.powerLevel?.value,
-      sequencer: this.system.sequencer,
+      powerLevel: itemToRender.system.powerLevel?.value,
+      sequencer: itemToRender.system.sequencer,
       usageMode: usageMode
     }, null);
 
