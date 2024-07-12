@@ -132,6 +132,8 @@ export default class preCreateChatMessageHandler {
         let sequencerFileSelf = options.sequencer?.self;
         let sequencerReversed = options.sequencer?.reversed;
 
+        let highestPowerLevelToHighlight;
+
         if ($rows.length > 0) {
 
             // Iterate through each of the card properties/rows.
@@ -214,10 +216,15 @@ export default class preCreateChatMessageHandler {
 
                 // Highlight lines for higher level effects
                 for (let x of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
-                    if (x == options.powerLevel &&
-                        row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
-                        $row_self.addClass("trigger-active");
+                    // We'll only find rows up to the power's or actor's level
+                    if (row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
+                        highestPowerLevelToHighlight = $row_self;
                     }
+                    // if (x == options.powerLevel &&
+                        // row_text_clean.startsWith(game.i18n.localize("ARCHMAGE.CHAT.spellLevel" + x) + ':')) {
+                        // $row_self.addClass("trigger-active");
+                        // highestPowerLevelToHighlight = $row_self;
+                    // }
                 }
 
                 // Highlight sustain / final verse for songs
@@ -228,6 +235,9 @@ export default class preCreateChatMessageHandler {
                     $row_self.addClass("trigger-active");
                 }
             });
+
+            // Now highlight highest power level found - in case it's different than the power's one (1e spells in 2e, for example)
+            if (highestPowerLevelToHighlight) highestPowerLevelToHighlight.addClass("trigger-active");
 
             if (game.modules.get("sequencer")?.active && token) {
                 sequence = new Sequence();

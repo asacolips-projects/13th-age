@@ -50,7 +50,7 @@ export class ItemArchmage extends Item {
 
     // Override level if the actor has the related flag
     if (this.actor.getFlag("archmage", "overridePowerLevel") && this.type == 'power') {
-      itemToRender.system.powerLevel.value = this.actor.system.attributes.level.value;
+      itemToRender.system.powerLevel.value = Math.max(this.actor.system.attributes.level.value, itemToRender.system.powerLevel.value);
     }
 
     // Then check resources.

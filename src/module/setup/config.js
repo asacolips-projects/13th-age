@@ -1146,8 +1146,8 @@ ARCHMAGE.tokenHPColors = {
 
 FLAGS.characterFlags = {
   "overridePowerLevel": {
-    name: "Use Actor Level for all Powers",
-    hint: "Ignore individual power's level, use your character's level instead.",
+    name: "Cast at Actor Level",
+    hint: "Automatically upgrade power's (e.g. spell's) level to your character's level.",
     section: "Feats",
     type: Boolean
   },
