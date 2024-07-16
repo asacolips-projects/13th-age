@@ -4,7 +4,7 @@
     <section class="equipment-details flexcol">
       <div class="equipment-detail">
         <Suspense>
-          <Enriched tag="span" :text="equipment.system.description.value" />
+          <Enriched tag="span" :text="equipment.system.description.value" :diceFormulaMode="diceFormulaMode" />
         </Suspense>
       </div>
     </section>
@@ -30,6 +30,9 @@ export default {
   computed: {
     constants() {
       return CONFIG.ARCHMAGE;
+    },
+    diceFormulaMode() {
+      return this.equipment?.actor?.flags?.archmage?.diceFormulaMode ?? 'short';
     },
   },
   methods: {},
