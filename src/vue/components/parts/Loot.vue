@@ -3,7 +3,9 @@
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="equipment-details flexcol">
       <div class="equipment-detail">
-        <span class="equipment-detail-value" v-html="equipment.system.description.value"></span>
+        <Suspense>
+          <Enriched tag="span" :text="equipment.system.description.value" />
+        </Suspense>
       </div>
     </section>
   </section>
@@ -11,9 +13,11 @@
 
 <script>
 import { concat, localize } from '@/methods/Helpers';
+import Enriched from '@/components/parts/Enriched.vue';
 export default {
   name: 'Loot',
   props: ['equipment'],
+  components: {Enriched},
   setup() {
     return {
       concat,
