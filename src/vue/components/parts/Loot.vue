@@ -4,7 +4,7 @@
     <section class="equipment-details flexcol">
       <div class="equipment-detail">
         <Suspense>
-          <Enriched tag="span" :text="equipment.system.description.value" :diceFormulaMode="diceFormulaMode" />
+          <Enriched tag="span" class="equipment-detail-value" :text="equipment.system.description.value" :diceFormulaMode="diceFormulaMode" />
         </Suspense>
       </div>
     </section>
