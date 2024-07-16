@@ -14,7 +14,9 @@
     <!-- Primary properties (attack, hit, effect, etc.). -->
     <section class="power-details flexcol">
       <div v-if="power.system.description.value" class="power-detail power-detail--description">
-        <span class="power-detail-value" v-html="power.system.description.value"></span>
+        <Suspense>
+          <Enriched tag="span" class="power-detail-value" :text="power.system.description.value" :diceFormulaMode="diceFormulaMode" />
+        </Suspense>
       </div>
       <div class="power-detail" :data-field="field" v-for="field in powerDetailFields" :key="field">
         <strong class="power-detail-label">{{localize(concat('ARCHMAGE.CHAT.', field))}}:</strong>
