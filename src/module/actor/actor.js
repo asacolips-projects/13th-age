@@ -19,14 +19,14 @@ export class ActorArchmage extends Actor {
         // Module art was found. Replace the actor image.
         data.img = art.actor;
         // Replace the token art as well.
-        const tokenArt =
-          typeof art.token === "string"
-            // If it's a string, we only need to set the image.
-            ? { img: art.token }
-            // If it's an object, that will also include the image scale.
-            : { ...art.token };
-        // Update the prototype token for the actor.
-        data.prototypeToken = foundry.utils.mergeObject(data.prototypeToken ?? {}, tokenArt);
+        const tokenData = {
+          texture: {
+            src: typeof art.token === "string" ? art.token : art.token.img,
+            scaleX: art.token.scale,
+            scaleY: art.token.scale
+          }
+        };
+        data.prototypeToken = foundry.utils.mergeObject(data.prototypeToken ?? {}, tokenData);
       }
     }
 
@@ -1706,7 +1706,7 @@ export class ActorArchmage extends Actor {
       // Retrieve a copy of the existing actor data.
       let newData = foundry.utils.flattenObject(data);
       let oldData = foundry.utils.flattenObject(this);
-  
+
       // Limit data to just the new data.
       const diffData = foundry.utils.diffObject(oldData, newData);
       changes = foundry.utils.expandObject(diffData);
